@@ -10,18 +10,18 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: a0f4a8602b3f4b10ac1ef6ca1ac65e5bedc76210
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 244d7b7d2ff6fe88b883b2e8adbeeaa0e7fb167e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187394"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593227"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Créer, développer et gérer des notebooks Synapse dans Azure Synapse Analytics
 
 Un notebook Synapse est une interface web permettant de créer des fichiers contenant du code, des visualisations et du texte descriptif dynamiques. Les blocs-notes constituent un bon endroit où valider des idées et effectuer des expérimentations rapides pour extraire des insights de vos données. Les blocs-notes sont également largement utilisés pour la préparation et la visualisation de données, l’apprentissage automatique et d’autres scénarios en lien avec le Big Data.
 
-Avec un notebook Synapse, vous pouvez :
+Avec un notebook Synapse, vous pouvez : 
 
 * Commencer à travailler sans le moindre effort de configuration.
 * Sécuriser les données avec des fonctionnalités de sécurité d’entreprise intégrées.
@@ -42,10 +42,11 @@ L’équipe de Synapse a introduit le nouveau composant pour notebooks dans Syna
 |Glisser-déposer pour déplacer une cellule| Non pris en charge |&#9745;|
 |Structure (Table des matières)| Non pris en charge |&#9745;|
 |Explorateur de variables| Non pris en charge |&#9745;|
-|Mettre en forme une cellule de texte avec des boutons de barre d’outils|&#9745;| Non disponible |
+|Mettre en forme une cellule de texte avec des boutons de barre d’outils|&#9745;| Non pris en charge|
 |Commentaires des cellules de code| Non pris en charge | &#9745;|
 
-
+> [!NOTE]
+> L’Explorateur de variables ne prend en charge que Python.
 ## <a name="create-a-notebook"></a>Créer un notebook
 
 Il existe deux façons de créer un bloc-notes. Vous pouvez créer un notebook ou en importer un dans un espace de travail Synapse à partir de l’**Explorateur d’objets**. Les notebooks Synapse reconnaissent les fichiers IPYNB Jupyter Notebook standard.
@@ -64,7 +65,7 @@ Nous proposons des opérations riches pour développer des notebooks :
 + [IntelliSense de style IDE](#ide-style-intellisense)
 + [Extraits de code](#code-snippets)
 + [Mettre en forme une cellule de texte avec des boutons de barre d’outils](#format-text-cell-with-toolbar-buttons)
-+ [Annuler l’opération sur cellule](#undo-cell-operation)
++ [Opération d’annulation/de rétablissement de cellule](#undo-redo-cell-operation)
 + [Commentaires des cellules de code](#Code-cell-commenting)
 + [Déplacer une cellule](#move-a-cell)
 + [Supprimer une cellule](#delete-a-cell)
@@ -91,13 +92,10 @@ Il existe plusieurs façons d’ajouter une cellule à un bloc-notes.
 
 # <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
-1. Développez le bouton supérieur gauche **+ Cellule**, puis sélectionnez **Cellule de code** ou **Cellule Markdown**.
+1. Placez le curseur sur l’espace entre deux cellules et sélectionnez **Code** ou **Démarque**.
     ![Capture d’écran de add-azure-notebook-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
-2. Sélectionnez le signe plus (+) au début d’une cellule et sélectionnez **Cellule de code** ou **Cellule Markdown**.
 
-    ![Capture d’écran de add-azure-notebook-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-2.png)
-
-3. Utilisez les [touches de raccourci aznb en mode de commande](#shortcut-keys-under-command-mode). Appuyez sur **A** pour insérer une cellule au-dessus de la cellule active. Appuyez sur **B** pour insérer une cellule en dessous de la cellule active.
+2. Utilisez les [touches de raccourci aznb en mode de commande](#shortcut-keys-under-command-mode). Appuyez sur **A** pour insérer une cellule au-dessus de la cellule active. Appuyez sur **B** pour insérer une cellule en dessous de la cellule active.
 
 ---
 
@@ -105,10 +103,10 @@ Il existe plusieurs façons d’ajouter une cellule à un bloc-notes.
 
 Les notebooks Synapse prennent en charge quatre langages Apache Spark :
 
-* pySpark (Python)
+* PySpark (Python)
 * Spark (Scala)
-* SparkSQL
-* .NET pour Apache Spark (C#)
+* Spark SQL
+* .NET Spark (C#)
 
 Vous pouvez définir le langage principal des nouvelles cellules ajoutées dans la liste déroulante de la barre de commandes supérieure.
 
@@ -138,7 +136,7 @@ Vous ne pouvez pas référencer des données ou variables directement dans diff�
 1. Dans la cellule 1, lisez une tramedonnées à partir du connecteur de pool SQL en utilisant Scala, puis créez une table temporaire.
 
    ```scala
-   %%scala
+   %%spark
    val scalaDataFrame = spark.read.sqlanalytics(&quot;mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
@@ -166,8 +164,8 @@ Les fonctionnalités IntelliSense sont à des niveaux de maturité différents p
 |Languages| Mise en évidence de la syntaxe | Marqueur d’erreur de syntaxe  | Saisie semi-automatique de code de syntaxe | Saisie semi-automatique de code variable| Saisie semi-automatique de code de fonction système| Saisie semi-automatique de code de fonction utilisateur| Mise en retrait intelligente | Pliage de code|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Oui|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
-|Spark (Scala)|Oui|Oui|Oui|Oui|-|-|-|Oui|
-|SparkSQL|Oui|Oui|-|-|-|-|-|-|
+|Spark (Scala)|Oui|Oui|Oui|Oui|Oui|Oui|-|Oui|
+|SparkSQL|Oui|Oui|Oui|Oui|Oui|-|-|-|
 |.NET pour Spark (C#)|Oui|Oui|Oui|Oui|Oui|Oui|Oui|Oui|
 
 >[!Note]
@@ -196,7 +194,7 @@ La barre d’outils du bouton format n’est pas encore disponible pour l’exp�
 
 ---
 
-<h3 id="undo-cell-operation">Annuler l’opération sur cellule</h3>
+<h3 id="undo-redo-cell-operation">Opération d’annulation/de rétablissement de cellule</h3>
 
 # <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
 
@@ -218,6 +216,7 @@ Opérations de cellule d’annulation prises en charge :
 
 > [!NOTE]
 > Les opérations de texte dans les cellules et les opérations de commentaires des cellules de code ne peuvent pas être annulées.
+> Vous pouvez désormais annuler/restaurer jusqu’aux 10 dernières opérations sur cellule.
 
 
 ---
@@ -294,7 +293,7 @@ Sélectionnez le bouton fléché en bas de la cellule active pour la réduire. P
 
 # <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
-Sélectionnez le bouton de sélection (…) **Plus de commandes** dans la barre d’outils de la cellule et **Entrée** pour réduire l’entrée de la cellule active. Pour la développer, sélectionnez le lien **entrée masquée** quand elle est réduite.
+Sélectionnez **Plus d’ellipses de commandes** (…) dans la barre d’outils de la cellule et **Cacher l’entrée** pour réduire l’entrée de la cellule active. Pour la développer, sélectionnez **Afficher l’entrée** quand la cellule est réduite.
 
    ![GIF animé de azure-notebook-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
 
@@ -310,7 +309,7 @@ Sélectionnez le bouton **Réduire la sortie** en haut à gauche de la sortie de
 
 # <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
-Sélectionnez le bouton de sélection (…) **Plus de commandes** dans la barre d’outils de la cellule et **Sortie** pour réduire la sortie de la cellule active. Pour la développer, sélectionnez le même bouton lorsque la sortie de la cellule est masquée.
+Sélectionnez **Plus d’ellipses de commandes** (…) dans la barre d’outils de la cellule et **Cacher la sortie** pour réduire la sortie de la cellule active. Pour la développer, sélectionnez **Afficher la sortie** quand la sortie de la cellule est réduite.
 
    ![GIF animé de azure-notebook-collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-output.gif)
 

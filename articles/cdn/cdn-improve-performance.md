@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 545125877f8ef8e3b01aa24f6d65dbff6756c391
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 7ab5e46f81e4102428e50a63247e59279a83e899
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535251"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661314"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Compression des fichiers dans Azure CDN pour améliorer les performances
 La compression de fichiers est une méthode simple et efficace qui vise à améliorer la vitesse de transfert des fichiers et à accroître les performances de chargement des pages en réduisant la taille des fichiers avant leur envoi à partir du serveur. La compression de fichiers peut réduire les coûts de bande passante et offre à vos utilisateurs davantage de réactivité.
@@ -97,7 +97,8 @@ Les niveaux Standard et Premium de CDN fournissent les mêmes fonctionnalités, 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Profils CDN Azure Standard fourni par Microsoft
 
 Pour les profils du **CDN Azure Standard fourni par Microsoft**, seuls les fichiers éligibles sont compressés. Pour être éligible pour la compression, un fichier doit :
-- Être d’un type MIME [configuré pour la compression](#enabling-compression).
+- Être d’un type MIME [configuré pour la compression](#enabling-compression)
+- Avoir uniquement des en-têtes *Content-Encoding* « identity » dans la réponse d’origine
 - Être supérieur à 1 Ko
 - Être inférieur à 8 Mo
 

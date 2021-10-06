@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bef4e1b8f4524e9b883bfe4aa5ef7b2a0e2bcf83
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: df71173837075c786d7c8f9907e0ed3cac576b16
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532561"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676254"
 ---
 # <a name="azure-active-directory-security-operations-guide"></a>Guide des opérations de sécurité dans Azure Active Directory
 
@@ -92,7 +92,7 @@ Microsoft propose de nombreux produits et services qui vous permettent de person
 
    * [Investiguer les risques avec Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
 
-   * [Connecter les données Azure AD Identity Protection à Azure Sentinel](../../sentinel/connect-azure-ad-identity-protection.md)
+   * [Connecter les données Azure AD Identity Protection à Azure Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
 
 * Active Directory Domain Services (AD DS)
 
@@ -108,9 +108,9 @@ Les fichiers journaux que vous pouvez utiliser pour l’investigation et la supe
 
 * [Journaux d’audit Azure AD](../reports-monitoring/concept-audit-logs.md)
 
-* [Journaux d’activité de connexion](../reports-monitoring/concept-all-sign-ins.md)
+* [Journaux de connexion](../reports-monitoring/concept-all-sign-ins.md)
 
-* [Journaux d’audit Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide)
+* [Journaux d’audit Microsoft 365](/microsoft-365/compliance/auditing-solutions-overview)
 
 * [Journaux Azure Key Vault](../../key-vault/general/logging.md?tabs=Vault)
 
@@ -118,13 +118,13 @@ Dans le portail Azure, vous pouvez afficher les journaux d’audit Azure AD et 
 
 * **[Azure Sentinel](../../sentinel/overview.md)** – Permet une analytique de sécurité intelligente au niveau de l’entreprise en fournissant des fonctionnalités d’informations de sécurité et de gestion d’événements management (SIEM). 
 
-* **[Azure Monitor](../../azure-monitor/overview.md)** – Permet des alertes et une supervision automatisées de diverses conditions. Peut créer ou utiliser des classeurs pour combiner des données provenant de différentes sources.
+* **[Azure Monitor](../../azure-monitor/overview.md)** – Permet de créer des alertes et supervisions automatisées de diverses conditions. Peut créer ou utiliser des classeurs pour combiner des données provenant de différentes sources.
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) avec intégration SIEM**- [Les journaux Azure AD peuvent être intégrés à d’autres SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) comme Splunk, ArcSight, QRadar et Sumo Logic via l’intégration Azure Event Hub Hub.
 
 * **[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS)** – Vous permet de découvrir et de gérer des applications, de gouverner les applications et les ressources, et de vérifier la conformité de vos applications cloud.
 
-La plupart des éléments qui font l’objet d’une supervision et d’alertes sont déterminés par vos stratégies d’accès conditionnel. Vous pouvez utiliser le [classeur Rapports et insights sur l’accès conditionnel](../conditional-access/howto-conditional-access-insights-reporting.md) pour examiner les effets d’une ou de plusieurs stratégies d’accès conditionnel sur vos connexions, ainsi que les résultats des stratégies, y compris l’état de l’appareil. Ce classeur vous permet de voir un résumé de l’impact, et d’identifier l’impact sur une période de temps spécifique. Vous pouvez également utiliser le classeur pour investiguer les connexions d’un utilisateur spécifique. 
+La plupart des éléments qui font l’objet d’une supervision et d’alertes sont déterminés par vos stratégies d’accès conditionnel. Vous pouvez utiliser le [classeur Rapports et insights sur l’accès conditionnel](../conditional-access/howto-conditional-access-insights-reporting.md) pour examiner les effets d’une ou de plusieurs stratégies d’accès conditionnel sur vos connexions, ainsi que les résultats des stratégies, y compris l’état de l’appareil. Ce classeur vous permet de voir un résumé de l’impact et d’identifier l’impact sur une période de temps spécifique. Vous pouvez également utiliser le classeur pour investiguer les connexions d’un utilisateur spécifique. 
 
 Le reste de cet article comprend des recommandations concernant la supervision et les alertes, qui sont organisées par type de menace. Lorsqu’il existe des solutions prédéfinies, nous fournissons des liens vers celles-ci ou nous en fournissons des exemples après le tableau. Sinon, vous pouvez créer des alertes à l’aide des outils précédents. 
 
@@ -158,7 +158,7 @@ Dans le cadre d’un environnement hybride Azure, les éléments suivants doiven
 
 * **Moteur de synchronisation Azure AD Connect** : composant local également appelé « moteur de synchronisation ». Pour plus d’informations sur cette fonctionnalité, consultez [Fonctionnalités du service de synchronisation Azure AD Connect](../hybrid/how-to-connect-syncservice-features.md).
 
-* **Agent DC de protection par mot de passe** : l’agent DC de protection par mot de passe Azure permet de superviser les messages du journal des événements et de créer des rapports à partir de ces messages. Pour plus d’informations, consultez ../authentication/concept-password-ban-bad-on-premises.md.
+* **Agent DC de protection par mot de passe** : l’agent DC de protection par mot de passe Azure permet de superviser les messages du journal des événements et de créer des rapports à partir de ces messages. Pour plus d’informations, consultez [Appliquer la fonctionnalité Protection par mot de passe Azure AD en local pour Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md). 
 
 * **DLL du filtre de mot de passe** : la DLL de filtre de mot de passe de l’agent DC reçoit les demandes de validation de mot de passe utilisateur du système d’exploitation. Le filtre les transmet au service de l’agent du contrôleur de domaine qui s’exécute localement sur le contrôleur de domaine. Pour plus d’informations sur l’utilisation de la DLL, consultez [Appliquer la fonctionnalité Protection de mots de passe Azure AD localement pour Active Directory Domain Services](../authentication/concept-password-ban-bad-on-premises.md). 
 
@@ -214,7 +214,7 @@ Dans le cadre d’un environnement Azure basé sur le cloud, les éléments suiv
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les articles suivants concernant les opérations de sécurité :
+Consultez les articles suivants sur les opérations de sécurité :
 
 [Vue d’ensemble des opérations de sécurité Azure AD](security-operations-introduction.md)
 

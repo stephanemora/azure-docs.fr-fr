@@ -1,14 +1,14 @@
 ---
 title: Voir et gérer les clients et les ressources déléguées sur le portail Azure
 description: En tant que fournisseur de services ou entreprise utilisant Azure Lighthouse, vous pouvez afficher l'ensemble de vos ressources et abonnements délégués en accédant à Mes clients sur le portail Azure.
-ms.date: 08/12/2021
+ms.date: 09/17/2021
 ms.topic: how-to
-ms.openlocfilehash: a29f34983bc42d74efd65a45605bb99944897345
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 4cce38b435ee2613b885dfad959871579579ddce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532953"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673608"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources-in-the-azure-portal"></a>Voir et gérer les clients et les ressources déléguées sur le portail Azure
 
@@ -72,14 +72,18 @@ Vous pouvez travailler directement dans le contexte d’un abonnement délégué
 
 1. Sélectionnez l’icône **Annuaire + abonnements** ou **Paramètres** dans la partie supérieure du portail Azure.
 1. Dans la [page des paramètres d’annuaire et d’abonnement](../../azure-portal/set-preferences.md#directories--subscriptions), assurez-vous que le bouton bascule **Filtres avancés** est [désactivé](../../azure-portal/set-preferences.md#subscription-filters).
-1. Dans la section **Filtre d’abonnement par défaut**, sélectionnez l’annuaire et l’abonnement appropriés.
+1. Dans la section **Filtre d’abonnement par défaut**, sélectionnez l’annuaire et l’abonnement appropriés. (Si vous avez obtenu l’accès à un ou plusieurs groupes de ressources, plutôt qu’à un abonnement entier, sélectionnez l’abonnement auquel appartient ce groupe de ressources. Vous travaillerez ensuite dans le contexte de cet abonnement, mais ne pourrez accéder qu’au(x) groupe(s) de ressources désigné(s).)
 
-:::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Capture d’écran d’un filtre montrant un abonnement délégué":::
+:::image type="content" source="../media/subscription-filter-delegated.png" alt-text="Capture d’écran du filtre d’abonnement par défaut avec un abonnement délégué sélectionné.":::
 
-Si vous accédez ensuite à un service qui prend en charge les [expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md), le service est par défaut dans le contexte de l’abonnement délégué que vous avez inclus dans votre filtre. Vous pouvez modifier cela en suivant les étapes ci-dessus et en activant la case à cocher **Sélectionner tout** (ou en choisissant un ou plusieurs abonnements dans lesquels travailler à la place).
+Après cela, quand vous accédez à un service qui prend en charge les [expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md), le service est par défaut dans le contexte de l’abonnement délégué que vous avez inclus dans votre filtre.
 
-> [!NOTE]
-> Si vous avez obtenu l’accès à un ou plusieurs groupes de ressources, au lieu d’accéder à un abonnement entier, sélectionnez l’abonnement auquel appartient ce groupe de ressources. Vous travaillerez ensuite dans le contexte de cet abonnement, mais ne pourrez accéder qu’au(x) groupe(s) de ressources désigné(s).
+Vous pouvez changer l’abonnement par défaut à tout moment en suivant les étapes ci-dessus et en choisissant un autre abonnement, ou en sélectionnant plusieurs abonnements. Vous pouvez également sélectionner **Tous les annuaires**, puis cocher la case **Sélectionner tout**, si vous souhaitez que le filtre inclue tous les abonnements auxquels vous avez accès.
+
+:::image type="content" source="../media/subscription-filter-all.png" alt-text="Capture d’écran du filtre d’abonnement par défaut avec tous les annuaires et abonnements sélectionnés":::
+
+> [!IMPORTANT]
+> Si vous cochez la case **Sélectionner tout**, le filtre affiche tous les abonnements auxquels vous avez accès *actuellement*. Si vous accédez ultérieurement à d’autres abonnements (par exemple après avoir intégré un nouveau client à Azure Lighthouse), ces abonnements ne seront pas automatiquement ajoutés à votre filtre. Vous devrez revenir à **Annuaires + abonnements** et sélectionner les abonnements supplémentaires (ou décocher puis recocher **Sélectionner tout**).
 
 Vous pouvez également accéder à des fonctionnalités associées à des abonnements ou à des groupes de ressources délégués à partir de services qui prennent en charge les expériences de gestion inter-locataire en sélectionnant l’abonnement ou le groupe de ressources au sein d’un service individuel.
 

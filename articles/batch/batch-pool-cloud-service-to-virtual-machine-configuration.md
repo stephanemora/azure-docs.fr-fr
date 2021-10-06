@@ -2,13 +2,13 @@
 title: Migrer la configuration des pools Batch de Services cloud vers Machines Virtuelles
 description: Découvrez comment mettre à jour votre configuration de pools selon la configuration recommandée la plus récente.
 ms.topic: how-to
-ms.date: 03/11/2021
-ms.openlocfilehash: a176c4df1737a340a546b4ab7926447cd821350d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/03/2021
+ms.openlocfilehash: 9d4ce46c5291333f161f260c3b4706ea9dcf9a24
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200555"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538882"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machine"></a>Migrer la configuration des pools Batch de Services cloud vers une machine virtuelle
 
@@ -36,7 +36,7 @@ Voici quelques-unes des principales différences entre les deux configurations 
 - Les nœuds de pool « virtualMachineConfiguration » utilisent des disques de système d’exploitation managés. Le [type de disque managé](../virtual-machines/disks-types.md) utilisé pour chaque nœud dépend de la taille de machine virtuelle choisie pour le pool. Si la taille de machine virtuelle « s » est spécifiée pour le pool, par exemple « Standard_D2s_v3 », un SSD Premium est utilisé. Si une taille de machine virtuelle « non s » est spécifiée, par exemple « Standard_D2_v3 », un HDD Standard est utilisé.
 
    > [!IMPORTANT]
-   > Comme pour les machines virtuelles et les groupe de machines virtuelles identiques, le disque managé du système d’exploitation utilisé pour chaque nœud entraîne un coût, qui s’ajoute à celui des machines virtuelles. Le disque du système d'exploitation n'engendre aucun coût pour les nœuds « cloudServiceConfiguration » car il est créé sur le disque SSD local des nœuds.
+   > Comme pour les machines virtuelles et les groupe de machines virtuelles identiques, le disque managé du système d’exploitation utilisé pour chaque nœud entraîne un coût, qui s’ajoute à celui des machines virtuelles. Les pools « virtualMachineConfiguration » peuvent utiliser des [disques de système d’exploitation éphémères](create-pool-ephemeral-os-disk.md) qui créent le disque de système d’exploitation sur le cache de la machine virtuelle ou sur un SSD temporaire, afin d’éviter les coûts supplémentaires associés aux disques managés. Le disque du système d’exploitation n’occasionne aucun coût pour les nœuds « cloudServiceConfiguration », car il est créé sur le disque SSD local des nœuds.
 
 ## <a name="azure-data-factory-custom-activity-pools"></a>Pools d’activités personnalisées Azure Data Factory
 

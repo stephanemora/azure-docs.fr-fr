@@ -12,12 +12,12 @@ ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
-ms.openlocfilehash: 7ec309f016e73642262399bd75e7b5146bc5e497
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c775efa92c249904348f1ced18994c42e9ecc8eb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98752774"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128597813"
 ---
 # <a name="application-types-for-the-microsoft-identity-platform"></a>Types d’application pour la plateforme d’identité Microsoft
 
@@ -44,7 +44,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 De nombreuses applications modernes ont un frontal d’application monopage écrit principalement en JavaScript, souvent avec une infrastructure telle que Angular, React ou Vue. La plateforme d’identité Microsoft prend en charge ces applications avec le protocole [OpenID Connect](v2-protocols-oidc.md) pour l’authentification et soit le [flux d’octroi implicite OAuth 2.0](v2-oauth2-implicit-grant-flow.md), soit le système plus récent avec [code d’autorisation OAuth 2.0 + flux PKCE](v2-oauth2-auth-code-flow.md) pour l’autorisation (voir ci-dessous).
 
-Le diagramme ci-dessous illustre l’octroi du code d’autorisation OAuth 2.0 (avec des détails sur le PKCE omis), dans lequel l’application reçoit un code du point de terminaison de la plateforme d’identité Microsoft `authorize` et l’utilise pour les jetons et les jetons d’actualisation à l’aide de requêtes web intersites. Le jeton d’actualisation expire toutes les 24 heures, et l’application doit demander un autre code. En plus du jeton d’accès, une `id_token` qui représente l’utilisateur connecté à l’application cliente est généralement également demandée par le biais du même flux et/ou d’une demande de connexion OpenID distincte (non illustrée ici).
+Le diagramme de flow ci-dessous illustre l’octroi du code d’autorisation OAuth 2,0 (avec des détails sur le PKCE omis), où l’application reçoit un code du point de terminaison `authorize` de la plateforme d’identité Microsoft, et l’utilise pour un jeton d’accès et un jeton d’actualisation à l’aide de requêtes Web intersites. Le jeton d’actualisation expire toutes les 24 heures, et l’application doit demander un autre code à l’aide du jeton d’actualisation. En plus du jeton d’accès, une `id_token` qui représente l’utilisateur connecté à l’application cliente est généralement également demandée par le biais du même flux et/ou d’une demande de connexion OpenID distincte (non illustrée ici).
 
 :::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagramme montrant le flot du code d’autorisation OAuth 2 entre une application à page unique et le point de terminaison du service d’émission de jeton de sécurité." border="false":::
 

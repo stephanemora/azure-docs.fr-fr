@@ -7,12 +7,12 @@ ms.author: sumuth
 author: mksuni
 ms.service: postgresql
 ms.date: 08/09/2021
-ms.openlocfilehash: 747a1c59d00ac4127fab4b6c28d02c837e540133
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 2f26ac8b2bea54bc49398b46eae02131991aac1b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122516002"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363709"
 ---
 # <a name="azure-pipelines-task-for-azure-database-for-postgresql-flexible-server"></a>Tâche Azure Pipelines pour un serveur flexible Azure Database pour PostgreSQL
 
@@ -21,7 +21,7 @@ Avec les **Pipelines Azure**, vous pouvez déployer automatiquement vos mises à
 ## <a name="prerequisites"></a>Prérequis
 
 - Un compte Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/free/).
-- [Connexion de service Azure Resource Manager](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops) à votre compte Azure
+- [Connexion de service Azure Resource Manager](/azure/devops/pipelines/library/connect-to-azure) à votre compte Azure
 - Azure CLI est préinstallée sur les agents hébergés par Microsoft. Toutefois, si vous utilisez des agents privés, [installez Azure CLI](/cli/azure/install-azure-cli) sur le ou les ordinateurs qui exécutent l’agent de build et de mise en production. Si un agent est déjà en cours d’exécution sur l’ordinateur où Azure CLI est installée, redémarrez-le pour vous assurer que toutes les variables intermédiaires pertinentes sont mises à jour.
 - Créer une instance Azure Database pour PostgreSQL - Serveur flexible à l’aide du [portail Azure](./quickstart-create-server-portal.md) ou d’[Azure CLI](./quickstart-create-server-cli.md)
 
@@ -90,11 +90,10 @@ Vous pouvez voir la liste complète de toutes les entrées de tâche lors de l�
 |failOnStandardError|(Facultatif) Si la valeur est true, cette tâche échoue lorsque des erreurs sont écrites dans le flux StandardError. Désactivez la case à cocher pour ignorer les erreurs standard et consultez les codes de sortie pour déterminer l’état. La valeur par défaut est false.|
 |powerShellIgnoreLASTEXITCODE| (Facultatif) Si la valeur est false, la ligne <code>if ((Test-Path -LiteralPath variable:\\LASTEXITCODE)) { exit $LASTEXITCODE }</code> est ajoutée à la fin de votre script. Le dernier code de sortie d’une commande externe est alors propagé en tant que code de sortie de PowerShell. Sinon, la ligne n’est pas ajoutée à la fin de votre script. La valeur par défaut est false. |
 
-Si vous avez des problèmes avec la tâche CLI, consultez [Comment résoudre les problèmes de build et de mise en production](/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops).
+Si vous avez des problèmes avec la tâche CLI, consultez [Comment résoudre les problèmes de build et de mise en production](/azure/devops/pipelines/troubleshooting/troubleshooting).
 
 ## <a name="next-steps"></a>Étapes suivantes 
 Voici quelques tâches associées qui peuvent être utilisées pour déployer avec Azure Piplelines.
 
-- [Déploiement du groupe de ressources Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops)
-- [Déploiement d’une application web Azure](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment?view=azure-devops)
-
+- [Déploiement du groupe de ressources Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+- [Déploiement d’une application web Azure](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment)

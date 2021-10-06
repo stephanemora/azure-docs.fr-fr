@@ -1,14 +1,14 @@
 ---
-title: Ajouter une machine virtuelle à l'aide d'une image partagée dans Azure DevTest Labs | Microsoft Docs
+title: Ajouter une machine virtuelle à l’aide d’une image partagée
 description: Apprenez à ajouter une machine virtuelle à l'aide d'une image de la galerie d'images partagées jointe dans Azure DevTest Labs
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 9421a1e21be9446b0e59328bd9a3730b57655274
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7107fd22142f00e422e0f302520962537d65b10e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483854"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621808"
 ---
 # <a name="add-a-vm-using-an-image-from-the-attached-shared-image-gallery"></a>Ajouter une machine virtuelle à l'aide d'une image de la galerie d'images partagées jointe
 Azure DevTest Labs vous permet de joindre une galerie d'images partagées à votre labo, puis d'utiliser des images de la galerie comme bases pour les machines virtuelles que vous créez dans le labo. Pour apprendre à joindre une galerie d'images partagées à votre labo, consultez [Configurer une galerie d'images partagées](configure-shared-image-gallery.md). Cet article explique comment ajouter une machine virtuelle à votre labo en utilisant une image de la galerie d'images partagées jointe comme base. 

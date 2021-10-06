@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: d6d5b5bf1cba2ebb2def30b15f3a70dea91e5ff7
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 3b7316bf7d21a117c80eb49978a807b085db004b
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272598"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432537"
 ---
 # <a name="design-your-private-link-setup"></a>Conception de votre configuration Private Link
 
@@ -57,7 +57,7 @@ Pour tester les connexions de liaison privée localement sans affecter les autre
 Cette approche n’est pas recommandée pour les environnements de production.
 
 ## <a name="control-how-private-links-apply-to-your-networks"></a>Contrôler la façon dont les liaisons privées s’appliquent à vos réseaux
-Les modes d’accès aux liaisons privées (introduits en août 2021) vous permettent de contrôler la façon dont les liaisons privées affectent le trafic réseau. Ces paramètres peuvent s’appliquer à votre objet AMPLS (pour affecter tous les réseaux connectés) ou à des réseaux spécifiques qui y sont connectés.
+Les modes d’accès Private Link (introduits en septembre 2021) vous permettent de contrôler la façon dont les liaisons privées affectent le trafic réseau. Ces paramètres peuvent s’appliquer à votre objet AMPLS (pour affecter tous les réseaux connectés) ou à des réseaux spécifiques qui y sont connectés.
 
 Le choix du mode d’accès approprié a des effets néfastes sur le trafic réseau. Chacun de ces modes peut être défini pour l’ingestion et les requêtes, séparément :
 
@@ -66,8 +66,11 @@ Le choix du mode d’accès approprié a des effets néfastes sur le trafic rés
 * Ouvert : autorise le réseau virtuel à atteindre les ressources de liaison privée et les ressources qui ne se trouvent pas dans l’étendue AMPLS (s’ils [acceptent le trafic provenant de réseaux publics](./private-link-design.md#control-network-access-to-your-resources)). Bien que le mode d’accès Ouvert n’empêche pas l’exfiltration de données, il présente quand même les autres avantages des liaisons privées. Le trafic vers les ressources de liaison privée est transmis via des points de terminaison privés, validé et envoyé via le réseau principal de Microsoft. Le mode Ouvert est utile dans le cadre d’un mode de travail mixte (qui accède à certaines ressources publiquement et à d’autres via une liaison privée), ou d’un processus d’intégration progressif.
 ![Diagramme représentant le mode d’accès Ouvert dans l’étendue AMPLS](./media/private-link-security/ampls-open-access-mode.png) Les modes d’accès sont définis séparément pour l’ingestion et les requêtes. Par exemple, vous pouvez définir le mode Privé uniquement pour l’ingestion et le mode Ouvert pour les requêtes.
 
+
+Soyez prudent lorsque vous choisissez votre mode d’accès. L’utilisation du mode d’accès Privé uniquement a pour effet de bloquer le trafic vers les ressources ne se trouvant pas dans AMPLS sur tous les réseaux qui partagent le même DNS, quel que soit l’abonnement ou le locataire (à l’exception des demandes d’ingestion Log Analytics, comme expliqué ci-dessous). Si vous ne pouvez pas ajouter toutes les ressources Azure Monitor à AMPLS, commencez par ajouter des ressources sélectionnées en appliquant le mode d’accès Ouvert. Une fois que vous avez ajouté *toutes* les ressources Azure Monitor à votre AMPLS, basculez vers le mode « Privé uniquement » pour bénéficier d’une sécurité maximale.
+
 > [!NOTE]
-> Sélectionnez le mode d’accès avec soin. L’utilisation du mode d’accès Privé uniquement bloque le trafic vers les ressources ne figurant pas dans l’étendue AMPLS sur tous les réseaux qui partagent le même DNS, indépendamment de l’abonnement ou du locataire. Si vous ne pouvez pas ajouter toutes les ressources Azure Monitor à l’étendue AMPLS, nous vous recommandons d’utiliser le mode Ouvert et d’ajouter des ressources spécifiques à votre étendue AMPLS. Une fois que vous avez ajouté toutes les ressources Azure Monitor à votre étendue AMPLS, basculez vers le mode Privé uniquement pour une sécurité maximale.
+> L’ingestion Log Analytics utilise des points de terminaison spécifiques d’une ressource. Par conséquent, elle n’adhère pas aux modes d’accès AMPLS. L’ingestion dans des espaces de travail se trouvant dans AMPLS est envoyée via la liaison privée, tandis que l’ingestion dans des espaces de travail ne se trouvant pas dans AMPLS utilise les points de terminaison publics par défaut. Pour vous assurer que les demandes d’ingestion ne puissent pas accéder à des ressources extérieures à AMPLS, bloquez l’accès du réseau aux points de terminaison publics.
 
 ### <a name="setting-access-modes-for-specific-networks"></a>Définition des modes d’accès pour des réseaux spécifiques
 Les modes d’accès définis sur la ressource AMPLS affectent tous les réseaux. Vous pouvez toutefois remplacer ces paramètres pour des réseaux spécifiques.
@@ -162,7 +165,7 @@ Nous avons identifié les produits et les expériences suivants qui interrogent 
 > * Insights de machine virtuelle
 > * Container Insights
 
-## <a name="requirements"></a>Spécifications
+## <a name="requirements"></a>Configuration requise
 ### <a name="agents"></a>Agents
 Les versions les plus récentes des agents Windows et Linux doivent être utilisées pour permettre une ingestion sécurisée vers les espaces de travail Log Analytics. Les versions antérieures ne peuvent pas charger les données d’analyse via un réseau privé.
 

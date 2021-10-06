@@ -8,12 +8,12 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: d3f353693aeafb3093a2a8edce017cc24c0aca49
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d9e634597d82b6cac52237f0c800cdfc33bc883a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370682"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635410"
 ---
 # <a name="rest-api"></a>API REST
 Cet article décrit les API REST d’Azure Event Grid sur IoT Edge
@@ -29,26 +29,26 @@ Les API suivantes sont exposées par Event Grid sur IoT Edge via HTTP (port 5888
 ### <a name="request-query-string"></a>Demander une chaîne de requête
 Toutes les requêtes d’API requièrent le paramètre de chaîne de requête suivant :
 
-```?api-version=2019-01-01-preview```
+`?api-version=2019-01-01-preview`
 
 ### <a name="request-content-type"></a>Type de contenu de la requête
 Toutes les requêtes API doivent avoir une chaîne **Content-Type**.
 
 Dans le cas de **EventGridSchema** ou **CustomSchema**, la valeur de Content-Type peut être l’une des valeurs suivantes :
 
-```Content-Type: application/json```
+`Content-Type: application/json`
 
-```Content-Type: application/json; charset=utf-8```
+`Content-Type: application/json; charset=utf-8`
 
 Dans le **CloudEventSchemaV1_0** en mode structuré, la valeur de Content-Type peut être l’une des valeurs suivantes :
 
-```Content-Type: application/cloudevents+json```
+`Content-Type: application/cloudevents+json`
     
-```Content-Type: application/cloudevents+json; charset=utf-8```
+`Content-Type: application/cloudevents+json; charset=utf-8`
     
-```Content-Type: application/cloudevents-batch+json```
+`Content-Type: application/cloudevents-batch+json`
     
-```Content-Type: application/cloudevents-batch+json; charset=utf-8```
+`Content-Type: application/cloudevents-batch+json; charset=utf-8`
 
 Dans le cas de **CloudEventSchemaV1_0** en mode binaire, reportez-vous à la [documentation](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) pour plus d’informations.
 
@@ -760,19 +760,19 @@ Pour publier dans une file d’attente de stockage, définissez `endpointType` s
 * queueName : nom de la file d’attente de stockage dans laquelle vous publiez.
 * connectionString : chaîne de connexion pour le compte de stockage dans lequel se trouve la file d'attente de stockage.
 
-    >[!NOTE]
-    > Contrairement aux Event Hubs, aux rubriques et files d’attente Service Bus, la chaîne de connexion utilisée pour les files d’attente de stockage n’est pas propre à l’entité. C’est la chaîne de connexion du compte de stockage qui doit être utilisée à la place.
+  >[!NOTE]
+  > Contrairement à Event Hubs, aux rubriques Service bus et aux files d’attente Service Bus, la chaîne de connexion utilisée pour les files d’attente de stockage n’est pas spécifique aux entités. C’est la chaîne de connexion du compte de stockage qui doit être utilisée à la place.
 
-    ```json
-        {
-          "properties": {
-            "destination": {
-              "endpointType": "storageQueue",
-              "properties": {
-                "queueName": "<your-storage-queue-name>",
-                "connectionString": "<your-storage-account-connection-string>"
-              }
-            }
-          }
+  ```json
+  {
+    "properties": {
+      "destination": {
+        "endpointType": "storageQueue",
+        "properties": {
+          "queueName": "<your-storage-queue-name>",
+          "connectionString": "<your-storage-account-connection-string>"
         }
-    ```
+      }
+    }
+  }
+  ```

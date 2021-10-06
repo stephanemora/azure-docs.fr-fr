@@ -1,14 +1,14 @@
 ---
 title: Considérations sur le programme des fournisseurs de solutions cloud
 description: Pour les partenaires CSP, la gestion des ressources déléguées Azure permet d’améliorer la sécurité et le contrôle en activant des autorisations précises.
-ms.date: 05/11/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 338c2086826a6b23810f5b2dc13c9a34d9c65f8b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 6a53ec7cfc2e9f82664e57eecf5bf3f587444134
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109788748"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629101"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse et le programme Fournisseur de solutions cloud
 
@@ -27,11 +27,11 @@ Avec le mécanisme Administrer au nom de, tout utilisateur auquel le rôle [Agen
 
 ## <a name="azure-lighthouse"></a>Azure Lighthouse
 
-Azure Lighthouse permet d’attribuer différents groupes aux clients et aux rôles, comme l’illustre le diagramme suivant. Étant donné que les utilisateurs disposent du niveau d’accès approprié attribué par le biais de la [gestion des ressources déléguées Azure](architecture.md), vous pouvez réduire le nombre d’utilisateurs ayant le rôle Agent d’administration (et disposant ainsi d’un accès « Administrer au nom de » complet). Cela contribue à améliorer la sécurité en limitant les accès inutiles aux ressources de vos clients. Le service offre également une plus grande flexibilité pour gérer plusieurs clients à grande échelle, en utilisant le [rôle intégré Azure](tenants-users-roles.md) qui est le plus approprié aux fonctions de chaque utilisateur.
-
-L’intégration d’un abonnement créé par le biais du programme CSP suit les étapes décrites dans [Intégration d’un abonnement à Azure Lighthouse](../how-to/onboard-customer.md). Tout utilisateur auquel le rôle Agent d’administration est attribué dans votre locataire peut effectuer cette intégration.
+Azure Lighthouse permet d’attribuer différents groupes aux clients et aux rôles, comme l’illustre le diagramme suivant. Étant donné que les utilisateurs disposent du niveau d’accès approprié attribué par le biais de la [gestion des ressources déléguées Azure](architecture.md), vous pouvez réduire le nombre d’utilisateurs ayant le rôle Agent d’administration (et disposant ainsi d’un accès « Administrer au nom de » complet). Cela contribue à améliorer la sécurité en limitant les accès inutiles aux ressources de vos clients. Le service offre également une plus grande flexibilité pour gérer plusieurs clients à grande échelle, en utilisant le [rôle intégré Azure](tenants-users-roles.md#role-support-for-azure-lighthouse) qui convient le mieux aux fonctions de chaque utilisateur, sans lui accorder davantage d’accès que nécessaire.
 
 ![Schéma illustrant la gestion des locataires à l’aide du mécanisme « Administrer au nom de » et Azure Lighthouse.](../media/csp-2.jpg)
+
+L’intégration d’un abonnement créé par le biais du programme CSP suit les étapes décrites dans [Intégration d’un abonnement à Azure Lighthouse](../how-to/onboard-customer.md). Tout utilisateur auquel le rôle Agent d’administration est attribué dans votre locataire peut effectuer cette intégration.
 
 > [!TIP]
 > Les [offres de services managés](managed-services-offers.md) avec des plans privés ne sont pas prises en charge avec les abonnements souscrits via un revendeur participant au programme des fournisseurs de solutions cloud (CSP). Vous pouvez intégrer ces abonnements à Azure Lighthouse en [à l’aide de modèles Azure Resource Manager](../how-to/onboard-customer.md).

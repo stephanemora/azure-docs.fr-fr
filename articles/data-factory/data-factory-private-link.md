@@ -8,12 +8,12 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/16/2021
-ms.openlocfilehash: f4ae3d0653ce99be2017b1ef08ca0645c599ee10
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 68c43d149da28f7a140ac4f4fd32d76fe53f3e2d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524803"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663304"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link pour Azure Data Factory
 
@@ -75,8 +75,8 @@ Pour l’exemple illustré ci-dessus, les enregistrements de ressources DNS corr
 
 | Name | Type | Valeur |
 | ---------- | -------- | --------------- |
-| DataFactoryA.{région}.datafactory.azure.net | CNAME   | DataFactoryA.{région}.privatelink.datafactory.azure.net |
-| DataFactoryA.{région}.privatelink.datafactory.azure.net | CNAME   | < point de terminaison public du service de fabrique de données > |
+| DataFactoryA.{région}.datafactory.azure.net | CNAME   | DataFactoryA.{région}.datafactory.azure.net |
+| DataFactoryA.{région}.datafactory.azure.net | CNAME   | < point de terminaison public du service de fabrique de données > |
 | < point de terminaison public du service de fabrique de données >  | Un | < IP publique du service de fabrique de données > |
 
 Les enregistrements de ressources DNS correspondant à DataFactoryA, lorsqu’ils sont résolus dans le réseau virtuel hébergeant le point de terminaison privé, sont les suivants :
@@ -86,7 +86,7 @@ Les enregistrements de ressources DNS correspondant à DataFactoryA, lorsqu’il
 | DataFactoryA.{région}.datafactory.azure.net | CNAME   | DataFactoryA.{région}.privatelink.datafactory.azure.net |
 | DataFactoryA.{région}.privatelink.datafactory.azure.net   | Un | < adresse IP du point de terminaison privé > |
 
-Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet du point de terminaison Data Factory vers l’adresse IP du point de terminaison privé. Vous devez configurer votre serveur DNS pour déléguer votre sous-domaine de liaison privée à la zone DNS privée du réseau virtuel, ou configurer les enregistrements A pour « DataFactoryA.{région}.privatelink.datafactory.azure.net » avec l’adresse IP du point de terminaison privé.
+Si vous utilisez un serveur DNS personnalisé sur votre réseau, les clients doivent pouvoir résoudre le nom de domaine complet du point de terminaison Data Factory vers l’adresse IP du point de terminaison privé. Vous devez configurer votre serveur DNS pour déléguer votre sous-domaine de liaison privée à la zone DNS privée pour le réseau virtuel, ou configurer les enregistrements A pour « DataFactoryA.{région}.datafactory.azure.net » avec l’adresse IP du point de terminaison privé.
 
 Pour plus d’informations sur la configuration de votre propre serveur DNS pour la prise en charge des points de terminaison privés, reportez-vous aux articles suivants :
 - [Résolution de noms pour des ressources dans les réseaux virtuels Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
@@ -241,7 +241,7 @@ Enfin, vous devez créer le point de terminaison privé dans votre fabrique de d
 > La désactivation de l’accès au réseau public s’applique uniquement au runtime d’intégration auto-hébergé, pas à Azure Integration Runtime ni au runtime d’intégration SSIS (SQL Server Integration Services).
 
 > [!NOTE]
-> Vous pouvez toujours accéder au portail Azure Data Factory par le biais d’un réseau public après avoir créé un point de terminaison privé pour le portail.
+> Vous pouvez néanmoins toujours accéder au portail Azure Data Factory via un réseau public après avoir créé un point de terminaison privé pour le portail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

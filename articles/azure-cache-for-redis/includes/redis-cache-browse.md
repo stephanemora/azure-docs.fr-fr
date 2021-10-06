@@ -1,19 +1,19 @@
 ---
-title: fichier descriptif
-description: fichier descriptif
+title: Fichier include
+description: Fichier include
 services: redis-cache
-author: wesmc7777
+author: curib
 ms.service: cache
 ms.topic: include
 ms.date: 03/28/2018
-ms.author: wesmc
+ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: e842d16f3303d47188d69bde9df84c3f06dc45ed
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c0a79d0b144d5cead1e3fa44d76eb8c6c5fcb1ef
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128558627"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538894"
 ---
 Si vous n’avez pas épinglé votre cache au tableau de bord, recherchez-le dans le [Portail Azure](https://portal.azure.com) en utilisant l’option **Tous les services**.
 

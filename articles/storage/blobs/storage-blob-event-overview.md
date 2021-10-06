@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: dineshm
-ms.openlocfilehash: f07c249e3b7cb54283959df410d51ca18998f2cf
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: b04cd87716bfcdeddd5c6d41b218788553a682f9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181514"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636816"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -38,8 +38,8 @@ Pour consulter des exemples détaillés de réaction aux événements de stockag
 - [Tutoriel : Utiliser des événements Azure Data Lake Storage Gen2 pour mettre à jour une table Databricks Delta](data-lake-storage-events.md).
 - [Tutoriel : Automatiser le redimensionnement des images chargées à l’aide d’Event Grid](../../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=dotnet)
 
->[!NOTE]
-> Seuls les comptes de stockage de type **StorageV2 (v2 universel)** , **BlockBlobStorage** et **BlobStorage** prennent en charge l’intégration d’événements. Le type **Stockage (v1 universel)** ne prend *pas* en charge l’intégration à Event Grid.
+> [!NOTE]
+> Le type **Stockage (v1 universel)** ne prend *pas* en charge l’intégration à Event Grid.
 
 ## <a name="the-event-model"></a>Le modèle d’événement
 
@@ -52,9 +52,9 @@ Tout d’abord, abonnez un point de terminaison à un événement. Ensuite, lors
 Consultez l’article [Schéma d’événements de stockage Blob](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour obtenir :
 
 > [!div class="checklist"]
-> * Une liste complète des événements de stockage Blob et savoir comment chaque événement est déclenché.
-> * Un exemple des données que Event Grid peut envoyer pour chacun de ces événements.
-> * L’objectif de chaque paire de clé-valeur qui apparaît dans les données.
+> - Une liste complète des événements de stockage Blob et savoir comment chaque événement est déclenché.
+> - Un exemple des données que Event Grid peut envoyer pour chacun de ces événements.
+> - L’objectif de chaque paire de clé-valeur qui apparaît dans les données.
 
 ## <a name="filtering-events"></a>Filtrage des événements
 
@@ -94,16 +94,28 @@ Pour faire correspondre les événements d’objet Blob créés dans un conteneu
 
 Les applications qui gèrent des événements de stockage d’objets Blob doivent suivre certaines pratiques recommandées :
 > [!div class="checklist"]
-> * Comme plusieurs abonnements peuvent être configurés pour acheminer les événements vers le même gestionnaire d’événements, il est important de ne pas considérer que les événements proviennent d’une source particulière, mais de vérifier le sujet du message pour vous assurer qu’il provient d’un compte de stockage que vous attendez.
-> * De même, vérifiez que vous êtes prêt à traiter son eventType, et ne supposez pas que tous les événements reçus seront aux types que vous attendez.
-> * Les messages pouvant arriver après un certain temps, utilisez les champs etag pour comprendre si vos informations sur les objets sont toujours à jour. Pour savoir comment utiliser le champ etag, consultez [Gestion de l’accès concurrentiel dans le Stockage Blob](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
-> * Les messages pouvant arriver dans le désordre, utilisez les champs de séquence pour comprendre l’ordre des événements sur un objet particulier. Le champ de séquence est une valeur de chaîne qui représente l’ordre logique des événements pour n’importe quel nom d’objet blob. Vous pouvez utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet blob.
-> * Les événements de stockage garantissent au moins une livraison aux abonnés, assurant ainsi la sortie de tous les messages. Toutefois, en raison de nouvelles tentatives entre les nœuds ou les sr de back end ou de la disponibilité des abonnements, des messages dupliqués peuvent parfois se produire. Pour en savoir plus sur la livraison de messages et les nouvelles tentatives, consultez [Livraison et nouvelle tentative de livraison de messages avec Event Grid](../../event-grid/delivery-and-retry.md).
-> * Utilisez le champ blobType pour comprendre le type d’opération autorisé sur l’objet Blob, et les types de bibliothèque client que vous devez utiliser pour accéder à l’objet Blob. Les valeurs valides sont `BlockBlob` ou `PageBlob`. 
-> * Utilisez le champ URL avec les constructeurs `CloudBlockBlob` et `CloudAppendBlob` pour accéder à l’objet Blob.
-> * Ignorez les champs que vous ne comprenez pas. Cette pratique vous aidera à prendre en charge les nouvelles fonctionnalités qui peuvent être ajoutées à l’avenir.
-> * Si vous souhaitez vous assurer que l’événement **Microsoft.Storage.BlobCreated** n’est déclenché que lorsqu’un objet blob de blocs est entièrement validé, filtrez l’événement pour les appels d’API REST `CopyBlob`, `PutBlob`, `PutBlockList` ou `FlushWithClose`. Ces appels d’API déclenchent l’événement **Microsoft.Storage.BlobCreated** uniquement quand les données sont entièrement validées dans un objet blob de blocs. Pour savoir comment créer un filtre, consultez [Filtrer des événements pour Event Grid](../../event-grid/how-to-filter-events.md).
+> - Comme plusieurs abonnements peuvent être configurés pour acheminer les événements vers le même gestionnaire d’événements, il est important de ne pas considérer que les événements proviennent d’une source particulière, mais de vérifier le sujet du message pour vous assurer qu’il provient d’un compte de stockage que vous attendez.
+> - De même, vérifiez que vous êtes prêt à traiter son eventType, et ne supposez pas que tous les événements reçus seront aux types que vous attendez.
+> - Les messages pouvant arriver après un certain temps, utilisez les champs etag pour comprendre si vos informations sur les objets sont toujours à jour. Pour savoir comment utiliser le champ etag, consultez [Gestion de l’accès concurrentiel dans le Stockage Blob](./concurrency-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#managing-concurrency-in-blob-storage).
+> - Les messages pouvant arriver dans le désordre, utilisez les champs de séquence pour comprendre l’ordre des événements sur un objet particulier. Le champ de séquence est une valeur de chaîne qui représente l’ordre logique des événements pour n’importe quel nom d’objet blob. Vous pouvez utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet blob.
+> - Les événements de stockage garantissent au moins une livraison aux abonnés, assurant ainsi la sortie de tous les messages. Toutefois, en raison de nouvelles tentatives entre les nœuds ou les sr de back end ou de la disponibilité des abonnements, des messages dupliqués peuvent parfois se produire. Pour en savoir plus sur la livraison de messages et les nouvelles tentatives, consultez [Livraison et nouvelle tentative de livraison de messages avec Event Grid](../../event-grid/delivery-and-retry.md).
+> - Utilisez le champ blobType pour comprendre le type d’opération autorisé sur l’objet Blob, et les types de bibliothèque client que vous devez utiliser pour accéder à l’objet Blob. Les valeurs valides sont `BlockBlob` ou `PageBlob`.
+> - Utilisez le champ URL avec les constructeurs `CloudBlockBlob` et `CloudAppendBlob` pour accéder à l’objet Blob.
+> - Ignorez les champs que vous ne comprenez pas. Cette pratique vous aidera à prendre en charge les nouvelles fonctionnalités qui peuvent être ajoutées à l’avenir.
+> - Si vous souhaitez vous assurer que l’événement **Microsoft.Storage.BlobCreated** n’est déclenché que lorsqu’un objet blob de blocs est entièrement validé, filtrez l’événement pour les appels d’API REST `CopyBlob`, `PutBlob`, `PutBlockList` ou `FlushWithClose`. Ces appels d’API déclenchent l’événement **Microsoft.Storage.BlobCreated** uniquement quand les données sont entièrement validées dans un objet blob de blocs. Pour savoir comment créer un filtre, consultez [Filtrer des événements pour Event Grid](../../event-grid/how-to-filter-events.md).
 
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png) <sup>2</sup>  | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png) <sup>2</sup> | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
+
+<sup>2</sup>    Consultez [Problèmes connus avec Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md). Ces problèmes s’appliquent à tous les comptes pour lesquels la fonctionnalité d’espace de noms hiérarchique est activée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

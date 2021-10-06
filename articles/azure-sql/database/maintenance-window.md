@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 09/14/2021
-ms.openlocfilehash: bf37cfc156d45eb668a7f7da240e8a9437aa51d9
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/05/2021
+ms.openlocfilehash: ca8ed4fa480bd394196f4ca5b37c52bcc06e41c1
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216970"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546149"
 ---
 # <a name="maintenance-window-preview"></a>Fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,6 +78,8 @@ Le choix d’une fenêtre de maintenance autre que celle par défaut est actuell
 
 | Région Azure | Instance managée SQL | SQL Database | Base de données SQL dans une [zone de disponibilité Azure](high-availability-sla.md) | 
 |:---|:---|:---|:---|
+| Australie Centre 1 | Oui | | |
+| Centre de l’Australie 2 | Oui | | |
 | Australie Est | Oui | Oui | Oui |
 | Australie Sud-Est | Oui | Oui | |
 | Brésil Sud | Oui | Oui |  |
@@ -93,6 +95,7 @@ Le choix d’une fenêtre de maintenance autre que celle par défaut est actuell
 | France Centre | Oui | Oui | |
 | France Sud | Oui | Oui | |
 | Allemagne Centre-Ouest | Oui | Oui |  |
+| Allemagne Nord | Oui |  |  |
 | Japon Est | Oui | Oui | Oui |
 | OuJapon Est | Oui | Oui | |
 | Centre de la Corée | Oui | | |
@@ -100,15 +103,19 @@ Le choix d’une fenêtre de maintenance autre que celle par défaut est actuell
 | Centre-Nord des États-Unis | Oui | Oui | |
 | Europe Nord | Oui | Oui | Oui |
 | Afrique du Sud Nord | Oui | | | 
+| Afrique du Sud Ouest | Oui | | | 
 | États-Unis - partie centrale méridionale | Oui | Oui | Oui |
 | Inde Sud | Oui | Oui | |
 | Asie Sud-Est | Oui | Oui | Oui |
 | Suisse Nord | Oui | Oui | |
+| Suisse Ouest | Oui | | |
 | Émirats arabes unis Centre | Oui | | |
+| Émirats arabes unis Nord | Oui | | |
 | Sud du Royaume-Uni | Oui | Oui | Oui |
 | Ouest du Royaume-Uni | Oui | Oui | |
 | Centre-USA Ouest | Oui | Oui | |
 | Europe Ouest | Oui | Oui | Oui |
+| Inde Ouest | Oui | | |
 | USA Ouest | Oui | Oui |  |
 | USA Ouest 2 | Oui | Oui | Oui |
 | | | | | 

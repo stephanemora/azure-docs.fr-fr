@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 06/03/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e760cbca23aba21ad2d8c85e21a8014590419e9
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 835c102cffa7fb956d284792fd144cccadfa94b4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111438321"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582987"
 ---
 # <a name="conditional-access-filters-for-devices-preview"></a>Accès conditionnel : filtres pour appareils (préversion)
 
@@ -141,6 +141,9 @@ La condition Filtres pour appareils (en préversion) dans l’accès conditionne
 | Mode include/exclude avec opérateurs négatifs (NotEquals, NotStartsWith, NotEndsWith, NotContains, NotIn) et utilisation de n’importe quel attribut (sauf les extensions d’attribut 1 à 15) | Appareil inscrit | Oui, si les critères sont satisfaits |
 | Mode include/exclude avec opérateurs négatifs (NotEquals, NotStartsWith, NotEndsWith, NotContains, NotIn) et utilisation de n’importe quel attribut (incluant les extensions d’attribut de 1 à 15) | Appareil inscrit géré par Intune | Oui, si les critères sont satisfaits |
 | Mode include/exclude avec opérateurs négatifs (NotEquals, NotStartsWith, NotEndsWith, NotContains, NotIn) et utilisation de n’importe quel attribut (incluant les extensions d’attribut de 1 à 15) | Appareil inscrit non géré par Intune | Oui, si les critères sont satisfaits et si l’appareil est conforme ou joint à Azure AD Hybride |
+
+> [!IMPORTANT]
+> Pour les appareils non inscrits, les seules informations d’appareil transmises sont le système d’exploitation, la version du système d’exploitation et le navigateur.  Cela signifie que pour les appareils non inscrits et les stratégies d’accès conditionnel utilisant des opérateurs négatifs pour les filtres pour les appareils, toute valeur en dehors de ceux-ci est évaluée avec une valeur vide.  Par exemple, si un appareil non inscrit a été évalué avec les éléments suivants : **device.displayName -notContains *Example***. Étant donné que l’appareil non inscrit transmettra un nom d’affichage vide, qui n’est pas la valeur de l'*Exemple*, la condition résultante sera true.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

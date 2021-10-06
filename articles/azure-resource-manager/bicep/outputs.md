@@ -2,13 +2,13 @@
 title: Sorties dans Bicep
 description: Décrit comment définir des variables dans Bicep
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 1468f1a8a42f51dec1d195d39fe9096746c8193f
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 09/02/2021
+ms.openlocfilehash: 4cdf21eddcf14f5563c0c638f962585ad021e8ed
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635138"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428755"
 ---
 # <a name="outputs-in-bicep"></a>Sorties dans Bicep
 
@@ -18,9 +18,7 @@ Le format de chaque valeur de sortie doit résoudre l’un des [types de donnée
 
 ## <a name="define-output-values"></a>Définir des valeurs de sortie
 
-L’exemple suivant montre comment utiliser le mot clé `output` pour renvoyer une propriété à partir d’une ressource déployée.
-
-Dans l’exemple suivant, `publicIP` est l’identificateur (nom symbolique) d’une adresse IP publique déployée dans le fichier Bicep. La valeur de sortie obtient le nom de domaine complet pour l’adresse IP publique.
+L’exemple suivant montre comment utiliser le mot clé `output` pour renvoyer une propriété à partir d’une ressource déployée. Dans l’exemple, `publicIP` est l’identificateur (nom symbolique) d’une adresse IP publique déployée dans le fichier Bicep. La valeur de sortie obtient le nom de domaine complet pour l’adresse IP publique.
 
 ```bicep
 output hostname string = publicIP.properties.dnsSettings.fqdn
@@ -35,6 +33,11 @@ var user = {
 
 output stringOutput string = user['user-name']
 ```
+
+L’exemple suivant montre comment retourner des sorties de types différents.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/output.bicep":::
+
 
 ## <a name="conditional-output"></a>Sortie conditionnelle
 
@@ -105,14 +108,6 @@ publicIPAddress: {
   id: publicIP.outputs.resourceID
 }
 ```
-
-## <a name="example-template"></a>Exemple de modèle
-
-Le modèle suivant ne déploie aucune ressource. Il montre quelques façons de renvoyer des sorties de différents types.
-
-Bicep ne prend pas en charge les boucles pour le moment.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/output.bicep":::
 
 ## <a name="get-output-values"></a>Obtenir des valeurs de sortie
 

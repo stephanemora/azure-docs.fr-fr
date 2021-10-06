@@ -9,12 +9,12 @@ ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: cdfb7dd5d09d6925de23be70df18037165776a18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ce0c3bb4386e2fcc48ca57a1cd53978fc684d98c
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525295"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540952"
 ---
 # <a name="common-errors-and-known-issues-when-migration-to-azure-cloud-services-extended-support"></a>Erreurs courantes et problèmes connus lors de la migration vers Azure Cloud Services (support étendu)
 
@@ -69,6 +69,8 @@ Erreurs courantes de migration et mesures d’atténuation.
 | XrpVirtualNetworkMigrationError : échec de la migration du réseau virtuel. | Utilisez [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) ou contactez le support technique. | 
 | Le déploiement {0} dans le HostedService {1} appartient au réseau virtuel {2}. Migrez le réseau virtuel {2} pour migrer ce HostedService {1}. | Consultez [Migration de réseau virtuel](in-place-migration-technical-details.md#virtual-network-migration). | 
 | Le quota actuel pour le nom de ressource dans Azure Resource Manager est insuffisant pour terminer la migration. Le quota actuel est {0}, supplément requis : {1}. Effectuez une demande de support pour augmenter le quota et recommencez la migration une fois que le quota a été augmenté.    | Suivez les canaux appropriés pour demander une augmentation du quota : <br>[Augmentation du quota pour les ressources réseau](../azure-portal/supportability/networking-quota-requests.md) <br>[Augmentation du quota pour les ressources de calcul](../azure-portal/supportability/per-vm-quota-requests.md) | 
+|XrpPaaSMigrationCscfgCsdefValidationMismatch : la migration n’a pas pu être effectuée lors du déploiement « nom-de-déploiement » dans le service hébergé « nom-de-service » parce que les métadonnées du déploiement sont obsolètes. Veuillez abandonner la migration et mettre à niveau le déploiement avant de retenter la migration. Message de validation : le nom de service « nom-de-service » dans le fichier de définition du service ne correspond pas au nom « nom-de-service-dans-le-fichier-de-configuration » dans le fichier de configuration du service|faire correspondre les noms de service dans les fichiers. csdef et .cscfg|
+|NetworkingInternalOperationError lors du déploiement d’une ressource de service cloud (support étendu)| Le problème peut se produire si le nom du service est identique au nom du rôle. La correction recommandée consiste à utiliser des noms différents pour le service et les rôles|
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la configuration requise pour la migration, consultez [Détails techniques de la migration vers Azure Cloud Services (support étendu)](in-place-migration-technical-details.md)

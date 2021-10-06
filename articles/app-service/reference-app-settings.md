@@ -3,12 +3,12 @@ title: Informations de référence sur les variables d’environnement et les pa
 description: Décrit les variables d’environnement couramment utilisées et celles qui peuvent être modifiées à l’aide des paramètres de l’application.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: b4be8fde0e771414d8b637af0c2aed33eeb48123
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d3c34f64aa4e13fe0dce371d9848f6422e7b1f63
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124816018"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399809"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Variables d’environnement et paramètres d’application dans Azure App Service
 
@@ -571,6 +571,9 @@ Les variables d’environnement suivantes sont liées à la fonctionnalité [Not
 | `WEBSITE_PUSH_TAG_WHITELIST` | Lecture seule. Contient les balises dans l’inscription de notification. |
 | `WEBSITE_PUSH_TAGS_REQUIRING_AUTH` | Lecture seule. Contient une liste de balises dans l’inscription de notification qui requiert une authentification de l’utilisateur. |
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Lecture seule. Contient une liste de balises dans l’inscription de notification qui ont été ajoutées automatiquement. | 
+
+>[!NOTE]
+> Cet article contient des références au terme *liste verte*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 <!-- 
 ## WellKnownAppSettings

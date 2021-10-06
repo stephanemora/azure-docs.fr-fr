@@ -1,14 +1,14 @@
 ---
-title: Configurer les paramètres de démarrage automatique pour une machine virtuelle dans Azure DevTest Labs | Microsoft Docs
+title: Configurer les paramètres de démarrage automatique pour une machine virtuelle
 description: Découvrez comment configurer les paramètres de démarrage automatique pour les machines virtuelles dans un laboratoire. Ce paramètre permet aux machines virtuelles du laboratoire de démarrer automatiquement selon une planification.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 828350cb130e990d6a6ce3f16f084d5629518293
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91328477"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642944"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Démarrer automatiquement des machines virtuelles de laboratoire  
 Azure DevTest Labs vous permet de configurer les machines virtuelles de votre laboratoire pour qu’elles soient automatiquement démarrées et arrêtées en fonction d’une planification. Pour plus d’informations sur la configuration des paramètres d’arrêt automatique, consultez [Gérer toutes les stratégies d’arrêt automatique d’un laboratoire dans Azure DevTest Labs](devtest-lab-auto-shutdown.md). 

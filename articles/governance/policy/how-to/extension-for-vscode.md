@@ -1,14 +1,14 @@
 ---
 title: Extension Azure Policy pour Visual Studio Code
 description: Découvrez comment utiliser l’extension Azure Policy pour Visual Studio Code afin de rechercher des alias Azure Resource Manager.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: how-to
-ms.openlocfilehash: 870559a2f3d36257cb1246e340163f25ef016eb2
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 93b59114c6a89e9219389341d541d7850a90ccc7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563859"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433689"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Utiliser l’extension Azure Policy pour Visual Studio Code
 
@@ -195,6 +195,20 @@ Les résultats de l’évaluation fournissent des informations sur la définitio
 > L’extension VS Code prend uniquement en charge l’évaluation des propriétés du mode Resource Manager. Pour plus d’informations sur les modes, consultez les [définitions de mode](../concepts/definition-structure.md#mode).
 >
 > La fonctionnalité d’évaluation ne fonctionne pas sur les installations macOS et Linux de l’extension.
+
+### <a name="create-policy-definition-from-constraint-template"></a>Créer une définition de stratégie à partir d’un modèle de contrainte
+
+L’extension VS Code peut créer une définition de stratégie à partir d’un [modèle de contrainte](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3 existant. Le fichier YAML doit être ouvert dans VS Code pour que la Palette de commandes apparaisse comme option.
+
+1. Ouvrez un fichier YAML de modèle de contrainte OPA GateKeeper v3 valide.
+
+1. Dans la barre de menus, accédez à **Affichage** > **Palette de commandes**, puis entrez **Azure Policy for Kubernetes: Create Policy Definition from Constraint Template**.
+
+1. Sélectionnez la valeur _SourceType_ appropriée.
+
+1. Renseignez les parties `/* EDIT HERE */` du fichier JSON de définition de stratégie.
+
+Si l’extension génère le fichier JSON d’une définition de stratégie, elle ne crée pas la définition dans Azure. Après avoir rempli les champs appropriés, utilisez le fichier JSON de définition de stratégie terminé et le portail Azure ou un kit de développement logiciel (SDK) pris en charge pour créer la définition de stratégie dans votre environnement Azure.
 
 ### <a name="sign-out"></a>Se déconnecter
 

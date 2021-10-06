@@ -5,31 +5,34 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/14/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8ce558be7b1380fbe16ccdd4226744c3e3c5b222
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 7dca2a6354c19031c2b55b7a61d69273a06c6f49
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533133"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661257"
 ---
 # <a name="ltrim-azure-cosmos-db"></a>LTRIM (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Retourne une expression de chaîne après avoir supprimé les espaces de début.  
+ Retourne une expression de chaîne après suppression de l’espace de début ou les caractères spécifiés.   
   
 ## <a name="syntax"></a>Syntaxe
   
 ```sql
-LTRIM(<str_expr>)  
+LTRIM(<str_expr1>[, <str_expr2>])  
 ```  
   
 ## <a name="arguments"></a>Arguments
   
-*str_expr*  
-   Est une expression de chaîne.  
+*str_expr1*  
+   Est une expression de chaîne
+
+*str_expr2*  
+   Est une expression de chaîne facultative à tronquer de str_expr1. Si elle n’est pas définie, la valeur par défaut est un espace.
   
 ## <a name="return-types"></a>Types de retour
   
@@ -40,14 +43,28 @@ LTRIM(<str_expr>)
   L’exemple ci-après indique comment utiliser `LTRIM` dans une requête.  
   
 ```sql
-SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3 
+SELECT LTRIM("   abc") AS t1, 
+LTRIM("   abc   ") AS t2, 
+LTRIM("abc   ") AS t3, 
+LTRIM("abc") AS t4,
+LTRIM("abc", "ab") AS t5,
+LTRIM("abc", "abc") AS t6
 ```  
   
  Voici le jeu de résultats obtenu.  
   
 ```json
-[{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
-```  
+[
+    {
+        "t1": "abc",
+        "t2": "abc   ",
+        "t3": "abc   ",
+        "t4": "abc",
+        "t5": "c",
+        "t6": ""
+    }
+]
+``` 
 
 ## <a name="remarks"></a>Notes
 

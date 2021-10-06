@@ -3,25 +3,28 @@ title: Gérer les protocoles et les chiffrements dans Gestion des API Azure | Mi
 description: Découvrez comment gérer les protocoles (TLS) et les chiffrements (DES) dans Gestion des API Azure.
 services: api-management
 documentationcenter: ''
-author: mikebudzynski
+author: dlepow
 manager: cfowler
 editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
-ms.author: apimpm
-ms.openlocfilehash: 043a3d0b63dfc74f587b58b3c2ac42f1a084cc4a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/07/2021
+ms.author: danlep
+ms.openlocfilehash: 02442bf73d16486ce51b765e6922bbf434fb69f1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86250309"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609799"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Gérer les protocoles et les chiffrements dans Gestion des API Azure
 
-Gestion des API Azure prend en charge plusieurs versions du protocole TLS du côté client et du côté backend, ainsi que le chiffrement 3DES.
+La Gestion des API Azure prend en charge plusieurs versions du protocole TLS (Transport Layer Security) pour :
+* Côté client
+* Côté serveur principal
+* Chiffrement 3DES
 
 Ce guide vous montre comment gérer la configuration des protocoles et des chiffrements pour une instance Gestion des API Azure.
 
@@ -29,18 +32,20 @@ Ce guide vous montre comment gérer la configuration des protocoles et des chiff
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre les étapes décrites dans cet article, vous devez avoir :
-
-* Une instance Gestion des API
+* Une instance APIM. Si vous ne l’avez pas déjà fait, [créez-en un](get-started-create-service-instance.md).
 
 ## <a name="how-to-manage-tls-protocols-and-3des-cipher"></a>Comment gérer les protocoles TLS et le chiffrement 3DES
 
 1. Accédez à votre **instance Gestion des API** dans le portail Azure.
-2. Sélectionnez **Paramètres de protocole** dans le menu.  
-3. Activez ou désactivez les protocoles ou les chiffrements souhaités.
-4. Cliquez sur **Enregistrer**. Les modifications sont appliquées dans l’heure qui suit.  
+1. Faites défiler jusqu’à la section **Sécurité** dans le menu latéral.
+1. Sous la section Sécurité, sélectionnez **Protocoles + chiffrements**.  
+1. Activez ou désactivez les protocoles ou les chiffrements souhaités.
+1. Cliquez sur **Enregistrer**. Les modifications sont appliquées dans l’heure qui suit.  
+
+> [!NOTE]
+> Certains protocoles ou suites de chiffrement (par exemple, TLS côté serveur principal 1.2) ne peuvent pas être activés ou désactivés à partir du portail Azure. Au lieu de cela, vous devez appliquer l’appel REST. Utilisez la `properties.customProperties` structure de l’article [Créer/Mettre à jour l’API REST du service de Gestion des API](/rest/api/apimanagement/2020-06-01-preview/api-management-service/create-or-update#request-body).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez plus d’informations sur [TLS (Transport Layer Security)](/dotnet/framework/network-programming/tls).
+* Apprenez-en davantage sur [TLS](/dotnet/framework/network-programming/tls).
 * Découvrez plus de [vidéos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sur Gestion des API.

@@ -1,14 +1,14 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à la création de définitions de stratégie, aux divers kits de développement logiciel (SDK) et au module complémentaire pour Kubernetes.
-ms.date: 06/29/2021
+ms.date: 09/01/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 45c5b420ddd4eab70e381f31e7c46eeeb380b2b5
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 0ab4319a7a0d515b51c8bbe259ad0ea49ed2b940
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113087087"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433599"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Résolution des erreurs liées à Azure Policy
 
@@ -79,6 +79,7 @@ Pour résoudre les problèmes liés à votre définition de stratégie, procéde
 1. Pour une ressource non conforme alors qu’elle est censée l’être, consultez [Détermination des raisons de la non-conformité](../how-to/determine-non-compliance.md). La comparaison de la définition avec la valeur de propriété évaluée indique la raison pour laquelle une ressource n’est pas conforme.
    - Si la **valeur cible** est incorrecte, révisez la définition de la stratégie.
    - Si la **valeur actuelle** est incorrecte, validez la charge utile de la ressource par le biais de `resources.azure.com`.
+1. Pour une définition du [mode Fournisseur de ressources](../concepts/definition-structure.md#resource-provider-modes) qui prend en charge un paramètre de chaîne RegEx (comme `Microsoft.Kubernetes.Data` et la définition intégrée « les images de conteneur doivent être déployées uniquement à partir de registres approuvés »), vérifiez que le paramètre de [chaîne Regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) est correct.
 1. Pour d’autres problèmes et solutions courants, consultez [Résolution des problèmes : Mise en œuvre non conforme aux attentes](#scenario-enforcement-not-as-expected).
 
 Si vous rencontrez toujours un problème avec votre définition de stratégie intégrée dupliquée et personnalisée ou une définition personnalisée, créez un ticket de support sous **Création d’une stratégie** pour acheminer le problème correctement.
@@ -327,6 +328,26 @@ Cette erreur signifie que l’abonnement a été identifié comme problématique
 #### <a name="resolution"></a>Résolution
 
 Pour examiner et résoudre ce problème, [contactez l’équipe chargée des fonctionnalités](mailto:azuredg@microsoft.com).
+
+### <a name="scenario-definitions-in-category-guest-configuration-cannot-be-duplicated-from-azure-portal"></a>Scénario : les définitions de la catégorie « Configuration invitée » ne peuvent pas être dupliquées à partir du Portail Azure
+
+#### <a name="issue"></a>Problème
+
+Lorsque vous tentez de créer une définition de stratégie personnalisée à partir de la page Portail Azure pour les définitions de stratégie, vous sélectionnez le bouton « Dupliquer la définition ». Une fois la stratégie assignée, vous remarquerez que le statut des machines est _NonCompliant_ , car il n’existe aucune ressource d’attribution de configuration d’invité.
+
+#### <a name="cause"></a>Cause
+
+La configuration d’invité s’appuie sur les métadonnées personnalisées ajoutées aux définitions de stratégie lors de la création de ressources d’affectation de configuration invité. L’activité « Dupliquer la définition » dans le Portail Azure ne copie pas les métadonnées personnalisées.
+
+#### <a name="resolution"></a>Résolution
+
+Au lieu d’utiliser le portail, dupliquez la définition de stratégie à l’aide de l’API Policy Insights. L’exemple PowerShell suivant fournit une option.
+
+```powershell
+# duplicates the built-in policy which audits Windows machines for pending reboots
+$def = Get-AzPolicyDefinition -id '/providers/Microsoft.Authorization/policyDefinitions/4221adbc-5c0f-474f-88b7-037a99e6114c' | % Properties
+New-AzPolicyDefinition -name (new-guid).guid -DisplayName "$($def.DisplayName) (Copy)" -Description $def.Description -Metadata ($def.Metadata | convertto-json) -Parameter ($def.Parameters | convertto-json) -Policy ($def.PolicyRule | convertto-json -depth 15)
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

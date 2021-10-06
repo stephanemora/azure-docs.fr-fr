@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d95bfadd23e1a8e0d2db70952c81667d24dc4230
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: e8821d2c3390ddfd07c7230b20e27b46330e6229
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771021"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124816155"
 ---
 # <a name="achieve-nist-authenticator-assurance-level-3-by-using-azure-active-directory"></a>Atteindre le niveau d’assurance de l’authentificateur 3 NIST à l’aide d’Azure Active Directory
 
@@ -38,7 +38,7 @@ Microsoft propose des méthodes d’authentification qui vous permettent de rép
 | Clé de sécurité FIDO2<br>ou<br> Carte à puce (services de fédération Active Directory [AD FS])<br>ou<br>Windows Hello Entreprise avec module TPM matériel| Matériel de chiffrement multifacteur |
 | **Autres méthodes**|   |
 | Mot de passe<br> et<br>(Jointure hybride Azure AD avec module TPM matériel <br>ou <br> Jointure Azure AD avec module TPM matériel)| Secret mémorisé<br>et<br> Matériel de chiffrement monofacteur |
-| Mot de passe <br>et<br>(Matériel de mot de passe monofacteur à usage unique [par l’intermédiaire de fabricants de mots de passe à usage unique] <br>ou<br>Jonction hybride Azure AD avec module TPM logiciel <br>ou <br> Jonction Azure AD avec module TPM logiciel <br>ou<br> Appareil géré conforme)| Secret mémorisé <br>et<br>Matériel de mot de passe monofacteur à usage unique<br> et<br>Logiciel de chiffrement monofacteur |
+| Mot de passe <br>et<br>Matériel de mot de passe monofacteur à usage unique (provenant d’un fabricant spécialisé dans les mots de passe à usage unique) <br>et<br>(Jointure hybride Azure AD avec module TPM logiciel <br>ou <br> Jonction Azure AD avec module TPM logiciel <br>ou<br> Appareil géré conforme)| Secret mémorisé <br>et<br>Matériel de mot de passe monofacteur à usage unique<br> et<br>Logiciel de chiffrement monofacteur |
 
 ### <a name="our-recommendations"></a>Nos recommandations 
 

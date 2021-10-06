@@ -4,13 +4,13 @@ description: Découvrez comment utiliser les journaux d’activité Azure Monito
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurepowershell, references_regions
-ms.date: 08/02/2021
-ms.openlocfilehash: 0627cbb6c590178c5f393cfd519fb4a4504d050f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.date: 09/21/2021
+ms.openlocfilehash: c4fc351105c82213549fdb357d19b480c5a51ed4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525723"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648028"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Utiliser les journaux d’activité Azure Monitor pour superviser les clusters HDInsight
 
@@ -189,6 +189,8 @@ HDInsight prend en charge l’audit de cluster avec des journaux Azure Monitor e
 
 * Un espace de travail Log Analytics. Considérez cet espace de travail comme un environnement des journaux d’activité Azure Monitor avec son propre référentiel de données, et ses propres sources de données et solutions. Pour obtenir des instructions, consultez la rubrique [Créer un espace de travail Log Analytics](../azure-monitor/vm/monitor-virtual-machine.md).
 
+* Si vous prévoyez d’utiliser l’intégration d’Azure Monitor sur un cluster derrière un pare-feu, vous devez satisfaire aux [prérequis pour les clusters derrière un pare-feu](#oms-with-firewall).
+
 * Un cluster Azure HDInsight. Vous pouvez actuellement utiliser les journaux d’activité Azure Monitor avec les types de cluster HDInsight suivants :
 
   * Hadoop
@@ -285,6 +287,25 @@ Pour les désactiver, utilisez la commande [`az hdinsight monitor disable`](/cli
 ```azurecli
 az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
+## <a name=""></a><a name="oms-with-firewall">Prérequis pour les clusters derrière un pare-feu</a>
+
+Pour pouvoir configurer correctement l’intégration d’Azure Monitor à HDInsight derrière un pare-feu, certains clients peuvent avoir besoin d’activer les points de terminaison suivants :
+
+|Ressource de l'agent | Ports | Sens | Ignorer l’inspection HTTPS |
+|---|---|---|---|
+| \*.ods.opinsights.azure.com | Port 443 | Règle de trafic sortant | Oui |
+| \*.oms.opinsights.azure.com |Port 443 | Règle de trafic sortant | Oui |
+| \*.azure-automation.net | Port 443 | Règle de trafic sortant | Oui |
+
+Si vous avez des restrictions de sécurité liées à l’activation de points de terminaison de stockage génériques, il existe une autre option. Vous pouvez effectuer à la place les actions suivantes :
+
+1. Créer un compte de stockage dédié
+2. Configurer le compte de stockage dédié sur son espace de travail Log Analytics
+3. Activer ce compte de stockage dédié dans son pare-feu
+
+### <a name="data-collection-behind-a-firewall"></a>Collecte de données derrière un pare-feu
+Une fois la configuration effectuée, l’activation des points de terminaison nécessaires pour l’ingestion des données est importante. Il est recommandé d’activer le point de terminaison \*.blob.core.windows.net pour que l’ingestion des données réussisse.
+
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>Installer des solutions de gestion de clusters HDInsight
 
@@ -317,6 +338,24 @@ HDInsight prend en charge l’audit de cluster avec des journaux Azure Monitor e
 * `log_auth_CL` : cette table répertorie les journaux SSH contenant les réussites et les échecs des tentatives de connexion.
 * `log_ambari_audit_CL` : ce tableau répertorie les journaux d’audit d’Ambari.
 * `log_ranger_audti_CL` : ce tableau répertorie les journaux d’audit d’Apache Ranger sur des clusters ESP.
+
+---
+
+## <a name="update-the-log-analytics-oms-agent-used-by-hdinsight-azure-monitor-integration"></a>Mettre à jour l’agent Log Analytics (OMS) utilisé par l’intégration d’Azure Monitor à HDInsight
+
+Quand l’intégration d’Azure Monitor est activée sur un cluster, l’agent Log Analytics ou l’agent Operations Management Suite (OMS) est installé sur le cluster et n’est pas mis à jour, sauf si vous désactivez et que vous réactivez l’intégration d’Azure Monitor. Effectuez les étapes suivantes si vous devez mettre à jour l’agent OMS sur le cluster. Si vous êtes derrière un pare-feu, il peut être nécessaire de répondre aux [prérequis pour les clusters derrière un pare-feu](#oms-with-firewall) avant d’effectuer ces étapes.
+
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre cluster. Le cluster est ouvert dans une nouvelle page du portail.
+1. À gauche, sous **Supervision**, sélectionnez **Azure Monitor**.
+1. Prenez note du nom de votre espace de travail Log Analytics actuel.
+1. Dans la vue principale, sous **Intégration à Azure Monitor**, désactivez le commutateur, puis sélectionnez **Enregistrer**. 
+1. Une fois le paramètre enregistré, réactivez le commutateur **Intégration à Azure Monitor** et vérifiez que le même espace de travail Log Analytics est sélectionné, puis sélectionnez **Enregistrer**.
+
+Si vous avez Intégration à Azure Monitor activé sur un cluster, la mise à jour de l’agent OMS met également à jour la version d’Open Management Infrastructure (OMI). Vous pouvez vérifier la version d’OMI sur le cluster en exécutant la commande suivante : 
+
+```
+ sudo /opt/omi/bin/omiserver –version
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

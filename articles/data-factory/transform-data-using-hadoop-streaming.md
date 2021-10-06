@@ -1,31 +1,31 @@
 ---
 title: Transformer des données à l’aide d’une activité de streaming Hadoop
+description: Apprenez comment utiliser l'activité de diffusion en continu Hadoop dans les pipelines Azure Data Factory ou Synapse Analytics pour transformer des données en exécutant des programmes de diffusion en continu Hadoop sur un cluster Hadoop.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Explique comment utiliser l’activité de diffusion en continu Hadoop dans Azure Data Factory pour transformer des données en exécutant des programmes de diffusion en continu Hadoop sur un cluster Hadoop.
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/08/2020
-ms.openlocfilehash: 4285ee6ae7c5799fa8b65df6bf5adfa79861e3c0
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: b1767a38cb7661ab074ad579d22f0512e5994eac
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527634"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806013"
 ---
-# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
+# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory-or-synapse-analytics"></a>Transformer des données à l'aide d'une activité de diffuser en continu Hadoop dans Azure Data Factory ou Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Version actuelle](transform-data-using-hadoop-streaming.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L’activité de diffusion en continu HDInsight dans un [pipeline](concepts-pipelines-activities.md) Data Factory exécute des programmes de diffusion en continu Hadoop sur votre cluster HDInsight [propre](compute-linked-services.md#azure-hdinsight-linked-service) ou [à la demande](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Cet article s'appuie sur l'article [Activités de transformation des données](transform-data.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
+L'activité de diffusion en continu HDInsight dans un [pipeline](concepts-pipelines-activities.md) Azure Data Factory ou Synapse Analytics exécute des programmes de diffusion en continu Hadoop sur votre cluster HDInsight [propre](compute-linked-services.md#azure-hdinsight-linked-service) ou [à la demande](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Cet article s'appuie sur l'article [Activités de transformation des données](transform-data.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge.
 
-Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Factory](introduction.md) et suivez le [Didacticiel : Transformer des données](tutorial-transform-data-spark-powershell.md) avant de lire cet article. 
+Pour en savoir plus, avant de lire cet article, consultez l'introduction à [Azure Data Factory](introduction.md) ou [Synapse Analytics](../synapse-analytics/overview-what-is.md), puis suivez le [Didacticiel : Transformer des données](tutorial-transform-data-spark-powershell.md). 
 
 ## <a name="json-sample"></a>Exemple JSON
 ```json
@@ -73,7 +73,7 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 | name              | Nom de l’activité                     | Oui      |
 | description       | Texte décrivant la raison motivant l’activité. | Non       |
 | type              | Pour l’activité de diffusion en continu Hadoop, le type d’activité est HDInsightStreaming. | Oui      |
-| linkedServiceName | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
+| linkedServiceName | Référence au cluster HDInsight enregistré en tant que service lié. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | Oui      |
 | mappeur            | Spécifie le nom de l’exécutable du mappeur. | Oui      |
 | raccord de réduction           | Spécifie le nom de l’exécutable du raccord de réduction. | Oui      |
 | combinateur          | Spécifie le nom de l’exécutable du combinateur. | Non       |
@@ -94,5 +94,5 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité MapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
-* [Activité Batch Execution ML Studio (classique)](transform-data-using-machine-learning.md)
+* [Activité Batch Execution ML Studio (classique)](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)

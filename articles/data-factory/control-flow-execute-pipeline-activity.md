@@ -1,7 +1,7 @@
 ---
-title: Activité d’exécution du pipeline dans Azure Data Factory
+title: Activité d’exécution du pipeline
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment vous pouvez utiliser l’activité d’exécution de pipeline pour appeler un pipeline Data Factory à partir d’un autre pipeline Data Factory.
+description: Découvrez comment vous pouvez utiliser l’activité Execute Pipeline pour appeler un pipeline à partir d’un autre pipeline dans Azure Data Factory ou Synapse Analytics.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
@@ -9,21 +9,19 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.openlocfilehash: b46fbddb2a6446eaa711a8ba2c548fff634eee48
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 047548a39c16c5f6b6ee3f7d359a8664c87e7062
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641990"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128566593"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Activité d’exécution du pipeline dans Azure Data Factory
+# <a name="execute-pipeline-activity-in-azure-data-factory-and-synapse-analytics"></a>Activité Execute Pipeline dans Azure Data Factory et Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L’activité d’exécution du pipeline permet à un pipeline Data Factory d’appeler un autre pipeline.
-
-
+L’activité Execute Pipeline permet à un pipeline Data Factory ou Synapse d’appeler un autre pipeline.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -68,8 +66,8 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 name | Nom de l’activité d’exécution du pipeline. | String | Oui
 type | Doit avoir la valeur : **ExecutePipeline**. | String | Oui
 pipeline | Référence de pipeline au pipeline dépendant que pipeline appelle. Un objet de référence de pipeline comporte deux propriétés : **referenceName** et **type**. La propriété referenceName spécifie le nom du pipeline de référence. La propriété de type doit être définie sur PipelineReference. | PipelineReference | Oui
-parameters | Paramètres à passer au pipeline appelé | Objet JSON qui mappe des noms de paramètres à des valeurs d’arguments | No
-waitOnCompletion | Définit si l’exécution de l’activité attend l’exécution du pipeline dépendant. La valeur par défaut est false. | Boolean | Non
+parameters | Paramètres à passer au pipeline appelé | Objet JSON qui mappe des noms de paramètres à des valeurs d’arguments | Non
+waitOnCompletion | Définit si l’exécution de l’activité attend l’exécution du pipeline dépendant. La valeur par défaut est true. | Boolean | Non
 
 ## <a name="sample"></a>Exemple
 Ce scénario comporte deux pipelines :
@@ -256,7 +254,7 @@ Le pipeline master transfère ces valeurs au pipeline appelé comme indiqué dan
 
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
+Consultez d’autres activités de flux de contrôle prises en charge : 
 
 - [Pour chaque activité](control-flow-for-each-activity.md)
 - [Activité d’obtention des métadonnées](control-flow-get-metadata-activity.md)

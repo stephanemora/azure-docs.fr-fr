@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 323e6960a111d8227c14cf38046807ad6c1cada6
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: 2900eb3ddf1411b80920869932724f76a22c9802
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122262002"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123453390"
 ---
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
@@ -259,7 +259,7 @@ Si vous ne spécifiez pas de version, vous recevez une erreur accompagnée de la
 
 ### <a name="swagger"></a>Fichier Swagger
 
-Une définition Swagger complète pour IMDS est disponible à l’adresse https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md.
+Une définition Swagger complète pour IMDS est disponible à l’adresse https://github.com/Azure/azure-rest-api-specs/blob/main/specification/imds/data-plane/readme.md.
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
@@ -1007,7 +1007,7 @@ Le document décodé contient les champs suivants :
 | `timestamp.expiresOn` | Horodatage UTC d’expiration du document signé. | 2018-10-01
 | `vmId` | [Identificateur unique](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) de la machine virtuelle | 2018-10-01
 | `subscriptionId` | Abonnement Azure pour la machine virtuelle | 2019-04-30
-| `sku` | Référence (SKU) spécifique pour l’image de machine virtuelle | 2019-11-01
+| `sku` | Référence SKU spécifique pour l’image de machine virtuelle (correspond à la propriété `compute/sku` du point de terminaison Instance Metadata \[`/metadata/instance`\]) | 2019-11-01
 
 > [!NOTE]
 > Pour les machines virtuelles Classic (hors Azure Resource Manager), seul le remplissage de vmId est garanti.

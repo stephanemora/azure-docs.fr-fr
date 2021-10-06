@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment activer des alertes sur les métriques Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 7/28/2020
+ms.date: 9/15/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 55dcda4c323700caa030fb87768d36a702d1c501
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 6a5397a2387b7fb55b0e03664ddb9f52ec8baf59
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476751"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128642760"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Dépannage d’Azure Digital Twins : Alertes
 
@@ -28,15 +28,19 @@ Voici comment activer des alertes pour votre instance Azure Digital Twins :
 
 2. Sélectionnez **Alertes** dans le menu, puis **+ Nouvelle règle d’alerte**.
 
+   :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Capture d’écran du portail Azure montrant le bouton pour créer une règle d’alerte dans la section Alertes d’une instance Azure Digital Twins." lightbox="media/troubleshoot-alerts/alerts-pre.png":::
+
 3. Dans la page *Créer une règle d’alerte* qui suit, vous pouvez suivre les invites pour définir les conditions, les actions à déclencher et les détails de l’alerte.     
     * Les informations **Étendue** doivent être renseignées automatiquement avec les informations de votre instance
     * Vous allez définir les informations **Condition** et **Groupe d’actions** pour personnaliser les déclencheurs d’alerte et les réponses
-    * Dans la section **Détails de la règle d’alerte**, entrez un nom et une description (facultative) pour votre règle. Vous pouvez cocher la case _Activer la règle d’alerte lors de la création_ si vous souhaitez que l’alerte devienne active dès qu’elle est créée.
-        - C’est également là que vous sélectionnez un _groupe de ressources_ et un niveau de _gravité_.
+    * Dans la section **Détails de la règle d’alerte**, entrez un nom et une description (facultative) pour votre règle. 
+        - Vous pouvez cocher la case _Activer la règle d’alerte lors de la création_ si vous souhaitez que l’alerte devienne active dès qu’elle est créée.
+        - Vous pouvez cocher la case _Résoudre automatiquement les alertes_ si vous voulez résoudre l’alerte quand la condition n’est plus remplie.
+        - C’est également dans cette section que vous sélectionnez un _abonnement_, un _groupe de ressources_ et un niveau de _gravité_.
 
 4. Sélectionnez le bouton _Créer une règle d’alerte_ pour créer votre règle d’alerte.
 
-:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Capture d’écran du portail Azure montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, le groupe d’actions et les détails de la règle d’alerte" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+   :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Capture d’écran du portail Azure montrant la page Créer une règle d’alerte avec des sections pour l’étendue, la condition, le groupe d’actions et les détails de la règle d’alerte" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
 Pour une procédure pas à pas guidée de la saisie de ces champs, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Voici quelques exemples de ce à quoi ressemblera les étapes pour Azure Digital Twins.
 

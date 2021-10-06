@@ -11,12 +11,12 @@ ms.date: 11/16/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c150f4bf18f9c4f5b9215122a45df1de32f48c32
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: 9587c60cc37badc29a9a9f3ba80a77f6f193a3a9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113506238"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583042"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent-by-using-a-cli-and-powershell"></a>Installer l’agent de provisionnement Azure AD Connect à l’aide de l’interface CLI et de PowerShell
 Cet article vous montre comment installer l’agent de provisionnement Azure AD (Azure Active Directory) Connect à l’aide des applets de commande PowerShell.
@@ -35,12 +35,12 @@ Le protocole TLS 1.2 doit être activé sur le serveur Windows pour que vous pu
 
  1. Connectez-vous au portail Azure, puis accédez à **Azure Active Directory**.
  1. Dans le menu de gauche, sélectionnez **Azure AD Connect**.
- 1. Sélectionnez **Gérer le provisionnement (préversion)**  > **Passer en revue tous les agents**.
+ 1. Sélectionnez **Gérer le provisionnement** > **Passer en revue tous les agents**.
  1. Téléchargez l’agent de provisionnement Azure AD Connect à partir du portail Azure.
 
     ![Capture d’écran montrant le téléchargement de l’agent local.](media/how-to-install/install-9.png)</br>
 
- 1. Dans le cadre des instructions, l’agent a été téléchargé dans le dossier C:\ProvisioningSetup. 
+ 1. Dans le cadre de ces instructions, l’agent a été téléchargé dans le dossier C:\temp. 
  1. Installez ProvisioningAgent en mode silencieux.
 
        ```

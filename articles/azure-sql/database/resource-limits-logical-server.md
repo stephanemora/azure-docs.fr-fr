@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 09/28/2021
-ms.openlocfilehash: e9db19643252a94513be57c2cd3a18ee6038b742
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/01/2021
+ms.openlocfilehash: 67983b60457d652a1e4de71c6655f7eedae40542
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218165"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389757"
 ---
 # <a name="resource-management-in-azure-sql-database"></a>Gestion des ressources dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Pour connaître les limites de ressource spécifiques par niveau tarifaire (éga
 | :--- | :--- |
 | Bases de données par [serveur logique](logical-servers.md) | 5 000 |
 | Nombre par défaut de serveurs logiques par abonnement dans une région | 20 |
-| Nombre maximal de serveurs logiques par abonnement dans une région | 200 |
+| Nombre maximal de serveurs logiques par abonnement dans une région | 250 |
 | Quota DTU / eDTU par serveur logique | 54 000 |
 | Quota vCore par serveur logique | 540 |
 | Nombre maximal de pools élastiques par serveur logique | Limité par le nombre de DTU ou de vCores. Par exemple, si chaque pool contient 1 000 unités DTU, alors un serveur peut prendre en charge 54 pools.|

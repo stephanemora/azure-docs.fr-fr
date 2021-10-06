@@ -4,13 +4,13 @@ description: Utilisez des boucles et des tableaux dans un fichier Bicep pour dé
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 1b044b4ae3f5d73ad535d44153ea3d47023aeaaa
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/23/2021
+ms.openlocfilehash: adb05c5af042e0c9f54e925f82097a1721f40073
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225308"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662093"
 ---
 # <a name="resource-iteration-in-bicep"></a>Itération de ressource dans Bicep
 
@@ -19,6 +19,10 @@ Cet article explique comment créer plusieurs instances d’une ressource dans v
 Vous pouvez également utiliser une boucle avec les éléments [modules](loop-modules.md), [properties](loop-properties.md), [variables](loop-variables.md) et [outputs](loop-outputs.md).
 
 Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](conditional-resource-deployment.md).
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les boucles et pour obtenir des conseils pratiques, consultez [Créer des modèles Bicep flexibles en utilisant des conditions et des boucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) sur **Microsoft Learn**.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -56,7 +60,11 @@ Vous pouvez utiliser des boucles pour déclarer plusieurs ressources par :
 
 ## <a name="loop-limits"></a>Limites des boucles
 
-Les itérations de boucle du fichier Bicep ne peuvent pas avoir une valeur négative ni dépasser 800 itérations.
+La boucle Bicep présente les limitations suivantes :
+
+- Impossible de faire une boucle sur une ressource avec des ressources enfants imbriquées. Vous devez remplacer les ressources enfants par des ressources de niveau supérieur.  Voir [Itération d’une ressource enfant](#iteration-for-a-child-resource).
+- Impossible de faire une boucle sur plusieurs niveaux de propriétés. Voir [Itération de propriété dans Bicep](./loop-properties.md).
+- Le nombre d’itérations de boucle ne peut être ni négatif, ni supérieur à 800.
 
 ## <a name="loop-index"></a>Index de boucle
 

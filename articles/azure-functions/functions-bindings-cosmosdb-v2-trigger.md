@@ -3,15 +3,15 @@ title: Déclencheur Azure Cosmos DB pour Azure Functions 2.x et supérieur
 description: Apprenez à utiliser le déclencheur Azure Cosmos DB dans Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 09/01/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6f4e43efeb1882f52bd335d83a3660a94040ab8a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0bccf556f48cea52c4458ec6afc882c3c6035a71
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101729213"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635182"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Déclencheur Azure Cosmos DB pour Azure Functions 2.x et supérieur
 
@@ -49,6 +49,47 @@ namespace CosmosDBSamplesV2
             {
                 log.LogInformation($"Documents modified: {documents.Count}");
                 log.LogInformation($"First document Id: {documents[0].Id}");
+            }
+        }
+    }
+}
+```
+
+Les applications utilisant la [version d’extension 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) ou une version ultérieure de Cosmos DB auront des propriétés d’attribut différentes (présentées ci-dessous). Cet exemple fait référence à un type simple `ToDoItem`.
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
+
+```cs
+using System.Collections.Generic;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
+
+namespace CosmosDBSamplesV2
+{
+    public static class CosmosTrigger
+    {
+        [FunctionName("CosmosTrigger")]
+        public static void Run([CosmosDBTrigger(
+            databaseName: "databaseName",
+            containerName: "containerName",
+            Connection = "CosmosDBConnectionSetting",
+            LeaseContainerName = "leases",
+            CreateLeaseContainerIfNotExists = true)]IReadOnlyList<ToDoItem> input, ILogger log)
+        {
+            if (input != null && input.Count > 0)
+            {
+                log.LogInformation("Documents modified " + input.Count);
+                log.LogInformation("First document Id " + input[0].Id);
             }
         }
     }
@@ -217,7 +258,30 @@ Le constructeur de l’attribut accepte le nom de la base de données et le nom 
     }
 ```
 
-Pour un exemple complet, voir [Déclencheur](#example).
+Dans la [version d’extension 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), certains paramètres et certaines propriétés ont été supprimés ou renommés. Pour obtenir des informations détaillées sur ces changements, consultez [Déclencheur - configuration](#configuration). Voici un exemple d’attribut `CosmosDBTrigger` dans une signature de méthode. Il fait référence à un type simple `ToDoItem` :
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string Id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
+
+```csharp
+    [FunctionName("DocumentUpdates")]
+    public static void Run([CosmosDBTrigger("database", "container", Connection = "CosmosDBConnectionSetting")]
+        IReadOnlyList<ToDoItem> documents,  
+        ILogger log)
+    {
+        ...
+    }
+```
+
+Pour obtenir un exemple complet de l’une des versions d’extension, consultez [Déclencheur](#example).
 
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
@@ -250,21 +314,21 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**type** | n/a | Cette propriété doit être définie sur `cosmosDBTrigger`. |
 |**direction** | n/a | Cette propriété doit être définie sur `in`. Ce paramètre est défini automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a | Nom de variable utilisé dans le code de fonction, qui représente la liste des documents modifiés. |
-|**connectionStringSetting**|**ConnectionStringSetting** | Nom d’un paramètre d’application contenant la chaîne de connexion utilisée pour se connecter au compte Azure Cosmos DB surveillé. |
+|**connectionStringSetting** <br> ou <br> **connection**|**ConnectionStringSetting** <br> ou <br> **Connection**| Nom d’un paramètre d’application contenant la chaîne de connexion utilisée pour se connecter au compte Azure Cosmos DB surveillé. <br><br> Dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `Connection`. La valeur est le nom d’un paramètre d’application qui contient soit la chaîne de connexion utilisée pour se connecter au compte Azure Cosmos DB supervisé, soit une section de configuration ou un préfixe qui définit la connexion. Consultez [Connexions](./functions-reference.md#connections). |
 |**databaseName**|**DatabaseName**  | Nom de la base de données Azure Cosmos DB contenant la collection surveillée. |
-|**collectionName** |**CollectionName** | Nom de la collection surveillée. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Facultatif) Nom d’un paramètre d’application contenant la chaîne de connexion au compte Azure Cosmos DB contenant la collection de baux. S’il n’est pas défini, la valeur `connectionStringSetting` est utilisée. Ce paramètre est automatiquement défini lorsque la liaison est créée dans le portail. La chaîne de connexion de la collection de baux doit avoir des autorisations en écriture.|
+|**collectionName** <br> ou <br> **containerName** |**CollectionName** <br> ou <br> **ContainerName** | Nom de la collection surveillée. <br><br> Dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `ContainerName`. |
+|**leaseConnectionStringSetting** <br> ou <br> **leaseConnection** | **LeaseConnectionStringSetting** <br> ou <br> **LeaseConnection** | (Facultatif) Nom d’un paramètre d’application contenant la chaîne de connexion au compte Azure Cosmos DB contenant la collection de baux. S’il n’est pas défini, la valeur `connectionStringSetting` est utilisée. Ce paramètre est automatiquement défini lorsque la liaison est créée dans le portail. La chaîne de connexion de la collection de baux doit avoir des autorisations en écriture. <br><br> Dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `LeaseConnection`. Si elle n’est pas définie, elle utilise la valeur `Connection`. La valeur est le nom d’un paramètre d’application qui contient soit la chaîne de connexion utilisée pour se connecter au compte Azure Cosmos DB avec le conteneur de baux, soit une section de configuration ou un préfixe qui définit la connexion. Consultez [Connexions](./functions-reference.md#connections).|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Facultatif) Nom de la base de données contenant la collection utilisée pour stocker des baux. S’il n’est pas défini, la valeur du paramètre `databaseName` est utilisée. Ce paramètre est automatiquement défini lorsque la liaison est créée dans le portail. |
-|**leaseCollectionName** | **LeaseCollectionName** | (Facultatif) Nom de la collection utilisée pour stocker des baux. S’il n’est pas défini, la valeur `leases` est utilisée. |
-|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Facultatif) Lorsque la valeur est définie sur `true`, la collection de baux est créée automatiquement si elle n’existe pas. La valeur par défaut est `false`. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Facultatif) Définit le nombre d’unités de requête à attribuer lors de la création de la collection de baux. Ce paramètre est utilisé uniquement quand `createLeaseCollectionIfNotExists` est défini sur `true`. Ce paramètre est automatiquement défini lors de la création de la liaison à l’aide du portail.
-|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (Facultatif) Lorsque cette valeur est définie, elle est ajoutée en tant que préfixe aux baux créés dans la collection de baux pour cette fonction. L’utilisation d’un préfixe permet à deux Azure Functions distinctes de partager la même collection de baux en utilisant des préfixes différents.
+|**leaseCollectionName** <br> ou <br> **leaseContainerName** | **LeaseCollectionName** <br> ou <br> **LeaseContainerName** | (Facultatif) Nom de la collection utilisée pour stocker des baux. S’il n’est pas défini, la valeur `leases` est utilisée. <br><br> Dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `LeaseContainerName`. |
+|**createLeaseCollectionIfNotExists** <br> ou <br> **createLeaseContainerIfNotExists** | **CreateLeaseCollectionIfNotExists** <br> ou <br> **CreateLeaseContainerIfNotExists** | (Facultatif) Lorsque la valeur est définie sur `true`, la collection de baux est créée automatiquement si elle n’existe pas. La valeur par défaut est `false`. <br><br> Dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `CreateLeaseContainerIfNotExists`. |
+|**leasesCollectionThroughput** <br> ou <br> **leasesContainerThroughput**| **LeasesCollectionThroughput** <br> ou <br> **LeasesContainerThroughput**| (Facultatif) Définit le nombre d’unités de requête à attribuer lors de la création de la collection de baux. Ce paramètre est utilisé uniquement quand `createLeaseCollectionIfNotExists` est défini sur `true`. Ce paramètre est automatiquement défini lors de la création de la liaison à l’aide du portail. <br><br> Dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `LeasesContainerThroughput`. |
+|**leaseCollectionPrefix** <br> ou <br> **leaseContainerPrefix**| **LeaseCollectionPrefix** <br> ou <br> **leaseContainerPrefix** | (Facultatif) Lorsque cette valeur est définie, elle est ajoutée en tant que préfixe aux baux créés dans la collection de baux pour cette fonction. L’utilisation d’un préfixe permet à deux Azure Functions distinctes de partager la même collection de baux en utilisant des préfixes différents. <br><br> Dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `LeaseContainerPrefix`. |
 |**feedPollDelay**| **FeedPollDelay**| (Facultatif) Durée (en millisecondes) du délai s’écoulant entre le moment où toutes les modifications d’une partition sont purgées du flux et le moment où la partition est interrogée afin d’identifier de nouvelles modifications. La valeur par défaut est 5 000 millisecondes, soit 5 secondes.
 |**leaseAcquireInterval**| **LeaseAcquireInterval**| (Facultatif) Quand ce paramètre est défini, il spécifie, en millisecondes, l’intervalle pour déclencher une tâche afin de calculer si les partitions sont réparties uniformément parmi les instances d’hôte connues. La valeur par défaut est 13 000 (13 secondes).
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (Facultatif) Quand ce paramètre est défini, il spécifie, en millisecondes, l’intervalle selon lequel le bail est pris sur un bail représentant une partition. Si le bail n’est pas renouvelé dans cet intervalle, il expire et une autre instance devient propriétaire de la partition. La valeur par défaut est 60 000 (60 secondes).
 |**leaseRenewInterval**| **LeaseRenewInterval**| (Facultatif) Quand ce paramètre est défini, il spécifie, en millisecondes, l’intervalle de renouvellement de tous les baux pour les partitions actuellement détenues par une instance. La valeur par défaut est 17 000 (17 secondes).
-|**checkpointFrequency**| **CheckpointFrequency**| (Facultatif) Quand ce paramètre est défini, il spécifie, en millisecondes, l’intervalle entre les points de contrôle du bail. La valeur par défaut est toujours après chaque appel de fonction.
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Facultatif) Quand cette propriété est définie, elle détermine le nombrer maximal d’éléments reçus par appel de fonction. Si des opérations de la collection surveillée sont effectuées via des procédures stockées, l’[étendue de transaction](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) est conservée lors de la lecture d’éléments à partir du flux de modification. Par conséquent, le nombre d’éléments reçus pourrait être supérieur à la valeur spécifiée de sorte que les éléments modifiés par la même transaction soient retournés dans le cadre d’un même lot atomique.
+|**checkpointInterval**| **CheckpointInterval**| (Facultatif) Quand ce paramètre est défini, il spécifie, en millisecondes, l’intervalle entre les points de contrôle du bail. La valeur par défaut est toujours après chaque appel de fonction. <br><br> Cette propriété n’est pas disponible dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher). |
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Facultatif) Quand cette propriété est définie, elle détermine le nombrer maximal d’éléments reçus par appel de fonction. Si des opérations de la collection supervisée sont effectuées par le biais de procédures stockées, l’[étendue de transaction](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) est conservée lors de la lecture d’éléments à partir du flux de changement. Par conséquent, le nombre d’éléments reçus pourrait être supérieur à la valeur spécifiée de sorte que les éléments modifiés par la même transaction soient retournés dans le cadre d’un même lot atomique.
 |**startFromBeginning**| **StartFromBeginning**| (Facultatif) Cette option indique au déclencheur de lire les modifications à partir du début de l’historique de changement de la collection au lieu de commencer à l’heure actuelle. La lecture depuis le début fonctionne uniquement au premier démarrage du déclencheur car, lors des exécutions suivantes, les points de contrôle sont déjà stockés. La définition de cette option sur `true` quand des baux ont déjà été créés est sans effet. |
 |**preferredLocations**| **PreferredLocations**| (Facultatif) Définit les endroits par défaut (régions) des comptes de base de données géorépliqués dans le service Azure Cosmos DB. Les valeurs doivent être séparées par des virgules. Par exemple, « USA Est, USA Centre Sud, Europe Nord ». |
 

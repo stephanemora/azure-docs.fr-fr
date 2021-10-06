@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: db9b8b71ddbdccb2cdc4893ce7ea041304bafba9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 360a634104b7735a90cbae4b41eae9723b723e2e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124776611"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532628"
 ---
 # <a name="create-a-capacity-reservation-preview"></a>Créer une réservation de capacité (version préliminaire)
 
@@ -26,11 +26,6 @@ La création d’une réservation de capacité réussit ou échoue dans son int�
 > [!IMPORTANT]
 > La réservation de capacité est actuellement en version préliminaire publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-## <a name="register-for-capacity-reservation"></a>S’inscrire à la réservation de capacité 
-
-Avant de pouvoir utiliser la fonctionnalité Réservation de capacité, vous devez [inscrire votre abonnement pour la préversion](capacity-reservation-overview.md#register-for-capacity-reservation). L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour finaliser l’inscription de la fonctionnalité.
 
 
 ## <a name="considerations"></a>Considérations

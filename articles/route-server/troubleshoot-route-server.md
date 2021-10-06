@@ -5,21 +5,16 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 08/30/2021
+ms.date: 09/23/2021
 ms.author: duau
-ms.openlocfilehash: 96e71dbd8a03e66644f0dc754d448a345978d940
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: abece146cb2394046b7f46aa96ea70dc124cade0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123255661"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649054"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Résolution des problèmes liés à Azure Route Server
-
-> [!IMPORTANT]
-> Azure Route Server (préversion) est en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="connectivity-issues"></a>Problèmes de connectivité
 
@@ -31,7 +26,7 @@ Lorsque votre NVA publie l’itinéraire par défaut, Azure Route Server la pr
 | 0.0.0.0/0 | Internet |
 
 
-### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-go-down"></a>Pourquoi puis-je effectuer un test ping depuis ma NVA vers l’adresse IP de pair BGP sur Azure Route Server, alors qu’après avoir configuré le peering BGP entre eux, je ne peux plus effectuer de test ping vers la même adresse IP ? Pourquoi le peering BGP tombe-t-il en panne ?
+### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-or-why-is-the-bgp-peering-flapping"></a>Pourquoi puis-je effectuer un test ping depuis ma NVA vers l’adresse IP de pair BGP sur Azure Route Server, alors qu’après avoir configuré le peering BGP entre eux, je ne peux plus effectuer de test ping vers la même adresse IP ? Ou : pourquoi le peering BGP bagotte-t-il ?
 
 Dans certaines NVA, vous devez ajouter une route statique pour le sous-réseau d’Azure Route Server. Par exemple, si Azure Route Server est dans la plage 10.0.255.0/27 et que votre NVA se trouve dans la plage 10.0.1.0/24, vous devez ajouter la route suivante à la table de routage dans la NVA :
 
@@ -45,10 +40,6 @@ Dans certaines NVA, vous devez ajouter une route statique pour le sous-réseau d
 Lorsque vous déployez Azure Route Server sur un réseau virtuel, nous devons mettre à jour le plan de contrôle entre les passerelles et le réseau virtuel. Pendant cette mise à jour, les machines virtuelles du réseau virtuel perdront temporairement leur connectivité au réseau local. Nous vous recommandons vivement de planifier une maintenance pour déployer Azure Route Server dans votre environnement de production.  
 
 ## <a name="control-plane-issues"></a>Problèmes liés au plan de contrôle
-
-### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Pourquoi le peering BGP entre ma NVA et Azure Route Server est-il instable (« bagottement ») ?
-
-Le bagottement peut être dû au paramétrage du minuteur BGP. Par défaut, le minuteur Keep Alive sur Azure Route Server est défini sur 60 secondes et le minuteur de sauvegarde est de 180 secondes.
 
 ### <a name="why-does-my-on-premises-network-connected-to-azure-vpn-gateway-not-receive-the-default-route-advertised-by-azure-route-server"></a>Pourquoi mon réseau local connecté à une passerelle VPN Azure ne reçoit-il pas l’itinéraire par défaut publié par le Serveur de routes Azure ?
 

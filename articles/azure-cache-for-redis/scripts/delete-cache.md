@@ -1,20 +1,20 @@
 ---
 title: Supprimer une instance Azure Cache for Redis - Azure CLI
 description: Cet exemple de code Azure CLI montre comment supprimer une instance Azure Cache for Redis à l’aide de la commande az redis delete.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d3959c4843a070a8cd25885b2a3476a909caf24e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 93c929d03ef94561ce00479bddbdd2d71fc062ff
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128665793"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536335"
 ---
 # <a name="delete-an-azure-cache-for-redis"></a>Supprimer un Cache Azure pour Redis
 

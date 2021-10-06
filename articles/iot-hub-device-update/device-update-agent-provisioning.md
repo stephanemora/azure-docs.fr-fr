@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/16/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e0df727c93e5307e9b66ad5755c8218954a7ff7b
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: e65dc85dff7692f82118871ab93c628efe6cecf8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113552547"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661675"
 ---
 # <a name="device-update-agent-provisioning"></a>Approvisionnement de l’agent Device Update
 
@@ -185,7 +185,7 @@ L’agent Device Update peut également être configuré sans le service d’ide
        
     1. Vous devez voir une fenêtre ouverte avec du texte. Supprimez l’intégralité de la chaîne suivant « connection_String= » la première fois que vous approvisionnez l’agent Device Update sur l’appareil IoT. Il s’agit simplement d’un texte de remplacement.
     
-    1. Dans le terminal, remplacez <your-connection-string> par la chaîne de connexion de l’appareil pour votre instance de l’agent Device Update. Sélectionnez Entrée puis **Enregistrer.** Vous devriez obtenir un résultat semblable au suivant :
+    1. Dans le terminal, remplacez \<your-connection-string\> par la chaîne de connexion de l’appareil pour votre instance de l’agent Device Update. Sélectionnez Entrée puis **Enregistrer.** Vous devriez obtenir un résultat semblable au suivant :
     
         ```text
         connection_string=<ADD CONNECTION STRING HERE>

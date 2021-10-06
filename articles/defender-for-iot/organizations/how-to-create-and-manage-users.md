@@ -3,12 +3,12 @@ title: Créer et gérer des utilisateurs
 description: Créer et gérer des utilisateurs de capteurs et de la console de gestion locale. Les utilisateurs peuvent se voir attribuer le rôle d’administrateur, d’analyste de sécurité ou d’utilisateur en lecture seule.
 ms.date: 05/20/2021
 ms.topic: article
-ms.openlocfilehash: 256b97f08f687b444375135d0b809423b8a73796
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: fa10961218d536faf09a1f7062c8a8c77dc99ce4
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113017635"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434031"
 ---
 # <a name="about-defender-for-iot-console-users"></a>À propos des utilisateurs de la console Defender pour IoT
 
@@ -135,20 +135,24 @@ Pour désactiver la fonctionnalité, remplacez `infinity_session_expiration = tr
 
 Pour mettre à jour les périodes de déconnexion, réglez la valeur de `= <number>` selon la durée requise.
 
-## <a name="track-user-activity"></a>Suivre les activités des utilisateurs 
+## <a name="track-user-activity"></a>Suivre les activités des utilisateurs
 
 Vous pouvez suivre les activités des utilisateurs dans la chronologie des événements sur chaque capteur. La chronologie affiche l’événement ou l’appareil affecté, ainsi que l’heure et la date auxquelles l’utilisateur a effectué l’activité.
 
 **Pour consulter les activités des utilisateur** :
 
 1. Connectez-vous au capteur.
-1. Dans la chronologie des événements, activez l’option **Opérations sur l’utilisateur**. 
+
+1. Dans la chronologie des événements, activez l’option **Opérations sur l’utilisateur**.
 
     :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="Voir les activités d’un utilisateur.":::
 
-## <a name="integrate-with-active-directory-servers"></a>Intégration avec les serveurs Active Directory 
+## <a name="integrate-with-active-directory-servers"></a>Intégration avec les serveurs Active Directory
 
 Configurez le capteur ou la console de gestion locale pour qu’il fonctionne avec Active Directory. Ceci permet aux utilisateurs Active Directory d’accéder à Defender pour IoT à l’aide de leurs informations d’identification Active Directory.
+
+> [!Note]
+> LDAP v3 est pris en charge.
 
 Deux types d’authentifications LDAP sont pris en charge :
 
@@ -166,20 +170,20 @@ Vous pouvez associer les groupes Active Directory définis ici à des niveaux d�
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Consulter les paramètres de votre Active Directory":::.
 
-2. Dans le volet **Paramètres système**, sélectionnez **Active Directory**.
+1. Dans le volet **Paramètres système**, sélectionnez **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Modifiez vos configurations Active Directory.":::
 
-3. Dans la boîte de dialogue **Modifier la configuration Active Directory**, sélectionnez **Active Directory intégration activée** > **Enregistrer**. La boîte de dialogue **Modifier la configuration Active Directory** se développe et vous pouvez maintenant entrer les paramètres pour configurer Active Directory.
+1. Dans la boîte de dialogue **Modifier la configuration Active Directory**, sélectionnez **Active Directory intégration activée** > **Enregistrer**. La boîte de dialogue **Modifier la configuration Active Directory** se développe et vous pouvez maintenant entrer les paramètres pour configurer Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Entrer les paramètres pour configurer Active Directory.":::
 
-    > [!NOTE]
-    > - Vous devez définir les paramètres LDAP exactement tels qu’ils apparaissent dans Active Directory.
-    > - Pour tous les paramètres d’Active Directory, utilisez uniquement des minuscules. Utilisez des minuscules même lorsque les configurations d’Active Directory utilisent des majuscules.
-    > - Vous ne pouvez pas configurer à la fois LDAP et LDAP sécurisé pour le même domaine. Toutefois, vous pouvez utiliser les deux pour des domaines différents en même temps.
+> [!NOTE]
+> - Vous devez définir les paramètres LDAP exactement tels qu’ils apparaissent dans Active Directory.
+> - Pour tous les paramètres d’Active Directory, utilisez uniquement des minuscules. Utilisez des minuscules même lorsque les configurations d’Active Directory utilisent des majuscules.
+> - Vous ne pouvez pas configurer à la fois LDAP et LDAP sécurisé pour le même domaine. Toutefois, vous pouvez utiliser les deux pour des domaines différents en même temps.
 
-4. Définissez les paramètres du serveur Active Directory comme suit :
+1. Définissez les paramètres du serveur Active Directory comme suit :
 
    | Paramètre serveur | Description |
    |--|--|
@@ -195,7 +199,7 @@ Si vous créez des groupes Active Directory pour les utilisateurs de la console 
 
 1. Sélectionnez **Enregistrer**.
 
-2. Pour ajouter un serveur approuvé, sélectionnez **Ajouter un serveur** et configurez un autre serveur.
+1. Pour ajouter un serveur approuvé, sélectionnez **Ajouter un serveur** et configurez un autre serveur.
 
 ## <a name="change-a-users-password"></a>Changer le mot de passe d’un utilisateur
 

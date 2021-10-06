@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/14/2021
+ms.date: 09/04/2021
 ms.author: rolyon
-ms.openlocfilehash: 64f164c7d5e60e92e30986f8a39b34e92b1fdce4
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 19e9d6c76e30828b0aac0fba139963ff25ae2cba
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114202476"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542311"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transférer un abonnement Azure vers une autre instance Azure AD Directory
 
@@ -89,6 +89,8 @@ Plusieurs ressources Azure dépendent d’un abonnement ou d’un annuaire. Selo
 
 > [!WARNING]
 > Si vous utilisez le chiffrement au repos pour une ressource, comme un compte de stockage ou une base de données SQL, qui a une dépendance sur un coffre de clés qui n’est **pas** dans l’abonnement en cours de transfert, cela peut entraîner un scénario irrécupérable. Si vous rencontrez cette situation, vous devez prendre les mesures nécessaires pour utiliser un coffre de clés différent ou pour désactiver temporairement les clés gérées par le client afin d’éviter ce scénario irrécupérable.
+
+Pour obtenir la liste de certaines des ressources Azure qui sont affectées lorsque vous transférez un abonnement, vous pouvez également exécuter une requête dans [Azure Resource Graph](../governance/resource-graph/overview.md). Pour un exemple de requête, consultez [Lister les ressources impactées lors du transfert d’un abonnement Azure](../governance/resource-graph/samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription).
 
 ## <a name="prerequisites"></a>Prérequis
 

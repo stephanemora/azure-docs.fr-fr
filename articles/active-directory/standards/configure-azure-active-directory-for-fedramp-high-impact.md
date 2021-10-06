@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caef5e5430d3d6c4c4c3fea185a857a370c27ac7
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 20eafed03b9dd63bf6c59445d744d7a3c67c5614
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889967"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601745"
 ---
 # <a name="configure-azure-active-directory-to-meet-fedramp-high-impact-level"></a>Configurer Azure Active Directory pour atteindre un niveau d’impact FedRAMP High
 
@@ -54,11 +54,11 @@ La liste suivante répertorie les ressources FedRAMP :
 
 * [Offres de conformité Azure](https://aka.ms/azurecompliance)
 
-* [Vue d’ensemble de l’exemple de blueprint FedRAMP High](../../governance/blueprints/samples/fedramp-h/index.md)
+* [Définition d’initiative intégrée de la Stratégie Azure FedRAMP High](../../governance/policy/samples/fedramp-high.md)
 
-* [Centre de conformité Microsoft 365](///microsoft-365/compliance/microsoft-365-compliance-center)
+* [Centre de conformité Microsoft 365](/microsoft-365/compliance/microsoft-365-compliance-center)
 
-* [Gestionnaire de conformité Microsoft](///microsoft-365/compliance/compliance-manager)
+* [Gestionnaire de conformité Microsoft](/microsoft-365/compliance/compliance-manager)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

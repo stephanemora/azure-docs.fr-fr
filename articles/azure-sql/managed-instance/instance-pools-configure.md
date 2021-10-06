@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 09/05/2019
-ms.openlocfilehash: 60afa287a96425ec0a3aead7e5affa6e046b7cbd
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: a003370180471e02f4801bffd2477f0c50faa99d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689705"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676552"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Déployer Azure SQL Managed Instance dans un pool d’instances
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -26,20 +26,24 @@ Cet article explique en détail comment créer un [pool d’instances](instance-
 
 ## <a name="instance-pool-operations"></a>Opérations des pools d’instances
 
-Le tableau suivant présente les opérations disponibles liées aux pools d’instances et leur disponibilité dans le portail Azure et avec PowerShell.
+Le tableau suivant présente les opérations disponibles liées aux pools d’instances et leur disponibilité dans le portail Azure, PowerShell et Azure CLI.
 
-|Commande|Portail Azure|PowerShell|
-|:---|:---|:---|
-|Créer un pool d’instances|Non|Oui|
-|Mettre à jour un pool d’instances (nombre limité de propriétés)|Non |Oui |
-|Vérifier l’utilisation et les propriétés d’un pool d’instances|Non|Oui |
-|Supprimer un pool d’instances|Non|Oui|
-|Créer une instance managée à l’intérieur d’un pool d’instances|Non|Oui|
-|Mettre à jour l’utilisation des ressources pour une instance managée|Oui |Oui|
-|Vérifier l’utilisation et les propriétés d’une instance managée|Oui|Oui|
-|Supprimer une instance managée du pool|Oui|Oui|
-|Créer une base de données dans l’instance dans le pool|Oui|Oui|
-|Supprimer une base de données de SQL Managed Instance|Oui|Oui|
+|Commande|Portail Azure|PowerShell|Azure CLI|
+|:---|:---|:---|:---|
+|Créer un pool d’instances|Non|Oui|Oui|
+|Mettre à jour un pool d’instances (nombre limité de propriétés)|Non |Oui | Oui|
+|Vérifier l’utilisation et les propriétés d’un pool d’instances|Non|Oui | Oui |
+|Supprimer un pool d’instances|Non|Oui|Oui|
+|Créer une instance managée à l’intérieur d’un pool d’instances|Non|Oui|Non|
+|Mettre à jour l’utilisation des ressources pour une instance managée|Oui |Oui|Non|
+|Vérifier l’utilisation et les propriétés d’une instance managée|Oui|Oui|Non|
+|Supprimer une instance managée du pool|Oui|Oui|Non|
+|Créer une base de données dans l’instance dans le pool|Oui|Oui|Non|
+|Supprimer une base de données de SQL Managed Instance|Oui|Oui|Non|
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Pour utiliser PowerShell, [installez la dernière version de PowerShell Core](/powershell/scripting/install/installing-powershell#powershell) et suivez les instructions pour [installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 
 [Commandes PowerShell](/powershell/module/az.sql/) disponibles :
 
@@ -51,10 +55,24 @@ Le tableau suivant présente les opérations disponibles liées aux pools d’in
 |[Remove-AzSqlInstancePool](/powershell/module/az.sql/remove-azsqlinstancepool/) | Supprime un pool d’instances dans SQL Managed Instance. |
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Retourne des informations sur l’utilisation d’un pool SQL Managed Instance. |
 
-
-Pour utiliser PowerShell, [installez la dernière version de PowerShell Core](/powershell/scripting/install/installing-powershell#powershell) et suivez les instructions pour [installer le module Azure PowerShell](/powershell/azure/install-az-ps).
-
 Pour les opérations liées aux instances à la fois dans les pools et les instances uniques, utilisez les [commandes de l’instance managée](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances) standard, mais la propriété de *nom du pool d’instances* doit être remplie lors de l’utilisation de ces commandes pour une instance d’un pool.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Préparez votre environnement pour l’interface Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Commandes [Azure CLI](/cli/azure/sql) disponibles :
+
+|Applet de commande |Description |
+|:---|:---|
+|[az sql instance-pool create](/cli/azure/sql/instance-pool#az_sql_instance_pool_create) | Crée un pool SQL Managed Instance. |
+|[az sql instance-pool show](/cli/azure/sql/instance-pool#az_sql_instance_pool_show) | Retourne des informations sur un pool d’instances. |
+|[az sql instance-pool update](/cli/azure/sql/instance-pool#az_sql_instance_pool_update) | Définit ou met à jour les propriétés d’un pool d’instances dans SQL Managed Instance. |
+|[az sql instance-pool delete](/cli/azure/sql/instance-pool#az_sql_instance_pool_delete) | Supprime un pool d’instances dans SQL Managed Instance. |
+
+---
 
 ## <a name="deployment-process"></a>Processus de déploiement
 
@@ -85,6 +103,8 @@ Les restrictions suivantes s’appliquent aux pools d’instances :
 > [!IMPORTANT]
 > Le déploiement d’un pool d’instances est une opération longue qui prend environ 4,5 heures.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
 Pour obtenir les paramètres du réseau :
 
 ```powershell
@@ -105,6 +125,37 @@ $instancePool = New-AzSqlInstancePool `
   -ComputeGeneration "Gen5" `
   -Location "westeurope"
 ```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour récupérer les paramètres de réseau virtuel :
+
+```azurecli
+az network vnet show --resource-group MyResourceGroup --name miPoolVirtualNetwork
+```
+
+Pour récupérer les paramètres de sous-réseau virtuel :
+
+```azurecli
+az network vnet subnet show --resource group MyResourceGroup --name miPoolSubnet --vnet-name miPoolVirtualNetwork
+```
+
+Pour créer un pool d’instances :
+
+```azurecli
+az sql instance-pool create
+    --license-type LicenseIncluded 
+    --location westeurope
+    --name mi-pool-name
+    --capacity 8
+    --tier GeneralPurpose
+    --family Gen5 
+    --resrouce-group myResourceGroup
+    --subnet miPoolSubnet
+    --vnet-name miPoolVirtualNetwork
+```
+
+---
 
 > [!IMPORTANT]
 > Étant donné que le déploiement d’un pool d’instances est une opération de longue durée, vous devez attendre qu’elle se termine avant de passer aux étapes suivantes de cet article.

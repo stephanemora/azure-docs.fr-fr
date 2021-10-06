@@ -2,23 +2,27 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 08/12/2021
+ms.date: 08/26/2021
 ms.author: larryfr
-ms.openlocfilehash: c2ad7408f00d8abf4cb5afdbdba44af5e0779380
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: e8f3a2b9fbca1a0b0756a4e1ec2e98212d4f0399
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122603965"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128633966"
 ---
-Lors de l’utilisation de l’__instance de calcul__ ou du __cluster de calcul__ d’Azure Machine Learning, autorisez le trafic entrant à partir de la Azure Batch et des services Azure Machine Learning. Lors de la création d’itinéraires définis par l’utilisateur pour ce trafic, vous pouvez utiliser soit les **adresses IP** soit les **balises de service** pour définir l’itinéraire de ce trafic.
+Lors de l’utilisation de l’__instance de calcul__ (avec une adresse IP publique) ou du __cluster de calcul__ d’Azure Machine Learning, autorisez le trafic entrant à partir de la gestion Azure Batch et des services Azure Machine Learning. L’instance de calcul sans adresse IP publique (préversion) ne nécessite pas cette communication entrante. Un groupe de sécurité réseau qui autorise ce trafic est créé dynamiquement pour vous, mais vous devrez peut-être également créer des itinéraires définis par l’utilisateur (UDR) si vous avez un pare-feu. Lors de la création d’un UDR pour ce trafic, vous pouvez utiliser des **adresses IP** ou des **étiquettes de service** pour router ce trafic.
 
 > [!IMPORTANT]
-> L’utilisation de balises de service avec des itinéraires définis par l’utilisateur est actuellement en version préliminaire et peut ne pas être entièrement prise en charge. Pour plus d’informations, consultez [Virtual network routing (routage de réseau virtuel)](/azure/virtual-network/virtual-networks-udr-overview#service-tags-for-user-defined-routes-preview).
+> L’utilisation de balises de service avec des itinéraires définis par l’utilisateur est actuellement en version préliminaire et peut ne pas être entièrement prise en charge. Pour plus d’informations, consultez [Virtual network routing (routage de réseau virtuel)](../articles/virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes-preview).
+
+> [!TIP]
+> Bien qu’une instance de calcul sans adresse IP publique (fonctionnalité en préversion) n’ait pas besoin d’UDR pour ce trafic entrant, vous en aurez toujours besoin si vous utilisez également un cluster de calcul ou une instance de calcul avec une adresse IP publique.
+
 
 # <a name="ip-address-routes"></a>[Itinéraires d’adresses IP](#tab/ipaddress)
 
-Pour le service Azure Machine Learning, vous devez ajouter l’adresse IP pour les régions Azure __primaire__ et __secondaire__. Pour trouver la région secondaire, consultez [Assurer la continuité des activités et la récupération d’urgence à l’aide des régions jumelées Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs). Par exemple, si votre service Azure Machine Learning se trouve dans la région USA Est 2, la région secondaire correspond à USA Centre. 
+Pour le service Azure Machine Learning, vous devez ajouter l’adresse IP pour les régions Azure __primaire__ et __secondaire__. Pour trouver la région secondaire, consultez [Assurer la continuité des activités et la récupération d’urgence à l’aide des régions jumelées Azure](../articles/best-practices-availability-paired-regions.md#azure-regional-pairs). Par exemple, si votre service Azure Machine Learning se trouve dans la région USA Est 2, la région secondaire correspond à USA Centre. 
 
 Pour obtenir la liste des adresses IP du service Batch et du service Azure Machine Learning, utilisez l’une des méthodes suivantes :
 

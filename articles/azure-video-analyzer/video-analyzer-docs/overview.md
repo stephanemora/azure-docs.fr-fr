@@ -3,12 +3,12 @@ title: Qu’est-ce qu’Azure Video Analyzer
 description: Cette rubrique fournit une vue d’ensemble d’Azure Video Analyzer
 ms.topic: overview
 ms.date: 06/01/2021
-ms.openlocfilehash: 4cf2ba0bb9d5388eb6017fd0717929a3f5410a7d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 25f289a26743e92f6c904149e296ba6699fcf8b2
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128646913"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389099"
 ---
 # <a name="what-is-azure-video-analyzer-preview"></a>Qu’est-ce qu’Azure Video Analyzer ? (préversion)
  
@@ -22,7 +22,7 @@ Les solutions IoT qui combinent l’analytique vidéo avec des signaux d’autre
 
 Avec Video Analyzer, vous pouvez continuer à utiliser vos [caméras de télésurveillance](https://en.wikipedia.org/wiki/Closed-circuit_television_camera) avec vos [systèmes de gestion vidéo](https://en.wikipedia.org/wiki/Video_management_system) existants et créer des applications d’analytique vidéo de manière indépendante. Vous pouvez utiliser Video Analyzer avec les kits de ressources et les SDK Vision par ordinateur pour créer des solutions IoT de pointe. Le diagramme ci-dessous illustre ceci.
 
-![Développer des solutions IoT avec Video Analyzer](./media/overview/product-diagram.svg)
+![Développer des solutions IoT avec Video Analyzer](./media/overview/product-diagram.png)
 
 ### <a name="concepts"></a>Concepts
 

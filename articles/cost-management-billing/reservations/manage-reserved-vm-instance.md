@@ -4,16 +4,16 @@ description: Découvrez comment gérer les réservations Azure. Consultez les é
 ms.service: cost-management-billing
 ms.subservice: reservations
 author: bandersmsft
-ms.reviewer: yashesvi
+ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: cee0acf851d82ba09867b8d66c09a17b21e7af45
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: cbfe1aae48f09330a025861a82cfd8caaa878e41
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112989054"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621884"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
@@ -53,6 +53,8 @@ Si vous passez de l’étendue partagée à une étendue unique, vous ne pouvez 
 
 L’étendue s’applique uniquement aux abonnements individuels MS-AZR-0003P ou MS-AZR-0023P de l’offre avec paiement à l’utilisation, MS-AZR-0017P ou MS-AZR-0148P de l’offre Entreprise ou CSP.
 
+Si tous les abonnements sont déplacés d’un groupe d’administration, l’étendue de la réservation est automatiquement remplacée par la valeur Partagée.
+
 ## <a name="who-can-manage-a-reservation-by-default"></a>Qui peut gérer une réservation par défaut
 
 Par défaut, les utilisateurs suivants peuvent voir et gérer des réservations :
@@ -62,7 +64,7 @@ Par défaut, les utilisateurs suivants peuvent voir et gérer des réservations�
 
 Pour permettre à d’autres personnes de gérer des réservations, vous avez le choix entre deux options :
 
-- Déléguez la gestion de l’accès pour un ordre de réservation individuel en affectant le rôle propriétaire à un utilisateur au niveau de l’étendue des ressources de l’ordre de réservation. Si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.  
+- Déléguer la gestion de l’accès pour un ordre de réservation individuel en attribuant le rôle Propriétaire à un utilisateur au niveau de l’étendue des ressources de l’ordre de réservation. Si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.  
      Pour connaître les étapes détaillées, consultez [Attribuer des rôles Azure à l’aide du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 - Ajouter un utilisateur en tant qu’administrateur de facturation à un Contrat Entreprise ou à un Contrat client Microsoft :

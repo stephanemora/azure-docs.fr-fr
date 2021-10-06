@@ -1,14 +1,14 @@
 ---
-title: Connectez-vous à vos machines virtuelles Windows dans Azure DevTest Labs
+title: Se connecter à vos machines virtuelles Windows
 description: Découvrez comment vous connecter à votre machine virtuelle Windows dans le lab (Azure DevTest Labs)
 ms.topic: how-to
 ms.date: 07/17/2020
-ms.openlocfilehash: e1e786daa396548030976159d1b150caa4b24396
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8fe7b93ce7aa2cf5521bd53393b086e221e84d2c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86540571"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588007"
 ---
 # <a name="connect-to-a-windows-vm-in-your-lab-azure-devtest-labs"></a>Se connecter à une machine virtuelle Windows dans votre lab (Azure DevTest Labs)
 Cet article vous explique comment vous connecter à une machine virtuelle Windows dans votre lab. 

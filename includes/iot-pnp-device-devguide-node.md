@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-develop
 ms.topic: include
 ms.date: 11/19/2020
-ms.openlocfilehash: ec395bfaf8b4d2bba235b1ce99c909b5cb81c51b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: f5763606d289c679ea9d1883e97ab30b47368ac8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122397992"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580490"
 ---
 ## <a name="model-id-announcement"></a>Annonce de l’ID de modèle
 
@@ -40,11 +40,11 @@ Les appareils qui utilisent [Device Provisioning Service (DPS)](../articles/iot-
 
 ## <a name="use-components"></a>Utiliser des composants
 
-Comme le décrit la section [Présentation des composants dans les modèles IoT Plug-and-Play](../articles/iot-develop/concepts-modeling-guide.md), les générateurs d’appareils doivent décider s’ils souhaitent utiliser des composants pour décrire leurs appareils, Lors de l’utilisation de composants, les appareils doivent suivre les règles décrites dans les sections suivantes.
+Comme le décrit la section [Présentation des composants dans les modèles IoT Plug-and-Play](../articles/iot-develop/concepts-modeling-guide.md), les générateurs d’appareils doivent décider s’ils souhaitent utiliser des composants pour décrire leurs appareils, Lors de l’utilisation des composants, les appareils devront suivre les règles décrites dans les sections suivantes.
 
 ## <a name="telemetry"></a>Télémétrie
 
-Aucun composant par défaut ne nécessite une propriété spéciale.
+Un composant par défaut ne nécessite aucune propriété spéciale ajoutée au message de télémétrie.
 
 Lorsque vous utilisez des composants imbriqués, les appareils doivent définir une propriété de message avec le nom du composant :
 
@@ -92,7 +92,7 @@ Le jumeau d’appareil est mis à jour avec la propriété rapportée suivante 
 }
 ```
 
-Lorsque vous utilisez des composants imbriqués, les propriétés doivent être créées dans le nom du composant :
+Quand vous utilisez des composants imbriqués, les propriétés doivent être créées au sein du nom du composant et inclure un marqueur :
 
 ```nodejs
 helperCreateReportedPropertiesPatch = (propertiesToReport, componentName) => {
@@ -134,6 +134,8 @@ Le jumeau d’appareil est mis à jour avec la propriété rapportée suivante 
 ## <a name="writable-properties"></a>Propriétés accessibles en écriture
 
 Ces propriétés peuvent être définies par l’appareil ou mises à jour par la solution. Si la solution met à jour une propriété, le client reçoit une notification sous la forme d’un rappel dans `Client` ou `ModuleClient`. Pour respecter les conventions IoT Plug-and-Play, l’appareil doit informer le service que la propriété a bien été reçue.
+
+Si le type de propriété est `Object`, le service doit envoyer un objet complet à l’appareil même s’il ne met à jour qu’un sous-ensemble des champs de l’objet. L’accusé de réception que l’appareil envoie doit également être un objet complet.
 
 ### <a name="report-a-writable-property"></a>Signalement d’une propriété accessible en écriture
 
@@ -210,7 +212,7 @@ Le jumeau d’appareil est mis à jour avec la propriété rapportée suivante 
 
 ### <a name="subscribe-to-desired-property-updates"></a>Abonnement aux mises à jour de propriétés souhaitées
 
-Les services peuvent mettre à jour les propriétés souhaitées qui déclenchent une notification sur les appareils connectés. Cette notification inclut les propriétés souhaitées mises à jour, y compris le numéro de version identifiant la mise à jour. Les appareils doivent répondre avec le même message `ack` que les propriétés rapportées.
+Les services peuvent mettre à jour les propriétés souhaitées qui déclenchent une notification sur les appareils connectés. Cette notification inclut les propriétés souhaitées mises à jour, y compris le numéro de version identifiant la mise à jour. Les appareils doivent inclure ce numéro de version dans le message `ack` renvoyé au service.
 
 Un composant par défaut considère la propriété unique et crée la propriété `ack` rapportée avec la version reçue :
 
@@ -241,7 +243,7 @@ desiredPropertyPatchHandler = (deviceTwin) => {
 };
 ```
 
-Le jumeau d’appareil montre la propriété dans les sections desired et reported :
+Le jumeau d’appareil d’un composant imbriqué montre les sections desired et reported de la façon suivante :
 
 ```json
 {

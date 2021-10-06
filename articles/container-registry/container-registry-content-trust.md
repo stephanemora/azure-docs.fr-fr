@@ -2,14 +2,14 @@
 title: Gérer des images signées
 description: Découvrez comment activer l’approbation de contenu pour votre registre de conteneurs Azure et comment envoyer (push) ou extraire (pull) des images signées. L’approbation de contenu implémente l’approbation de contenu de Docker et est une fonctionnalité du niveau de service Premium.
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 07/26/2021
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: ddaded0ff733ea717a48bfe2bcaac4a84e102ad8
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: e6f4eb302d2ac5f6fc711e438a48a064efef0d27
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112983614"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123450950"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
@@ -76,6 +76,9 @@ Seuls les utilisateurs ou les systèmes qui disposent des autorisations requises
 > Vous ne pouvez pas accorder d’autorisation d’envoi (push) d’images approuvées aux comptes d’administration suivants : 
 > * le [compte administrateur](container-registry-authentication.md#admin-account) d’un registre de conteneurs Azure ;
 > * un compte d’utilisateur dans Azure Active Directory avec le [rôle d’administrateur système classique](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+
+> [!NOTE]
+> À partir de juillet 2021, le rôle `AcrImageSigner` comprend à la fois l’action         `Microsoft.ContainerRegistry/registries/sign/write` et l’action de données `Microsoft.ContainerRegistry/registries/trustedCollections/write`.
 
 Les procédures détaillées d’octroi du rôle `AcrImageSigner` dans le Portail Azure et dans l’interface de ligne de commande Azure (Azure CLI) sont décrites ci-après.
 

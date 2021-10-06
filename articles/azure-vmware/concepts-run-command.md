@@ -1,26 +1,26 @@
 ---
-title: Concepts - Commandes Exécuter dans Azure VMware Solution
+title: Concepts - Commande Exécuter dans Azure VMware Solution (préversion)
 description: En savoir plus sur l’utilisation des commandes Exécuter dans Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 08/31/2021
-ms.openlocfilehash: 28cbf76dd035ce9b04909a61e3001063aa151162
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/17/2021
+ms.openlocfilehash: a4121f8479b22eb1c0666a1e7d7a23ece4fb3d20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310678"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668846"
 ---
-# <a name="run-commands-in-azure-vmware-solution"></a>Commandes Exécuter dans Azure VMware Solution
+# <a name="run-command-in-azure-vmware-solution-preview"></a>Commande Exécuter dans Azure VMware Solution (préversion)
 
-Dans Azure VMware Solution, vous obtiendrez un accès à vCenter avec le rôle CloudAdmin. Vous pouvez [afficher les privilèges accordés](concepts-identity.md#view-the-vcenter-privileges) au rôle CloudAdmin d’Azure VMware Solution sur votre instance vCenter de cloud privé Azure VMware Solution. Les commandes Exécuter sont une collection de cmdlets PowerShell pour laquelle vous effectuez certaines opérations sur vCenter, ce qui nécessite des privilèges élevés. 
+Dans Azure VMware Solution, vCenter a un utilisateur local intégré nommé *cloudadmin* titulaire du rôle CloudAdmin. Le rôle CloudAdmin dispose de [privilèges](concepts-identity.md#view-the-vcenter-privileges) vCenter qui diffèrent de ceux d’autres solutions cloud et déploiements locaux VMware. La fonctionnalité Commande Exécuter (préversion) vous permet d’effectuer des opérations qui nécessiteraient normalement des privilèges élevés à l’aide d’une collection d’applets de commande PowerShell. 
 
 Azure VMware Solution prend en charge les opérations suivantes :
 
-- [Installer et désinstaller la solution de récupération d’urgence JetStream](deploy-disaster-recovery-using-jetstream.md)
-
 - [Configurer une source d’identité externe](configure-identity-source-vcenter.md)
 
-- [Afficher et modifier la stratégie de stockage](configure-storage-policy.md) 
+- [Afficher et définir des stratégies de stockage](configure-storage-policy.md) 
+
+- [Déployer la reprise d’activité avec JetStream](deploy-disaster-recovery-using-jetstream.md)
 
 
 >[!NOTE]
@@ -28,37 +28,37 @@ Azure VMware Solution prend en charge les opérations suivantes :
 
 ## <a name="view-the-status-of-an-execution"></a>Afficher l’état d'une exécution
 
-Vous pouvez afficher l’état des commandes Exécuter exécutées, notamment la sortie, les erreurs, les avertissements et les informations.
+Vous pouvez afficher l’état de toute commande Exécuter exécutée, notamment la sortie, les erreurs, les avertissements et les journaux d’informations des applets de commande.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Sélectionnez **Commande Exécuter** > **État de l’exécution de Exécuter**.
 
-   Vous pouvez trier sur le nom de l’exécution, le nom du package, la version du package, le nom de la commande, l’heure de début, l’heure de fin et l’état.  
+   Vous pouvez trier les différentes colonnes en sélectionnant la colonne.  
 
    :::image type="content" source="media/run-command/run-execution-status.png" alt-text="Capture d’écran montrant l’onglet État de l’exécution de Exécuter." lightbox="media/run-command/run-execution-status.png":::
 
-1. Sélectionnez l’exécution que vous souhaitez afficher.
+1. Sélectionnez l’exécution que vous souhaitez afficher. Un volet s’ouvre avec des détails sur l’exécution et d’autres onglets pour les différents types de sortie générés par l’applet de commande.
 
    :::image type="content" source="media/run-command/run-execution-status-example.png" alt-text="Capture d’écran montrant un exemple d’exécution de Exécuter.":::
 
    Vous pouvez afficher plus de détails sur l’exécution, notamment la sortie, les erreurs, les avertissements et les informations.
 
-   - **Détails** : résumé des détails de l’exécution, tels que le nom, l’état, le package et le nom de la commande exécutée. 
+   - **Détails** : synthèse des détails de l’exécution, tels que le nom, l’état, le package, le nom de l’applet de commande et l’erreur (en cas d’échec de la commande). 
 
-   - **Sortie** : message à la fin de l’exécution réussie d’une cmdlet. Toutes les cmdlets n’ont pas de sortie.
+   - **Sortie** : messages générés par l’applet de commande. Peut inclure la progression ou le résultat de l’opération. Toutes les cmdlets n’ont pas de sortie.
 
       :::image type="content" source="media/run-command/run-execution-status-example-output.png" alt-text="Capture d’écran montrant la sortie d’une exécution Exécuter.":::
 
-   - **Erreur** : exception de fin d’exécution qui a arrêté l’exécution d’une cmdlet.    
+   - **Erreur** : messages d’erreur générés lors de l’exécution de l’applet de commande. Cela s’ajoute au message d’erreur de fin dans le volet d’informations.    
 
       :::image type="content" source="media/run-command/run-execution-status-example-error.png" alt-text="Capture d’écran montrant les erreurs détectées lors de l’exécution d’une exécution.":::
 
-   - **Avertissement** : une exception sans fin d’exécution s’est produite lors de l’exécution d’une cmdlet. 
+   - **Avertissement** : messages d’avertissement générés lors de l’exécution. 
 
       :::image type="content" source="media/run-command/run-execution-status-example-warning.png" alt-text="Capture d’écran montrant les avertissements détectés lors de l’exécution d’une exécution.":::
 
-   - **Informations** : message de progression pendant l’exécution d’une cmdlet. 
+   - **Informations** : messages de progression et de diagnostic générés lors de l’exécution d’une applet de commande. 
 
       :::image type="content" source="media/run-command/run-execution-status-example-information.png" alt-text="Capture d’écran montrant la progression en temps réel globale de la cmdlet lors de son exécution.":::
 
@@ -70,7 +70,9 @@ Vous pouvez afficher l’état des commandes Exécuter exécutées, notamment la
 
 ### <a name="method-1"></a>Méthode 1
 
->[!NOTE]
+Cette méthode tente d’annuler l’exécution, puis la supprime lors de l’achèvement.
+
+>[!IMPORTANT]
 >La méthode 1 est irréversible.
 
 1. Sélectionnez **Commande Exécuter** > **État de l’exécution de Exécuter** puis sélectionnez le travail que vous souhaitez annuler.
@@ -97,8 +99,8 @@ Vous pouvez afficher l’état des commandes Exécuter exécutées, notamment la
 
 Maintenant que vous avez découvert les concepts de la commande Exécuter, vous pouvez utiliser la fonctionnalité de commande Exécuter pour :
 
-- [Configurer une stratégie de stockage](configure-storage-policy.md) : au moins une stratégie de stockage de machine virtuelle est associée à chaque machine virtuelle déployée sur un magasin de données vSAN. Vous pouvez attribuer une stratégie de stockage de machine virtuelle dans un déploiement initial de machine virtuelle ou lorsque vous effectuez d’autres opérations de machine virtuelle, telles que le clonage ou la migration.
+- [Configurer une stratégie de stockage](configure-storage-policy.md) : une stratégie de stockage de vSAN est associée à chaque machine virtuelle déployée sur un magasin de données vSAN. Vous pouvez attribuer une stratégie de stockage vSAN lors d’un déploiement initial de machine virtuelle ou lorsque vous effectuez d’autres opérations de machine virtuelle, telles que le clonage ou la migration.
 
-- [Configurer une source d’identité externe pour vCenter](configure-identity-source-vcenter.md) : vCenter a un utilisateur local intégré appelé cloudadmin et affecté au rôle CloudAdmin. L’utilisateur local cloudadmin est utilisé pour configurer des utilisateurs dans Active Directory (AD). La fonctionnalité de commande Exécuter vous permet de configurer Active Directory via LDAP ou LDAP sécurisé pour vCenter en tant que source d’identité externe.
+- [Configurer une source d’identité externe pour vCenter (commande Exécuter)](configure-identity-source-vcenter.md) : configurez Active Directory sur LDAP ou LDAPS pour vCenter, ce qui permet l’utilisation d’une source d’identité externe comme Active Directory. Vous pouvez ensuite ajouter des groupes à partir de la source d’identité externe au rôle CloudAdmin.
 
 - [Déployer la récupération d’urgence à l’aide de JetStream](deploy-disaster-recovery-using-jetstream.md) : stockez les données directement sur un cluster de récupération dans vSAN. Les données sont capturées via des filtres d’E/S qui s’exécutent dans vSphere. Le magasin de données sous-jacent peut être VMFS, VSAN, vVol ou n’importe quelle plateforme HCI. 

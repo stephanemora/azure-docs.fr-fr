@@ -3,14 +3,14 @@ title: Activer des pilotes CSI (Container Storage interface) sur Azure Kubernete
 description: Découvrez comment activer des pilotes CSI (Container Storage interface) pour des disques Azure et Azure Files dans un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 08/31/2021
 author: palma21
-ms.openlocfilehash: 7aad80816a7bf8f6a1c55c8a4f1de1d4761fc523
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7fe0aa073cf1ecb959bc7999ba59a2486c65b7e1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524501"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123429007"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks"></a>Activer des pilotes CSI (Container Storage interface) pour des disques Azure et Azure Files sur Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,9 @@ La prise en charge du pilote de stockage CSI sur AKS vous permet d’utiliser en
 
 > [!IMPORTANT]
 > À partir de Kubernetes version 1.21, Kubernetes utilise les pilotes CSI uniquement et par défaut. Ces pilotes représentent l’avenir de la prise en charge du stockage dans Kubernetes.
->
+> 
+> Veuillez supprimer le disque Azure Open source installé manuellement et les pilotes CSI du fichier Azure avant de procéder à la mise à niveau vers AKS 1.21.
+> 
 > Les *pilotes dans l’arborescence* font référence aux pilotes de stockage actuels, qui font partie du code Kubernetes principal, par opposition aux nouveaux pilotes CSI, qui sont des plug-ins.
 
 ## <a name="limitations"></a>Limites

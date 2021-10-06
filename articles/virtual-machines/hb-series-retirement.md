@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 08/02/2021
 ms.author: amverma
-ms.openlocfilehash: 8a718f315324638f834316eb6dae46a9497ec48e
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 2d14b9b3adb9905cc87408db33018746e1479a1b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122528023"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128680088"
 ---
 # <a name="migrate-your-hb-series-virtual-machines-by-august-31-2024"></a>Migrer vos machines virtuelles de la série HB jusqu’au 31 août 2024
 Comme Microsoft Azure a introduit des machines virtuelles de la série HBv2 et HBv3 pour le calcul haute performance (HPC), nous vous recommandons de migrer les charges de travail des machines virtuelles de la série HB d’origine vers nos offres plus récentes.  
@@ -37,7 +37,7 @@ Les machines virtuelles de la[série HB](hb-series.md) ne seront pas retirées a
 
 ### <a name="recommendations-for-workload-migration-from-hb-series-virtual-machines"></a>Recommandations pour la Migration de la charge de travail à partir des Machines virtuelles de la série HB 
 
-| Taille actuelle de machine virtuelle | Taille cible de machine virtuelle | Différence dans la spécification  |
+| Taille actuelle de machine virtuelle | Taille de machine virtuelle cible | Différence dans la spécification  |
 |---|---|---|
 |Standard_HB60rs |Standard_HB120rs_v2 <br> Standard_HB120rs_v3 <br> Standard_HB120-64rs_v3 |PROCESSEUR plus récent : AMD Rome et MiIan (+ 20-30 % IPC) <br> Mémoire : jusqu’à 2 fois plus de RAM  <br> Bande passante de la mémoire : jusqu’à 30 % de bande passante de mémoire supplémentaire <br> InfiniBand : 200 Go en HDR (bande passante deux fois supérieure) <br> Disques de données max. : jusqu’à 32 (+ 8x) |
 |Standard_HB60-45rs |Standard_HB120-96rs_v3 <br> Standard_HB120-64rs_v3 <br> Standard_HB120-32rs_v3 |PROCESSEUR plus récent : AMD Rome et MiIan (+ 20-30 % IPC) <br> Mémoire : jusqu’à 2 fois plus de RAM  <br>  Bande passante de la mémoire : jusqu’à 30 % de bande passante de mémoire supplémentaire <br> InfiniBand : 200 Go en HDR (bande passante deux fois supérieure) <br> Disques de données max. : jusqu’à 32 (+ 8x) |
@@ -57,4 +57,4 @@ Suivez ce guide pour [demander une augmentation du quota de processeurs virtuels
 
 
 ### <a name="resize-the-current-virtual-machine"></a>Redimensionner la machine virtuelle actuelle
-Vous pouvez [redimensionner la machine virtuelle à l’aide de PowerShell](./windows/resize-vm.md), de l’interface [Azure CLI](./linux/change-vm-size.md) ou du portail Azure.
+Vous pouvez [redimensionner la machine virtuelle](resize-vm.md).

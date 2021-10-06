@@ -1,25 +1,25 @@
 ---
 title: Clusters dédiés pour les journaux Azure Monitor
-description: Les clients qui ingèrent plus de 1 To de données d’analyse peuvent utiliser des clusters dédiés plutôt que des clusters partagés.
+description: Les clients qui remplissent le niveau d’engagement minimal peuvent utiliser des clusters dédiés
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: yossi-y
+ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 447836fa8a7468b9bf2a76fdfd81c899f7105ed0
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 3aafeacbd07e386a23b289db0452a7425e18f567
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187772"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632611"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clusters dédiés pour les journaux Azure Monitor
 
 Les Clusters dédiés pour les journaux Azure Monitor sont une option de déploiement qui permet de bénéficier de fonctionnalités avancées pour les clients des journaux Azure Monitor. Les clients peuvent sélectionner les espaces de travail Log Analytics qui doivent être hébergés sur des clusters dédiés.
 
-Les clusters dédiés exigent des clients qu’ils s’engagent à utiliser une capacité d’au moins 1 To d’ingestion des données par jour. Vous pouvez migrer un espace de travail existant vers un cluster dédié sans perte de données ni interruption de service. 
+Les clusters dédiés exigent des clients qu’ils s’engagent à utiliser une capacité d’au moins 500 Go d’ingestion des données par jour. Vous pouvez migrer un espace de travail existant vers un cluster dédié sans perte de données ni interruption de service. 
 
-Les fonctionnalités qui nécessitent des clusters dédiés sont les suivantes :
+Fonctionnalités nécessitant des clusters dédiés :
 
 - **[Clés gérées par le client](../logs/customer-managed-keys.md)**  : chiffrez les données du cluster à l’aide de clés fournies et contrôlées par le client.
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)**  : contrôlez les demandes d’accès à vos données par les ingénieurs du support technique Microsoft.
@@ -30,18 +30,16 @@ Les fonctionnalités qui nécessitent des clusters dédiés sont les suivantes 
 
 ## <a name="management"></a>Gestion 
 
-Les clusters dédiés sont gérés avec une ressource Azure qui représente les clusters de journaux Azure Monitor. Toutes les opérations sont effectuées sur cette ressource à l’aide de PowerShell ou de l’API REST.
+Les clusters dédiés sont gérés avec une ressource Azure qui représente les clusters de journaux Azure Monitor. Les opérations sont effectuées par programme à l’aide de l'[interface CLI](/cli/azure/monitor/log-analytics/cluster?view=azure-cli-latest), de [PowerShell](/powershell/module/az.operationalinsights) ou de [REST](/rest/api/loganalytics/clusters).
 
-Une fois le cluster créé, vous pouvez le configurer et des espaces de travail peuvent lui être associés. Lorsqu’un espace de travail est lié à un cluster, les nouvelles données envoyées à l’espace de travail résident sur le cluster. Seuls les espaces de travail qui se trouvent dans la même région que le cluster peuvent être liés à celui-ci. Les espaces de travail peuvent être dissociés d’un cluster avec certaines limitations. Cet article contient plus de détails sur ces limitations. 
-
-Les données ingérées dans les clusters dédiés sont chiffrées deux fois : une fois au niveau du service à l’aide de clés gérées par Microsoft ou d’[une clé gérée par le client](../logs/customer-managed-keys.md), et une fois au niveau de l’infrastructure à l’aide de deux algorithmes de chiffrement différents et de deux clés différentes. Le [double chiffrement](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) permet d’éviter un scénario impliquant une possible compromission d’un algorithme ou d’une clé de chiffrement. Dans ce cas, la couche de chiffrement supplémentaire continue de protéger vos données. Le cluster dédié vous permet également de protéger vos données à l’aide du contrôle [Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview).
+Une fois qu’un cluster est créé, les espaces de travail peuvent y être liés et de nouvelles données ingérées sont stockées sur le cluster. Les espaces de travail peuvent être dissociés d’un cluster à tout moment et les nouvelles données sont stockées dans des clusters Log Analytics partagés. L’opération d’association et de dissociation n’affecte pas vos requêtes et l’accès aux données avant et après l’opération avec l’objet de rétention dans les espaces de travail. Le cluster et les espaces de travail doivent se trouver dans la même région pour permettre la liaison.
 
 Toutes les opérations au niveau du cluster requièrent l’autorisation de l’action `Microsoft.OperationalInsights/clusters/write` sur le cluster. Cette autorisation peut être accordée via le propriétaire ou le contributeur qui contient l’action `*/write` ou via le rôle Contributeur Log Analytics qui contient l’action `Microsoft.OperationalInsights/*`. Pour plus d’informations sur les autorisations de Log Analytics, consultez [Gérer l’accès aux données de journal et aux espaces de travail dans Azure Monitor](./manage-access.md). 
 
 
 ## <a name="cluster-pricing-model"></a>Modèle de tarification des clusters
 
-Les clusters dédiés Log Analytics utilisent un modèle de tarification de niveau d’engagement d’au moins 500 Go/jour. Toute utilisation au-delà du niveau de la couche sera facturée à un taux effectif par Go de ce niveau d’engagement.  Les informations sur la tarification par niveau d’engagement sont disponibles sur la [page de tarification Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
+Les clusters dédiés Log Analytics utilisent un modèle de tarification de niveau d’engagement (anciennement appelé réservations de capacité) d’au moins 500 Go/jour. Toute utilisation au-delà du niveau de la couche sera facturée à un taux effectif par Go de ce niveau d’engagement. Les informations sur la tarification par niveau d’engagement sont disponibles sur la [page de tarification Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
 Le niveau d’engagement du cluster est configuré par programmation avec Azure Resource Manager à l’aide du paramètre `Capacity` sous `Sku`. La valeur de `Capacity` est spécifiée en unités de Go et peut avoir les valeurs suivantes : 500, 1 000, 2 000 ou 5 000 Go/jour.
 
@@ -74,26 +72,27 @@ Authorization: Bearer <token>
 
 Lorsque vous créez un cluster dédié, vous devez spécifier les propriétés suivantes :
 
-- **ClusterName** : Utilisée à des fins d’administration. Les utilisateurs ne sont pas exposés à ce nom.
-- **ResourceGroupName** : groupe de ressources pour le cluster dédié. Vous devez utiliser un groupe central de ressources informatiques, car les clusters sont généralement partagés par de nombreuses équipes dans l’organisation. Pour plus d’informations sur les considérations de conception, consultez [Conception de votre déploiement de journaux Azure Monitor](../logs/design-logs-deployment.md).
-- **Emplacement** : Un cluster se trouve dans une région Azure spécifique. Seuls les espaces de travail situés dans cette région peuvent être liés à ce cluster.
-- **SkuCapacity** : vous devez spécifier le niveau d’engagement (SKU) lors de la création d’une ressource de cluster. Le niveau d’engagement peut être défini sur 500, 1 000, 2 000 ou 5 000 Go/jour. Pour plus d’informations sur les coûts des clusters, consultez [Gérer les coûts des clusters Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
- 
+- **Nom du cluster**
+- **ResourceGroupName**: vous devez utiliser un groupe de ressources informatiques central, car les clusters sont généralement partagés par de nombreuses équipes au sein de l’organisation. Pour plus d’informations sur les considérations de conception, consultez [Conception de votre déploiement de journaux Azure Monitor](../logs/design-logs-deployment.md).
+- **Lieu**
+- **SkuCapacity**: le niveau d’engagement (anciennement appelé réservations de capacité) peut être défini sur 500, 1000, 2000 ou 5000 Go/jour. Pour plus d’informations sur les coûts des clusters, consultez [Gérer les coûts des clusters Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
 
-> [!NOTE]
-> Les niveaux d’engagement étaient précédemment appelés réservations de capacité. 
+Le compte d'utilisateur qui crée les clusters doit disposer de l'autorisation standard de création de ressources Azure `Microsoft.Resources/deployments/*` et de l'autorisation d'écriture de cluster `Microsoft.OperationalInsights/clusters/write` en ayant dans ses attributions de rôle une action spécifique, `Microsoft.OperationalInsights/*` ou `*/write`.
 
 Après avoir créé votre ressource de cluster, vous pouvez modifier des propriétés supplémentaires telles que *SKU*, *keyVaultProperties ou *billingType*. Pour plus d’informations, voir ci-dessous.
 
 Vous pouvez disposer de 2 clusters actifs par abonnement et par région. Si le cluster est supprimé, il reste réservé pendant 14 jours. Vous pouvez disposer de 4 clusters réservés (actifs ou récemment supprimés) par abonnement et par région.
 
-> [!WARNING]
-> La création du cluster déclenche l’allocation et l’approvisionnement de la ressource. L’exécution de cette opération peut prendre quelques heures. Il est recommandé de l’exécuter de manière asynchrone.
-
-Le compte d'utilisateur qui crée les clusters doit disposer de l'autorisation standard de création de ressources Azure `Microsoft.Resources/deployments/*` et de l'autorisation d'écriture de cluster `Microsoft.OperationalInsights/clusters/write` en ayant dans ses attributions de rôle une action spécifique, `Microsoft.OperationalInsights/*` ou `*/write`.
+> [!NOTE]
+> La création du cluster déclenche l’allocation et l’approvisionnement de la ressource. L’exécution de cette opération peut prendre quelques heures.
+> Le cluster dédié est facturé une fois configuré indépendamment de l’ingestion des données, et il est recommandé de préparer le déploiement pour envoyer le lien d’approvisionnement et d’espaces de travail vers le cluster. Vérifiez les éléments suivants :
+> - Une liste d’espaces de travail initiaux à lier au cluster est identifiée
+> - Vous disposez des autorisations pour l’abonnement destiné au cluster et de tout espace de travail à lier
 
 **INTERFACE DE LIGNE DE COMMANDE**
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster create --no-wait --resource-group "resource-group-name" --name "cluster-name" --location "region-name" --sku-capacity "daily-ingestion-gigabyte"
 
 # Wait for job completion
@@ -103,6 +102,8 @@ az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/r
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" -AsJob
 
 # Check when the job is done
@@ -144,12 +145,16 @@ L’approvisionnement du cluster Log Analytics prend un certain temps. Utilisez 
 **INTERFACE DE LIGNE DE COMMANDE**
 
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster show --resource-group "resource-group-name" --name "cluster-name"
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
 ```
  
@@ -224,8 +229,12 @@ Utilisez les commandes suivantes pour associer un espace de travail à un cluste
 
 **INTERFACE DE LIGNE DE COMMANDE**
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 # Find cluster resource ID
 $clusterResourceId = az monitor log-analytics cluster list --resource-group "resource-group-name" --query "[?contains(name, "cluster-name")]" --query [].id --output table
+
+Set-AzContext -SubscriptionId "workspace-subscription-id"
 
 az monitor log-analytics workspace linked-service create --no-wait --name cluster --resource-group "resource-group-name" --workspace-name "workspace-name" --write-access-resource-id $clusterResourceId
 
@@ -236,8 +245,12 @@ az resource wait --created --ids /subscriptions/subscription-id/resourceGroups/r
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 # Find cluster resource ID
 $clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name").id
+
+Select-AzSubscription "workspace-subscription-id"
 
 # Link the workspace to the cluster
 Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
@@ -279,12 +292,16 @@ Lorsqu’un cluster est configuré avec des clés gérées par le client, les do
 
 **INTERFACE DE LIGNE DE COMMANDE**
 ```azurecli
+Set-AzContext -SubscriptionId "workspace-subscription-id"
+
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "workspace-subscription-id"
+
 Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
@@ -334,7 +351,7 @@ Authorization: Bearer <token>
 
 ## <a name="change-cluster-properties"></a>Modifier les propriétés du cluster
 
-Une fois que vous avez créé votre ressource de cluster et qu’elle est entièrement approvisionnée, vous pouvez modifier des propriétés supplémentaires à l’aide de PowerShell ou de l’API REST. Les propriétés supplémentaires qui peuvent être définies après l’approvisionnement du cluster sont les suivantes :
+Une fois que vous avez créé votre ressource de cluster et qu’elle est entièrement approvisionnée, vous pouvez modifier des propriétés supplémentaires à l’aide de l’interface CLI, de PowerShell ou de l’API REST. Les propriétés supplémentaires qui peuvent être définies après l’approvisionnement du cluster sont les suivantes :
 
 - **keyVaultProperties** : contient la clé dans Azure Key Vault avec les paramètres suivants : *KeyVaultUri*, *KeyName*, *KeyVersion*. Consultez [Mettre à jour le cluster avec les détails de l’identificateur de clé](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details).
 - **Identité** : identité servant pour l’authentification auprès de votre coffre de clés. Elle peut avoir été attribuée par le système ou par l’utilisateur.
@@ -354,12 +371,16 @@ Une fois que vous avez créé votre ressource de cluster et qu’elle est entiè
 **INTERFACE DE LIGNE DE COMMANDE**
 
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 ```
 
@@ -418,12 +439,16 @@ Authorization: Bearer <token>
 **INTERFACE DE LIGNE DE COMMANDE**
 
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster list
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Get-AzOperationalInsightsCluster
 ```
 **REST API**
@@ -449,12 +474,16 @@ La même que pour « clusters dans un groupe de ressources », mais dans l’ét
 **INTERFACE DE LIGNE DE COMMANDE**
 
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster update --resource-group "resource-group-name" --name "cluster-name"  --sku-capacity 500
 ```
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
@@ -512,12 +541,16 @@ Utilisez les commandes suivantes pour dissocier un espace de travail d’un clus
 **INTERFACE DE LIGNE DE COMMANDE**
 
 ```azurecli
+Set-AzContext -SubscriptionId "workspace-subscription-id"
+
 az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "workspace-subscription-id"
+
 # Unlink a workspace from cluster
 Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" -WorkspaceName {workspace-name} -LinkedServiceName cluster
 ```
@@ -542,12 +575,16 @@ Utilisez les commandes suivantes pour supprimer un cluster :
 
 **INTERFACE DE LIGNE DE COMMANDE**
 ```azurecli
+Set-AzContext -SubscriptionId "cluster-subscription-id"
+
 az monitor log-analytics cluster delete --resource-group "resource-group-name" --name $clusterName
 ```
 
 **PowerShell**
 
 ```powershell
+Select-AzSubscription "cluster-subscription-id"
+
 Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
 ```
 

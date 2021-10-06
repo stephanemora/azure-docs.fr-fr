@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: e02ac9d6abd3358218f268fb3da1e99b90fac7c5
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 9f095bbadf8f395b809d46c8beea5f6665932d12
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568079"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357909"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des références Key Vault dans une application ASP.NET Core
 
@@ -203,7 +203,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
 
 La configuration de Azure App n’accède pas à votre coffre de clés. Votre application lira directement à partir de Key Vault. vous devez donc accorder à votre application un accès en lecture aux secrets de votre coffre de clés. De cette façon, le secret reste toujours avec votre application. L’accès peut être accordé à l’aide d’une [stratégie d’accès Key Vault](../key-vault/general/assign-access-policy-portal.md) ou d’un [contrôle d’accès en fonction du rôle Azure](../key-vault/general/rbac-guide.md).
 
-Vous utilisez `DefaultAzureCredential` dans votre code ci-dessus. Il s’agit d’une information d’identification de jeton agrégé qui tente automatiquement un certain nombre de types d’informations d’identification, comme `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential` et `VisualStudioCredential`. Pour plus d’informations, consultez [classe DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Vous pouvez remplacer `DefaultAzureCredential` explicitement par tout type d’informations d’identification. Toutefois, l’utilisation de `DefaultAzureCredential` vous permet d’avoir le même code qui s’exécute dans les environnements locaux et Azure. Par exemple, vous accordez votre propre accès aux informations d’identification à votre coffre de clés. `DefaultAzureCredential`revient automatiquement à `SharedTokenCacheCredential` ou `VisualStudioCredential` lorsque vous utilisez Visual Studio pour le développement local.
+Vous utilisez `DefaultAzureCredential` dans votre code ci-dessus. Il s’agit d’une information d’identification de jeton agrégé qui tente automatiquement un certain nombre de types d’informations d’identification, comme `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential` et `VisualStudioCredential`. Pour plus d’informations, consultez [classe DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). Vous pouvez remplacer `DefaultAzureCredential` explicitement par tout type d’informations d’identification. Toutefois, l’utilisation de `DefaultAzureCredential` vous permet d’avoir le même code qui s’exécute dans les environnements locaux et Azure. Par exemple, vous accordez votre propre accès aux informations d’identification à votre coffre de clés. `DefaultAzureCredential`revient automatiquement à `SharedTokenCacheCredential` ou `VisualStudioCredential` lorsque vous utilisez Visual Studio pour le développement local.
 
 Vous pouvez également définir les variables d’environnement AZURE_TENANT_ID, AZURE_CLIENT_ID et AZURE_CLIENT_SECRET, et `DefaultAzureCredential` utilisera la clé secrète client que vous avez via l'`EnvironmentCredential` pour vous authentifier auprès de votre coffre de clés. Une fois votre application déployée sur un service Azure avec une identité gérée activée, par exemple Azure App Service, Azure Kubernetes service ou Azure Container instance, vous accordez à l’identité gérée de l’autorisation de service Azure l’autorisation d’accéder à votre coffre de clés. `DefaultAzureCredential` utilise automatiquement `ManagedIdentityCredential` lorsque votre application s’exécute dans Azure. Vous pouvez utiliser la même identité gérée pour vous authentifier avec la configuration de l’application et Key Vault. Pour plus d’informations, consultez [comment utiliser des identités gérées pour accéder à la configuration des applications](howto-integrate-azure-managed-service-identity.md).
 

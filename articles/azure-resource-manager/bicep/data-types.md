@@ -2,13 +2,13 @@
 title: Types de données dans Bicep
 description: Décrit les types de données disponibles dans Bicep
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: f520e314aff783a78e1656c16721f0fb8504215b
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/22/2021
+ms.openlocfilehash: 936f17273a95ceb77030497b27f7f73defc37896
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123221698"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624395"
 ---
 # <a name="data-types-in-bicep"></a>Types de données dans Bicep
 
@@ -49,7 +49,7 @@ var mixedArray = [
 ]
 ```
 
-Dans Bicep, les tableaux sont de base 0. Dans l’exemple suivant, l’expression `exampleArray[0]` prend la valeur 1 et l’expression `exampleArray[2]` prend la valeur 3. L’index de l’indexeur peut lui-même être une autre expression. L’expression `exampleArray[index]` prend la valeur 2. Les indexeurs d’entier sont autorisés uniquement sur une expression de type tableau.
+Dans Bicep, les tableaux sont de base zéro. Dans l’exemple suivant, l’expression `exampleArray[0]` prend la valeur 1 et l’expression `exampleArray[2]` prend la valeur 3. L’index de l’indexeur peut lui-même être une autre expression. L’expression `exampleArray[index]` prend la valeur 2. Les indexeurs d’entier sont autorisés uniquement sur une expression de type tableau.
 
 ```bicep
 var index = 1
@@ -77,7 +77,7 @@ Quand vous spécifiez des valeurs entières, n’utilisez pas de guillemets.
 param exampleInt int = 1
 ```
 
-Pour les entiers passés comme paramètres inclus, la plage de valeurs peut être limitée par le SDK ou l’outil en ligne de commande que vous utilisez pour le déploiement. Par exemple, si vous utilisez PowerShell pour déployer un fichier Bicep, les types d’entiers peuvent être compris entre -2147483648 et 2147483647. Pour éviter cette limite, spécifiez des valeurs entières élevées dans un [fichier de paramètres](parameter-files.md). Les types de ressources appliquent leurs propres limites aux propriétés d’entiers.
+Dans Bicep, les entiers sont des entiers 64 bits. Quand ils sont transmis comme paramètres inline, la plage de valeurs peut être limitée par le SDK ou l’outil en ligne de commande que vous utilisez pour le déploiement. Par exemple, si vous utilisez PowerShell pour déployer un fichier Bicep, les types d’entiers peuvent être compris entre -2147483648 et 2147483647. Pour éviter cette limite, spécifiez des valeurs entières élevées dans un [fichier de paramètres](parameter-files.md). Les types de ressources appliquent leurs propres limites aux propriétés d’entiers.
 
 Les formats à virgule flottante, décimal et binaire ne sont pas pris en charge actuellement.
 
@@ -107,7 +107,7 @@ var a = {
   }
 }
 
-output result1 string = a.b // returns 'Dev' 
+output result1 string = a.b // returns 'Dev'
 output result2 int = a.c // returns 42
 output result3 bool = a.d.e // returns true
 ```
@@ -139,22 +139,22 @@ param exampleString string = 'test value'
 
 Le tableau suivant liste l’ensemble de caractères réservés qui doivent être placés dans une séquence d’échappement avec une barre oblique inverse (`\`) :
 
-| Séquence d'échappement | Valeur représentée | Remarques |
+| Séquence d'échappement | Valeur représentée | Notes |
 |:-|:-|:-|
-| \\ | \ ||
-| \' | ' ||
-| \n | saut de ligne (LF) ||
-| \r | retour chariot (CR) ||
-| \t | caractère de tabulation ||
-| \u{x} | Point de code Unicode *x* | *x* représente une valeur de point de code hexadécimale entre *0* et *10FFFF* (les deux inclus). Les zéros non significatifs sont autorisés. Les points de code au-dessus de *FFFF* sont émis comme paire de substitution.
-| \$ | $ | Doit être placé dans une séquence d’échappement uniquement s’il est suivi de *{* . |
+| `\\` | `\` ||
+| `\'` | `'` ||
+| `\n` | saut de ligne (LF) ||
+| `\r` | retour chariot (CR) ||
+| `\t` | caractère de tabulation ||
+| `\u{x}` | Point de code Unicode `x` | **x** représente une valeur de point de code hexadécimale entre *0* et *10FFFF* (les deux inclus). Les zéros non significatifs sont autorisés. Les points de code au-dessus de *FFFF* sont émis comme paire de substitution.
+| `\$` | `$` | Échappement uniquement quand suivi de `{`. |
 
 ```bicep
 // evaluates to "what's up?"
 var myVar = 'what\'s up?'
 ```
 
-Toutes les chaînes dans Bicep prennent en charge l’interpolation. Pour injecter une expression, placez-la entre *${* et *}`. Les expressions référencées ne peuvent pas s’étendre sur plusieurs lignes.
+Toutes les chaînes dans Bicep prennent en charge l’interpolation. Pour injecter une expression, placez-la entre `${` et `}`. Les expressions référencées ne peuvent pas s’étendre sur plusieurs lignes.
 
 ```bicep
 var storageName = 'storage${uniqueString(resourceGroup().id)}
@@ -162,7 +162,7 @@ var storageName = 'storage${uniqueString(resourceGroup().id)}
 
 ## <a name="multi-line-strings"></a>Chaînes à lignes multiples
 
-Dans Bicep, les chaînes multilignes sont définies entre 3 guillemets simples (`'''`) suivis éventuellement d’une nouvelle ligne (séquence d’ouverture) et 3 guillemets simples (`'''`) (séquence de fermeture). Les caractères entrés entre les séquences d’ouverture et de fermeture sont lus textuellement, et aucun échappement n’est nécessaire ni possible.
+Dans Bicep, les chaînes multilignes sont définies entre trois guillemets simples (`'''`) suivis éventuellement d’une nouvelle ligne (séquence d’ouverture) et trois guillemets simples (`'''`) (séquence de fermeture). Les caractères entrés entre les séquences d’ouverture et de fermeture sont lus textuellement, et aucun échappement n’est nécessaire ni possible.
 
 > [!NOTE]
 > Étant donné que l’analyseur Bicep lit tous les caractères tels quels, selon les fins de ligne de votre fichier Bicep, les nouvelles lignes peuvent être interprétées comme `\r\n` ou `\n`.
@@ -216,6 +216,27 @@ param password string
 @secure()
 param configValues object
 ```
+
+## <a name="data-type-assignability"></a>Attribution de type de données
+
+Dans Bicep, une valeur d’un type (type source) peut être attribuée à un autre type (type cible). Le tableau suivant indique le type source (indiqué horizontalement) qui peut ou ne peut pas être attribué au type cible (indiqué verticalement). Dans le tableau, `X` signifie « Peut être attribué », l’espace vide signifie « Ne peut pas être attribué » et `?` signifie « Uniquement si les types sont compatibles ».
+
+| Types | `any` | `error` | `string` | `number` | `int` | `bool` | `null` | `object` | `array` | ressource nommée | module nommé | `scope` |
+|-|-|-|-|-|-|-|-|-|-|-|-|-|
+| `any`          |X| |X|X|X|X|X|X|X|X|X|X|
+| `error`        | | | | | | | | | | | | |
+| `string`       |X| |X| | | | | | | | | |
+| `number`       |X| | |X|X| | | | | | | |
+| `int`          |X| | | |X| | | | | | | |
+| `bool`         |X| | | | |X| | | | | | |
+| `null`         |X| | | | | |X| | | | | |
+| `object`       |X| | | | | | |X| | | | |
+| `array`        |X| | | | | | | |X| | | |
+| `resource`     |X| | | | | | | | |X| | |
+| `module`       |X| | | | | | | | | |X| |
+| `scope`        | | | | | | | | | | | |?|
+| **ressource nommée** |X| | | | | | |?| |?| | |
+| **module nommé**   |X| | | | | | |?| | |?| |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

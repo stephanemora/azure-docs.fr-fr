@@ -4,15 +4,16 @@ description: Mettez en place une passerelle de données pour déplacer vos donn�
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
-ms.openlocfilehash: 53fce1744ccbf4289b2415e926e084c90d708a13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cb3e020f1ac22daa6d0432ad0abaf1aa215d1048
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380285"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580693"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
 > [!NOTE]
@@ -50,10 +51,10 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Créer une ressource**, sur **Décisionnel + analytique**, puis sur **Fabrique de données**.
 
-   ![Nouveau -> DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png" alt-text="Nouveau -> DataFactory":::  
 3. Dans la page **Nouvelle fabrique de données**, dans le champ Nom, entrez **ADFTutorialOnPremDF**.
 
-    ![Ajouter au Tableau d'accueil](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png" alt-text="Ajouter au Tableau d'accueil":::
 
    > [!IMPORTANT]
    > Le nom de la fabrique de données Azure doit être un nom global unique. Si vous recevez le message d’erreur : **Le nom de la fabrique de données « ADFTutorialOnPremDF » n’est pas disponible**, changez le nom de la fabrique de données (par exemple votrenomADFTutorialOnPremDF), puis réessayez de la créer. Utilisez ce nom à la place d'ADFTutorialOnPremDF quand vous effectuez les étapes restantes de ce didacticiel.
@@ -71,18 +72,18 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
    >
 7. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image suivante :
 
-   ![Page d’accueil Data Factory](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png" alt-text="Page d’accueil Data Factory":::
 
 ## <a name="create-gateway"></a>Créer une passerelle
 1. Dans la page **Data Factory**, cliquez sur la vignette **Créer et déployer** pour lancer l’**éditeur** de la fabrique de données.
 
-    ![Vignette Créer et déployer](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png" alt-text="Vignette Créer et déployer":::
 2. Dans Data Factory Editor, dans la barre d’outils, cliquez sur **... Plus**, puis cliquez sur **Nouvelle passerelle de données**. Vous pouvez également cliquer avec le bouton droit sur **Passerelles de données** dans l’arborescence, puis cliquer sur **Nouvelle passerelle de données**.
 
-   ![Nouvelle passerelle de données sur la barre d’outils](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png" alt-text="Nouvelle passerelle de données sur la barre d’outils":::
 3. Dans la page **Créer**, entrez **adftutorialgateway** dans le champ **Nom**, puis cliquez sur **OK**.     
 
-    ![Page Créer une passerelle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png" alt-text="Page Créer une passerelle":::
 
     > [!NOTE]
     > Dans cette procédure pas à pas, vous créez la passerelle logique avec un seul nœud (ordinateur Windows local). Vous pouvez effectuer un scale-out d’une passerelle de gestion des données en associant plusieurs machines locales avec la passerelle. Vous pouvez monter en puissance une passerelle en augmentant le nombre de travaux de déplacement des données qui peuvent s’exécuter simultanément sur un nœud. Cette fonctionnalité est également disponible pour une passerelle logique à nœud unique. Consultez l’article [Mise à l’échelle de la passerelle de gestion des données dans Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) pour plus d’informations.  
@@ -97,7 +98,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
    >
    >
 
-    ![Passerelle - Page Configurer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png" alt-text="Passerelle - Page Configurer":::
 
     Il s’agit de la méthode la plus simple (un clic) pour télécharger, installer, configurer et inscrire la passerelle en une seule étape. Vous pouvez voir que l’application **Gestionnaire de configuration de la passerelle de gestion de données Microsoft** est installée sur votre ordinateur. Vous pouvez aussi trouver l’exécutable **ConfigManager.exe** dans le dossier : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
 
@@ -111,10 +112,10 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
    >
 5. Attendez quelques minutes, ou patientez jusqu’à ce que le message de notification suivant s’affiche :
 
-    ![Gateway installation successful (Installation réussie de la passerelle)](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png" alt-text="Gateway installation successful (Installation réussie de la passerelle)":::
 6. Lancez l’application **Gestionnaire de configuration de passerelle de gestion des données** sur votre ordinateur. Dans la fenêtre **Rechercher**, saisissez **passerelle de gestion de données** pour accéder à cet utilitaire. Vous pouvez aussi trouver l’exécutable **ConfigManager.exe** dans le dossier : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-    ![Gestionnaire de configuration de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png" alt-text="Gestionnaire de configuration de la passerelle":::
 7. Vérifiez que le message `adftutorialgateway is connected to the cloud service` s’affiche. La barre d’état située au bas de l’écran affiche le message **Connecté au service de cloud** accompagné d’une **coche verte**.
 
     Sous l’onglet **Accueil**, vous pouvez également effectuer les opérations suivantes :
@@ -126,7 +127,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
    * Spécifier l’heure à laquelle une mise à jour de la passerelle peut être installée.
 8. Basculez vers l’onglet **Paramètres** . Le certificat spécifié dans la section **Certificat** est utilisé pour chiffrer/déchiffrer les informations d’identification du magasin de données local que vous fournissez dans le portail (facultatif). Cliquez sur **Modifier** pour utiliser votre propre certificat à la place. Par défaut, la passerelle utilise le certificat généré automatiquement par le service Data Factory.
 
-    ![Configuration de certificat de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png" alt-text="Configuration de certificat de la passerelle":::
 
     Vous pouvez également effectuer les actions suivantes sous l’onglet **Paramètres**:
 
@@ -135,7 +136,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour créer une instance
    * Définir un proxy HTTP que la passerelle peut utiliser.     
 9. (facultatif) Basculez sur l’onglet **Diagnostics**, et cochez l’option **Activer la journalisation détaillée** si vous souhaitez activer la journalisation détaillée à utiliser pour résoudre les problèmes de passerelle. Vous trouverez les informations de journalisation dans **l’Observateur d’événements** sous le nœud **Journaux des applications et des services** -> **Passerelle de gestion des données**.
 
-    ![Onglet Diagnostic](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png" alt-text="Onglet Diagnostic":::
 
     Vous pouvez également effectuer les actions suivantes dans l’onglet **Diagnostics** :
 
@@ -152,7 +153,7 @@ Dans cette étape, vous créez deux services liés : **AzureStorageLinkedServic
 #### <a name="add-a-linked-service-to-a-sql-server-database"></a>Ajout d’un service lié à une base de données SQL Server
 1. Dans **Data Factory Editor**, cliquez sur **Nouvelle banque de données** sur la barre d’outils, puis sélectionnez **SQL Server**.
 
-   ![Nouveau service lié SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png" alt-text="Nouveau service lié SQL Server":::
 2. Dans l’**éditeur JSON** à droite, procédez comme suit :
 
    1. Pour **gatewayName**, spécifiez **adftutorialgateway**.    
@@ -162,14 +163,14 @@ Dans cette étape, vous créez deux services liés : **AzureStorageLinkedServic
       2. Pour **databasename**, entrez le nom de la base de données.
       3. Cliquez sur le bouton **Chiffrer** dans la barre d’outils. L’application Gestionnaire des informations d’identification apparaît.
 
-         ![Application Gestionnaire des informations d’identification](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
+         :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png" alt-text="Application Gestionnaire des informations d’identification":::
       4. Dans la boîte de dialogue **Définition des informations d’identification**, spécifiez le type d’authentification, le nom d’utilisateur et le mot de passe, puis cliquez sur **OK**. Si la connexion est réussie, les informations d’identification chiffrées sont stockées dans le JSON, et la boîte de dialogue se ferme.
       5. Fermez l’onglet de navigateur vide qui a lancé la boîte de dialogue s’il ne se ferme pas automatiquement, puis revenez à l’onglet du portail Azure.
 
          Sur la machine passerelle, ces informations d’identification sont **chiffrées** à l’aide d’un certificat appartenant au service Data Factory. Si vous préférez utiliser le certificat qui est associé à la passerelle de gestion des données, consultez Set credentials securely (Configuration des informations d’identification de manière sécurisée).    
    3. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié SQL Server. Vous devez voir le service lié dans l’arborescence.
 
-      ![Service lié SQL Server dans l’arborescence](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
+      :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png" alt-text="Service lié SQL Server dans l’arborescence":::    
 
 #### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Ajout d’un service lié pour un compte de stockage Azure
 1. Dans **Data Factory Editor**, dans la barre de commandes, cliquez sur **Nouvelle banque de données**, puis sur **Stockage Azure**.
@@ -371,10 +372,10 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>Afficher une vue schématique d'une fabrique de données
 1. Dans le **portail Azure**, cliquez sur la vignette **Diagramme** sur la page d’accueil de la fabrique de données **ADFTutorialOnPremDF**. :
 
-    ![Lien Diagramme](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png" alt-text="Lien Diagramme":::
 2. Le diagramme devrait ressembler à l’image suivante :
 
-    ![Vue du diagramme](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png" alt-text="Vue du diagramme":::
 
     Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster, positionner automatiquement les pipelines et les jeux de données, et afficher les informations de lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés).  Vous pouvez double-cliquer sur un objet (jeu de données d’entrée/de sortie) pour afficher ses propriétés.
 
@@ -383,19 +384,19 @@ Dans cette étape, vous utilisez le portail Azure pour superviser ce qui se pass
 
 1. Dans le diagramme, double-cliquez sur **EmpOnPremSQLTable**.  
 
-    ![Tranches EmpOnPremSQLTable](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png" alt-text="Tranches EmpOnPremSQLTable":::
 2. Notez que toutes les tranches de données sont dans l’état **Prêt** parce que la durée du pipeline (de l’heure de début à l’heure de fin) s’inscrit dans le passé. Cela est dû au fait que vous avez inséré les données dans la base de données SQL Server et qu’elles y sont tout le temps. Vérifiez qu’aucune tranche n’apparaît dans la section **Tranches problématiques** , sur la partie inférieure de la fenêtre. Pour afficher toutes les tranches, cliquez sur **Afficher plus** en bas de la liste des tranches.
 3. À présent, dans la page **Jeux de données**, cliquez sur **OutputBlobTable**.
 
-    ![Tranches OputputBlobTable](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png" alt-text="Tranches OputputBlobTable":::
 4. Cliquez sur une tranche de données dans la liste pour afficher la page **Tranche de données**. Les activités exécutées pour cette tranche s’affichent. Généralement, une seule activité exécutée s’affiche.  
 
-    ![Panneau Tranche de données](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
+    :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png" alt-text="Panneau Tranche de données":::
 
     Si la tranche n’a pas l’état **Prêt**, vous pouvez voir les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**.
 5. Cliquez sur **l’exécution d’activité** dans la liste de la partie inférieure de la fenêtre pour afficher les **détails sur l’exécution d’activité**.
 
-   ![Page Détails de l’exécution d’activité](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png" alt-text="Page Détails de l’exécution d’activité":::
 
    Vous devriez voir des informations telles que le débit, la durée et la passerelle utilisée pour transférer les données.
 6. Cliquez sur **X** pour fermer toutes les pages jusqu’à ce que vous
@@ -403,7 +404,7 @@ Dans cette étape, vous utilisez le portail Azure pour superviser ce qui se pass
 8. (facultatif) Cliquez sur **Pipelines**, sur **ADFTutorialOnPremDF**, puis accédez aux tables d’entrée (**Consommé**) ou aux jeux de données de sortie (**Produit**).
 9. Utilisez des outils tels que [Microsoft Storage Explorer](https://storageexplorer.com/) pour vérifier qu’un objet blob/fichier est créé pour chaque heure.
 
-   ![Explorateur de stockage Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   :::image type="content" source="./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png" alt-text="Explorateur Stockage Azure":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez l’article [Data Management Gateway](data-factory-data-management-gateway.md) (Passerelle de gestion des données) pour obtenir des informations détaillées sur la passerelle de gestion des données.

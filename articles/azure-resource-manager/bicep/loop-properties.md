@@ -4,13 +4,13 @@ description: Utilisez une boucle de propriété Bicep pour effectuer une itérat
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.openlocfilehash: 6e9d41136401b28cf330bc828947d35a67c69a43
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/23/2021
+ms.openlocfilehash: a845ab0b650b6b22459b3dace90bbc09a98de0a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225952"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625598"
 ---
 # <a name="property-iteration-in-bicep"></a>Itération de propriété dans Bicep
 
@@ -20,7 +20,11 @@ Vous ne pouvez utiliser une boucle qu’avec des ressources de niveau supérieur
 
 Vous pouvez également utiliser une boucle avec les éléments [modules](loop-modules.md), [resources](loop-resources.md), [variables](loop-variables.md) et [outputs](loop-outputs.md).
 
-## <a name="syntax"></a>Syntaxe
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur les boucles et pour obtenir des conseils pratiques, consultez [Créer des modèles Bicep flexibles en utilisant des conditions et des boucles](/learn/modules/build-flexible-bicep-templates-conditions-loops/) sur **Microsoft Learn**.
+
+## <a name="syntax"></a>Syntax
 
 Les boucles peuvent être utilisées pour déclarer plusieurs propriétés avec les méthodes suivantes :
 
@@ -52,7 +56,10 @@ Les boucles peuvent être utilisées pour déclarer plusieurs propriétés avec 
 
 ## <a name="loop-limits"></a>Limites des boucles
 
-Les itérations de boucle du fichier Bicep ne peuvent pas avoir une valeur négative ni dépasser 800 itérations. 
+La boucle Bicep présente les limitations suivantes :
+
+- Impossible de faire une boucle sur plusieurs niveaux de propriétés.
+- Le nombre d’itérations de boucle du fichier Bicep ne peut être ni négatif, ni supérieur à 800.
 
 ## <a name="loop-array"></a>Tableau de boucle
 

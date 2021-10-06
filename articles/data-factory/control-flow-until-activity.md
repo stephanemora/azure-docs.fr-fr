@@ -1,26 +1,26 @@
 ---
-title: Activité Until dans Azure Data Factory
+title: Activité Until
 titleSuffix: Azure Data Factory & Azure Synapse
-description: L’activité Until exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true ou expire.
+description: L'activité Until dans les pipelines Azure Data Factory et Azure Synapse Analytics exécute un ensemble d'activités dans une boucle jusqu'à ce que la condition associée à l'activité retourne la valeur true ou expire.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell, synapse
-ms.openlocfilehash: 2191dd75f2dbf24a59dbb7c43f8ef9ec62705aee
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d31e6c5b5a21f3064abf16779bd0a44e877b2737
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641487"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124814998"
 ---
-# <a name="until-activity-in-azure-data-factory"></a>Activité Until dans Azure Data Factory
+# <a name="until-activity-in-azure-data-factory-and-synapse-analytics"></a>Activité Until dans Azure Data Factory et Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L’activité Until fournit les mêmes fonctionnalités qu’une structure de boucle do-until dans les langages de programmation. Elle exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true. Vous pouvez spécifier une valeur de délai d’attente pour l’activité Until dans Data Factory. 
+L’activité Until fournit les mêmes fonctionnalités qu’une structure de boucle do-until dans les langages de programmation. Elle exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true. Vous pouvez spécifier une valeur de délai d’attente pour l’activité Until. 
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -57,16 +57,16 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 name | Nom de l’activité `Until`. | String | Oui
 type | Doit être défini sur **Until**. | String | Oui
 expression | Expression qui doit retourner true ou false | Expression.  | Oui
-délai d'expiration | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. Valeur maximale : 90 jours. | No
-Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  Yes
+délai d'expiration | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. Valeur maximale : 90 jours. | Non
+Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  Oui
 
 ## <a name="example-1"></a>Exemple 1
 
 > [!NOTE]
-> Cette section fournit des définitions JSON et des exemples de commandes PowerShell pour exécuter le pipeline. Pour une procédure pas à pas avec des instructions détaillées permettant de créer un pipeline Data Factory en utilisant des définitions JSON et Azure PowerShell, consultez [Didacticiel : créer une fabrique de données avec Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Cette section fournit des définitions JSON et des exemples de commandes PowerShell pour exécuter le pipeline. Pour une procédure pas à pas avec des instructions détaillées permettant de créer un pipeline en utilisant des définitions JSON et Azure PowerShell, consultez [Didacticiel : créer une fabrique de données avec Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### <a name="pipeline-with-until-activity"></a>Pipeline avec activité Until
-Dans cet exemple, le pipeline a deux activités : **Until** et **Wait**. L’activité Wait attend pendant la période spécifiée avant d’exécuter l’activité Web dans la boucle. Pour en savoir plus sur les expressions et fonctions dans Data Factory, consultez [Langage d’expression et fonctions](control-flow-expression-language-functions.md). 
+Dans cet exemple, le pipeline a deux activités : **Until** et **Wait**. L’activité Wait attend pendant la période spécifiée avant d’exécuter l’activité Web dans la boucle. Pour en savoir plus sur les expressions et fonctions, consultez [Langage d'expression et fonctions](control-flow-expression-language-functions.md). 
 
 ```json
 {
@@ -287,7 +287,7 @@ while ($True) {
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 
+Consultez d’autres activités de flux de contrôle prises en charge : 
 
 - [Activité IfCondition](control-flow-if-condition-activity.md)
 - [Activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md)

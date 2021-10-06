@@ -4,16 +4,16 @@ description: Apprenez à charger un disque dur virtuel sur un disque managé Azu
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 06/29/2021
+ms.date: 09/07/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: e78998d089ffe6446e9b7dbdf898b2d4ee4ba3a1
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 08c58a65a8801646d0dd6d0bd51bbab8d57d97e9
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694928"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124754606"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Charger un disque dur virtuel sur Azure ou copier un disque dans une autre région - Azure CLI
 
@@ -51,10 +51,10 @@ Créez un disque dur standard vierge pour le chargement en spécifiant les param
 Remplacez `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>` par les valeurs de votre choix. Le paramètre `--upload-size-bytes` contient un exemple de valeur : `34359738880`. Remplacez cet exemple par la valeur appropriée.
 
 > [!TIP]
-> Si vous créez un disque de système d’exploitation, ajoutez --hyper-v-generation <yourGeneration> à `az disk create`.
+> Si vous créez un disque de système d’exploitation, ajoutez `--hyper-v-generation <yourGeneration>` à `az disk create`.
 
 ```azurecli
-az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
+az disk create -n <yourdiskname> -g <yourresourcegroupname> -l <yourregion> --os-type Linux --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
 Si vous souhaitez charger un disque SSD Premium ou Standard, remplacez **standard_LRS** par **premium_LRS** ou **standardssd_lrs**. Les disques Ultra ne sont pas pris en charge pour le moment.
@@ -107,7 +107,7 @@ Le script suivant effectuera cette opération pour vous. Le processus est simila
 Remplacez `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>` et `<yourTargetLocationHere>` (la valeur d’emplacement pourrait par exemple être uswest2) par vos valeurs, puis exécutez le script suivant afin de copier un disque managé.
 
 > [!TIP]
-> Si vous créez un disque de système d’exploitation, ajoutez --hyper-v-generation <yourGeneration> à `az disk create`.
+> Si vous créez un disque de système d’exploitation, ajoutez `--hyper-v-generation <yourGeneration>` à `az disk create`.
 
 ```azurecli
 sourceDiskName=<sourceDiskNameHere>
@@ -115,10 +115,12 @@ sourceRG=<sourceResourceGroupHere>
 targetDiskName=<targetDiskNameHere>
 targetRG=<targetResourceGroupHere>
 targetLocation=<yourTargetLocationHere>
+#Expected value for OS is either "Windows" or "Linux"
+targetOS=<yourOSTypeHere>
 
 sourceDiskSizeBytes=$(az disk show -g $sourceRG -n $sourceDiskName --query '[diskSizeBytes]' -o tsv)
 
-az disk create -g $targetRG -n $targetDiskName -l $targetLocation --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocation --os-type $targetOS --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
 targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 

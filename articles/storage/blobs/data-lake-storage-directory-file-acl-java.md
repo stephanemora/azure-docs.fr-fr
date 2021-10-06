@@ -9,12 +9,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 10debe7bb870ddd9f8711e73ccb4b690d7011b62
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25002640a81b260ced61c25e2d157a100d6dbc2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100650184"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128593398"
 ---
 # <a name="use-java-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Utiliser Java pour gérer les répertoires et les fichiers dans Azure Data Lake Storage Gen2
 
@@ -26,7 +26,7 @@ Pour en savoir plus sur la façon d’obtenir, de définir et de mettre à jour 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Un abonnement Azure. Pour plus d’informations, consultez [Obtenir l’essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/) .
 
 - Un compte de stockage doté d’un espace de noms hiérarchique activé. Pour créer un test, suivez [ces](create-data-lake-storage-account.md) instructions.
 
@@ -34,7 +34,7 @@ Pour en savoir plus sur la façon d’obtenir, de définir et de mettre à jour 
 
 Pour commencer, ouvrez [cette page](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) et recherchez la dernière version de la bibliothèque Java. Ensuite, ouvrez le fichier *pom.xml* dans votre éditeur de texte. Ajoutez un élément de dépendance qui référence cette version.
 
-Si vous envisagez d’authentifier votre application cliente avec Azure Active Directory (Azure AD), ajoutez une dépendance à la bibliothèque de client de secrets Azure. Consultez [Adding the Secret Client Library package to your project](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
+Si vous envisagez d’authentifier votre application cliente avec Azure Active Directory (Azure AD), ajoutez une dépendance à la bibliothèque de client de secrets Azure. Pour plus d’informations, consultez [Ajout du package de la bibliothèque cliente secrète à votre projet](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
 
 Ajoutez ensuite ces instructions Imports à votre fichier de code.
 
@@ -60,11 +60,11 @@ import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOpti
 
 ## <a name="connect-to-the-account"></a>Se connecter au compte
 
-Pour utiliser les extraits de code de cet article, vous devez créer une instance **DataLakeServiceClient** qui représente le compte de stockage. 
+Pour utiliser les extraits de code de cet article, vous devez créer une instance **DataLakeServiceClient** qui représente le compte de stockage.
 
 ### <a name="connect-by-using-an-account-key"></a>Connexion avec une clé de compte
 
-Il s’agit du moyen le plus simple de se connecter à un compte. 
+Il s’agit du moyen le plus simple de se connecter à un compte.
 
 Cet exemple crée une instance de **DataLakeServiceClient** à l’aide d’une clé de compte.
 
@@ -74,7 +74,7 @@ Cet exemple crée une instance de **DataLakeServiceClient** à l’aide d’une 
 
 Vous pouvez utiliser la [bibliothèque de client Azure Identity pour Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) afin d’authentifier votre application auprès d’Azure AD.
 
-Cet exemple crée une instance **DataLakeServiceClient** à l’aide d’un ID client, d’une clé secrète client et d’un ID locataire.  Pour obtenir ces valeurs, consultez [Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente](../common/storage-auth-aad-app.md).
+Cet exemple crée une instance **DataLakeServiceClient** à l’aide d’un ID client, d’une clé secrète client et d’un ID locataire. Pour obtenir ces valeurs, consultez [Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente](../common/storage-auth-aad-app.md).
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/Authorize_DataLake.java" id="Snippet_AuthorizeWithAzureAD":::
 
@@ -85,7 +85,7 @@ Cet exemple crée une instance **DataLakeServiceClient** à l’aide d’un ID c
 
 Un conteneur fait office de système de fichiers pour vos fichiers. Vous pouvez en créer un en appelant la méthode **DataLakeServiceClient.createFileSystem**.
 
-Cet exemple crée un conteneur nommé `my-file-system`. 
+Cet exemple crée un conteneur nommé `my-file-system`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_CreateFileSystem":::
 
@@ -93,19 +93,19 @@ Cet exemple crée un conteneur nommé `my-file-system`.
 
 Créez une référence de répertoire en appelant la méthode **DataLakeFileSystemClient.createDirectory**.
 
-Cet exemple ajoute un répertoire nommé `my-directory` à un conteneur, puis ajoute un sous-répertoire nommé `my-subdirectory`. 
+Cet exemple ajoute un répertoire nommé `my-directory` à un conteneur, puis ajoute un sous-répertoire nommé `my-subdirectory`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_CreateDirectory":::
 
 ## <a name="rename-or-move-a-directory"></a>Renommer ou déplacer un répertoire
 
-Renommez ou déplacez un répertoire en appelant la méthode **DataLakeDirectoryClient.rename**. Transmettez un paramètre au chemin d’accès du répertoire souhaité. 
+Renommez ou déplacez un répertoire en appelant la méthode **DataLakeDirectoryClient.rename**. Transmettez un paramètre au chemin d’accès du répertoire souhaité.
 
 Cet exemple renomme un sous-répertoire avec le nom `my-subdirectory-renamed`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_RenameDirectory":::
 
-Cet exemple déplace un répertoire nommé `my-subdirectory-renamed` vers un sous-répertoire d’un répertoire nommé `my-directory-2`. 
+Cet exemple déplace un répertoire nommé `my-subdirectory-renamed` vers un sous-répertoire d’un répertoire nommé `my-directory-2`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_MoveDirectory":::
 
@@ -113,7 +113,7 @@ Cet exemple déplace un répertoire nommé `my-subdirectory-renamed` vers un sou
 
 Supprimez un répertoire en appelant la méthode **DataLakeDirectoryClient.deleteWithResponse**.
 
-Cet exemple supprime un répertoire nommé `my-directory`.   
+Cet exemple supprime un répertoire nommé `my-directory`.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DeleteDirectory":::
 
@@ -126,7 +126,7 @@ Cet exemple charge un fichier texte dans un répertoire nommé `my-directory`.
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_UploadFile":::
 
 > [!TIP]
-> Si la taille de votre fichier est importante, votre code devra effectuer plusieurs appels à la méthode **DataLakeFileClient.append**. Utilisez plutôt la méthode **DataLakeFileClient.uploadFromFile**. Vous pourrez ainsi charger la totalité du fichier en un seul appel. 
+> Si la taille de votre fichier est importante, votre code devra effectuer plusieurs appels à la méthode **DataLakeFileClient.append**. Utilisez plutôt la méthode **DataLakeFileClient.uploadFromFile**. Vous pourrez ainsi charger la totalité du fichier en un seul appel.
 >
 > Vous en trouverez un exemple dans la section suivante.
 
@@ -138,7 +138,7 @@ Utilisez la méthode **DataLakeFileClient.uploadFromFile** pour charger des fich
 
 ## <a name="download-from-a-directory"></a>Télécharger à partir d’un répertoire
 
-Tout d’abord, créez une instance **DataLakeFileClient** qui représente le fichier que vous souhaitez télécharger. Utilisez la méthode **DataLakeFileClient.read** pour lire le fichier. Utilisez n’importe quelle API de traitement de fichiers .NET pour enregistrer les octets du flux de données dans un fichier. 
+Tout d’abord, créez une instance **DataLakeFileClient** qui représente le fichier que vous souhaitez télécharger. Utilisez la méthode **DataLakeFileClient.read** pour lire le fichier. Utilisez n’importe quelle API de traitement de fichiers .NET pour enregistrer les octets du flux de données dans un fichier.
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_DownloadFile":::
 
@@ -150,9 +150,9 @@ Cet exemple affiche les noms de chaque fichier situé dans un répertoire nommé
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Documentation de référence de l’API](/java/api/overview/azure/storage-file-datalake-readme)
-* [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
-* [Exemples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
-* [Mappage de Gen1 à Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [Problèmes connus](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Envoyer des commentaires](https://github.com/Azure/azure-sdk-for-java/issues)
+- [Documentation de référence de l’API](/java/api/overview/azure/storage-file-datalake-readme)
+- [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
+- [Exemples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
+- [Mappage de Gen1 à Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+- [Problèmes connus](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Envoyer des commentaires](https://github.com/Azure/azure-sdk-for-java/issues)

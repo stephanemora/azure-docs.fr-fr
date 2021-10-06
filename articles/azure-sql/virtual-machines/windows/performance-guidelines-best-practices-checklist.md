@@ -16,12 +16,12 @@ ms.date: 06/01/2021
 ms.author: dpless
 ms.custom: contperf-fy21q3
 ms.reviewer: jroth
-ms.openlocfilehash: 474954faebe62138e234f5bb7a7c1bee7bdcf95b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: f5c6a0864790003e115d201c1a50b181df63c5ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535080"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666701"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>Liste de vérification : Meilleures pratiques relatives à SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,7 +62,7 @@ Voici une check-list rapide des bonnes pratiques relatives à la configuration d
     - Pour le lecteur de journaux, prévoyez une capacité suffisante et testez les performances par rapport aux coûts quand vous évaluez les [disques premium P30 - P80](../../../virtual-machines/disks-types.md#premium-ssd).
       - Si la latence de stockage en millisecondes est requise, utilisez des [Disques Ultra Azure](../../../virtual-machines/disks-types.md#ultra-disk) pour le journal des transactions. 
       - Pour les déploiements de machines virtuelles de la série M, utilisez l’[accélérateur d’écriture](../../../virtual-machines/how-to-enable-write-accelerator.md) à la place des disques Ultra Azure.
-    - Placez [tempdb](/sql/relational-databases/databases/tempdb-database) sur le lecteur SSD éphémère local `D:\` pour la plupart des charges de travail SQL Server après avoir choisi la taille de machine virtuelle optimale. 
+    - Placez [tempdb](/sql/relational-databases/databases/tempdb-database) sur le lecteur SSD éphémère local (par défaut : `D:\`) pour la plupart des charges de travail SQL Server, après avoir choisi la taille de machine virtuelle optimale. 
       - Si la capacité du lecteur local n’est pas suffisante pour tempdb, pensez à redimensionner la machine virtuelle. Consultez les [Stratégies de mise en cache de fichiers de données](performance-guidelines-best-practices-storage.md#data-file-caching-policies) pour plus d’informations.
 - Entrelacez plusieurs disques de données Azure à l’aide d'[espaces de stockage](/windows-server/storage/storage-spaces/overview) pour augmenter la bande passante d’E/S jusqu’aux limites de débit et d’IOPS de la machine virtuelle cible.
 - Définissez la [mise en cache de l’hôte](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits) en lecture seule pour les disques de fichiers de données.
@@ -146,8 +146,9 @@ Pour votre groupe de disponibilité SQL Server ou votre instance de cluster de 
 * Si l’optimisation des performances de la machine virtuelle SQL Server ne résout pas vos pannes inattendues, envisagez de [relâcher la surveillance](hadr-cluster-best-practices.md#relaxed-monitoring) du groupe de disponibilité ou de l’instance de cluster de basculement. Toutefois, cela ne résout pas la source sous-jacente du problème et peut masquer les symptômes en réduisant la probabilité d’échec. Vous devrez peut-être encore examiner et résoudre la cause racine sous-jacente. Pour Windows Server 2012 ou version ultérieure, utilisez les valeurs recommandées suivantes : 
    - **Délai d’expiration du bail** : Utilisez cette équation pour calculer la valeur maximale du délai d’expiration du bail :   
     `Lease timeout < (2 * SameSubnetThreshold * SameSubnetDelay)`.    
-    Commencez par 40 secondes. Si vous utilisez les valeurs assouplies de `SameSubnetThreshold` et `SameSubnetDelay` qui ont été recommandées précédemment, ne dépassez pas 80 secondes pour la valeur du délai d’expiration du bail.    
-   - **Nombre maximal d’échecs au cours d’une période spécifiée** : Définissez cette valeur sur 6. 
+    Commencez par 40 secondes. Si vous utilisez les valeurs assouplies de `SameSubnetThreshold` et `SameSubnetDelay` qui ont été recommandées précédemment, ne dépassez pas 80 secondes pour la valeur du délai d’expiration du bail. 
+   - **Nombre maximal d’échecs au cours d’une période spécifiée** : vous pouvez définir cette valeur sur 6.
+   - **Délai d’attente de vérification** : vous pouvez définir initialement cette valeur sur 60000, et l’ajuster si nécessaire. 
 * Lorsque vous utilisez le nom de réseau virtuel (VNN) pour vous connecter à votre solution HADR, spécifiez `MultiSubnetFailover = true` dans la chaîne de connexion, même si votre cluster s’étend sur un seul sous-réseau. 
    - Si le client ne prend pas en charge `MultiSubnetFailover = True`, vous devrez peut-être définir `RegisterAllProvidersIP = 0` et `HostRecordTTL = 300` pour mettre en cache les informations d’identification du client pour des durées plus courtes. Toutefois, cela peut entraîner des requêtes supplémentaires sur le serveur DNS. 
 - Pour vous connecter à votre solution HADR à l’aide du nom de réseau distribué (DNN), tenez compte des points suivants :

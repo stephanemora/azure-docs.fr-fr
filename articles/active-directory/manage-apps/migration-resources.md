@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 7d409aaa2d9c8a0ca6e950459202c5990783b198
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 05c7b2f668565fe4ab37ed01ad65bef7cb6d95d6
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532384"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437919"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Ressources pour la migration d’applications vers Azure Active Directory
 
@@ -34,3 +34,8 @@ Ressources pour vous aider à migrer l’accès et l’authentification d’appl
 | [Plan de déploiement : étendre des applications à Azure AD avec le proxy d'application](https://aka.ms/AppProxyDPDownload)| La fourniture d’un accès aux applications locales pour les ordinateurs portables et d’autres appareils appartenant à des employés implique généralement le recours à des réseaux privés virtuels (VPN) ou à des zones démilitarisées (DMZ). Non seulement ces solutions sont complexes et difficiles à sécuriser, mais leur configuration et leur gestion ont un coût élevé. Le proxy d’application Azure AD facilite l’accès aux applications locales. |
 | [Plans de déploiement](../fundamentals/active-directory-deployment-plans.md) | Trouvez d’autres plans de déploiement pour le déploiement de fonctionnalités telles que l’authentification multifacteur, l’accès conditionnel, l’approvisionnement des utilisateurs, l’authentification unique transparente, la réinitialisation de mot de passe en libre-service et bien plus encore ! |
 | [Migration d’applications à partir de Symantec SiteMinder vers Azure AD](https://azure.microsoft.com/mediahandler/files/resourcefiles/migrating-applications-from-symantec-siteminder-to-azure-active-directory/Migrating-applications-from-Symantec-SiteMinder-to-Azure-Active-Directory.pdf) | Découvrez des instructions pas à pas sur la migration d’applications et les options d’intégration avec un exemple qui vous guide tout au long de la migration d’applications de Symantec SiteMinder vers Azure AD. |
+| [Migration d’applications d’Okta vers Azure AD](migrate-applications-from-okta-to-azure-active-directory.md) | Découvrez des instructions pas à pas sur la migration d’applications d’Okta vers Azure AD. |
+| [Migration de la fédération Okta vers l’authentification managée par Azure AD](migrate-okta-federation-to-azure-active-directory.md) | Apprenez comment fédérer vos locataires Office 365 existants avec Okta pour les fonctionnalités d’authentification unique. |
+| [Migration du provisionnement de synchronisation Okta vers la synchronisation basée sur Azure AD Connect](migrate-okta-sync-provisioning-to-azure-active-directory.md) | Instructions pas à pas pour les organisations qui utilisent actuellement l’approvisionnement d’utilisateurs d’Okta vers Azure AD, pour migrer la synchronisation utilisateur ou la synchronisation universelle avec Azure AD Connect. |
+| [Migration des stratégies de connexion Okta vers l’accès conditionnel Azure AD](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md) | Découvrez des instructions pas à pas sur la migration de stratégies d’authentification globale ou au niveau de l’application dans Okta vers des stratégies d’accès conditionnel Azure AD pour sécuriser l’accès des utilisateurs dans Azure AD et les applications connectées. |
+

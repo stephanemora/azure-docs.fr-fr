@@ -1,14 +1,14 @@
 ---
 title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: b09d11e6f1c5ea8f4882021530dc4d06d2d2f350
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: e285ca8c47d73f8b9a23c005be8c8b88d38db879
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527750"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436101"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -105,7 +105,7 @@ Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer 
 
 Le mode Fournisseur de ressources suivant est entièrement pris en charge :
 
-- `Microsoft.Kubernetes.Data` pour la gestion de vos clusters Kubernetes sur ou hors Azure. Les définitions utilisant ce mode Fournisseur de ressources utilisent les effects _audit_, _deny_ et _disabled_. L’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint) est _déconseillé_.
+- `Microsoft.Kubernetes.Data` pour la gestion de vos clusters Kubernetes sur ou hors Azure. Les définitions utilisant ce mode Fournisseur de ressources utilisent les effects _audit_, _deny_ et _disabled_. Ce mode prend en charge les définitions personnalisées en _préversion publique_. Consultez [Créer une définition de stratégie à partir d’un modèle de contrainte](../how-to/extension-for-vscode.md) pour créer une définition personnalisée à partir d’un [modèle de contrainte](https://www.openpolicyagent.org/) [Open Policy Agent (OPA) GateKeeper v3](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). L’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint) est _déconseillé_.
 
 Les modes Fournisseur de ressources suivants sont actuellement pris en charge en **préversion** :
 
@@ -113,7 +113,7 @@ Les modes Fournisseur de ressources suivants sont actuellement pris en charge en
 - `Microsoft.KeyVault.Data` pour la gestion des coffres et des certificats dans [Azure Key Vault](../../../key-vault/general/overview.md). Pour plus d’informations sur ces définitions de stratégie, consultez [Intégrer Azure Key Vault à Azure Policy](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
-> Les modes Fournisseur de ressources prennent uniquement en charge les définitions de stratégie intégrées et non les [exemptions](./exemption-structure.md).
+> Les modes Fournisseur de ressources prennent uniquement en charge les définitions de stratégie intégrées et non les [exemptions](./exemption-structure.md) sauf mention explicite.
 
 ## <a name="metadata"></a>Métadonnées
 

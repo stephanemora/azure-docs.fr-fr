@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/09/2021
-ms.openlocfilehash: de17fface1a99e7e3832cf815eadda6915a707fd
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 9ba66a8eb76c2c0bdcc2dd086d3abcfc47bcba65
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112583146"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128678134"
 ---
 # <a name="how-to-run-or-reset-indexers-skills-or-documents"></a>Comment exécuter ou réinitialiser des indexeurs, des compétences ou des documents
 
@@ -45,7 +45,7 @@ L’exécution de l’indexeur est soumise aux limites suivantes :
 
 + Le nombre maximum de travaux d’indexation est de 1 par réplica. Pas de travaux simultanés.
 
-  Si l’exécution de l’indexeur est déjà à pleine capacité, vous recevrez cette notification : « Échec de l’exécution de l’indexeur "<indexer-name>" », avec l’erreur : « Une autre invocation de l’indexeur est actuellement en cours ; les invocations simultanées ne sont pas autorisées. »
+  Si l’exécution de l’indexeur est déjà à pleine capacité, vous recevrez cette notification : « Échec de l’exécution de l’indexeur "\<indexer-name\>" », avec l’erreur : « Une autre invocation de l’indexeur est actuellement en cours ; les invocations simultanées ne sont pas autorisées. »
 
 + Le temps d’exécution maximal est de 2 heures si vous utilisez un ensemble de compétences, et de 24 heures sans. 
 

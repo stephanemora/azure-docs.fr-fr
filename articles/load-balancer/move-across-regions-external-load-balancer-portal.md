@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: f83ff3d1d03354daef3466c1f48eaa505e378634
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da37816b68e9984fdf801e3e84d50a57bf290e96
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94693747"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273549"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Déplacer un équilibreur de charge externe vers une autre région à l’aide du portail Azure
 
@@ -289,7 +289,7 @@ Les procédures suivantes montrent comment préparer l’équilibreur de charge 
                     }
                 ]
         ```
-       Pour plus d’informations sur les règles d’équilibrage de charge, consultez [Qu’est-ce qu’Azure Load Balancer ?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
+       Pour plus d’informations sur les règles d’équilibrage de charge, consultez [Qu’est-ce qu’Azure Load Balancer ?](load-balancer-overview.md).
 
     * **Sondes** : vous pouvez ajouter ou supprimer une sonde pour l’équilibreur de charge dans la configuration en ajoutant ou en supprimant des entrées dans la section **probes** du fichier template.json :
 
@@ -309,7 +309,7 @@ Les procédures suivantes montrent comment préparer l’équilibreur de charge 
                     }
                 ],
         ```
-       Pour plus d’informations, consultez [Sondes d’intégrité Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+       Pour plus d’informations, consultez [Sondes d’intégrité Load Balancer](load-balancer-custom-probe-overview.md).
 
     * **Règles NAT de trafic entrant** : vous pouvez ajouter ou supprimer des règles NAT de trafic entrant pour l’équilibreur de charge en ajoutant ou en supprimant des entrées dans la section **inboundNatRules** du fichier template.json :
 
@@ -357,7 +357,7 @@ Les procédures suivantes montrent comment préparer l’équilibreur de charge 
             }
         }
         ```
-        Pour plus d’informations sur les règles NAT de trafic entrant, consultez [Qu’est-ce qu’Azure Load Balancer ?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
+        Pour plus d’informations sur les règles NAT de trafic entrant, consultez [Qu’est-ce qu’Azure Load Balancer ?](load-balancer-overview.md).
 
     * **Règles de trafic sortant** : vous pouvez ajouter ou supprimer des règles de trafic sortant dans la configuration en modifiant la propriété **outboundRules** dans le fichier template.json :
 

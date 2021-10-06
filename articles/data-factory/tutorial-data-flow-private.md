@@ -9,12 +9,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/04/2021
-ms.openlocfilehash: e73b2a96d2b051dbb208bb9614569c423f99d8f0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fb7dfc93048d888eb83088ca2a3f458219fdc393
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532751"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617884"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Transformation sécurisée des données à l’aide de flux de données de mappage
 
@@ -71,15 +71,15 @@ Au cours de cette étape, vous allez créer une fabrique de données et ouvrir l
 
 1. Sur le portail Data Factory, accédez à **Gérer** et sélectionnez **Nouveau** pour créer un runtime d’intégration Azure.
 
-   ![Capture d’écran montrant la création d’un runtime d’intégration Azure.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/create-new-azure-ir.png" alt-text="Capture d’écran montrant la création d’un runtime d’intégration Azure.":::
 1. Dans la page **Configuration du runtime d’intégration**, choisissez le runtime d’intégration à créer en fonction des fonctionnalités nécessaires. Dans ce tutoriel, sélectionnez **Azure, Auto-hébergé**, puis cliquez sur **Continuer**. 
 1. Sélectionnez **Azure**, puis cliquez sur **Continuer** pour créer un runtime d’intégration Azure.
 
-   ![Capture d’écran montrant un nouveau runtime d’intégration Azure.](./media/tutorial-copy-data-portal-private/azure-ir.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/azure-ir.png" alt-text="Capture d’écran montrant un nouveau runtime d’intégration Azure.":::
 
 1. Sous **Configuration de réseau virtuel (préversion)** , sélectionnez **Activer**.
 
-   ![Capture d’écran montrant l’activation d’un nouveau runtime d’intégration Azure.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+   :::image type="content" source="./media/tutorial-copy-data-portal-private/enable-managed-vnet.png" alt-text="Capture d’écran montrant l’activation d’un nouveau runtime d’intégration Azure.":::
 
 1. Sélectionnez **Create** (Créer).
 
@@ -89,19 +89,19 @@ Au cours de cette étape, vous allez créer un pipeline qui contient une activit
 
 1. Sur la page d’accueil Azure Data Factory, sélectionnez **Orchestrer**.
 
-   ![Capture d’écran montrant la création d’un pipeline](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Capture d’écran montrant la création d’un pipeline":::
 
 1. Dans le volet Propriétés du pipeline, entrez **TransformMovies** comme nom du pipeline.
 1. Dans le volet **Activités**, développez **Déplacer et transformer**. Faites glisser l’activité **Flux de données** du volet jusqu’au canevas du pipeline.
 
 1. Dans la fenêtre contextuelle **Ajout de flux de données**, sélectionnez **Créer un flux de données**, puis **Flux de données de mappage**. Lorsque vous avez terminé, sélectionnez **OK**.
 
-    ![Capture d’écran montrant le flux de données de mappage.](media/tutorial-data-flow-private/mapping-dataflow.png)
+    :::image type="content" source="media/tutorial-data-flow-private/mapping-dataflow.png" alt-text="Capture d’écran montrant le flux de données de mappage.":::
 
 1. Nommez votre flux de données **TransformMovies** dans le volet Propriétés.
 1. Dans la barre supérieure du canevas du pipeline, faites glisser le curseur **Débogage du flux de données** pour l’activer. Le mode de débogage permet un test interactif de la logique de transformation sur un cluster Spark activé. Le préchauffage des clusters de flux de données nécessite 5 à 7 minutes et il est recommandé aux utilisateurs d’activer d’abord le débogage s’ils envisagent d’effectuer un développement de flux de données. Pour plus d’informations, consultez [Mode de débogage](concepts-data-flow-debug-mode.md).
 
-    ![Capture d’écran montrant le curseur de débogage du flux de données.](media/tutorial-data-flow-private/dataflow-debug.png)
+    :::image type="content" source="media/tutorial-data-flow-private/dataflow-debug.png" alt-text="Capture d’écran montrant le curseur de débogage du flux de données.":::
 
 ## <a name="build-transformation-logic-in-the-data-flow-canvas"></a>Générer une logique de transformation dans le canevas de flux de données
 
@@ -125,7 +125,7 @@ Une fois que vous avez créé votre flux de données, vous êtes automatiquement
 
 1. Veillez à activer **Création interactive**. L’activation peut prendre une minute.
 
-    ![Capture d’écran montrant Création interactive](./media/tutorial-data-flow-private/interactive-authoring.png)
+    :::image type="content" source="./media/tutorial-data-flow-private/interactive-authoring.png" alt-text="Capture d’écran montrant Création interactive":::
 
 1. Sélectionnez **Tester la connexion**. Cela doit échouer, car le compte de stockage n’y autorise pas l’accès sans la création et l’approbation d’un point de terminaison privé. Le message d’erreur comporte un lien permettant de créer un point de terminaison privé. Vous pouvez le suivre pour créer un point de terminaison privé managé. Une autre possibilité pour le créer consiste à accéder directement à l’onglet **Gérer** et à suivre les instructions de [cette section](#create-a-managed-private-endpoint).
 
@@ -137,11 +137,11 @@ Une fois que vous avez créé votre flux de données, vous êtes automatiquement
 
 1. Dans l’écran de création du jeu de données, entrez l’emplacement de votre fichier sous le champ **Chemin du fichier**. Dans ce tutoriel, le fichier moviesDB.csv se trouve dans le conteneur **sample-data**. Étant donné que le fichier contient des en-têtes, cochez la case **Première ligne comme en-tête**. Sélectionnez **À partir de la connexion/du magasin** pour importer le schéma d’en-tête directement à partir du fichier situé dans le stockage. Lorsque vous avez terminé, sélectionnez **OK**.
 
-    ![Capture d’écran montrant le chemin source.](media/tutorial-data-flow-private/source-file-path.png)
+    :::image type="content" source="media/tutorial-data-flow-private/source-file-path.png" alt-text="Capture d’écran montrant le chemin source.":::
 
 1. Si votre cluster de débogage a démarré, accédez à l’onglet **Aperçu des données**  de la transformation de la source, puis sélectionnez **Actualiser** pour obtenir un instantané des données. Vous pouvez utiliser l’aperçu des données pour vérifier que votre transformation est correctement configurée.
 
-    ![Capture d’écran montrant l’onglet Aperçu des données.](media/tutorial-data-flow-private/data-preview.png)
+    :::image type="content" source="media/tutorial-data-flow-private/data-preview.png" alt-text="Capture d’écran montrant l’onglet Aperçu des données.":::
 
 #### <a name="create-a-managed-private-endpoint"></a>Créer un point de terminaison privé managé
 
@@ -155,7 +155,7 @@ Si vous n’avez pas utilisé le lien hypertexte lorsque vous avez testé la con
 1. Accédez à la section **Points de terminaison privés managés**.
 1. Sélectionnez **+ Nouveau** sous **Points de terminaison privés managés**.
 
-    ![Capture d’écran montrant Points de terminaison privés managés > bouton Nouveau](./media/tutorial-data-flow-private/new-managed-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-data-flow-private/new-managed-private-endpoint.png" alt-text="Capture d’écran montrant Points de terminaison privés managés &gt; bouton Nouveau"::: 
 
 1. Sélectionnez la vignette **Azure Data Lake Storage Gen2** dans la liste, puis sélectionnez **Continuer**.
 1. Entrez le nom du compte de stockage que vous avez créé.
@@ -163,7 +163,7 @@ Si vous n’avez pas utilisé le lien hypertexte lorsque vous avez testé la con
 1. Au bout de quelques secondes, la liaison privée créée indique qu’une approbation est nécessaire.
 1. Sélectionnez le point de terminaison privé que vous avez créé. Le lien hypertexte qui apparaît vous permet d’approuver le point de terminaison privé au niveau du compte de stockage.
 
-    ![Capture d’écran montrant le volet Gérer les points de terminaison privés.](./media/tutorial-data-flow-private/manage-private-endpoint.png) 
+    :::image type="content" source="./media/tutorial-data-flow-private/manage-private-endpoint.png" alt-text="Capture d’écran montrant le volet Gérer les points de terminaison privés."::: 
 
 #### <a name="approval-of-a-private-link-in-a-storage-account"></a>Approbation d’une liaison privée dans un compte de stockage
 
@@ -171,7 +171,7 @@ Si vous n’avez pas utilisé le lien hypertexte lorsque vous avez testé la con
 
 1. Cochez la case du point de terminaison privé que vous avez créé, puis sélectionnez **Approuver**.
 
-    ![Capture d’écran montrant le bouton Approuver du point de terminaison privé.](./media/tutorial-data-flow-private/approve-private-endpoint.png)
+    :::image type="content" source="./media/tutorial-data-flow-private/approve-private-endpoint.png" alt-text="Capture d’écran montrant le bouton Approuver du point de terminaison privé.":::
 
 1. Ajoutez une description, puis sélectionnez **Oui**.
 1. Revenez à la section **Points de terminaison privés managés** de l’onglet **Gérer** dans Data Factory.
@@ -181,65 +181,65 @@ Si vous n’avez pas utilisé le lien hypertexte lorsque vous avez testé la con
 
 1. À côté de votre nœud source dans le canevas de flux de données, sélectionnez l’icône plus (+) pour ajouter une nouvelle transformation. La première transformation que vous ajouterez est un **filtre**.
 
-    ![Capture d’écran illustrant l’ajout d’un filtre.](media/tutorial-data-flow-private/add-filter.png)
+    :::image type="content" source="media/tutorial-data-flow-private/add-filter.png" alt-text="Capture d’écran illustrant l’ajout d’un filtre.":::
 1. Nommez votre transformation de filtre **FilterYears**. Sélectionnez la zone d’expression à côté de **Filtrer sur** pour ouvrir le générateur d’expressions. Ici, vous allez spécifier votre condition de filtrage.
 
-    ![Capture d’écran montrant FilterYears.](media/tutorial-data-flow-private/filter-years.png)
+    :::image type="content" source="media/tutorial-data-flow-private/filter-years.png" alt-text="Capture d’écran montrant FilterYears.":::
 1. Le générateur d’expressions de flux de données vous permet de générer de manière interactive des expressions à utiliser dans diverses transformations. Les expressions peuvent inclure des fonctions intégrées, des colonnes du schéma d’entrée et des paramètres définis par l’utilisateur. Pour plus d’informations sur la génération d’expressions, consultez [Générateur d’expressions de flux de données](./concepts-data-flow-expression-builder.md).
 
-    * Dans ce tutoriel, vous voulez filtrer les films du genre comédie qui sont sortis entre les années 1910 et 2000. Comme l’année est actuellement une chaîne, vous devez la convertir en un entier à l’aide de la fonction ```toInteger()```. Utilisez les opérateurs supérieur ou égal à (>=) et inférieur ou égal à (<=) pour effectuer une comparaison avec les valeurs d’années (year) littérales 1910 et 2000. Unissez ces expressions avec l’opérateur And (&&). L’expression se présente comme suit :
+    * Dans ce tutoriel, vous voulez filtrer les films du genre comédie qui sont sortis entre les années 1910 et 2000. Comme l’année est actuellement une chaîne, vous devez la convertir en un entier à l’aide de la fonction `toInteger()`. Utilisez les opérateurs supérieur ou égal à (>=) et inférieur ou égal à (<=) pour effectuer une comparaison avec les valeurs d’années (year) littérales 1910 et 2000. Unissez ces expressions avec l’opérateur And (&&). L’expression se présente comme suit :
 
-        ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
+        `toInteger(year) >= 1910 && toInteger(year) <= 2000`
 
-    * Pour rechercher les films qui sont des comédies, vous pouvez utiliser la fonction ```rlike()``` pour rechercher le modèle « Comedy » dans la colonne des genres. Unissez l’expression rlike avec la comparaison d’année (year) pour obtenir :
+    * Pour rechercher les films qui sont des comédies, vous pouvez utiliser la fonction `rlike()` pour rechercher le modèle « Comedy » dans la colonne des genres. Ajoutez à l’expression `rlike` la comparaison d’année à obtenir :
 
-        ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
+        `toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')`
 
     * Si vous avez un cluster de débogage actif, vous pouvez vérifier votre logique en sélectionnant **Actualiser** pour afficher la sortie de l’expression par rapport aux entrées utilisées. Il y a plusieurs réponses appropriées sur la façon dont vous pouvez accomplir cette logique à l’aide du langage d’expression de flux de données.
 
-        ![Capture d’écran montrant l’expression de filtre.](media/tutorial-data-flow-private/filter-expression.png)
+        :::image type="content" source="media/tutorial-data-flow-private/filter-expression.png" alt-text="Capture d’écran montrant l’expression de filtre.":::
 
     * Sélectionnez **Enregistrer et terminer** une fois que vous en avez terminé avec votre expression.
 
 1. Pour vérifier que le filtre fonctionne correctement, récupérez un **Aperçu des données**.
 
-    ![Capture d’écran montrant l’aperçu des données filtré.](media/tutorial-data-flow-private/filter-data.png)
+    :::image type="content" source="media/tutorial-data-flow-private/filter-data.png" alt-text="Capture d’écran montrant l’aperçu des données filtré.":::
 
 ### <a name="add-the-aggregate-transformation"></a>Ajout de la transformation d’agrégation
 
 1. La transformation suivante que vous allez ajouter est une transformation **Agrégation** sous **Modificateur de schéma**.
 
-    ![Capture d’écran illustrant l’ajout de l’agrégat.](media/tutorial-data-flow-private/add-aggregate.png)
+    :::image type="content" source="media/tutorial-data-flow-private/add-aggregate.png" alt-text="Capture d’écran illustrant l’ajout de l’agrégat.":::
 1. Nommez votre transformation d’agrégation **AggregateComedyRating**. Sous l’onglet **Grouper par**, sélectionnez **année** dans la liste déroulante pour regrouper les agrégations par année de sortie des films.
 
-    ![Capture d’écran montrant le groupe d’agrégats.](media/tutorial-data-flow-private/group-by-year.png)
+    :::image type="content" source="media/tutorial-data-flow-private/group-by-year.png" alt-text="Capture d’écran montrant le groupe d’agrégats.":::
 1. Accédez à l’onglet **Agrégats**. Dans la zone de texte de gauche, nommez la colonne d’agrégation **AverageComedyRating**. Sélectionnez la zone d’expression de droite pour entrer l’expression d’agrégation par le biais du générateur d’expressions.
 
-    ![Capture d’écran montrant le nom de la colonne d’agrégation.](media/tutorial-data-flow-private/name-column.png)
+    :::image type="content" source="media/tutorial-data-flow-private/name-column.png" alt-text="Capture d’écran montrant le nom de la colonne d’agrégation.":::
 1. Pour afficher la moyenne de la colonne **Évaluation**, utilisez la fonction d’agrégation ```avg()```. Comme **Évaluation** est une chaîne et que ```avg()``` prend une entrée numérique, nous devons convertir la valeur en nombre à l’aide de la fonction ```toInteger()```. Voici comment se présente l’expression :
 
-    ```avg(toInteger(Rating))```
+    `avg(toInteger(Rating))`
 
 1. Sélectionnez **Enregistrer et terminer** une fois que vous avez terminé.
 
-    ![Capture d’écran montrant l’enregistrement de l’agrégat.](media/tutorial-data-flow-private/save-aggregate.png)
+    :::image type="content" source="media/tutorial-data-flow-private/save-aggregate.png" alt-text="Capture d’écran montrant l’enregistrement de l’agrégat.":::
 1. Accédez à l’onglet **Aperçu des données** pour afficher la sortie de la transformation. Notez que seules deux colonnes sont affichées : **year** et **AverageComedyRating**.
 
 ### <a name="add-the-sink-transformation"></a>Ajout de la transformation du récepteur
 
 1. Ensuite, vous voulez ajouter une transformation **Récepteur** sous **Destination**.
 
-    ![Capture d’écran illustrant l’ajout d’un récepteur.](media/tutorial-data-flow-private/add-sink.png)
+    :::image type="content" source="media/tutorial-data-flow-private/add-sink.png" alt-text="Capture d’écran illustrant l’ajout d’un récepteur.":::
 1. Nommez votre récepteur **Sink**. Sélectionnez **Nouveau** pour créer votre jeu de données récepteur.
 
-    ![Capture d’écran montrant la création d’un récepteur.](media/tutorial-data-flow-private/create-sink.png)
+    :::image type="content" source="media/tutorial-data-flow-private/create-sink.png" alt-text="Capture d’écran montrant la création d’un récepteur.":::
 1. Dans la page **Nouveau jeu de données**, sélectionnez **Azure Data Lake Storage Gen2**, puis **Continuer**.
 
 1. Dans la page **Sélectionner le format**, sélectionnez **DelimitedText**, puis **Continuer**.
 
 1. Nommez votre jeu de données récepteur **MoviesSink**. Pour Service lié, choisissez le service lié **ADLSGen2** que vous avez créé pour la transformation source. Entrez un dossier de sortie dans lequel écrire vos données. Dans ce tutoriel, nous écrivons dans le dossier **output** se trouvant dans le conteneur **sample-data**. Le dossier ne doit pas nécessairement exister au préalable et peut être créé de façon dynamique. Cochez la case **Première ligne comme en-tête**, puis sélectionnez **Aucun** pour **Importer un schéma**. Sélectionnez **OK**.
 
-    ![Capture d’écran montrant le chemin d’accès du récepteur.](media/tutorial-data-flow-private/sink-file-path.png)
+    :::image type="content" source="media/tutorial-data-flow-private/sink-file-path.png" alt-text="Capture d’écran montrant le chemin d’accès du récepteur.":::
 
 Vous avez terminé la génération de votre flux de données. Vous êtes prêt à l’exécuter dans votre pipeline.
 
@@ -253,7 +253,7 @@ Vous pouvez déboguer un pipeline avant de le publier. Au cours de cette étape,
 
 1. La page Détails indique le nombre de lignes et le temps consacré à chaque étape de transformation.
 
-    ![Capture d’écran montrant une exécution d’analyse.](media/tutorial-data-flow-private/run-details.png)
+    :::image type="content" source="media/tutorial-data-flow-private/run-details.png" alt-text="Capture d’écran montrant une exécution d’analyse.":::
 1. Sélectionnez une transformation pour obtenir des informations détaillées sur les colonnes et le partitionnement des données.
 
 Si vous avez suivi ce tutoriel correctement, vous devez avoir écrit 83 lignes et 2 colonnes dans votre dossier récepteur. Vous pouvez vérifier que les données sont correctes en vérifiant votre stockage d’objets blob.

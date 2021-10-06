@@ -1,15 +1,15 @@
 ---
 title: Présentation de l’agent Connected Machine
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 08/18/2021
+ms.date: 09/14/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fa3b934d6909a3975bf9d01b6cd2f8f2fd2428e4
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: e8d29e230819e6fa141df0f99460b67fe4a2eb0e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771003"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662283"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs avec Azure Arc
 
@@ -20,7 +20,7 @@ L’agent Connected Machine des serveurs avec Azure Arc vous permet de gérer 
 
 ## <a name="agent-component-details"></a>Détails du composant Agent
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Vue d’ensemble de l’agent des serveurs avec Azure Arc." border="false":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Vue d’ensemble de l’agent de serveurs avec Azure Arc." border="false":::
 
 Le package d’agent Azure Connected Machine contient plusieurs composants logiques qui sont regroupés ensemble.
 
@@ -38,7 +38,7 @@ Le package d’agent Azure Connected Machine contient plusieurs composants logiq
 
 ## <a name="instance-metadata"></a>Métadonnées d’instance
 
-Les informations relatives aux métadonnées sur la machine connectée sont collectées une fois que l’agent Connected Machine s’est inscrit auprès des serveurs avec Azure Arc. Plus précisément :
+Les informations de métadonnées sur la machine connectée sont collectées une fois que l’agent Connected Machine s’est inscrit auprès des serveurs avec Azure Arc. Plus précisément :
 
 * Nom, type et version du système d’exploitation
 * Nom de l'ordinateur
@@ -78,13 +78,13 @@ L’agent Azure Connected Machine pour Windows et Linux peut être mis à niveau
 
 ### <a name="supported-environments"></a>Environnements pris en charge
 
-Les serveurs avec Azure Arc prennent en charge l’installation de l’agent Connected Machine sur n’importe quel serveur physique et machine virtuelle hébergée *en dehors* d’Azure. Ceci comprend les machines virtuelles s’exécutant sur des plateformes comme VMware, Azure Stack HCI et d’autres environnements cloud. Les serveurs avec Azure Arc ne prennent pas en charge l’installation de l’agent sur les machines virtuelles qui s’exécutent dans Azure, ni sur les machines virtuelles qui s’exécutent sur Azure Stack Hub ou Azure Stack Edge, car elles sont déjà modélisées en tant que machines virtuelles Azure.
+Les serveurs avec Azure Arc prennent en charge l’installation de l’agent Connected Machine sur tout serveur physique et sur toute machine virtuelle hébergée *en dehors* d’Azure. Cela comprend les machines virtuelles s’exécutant sur des plateformes comme VMware, Azure Stack HCI et d’autres environnements cloud. Les serveurs avec Azure Arc ne prennent pas en charge l’installation de l’agent sur les machines virtuelles qui s’exécutent dans Azure, ni sur les machines virtuelles qui s’exécutent sur Azure Stack Hub ou Azure Stack Edge, car elles sont déjà modélisées en tant que machines virtuelles Azure.
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
 Les versions suivantes des systèmes d’exploitation Windows et Linux sont officiellement prises en charge pour l’agent Azure Connected Machine :
 
-- Windows Server 2008 R2 SP1, Windows Server 2012 R2 et versions ultérieures (y compris Server Core)
+- Windows Server 2008 R2 SP1, Windows Server 2012 R2, 2016, 2019, et 2022 (dont Server Core)
 - Ubuntu 16.04, 18.04 et 20.04 LTS (x64)
 - CentOS Linux 7 et 8 (x64)
 - SUSE Linux Enterprise Server (SLES) 12 et 15 (x64)
@@ -172,7 +172,7 @@ Pour plus d’informations, consultez [Vue d’ensemble des étiquettes de servi
 
 ### <a name="register-azure-resource-providers"></a>Inscrire des fournisseurs de ressources Azure
 
-Pour utiliser ce service, les serveurs avec Azure Arc dépendent des fournisseurs de ressources Azure suivants dans votre abonnement :
+Pour utiliser ce service, les serveurs avec Azure Arc dépendent des fournisseurs de ressources Azure suivants de votre abonnement :
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -209,6 +209,7 @@ Selon vos besoins, plusieurs méthodes vous permettent de connecter des machines
 |--------|-------------|
 | de manière interactive, | Installer manuellement l’agent sur une seule machine ou un petit nombre de machines en suivant les étapes décrites dans [Connecter des machines à partir du portail Azure](onboard-portal.md).<br> À partir du portail Azure, vous pouvez générer un script et l’exécuter sur la machine pour automatiser les étapes d’installation et de configuration de l’agent.|
 | À grande échelle | Installer et configurer l’agent pour plusieurs machines en suivant les instructions indiquées dans [Connecter des machines à l’aide d’un principal de service](onboard-service-principal.md).<br> Cette méthode crée un principal de service pour connecter des machines de manière non interactive.|
+| À grande échelle | Installez et configurez l’agent pour plusieurs machines en suivant la méthode [Connecter des machines hybrides à Azure à partir d’Automation Update Management](onboard-update-management-machines.md).<br> Cette méthode crée un principal de service, installe et configure l’agent pour plusieurs machines gérées avec Azure Automation Update Management pour connecter des machines de manière non interactive. |
 | À grande échelle | Installer et configurer l’agent pour plusieurs machines en suivant les instructions de la méthode [Utilisation de Windows PowerShell DSC](onboard-dsc.md).<br> Cette méthode utilise un principal de service pour connecter des machines de manière non interactive à PowerShell DSC. |
 
 ## <a name="connected-machine-agent-technical-overview"></a>Présentation technique de l’agent Machine connectée
@@ -326,12 +327,12 @@ L’agent Connected Machine des serveurs avec Azure Arc est conçu pour gérer
 - L’agent Extension Service est limité à une utilisation pouvant atteindre 5 % de l’UC.
 
    - Ceci s’applique uniquement aux opérations d’installation, de désinstallation ou de mise à niveau. Une fois installées, les extensions sont responsables de leur propre utilisation des ressources et la limite de 5 % de l’UC ne s’applique pas.
-   - Les agents Log Analytics et Azure Monitor peuvent utiliser jusqu’à 60 % de l’UC pendant leurs opérations d’installation, de mise à niveau ou de désinstallation sur Red Hat Linux, CentOS et d’autres variantes de Linux Enterprise. La limite est plus élevée pour cette combinaison d’extensions et de systèmes d’exploitation afin de tenir compte de l’impact sur les performances de [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) sur ces systèmes.
+   - L’agent Log Analytics et l’agent Azure Monitor sont autorisés à utiliser jusqu’à 60 % du processeur pendant leurs opérations d’installation/de mise à niveau/de désinstallation sur Red Hat Linux, CentOS et d’autres variantes d’Enterprise Linux. La limite est plus élevée pour cette combinaison d’extensions et de systèmes d’exploitation afin de tenir compte de l’impact sur les performances de [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux) sur ces systèmes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour commencer l’évaluation des serveurs avec Azure Arc, suivez les instructions de l’article [Connecter des machines hybrides à des serveurs avec Azure Arc](learn/quick-enable-hybrid-vm.md).
 
-* Avant de déployer l’agent des serveurs avec Azure Arc et de l’intégrer à d’autres services de gestion et de surveillance Azure, consultez le [guide de planification et de déploiement](plan-at-scale-deployment.md).
+* Avant de déployer l’agent des serveurs avec Azure Arc et de l’intégrer à d’autres services de gestion et de supervision Azure, consultez le [Guide de planification et de déploiement](plan-at-scale-deployment.md).
 
 * Pour plus d’informations sur la résolution des problèmes, consultez le [guide Résoudre les problèmes de l’agent Connected Machine](troubleshoot-agent-onboard.md).

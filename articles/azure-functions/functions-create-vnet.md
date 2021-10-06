@@ -3,12 +3,12 @@ title: Utiliser des points de terminaison privés pour intégrer Azure Functions
 description: Ce tutoriel pas à pas vous montre comment connecter une fonction à un réseau virtuel Azure et le verrouiller avec des points de terminaison privés.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: a410d6717a73df2c7e947fd15c6c89040f08846c
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 8007fde1d4aaf52a98bf924f607450462a993c1d
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204738"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128708431"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutoriel : intégrer des Azure Functions à un réseau virtuel Azure à l’aide de points de terminaison privés
 
@@ -303,6 +303,8 @@ Pour utiliser votre application de fonction avec des réseaux virtuels, vous dev
 1. Sous **Réseau virtuel**, sélectionnez le réseau virtuel que vous avez créé précédemment.
 
 1. Sélectionnez le sous-réseau **fonctions** créé précédemment. Sélectionnez **OK**.  Votre application de fonction est désormais intégrée à votre réseau virtuel !
+
+    Si le réseau virtuel et l’application de fonction se trouvent dans des abonnements différents, vous devez d’abord fournir un accès **Contributeur** au principal de service **Microsoft Azure App Service** sur le réseau virtuel.
 
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Capture d’écran montrant comment connecter une application de fonction à un sous-réseau.":::
 

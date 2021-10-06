@@ -1,17 +1,17 @@
 ---
 title: Activer la redondance de zone pour Azure Cache pour Redis
 description: Découvrez comment configurer la redondance de zone pour vos instances Azure Cache pour Redis de niveau Premium et Entreprise.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 522cf0ad115e1149d7746ecadef96ae9494a1d8c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fb68ea362c5b91e5c60578f63c752d1982495efb
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525000"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538066"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Activer la redondance de zone pour Azure Cache pour Redis
 Dans cet article, vous allez apprendre à configurer une instance Azure Cache redondante interzone à l’aide du portail Azure.

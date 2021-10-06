@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 09/01/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b30856b5fe84f8c66e4029714e4bf39fca0470a9
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 45bc6066152fbb83f5124b5ee157e6b16efa9bf9
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112541299"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123475167"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Créer des abonnements Contrat Entreprise Azure programmatiquement avec les API les plus récentes
 
@@ -168,6 +168,13 @@ Les valeurs d’une étendue de facturation et celles de `id` sont la même chos
 
 L’exemple suivant crée un abonnement nommé *Dev Team Subscription* dans le compte d’inscription sélectionné à l’étape précédente. 
 
+À l’aide de l’une des méthodes suivantes, vous allez créer un nom d’alias d’abonnement. Lorsque vous créez le nom d’alias, nous vous recommandons d’utiliser les éléments suivants :
+
+- Utilisiez des caractères alphanumériques, des traits d’union
+- Commenciez par une lettre et terminiez par un caractère alphanumérique
+- N’utilisez pas de points
+
+
 ### <a name="rest"></a>[REST](#tab/rest)
 
 Appelez l’API PUT pour créer un alias ou une requête de création d’abonnement.
@@ -278,11 +285,11 @@ Vous recevez le subscriptionId dans la réponse à la commande.
 
 ---
 
-## <a name="use-arm-template"></a>Utiliser un modèle ARM
+## <a name="use-arm-template-or-bicep"></a>Utiliser un modèle ARM ou Bicep
 
-La section précédente vous a montré comment créer un abonnement avec PowerShell, Azure CLI ou l’API REST. Si vous devez automatiser la création des abonnements, utilisez plutôt un modèle ARM (Azure Resource Manager).
+La section précédente vous a montré comment créer un abonnement avec PowerShell, Azure CLI ou l’API REST. Si vous devez automatiser la création des abonnements, utilisez plutôt un modèle ARM (Azure Resource Manager) ou un [fichier Bicep](../../azure-resource-manager/bicep/overview.md).
 
-Le modèle suivant permet de créer un abonnement. Pour `billingScope` , indiquez l’ID du compte d’inscription. L’abonnement est créé dans le groupe d’administration racine. Après avoir créé l’abonnement, vous pouvez le déplacer vers un autre groupe d’administration.
+Le modèle ARM suivant permet de créer un abonnement. Pour `billingScope` , indiquez l’ID du compte d’inscription. L’abonnement est créé dans le groupe d’administration racine. Après avoir créé l’abonnement, vous pouvez le déplacer vers un autre groupe d’administration.
 
 ```json
 {
@@ -319,7 +326,29 @@ Le modèle suivant permet de créer un abonnement. Pour `billingScope` , indique
 }
 ```
 
-Déployez le modèle au [niveau du groupe d’administration](../../azure-resource-manager/templates/deploy-to-management-group.md).
+Ou, utilisez un fichier Bicep pour créer l’abonnement.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide a name for the alias. This name will also be the display name of the subscription.')
+param subscriptionAliasName string
+
+@description('Provide the full resource ID of billing scope to use for subscription creation.')
+param billingScope string
+
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+  scope: tenant()
+  name: subscriptionAliasName
+  properties: {
+    workload: 'Production'
+    displayName: subscriptionAliasName
+    billingScope: billingScope
+  }
+}
+```
+
+Déployez le modèle au [niveau du groupe d’administration](../../azure-resource-manager/templates/deploy-to-management-group.md). Les exemples suivants illustrent le déploiement du modèle ARM JSON, mais vous pouvez déployer un fichier Bicep à la place.
 
 ### <a name="rest"></a>[REST](#tab/rest)
 
@@ -374,7 +403,7 @@ az deployment mg create \
 
 ---
 
-Pour déplacer un abonnement vers un nouveau groupe d’administration, utilisez le modèle suivant.
+Pour déplacer un abonnement vers un nouveau groupe d’administration, utilisez le modèle ARM suivant.
 
 ```json
 {
@@ -405,6 +434,23 @@ Pour déplacer un abonnement vers un nouveau groupe d’administration, utilisez
         }
     ],
     "outputs": {}
+}
+```
+
+Ou, créez le fichier Bicep suivant.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
 }
 ```
 

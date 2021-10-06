@@ -7,14 +7,17 @@ ms.topic: conceptual
 ms.date: 08/30/2021
 ms.author: denisgun
 ms.service: virtual-desktop
-ms.openlocfilehash: ddf70a56d3a787387d1364c88f26cd0faa5df6b3
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: ec7efa35e6b6f036935e6a81f01348f3633f83be
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219886"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627843"
 ---
 # <a name="screen-capture-protection"></a>Protection contre la capture d’écran
+
+>[!IMPORTANT]
+>La protection de la capture d’écran n’est pas encore prise en charge pour les environnements Microsoft 365 Government (Cloud de la communauté du secteur public), GCC-High et Microsoft 365 DoD.
 
 La fonctionnalité de protection contre la capture d’écran empêche la capture d’informations sensibles sur les points de terminaison clients. Lorsque vous activez cette fonctionnalité, le contenu distant est automatiquement bloqué ou masqué dans les captures d’écran et les partages d’écran. En outre, le client Bureau à distance masque le contenu des logiciels malveillants susceptibles d’effectuer une capture de l’écran.
 

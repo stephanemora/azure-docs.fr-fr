@@ -2,14 +2,14 @@
 title: Enregistrer des rôles et des autorisations
 description: Utilisez le contrôle d’accès en fonction du rôle Azure (Azure RBAC) et la gestion des identités et des accès (IAM) pour fournir des autorisations de granularité fine aux ressources dans un registre de conteneurs Azure.
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6923e356f60916e34325b9b6815dbae8aeaf5c51
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 494373a299eb0f4d2bb100e71a1e1000336d1613
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854789"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123451634"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
 
@@ -89,7 +89,7 @@ Comme pour les autres ressources Azure, vous pouvez créer des [rôles personnal
 
 Pour déterminer les autorisations à appliquer à un rôle personnalisé, consultez la liste des [actions](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry) Microsoft.ContainerRegistry, passez en revue les actions autorisées des [rôles ACR intégrés](../role-based-access-control/built-in-roles.md) ou exécutez la commande suivante :
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az provider operation show --namespace Microsoft.ContainerRegistry
@@ -97,16 +97,19 @@ az provider operation show --namespace Microsoft.ContainerRegistry
 
 Pour définir un rôle personnalisé, consultez [Procédure de création d’un rôle personnalisé](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
-> [!IMPORTANT]
-> Dans un rôle personnalisé, Azure Container Registry ne prend actuellement pas en charge les caractères génériques tels que `Microsoft.ContainerRegistry/*` ou `Microsoft.ContainerRegistry/registries/*` qui accordent l’accès à toutes les actions correspondantes. Spécifiez une action requise individuellement dans le rôle.
+> [!NOTE]
+> Dans les locataires configurés avec la [liaison privée Azure Resource Manager](../azure-resource-manager/management/create-private-link-access-portal.md), Azure Container Registry prend en charge les actions avec caractères génériques telles que `Microsoft.ContainerRegistry/*/read` ou `Microsoft.ContainerRegistry/registries/*/write` dans les rôles personnalisés, en accordant l’accès à toutes les actions correspondantes. Dans un locataire sans liaison privée ARM, spécifiez individuellement toutes les actions de registre requises dans un rôle personnalisé.
 
-### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Get-AzProviderOperation -OperationSearchString Microsoft.ContainerRegistry/*
 ```
 
 Pour définir un rôle personnalisé, consultez [Procédure de création d’un rôle personnalisé](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
+
+> [!NOTE]
+> Dans les locataires configurés avec la [liaison privée Azure Resource Manager](../azure-resource-manager/management/create-private-link-access-portal.md), Azure Container Registry prend en charge les actions avec caractères génériques telles que `Microsoft.ContainerRegistry/*/read` ou `Microsoft.ContainerRegistry/registries/*/write` dans les rôles personnalisés, en accordant l’accès à toutes les actions correspondantes. Dans un locataire sans liaison privée ARM, spécifiez individuellement toutes les actions de registre requises dans un rôle personnalisé.
 
 ---
 

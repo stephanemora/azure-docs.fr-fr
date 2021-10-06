@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 194c37d38242e3376516b660dd37071d128b77fa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1ba1a97acfe2345ed5632ae6f84caacc525f13e4
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128650056"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544808"
 ---
 # <a name="delete-an-azure-billing-payment-method"></a>Supprimer un mode de paiement pour la facturation Azure
 
@@ -71,7 +71,7 @@ Dès lors que toutes les conditions sont satisfaites, vous pouvez détacher le m
 1. Revenez à **Cost Management + Billing** > **Profils de facturation** > **Modes de paiement**. Sélectionnez **Détacher**. Au bas de la page Détacher le mode de paiement par défaut, sélectionnez **Détacher**.
 
 > [!NOTE]
-> - La suppression d’un abonnement annulé peut prendre jusqu’à 90 jours. Si vous souhaitez écourter l’attente, ouvrez une demande de support Azure et demandez à ce que l’abonnement soit supprimé immédiatement.
+> - La suppression d’un abonnement annulé peut prendre jusqu’à 90 jours.
 > - Vous ne pouvez pas supprimer un mode de paiement avant d’avoir réglé tous les frais précédents d’un profil de facturation. Si vous êtes dans une période de facturation active, vous devez attendre qu’elle soit terminée avant de pouvoir supprimer votre mode de paiement. **Vérifiez que toutes les autres conditions de détachement sont remplies en attendant que votre période de facturation soit terminée**.
 
 ## <a name="delete-a-mosp-payment-method"></a>Supprimer un mode de paiement MOSP
@@ -95,7 +95,7 @@ Si votre mode de paiement est utilisé par un abonnement MOSP, effectuez les ét
 1. Revenez à **Cost Management + Billing** > **Profils de facturation** > **Modes de paiement** et supprimez le mode de paiement.
 
 > [!NOTE]
-> La suppression d’un abonnement annulé peut prendre jusqu’à 90 jours. Si vous souhaitez écourter l’attente, ouvrez une demande de support Azure et demandez à ce que l’abonnement soit supprimé immédiatement.
+> La suppression d’un abonnement annulé peut prendre jusqu’à 90 jours.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

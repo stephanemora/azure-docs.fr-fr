@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 64c77a12f65ebaf9acbc8b16c62f86a7e1e10983
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: ecb99e0add9700bce297f2dfc31e8220e02b0315
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122777629"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652962"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Surveillance de la connectivité réseau à l’aide de Moniteur de connexion
 
@@ -74,7 +74,7 @@ Les règles d'un groupe de sécurité réseau (NSG) ou d'un pare-feu peuvent emp
 
 ### <a name="agents-for-on-premises-machines"></a>Agents pour machines locales
 
-Pour que le Moniteur de connexion reconnaisse vos machines locales en tant que sources de surveillance, installez l'agent Log Analytics sur les machines.  Puis activez la solution [Network Performance Monitor](/azure-monitor/insights/network-performance-monitor.md#configure-the-solution). Ces agents sont liés aux espaces de travail Log Analytics. Par conséquent, vous devez configurer l'ID de l'espace de travail et la clé primaire pour permettre aux agents d'entamer la surveillance.
+Pour que le Moniteur de connexion reconnaisse vos machines locales en tant que sources de surveillance, installez l'agent Log Analytics sur les machines.  Puis activez la solution [Network Performance Monitor](/azure/azure-monitor/insights/network-performance-monitor#configure-the-solution). Ces agents sont liés aux espaces de travail Log Analytics. Par conséquent, vous devez configurer l'ID de l'espace de travail et la clé primaire pour permettre aux agents d'entamer la surveillance.
 
 Pour installer l’agent Log Analytics pour des machines Windows, consultez [Installer l’agent Log Analytics sur Windows](../azure-monitor/agents/agent-windows.md).
 
@@ -92,6 +92,23 @@ Pour les ordinateurs Linux, les numéros de port à utiliser doivent être modif
 Le script crée des clés de Registre requises par la solution. Il crée également des règles de pare-feu Windows pour autoriser les agents à créer des connexions TCP entre eux. Les clés de Registre créées par le script spécifient également s’il faut enregistrer les journaux d’activité de débogage et le chemin d’accès des fichiers journaux. Le script définit également le port TCP de l’agent utilisé pour la communication. Les valeurs de ces clés sont définies automatiquement par le script. Ne modifiez pas manuellement ces clés. Le port ouvert par défaut est 8084. Vous pouvez utiliser un port personnalisé en ajoutant le paramètre portNumber au script. Utilisez le même port sur tous les ordinateurs exécutant le script. [En savoir plus](../azure-monitor/agents/log-analytics-agent.md#network-requirements) sur la configuration réseau requise pour les agents Log Analytics.
 
 Le script configure uniquement le pare-feu Windows en local. Si vous avez un pare-feu réseau, assurez-vous qu’il autorise le trafic destiné au port TCP que Network Performance Monitor utilise.
+
+L’agent Windows LA peut être multirésident afin d’envoyer des données à plusieurs espaces de travail et groupes d’administration du Gestionnaire des opérations du System Center. L’agent Linux ne peut envoyer qu’à une seule destination, qu’il s’agisse d’un espace de travail ou d’un groupe d’administration.
+
+#### <a name="enable-network-performance-monitor-solution-for-on-premise-machines"></a>Activer la solution de Surveillance de la performance du réseau pour les ordinateurs locaux 
+
+Suivez les étapes ci-dessous pour activer la solution de Surveillance de la performance du réseau pour les ordinateurs locaux 
+
+1. Sur la page d'accueil du portail Azure, accédez à Network Watcher
+2. Sur la gauche, dans la section Surveillance, sélectionnez Surveillance de la performance du réseau 
+3. Dans le portail, vous verrez une liste d’espaces de travail avec la solution NPM activée, filtrée par Abonnements 
+4. Pour ajouter la solution NPM dans un nouvel espace de travail, cliquez sur « + Ajouter NPM » en haut à gauche du portail 
+5. Sélectionnez l’Abonnement et l’Espace de travail dans lesquels vous souhaitez activer la solution, puis cliquez sur Créer
+6. L’espace de travail prend quelques minutes pour s’afficher sur le portail après l’activation de la solution.
+
+:::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Capture d’écran montrant comment ajouter la solution NPM dans le Moniteur de connexion" lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
+
+Contrairement aux agents LA, la solution NPM peut uniquement être configurée pour envoyer des données à un seul espace de travail LA
 
 ## <a name="enable-network-watcher-on-your-subscription"></a>Activer Network Watcher dans votre abonnement
 
@@ -374,7 +391,7 @@ Pour les réseaux dont les sources sont des machines virtuelles Azure, les probl
 * Le protocole BGP n'est pas activé sur la connexion à la passerelle.
 * La sonde DIP est en panne sur l'équilibreur de charge.
 
-## <a name="comparision-between-azures-connectivity-monitoring-support"></a>Comparaison de la prise en charge du Moniteur de connexion d’Azure 
+## <a name="comparison-between-azures-connectivity-monitoring-support"></a>Comparaison de la prise en charge du Moniteur de connexion Azure 
 
 En un clic et sans temps d’arrêt, vous pouvez migrer des tests depuis Network Performance Monitor et Moniteur de connexion (classique) vers la nouvelle fonctionnalité Moniteur de connexion améliorée.
  

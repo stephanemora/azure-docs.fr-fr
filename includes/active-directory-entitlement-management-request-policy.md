@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: fichier descriptif
 description: Fichier include
 services: active-directory
 author: msaburnley
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 9686cce60520895fe4a3ae7fb47e1eb0eca03599
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 252f872dc14a1850f9b73e7769d4a439952b7da6
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112975249"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123484370"
 ---
 ## <a name="for-users-in-your-directory"></a>Pour les utilisateurs dans votre répertoire
 
@@ -216,9 +216,9 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
  
 1. Tapez ce que vous souhaitez demander au demandeur, également appelé « chaîne d’affichage », pour la question dans la zone **Question**.
 
-    ![Package d'accès - Stratégie - Activation du paramètre Informations sur le demandeur](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+    ![Package d’accès – Stratégie – Activation du paramètre Informations sur le demandeur](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
 
-1. Si vous souhaitez localiser les options de question et de réponse, cliquez sur **Ajouter une localisation**.
+1. Si vous souhaitez ajouter vos propres options de localisation, cliquez sur **Ajouter une localisation**.
     1. Une fois dans le volet **Ajouter des localisations pour les questions**, sélectionnez le **code de la langue** dans laquelle vous localisez la question.
     1. Dans la langue que vous avez configurée, tapez la question dans la zone **Texte localisé**.
     1. Une fois que vous avez ajouté toutes les localisations nécessaires, cliquez sur **Enregistrer**.
@@ -230,15 +230,18 @@ Par exemple, si vous avez mentionné Alice et Bob comme premier et deuxième app
     ![Package d’accès – Stratégie – Sélection du bouton Afficher et modifier le format de réponse Choix multiples](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
  
 1. Si vous sélectionnez Choix multiples, cliquez sur le bouton **Modifier et localiser** pour configurer les options de réponse.
-    1. Une fois que vous avez sélectionné Modifier et localiser, le volet **Modifier/localiser la question** s'ouvre.
+    1. Une fois que vous avez sélectionné Modifier et localiser, le volet **Afficher/modifier la question** s’ouvre.
     1. Tapez les options de réponse que vous souhaitez donner au demandeur lorsqu’il répond à la question dans les zones **Valeurs de réponse** .
-    1. Tapez le nombre de réponses dont vous avez besoin.
-    1. Si vous souhaitez ajouter votre propre localisation pour les options à choix multiples, sélectionnez le **Code langue facultatif** pour la langue dans laquelle vous souhaitez localiser une option spécifique.
-    1. Dans la langue que vous avez configurée, tapez la question dans la zone de texte Localisé.
-    1. Une fois que vous avez ajouté toutes les localisations nécessaires pour chaque option à choix multiples, cliquez sur **Enregistrer**.
+    1. Sélectionnez le langage de l’option de réponse. Vous pouvez localiser les options de réponse si vous choisissez des langages supplémentaires.
+    1. Tapez le nombre de réponses dont vous avez besoin, puis cliquez sur **Enregistrer**.
     
     ![Package d’accès – Stratégie –Saisie des options de choix multiples](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
   
 1. Pour exiger que les demandeurs répondent à cette question lorsqu’ils demandent l’accès à un package d’accès, cochez la case sous **Obligatoire**.
 
-1. Cliquez sur Suivant.
+1. Cliquez sur le sous-onglet **Attributs (préversion)** pour voir les attributs associés aux ressources ajoutées au package d’accès.
+
+    > [!NOTE]
+    > Pour ajouter ou mettre à jour des attributs pour les ressources d’un package d’accès, accédez à **Catalogues** et recherchez le catalogue associé au package d’accès. Consultez [Ajouter des attributs de ressource (préversion) dans le catalogue](../articles/active-directory/governance/entitlement-management-catalog-create.md#add-resource-attributes-preview-in-the-catalog) pour en savoir plus sur la modification de la liste des attributs pour une ressource de catalogue spécifique et les rôles nécessaires. 
+
+1. Cliquez sur **Suivant**.

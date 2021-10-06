@@ -8,15 +8,15 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: cf0e423648db174433f0717f2e5971ac49697b42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c06de5c1d466db26e756029d2046286bd55d4e7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704621"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128674525"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau modérée à élevée
- 
+
 Cet article fournit une vue d'ensemble des solutions de transfert de données adaptées aux environnements disposant d'une bande passante réseau modérée à élevée et au transfert de jeux de données volumineux. Il décrit également les options de transfert de données recommandées et la matrice de fonctionnalités clés correspondant à ce scénario.
 
 Pour une vue d’ensemble de toutes les options de transfert de données disponibles, voir [Choisir une solution de transfert de données Azure](storage-choose-data-transfer-solution.md).
@@ -33,17 +33,16 @@ Les options recommandées dans ce scénario varient en fonction de votre bande p
 
 Avec une bande passante réseau modérée, vous devez prévoir le temps de transfert des données sur le réseau.
 
-Utilisez le tableau suivant pour estimer le temps nécessaire, puis choisissez un transfert hors connexion ou un transfert réseau. Ce tableau indique le temps prévu pour le transfert de données réseau en fonction des différentes largeurs de bande réseau disponibles (sur la base d'une utilisation de 90 %).  
+Utilisez le tableau suivant pour estimer le temps nécessaire, puis choisissez un transfert hors connexion ou un transfert réseau. Ce tableau indique le temps prévu pour le transfert de données réseau en fonction des différentes largeurs de bande réseau disponibles (sur la base d'une utilisation de 90 %).
 
 ![Transfert réseau ou transfert hors connexion](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 
 - Si le transfert réseau s'annonce trop lent, il est préférable d'utiliser un appareil physique. Dans ce cas, nous vous recommandons d'utiliser les appareils de transfert hors connexion de la famille Azure Data Box ou le service Azure Import/Export avec vos propres disques.
 
-    - **Famille Azure Data Box pour transferts hors connexion** - Si vous êtes limité par le temps, la disponibilité du réseau ou les coûts, utilisez les appareils Data Box fournis par Microsoft pour transférer les volumes de données importants vers Azure. Copiez les données localement à l’aide d’outils tels que Robocopy. En fonction du volume des données à transférer, vous pouvez choisir Data Box Disk, Data Box ou Data Box Heavy.
-    - **Azure Import/Export** - Utilisez le service Azure Import/Export avec vos propres disques pour importer en toute sécurité des volumes importants de données vers le Stockage Blob Azure et le Stockage Fichier. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disque et les expédier vers vos sites locaux.
+  - **Famille Azure Data Box pour transferts hors connexion** – Si vous êtes limité par le temps, la disponibilité du réseau ou les coûts, utilisez les appareils Data Box fournis par Microsoft pour transférer les volumes de données importants vers Azure. Copiez les données localement à l’aide d’outils tels que Robocopy. En fonction du volume des données à transférer, vous pouvez choisir Data Box Disk, Data Box ou Data Box Heavy.
+  - **Azure Import/Export** - Utilisez le service Azure Import/Export avec vos propres disques pour importer en toute sécurité des volumes importants de données vers le Stockage Blob Azure et le Stockage Fichier. Vous pouvez également utiliser ce service pour transférer des données de Stockage Blob Azure vers des lecteurs de disque et les expédier vers vos sites locaux.
 
 - Si le transfert réseau prévu est raisonnable, vous pouvez utiliser l'un des outils suivants, détaillés dans [Bande passante réseau élevée](#high-network-bandwidth).
-
 
 ### <a name="high-network-bandwidth-1-gbps---100-gbps"></a>Bande passante réseau élevée (1 Gbits/s - 100 Gbits/s)
 
@@ -78,7 +77,6 @@ Si vous utilisez le transfert de données hors connexion, reportez-vous au table
 | **Utilisation en cas de déplacement de données**     |Dans une zone commerciale|Dans une zone commerciale|Dans une zone commerciale|Au-delà des frontières géographiques, par exemple USA - UE|
 |    **Tarification**                          |    [Tarification](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Tarification](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Tarification](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Tarification](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
-
 Si vous utilisez le transfert de données en ligne, reportez-vous au tableau de la section suivante, Bande passante réseau élevée.
 
 ### <a name="high-network-bandwidth"></a>Bande passante réseau élevée
@@ -96,16 +94,16 @@ Si vous utilisez le transfert de données en ligne, reportez-vous au tableau de 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Apprendre à transférer des données avec Import/Export](../../import-export/storage-import-export-data-to-blobs.md).
-- Comprendre comment
 
-    - [Transférer des données avec Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
-    - [Transférer des données avec Data Box](../../databox/data-box-quickstart-portal.md).
-- [Transférer des données avec AzCopy](./storage-use-azcopy-v10.md).
 - Comprendre comment :
-    - [Transférer des données avec Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
-    - [Transformer des données avec Data Box Edge avant de les envoyer à Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
-- [Apprendre à transférer des données avec Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
-- Utiliser les API REST pour transférer des données
+  - [Transférer des données avec Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+  - [Transférer des données avec Data Box](../../databox/data-box-quickstart-portal.md).
+  - [Transférer des données avec AzCopy](./storage-use-azcopy-v10.md).
+  - [Transférer des données avec Data Box Gateway](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
+  - [Transformer des données avec Data Box Edge avant de les envoyer à Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
 
-    - [Dans .NET](/dotnet/api/overview/azure/storage)
-    - [Dans Java](/java/api/overview/azure/storage)
+- [Apprendre à transférer des données avec Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
+
+- Utiliser les API REST pour transférer des données :
+  - [Dans .NET](/dotnet/api/overview/azure/storage)
+  - [Dans Java](/java/api/overview/azure/storage)

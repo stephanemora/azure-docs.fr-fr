@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/25/2021
-ms.openlocfilehash: bae25b29fb0244641f3f1db80d8f2679d2070777
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 09/13/2021
+ms.openlocfilehash: a94abb3b2c640dbd0bcd372e83844d660af514cd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369105"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548188"
 ---
 # <a name="devops-deployment-for-single-tenant-azure-logic-apps"></a>Déploiement DevOps pour Azure Logic Apps monolocataire
 
@@ -29,7 +29,7 @@ Quand vous créez des applications logiques avec le type de ressource **Applicat
 
 Par exemple, vous pouvez empaqueter le runtime conteneurisé remanié et les workflows dans le cadre de votre application logique. Vous pouvez utiliser des étapes ou des tâches génériques qui génèrent, assemblent et compressent vos ressources d’application logique dans des artefacts prêts à être déployés. Pour déployer vos applications, copiez les artefacts dans l’environnement hôte, puis démarrez vos applications pour exécuter vos workflows. Ou bien, intégrez vos artefacts à des pipelines de déploiement en utilisant les outils et processus que vous connaissez et utilisez déjà. Par exemple, si votre scénario nécessite des conteneurs, vous pouvez conteneuriser vos applications logiques et les intégrer à vos pipelines existants.
 
-Pour configurer et déployer vos ressources d’infrastructure, telles que les réseaux virtuels et la connectivité, vous pouvez continuer à utiliser des modèles ARM et provisionner séparément ces ressources avec d’autres processus et pipelines que vous utilisez à ces fins. 
+Pour configurer et déployer vos ressources d’infrastructure, telles que les réseaux virtuels et la connectivité, vous pouvez continuer à utiliser des modèles ARM et provisionner séparément ces ressources avec d’autres processus et pipelines que vous utilisez à ces fins.
 
 Avec les options de génération et de déploiement standard, vous pouvez vous concentrer sur le développement d’applications séparément du déploiement d’infrastructure. Ainsi, vous obtenez un modèle de projet plus générique dans lequel vous pouvez appliquer de nombreuses options de déploiement similaires ou identiques à celles que vous utilisez pour une application générique. Vous bénéficierez également d’une expérience plus cohérente pour créer des pipelines de déploiement autour de vos projets d’application et pour exécuter les tests et validations requis avant la publication en production. Quelle que soit la pile de technologies que vous utilisez, vous pouvez déployer des applications logiques avec les outils de votre choix.
 
@@ -43,7 +43,7 @@ Azure Logic Apps monolocataire hérite de nombreuses fonctionnalités et avantag
 
 ### <a name="local-development-and-testing"></a>Développement et test locaux
 
-Quand vous utilisez Visual Studio Code avec l’extension Azure Logic Apps (Standard), vous pouvez développer, générer et exécuter localement les workflows d’application logique monolocataire dans votre environnement de développement sans avoir à effectuer de déploiement sur Azure. Vous pouvez également exécuter vos workflows partout où Azure Functions peut s’exécuter. Par exemple, si votre scénario nécessite des conteneurs, vous pouvez conteneuriser vos applications logiques et les déployer en tant que conteneurs.
+Quand vous utilisez Visual Studio Code avec l’extension Azure Logic Apps (Standard), vous pouvez développer, générer et exécuter localement les workflows d’application logique monolocataire dans votre environnement de développement sans avoir à effectuer de déploiement sur Azure. Vous pouvez également exécuter vos flux de travail là où Azure Functions peut s’exécuter. Par exemple, si votre scénario nécessite des conteneurs, vous pouvez conteneuriser vos applications logiques et les déployer en tant que conteneurs.
 
 Cette fonctionnalité est une amélioration majeure et procure un avantage substantiel par rapport au modèle multilocataire, ce qui vous oblige à développer sur une ressource en cours d’exécution existante dans Azure.
 
@@ -69,7 +69,7 @@ Le modèle monolocataire vous donne la possibilité de séparer les responsabili
 
 ### <a name="container-deployment"></a>Déploiement de conteneur
 
-Azure Logic Apps monolocataire prend en charge le déploiement sur des conteneurs, ce qui signifie que vous pouvez conteneuriser vos workflows d’application logique et les exécuter partout où les conteneurs peuvent s’exécuter. Une fois que vous avez conteneurisé votre application, le déploiement fonctionne essentiellement comme tout autre conteneur déployé et géré par vos soins.
+Azure Logic Apps monolocataire prenant en charge le déploiement sur des conteneurs, vous pouvez conteneuriser vos flux de travail d’application logique et les exécuter là où des conteneurs peuvent s’exécuter. Une fois que vous avez conteneurisé votre application, le déploiement fonctionne essentiellement comme tout autre conteneur déployé et géré par vos soins.
 
 Pour obtenir des exemples qui incluent Azure DevOps, consultez [CI/CD pour les conteneurs](https://azure.microsoft.com/solutions/architecture/cicd-for-containers/).
 
@@ -97,7 +97,7 @@ Dans Visual Studio Code, quand vous utilisez le concepteur pour développer ou a
 
 ### <a name="service-provider-connections"></a>Connexion de fournisseur de services
 
-Quand vous utilisez une opération intégrée pour un service tel qu’Azure Service Bus ou Azure Event Hubs dans Azure Logic Apps monolocataire, vous créez une connexion de fournisseur de services qui s’exécute dans le même processus que votre workflow. Cette infrastructure de connexion est hébergée et gérée dans le cadre de votre application logique, et les paramètres d’application stockent les chaînes de connexion pour toutes les opérations intégrées basées sur le fournisseur de services utilisées par vos workflows.
+Quand vous utilisez une opération intégrée pour un service tel qu’Azure Service Bus ou Azure Event Hubs dans Azure Logic Apps monolocataire, vous créez une connexion de fournisseur de services qui s’exécute dans le même processus que votre workflow. Cette infrastructure de connexion est hébergée et gérée avec votre ressource d’application logique, et les paramètres d’application stockent les chaînes de connexion pour toutes les opérations intégrées basées sur le fournisseur de services que vos flux de travail utilisent.
 
 Dans votre projet d’application logique, chaque workflow a un fichier workflow.json qui contient la définition JSON sous-jacente du workflow. Cette définition de workflow référence ensuite les chaînes de connexion nécessaires dans le fichier connections.json de votre projet.
 
@@ -114,7 +114,7 @@ L’exemple suivant montre comment la connexion du fournisseur de services pour 
       },
       "displayName": "{service-bus-connection-name}"
    },
-   ...
+   <...>
 }
 ```
 
@@ -174,7 +174,7 @@ Pour appeler des fonctions créées et hébergées dans Azure Functions, vous ut
 
 ## <a name="authentication"></a>Authentification
 
-Dans Azure Logic Apps monolocataire, le modèle d’hébergement pour les workflows d’application logique est un locataire unique dans lequel vos charges de travail bénéficient d’une isolation plus grande que dans le modèle multilocataire. De plus, le runtime Azure Logic Apps monolocataire est portable, ce qui signifie que vous pouvez exécuter vos workflows partout où Azure Functions peut s’exécuter. Toutefois, cette conception exige que les applications logiques puissent authentifier leur identité afin de pouvoir accéder à l’écosystème de connecteurs managés dans Azure. Vos applications ont également besoin des autorisations appropriées pour exécuter des opérations lors de l’utilisation de connexions managées.
+Dans Azure Logic Apps monolocataire, le modèle d’hébergement pour les workflows d’application logique est un locataire unique dans lequel vos charges de travail bénéficient d’une isolation plus grande que dans le modèle multilocataire. De plus, le runtime Azure Logic Apps monolocataire est portable, ce qui signifie que vous pouvez exécuter vos flux de travail là où Azure Functions peut s’exécuter. Toutefois, cette conception exige que les applications logiques puissent authentifier leur identité afin de pouvoir accéder à l’écosystème de connecteurs managés dans Azure. Vos applications ont également besoin des autorisations appropriées pour exécuter des opérations lors de l’utilisation de connexions managées.
 
 Par défaut, chaque application logique monolocataire a une identité managée affectée par le système automatiquement activée. Cette identité diffère des informations d’identification d’authentification ou de la chaîne de connexion utilisées pour la création d’une connexion. Lors de l’exécution, votre application logique utilise cette identité pour authentifier ses connexions par le biais des stratégies d’accès Azure. Si vous désactivez cette identité, les connexions ne fonctionneront pas au moment de l’exécution.
 

@@ -3,16 +3,16 @@ title: Utiliser l’API REST pour gérer des appareils dans Azure IoT Central
 description: Comment utiliser l’API REST IoT Central pour contrôler les appareils dans une application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/01/2020
+ms.date: 08/28/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2e808ee2d36237a830877e7f043656ce9189bd89
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 052dc4d0d275c120d7bb9379937fadfe0e005bdd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461276"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656718"
 ---
 # <a name="how-to-use-the-iot-central-rest-api-to-control-devices"></a>Comment utiliser l’API REST IoT Central pour contrôler les appareils
 
@@ -30,6 +30,9 @@ Un appareil peut regrouper les propriétés, les données de télémétrie et le
 Chaque appel d’API REST IoT Central nécessite un en-tête d’autorisation. Pour plus d’informations, consultez [Comment authentifier et autoriser les appels d’API REST d’IoT Central](howto-authorize-rest-api.md).
 
 Pour obtenir la documentation de référence sur l’API REST IoT Central, consultez [Informations de référence sur l’API REST d’Azure IoT Central](/rest/api/iotcentral/).
+
+> [!TIP]
+> L’[API en préversion](/rest/api/iotcentral/1.1-previewdataplane/devices) inclut la prise en charge de la nouvelle [fonctionnalité « organisations »](howto-create-organizations.md).
 
 ## <a name="components-and-modules"></a>Composants et modules
 

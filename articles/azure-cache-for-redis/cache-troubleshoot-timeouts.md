@@ -1,18 +1,18 @@
 ---
 title: Résoudre les problèmes de dépassement de délai d’expiration avec Azure Cache pour Redis
 description: Découvrez comment résoudre les problèmes courants liés au délai d’expiration dans Azure Cache for Redis, tels que les exceptions concernant le délai d’expiration de StackExchange.Redis et des mises à jours correctives du serveur Redis.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: d00ec82b5b66b2c413337f0c4efe803fc1013ab9
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: fab4587cc6320cc020a1d92eb1c6fc2f8fa3e3af
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847868"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537387"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Résoudre les problèmes de dépassement de délai d’expiration avec Azure Cache pour Redis
 
@@ -50,7 +50,7 @@ Ce message d’erreur contient des mesures qui peuvent vous aider à identifier 
 | wr |Il y a un enregistreur actif (ce qui signifie que les 6 requêtes en attente ne sont pas ignorées) bytes/activewriters |
 | commencer |Aucun lecteur n’est actif et aucun octet n’est disponible en lecture sur la carte réseau octets/lecteurs actifs |
 
-Dans l’exemple d’exception précédent, les sections `IOCP` et `WORKER` contiennent chacune une valeur `Busy` supérieure à la valeur `Min`. La différence signifie que vous devez ajuster vos paramètres `ThreadPool`. Vous pouvez [configurer les paramètres de votre pool de threads](cache-management-faq.md#important-details-about-threadpool-growth) pour vous assurer qu’il effectue rapidement un scale-up en cas d’augmentation du trafic.
+Dans l’exemple d’exception précédent, les sections `IOCP` et `WORKER` contiennent chacune une valeur `Busy` supérieure à la valeur `Min`. La différence signifie que vous devez ajuster vos paramètres `ThreadPool`. Vous pouvez [configurer les paramètres de votre pool de threads](cache-management-faq.yml#important-details-about-threadpool-growth) pour vous assurer qu’il effectue rapidement un scale-up en cas d’augmentation du trafic.
 
 Vous pouvez utiliser les étapes suivantes pour rechercher les causes racines possibles.
 
@@ -123,5 +123,5 @@ Vous pouvez utiliser les étapes suivantes pour rechercher les causes racines po
 
 - [Résoudre les problèmes côté client liés à Azure Cache pour Redis](cache-troubleshoot-client.md)
 - [Résoudre les problèmes côté serveur liés à Azure Cache pour Redis](cache-troubleshoot-server.md)
-- [Comment puis-je évaluer et tester les performances de mon cache ?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Comment puis-je évaluer et tester les performances de mon cache ?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
 - [Surveillance du cache Azure pour Redis](cache-how-to-monitor.md)

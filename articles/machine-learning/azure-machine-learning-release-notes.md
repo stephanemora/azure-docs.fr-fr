@@ -9,18 +9,57 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 08/18/2021
-ms.openlocfilehash: 1f3ed6e3c661e0238b6a29284a2da7254edab6c4
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: f4c7c43c0406ed7a6c05c3d83e467bc335c43093
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824838"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128628106"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
 Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](/python/api/overview/azure/ml/intro) d’Azure Machine Learning.
 
 __Flux RSS__ : Recevez une notification quand cette page est mise à jour en copiant et collant l’URL suivante dans votre lecteur de flux : `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-09-07"></a>07/09/2021
+
+### <a name="azure-machine-learning-sdk-for-python-v1340"></a>Azure Machine Learning SDK pour Python v1.34.0
+  + **azureml-automl-core**
+    + Prise en charge supplémentaire pour le réajustement d’un pipeline de prévision précédemment formé.
+    + Capacité supplémentaire d’obtention des prédictions sur les données d’apprentissage (prédiction en échantillon) pour les prévisions.
+  + **azureml-automl-runtime**
+    + Ajoutez la prise en charge pour retourner les probabilités prédites à partir d’un point de terminaison déployé d’un modèle de classifieur AutoML.
+    + Option de prévision supplémentaire permettant aux utilisateurs de spécifier que toutes les prédictions doivent être des entiers.
+    + Suppression du nom de la colonne cible d’une partie du modèle explication des noms de fonctionnalités pour les expériences locales avec training_data_label_column_name
+    + en tant qu’entrées de jeu de données.
+    + Prise en charge supplémentaire pour le réajustement d’un pipeline de prévision précédemment formé.
+    + Capacité supplémentaire d’obtention des prédictions sur les données d’apprentissage (prédiction en échantillon) pour les prévisions.
+  + **azureml-core**
+    + Prise en charge supplémentaire pour définir le type de colonne de flux, monter et télécharger des colonnes de flux dans un jeu de données tabulaire.
+    + Nouveaux champs facultatifs ajoutés à Kubernetes.attach_configuration (identity_type = None, identity_ids = None) qui autorisent l’attachement de KubernetesCompute avec l’identité SystemAssigned ou UserAssigned. Les nouveaux champs d’identité seront inclus lors de l’appel de print(compute_target) ou compute_target. Serialize () : identity_type, identity_id, principal_id et tenant_id/client_id.
+  + **azureml-dataprep**
+    + Prise en charge supplémentaire pour définir le type de colonne de flux pour le jeu de données tabulaire. prise en charge supplémentaire pour monter et télécharger des colonnes de flux dans un jeu de données tabulaire.
+  + **azureml-defaults**
+    + La dépendance `azureml-inference-server-http==0.3.1` a été ajoutée à `azureml-defaults`.
+  + **azureml-mlflow**
+    + Autorisez la pagination de l’API list_experiments en ajoutant `max_results` et des paramètres facultatifs `page_token`. Pour obtenir de la documentation, consultez les documents officiels MLflow.
+  + **azureml-sdk**
+    + Remplacement de la dépendance sur le package déconseillé (azureml-train) dans azureml-sdk.
+    + Ajouter azureml-responsibleai aux extras azureml-sdk
+  + **azureml-train-automl-client**
+    + Exposez les paramètres `test_data` et `test_size` dans `AutoMLConfig`. Ces paramètres peuvent être utilisés pour démarrer automatiquement une série de tests après le modèle 
+    + la phase d’apprentissage est terminée. La série de tests calculera les prédictions à l’aide du meilleur modèle et génèrera des métriques en fonction de ces prédictions.
+
+## <a name="2021-08-24"></a>2021-08-24
+
+### <a name="azure-machine-learning-experimentation-user-interface"></a>Azure Machine Learning - Expérimentation - Interface utilisateur
+  + **Exécuter la suppression**
+    + Exécuter la suppression est une nouvelle fonctionnalité qui permet aux utilisateurs de supprimer une ou plusieurs exécutions de leur espace de travail.
+    + Cette fonctionnalité peut aider les utilisateurs à réduire les coûts de stockage et à gérer la capacité de stockage en supprimant régulièrement les exécutions et les expériences directement à partir de l’interface utilisateur.
+  + **Annuler l’exécution du lot**
+    + L’option d’annulation par lot est une nouvelle fonctionnalité qui permet aux utilisateurs de sélectionner une ou plusieurs exécutions à annuler dans leur liste d’exécution. 
+    + Cette fonctionnalité permet aux utilisateurs d’annuler plusieurs exécutions en file d’attente et de libérer de l’espace sur leur cluster.
 
 ## <a name="2021-08-18"></a>18-08-2021
 

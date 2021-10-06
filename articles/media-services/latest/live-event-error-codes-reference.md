@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 09859a953b0127733cbf1b0876c1d2ffa6082096
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: bd8a980d6f8cf7f71dbbfb5f099a12ca966be9ac
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279474"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128661637"
 ---
 # <a name="media-services-live-event-error-codes"></a>Codes d'erreur des événements en direct Media Services
 
@@ -48,7 +48,7 @@ Lorsque vous vous abonnez aux événements [Event Grid](../../event-grid/index.y
 >| Description |Les informations de description de média n’ont pas été reçues avant la remise des données de média réelles. |
 >| Solution suggérée|L'événement en direct ne reçoit pas la description du flux (en-tête ou balise FLV) de l'encodeur. Il s'agit d'une violation de protocole. Contactez le fournisseur de l'encodeur. |
 >|**MPE_INGEST_MEDIA_QUALITIES_EXCEEDED** ||
->| Description|Le nombre de qualités pour le type d’audio ou de vidéo dépasse la limite maximale autorisée. |
+>| Description| Le nombre de niveaux de qualité pour le type d’audio ou de vidéo dépasse la limite maximale autorisée. Les niveaux de qualité qui dépassent la limite ont été ignorés par le service.|
 >| Solution suggérée|Lorsque le mode Live Encoding est défini pour l'événement en direct, l'encodeur doit envoyer (push) un débit unique de vidéo et d'audio.  Notez qu'un envoi (push) redondant à partir du même débit est autorisé. Vérifiez les paramètres de sortie ou la préconfiguration de l'encodeur pour vous assurer qu'il émet un flux à débit unique. |
 >|**MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED** ||
 >| Description|Le débit binaire total entrant dans un service d’événement ou de canal en direct dépasse la limite maximale autorisée. |
@@ -83,8 +83,8 @@ Il se peut que vous voyiez l’une des erreurs suivantes de l’événement [Liv
 >| Description|L’encodeur envoie les données trop vite. |
 >| Solution suggérée|Cette erreur survient lorsque l'encodeur fait sortir en rafale un grand ensemble de fragments sur une courte période.  Cela peut théoriquement se produire lorsque l'encodeur ne peut pas envoyer (push) de données pendant un certain temps en raison d'un problème de réseau et que les données sortent en rafale dès que le réseau redevient disponible. Recherchez la cause dans le journal de l'encodeur ou dans le journal du système. |
 >|**Codes d’erreur inconnus** |
->| Description| Ces codes d’erreur peuvent varier de l’erreur de mémoire à des entrées de table de hachage en double. Cette erreur survient lorsque l’encodeur envoie un grand ensemble de fragments sur une courte période.  Cela peut également se produire lorsque l’encodeur n’a pas pu envoyer des données en raison d’un problème réseau, puis envoie tous les fragments retardés à la fois lorsque le réseau redevient disponible. |
->|Solution suggérée| Vérifiez les journaux de l’encodeur.|
+>| Description| Ces codes d’erreur peuvent varier de l’erreur de mémoire à des entrées de table de hachage en double. Cela peut se produire quand l’encodeur envoie un grand ensemble de fragments sur une courte période.  Cela peut également se produire quand l’encodeur ne peut pas effectuer un push de données en raison d’un problème réseau, et qu’il envoie ensuite tous les fragments retardés en même temps, une fois le réseau à nouveau disponible. |
+>|Solution suggérée| Consultez les journaux de l’encodeur.|
 
 ## <a name="other-error-codes"></a>Autres codes d'erreur
 
@@ -102,7 +102,7 @@ Il se peut que vous voyiez l’une des erreurs suivantes de l’événement [Liv
 >|Solution suggérée|Vérifiez que l'URL d'ingestion est au bon format. Pour RTMP, il doit s'agir de `rtmp[s]://hostname:port/live/GUID_APPID/streamname` ||
 >|**MPE_CLIENT_TERMINATED_SESSION** ||Oui|
 >| Description|L'encodeur a déconnecté la session.  ||
->|Solution suggérée|Il ne s'agit pas d'une erreur. L’encodeur a initié une déconnexion, y compris une déconnexion normale. En cas de déconnexion inattendue, consultez les journaux de l’encodeur. |
+>|Solution suggérée|Il ne s'agit pas d'une erreur. L’encodeur a lancé une déconnexion, notamment une déconnexion normale. En cas de déconnexion inattendue, consultez les journaux de l’encodeur. |
 >|**MPE_INGEST_BITRATE_NOT_MATCH** ||Non|
 >| Description|Le débit des données entrantes ne correspond pas au débit attendu. ||
 >|Solution suggérée|Il s'agit d'un avertissement déclenché lorsque le débit des données entrantes est trop lent ou trop rapide. Consultez le journal de l'encodeur ou le journal du système.||

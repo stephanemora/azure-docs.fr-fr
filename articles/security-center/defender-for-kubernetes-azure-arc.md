@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 09/14/2021
 ms.author: memildin
-ms.openlocfilehash: e11d455238f4a4e8c128a6cda83a145adaf149e9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fa7076882370b404ea7b1e04cb5c364f22c35fae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532490"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648465"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>Défendre des clusters Kubernetes avec Azure Arc s’exécutant dans des environnements locaux et multicloud
 
@@ -29,7 +29,7 @@ L’extension peut également protéger des clusters Kubernetes sur d’autres f
 |--------|---------|
 | État de publication | **Préversion**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | Rôles et autorisations obligatoires | L’[administrateur de sécurité](../role-based-access-control/built-in-roles.md#security-admin) peut ignorer les alertes<br>Le [Lecteur de sécurité](../role-based-access-control/built-in-roles.md#security-reader) peut afficher les résultats |
-| Tarifs | Nécessite [Azure Defender pour Kubernetes](defender-for-kubernetes-introduction.md) |
+| Tarifs | Gratuit (pendant la préversion) |
 | Distributions Kubernetes prises en charge | [Service Azure Kubernetes sur Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [Moteur AKS](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 ou plus récente)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
 | Limites | Kubernetes avec Azure Arc et l’extension Azure Defender **ne prennent pas en charge** les offres Kubernetes managées, telles que Google Kubernetes Engine et Elastic Kubernetes Service. [Azure Defender est disponible en mode natif pour Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md), et ne nécessite pas de connexion du cluster à Azure Arc. |
 | Environnements et régions | La disponibilité de cette extension est identique à celle de [Kubernetes avec Azure Arc](../azure-arc/kubernetes/overview.md)|
@@ -46,9 +46,18 @@ Ce diagramme illustre l’interaction entre Azure Defender pour Kubernetes et le
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Azure Defender pour Kubernetes est [activé sur votre abonnement](enable-azure-defender.md)
-- Votre cluster Kubernetes est [connecté à Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
-- Vous avez rempli les conditions préalables indiquées dans la [documentation sur les extensions de cluster génériques](../azure-arc/kubernetes/extensions.md#prerequisites).
+Avant de déployer l’extension, effectuez les opérations suivantes :
+- [Connectez le cluster Kubernetes à Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
+- Suivez les [prérequis indiqués dans la documentation sur les extensions de cluster génériques](../azure-arc/kubernetes/extensions.md#prerequisites).
+- Configurez le **port 443** sur les points de terminaison suivants pour l’accès sortant :
+    - Pour les clusters du cloud Azure Government :
+        - *.ods.opinsights.azure.us
+        - *.oms.opinsights.azure.us
+        - :::no-loc text="login.microsoftonline.us":::
+    - Pour les clusters des autres déploiements cloud Azure :
+        - *.ods.opinsights.azure.com
+        - *.oms.opinsights.azure.com
+        - :::no-loc text="login.microsoftonline.com":::
 
 ## <a name="deploy-the-azure-defender-extension"></a>Déployer l’extension Azure Defender
 
@@ -150,7 +159,7 @@ Pour utiliser l’API REST afin de déployer l’extension Azure Defender, vous 
 
     Pour l’**authentification**, votre en-tête doit avoir un jeton du porteur (comme pour d’autres API Azure). Pour obtenir un jeton du porteur, exécutez la commande suivante :
 
-    ```az account get-access-token --subscription <your-subscription-id>``` Utilisez la structure suivante pour le corps de votre message :
+    `az account get-access-token --subscription <your-subscription-id>` Utilisez la structure suivante pour le corps de votre message :
     ```json
     { 
     "properties": { 

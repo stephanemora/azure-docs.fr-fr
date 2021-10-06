@@ -2,18 +2,18 @@
 title: Déterminer la réservation Azure à acheter
 description: Cet article vous permet de déterminer la réservation à acheter.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: 80c0627cdc2169ce3301ee56a449442387d8f6e1
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7482835f09ec5de0beff6b97b190c5eedfb11b7f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110481099"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604319"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Déterminer la réservation à acheter
 
@@ -86,6 +86,7 @@ Notez les points suivants :
 - Les recommandations sont calculées pour des tailles individuelles et non pour la famille de tailles d’instance.
 - La quantité recommandée pour une étendue est réduite le jour où vous achetez des réservations pour l’étendue.
     - Toutefois, une mise à jour de la recommandation de quantité de réservation selon les étendues peut prendre jusqu’à 25 jours. Par exemple, si vous effectuez votre achat en fonction de recommandations portant sur une étendue partagée, les recommandations portant sur une étendue d’abonnement unique peuvent prendre jusqu’à 25 jours pour indiquer la quantité réduite.
+- Actuellement, Azure ne génère pas de recommandations pour l’étendue du groupe d’administration.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Recommandations dans le portail Azure
 

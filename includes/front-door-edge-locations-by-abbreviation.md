@@ -5,15 +5,15 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 05/17/2021
+ms.date: 09/29/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: ded1479b6967d7cf3b9957e83b7bb38472ebcc0c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: eb9d1b1221c1a12f88b7f0d766fa5007bfc3b156
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110482089"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378082"
 ---
 | Abréviation | Emplacement | Région |
 | --- | --- | --- |
@@ -54,6 +54,7 @@ ms.locfileid: "110482089"
 | GVA | Genève, Suisse | Suisse Nord, Europe |
 | HEL | Helsinki, Finlande | Europe Ouest |
 | HK  | Hong Kong, Hong Kong (R.A.S.) | Asie Est |
+| HKB | Hong Kong, Hong Kong (R.A.S.) | Asie Est |
 | HKG | Chai Wan, Hong Kong (R.A.S.) | Asie Est |
 | HNL | Honolulu, Hawaï, États-Unis | USA Ouest, États-Unis |
 | HOU | Houston, Texas, États-Unis | USA Centre, États-Unis |
@@ -69,6 +70,7 @@ ms.locfileid: "110482089"
 | LIS | Lisbonne, Portugal | Europe Nord |
 | LON | Londres, Royaume-Uni | Royaume-Uni Sud, Europe |
 | LOS | Lagos, Nigeria | Afrique |
+| LTS | Londres, Royaume-Uni | Royaume-Uni Sud, Europe |
 | MAA | Chennai, Inde | Inde Centre |
 | MAD | Madrid, Espagne | Espagne Centre, Europe |
 | MAN | Manchester, Royaume-Uni | Royaume-Uni Ouest, Europe |

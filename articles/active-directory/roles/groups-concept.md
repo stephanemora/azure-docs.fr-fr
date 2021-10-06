@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 07/30/2021
+ms.date: 09/28/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bebba34e8d323bc60d83151e7b211388776b7b76
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5f85ab5960aea247a8b47b20d2552cec6e2e534f
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532331"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235323"
 ---
 # <a name="use-azure-ad-groups-to-manage-role-assignments"></a>Utiliser des groupes Azure AD pour gérer les attributions de rôle
 
@@ -41,7 +41,7 @@ Les groupes assignables à un rôle présentent les restrictions suivantes :
 - Vous pouvez uniquement définir la propriété `isAssignableToRole` ou l’option **Des rôles Azure AD peuvent être attribués au groupe** pour les nouveaux groupes.
 - La propriété `isAssignableToRole` est **immuable**. Une fois qu’un groupe a été créé avec cette propriété définie, il ne peut plus être modifié.
 - Vous ne pouvez pas faire d’un groupe existant un groupe assignable à un rôle.
-- Un maximum de 300 groupes assignables à un rôle peuvent être créés dans une seule organisation (locataire) Azure AD.
+- Un maximum de 400 groupes pouvant se voir attribuer des rôles peuvent être créés dans une même organisation Azure AD (locataire).
 
 ## <a name="how-are-role-assignable-groups-protected"></a>Comment les groupes assignables à un rôle sont-ils protégés ?
 
@@ -61,9 +61,6 @@ Les groupes assignables à un rôle sont conçus pour aider à prévenir les vio
 ## <a name="use-pim-to-make-a-group-eligible-for-a-role-assignment"></a>Utiliser PIM pour rendre un groupe qualifié pour à une attribution de rôle
 
 Si vous ne souhaitez pas que les membres du groupe disposent d’un accès permanent à un rôle, vous pouvez utiliser [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) pour rendre un groupe qualifié pour à une attribution de rôle. Chaque membre du groupe est alors qualifié pour activer l’attribution de rôle pour une durée déterminée.
-
-> [!Note]
-> Vous devez utiliser une version mise à jour de PIM pour pouvoir attribuer un rôle Azure AD à un groupe. Vous pourriez utiliser une version antérieure de PIM parce que votre organisation Azure AD utilise l’API PIM. Envoyez un e-mail à pim_preview@microsoft.com pour déplacer votre organisation et mettre à jour votre API. Pour plus d’informations, consultez [Fonctionnalités et rôles Azure AD dans PIM](../privileged-identity-management/pim-configure.md).
 
 ## <a name="scenarios-not-supported"></a>Scénarios non pris en charge
 

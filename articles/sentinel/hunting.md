@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2021
+ms.date: 08/08/2021
 ms.author: yelevin
-ms.openlocfilehash: 78662bf6dbc6d4be4f0ea0890993530f772d2114
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ecb8559af1d2aaf70bee0031930a748ff534f1c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563053"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622528"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Repérer les menaces avec Azure Sentinel
 
@@ -111,9 +111,51 @@ Pour plus d’informations, consultez [Utiliser des signets dans la chasse](book
 
 ## <a name="use-notebooks-to-power-investigations"></a>Utiliser des notebooks pour dynamiser l’investigation
 
-Les notebooks vous offrent un sorte d’environnement de bac à sable virtuel, doté de son propre noyau. Vous pouvez utiliser des notebooks pour améliorer votre repérage et vos investigations avec le Machine Learning, la visualisation et l’analyse des données. Vous pouvez effectuer une investigation complète dans un notebook, en encapsulant les données brutes, le code que vous exécutez sur celles-ci, les résultats et leurs visualisations, et enregistrer tout cela afin de le partager avec d’autres personnes de votre organisation et de le réutiliser.
+Lorsque votre chasse et vos investigations deviennent plus complexes, utilisez des blocs-notes Azure Sentinel pour améliorer votre activité avec l’apprentissage automatique, les visualisations et l’analyse des données.
 
-Pour plus d’informations, consultez [Utiliser Jupyter Notebook pour faire la chasse aux menaces de sécurité](notebooks.md).
+Les blocs-notes fournissent un type de sandbox virtuel, complet avec son propre noyau, où vous pouvez effectuer une investigation complète. Votre bloc-notes peut inclure les données brutes, le code que vous exécutez sur ces données, les résultats et leurs visualisations. Enregistrez vos blocs-notes pour pouvoir les partager avec d’autres personnes pour les réutiliser dans votre organisation.
+
+Les blocs-notes peuvent être utiles lorsque la chasse ou l’investigation devient trop importante pour vous souvenir facilement, afficher des détails ou lorsque vous devez enregistrer des requêtes et des résultats. Pour vous aider à créer et à partager des blocs-notes, Azure Sentinel fournit des [blocs-notes Jupyter](https://jupyter.org), un environnement de développement et de manipulation de données Open source, interactif et intégré directement dans la page **Notebooks** Azure Sentinel.
+
+Pour plus d’informations, consultez :
+
+- [Utiliser Jupyter Notebook pour rechercher des menaces de sécurité](notebooks.md)
+- [La documentation du Projet Jupyter](https://jupyter.org/documentation)
+- [Documentation de présentation de Jupyter](https://jupyter.readthedocs.io/en/latest/tryjupyter.html).
+- [Le livre Jupyter INFOSEC](https://infosecjupyterbook.com)
+- [Didacticiels python réels](https://realpython.com)
+
+Le tableau suivant décrit certaines méthodes d’utilisation des blocs-notes Juypter pour aider vos processus dans Azure Sentinel :
+
+|Méthode  |Description  |
+|---------|---------|
+|**Persistance des données, répétabilité et rétroaction**     |  Si vous utilisez de nombreuses requêtes et jeux de résultats, vous risquez d’avoir des terminaisons inactives. Vous devez choisir les requêtes et les résultats à conserver, et comment accumuler les résultats utiles dans un rapport unique. <br><br> Utilisez les blocs-notes Jupyter pour enregistrer les requêtes et les données au fur et à mesure, utilisez des variables pour réexécuter des requêtes avec des valeurs ou des dates différentes, ou enregistrez vos requêtes pour les réexécuter lors des investigations ultérieures.       |
+|**Scripts et programmation**     |    Utilisez les blocs-notes Jupyter pour ajouter de la programmation à vos requêtes, notamment : <br><br>- Langages *déclaratifs* tels que le [langage de requête Kusto (KQL)](/azure/kusto/query/) ou SQL, pour encoder votre logique dans une instruction unique, éventuellement complexe.<br>- Des langages de programmation *procédurale*, pour exécuter la logique dans une série d’étapes. <br><br>Le fractionnement de votre logique en étapes peut vous aider à afficher et à déboguer les résultats intermédiaires, à ajouter des fonctionnalités qui peuvent ne pas être disponibles dans le langage de requête et à réutiliser des résultats partiels dans les étapes de traitement ultérieures.     |
+|**Liens vers des données externes**     | Bien que les tables Azure Sentinel disposent de la plupart des données de télémétrie et d’événement, les blocs-notes Jupyter peuvent être liés à toutes les données accessibles sur votre réseau ou à partir d’un fichier. L’utilisation des blocs-notes Jupyter vous permet d’inclure des données telles que : <br><br>- Données dans des services externes dont vous n’êtes pas propriétaire, tels que des données de géolocalisation ou des sources d’informations sur les menaces<br>- Données sensibles stockées uniquement au sein de votre organisation, telles que des bases de données de ressources humaines ou des listes de ressources à valeur élevée<br>- Données que vous n’avez pas encore migrées vers le Cloud.        |
+|**Outils de traitement des données, d’apprentissage automatique et de visualisation spécialisés**     | Les blocs-notes Jupyter fournissent des visualisations, des bibliothèques d’apprentissage automatique et des fonctionnalités de traitement et de transformation des données supplémentaires. <br><br>Par exemple, utilisez les blocs-notes Jupyter avec les fonctionnalités [Python](https://python.org) suivantes :<br>- [pandas](https://pandas.pydata.org/) pour le traitement des données, le nettoyage et l’ingénierie<br>- [Matplotlib](https://matplotlib.org), [HoloViews](https://holoviews.org)et [Plotly](https://plot.ly) pour la visualisation<br>- [NumPy](https://www.numpy.org) et [SciPy](https://www.scipy.org) pour des traitements numériques et scientifiques avancés<br>- [scikit-learn](https://scikit-learn.org/stable/index.html) pour l’apprentissage automatique<br>- [TensorFlow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org)et [Keras](https://keras.io/) pour l’apprentissage profond<br><br>**Conseil**: les blocs-notes Jupyter prennent en charge plusieurs noyaux de langue. Utilisez *Magic* pour mélanger les langues dans le même bloc-notes, en autorisant l’exécution de cellules individuelles dans une autre langue. Par exemple, vous pouvez récupérer des données à l’aide d’une cellule de script PowerShell, traiter les données dans Python et utiliser JavaScript pour afficher une visualisation.        |
+|     |         |
+
+### <a name="mstic-jupyter-and-python-security-tools"></a>Outils de sécurité MSTIC, Jupyter et Python
+
+Le [Microsoft Threat Intelligence Center (MSTIC)](https://msrc-blog.microsoft.com/tag/mstic/) est une équipe d’analystes et d’ingénieurs de la sécurité Microsoft qui créent des détections de sécurité pour plusieurs plates-formes Microsoft et qui travaillent sur l’identification et l’investigation des menaces.
+
+MSTIC a créé [MSTICPy](https://github.com/Microsoft/msticpy), une bibliothèque pour les investigations de sécurité des informations et la chasse dans les blocs-notes Jupyter. MSTICPy fournit des fonctionnalités réutilisables qui visent à accélérer la création de bloc-notes et à permettre aux utilisateurs de lire plus facilement les blocs-notes dans Azure Sentinel.
+
+Par exemple, MSTICPy peut :
+
+- Interroger des données à partir de plusieurs sources.
+- Enrichir les données avec des informations sur les menaces, la géolocalisation et les données de ressources Azure.
+- Extraire les indicateurs d’activité (IoA) des journaux et décompresser les données encodées.
+- Effectuer des analyses sophistiquées, telles que la détection de session anormale et la décomposition des séries chronologiques.
+- Visualiser les données à l’aide de chronologies interactives, d’arborescences de processus et de graphiques Morph multidimensionnels.
+
+MSTICPy comprend également des outils de bloc-notes permettant de gagner du temps, tels que les widgets qui définissent les limites du temps de requête, sélectionnent et affichent des éléments dans des listes et configurent l’environnement du Notebook.
+
+Pour plus d’informations, consultez :
+
+- [Documentation MSTICPy](https://msticpy.readthedocs.io/en/latest/)
+- [Didacticiel : prise en main des blocs-notes Jupyter et MSTICPy dans Azure Sentinel](notebook-get-started.md)
+- [Configurations avancées pour les blocs-notes Jupyter et MSTICPy dans Azure Sentinel](notebooks-msticpy-advanced.md)
 
 
 ## <a name="useful-operators-and-functions"></a>Opérateurs et fonctions utiles

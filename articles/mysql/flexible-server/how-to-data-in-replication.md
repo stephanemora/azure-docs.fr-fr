@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: ee0bafdfe7d7caae2d4ba65e9967d9c46e6b3e3c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 05ccdc3613141e7b04c3255a6035c7a03ad25995
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532021"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128579726"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-flexible-server-data-in-replication"></a>Procédure de configuration de la réplication des données entrantes pour Serveur flexible Azure Database pour MySQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "122532021"
 Cet article décrit la procédure de configuration de la [Réplication des données entrantes](concepts-data-in-replication.md) dans Serveur flexible Azure Database pour MySQL en configurant les serveurs source et réplica. Cet article suppose que vous avez déjà utilisé des serveurs et des bases de données MySQL.
 
 > [!NOTE]
-> Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 Pour créer un réplica dans le service Flexible Azure Database pour MySQL, [Réplication des données entrantes](concepts-data-in-replication.md) synchronise les données provenant d’un serveur MySQL source qui s’exécute localement dans des machines virtuelles ou des services de base de données cloud. La réplication des données entrantes est basée sur la position du fichier journal binaire (binlog). Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
@@ -28,7 +28,7 @@ Passez en revue les [limitations et conditions requises](concepts-data-in-replic
 
 ## <a name="create-an-azure-database-for-mysql-flexible-server-instance-to-use-as-a-replica"></a>Créer une instance de Serveur flexible Azure Database pour MySQL à utiliser comme réplica
 
-1. Créez une instance de Serveur flexible Azure Database pour MySQL (par exemple, « replica.mysql.database.azure.com »). Reportez-vous à [Création d’un Serveur flexible Azure Database pour MySQL à l’aide du portail Azure](quickstart-create-server-portal.md) pour la création de serveurs. Ce serveur est le serveur « réplica » pour la réplication des données entrantes.
+1. Créez une instance Azure Database pour MySQL - Serveur flexible (par exemple, `replica.mysql.database.azure.com`). Reportez-vous à [Création d’un Serveur flexible Azure Database pour MySQL à l’aide du portail Azure](quickstart-create-server-portal.md) pour la création de serveurs. Ce serveur est le serveur « réplica » pour la réplication des données entrantes.
 
 2. Créez les mêmes comptes d’utilisateur et les privilèges correspondants.
 

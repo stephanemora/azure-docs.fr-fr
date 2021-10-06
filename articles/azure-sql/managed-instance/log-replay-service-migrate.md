@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 03/31/2021
-ms.openlocfilehash: e76493aa83383e4ce59da77cfb0ce050475ad303
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/21/2021
+ms.openlocfilehash: 2928ce1f58ddefce368a361b32fe65f9c79994cc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525311"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630240"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migrer des bases de données depuis SQL Server vers SQL Managed Instance à l’aide du service LRS (préversion)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,11 +89,6 @@ Une fois le service LRS arrêté, soit automatiquement avec l’autocomplétion,
 - Conteneur Stockage Blob Azure provisionné
 - Jeton de sécurité SAS (signature d’accès partagé) avec uniquement les autorisations Lecture et Liste généré pour le conteneur Stockage Blob
 
-### <a name="migration-of-multiple-databases"></a>Migration de plusieurs bases de données
-Vous devez placer les fichiers de sauvegarde de différentes bases dans des dossiers distincts dans le Stockage Blob Azure.
-
-Démarrez LRS séparément pour chaque base de données en pointant vers un dossier approprié sur le Stockage Blob. Le service LRS peut prendre en charge jusqu’à 100 processus de restauration simultanés pour une seule instance gérée.
-
 ### <a name="azure-rbac-permissions"></a>Autorisations Azure RBAC
 L’exécution du service LRS via les clients fournis requiert l’un des rôles Azure suivants :
 - Propriétaire de l’abonnement
@@ -108,6 +103,7 @@ Nous vous recommandons d'appliquer les méthodes conseillées ci-dessous :
 - Activez la compression de la sauvegarde.
 - Utilisez Cloud Shell pour exécuter les scripts, car il dispose toujours des cmdlets les plus récents.
 - Planifiez la fin de la migration dans les 36 heures suivant le démarrage du LRS. Il s’agit d’une période de grâce qui empêche l’installation de correctifs logiciels gérés par le système.
+- Placez tous les fichiers de sauvegarde pour une base de données individuelle dans un dossier unique. N’utilisez pas de sous-dossiers pour la même base de données.
 
 > [!IMPORTANT]
 > - Vous ne pouvez pas utiliser la base de données en cours de restauration via LRS jusqu’à ce que le processus de migration se termine. 
@@ -385,6 +381,22 @@ Pour terminer le processus de migration en mode continu du service LRS avec Azur
 az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last-backup-name "backup.bak"
 ```
 
+### <a name="migration-of-multiple-databases"></a>Migration de plusieurs bases de données
+Vous devez placer les fichiers de sauvegarde de différentes bases dans des dossiers distincts dans le conteneur Stockage Blob Azure. Tous les fichiers de sauvegarde d’une base de données unique doivent être placés dans le même dossier, car il ne doit pas exister de sous-dossiers pour une base de données individuelle. LRS doit être démarré séparément pour chaque base de données qui pointe vers le chemin d’URI complet du conteneur Stockage Blob Azure et le dossier de la base de données individuelle.
+
+Vous trouverez ci-dessous un exemple de la structure de dossiers et de la spécification d’URI requise lors de l’appel de LRS pour plusieurs bases de données. Démarrez LRS séparément pour chaque base de données, en spécifiant le chemin complet de l’URI vers le conteneur Stockage Blob Azure et le dossier de la base de données individuelle.
+
+```URI
+-- Place all backup files for database 1 in its own separate folder within a storage container. No further subfolders are allowed under database1 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database1/<all database 1 backup files>
+
+-- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database2 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database2/<all database 2 backup files>
+
+-- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database3 folder for this database.
+https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database3/<all database 3 backup files>
+```
+
 ## <a name="functional-limitations"></a>Limitations fonctionnelles
 
 Les limitations fonctionnelles de LRS sont les suivantes :
@@ -393,7 +405,9 @@ Les limitations fonctionnelles de LRS sont les suivantes :
 - Le service LRS a besoin que les bases de données sur SQL Server soient sauvegardées avec l’option `CHECKSUM` activée.
 - Le jeton SAS utilisé par LRS doit être généré pour l’ensemble du conteneur Stockage Blob Azure et doit avoir des autorisations de lecture et de liste uniquement.
 - Les fichiers de sauvegarde de différentes bases de données doivent être placés dans des dossiers distincts dans le Stockage Blob.
-- Le service LRS doit être démarré séparément pour chaque base de données qui pointe vers des dossiers distincts contenant des fichiers de sauvegarde dans le Stockage Blob.
+- Les fichiers de sauvegarde dont le nom contient des caractères % et $ ne peuvent pas être utilisés par LRS. Vous devez renommer ces fichiers.
+- Le placement de sauvegardes dans des sous-dossiers pour une base de données individuelle n’est pas pris en charge. Toutes les sauvegardes d’une base de données unique doivent être placées à la racine d’un dossier unique.
+- Dans le cas de plusieurs bases de données, les fichiers de sauvegarde doivent être placés dans un dossier distinct pour chaque base de données. LRS doit être démarré séparément pour chaque base de données qui pointe vers le chemin d’URI complet contenant un dossier de base de données individuelle. 
 - Le service LRS peut prendre en charge jusqu’à 100 processus de restauration simultanés pour une seule instance gérée.
 
 ## <a name="troubleshooting"></a>Dépannage

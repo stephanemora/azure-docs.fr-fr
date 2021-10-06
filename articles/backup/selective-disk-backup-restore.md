@@ -4,12 +4,12 @@ description: Dans cet article, découvrez la sauvegarde et la restauration séle
 ms.topic: conceptual
 ms.date: 05/13/2021
 ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: cee95941aa091f77fe128457434a66398188a0a4
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: e23c0729f44128172e4afd4902ce60e9c2ecb29c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110678199"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128613077"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Sauvegarde et restauration sélectives de disques pour les machines virtuelles Azure
 
@@ -209,6 +209,7 @@ Par exemple :
 ```azurepowershell
 $disks = ("0","1")
 $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Set-AzRecoveryServicesVaultContext -Vault $targetVault
 Get-AzRecoveryServicesBackupProtectionPolicy
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```
@@ -256,6 +257,9 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ```azurepowershell
 Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
+
+> [!NOTE]
+> Si la commande échoue avec l’erreur indiquant qu’un paramètre de stratégie est requis, vérifiez l’état de protection de l’élément de sauvegarde. Il est probable que la protection est arrêtée. Par conséquent, une stratégie est nécessaire pour reprendre la protection et pour réinitialiser tous les paramètres d’exclusion de disque précédents.
 
 ### <a name="restore-selective-disks-with-powershell"></a>Restaurer sélectivement des disques avec PowerShell
 

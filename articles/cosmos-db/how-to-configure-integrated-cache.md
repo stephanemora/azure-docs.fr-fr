@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 09/20/2021
 ms.author: tisande
-ms.openlocfilehash: b8c2e27b7023a106815b34538f1cd3dba85354b3
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: dea28832bb607da722653c398cc234d54d2ffcc9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114667652"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618625"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Comment configurer le cache intégré Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -100,7 +100,7 @@ Pour qu’une demande de lecture (lecture ou interrogation de point) utilise le 
 
 -   Votre client se connecte au point de terminaison de passerelle dédiée
 -  Votre client utilise le mode passerelle (Les kits de développement logiciel (SDK) Python et Node.js utilisent toujours le mode passerelle)
--   La cohérence de la demande doit être définie sur éventuelle.
+-   La cohérence de la demande doit être définie sur la session ou à terme.
 
 > [!NOTE]
 > Avez-vous des commentaires sur le cache intégré ? Nous attendons vos remarques ! N’hésitez pas à partager vos commentaires directement avec l’équipe d’ingénierie Azure Cosmos DB :cosmoscachefeedback@microsoft.com

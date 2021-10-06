@@ -17,12 +17,12 @@ ms.date: 06/23/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbd65204534e978446109c99ca7286c0af00d68
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: 9455883bea37602e572a538862eaf5de9c17bbbc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580383"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669414"
 ---
 # <a name="sign-in-logs-in-azure-active-directory---preview"></a>Journaux de connexion dans Azure Active Directory - préversion
 
@@ -177,7 +177,7 @@ Les connexions utilisateur non interactives sont des connexions établies par un
 
 - Un client utilise un code d’autorisation OAuth 2.0 pour obtenir un jeton d’accès et un jeton d’actualisation.
 
-- Un utilisateur effectue une authentification unique (SSO) auprès d’une application web ou Windows sur un PC joint Azure AD.
+- Un utilisateur effectue une authentification unique (SSO) auprès d’une application web ou Windows sur un PC joint à Azure AD (sans fournir de facteur d’authentification ni interagir avec une invite Azure AD).
 
 - Un utilisateur se connecte à une deuxième application Microsoft Office tandis qu’il a une session ouverte sur un appareil mobile à l’aide d’une FOCI (famille d’ID client).
 

@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfmigrate
-ms.openlocfilehash: 37dde9cf2f105c3e8e8c3dc86e59340c205f9254
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: 86d6fa3c7c5552c0bb48844e543c20dc3493b15e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "122531361"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361480"
 ---
 # <a name="overview-of-migration-guidance-for-azure-germany"></a>Présentation des recommandations en matière de migration pour Azure Allemagne
 
@@ -22,7 +22,7 @@ Les articles de cette section ont été créés pour vous aider à migrer vos ch
 
 Les deux régions d’Allemagne sont totalement distinctes d’Azure global. Les clouds dans Azure global et Azure Allemagne ont leurs propres instances distinctes Azure Active Directory (Azure AD). C’est pourquoi les locataires Azure Allemagne sont distincts des locataires Azure global. Cet article décrit les outils de migration disponibles lorsque vous effectuez une migration entre *différents* locataires.
 
-Les conseils sur l’identité/les locataires sont destinées aux clients Azure uniquement. Si vous utilisez des locataires Azure Active Directory (Azure AD) courants pour Azure et Microsoft 365 (ou d’autres produits Microsoft), il existe des complexités lors de la migration de l’identité. Vous devez d’abord lire les [Actions et impacts des phases de la migration à partir de Microsoft Cloud Allemagne](/microsoft-365/enterprise/ms-cloud-germany-transition-phases?view=o365-worldwide). Si vous avez des questions, contactez votre gestionnaire de comptes ou le Support Microsoft.
+Les conseils sur l’identité/les locataires sont destinées aux clients Azure uniquement. Si vous utilisez des locataires Azure Active Directory (Azure AD) courants pour Azure et Microsoft 365 (ou d’autres produits Microsoft), il existe des complexités lors de la migration de l’identité. Vous devez d’abord lire les [Actions et impacts des phases de la migration à partir de Microsoft Cloud Allemagne](/microsoft-365/enterprise/ms-cloud-germany-transition-phases). Si vous avez des questions, contactez votre gestionnaire de comptes ou le Support Microsoft.
 
 Les fournisseurs de solutions Azure Cloud doivent effectuer des étapes supplémentaires pour prendre en charge les clients pendant et après la transition vers la nouvelle région des centres de données allemands. Découvrez-en plus sur ces [étapes supplémentaires](/microsoft-365/enterprise/ms-cloud-germany-transition-add-csp).
 

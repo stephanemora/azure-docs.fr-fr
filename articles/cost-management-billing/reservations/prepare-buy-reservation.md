@@ -2,18 +2,18 @@
 title: Acheter une réservation Azure
 description: Découvrez les points importants à prendre en compte avant l’achat d’une réservation Azure.
 author: bandersmsft
-ms.reviewer: yashar
+ms.reviewer: primattal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/12/2021
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: d9de6322ac84a86902b5ef218df9abe8528b95a9
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: bbd57ed54171785ab8f2aedea93fa8c56cc0319c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231482"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653365"
 ---
 # <a name="buy-a-reservation"></a>Acheter une réservation
 
@@ -41,16 +41,18 @@ Vous disposez de trois options pour définir l’étendue d’une réservation, 
     - Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. L’étendue partagée de réservation inclut plusieurs locataires Active Directory dans une inscription.
     - Pour les clients avec un Contrat Client Microsoft, l’étendue de facturation correspond au profil de facturation.
     - Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
+- **Groupe d’administration** : applique la remise de réservation à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation. Pour acheter une réservation pour un groupe d’administration, vous devez disposer au moins de l’autorisation de lecture sur le groupe d’administration et être propriétaire de la réservation ou acheteur de la réservation sur l’abonnement de facturation.
 
 Lors de l’application des remises de réservation sur votre utilisation, Azure traite la réservation dans l’ordre suivant :
 
 1. Réservations avec une étendue de groupe de ressources unique
 2. Réservations avec une étendue d’abonnement unique
-3. Réservations avec une étendue partagée (plusieurs abonnements), décrite précédemment
+3. Réservations délimitées à un groupe d’administration
+4. Réservations avec une étendue partagée (plusieurs abonnements), décrite précédemment
 
 Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour ce faire, accédez à la réservation, cliquez sur **Configuration** et redéfinissez la réservation. La modification de l’étendue de la réservation n’est pas une transaction commerciale. Le terme de votre réservation n’est pas modifié. Pour plus d’informations sur la mise à jour de l’étendue, consultez [Mettre à jour la portée après avoir acheté une réservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
-![Exemple illustrant la modification d’une étendue de réservation](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
+:::image type="content" source="./media/prepare-buy-reservation/rescope-reservation-management-group.png" alt-text="Exemple illustrant la modification d’une étendue de réservation" lightbox="./media/prepare-buy-reservation/rescope-reservation-management-group.png" :::
 
 ## <a name="discounted-subscription-and-offer-types"></a>Types d'abonnements et d'offres remisés
 

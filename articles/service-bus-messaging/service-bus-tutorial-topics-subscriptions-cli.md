@@ -1,16 +1,16 @@
 ---
 title: Utiliser Azure CLI pour créer des rubriques et des abonnements Service Bus
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer une rubrique Service Bus et des abonnements à cette rubrique à l’aide d’Azure CLI.
-ms.date: 06/23/2020
+ms.date: 09/28/2021
 ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 080b089efa276779420f6d9bc8e76272f1e65788
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 012fa6c3b6190959b7eb38c140b57a551f317498
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90069694"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236858"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Utiliser Azure CLI pour créer une rubrique Service Bus et des abonnements à cette rubrique
 Dans ce guide de démarrage rapide, vous allez utiliser Azure CLI pour créer une rubrique Service Bus, puis des abonnements à cette rubrique. 

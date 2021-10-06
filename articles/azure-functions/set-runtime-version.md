@@ -4,12 +4,12 @@ description: Azure Functions prend en charge plusieurs versions du runtime. Déc
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ca107ec2f0ce04bf7b1eae3a98087217c267d33d
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 6f608822a8c9b348c16021e64a9fe6a63170d6d6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830913"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646964"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Comment cibler des versions du runtime Azure Functions
 
@@ -32,11 +32,12 @@ Quand une nouvelle version est disponible publiquement, une invite dans le porta
 
 Le tableau suivant précise les valeurs de `FUNCTIONS_EXTENSION_VERSION` pour chaque version principale, afin d’activer les mises à jour automatiques :
 
-| Version principale | Valeur `FUNCTIONS_EXTENSION_VERSION` |
-| ------------- | ----------------------------------- |
-| 3.x  | `~3` |
-| 2.x  | `~2` |
-| 1.x  | `~1` |
+| Version principale | Valeur `FUNCTIONS_EXTENSION_VERSION` | Configuration supplémentaire  |
+| ------------- | ----------------------------------- | ------------------------- |
+| 4.x           | `~4`                                | [Sur Windows, activer .NET 6](./functions-versions.md#migrating-from-3x-to-4x) |
+| 3.x           | `~3`                                |                           |
+| 2.x           | `~2`                                |                           |
+| 1.x           | `~1`                                |                           |
 
 Un changement de version du runtime provoque un redémarrage de l’application de fonction.
 

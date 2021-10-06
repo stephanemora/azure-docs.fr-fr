@@ -3,12 +3,12 @@ title: Configurer votre réseau
 description: En savoir plus sur l’architecture de la solution, la préparation du réseau, les conditions préalables et d’autres informations nécessaires pour vous assurer que votre réseau est correctement configuré pour fonctionner avec les appliances Azure Defender pour IoT.
 ms.date: 07/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 196474c368ee5683a5fb7a25343faba17da0fa18
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7dc9e41b3bfdcbeab86aaabbdf0c97b0339b3df3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525026"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434085"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>À propos de la configuration du réseau d’Azure Defender pour IoT
 
@@ -32,7 +32,11 @@ Les tâches de déploiement sur site comprennent :
 
 - [Préparer une station de travail de configuration](#prepare-a-configuration-workstation)
 
-- [Planifier l’installation de racks](#planning-rack-installation)
+- [Configurer des certificats](#set-up-certificates)
+
+- [Préparer une station de travail de configuration](#prepare-a-configuration-workstation)
+
+- [Planifier l’installation du rack](#plan-rack-installation)
 
 ### <a name="collect-site-information"></a>Collecter des informations sur le site
 
@@ -90,6 +94,10 @@ Les navigateurs suivants sont pris en charge par les capteurs et les application
 
 Pour plus d’informations sur les navigateurs pris en charge, consultez [Navigateurs recommandés](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
+### <a name="set-up-certificates"></a>Configurer des certificats
+
+Après l’installation du capteur et de la console de gestion locale, un certificat auto-signé local est généré et utilisé pour accéder à l’application web du capteur. Lorsqu’ils se connectent à Defender pour IoT pour la première fois, les utilisateurs administrateurs sont invités à fournir un certificat SSL/TLS. En outre, une option de validation de ce certificat, ainsi que d’autres certificats système, est automatiquement activée. Pour plus d’informations, consultez [À propos des certificats](how-to-deploy-certificates.md) .
+
 ### <a name="network-access-requirements"></a>Conditions requises pour l’accès au réseau
 
 Vérifiez que la stratégie de sécurité de votre organisation autorise l’accès aux éléments suivants :
@@ -111,7 +119,7 @@ Vérifiez que la stratégie de sécurité de votre organisation autorise l’acc
 | Tunneling | TCP | IN | 9000 <br /><br />– En plus du port 443 <br /><br />de l’utilisateur final à la console de gestion locale <br /><br />Port 22 du capteur à la console de gestion locale  | monitoring | Tunneling | Capteur | Console de gestion locale |
 | HTTP| TCP | OUT | 80 | Validation du certificat  | Télécharger le fichier de liste de révocation de certificats | Capteur | Serveur de liste de révocation de certificats |
 
-### <a name="planning-rack-installation"></a>Planifier l’installation de racks
+### <a name="plan-rack-installation"></a>Planifier l’installation du rack
 
 Pour planifier votre installation de racks :
 
@@ -121,7 +129,7 @@ Pour planifier votre installation de racks :
 
 1. Prévoyez une alimentation en courant alternatif pour l’appliance.
 1. Préparez le câble LAN pour connecter la console de gestion au commutateur réseau.
-1. Préparez les câbles LAN pour connecter les ports SPAN (miroir) du commutateur et/ou les TAP réseau à l’appliance Defender pour IoT. 
+1. Préparez les câbles LAN pour connecter les ports SPAN (miroir) du commutateur et/ou les TAP réseau à l’appliance Defender pour IoT.
 1. Configurez, connectez et validez les ports SPAN dans les commutateurs mis en miroir comme décrit dans la session de révision de l’architecture.
 1. Connectez le port SPAN configuré à un ordinateur exécutant Wireshark et vérifiez que le port est correctement configuré.
 1. Ouvrez tous les ports de pare-feu appropriés.
@@ -138,7 +146,7 @@ Les sections suivantes décrivent les niveaux Purdue.
 
 :::image type="content" source="media/how-to-set-up-your-network/purdue-model.png" alt-text="Diagramme du modèle Purdue.":::
 
-####  <a name="level-0-cell-and-area"></a>Niveau 0 : Cellule et zone  
+#### <a name="level-0-cell-and-area"></a>Niveau 0 : Cellule et zone  
 
 Le niveau 0 est constitué d’un large éventail de capteurs, d’actionneurs et de dispositifs impliqués dans le processus de fabrication de base. Ces dispositifs exécutent les fonctions de base du système industriel d’automatisation et de contrôle, telles que :
 
@@ -234,7 +242,7 @@ Voici quelques recommandations pour le déploiement de plusieurs capteurs :
 
 #### <a name="traffic-mirroring"></a>Mise en miroir du trafic  
 
-Pour afficher uniquement les informations pertinentes pour l’analyse du trafic, vous devez connecter la plateforme Defender pour IoT à un port de mise en miroir sur un commutateur ou un TAP qui comprend uniquement le trafic SCADA et ICS industriel. 
+Pour afficher uniquement les informations pertinentes pour l’analyse du trafic, vous devez connecter la plateforme Defender pour IoT à un port de mise en miroir sur un commutateur ou un TAP qui comprend uniquement le trafic SCADA et ICS industriel.
 
 :::image type="content" source="media/how-to-set-up-your-network/switch.jpg" alt-text="Utilisez ce commutateur pour votre installation.":::
 

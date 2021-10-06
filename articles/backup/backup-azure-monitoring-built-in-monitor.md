@@ -4,12 +4,12 @@ description: Dans cet article, découvrez les fonctionnalités de surveillance e
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 4b20448896de05e888de33b2a680623b662b5e5a
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: ca99be06934c9eca8a762b4990e89d8818ac3f5c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525606"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627232"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
@@ -155,6 +155,14 @@ Pour activer les alertes Azure Monitor pour les scénarios d’échec de sauveg
 3. Cliquez sur **Enregistrer** pour activer cette fonctionnalité pour votre abonnement.
     > [!NOTE]
     > L’inscription peut prendre jusqu’à 24 heures pour prendre effet. Pour activer cette fonctionnalité pour plusieurs abonnements, répétez le processus ci-dessus en sélectionnant l’abonnement concerné en haut de l’écran. Nous vous recommandons également de réinscrire l’indicateur d’évaluation si une nouvelle ressource a été créée dans l’abonnement après l’inscription initiale afin de continuer à recevoir des alertes.
+
+4. Nous vous recommandons également d’inscrire le fournisseur de ressources pour vous assurer que les informations d’inscription de la fonctionnalité sont synchronisées avec le service de Sauvegarde Azure comme prévu. Pour inscrire le fournisseur de ressources, exécutez la commande PowerShell suivante dans l’abonnement pour lequel vous avez enregistré l’indicateur de fonctionnalité.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace <ProviderNamespace>
+```
+
+Pour recevoir des alertes pour les coffres des Services de récupération, utilisez la valeur _Microsoft.RecoveryServices_ pour le paramètre _ProviderNamespace_. Pour recevoir des alertes pour les coffres de Sauvegarde, utilisez la valeur _Microsoft.DataProtection_.
 
 ### <a name="viewing-fired-alerts-in-the-azure-portal"></a>Affichage des alertes déclenchées dans le portail Azure 
 

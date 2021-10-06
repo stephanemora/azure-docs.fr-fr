@@ -4,20 +4,20 @@ description: Décrit comment déployer des fichiers Bicep à l’aide de GitHub 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 09/02/2021
 ms.custom: github-actions-azure
-ms.openlocfilehash: 005ad729eed380b6684ef06ddca6341dce8b16da
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: df644fb081e6c15eb72e20a2a84af4b4c9386ba7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695216"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427027"
 ---
 # <a name="deploy-bicep-files-by-using-github-actions"></a>Déployer des fichiers Bicep à l’aide de GitHub Actions
 
-[GitHub Actions](https://docs.github.com/en/actions) est une suite de fonctionnalités dans GitHub permettant d’automatiser vos workflows de développement logiciel dans le même emplacement que celui où vous stockez le code et collaborez sur les demandes de tirage (pull requests) et les problèmes.
+[GitHub Actions](https://docs.github.com/en/actions) est une suite de fonctionnalités dans GitHub permettant d’automatiser vos flux de travail de développement logiciel.
 
-Utilisez l’action [Déployer une action de modèle Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) pour automatiser le déploiement d’un fichier Bicep.
+Utilisez l’[action GitHub pour le déploiement Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) afin d’automatiser le déploiement d’un fichier Bicep sur Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,16 +41,16 @@ Le fichier comporte deux sections :
 
 Vous pouvez créer un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
 
-Créez un groupe de ressources si vous n’en avez pas déjà un.
+Créez un groupe de ressources si vous n’en avez pas.
 
 ```azurecli-interactive
-    az group create -n {MyResourceGroup} -l {location}
+az group create -n {MyResourceGroup} -l {location}
 ```
 
 Remplacez l’espace réservé `myApp` par le nom de votre application.
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
+az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
 Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’abonnement et le nom de votre groupe de ressources. La sortie correspond à un objet JSON avec les informations d’identification de l’attribution de rôle qui fournit l’accès à votre application App Service, similaire à ce qui suit. Copiez cet objet JSON pour une version ultérieure. Vous n’aurez besoin que des sections avec les valeurs `clientId`, `clientSecret`, `subscriptionId` et `tenantId`.
@@ -80,19 +80,17 @@ Vous devez créer des secrets pour vos informations d’identification, votre gr
 
 1. Créez un autre secret nommé `AZURE_RG`. Ajoutez le nom de votre groupe de ressources au champ de valeur du secret (exemple : `myResourceGroup`).
 
-1. Créez un secret supplémentaire nommé `AZURE_SUBSCRIPTION`. Ajoutez votre ID d’abonnement au champ de valeur du secret (exemple : `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
+1. Créez un autre secret nommé `AZURE_SUBSCRIPTION`. Ajoutez votre ID d’abonnement au champ de valeur du secret (exemple : `90fd3f9d-4c61-432d-99ba-1273f236afa2`).
 
 ## <a name="add-a-bicep-file"></a>Ajouter un fichier Bicep
 
 Ajoutez un fichier Bicep à votre référentiel GitHub. Le fichier Bicep suivant crée un compte de stockage :
 
-```url
-https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/get-started-with-bicep-files/add-variable/azuredeploy.bicep
-```
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/azuredeploy.bicep" :::
 
-Le fichier Bicep prend un paramètre appelé **storagePrefix** avec 3 à 11 caractères.
+Le fichier Bicep requiert un paramètre appelé **storagePrefix** avec 3 à 11 caractères.
 
-Vous pouvez placer le fichier n’importe où dans le référentiel. L’exemple de workflow dans la section suivante suppose que le fichier de modèle est nommé **azuredeploy.bicep** et qu’il est stocké à la racine de votre référentiel.
+Vous pouvez placer le fichier n’importe où dans le référentiel. L’exemple de workflow dans la section suivante suppose que le fichier de modèle est nommé **azuredeploy.bicep** et qu’il est stocké à la racine de votre dépôt.
 
 ## <a name="create-workflow"></a>Créer un workflow
 
@@ -102,7 +100,7 @@ Le fichier de workflow doit être stocké dans le dossier **.github/workflows** 
 1. Sélectionnez **Nouveau workflow**.
 1. Sélectionnez **Configurer vous-même un workflow**.
 1. Renommez le fichier de workflow si vous préférez utiliser un autre nom que **main.yml**. Par exemple : **deployBicepFile.yml**.
-1. Remplacez le contenu du fichier yml par ce qui suit :
+1. Remplacez le contenu du fichier yml par le code suivant :
 
     ```yml
     on: [push]
@@ -131,7 +129,7 @@ Le fichier de workflow doit être stocké dans le dossier **.github/workflows** 
             failOnStdErr: false
     ```
 
-    Remplacez **mystore** par votre propre préfixe de nom de compte de stockage.
+    Remplacez `mystore` par votre propre préfixe de nom de compte de stockage.
 
     > [!NOTE]
     > À la place, vous pouvez spécifier un fichier de paramètres au format JSON dans l’action de déploiement ARM (exemple : `.azuredeploy.parameters.json`).
@@ -139,17 +137,17 @@ Le fichier de workflow doit être stocké dans le dossier **.github/workflows** 
     La première section du fichier de workflow comprend les éléments suivants :
 
     - **nom** : Nom du workflow.
-    - **on** : nom des événements GitHub qui déclenchent le workflow. Le workflow est déclenché lorsqu’il y a un événement push sur la branche primaire, qui modifie au moins l’un des deux fichiers spécifiés. Les deux fichiers sont le fichier de workflow et le fichier Bicep.
+    - **on** : nom des événements GitHub qui déclenchent le workflow. Le workflow est déclenché quand il y a un événement push sur la branche primaire, qui modifie au moins l’un des deux fichiers spécifiés. Les deux fichiers sont le fichier de workflow et le fichier Bicep.
 
 1. Sélectionnez **Démarrer la validation**.
 1. Sélectionnez **Valider directement sur la branche primaire**.
 1. Sélectionnez **Valider un nouveau fichier** (ou **Valider les modifications**).
 
-Étant donné que le workflow est configuré pour être déclenché par le fichier de workflow ou le fichier Bicep mis à jour, le workflow démarre juste après la validation des modifications.
+La mise à jour du fichier de flux de travail ou du fichier bicep déclenche le flux de travail. Le flux de travail démarre juste après la validation des modifications.
 
 ## <a name="check-workflow-status"></a>Vérifier l’état du workflow
 
-1. Sélectionnez l’onglet **Actions**. Un workflow **Créer deployStorageAccount.yml** s’affiche. L’exécution du workflow prend 1 à 2 minutes.
+1. Sélectionnez l’onglet **Actions**. Un flux de travail **Create deployStorageAccount.yml** s’affiche. L’exécution du workflow prend 1 à 2 minutes.
 1. Sélectionnez le workflow pour l’ouvrir.
 1. Sélectionnez **Exécuter le déploiement ARM** dans le menu pour vérifier le déploiement.
 

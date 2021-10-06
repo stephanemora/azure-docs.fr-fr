@@ -1,7 +1,7 @@
 ---
 title: Nouveautés en matière d'approvisionnement des applications Azure Active Directory
 description: Approvisionnement des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 09/08/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -9,16 +9,27 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: mtillman
-ms.openlocfilehash: 1cd99265954671084b37bcf0f11606a1e334223e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a5b870bb2c0e8021320bf03d990e5d7b636c5422
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124759792"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535833"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Approvisionnement des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à l'approvisionnement des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière d'approvisionnement, consultez [Nouveautés d'Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="september-2021"></a>Septembre 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Activer la prévention des suppressions accidentelles dans le service d’approvisionnement d’Azure AD (préversion)](accidental-deletions.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Fonctionnement de l’approvisionnement d’applications dans Azure Active Directory](how-provisioning-works.md)
+
 
 ## <a name="august-2021"></a>Août 2021
 

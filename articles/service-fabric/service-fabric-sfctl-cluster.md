@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 05132e4c7e644e681e2e4cfdedaa2b04a066ebeb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed4dfc315ae953c99db2ebe2eaa009f9ef072a7c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86259966"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620271"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Permet de sélectionner, de gérer et d’utiliser les clusters Service Fabric.
@@ -259,7 +259,7 @@ Si vous vous connectez au cluster sécurisé, vous devez spécifier un chemin d�
 | --aad | Utilisez Azure Active Directory pour l’authentification. |
 | --ca | Chemin d’accès absolu au répertoire de certificats d’autorités de certification à traiter comme étant valides ou au fichier de groupement d’autorités de certification. Si vous utilisez un répertoire de certificats d’autorité de certification, le paramètre `c_rehash <directory>` fourni par OpenSSL doit d’abord être exécuté pour calculer les hachages de certificat et créer les liens symboliques appropriés. Cela permet de vérifier que le certificat retourné par le cluster est valide. |
 | --cert | Chemin d’accès absolu à un fichier de certificat client. |
-| --endpoint | URL de point de terminaison du cluster, y compris le port et le préfixe HTTP ou HTTPS. En règle générale, le point de terminaison se présente sous la forme https\://<votre-URL>\:19080. Si aucun point de terminaison n’est spécifié, la valeur par défaut est http\://localhost\:19080.  Par défaut\: http\://localhost\:19080. |
+| --endpoint | URL de point de terminaison du cluster, y compris le port et le préfixe HTTP ou HTTPS. En général, le point de terminaison ressemblera à ceci `https\://<your-url>\:19080`. Si aucun point de terminaison n’est spécifié, la valeur par défaut est `http\://localhost\:19080`. |
 | --key | Chemin d’accès absolu à un fichier de clé de certificat client. |
 | --no-verify | Désactivez la vérification des certificats lors de l’utilisation de HTTPS. Remarque \: il s’agit d’une option non sécurisée à ne pas utiliser pour les environnements de production. |
 | --pem | Chemin d’accès absolu à un fichier de certificat client au format .pem. |

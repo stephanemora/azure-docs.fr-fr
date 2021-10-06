@@ -1,18 +1,17 @@
 ---
 title: Connectivité interréseau Azure
 description: Cette page décrit un scénario d'application relatif à la connectivité interréseau et une solution basée sur des fonctionnalités réseau Azure.
-services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: duau
-ms.openlocfilehash: 018afa1b2a31ebd44925a3fc79cbdc729b2d4695
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9e991e31d93e28373df55ae50a3ef7b0a666b879
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92202495"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353973"
 ---
 # <a name="cross-network-connectivity"></a>Connectivité interréseau
 
@@ -127,4 +126,4 @@ Global Reach est déployé pays/région par pays/région. Pour vérifier si Glob
 [Subscription limits]: ../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits
 [Connect-ER-VNet]: ./expressroute-howto-linkvnet-portal-resource-manager.md
 [ER-FAQ]: ./expressroute-faqs.md
-[VNet-FAQ]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq
+[VNet-FAQ]: ../virtual-network/virtual-networks-faq.md

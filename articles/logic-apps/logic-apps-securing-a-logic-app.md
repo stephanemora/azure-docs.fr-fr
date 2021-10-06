@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, azla
 ms.topic: how-to
-ms.date: 07/29/2021
-ms.openlocfilehash: 296a743924de2093ff9418333bdf8ef7e2f6f0f1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/13/2021
+ms.openlocfilehash: ed101e95a8580274661fd19d752a478677359641
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562436"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647192"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -143,7 +143,10 @@ Dans le corps, incluez la propriété `KeyType` en tant que `Primary` ou `Second
 
 Pour les appels entrants à un point de terminaison qui est créé par un déclencheur basé sur une demande, vous pouvez activer [Azure AD OAuth](../active-directory/develop/index.yml) en définissant ou en ajoutant une stratégie d’autorisation pour votre application logique. De cette façon, les appels entrants utilisent des jetons d’accès [OAuth](../active-directory/develop/access-tokens.md) pour l’autorisation.
 
-Quand votre application logique reçoit une demande entrante incluant un jeton d’accès OAuth, le service Azure Logic Apps compare les revendications du jeton à celles spécifiées par chaque stratégie d’autorisation. S’il existe une correspondance entre les revendications du jeton et toutes celles d’au moins une stratégie, l’autorisation est validée pour la requête entrante. Le jeton peut avoir plus de revendications que le nombre spécifié par la stratégie d’autorisation.
+Quand votre application logique reçoit une demande entrante incluant un jeton d’accès OAuth, Azure Logic Apps compare les revendications du jeton à celles spécifiées par chaque stratégie d’autorisation. S’il existe une correspondance entre les revendications du jeton et toutes celles d’au moins une stratégie, l’autorisation est validée pour la requête entrante. Le jeton peut avoir plus de revendications que le nombre spécifié par la stratégie d’autorisation.
+
+> [!NOTE]
+> Pour le type de ressource **Application logique (Standard)** dans Azure Logic Apps à locataire unique, Azure AD OAuth n’est actuellement pas disponible pour les appels entrants aux déclencheurs basés sur une requête, tels que le déclencheur de requête et le déclencheur webhook HTTP.
 
 #### <a name="considerations-before-you-enable-azure-ad-oauth"></a>Éléments à prendre en considération avant d’activer Azure AD OAuth
 
@@ -476,13 +479,17 @@ Cet exemple montre une définition de ressource pour une application logique imb
 
 ## <a name="access-to-logic-app-operations"></a>Accès aux opérations d’une application logique
 
-Vous pouvez autoriser seulement certains utilisateurs ou groupes à exécuter des tâches, telles que la gestion, la modification ou l’affichage des applications logiques. Pour contrôler leurs autorisations, utilisez le [Contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) afin d’attribuer des rôles personnalisés ou intégrés aux membres de votre abonnement Azure :
+Vous pouvez autoriser seulement certains utilisateurs ou groupes à exécuter des tâches, telles que la gestion, la modification ou l’affichage des applications logiques. Pour contrôler leurs autorisations, utilisez le [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Vous pouvez attribuer des rôles intégrés ou personnalisés aux membres qui ont accès à votre abonnement Azure. Azure Logic Apps a ces rôles spécifiques :
 
 * [Contributeur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-contributor) : Permet de gérer des applications logiques, mais pas d’en modifier l’accès.
 
 * [Opérateur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-operator) : Permet de lire, d’activer et de désactiver des applications logiques, mais pas de les modifier ni de les mettre à jour.
 
-Pour empêcher la modification ou la suppression de votre application logique, vous pouvez utiliser le [Verrouillage de la ressource Azure](../azure-resource-manager/management/lock-resources.md). Grâce à cette fonctionnalité, vous pouvez empêcher d’autres utilisateurs de modifier ou de supprimer des ressources de production.
+* [Contributeur](../role-based-access-control/built-in-roles.md#contributor) : Accorde un accès total pour gérer toutes les ressources, mais ne vous permet pas d’affecter des rôles dans Azure RBAC, de gérer des affectations dans Azure Blueprints ou de partager des galeries d’images.
+
+  Par exemple, supposez que vous devez utiliser une application logique que vous n’avez pas créée, et authentifier les connexions utilisées par le flux de travail de cette application logique. Votre abonnement Azure requiert des autorisations de Contributeur pour le groupe de ressources qui contient cette ressource d’application logique. Si vous créez une ressource d’application logique, vous bénéficiez automatiquement d’un accès Contributeur.
+
+Pour empêcher la modification ou la suppression de votre application logique, vous pouvez utiliser le [Verrouillage de la ressource Azure](../azure-resource-manager/management/lock-resources.md). Grâce à cette fonctionnalité, vous pouvez empêcher d’autres utilisateurs de modifier ou de supprimer des ressources de production. Pour plus d’informations sur la sécurité des connexions, consultez [Configuration de la connexion dans Azure Logic Apps](../connectors/apis-list.md#connection-configuration) et [Sécurité et chiffrement de la connexion](../connectors/apis-list.md#connection-security-encyrption).
 
 <a name="secure-run-history"></a>
 
@@ -1135,7 +1142,11 @@ Lorsque vous utilisez des [paramètres sécurisés](#secure-action-parameters) p
 
 #### <a name="managed-identity-authentication"></a>Authentification d’une identité managée
 
-Quand l’option [Identité managée](../active-directory/managed-identities-azure-resources/overview.md) est disponible sur [le déclencheur ou l’action qui prend en charge l’authentification d’identité managée](#add-authentication-outbound), votre application logique peut utiliser l’identité attribuée par le système ou une identité *unique* attribuée par l’utilisateur créée manuellement pour authentifier l’accès à des ressources protégées par Azure Active Directory (Azure AD) plutôt que par des informations d’identification, des secrets ou des jetons Azure AD. Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’avez pas besoin de gérer les secrets ou d’utiliser directement des jetons Azure AD. En savoir plus sur les [services Azure qui prennent en charge les identités managées pour l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Quand l’option [Identité managée](../active-directory/managed-identities-azure-resources/overview.md) est disponible sur [le déclencheur ou l’action qui prend en charge l’authentification d’identité managée](#add-authentication-outbound), votre application logique peut utiliser cette identité pour authentifier l’accès à des ressources protégées par Azure AD (Azure Active Directory) plutôt que par des informations d’identification, des secrets ou des jetons Azure AD. Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’avez pas besoin de gérer les secrets ou d’utiliser directement des jetons Azure AD. En savoir plus sur les [services Azure qui prennent en charge les identités managées pour l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+
+* Le type de ressource **Application logique (Consommation)** peut utiliser l’identité affectée par le système ou une identité affectée par l’utilisateur *unique* créée manuellement.
+
+* Le type de ressource **Application logique (Standard)** peut uniquement utiliser l’identité affectée par le système, qui est automatiquement activée. L’identité affectée par l’utilisateur n’est pas disponible actuellement.
 
 1. Pour que votre application logique puisse utiliser une identité managée, suivez les étapes décrites dans [Authentifier l’accès aux ressources Azure à l’aide des identités managées dans Azure Logic Apps](../logic-apps/create-managed-service-identity.md). Ces étapes activent l’identité managée sur votre application logique et configurent l’accès de cette identité à la ressource Azure cible.
 
@@ -1177,7 +1188,6 @@ Quand l’option [Identité managée](../active-directory/managed-identities-azu
    | **Nom de connexion** | Oui | <*connection-name*> ||
    | **Identité gérée** | Oui | **Identité managée affectée par le système** <br>or <br> <*user-assigned-managed-identity-name*> | Type d’authentification à utiliser |
    |||||
-
 
 <a name="block-connections"></a>
 

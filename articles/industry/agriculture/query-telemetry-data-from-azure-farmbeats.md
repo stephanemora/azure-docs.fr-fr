@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
-ms.openlocfilehash: b9067e2f78c8098d4a21263ac89caf03da631274
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88cf9236ca33eddd9f86a60c210aae253f8d9c2c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92677481"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361017"
 ---
 # <a name="query-ingested-telemetry-data"></a>Interroger les données de télémétrie ingérées
 
@@ -118,7 +118,7 @@ Procédez comme suit pour visualiser les données sur TSI :
 1. Accédez au **Portail Azure** > **Groupe de ressources FarmBeats Datahub** > sélectionnez l’environnement **Time Series Insights** (tsi-xxxx) > **Stratégies d’accès aux données**. Ajoutez un utilisateur avec un accès Lecteur ou Contributeur.
 2. Accédez à la page **Présentation** de l’environnement **Time Series Insights** (tsi-xxxx) et sélectionnez l’**URL de l’Explorateur Time Series Insights**. Vous pouvez maintenant visualiser la télémétrie ingérée.
 
-Outre le stockage, l’interrogation et la visualisation des données de télémétrie, TSI autorise également l’intégration à un tableau de bord Power BI. Vous trouverez plus d’informations [ici]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi).
+Outre le stockage, l’interrogation et la visualisation des données de télémétrie, TSI autorise également l’intégration à un tableau de bord Power BI. Vous trouverez plus d’informations [ici](../../time-series-insights/how-to-connect-power-bi.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

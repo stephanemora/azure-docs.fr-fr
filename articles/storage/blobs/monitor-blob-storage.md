@@ -1,5 +1,5 @@
 ---
-title: Supervision du service Stockage Blob Azure | Microsoft Docs
+title: Supervision du service Stockage Blob Azure
 description: Apprenez à superviser les performances et la disponibilité du service Stockage Blob Azure. Supervisez les données du service Stockage Blob Azure, apprenez-en davantage sur la configuration, et analysez les données de métriques et de journal.
 author: normesta
 services: storage
@@ -9,26 +9,27 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: f38149e2259dbb6724a81e8139f46bd65a0edff0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bcfd37ff8c030136e37b4289bc37006012891412
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532729"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128617542"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Supervision du service Stockage Blob Azure
 
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par le service Stockage Blob Azure et comment vous pouvez utiliser les fonctionnalités d'Azure Monitor pour analyser les alertes sur ces données.
 
 > [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
+> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public et US Government. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
 ## <a name="monitor-overview"></a>Présentation de Monitor
 
 La page **Vue d’ensemble** du portail Azure pour chaque ressource du Stockage Blob comprend un bref aperçu de l’utilisation de la ressource, comme les demandes et la facturation horaire. Ces informations sont utiles, mais elles ne constituent qu’une petite quantité des données de supervision disponibles. Certaines de ces données sont collectées automatiquement et peuvent être analysées dès que vous créez la ressource. Vous pouvez activer d’autres types de collecte de données avec une certaine configuration.
 
 ## <a name="what-is-azure-monitor"></a>Qu’est-ce qu’Azure Monitor ?
-Le service Stockage Blob Azure crée des données de supervision à l'aide d'[Azure Monitor](../../azure-monitor/overview.md), qui est un service de supervision de pile complète dans Azure. Azure Monitor fournit un ensemble complet de fonctionnalités pour superviser vos ressources Azure, ainsi que les ressources locales et celles présentes dans d’autres clouds. 
+
+Le service Stockage Blob Azure crée des données de supervision à l'aide d'[Azure Monitor](../../azure-monitor/overview.md), qui est un service de supervision de pile complète dans Azure. Azure Monitor fournit un ensemble complet de fonctionnalités pour superviser vos ressources Azure, ainsi que les ressources locales et celles présentes dans d’autres clouds.
 
 Commencez avec l’article [Supervision de ressources Azure avec Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) qui décrit les éléments suivants :
 
@@ -42,19 +43,19 @@ Les sections suivantes s’appuient sur cet article en décrivant les données s
 
 ## <a name="monitoring-data"></a>Données de surveillance
 
-Le service Stockage Blob Azure collecte les mêmes types de données de supervision que d'autres ressources Azure, lesquelles sont décrites dans [Supervision des données issues des ressources Azure](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
+Le service Stockage Blob Azure collecte les mêmes types de données de supervision que d'autres ressources Azure, lesquelles sont décrites dans [Supervision des données issues des ressources Azure](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 Pour obtenir des informations détaillées sur les métriques et les métriques de journaux créées par le service Stockage Blob Azure, consultez [Informations de référence sur les données de supervision du service Stockage Blob Azure](monitor-blob-storage-reference.md).
 
-Les métriques et les journaux d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Azure Monitor ne prend pas en charge les comptes de stockage classiques. Si vous souhaitez utiliser des métriques ou des journaux sur un compte de stockage classique, vous devez migrer vers un compte de stockage Azure Resource Manager. Voir [Migrer vers Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
+Les métriques et les journaux d’Azure Monitor ne prennent en charge que les comptes de stockage Azure Resource Manager. Azure Monitor ne prend pas en charge les comptes de stockage classiques. Si vous souhaitez utiliser des métriques ou des journaux sur un compte de stockage classique, vous devez migrer vers un compte de stockage Azure Resource Manager. Pour plus d’informations, consultez [Migrer vers Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
 
 Vous pouvez continuer à utiliser les métriques et les journaux classiques si vous le souhaitez. En fait, les métriques et les journaux classiques sont disponibles parallèlement aux métriques et journaux dans Azure Monitor. La prise en charge reste en place jusqu’à ce que le stockage Azure mette fin au service sur les métriques et les journaux hérités.
 
 ## <a name="collection-and-routing"></a>Collecte et routage
 
-Les métriques de plateforme et le journal d'activité sont collectés automatiquement, mais ils peuvent être acheminés vers d'autres emplacements à l'aide d'un paramètre de diagnostic. 
+Les métriques de plateforme et le journal d'activité sont collectés automatiquement, mais ils peuvent être acheminés vers d'autres emplacements à l'aide d'un paramètre de diagnostic.
 
-Pour collecter des journaux de ressources, vous devez créer un paramètre de diagnostic. Lorsque vous créez le paramètre, choisissez **Blob** comme type de stockage pour lequel vous souhaitez activer les journaux. Ensuite, spécifiez l’une des catégories d’opérations suivantes pour laquelle vous souhaitez collecter les journaux. 
+Pour collecter des journaux de ressources, vous devez créer un paramètre de diagnostic. Lorsque vous créez le paramètre, choisissez **Blob** comme type de stockage pour lequel vous souhaitez activer les journaux. Ensuite, spécifiez l’une des catégories d’opérations suivantes pour laquelle vous souhaitez collecter les journaux.
 
 | Category | Description |
 |:---|:---|
@@ -63,16 +64,16 @@ Pour collecter des journaux de ressources, vous devez créer un paramètre de di
 | StorageDelete | Opérations de suppression sur des objets. |
 
 > [!NOTE]
-> Data Lake Storage Gen2 n’apparaît pas en tant que type de stockage. Cela est dû au fait que Data Lake Storage Gen2 est un ensemble de fonctionnalités disponibles pour le stockage Blob. 
+> Data Lake Storage Gen2 n’apparaît pas en tant que type de stockage. Cela est dû au fait que Data Lake Storage Gen2 est un ensemble de fonctionnalités disponibles pour le stockage Blob.
 
 ## <a name="creating-a-diagnostic-setting"></a>Création d’un paramètre de diagnostic
 
-Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, PowerShell, l’interface de ligne de commande Azure ou un modèle Azure Resource Manager, ou Azure Policy. 
+Vous pouvez créer un paramètre de diagnostic en utilisant le portail Azure, PowerShell, l’interface de ligne de commande Azure ou un modèle Azure Resource Manager, ou Azure Policy.
 
 Pour obtenir des instructions générales, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 > [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Voir [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
+> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public et US Government. Cette préversion active les journaux des objets blob (qui incluent Azure Data Lake Storage Gen2), les fichiers, les files d’attente et les tables. Cette fonctionnalité est disponible pour tous les comptes de stockage créés avec le modèle de déploiement Resource Manager. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
 
 ### <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
@@ -83,7 +84,7 @@ Pour obtenir des instructions générales, consultez [Créer un paramètre de di
 3. Dans la section **Supervision**, cliquez sur **Paramètres de diagnostic (préversion)** .
 
    > [!div class="mx-imgBorder"]
-   > ![Portail - Journaux de diagnostics](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)   
+   > ![Portail - Journaux de diagnostics](media/monitor-blob-storage/diagnostic-logs-settings-pane.png)
 
 4. Choisissez **Blob** comme type de stockage pour lequel vous souhaitez activer les journaux.
 
@@ -103,12 +104,12 @@ Pour obtenir des instructions générales, consultez [Créer un paramètre de di
 
 Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous paierez pour le volume des journaux qui sont envoyés au compte de stockage. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page sur la [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-1. Cochez la case **Archiver dans un compte de stockage**, puis cliquez sur le bouton **Configurer**.
+1. Cochez la case **Archiver dans un compte de stockage**, puis sélectionnez le bouton **Configurer**.
 
-   > [!div class="mx-imgBorder"]   
+   > [!div class="mx-imgBorder"]
    > ![Page Paramètres de diagnostic – Stockage d’archive](media/monitor-blob-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. Dans la liste déroulante **Compte de stockage**, sélectionnez le compte de stockage dans lequel vous souhaitez archiver vos journaux, cliquez sur le bouton **OK**, puis cliquez sur le bouton **Enregistrer**.
+2. Dans la liste déroulante **Compte de stockage**, sélectionnez le compte de stockage dans lequel vous souhaitez archiver vos journaux, cliquez sur le bouton **OK**, puis sélectionnez le bouton **Enregistrer**.
 
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
@@ -119,20 +120,20 @@ Si vous choisissez d’archiver vos journaux dans un compte de stockage, vous pa
 
 Si vous choisissez de diffuser vos journaux vers un hub d’événements, vous paierez pour le volume des journaux envoyés au hub d’événements. Pour connaître les tarifs spécifiques, consultez la section **Journaux de la plateforme** de la page sur la [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/#platform-logs).
 
-1. Cochez la case **Diffuser sur un Event Hub**, puis cliquez sur le bouton **Configurer**.
+1. Cochez la case **Diffuser sur un Event Hub**, puis sélectionnez le bouton **Configurer**.
 
-2. Dans le volet **Sélectionner un Event Hub**, choisissez l’espace de noms, le nom et le nom de la stratégie de l’Event Hub vers lequel vous souhaitez diffuser vos journaux en continu. 
+2. Dans le volet **Sélectionner un Event Hub**, choisissez l’espace de noms, le nom et le nom de la stratégie de l’Event Hub vers lequel vous souhaitez diffuser vos journaux en continu.
 
    > [!div class="mx-imgBorder"]
    > ![Page Paramètres de diagnostic – Event Hub](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
 
-3. Cliquez sur le bouton **OK**, puis cliquez sur le bouton **Enregistrer**.
+3. Cliquez sur le bouton **OK**, puis sélectionnez le bouton **Enregistrer**.
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Envoyer des journaux à Azure Log Analytics
 
-1. Cochez la case **Envoyer à Log Analytics**, sélectionnez un espace de travail Log Analytics, puis cliquez sur le bouton **Enregistrer**.
+1. Cochez la case **Envoyer à Log Analytics**, sélectionnez un espace de travail Log Analytics, puis sélectionnez le bouton **Enregistrer**.
 
-   > [!div class="mx-imgBorder"]   
+   > [!div class="mx-imgBorder"]
    > ![Page Paramètres de diagnostic – Log Analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -271,13 +272,13 @@ Pour afficher un modèle Azure Resource Manager qui crée un paramètre de diagn
 
 ### <a name="azure-policy"></a>[Azure Policy](#tab/policy)
 
-Vous pouvez créer un paramètre de diagnostic en utilisant une définition de stratégie. De cette façon, vous pouvez vous assurer qu’un paramètre de diagnostic est créé pour chaque compte créé ou mis à jour. Consultez [Définitions intégrées d’Azure Policy pour le stockage Azure](../common/policy-reference.md).
+Vous pouvez créer un paramètre de diagnostic en utilisant une définition de stratégie. De cette façon, vous pouvez vous assurer qu’un paramètre de diagnostic est créé pour chaque compte créé ou mis à jour. Pour plus d’informations, consultez [Définitions intégrées d’Azure Policy pour le stockage Azure](../common/policy-reference.md).
 
 ---
 
 ## <a name="analyzing-metrics"></a>Analyse des métriques
 
-Vous pouvez analyser les métriques de Stockage Azure avec des métriques issues d’autres services Azure à l’aide de Metrics Explorer. Ouvrez Metrics Explorer en choisissant **Métriques** dans le menu **Azure Monitor**. Pour plus d’informations sur l’utilisation de cet outil, consultez [Prise en main d’Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md). 
+Vous pouvez analyser les métriques de Stockage Azure avec des métriques issues d’autres services Azure à l’aide de Metrics Explorer. Ouvrez Metrics Explorer en choisissant **Métriques** dans le menu **Azure Monitor**. Pour plus d’informations sur l’utilisation de cet outil, consultez [Prise en main d’Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Cet exemple montre comment afficher les **Transactions** au niveau du compte.
 
@@ -289,13 +290,12 @@ Pour les métriques prenant en charge des dimensions, vous pouvez les filtrer av
 
 Pour obtenir la liste complète des dimensions prises en charge par le stockage Azure, consultez [Dimensions des métriques](monitor-blob-storage-reference.md#metrics-dimensions).
 
-Les métriques du service Stockage Blob Azure se trouvent dans les espaces de noms suivants : 
+Les métriques du service Stockage Blob Azure se trouvent dans les espaces de noms suivants :
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/blobServices
 
 Pour obtenir la liste de toutes les métriques de prise en charge d'Azure Monitor, ce qui inclut le service Stockage Blob Azure, consultez [Métriques de prise en charge avec Azure Monitor](../../azure-monitor/essentials/metrics-supported.md).
-
 
 ### <a name="accessing-metrics"></a>Accès aux métriques
 
@@ -305,10 +305,10 @@ Pour obtenir la liste de toutes les métriques de prise en charge d'Azure Monito
 ### <a name="net-sdk"></a>[Kit de développement logiciel (SDK) .NET](#tab/azure-portal)
 
 Azure Monitor fournit des [kits de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) pour lire des définitions et valeurs de mesures. L’[exemple de code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) montre comment utiliser le kit de développement logiciel (SDK) avec des paramètres différents. Vous devez utiliser `0.18.0-preview` ou une version ultérieure pour les mesures de stockage.
- 
+
 Dans ces exemples, remplacez l’espace réservé `<resource-ID>` par l’ID de ressource du compte de stockage complet ou du service Stockage Blob. Vous pouvez trouver les ID de ces ressources sur les pages **Points de terminaison** de votre compte de stockage sur le portail Azure.
 
-Remplacez la variable `<subscription-ID>` par l’ID de votre abonnement. Pour obtenir des conseils sur la façon d’obtenir des valeurs pour `<tenant-ID>`, `<application-ID>` et `<AccessKey>`, consultez [Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md). 
+Remplacez la variable `<subscription-ID>` par l’ID de votre abonnement. Pour obtenir des conseils sur la façon d’obtenir des valeurs pour `<tenant-ID>`, `<application-ID>` et `<AccessKey>`, consultez [Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="list-the-account-level-metric-definition"></a>Dresser la liste de la définition des métriques de niveau compte
 
@@ -322,7 +322,6 @@ L’exemple suivant montre comment répertorier une définition de mesures au ni
         var tenantId = "<tenant-ID>";
         var applicationId = "<application-ID>";
         var accessKey = "<AccessKey>";
-
 
         MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
@@ -448,7 +447,7 @@ L’exemple suivant montre comment lire les données de mesures sur la métrique
 
 Vous pouvez afficher la définition des métriques de votre compte de stockage ou du service de Stockage Blob. Utilisez l’applet de commande [Get-AzMetricDefinition](/powershell/module/az.monitor/get-azmetricdefinition).
 
-Dans cet exemple, remplacez l’espace réservé `<resource-ID>` par l’ID de ressource du compte de stockage complet ou par l’ID de ressource du service Stockage Blob.  Vous pouvez trouver les ID de ces ressources sur les pages **Points de terminaison** de votre compte de stockage sur le portail Azure.
+Dans cet exemple, remplacez l’espace réservé `<resource-ID>` par l’ID de ressource du compte de stockage complet ou par l’ID de ressource du service Stockage Blob. Vous pouvez trouver les ID de ces ressources sur les pages **Points de terminaison** de votre compte de stockage sur le portail Azure.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -469,7 +468,7 @@ Vous pouvez lire les valeurs des métriques de niveau compte de votre compte de 
 #### <a name="list-the-account-level-metric-definition"></a>Dresser la liste de la définition des métriques de niveau compte
 
 Vous pouvez afficher la définition des métriques de votre compte de stockage ou du service de Stockage Blob. Utilisez la commande [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions).
- 
+
 Dans cet exemple, remplacez l’espace réservé `<resource-ID>` par l’ID de ressource du compte de stockage complet ou par l’ID de ressource du service Stockage Blob. Vous pouvez trouver les ID de ces ressources sur les pages **Points de terminaison** de votre compte de stockage sur le portail Azure.
 
 ```azurecli-interactive
@@ -483,6 +482,7 @@ Vous pouvez lire les valeurs des métriques de votre compte de stockage ou du se
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
 ```
+
 ### <a name="template"></a>[Modèle](#tab/template)
 
 N/A.
@@ -500,7 +500,7 @@ Vous pouvez accéder aux journaux des ressources en tant qu’objet blob dans un
 Pour obtenir des informations de référence détaillées sur les champs qui apparaissent dans ces journaux, consultez [Informations de référence sur les données de supervision du service Stockage Blob Azure](monitor-blob-storage-reference.md).
 
 > [!NOTE]
-> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public. Cette préversion active les journaux pour les objets blob (qui comprennent Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
+> Les journaux de stockage Azure dans Azure Monitor sont en préversion publique et sont disponibles pour le test en préversion dans toutes les régions de cloud public et US Government. Cette préversion active les journaux pour les objets blob (qui comprennent Azure Data Lake Storage Gen2), les fichiers, les files d’attente, les tables, les comptes de stockage Premium dans les comptes de stockage à usage général v1 et à usage général v2. Les comptes de stockage classiques ne sont pas pris en charge.
 
 Les entrées de journal sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service. Par exemple, si un compte de stockage a une activité dans son point de terminaison de blob, mais pas dans ses points de terminaison de table ou de file d’attente, seuls les journaux d’activité qui appartiennent au service Blob sont créés. Les journaux de stockage Azure contiennent des informations détaillées sur les demandes ayant réussi ou échoué pour un service de stockage. Ces informations peuvent servir à analyser des demandes individuelles et à diagnostiquer les problèmes au niveau d'un service de stockage. Les demandes sont enregistrées sur la base du meilleur effort.
 
@@ -538,7 +538,7 @@ Voici un exemple :
 
 ### <a name="accessing-logs-in-an-event-hub"></a>Accès aux journaux dans un hub d’événements
 
-Les journaux envoyés à un hub d’événements ne sont pas stockés en tant que fichier, mais vous pouvez vérifier que le hub d’événements a reçu les informations du journal. Dans le Portail Azure, accédez à votre Event Hub et vérifiez que le nombre de **messages entrants** est supérieur à zéro. 
+Les journaux envoyés à un hub d’événements ne sont pas stockés en tant que fichier, mais vous pouvez vérifier que le hub d’événements a reçu les informations du journal. Dans le Portail Azure, accédez à votre Event Hub et vérifiez que le nombre de **messages entrants** est supérieur à zéro.
 
 ![Journaux d’audit](media/monitor-blob-storage/event-hub-log.png)
 
@@ -550,7 +550,7 @@ Vous pouvez accéder aux journaux envoyés à un espace de travail Log Analytics
 
 Pour plus d’informations, voir [Bien démarrer avec Log Analytics dans Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
 
-Les données sont stockées dans la table **StorageBlobLog**. Les journaux de Data Lake Storage Gen2 n’apparaissent pas dans une table dédiée. Cela est dû au fait que Data Lake Storage Gen2 n’est pas un service. Il s’agit d’un ensemble de fonctionnalités que vous pouvez activer dans votre compte de stockage. Si vous avez activé ces fonctionnalités, les journaux continueront d’apparaître dans la table StorageBlobLog. 
+Les données sont stockées dans la table **StorageBlobLog**. Les journaux de Data Lake Storage Gen2 n’apparaissent pas dans une table dédiée. Cela est dû au fait que Data Lake Storage Gen2 n’est pas un service. Il s’agit d’un ensemble de fonctionnalités que vous pouvez activer dans votre compte de stockage. Si vous avez activé ces fonctionnalités, les journaux continueront d’apparaître dans la table StorageBlobLog.
 
 #### <a name="sample-kusto-queries"></a>Exemples de requêtes Kusto
 
@@ -561,52 +561,81 @@ Voici quelques requêtes que vous pouvez entrer dans la barre **Recherche dans l
 
 Utilisez ces requêtes pour mieux superviser vos comptes de Stockage Azure :
 
-* Pour lister les 10 erreurs les plus courantes au cours des trois derniers jours.
+- Pour lister les 10 erreurs les plus courantes au cours des trois derniers jours.
 
-    ```Kusto
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by StatusText
     | top 10 by count_ desc
     ```
-* Pour lister les 10 principales opérations qui ont provoqué le plus d’erreurs au cours des trois derniers jours.
 
-    ```Kusto
+- Pour lister les 10 principales opérations qui ont provoqué le plus d’erreurs au cours des trois derniers jours.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by OperationName
     | top 10 by count_ desc
     ```
-* Pour lister les 10 opérations ayant la latence de bout en bout la plus longue au cours des trois derniers jours.
 
-    ```Kusto
+- Pour lister les 10 opérations ayant la latence de bout en bout la plus longue au cours des trois derniers jours.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d)
     | top 10 by DurationMs desc
     | project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
     ```
-* Pour lister toutes les opérations ayant provoqué des erreurs de limitation côté serveur au cours des trois derniers jours.
 
-    ```Kusto
+- Pour lister toutes les opérations ayant provoqué des erreurs de limitation côté serveur au cours des trois derniers jours.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
     ```
-* Pour lister toutes les demandes avec un accès anonyme au cours des trois derniers jours.
 
-    ```Kusto
+- Pour lister toutes les demandes avec un accès anonyme au cours des trois derniers jours.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
     ```
-* Pour créer un graphique à secteurs des opérations utilisées au cours des trois derniers jours.
-    ```Kusto
+
+- Pour créer un graphique à secteurs des opérations utilisées au cours des trois derniers jours.
+
+    ```kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d)
     | summarize count() by OperationName
-    | sort by count_ desc 
+    | sort by count_ desc
     | render piechart
     ```
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+### <a name="logs-in-azure-monitor"></a>Journaux dans Azure Monitor
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup> |![Oui](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup>|![Oui](../media/icons/yes-icon.png)  <sup>2</sup> | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+### <a name="metrics-in-azure-monitor"></a>Mesures dans Azure Monitor
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)              | ![Oui](../media/icons/yes-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)  <sup>2</sup> | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup> |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
+
+<sup>2</sup> La fonctionnalité est prise en charge dans la préversion.
+
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **Le stockage Azure prend-il en charge les métriques de disques managés ou de disques non managés ?**

@@ -9,12 +9,12 @@ ms.date: 07/30/2021
 ms.topic: reference
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.openlocfilehash: a7936f1bbe56b105ec65dfa76cb7346fa41953ff
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4b40220b6675649808a63b5258859004796986ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524125"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650303"
 ---
 # <a name="az-arcdata-dc-config"></a>az arcdata dc config
 ## <a name="commands"></a>Commandes
@@ -45,7 +45,7 @@ az arcdata dc config init --source azure-arc-kubeadm --path custom
 ```
 ### <a name="optional-parameters"></a>Paramètres facultatifs
 #### `--path -p`
-Chemin de fichier de l’emplacement où vous souhaitez placer le profil de configuration. Il est défini par défaut sur <cwd>/custom.
+Chemin de fichier de l’emplacement où vous souhaitez placer le profil de configuration. Il est défini par défaut sur \<cwd\>/custom.
 #### `--source -s`
 Source du profil de configuration : ['azure-arc-gke', 'azure-arc-eks', 'azure-arc-kubeadm', 'azure-arc-aks-default-storage', 'azure-arc-azure-openshift', 'azure-arc-ake', 'azure-arc-openshift', 'azure-arc-aks-dev-test', 'azure-arc-aks-hci', 'azure-arc-kubeadm-dev-test', 'azure-arc-aks-premium-storage']
 #### `--force -f`
@@ -58,11 +58,11 @@ Affichez ce message d’aide et quittez.
 #### `--output -o`
 Format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc.  Valeur par défaut : json.
 #### `--query -q`
-Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez [http://jmespath.org](http://jmespath.org).
+Chaîne de requêtes JMESPath. Pour plus d’informations et d’exemples, consultez [http://jmespath.org](http://jmespath.org).
 #### `--subscription`
 Nom ou ID de l’abonnement. Vous pouvez configurer l’abonnement par défaut en utilisant `az account set -s NAME_OR_ID`.
 #### `--verbose`
-Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets.
+Augmentez le niveau de détail de la journalisation. Utilisez `--debug` pour les journaux de débogage complets.
 ## <a name="az-arcdata-dc-config-list"></a>az arcdata dc config list
 Répertoriez les choix de profils de configuration disponibles à utiliser dans `arcdata dc config init`
 ```bash
@@ -89,11 +89,11 @@ Affichez ce message d’aide et quittez.
 #### `--output -o`
 Format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc.  Valeur par défaut : json.
 #### `--query -q`
-Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez [http://jmespath.org](http://jmespath.org).
+Chaîne de requêtes JMESPath. Pour plus d’informations et d’exemples, consultez [http://jmespath.org](http://jmespath.org).
 #### `--subscription`
 Nom ou ID de l’abonnement. Vous pouvez configurer l’abonnement par défaut en utilisant `az account set -s NAME_OR_ID`.
 #### `--verbose`
-Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets.
+Augmentez le niveau de détail de la journalisation. Utilisez `--debug` pour les journaux de débogage complets.
 ## <a name="az-arcdata-dc-config-add"></a>az arcdata dc config add
 Ajoutez la valeur au niveau du chemin d’accès json dans le fichier config. Tous les exemples ci-dessous sont fournis dans Bash.  Si vous utilisez une autre ligne de commande, vous devrez peut-être placer les guillemets dans une séquence d’échappement de manière appropriée.  Vous pouvez également utiliser la fonctionnalité de fichier de correctif.
 ```bash
@@ -107,9 +107,9 @@ az arcdata dc config add --path custom/control.json --json-values "spec.storage=
 ```
 ### <a name="required-parameters"></a>Paramètres obligatoires
 #### `--path -p`
-Chemin d’accès au fichier config du contrôleur de données de la configuration que vous souhaitez définir, par exemple custom/control.json
+Chemin d’accès au fichier config du contrôleur de données de la configuration que vous souhaitez définir, par exemple `custom/control.json`.
 #### `--json-values -j`
-Liste de paires clé/valeur de chemins d’accès json aux valeurs : key1.subkey1=value1,key2.subkey2=value2. Vous pouvez fournir des valeurs json incluses, telles que : key='{"kind":"cluster","name":"test-cluster"}' ou fournir un chemin d'accès au fichier, tel que key=./values.json. La commande add ne prend PAS en charge les conditionnels.  Si la valeur incluse que vous fournissez est une paire clé-valeur elle-même avec des caractères « = » et « , », mettez ces caractères dans une séquence d’échappement.  Par exemple, key1="key2\=val2\,key3\=val3". Consultez http://jsonpatch.com/ pour obtenir des exemples d’apparence de votre chemin d’accès.  Si vous souhaitez accéder à un tableau, vous devez le faire en indiquant l’index, tel que key.0=value
+Liste de paires clé/valeur de chemins d’accès json aux valeurs : key1.subkey1=value1,key2.subkey2=value2. Vous pouvez fournir des valeurs json incluses, telles que : key='{"kind":"cluster","name":"test-cluster"}' ou fournir un chemin d'accès au fichier, tel que key=./values.json. La commande add ne prend PAS en charge les conditionnels.  Si la valeur incluse que vous fournissez est une paire clé-valeur elle-même avec des caractères « = » et « , », mettez ces caractères dans une séquence d’échappement.  Par exemple, key1="key2\=val2\,key3\=val3". Consultez [http://jsonpatch.com/](http://jsonpatch.com/) pour obtenir des exemples d’apparence de votre chemin d’accès.  Si vous souhaitez accéder à un tableau, vous devez le faire en indiquant l’index, tel que key.0=value
 ### <a name="global-arguments"></a>Arguments globaux
 #### `--debug`
 Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage.
@@ -118,11 +118,11 @@ Affichez ce message d’aide et quittez.
 #### `--output -o`
 Format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc.  Valeur par défaut : json.
 #### `--query -q`
-Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez [http://jmespath.org](http://jmespath.org).
+Chaîne de requêtes JMESPath. Pour plus d’informations et d’exemples, consultez [http://jmespath.org](http://jmespath.org).
 #### `--subscription`
 Nom ou ID de l’abonnement. Vous pouvez configurer l’abonnement par défaut en utilisant `az account set -s NAME_OR_ID`.
 #### `--verbose`
-Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets.
+Augmentez le niveau de détail de la journalisation. Utilisez `--debug` pour les journaux de débogage complets.
 ## <a name="az-arcdata-dc-config-remove"></a>az arcdata dc config remove
 Supprimez la valeur au niveau du chemin d’accès json dans le fichier config.  Tous les exemples ci-dessous sont fournis dans Bash.  Si vous utilisez une autre ligne de commande, vous devrez peut-être placer les guillemets dans une séquence d’échappement de manière appropriée.  Vous pouvez également utiliser la fonctionnalité de fichier de correctif.
 ```bash
@@ -136,9 +136,9 @@ az arcdata dc config remove --path custom/control.json --json-path ".spec.storag
 ```
 ### <a name="required-parameters"></a>Paramètres obligatoires
 #### `--path -p`
-Chemin d’accès au fichier config du contrôleur de données de la configuration que vous souhaitez définir, par exemple custom/control.json
+Chemin d’accès au fichier config du contrôleur de données de la configuration que vous souhaitez définir, par exemple `custom/control.json`
 #### `--json-path -j`
-Une liste de chemins d’accès json basés sur la bibliothèque jsonpatch qui indique les valeurs que vous souhaitez supprimer, par exemple : key1.subkey1,key2.subkey2. La commande remove ne prend PAS en charge les conditionnels. Consultez http://jsonpatch.com/ pour obtenir des exemples d’apparence de votre chemin d’accès.  Si vous souhaitez accéder à un tableau, vous devez le faire en indiquant l’index, tel que key.0=value
+Une liste de chemins d’accès json basés sur la bibliothèque jsonpatch qui indique les valeurs que vous souhaitez supprimer, par exemple : `key1.subkey1,key2.subkey2`. La commande remove ne prend PAS en charge les conditionnels. Consultez [http://jsonpatch.com/](http://jsonpatch.com/) pour obtenir des exemples d’apparence de votre chemin d’accès.  Si vous souhaitez accéder à un tableau, vous devez le faire en indiquant l’index, tel que key.0=value
 ### <a name="global-arguments"></a>Arguments globaux
 #### `--debug`
 Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage.
@@ -147,11 +147,11 @@ Affichez ce message d’aide et quittez.
 #### `--output -o`
 Format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc.  Valeur par défaut : json.
 #### `--query -q`
-Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez [http://jmespath.org](http://jmespath.org).
+Chaîne de requêtes JMESPath. Pour plus d’informations et d’exemples, consultez [http://jmespath.org](http://jmespath.org).
 #### `--subscription`
 Nom ou ID de l’abonnement. Vous pouvez configurer l’abonnement par défaut en utilisant `az account set -s NAME_OR_ID`.
 #### `--verbose`
-Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets.
+Augmentez le niveau de détail de la journalisation. Utilisez `--debug` pour les journaux de débogage complets.
 ## <a name="az-arcdata-dc-config-replace"></a>az arcdata dc config replace
 Remplacez la valeur au niveau du chemin d’accès json dans le fichier config.  Tous les exemples ci-dessous sont fournis dans Bash.  Si vous utilisez une autre ligne de commande, vous devrez peut-être placer les guillemets dans une séquence d’échappement de manière appropriée.  Vous pouvez également utiliser la fonctionnalité de fichier de correctif.
 ```bash
@@ -169,9 +169,9 @@ az arcdata dc config replace --path custom/control.json --json-values "spec.stor
 ```
 ### <a name="required-parameters"></a>Paramètres obligatoires
 #### `--path -p`
-Chemin d’accès au fichier config du contrôleur de données de la configuration que vous souhaitez définir, par exemple custom/control.json
+Chemin d’accès au fichier config du contrôleur de données de la configuration que vous souhaitez définir, par exemple `custom/control.json`.
 #### `--json-values -j`
-Liste de paires clé/valeur de chemins d’accès json aux valeurs : key1.subkey1=value1,key2.subkey2=value2. Vous pouvez fournir des valeurs json incluses, telles que : key='{"kind":"cluster","name":"test-cluster"}' ou fournir un chemin d'accès au fichier, tel que key=./values.json. La commande replace prend en charge les conditionnels dans la bibliothèque jsonpath.  Pour ce faire, démarrez votre chemin d’accès par un $. Cela vous permettra d’effectuer une condition telle que -j $.key1.key2[?(@.key3=="someValue"].key4=value. Si la valeur incluse que vous fournissez est une paire clé-valeur elle-même avec des caractères « = » et « , », mettez ces caractères dans une séquence d’échappement.  Par exemple, key1="key2\=val2\,key3\=val3". Consultez les exemples ci-dessous. Pour obtenir de l’aide supplémentaire, consultez : https://jsonpath.com/
+Liste de paires clé/valeur de chemins d’accès json aux valeurs : key1.subkey1=value1,key2.subkey2=value2. Vous pouvez fournir des valeurs json incluses, telles que : key='{"kind":"cluster","name":"test-cluster"}' ou fournir un chemin d'accès au fichier, tel que key=./values.json. La commande replace prend en charge les conditionnels dans la bibliothèque jsonpath.  Pour ce faire, démarrez votre chemin d’accès par un $. Cela vous permettra d’effectuer une condition telle que -j $.key1.key2[?(@.key3=="someValue"].key4=value. Si la valeur incluse que vous fournissez est une paire clé-valeur elle-même avec des caractères « = » et « , », mettez ces caractères dans une séquence d’échappement.  Par exemple : `key1="key2\=val2\,key3\=val3"`. Consultez les exemples ci-dessous. Pour obtenir de l’aide supplémentaire, consultez : https://jsonpath.com/
 ### <a name="global-arguments"></a>Arguments globaux
 #### `--debug`
 Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage.
@@ -180,11 +180,11 @@ Affichez ce message d’aide et quittez.
 #### `--output -o`
 Format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc.  Valeur par défaut : json.
 #### `--query -q`
-Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez [http://jmespath.org](http://jmespath.org).
+Chaîne de requêtes JMESPath. Pour plus d’informations et d’exemples, consultez [http://jmespath.org](http://jmespath.org).
 #### `--subscription`
 Nom ou ID de l’abonnement. Vous pouvez configurer l’abonnement par défaut en utilisant `az account set -s NAME_OR_ID`.
 #### `--verbose`
-Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets.
+Augmentez le niveau de détail de la journalisation. Utilisez `--debug` pour les journaux de débogage complets.
 ## <a name="az-arcdata-dc-config-patch"></a>az arcdata dc config patch
 Corrigez le fichier config en fonction du fichier patch donné. Consultez http://jsonpatch.com/ pour mieux comprendre comment les chemins d’accès doivent être composés. L’opération de remplacement peut utiliser des conditions dans son chemin d’accès en raison de la bibliothèque jsonpath https://jsonpath.com/. Tous les fichiers json des correctifs doivent commencer par une clé « correctif » qui contient un tableau de correctifs avec les opérations (ajouter, remplacer, supprimer), le chemin d’accès et la valeur correspondants. L’opération « supprimer » ne requiert pas de valeur, juste un chemin d’accès. Considérons les exemples ci-dessous.
 ```bash
@@ -208,7 +208,7 @@ az arcdata dc config patch --path custom/control.json --patch ./patch.json
 ```
 ### <a name="required-parameters"></a>Paramètres obligatoires
 #### `--path`
-Chemin d’accès au fichier config du contrôleur de données de la configuration que vous souhaitez définir, par exemple custom/control.json
+Chemin d’accès au fichier config du contrôleur de données de la configuration que vous souhaitez définir, par exemple `custom/control.json`.
 #### `--patch-file -p`
 Chemin d'accès à un fichier json du correctif basé sur la bibliothèque jsonpatch : http://jsonpatch.com/. Vous devez démarrer votre fichier json du correctif par une clé appelée « correctif », dont la valeur est un tableau d’opérations PATCH que vous envisagez de créer. Pour le chemin d’accès d’une opération PATCH, vous pouvez utiliser la notation, telle que key1.key2 pour la plupart des opérations. Si vous souhaitez effectuer une opération de remplacement et que vous remplacez une valeur dans un tableau qui requiert une condition, utilisez la notation jsonpath en commençant votre chemin d’accès par un $. Cela vous permettra d’effectuer une condition telle que $.key1.key2[?(@.key3=="someValue"].key4. Considérons les exemples ci-dessous. Pour obtenir de l’aide supplémentaire sur les conditionnels, consultez : https://jsonpath.com/.
 ### <a name="global-arguments"></a>Arguments globaux
@@ -219,8 +219,8 @@ Affichez ce message d’aide et quittez.
 #### `--output -o`
 Format de sortie.  Valeurs autorisées : json, jsonc, none, table, tsv, yaml, yamlc.  Valeur par défaut : json.
 #### `--query -q`
-Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez [http://jmespath.org](http://jmespath.org).
+Chaîne de requêtes JMESPath. Pour plus d’informations et d’exemples, consultez [http://jmespath.org](http://jmespath.org).
 #### `--subscription`
 Nom ou ID de l’abonnement. Vous pouvez configurer l’abonnement par défaut en utilisant `az account set -s NAME_OR_ID`.
 #### `--verbose`
-Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets.
+Augmentez le niveau de détail de la journalisation. Utilisez `--debug` pour les journaux de débogage complets.

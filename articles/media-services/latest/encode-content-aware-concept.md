@@ -9,31 +9,53 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 09/16/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f333b4ca86e24c845a8a91c621a2b3f7c8c984e
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: a34e2d16edb4a8ec9ba40a4426fcbbd9b2127b16
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527896"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590401"
 ---
-# <a name="content-aware-encoding-preset"></a>Présélection d’encodage sensible au contenu
+# <a name="content-aware-encoding"></a>Encodage sensible au contenu
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Afin de préparer le contenu pour une diffusion en [streaming à débit adaptatif](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), la vidéo doit être encodée à plusieurs débits (du plus élevé au plus faible). Cela garantit une dégradation appropriée de la qualité, la vitesse de transmission et la résolution de la vidéo sont réduites en parallèle. Un tel codage à vitesses de transmission multiples utilise ce qu’on appelle une échelle d’encodage, c’est-à-dire un tableau de résolutions et de vitesses de transmission. Consultez les [présélections d’encodage intégrées](/rest/api/media/transforms/createorupdate#encodernamedpreset) de Media Services.
+## <a name="overview-of-the-content-aware-encoding-preset"></a>Vue d’ensemble de la présélection d’encodage sensible au contenu
 
-Vous devez être conscient du contenu que vous traitez et personnaliser ou ajuster l’échelle d’encodage à la complexité de la vidéo. À chaque résolution, il existe un débit au-delà duquel toute augmentation de la qualité n’est pas perceptive : l’encodeur fonctionne à la valeur de débit optimale. Le niveau suivant d’optimisation consiste à sélectionner les résolutions en fonction du contenu, par exemple, une vidéo de présentation PowerPoint ne bénéficie d’aucune amélioration en passant sous 720p. Pour aller plus loin, l’encodeur peut être chargé afin d’optimiser les paramètres pour chaque scène de la vidéo. 
+Pour préparer le contenu à être diffusé à l’aide du [streaming à débit adaptatif](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), la vidéo doit être encodée à plusieurs débits (du plus élevé au plus faible) et plusieurs résolutions. Cette technique permet aux lecteurs vidéo modernes sur Apple iOS, Android, Windows et Mac d’utiliser des protocoles de diffusion en continu qui diffusent le contenu de manière fluide sans mise en mémoire tampon. Ces différents rendus de taille (résolution) et de qualité (débit) d’affichage permettent au lecteur de sélectionner la meilleure version de la vidéo que les conditions actuelles du réseau peuvent supporter. Le réseau peut varier considérablement : LTE, 4G, 5G, Wi-Fi public ou réseau domestique.
 
-La présélection [Adaptive Streaming](encode-autogen-bitrate-ladder.md) (diffusion en continu adaptative) de Microsoft résout le problème de variabilité de la qualité et de la résolution des vidéos sources. Nos clients bénéficient d’une grande variété de contenus, certains en 1080p, d’autres en 720p, et quelques-uns en SD voire à des résolutions inférieures. En outre, tout le contenu source n’affiche pas les mezzanines haute qualité proposées par les studios de cinéma ou de télévision. La présélection Adaptive Streaming résout ces problèmes en s'assurant que l'échelle de débit ne dépasse jamais la résolution ou le débit moyen de la mezzanine en entrée. Toutefois, cette présélection n’examine pas les propriétés sources autres que la résolution et la vitesse de transmission.
+Le processus d’encodage du contenu en plusieurs rendus nécessite la génération d’une « échelle d’encodage », une table de résolutions et de débits qui indique à l’encodeur ce qu’il doit générer. Pour obtenir un exemple d’échelle de ce type, consultez [présélections d’encodage intégrées](/rest/api/media/transforms/createorupdate#encodernamedpreset) de Media Services.
 
-## <a name="the-content-aware-encoding-preset"></a>La présélection d’encodage sensible au contenu
+Idéalement, vous devez connaître le type de contenu que vous encodez. À l’aide de ces informations, vous pouvez adapter l’échelle d’encodage à la complexité et au mouvement de votre vidéo source. Cela signifie qu’à chaque taille d’affichage (résolution) de l’échelle, il doit y avoir un débit au-delà duquel toute augmentation de la qualité n’est pas perceptible : l’encodeur fonctionne à cette valeur de débit optimale.
 
-La présélection d’encodage sensible au contenu étend le mécanisme de diffusion en continu à vitesse de transmission adaptative, en incorporant une logique personnalisée permettant à l’encodeur de rechercher la valeur optimale de vitesse de transmission pour une résolution donnée, mais sans nécessiter une analyse informatique complète. Cette présélection produit un ensemble de fichiers MP4 alignés sur le groupe d’images. Étant donné un contenu d’entrée, le service effectue une analyse initiale légère du contenu d’entrée et utilise les résultats pour déterminer le nombre optimal de couches, le débit approprié et les paramètres de résolution pour la livraison par diffusion en continu adaptative. Cette présélection est particulièrement efficace pour les vidéos de complexité faible et moyenne, où les fichiers de sortie sont à des vitesses de transmission inférieures à la présélection Diffusion en continu adaptative, mais à une qualité qui offre toujours une bonne expérience aux viewers. La sortie contiendra des fichiers MP4 avec vidéo et audio entrelacées.
+Le niveau d’optimisation suivant qui peut être effectué consiste à sélectionner les résolutions en fonction du contenu, par exemple, la vidéo d’une présentation PowerPoint avec peu de texte peut paraître floue si elle est encodée en dessous de 720 lignes de pixels de hauteur. En outre, il se peut également qu’une vidéo change de mouvement et de complexité tout au long de son visionnage, en fonction de la façon dont elle a été tournée et montée.  Cela permet d’affiner et d’ajuster les paramètres d’encodage à chaque limite de scène ou de capture. Un encodeur intelligent peut être chargé d’optimiser les paramètres d’encodage pour chaque scène de la vidéo.
 
-Les exemples de graphiques suivants illustrent la comparaison à l’aide de mesures de qualité comme [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) et [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). La source avait été créée en concaténant de petits clips très complexes extraits de films et de séries TV, destinés à soumettre l’encodeur à un test de contrainte. Par définition, cette présélection produit des résultats qui varient selon le contenu : cela signifie également que pour certains contenus, la réduction du débit ou l’amélioration de la qualité reste minime.
+Azure Media Services propose une présélection [Adaptive Streaming](encode-autogen-bitrate-ladder.md) (diffusion en continu adaptative) qui résout partiellement le problème de variabilité du débit et de la résolution des vidéos sources. Toutefois, cette présélection n’analyse pas le contenu source pour déterminer son niveau de complexité ou la quantité de mouvement qu’il contient. 
+
+La présélection d’encodage sensible au contenu améliore la présélection d’encodage « streaming à débit adaptatif » plus statique, en ajoutant une logique permettant à l’encodeur de rechercher la valeur optimale de débit pour une résolution donnée, mais sans nécessiter une analyse informatique approfondie. Cette présélection génère une « échelle » unique de fichiers MP4 alignés sur le groupe d’images en fonction du fichier source. À partir d’une vidéo source, la présélection effectue une analyse rapide initiale du contenu d’entrée et utilise les résultats pour déterminer le nombre optimal de couches, le débit et les résolutions nécessaires pour fournir l’expérience de streaming à débit adaptatif de la plus haute qualité. Cette présélection est efficace pour les vidéos de complexité faible à moyenne, où les fichiers de sortie auront des débits inférieurs à ceux de la présélection Diffusion en continu adaptative plus statique, mais avec une qualité qui offre toujours une bonne expérience aux spectateurs. Le dossier de sortie contiendra plusieurs fichiers MP4 avec vidéo et audio prêts pour la diffusion en continu.
+
+## <a name="configure-output-settings"></a>Configurer les paramètres de sortie
+
+En outre, les développeurs peuvent également contrôler la plage de sorties que la présélection d’encodage sensible au contenu utilise afin de déterminer quels sont les paramètres optimaux pour encoder l’échelle de streaming à débit adaptatif.
+
+Avec la classe **PresetConfigurations**, les développeurs peuvent transmettre un ensemble de contraintes et d’options à la présélection d’encodage sensible au contenu pour contrôler les fichiers résultants générés par l’encodeur. Les propriétés sont particulièrement utiles si vous souhaitez limiter l’ensemble de l’encodage à une résolution maximale spécifique afin de contrôler l’expérience ou les coûts de vos tâches d’encodage.  Il est également utile de pouvoir contrôler les débits maximum et minimum que votre audience peut prendre en charge sur un réseau mobile ou dans une région du monde ayant des contraintes de bande passante.
+
+## <a name="supported-codecs"></a>Codecs pris en charge
+
+La présélection d’encodage sensible au contenu peut être utilisée avec les codecs suivants :
+-  H.264
+-  HEVC (H.265)
+
+## <a name="how-to-use"></a>Utilisation de procédures
+
+Pour plus d’informations sur l’utilisation de la présélection dans votre code et des liens vers des exemples complets, consultez le [guide pratique de l’encodage sensible au contenu](./encode-content-aware-How-to.md).
+
+## <a name="technical-details-on-content-aware-preset"></a>Détails techniques sur la présélection sensible au contenu
+
+Abordons à présent plus en détail le fonctionnement de la présélection d’encodage sensible au contenu.  Les exemples de graphiques suivants illustrent la comparaison à l’aide de métriques de qualité comme [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) et [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). La source avait été créée en concaténant de petits clips très complexes extraits de films et de séries TV, destinés à soumettre l’encodeur à un test de contrainte. Par définition, cette présélection produit des résultats qui varient selon le contenu : cela signifie également que pour certains contenus, la réduction du débit ou l’amélioration de la qualité reste minime.
 
 ![Courbe de distorsion du débit (RD) avec PSNR](media/encode-content-aware-concept/msrv1.png)
 
@@ -43,7 +65,7 @@ Les exemples de graphiques suivants illustrent la comparaison à l’aide de mes
 
 **Figure 2 : Courbe de distorsion du débit (RD) avec la métrique VMAF pour une source très complexe**
 
-Voici les résultats pour une autre catégorie de contenu source, où l’encodeur a pu déterminer que l’entrée était de mauvaise qualité (de nombreux artefacts de compression en raison d’une faible vitesse de transmission). Notez qu’avec la présélection sensible au contenu, l’encodeur a décidé de ne produire qu’une seule couche de sortie, à une vitesse de transmission suffisamment faible pour que la plupart des clients puissent lire le flux sans saccade.
+Voici les résultats pour une autre catégorie de contenu source, où l’encodeur a pu déterminer que l’entrée était de mauvaise qualité (de nombreux artefacts de compression en raison d’une faible vitesse de transmission). Avec la présélection sensible au contenu, l’encodeur a décidé de ne produire qu’une seule couche de sortie, à un débit suffisamment faible pour que la plupart des clients puissent lire le flux sans saccade.
 
 ![Courbe de distorsion du débit (RD) avec PSNR](media/encode-content-aware-concept/msrv3.png)
 
@@ -53,16 +75,7 @@ Voici les résultats pour une autre catégorie de contenu source, où l’encode
 
 **Figure 4 : Courbe de distorsion du débit (RD) avec VMAF pour une entrée de faible qualité (à 1080p)**
 
-## <a name="8-bit-hevc-h265-support"></a>Prise en charge de HEVC (H. 265) sur 8 bits
-
-L’encodeur standard des Services Media Azure prend désormais en charge l’encodage 8 bits HEVC (H.265). Le contenu HEVC peut être fourni et empaqueté via l’empaqueteur dynamique à l’aide du format 'hev1'.
-
-Un nouvel encodage .NET personnalisé avec l’exemple HEVC est disponible dans le [dépôt GitHub media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC). En plus de l’encodage personnalisé, AMS prend également en charge d’autres nouvelles présélections d’encodage HEVC intégrées que vous pouvez consulter dans nos [notes de publication de février 2021](https://docs.microsoft.com/azure/media-services/latest/release-notes#february-2021).
   
 ## <a name="next-steps"></a>Étapes suivantes
-
+* [Comment utiliser les présélections d’encodage sensibles au contenu](encode-content-aware-how-to.md)
 * [Tutoriel : Télécharger, encoder et diffuser des vidéos avec Media Services v3](stream-files-tutorial-with-api.md)
-* [Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - REST](stream-files-tutorial-with-rest.md)
-* [Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu – CLI](stream-files-cli-quickstart.md)
-* [Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu – .NET](stream-files-dotnet-quickstart.md)
-* [Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu – Node.js](stream-files-nodejs-quickstart.md)

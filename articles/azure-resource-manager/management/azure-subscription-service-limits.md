@@ -2,13 +2,13 @@
 title: Quotas et limites d’abonnement Azure
 description: Fournit une liste des abonnements Azure et des limites, quotas et contraintes de service habituels. Cet article inclut des informations sur la façon d’augmenter les limites ainsi que les valeurs maximales.
 ms.topic: conceptual
-ms.date: 07/29/2021
-ms.openlocfilehash: 2d3af7c035518ace6abca01b9e9e3867c49d4330
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 09/21/2021
+ms.openlocfilehash: 685a66e120a1387ce71d0d2902dfa54e390d1d66
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099382"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645503"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -86,7 +86,7 @@ Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager 
 
 ## <a name="azure-cache-for-redis-limits"></a>Limites du Cache Azure pour Redis
 
-[!INCLUDE [redis-cache-service-limits](../../../includes/redis-cache-service-limits.md)]
+[!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
 
 ## <a name="azure-cloud-services-limits"></a>Limites d'Azure Cloud Services
 
@@ -174,6 +174,11 @@ Les valeurs les plus récentes des quotas de calcul Azure Machine Learning sont 
 
 [!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
+
+## <a name="azure-data-factory-limits"></a>Limites d’Azure Data Factory
+
+[!INCLUDE [azure-data-factory-limits](../../../includes/azure-data-factory-limits.md)]
+
 ## <a name="azure-netapp-files"></a>Azure NetApp Files
 
 [!INCLUDE [netapp-limits](../../../includes/netapp-service-limits.md)]
@@ -228,13 +233,14 @@ Le tableau suivant détaille les fonctionnalités et les limites des [niveaux de
 
 [!INCLUDE [cdn-limits](../../../includes/cdn-limits.md)]
 
-## <a name="data-factory-limits"></a>Limites de Data Factory
-
-[!INCLUDE [azure-data-factory-limits](../../../includes/azure-data-factory-limits.md)]
 
 ## <a name="data-lake-analytics-limits"></a>Limites Data Lake Analytics
 
 [!INCLUDE [azure-data-lake-analytics-limits](../../../includes/azure-data-lake-analytics-limits.md)]
+
+## <a name="data-factory-limits"></a>Limites de Data Factory
+
+[!INCLUDE [azure-data-factory-limits](../../../includes/azure-data-factory-limits.md)]
 
 ## <a name="data-lake-storage-limits"></a>Limites de Data Lake Storage
 

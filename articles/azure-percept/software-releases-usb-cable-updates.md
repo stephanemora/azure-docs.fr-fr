@@ -1,5 +1,5 @@
 ---
-title: Versions d’Azure Percept DK pour une mise à jour via une connexion USB
+title: Versions logicielles pour les mises à jour via un câble USB d’Azure Percept DK
 description: Informations et liens de téléchargement pour le package de mise à jour du câble USB d’Azure Percept DK
 author: EthanChangAED
 ms.author: amiyouss
@@ -7,14 +7,14 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 9b58aa438fa0cd05604967c2c1bcb728d9a560c6
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 49274ba0c43b2cc473470df61e22f16b8a83c022
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222753"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427099"
 ---
-# <a name="azure-percept-dk-software-releases-for-updating-over-usb"></a>Versions de logiciel pour Azure Percept DK (mises à jour sur USB)
+# <a name="software-releases-for-usb-cable-updates"></a>Versions logicielles pour les mises à jour de câble USB
 
 Cette page fournit des informations et des liens de téléchargement pour toutes les versions de l’image du microprogramme et du système d’exploitation du kit de développement. Pour plus d’informations sur les modifications et les correctifs dans chaque version, reportez-vous aux notes de publication :
 

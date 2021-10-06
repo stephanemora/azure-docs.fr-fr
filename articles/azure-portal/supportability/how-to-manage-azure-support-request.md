@@ -2,15 +2,14 @@
 title: Gérer une demande de support Azure
 description: Décrit les procédures d’affichage des demandes de support, d’envoi de messages, de modification du niveau de gravité de la demande, de partage des informations de diagnostic avec le support Azure, de réouverture d’une demande de support clôturée et de chargement de fichiers.
 tags: billing
-ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
-ms.date: 08/24/2021
-ms.openlocfilehash: 6f1daf2c504be53654c61c5249065cc929ae8066
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.date: 09/01/2021
+ms.openlocfilehash: f1930402c0f458962c95f8f4fe0f1011f1dcca49
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824127"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426379"
 ---
 # <a name="manage-an-azure-support-request"></a>Gérer une demande de support Azure
 
@@ -36,13 +35,10 @@ Sur cette page, vous pouvez rechercher, filtrer et trier des demandes de support
 
 > [!NOTE]
 > Le niveau de gravité maximale dépend de votre [plan de support](https://azure.microsoft.com/support/plans).
->
 
 1. Sur la page **Toutes les demandes de support**, sélectionnez la demande de support.
 
 1. Sur la page **Demande de support**, sélectionnez **Modifier**.
-
-    :::image type="content" source="media/how-to-manage-azure-support-request/change-severity.png" alt-text="Modifier la gravité de la demande de support":::
 
 1. Le portail Azure affiche l’un ou l’autre écran, selon que votre demande est déjà attribuée à un ingénieur du support technique ou non :
 
@@ -61,11 +57,11 @@ Lors de la création d’une demande de support, vous pouvez sélectionner **Oui
 Pour modifier la sélection des **informations de diagnostic de partage** après la création de la requête :
 
 1. Sur la page **Toutes les demandes de support**, sélectionnez la demande de support.
-    
+
 1. Sur la page **Demande de support**, recherchez **Informations de diagnostic de partage**, puis sélectionnez **Modifier**.
-    
-1.  Sélectionnez **Oui** ou **Non**, puis cliquez sur **OK** pour confirmer.
-    
+
+1. Sélectionnez **Oui** ou **Non**, puis cliquez sur **OK** pour confirmer.
+
     :::image type="content" source="media/how-to-manage-azure-support-request/grant-permission-manage.png" alt-text="Accorder des autorisations pour les informations de diagnostic":::
 
 ## <a name="upload-files"></a>Charger des fichiers
@@ -82,11 +78,11 @@ Vous pouvez utiliser l’option de chargement de fichiers de diagnostic ou tout 
 
 Suivez ces instructions lorsque vous utilisez l’option de chargement de fichiers :
 
-* Pour protéger votre confidentialité, évitez d’inclure des informations personnelles dans votre téléchargement.
-* Le nom de fichier doit être inférieur à 110 caractères.
-* Vous ne pouvez pas charger plusieurs fichiers.
-* Les fichiers ne peuvent pas dépasser 4 Mo.
-* Tous les fichiers doivent avoir une extension de nom de fichier, telle que  *.docx* ou  *.xlsx*. Le tableau suivant indique les extensions de nom de fichier dont le chargement est autorisé.
+- Pour protéger votre confidentialité, évitez d’inclure des informations personnelles dans votre téléchargement.
+- Le nom de fichier doit être inférieur à 110 caractères.
+- Vous ne pouvez pas charger plusieurs fichiers.
+- Les fichiers ne peuvent pas dépasser 4 Mo.
+- Tous les fichiers doivent avoir une extension de nom de fichier, telle que  *.docx* ou  *.xlsx*. Le tableau suivant indique les extensions de nom de fichier dont le chargement est autorisé.
 
 | 0-9, A-C    | D-G   | H-N         | O-Q   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
@@ -121,18 +117,17 @@ Suivez ces instructions lorsque vous utilisez l’option de chargement de fichie
 
 ## <a name="close-a-support-request"></a>Fermeture d’une demande de support
 
-Si vous avez besoin de fermer une demande de support, [envoyez un message](#send-a-message) demandant de fermer la demande.
+Pour fermer une demande de support, [envoyez un message](#send-a-message) demandant de fermer la demande.
 
 ## <a name="reopen-a-closed-request"></a>Rouvrir une demande clôturée
 
-Si vous devez rouvrir une demande de support clôturée, créez un [message](#send-a-message), qui rouvre automatiquement la demande.
+Pour rouvrir une demande de support clôturée, créez un [message](#send-a-message), qui rouvre automatiquement la demande.
 
 ## <a name="cancel-a-support-plan"></a>Annulation d’un plan de support
 
-Si vous devez annuler un plan de support, consultez [Annulation d’un plan de support](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
+Pour annuler un plan de support, consultez [Annulation d’un plan de support](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Création d’une demande de support Azure](how-to-create-azure-support-request.md)
-
-[API REST de ticket de support Azure](/rest/api/support)
+- Passez en revue le processus pour [créer une demande de support Azure](how-to-create-azure-support-request.md).
+- En savoir plus sur l’[API REST de ticket de support Azure](/rest/api/support).

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 06/01/2021
 ms.author: glenga
-ms.openlocfilehash: e65a628f846892294fdd9be693b89a535ac694a0
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: 729275766806bf5fe47d35b04ddc58b11c58217b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111901441"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128908772"
 ---
 ## <a name="supported-versions"></a>Versions prises en charge
 
@@ -19,12 +19,12 @@ Le tableau suivant indique le niveau le plus élevé de .NET Core et .NET Framew
 
 | Version du runtime Functions | In-process<br/>([Bibliothèque de classes .NET](../articles/azure-functions/functions-dotnet-class-library.md)) | Out-of-process<br/>([Isolé .NET](../articles/azure-functions/dotnet-isolated-process-guide.md)) |
 | ---- | ---- | --- |
-| Functions 4.x<sup>1</sup> | .NET 6.0 (préversion)| .NET 6.0 (préversion) |
+| Functions 4.x (préversion) | .NET 6.0 (préversion)| .NET 6.0 (préversion)<sup>2</sup> |
 | Functions 3.x | .NET Core 3.1 | .NET 5.0 |
-| Functions 2.x | .NET Core 2.1<sup>2</sup> | n/a |
+| Functions 2.x | .NET Core 2.1<sup>1</sup> | n/a |
 | Functions 1.x | .NET Framework 4.8 | n/a |
 
-<sup>1</sup> Azure Functions fournit une prise en charge expérimentale pour vous permettre de tester vos fonctions en cours d’exécution sur la version préliminaire de .NET 6.0. Cette version préliminaire n’est pas officiellement prise en charge. Pour plus d’informations, consultez la page [Version bêta d’Azure Functions (version 4)](https://aka.ms/functions-dotnet6earlypreview-wiki).  
-<sup>2</sup> Pour plus d’informations, consultez [Considérations relatives à Functions v2.x](../articles/azure-functions/functions-dotnet-class-library.md#functions-v2x-considerations).   
+<sup>1</sup> Pour plus d’informations, consultez [Considérations relatives à Functions v2.x](../articles/azure-functions/functions-dotnet-class-library.md#functions-v2x-considerations).    
+<sup>2</sup> Pour le moment, vous pouvez uniquement créer des fonctions de processus isolés en utilisant Azure Functions Core Tools. Pour plus d’informations, consultez [Démarrage rapide : Créer une fonction C# dans Azure à partir de la ligne de commande](../articles/azure-functions/create-first-function-cli-csharp.md?tabs=isolated-process).  
 
 Pour obtenir les dernières informations sur les versions Azure Functions, notamment sur la suppression des versions mineures les plus anciennes, surveillez les [annonces Azure App Service](https://github.com/Azure/app-service-announcements/issues).

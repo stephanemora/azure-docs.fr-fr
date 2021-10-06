@@ -8,15 +8,15 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9b83ba106b35a0a3abd035e85f60c4c39bbadd3b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 326b5393e8db24e175282af9bf7670e32047de9e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704638"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582230"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau faible ou aucune bande passante réseau
- 
+
 Cet article fournit une vue d’ensemble des solutions de transfert de données adaptées aux environnements disposant d’une bande passante réseau faible ou ne disposant d’aucune bande passante réseau et au transfert de jeux de données volumineux. Il décrit également les options de transfert de données recommandées et la matrice de fonctionnalités clés correspondant à ce scénario.
 
 Pour une vue d’ensemble de toutes les options de transfert de données disponibles, voir [Choisir une solution de transfert de données Azure](storage-choose-data-transfer-solution.md).
@@ -30,7 +30,7 @@ Les jeux de données volumineux impliquent que vous disposiez de plusieurs téra
 
 Dans les cas ci-dessus, utilisez un appareil physique pour effectuer un transfert de données unique en bloc. Faites votre choix parmi les appareils Data Box Disk, Data Box et Data Box Heavy qui sont fournis par Microsoft, ou Import/Export avec vos propres disques.
 
-Pour vérifier si un appareil physique est adapté, utilisez le tableau suivant. Ce tableau indique le temps prévu pour le transfert de données réseau en fonction des différentes largeurs de bande passante disponibles (sur la base d’une utilisation de 90 %). Si le transfert réseau s’annonce trop lent, il est préférable d’utiliser un appareil physique.  
+Pour vérifier si un appareil physique est adapté, utilisez le tableau suivant. Ce tableau indique le temps prévu pour le transfert de données réseau en fonction des différentes largeurs de bande passante disponibles (sur la base d’une utilisation de 90 %). Si le transfert réseau s’annonce trop lent, il est préférable d’utiliser un appareil physique.
 
 ![Transfert réseau ou transfert hors connexion](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 
@@ -61,11 +61,10 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 | **Utilisation en cas de déplacement de données**     |Dans une zone commerciale|Dans une zone commerciale|Dans une zone commerciale|Au-delà des frontières géographiques, par exemple USA - UE|
 |    **Tarification**                      |    [Tarification](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Tarification](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Tarification](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Tarification](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Comprendre comment
 
-    - [Transférer des données avec Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
-    - [Transférer des données avec Data Box](../../databox/data-box-quickstart-portal.md).
-    - [Transférer des données avec Import/Export](../../import-export/storage-import-export-data-to-blobs.md).
+  - [Transférer des données avec Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+  - [Transférer des données avec Data Box](../../databox/data-box-quickstart-portal.md).
+  - [Transférer des données avec Import/Export](../../import-export/storage-import-export-data-to-blobs.md).

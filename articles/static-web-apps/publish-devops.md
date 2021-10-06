@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 08/17/2021
 ms.author: apedward
-ms.openlocfilehash: 9df037177aac3dd909795f18c6e903eedd1c98a6
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: bc1e6c5ad5423f48eed50c65237b0d42a4e61d7a
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608869"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236215"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>Tutoriel : Publier Azure Static Web Apps avec Azure DevOps
 
@@ -34,9 +34,6 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
   > [!NOTE]
   > Si vous disposez d’une application existante dans votre dépôt, vous pouvez passer à la section suivante.
-  
-  > [!NOTE]
-  > L’application doit cibler .NET Core 3.1 pour que le pipeline réussisse.
 
 1. Accédez à votre référentiel dans Azure Repos.
 

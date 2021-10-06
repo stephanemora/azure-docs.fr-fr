@@ -3,17 +3,25 @@ title: Mettre à niveau vers la préversion du service Mobilité et des composan
 description: Cet article décrit les mises à jour automatiques pour la préversion de l’agent de mobilité, ainsi que la procédure impliquée dans les mises à jour manuelles.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/19/2021
-ms.openlocfilehash: 3f9b29eedb5e379bf13657e3619c498ccec90e7e
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.date: 09/01/2021
+ms.openlocfilehash: 97cfba3e14268385632a47a5898b21e8d68811cb
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564110"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539728"
 ---
 # <a name="upgrade-mobility-service-and-appliance-components-preview"></a>Mettre à niveau vers la préversion du service Mobilité et des composants de l’appliance
 
+Dans cette version préliminaire, vous n’avez pas besoin de conserver les informations d’identification racine/administrateur de l’ordinateur source pour effectuer des mises à niveau. Les informations d’identification sont requises uniquement pour l’installation initiale de l’agent. Vous pourrez ensuite supprimer les informations d’identification.
+
+
+## <a name="update-mobility-agent-automatically"></a>Mettre à jour automatiquement l’agent de mobilité
+
 Par défaut, les mises à jour automatiques sont activées sur un coffre. Les mises à jour automatiques sont déclenchées à 12:00 (midi) heure locale chaque jour, si une nouvelle version est disponible.
+
+> [!NOTE]
+> Si vous utilisez des préversions privées, les mises à jour automatiques sont bloquées pour les ordinateurs protégés. Veillez à configurer Site Recovery sur votre ordinateur, à l’aide d’une nouvelle appliance de préversion.
 
 Pour bénéficier des fonctionnalités, améliorations et correctifs les plus récents, nous vous recommandons de choisir l’option **Autoriser Site Recovery à gérer** dans **Mobility agent upgrade settings (Preview)** (Paramètres de mise à niveau vers la préversion de l’agent de mobilité). Les mises à jour automatiques ne nécessitent pas de redémarrage ou n’affectent pas la réplication continue de vos machines virtuelles. Les mises à jour automatiques garantissent également que tous les dispositifs de réplication dans le coffre sont automatiquement mis à jour.
 
@@ -23,8 +31,6 @@ Pour désactiver les mises à jour automatiques, activez le bouton **Autoriser S
 
 ![Mises à jour automatiques désactivées pour l’agent de mobilité](./media/upgrade-mobility-service-preview/automatic-updates-off.png)
 
-> [!NOTE]
-> Si vous utilisez des préversions privées, les mises à jour automatiques sont bloquées pour les ordinateurs protégés. Veillez à configurer Site Recovery sur votre ordinateur, à l’aide d’une nouvelle appliance de préversion.
 
 ## <a name="update-mobility-agent-manually"></a>Mettre à jour manuellement l’agent de mobilité
 

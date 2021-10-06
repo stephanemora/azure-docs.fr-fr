@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: guybo
-ms.openlocfilehash: b9262d512ed27419bab38b3ad26e1bae8cddee0d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: e8694e218bdab1085a35ed65f7a8b1d09d7b0fc4
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696188"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455623"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Distributions Linux approuvées sur Azure
 
@@ -75,7 +75,7 @@ Microsoft a deux (2) canaux de migration pour les utilisateurs CoreOS.
 credativ est une société de conseil et de services indépendante, spécialisée dans le développement et l’implémentation de solutions professionnelles à l’aide de logiciels libres. En tant que leader spécialiste de l’Open Source, credativ a acquis une reconnaissance internationale et de nombreux services informatiques font appel à ses services. En collaboration avec Microsoft, credativ prépare les images Debian. Les images sont spécialement conçues pour s’exécuter sur Azure et peuvent être facilement gérées via la plateforme. credativ prendra également en charge la maintenance et la mise à jour sur le long terme des images Debian pour Azure grâce à ses centres de support Open Source.
 
 ### <a name="kinvolk"></a>Kinvolk
-[https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)
+[https://www.flatcar-linux.org/](https://www.flatcar-linux.org/)
 
 Kinvolk est la société derrière Flatcar Container Linux, qui poursuit la vision de Coreos d’origine pour une base de mise à jour minimale, immuable et automatique pour des applications en conteneurs. En tant que distribution minimale, Flatcar contient uniquement les packages requis pour le déploiement de conteneurs. Son système de fichiers immuable garantit la cohérence et la sécurité, tandis que ses fonctionnalités de mise à jour automatique vous permettent d’être toujours à jour avec les derniers correctifs de sécurité. 
 

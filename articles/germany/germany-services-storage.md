@@ -7,12 +7,12 @@ author: gitralf
 ms.author: ralfwi
 ms.service: germany
 ms.custom: bfdocs
-ms.openlocfilehash: 7a82dfa03c85ecf8ad5c80a7d037431b18a28fed
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 840ac16914196a238bcf8fdaaa518799dcb104e9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "122523958"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275028"
 ---
 # <a name="azure-germany-storage-services"></a>Services de stockage Azure Allemagne
 
@@ -40,7 +40,7 @@ La fonctionnalité Storage Service Encryption protège les données au repos dan
 | [Azure Files](../storage/common/storage-introduction.md#azure-files) | GA | GA |
 | [Stockage Table](../storage/common/storage-introduction.md#table-storage) |GA  |GA |
 | [Stockage File d’attente](../storage/common/storage-introduction.md#queue-storage) |GA | GA |
-| [Stockage Blob chaud/froid](../storage/blobs/storage-blob-storage-tiers.md) |GA |GA |
+| [Stockage Blob chaud/froid](../storage/blobs/access-tiers-overview.md) |GA |GA |
 | [Storage Service Encryption](../storage/common/storage-service-encryption.md) |GA |GA |
 | Importer/Exporter |N/D |N/D |
 | StorSimple |N/D |N/D |

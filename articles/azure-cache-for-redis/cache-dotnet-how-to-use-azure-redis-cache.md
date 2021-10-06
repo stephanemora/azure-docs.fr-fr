@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Utiliser Azure Cache pour Redis dans le .NET Framework'
 description: Dans ce guide de démarrage rapide, apprenez à accéder au cache Azure pour Redis à partir de vos applications .NET
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: 774b9f91aa900633cb6f5c50196ef44a03017b90
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1ffc6a6e16287d891ee73a8c592d1878f142fc29
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128670174"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538613"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-net-framework"></a>Démarrage rapide : Utiliser Azure Cache pour Redis dans le .NET Framework
 

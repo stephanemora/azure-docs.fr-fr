@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 659f62cb8e42a4e2aba2e51dfcfee9826a614923
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: c8460d6df9710e5a8752a0edd50c6b83276725ad
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588325"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "128668582"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitations dans Azure Database pour MySQL – Serveur flexible (préversion)
 
@@ -20,7 +20,7 @@ ms.locfileid: "113588325"
 > [!IMPORTANT]
 > Azure Database pour MySQL – Serveur flexible est actuellement en préversion publique.
 
-Cet article décrit les limitations existant dans le service Serveur flexible Azure Database pour MySQL. Les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) du moteur de base de données MySQL sont également applicables. Si vous souhaitez en savoir plus sur les niveaux de ressources (calcul, mémoire, stockage), consultez l’article sur [le calcul et le stockage](concepts-compute-storage.md).
+Cet article décrit les limitations existant dans le service Serveur flexible Azure Database pour MySQL. Les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) du moteur de base de données MySQL sont également applicables. Si vous souhaitez en savoir plus sur les limites appliquées aux ressources (calcul, mémoire, stockage), consultez l’article sur [le calcul et le stockage](concepts-compute-storage.md).
 
 ## <a name="server-parameters"></a>Paramètres de serveur
 
@@ -29,11 +29,9 @@ Cet article décrit les limitations existant dans le service Serveur flexible Az
 
 Azure Database pour MySQL prend en charge le réglage des valeurs des paramètres de serveur. Les valeurs minimale et maximale de certains paramètres (par exemple, `max_connections`, `join_buffer_size`, `query_cache_size`) sont déterminées par le niveau de calcul et la taille de calcul du serveur. Pour plus d’informations sur ces limites, consultez [Paramètres du serveur](./concepts-server-parameters.md).
 
-Les plug-ins de mot de passe tels que « validate_password » et « caching_sha2_password » ne sont pas pris en charge par le service.
-
 ## <a name="storage-engines"></a>Moteurs de stockage
 
-MySQL prend en charge de nombreux moteurs de stockage. Sur le Serveur flexible Azure Database pour MySQL, les moteurs de stockage suivants sont pris en charge ou ne le sont pas :
+MySQL prend en charge de nombreux moteurs de stockage. Voici la liste des moteurs de stockage qui sont pris en charge et non pris en charge dans Azure Database pour MySQL - Serveur flexible :
 
 ### <a name="supported"></a>Prise en charge
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
@@ -46,8 +44,6 @@ MySQL prend en charge de nombreux moteurs de stockage. Sur le Serveur flexible A
 - [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
 ## <a name="privileges--data-manipulation-support"></a>Prise en charge des privilèges et de la manipulation des données
-
-De nombreux paramètres de serveur peuvent dégrader de façon inattendue les performances du serveur, ou nier les propriétés ACID du serveur MySQL. Afin de préserver l’intégrité du service et le contrat SLA au niveau du produit, ce service n’expose pas plusieurs rôles. 
 
 Le service MySQL n’autorise pas l’accès direct au système de fichiers sous-jacent. Certaines commandes de manipulation de données ne sont pas prises en charge. 
 
@@ -71,8 +67,6 @@ Les éléments suivants ne sont pas pris en charge :
 
 ### <a name="networking"></a>Mise en réseau
 - Une fois le serveur créé, il n’est pas possible de changer la méthode de connexion. Si le serveur est créé avec *Accès privé (intégration au réseau virtuel)* , il ne peut pas être remplacé par *Accès public (adresses IP autorisées)* après la création, et vice versa.
-- L’option TLS/SSL est activée par défaut et ne peut pas être désactivée.
-- La version TLS minimale prise en charge sur le serveur est TLS 1.2. Pour plus d’informations, consultez [Se connecter à l’aide de TLS/SSL](./how-to-connect-tls-ssl.md).
 
 ### <a name="stopstart-operation"></a>Opération d’arrêt/démarrage
 - Pas de prise en charge avec les configurations à haute disponibilité redondante interzone (serveur principal et serveur de secours).

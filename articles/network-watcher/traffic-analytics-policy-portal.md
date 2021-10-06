@@ -3,21 +3,18 @@ title: Déployer et gérer Traffic Analytics à l’aide d’Azure Policy
 titleSuffix: Azure Network Watcher
 description: Cet article explique comment utiliser les stratégies intégrées pour gérer le déploiement de Traffic Analytics
 services: network-watcher
-documentationcenter: na
 author: moagra
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2021
 ms.author: moagra
-ms.openlocfilehash: 3be6d5b30d270c9687b7100c07ee675268cee5c0
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 9d916122714b1dddab7d1d9b6d13e6fd58d14d46
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609147"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128619360"
 ---
 # <a name="deploy-and-manage-traffic-analytics-using-azure-policy"></a>Déployer et gérer Traffic Analytics à l’aide d’Azure Policy 
 
@@ -112,7 +109,7 @@ Elle est identique à la stratégie ci-dessus, sauf qu’au cours de la correcti
 - ID de stockage : ID de ressource complet du compte de stockage. Ce compte de stockage doit se trouver dans la même région que le NSG.
 - Network Watchers RG : Nom du groupe de ressources qui contient votre ressource Network Watcher. Si vous ne l’avez pas renommé, vous pouvez entrer « NetworkWatcherRG », qui est la valeur par défaut.
 - Nom de Network Watcher : Nom du service d’observateur de réseau régional. Format: NetworkWatcher_NomRégion. Exemple : NetworkWatcher_centralus.
-- ID de ressource d’espace de travail : ID de ressource de l’espace de travail dans lequel Traffic Analytics doit être activé. Le format est « /subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName> »
+- ID de ressource d’espace de travail : ID de ressource de l’espace de travail dans lequel Traffic Analytics doit être activé. Le format est `/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`
 - WorkspaceID : GUID de l’espace de travail
 - WorkspaceRegion : région de l’espace de travail (notez qu’elle n’a pas besoin d’être identique à la région du NSG)
 - TimeInterval : fréquence à laquelle les journaux traités sont envoyés dans l’espace de travail. Les valeurs actuellement autorisées sont 60 minutes et 10 minutes. La valeur par défaut est de 60 minutes.

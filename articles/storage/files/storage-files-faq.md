@@ -3,16 +3,16 @@ title: Questions fréquentes (FAQ) sur Azure Files | Microsoft Docs
 description: Obtenez des réponses aux questions fréquemment posées sur Azure Files. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux ou macOS.
 author: roygara
 ms.service: storage
-ms.date: 02/23/2020
+ms.date: 09/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 34a8d0d732863f5fe40056f25460269f131fbf7c
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: f3ce223174bc92fefd9f31c53709665749eca112
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866498"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627897"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers pleinement managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) standard et le [protocole NFS (Network File System)](https://en.wikipedia.org/wiki/Network_File_System) (préversion). Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -106,6 +106,23 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
   
     Les performances varient en fonction de vos paramètres d’environnement, de votre configuration et du type de synchronisation (initiale ou continue). Pour plus d’informations, consultez la page [Mesures de performances d’Azure File Sync](storage-files-scale-targets.md#azure-file-sync-performance-metrics).
 
+* <a id="afs-initial-upload"></a>
+  **Qu’est-ce que le chargement initial des données pour Azure File Sync ?**
+  
+    **Synchronisation initiale des données du Serveur Windows vers le partage de fichiers Azure :**  de nombreux déploiements Azure File Sync commencent avec un partage de fichiers Azure vide, car toutes les données se trouvent sur le Serveur Windows. Dans ce cas, l’énumération initiale de la modification cloud est rapide, et la plupart du temps est consacrée à la synchronisation des modifications de Windows Server vers le ou les partages de fichiers Azure.
+
+Pendant que la synchronisation charge des données sur le partage de fichiers Azure, il n’y a aucun temps d’arrêt sur le serveur de fichiers local, et les administrateurs peuvent configurer des limites réseau afin de limiter la quantité de bande passante utilisée pour le chargement des données en arrière-plan.
+
+La synchronisation initiale est généralement limitée par le taux de chargement initial de 20 fichiers par seconde par groupe de synchronisation. Les clients peuvent estimer le temps nécessaire pour charger toutes leurs données sur Azure à l’aide de la formule suivante, qui donne la durée en jours :
+
+**Durée (en jours) du chargement de fichiers vers un groupe de synchronisation = (Nombre d’objets dans le point de terminaison du serveur)/(20 * 60 * 60 * 24)**
+
+* <a id="afs-initial-upload-server-restart"></a>
+  **Quel est l’impact de l’arrêt et du redémarrage du serveur pendant le chargement initial** Il n’y a aucun impact. Azure File Sync reprendra la synchronisation une fois le serveur redémarré à partir du point où il s’est arrêté
+
+* <a id="afs-initial-upload-server-changes"></a>
+  **Quel est l’impact si des modifications sont apportées aux données sur le point de terminaison de serveur lors du chargement initial** Il n’y a aucun impact. Azure File Sync rapprochera les modifications apportées au point de terminaison de serveur pour vous assurer que le point de terminaison du Cloud et le point de terminaison de serveur sont synchronisés
+
 * <a id="afs-conflict-resolution"></a>**Si le même fichier est modifié sur deux serveurs à peu près au même moment, que se passe-t-il ?**  
     Azure File Sync utilise une stratégie de résolution de conflit simple : nous conservons les modifications apportées aux fichiers modifiés dans deux points de terminaison en même temps. Le fichier le plus récemment écrit conserve son nom d’origine. L’ancien fichier (déterminé par LastWriteTime) a le nom du point de terminaison et le numéro de conflit ajoutés au nom de fichier. Pour les points de terminaison de serveur, le nom du point de terminaison est le nom du serveur. Pour les points de terminaison cloud, le nom du point de terminaison est **Cloud**. La taxonomie du nom est la suivante : 
    
@@ -148,7 +165,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
   **Pourquoi mes fichiers hiérarchisés n’affichent-ils pas de miniatures ou d’aperçus dans l’Explorateur Windows ?**  
     Pour les fichiers hiérarchisés, les miniatures et aperçus ne sont pas visibles au niveau de votre point de terminaison de serveur. Ce comportement est normal puisque la fonctionnalité de cache des miniatures dans Windows ignore intentionnellement la lecture des fichiers avec l’attribut hors connexion. En cas d'activation de la hiérarchisation cloud, la lecture des fichiers hiérarchisés entraînerait leur téléchargement (rappel).
 
-    Ce comportement n’est pas spécifique à Azure File Sync. L’Explorateur Windows affiche une « croix grise » pour tous les fichiers dont l’attribut est hors connexion. L’icône X s’affiche lors de l’accès aux fichiers sur SMB. Pour obtenir une explication détaillée de ce comportement, consultez [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105).
+    Ce comportement n’est pas spécifique à Azure File Sync. L’Explorateur Windows affiche une « croix grise » pour tous les fichiers dont l’attribut est hors connexion. L’icône X s’affiche lors de l’accès aux fichiers sur SMB. Pour obtenir une explication détaillée de ce comportement, reportez-vous à [Pourquoi je n’obtiens pas de miniatures pour les fichiers qui sont marqués hors connexion ?](https://devblogs.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
     Pour plus d’informations sur la gestion des fichiers hiérarchisés, consultez [Comment gérer des fichiers hiérarchisés](../file-sync/file-sync-how-to-manage-tiered-files.md).
 
@@ -226,6 +243,9 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 **Quelles sont les stratégies de conformité des données prises en charge par Azure Files ?**  
 
    Azure Files s’exécute sur la même architecture de stockage que d’autres services de stockage dans Stockage Azure. Azure Files applique les mêmes stratégies de conformité des données que celles utilisées dans d’autres services de stockage Azure. Pour plus d’informations sur la conformité des données de stockage Azure, vous pouvez vous référer aux [Offres de conformité du stockage Azure](../common/storage-compliance-offerings.md), et accéder au [Centre de gestion de la confidentialité Microsoft](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="afs-power-outage"></a>
+  **Quel est l’impact sur Azure file Sync si une panne d’alimentation survient et arrête le point de terminaison du serveur** Il n’y a aucun impact. Azure File Sync rapprochera les modifications apportées au point de terminaison du serveur pour vous assurer que le point de terminaison Cloud et le point de terminaison du serveur sont synchronisés une fois que le point de terminaison de serveur est de nouveau en ligne
 
 * <a id="file-auditing"></a>
 **Comment puis-je auditer la consultation et les modifications de fichiers dans Azure Files ?**

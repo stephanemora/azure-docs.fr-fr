@@ -5,14 +5,14 @@ services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 09/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 11cb0bda5fbedb9dfeef2cc4acc34159a1faf64f
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 863082490963b4a8d117a271588afcd0f86a4665
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122566117"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478677"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Options de migration de données à partir de la gamme StorSimple 8000
 
@@ -34,6 +34,12 @@ Cette toute nouvelle option de migration permet aux clients de stocker les parta
 
 Pour plus d’informations sur la migration des données vers Azure File Sync, accédez à [Migration de StorSimple 8100 et 8600 vers Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
+#### <a name="migrate-to-azure-netapp-files"></a>Migrer vers des fichiers NetApp Azure
+
+Les clients de la gamme StorSimple 8000 peuvent migrer vers Azure NetApp Files (ANF) associé à NetApp Global File Cache (GFC) pour continuer à stocker des données critiques dans Azure tout en conservant du contenu sur des sites distants. Les clients peuvent rationaliser et simplifier l’infrastructure et le stockage informatique en centralisant les données non structurées dans Microsoft Azure à l’aide d’Azure NetApp Files afin de fournir un accès local rapide et distribué géographiquement avec NetApp Global File Cache.
+
+Pour obtenir une vue d’ensemble des capacités, des méthodologies de déploiement et de la migration, consultez [Architecture de référence : Partage de fichiers d’entreprise globalement distribués avec Azure NetApp Files et NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf), de NetApp.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
+
 ### <a name="third-party-options"></a>Options tierces
 
 #### <a name="migrate-to-panzura-freedom-nas"></a>Migrer vers Panzura Freedom NAS
@@ -47,13 +53,6 @@ Cette migration est assurée par Panzura. Les clients peuvent commencer en deman
 Grâce à Nasuni, il est facile de transférer l’ensemble de votre environnement StorSimple vers une plateforme de services de fichiers stable, sécurisée et à hautes performances. Nasuni offre la sécurité et les performances du stockage de fichiers localement tout en le combinant avec la scalabilité et la durabilité d’Azure. En tant qu’éditeur de logiciels indépendant (ISV) Azure, Nasuni intègre tous les outils nécessaires pour déplacer vos données StorSimple vers une plateforme moderne qui vous permet de partager vos fichiers et de collaborer sur plusieurs sites.
 
 Commencez dès aujourd’hui : [site web de Nasuni](https://info.nasuni.com/storsimple8000-webinar).
-
-#### <a name="migrate-to-netapp"></a>Migrer vers NetApp
-
-Les clients de la gamme StorSimple 8000 peuvent migrer vers Azure NetApp Files (ANF) associé à NetApp Global File Cache (GFC) pour continuer à stocker des données critiques dans Azure tout en conservant du contenu sur des sites distants. Les clients peuvent rationaliser et simplifier l’infrastructure et le stockage informatique en centralisant les données non structurées dans Microsoft Azure à l’aide d’Azure NetApp Files afin de fournir un accès local rapide et distribué géographiquement avec NetApp Global File Cache.
-
-Pour obtenir une vue d’ensemble des capacités, des méthodologies de déploiement et de la migration, consultez [Architecture de référence : Partage de fichiers d’entreprise globalement distribués avec Azure NetApp Files et NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf), de NetApp.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
-
 
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity

@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 09/13/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
-ms.openlocfilehash: 27b051a54fc17b0d7d65fff4d7f02e806baa3fd0
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 8e609268258142875ebbe924f3cfbdebc94911f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033294"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601715"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -23,11 +23,9 @@ L’API d’Azure Cosmos DB pour MongoDB tire parti des fonctionnalités de base
 
 ## <a name="indexing-for-mongodb-server-version-36-and-higher"></a>Indexation pour le serveur MongoDB versions 3.6 et ultérieures
 
-L’API Azure Cosmos DB pour le serveur MongoDB versions 3.6 et ultérieures indexe automatiquement le champ `_id`, qui ne peut pas être supprimé. Elle applique automatiquement l’unicité du champ `_id` par clé de partition. Dans l’API d’Azure Cosmos DB pour MongoDB, le partitionnement et l’indexation sont des concepts distincts. Vous n’êtes pas tenu d’indexer votre clé de partition. Toutefois, comme pour toute autre propriété dans votre document, si cette propriété est un filtre courant dans vos requêtes, nous vous recommandons d’indexer la clé de partition.
+L’API d’Azure Cosmos DB pour le serveur MongoDB version 3.6+ indexe automatiquement le champ `_id` et la clé de partition (uniquement dans les collections partitionnées). L’API applique automatiquement l’unicité du champ `_id` par clé de partition. 
 
-Pour indexer des champs supplémentaires, appliquez les commandes de gestion d’index MongoDB. Comme dans MongoDB, l’API d’Azure Cosmos DB pour MongoDB indexe automatiquement le champ `_id` uniquement. Cette stratégie d’indexation par défaut est différente de celle de l’API SQL Azure Cosmos DB, qui indexe tous les champs par défaut.
-
-Pour appliquer un tri sur une requête, vous devez créer un index sur les champs utilisés dans l’opération de tri.
+L’API pour MongoDB se comporte différemment de l’API Azure Cosmos DB SQL, qui indexe tous les champs par défaut.
 
 ### <a name="editing-indexing-policy"></a>Modification de la stratégie d’indexation
 
@@ -51,11 +49,13 @@ Vous pouvez créer le même index à champ unique sur `name` dans le portail Azu
 
 :::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Ajouter un index de nom dans l’éditeur de stratégie d’indexation":::
 
-Une requête utilise plusieurs index monochamps, le cas échéant. Vous pouvez créer jusqu’à 500 index monochamp par conteneur.
+Une requête utilise plusieurs index monochamps, le cas échéant. Vous pouvez créer jusqu’à 500 index monochamp par collection.
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Index composés (serveur MongoDB versions 3.6 et ultérieures)
+Dans l’API pour MongoDB, les index composés sont **requis** si votre requête a besoin d’un tri sur plusieurs champs à la fois. Pour les requêtes comportant plusieurs filtres qui n’ont pas besoin de tri, créez plusieurs index monochamp au lieu d’un index composé afin de réduire les coûts d’indexation. 
 
-L’API Azure Cosmos DB pour MongoDB prend en charge les index composés pour les comptes qui utilisent le protocole filaire version 3.6 ou 4.0. Vous pouvez ajouter jusqu’à huit champs dans un index composé. Contrairement à MongoDB, vous devez créer un index composé uniquement si votre requête doit effectuer un tri efficace sur plusieurs champs à la fois. Pour les requêtes avec plusieurs filtres qui n’ont pas besoin de tri, créez plusieurs index monochamp au lieu d’un seul index composé. 
+Un index composé ou des index monochamp pour chaque champ de l’index composé entraînent les mêmes performances en termes de filtrage dans les requêtes.
+
 
 > [!NOTE]
 > Vous ne pouvez pas créer d’index composés sur des tableaux ou des propriétés imbriqués.

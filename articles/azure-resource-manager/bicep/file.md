@@ -2,13 +2,13 @@
 title: Structure et syntaxe des fichiers Bicep
 description: Décrit la structure et les propriétés d’un fichier Bicep en utilisant une syntaxe déclarative.
 ms.topic: conceptual
-ms.date: 07/02/2021
-ms.openlocfilehash: 5401aebb0b0a82a04a2b78f9af1dc6d133915c0b
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.date: 09/21/2021
+ms.openlocfilehash: f0fb7214d261c686273e275cb0d3d18b1d393f6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113286625"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654325"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Comprendre la structure et la syntaxe des fichiers Bicep
 
@@ -191,7 +191,7 @@ Pour plus d’informations, consultez [Variables dans Bicep](./variables.md).
 
 ## <a name="resource"></a>Ressource
 
-Utilisez le mot clé `resource` pour définir une ressource à déployer. Votre déclaration de ressource comprend un nom symbolique pour la ressource. Vous utiliserez ce nom symbolique dans d’autres parties du fichier Bicep si vous devez obtenir une valeur de la ressource.
+Utilisez le mot clé `resource` pour définir une ressource à déployer. Votre déclaration de ressource comprend un nom symbolique pour la ressource. Vous utiliserez ce nom symbolique dans d’autres parties du fichier Bicep si vous devez obtenir une valeur de la ressource. Le nom symbolique peut contenir a-z, A-Z, 0-9 et « _ » ; le nom ne peut pas commencer par un chiffre.
 
 La déclaration de ressource comprend également le type de ressource et la version de l’API.
 
@@ -261,7 +261,7 @@ module webModule './webApp.bicep' = {
 }
 ```
 
-Le nom symbolique vous permet de référencer le module à partir d’un autre emplacement dans le fichier. Par exemple, vous pouvez obtenir une valeur de sortie à partir d’un module en utilisant le nom symbolique et le nom de la valeur de sortie.
+Le nom symbolique vous permet de référencer le module à partir d’un autre emplacement dans le fichier. Par exemple, vous pouvez obtenir une valeur de sortie à partir d’un module en utilisant le nom symbolique et le nom de la valeur de sortie. Le nom symbolique peut contenir a-z, A-Z, 0-9 et « _ » ; le nom ne peut pas commencer par un chiffre.
 
 Un module ne peut pas avoir le même nom qu’un paramètre, un module ou une ressource.
 

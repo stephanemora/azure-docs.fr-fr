@@ -2,28 +2,25 @@
 title: Utiliser le linter Bicep
 description: Découvrez comment utiliser le linter Bicep.
 ms.topic: conceptual
-ms.date: 07/01/2021
-ms.openlocfilehash: 6b270a87a67235a6663a697b1329c5f86d570fdf
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.date: 09/10/2021
+ms.openlocfilehash: cef701d9a9f64990c0afbe265c3355f9c1a850ce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779726"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631169"
 ---
 # <a name="use-bicep-linter"></a>Utiliser le linter Bicep
 
-Le linter Bicep peut être utilisé pour analyser les fichiers Bicep. Il vérifie les erreurs de syntaxe et intercepte un ensemble personnalisable de meilleures pratiques de création avant la compilation ou le déploiement de vos fichiers Bicep. Le linter facilite l’application des normes de codage en donnant des conseils pendant le développement.
+Le linter Bicep peut être utilisé pour analyser les fichiers Bicep. Il vous permet de rechercher les erreurs de syntaxe et les violations des meilleures pratiques avant de générer ou de déployer votre fichier Bicep. Vous pouvez personnaliser l’ensemble des meilleures pratiques de création à utiliser pour vérifier le fichier. Le linter facilite l’application des normes de codage en donnant des conseils pendant le développement.
 
-## <a name="install-linter"></a>Installer le linter
+## <a name="linter-requirements"></a>Exigences relatives aux linters
 
-Le linter peut être utilisé avec Visual Studio Code et l’interface CLI Bicep. Les conditions suivantes doivent être remplies :
-
-- CLI Bicep 0.4 ou version ultérieure.
-- Extension Bicep pour Visual Studio Code 0.4 ou version ultérieure.
+Le linter est intégré à l’interface CLI de Bicep et à l’extension de VS Code. Pour l’utiliser, vous devez disposer de la version 0.4 ou d’une version ultérieure.
 
 ## <a name="customize-linter"></a>Personnaliser le linter
 
-Avec bicepconfig.json, vous pouvez activer ou désactiver le linter, fournir des valeurs spécifiques à des règles et définir le niveau de règles également. Le bicepconfig.json par défaut est le suivant :
+Avec bicepconfig.json, vous pouvez activer ou désactiver le linter, fournir des valeurs spécifiques à des règles et définir le niveau de règles également. L’exemple suivant montre le fichier bicepconfig.json par défaut :
 
 ```json
 {
@@ -113,18 +110,18 @@ Vous pouvez utiliser plusieurs valeurs pour le niveau de la règle :
 | **level**  | **Comportement lors de la création** | **Comportement de l’éditeur** |
 |--|--|--|
 | `Error` | Les violations apparaissent sous forme d’erreurs dans la sortie de la génération de la ligne de commande et entraînent l’échec des builds. | Le code incriminé est souligné d’un tilde rouge et apparaît sous l’onglet Problèmes. |
-| `Warning` | Les violations apparaissent sous forme d’avertissements dans la sortie de la génération de la ligne de commande, mais ne provoquent pas l’échec des builds. | Le code incriminé est souligné d’un tilde jaune et apparaît sous l’onglet Problèmes. |
+| `Warning` | Les violations apparaissent sous forme d’avertissements dans la sortie de la génération de la ligne de commande, mais n’entraînent pas l’échec des builds. | Le code incriminé est souligné d’un tilde jaune et apparaît sous l’onglet Problèmes. |
 | `Info` | Les violations n’apparaissent pas dans la sortie de la génération de la ligne de commande. | Le code incriminé est souligné d’un tilde bleu et apparaît sous l’onglet Problèmes. |
 | `Off` | Entièrement supprimé. | Entièrement supprimé. |
 
 L’ensemble actuel de règles de linter est minimal et extrait de [arm-ttk test cases](../templates/template-test-cases.md). L’extension Visual Studio Code et l’interface CLI Bicep vérifient toutes les règles disponibles par défaut et toutes les règles sont définies sur le niveau d’avertissement. En fonction du niveau d’une règle, vous pouvez voir des erreurs, des avertissements ou des messages d’information dans l’éditeur.
 
-- [no-hardcoded-env-urls](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-hardcoded-env-urls.md)
-- [no-unused-params](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-unused-params.md)
-- [no-unused-vars](https://github.com/Azure/bicep/blob/main/docs/linter-rules/no-unused-vars.md)
-- [prefer-interpolation](https://github.com/Azure/bicep/blob/main/docs/linter-rules/prefer-interpolation.md)
-- [secure-parameter-default](https://github.com/Azure/bicep/blob/main/docs/linter-rules/secure-parameter-default.md)
-- [simplify-interpolation](https://github.com/Azure/bicep/blob/main/docs/linter-rules/simplify-interpolation.md)
+- [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
+- [no-unused-params](./linter-rule-no-unused-parameters.md)
+- [no-unused-vars](./linter-rule-no-unused-variables.md)
+- [prefer-interpolation](./linter-rule-prefer-interpolation.md)
+- [secure-parameter-default](./linter-rule-secure-parameter-default.md)
+- [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 
 L’extension Bicep de Visual Studio Code donne accès à IntelliSense pour la modification des fichiers de configuration Bicep :
 
@@ -138,7 +135,7 @@ Installez l’extension Bicep 0.4 ou version ultérieure pour utiliser le linter
 
 Le volet **PROBLÈMES** contient quatre erreurs, un avertissement et un message d’information illustrés sur la capture d’écran.  Le message d’information affiche le fichier de configuration Bicep qui est utilisé. Ce type d’information n’est affichée que lorsque vous définissez **verbose** sur **true** dans le fichier de configuration.
 
-Passez le curseur de la souris sur l’une des zones de problèmes. Le linter donne les détails de l’erreur ou de l’avertissement. Cliquez sur la zone pour afficher également une ampoule bleue :
+Passez le curseur de la souris sur l’une des zones de problèmes. Le linter donne les détails de l’erreur ou de l’avertissement. Sélectionnez la zone pour afficher également une ampoule bleue :
 
 :::image type="content" source="./media/linter/bicep-linter-show-quickfix.png" alt-text="Utilisation du linter Bicep dans Visual Studio Code - afficher le correctif rapide.":::
 

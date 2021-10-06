@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: 8ff219e326f7c8a2bbc075594ff8ffb30e9b04f5
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: d44ccec62a9da63fccc45a0735ff16f615dfbb4b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114289171"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643134"
 ---
 # <a name="azure-bastion-faq"></a>FAQ sur Azure Bastion
 
@@ -126,6 +126,9 @@ Oui. Par défaut, un utilisateur voit l’hôte bastion qui est déployé dans l
 Oui, la connectivité via Bastion continue à fonctionner pour les réseaux virtuels appairés sur différents abonnements pour un seul locataire. Elle n’est pas prise en charge pour les abonnements qui se trouvent dans deux locataires différents. Pour afficher Bastion dans le menu déroulant **Connexion**, l’utilisateur doit sélectionner les abonnements auxquels il a accès dans **Abonnement > abonnement global**.
 
 :::image type="content" source="./media/bastion-faq/global-subscriptions.png" alt-text="Filtre des abonnements globaux." lightbox="./media/bastion-faq/global-subscriptions.png":::
+
+### <a name="does-bastion-support-connectivity-to-azure-virtual-desktop"></a>Bastion prend-il en charge la connectivité à Azure Virtual Desktop ?
+Non, la connectivité entre Bastion et Azure Virtual Desktop n’est pas prise en charge.
 
 ### <a name="i-have-access-to-the-peered-vnet-but-i-cant-see-the-vm-deployed-there"></a>J’ai accès au réseau virtuel appairé, mais je ne peux pas y voir la machine virtuelle déployée.
 

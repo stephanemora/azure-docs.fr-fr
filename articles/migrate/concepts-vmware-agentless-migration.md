@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 05/31/2021
-ms.openlocfilehash: ed0560d85d267de90ff23d8aa66c1f628c90e3c6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: c19bff913f38503dbd99f86757ad6cda0ee5cb5a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967439"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658219"
 ---
 # <a name="azure-migrate-agentless-migration-of-vmware-virtual-machines"></a>Migration sans agent Azure Migrate de machines virtuelles VMware
 
@@ -60,7 +60,7 @@ Un cycle est dit complet une fois les disques consolidés.
 | Service Bus | Région cible | Abonnement du projet Azure Migrate | Utilisé pour la communication entre le service cloud et l’appliance Azure Migrate |
 | Compte de stockage de journaux | Région cible | Abonnement du projet Azure Migrate | Utilisé pour stocker les données de réplication, qui sont lues par le service et appliquées sur le disque managé du client |
 | Compte de stockage de la passerelle | Région cible | Abonnement du projet Azure Migrate | Utilisé pour stocker les états des machines pendant la réplication |
-| Coffre de clés | Région cible | Abonnement du projet Azure Migrate | Gère les clés de compte de stockage de journaux, stocke les chaînes de connexion Service Bus |
+| Coffre de clés | Région cible | Abonnement du projet Azure Migrate | Gère les chaînes de connexion pour le bus de service et les clés d’accès pour le compte de stockage de journaux. |
 | Machine virtuelle Azure | Région cible | Abonnement cible | Machine virtuelle créée dans Azure lors de la migration |
 | Disques managés Azure | Région cible | Abonnement cible | Disques managés attachés aux machines virtuelles Azure |
 | Cartes d’interface réseau | Région cible | Abonnement cible | Cartes réseau attachées aux machines virtuelles créées dans Azure |
@@ -121,13 +121,12 @@ Autrement dit, la réplication différentielle suivante ne sera pas planifiée a
 > [!Note]
 > La logique de planification est différente une fois la réplication initiale terminée. Le premier cycle différentiel est planifié immédiatement après la fin de la réplication initiale et les cycles suivants suivent la logique de planification décrite ci-dessus.
 
-
 - Lorsque vous déclenchez une migration, un cycle de réplication différentielle à la demande (cycle de réplication différentielle avant basculement) est effectué pour la machine virtuelle avant la migration.
 
 **Définition de la priorité des machines virtuelles pour les différentes étapes de réplication**
 
 - Les réplications de machine virtuelle en cours sont prioritaires par rapport aux réplications planifiées (nouvelles réplications).
-- Le cycle de prémigration (réplication différentielle à la demande) a la priorité la plus élevée, suivi du cycle de réplication initiale. Le cycle de réplication différentielle a la priorité la plus faible.
+- Le cycle de pré-basculement (réplication delta à la demande) a la priorité la plus élevée, suivi du cycle de réplication initiale. Le cycle de réplication différentielle a la priorité la plus faible.
 
 En d’autres termes, chaque fois qu’une opération de migration est déclenchée, le cycle de réplication à la demande de la machine virtuelle est planifié et les autres réplications en cours sont reléguées au second plan si elles sont en concurrence pour les ressources.
 
@@ -146,7 +145,7 @@ Azure Migrate prend en charge la réplication simultanée de 500 machines virt
 ![Configuration avec Scale-out](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
 
 
-Vous pouvez déployer l’appliance de Scale-out à tout moment après avoir configuré l’appliance primaire et que 300 machines virtuelles aient été répliquées simultanément. Lorsque 300 machines virtuelles sont répliquées simultanément, vous devez déployer l’appliance de Scale-out pour continuer.
+Vous pouvez déployer l’appliance de Scale-out à tout moment après avoir configuré l’appliance principale. Toutefois, elle n’est pas nécessaire tant que 300 machines virtuelles ne sont pas répliquées simultanément. Lorsque 300 machines virtuelles sont répliquées simultanément, vous devez déployer l’appliance de Scale-out pour continuer.
 
 ## <a name="stop-replication"></a>Arrêter la réplication
 
@@ -173,7 +172,7 @@ Vous pouvez augmenter ou diminuer la bande passante de réplication à l’aide 
 
 Vous pouvez créer une stratégie sur l’appliance Azure Migrate pour limiter le trafic de réplication de l’appliance en créant une stratégie telle que celle-ci :
 
-```New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB```
+`New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB`
 
 > [!NOTE]
 > Cela s’applique à toutes les machines virtuelles répliquées simultanément à partir de l’appliance Azure Migrate.

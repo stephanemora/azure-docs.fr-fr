@@ -4,14 +4,14 @@ description: Vue d’ensemble de l’agent Azure Monitor, qui collecte des donn�
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/22/2021
+ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: ccd194df39f0fff4bdabe4ae91e911dd030673e6
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
+ms.openlocfilehash: 46c3aca1c2f983d857be59d2d69b0cadfb433303
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662170"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128655977"
 ---
 # <a name="azure-monitor-agent-overview"></a>Vue d’ensemble de l’agent Azure Monitor
 L’agent Azure Monitor (AMA) collecte des données de supervision auprès du système d’exploitation invité des machines virtuelles Azure et les délivre à Azure Monitor. Cet article fournit une vue d’ensemble de l’agent Azure Monitor et inclut des informations sur la façon de l’installer et de configurer la collecte des données.
@@ -67,7 +67,7 @@ L’agent Azure Monitor remplace les [agents hérités pour Azure Monitor](agent
 Les machines virtuelles Azure, les groupes de machines virtuelles identiques et les serveurs Azure Arc activés sont actuellement pris en charge. Azure Kubernetes Service et d’autres types de ressources de calcul ne sont pas pris en charge actuellement.
 
 ## <a name="supported-regions"></a>Régions prises en charge
-L’agent Azure Monitor est disponible dans toutes les régions publiques qui prennent en charge Log Analytics, ainsi que les clouds Azure Government et Chine. Les clouds en air gap ne sont pas encore pris en charge.
+L’agent Azure Monitor est disponible dans toutes les régions publiques qui prennent en charge Log Analytics, ainsi que dans les clouds Azure Government et Chine. Les clouds en air gap ne sont pas encore pris en charge.
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 Pour obtenir la liste des versions de système d’exploitation Windows et Linux que l’agent Azure Monitor prend actuellement en charge, consultez [Systèmes d’exploitation pris en charge](agents-overview.md#supported-operating-systems).
@@ -78,13 +78,14 @@ Le tableau suivant indique la prise en charge actuelle de l’agent Azure Monito
 | Service Azure | Prise en charge actuelle | Informations complémentaires |
 |:---|:---|:---|
 | [Centre de sécurité Azure](../../security-center/security-center-introduction.md) | Préversion privée | [Lien d’inscription](https://aka.ms/AMAgent) |
-| [Azure Sentinel](../../sentinel/overview.md) | Préversion privée | [Lien d’inscription](https://aka.ms/AMAgent) |
+| [Azure Sentinel](../../sentinel/overview.md) | <ul><li>WEF (Windows Event Forwarding) : préversion privée</li><li>Événements de sécurité Windows : [préversion publique](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Lien d’inscription](https://aka.ms/AMAgent) </li><li>Aucune inscription nécessaire</li></ul> |
 
 Le tableau suivant indique la prise en charge actuelle de l’agent Azure Monitor avec les fonctionnalités Azure Monitor.
 
 | Fonctionnalité Azure Monitor | Prise en charge actuelle | Informations complémentaires |
 |:---|:---|:---|
-| [VM Insights](../vm/vminsights-overview.md) | Préversion privée  | [Lien d’inscription](https://forms.office.com/r/jmyE821tTy) |
+| [VM Insights](../vm/vminsights-overview.md) | Préversion privée  | [Lien d’inscription](https://aka.ms/amadcr-privatepreviews) |
+| [Se connecter à l’aide de liaisons privées ou de l’étendue de liaison privée Azure Monitor (AMPLS)](../logs/private-link-security.md) | Préversion privée pour l’agent Azure Monitor (AMA) | [Lien d’inscription](https://aka.ms/amadcr-privatepreviews) |
 | [Intégrité de l’invité – Insights de machine virtuelle](../vm/vminsights-health-overview.md) | Préversion publique | Disponible seulement sur le nouvel agent |
 | [Insights SQL](../insights/sql-insights-overview.md) | Préversion publique | Disponible seulement sur le nouvel agent |
 
@@ -108,25 +109,28 @@ Il n’y a aucun coût lié à l’agent Azure Monitor, mais les données ingér
 ## <a name="data-sources-and-destinations"></a>Sources et destinations de données
 Le tableau suivant liste les types de données que vous pouvez actuellement collecter avec l’agent Azure Monitor à l’aide de règles de collecte de données, et l’emplacement où vous pouvez envoyer ces données. Pour obtenir la liste des insights, solutions et autres solutions qui utilisent l’agent Azure Monitor pour collecter d’autres types de données, consultez [Quels sont les éléments supervisés par Azure Monitor ?](../monitor-reference.md).
 
-L’agent Azure Monitor envoie des données aux métriques Azure Monitor ou à un espace de travail Log Analytics qui prend en charge les journaux d’Azure Monitor.
+L’agent Azure Monitor envoie des données aux métriques Azure Monitor (préversion) ou à un espace de travail Log Analytics qui prend en charge les journaux Azure Monitor.
 
-| Paramètres | Destinations | Description |
+| Source de données | Destinations | Description |
 |:---|:---|:---|
-| Performances        | Métriques Azure Monitor<sup>1</sup><br>Espace de travail Log Analytics | Valeurs numériques mesurant les performances de différents aspects du système d’exploitation et des charges de travail |
+| Performances        | Métriques Azure Monitor (préversion)<sup>1</sup><br>Espace de travail Log Analytics | Valeurs numériques mesurant les performances de différents aspects du système d’exploitation et des charges de travail |
 | Journaux d’événements Windows | Espace de travail Log Analytics | Informations envoyées au système de journalisation des événements Windows |
 | syslog             | Espace de travail Log Analytics | Informations envoyées au système de journalisation des événements Linux |
 
-<sup>1</sup> Il existe actuellement une limitation sur l’agent Azure Monitor pour Linux. L’utilisation des métriques Azure Monitor comme *seule* destination n’est pas prise en charge. Il est possible de les utiliser avec les journaux Azure Monitor. Cette limitation sera levée dans la prochaine mise à jour de l’extension.
+<sup>1</sup> [Cliquez ici](../essentials/metrics-custom-overview.md#quotas-and-limits) pour passer en revue les autres limitations liées à l’utilisation de métriques Azure Monitor. Sur Linux, l’utilisation de métriques Azure Monitor comme seule destination est prise en charge dans la version 1.10.9.0 ou ultérieure. 
 
 ## <a name="security"></a>Sécurité
 L’agent Azure Monitor n’a besoin d’aucune clé, mais nécessite une [identité managée affectée par le système](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Vous devez disposer d’une identité managée affectée par le système activée sur chaque machine virtuelle avant de déployer l’agent.
 
-## <a name="networking"></a>Réseau
+## <a name="networking"></a>Mise en réseau
 L’agent Azure Monitor prend en charge les étiquettes de service Azure. Les étiquettes AzureMonitor et AzureResourceManager sont toutes les deux requises. L’agent Azure Monitor ne fonctionne pas encore avec les étendues de liaisons privées Azure Monitor. Si la machine se connecte via un serveur proxy pour communiquer sur Internet, passez en revue les exigences ci-dessous pour comprendre la configuration réseau requise.
 
 ### <a name="proxy-configuration"></a>Configuration du proxy
 
 Les extensions de l’agent Azure Monitor pour Windows et Linux peuvent communiquer via un serveur proxy ou une passerelle Log Analytics avec Azure Monitor en utilisant le protocole HTTPS. Utilisez-le pour les machines virtuelles Azure, les groupes de machines virtuelles identiques Azure et Azure Arc pour serveurs. Utilisez les paramètres d’extension pour la configuration, comme décrit dans les étapes suivantes. L’authentification anonyme et l’authentification de base à l’aide d’un nom d’utilisateur et d’un mot de passe sont toutes les deux prises en charge.
+
+> [!IMPORTANT]
+> La configuration du proxy n’est pas prise en charge pour les [métriques Azure Monitor (préversion)](../essentials/metrics-custom-overview.md) comme destination. Par conséquent, si vous envoyez des métriques à cette destination, elle utilise l’Internet public sans proxy.
 
 1. Utilisez cet organigramme pour déterminer en premier lieu les valeurs des paramètres *setting* et *protectedSetting*.
 

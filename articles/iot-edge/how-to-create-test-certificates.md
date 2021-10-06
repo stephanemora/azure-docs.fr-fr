@@ -7,12 +7,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 500c7627f36dd1eddfbb12ac26729fd6dbc027aa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 460c8f4d5d59b0f43d0706587dafab60289b1984
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531378"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610975"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Créer des certificats de démonstration pour tester les fonctionnalités de l’appareil IoT Edge
 
@@ -208,8 +208,7 @@ La nouvelle commande d’identité d’appareil crée plusieurs fichiers de cert
 * `<WRKDIR>\certs\iot-edge-device-identity-<name>.cert.pem`
 * `<WRKDIR>\private\iot-edge-device-identity-<name>.key.pem`
 
-Pour l’inscription individuelle de l’appareil IoT Edge dans le DPS, utilisez `iot-edge-device-identity-<name>.cert.pem`. Pour inscrire l’appareil IOT Edge à IoT Hub, utilisez les certificats `iot-edge-device-identity-<name>-full-chain.cert.pem` et `iot-edge-device-identity-<name>.key.pem`. Pour plus d’informations, consultez [Créer et provisionner un appareil IoT Edge à l’aide de certificats X.509](how-to-auto-provision-x509-certs.md).
-
+Pour l’inscription individuelle de l’appareil IoT Edge dans le DPS, utilisez `iot-edge-device-identity-<name>.cert.pem`. Pour inscrire l’appareil IoT Edge auprès d’IoT Hub, utilisez les certificats `iot-edge-device-identity-<name>-full-chain.cert.pem` et `iot-edge-device-identity-<name>.key.pem`. Pour plus d’informations, consultez [Créer et provisionner un appareil IoT Edge à l’aide de certificats X.509](how-to-provision-devices-at-scale-windows-x509.md).
 
 ### <a name="linux"></a>Linux
 

@@ -4,12 +4,12 @@ description: Apprenez à déployer JetStream Disaster Recovery (DR) pour le clou
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.custom: references_regions
-ms.openlocfilehash: 75bb77ad575f96e7605fe6a19e12d7129c28dac6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f43d2a8db4ef29588ad5260c583faab31bd01228
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554433"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279067"
 ---
 # <a name="deploy-disaster-recovery-using-jetstream-dr-preview"></a>Déployer la reprise d’activité avec JetStream DR (Préversion)
 
@@ -80,7 +80,7 @@ Dans ce scénario, le site principal est un Cloud privé de la Solution VMware A
 
 - [Configurez et abonnez-vous à Jetstream DR](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) à partir de la place de marché Azure pour télécharger le logiciel de récupération d’urgence Jetstream.
 
-- [Compte de Stockage Blob Azure](../storage/common/storage-account-create.md) créé à l’aide d’un niveau de Performance Standard ou Premium. Pour [accéder au niveau, sélectionnez **Chaud**](../storage/blobs/storage-blob-storage-tiers.md). 
+- [Compte de Stockage Blob Azure](../storage/common/storage-account-create.md) créé à l’aide d’un niveau de Performance Standard ou Premium. Pour [accéder au niveau, sélectionnez **Chaud**](../storage/blobs/access-tiers-overview.md). 
 
    >[!NOTE]
    >L’option **Activer l’espace de noms hiérarchique** sur l’objet Blob n’est pas prise en charge.   
@@ -99,7 +99,7 @@ Dans ce scénario, le site principal est un Cloud privé de la Solution VMware A
 
 - [Configurez et abonnez-vous à Jetstream DR](https://ms.portal.azure.com/#create/jetstreamsoftware1596597632545.jsdravs-093020) à partir de la place de marché Azure pour télécharger le logiciel de récupération d’urgence Jetstream.
 
-- [Compte de Stockage Blob Azure](../storage/common/storage-account-create.md) créé à l’aide d’un niveau de Performance Standard ou Premium. Pour [accéder au niveau, sélectionnez **Chaud**](../storage/blobs/storage-blob-storage-tiers.md). 
+- [Compte de Stockage Blob Azure](../storage/common/storage-account-create.md) créé à l’aide d’un niveau de Performance Standard ou Premium. Pour [accéder au niveau, sélectionnez **Chaud**](../storage/blobs/access-tiers-overview.md). 
 
    >[!NOTE]
    >L’option **Activer l’espace de noms hiérarchique** sur l’objet Blob n’est pas prise en charge.   
@@ -318,7 +318,7 @@ La récupération d’urgence JetStream pour les solutions VMware Azure est disp
 
 
  
-## <a name="support"></a>Support  
+## <a name="support"></a>Assistance  
  
 La récupération d’urgence JetStream est une solution prise en charge par le[Logiciel Jetstream](https://www.jetstreamsoft.com/) . Pour tout problème de produit ou de support avec JetStream, contactez support-avs@jetstreamsoft.com.  
  

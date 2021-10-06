@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: dfec3e6305b6b955cfb7b2cfd787507db36ff6ba
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 87a7d10c9748a2e173d8f43dcca3611666277792
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113213594"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653702"
 ---
 # <a name="load-balancer-and-availability-zones"></a>Load Balancer et zones de disponibilité
 
@@ -57,6 +57,10 @@ Pour un frontend d’équilibreur de charge public, vous ajoutez un paramètre *
 
 Pour un équilibreur de charge frontend interne, ajoutez un paramètre **zones** à la configuration IP de l’équilibreur de charge frontend interne. Un frontend zonal garantit une adresse IP dans un sous-réseau d’une zone spécifique.
 
+## <a name="non-zonal"></a>Non zonal
+
+Les équilibreurs de charge peuvent également être créés dans une configuration non zonale à l’aide d’un front-end « sans zone » (adresse IP publique ou préfixe d’adresse IP publique).  Cette option n’offre pas de garantie de redondance. Notez que toutes les adresses IP publiques [mises à niveau](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) de la référence SKU De base à la référence Standard sont de type « sans zone ».
+
 ## <a name="design-considerations"></a><a name="design"></a> Remarques relatives à la conception
 
 Maintenant que vous comprenez les propriétés liées aux zones pour Standard Load Balancer, les considérations de conception suivantes peuvent vous aider à atteindre une haute disponibilité.
@@ -67,6 +71,14 @@ Maintenant que vous comprenez les propriétés liées aux zones pour Standard Lo
 - Un frontend **zonal** est une réduction du service à une seule zone et partage son sort avec la zone concernée. Si la zone dans laquelle se trouve votre déploiement est défaillante, votre déploiement ne survivra pas à cet échec.
 
 Nous vous recommandons d’utiliser un équilibreur de charge redondant interzone pour vos charges de travail de production.
+
+### <a name="multiple-frontends"></a>Plusieurs serveurs frontaux
+
+L’utilisation de plusieurs front-ends vous permet d’équilibrer la charge du trafic sur plusieurs ports et/ou adresses IP.  Lors de la conception de votre architecture, il est important de tenir compte de la façon dont la redondance de zone et plusieurs front-ends peuvent interagir.  Notez que si l’objectif est que chaque front-end soit toujours résistant aux défaillances, toutes les adresses IP utilisées comme front-ends doivent être redondantes interzone.   Si un ensemble de front-ends est destiné à être associé à une seule zone, chaque adresse IP de cet ensemble doit être associée à cette zone spécifique.  Il n’est pas obligatoire d’avoir un équilibreur de charge pour chaque zone ; au lieu de cela, chaque front-end zonal (ou ensemble de front-ends zonaux) peut être associé à des machines virtuelles du pool de back-ends qui font partie de cette zone de disponibilité spécifique.
+
+### <a name="transition-between-regional-zonal-models"></a>Transition entre les modèles zonaux régionaux
+
+Dans le cas où une région est augmentée pour avoir des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview), les adresses IP frontales existantes restent non zonales. Pour vous assurer que votre architecture peut tirer parti des nouvelles zones, nous vous recommandons de créer de nouvelles adresses IP frontales, et de répliquer les règles et configurations appropriées de façon à utiliser ces nouvelles adresses IP publiques.
 
 ### <a name="control-vs-data-plane-implications"></a>Implications au niveau du plan de contrôle et du plan de données
 
@@ -79,8 +91,7 @@ Passez en revue les [modèles de conception cloud Azure](/azure/architecture/pat
 ## <a name="limitations"></a>Limites
 
 * Après la création, les zones de la ressource ne peuvent pas être modifiées, mises à jour ou créées.
-
-* Les ressources ne peuvent pas être converties de zonales à redondantes interzones, et inversement, après la création.
+* Les ressources ne peuvent pas être converties de zonales à redondantes interzones, ou inversement, après la création.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)

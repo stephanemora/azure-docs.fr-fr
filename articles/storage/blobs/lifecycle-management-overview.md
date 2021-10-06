@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 94d90a173ef935bc6ac029707e4c3f78495ca0df
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 99fe642b2b18beef27238c7092c8fcbfab4164a2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122528027"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570870"
 ---
 # <a name="optimize-costs-by-automatically-managing-the-data-lifecycle"></a>Optimiser les coûts en gérant automatiquement le cycle de vie des données
 
@@ -32,8 +32,6 @@ Grâce à la stratégie de gestion de cycle de vie, vous pouvez effectuer les op
 Considérez un scénario où des données sont sollicitées fréquemment durant les premières étapes du cycle de vie, mais seulement occasionnellement après deux semaines. Au-delà du premier mois, le jeu de données est rarement sollicité. Dans ce scénario, le stockage chaud est préférable durant les premiers temps. Un stockage froid est plus approprié pour un accès occasionnel. L’option Stockage archive est la meilleure une fois que les données ont plus d’un mois. En déplaçant les données vers le niveau de stockage approprié en fonction de leur ancienneté grâce aux règles de stratégie de gestion de cycle de vie, vous pouvez concevoir la solution la moins coûteuse correspondant à vos besoins.
 
 Les stratégies de gestion de cycle de vie sont prises en charge pour les objets blob de blocs et d’ajout dans les comptes v2 universels, les objets blob de blocs premium et les comptes Stockage Blob. La gestion de cycle de vie ne concerne pas les conteneurs système comme les conteneurs *$logs* ou *$web*.
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!IMPORTANT]
 > Si un jeu de données doit être lisible, ne définissez pas de stratégie pour déplacer les blobs vers le niveau archive. Les blobs du niveau archive ne peuvent pas être lus s’ils ne sont pas d’abord réhydratés, un processus qui peut être long et coûteux. Pour plus d’informations, voir [Vue d’ensemble de la réactivation d’objets blob à partir du niveau Archive](archive-rehydrate-overview.md).
@@ -155,8 +153,8 @@ La gestion du cycle de vie prend en charge la hiérarchisation et la suppression
 | tierToArchive               | Prise en charge pour `blockBlob`                  | Prise en charge     | Prise en charge     |
 | supprimer                      | Pris en charge pour `blockBlob` et `appendBlob` | Prise en charge     | Prise en charge     |
 
->[!NOTE]
->Si vous définissez plusieurs actions sur le même objet blob, la gestion du cycle de vie applique l’action la moins coûteuse à l’objet blob. Par exemple, l’action `delete` est moins coûteuse que l’action `tierToArchive`. L’action `tierToArchive` est moins coûteuse que l’action `tierToCool`.
+> [!NOTE]
+> Si vous définissez plusieurs actions sur le même objet blob, la gestion du cycle de vie applique l’action la moins coûteuse à l’objet blob. Par exemple, l’action `delete` est moins coûteuse que l’action `tierToArchive`. L’action `tierToArchive` est moins coûteuse que l’action `tierToCool`.
 
 Les conditions d’exécution sont basées sur l’âge. Les objets blob de base utilisent l’heure de dernière modification, les versions d’objets blob utilisent l’heure de création de la version et les instantanés d’objets blob utilisent l’heure de création des instantanés pour suivre l’ancienneté.
 
@@ -364,9 +362,20 @@ Pour les données modifiées et consultées régulièrement pendant toute leur d
 }
 ```
 
-## <a name="availability-and-pricing"></a>Disponibilité et tarification
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
 
-La fonctionnalité de gestion de cycle de vie est disponible dans toutes les régions Azure pour les comptes v2 universels (GPv2), les comptes Stockage Blob et les comptes premium de stockage d’objets blob de blocs. Les comptes avec un espace de noms hiérarchique sont pris en charge. Pour plus d’informations sur les types de comptes de stockage, consultez [Vue d’ensemble des comptes de stockage](../common/storage-account-overview.md).
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)              | ![Oui](../media/icons/yes-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png)|![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
+
+## <a name="regional-availability-and-pricing"></a>Disponibilité régionale et tarification
+
+La fonctionnalité de gestion du cycle de vie est disponible dans toutes les régions Azure.
 
 Les stratégies de gestion de cycle de vie sont gratuites. Les clients sont facturés au coût de fonctionnement normal pour les appels d’API [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Les opérations de suppression sont gratuites.
 
@@ -382,7 +391,7 @@ La plateforme exécute la stratégie de cycle de vie une fois par jour. Une fois
 
 **Si je mets à jour une stratégie existante, combien de temps dois-je attendre avant que les actions soient effectuées ?**
 
-Cela peut prendre jusqu’à 24 heures avant que la stratégie mise à jour ne soit appliquée. Une fois la stratégie en vigueur, cela peut prendre jusqu’à 24 heures pour que les actions s’exécutent. Par conséquent, l’exécution des actions de la stratégie peut prendre jusqu’à 48 heures. Si la mise à jour consiste à désactiver ou à supprimer une règle et que enableAutoTierToHotFromCool a été utilisé, la hiérarchisation automatique vers le niveau chaud se produira quand même. Par exemple, définissez une règle incluant enableAutoTierToHotFromCool basée sur le dernier accès. Si la règle est désactivée/supprimée et qu’un blob est actuellement dans le niveau froid et qu’il est ensuite consulté, il repassera dans le niveau chaud, car la règle est appliquée à l’accès en dehors de la gestion de cycle de vie. Le blob ne passera pas du niveau chaud à froid si la règle de gestion de cycle de vie est désactivée/supprimée.  La seule façon d’empêcher autoTierToHotFromCool consiste à désactiver le suivi de l’heure du dernier accès.
+Cela peut prendre jusqu’à 24 heures avant que la stratégie mise à jour ne soit appliquée. Une fois la stratégie en vigueur, cela peut prendre jusqu’à 24 heures pour que les actions s’exécutent. Par conséquent, l’exécution des actions de la stratégie peut prendre jusqu’à 48 heures. Si la mise à jour consiste à désactiver ou à supprimer une règle et que enableAutoTierToHotFromCool a été utilisé, la hiérarchisation automatique vers le niveau chaud se produira quand même. Par exemple, définissez une règle incluant enableAutoTierToHotFromCool basée sur le dernier accès. Si la règle est désactivée/supprimée et qu’un blob est actuellement dans le niveau froid et qu’il est ensuite consulté, il repassera dans le niveau chaud, car la règle est appliquée à l’accès en dehors de la gestion de cycle de vie. Le blob ne passera pas du niveau chaud à froid si la règle de gestion de cycle de vie est désactivée/supprimée. La seule façon d’empêcher autoTierToHotFromCool consiste à désactiver le suivi de l’heure du dernier accès.
 
 **J’ai réactivé manuellement un blob archivé. Comment puis-je empêcher son renvoi temporaire au niveau Archives ?**
 

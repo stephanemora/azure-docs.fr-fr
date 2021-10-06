@@ -1,14 +1,14 @@
 ---
-title: Gérer les stratégies d’arrêt automatique dans Azure DevTest Labs et les machines virtuelles de calcul | Microsoft Docs
+title: Gérer les stratégies d’arrêt automatique dans Azure DevTest Labs et les machines virtuelles de calcul
 description: Découvrez comment définir la stratégie d’arrêt automatique d’un labo afin que les machines virtuelles soient arrêtées automatiquement lorsqu’elles ne sont pas utilisées.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 946ee2a4d6f3503671664b0e46806fef7f71a459
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 75fa8f07c7e3d67ea029413d427046e20d45cdea
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113301993"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648579"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurer l’arrêt automatique pour les machines virtuelles lab et de calcul dans Azure DevTest Labs
 

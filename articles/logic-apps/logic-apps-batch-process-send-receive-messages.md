@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 07/31/2020
-ms.openlocfilehash: b67003db0953a8246a49ec8551d6e0fab4dc8251
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: cb38f70c20ad8a45ed1cb91d93e7a6f09a7d51df
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114362952"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644369"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envoyer, recevoir et traiter par lots des messages dans Azure Logic Apps
 
@@ -153,9 +153,9 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
       > [!IMPORTANT]
       > Si vous utilisez Visual Studio et que vous ne voyez aucun récepteur de lot à sélectionner, vérifiez que vous avez déjà créé et déployé votre récepteur de lots sur Azure. Si ce n’est pas le cas, découvrez comment [déployer votre application logique réceptrice de lots sur Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure).
 
-   1. Dans la liste des actions, sélectionnez cette action : **Batch_messages – <*nom-de-votre-application-logique*>**
+   1. Dans la liste des actions, sélectionnez cette action : **Batch_messages - \<*your-logic-app-name*\>**
 
-      ![Sélectionnez cette action : "Traiter_les_messages_par_lots - <votre-application-logique>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![Sélectionnez cette action : « Batch_messages - \<votre-application-logique\> »](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 1. Définissez les propriétés de l’expéditeur de lots :
 

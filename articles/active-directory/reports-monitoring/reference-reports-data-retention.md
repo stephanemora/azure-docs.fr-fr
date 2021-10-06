@@ -17,12 +17,12 @@ ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e240e8ec53ce007be1a858af7b6e41273ca8831
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b53333ff9d61e6ee5bbc98bb4756199ca07486d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97093636"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128630069"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Pendant combien de temps les données de rapport sont-elles conservées par Azure AD ?
 
@@ -73,8 +73,11 @@ Vous pouvez conserver les données d'activité d'audit et de connexion au-delà 
 
 | Rapport         | Azure AD Gratuit | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--            | :--           | :--                 | :--                 |
-| Les utilisateurs à risque  | 7 jours        | 30 jours             | 90 jours             |
+| Utilisateurs à risque    | aucune limite      | aucune limite            | aucune limite            |
 | Connexions risquées | 7 jours        | 30 jours             | 90 jours             |
+
+> [!NOTE]
+> Les utilisateurs à risque ne sont pas supprimés tant que le risque n’a pas été corrigé.
 
 ---
 

@@ -3,12 +3,12 @@ title: Instances réservées d’Azure VMware Solution
 description: Découvrez comment acheter une instance réservée pour Azure VMware Solution. L’instance réservée couvre uniquement la partie calcul de votre utilisation et inclut les coûts liés aux licences logicielles.
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.openlocfilehash: 6204e7cade66ee60885db20226981980f4741a76
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: edb4136039624ceef8bd6a419a8b617798b611ae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534982"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128643165"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Économiser grâce à Azure VMware Solution
 
@@ -55,7 +55,7 @@ Ces conditions s’appliquent à l’achat d’une instance réservée d’hôte
    | Champ        |  Description |
    | ------------ | ------------ |
    | Abonnement | Abonnement utilisé pour payer la réservation. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P or MS-AZR-0148P), Contrat client Microsoft ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Les frais sont déduits du solde du Paiement anticipé Azure (anciennement « Engagement financier »), le cas échéant, ou facturés comme un dépassement. Pour un abonnement payable à l’utilisation, les frais sont facturés sur la carte de crédit de l’abonnement ou sur un mode de paiement par facture. |
-   | Étendue        | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<br><ul><li><b>Étendue de groupe de ressources unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li><b>Étendue d’abonnement unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li><b>Étendue partagée</b> : applique la remise de réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Ainsi, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte pour des abonnements individuels utilisant les tarifs de paiement à l’utilisation.</li></ul>       |
+   | Étendue        | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<br><ul><li><b>Étendue de groupe de ressources unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li><b>Étendue d’abonnement unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li><b>Étendue partagée</b> : applique la remise de réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Ainsi, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte pour des abonnements individuels utilisant les tarifs de paiement à l’utilisation.<li>**Groupe d’administration** : applique la remise de réservation à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation.</li></li></ul>       |
    | Région       | Région Azure couverte par la réservation.   |
    | Taille de l’hôte    | AV36    |
    | Terme         | Une année ou trois ans.  |
@@ -84,7 +84,7 @@ Les fournisseurs de solutions Cloud qui souhaitent acheter des instances réserv
    | Champ        |  Description |
    | ------------ | ------------ |
    | Abonnement | Abonnement avec lequel la réservation est payée. Les coûts de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un abonnement éligible qui, dans ce cas, est un abonnement CSP.|
-   | Étendue        | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<br><ul><li><b>Étendue de groupe de ressources unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li><b>Étendue d’abonnement unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li><b>Étendue partagée</b> : applique la remise de réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Ainsi, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte pour des abonnements individuels utilisant les tarifs de paiement à l’utilisation.</li></ul>       |
+   | Étendue        | L’étendue de la réservation peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez :<br><ul><li><b>Étendue de groupe de ressources unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.</li><li><b>Étendue d’abonnement unique</b> : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.</li><li><b>Étendue partagée</b> : applique la remise de réservation aux ressources correspondantes des abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Ainsi, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte pour des abonnements individuels utilisant les tarifs de paiement à l’utilisation.<li>**Groupe d’administration** : applique la remise de réservation à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation.</li></li></ul>       |
    | Région       | Région Azure couverte par la réservation.   |
    | Taille de l’hôte    | AV36    |
    | Terme         | Une année ou trois ans.  |

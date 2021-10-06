@@ -5,13 +5,13 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 50ef040f1cb7d8c533ec5ee31e9bffa2e6dca2f5
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.date: 09/10/2020
+ms.openlocfilehash: 6cb9ad127e7a13780cbd36198a1dcbcce858ac65
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107478010"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124804804"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Maintenance planifiée dans Azure Database pour PostgreSQL – Serveur flexible
  
@@ -37,7 +37,7 @@ Quand vous spécifiez des préférences de planification de la maintenance, vous
 > [!IMPORTANT]
 > Normalement, il faut compter au moins 30 jours entre les événements de maintenance planifiés réussis pour un serveur.
 >
-> Toutefois, dans le cas d’une mise à jour critique urgente telle qu’une vulnérabilité grave, la fenêtre de notification peut être inférieure à cinq jours. La mise à jour critique peut être appliquée à votre serveur même si une maintenance planifiée réussie a été effectuée au cours des 30 derniers jours.
+> Toutefois, dans le cas d'une mise à jour critique urgente comme une vulnérabilité grave, la fenêtre de notification peut être inférieure à cinq jours ou être omise. La mise à jour critique peut être appliquée à votre serveur même si une maintenance planifiée réussie a été effectuée au cours des 30 derniers jours.
 
 Vous pouvez mettre à jour les paramètres de planification à tout moment. Si une maintenance est planifiée pour votre serveur flexible et que vous mettez à jour les préférences de planification, le déploiement actuel va être effectué comme prévu et la modification des paramètres de planification prendra effet dès la fin de l’opération pour la maintenance planifiée suivante.
 

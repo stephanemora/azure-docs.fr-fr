@@ -2,13 +2,13 @@
 title: Bonnes pratiques concernant les registres
 description: Découvrez comment utiliser votre instance Azure Container Registry de manière efficace en suivant ces meilleures pratiques.
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: 0811cc4a5bffc21ffba19e64a3887eab6bc36fbb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 08/13/2021
+ms.openlocfilehash: 1b713ac047b575c68cd8ed539187e3caac13a322
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784134"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626966"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Meilleures pratiques pour Azure Container Registry
 
@@ -74,28 +74,37 @@ Azure Container Registry prend en charge les pratiques de sécurité de votre or
 
 Les contraintes de stockage de chaque [niveau de service du registre de conteneurs][container-registry-skus] sont conçues pour s’adapter à un scénario classique : **De base** pour démarrer, **Standard** pour la majorité des applications de production, et **Premium** pour des performances à très grande échelle et pour la [géoréplication][container-registry-geo-replication]. Pendant toute la durée de vie de votre registre, vous devez gérer sa taille en supprimant régulièrement le contenu inutilisé.
 
-Utilisez la commande Azure CLI [az acr show-usage][az-acr-show-usage] pour afficher la taille actuelle de votre registre :
+Utilisez la commande de l’interface CLI Azure [az acr show-usage][az-acr-show-usage] pour afficher la consommation actuelle du stockage et d’autres ressources dans votre registre :
 
 ```azurecli
 az acr show-usage --resource-group myResourceGroup --name myregistry --output table
 ```
 
-```output
-NAME      LIMIT         CURRENT VALUE    UNIT
---------  ------------  ---------------  ------
-Size      536870912000  185444288        Bytes
-Webhooks  100                            Count
+Exemple de sortie :
+
+```
+NAME                        LIMIT         CURRENT VALUE    UNIT
+--------------------------  ------------  ---------------  ------
+Size                        536870912000  215629144        Bytes
+Webhooks                    500           1                Count
+Geo-replications            -1            3                Count
+IPRules                     100           1                Count
+VNetRules                   100           0                Count
+PrivateEndpointConnections  10            0                Count
 ```
 
-Vous pouvez également retrouver le stockage actuel utilisé dans la **Vue d’ensemble** de votre registre dans le Portail Azure :
+Vous pouvez également retrouver le stockage actuel utilisé dans la **Vue d’ensemble** de votre registre dans le portail Azure :
 
 ![Informations sur l’utilisation du registre dans le portail Azure][registry-overview-quotas]
+
+> [!NOTE]
+> Dans un registre [géo-répliqué](container-registry-geo-replication.md), l’utilisation du stockage est indiquée pour la région d’hébergement. Multiplier par le nombre de réplications pour le stockage de registre total consommé.
 
 ### <a name="delete-image-data"></a>Supprimer les données d’image
 
 Azure Container Registry prend en charge plusieurs méthodes permettant de supprimer des données image de votre registre de conteneurs. Vous pouvez supprimer des images par balise ou synthèse de manifeste, ou encore supprimer un référentiel dans son intégralité.
 
-Pour en savoir plus sur la suppression des données image de votre registre, notamment des images sans balises (parfois appelées « non résolues » ou « orphelines ») des images, consultez la section [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md).
+Pour en savoir plus sur la suppression des données image de votre registre, notamment des images sans balises (parfois appelées « non résolues » ou « orphelines ») des images, consultez la section [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md). Vous pouvez également définir une [stratégie de rétention](container-registry-retention-policy.md) pour les manifestes sans balise.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

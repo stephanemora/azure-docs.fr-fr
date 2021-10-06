@@ -3,16 +3,16 @@ title: Autoriser l’API REST dans Azure IoT Central
 description: Comment authentifier et autoriser les appels d’API REST IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 540137495e06bb05fbf5e96e3b930e0c8cda4b10
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 39c96be31a8a8be0cf1c2fc4f16fcbfa7468cb41
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461227"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584234"
 ---
 # <a name="how-to-authenticate-and-authorize-iot-central-rest-api-calls"></a>Comment authentifier et autoriser les appels d’API REST IoT Central
 
@@ -63,13 +63,13 @@ Pour obtenir un jeton du porteur pour un principal du service, consultez [Authen
 
 ## <a name="get-an-api-token"></a>Obtenir un jeton d’API
 
-Pour obtenir un jeton d’API, vous pouvez utiliser l’interface utilisateur IoT Central ou un appel d’API REST.
+Pour obtenir un jeton d’API, vous pouvez utiliser l’interface utilisateur IoT Central ou un appel d’API REST. Les administrateurs associés à l’organisation racine et les utilisateurs affectés au rôle correct peuvent créer des jetons d’API.
 
 Dans l’interface utilisateur IoT Central :
 
 1. Accédez à **Administration > Jetons d’API**.
-1. Sélectionnez **+ Générer un jeton**.
-1. Entrez un nom pour le jeton et sélectionnez un rôle.
+1. Sélectionnez **+ Créer le jeton**.
+1. Entrez un nom pour le jeton et sélectionnez un rôle et une [organisation](howto-create-organizations.md).
 1. Sélectionnez **Générer**.
 1. IoT Central affiche le jeton qui ressemble à l’exemple suivant :
 
@@ -77,7 +77,7 @@ Dans l’interface utilisateur IoT Central :
 
     C’est la seule fois que le jeton d’API s’affiche à l’écran. Si vous le perdez, vous devez en générer un nouveau.
 
-Un jeton d’API est valide pendant environ un an. Vous pouvez en générer pour les rôles intégrés et personnalisés dans votre application IoT Central.
+Un jeton d’API est valide pendant environ un an. Vous pouvez en générer pour les rôles intégrés et personnalisés dans votre application IoT Central. L’organisation que vous choisissez lors de la création du jeton d’API détermine à quels appareils l’API a accès. Tous les jetons d’API créés avant l’ajout d’organisations à votre application sont associés à l’organisation racine.
 
 Si vous avez besoin de révoquer un accès, vous pouvez supprimer des jetons d’API dans l’interface utilisateur IoT Central.
 
@@ -146,6 +146,9 @@ Utilisation de l’API REST :
     Cette réponse est le seul moment où vous avez accès au jeton d’API. Si vous le perdez, vous devez en générer un nouveau.
 
 Vous pouvez utiliser l’API REST pour lister et supprimer les jetons d’API d’une application.
+
+> [!TIP]
+> L'[API en préversion](/rest/api/iotcentral/1.1-previewdataplane/api-tokens) comprend la prise en charge de la nouvelle [fonctionnalité organisations](howto-create-organizations.md).
 
 ## <a name="use-a-bearer-token"></a>Utiliser un jeton du porteur
 

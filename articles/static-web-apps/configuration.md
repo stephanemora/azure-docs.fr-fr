@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 08/27/2021
 ms.author: cshoe
-ms.openlocfilehash: 210618ba5c49fbe0e53bd5b3fb2fe808b6b6aa03
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f2dacc8a0ed551fd92b916e25dfd87695e2576d3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531637"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570834"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configurer Azure Static Web Apps
 
@@ -34,7 +34,7 @@ La configuration d’Azure Static Web Apps est définie dans le fichier _staticw
 
 ## <a name="file-location"></a>Emplacement du fichier
 
-L’emplacement recommandé pour le fichier _staticwebapp.config.json_ est le dossier défini comme `app_location` dans le [fichier de workflow](./github-actions-workflow.md). Toutefois, le fichier peut être placé dans n’importe quel sous-dossier dans le dossier défini comme `app_location`.
+L’emplacement recommandé pour le fichier _staticwebapp.config.json_ est le dossier défini comme `app_location` dans le [fichier de workflow](./build-configuration.md). Toutefois, le fichier peut être placé dans n’importe quel sous-dossier dans le dossier défini comme `app_location`.
 
 Pour plus de détails, consultez l’[exemple de fichier config](#example-configuration-file).
 
@@ -271,6 +271,11 @@ Définissez chaque bloc d’adresses IPv4 dans la notation CIDR (Classless Inte
 ```
 
 Lorsqu’un ou plusieurs blocs d’adresses IP sont spécifiés, les demandes provenant d’adresses IP qui ne correspondent à aucune valeur dans `allowedIpRanges` se voient refuser l’accès.
+
+## <a name="authentication"></a>Authentification 
+
+* Les [fournisseurs d’authentification par défaut](authentication-authorization.md#login) ne nécessitent pas de paramètres dans le fichier de configuration. 
+* Les [fournisseurs d’authentification personnalisés](authentication-custom.md) utilisent la `authentication`propriété du fichier de paramètres. 
 
 ## <a name="example-configuration-file"></a>Exemple de fichier de configuration
 

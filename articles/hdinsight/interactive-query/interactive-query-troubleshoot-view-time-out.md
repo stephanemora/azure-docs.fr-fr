@@ -4,12 +4,12 @@ description: La vue Apache Hive expire lors de la récupération d’un résulta
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 07/30/2019
-ms.openlocfilehash: a43109a59353fd09ea2f29add07457d324768b16
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 5b1ec7fec182d5b0b6f2d68467d6e3e84fdb5f3c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112290518"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601403"
 ---
 # <a name="scenario-apache-hive-view-times-out-when-fetching-a-query-result-in-azure-hdinsight"></a>Scénario : La vue Apache Hive expire lors de la récupération d’un résultat de requête dans Azure HDInsight
 
@@ -30,15 +30,18 @@ La valeur du délai d’expiration par défaut de la vue Hive peut ne pas conven
 
 ## <a name="resolution"></a>Résolution
 
-Augmentez les délais d’expiration de la vue Apache Ambari Hive en définissant les propriétés suivantes dans `/etc/ambari-server/conf/ambari.properties`.
+1. Augmentez les délais d’attente de la vue Hive Apache Ambari en définissant les propriétés suivantes dans `/etc/ambari-server/conf/ambari.properties` pour **nœuds principaux**.
+  ```
+  views.ambari.request.read.timeout.millis=300000
+  views.request.read.timeout.millis=300000
+  views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
+  ```
+  La valeur de `HIVE_VIEW_INSTANCE_NAME` est disponible à la fin de l’URL de la vue Hive.
 
-```
-views.ambari.request.read.timeout.millis=300000
-views.request.read.timeout.millis=300000
-views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
-```
-
-La valeur de `HIVE_VIEW_INSTANCE_NAME` est disponible à la fin de l’URL de la vue Hive.
+2. Redémarrez le serveur Ambari actif en exécutant ce qui suit. Si vous recevez un message d’erreur indiquant qu’il ne s’agit pas du serveur Ambari actif, il vous suffit d’utiliser ssh dans le nœud principal suivant et de répéter cette étape.
+  ```
+  sudo ambari-server restart
+  ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

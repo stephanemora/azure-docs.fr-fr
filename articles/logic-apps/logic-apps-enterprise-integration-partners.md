@@ -1,88 +1,84 @@
 ---
-title: Ajouter des partenaires commerciaux pour les intégrations B2B
-description: Créer dans votre compte d’intégration des partenaires commerciaux à utiliser avec Azure Logic Apps
+title: Définir des partenaires commerciaux pour les workflows
+description: Ajoutez des partenaires commerciaux à votre compte d’intégration pour les workflows dans Azure Logic Apps à l’aide de l’Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 06/22/2019
-ms.openlocfilehash: 8e3805fae5bf6cc5ad8cf759d3ba75220c6ddbd8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 09/16/2021
+ms.openlocfilehash: f0e0fed5bf7e3354cffa8d6799c4d3e5d39595d9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91565069"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128549832"
 ---
-# <a name="add-trading-partners-to-integration-accounts-for-azure-logic-apps"></a>Ajouter des partenaires commerciaux à des comptes d’intégration pour Azure Logic Apps
+# <a name="add-trading-partners-to-integration-accounts-for-workflows-in-azure-logic-apps"></a>Ajouter des partenaires commerciaux à des comptes d’intégration pour les workflows dans Azure Logic Apps
 
-Dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), vous pouvez créer des workflows d’intégration B2B (Business-to-Business) automatisés en utilisant un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) avec vos applications logiques. Pour représenter votre organisation et d’autres organisations, vous créez et ajoutez des partenaires commerciaux en tant qu’artefacts à votre compte d’intégration. Les partenaires sont des entités qui participent aux transactions B2B et qui échangent des messages entre eux.
+Pour représenter votre organisation et d’autres dans les workflows d’intégration d’entreprise B2B, créez un *partenaire commercial* dans votre [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) pour représenter chaque participant dans une relation commerciale. Les partenaires sont des entités professionnelles qui participent aux transactions B2B et qui échangent des messages entre eux.
 
-Avant de les créer, veillez à examiner et partager des informations avec vos partenaires sur la façon d’identifier et de valider les messages envoyés par les autres utilisateurs. Après vous être mis d’accord sur ces détails, vous êtes prêt à créer des partenaires dans votre compte d’intégration.
+> [!IMPORTANT]
+> Avant de définir ces partenaires, contactez vos partenaires pour déterminer comment identifier et valider les messages que vous vous envoyez. Pour participer à un accord et échanger des messages entre eux, les partenaires de votre compte d’intégration doivent utiliser les mêmes *qualificateurs d’entreprise* ou des qualificateurs compatibles. Après vous être mis d’accord sur ces détails, vous êtes prêt à créer des partenaires dans votre compte d’intégration.
 
-## <a name="partner-roles-in-integration-accounts"></a>Rôles des partenaires dans les comptes d’intégration
+Cet article explique la procédure de création et de gestion des partenaires, que vous pouvez utiliser ultérieurement pour créer des accords qui définissent le protocole standard spécifique pour l’échange de messages entre partenaires.
 
-Pour définir les détails relatifs aux messages échangés avec vos partenaires, vous créez et ajoutez des [contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md) en tant qu’artefacts à votre compte d’intégration. Les contrats nécessitent au moins deux partenaires dans votre compte d’intégration. Votre organisation est toujours le *partenaire hôte* dans le contrat. L’organisation qui échange des messages avec votre organisation est le *partenaire invité*. Un partenaire invité peut être une autre entreprise ou même un service au sein de votre organisation. Après avoir ajouté ces partenaires, vous pouvez créer un contrat.
-
-Dans un contrat, vous spécifiez les détails pour la gestion des messages entrants et sortants du point de vue du partenaire hôte. Pour les messages entrants, les **paramètres de réception** déterminent la façon dont le partenaire hôte reçoit les messages du partenaire invité dans le contrat. Pour les messages sortants, les **paramètres d’envoi** indiquent la façon dont le partenaire hôte envoie des messages au partenaire invité.
+Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Logic Apps](logic-apps-overview.md) ? Pour plus d’informations sur l’intégration d’entreprise B2B, consultez [Workflows d’intégration d’entreprise B2B avec Azure Logic Apps](logic-apps-enterprise-integration-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
+* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) pour stocker vos partenaires, contrats et autres artefacts B2B. Ce compte d'intégration doit être associé à votre abonnement Azure.
+* Une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) dans laquelle vous définissez et stockez les artefacts, comme les partenaires commerciaux, les contrats, les certificats, etc., à utiliser dans vos workflows d’intégration d’entreprise et B2B. Cette ressource doit remplir les conditions suivantes :
 
-## <a name="create-partner"></a>Créer un partenaire
+  * Associé au même abonnement Azure que votre ressource d’application logique.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+  * Existe dans le même emplacement ou la même région Azure que votre ressource d’application logique.
 
-1. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.
+  * Si vous utilisez le [type de ressource **Application logique (Consommation)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration requiert un [lien vers votre ressource d’application logique](logic-apps-enterprise-integration-create-integration-account.md#link-account) avant de pouvoir utiliser des artefacts dans votre workflow.
 
-   ![Sélectionner « Comptes d’intégration »](./media/logic-apps-enterprise-integration-partners/find-integration-accounts.png)
+  * Si vous utilisez le [type de ressource **Application logique (Standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration n’a pas besoin d’un lien vers votre ressource d’application logique, mais il est toujours nécessaire pour stocker d’autres artefacts, comme les partenaires, contrats et certificats, ainsi que pour utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](logic-apps-enterprise-integration-edifact.md). Votre compte d’intégration doit toujours répondre à d’autres exigences, comme l’utilisation du même abonnement Azure et la présence dans le même emplacement que votre ressource d’application logique.
+
+  > [!NOTE]
+  > Actuellement, seul le type de ressource **Application logique (Consommation)** prend en charge les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). Le type de ressource **Application logique (Standard)** n’inclut pas les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
+
+<a name="add-partner"></a>
+
+## <a name="add-a-partner"></a>Ajouter un partenaire
+
+1. Dans la zone de recherche du [portail Azure](https://portal.azure.com), entrez `integration accounts` et sélectionnez **Comptes d’intégration**.
 
 1. Sous **Comptes d’intégration**, sélectionnez le compte d’intégration dans lequel vous souhaitez ajouter vos partenaires.
 
-   ![Sélectionner le compte d’intégration](./media/logic-apps-enterprise-integration-partners/select-integration-account.png)
+1. Dans le menu du compte d’intégration, sous **Paramètres**, sélectionnez **Partenaires**.
 
-1. Choisissez la mosaïque **Partenaires**.
+1. Dans le volet **Partenaires**, sélectionnez **Ajouter**.
 
-   ![Capture d’écran montrant la vignette Partenaires.](./media/logic-apps-enterprise-integration-partners/choose-partners.png)
-
-1. Sous **Partenaires**, choisissez **Ajouter**. Sous **Ajouter un partenaire**, indiquez les détails sur le partenaire comme décrit dans le tableau ci-dessous.
-
-   ![Choisir « Ajouter » et indiquer les détails sur le partenaire](./media/logic-apps-enterprise-integration-partners/add-partners.png)
+1. Dans le volet **Ajouter un partenaire** , fournissez les informations suivantes sur le partenaire :
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
    | **Nom** | Oui | Nom du partenaire |
-   | **Qualificateur** | Oui | Corps d’authentification qui fournit des identités d’entreprise uniques aux organisations, par exemple **D-U-N-S (Dun & Bradstreet)** . <p>Les partenaires peuvent opter pour une identité d’entreprise définie mutuellement. Pour ces scénarios, sélectionnez **Défini mutuellement** pour EDIFACT ou **Défini mutuellement (X12)** pour X12. <p>Pour RosettaNet, sélectionnez uniquement **DUNS**, qui est la norme. |
-   | **Valeur** | Oui | Valeur qui identifie les documents que vos applications logiques reçoivent. <p>Pour RosettaNet, cette valeur doit être un nombre à neuf chiffres qui correspond au numéro DUNS. |
+   | **Qualificateur** | Oui | Corps d’authentification qui fournit des identités d’entreprise uniques aux organisations, par exemple **D-U-N-S (Dun & Bradstreet)** . <p>Les partenaires peuvent opter pour une identité d’entreprise définie mutuellement. Pour ces scénarios, sélectionnez **Défini mutuellement** pour EDIFACT ou **Défini mutuellement (X12)** pour X12. <p>Pour RosettaNet, sélectionnez uniquement **DUNS**, qui est la norme. <p>**Important** : pour que les partenaires de votre compte d’intégration puissent participer à un accord et échanger des messages entre eux, ils doivent utiliser le même qualificateur ou un qualificateur compatible. |
+   | **Valeur** | Oui | Valeur qui identifie les documents que vos applications logiques reçoivent. <p>Pour que les partenaires utilisent RosettaNet, cette valeur doit être un nombre à neuf chiffres qui correspond au numéro DUNS. Vous pouvez fournir plus d’informations pour les partenaires RosettaNet, par exemple leur classification et leurs coordonnées, en créant d’abord les partenaires, puis en [modifiant ensuite leurs définitions](#edit-partner). |
    ||||
 
-   > [!NOTE]
-   > Pour les partenaires qui utilisent RosettaNet, vous pouvez spécifier des informations supplémentaires en créant d’abord ces partenaires, puis [en les modifiant par la suite](#edit-partner).
+1. Quand vous avez terminé, sélectionnez **OK**.
 
-1. Une fois que vous avez terminé, sélectionnez **OK**.
-
-   Votre nouveau partenaire apparaît maintenant dans la liste **Partenaires**. En outre, la vignette **Partenaires** met à jour le nombre actuel de partenaires.
-
-   ![Nouveau partenaire](./media/logic-apps-enterprise-integration-partners/new-partner.png)
+   Votre partenaire apparaît maintenant dans la liste **Partenaires**.
 
 <a name="edit-partner"></a>
 
-## <a name="edit-partner"></a>Modifier un partenaire
+## <a name="edit-a-partner"></a>Modifier un partenaire
 
-1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre compte d’intégration.
-Choisissez la mosaïque **Partenaires**.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre compte d’intégration.
 
-   ![Choisir la mosaïque « Partenaires »](./media/logic-apps-enterprise-integration-partners/edit.png)
+1. Dans le menu du compte d’intégration, sous **Paramètres**, sélectionnez **Partenaires**.
 
-1. Sous **Partenaires**, sélectionnez le partenaire à modifier, puis choisissez **Modifier**. Sous **Modifier**, apportez vos modifications.
+1. Dans le volet **Partenaires** , sélectionnez le partenaire, sélectionnez **Modifier**, puis apportez vos modifications.
 
-   ![Effectuer et enregistrer vos modifications](./media/logic-apps-enterprise-integration-partners/edit-partner.png)
-
-   Pour RosettaNet, sous **Propriétés du partenaire RosettaNet**, vous pouvez spécifier ces informations supplémentaires :
+   Pour les partenaires qui utilisent RosettaNet, sous **Propriétés du partenaire RosettaNet**, vous pouvez fournir plus d’informations, comme décrit dans le tableau suivant :
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
@@ -94,18 +90,20 @@ Choisissez la mosaïque **Partenaires**.
    | **Téléphone** | Non | Numéro de téléphone du partenaire |
    ||||
 
-1. Lorsque vous avez terminé, choisissez **OK** pour enregistrer vos modifications.
+1. Quand vous avez terminé, sélectionnez **OK**.
 
-## <a name="delete-partner"></a>Supprimer un partenaire
+<a name="delete-partner"></a>
 
-1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre compte d’intégration. Choisissez la mosaïque **Partenaires**.
+## <a name="delete-a-partner"></a>Supprimer un partenaire
 
-   ![Capture d’écran montrant la vignette Partenaires que vous sélectionnez lorsque vous souhaitez supprimer un partenaire.](./media/logic-apps-enterprise-integration-partners/choose-partners-to-delete.png)
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre compte d’intégration.
 
-1. Sous **Partenaires**, sélectionnez le partenaire à supprimer. Choisissez **Supprimer**.
+1. Dans le menu du compte d’intégration, sous **Paramètres**, sélectionnez **Partenaires**.
 
-   ![Supprimer un partenaire](./media/logic-apps-enterprise-integration-partners/delete-partner.png)
+1. Dans le volet **Partenaires** , sélectionnez le partenaire à supprimer, puis sélectionnez **Supprimer**.
+
+1. Sélectionnez **Oui** pour confirmer que vous souhaitez supprimer le partenaire.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les [contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md)
+* [Ajouter des accords entre partenaires](logic-apps-enterprise-integration-agreements.md)
