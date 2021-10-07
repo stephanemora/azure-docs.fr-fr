@@ -3,21 +3,21 @@ title: Créer des runbooks modulaires dans Azure Automation
 description: Cet article explique comment créer un runbook appelé par un autre runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/17/2019
-ms.topic: conceptual
+ms.date: 09/13/2021
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eeca2c5ed3e1d428d7ab521160604f588e5b0b4a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cbbf9be820d46875618cae76edb5f76bbfbb5e0f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531530"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675361"
 ---
-# <a name="create-modular-runbooks"></a>Créer des runbooks modulaires
+# <a name="create-modular-runbooks-in-automation"></a>Créer des runbooks modulaires dans Automation
 
-Dans Azure Automation, il est recommandé d’écrire des runbooks réutilisables et modulaires avec une fonction discrète qui est appelée par d’autres runbooks. Un runbook parent appelle souvent un ou plusieurs runbooks enfants pour exécuter la fonctionnalité requise. 
+Dans Azure Automation, il est recommandé d’écrire des runbooks réutilisables et modulaires avec une fonction discrète qui est appelée par d’autres runbooks. Un runbook parent appelle souvent un ou plusieurs runbooks enfants pour exécuter la fonctionnalité requise. 
 
-Il existe deux méthodes pour appeler un runbook enfant. Vous devez comprendre leurs spécificités afin de déterminer celle qui convient le mieux à vos scénarios. Le tableau suivant résume les différences entre les deux façons d’appeler un runbook à partir d’un autre runbook.
+Il existe deux façons d’appeler un runbook enfant. Vous devez comprendre leurs spécificités afin de déterminer celle qui convient le mieux à vos scénarios. Le tableau suivant résume les différences entre les deux façons d’appeler un runbook à partir d’un autre runbook.
 
 |  | En ligne | Applet de commande |
 |:--- |:--- |:--- |
@@ -26,7 +26,7 @@ Il existe deux méthodes pour appeler un runbook enfant. Vous devez comprendre l
 | **Sortie** |Le Runbook parent peut obtenir directement la sortie du Runbook enfant. |Le runbook parent doit récupérer la sortie à partir de la tâche du runbook enfant *ou* le runbook parent peut obtenir directement la sortie du runbook enfant. |
 | **Paramètres** |Les valeurs des paramètres du Runbook enfant sont spécifiées séparément et peuvent utiliser n’importe quel type de données. |Les valeurs des paramètres du runbook enfant doivent être combinées dans une table de hachage unique. Cette table de hachage peut uniquement inclure des types de données simples, tableau et objet qui utilisent la sérialisation JSON. |
 | **Compte Automation** |Le runbook parent peut utiliser uniquement un runbook enfant du même compte Automation. |Les runbooks parents peuvent utiliser un runbook enfant de n’importe quel compte Automation, du même abonnement Azure ou d’un autre abonnement auquel vous avez accès. |
-| **Publication** |Le Runbook enfant doit être publié avant la publication du Runbook parent. |Le runbook enfant est publié à tout moment avant le démarrage du runbook parent. |
+| **Publication** |Le Runbook enfant doit être publié avant la publication du Runbook parent. |Le runbook enfant est toujours publié avant le démarrage du runbook parent. |
 
 ## <a name="invoke-a-child-runbook-using-inline-execution"></a>Appeler un Runbook enfant à l’aide de l’exécution incluse
 
@@ -34,9 +34,9 @@ Pour appeler un runbook inlined à partir d’un autre runbook, utilisez le nom 
 
 Lorsque vous appelez un Runbook en ligne, il est exécuté dans la même tâche que le Runbook parent. L’historique des travaux du runbook enfant ne contient aucune indication. Toutes les exceptions et sorties de flux issues du runbook enfant sont associées au parent. Ce comportement réduit le nombre de tâches et facilite leur suivi et la résolution des problèmes.
 
-Lorsqu’un Runbook est publié, les Runbooks enfants qu’il appelle doivent déjà être publiés. En effet, Azure Automation crée une association avec tous les runbooks enfants lorsqu’il compile un runbook. Si les runbooks enfants n’ont pas encore été publiés, le runbook parent semble être publié correctement, mais génère une exception lorsqu’il est démarré. Dans ce cas, vous pouvez republier le runbook parent pour référencer correctement les runbooks enfants. Il est inutile de republier le runbook parent si des runbooks enfants sont modifiés, car l’association a déjà été créée.
+Lorsqu’un Runbook est publié, les Runbooks enfants qu’il appelle doivent déjà être publiés. En effet, Azure Automation crée une association avec tous les runbooks enfants lorsqu’il compile un runbook. Si les runbooks enfants n’ont pas encore été publiés, le runbook parent semble être publié correctement, mais il génère une exception lors de son démarrage. Dans ce cas, vous pouvez republier le runbook parent pour référencer correctement les runbooks enfants. Il est inutile de republier le runbook parent si des runbooks enfants sont modifiés, car l’association a déjà été créée.
 
-Les paramètres d’un runbook enfant appelé inlined peuvent être de n’importe quel type de données, y compris des objets complexes. Il n’y a pas de [sérialisation JSON](start-runbooks.md#work-with-runbook-parameters) comme c’est le cas quand vous démarrez le runbook à partir du Portail Azure ou à l’aide de la cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook).
+Les paramètres d’un runbook enfant appelé inlined peuvent être de n’importe quel type de données, y compris des objets complexes. Il n’y a pas de [sérialisation JSON](start-runbooks.md#work-with-runbook-parameters) comme c’est le cas quand vous démarrez le runbook à l’aide du portail Azure ou de l’applet de commande [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook).
 
 ### <a name="runbook-types"></a>Types de runbook
 
@@ -56,14 +56,14 @@ Lorsque votre runbook appelle un runbook enfant graphique ou PowerShell Workflow
 
 L’exemple suivant démarre un runbook enfant de test qui accepte un objet complexe, une valeur entière et une valeur booléenne. La sortie du Runbook enfant est affectée à une variable. Dans ce cas, le runbook enfant est un runbook de workflow PowerShell.
 
-```azurepowershell-interactive
+```powershell
 $vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
 $output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
-Voici le même exemple utilisant un runbook PowerShell en tant qu’enfant.
+Voici le même exemple utilisant un runbook PowerShell comme enfant.
 
-```azurepowershell-interactive
+```powershell
 $vm = Get-AzVM -ResourceGroupName "LabRG" -Name "MyVM"
 $output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
@@ -77,7 +77,7 @@ Vous pouvez utiliser `Start-AzAutomationRunbook` pour démarrer un runbook, comm
 
 Le tâche d’un runbook enfant démarrée avec une applet de commande s’exécute séparément de celle du runbook parent. Ce comportement génère davantage de tâches que le démarrage de runbook inlined et rend leur suivi plus complexe. Le parent peut démarrer plusieurs runbooks enfants de façon asynchrone, sans attendre la fin de leur exécution. Pour cette exécution parallèle qui appelle des runbooks enfants inlined, le runbook parent doit utiliser le [mot clé parallèle](automation-powershell-workflow.md#use-parallel-processing).
 
-La sortie des runbooks enfants n’est pas retournée au runbook parent de manière fiable en raison du timing. En outre, les variables comme `$VerbosePreference` et `$WarningPreference`, entre autres, peuvent ne pas se propager aux runbooks enfants. Pour éviter ces problèmes, vous pouvez démarrer les runbooks enfants en tant que travaux Automation distincts à l'aide de `Start-AzAutomationRunbook` avec le paramètre `Wait`. Cette technique bloque le runbook parent jusqu’à ce que l’exécution du runbook enfant soit terminée.
+La sortie des runbooks enfants n’est pas retournée au runbook parent de manière fiable en raison du minutage. De plus, les variables comme `$VerbosePreference` et `$WarningPreference`, entre autres, peuvent ne pas se propager aux runbooks enfants. Pour éviter ces problèmes, vous pouvez démarrer les runbooks enfants en tant que travaux Automation distincts à l'aide de `Start-AzAutomationRunbook` avec le paramètre `Wait`. Cette technique bloque le runbook parent jusqu’à ce que l’exécution du runbook enfant soit terminée.
 
 Si vous ne voulez pas que le runbook parent se bloque durant l'attente, vous pouvez démarrer le runbook enfant à l'aide de `Start-AzAutomationRunbook` sans le paramètre `Wait`. Dans ce cas, votre runbook doit utiliser [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) pour attendre la fin de la tâche. Il doit également utiliser [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) et [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) pour récupérer les résultats.
 
@@ -91,20 +91,16 @@ Si des tâches au sein du même compte Automation utilisent plusieurs abonnement
 
 Dans l'exemple suivant, un runbook enfant avec paramètres est démarré et exécuté à l'aide de la cmdlet `Start-AzAutomationRunbook` avec le paramètre `Wait`. Une fois l’exécution terminée, l’exemple collecte la sortie de la cmdlet issue du runbook enfant. Pour utiliser `Start-AzAutomationRunbook`, le script doit s'authentifier auprès de votre abonnement Azure.
 
-```azurepowershell-interactive
+```powershell
 # Ensure that the runbook does not inherit an AzContext
 Disable-AzContextAutosave -Scope Process
 
-# Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AzAutomationConnection -Name 'AzureRunAsConnection'
+# Connect to Azure with user-assigned managed identity
+Connect-AzAccount -Identity
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
+Connect-AzAccount -Identity -AccountId $identity.ClientId
 
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Set-AzContext -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+$AzureContext = Set-AzContext -SubscriptionId ($identity.id -split "/")[2]
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
 
@@ -118,5 +114,5 @@ Start-AzAutomationRunbook `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour exécuter votre runbook, consultez [Démarrer un runbook dans Azure Automation](start-runbooks.md).
+* Pour exécuter votre runbook, consultez [Démarrer un runbook dans Azure Automation](start-runbooks.md).
 * Pour surveiller l’opération runbook, consultez [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md).

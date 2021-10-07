@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/26/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b8ceea26ed7a5e58e890c4e313b00f1f4f37f4e7
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 32961477c21c55c21705790495436e2ed10b72fc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967796"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128568412"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Collecter les journaux Azure Active Directory B2C avec Application Insights
 
@@ -35,17 +35,19 @@ Si vous n’en avez pas encore, créez une instance Application Insights dans vo
 > [!TIP]
 > Une même instance d’Application Insights peut être utilisée pour plusieurs locataires Azure AD B2C. Ensuite, dans votre requête, vous pouvez filtrer selon le locataire ou le nom de la stratégie. Pour plus d’informations, [consultez les journaux dans les exemples Application Insights](#see-the-logs-in-application-insights).
 
-Pour utiliser une instance Application Insights de sortie dans votre abonnement, procédez comme suit :
+Pour utiliser une instance existante d’Application Insights dans votre abonnement, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre abonnement Azure (et non votre annuaire Azure AD B2C).
+1. Vérifiez que vous utilisez l’annuaire Azure AD contenant votre abonnement Azure, et non votre annuaire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Ouvrez la ressource Application Insights que vous avez créée précédemment.
 1. Sur la page **Vue d’ensemble**, enregistrez la **Clé d’instrumentation**
 
 Pour créer une instance Application Insights dans votre abonnement, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre abonnement Azure (et non votre annuaire Azure AD B2C).
+1. Vérifiez que vous utilisez l’annuaire Azure AD contenant votre abonnement Azure, et non votre annuaire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sélectionnez **Créer une ressource** dans le menu de navigation de gauche.
 1. Recherchez et sélectionnez **Application Insights**, puis sélectionnez **Créer**.
 1. Remplissez le formulaire, sélectionnez **Vérifier + créer**, puis sélectionnez **Créer**.

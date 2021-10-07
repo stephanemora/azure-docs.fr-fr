@@ -3,13 +3,13 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 05/25/2021
-ms.openlocfilehash: 29b1bbfab92ffbb97086f01c23913f01aaac1d05
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 09/13/2021
+ms.openlocfilehash: 58f0c7bab2308912979d1a8dfc442f7af4d27591
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369106"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128548187"
 ---
 Dans Visual Studio Code, votre projet d’application logique a l’un des types suivants :
 
@@ -47,12 +47,12 @@ Au niveau racine de votre projet se trouvent les fichiers et dossiers suivants a
 
 | Nom | Fichier ou dossier | Description |
 |------|----------------|-------------|
-| **.vscode** | Dossier | Contient les fichiers de paramètres liés à Visual Studio Code, comme les fichiers extensions.json, launch.json, settings.json, et tasks.json. |
+| **.vscode** | Dossier | Contient les fichiers de paramètres liés à Visual Studio Code, comme les fichiers **extensions.json**, **launch.json**, **settings.json** et **tasks.json**. |
 | **Artefacts** | Dossier | Contient les artefacts de compte d’intégration que vous définissez et utilisez dans des workflows qui prennent en charge les scénarios interentreprises (B2B, Business-to-Business). Par exemple, l’exemple de structure comprend des mappages et des schémas pour les opérations de transformation et de validation XML. |
-| **<WorkflowName>** | Dossier | Pour chaque workflow, le dossier <WorkflowName> inclut un fichier workflow.json, qui contient la définition JSON sous-jacente de ce workflow. |
+| **<*WorkflowName*>** | Dossier | Pour chaque workflow, le dossier <*WorkflowName*> inclut un fichier **workflow.json**, qui contient la définition JSON sous-jacente de ce workflow. |
 | **workflow-designtime** | Dossier | Contient les fichiers de paramètres liés à l’environnement de développement. |
 | **.funcignore** | Fichier | Contient des informations relatives à votre ensemble d’outils [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md) installé. |
 | **connections.json** | Fichier | Contient les métadonnées, les points de terminaison et les clés de toutes les connexions managées et fonctions Azure utilisées par vos workflows. <p><p>**Important** : Pour utiliser des connexions et des fonctions différentes pour chaque environnement, veillez à paramétrer ce fichier **connections.json** et mettre à jour les points de terminaison. |
-| **host.json** | Fichier | Contient des paramètres de configuration et des valeurs spécifiques au runtime, par exemple les limites par défaut pour la plateforme, les applications logiques, les workflows, les déclencheurs et les actions Azure Logic Apps à locataire unique. Au niveau racine de votre projet d’application logique, le fichier de métadonnées **host.json** contient les paramètres de configuration et les valeurs par défaut que *tous les workflows* d’une même application logique utilisent lors de l’exécution, que ce soit localement ou dans Azure. |
+| **host.json** | Fichier | Contient des paramètres de configuration et des valeurs spécifiques au runtime, par exemple les limites par défaut pour la plateforme, les applications logiques, les workflows, les déclencheurs et les actions Azure Logic Apps à locataire unique. Au niveau racine de votre projet d’application logique, le fichier de métadonnées **host.json** contient les paramètres de configuration et les valeurs par défaut que *tous les workflows* d’une même application logique utilisent lors de l’exécution, que ce soit localement ou dans Azure. <p>**Remarque** : Quand vous créez votre application logique, Visual Studio Code crée un fichier **host.snapshot.*.json** de sauvegarde dans votre conteneur de stockage. Si vous supprimez votre application logique, ce fichier de sauvegarde n’est pas supprimé. Si vous créez une autre application logique portant le même nom, un autre fichier d’instantané est créé. Vous pouvez avoir jusqu’à 10 instantanés pour la même application logique. Si vous dépassez cette limite, vous obtenez l’erreur suivante : <p>`Microsoft.Azure.WebJobs.Script.WebHost: Repository has more than 10 non-decryptable secrets backups (host))` <p>Pour résoudre cette erreur, supprimez les fichiers d’instantanés supplémentaires de votre conteneur de stockage. |
 | **local.settings.json** | Fichier | Contient les paramètres d’application, les chaînes de connexion et d’autres paramètres utilisés par vos workflows lors d’une exécution locale. En d’autres termes, ces paramètres et valeurs s’appliquent *uniquement* quand vous exécutez vos projets dans votre environnement de développement local. Lors d’un déploiement sur Azure, le fichier et les paramètres sont ignorés et ne sont pas inclus dans votre déploiement. <p><p>Ce fichier stocke les paramètres et les valeurs sous la forme de *variables d’environnement local* utilisées par vos outils de développement locaux comme valeurs `appSettings`. Vous pouvez appeler et référencer ces variables d’environnement au moment de l’exécution et au moment du déploiement à l’aide des *paramètres d’application* et des *configurations*. <p><p>**Important** : Le fichier **local.settings.json** peut contenir des secrets. Par conséquent, veillez à exclure également ce fichier du contrôle de code source de votre projet. |
 ||||

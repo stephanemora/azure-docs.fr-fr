@@ -3,12 +3,12 @@ title: Azure Event Hubs - Kits de développement logiciel (SDK) client | Microso
 description: Cet article fournit des informations sur les kits de développement logiciel (SDK) clients pour Azure Event Hubs.
 ms.topic: article
 ms.date: 09/21/2021
-ms.openlocfilehash: f3fd3407ae96cf2119bb97d2a47b647c33db9332
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b1a802e5d9829f533187f477bb28037c22c02f3c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623529"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215887"
 ---
 # <a name="azure-event-hubs---client-sdks"></a>Azure Event Hubs - Kits de développement logiciel (SDK)
 Cet article fournit les informations suivantes pour les kits de développement logiciel (SDK) pris en charge par Azure Event Hubs : 
@@ -39,7 +39,7 @@ Le tableau ci-dessous répertorie les anciens clients de runtime des Hubs d'év�
 | -------- | ------- | --------------- | 
 | . .NET Standard  | [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) (**héritage**) | <ul><li>[Emplacement GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs)</li><li>[Didacticiel](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> | 
 |       | [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor) (**héritage**) | <ul><li>[Emplacement GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.Processor)</li><li>[Didacticiel](event-hubs-dotnet-standard-getstarted-send.md)</li></ul> |
-| . NET Framework | [WindowsAzure.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) (**héritage**) |<ul><li>[Didacticiel](event-hubs-dotnet-framework-getstarted-send.md)</li></ul> |
+| . NET Framework | [WindowsAzure.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) (**héritage**) | |
 |   Java   | [azure-eventhubs](https://search.maven.org/search?q=a:azure-eventhubs) **(version héritée)** | <ul><li>[Emplacement GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/microsoft-azure-eventhubs)</li><li>[Didacticiel](event-hubs-java-get-started-send.md)</li></ul> |
 
 ## <a name="management-sdks"></a>Kits SDK de gestion

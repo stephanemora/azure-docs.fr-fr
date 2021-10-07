@@ -2,13 +2,13 @@
 title: Restaurer les bases de données SAP HANA sur des machines virtuelles Azure
 description: Dans cet article, découvrez comment restaurer des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure. Vous pouvez également utiliser la restauration inter-régions pour restaurer vos bases de données dans une région secondaire.
 ms.topic: conceptual
-ms.date: 08/06/2021
-ms.openlocfilehash: c6ad108cc0377411c144fade97b3fec2c5a8b633
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/01/2021
+ms.openlocfilehash: 7bf9734cafa003132fdef97026c76c8bdf8b329d
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531576"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426487"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurer les bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -127,6 +127,9 @@ Pour effectuer la restauration, vous avez besoin des autorisations suivantes :
 1. Dans **Sélectionner un point de restauration**, sélectionnez **Journaux (point dans le temps)** pour [effectuer une restauration vers un point spécifique dans le temps](#restore-to-a-specific-point-in-time). Ou sélectionnez **Complète et différentielle** pour [effectuer une restauration à un point de récupération spécifique](#restore-to-a-specific-recovery-point).
 
 ### <a name="restore-as-files"></a>Restaurer sous forme de fichiers
+
+>[!Note]
+>Le fonction Restaurer sous forme de fichiers ne fonctionne pas sur un partage CIFS, mais fonctionne pour NFS.
 
 Pour restaurer les données de sauvegarde sous forme de fichiers plutôt que sous forme de base de données, choisissez **Restaurer sous forme de fichiers**. Une fois les fichiers vidés sous un chemin d’accès spécifié, vous pouvez placer ces fichiers sur n’importe quel ordinateur SAP HANA sur lequel vous souhaitez les restaurer sous forme de base de données. Étant donné que vous pouvez déplacer ces fichiers sur n’importe quel ordinateur, vous pouvez désormais restaurer les données entre les abonnements et les régions.
 

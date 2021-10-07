@@ -3,12 +3,12 @@ title: Comment tester des artefacts de package de configuration d’invité
 description: Expérience de création et de test de packages qui auditent ou appliquent des configurations à des machines.
 ms.date: 07/20/2021
 ms.topic: how-to
-ms.openlocfilehash: 927e048f59d74b4137710c2f0a1f284adec0cdcb
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: efa2fbd49509b323cbf0cf442cb0a29bbc51c8b7
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122773098"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418724"
 ---
 # <a name="how-to-test-guest-configuration-package-artifacts"></a>Comment tester des artefacts de package de configuration d’invité
 
@@ -35,7 +35,7 @@ Pour exécuter PowerShell en tant que « Root » dans Linux, utilisez la [comm
 
 ## <a name="validate-the-configuration-package-meets-requirements"></a>Valider la conformité du package de configuration aux exigences
 
-Commencez par tester si le package de configuration est conforme aux exigences de base à l’aide de la commande `Get-GuestConfigurationPacakgeComplianceStatus `. Celle-ci vérifie les exigences de package suivantes.
+Commencez par tester si le package de configuration est conforme aux exigences de base à l’aide de la commande `Get-GuestConfigurationPackageComplianceStatus `. Celle-ci vérifie les exigences de package suivantes.
 
 - MOF est présent et valide, à l’emplacement approprié.
 - Les modules/dépendances requis sont présents, de la bonne version et sans doublons.
@@ -44,7 +44,7 @@ Commencez par tester si le package de configuration est conforme aux exigences d
 
 Paramètres de la cmdlet `Get-GuestConfigurationPackageComplianceStatus ` :
 
-- **Package** : chemin d’accès ou URI du package de configuration d’invité.
+- **Chemin** : chemin de fichier ou URI du package de configuration d’invité.
 - **Paramètre** : Paramètres de stratégie fournis au format Hashtable.
 
 Lors de la première exécution de cette commande, l’agent de configuration d’invité est installé sur la machine de test dans le chemin d’accès `c:\programdata\GuestConfig\bin` sur Windows, et `/var/lib/GuestConfig/bin` sur Linux. Ce chemin d’accès n’étant pas accessible à un compte d’utilisateur, la commande nécessite une élévation de privilèges.
@@ -55,14 +55,14 @@ Dans Windows, à partir d’une session PowerShell 7 avec élévation de privil
 
 ```powershell
 # Get the current compliance results for the local machine
-Get-GuestConfigurationPackageComplianceStatus -Package ./MyConfig.zip
+Get-GuestConfigurationPackageComplianceStatus -Path ./MyConfig.zip
 ```
 
 Dans Linux, en exécutant PowerShell à l’aide de sudo.
 
 ```bash
 # Get the current compliance results for the local machine
-sudo pwsh -command 'Get-GuestConfigurationPackageComplianceStatus -Package ./MyConfig.zip'
+sudo pwsh -command 'Get-GuestConfigurationPackageComplianceStatus -Path ./MyConfig.zip'
 ```
 
 La sortie de la commande est un objet contenant l’état de conformité et des détails par ressource.
@@ -82,20 +82,20 @@ Enfin, si le mode du package de configuration est `AuditandSet`, vous pouvez tes
 
 Paramètres de la cmdlet `Start-GuestConfigurationPackageRemediation` :
 
-- **Package** : chemin d’accès complet du package de configuration d’invité.
+- **Chemin** : Chemin d’accès complet du package de la Configuration invité.
 
 Dans Windows, à partir d’une session PowerShell 7 avec élévation de privilèges.
 
 ```powershell
 # Test applying the configuration to local machine
-Start-GuestConfigurationPackageRemediation -Package ./MyConfig.zip
+Start-GuestConfigurationPackageRemediation -Path ./MyConfig.zip
 ```
 
 Dans Linux, en exécutant PowerShell à l’aide de sudo.
 
 ```bash
 # Test applying the configuration to local machine
-sudo pwsh -command 'Start-GuestConfigurationPackageRemediation -Package ./MyConfig.zip'
+sudo pwsh -command 'Start-GuestConfigurationPackageRemediation -Path ./MyConfig.zip'
 ```
 
 La commande ne retourne rien, sauf si des erreurs se produisent. Pour obtenir des détails sur la résolution de problèmes relatifs aux événements qui se produisent pendant l’exécution de la commande `Set`, utilisez le paramètre `-verbose`.

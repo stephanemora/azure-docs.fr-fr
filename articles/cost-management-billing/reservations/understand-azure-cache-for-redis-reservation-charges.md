@@ -5,14 +5,14 @@ author: yegu-ms
 manager: maiye
 ms.service: cache
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 09/15/2021
 ms.author: yegu
-ms.openlocfilehash: 5f9e0a18db0920acd35ebd7b133ed3fe5d0eaee9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 46363d3bed85c275a39fea174191fad18d95d753
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352947"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609419"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Comment la remise de réservation s’applique à Azure Cache pour Redis
 
@@ -20,7 +20,7 @@ Quand vous achetez une capacité de réserve Azure Cache pour Redis, la remise d
 
 ## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est-elle appliquée ?
 
-Une remise de réservation repose sur le principe de ***capacité utilisée ou perdue** _. Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.
+Une remise de réservation repose sur le principe de ***capacité utilisée ou perdue***. Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.
 
 Lorsque vous arrêtez une ressource, la remise de réservation s'applique automatiquement à une autre ressource correspondante dans l'étendue spécifiée. Si aucune ressource correspondante n’est trouvée dans l’étendue spécifiée, les heures réservées sont perdues.
 
@@ -30,7 +30,7 @@ La remise de capacité de réserve Azure Cache pour Redis s’applique à vos ca
 
 Les exemples suivants montrent comment la remise de capacité de réserve Azure Cache pour Redis s’applique en fonction du nombre de caches que vous avez achetés et du moment où ils s’exécutent.
 
-_ **Exemple 1** : Vous achetez une capacité de réserve Azure Cache pour Redis pour un cache de 6 Go. Si vous exécutez un cache de 13 Go qui correspond au reste des attributs de la réservation, vous êtes facturé au prix du paiement à l’utilisation pour 7 Go d’utilisation de la capacité de calcul de votre instance Azure Cache pour Redis et vous bénéficiez de la remise de réservation pour une heure d’utilisation de la capacité de calcul du cache de 6 Go.
+* **Exemple 1** : Vous achetez une capacité de réserve Azure Cache pour Redis pour un cache de 6 Go. Si vous exécutez un cache de 13 Go qui correspond au reste des attributs de la réservation, vous êtes facturé au prix du paiement à l’utilisation pour 7 Go d’utilisation de la capacité de calcul de votre instance Azure Cache pour Redis et vous bénéficiez de la remise de réservation pour une heure d’utilisation de la capacité de calcul du cache de 6 Go.
 
 Pour le reste de ces exemples, nous partons du principe que la capacité de réserve Azure Cache pour Redis que vous achetez est destinée à un cache de 26 Go et que les autres attributs de réservation correspondent au cache en cours d’exécution.
 

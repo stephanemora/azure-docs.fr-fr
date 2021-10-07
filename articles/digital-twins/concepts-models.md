@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 8/25/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bfcaa516485b5ab1320db859f00a6f1709b7ef79
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 792ddf3f3ca57b16112de78a6ecf2c2d887494ef
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224885"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535856"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
 
@@ -114,7 +115,7 @@ Vous pouvez également publier un événement de télémétrie à partir de l’
 
 ### <a name="schema"></a>schéma
 
-Conformément au langage DTDL, le schéma pour les attributs **Property** et **Telemetry** peut être composé de types primitifs standard (`integer`, `double`, `string` et `Boolean`) et d’autres types tels que `DateTime` et `Duration`. 
+Conformément au langage DTDL, le schéma pour les attributs **Property** et **Telemetry** peut être composé de types primitifs standard (`integer`, `double`, `string` et `boolean`) et d’autres types tels que `dateTime` et `duration`. 
 
 En plus des types primitifs, les champs Property et Telemetry peuvent avoir les [types complexes](#complex-object-type-example) suivants :
 * `Object`

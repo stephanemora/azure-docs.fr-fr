@@ -4,12 +4,12 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 07/19/2021
 ms.author: spelluru
-ms.openlocfilehash: e4fd2d455a294b247353e4983c379066d704c87a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 43550a98e5df6c58214427a989e290b3c69ab338
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121803214"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129377955"
 ---
 ## <a name="overview"></a>Vue d'ensemble
 Quand un principal de sécurité (un utilisateur, un groupe ou une application) tente d’accéder à une entité de Relais, la requête doit être autorisée. Avec Azure AD, l’accès à une ressource est un processus en deux étapes.
@@ -37,5 +37,5 @@ La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès a
 - **Abonnement** : l’attribution de rôle s’applique à toutes les ressources Relay dans tous les groupes de ressources de l’abonnement.
 
 > [!NOTE]
-> Gardez à l’esprit que la propagation des attributions de rôles Azure peut prendre cinq minutes. Pour plus d’informations sur la définition des rôles intégrés, consultez [Comprendre les définitions de rôles](../../role-based-access-control/role-definitions.md#management-and-data-operations). Pour plus d’informations sur la création de rôles personnalisés Azure, consultez [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md). 
+> Gardez à l’esprit que la propagation des attributions de rôles Azure peut prendre cinq minutes. Pour plus d’informations sur la définition des rôles intégrés, consultez [Comprendre les définitions de rôles](../../role-based-access-control/role-definitions.md#control-and-data-actions). Pour plus d’informations sur la création de rôles personnalisés Azure, consultez [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md). 
 

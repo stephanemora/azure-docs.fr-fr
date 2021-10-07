@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 09/20/2021
 ms.author: tisande
-ms.openlocfilehash: 29a97d3f68d9b097bfe5c67f0b5832271fa983e1
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 39b385096fadb5d410520889c0aa8f1a07f1a67a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123031115"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616552"
 ---
 # <a name="azure-cosmos-db-integrated-cache---overview-preview"></a>Cache intégré Azure Cosmos DB - Vue d’ensemble (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -88,13 +88,17 @@ Le cache de requêtes met automatiquement en cache les jetons de continuation de
 
 ## <a name="integrated-cache-consistency"></a>Cohérence du cache intégré
 
-Le cache intégré prend uniquement en charge la [cohérence](consistency-levels.md) finale. Si une lecture a constamment un préfixe, une session, une obsolescence limitée ou une cohérence forte, elle contourne toujours le cache intégré.
+Le cache intégré prend uniquement en charge la session et la [cohérence](consistency-levels.md) éventuelle. Si une lecture a constamment un préfixe, une session, une obsolescence limitée ou une cohérence forte, elle contourne toujours le cache intégré.
 
-Le moyen le plus simple de configurer la cohérence finale pour toutes les lectures est de la [définir au niveau du compte](consistency-levels.md#configure-the-default-consistency-level). Toutefois, si vous souhaitez que certaines de vos lectures aient une cohérence finale, vous pouvez également configurer la cohérence au [niveau de la requête](how-to-manage-consistency.md#override-the-default-consistency-level).
+Le moyen le plus simple de configurer une session ou une cohérence éventuelle pour toutes les lectures est de [le définir au niveau du compte](consistency-levels.md#configure-the-default-consistency-level). Toutefois, si vous souhaitez que certaines de vos lectures aient une cohérence finale, vous pouvez également configurer la cohérence au [niveau de la requête](how-to-manage-consistency.md#override-the-default-consistency-level).
+
+### <a name="session-consistency"></a>Cohérence de session
+
+La [cohérence de Session](consistency-levels.md#session-consistency) est le niveau de cohérence le plus largement utilisé pour les comptes Azure Cosmos DB à région unique et globalement distribués. Lors de l’utilisation de la cohérence de session, les sessions client uniques peuvent lire leurs propres écritures. Les clients en dehors de la session effectuant des écritures verront la cohérence éventuelle.
 
 ## <a name="maxintegratedcachestaleness"></a>MaxIntegratedCacheStaleness
 
-`MaxIntegratedCacheStaleness` est l’obsolescence maximale acceptable pour les lectures et les requêtes de points mises en cache. `MaxIntegratedCacheStaleness` est configurable au niveau de la demande. Par exemple, si vous définissez `MaxIntegratedCacheStaleness` sur 2  heures, votre demande retourne uniquement les données mises en cache si celles-ci ont moins de 2 heures. Pour augmenter la probabilité que les lectures répétées utilisent le cache intégré, vous devez définir `MaxIntegratedCacheStaleness` avec une valeur aussi élevée que vos besoins métier le permettent.
+`MaxIntegratedCacheStaleness`est l’obsolescence maximale acceptable pour les lectures et les requêtes de points mis en cache, quelle que soit la cohérence sélectionnée. `MaxIntegratedCacheStaleness` est configurable au niveau de la demande. Par exemple, si vous définissez `MaxIntegratedCacheStaleness` sur 2  heures, votre demande retourne uniquement les données mises en cache si celles-ci ont moins de 2 heures. Pour augmenter la probabilité que les lectures répétées utilisent le cache intégré, vous devez définir `MaxIntegratedCacheStaleness` avec une valeur aussi élevée que vos besoins métier le permettent.
 
 Il est important de comprendre que `MaxIntegratedCacheStaleness`, lorsqu’elle est configurée sur une demande qui finit par remplir le cache, n’a pas d’impact sur la durée de mise en cache de la demande. `MaxIntegratedCacheStaleness` applique la cohérence lorsque vous essayez d’utiliser des données mises en cache. Il n’existe pas de paramètre de durée de vie globale ou de conservation du cache, donc les données sont supprimées du cache seulement si le cache intégré est plein ou si une nouvelle lecture est exécutée avec une `MaxIntegratedCacheStaleness` inférieure à l’ancienneté de l’entrée mise en cache actuelle.
 
@@ -154,7 +158,7 @@ Vérifiez `DedicatedGatewayRequests`. Cette métrique comprend toutes les requê
 
 ### <a name="i-cant-tell-if-my-requests-are-hitting-the-integrated-cache"></a>Je ne peux pas savoir si mes demandes ont une correspondance dans le cache intégré
 
-Regardez `IntegratedCacheItemHitRate` et `IntegratedCacheQueryHitRate`. Si ces deux valeurs sont égales à zéro, les demandes n’atteignent pas le cache intégré. Vérifiez que vous utilisez la chaîne de connexion de passerelle dédiée, que vous vous [connectez avec le mode passerelle](sql-sdk-connection-modes.md) et que vous [avez défini la cohérence finale](consistency-levels.md#configure-the-default-consistency-level).
+Regardez `IntegratedCacheItemHitRate` et `IntegratedCacheQueryHitRate`. Si ces deux valeurs sont égales à zéro, les demandes n’atteignent pas le cache intégré. Vérifiez que vous utilisez la chaîne de connexion de passerelle dédiée, que vous vous [connectez avec le mode passerelle](sql-sdk-connection-modes.md) et que vous [avez défini la session ou la cohérence éventuelle](consistency-levels.md#configure-the-default-consistency-level).
 
 ### <a name="i-want-to-understand-if-my-dedicated-gateway-is-too-small"></a>Je souhaite comprendre si ma passerelle dédiée est trop petite
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4e7302cda688d92e19d147f0bfa1a482823b2623
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 790e677a313762d8b4ac9c1ae55473c2b55e058c
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525275"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123471675"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide d’Azure CLI
 
@@ -155,6 +155,11 @@ Par exemple, voici un manifeste de déploiement en couches de base comportant un
   }
 }
 ```
+>[!NOTE]
+> Notez que le format de ce manifeste de déploiement en couches diffère légèrement de celui d’un manifeste de déploiement standard. Les propriétés souhaitées des modules du runtime sont réduites à l’aide d’une notation par points. Cette mise en forme est requise pour que le portail Azure reconnaisse un déploiement en couches. Par exemple :
+>
+>  - `properties.desired.modules.<module_name>`
+>  - `properties.desired.routes.<route_name>`
 
 L’exemple précédent illustrait un déploiement en couches définissant `properties.desired` pour un module. Si ce déploiement en couches venait à cibler un appareil sur lequel le même module est déjà appliqué, il remplacerait les propriétés souhaitées existantes. Pour procéder à une mise à jour plutôt qu'à un remplacement des propriétés souhaitées, vous pouvez définir une nouvelle sous-section. Exemple :
 
@@ -166,6 +171,24 @@ L’exemple précédent illustrait un déploiement en couches définissant `prop
   }
 }
 ```
+
+Vous pouvez également exprimer cela comme suit :
+
+```json
+"SimulatedTEmperatureSensor": {
+  "properties.desired.layeredProperties.SendData" : true,
+  "properties.desired.layeredProperties.SendInterval": 5
+}
+```
+
+>[!NOTE]
+>À l’heure actuelle, tous les déploiements en couches doivent inclure un objet edgeAgent pour être considéré comme valides. Même si un déploiement en couches met uniquement à jour les propriétés du module, incluez un objet vide. Par exemple : `"$edgeAgent":{}`. Un déploiement en couches avec un objet edgeAgent vide apparaît comme **ciblé** dans le jumeau de module edgeAgent, pas comme **appliqué**.
+
+En résumé, pour créer un déploiement en couches :
+
+- Doit ajoutez l’indicateur `--layered` à la commande create d’Azure CLI
+- Ne peut pas contenir de modules système
+- Doit utiliser une « notation par points » complète sous `$edgeAgent` et `$edgeHub`
 
 Pour plus d’informations sur la configuration de jumeaux de module au sein des déploiements en couches, consultez [Déploiement en couches.](module-deployment-monitoring.md#layered-deployment)
 

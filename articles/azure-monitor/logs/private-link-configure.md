@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: dfc0601dddddd89559d2a7bb28d6f3d86dcdf40c
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 936a8393f21d71cfb2fd1dd4cd2c249f0d13689c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272364"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123432573"
 ---
 # <a name="configure-your-private-link"></a>Configurer votre liaison privée
 La configuration d’une liaison privée nécessite plusieurs étapes : 
@@ -99,7 +99,7 @@ Accédez au portail Azure. Dans le menu de votre ressource se trouve un élémen
 
 
 > [!NOTE]
-> À partir du 16 août 2021, l’isolement réseau sera appliqué de façon stricte. Les ressources définies pour bloquer les requêtes à partir de réseaux publics et qui ne sont pas connectées à un réseau privé (via un objet AMPLS) n’acceptent plus de requêtes d’un réseau.
+> À partir de septembre 2021, l’isolement réseau sera appliqué de façon stricte. Les ressources définies pour bloquer les requêtes à partir de réseaux publics et qui ne sont pas connectées à un réseau privé (via un objet AMPLS) n’acceptent plus de requêtes d’un réseau.
 
 ![Isolement réseau LA](./media/private-link-security/ampls-network-isolation.png)
 
@@ -214,8 +214,10 @@ Le modèle Azure Resource Manager ci-dessous crée les éléments suivants :
 }
 ```
 
-### <a name="set-ampls-access-flags---powershell-example"></a>Définir des indicateurs d’accès AMPLS - exemple PowerShell
+### <a name="set-ampls-access-modes---powershell-example"></a>Créer des modes d’accès AMPLS - exemple PowerShell
 Pour définir les indicateurs du mode d’accès sur votre AMPLS, vous pouvez utiliser le script PowerShell suivant. Le script suivant définit les indicateurs sur Open. Pour utiliser le mode privé uniquement, utilisez la valeur « PrivateOnly ».
+
+Laissez environ 10 minutes pour que la mise à jour des modes d’accès AMPLS prenne effet.
 
 ```
 # scope details

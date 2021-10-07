@@ -7,27 +7,27 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 1505837a316943c2d22f82a0107bb7a1990e0e83
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 3922b716a5537838be06f3fec6a9626e59fa929f
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525455"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129055100"
 ---
-# <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Agent In-process Java d’Application Insights dans Azure Spring Cloud (préversion)
+# <a name="application-insights-java-in-process-agent-in-azure-spring-cloud"></a>Agent In-process Java d’Application Insights dans Azure Spring Cloud
 
 Cet article explique comment surveiller les applications et les microservices en utilisant l’agent Java d’Application Insights dans Azure Spring Cloud.
 
 À l’aide de cette fonctionnalité, vous pouvez :
 
 * Lancer des recherches dans des données de suivi avec différents filtres
-* Voir la carte des dépendances des microservices.
+* Voir une carte des dépendances des microservices.
 * Vérifier les performances des requêtes.
 * Surveiller les métriques dynamiques en temps réel.
 * Vérifier les échecs des requêtes.
 * Vérifier les métriques de l’application.
 
-Application Insights fournit de nombreuses perspectives observables, notamment :
+Application Insights peut fournir de nombreuses perspectives observables, notamment :
 
 * Mise en correspondance d’applications
 * Performances
@@ -36,25 +36,22 @@ Application Insights fournit de nombreuses perspectives observables, notamment 
 * Métriques temps réel
 * Disponibilité
 
-> [!NOTE]
-> Cette fonctionnalité d’évaluation n’est pas prise en charge dans Mooncake et dans les nouvelles régions telles que l’UAE.
-
 ## <a name="enable-java-in-process-agent-for-application-insights"></a>Activation de l’agent Java In-process pour Application Insights
 
-Activez la fonctionnalité en préversion de l’agent Java In-process à l’aide de la procédure suivante.
+Activez l’agent Java In-Process à l’aide de la procédure suivante.
 
 1. Accédez à la page de la vue d’ensemble du service de votre instance de service.
-2. Sélectionnez l’entrée **Application Insights** dans le panneau de surveillance.
-3. Sélectionnez le bouton **Activer Application Insights** pour activer l’intégration d’**Application Insights**.
+2. Sélectionnez l’entrée **Application Insights** dans le volet **Supervision**.
+3. Sélectionnez **Activer Application Insights** pour activer l’intégration d’**Application Insights**.
 4. Sélectionnez une instance d’Application Insights ou créez-en une.
-5. Sélectionnez **Activer l’agent Java In-process** pour activer la préversion de la fonctionnalité de l’agent Java In-process. Ici, vous pouvez également personnaliser le taux d’échantillonnage de 0 à 100.
-6. Sélectionnez **Enregistrer** pour enregistrer la modification.
+   Ici, vous pouvez également personnaliser le taux d’échantillonnage de 0 à 100.
+5. Sélectionnez **Enregistrer** pour enregistrer la modification.
 
 ## <a name="portal"></a>Portail
 
 1. Accédez à la page **Service | Vue d’ensemble** et sélectionnez **Application Insights** dans la section **Supervision**.
 2. Sélectionnez **Activer Application Insights** pour activer Application Insights dans Azure Spring Cloud.
-3. Sélectionnez **Activer l’agent Java In-process** pour activer la fonctionnalité d’évaluation Java IPA. Quand la préversion de la fonctionnalité d’agent In-Process est activée, vous pouvez configurer un taux d’échantillonnage facultatif (par défaut 10,0 %).
+3. Une fois **Application Insights** activé, vous pouvez configurer un taux d’échantillonnage facultatif (10,0 % par défaut).
 
    [ ![IPA 0](media/spring-cloud-application-insights/insights-process-agent-0.png)](media/spring-cloud-application-insights/insights-process-agent-0.png)
 
@@ -90,9 +87,13 @@ Dans le volet de navigation de gauche, sélectionnez **Application Insights** po
 
    [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
-## <a name="arm-template"></a>Modèle ARM
+## <a name="automation"></a>Automatisation
 
-Pour utiliser le modèle Azure Resource Manager, copiez le contenu suivant sur `azuredeploy.json`.
+Les sections suivantes décrivent l’automatisation de votre déploiement à l’aide de modèles Azure Resource Manager (modèles ARM) ou de Terraform.
+    
+### <a name="arm-templates"></a>Modèles ARM
+
+Pour effectuer un déploiement à l’aide d’un modèle ARM, copiez le contenu suivant dans un fichier *azuredeploy.json*. Pour plus d’informations, consultez [Microsoft.AppPlatform Spring/monitoringSettings](/azure/templates/microsoft.appplatform/spring/monitoringsettings).
 
 ```json
 {
@@ -124,27 +125,119 @@ Pour utiliser le modèle Azure Resource Manager, copiez le contenu suivant sur `
 }
 ```
 
+### <a name="terraform"></a>Terraform
+
+Pour un déploiement Terraform, utilisez le modèle suivant. Pour plus d’informations, consultez [azurerm_spring_cloud_service](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_service).
+
+```terraform
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+
+resource "azurerm_application_insights" "example" {
+  name                = "tf-test-appinsights"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  application_type    = "web"
+}
+
+resource "azurerm_spring_cloud_service" "example" {
+  name                = "example-springcloud"
+  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.example.location
+  sku_name            = "S0"
+
+  config_server_git_setting {
+    uri          = "https://github.com/Azure-Samples/piggymetrics"
+    label        = "config"
+    search_paths = ["dir1", "dir2"]
+  }
+
+  trace {
+    connection_string = azurerm_application_insights.example.connection_string
+    sample_rate       = 10.0
+  }
+
+  tags = {
+    Env = "staging"
+  }
+}
+```
+
 ## <a name="cli"></a>Interface de ligne de commande
 
-Appliquer le modèle ARM avec la commande CLI :
+Vous pouvez gérer Application Insights à l’aide des commandes Azure CLI. Dans les commandes suivantes, veillez à remplacer le texte *\<placeholder>* par les valeurs décrites. L’espace réservé *\<service-name>* fait référence au nom de votre instance Azure Spring Cloud.
 
-* Pour une instance Azure Spring Cloud existante :
+Pour configurer Application Insights au moment de la création d’une instance Azure Spring Cloud, utilisez la commande suivante. Pour l’argument `app-insights`, vous pouvez spécifier un nom ou un ID de ressource Application Insights.
+   
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name "serviceName" \
+    --app-insights <name-or-resource-ID> \
+    --sampling-rate <sampling-rate>
+```
 
-   ```azurecli
-   az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate]    "samplingRate" --name "assignedName" --resource-group "resourceGroupName"
-   ```
+Vous pouvez également utiliser une chaîne de connexion Application Insights (choix par défaut) ou une clé d’instrumentation, comme indiqué dans l’exemple suivant.
+   
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --app-insights-key <connection-string-or-instrumentation-key> \
+    --sampling-rate <sampling-rate>
+```
 
-* Pour une nouvelle instance Azure Spring Cloud :
+Pour désactiver Application Insights au moment de la création d’une instance Azure Spring Cloud, utilisez la commande suivante :
 
-   ```azurecli
-   az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName"    --disable-app-insights false --enable-java-agent true --name "assignedName" --resource-group    "resourceGroupName"
-   ```
+```azurecli
+az spring-cloud create \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --disable-app-insights
+```
 
-* Pour désactiver App-Insight :
+Pour vérifier les paramètres Application Insights d’une instance existante Azure Spring Cloud, utilisez la commande suivante :
 
-   ```azurecli
-   az spring-cloud app-insights update --disable --name "assignedName" --resource-group "resourceGroupName"
-   ```
+```azurecli
+az spring-cloud app-insights show \
+    --resource-group <resource-group-name> \
+    --name <service-name>
+```
+
+Pour activer Application Insights à l’aide d’une chaîne de connexion (choix par défaut) ou d’une clé d’instrumentation, utilisez la commande suivante :
+
+```azurecli
+az spring-cloud app-insights update \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --app-insights-key <connection-string-or-instrumentation-key> \
+    --sampling-rate <sampling-rate>
+```
+
+Pour activer Application Insights à l’aide du nom ou de l’ID de ressource, utilisez la commande suivante :
+
+```azurecli
+az spring-cloud app-insights update \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --app-insights <name-or-resource-ID> \
+    --sampling-rate <sampling-rate>
+```
+
+Pour désactiver Application Insights dans une instance Azure Spring Cloud existante, utilisez la commande suivante :
+
+```azurecli
+az spring-cloud app-insights update \
+    --resource-group <resource-group-name> \
+    --name <service-name> \
+    --disable
+```
 
 ## <a name="java-agent-updateupgrade"></a>Mise à jour/mise à niveau de l’agent Java
 
@@ -162,7 +255,7 @@ L’agent Java est régulièrement mis à jour/mis à niveau avec le JDK, ce qui
 Azure Spring Cloud a activé un mécanisme de chargement à chaud pour ajuster les paramètres de configuration de l’agent sans redémarrer les applications.
 
 > [!Note]
-> Le mécanisme de chargement à chaud a un retard en minutes.
+> Le mécanisme de chargement à chaud a un délai exprimé en minutes.
 
 * Lorsque l’agent Java a été activé précédemment, les modifications apportées à l’instance Application Insights et/ou à SamplingRate ne nécessitent PAS le redémarrage des applications.
 * Si vous activez l’agent Java, vous devez redémarrer les applications.

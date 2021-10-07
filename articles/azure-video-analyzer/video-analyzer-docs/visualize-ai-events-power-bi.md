@@ -4,12 +4,12 @@ description: Vous pouvez utiliser Azure Video Analyzer pour un enregistrement vi
 ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 09/08/2021
-ms.openlocfilehash: 925050ccc3650db3afa4a4e4181a7d245c53f9e1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 68eb62e126065a6c39b5fd6648afb4b96accbd2d
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605186"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401918"
 ---
 # <a name="tutorial-real-time-visualization-of-ai-inference-events-with-power-bi"></a>Tutoriel : Visualisation en temps réel des événements d’inférence IA avec Power BI
 
@@ -30,14 +30,14 @@ Ce didacticiel présente les procédures suivantes :
 
 - [Supervision et journalisation](monitor-log-edge.md) dans Video Analyzer
 - Lecture [des messages appareil-à-cloud depuis les points de terminaison intégrés IoT Hub](../../iot-hub/iot-hub-devguide-messages-read-builtin.md)
-- Introduction aux [tableaux de bord Power BI](https://docs.microsoft.com/power-bi/create-reports/service-dashboards)
+- Introduction aux [tableaux de bord Power BI](/power-bi/create-reports/service-dashboards)
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. Si vous n’en avez pas déjà un, [créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ce tutoriel repose sur l’utilisation de l’[exemple de franchissement de ligne](use-line-crossing.md) pour détecter le moment où des objets franchissent une ligne virtuelle dans un flux vidéo en direct. Vous pouvez choisir de créer une visualisation pour d’autres pipelines : **un pipeline avec un récepteur de messages IoT Hub est nécessaire**. Vérifiez que le pipeline en direct est créé, mais activez-le uniquement après avoir créé une tâche Stream Analytics.
 
-  > [!NOTE]
+  > [!TIP]
   >
   > - L’[exemple de franchissement de ligne](use-line-crossing.md) utilise un enregistrement vidéo de 5 minutes. Pour obtenir de meilleurs résultats de visualisation, utilisez l’enregistrement des véhicules sur autoroute d’une durée de 60 minutes disponible sous [Other dataset](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset) (Autre jeu de données).
   > - Consultez la section Configuration et déploiement dans les [questions fréquentes (FAQ)](faq-edge.yml) pour savoir comment ajouter des exemples de fichiers vidéo au simulateur rtsp. Une fois ajoutés, modifiez la valeur `rtspUrl` pour pointer vers le nouveau fichier vidéo.
@@ -146,7 +146,7 @@ Dans la tâche Stream Analytics, sélectionnez Vue d’ensemble, puis **Démarr
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/power-bi/start-asa.png" alt-text="Capture d’écran du démarrage et de l’exécution d’une tâche Stream Analytics.":::
 
-> [!NOTE]
+> [!TIP]
 > IoT Hub permet de conserver les données dans les Event Hubs intégrés pendant 1 jour et pendant 7 jours maximum. Vous pouvez définir la durée de conservation lors de la création de votre IoT Hub. La durée de conservation des données dans IoT Hub dépend du niveau et du type d’unité que vous avez choisis. Cliquez [ici](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) pour plus d’informations. Pour conserver les données plus longtemps, utilisez [Stockage Azure comme sortie](../../stream-analytics/blob-storage-azure-data-lake-gen2-output.md), puis connectez Power BI aux fichiers situés dans le compte de stockage.
 
 ## <a name="run-a-sample-pipeline"></a>Exécuter un exemple de pipeline
@@ -161,7 +161,7 @@ Dans Power BI, vous pouvez visualiser les données de streaming de deux manière
 2. Utilisez une vignette de tableau de bord avec un jeu de données de streaming personnalisé.
 
    > [!NOTE]
-   > Dans cet article, nous allons utiliser la première méthode pour créer des rapports, puis les épingler au tableau de bord. Cette méthode permet de garder les données sur le visuel plus longtemps et les cumule automatiquement quand elles entrent. Pour en savoir plus sur la seconde méthode, consultez [Configurer votre jeu de données de streaming personnalisé dans Power BI](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
+   > Dans cet article, nous allons utiliser la première méthode pour créer des rapports, puis les épingler au tableau de bord. Cette méthode permet de garder les données sur le visuel plus longtemps et les cumule automatiquement quand elles entrent. Pour en savoir plus sur la seconde méthode, consultez [Configurer votre jeu de données de streaming personnalisé dans Power BI](/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
 
 ### <a name="create-and-publish-a-power-bi-report"></a>Créer et publier un rapport Power BI
 
@@ -199,7 +199,7 @@ Cliquez sur **Épingler sur un tableau de bord** en haut à droite et indiquez s
 > :::image type="content" source="./media/power-bi/pinned-dashboard.png" alt-text="Tableau de bord Power BI avec un rapport épinglé et un widget de lecteur ajouté dans une vignette.":::
 
 > [!NOTE]
-> La lecture de la vidéo et la création du rapport ne seront pas synchronisées en raison de la méthode utilisée pour générer les rapports. Pour obtenir une expérience en quasi-temps réel, consultez [Configurer votre jeu de données de streaming personnalisé dans Power BI](https://docs.microsoft.com/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
+> La lecture de la vidéo et la création du rapport ne seront pas synchronisées en raison de la méthode utilisée pour générer les rapports. Pour obtenir une expérience en quasi-temps réel, consultez [Configurer votre jeu de données de streaming personnalisé dans Power BI](/power-bi/connect-data/service-real-time-streaming#set-up-your-real-time-streaming-dataset-in-power-bi).
 
 ## <a name="interpret-the-dashboard"></a>Interpréter le tableau de bord
 

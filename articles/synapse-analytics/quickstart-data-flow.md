@@ -9,12 +9,12 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 37696d2f4054e46125b39f3d5efa794ce54f94b5
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 481d4534f7213d55c795383d6112fd93f7997c9c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567721"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128596863"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Démarrage rapide : Transformer des données avec des flux de données de mappage
 
@@ -109,11 +109,11 @@ Une fois que vous avez créé votre flux de données, vous êtes automatiquement
 
     Dans ce démarrage rapide, vous voulez filtrer les films du genre comédie qui sont sortis entre 1910 et 2000. Comme l’année est actuellement une chaîne, vous devez la convertir en un entier à l’aide de la fonction ```toInteger()```. Utilisez les opérateurs supérieur ou égal à (>=) et inférieur ou égal à (<=) pour effectuer une comparaison avec les valeurs d’années (year) littérales 1910 et 2000. Unissez ces expressions avec l’opérateur And (&&). L’expression se présente comme suit :
 
-    ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
+    `toInteger(year) >= 1910 && toInteger(year) <= 2000`
 
-    Pour rechercher les films qui sont des comédies, vous pouvez utiliser la fonction ```rlike()``` pour rechercher le modèle « Comedy » dans la colonne genres. Unissez l’expression rlike avec la comparaison d’année (year) pour obtenir :
+    Pour rechercher les films qui sont des comédies, vous pouvez utiliser la fonction `rlike()` pour rechercher le modèle « Comedy » dans la colonne genres. Ajoutez à l’expression `rlike` la comparaison d’année à obtenir :
 
-    ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
+    `toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')`
 
     ![Spécifier la condition de filtrage](media/quickstart-data-flow/visual-expression-builder.png)
 
@@ -137,7 +137,7 @@ Une fois que vous avez créé votre flux de données, vous êtes automatiquement
 
 1. Pour afficher la moyenne de la colonne **Évaluation**, utilisez la fonction d’agrégation ```avg()```. Comme **Évaluation** est une chaîne et que ```avg()``` prend une entrée numérique, nous devons convertir la valeur en nombre à l’aide de la fonction ```toInteger()```. Voici comment se présente l’expression :
 
-    ```avg(toInteger(Rating))```
+    `avg(toInteger(Rating))`
 
     Quand vous avez terminé, cliquez sur **Enregistrer et terminer**.
 

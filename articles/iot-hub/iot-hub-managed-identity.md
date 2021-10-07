@@ -5,14 +5,14 @@ author: miag
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 09/02/2021
 ms.author: miag
-ms.openlocfilehash: 4d5a518bc517b950f5366ba53eadb7284121a5e3
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: e230f06c91e775de87b42fcc2112fc699f9ecafc
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866407"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449228"
 ---
 # <a name="iot-hub-support-for-managed-identities"></a>Prise en charge des identités managées par IoT Hub 
 
@@ -123,14 +123,14 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 Dans cette section, vous allez découvrir comment ajouter une identité managée affectée par l’utilisateur sur un hub IoT et comment l’en supprimer en utilisant le portail Azure.
 1.  Tout d’abord, vous devez créer une identité managée affectée par l’utilisateur en tant que ressource autonome. Pour ce faire, vous pouvez suivre les instructions fournies dans [Créer une identité managée affectée par l’utilisateur](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
 2.  Accédez à votre hub IoT, puis à l’**identité** dans le portail IoT Hub.
-3.  Sous l’onglet **Affectée par l’utilisateur**, cliquez sur **Ajouter une identité managée affectée par l’utilisateur**. Choisissez l’identité managée affectée par l’utilisateur que vous souhaitez ajouter à votre hub, puis cliquez sur **Sélectionner**. 
+3.  Sous l’onglet **Affectée par l’utilisateur**, cliquez sur **Associer une identité managée affectée par l’utilisateur**. Choisissez l’identité managée affectée par l’utilisateur que vous souhaitez ajouter à votre hub, puis cliquez sur **Sélectionner**. 
 4.  Vous pouvez supprimer une identité affectée par l’utilisateur d’un hub IoT. Choisissez l’identité affectée par l’utilisateur que vous souhaitez supprimer, puis cliquez sur le bouton **Supprimer**. Notez que vous le supprimez uniquement du hub IoT, et que cette suppression ne supprime pas l’identité affectée par l’utilisateur en tant que ressource. Pour supprimer l’identité affectée par l’utilisateur en tant que ressource, suivez les instructions fournies dans [Supprimer une identité managée affectée par l’utilisateur](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#delete-a-user-assigned-managed-identity).
 
     :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="Capture d’écran montrant comment ajouter une identité managée affectée par l’utilisateur pour un hub IoT":::        
 
 
 ### <a name="enable-user-assigned-managed-identity-at-hub-creation-time-using-arm-template"></a>Activer l’identité managée affectée par l'utilisateur au moment de la création du hub en utilisant un modèle ARM
-Vous trouverez ci-dessous un exemple de modèle permettant de créer un hub avec une identité managée affectée par l'utilisateur. Ce modèle crée une identité affectée par l’utilisateur portant le nom *[iothub-name-provided]-identity* et destinée au hub IoT créé. Si besoin, vous pouvez modifier ce modèle afin d’ajouter plusieurs identités affectées par l’utilisateur.
+L’exemple de modèle suivant peut être utilisé pour créer un hub avec une identité managée affectée par l'utilisateur. Ce modèle crée une identité affectée par l’utilisateur portant le nom *[iothub-name-provided]-identity* et destinée au hub IoT créé. Si besoin, vous pouvez modifier ce modèle afin d’ajouter plusieurs identités affectées par l’utilisateur.
  
 ```json
 {
@@ -222,22 +222,23 @@ Une fois la ressource créée, vous pouvez récupérer l'identité managée affe
 az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
 ```
 ## <a name="egress-connectivity-from-iot-hub-to-other-azure-resources"></a>Connectivité entrante d’IoT Hub vers d'autres ressources Azure
-Dans IoT Hub, les identités managées peuvent être utilisées pour la connectivité de sortie de IoT Hub à d’autres services Azure pour le [routage des messages](iot-hub-devguide-messages-d2c.md), le [chargement de fichiers](iot-hub-devguide-file-upload.md) et l’[importation/exportation d’appareils en bloc](iot-hub-bulk-identity-mgmt.md). Vous pouvez choisir l’identité managée à utiliser pour chaque connectivité de sortie d’IoT Hub aux points de terminaison appartenant au client, y compris les comptes de stockage, les Event Hubs et les points de terminaison Service Bus. 
+Les identités managées peuvent être utilisées pour la connectivité de sortie de IoT Hub à d’autres services Azure pour le [routage des messages](iot-hub-devguide-messages-d2c.md), le [chargement de fichiers](iot-hub-devguide-file-upload.md) et l’[importation/exportation d’appareils en bloc](iot-hub-bulk-identity-mgmt.md). Vous pouvez choisir l’identité managée à utiliser pour chaque connectivité de sortie d’IoT Hub aux points de terminaison appartenant au client, y compris les comptes de stockage, les Event Hubs et les points de terminaison Service Bus. 
 
 ## <a name="configure-message-routing-with-managed-identities"></a>Configurer le routage des messages avec des identités managées
-Dans cette section, nous utilisons le [routage des messages](iot-hub-devguide-messages-d2c.md) vers le point de terminaison personnalisé de l’Event Hub en guise d’exemple. La même chose s’applique à d’autres points de terminaison personnalisés de routage. 
+Dans cette section, nous utilisons le [routage des messages](iot-hub-devguide-messages-d2c.md) vers un point de terminaison personnalisé de l’Event Hub en guise d’exemple. L’exemple s’applique à d’autres points de terminaison personnalisés de routage. 
 
-1.  Tout d’abord, nous devons accéder à votre Event Hub dans Portail Azure pour attribuer l’accès approprié à l’identité managée. Dans votre Event Hub, accédez à l’onglet **Contrôle d’accès (IAM)** et cliquez sur **Ajouter**, puis sur **Ajouter une attribution de rôle**.
-3.  Sélectionnez **Expéditeur de données Event Hubs en tant que rôle**.
+1.  Tout d’abord, nous devons accéder à votre Event Hub dans Portail Azure pour attribuer l’accès approprié à l’identité managée. Dans votre Event Hub, accédez à l’onglet **Contrôle d’accès (IAM)** et cliquez sur **Ajouter**, puis sur **Ajouter une attribution de rôle**. Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
+
+2.  Sélectionnez **Expéditeur de données Event Hubs en tant que rôle**.
 
     > [!NOTE] 
     > Pour le compte de stockage, sélectionnez **Contributeur aux données Blob du stockage** ([et *non* Contributeur ou Contributeur de compte de stockage](../storage/blobs/assign-azure-role-data-access.md)) en tant que **rôle**. Pour Service Bus, sélectionnez **Expéditeur de données Service Bus** en tant que **rôle**.
 
-4.  Pour l’identité affectée par l’utilisateur, choisissez **Identité managée affectée par l’utilisateur** sous **Attribuer l’accès à**. Sélectionnez votre abonnement et votre identité managée affectée par l’utilisateur dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
+3.  Pour l’identité affectée par l’utilisateur, choisissez **Identité managée affectée par l’utilisateur** sous **Attribuer l’accès à**. Sélectionnez votre abonnement et votre identité managée affectée par l’utilisateur dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
 
     :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-user-assigned.png" alt-text="Routage des messages IoT Hub avec une identité affectée par l’utilisateur":::
 
-5.  Pour l’identité affectée par le système, sous **Attribuer l’accès à**, choisissez **Utilisateur, groupe ou principal de service**, puis sélectionnez le nom de ressource de votre hub IoT dans la liste déroulante. Cliquez sur **Enregistrer**.
+4.  Pour l’identité affectée par le système, sous **Attribuer l’accès à**, choisissez **Utilisateur, groupe ou principal de service**, puis sélectionnez le nom de ressource de votre hub IoT dans la liste déroulante. Cliquez sur **Enregistrer**.
 
     :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-system-assigned.png" alt-text="Routage des messages IoT Hub avec une identité affectée par le système":::
 
@@ -246,17 +247,17 @@ Dans cette section, nous utilisons le [routage des messages](iot-hub-devguide-me
     > [!NOTE]
     > Vous devez effectuer les étapes ci-dessus pour attribuer le bon accès à l’identité managée avant d’ajouter l’Event Hub comme point de terminaison personnalisé dans IoT Hub. Patientez quelques minutes pour que l’attribution de rôle se propage. 
 
-6. Ensuite, accédez à votre hub IoT. Dans votre hub, accédez à **Routage des messages**, puis cliquez sur **Points de terminaison personnalisés**. Cliquez sur **Ajouter** et choisissez le type de point de terminaison que vous souhaitez utiliser. Dans cette section, nous utilisons Event Hub comme exemple.
-7.  En bas de la page, choisissez votre **type d’authentification** par défaut. Dans cette section, nous utilisons l’identité **Affectée par l’utilisateur** comme exemple. Dans la liste déroulante, sélectionnez l’identité managée affectée par l’utilisateur par défaut, puis cliquez sur **Créer**.
+5. Ensuite, accédez à votre hub IoT. Dans votre hub, accédez à **Routage des messages**, puis cliquez sur **Points de terminaison personnalisés**. Cliquez sur **Ajouter** et choisissez le type de point de terminaison que vous souhaitez utiliser. Dans cette section, nous utilisons Event Hub comme exemple.
+6.  En bas de la page, choisissez votre **type d’authentification** par défaut. Dans cette section, nous utilisons l’identité **Affectée par l’utilisateur** comme exemple. Dans la liste déroulante, sélectionnez l’identité managée affectée par l’utilisateur par défaut, puis cliquez sur **Créer**.
 
     :::image type="content" source="./media/iot-hub-managed-identity/eventhub-routing-endpoint.png" alt-text="Event Hub IoT Hub avec une identité affectée par l’utilisateur":::
 
-8. Point de terminaison personnalisé correctement créé. 
-9. Après la création, vous pouvez toujours modifier le type d’authentification. Sélectionnez le point de terminaison personnalisé dont vous souhaitez modifier le type d’authentification, puis cliquez sur **Modifier le type d’authentification**.
+7. Point de terminaison personnalisé correctement créé. 
+8. Après la création, vous pouvez toujours modifier le type d’authentification. Sélectionnez le point de terminaison personnalisé dont vous souhaitez modifier le type d’authentification, puis cliquez sur **Modifier le type d’authentification**.
 
     :::image type="content" source="./media/iot-hub-managed-identity/change-authentication-type.png" alt-text="Type d’authentification IoT Hub":::
 
-10. Choisissez le nouveau type d’authentification à mettre à jour pour ce point de terminaison, puis cliquez sur **Enregistrer**.
+9. Choisissez le nouveau type d’authentification à mettre à jour pour ce point de terminaison, puis cliquez sur **Enregistrer**.
 
 ## <a name="configure-file-upload-with-managed-identities"></a>Configurer le chargement de fichiers avec des identités managées
 La fonctionnalité de [chargement de fichiers](iot-hub-devguide-file-upload.md) d’IoT Hub permet aux appareils de charger des fichiers sur un compte de stockage appartenant au client. Pour que le chargement de fichiers puisse fonctionner, IoT Hub doit être connecté au compte de stockage. À l’instar du routage des messages, vous pouvez choisir le type d’authentification et l’identité managée de votre choix pour la connectivité de sortie d’IoT Hub à votre compte de stockage Azure. 

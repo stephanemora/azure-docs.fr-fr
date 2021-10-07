@@ -1,15 +1,15 @@
 ---
-title: Gérer les coûts et la propriété dans Azure DevTest Labs
+title: Gérer le coût et la propriété
 description: Cet article vous aidera à optimiser les coûts et à aligner l’appartenance au sein de votre environnement.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc3b607155655935ee1e77d82ca60b7f92b70c2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92328264"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623605"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Gouvernance de l’infrastructure Azure DevTest Labs – Gérer le coût et l’appartenance
 Le coût et l’appartenance sont les principaux éléments à prendre en compte lors de la création de vos environnements de développement et de test. Dans cette section, vous trouvez des informations qui vous aideront à optimiser les coûts et à aligner l’appartenance au sein de votre environnement.

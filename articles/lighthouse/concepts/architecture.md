@@ -1,14 +1,14 @@
 ---
 title: Architecture d’Azure Lighthouse
 description: Découvrez la relation qui existe entre les locataires d’Azure Lighthouse et les ressources créées dans le locataire du client qui permettent cette relation.
-ms.date: 05/11/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: bdcd1057d4ba2adfe8ab312228acd562b384b09d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 92890199b11da69fac58ec4ff2bccc1ab347d076
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795438"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128629120"
 ---
 # <a name="azure-lighthouse-architecture"></a>Architecture d’Azure Lighthouse
 
@@ -51,7 +51,7 @@ L’activité des utilisateurs dans le locataire du fournisseur de services est 
 
 ## <a name="how-azure-lighthouse-works"></a>Fonctionnement d’Azure Lighthouse
 
-Globalement, voici comment Azure Lighthouse fonctionne :
+Globalement, voici comment Azure Lighthouse fonctionne pour le locataire de gestion :
 
 1. Identifiez les [rôles](tenants-users-roles.md#role-support-for-azure-lighthouse) dont vos groupes, principaux de service ou utilisateurs auront besoin pour gérer les ressources Azure du client.
 2. Spécifiez cet accès et intégrez le client à Azure Lighthouse en [publiant une offre de service managé sur la Place de marché Azure](../how-to/publish-managed-services-offers.md) ou en [déployant un modèle Azure Resource Manager](../how-to/onboard-customer.md). Ce processus d’intégration crée les deux ressources décrites ci-dessus (définition d’inscription et attribution d’inscription) dans le locataire du client.
@@ -61,6 +61,6 @@ Si, dans la plupart des cas, les ressources spécifiques d’un client sont gér
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Examinez les commandes [Azure CLI](/cli/azure/managedservices/assignment) et [Azure PowerShell](/powershell/module/az.managedservices/new-azmanagedservicesdefinition) permettant d’utiliser des définitions d’inscription et des attributions d’inscription.
+- Examinez les commandes [Azure CLI](/cli/azure/managedservices) et [Azure PowerShell](/powershell/module/az.managedservices) permettant d’utiliser des définitions d’inscription et des attributions d’inscription.
 - Découvrez les [services et scénarios améliorés](cross-tenant-management-experience.md#enhanced-services-and-scenarios) pour Azure Lighthouse.
 - Découvrez plus en détail le fonctionnement des [locataires, utilisateurs et rôles](tenants-users-roles.md) avec Azure Lighthouse.

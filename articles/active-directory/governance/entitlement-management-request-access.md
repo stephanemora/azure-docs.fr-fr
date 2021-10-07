@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 08/31/2021
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 945679db60f78e03d8f4385acdbc97d8155922bb
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95996642"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434481"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Demander l’accès à un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -86,6 +86,9 @@ Si vous demandez l’accès à un package d’accès auquel plusieurs stratégie
 Vous pouvez demander à accéder à un package d’accès qui requiert une justification métier et des informations supplémentaires sur le demandeur avant de vous autoriser à accéder au package d’accès. Renseignez toutes les informations relatives au demander pour accéder au package d’accès.
 
 ![Portail Mon accès - Demander l’accès - Renseigner les informations relatives au demandeur](./media/entitlement-management-request-access/my-access-requestor-information.png)
+
+> [!NOTE]
+> Vous remarquerez peut-être que certaines informations sur le demandeur ont des valeurs préremplies. Cela se produit généralement si votre compte a déjà des informations d’attribut définies à partir d’une demande ou d’un autre processus antérieurs. Ces valeurs peuvent être modifiables ou non en fonction des paramètres de la stratégie sélectionnée.
 
 ## <a name="resubmit-a-request"></a>Resoumettre une demande
 

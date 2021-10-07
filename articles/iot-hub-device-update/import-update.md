@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 4/19/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 790d363a3bd0e961b184cc2511c39833f0eac3d7
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: f616fee894c1eb436770cdafbab7b60d7a1417db
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563767"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537142"
 ---
 # <a name="add-an-update-to-device-update-for-iot-hub"></a>Ajouter une mise à jour dans Device Update pour IoT Hub
 Découvrez comment ajouter une nouvelle mise à jour dans Device Update pour IoT Hub.
@@ -162,18 +162,15 @@ Un exemple de sortie de manifeste est présenté ci-dessous. Si vous avez des qu
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="État du travail" lightbox="media/import-update/update-ready.png":::
 
-## <a name="if-youre-importing-via-apis-instead"></a>Si vous importez plutôt via des APIs
-
-Si vous venez de suivre les étapes ci-dessus pour importer via le portail Azure, passez directement à la section Étapes suivantes ci-dessous.
-
-Si vous souhaitez utiliser les [API de mise à jour Device Update pour IoT Hub](/rest/api/deviceupdate/updates) pour importer une mise à jour au lieu de l’importer via le portail Azure, notez ce qui suit :
-  - Vous devrez charger vos fichiers de mise à jour vers un emplacement Stockage Blob Azure avant d’appeler les API de mise à jour.
-  - Vous pouvez faire référence à cet [exemple d’appel d’API](import-schema.md#example-import-request-body) qui utilise le manifeste d’importation que vous avez créé ci-dessus.
-  - Si vous réutilisez la même URL SAP lors des tests, vous risquez de rencontrer des erreurs après l’expiration du jeton. C’est le cas lorsque vous envoyez le manifeste d’importation ainsi que le contenu de la mise à jour elle-même.
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Créer des groupes](create-update-group.md)
 
 [En savoir plus sur les concepts d’importation](import-concepts.md)
+
+## <a name="if-youre-importing-via-apis-instead"></a>Si vous importez plutôt via des APIs
+
+Si vous souhaitez utiliser les [API de mise à jour Device Update pour IoT Hub](/rest/api/deviceupdate/updates) pour importer une mise à jour au lieu de l’importer via le portail Azure, notez ce qui suit :
+  - Vous devrez charger vos fichiers de mise à jour vers un emplacement Stockage Blob Azure avant d’appeler les API de mise à jour.
+  - Vous pouvez faire référence à cet [exemple d’appel d’API](import-schema.md#example-import-request-body) qui utilise le manifeste d’importation que vous avez créé ci-dessus.
+  - Si vous réutilisez la même URL SAP lors des tests, vous risquez de rencontrer des erreurs après l’expiration du jeton. C’est le cas lorsque vous envoyez le manifeste d’importation ainsi que le contenu de la mise à jour elle-même.

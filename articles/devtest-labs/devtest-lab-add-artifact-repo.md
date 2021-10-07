@@ -1,14 +1,14 @@
 ---
-title: Ajouter un dépôt Git à un laboratoire dans Azure DevTest Labs | Microsoft Docs
+title: Ajouter un dépôt Git à un labo
 description: Découvrez comment ajouter un dépôt GitHub ou un Git Azure DevOps Services pour votre source d’artefacts personnalisés dans Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 2024c94c433559f067874fa852478a37e41eb53d
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 20fa9f872b4e1ef4650dcdb114f92616a2f1bbe0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112539886"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668713"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Ajouter un dépôt Git pour stocker des artefacts personnalisés et des modèles Resource Manager
 

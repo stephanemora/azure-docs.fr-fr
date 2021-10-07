@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 555bc5c14a769c6e2ec309347fd40e4e9aa9e1e3
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 7b6f68eea2c177ad4e6776723ae0387c0e0da6a1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681406"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361834"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>Déployer une surveillance continue des menaces SAP (préversion publique)
 
@@ -136,7 +136,7 @@ Cette procédure décrit comment utiliser Azure CLI pour déployer une machine v
 1. Utilisez, par exemple, la commande suivante en insérant les valeurs de votre groupe de ressources et de votre nom de machine virtuelle :
 
     ```azurecli
-    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username AzureUser --data-disk-sizes-gb 10 – --size Standard_DS2_– --generate-ssh-keys  --assign-identity
+    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username azureuser --data-disk-sizes-gb 10 – --size Standard_DS2 --generate-ssh-keys  --assign-identity
     ```
 
 1. Sur votre nouvelle machine virtuelle, installez :
@@ -171,26 +171,29 @@ Ce tutoriel utilise un [Azure Key Vault](../key-vault/index.yml) nouvellement cr
       --resource-group $kvgp
     ```
 
-1. Attribuez une stratégie d’accès, dont des autorisations GET, LIST et SET, à l’identité managée de la machine virtuelle.
+1. Attribuez une stratégie d’accès, dont des autorisations GET, LIST et SET, à l’identité managée de la machine virtuelle en utilisant l’une des méthodes suivantes :
 
-    Dans Azure Key Vault, sélectionnez **Accéder aux stratégies** > **Ajouter une stratégie d’accès - Autorisations du secret : Get, List et Set** > **Sélectionner le principal**. Entrez le [nom de votre machine virtuelle](#deploy-a-linux-vm-for-your-sap-data-connector), puis sélectionnez **Ajouter** > **Enregistrer**.
+    - **Via le portail Azure** :
 
-    Pour plus d’informations, consultez la [documentation relative à Key Vault](../key-vault/general/assign-access-policy-portal.md).
+        Dans Azure Key Vault, sélectionnez **Accéder aux stratégies** > **Ajouter une stratégie d’accès - Autorisations du secret : Get, List et Set** > **Sélectionner le principal**. Entrez le [nom de votre machine virtuelle](#deploy-a-linux-vm-for-your-sap-data-connector), puis sélectionnez **Ajouter** > **Enregistrer**.
 
-1. Exécutez la commande suivante pour obtenir l’[ID principal de la machine virtuelle](#deploy-a-linux-vm-for-your-sap-data-connector), en entrant le nom de votre groupe de ressources Azure :
+        Pour plus d’informations, consultez la [documentation relative à Key Vault](../key-vault/general/assign-access-policy-portal.md).
 
-    ```azurecli
-    VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
-    ```
+    - **Via Azure CLI** :
 
-    Votre ID principal est affiché. Vous allez l’utiliser à l’étape suivante.
+        1. Exécutez la commande suivante pour obtenir l’[ID principal de la machine virtuelle](#deploy-a-linux-vm-for-your-sap-data-connector), en entrant le nom de votre groupe de ressources Azure :
 
-1. Exécutez la commande suivante pour attribuer les autorisations d’accès de la machine virtuelle au Key Vault, en entrant le nom de votre groupe de ressources et la valeur d’ID principal renvoyée à l’étape précédente.
+            ```azurecli
+            VMPrincipalID=$(az vm show -g [resource group] -n [Virtual Machine] --query identity.principalId -o tsv)
+            ```
 
-    ```azurecli
-    az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
-    ```
+            Votre ID principal est affiché. Vous allez l’utiliser à l’étape suivante.
 
+        1. Exécutez la commande suivante pour attribuer les autorisations d’accès de la machine virtuelle au Key Vault, en entrant le nom de votre groupe de ressources et la valeur d’ID principal renvoyée à l’étape précédente.
+
+            ```azurecli
+            az keyvault set-policy -n [key vault] -g [resource group] --object-id $VMPrincipalID --secret-permissions get list set
+            ```
 ## <a name="deploy-your-sap-data-connector"></a>Déployer votre connecteur de données SAP
 
 Le script de déploiement du connecteur de données SAP Azure Sentinel installe les [logiciels requis](#automatically-installed-software), puis le connecteur sur votre [machine virtuelle nouvellement créée](#deploy-a-linux-vm-for-your-sap-data-connector), en stockant les informations d’identification dans votre [coffre de clés dédié](#create-key-vault-for-your-sap-credentials).
@@ -290,23 +293,13 @@ Ajoutez manuellement les watchlists liées à SAP à votre espace de travail Azu
 
 Si vous avez un conteneur Docker s’exécutant avec une version antérieure du connecteur de données SAP, exécutez le script de mise à jour du connecteur de données SAP pour obtenir les dernières fonctionnalités disponibles.
 
-1. Assurez-vous que vous disposez des versions les plus récentes des scripts de déploiement appropriés du dépôt Github Azure Sentinel. Exécutez :
+Assurez-vous que vous disposez des versions les plus récentes des scripts de déploiement appropriés du dépôt Github Azure Sentinel. 
 
-    ```azurecli
-    wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
-    ```
+Exécutez :
 
-1. Exécutez la commande suivante sur votre ordinateur connecteur de données SAP :
-
-    ```azurecli
-    ./ sapcon-instance-update.sh
-    ```
-
-1. Redémarrez le conteneur Docker :
-
-    ```bash
-    docker restart sapcon-[SID]
-    ```
+```azurecli
+wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
+```
 
 Le conteneur Docker du connecteur de données SAP sur votre ordinateur est mis à jour. 
 

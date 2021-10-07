@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/20/2021
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 3b6f6a0700915263187f4f31b60a4d2d8b72d9fd
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: dbeb1a776aa5d813806cec6622e1ad1e515ccfc5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634201"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623681"
 ---
 # <a name="automatically-renew-reservations"></a>Renouvellement automatique de réservations
 
@@ -44,7 +44,7 @@ Les conditions suivantes sont requises pour renouveler une réservation :
 
 - Vous devez être propriétaire de la réservation existante.
 - Vous devez être propriétaire de l’abonnement si la réservation est limitée à un seul abonnement ou groupe de ressources.
-- Vous devez être propriétaire de l’abonnement s’il possède une étendue partagée.
+- Vous devez être propriétaire de l’abonnement s’il a une étendue partagée ou de groupe d’administration.
 
 ## <a name="default-renewal-settings"></a>Paramètres de renouvellement par défaut
 
@@ -85,7 +85,7 @@ Si l’une des conditions précédentes se produit et que le renouvellement est 
 
 ## <a name="renewal-notification"></a>Notification de renouvellement
 
-Les e-mails de notification de renouvellement sont envoyés 30 jours avant l’expiration, puis une deuxième fois à la date d’expiration. L’adresse e-mail d’envoi est `azure-noreply@microsoft.com`. Si vous le souhaitez, vous pouvez ajouter l’adresse e-mail à vos expéditeurs approuvés ou à votre liste verte.
+Les e-mails de notification de renouvellement sont envoyés 30 jours avant l’expiration, puis une deuxième fois à la date d’expiration. L’adresse e-mail d’envoi est `azure-noreply@microsoft.com`. Vous pouvez ajouter l’adresse e-mail à vos expéditeurs approuvés ou à votre liste verte.
 
 Les e-mails sont envoyés à différentes personnes en fonction de votre méthode d’achat :
 

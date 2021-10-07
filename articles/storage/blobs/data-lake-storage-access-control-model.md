@@ -1,5 +1,5 @@
 ---
-title: Modèle de contrôle d’accès pour Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Modèle de contrôle d’accès pour Azure Data Lake Storage Gen2
 description: Découvrez comment configurer l’accès au niveau du conteneur, du répertoire et du fichier dans les comptes dotés d’un espace de noms hiérarchique.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: 9fa7f586db5a32640c16db5802b56d6481e8889d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5861d97f1adffc6d92bb702b4ce59a34c103d9f2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102439287"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128600263"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modèle de contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -25,7 +25,7 @@ Data Lake Storage Gen2 prend en charge les mécanismes d’autorisation suivants
 
 [L’autorisation Shared Key et SAS](#shared-key-and-shared-access-signature-sas-authorization) accorde l’accès à un utilisateur (ou une application) sans qu’il n’ait besoin d’une identité dans Azure Active Directory (Azure AD). Avec ces deux formes d’authentification, Azure RBAC et les ACL n’ont aucun effet.
 
-Azure RBAC et ACL nécessitent l’utilisation d’une identité dans Azure AD de l’utilisateur (ou de l’application).  Le RBAC Azure vous permet d’octroyer un accès « grossiste » aux données du compte de stockage, par exemple l’accès en lecture ou en écriture à **toutes** les des données dans un compte de stockage, tandis que les listes de contrôle d’accès vous permettent d’accorder un accès « affiné », tel que l’accès en écriture à un répertoire ou à un fichier spécifique.  
+Azure RBAC et ACL nécessitent l’utilisation d’une identité dans Azure AD de l’utilisateur (ou de l’application). Le RBAC Azure vous permet d’octroyer un accès « grossiste » aux données du compte de stockage, par exemple l’accès en lecture ou en écriture à **toutes** les des données dans un compte de stockage, tandis que les listes de contrôle d’accès vous permettent d’accorder un accès « affiné », tel que l’accès en écriture à un répertoire ou à un fichier spécifique.
 
 Cet article se concentre sur le RBAC et les ACL Azure et sur la façon dont le système les évalue pour prendre des décisions d’autorisation pour les ressources de compte de stockage.
 
@@ -33,7 +33,7 @@ Cet article se concentre sur le RBAC et les ACL Azure et sur la façon dont le s
 
 ## <a name="role-based-access-control-azure-rbac"></a>Contrôle d’accès en fonction du rôle (Azure RBAC)
 
-Azure RBAC utilise des attributions de rôles pour appliquer des ensembles d’autorisations aux [principaux de sécurité](../../role-based-access-control/overview.md#security-principal). Un principal de sécurité est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité managée défini(e) dans Azure Active Directory (AD). Un jeu d’autorisations peut accorder à un principal de sécurité un niveau d’accès à « granularité grossière », tel qu’un accès en lecture ou en écriture à **toutes les** données dans un compte de stockage ou **toutes les** données dans un conteneur. 
+Azure RBAC utilise des attributions de rôles pour appliquer des ensembles d’autorisations aux [principaux de sécurité](../../role-based-access-control/overview.md#security-principal). Un principal de sécurité est un objet qui représente un utilisateur, un groupe, un principal de service ou une identité managée défini(e) dans Azure Active Directory (AD). Un jeu d’autorisations peut accorder à un principal de sécurité un niveau d’accès à « granularité grossière », tel qu’un accès en lecture ou en écriture à **toutes les** données dans un compte de stockage ou **toutes les** données dans un conteneur.
 
 Les rôles suivants permettent à un principal de sécurité d’accéder aux données dans un compte de stockage.
 
@@ -47,7 +47,7 @@ Les rôles tels que [Propriétaire](../../role-based-access-control/built-in-rol
 
 ## <a name="access-control-lists-acls"></a>Listes ACL
 
-Les listes de contrôle d’accès vous permettent d’appliquer un niveau d’accès à « granularité plus fine » aux répertoires et aux fichiers. Une *liste de contrôle d’accès* est une construction d’autorisation qui contient une série d’*entrées ACL*. Chaque entrée de liste de contrôle d’accès associe le principal de sécurité à un niveau d’accès.  Pour plus d’informations, consultez [les listes de contrôle d’accès (ACL) dans Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+Les listes de contrôle d’accès vous permettent d’appliquer un niveau d’accès à « granularité plus fine » aux répertoires et aux fichiers. Une *liste de contrôle d’accès* est une construction d’autorisation qui contient une série d’*entrées ACL*. Chaque entrée de liste de contrôle d’accès associe le principal de sécurité à un niveau d’accès. Pour plus d’informations, consultez [les listes de contrôle d’accès (ACL) dans Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
 ## <a name="how-permissions-are-evaluated"></a>Évaluation des autorisations
 
@@ -62,7 +62,7 @@ Au cours de l’autorisation basée sur les entités de sécurité, les autorisa
 > [!div class="mx-imgBorder"]
 > ![flux d’autorisation Data Lake Storage](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-En raison de la façon dont les autorisations d’accès sont évaluées par le système, vous **ne pouvez pas** utiliser une liste de contrôle d’accès pour **limiter** l’accès qui a déjà été accordé par une attribution de rôle. Cela est dû au fait que le système évalue d’abord les attributions de rôles Azure, et si l’attribution accorde une autorisation d’accès suffisante, les ACL sont ignorées. 
+En raison de la façon dont les autorisations d’accès sont évaluées par le système, vous **ne pouvez pas** utiliser une liste de contrôle d’accès pour **limiter** l’accès qui a déjà été accordé par une attribution de rôle. Cela est dû au fait que le système évalue d’abord les attributions de rôles Azure, et si l’attribution accorde une autorisation d’accès suffisante, les ACL sont ignorées.
 
 Le diagramme suivant illustre le flux d’autorisation pour trois opérations courantes : lister le contenu des répertoires, lire un fichier et écrire un fichier.
 
@@ -73,9 +73,9 @@ Le diagramme suivant illustre le flux d’autorisation pour trois opérations co
 
 Le tableau suivant vous montre comment combiner des rôles Azure et des entrées de liste de contrôle d’accès afin qu’un principal de sécurité puisse effectuer les opérations indiquées dans la colonne **Opération**. Ce tableau présente une colonne qui illustre chaque niveau d’une hiérarchie de répertoires fictifs. Il existe une colonne pour le répertoire racine du conteneur (`/`), un sous-répertoire nommé **Oregon**, un sous-répertoire du répertoire Oregon nommé **Portland** et un fichier texte dans le répertoire Portland nommé **Data. txt**. Dans ces colonnes s’affichent des représentations sous[forme abrégée](data-lake-storage-access-control.md#short-forms-for-permissions) de l’entrée ACL requise pour accorder des autorisations. **N/A** (_pas applicable_) apparaît dans la colonne si aucune entrée de liste de contrôle d’accès n’est requise pour effectuer l’opération.
 
-|    Opération             | Rôle Azure affecté               |    /        | Oregon/     | Portland/ | Data.txt |             
+|    Opération             | Rôle Azure affecté               |    /        | Oregon/     | Portland/ | Data.txt |
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
-| Lire Data.txt            |   Propriétaire des données Blob du stockage        | N/A      | N/A      | N/A       | N/A    |  
+| Lire Data.txt            |   Propriétaire des données Blob du stockage        | N/A      | N/A      | N/A       | N/A    |
 |                          |   Contributeur aux données Blob du stockage  | N/A      | N/A      | N/A       | N/A    |
 |                          |   Lecteur des données blob du stockage       | N/A      | N/A      | N/A       | N/A    |
 |                          |   None                           | `--X`    | `--X`    | `--X`     | `R--`  |
@@ -104,9 +104,8 @@ Le tableau suivant vous montre comment combiner des rôles Azure et des entrées
 |                          |   Lecteur des données blob du stockage       | N/A      | N/A      | N/A       | N/A    |
 |                          |   None                           | `--X`    | `--X`    | `R-X`     | N/A    |
 
-
-> [!NOTE] 
-> Pour afficher le contenu d’un conteneur dans l’Explorateur Stockage Azure, les principaux de sécurité doivent [se connecter à l’Explorateur Stockage à l’aide de Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource)et (au minimum) disposer d’un accès en lecture (R--) au dossier racine (`\`) d’un conteneur. Ce niveau d’autorisation leur donne la possibilité de répertorier le contenu du dossier racine. Si vous ne souhaitez pas que le contenu du dossier racine soit visible, vous pouvez lui attribuer le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader). Avec ce rôle, ils peuvent répertorier les conteneurs dans le compte, mais pas le contenu du conteneur. Vous pouvez ensuite accorder l’accès à des répertoires et des fichiers spécifiques à l’aide de listes de contrôle d’accès.   
+> [!NOTE]
+> Pour afficher le contenu d’un conteneur dans l’Explorateur de Stockage Azure, les principaux de sécurité doivent [se connecter à l’Explorateur de Stockage à l’aide d’Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource)et (au minimum) disposer d’un accès en lecture (R--) au dossier racine (`\`) d’un conteneur. Ce niveau d’autorisation leur donne la possibilité de répertorier le contenu du dossier racine. Si vous ne souhaitez pas que le contenu du dossier racine soit visible, vous pouvez lui attribuer le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader). Avec ce rôle, ils peuvent répertorier les conteneurs dans le compte, mais pas le contenu du conteneur. Vous pouvez ensuite accorder l’accès à des répertoires et des fichiers spécifiques à l’aide de listes de contrôle d’accès.
 
 ## <a name="security-groups"></a>Groupes de sécurité
 
@@ -116,7 +115,7 @@ Le tableau suivant vous montre comment combiner des rôles Azure et des entrées
 
 En utilisant des groupes, vous êtes moins susceptible de dépasser le nombre maximal d’attributions de rôles par abonnement et le nombre maximal d’entrées ACL par fichier ou par répertoire. Le tableau suivant décrit ces limites.
 
-[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
+[!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)]
 
 ## <a name="shared-key-and-shared-access-signature-sas-authorization"></a>Autorisation de clé partagée et de signature d’accès partagé (SAP)
 

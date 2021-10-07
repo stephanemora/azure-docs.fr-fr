@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/11/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 15b5974aff53303ca0245fc6100ea22eebc70c6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 381cc0d1114e60cbb9678c0df9a66176f3b51e99
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532905"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627593"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utiliser des références Key Vault pour App Service et Azure Functions
 
@@ -42,6 +42,9 @@ Si votre coffre est configuré avec des [restrictions réseau](../key-vault/gene
     ```
 
 2. Assurez-vous que la configuration du coffre compte pour le réseau ou le sous-réseau auquel votre application accède.
+
+> [!NOTE]
+> Windows conteneur ne prend actuellement pas en charge les références de Coffre de clé sur l’intégration au réseau virtuel.
 
 ### <a name="access-vaults-with-a-user-assigned-identity"></a>Accédez aux coffres avec une identité attribuée par l’utilisateur
 

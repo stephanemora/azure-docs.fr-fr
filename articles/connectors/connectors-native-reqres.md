@@ -7,12 +7,12 @@ ms.reviewers: estfan, azla
 ms.topic: conceptual
 ms.date: 08/04/2021
 tags: connectors
-ms.openlocfilehash: 8efcbac4b2cdd93c2646ad75a024df79cf5f2623
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 295cfe41e66791233ce7057a55717714902db9a7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562125"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806513"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recevoir des requêtes HTTPS entrantes et y répondre dans Azure Logic Apps
 
@@ -29,6 +29,9 @@ Par exemple, vous pouvez appliquer les actions suivantes à votre application lo
 Cet article explique comment utiliser le déclencheur de requête et l’action de réponse pour que votre application logique puisse recevoir des appels entrants et y répondre.
 
 Pour plus d’informations sur la sécurité, l’autorisation et le chiffrement des appels entrants dans votre application logique, par exemple, sur [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security), précédemment appelé SSL (Secure Sockets Layer), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), l’exposition de votre application logique avec Gestion des API Azure, ou la restriction des adresses IP dont proviennent les appels entrants, consultez [Sécuriser l’accès et les données – Accès pour les appels entrants aux déclencheurs basés sur des requêtes](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+> [!NOTE]
+> Pour le type de ressource **application logique (Standard)** dans Azure Logic Apps à locataire unique, Azure AD OAuth n'est pas disponible pour les appels entrants aux déclencheurs basés sur une requête, tels que le déclencheur de requête et le déclencheur webhook HTTP.
 
 ## <a name="prerequisites"></a>Prérequis
 

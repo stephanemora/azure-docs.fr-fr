@@ -1,17 +1,17 @@
 ---
 title: Configurer le clustering Redis - Azure Cache for Redis Premium
 description: Découvrez comment créer et gérer le clustering Redis pour vos instances de niveau Premium de Cache Azure pour Redis
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: c4812bb6b352ad57fa07ad766329644ef6af9c57
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: be90a868ca4ef738f0275b06fb49abec761c7a0c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563868"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538189"
 ---
 # <a name="configure-redis-clustering-for-a-premium-azure-cache-for-redis-instance"></a>Configurer le clustering Redis pour le niveau Premium de Cache Azure pour Redis
 

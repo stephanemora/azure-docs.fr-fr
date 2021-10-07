@@ -13,12 +13,12 @@ ms.reviewer: martinco
 ms.date: 4/26/2021
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 168ea35d32a02d512ef088ace098d2938a57c022
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 30287957ca9d44c27f0d46efb6ae358db7d6ab44
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111889757"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662264"
 ---
 # <a name="achieve-nist-authenticator-assurance-level-2-with-azure-active-directory"></a>Atteindre le niveau d’assurance 2 de l’authentificateur NIST avec Azure Active Directory
 
@@ -41,10 +41,12 @@ Le tableau suivant détaille les types d’authentificateurs autorisés pour le 
 | Clé de sécurité FIDO 2<br>Application Microsoft Authenticator pour Android (sans mot de passe)<br>Windows Hello Entreprise avec module TPM matériel<br>Smartcard (Services de fédération Active Directory) | Matériel de chiffrement multifacteur |
 | **Autres méthodes** |  |
 | Mot de passe + Téléphone (SMS) | Secret mémorisé + Hors bande |
-| Mot de passe + Application Microsoft Authenticator (OTP)<br>Mot de passe + SF OTP | Secret mémorisé + Mot de passe monofacteur à usage unique |
-| Mot de passe + Jonction Azure AD avec module TPM logiciel <br>Mot de passe + Appareil mobile conforme<br>Mot de passe + Jonction Azure AD Hybride avec module TPM logiciel <br>Mot de passe + Application Microsoft Authenticator (notification) | Secret mémorisé + Logiciel de chiffrement monofacteur |
-| Mot de passe + Jonction Azure AD avec module TPM matériel <br>Mot de passe + Jonction Azure AD Hybride avec module TPM matériel | Secret mémorisé + Matériel de chiffrement monofacteur |
+| Mot de passe + Application Microsoft Authenticator (OTP)<br>Mot de passe + SF OTP | Secret mémorisé + Mot de passe monofacteur à usage unique |
+| Mot de passe + Jonction Azure AD avec module TPM logiciel <br>Mot de passe + Appareil mobile conforme<br>Mot de passe + Jonction Azure AD Hybride avec module TPM logiciel <br>Mot de passe + Application Microsoft Authenticator (notification) | Secret mémorisé + Logiciel de chiffrement monofacteur |
+| Mot de passe + Jonction Azure AD avec module TPM matériel <br>Mot de passe + Jonction Azure AD Hybride avec module TPM matériel | Secret mémorisé + Matériel de chiffrement monofacteur |
 
+> [!NOTE]
+> Dans une stratégie d’accès conditionnel, si vous avez besoin qu’un appareil soit marqué comme conforme ou avec jointure hybride Azure AD, Authenticator agit comme une résistance à l’emprunt d’identité du vérificateur.
 
 ### <a name="our-recommendations"></a>Nos recommandations
 

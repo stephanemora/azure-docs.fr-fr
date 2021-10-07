@@ -3,12 +3,12 @@ title: Configurer les paramètres réseau pour les clusters Service Fabric manag
 description: Découvrez comment configurer votre cluster géré par Service Fabric pour les règles de groupe de sécurité réseau, l’accès aux port RDP, les règles d’équilibrage de charge, etc.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: 432246ca0550e4fab678a3a190221de88ce04478
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0299118a7715a566cccc0dd1fb7bc83aa9c5e06c
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638417"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545657"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters"></a>Configurer les paramètres réseau pour les clusters Service Fabric managés
 
@@ -38,62 +38,62 @@ Les clusters Service Fabric gérés vous permettent d’affecter des règles NSG
 Utilisez la propriété [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) de votre ressource *Microsoft.ServiceFabric/managedclusters* (version `2021-05-01` ou ultérieure) pour affecter des règles NSG. Par exemple :
 
 ```json
-            "apiVersion": "2021-05-01",
-            "type": "Microsoft.ServiceFabric/managedclusters",
-            ...
-            "properties": {
-                ...
-                "networkSecurityRules" : [
-                    {
-                        "name": "AllowCustomers",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "Internet",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33000-33499",
-                        "access": "Allow",
-                        "priority": 2001,
-                        "direction": "Inbound"
-                    },
-                    {
-                        "name": "AllowARM",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "AzureResourceManager",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33500-33699",
-                        "access": "Allow",
-                        "priority": 2002,
-                        "direction": "Inbound"
-                    },
-                    {
-                        "name": "DenyCustomers",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "Internet",
-                        "destinationAddressPrefix": "*",
-                        "destinationPortRange": "33700-33799",
-                        "access": "Deny",
-                        "priority": 2003,
-                        "direction": "Outbound"
-                    },
-                    {
-                        "name": "DenyRDP",
-                        "protocol": "*",
-                        "sourcePortRange": "*",
-                        "sourceAddressPrefix": "*",
-                        "destinationAddressPrefix": "VirtualNetwork",
-                        "destinationPortRange": "3389",
-                        "access": "Deny",
-                        "priority": 2004,
-                        "direction": "Inbound",
-                        "description": "Override for optional SFMC_AllowRdpPort rule. This is required in tests to avoid Sev2 incident for security policy violation."
-                    }
-                ],
-                "fabricSettings": [
-                ...
-                ]
-            }
+{
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "properties": {
+    "networkSecurityRules": [
+      {
+        "name": "AllowCustomers",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33000-33499",
+        "access": "Allow",
+        "priority": 2001,
+        "direction": "Inbound"
+      },
+      {
+        "name": "AllowARM",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "AzureResourceManager",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33500-33699",
+        "access": "Allow",
+        "priority": 2002,
+        "direction": "Inbound"
+      },
+      {
+        "name": "DenyCustomers",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "destinationPortRange": "33700-33799",
+        "access": "Deny",
+        "priority": 2003,
+        "direction": "Outbound"
+      },
+      {
+        "name": "DenyRDP",
+        "protocol": "*",
+        "sourcePortRange": "*",
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "destinationPortRange": "3389",
+        "access": "Deny",
+        "priority": 2004,
+        "direction": "Inbound",
+        "description": "Override for optional SFMC_AllowRdpPort rule. This is required in tests to avoid Sev2 incident for security policy violation."
+      }
+    ],
+    "fabricSettings": [
+      "..."
+    ]
+  }
+}
 ```
 
 ## <a name="clientconnection-and-httpgatewayconnection-default-and-optional-rules"></a>ClientConnection et HttpGatewayConnection par défaut, et règles facultatives

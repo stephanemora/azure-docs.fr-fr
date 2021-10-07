@@ -3,21 +3,21 @@ title: Qu’est-ce que BareMetal Infrastructure pour Oracle ?
 description: Découvrez les fonctionnalités de BareMetal Infrastructure pour les charges de travail Oracle.
 ms.topic: conceptual
 ms.subservice: baremetal-oracle
-ms.date: 04/14/2021
-ms.openlocfilehash: f3ecb1fbcad04455515408e4aadadfb2cef3cf9a
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 09/03/2021
+ms.openlocfilehash: e74d1a3e3b6cb1b2cd0b99927a57a88117715e7b
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578582"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123542437"
 ---
 # <a name="what-is-baremetal-infrastructure-for-oracle"></a>Qu’est-ce que BareMetal Infrastructure pour Oracle ?
 
-Cet article offre une vue d’ensemble des fonctionnalités de BareMetal Infrastructure pour les charges de travail Oracle.
+Dans cet article, nous offrirons une vue d’ensemble des fonctionnalités de BareMetal Infrastructure pour les charges de travail Oracle.
 
-BareMetal Infrastructure pour Oracle est basé sur le système de calcul unifié (UCS) certifié par Oracle et FlexPod. La plateforme FlexPod fournit des technologies de stockage, de mise en réseau et de serveur prévalidées. Elle offre un stockage NFS, en fournissant une intégration à l’aide du protocole DirectNFS. Les serveurs BareMetal sont dédiés, sans hyperviseur sur les instances BareMetal. 
+BareMetal Infrastructure pour Oracle est basé sur le système de calcul unifié (UCS) certifié par Oracle et FlexPod. La plateforme FlexPod fournit des technologies de stockage, de mise en réseau et de serveur prévalidées. Il offre un stockage NFS (Network File System) NetApp qui assure l’intégration à l’aide du protocole DirectNFS. Les serveurs BareMetal sont dédiés, sans hyperviseur sur les instances BareMetal. 
 
-Ces instances sont destinées à l’exécution d’applications critiques nécessitant une charge de travail Oracle. Les instances BareMetal fournissent une faible latence (0,35 ms) à vos applications qui s’exécutent sur des machines virtuelles Azure. BareMetal fournit un disque de stockage partagé et prend en charge la multi-diffusion requise pour la communication entre nœuds avec un réseau d’interconnexion privé dédié. 
+Ces instances sont destinées à l’exécution d’applications critiques nécessitant une charge de travail Oracle. Les instances BareMetal fournissent une faible latence (0,35 ms) à vos applications qui s’exécutent sur des machines virtuelles Azure. BareMetal fournit un stockage partagé. La solution prend également en charge la multi-diffusion requise pour la communication entre nœuds avec un réseau d’interconnexion privé dédié. 
 
 Les autres fonctionnalités de BareMetal Infrastructure pour Oracle sont les suivantes :
 

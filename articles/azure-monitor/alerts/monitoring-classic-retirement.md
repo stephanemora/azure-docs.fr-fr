@@ -6,18 +6,18 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.author: yalavi
-ms.openlocfilehash: bfa92a2fc58d479edd328dba9bf02d57ec66c0c9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 64e9c454bfe8df9b65176fe344999e88204720d0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041091"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539116"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
 
 Azure Monitor est un service unifié de une pile de surveillance unifiée qui prend en charge les métriques unifiées les alertes unifiées dans l’ensemble des ressources. Pour plus d’informations, consultez ce [billet de blog](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). La nouvelle plateforme de surveillance et de génération d’alertes Azure a été conçue pour être plus rapide, plus intelligente et extensible, permettant ainsi de suivre le rythme de l’expansion croissante du cloud computing dans le droit fil de la philosophie du cloud intelligent Microsoft.
 
-Avec la nouvelle plateforme de surveillance et d’alerte Azure en place, les alertes classiques dans Azure Monitor sont hors service pour les utilisateurs du cloud public, même si elles resteront utilisées de manière limitée jusqu’au **31 mai 2021**. Les alertes classiques pour Azure Government Cloud et Azure China 21Vianet vont être mises hors service le **29 février 2024**.
+Avec la nouvelle plateforme de surveillance et d’alerte Azure en place, les alertes classiques dans Azure Monitor sont hors service pour les utilisateurs du cloud public. Les alertes classiques pour Azure Government Cloud et Azure China 21Vianet vont être mises hors service le **29 février 2024**.
 
  ![Alerte classique dans le portail Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 

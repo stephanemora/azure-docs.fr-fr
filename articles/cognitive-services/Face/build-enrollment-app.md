@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: pafarley
-ms.openlocfilehash: ad79bbd166e12c24339e13f38b4e10ca9ea2b549
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: db6ee292a088d530ea858d75e6649684e03d92b6
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111966607"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123540475"
 ---
 # <a name="build-a-react-app-to-add-users-to-a-face-service"></a>Créer une application React pour ajouter des utilisateurs à un service Visage
 
@@ -65,14 +65,15 @@ Par exemple, vous pouvez éventuellement ajouter des informations propres à vot
 > [!div class="mx-imgBorder"]
 > ![page de consentement de l’application](./media/enrollment-app/1-consent-1.jpg)
 
-Le service propose des contrôles de la qualité d’image pour vous aider à déterminer si l’image est d’une qualité suffisante pour ajouter le client ou tenter une reconnaissance faciale. Cette application montre comment accéder aux images issues de la caméra de l’appareil, sélectionner celles dont la qualité est optimale et ajouter le visage détecté dans le service API Visage. 
-
 De nombreux problèmes de reconnaissance faciale sont dus à des images de référence de faible qualité. Voici des facteurs pouvant dégrader les performances du modèle :
 * Taille du visage (visages éloignés de la caméra)
 * Orientation du visage (visages tournés ou inclinés ne regardant pas la caméra)
 * Conditions d’éclairage médiocres (faible éclairage ou contre-jour) qui produisent une image sous-exposée ou bruitée
 * Obstruction (visages partiellement cachés ou recouverts), notamment avec des accessoires comme des chapeaux ou des lunettes à monture épaisse)
 * Flou (par exemple à cause d’un mouvement de visage rapide au moment où la photo a été prise) 
+
+Le service propose des contrôles de la qualité d’image pour vous aider à déterminer si l’image est d’une qualité suffisante, compte tenu des facteurs ci-dessus, pour ajouter le client ou tenter une reconnaissance faciale. Cette application montre comment accéder aux images de la caméra de l’appareil, détecter leur qualité et afficher des messages d’interface utilisateur afin d’aider les utilisateurs à capturer une image de qualité supérieure, à sélectionner des images de qualité optimale et à ajouter le visage détecté au service API Visage. 
+
 
 > [!div class="mx-imgBorder"]
 > ![Page d’instructions sur la capture d’image dans l’application](./media/enrollment-app/4-instruction.jpg)

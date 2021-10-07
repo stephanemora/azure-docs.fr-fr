@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 1e64acd29e8b1e2e60b3ae1b855f8552e277e824
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 976ed2f1af2fe4481e8327e4e83b7ba6c5b61fa2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122641125"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675779"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Acompte pour les ressources de calcul Azure Database pour MySQL avec une capacité réservée
 
@@ -53,7 +53,7 @@ Le tableau suivant décrit les champs requis.
 | Champ | Description |
 | :------------ | :------- |
 | Abonnement   | L’abonnement utilisé pour payer la réservation de capacité réservée Azure Database pour MySQL. Les coûts initiaux de la réservation de capacité réservée Azure Database pour MySQL sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148p) ou un accord individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement d’entreprise, les frais sont déduits du Paiement anticipé Azure (précédemment appelé « solde de l’engagement financier ») de l’inscription ou facturés comme dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.
-| Étendue | L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : </br></br> **Partagé** : la remise de réservation vCore est appliquée aux serveurs Azure Database pour MySQL en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</br></br> **Abonnement unique** : la remise de réservation vCore est appliquée aux serveurs Azure Database pour MySQL inclus dans cet abonnement. </br></br> **Groupe de ressources unique** : la remise de réservation est appliquée aux serveurs Azure Database pour MySQL inclus dans l’abonnement sélectionné et dans le groupe de ressources sélectionné dans cet abonnement.
+| Étendue | L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : </br></br> **Partagé** : la remise de réservation vCore est appliquée aux serveurs Azure Database pour MySQL en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</br></br>**Groupe d’administration**, la remise de réservation est appliquée aux serveurs Azure Database pour MySQL qui sont exécutés dans les abonnements faisant partie à la fois du groupe d’administration et de l’étendue de facturation.</br></br> **Abonnement unique** : la remise de réservation vCore est appliquée aux serveurs Azure Database pour MySQL inclus dans cet abonnement. </br></br> **Groupe de ressources unique** : la remise de réservation est appliquée aux serveurs Azure Database pour MySQL inclus dans l’abonnement sélectionné et dans le groupe de ressources sélectionné dans cet abonnement.
 | Région | La région Azure couverte par la réservation de capacité réservée Azure Database pour MySQL.
 | Type de déploiement | Le type de ressource Azure Database pour MySQL pour laquelle vous voulez acheter la réservation.
 | Niveau de performances | Le niveau de service des serveurs Azure Database pour MySQL.

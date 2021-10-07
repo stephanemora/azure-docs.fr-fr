@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 91230df3223f1227e2126ad48beaba781a3c28cc
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: e175439cacb75fc50574f172d9e1e34cba4cdbd7
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214973"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426397"
 ---
 # <a name="use-azure-private-link-to-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter des réseaux à Azure Monitor
 
@@ -36,9 +36,10 @@ Une étendue de liaison privée Azure Monitor connecte des points de terminaison
 
 ![Schéma de la topologie de base des ressources](./media/private-link-security/private-link-basic-topology.png)
 
+* Une liaison privée Azure Monitor connecte un point de terminaison privé à un ensemble de ressources Azure Monitor (espaces de travail Log Analytics et ressources Application Insights). Cet ensemble est appelé étendue de liaison privée Azure Monitor (Azure Monitor Private Link Scope, AMPLS).
 * Le point de terminaison privé de votre réseau virtuel lui permet d’atteindre des points de terminaison Azure Monitor par le biais d’adresses IP privées à partir du pool de votre réseau, au lieu d’utiliser les adresses IP publiques de ces points de terminaison. Cela vous permet de continuer à utiliser vos ressources Azure Monitor sans ouvrir votre réseau virtuel à un trafic sortant non requis. 
 * Le trafic du point de terminaison privé vers vos ressources Azure Monitor passe par le réseau principal Microsoft Azure et n’est pas acheminé vers des réseaux publics.
-* Vous pouvez configurer votre étendue de liaison privée Azure Monitor (ou des réseaux spécifiques) pour utiliser le mode d’accès préféré, c’est-à-dire soit autoriser le trafic uniquement vers des ressources Private Link, soit autoriser le trafic vers des ressources Private Link et des ressources non-Private Link (ressources extérieures à l’étendue de liaison privée Azure Monitor)
+* Vous pouvez configurer votre étendue de liaison privée Azure Monitor (ou des réseaux spécifiques s’y connectant) pour utiliser le mode d’accès préféré, c’est-à-dire soit autoriser le trafic uniquement vers des ressources Private Link, soit autoriser le trafic vers des ressources Private Link et des ressources non-Private Link (ressources extérieures à l’étendue de liaison privée Azure Monitor)
 * Vous pouvez configurer chacun de vos espaces de travail ou composants afin d’autoriser ou de refuser l’ingestion et les requêtes provenant de réseaux publics. Vous bénéficiez ainsi d’une protection au niveau des ressources, ce qui vous permet de contrôler le trafic vers des ressources spécifiques.
 
 > [!NOTE]
@@ -61,7 +62,7 @@ Tous les points de terminaison Log Analytics, à l’exception du point de termi
 
 
 > [!NOTE]
-> Créez une seule étendue de liaison privée Azure Monitor pour tous les réseaux qui partagent le même DNS. La création de plusieurs ressources d’étendue de liaison privée Azure Monitor a pour effet que les points de terminaison DNS Azure Monitor se substituent les uns aux autres, et dégradent des environnements existants.
+> Créez une seule étendue de liaison privée Azure Monitor pour tous les réseaux qui partagent le même DNS. La création de plusieurs ressources d’étendue de liaison privée Azure Monitor a pour effet que les zones DNS Azure Monitor se substituent les unes aux autres, et dégradent des environnements existants.
 
 ### <a name="private-link-access-modes-private-only-vs-open"></a>Modes d’accès Private Link : uniquement privé ou ouvert
 Comme expliqué dans la section [Azure Monitor Private Link s’appuie sur votre DNS](#azure-monitor-private-link-relies-on-your-dns), une seule ressource d’étendue de liaison privée Azure Monitor doit être créée pour tous les réseaux qui partagent le même DNS. Par conséquent, les organisations qui utilisent un seul DNS global ou régional disposent en fait d’une liaison privée unique pour gérer le trafic vers toutes les ressources Azure Monitor, dans l’ensemble des réseaux globaux ou régionaux.
@@ -75,6 +76,9 @@ Toutefois, ce comportement s’est avéré trop restrictif pour certains clients
 Par conséquent, les liaisons privées créés à partir de septembre 2021 ont de nouveaux paramètres d’étendue de liaison privée Azure Monitor obligatoires, qui définissent explicitement la manière dont les liaisons privées doivent affecter le trafic réseau. Lors de la création d’une ressource d’étendue de liaison privée Azure Monitor, vous devez désormais sélectionner les modes d’accès souhaités pour l’ingestion et les requêtes séparément. 
 * Mode privé uniquement : autorise le trafic uniquement vers des ressources de liaison privée
 * Mode ouvert : utilise une liaison privée pour communiquer avec des ressources dans l’étendue de liaison privée Azure Monitor, mais autorise également la continuation du trafic vers d’autres ressources. Pour en savoir plus, consultez [Control how Private Links apply to your networks](./private-link-design.md#control-how-private-links-apply-to-your-networks) (Contrôler la façon dont les liaisons privées s’appliquent à vos réseaux).
+
+> [!NOTE]
+> L’ingestion Log Analytics utilise des points de terminaison spécifiques d’une ressource. Par conséquent, elle n’adhère pas aux modes d’accès AMPLS. L’ingestion dans des espaces de travail se trouvant dans AMPLS est envoyée via la liaison privée, tandis que l’ingestion dans des espaces de travail ne se trouvant pas dans AMPLS utilise les points de terminaison publics par défaut. Pour vous assurer que les demandes d’ingestion ne puissent pas accéder à des ressources extérieures à AMPLS, bloquez l’accès du réseau aux points de terminaison publics.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Conception de votre configuration Private Link](private-link-design.md)

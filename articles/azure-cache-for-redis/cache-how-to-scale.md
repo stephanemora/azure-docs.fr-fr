@@ -1,18 +1,18 @@
 ---
 title: Mettre à l'échelle une instance Cache Redis Azure
 description: Découvrez comment mettre à l’échelle vos instances Azure Cache pour Redis à l’aide du portail Azure et d’outils tels qu’Azure PowerShell et Azure CLI
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0b76f98da4823341d5ec0f32c1d8f65a1c37fade
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5c8bf3839c7bae9b1c93b201bb52a4e7be371904
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562854"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538163"
 ---
 # <a name="scale-an-azure-cache-for-redis-instance"></a>Mettre à l'échelle une instance Cache Redis Azure
 
@@ -42,13 +42,13 @@ Pour plus d’informations sur la façon de déterminer le niveau tarifaire de c
 
 ## <a name="scale-a-cache"></a>Mise à l’échelle d’un cache
 
-Pour mettre à l’échelle votre cache, [accédez à celui-ci](cache-configure.md#configure-azure-cache-for-redis-settings) dans le [portail Azure](https://portal.azure.com), puis, dans le **menu Ressource**, sélectionnez **Mise à l’échelle**.
+Pour mettre à l’échelle votre cache, [accédez au cache](cache-configure.md#configure-azure-cache-for-redis-settings) dans le [portail Azure](https://portal.azure.com), puis sélectionnez **Mise à l’échelle** sur la gauche.
 
-![Scale](./media/cache-how-to-scale/redis-cache-scale-menu.png)
+:::image type="content" source="media/cache-how-to-scale/scale-a-cache.png" alt-text="mise à l’échelle dans le menu ressource":::
 
-Sur la gauche, sélectionnez le niveau tarifaire de votre choix dans **Sélectionner un niveau tarifaire**, puis choisissez **Sélectionner**.
+Choisissez un niveau tarifaire à droite, puis choisissez **Sélectionner**.
 
-:::image type="content" source="media/cache-how-to-scale/redis-cache-pricing-tier-blade.png" alt-text="Capture d’écran du niveau tarifaire du cache Redis":::
+:::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Niveaux Azure Cache for Redis":::
 
 Vous pouvez choisir un niveau tarifaire différent avec les restrictions suivantes :
 
@@ -59,9 +59,9 @@ Vous pouvez choisir un niveau tarifaire différent avec les restrictions suivant
 - Vous ne pouvez pas passer directement d’un cache **De base** à un cache **Premium**. Tout d’abord, passez du niveau **De base** au niveau **Standard** dans une opération de mise à l’échelle, puis du niveau **Standard** au niveau **Premium** dans l’opération de mise à l’échelle suivante.
 - Vous ne pouvez pas mettre à l’échelle depuis une taille supérieure vers la taille **C0 (250 Mo)** . Toutefois, vous pouvez effectuer un scale-down vers toute autre taille dans le même niveau tarifaire. Par exemple, vous pouvez effectuer un scale-down de C5 Standard à C1 Standard.
 
-Pendant la mise à l’échelle du cache vers le nouveau niveau tarifaire, un état de **Mise à l’échelle** s’affiche à gauche dans **Azure Cache pour Redis**.
+Lorsque le cache est mis à l’échelle vers le nouveau niveau, une notification **Mise à l’échelle du Cache Redis** s’affiche.
 
-:::image type="content" source="media/cache-how-to-scale/redis-cache-scaling.png" alt-text="Mise à l’échelle du cache Redis":::
+:::image type="content" source="media/cache-how-to-scale/scaling-notification.png" alt-text="notification de mise à l’échelle":::
 
 Une fois la mise à l’échelle terminée, le statut passe de **Mise à l’échelle** à **En cours d’exécution**.
 
@@ -204,9 +204,3 @@ En règle générale, lorsque vous mettez à l’échelle un cache sans données
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Comment savoir quand la mise à l’échelle est terminée ?
 
 Le déroulement de l’opération de mise à l’échelle est affiché dans le portail Azure. Une fois la mise à l’échelle terminée, le statut passe à **En cours d’exécution**.
-
-<!-- IMAGES -->
-
-[redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
-
-[redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png

@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: d8ddd49202faac6a9fc5ba34ac5b5e8e92d5b704
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f8d1d3cf8553c768bb2bee015be2f5995214fe62
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562837"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478713"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions
 
@@ -197,7 +197,7 @@ Pour recevoir des événements d’état de connexion, un appareil doit appeler 
 
 La liaison appareil-à-cloud reste ouverte tant que l’appareil envoie des données de télémétrie.
 
-Si la connexion de l’appareil est intermittente, c’est-à-dire si l’appareil se connecte et se déconnecte fréquemment, IoT Hub n’envoie pas chaque état de connexion unique, mais publie l’état de connexion actuel pris à un instantané périodique de 60 s jusqu’à ce que la connexion soit rétablie. Si vous recevez un même événement d’état de connexion avec des numéros de séquence différents ou des événements d’état de connexion différents, cela signifie que l’état de connexion de l’appareil a changé.
+Si un appareil se connecte et se déconnecte fréquemment, IoT Hub n’envoie pas les états de connexion un par un. Il publie l’état de connexion actuel pris dans un instantané périodique de 60 s. Si vous recevez un même événement d’état de connexion avec des numéros de séquence différents ou des événements d’état de connexion différents, cela signifie que l’état de connexion de l’appareil a changé.
 
 ## <a name="tips-for-consuming-events"></a>Conseils relatifs à la consommation d’événements
 

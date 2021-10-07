@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 08/31/2021
+ms.date: 09/13/2021
 tags: connectors
-ms.openlocfilehash: 0266e1fd000640aa4931dcc86f3c91a7ab7cc898
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: d973276781a1664680a3dec08eb894fc362911a5
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123104795"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129211173"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -30,7 +30,7 @@ Cet article explique comment vous pouvez accéder à vos ressources SAP à parti
 
   * Si vous exécutez votre workflow d’application logique dans une instance Azure multilocataire, consultez la section [Conditions préalables pour une instance Azure mutualisée](#multi-tenant-azure-prerequisites).
 
-  * Si vous exécutez votre workflow d’application logique dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) de niveau Premium, consultez la section [Prérequis ISE](#ise-prerequisites).
+  * Si vous exécutez votre workflow d’application logique dans un [environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) de niveau Premium, consultez la section [Prérequis ISE](#ise-prerequisites).
 
 * Un [serveur d’applications SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) ou un [serveur de messages SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) auquel vous souhaitez accéder à partir d’Azure Logic Apps. Pour plus d’informations sur les serveurs SAP qui prennent en charge ce connecteur, consultez la section [Compatibilité SAP](#sap-compatibility).
 
@@ -146,7 +146,7 @@ Le connecteur SAP managé s’intègre aux systèmes SAP via votre [passerelle d
 
 Un ISE fournit un accès aux ressources protégées par un réseau virtuel Azure et offre d’autres connecteurs ISE natifs qui permettent aux workflowx d’application logique d’accéder directement à des ressources locales sans utiliser la passerelle de données locale.
 
-1. Si vous ne disposez pas déjà d’un compte Stockage Azure avec un conteneur d’objets blob, créez un conteneur à l’aide du [portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md) ou d’[Explorateur Stockage Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+1. Si vous ne disposez pas déjà d’un compte Stockage Azure avec un conteneur d’objets blob, créez un conteneur à l’aide du [portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md) ou d’[Explorateur Stockage Azure](../storage/blobs/quickstart-storage-explorer.md).
 
 1. [Téléchargez et installez la dernière bibliothèque de client SAP](#sap-client-library-prerequisites) sur votre ordinateur local. Vous devez disposer des fichiers d’assembly suivants :
 
@@ -479,14 +479,14 @@ Ensuite, créez une action pour envoyer votre message IDoc à SAP lorsque votre 
 
 Vous pouvez utiliser des fichiers IDoc avec un schéma de fichier plat si vous les encapsulez dans une enveloppe XML. Pour envoyer un fichier plat IDoc, utilisez les instructions génériques sur la façon de [créer une action SAP pour envoyer votre message IDoc](#create-sap-action-to-send-message) avec les modifications suivantes.
 
-1. Pour l’action **Envoyer un message à SAP**, utilisez l’URI d’action SAP `http://microsoft.lobservices.sap/2007/03/Idoc/SendIdoc`.
+1. Pour l’action **Envoyer un message à SAP**, utilisez l’URI d’action SAP `http://Microsoft.LobServices.Sap/2007/03/Idoc/SendIdoc`.
 
 1. Mettez en forme votre message d’entrée avec une enveloppe XML.
 
 Pour obtenir un exemple, consultez l’exemple de charge utile XML suivant :
 
 ```xml
-<ReceiveIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
+<SendIdoc xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/">
 <idocData>EDI_DC 3000000001017945375750 30INVOIC011BTSVLINV30KUABCABCFPPC LDCA X004010810 4 SAPMSX LSEDI ABCABCFPPC 000d3ae4-723e-1edb-9ca4-cc017365c9fd 20210217054521INVOICINVOIC01ZINVOIC2RE 20210217054520
 E2EDK010013000000001017945375000001E2EDK01001000000010 ABCABC1.00000 0060 INVO9988298128 298.000 298.000 LB Z4LR EN 0005065828 L
 E2EDKA1 3000000001017945375000002E2EDKA1 000000020 RS ABCABCFPPC 0005065828 ABCABCABC ABCABC Inc. Limited Risk Distributor ABCABC 1950 ABCABCABCA Blvd ABCABAABCAB L5N8L9 CA ABCABC E ON V-ABCABC LDCA
@@ -599,7 +599,7 @@ E2EDS01 3000000001017945375000108E2EDS01 000000020 EXT
 Z2XSK010003000000001017945375000109Z2XSK01000000108030 Z400 52269.20
 Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 </idocData>
-</ReceiveIdoc>
+</SendIdoc>
 ```
 
 ### <a name="create-http-response-action"></a>Créer une action de réponse HTTP
@@ -856,13 +856,13 @@ Pour obtenir les messages d’erreur complets, consultez les journaux étendus d
 
     ```xml
     <setting name="SapTraceLevel" serializeAs="String">
-       <value>"Verbose"</value>
+       <value>Verbose</value>
     </setting>
     ```
 
 ### <a name="extended-sap-logging-in-on-premises-data-gateway"></a>Journalisation SAP étendue dans la passerelle de données locale
 
-Si vous utilisez une [passerelle de données locale pour Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md), vous pouvez configurer un fichier journal étendu pour le connecteur SAP. Vous pouvez utiliser votre passerelle de données locale pour rediriger les événements ETW (Suivi d’événements pour Windows) dans des fichiers journaux avec rotation qui sont inclus dans les fichiers .zip de journalisation de votre passerelle.
+Si vous utilisez une [passerelle de données locale pour Azure Logic Apps](logic-apps-gateway-install.md), vous pouvez configurer un fichier journal étendu pour le connecteur SAP. Vous pouvez utiliser votre passerelle de données locale pour rediriger les événements ETW (Suivi d’événements pour Windows) dans des fichiers journaux avec rotation qui sont inclus dans les fichiers .zip de journalisation de votre passerelle.
 
 Vous pouvez [exporter tous les journaux de configuration et de service de votre passerelle](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) vers un fichier .zip à partir des paramètres de l’application de passerelle.
 
@@ -1649,7 +1649,7 @@ Une fois que vos opérations SAP s’exécutent dans votre flux de travail d’a
 
    [![Capture d’écran montrant le portail Azure avec Application Insights ouvrir le volet « Journaux » pour la création de requêtes.](./media/logic-apps-using-sap-connector/application-insights-query-panel.png)](./media/logic-apps-using-sap-connector/application-insights-query-panel.png#lightbox)
 
-1. Dans le volet **Journaux** , vous pouvez créer une [requête](/data-explorer/kusto/query) à l’aide du [langage de requête Kusto (KQL)](/data-explorer/kusto/concepts), en fonction de vos besoins spécifiques.
+1. Dans le volet **Journaux** , vous pouvez créer une [requête](/azure/data-explorer/kusto/query/) à l’aide du [langage de requête Kusto (KQL)](/azure/data-explorer/kusto/concepts/), en fonction de vos besoins spécifiques.
 
    Vous pouvez utiliser un modèle de requête semblable à l’exemple de requête suivant :
 
@@ -1818,7 +1818,9 @@ Voici les problèmes et limitations connus pour le connecteur SAP (non-ISE) mana
 
 * Le connecteur SAP ne prend actuellement pas en charge les chaînes de routeur SAP. La passerelle de données locale doit exister sur le même réseau local que le système SAP que vous voulez connecter.
 
-* Pour les [applications logiques utilisées dans un environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
+* Dans l’action **\[BAPI] Appeler une méthode dans SAP**, la fonctionnalité de commit automatique ne commite pas les changements apportés à l’interface BAPI s’il existe au moins un avertissement dans l’objet **CallBapiResponse** retourné par l’action. Pour commiter les changements apportés à l’interface BAPI malgré les avertissements, créez explicitement une session avec l’action **\[BAPI - RFC] Créer une session avec état**, désactivez la fonctionnalité de commit automatique dans l’action **\[BAPI] Appeler une méthode dans SAP**, puis appelez l’action **\[BAPI] Commiter une transaction** à la place.
+
+* Pour les [applications logiques utilisées dans un environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](logic-apps-limits-and-config.md#message-size-limits) à la place.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
@@ -2015,5 +2017,5 @@ Pour plus d’informations sur le connecteur SAP, consultez la [Référence de c
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Connectez-vous à des systèmes locaux](logic-apps-gateway-connection.md) à partir d’Azure Logic Apps
-* Découvrez comment valider, transformer et utiliser d’autres opérations message avec [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* Découvrez comment valider, transformer et utiliser d’autres opérations message avec [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 * En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

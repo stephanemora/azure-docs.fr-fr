@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.custom: template-how-to, devx-track-azurecli
-ms.openlocfilehash: fd6ebf1534869fa96fe6249d302406583fe55e59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 83895ebe6f8cf330650eef8167ee3bdd06660869
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524503"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656433"
 ---
 # <a name="use-the-secrets-store-csi-driver-for-kubernetes-in-an-azure-kubernetes-service-aks-cluster-preview"></a>Utiliser le pilote CSI du magasin de secrets pour Kubernetes dans un cluster Azure Kubernetes Service (AKS) (préversion)
 
@@ -24,13 +24,17 @@ Le pilote CSI du magasin de secrets pour Kubernetes permet l’intégration d’
 
 - Avant de commencer, installez la dernière version [d’Azure CLI](/cli/azure/install-azure-cli-windows) et de l’extension *aks-preview*.
 
+### <a name="supported-kubernetes-versions"></a>Versions Kubernetes prises en charge
+
+La version minimale recommandée de Kubernetes pour cette fonctionnalité est la version 1.18. 
+
 ## <a name="features"></a>Fonctionnalités
 
 - Monter des secrets, des clés et/ou des certificats dans un pod à l’aide d’un volume CSI
 - Prend en charge les volumes CSI inline (Kubernetes version v1.15+)
 - Prend en charge le montage de plusieurs objets de stockage de secrets comme un seul volume
 - Prend en charge la portabilité de pod avec SecretProviderClass CRD
-- Prend en charge les conteneurs Windows (Kubernetes version v1.18+)
+- Prend en charge les conteneurs Windows
 - Synchronisation avec les secrets Kubernetes (pilote CSI de magasin de secrets v0.0.10+)
 - Prend en charge la rotation automatique du contenu monté et des secrets Kubernetes synchronisés (pilote CSI de magasin de secrets v0.0.15+)
 
@@ -195,7 +199,8 @@ spec:
     objects:  |
       array:
         - |
-          objectName: <secret-name>       # In this example, 'ExampleSecret'   
+          objectName: <secret-name>       # In this example, 'ExampleSecret' 
+          objectAlias: <secret-alias>     # [OPTIONAL] specify the filename of the object when written to disk - defaults to objectName if not provided
           objectType: secret              # Object types: secret, key or cert
           objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
     tenantId: "<tenant-id>"               # the tenant ID containing the Azure Key Vault instance

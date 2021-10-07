@@ -1,27 +1,20 @@
 ---
 title: 'Azure AD Connect : Quand vous avez déjà Azure AD | Microsoft Docs'
 description: Cette rubrique décrit comment utiliser Connect lorsque vous avez un client Azure AD existant.
-services: active-directory
-documentationcenter: ''
 author: billmath
-manager: daveba
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68251270b6273f5a07391138e5c7210f1c46ba5a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61785fbdf4fe3e79b2c36a5ffa6a9ccb43259666
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93420527"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272811"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect : Quand vous avez un locataire existant
 La plupart des rubriques sur l’utilisation d’Azure AD Connect suppose que vous démarrez avec un nouveau client Azure AD qui ne contient aucun utilisateur ni autres objets. Mais si vous avez démarré avec un client Azure AD, auquel vous avez ajouté des utilisateurs et d’autres objets, et que vous souhaitez désormais utiliser Connect, alors cette rubrique est faite pour vous.
@@ -56,16 +49,18 @@ Si vous avez exécuté la correspondance de vos objets avec une correspondance s
 ### <a name="hard-match-vs-soft-match"></a>Correspondance exacte et correspondance souple
 Pour une nouvelle installation de Connect, il n’existe aucune différence pratique entre une correspondance souple et une correspondance exacte. La différence réside dans une situation de récupération d’urgence. Si votre serveur avec Azure AD Connect a connu une défaillance, vous pouvez réinstaller une nouvelle instance sans perdre de données. Un objet avec un attribut sourceAnchor est envoyé à Connect lors de l’installation initiale. La correspondance peut ensuite être évaluée par le client (Azure AD Connect), ce qui est beaucoup plus rapide que de faire la même chose dans Azure AD. Une correspondance exacte est évaluée à la fois par Connect et par Azure AD. Une correspondance souple n’est évaluée que par Azure AD.
 
+ Nous avons ajouté une option de configuration pour désactiver la fonctionnalité de correspondance souple dans Azure AD Connect. Nous conseillons aux clients de désactiver la correspondance souple, sauf s’ils en ont besoin pour prendre en charge des comptes cloud uniquement. Cet [article](/powershell/module/msonline/set-msoldirsyncfeature) montre comment désactiver la correspondance souple.
+
 ### <a name="other-objects-than-users"></a>Objets autres que des utilisateurs
 Pour les groupes et les contacts activés pour le courrier, vous pouvez établir une correspondance souple en fonction de proxyAddresses. La correspondance exacte n’est pas applicable dans la mesure où vous pouvez seulement mettre à jour sourceAnchor/immutableID (à l’aide de PowerShell) sur les utilisateurs uniquement. Pour les groupes qui ne sont pas activés pour le courrier, il n’existe actuellement aucune prise en charge pour la correspondance souple ou la correspondance exacte.
 
 ### <a name="admin-role-considerations"></a>Considérations relatives au rôle d’administrateur
 Pour empêcher les utilisateurs locaux non approuvés d’établir une correspondance avec un utilisateur cloud qui a un rôle d’administrateur, Azure AD Connect ne met pas en correspondance des objets utilisateur locaux avec des objets qui ont un rôle d’administrateur. Il s’agit du comportement par défaut. Pour contourner ce comportement, vous pouvez procéder comme suit :
 
-1.  Supprimez les rôles d’annuaire de l’objet utilisateur cloud uniquement.
-2.  En cas d’échec d’une tentative de synchronisation des utilisateurs, supprimez définitivement l’objet mis en quarantaine dans le cloud.
-3.  Déclenchez une synchronisation.
-4.  Rétablissez éventuellement les rôles d’annuaire dans l’objet utilisateur cloud une fois que la mise en correspondance s’est produite.
+1.    Supprimez les rôles d’annuaire de l’objet utilisateur cloud uniquement.
+2.    En cas d’échec d’une tentative de synchronisation des utilisateurs, supprimez définitivement l’objet mis en quarantaine dans le cloud.
+3.    Déclenchez une synchronisation.
+4.    Rétablissez éventuellement les rôles d’annuaire dans l’objet utilisateur cloud une fois que la mise en correspondance s’est produite.
 
 
 
