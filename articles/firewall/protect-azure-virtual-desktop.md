@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 08/09/2021
 ms.author: victorh
-ms.openlocfilehash: 254a81e9fe5f3f0d3e98d7db6a7f70778f9746a3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5c165dc8f00bb21894de06e541c02788bd7b51e5
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602694"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424990"
 ---
 # <a name="use-azure-firewall-to-protect-azure-virtual-desktop-deployments"></a>Utilisez le Pare-feu Azure pour protéger les déploiements Azure Virtual Desktop
 
@@ -24,9 +24,8 @@ Suivez les instructions de cet article pour renforcer la protection de votre poo
 
 ## <a name="prerequisites"></a>Configuration requise
 
-
  - Un environnement Azure Virtual Desktop déployé et un pool d’hôtes.
- - Un Pare-feu Azure déployé avec au moins une stratégie du gestionnaire de pare-feu 
+ - Un Pare-feu Azure déployé avec au moins une stratégie du gestionnaire de pare-feu
 
    Pour plus d’informations, consultez [Didacticiel : créer un pool d’hôtes à l’aide du portail Azure](../virtual-desktop/create-host-pools-azure-marketplace.md)
 
@@ -36,26 +35,25 @@ Pour plus d’informations sur l’environnement Azure Virtual Desktop, consul
 
 Les machines virtuelles Azure que vous créez pour Azure Virtual Desktop doivent avoir accès à plusieurs noms de domaine complets (FQDN) pour fonctionner correctement. Le Pare-feu Azure fournit une étiquette FQDN Azure Virtual Desktop pour simplifier cette configuration. Procédez comme suit pour autoriser le trafic sortant de la plateforme Azure Virtual Desktop :
 
-Vous devrez créer une stratégie de Pare-feu Azure et créer des regroupements de règles pour les règles de réseau et les règles d’application. Attribuez une priorité au regroupement de règles et une action d’autorisation ou de refus. 
+Vous devrez créer une stratégie de Pare-feu Azure et créer des regroupements de règles pour les règles de réseau et les règles d’application. Attribuez une priorité au regroupement de règles et une action d’autorisation ou de refus.
 
 ### <a name="create-network-rules"></a>Créer les règles de réseau
 
-| Nom | Type de source | Source | Protocol | Ports de destination | Type de destination | Destination |
-| --- | --- | --- | --- | --- | --- | --- |
-| Nom de la règle | Adresse IP | Adresse IP du réseau virtuel ou du sous-réseau | 80 | TCP |  Adresse IP | 169.254.169.254, 168.63.129.16 |
-| Nom de la règle | Adresse IP | Adresse IP du réseau virtuel ou du sous-réseau | 443 | TCP | Étiquette du service | AzureCloud, WindowsVirtualDesktop |
-| Nom de la règle | Adresse IP | Adresse IP du réseau virtuel ou du sous-réseau | 53 | TCP, UDP | Adresse IP | * |
+| Nom      | Type de source | Source                    | Protocol | Ports de destination | Type de destination | Destination                       |
+| --------- | ----------- | ------------------------- | -------- | ----------------- | ---------------- | --------------------------------- |
+| Nom de la règle | Adresse IP  | Adresse IP du réseau virtuel ou du sous-réseau | TCP      | 80                | Adresse IP       | 169.254.169.254, 168.63.129.16    |
+| Nom de la règle | Adresse IP  | Adresse IP du réseau virtuel ou du sous-réseau | TCP      | 443               | Étiquette du service      | AzureCloud, WindowsVirtualDesktop |
+| Nom de la règle | Adresse IP  | Adresse IP du réseau virtuel ou du sous-réseau | TCP, UDP | 53                | Adresse IP       | *                                 |
 
 > [!NOTE]
 > Certains déploiements peuvent ne pas avoir besoin de règles DNS. Par exemple, les contrôleurs de domaine Azure Active Directory transfèrent les requêtes DNS vers Azure DNS sur 168.63.129.16.
 
-### <a name="create-application-rules"></a>Créer des règles d’application 
+### <a name="create-application-rules"></a>Créer des règles d’application
 
-| Nom | Type de source | Source | Protocol | Type de destination | Destination|
-| --- | --- | --- | --- | --- | --- |
-| Nom de la règle | Adresse IP | Adresse IP du réseau virtuel ou du sous-réseau | Https:443 | Étiquette FQDN | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
-| Nom de la règle | Adresse IP | Adresse IP du réseau virtuel ou du sous-réseau | Https:1688 | FQDN | kms.core.windows.net |
-
+| Nom      | Type de source | Source                    | Protocol   | Type de destination | Destination                                                                                 |
+| --------- | ----------- | ------------------------- | ---------- | ---------------- | ------------------------------------------------------------------------------------------- |
+| Nom de la règle | Adresse IP  | Adresse IP du réseau virtuel ou du sous-réseau | Https:443  | Étiquette FQDN         | WindowsVirtualDesktop, WindowsUpdate, Windows Diagnostics, MicrosoftActiveProtectionService |
+| Nom de la règle | Adresse IP  | Adresse IP du réseau virtuel ou du sous-réseau | Https:1688 | FQDN             | kms.core.windows.net                                                                        |
 
 > [!IMPORTANT]
 > Nous vous recommandons de ne pas utiliser l’inspection TLS avec Azure Virtual Desktop. Pour plus d'informations, consultez les [instructions pour le serveur proxy](../virtual-desktop/proxy-server-support.md#dont-use-ssl-termination-on-the-proxy-server).
@@ -64,11 +62,11 @@ Vous devrez créer une stratégie de Pare-feu Azure et créer des regroupements
 
 Selon les besoins de votre organisation, vous souhaiterez peut-être activer l’accès Internet sortant sécurisé pour vos utilisateurs finaux. Si la liste des destinations autorisées est bien définie (par exemple, pour [accès Microsoft 365](/microsoft-365/enterprise/microsoft-365-ip-web-service)), vous pouvez utiliser des règles d’application et de réseau du Pare-feu Azure pour configurer l’accès requis. Le trafic des utilisateurs finaux est ainsi directement acheminé vers Internet, ce qui optimise les performances. Si vous devez autoriser la connectivité réseau pour Windows 365 ou Intune, consultez [Exigences réseau pour Windows 365](/windows-365/requirements-network#allow-network-connectivity) et [Points de terminaison réseau pour Intune](/mem/intune/fundamentals/intune-endpoints).
 
-Si vous souhaitez filtrer le trafic Internet utilisateur sortant à l’aide d’une passerelle web sécurisée locale existante, vous pouvez configurer des navigateurs web ou d’autres applications qui s’exécutent sur le pool d’hôtes Azure Virtual Desktop avec une configuration de proxy explicite. Pour obtenir un exemple, consultez [Procédure d’utilisation des options de ligne de commande MicrosoftEdge pour configurer les paramètres de proxy](/deployedge/edge-learnmore-cmdline-options-proxy-settings). Ces paramètres de proxy n’influencent que l’accès Internet de l’utilisateur final, ce qui permet le trafic sortant de la plateforme Azure Virtual Desktop directement via le Pare-feu Azure. 
+Si vous souhaitez filtrer le trafic Internet utilisateur sortant à l’aide d’une passerelle web sécurisée locale existante, vous pouvez configurer des navigateurs web ou d’autres applications qui s’exécutent sur le pool d’hôtes Azure Virtual Desktop avec une configuration de proxy explicite. Pour obtenir un exemple, consultez [Procédure d’utilisation des options de ligne de commande MicrosoftEdge pour configurer les paramètres de proxy](/deployedge/edge-learnmore-cmdline-options-proxy-settings). Ces paramètres de proxy n’influencent que l’accès Internet de l’utilisateur final, ce qui permet le trafic sortant de la plateforme Azure Virtual Desktop directement via le Pare-feu Azure.
 
 ## <a name="control-user-access-to-the-web"></a>Contrôler l’accès des utilisateurs au web
 
-Les administrateurs peuvent autoriser ou refuser l’accès des utilisateurs à différentes catégories de sites web. Ajoutez une règle à votre collection d’applications à partir de votre adresse IP spécifique vers les catégories web que vous souhaitez autoriser ou refuser. Vérifiez toutes les [catégories web](web-categories.md). 
+Les administrateurs peuvent autoriser ou refuser l’accès des utilisateurs à différentes catégories de sites web. Ajoutez une règle à votre collection d’applications à partir de votre adresse IP spécifique vers les catégories web que vous souhaitez autoriser ou refuser. Vérifiez toutes les [catégories web](web-categories.md).
 
 ## <a name="additional-considerations"></a>Considérations supplémentaires
 

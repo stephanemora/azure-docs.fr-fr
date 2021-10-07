@@ -1,19 +1,19 @@
 ---
-title: Fichier include
+title: fichier descriptif
 description: Fichier include
 services: data-factory
 author: chez-charlie
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/16/2020
+ms.date: 09/21/2021
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 6c991188c266d2e169a7a1d50f4c2ea61f3a51f3
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 5fceaa3dcf4f89df754e0081d9cb9e7d2b4505a6
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "111351006"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129096057"
 ---
 Azure Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. Pour augmenter les limites jusqu'à la limite maximale pour votre abonnement, contactez le support.
 
@@ -27,7 +27,7 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Les exécutions d’activités externes simultanées par abonnement par [région d’Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Les activités externes sont gérées sur le runtime d’intégration mais s’exécutent sur des services liés, dont Databricks, les procédures stockées, le web et autres. Cette limite ne s’applique pas à l’IR auto-hébergé.</small> | 3 000 | 3 000 |
 | Les exécutions d’activités de pipeline simultanées par abonnement par [région d’Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br><small>Les activités de pipeline s’exécutent sur le runtime d’intégration, notamment Lookup, GetMetadata et Delete. Cette limite ne s’applique pas au runtime d’intégration auto-hébergé.</small> | 1 000 | 1 000                                                        |
 | Les opérations de création simultanées par abonnement pour chaque [région d’Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Notamment tester la connexion, parcourir la liste des dossiers des tables, afficher un aperçu des données. Cette limite ne s’applique pas au runtime d’intégration auto-hébergé.</small> | 200 | 200                                                          |
-| Unités d’intégration simultanée de données<sup>1</sup> consommation par abonnement pour chaque [région Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Groupe de régions 1<sup>2</sup> : 6 000 / 750<br>Groupe de régions 2<sup>2</sup> : 3 000<br>Groupe de régions 3<sup>2</sup> : 1 500 | Groupe de régions 1<sup>2</sup> : 6 000 / 750<br/>Groupe de régions 2<sup>2</sup> : 3 000<br/>Groupe de régions 3<sup>2</sup> : 1 500 |
+| Unités d’intégration simultanée de données<sup>1</sup> consommation par abonnement pour chaque [région Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Groupe de régions 1<sup>2</sup> : 6 000 / 750<br>Groupe de régions 2<sup>2</sup> : 3 000<br>Groupe de régions 3<sup>2</sup> : 1 500<br>Réseau virtuel managé<sup>2</sup> : 2 400 | Groupe de régions 1<sup>2</sup> : 6 000 / 750<br/>Groupe de régions 2<sup>2</sup> : 3 000<br/>Groupe de régions 3<sup>2</sup> : 1 500<br>Réseau virtuel managé : [contactez le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Activités maximales par pipeline, notamment les activités internes relatives aux conteneurs | 40 | 40 |
 | Nombre maximal de runtime d'intégration liés pouvant être créés pour un même runtime d'intégration auto-hébergé | 100 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Nombre maximal de paramètres par pipeline | 50 | 50 |
@@ -35,7 +35,7 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Parallélisme ForEach | 20 | 50 |
 | Nombre maximal d’exécutions en file d’attente par pipeline | 100 | 100 |
 | Caractères par expression | 8 192 | 8 192 |
-| Intervalle minimal de déclencheur de fenêtre bascule | 15 min | 15 min |
+| Intervalle minimal de déclencheur de fenêtre bascule | 5 minutes | 15 min |
 | Délai d’expiration maximal pour les exécutions d’activité de pipeline | 7 jours | 7 jours |
 | Octets par objet pour les objets pipeline <sup>3</sup> | 200 Ko | 200 Ko |
 | Octets par objet pour les objets jeu de données et service lié <sup>3</sup> | 100 Ko | 2 000 Ko |
@@ -46,6 +46,7 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Surveillance des requêtes par minute | 1 000 | 1 000 |
 | Durée maximale d’une session de débogage de flux de données | 8 heures | 8 heures |
 | Nombre de flux de données simultanés par runtime d’intégration | 50 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Nombre simultané de flux de données par runtime d’intégration dans un VNet managé| 20 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Nombre de sessions de débogage de flux de données simultanées par utilisateur et par fabrique | 3 | 3 |
 | Limite de durée de vie de flux de données avec Azure IR | 4 heures |  4 heures |
 | Limite de taille d’entité de métadonnées dans une fabrique | 2 Go | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -59,6 +60,8 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Groupe de régions 1 | USA Centre, USA Est, USA Est 2, Europe Nord, Europe Ouest, USA Ouest, USA Ouest 2 |
 | Groupe de régions 2 | Australie Est, Australie Sud-Est, Brésil Sud, Inde Centre, Japon Est, USA Centre Nord, USA Centre Sud, Asie Sud-Est, USA Centre-Ouest |
 | Groupe de régions 3 | Autres régions |
+
+Si le réseau virtuel managé est activé, l’unité d’intégration de données (DIU) dans tous les groupes de régions est de 2 400.
 
 <sup>3</sup> Les objets pipeline, jeu de données et service lié représentent un regroupement logique de votre charge de travail. Les limites de ces objets ne sont pas liées à la quantité de données que vous pouvez déplacer ou traiter à l’aide d’Azure Data Factory. Data Factory est conçu pour permettre une mise à l’échelle de plusieurs pétaoctets de données.
 

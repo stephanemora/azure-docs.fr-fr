@@ -7,13 +7,13 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/27/2021
-ms.openlocfilehash: 49aad9132d57c07022fd5515cbc07c32d94a5132
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.date: 09/07/2021
+ms.openlocfilehash: 650f5f40bf8b8fc0909b4fec85ef6b5724a2e3c7
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112982885"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539821"
 ---
 # <a name="indexer-troubleshooting-guidance-for-azure-cognitive-search"></a>Instructions pour la résolution des problèmes de l’indexeur pour la Recherche cognitive Azure
 
@@ -61,6 +61,12 @@ Dans ce cas, la machine virtuelle Azure ou l’instance gérée SQL peut être c
 `AzureCognitiveSearch` L’étiquette de service peut être utilisée directement dans les [règles de groupe de sécurité réseau](../virtual-network/manage-network-security-group.md#work-with-security-rules) entrantes sans avoir besoin de rechercher sa plage d’adresses IP.
 
 Pour plus d’informations sur l’accès aux données dans une instance managée SQL, cliquez [ici](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+
+## <a name="azure-sql-database-serverless-indexing-error-code-40613"></a>Indexation serverless Azure SQL Database (code d’erreur 40613)
+
+Si votre base de données SQL est un sur un [niveau de calcul serverless](../azure-sql/database/serverless-tier-overview.md), assurez-vous que la base de données est en cours d’exécution (et non en pause) lorsque l’indexeur se connecte à celle-ci.
+
+Si la base de données est suspendue, la première connexion de votre service de recherche réactivera automatiquement la base de données, mais renverra également une erreur indiquant que la base de données n’est pas disponible avec le code d’erreur 40613. Une fois la base de données en cours d’exécution, relancez la connexion pour établir la connectivité.
 
 ## <a name="sharepoint-online-conditional-access-policies"></a>Stratégies d’accès conditionnel SharePoint Online
 

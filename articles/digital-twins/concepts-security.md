@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a2d81d9ffbb79d0f05c8e0bf44fbe9d8967cf02f
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 253d763cffc8b70d134182c13678320f4ac50f4c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122525982"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586321"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
@@ -84,7 +84,7 @@ La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès a
 
 Si un utilisateur tente d’effectuer une action qui n’est pas autorisée par son rôle, il peut recevoir un message d’erreur `403 (Forbidden)` de la demande de service. Si vous souhaitez en savoir plus, également sur les étapes à suivre pour le dépannage, consultez [Résolution des problèmes : échec de la requête Azure Digital Twins avec l’état : 403 (Interdit)](troubleshoot-error-403.md) .
 
-## <a name="managed-identity-for-accessing-other-resources-preview"></a>Identité managée pour accéder à d’autres ressources (préversion)
+## <a name="managed-identity-for-accessing-other-resources"></a>Identité managée pour accéder à d’autres ressources
 
 La configuration d’une [identité managée](../active-directory/fundamentals/active-directory-whatis.md) **Azure Active Directory (Azure AD)** pour une instance Azure Digital Twins permet à l’instance d’accéder facilement à d’autres ressources protégées par Azure AD, par exemple [Azure Key Vault](../key-vault/general/overview.md). Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans Azure AD, consultez  [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 

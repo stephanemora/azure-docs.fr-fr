@@ -8,12 +8,12 @@ ms.date: 07/13/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 390ddb50c7a1ec13f654ae78fa022dcd8b1944da
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 932e3e0cc51c5b74e10d86bffa5785e5f65564cf
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633884"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278649"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrer Azure Data Lake Storage de Gen1 vers Gen2
 
@@ -49,7 +49,7 @@ Pour effectuer la migration vers Gen2, nous vous recommandons l’approche suiva
 
 3. Consultez la liste des [problèmes connus](data-lake-storage-known-issues.md) pour voir si certaines fonctionnalités sont manquantes.
 
-4. Gen2 prend en charge les fonctionnalités du stockage Blob, telles que la [journalisation des diagnostics](../common/storage-analytics-logging.md), les [niveaux d’accès](storage-blob-storage-tiers.md) et les [stratégies de gestion du cycle de vie du stockage Blob](./lifecycle-management-overview.md). Si ces fonctionnalités vous intéressent, consultez leur [niveau actuel de prise en charge](./storage-feature-support-in-storage-accounts.md).
+4. Gen2 prend en charge les fonctionnalités du stockage Blob, telles que la [journalisation des diagnostics](../common/storage-analytics-logging.md), les [niveaux d’accès](access-tiers-overview.md) et les [stratégies de gestion du cycle de vie du stockage Blob](./lifecycle-management-overview.md). Si ces fonctionnalités vous intéressent, consultez leur [niveau actuel de prise en charge](./storage-feature-support-in-storage-accounts.md).
 
 5. Consultez l’état actuel de la [prise en charge de l’écosystème Azure](./data-lake-storage-multi-protocol-access.md) pour voir si Gen2 prend en charge tous les services dont dépendent vos solutions.
 

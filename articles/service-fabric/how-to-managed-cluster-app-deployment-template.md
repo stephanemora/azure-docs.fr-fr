@@ -4,12 +4,12 @@ description: Découvrez comment déployer, mettre à niveau ou supprimer une app
 ms.topic: how-to
 ms.date: 8/23/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4e981e58cd5efb1430ab35772ab84428f7482977
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ae57620dda49494f90bb0bf78f629722edd5e653
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434517"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546384"
 ---
 # <a name="manage-application-lifecycle-on-a-managed-cluster-using-azure-resource-manager"></a>Gérer le cycle de vie des applications sur un cluster géré à l’aide de Azure Resource Manager
 
@@ -162,7 +162,7 @@ Vous pouvez mettre à niveau une application qui est déjà déployée sur un cl
     ```json
      "applicationTypeVersion": {
         "value": "1.0.1"
-    },
+    }
     ```
 ## <a name="delete-service-fabric-application-resources"></a>Supprimer les ressources de l'application Service Fabric
 > [!NOTE]

@@ -4,12 +4,12 @@ description: Découvrez des conseils et recommandations pour résoudre certains 
 ms.topic: article
 ms.date: 03/03/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0afb1d7a14867e616623519ec5de2c43e9beba2d
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 433383845771fca2b3df1ce1da81e070dd8e75c1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663654"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359397"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guide de dépannage pour Azure Service Bus
 Cet article fournit des conseils et des recommandations pour résoudre certains problèmes que vous pourriez rencontrer lors de l’utilisation d’Azure Service Bus. 
@@ -53,7 +53,7 @@ Aidez-vous des étapes suivantes pour résoudre les problèmes de connectivité,
     ```
     Vous pouvez utiliser des commandes équivalentes dans d’autres outils, par exemple `tnc`, `ping`, etc. 
 - Si les étapes précédentes n’ont pas résolu le problème, obtenez une trace réseau et analysez-la à l’aide d’un outil tel que [Wireshark](https://www.wireshark.org/). Contactez le [support Microsoft](https://support.microsoft.com/) si nécessaire. 
-- Pour trouver les adresses IP appropriées à ajouter à la liste d’autorisation de vos connexions, consultez [Quelles adresses IP dois-je ajouter à la liste d’autorisation](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allow-list-). 
+- Pour trouver les adresses IP appropriées à ajouter à la liste d’autorisation de vos connexions, consultez [Quelles adresses IP dois-je ajouter à la liste d’autorisation](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allowlist-). 
 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problèmes qui peuvent se produire avec les mises à niveau/redémarrages du service

@@ -1,19 +1,19 @@
 ---
 title: Gérer Azure Cache pour Redis avec Azure CLI
 description: 'Exemples Azure CLI pour la gestion d’Azure Cache pour Redis : Créer un cache, supprimer un cache, obtenir les détails du cache, le nom d’hôte, les ports et les clés, connecter une application web.'
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/14/2017
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 32530982bc2a9d1b5deb31b3bc71460462352258
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6a3b1701a73c4b71ee07b0110761566a4b2e93d
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92536417"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535813"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-cli"></a>Gérer Azure Cache pour Redis avec Azure CLI
 

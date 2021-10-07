@@ -1,15 +1,15 @@
 ---
 title: 'Tutoriel : Envoyer des événements personnalisés vers une connexion hybride - Event Grid'
 description: 'Tutoriel : Utilisez Azure Event Grid et Azure CLI pour publier une rubrique et pour vous abonner à cet événement. Une connexion hybride est utilisée pour le point de terminaison.'
-ms.date: 07/07/2020
+ms.date: 09/29/2021
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7fcbc76f3ab58aac6beca3e142eba3a9b62c28a3
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: b4f4b82e590095c866d4c7a8ee016910d2e11383
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107770400"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277762"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutoriel : Acheminer des événements personnalisés vers des connexions hybrides Azure Relay avec Azure CLI et Event Grid
 

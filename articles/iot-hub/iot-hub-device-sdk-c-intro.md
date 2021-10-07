@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: ffb7d708921c96f57a617f82fc54d7f462fb4282
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 4da2e985e2d8f3fbc00fe9fcf3d31d42463bb4c1
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168754"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455472"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT device SDK pour C
 
@@ -93,7 +93,7 @@ L’outil Explorateur d’appareils utilise les bibliothèques de service Azure 
 
 Si vous n’êtes pas familiarisé avec l’outil Explorateur d’appareils, la procédure qui suit explique comment l’utiliser pour ajouter un périphérique et obtenir une chaîne de connexion d’appareil.
 
-1. Pour installer l’outil Explorateur d’appareils, consultez [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/) (comment utiliser l’Explorateur d’appareils pour les appareils IoT Hub).
+1. Pour installer l’outil Explorateur d’appareils, consultez [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/tools/) (comment utiliser l’Explorateur d’appareils pour les appareils IoT Hub).
 
 1. Lorsque vous exécutez le programme, vous voyez cette interface :
 

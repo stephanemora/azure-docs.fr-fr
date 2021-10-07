@@ -2,14 +2,14 @@
 title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 89aa01556d69b6f3543f7e90d5937f7e20bf3679
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 7448b8c5fa4882f9579b60d7d723d88e98ca7683
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681358"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658618"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -39,7 +39,7 @@ Le tableau suivant décrit les fonctionnalités des coffres Recovery Services :
 **Déplacer les coffres** | Vous pouvez [déplacer les coffres](./backup-azure-move-recovery-services-vault.md) entre des abonnements ou entre des groupes de ressources dans le même abonnement. En revanche, le déplacement de coffres entre régions n’est pas pris en charge.
 **Déplacer des données entre des coffres** | Le déplacement de données sauvegardées entre des coffres n’est pas pris en charge.
 **Modifier le type de stockage de coffre** | Vous pouvez modifier le type de réplication de stockage (stockage géoredondant ou stockage localement redondant) pour un coffre avant le stockage des sauvegardes. Une fois que les sauvegardes commencent dans le coffre, le type de réplication ne peut pas être modifié.
-**Stockage redondant interzone (ZRS)** | Prise en charge en préversion : Royaume-Uni Sud, Asie Sud-Est, Australie Est, Europe Nord, USA Centre et Japon Est.
+**Stockage redondant interzone (ZRS)** | Prise en charge en préversion : Royaume-Uni Sud, Asie Sud-Est, Australie Est, Europe Nord, USA Centre, USA Est 2, Brésil Sud et Japon Est.
 **Points de terminaison privés** | Consultez [cette section](./private-endpoints.md#before-you-start) afin de connaître la configuration requise pour créer des points de terminaison privés pour un coffre Recovery Services.  
 
 ## <a name="on-premises-backup-support"></a>Prise en charge des sauvegardes locales
@@ -163,7 +163,7 @@ La vérification de l’intégrité des ressources fonctionne dans les condition
 |     |     |
 | --- | --- |
 | **Ressources prises en charge** | Coffre Recovery Services |
-| **Régions prises en charge** | USA Est 2, USA Centre, Europe Nord, France Centre, Asie Est, Japon Est, Japon Ouest, Australie Est, Afrique du Sud Nord. |
+| **Régions prises en charge** | USA Est, USA Est 2, USA centre, USA Centre Sud, USA Centre Nord, USA Centre Ouest, USA Ouest, USA Ouest 2, USA Ouest 3, Canada Est, Canada Centre, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, France Centre, Suède Centre, Suède Sud, Asie Est, Asie Sud Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Australie Est, Australie Centre, Australie Centre 2, Australie Sud-Est, Afrique du Sud Nord, Afrique du Sud Ouest, EAU Nord, EAU Centre, Brésil Sud, Brésil Sud-Est, Brésil Sud, Suisse Nord, Suisse Ouest, Norvège Est, Norvège Ouest, Allemagne Nord, Allemagne Centre Ouest, Inde Ouest, Inde Centre, Inde Sud, Jio Inde Ouest, Jio Inde Centre. |
 | **Pour les régions non prises en charge** | L’état d’intégrité des ressources indique « Inconnu ». |
 
 

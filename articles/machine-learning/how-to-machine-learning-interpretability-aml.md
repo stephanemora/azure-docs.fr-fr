@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment obtenir des explications sur la façon dont votre modèle de Machine Learning détermine l’importance des fonctionnalités et effectue des prédictions lors de l’utilisation du kit de développement logiciel (SDK) Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: b033b37532bffa92bcc8f427abe4508c5b93aefc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 803a70b01a39d20080a9724b6ab1780c9a81d354
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524737"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425408"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utiliser le package d’interprétabilité pour expliquer les modèles ML et les prédictions dans Python (préversion)
 

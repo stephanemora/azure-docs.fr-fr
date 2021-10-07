@@ -2,21 +2,19 @@
 title: 'Tutoriel : Recherche d’entités Bing dans une application web monopage'
 titleSuffix: Azure Cognitive Services
 description: Ce tutoriel montre comment utiliser l’API Recherche d’entités Bing dans une application web monopage.
-services: cognitive-services
 author: aahill
-manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: f2c15221268635ca1892a9292d5b0c208c13dd34
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 49ac0daf08e2b279396b12fa5fee74e8cdbbed7e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426805"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363534"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutoriel : Application web à page unique
 
@@ -564,7 +562,7 @@ Laissez la fenêtre de commande ouverte pendant que vous utilisez l’applicatio
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Référence à l’API Recherche d’entités Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Référence à l’API Recherche d’entités Bing](/rest/api/cognitiveservices/bing-entities-api-v7-reference)
 
 > [!div class="nextstepaction"]
-> [Documentation sur l’API Bing Maps](//msdn.microsoft.com/library/dd877180.aspx)
+> [Documentation sur l’API Bing Maps](/bingmaps/)

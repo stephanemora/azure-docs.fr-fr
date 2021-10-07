@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1022ebd9166e3e2e92a4c67cd434190c91dd09c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ed76c271590b4f5fbc79c7713b70186a8d9eb426
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524856"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128552063"
 ---
 # <a name="time-based-retention-policies-for-immutable-blob-data"></a>Stratégies de rétention limitée dans le temps pour les données d’objets blob immuables
 
@@ -28,7 +28,7 @@ La période de conservation minimale pour une stratégie de rétention limitée 
 
 Lorsque vous configurez une stratégie de rétention limitée dans le temps, les objets blob affectés resteront à l’état immuable pendant la période de conservation *effective*. La période de conservation effective pour les objets blob est égale à la différence entre l’heure de création de l’objet blob et la période de conservation spécifiée par l’utilisateur. Dans la mesure où la période de conservation d’une stratégie peut être étendue, le stockage immuable utilise la valeur la plus récente de la période de conservation spécifiée par l’utilisateur pour calculer la durée de conservation effective.
 
-Par exemple, supposons qu’un utilisateur crée une stratégie de rétention limitée dans le temps avec une période de conservation de cinq ans. Un objet blob existant dans ce conteneur, _testblob1_, a été créé il y a un an. Autrement dit, la période de conservation effective de _testblob1_ est de quatre ans. Quand un nouvel objet blob, _testblob2_, est chargé dans le conteneur, la période de conservation effective de _testblob2_ est de cinq ans à partir du moment où il est créé.
+Par exemple, supposons qu’un utilisateur crée une stratégie de rétention limitée dans le temps avec une période de conservation de cinq ans. Un objet blob existant dans ce conteneur, *testblob1*, a été créé il y a un an. Autrement dit, la période de conservation effective de *testblob1* est de quatre ans. Quand un nouvel objet blob, *testblob2*, est chargé dans le conteneur, la période de conservation effective de *testblob2* est de cinq ans à partir du moment où il est créé.
 
 ## <a name="locked-versus-unlocked-policies"></a>Stratégies verrouillées et déverrouillées
 
@@ -98,7 +98,7 @@ Si la stratégie héritée par une version précédente est déverrouillée, la 
 
 Si la stratégie héritée par une version précédente est verrouillée, la période de conservation peut être prolongée. La stratégie ne peut pas être supprimée et la période de conservation ne peut pas être réduite.
 
-Si aucune stratégie n’est configurée sur la version actuelle, alors la version précédente n’hérite d’aucune stratégie. Vous pouvez configurer une stratégie personnalisée pour la version.  
+Si aucune stratégie n’est configurée sur la version actuelle, alors la version précédente n’hérite d’aucune stratégie. Vous pouvez configurer une stratégie personnalisée pour la version.
 
 Si la stratégie sur une version actuelle est modifiée, les stratégies sur les versions précédentes existantes restent inchangées, même si la stratégie a été héritée d’une version actuelle.
 
@@ -124,7 +124,7 @@ Seules les stratégies de rétention limitées dans le temps possèdent le param
 
 Sachant que ce paramètre fait partie d’une stratégie de rétention limitée dans le temps, les objets blob d’ajout restent à l’état immuable pendant la période de rétention *effective*. Comme il est possible d’ajouter de nouvelles données au-delà de la création initiale de l’objet blob d’ajout, il existe une légère différence quant à la façon dont la durée de rétention est déterminée. La rétention effective est égale à la différence entre le moment où l’objet blob d’ajout est modifié pour la dernier fois et l’intervalle de rétention spécifié par l’utilisateur. De la même manière, quand la période de conservation est allongée, le stockage immuable utilise la valeur la plus récente de la période de conservation spécifiée par l’utilisateur pour calculer la durée de rétention effective.
 
-Par exemple, supposez qu’un utilisateur crée une stratégie de rétention limitée dans le temps avec la propriété **AllowProtectedAppendWrites** activée et une période de conservation de 90 jours. Un objet blob d’ajout, _logblob1_, est créé aujourd’hui dans le conteneur et de nouveaux journaux continuent d’y être ajoutés les 10 jours suivants. Ainsi, la période de conservation effective de _logblob1_ est de 100 jours à partir d’aujourd’hui (dernier ajout il y a + 90 jours).
+Par exemple, supposez qu’un utilisateur crée une stratégie de rétention limitée dans le temps avec la propriété **AllowProtectedAppendWrites** activée et une période de conservation de 90 jours. Un objet blob d’ajout, *logblob1*, est créé aujourd’hui dans le conteneur et de nouveaux journaux continuent d’y être ajoutés les 10 jours suivants. Ainsi, la période de conservation effective de *logblob1* est de 100 jours à partir d’aujourd’hui (dernier ajout il y a + 90 jours).
 
 Les stratégies de rétention limitées dans le temps déverrouillées permettent d’activer et de désactiver le paramètre de propriété **AllowProtectedAppendWrites** à tout moment. Une fois que la stratégie de rétention limitée dans le temps est verrouillée, le paramètre de propriété **AllowProtectedAppendWrites** ne peut pas être modifié.
 

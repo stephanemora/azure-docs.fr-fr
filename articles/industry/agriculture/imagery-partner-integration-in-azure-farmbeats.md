@@ -5,13 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.custom: ''
-ms.openlocfilehash: c4a4b0fa982945b20616d576af4b3e8039d828c0
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 85dff004bdaf61297d9f88766e4cadc97f7d6b88
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527789"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128624251"
 ---
 # <a name="imagery-partner-integration"></a>Intégration de partenaire d’imagerie
 
@@ -91,8 +90,8 @@ Voici les en-têtes de demande les plus courants qui doivent être spécifiés l
 
 **En-tête** | **Description et exemple**
 --- | ---
-Content-Type  | Format de la demande (Content-Type: application/<format>). Pour les API FarmBeats Datahub, le format est JSON. Content-Type: application/json
-Autorisation | Spécifie le jeton d’accès requis pour effectuer un appel d’API. Autorisation : Porteur <jeton-accès>
+Content-Type  | Format de la demande (Content-Type: application/\<format\>). Pour les API FarmBeats Datahub, le format est JSON. Content-Type: application/json
+Autorisation | Spécifie le jeton d’accès requis pour effectuer un appel d’API. Autorisation : Porteur \<Access-Token\>
 Acceptation  | Format de la réponse. Pour les API FarmBeats Datahub, le format est JSON. Accept: application/json
 
 
@@ -112,7 +111,7 @@ L’exemple de requête suivant porte sur l’obtention de la liste des appareil
 ```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>”
+"Authorization: Bearer <Access-Token>"
 ```
 
 La plupart des appels GET, POST et PUT nécessitent un corps de demande JSON.
@@ -136,20 +135,22 @@ JSON est un format de données courant, indépendant du langage, qui fournit une
 
 Une fois que le partenaire dispose d’informations d’identification pour se connecter à FarmBeats Datahub, il effectue les étapes suivantes dans le composant Translator.
 
-1.  Il crée un type étendu pour les champs suivants en fonction du type de données imagerie à charger :
+1. Il crée un type étendu pour les champs suivants en fonction du type de données imagerie à charger :
 
-    - **Source de la scène** : Par exemple, drone_partner_name
-    - **Type de scène** : Par exemple, drone
-    - **Type de fichier de scène** : Par exemple, chlorophyll index
-    - **Type de contenu de fichier de scène** : Par exemple, image/tiff
+   - **Source de la scène** : Par exemple, drone_partner_name
+   - **Type de scène** : Par exemple, drone
+   - **Type de fichier de scène** : Par exemple, chlorophyll index
+   - **Type de contenu de fichier de scène** : Par exemple, image/tiff
 
-2.  Il appelle l’API /Farms pour obtenir la liste des fermes dans le système Azure FarmBeats.
-3.  Il donne au client la possibilité de choisir une ferme unique dans la liste des fermes.
+2. Il appelle l’API /Farms pour obtenir la liste des fermes dans le système Azure FarmBeats.
 
-    Le système partenaire doit afficher la ferme dans le logiciel partenaire. Il permet ainsi de planifier les trajectoires, de procéder au vol du drone et de collecter les images.
+3. Il donne au client la possibilité de choisir une ferme unique dans la liste des fermes.
 
-4.  Il appelle l’API /Scene et fournit les informations nécessaires pour créer une scène avec un ID de scène unique.
-5.  Il reçoit une URL SAS d’objet blob pour charger les images requises dans FarmBeats Datahub dans le contexte de la ferme choisie, dans le système FarmBeats.
+   Le système partenaire doit afficher la ferme dans le logiciel partenaire. Il permet ainsi de planifier les trajectoires, de procéder au vol du drone et de collecter les images.
+
+4. Il appelle l’API /Scene et fournit les informations nécessaires pour créer une scène avec un ID de scène unique.
+
+5. Il reçoit une URL SAS d’objet blob pour charger les images requises dans FarmBeats Datahub dans le contexte de la ferme choisie, dans le système FarmBeats.
 
 Voici un flux détaillé sur les appels d’API.
 

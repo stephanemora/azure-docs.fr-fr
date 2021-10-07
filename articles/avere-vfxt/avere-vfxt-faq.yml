@@ -8,12 +8,12 @@ metadata:
   ms.date: 12/19/2019
   ms.author: rohogue
   ms.custom: references_regions
-  ms.openlocfilehash: 241bcb1e164bf8f0233e7110ffcdd9630e870e8d
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: a826f96396a4275b07598564281060dea0bf7b1a
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124751095"
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129351417"
 title: Questions fréquentes (FAQ) sur Avere vFXT pour Azure
 summary: Cet article fournit des réponses qui peuvent vous aider à déterminer si le système Avere vFXT pour Azure est adapté à vos besoins. Il contient des informations de base sur Avere vFXT et explique comment le système fonctionne avec d'autres composants Azure et avec des produits de fournisseurs externes.
 sections:
@@ -80,15 +80,6 @@ sections:
       Le système Avere vFXT est-il hautement disponible ?
     answer: >
       Oui, le système Avere vFXT s'exécute exclusivement en tant que solution à haute disponibilité.
-  - question: >
-      Avere vFXT pour Azure prend-il également en charge d’autres services cloud ?
-    answer: >
-      Oui, les clients peuvent utiliser plusieurs fournisseurs de cloud avec le cluster Avere vFXT. Il prend en charge les compartiments standard AWS S3, les compartiments standard des services Google Cloud et les conteneurs d'objets blob Azure.
-
-
-      > [!NOTE]
-
-      > Des frais de logiciel s’appliquent si vous utilisez Avere vFXT avec un stockage AWS ou Google Cloud. Il n’y a pas de frais de logiciel supplémentaires pour l’utilisation du stockage Blob Azure.
 - name: 'Technique : Calcul'
   questions:
   - question: >
@@ -214,7 +205,7 @@ sections:
       Avere vFXT n'est pas un système de stockage. Il s'agit d'un cache qui lit et écrit des données à partir de plusieurs cibles de stockage appelées systèmes de stockage principaux (ou core filers). Les données stockées sur les disques SSD Premium du système Avere vFXT sont temporaires et finissent par être vidées sur le stockage du système de stockage principal du back-end.
   - question: >
       Quels systèmes de stockage principaux Avere vFXT prend en charge ?
-    answer: "En général, Avere vFXT pour Azure prend en charge les systèmes suivants comme systèmes de stockage principaux :\n\n* Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 et 8.1) \n* NetApp ONTAP (Cluster Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) et (7-Mode 7.*, 8.0 - 8.3)\n\n* Conteneurs d'objets blob Azure (stockage localement redondant uniquement)\n* Compartiments AWS S3\n* Compartiments Google Cloud\n"
+    answer: "En général, Avere vFXT pour Azure prend en charge les systèmes suivants comme systèmes de stockage principaux :\n\n* Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 et 8.1) \n* NetApp ONTAP (Cluster Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) et (7-Mode 7.*, 8.0 - 8.3)\n\n* Conteneurs d'objets blob Azure (stockage localement redondant uniquement)\n"
   - question: >
       Pourquoi le système Avere vFXT ne prend-il pas en charge tous les systèmes de stockage NFS ?
     answer: >
@@ -248,7 +239,7 @@ sections:
       Le stockage d’objets blob de niveau de stockage froid n’est généralement pas recommandé pour un serveur de fichiers Avere vFXT pour Azure. Le niveau de stockage froid offre des coûts de stockage plus bas mais des coûts d'exploitation plus élevés. (Pour plus d’informations, consultez la [tarification des objets blob de blocs](<https://azure.microsoft.com/pricing/details/storage/blobs/>).) Si les données sont accessibles, modifiées ou supprimées fréquemment, envisagez d’utiliser le niveau de stockage chaud.
 
 
-      Les [niveaux d’accès](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) fournissent plus d’informations sur le moment où il peut être judicieux d’utiliser le stockage de niveau froid comme un système de stockage back-end vFXT.
+      Les [niveaux d’accès](../storage/blobs/access-tiers-overview.md) fournissent plus d’informations sur le moment où il peut être judicieux d’utiliser le stockage de niveau froid comme un système de stockage back-end vFXT.
   - question: >
       Comment chiffrer le conteneur d'objets blob ?
     answer: "Vous pouvez configurer le chiffrement d'objets blob dans Azure (recommandé) ou au niveau du système de stockage principal Avere vFXT.  \n"

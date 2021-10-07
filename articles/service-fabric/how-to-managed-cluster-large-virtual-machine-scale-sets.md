@@ -3,12 +3,12 @@ title: Configurer un type de nœud secondaire pour des groupes de machines virtu
 description: Cet article explique comment configurer un type de nœud secondaire en tant que grand groupe de machines virtuelles identiques
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: 5b4601c347abcecb06e394f645c21141994681fc
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 05177b519caa504ac9d931b07b9f6126a3851c0b
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867804"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545093"
 ---
 # <a name="service-fabric-managed-cluster-node-type-scaling"></a>Mise à l’échelle d’un type de nœud de cluster géré par Service Fabric
 
@@ -27,26 +27,25 @@ Pour configurer un type de nœud secondaire en tant que groupe identique de gran
 * L’apiVersion de la ressource de cluster managé Service Fabric doit être **2021-05-01** ou ultérieure.
 
 ```json
-     {
-            "apiVersion": "[variables('sfApiVersion')]",
-            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
-            "location": "[resourcegroup().location]",
-            "dependsOn": [
-              "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
-            ],
-            "properties": {
-                "multiplePlacementGroups": true,
-                "isPrimary": false,
-                "vmImagePublisher": "[parameters('vmImagePublisher')]",
-                "vmImageOffer": "[parameters('vmImageOffer')]",
-                "vmImageSku": "[parameters('vmImageSku')]",
-                "vmImageVersion": "[parameters('vmImageVersion')]",
-                "vmSize": "[parameters('nodeTypeSize')]",
-                "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
-                "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
-            }
-        }
+{
+  "apiVersion": "[variables('sfApiVersion')]",
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+  "location": "[resourcegroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+  ],
+  "properties": {
+    "multiplePlacementGroups": true,
+    "isPrimary": false,
+    "vmImagePublisher": "[parameters('vmImagePublisher')]",
+    "vmImageOffer": "[parameters('vmImageOffer')]",
+    "vmImageSku": "[parameters('vmImageSku')]",
+    "vmImageVersion": "[parameters('vmImageVersion')]",
+    "vmSize": "[parameters('nodeTypeSize')]",
+    "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+    "dataDiskSizeGB": "[parameters('nodeTypeDataDiskSizeGB')]"
+  }
 }
 ```
 

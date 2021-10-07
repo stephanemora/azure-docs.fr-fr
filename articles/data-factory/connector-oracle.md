@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: bf21a264e64fd43ba98f73f96afc6fe2f1bfd069
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: a7cd2530762ae3045e2bcd6302e4e5f31f9dd993
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123317447"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777941"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données de et vers Oracle à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -69,7 +69,7 @@ Utilisez les étapes suivantes pour créer un service lié à Oracle dans l’in
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -327,7 +327,7 @@ Pour copier des données vers Oracle, définissez `OracleSink` comme type de ré
 
 Le connecteur Oracle propose un partitionnement de données intégré pour copier des données à partir d’Oracle en parallèle. Vous trouverez des options de partitionnement de données dans l’onglet **Source** de l’activité de copie.
 
-![Capture d’écran représentant les options de partition](./media/connector-oracle/connector-oracle-partition-options.png)
+:::image type="content" source="./media/connector-oracle/connector-oracle-partition-options.png" alt-text="Capture d’écran représentant les options de partition":::
 
 Lorsque vous activez la copie partitionnée, le service exécute des requêtes en parallèle sur votre source Oracle pour charger des données par partitions. Le degré de parallélisme est contrôlé via le paramètre [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) sur l’activité de copie. Par exemple, si vous définissez `parallelCopies` sur quatre, le service génère et exécute simultanément quatre requêtes basées sur l’option de partition et les paramètres que vous avez spécifiés, chacune récupérant des données à partir de votre base de données Oracle.
 

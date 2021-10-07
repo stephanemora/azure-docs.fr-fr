@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.openlocfilehash: 17ec535c03cd007a44fdd0b9633667f0e4343181
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 09/23/2021
+ms.openlocfilehash: 80cc94941331a024a183e19c383ee20b900251ea
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034532"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707633"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Une fois que vous avez créé un compte Azure Cosmos dans votre abonnement, vous
 
 ### <a name="provisioned-throughput"></a>Débit approvisionné
 
-Vous pouvez provisionner le débit au niveau d’un conteneur ou d’une base de données en termes d’[unités de requête (RU/s)](request-units.md). Le tableau suivant liste les limites de stockage et de débit par conteneur/base de données.
+Vous pouvez provisionner le débit au niveau d’un conteneur ou d’une base de données en termes d’[unités de requête (RU/s)](request-units.md). Le tableau suivant liste les limites de stockage et de débit par conteneur/base de données. Stockage fait référence à la quantité combinée du stockage des données et des index.
 
 | Ressource | Limite par défaut |
 | --- | --- |
@@ -56,7 +56,7 @@ Pour estimer le débit minimal requis d’un conteneur avec un débit manuel, re
 
 * 400 RU/s 
 * Stockage actuel en Go * 10 RU/s
-* Valeur RU/s la plus élevée approvisionnée sur le conteneur / 100
+* RU/s les plus élevées jamais provisionnées sur le conteneur / 100
 
 Exemple : Supposons que vous disposiez d’un conteneur approvisionné avec 400 RU/s et un stockage de 0 Go. Vous augmentez le débit à 50 000 RU/s et importez 20 Go de données. La valeur RU/s minimale est maintenant `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Au fil du temps, le stockage atteint 200 Go. La valeur RU/s minimale est maintenant `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2 000 RU/s. 
 
@@ -67,7 +67,7 @@ Pour estimer le débit minimal requis d’une base de données à débit partag�
 
 * 400 RU/s 
 * Stockage actuel en Go * 10 RU/s
-* Valeur RU/s la plus élevée approvisionnée sur la base de données / 100
+* RU/s les plus élevées jamais provisionnées sur la base de données / 100
 * 400 + MAX (nombre de conteneurs - 25, 0) * 100 RU/s
 
 Exemple : Supposons que vous disposiez d’une base de données configurée avec 400 RU/s, 15 Go de stockage et 10 conteneurs. La valeur RU/s minimale est `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. En présence de 30 conteneurs dans la base de données, la valeur RU/s minimale serait `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
@@ -116,16 +116,16 @@ Cosmos DB sauvegarde automatiquement vos données à intervalles réguliers. Pou
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre maximal de bases de données | Illimité |
+| Nombre maximal de bases de données | 500 |
 | Nombre maximal de conteneurs par base de données avec un débit partagé |25 |
-| Nombre maximal de conteneurs par base de données ou compte avec un débit dédié  |illimitée |
+| Nombre maximal de conteneurs par base de données ou compte avec un débit dédié  | 500 |
 | Nombre maximal de régions | Aucune limite (toutes les régions Azure) |
 
 ### <a name="serverless"></a>Sans serveur
 
 | Ressource | Limite |
 | --- | --- |
-| Nombre maximal de bases de données | Illimité |
+| Nombre maximal de bases de données | 500 |
 | Nombre maximal de conteneurs par compte  | 100 |
 | Nombre maximal de régions | 1 (n’importe quelle région Azure) |
 

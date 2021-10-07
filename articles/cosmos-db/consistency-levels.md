@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2021
-ms.openlocfilehash: 4d0197e76659e864ab0f5553317b64b2d74b867d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/20/2021
+ms.openlocfilehash: ae45647369cde2cc0b427fe128f4fea44de79bf4
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562225"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129058915"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -96,6 +96,7 @@ Les clients en dehors de la session effectuant des écritures verront les garant
 - Cohérence pour les clients de régions différentes pour un compte à une seule région d’écriture = Préfixe cohérent
 - Cohérence pour les clients écrivant dans une région unique pour un compte à plusieurs régions d’écriture = Préfixe cohérent
 - Cohérence pour les clients écrivant dans plusieurs régions pour un compte à plusieurs régions d’écriture = Éventuelle
+- Cohérence pour les clients utilisant le [cache intégré Azure Cosmos DB](integrated-cache.md) = Cohérence éventuelle
 
   La cohérence de session est le niveau de cohérence le plus utilisé pour les applications limitées à une seule région comme pour les applications distribuées dans le monde entier. Elle propose des latences en écriture, une disponibilité et un débit de lecture comparables à ceux de la cohérence éventuelle, mais fournit aussi des garanties de cohérence qui répondent aux besoins des applications écrites pour agir dans le contexte de l’utilisateur. Le graphique suivant illustre la cohérence de session avec des notes musicales. Le « processus d’écriture USA Ouest 2 » et le « processus de lecture USA Est 2 » utilisent la même session (session A) et lisent donc les mêmes données en même temps. En revanche, la région « Australie Est » utilise « Session B » et reçoit les données plus tard, mais dans le même ordre que les écritures.
 
@@ -154,7 +155,7 @@ La latence exacte de la durée des boucles s’exprime en fonction de la distanc
 
 - Pour une obsolescence forte et limitée, les lectures sont effectuées sur deux réplicas dans un jeu de quatre réplicas (quorum minoritaire) pour fournir des garanties de cohérence. Les niveaux Session, Préfixe cohérent et À terme font des lectures sur un seul réplica. Le résultat est que, pour le même nombre d’unités de requête, le débit de lecture pour l’obsolescence forte et limitée est la moitié de celui des autres niveaux de cohérence.
 
-- Pour un type donné d’opération d’écriture, tel qu’insert, replace, upsert et delete, le débit d’écriture des unités de requête est identique pour tous les niveaux de cohérence.
+- Pour un type donné d’opération d’écriture, tel qu’insert, replace, upsert et delete, le débit d’écriture des unités de requête est identique pour tous les niveaux de cohérence. Pour une cohérence forte, les changements doivent être validés dans chaque région (majorité globale), alors que pour tous les autres niveaux de cohérence, la majorité locale (trois réplicas dans un jeu de quatre réplicas) est utilisée. 
 
 |**Niveau de cohérence**|**Lectures de quorum**|**Écritures de quorum**|
 |--|--|--|

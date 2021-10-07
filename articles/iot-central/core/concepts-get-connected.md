@@ -3,7 +3,7 @@ title: Connectivité des appareils dans Azure IoT Central | Microsoft Docs
 description: Cet article présente les concepts clés relatifs à la connectivité des appareils dans Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/15/2020
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: aebee9b2511e3616a9170d5ed84be3acf391b6ad
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: bf35868d67dab2cb48aee5c85b964f86abd912e3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525568"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653775"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -65,7 +65,6 @@ Pour plus d’informations, consultez [Connecter des appareils avec des certific
 À des fins de test uniquement, vous pouvez vous servir des utilitaires suivants pour générer des certificats racines, intermédiaires et d’appareils :
 
 - [Outils pour le kit de développement logiciel (SDK) pour appareils Azure IoT Device Provisioning](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md) : une collection d’outils Node.js que vous pouvez utiliser pour générer et vérifier des certificats X.509 et des clés.
-- Si vous utilisez un appareil DevKit, cet [outil en ligne de commande](https://aka.ms/iotcentral-docs-dicetool) génère un certificat d’autorité de certification que vous pouvez ajouter à votre application IoT Central pour vérifier les certificats.
 - [Gérer les certificats d’autorité de certification de test pour les exemples et les tutoriels](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) : une collection de scripts PowerShell et Bash pour :
   - Créer une chaîne de certificat.
   - Enregistrez les certificats en tant que fichiers .cer à télécharger vers votre application IoT Central.
@@ -190,6 +189,16 @@ Le modèle [Thermostat](https://github.com/Azure/iot-plugandplay-models/blob/mai
 ```json
 "@id": "dtmi:com:example:Thermostat;1"
 ```
+
+Utilisez la charge utile DPS suivante pour associer l’appareil à un modèle d’appareil :
+
+```json
+{
+  "modelId":"dtmi:com:example:TemperatureController;2"
+}
+```
+
+Pour plus d’informations sur la charge utile DPS, consultez l’exemple de code utilisé dans le [Tutoriel : Créer et connecter une application cliente à votre application Azure IoT Central](tutorial-connect-device.md).
 
 ## <a name="device-status-values"></a>Valeurs d’état de l’appareil
 

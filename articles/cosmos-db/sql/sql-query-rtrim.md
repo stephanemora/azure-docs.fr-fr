@@ -5,31 +5,34 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 09/14/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 46cb4a25e591e4664f326a04e7eb597e98f2c0b0
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: f1dfaa8de0f6fa6d04fe91618a68a79d4121b7bd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122563511"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647760"
 ---
 # <a name="rtrim-azure-cosmos-db"></a>RTRIM (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Retourne une expression de chaîne après avoir supprimé les espaces de fin.  
+ Retourne une expression de chaîne après suppression de l’espace de fin ou les caractères spécifiés.  
   
 ## <a name="syntax"></a>Syntaxe
   
 ```sql
-RTRIM(<str_expr>)  
+RTRIM(<str_expr1>[, <str_expr2>])  
 ```  
   
 ## <a name="arguments"></a>Arguments
   
-*str_expr*  
-   Peut être toute expression de chaîne valide.  
+*str_expr1*  
+   Est une expression de chaîne
+
+*str_expr2*  
+   Est une expression de chaîne facultative à tronquer de str_expr1. Si elle n’est pas définie, la valeur par défaut est un espace.  
   
 ## <a name="return-types"></a>Types de retour
   
@@ -40,14 +43,28 @@ RTRIM(<str_expr>)
   L’exemple ci-après indique comment utiliser `RTRIM` dans une requête.  
   
 ```sql
-SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3  
+SELECT RTRIM("   abc") AS t1, 
+RTRIM("   abc   ") AS t2, 
+RTRIM("abc   ") AS t3, 
+RTRIM("abc") AS t4,
+RTRIM("abc", "bc") AS t5,
+RTRIM("abc", "abc") AS t6
 ```  
   
  Voici le jeu de résultats obtenu.  
   
 ```json
-[{"r1": "   abc", "r2": "abc", "r3": "abc"}]  
-```  
+[
+    {
+        "t1": "   abc",
+        "t2": "   abc",
+        "t3": "abc",
+        "t4": "abc",
+        "t5": "a",
+        "t6": ""
+    }
+]
+``` 
 
 ## <a name="remarks"></a>Notes
 

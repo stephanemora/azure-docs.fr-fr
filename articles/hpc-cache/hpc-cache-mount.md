@@ -4,14 +4,14 @@ description: Comment connecter des clients à un service Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 09/20/2021
 ms.author: v-erkel
-ms.openlocfilehash: 7f1d8d34d6351fc344fdb101ac8e9a96678df9d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e3c2a336d58e90bc446c77b164148359f9588fd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91651426"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675899"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Monter le cache Azure HPC Cache
 
@@ -91,6 +91,8 @@ Procédez comme suit pour créer la commande de montage.
 
    ![Capture d’écran du champ Commande de montage du prototype, montrant le texte du survol du bouton « Copier dans le Presse-papiers »](media/mount-command-copy.png)
 
+   En bas, elle montre d’autres commandes de montage, qui ont le même chemin client et le même chemin d’espace de noms, mais utilisent des adresses de montage de cache différentes. Pour de meilleures performances, vous devez monter les clients de façon uniforme entre toutes les adresses disponibles sur HPC Cache.
+
 1. Utilisez la commande de montage copiée sur l’ordinateur client pour le connecter à Azure HPC Cache. Vous pouvez émettre la commande directement à partir de la ligne de commande du client ou inclure la commande de montage dans un modèle ou un script d’installation de client.
 
 ## <a name="understand-mount-command-syntax"></a>Comprendre la syntaxe de la commande de montage
@@ -135,6 +137,13 @@ Les chemins d’espaces de noms virtuels sont affichés dans la page des paramè
 
 ![Capture d’écran de la page du portail Paramètres > Espace de noms avec un encadré autour de la première colonne du tableau : « Chemin de l’espace de noms »](media/view-namespace-paths.png)
 
+## <a name="use-all-available-mount-addresses"></a>Utiliser toutes les adresses de montage disponibles
+
+Vous devez répartir le trafic client entre toutes les adresses IP listées pour le cache. Si vous montez tous vos clients sur une seule adresse, les performances du cache seront altérées.
+
+Vous pouvez sélectionner des adresses de montage différentes pour différents clients, manuellement ou en créant un script. Vous pouvez aussi utiliser un serveur DNS configuré pour le DNS avec tourniquet (round robin) (RRDNS) pour effectuer la rotation automatique des montages clients parmi toutes les adresses disponibles. Pour plus d’informations, consultez [Équilibrer la charge du trafic HPC Cache](client-load-balancing.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
+* En savoir plus sur l’utilisation de tout le débit de votre cache en [équilibrant la charge des clients](client-load-balancing.md).
 * Pour déplacer des données vers les cibles de stockage du cache, consultez [Remplir de données un nouveau stockage Blob Azure](hpc-cache-ingest.md).

@@ -1,24 +1,24 @@
 ---
-title: Bonnes pratiques pour le chargement de données
-description: Recommandations et optimisation des performances pour le chargement de données dans un pool SQL dédié Azure Synapse Analytics.
+title: Meilleures pratiques en matière de chargement des données pour les pools SQL dédiés
+description: Recommandations et optimisation des performances pour le chargement de données dans un pool SQL dédié dans Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 08/26/2021
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: a04bf8a1805fa55afac3d51a2d4f3ba353edf03c
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: ee3be53c6a52f0bc0a8ceab0424a7a6c99a0f441
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525373"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123539584"
 ---
-# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Meilleures pratiques pour le chargement de données dans un pool SQL dédié Azure Synapse Analytics
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Meilleures pratiques pour le chargement de données dans un pool SQL dédié dans Azure Synapse Analytics
 
 Cet article présente des recommandations et des optimisations des performances pour le chargement de données.
 
@@ -40,27 +40,46 @@ Pour une vitesse de chargement plus élevée, exécutez un seul travail de charg
 
 Pour exécuter des charges avec des ressources de calcul appropriées, créez des utilisateurs de chargement désignés pour cette tâche. Attribuez chaque utilisateur de chargement à une classe de ressources ou à un groupe de charge de travail spécifique. Pour exécuter une charge, connectez-vous en tant qu’utilisateur de chargement, puis exécutez la charge. La charge s’exécute avec la classe de ressources de l’utilisateur.  Cette méthode est plus simple que d’essayer de modifier la classe de ressources d’un utilisateur pour répondre au besoin de la classe de ressources actuelle.
 
+
 ### <a name="create-a-loading-user"></a>Créer un utilisateur de chargement
 
-Ce code crée un utilisateur de chargement pour la classe de ressources staticrc20. La première étape consiste à **se connecter au maître** et à créer une connexion.
+Cet exemple crée un utilisateur de chargement classé dans un groupe de charge de travail spécifique. La première étape consiste à **se connecter au maître** et à créer une connexion.
 
 ```sql
    -- Connect to master
-   CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
+   CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connectez-vous à l’entrepôt de données et créez un utilisateur. Le code suivant suppose que vous êtes connecté à la base de données appelée mySampleDataWarehouse. Il montre comment créer un utilisateur nommé LoaderRC20, et lui donner la autorisation de contrôle d’une base de données. Il ajoute ensuite l’utilisateur en tant que membre du rôle de base de données staticrc20.  
+Connectez-vous au pool SQL dédié et créez un utilisateur. Le code suivant suppose que vous êtes connecté à la base de données appelée mySampleDataWarehouse. Il montre comment créer un utilisateur appelé chargeur et donne aux utilisateurs les autorisations nécessaires pour créer des tables et charger à l’aide de l’[instruction COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). Ensuite, il classe l’utilisateur dans le groupe de charge de travail DataLoads avec les ressources maximales. 
 
 ```sql
-   -- Connect to the database
-   CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
-   GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
-   EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
+   -- Connect to the dedicated SQL pool
+   CREATE USER loader FOR LOGIN loader;
+   GRANT ADMINISTER DATABASE BULK OPERATIONS TO loader;
+   GRANT INSERT ON <yourtablename> TO loader;
+   GRANT SELECT ON <yourtablename> TO loader;
+   GRANT CREATE TABLE TO loader;
+   GRANT ALTER ON SCHEMA::dbo TO loader;
+   
+   CREATE WORKLOAD GROUP DataLoads
+   WITH ( 
+       MIN_PERCENTAGE_RESOURCE = 0
+       ,CAP_PERCENTAGE_RESOURCE = 100
+       ,REQUEST_MIN_RESOURCE_GRANT_PERCENT = 100
+    );
+
+   CREATE WORKLOAD CLASSIFIER [wgcELTLogin]
+   WITH (
+         WORKLOAD_GROUP = 'DataLoads'
+       ,MEMBERNAME = 'loader'
+   );
 ```
 
-Pour exécuter une charge avec des ressources pour les classes de ressources staticRC20, connectez-vous en tant que LoaderRC20 et exécutez la charge.
+<br><br>
+>[!IMPORTANT] 
+>Il s’agit d’un exemple extrême d’allocation de 100 % des ressources du pool SQL à une charge unique, qui donne une concurrence maximale de 1. N’oubliez pas que ce système ne doit être utilisé que pour la charge initiale, pour laquelle vous devez créer des groupes de charges de travail supplémentaires possédant leur propre configuration pour équilibrer les ressources entre vos charges de travail. 
 
-Exécutez des charges sous des classes de ressources statiques plutôt que dynamiques. L’utilisation des classes de ressources statiques garantit les mêmes ressources, quel que soit vos valeurs [Data Warehouse Unit](resource-consumption-models.md). Si vous utilisez une classe de ressources dynamique, les ressources varient en fonction de votre niveau de service. Pour les classes dynamiques, un niveau de service inférieur signifie que vous devrez probablement utiliser une classe de ressources supérieure pour votre utilisateur de chargement.
+Pour exécuter une charge avec des ressources pour le groupe de charge de travail de chargement, connectez-vous en tant que chargeur et exécutez la charge. 
 
 ## <a name="allow-multiple-users-to-load"></a>Autoriser le chargement par plusieurs utilisateurs
 
@@ -90,13 +109,17 @@ Les index columnstore ont besoin de beaucoup de mémoire pour compresser les don
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Augmenter la taille de lot lors de l’utilisation de l’API SQLBulkCopy ou BCP
 
-Comme mentionné précédemment, le chargement avec PolyBase fournit le débit le plus élevé avec un pool SQL Synapse. Si vous ne pouvez pas utiliser PolyBase pour charger et que vous devez utiliser l’API SQLBulkCopy (ou BCP), vous devez augmenter la taille de lot pour un meilleur débit : une bonne règle empirique est une taille de lot comprise entre 100 000 et 1 million de lignes.
+
+Le chargement avec l’instruction COPY fournit le débit le plus élevé avec les pools SQL dédiés. Si vous ne pouvez pas utiliser l’instruction COPY pour charger et que vous devez utiliser l’[API SQLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), songez à augmenter la taille de lot pour bénéficier d’un meilleur débit.
+
+> [!TIP]
+> Une taille de lot comprise entre 100 000 et 1 million de lignes est la base de référence recommandée pour déterminer la capacité de taille de lot optimale. 
 
 ## <a name="manage-loading-failures"></a>Gérer les échecs de chargement
 
 Une charge qui utilise une table externe peut échouer avec l’erreur suivante : *« Requête abandonnée : le seuil de rejet maximal a été atteint durant la lecture d’une source externe »* . Ce message indique que vos données externes contiennent des enregistrements à l’intégrité compromise. Un enregistrement de données est considéré comme « compromis » si les types de données et le nombre de colonnes ne correspondent pas aux définitions de colonne de la table externe ou si les données ne sont pas conformes au format de fichier externe spécifié.
 
-Pour corriger les enregistrements compromis, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d’enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans CREATE EXTERNAL TABLE.
+Pour corriger les enregistrements compromis, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d’enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="insert-data-into-a-production-table"></a>Insérer des données dans une table de production
 

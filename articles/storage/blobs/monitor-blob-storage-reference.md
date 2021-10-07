@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: subject-monitoring
-ms.openlocfilehash: 866b56446ce962a47ac7235ac260e54e5fcacf76
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 9489d325f7a67e4a8258933ce3601d4a29b3e98f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275693"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128587648"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Informations de référence sur les données de supervision du Stockage Blob Azure
 
@@ -67,7 +67,7 @@ Stockage Azure prend en charge les dimensions suivantes pour les mesures dans Az
 | Nom de la dimension | Description |
 | ------------------- | ----------------- |
 | **BlobType** | Type d’objet blob pour les mesures d’objet Blob uniquement. Les valeurs prises en charge sont **BlockBlob**, **PageBlob**, et **Azure Data Lake Storage**. Les blobs d’ajout sont inclus dans **BlockBlob**. |
-| **BlobTier** | Le Stockage Azure propose différents niveaux d’accès qui vous permettent de stocker vos objets blob de la manière la plus économique. Pour en savoir plus, consultez [Niveau du stockage Azure d’objets blob](../blobs/access-tiers-overview.md). Les valeurs prises en charge incluent : <br/> <li>**Hot** : Niveau de stockage chaud</li> <li>**Cool** : Niveau de stockage froid</li> <li>**Archivage** : Niveau de stockage archive</li> <li>**Premium** : Niveau Premium pour les objets blob de blocs</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60** : Types de niveau pour les objets blob de pages premium</li> <li>**Standard** : Type de niveau pour les objets blob de pages standard</li> <li>**Untiered** : Type de niveau pour un compte de stockage à usage général v1</li> |
+| **BlobTier** | Le Stockage Azure propose différents niveaux d’accès qui vous permettent de stocker vos objets blob de la manière la plus économique. Pour en savoir plus, consultez [Niveau du stockage Azure d’objets blob](../blobs/storage-blob-storage-tiers.md). Les valeurs prises en charge incluent : <br/> <li>**Hot** : Niveau de stockage chaud</li> <li>**Cool** : Niveau de stockage froid</li> <li>**Archivage** : Niveau de stockage archive</li> <li>**Premium** : Niveau Premium pour les objets blob de blocs</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60** : Types de niveau pour les objets blob de pages premium</li> <li>**Standard** : Type de niveau pour les objets blob de pages standard</li> <li>**Untiered** : Type de niveau pour un compte de stockage à usage général v1</li> |
 
 Pour les mesures prenant en charge des dimensions, vous devez spécifier la valeur de la dimension pour afficher les valeurs de mesures correspondantes. Par exemple, si vous examinez la valeur **Transactions** pour des réponses réussies, vous devez filtrer la dimension **ResponseType** avec **Success**. Si vous examinez la valeur **BlobCount** pour BlockBlob, vous devez filtrer la dimension **BlobType** avec **BlockBlob**.
 

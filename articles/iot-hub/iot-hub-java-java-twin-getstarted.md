@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: 044eb2543c2476cd53d73e78a6ac810b2bafa1ca
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ca18cfda6edd6c5dbecfe6426bbd590c54379b21
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563177"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458280"
 ---
 # <a name="get-started-with-device-twins-java"></a>Bien démarrer avec les jumeaux d’appareils (Java)
 
@@ -240,7 +240,7 @@ Dans cette section, vous allez créer une application console Java qui définit 
     > [!NOTE]
     > Vous pouvez rechercher la dernière version de **iot-device-client** avec la [recherche Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Ajoutez la dépendance suivante au nœud **dependencies**. Cette dépendance configure un NOP pour la façade de journalisation Apache [SLF4J](https://www.slf4j.org/) utilisée par le kit de développement logiciel (SDK) du client d'appareil afin d'implémenter la journalisation. Cette configuration est facultative, mais si vous l’omettez, un avertissement peut s’afficher sur la console lorsque vous lancez l’application. Pour plus d’informations sur la journalisation dans le SDK du client d’appareil, consultez [Journalisation](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging) dans le fichier Readme *Exemples relatifs à Azure IoT device SDK pour Java*.
+4. Ajoutez la dépendance suivante au nœud **dependencies**. Cette dépendance configure un NOP pour la façade de journalisation Apache [SLF4J](https://www.slf4j.org/) utilisée par le kit de développement logiciel (SDK) du client d'appareil afin d'implémenter la journalisation. Cette configuration est facultative, mais si vous l’omettez, un avertissement peut s’afficher sur la console lorsque vous lancez l’application. Pour plus d’informations sur la journalisation dans le SDK du client d’appareil, consultez [Journalisation](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/readme.md#logging) dans le fichier Readme *Exemples relatifs à Azure IoT device SDK pour Java*.
 
     ```xml
     <dependency>

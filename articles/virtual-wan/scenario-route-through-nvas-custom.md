@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 84cb22956b682a9acb23f4f391faf046eccc47a7
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 1602207c83f8ff4a632428c0308b514c6d552058
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112378139"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123428251"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Scénario : Acheminer le trafic via des appliances virtuelles réseau à l’aide de paramètres personnalisés
 
 Lorsque vous utilisez le routage de hub virtuel Azure Virtual WAN, vous disposez de nombreuses options. Cet article vous aide quand vous souhaitez acheminer le trafic via une appliance virtuelle réseau (NVA) pour la communication entre les réseaux virtuels et les branches et d’utiliser une NVA distincte pour le trafic Internet. Pour plus d’informations, consultez [À propos du routage de hub virtuel](about-virtual-hub-routing.md).
+
+>[!Note]
+> Notez que pour les scénarios de routage ci-dessous, le hub Virtual WAN et le réseau virtuel Spoke contenant les appliances virtuelles réseau doivent se trouver dans la même région Azure.
 
 ## <a name="design"></a>Conception
 

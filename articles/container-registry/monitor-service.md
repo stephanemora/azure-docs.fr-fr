@@ -6,13 +6,13 @@ ms.author: danlep
 ms.topic: how-to
 ms.custom: subject-monitoring
 ms.service: container-registry
-ms.date: 03/19/2021
-ms.openlocfilehash: 1b7f8a13a7d372fe67e5ca7c235febfa52294432
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.date: 08/13/2021
+ms.openlocfilehash: ff82571b791f20cf46150be06e583af29f13dbd5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294944"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586965"
 ---
 # <a name="monitor-azure-container-registry"></a>Surveiller Azure Container Registry
 
@@ -20,7 +20,7 @@ Lorsque vous avez des applications critiques et des processus métier basés sur
 
 ## <a name="monitor-overview"></a>Présentation de Monitor
 
-La page **Vue d’ensemble** du portail Azure pour chaque registre comprend un aperçu de l’utilisation récente des ressources et de l’activité, telles que les opérations d’envoi (push) et de tirage (pull). Ces informations de haut niveau sont utiles, mais seule une petite partie des données de surveillance y est présentée. 
+La page **Vue d’ensemble** du portail Azure pour chaque registre comprend un aperçu de l’utilisation récente des ressources et de l’activité, telles que les opérations d’envoi (push) et de tirage (pull). Ces informations de haut niveau sont utiles, mais seule une petite partie des données est présentée ici. 
 
 :::image type="content" source="media/monitor-service/metrics-overview.png" alt-text="Vue d’ensemble des métriques du registre"::: 
 
@@ -76,7 +76,6 @@ Pour référence, vous pouvez voir une liste de [toutes les métriques de ressou
 
 Les commandes Azure CLI suivantes peuvent être utilisées pour obtenir des informations sur les métriques d’Azure Container Registry.
 
-* [az acr show-usage](/cli/azure/acr/#az_acr_show_usage) : Affiche le stockage actuel utilisé par un registre de conteneurs Azure
 * [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) : Répertorie les définitions et les dimensions des métriques
 * [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) : Récupère les valeurs des métriques
 
@@ -208,3 +207,4 @@ Le tableau suivant répertorie les règles d’alerte courantes et recommandées
 
 - Pour plus d’informations sur les métriques, les journaux et d’autres valeurs importantes créées par Azure Container Registry, consultez [Informations de référence sur les données de surveillance d’Azure Container Registry](monitor-service-reference.md).
 - Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md).
+- Pour plus d’informations sur la façon d’obtenir un instantané de l’utilisation du stockage et d’autres ressources dans votre registre, consultez [Afficher l’utilisation du registre](container-registry-skus.md#show-registry-usage) .

@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 10/19/2020
-ms.openlocfilehash: f46a421ae2ad1a4d9c590c7e0b47784760ebcb9f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c943db2577de8fc1e4adc0e9cfbf408bffb5f2c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782798"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585369"
 ---
 # <a name="add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Ajouter un pool de nœuds spot à un cluster Azure Kubernetes Service (AKS)
 

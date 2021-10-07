@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment configurer l’exécution de l’apprentissage AutoML sans une seule ligne de code avec Azure Machine Learning ML automatisé dans Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
 ms.date: 06/11/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 0248491ed8a2fb8459565306249f95b1af92cf09
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: e49a1560e45b801de2c6031d09e4fa3133d71823
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113588892"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429050"
 ---
 # <a name="set-up-no-code-automl-training-with-the-studio-ui"></a>Configurer l’apprentissage AutoML sans code avec l’interface utilisateur de Studio 
 

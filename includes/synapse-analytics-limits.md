@@ -1,19 +1,19 @@
 ---
-title: Fichier include
+title: fichier descriptif
 description: Fichier include
 services: synapse-analytics
 author: jonburchel
 ms.service: synapse-analytics
 ms.topic: include
-ms.date: 04/15/2021
+ms.date: 09/22/2021
 ms.author: jburchel
 ms.custom: include file
-ms.openlocfilehash: 425ab7d55d8f87f927c511bdb27477049e8fdd3e
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: d97a314a5928de17ad878aee5dfc14b5519d0f80
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290383"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129095896"
 ---
 Azure Synapse Analytics a les limites par défaut suivantes pour garantir que chaque abonnement du client est protégé des charges de travail de ses autres abonnements. Pour augmenter les limites jusqu’à la limite maximale pour votre abonnement, contactez le support.
 
@@ -34,7 +34,7 @@ Azure Synapse Analytics a les limites par défaut suivantes pour garantir que ch
 | Exécutions simultanées d’activités externes par espace de travail et par [région Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Les activités externes sont gérées sur le runtime d’intégration, mais s’exécutent sur des services liés, notamment Databricks, une procédure stockée, HDInsight, le web et autres. Cette limite ne s’applique pas au runtime d’intégration auto-hébergé.</small> | 3 000 | 3 000 |
 | Exécutions simultanées d’activités de pipeline par espace de travail et par [région Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br><small>Les activités de pipeline s’exécutent sur le runtime d’intégration, notamment Lookup, GetMetadata et Delete. Cette limite ne s’applique pas au runtime d’intégration auto-hébergé.</small> | 1 000 | 1 000                                                        |
 | Opérations de création simultanées par espace de travail et par [région Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br><small>Notamment tester la connexion, parcourir la liste des dossiers des tables, afficher un aperçu des données. Cette limite ne s’applique pas au runtime d’intégration auto-hébergé.</small> | 200 | 200                                                          |
-| Consommation simultanée d’unités d’intégration de données<sup>1</sup> par espace de travail et par [région Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Groupe de régions 1<sup>2</sup> : 6 000 / 750<br>Groupe de régions 2<sup>2</sup> : 3 000<br>Groupe de régions 3<sup>2</sup> : 1 500 | Groupe de régions 1<sup>2</sup> : 6 000 / 750<br/>Groupe de régions 2<sup>2</sup> : 3 000<br/>Groupe de régions 3<sup>2</sup> : 1 500 |
+| Consommation simultanée d’unités d’intégration de données<sup>1</sup> par espace de travail et par [région Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Groupe de régions 1<sup>2</sup> : 6 000 / 750<br>Groupe de régions 2<sup>2</sup> : 3 000<br>Groupe de régions 3<sup>2</sup> : 1 500<br>Réseau virtuel managé<sup>2</sup> : 2 400 | Groupe de régions 1<sup>2</sup> : 6 000 / 750<br/>Groupe de régions 2<sup>2</sup> : 3 000<br/>Groupe de régions 3<sup>2</sup> : 1 500<br>Réseau virtuel managé : [contactez le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Activités maximales par pipeline, notamment les activités internes relatives aux conteneurs | 40 | 40 |
 | Nombre maximal de runtime d'intégration liés pouvant être créés pour un même runtime d'intégration auto-hébergé | 100 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Nombre maximal de paramètres par pipeline | 50 | 50 |
@@ -42,7 +42,7 @@ Azure Synapse Analytics a les limites par défaut suivantes pour garantir que ch
 | Parallélisme ForEach | 20 | 50 |
 | Nombre maximal d’exécutions en file d’attente par pipeline | 100 | 100 |
 | Caractères par expression | 8 192 | 8 192 |
-| Intervalle minimal de déclencheur de fenêtre bascule | 15 min | 15 min |
+| Intervalle minimal de déclencheur de fenêtre bascule | 5 minutes | 15 min |
 | Délai d’expiration maximal pour les exécutions d’activité de pipeline | 7 jours | 7 jours |
 | Octets par objet pour les objets pipeline <sup>3</sup> | 200 Ko | 200 Ko |
 | Octets par objet pour les objets jeu de données et service lié <sup>3</sup> | 100 Ko | 2 000 Ko |
@@ -53,6 +53,7 @@ Azure Synapse Analytics a les limites par défaut suivantes pour garantir que ch
 | Surveillance des requêtes par minute | 1 000 | 1 000 |
 | Durée maximale d’une session de débogage de flux de données | 8 heures | 8 heures |
 | Nombre de flux de données simultanés par runtime d’intégration | 50 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Nombre simultané de flux de données par runtime d’intégration dans un VNet managé| 20 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Nombre de sessions simultanées de débogage de flux de données par utilisateur et par espace de travail | 3 | 3 |
 | Limite de durée de vie de flux de données avec Azure IR | 4 heures |  4 heures |
 | Limite de taille des entités de métadonnées dans un espace de travail | 2 Go | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -66,6 +67,7 @@ Azure Synapse Analytics a les limites par défaut suivantes pour garantir que ch
 | Groupe de régions 1 | USA Centre, USA Est, USA Est 2, Europe Nord, Europe Ouest, USA Ouest, USA Ouest 2 |
 | Groupe de régions 2 | Australie Est, Australie Sud-Est, Brésil Sud, Inde Centre, Japon Est, USA Centre Nord, USA Centre Sud, Asie Sud-Est, USA Centre-Ouest |
 | Groupe de régions 3 | Autres régions |
+Si le réseau virtuel managé est activé, l’unité d’intégration de données (DIU) dans tous les groupes de régions est de 2 400.
 
 <sup>3</sup> Les objets pipeline, jeu de données et service lié représentent un regroupement logique de votre charge de travail. Les limites de ces objets ne sont pas liées à la quantité de données que vous pouvez déplacer ou traiter à l’aide d’Azure Synapse Analytics. Azure Synapse Analytics est conçu pour mettre à l’échelle et traiter plusieurs pétaoctets de données.
 
