@@ -1,28 +1,27 @@
 ---
 title: Copie des données à partir d’Amazon Simple Storage Service (S3) Compatible Storage
+description: Découvrez comment copier des données à partir du Stockage compatible Amazon S3 vers des magasins de données récepteurs pris en charge avec Azure Data Factory.
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment copier des données d’Amazon Simple Storage Service (S3) vers des magasins de données récepteurs pris en charge avec Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: 98191eb2e958510fe01fc5a02e0490bf7c2d41ae
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: 82abc8fcfacc09621b66192c1f40b8c33d73ae50
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306994"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563457"
 ---
-# <a name="copy-data-from-amazon-s3-compatible-storage-by-using-azure-data-factory"></a>Copie de données à partir d’Amazon S3 Compatible Storage avec Azure Data Factory
+# <a name="copy-data-from-amazon-s3-compatible-storage-by-using-azure-data-factory-or-synapse-analytics"></a>Copie de données à partir du Stockage compatible Amazon S3 avec Azure Data Factory
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment copier des données à partir d’Amazon Simple Storage Service (Amazon S3) Compatible Storage. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
-
-
+Cet article explique comment copier des données à partir d’Amazon Simple Storage Service (Amazon S3) Compatible Storage. Pour plus d’informations, consultez les articles de présentation pour [Azure Data Factory](introduction.md) et [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -41,7 +40,7 @@ Plus spécifiquement, ce connecteur Amazon S3 Compatible Storage prend en charge
 
 Pour copier des données à partir d’Amazon S3 Compatible Storage, vérifiez que vous disposez des autorisations `s3:GetObject` et `s3:GetObjectVersion` pour les opérations d’objet Amazon S3.
 
-Si vous utilisez l’interface utilisateur de Data Factory pour créer, sachez que des autorisations `s3:ListAllMyBuckets` et `s3:ListBucket`/`s3:GetBucketLocation` supplémentaires sont nécessaires pour les opérations telles que le test de connexion au service lié et la navigation à partir de la racine. Si vous ne souhaitez pas accorder ces autorisations, vous pouvez choisir les options « Test connection to file path » (« Tester la connexion au chemin du fichier ») ou « Browse from specified path » («Parcourir à partir du chemin spécifié ») dans interface utilisateur.
+Si vous utilisez l’interface utilisateur pour créer, des `s3:ListAllMyBuckets` autorisations supplémentaires et `s3:ListBucket`/`s3:GetBucketLocation` sont requises pour les opérations telles que le test de la connexion au service lié et la navigation à partir de la racine. Si vous ne souhaitez pas accorder ces autorisations, vous pouvez choisir les options « Test connection to file path » (« Tester la connexion au chemin du fichier ») ou « Browse from specified path » («Parcourir à partir du chemin spécifié ») dans interface utilisateur.
 
 Pour obtenir la liste complète des autorisations Amazon S3, consultez l’article [Spécification des autorisations d’une stratégie](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) sur le site AWS.
 
@@ -74,7 +73,7 @@ Utilisez les étapes suivantes pour créer un service lié à Amazon S3 Compatib
 
 ## <a name="connector-configuration-details"></a>Informations de configuration du connecteur 
 
-Les sections suivantes donnent des informations sur les propriétés utilisées pour définir les entités Data Factory spécifiques d’Amazon S3 Compatible Storage.
+Les sections suivantes donnent des informations sur les propriétés utilisées pour définir les entités spécifiques du Stockage compatible Amazon S3.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -84,7 +83,7 @@ Les propriétés prises en charge pour un service lié Amazon S3 Compatible pris
 |:--- |:--- |:--- |
 | type | La propriété **type** doit être définie sur **AmazonS3Compatible**. | Oui |
 | accessKeyId | ID de la clé d’accès secrète. |Oui |
-| secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | serviceUrl | Spécifiez le point de terminaison S3 personnalisé `https://<service url>`. | Non |
 | forcePathStyle | Indique s’il faut utiliser un [accès de type chemin d’accès](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access) S3 au lieu de l’accès de type hébergement virtuel. Les valeurs autorisées sont : **false** (par défaut), **true**.<br> Consultez la documentation de chaque magasin de données pour vérifier si l’accès de type chemin d’accès est nécessaire ou non. |Non |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve sur un réseau privé). Si cette propriété n’est pas spécifiée, le service utilise le runtime d’intégration Azure par défaut. |Non |
@@ -172,7 +171,7 @@ Les propriétés prises en charge pour Amazon S3 Compatible Storage sous les par
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | La propriété **type** indiquée sous `storeSettings` doit être définie sur **AmazonS3CompatibleReadSettings**. | Oui                                                         |
 | ***Recherchez les fichiers à copier :*** |  |  |
-| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
+| OPTION 1 : chemin d’accès statique<br> | Copie à partir du compartiment donné ou du chemin d’accès au dossier/fichier spécifié dans le jeu de données. Si vous souhaitez copier tous les fichiers d’un compartiment ou dossier, spécifiez en plus `wildcardFileName` comme `*`. |  |
 | OPTION 2 : préfixe S3 Compatible Storage<br>- prefix | Préfixe du nom de la clé S3 Compatible Storage sous le compartiment donné configuré dans un jeu de données pour filtrer les fichiers S3 Compatible Storage sources. Les clés sélectionnées sont les clés S3 Compatible Storage dont le nom commence par `bucket_in_dataset/this_prefix`. Elles utilisent le filtre côté service de S3 Compatible Storage, qui offre un meilleur niveau de performance qu’un filtre par caractères génériques.<br/><br/>Quand vous utilisez le préfixe et que vous choisissez de copier le récepteur basé sur un fichier avec conservation de la hiérarchie, notez que le sous-chemin après le dernier signe « / » dans le préfixe est conservé. Par exemple, si vous avez la source `bucket/folder/subfolder/file.txt` et que vous configurez le préfixe sous la forme `folder/sub`, le chemin du fichier conservé est `subfolder/file.txt`. | Non |
 | OPTION 3 : caractère générique<br>- wildcardFolderPath | Chemin d’accès du dossier avec des caractères génériques sous le compartiment donné configuré dans le jeu de données pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre dossier contient un caractère générique ou ce caractère d’échappement. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | OPTION 3 : caractère générique<br>- wildcardFileName | Nom de fichier avec caractères génériques sous le compartiment et le chemin d’accès du dossier donnés (ou chemin d’accès du dossier en caractères génériques) pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plusieurs) et `?` (correspond à zéro ou un caractère). Utilisez `^` comme caractère d’échappement si le nom de votre fichier contient un caractère générique ou ce caractère d’échappement.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui |
@@ -244,7 +243,7 @@ Cette section décrit le comportement résultant de l’utilisation d’un chemi
 
 Supposons que vous disposez de la structure de dossiers sources suivante et que vous souhaitez copier les fichiers en gras :
 
-| Exemple de structure source                                      | Contenu de FileListToCopy.txt                             | Configuration de Data Factory                                            |
+| Exemple de structure source                                      | Contenu de FileListToCopy.txt                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | Compartiment<br/>&nbsp;&nbsp;&nbsp;&nbsp;DossierA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sousdossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Fichier5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Métadonnées<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **Dans le jeu de données :**<br>- compartiment : `bucket`<br>- chemin d’accès du dossier : `FolderA`<br><br>**Dans la source de l’activité Copy :**<br>- chemin d’accès à la liste de fichiers : `bucket/Metadata/FileListToCopy.txt` <br><br>Le chemin d’accès de la liste de fichiers pointe vers un fichier texte dans le même magasin de données, qui contient la liste de fichiers que vous voulez copier, un fichier par ligne indiquant le chemin d’accès relatif configuré dans le jeu de données. |
 
@@ -263,4 +262,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des magasins de données pris en charge par l’activité Copy dans Azure Data Factory en tant que sources et récepteurs, consultez [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir la liste des magasins de données pris en charge par l'activité Copy en tant que sources et récepteurs, consultez [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

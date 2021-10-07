@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 7a213198421597e444a55c53d85cdb6e427425a3
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: f3296d1c2d04111985bada09486315d72997b88d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533109"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571865"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurer la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C
 
@@ -49,7 +49,8 @@ Depuis novembre 2020, les inscriptions de nouvelles applications s’affichent 
 Pour autoriser la connexion des utilisateurs avec un compte Azure AD d’une organisation Azure AD spécifique, dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application via le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Inscrire une application auprès de la plateforme d’identités Microsoft](../active-directory/develop/quickstart-register-app.md).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD de l’organisation (par exemple, contoso.com). Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire Azure AD.
+1. Veillez à utiliser le répertoire qui contient votre locataire organisationnel Azure AD (par exemple, Contoso). Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Nouvelle inscription**.
 1. Entrez un **nom** pour votre application. Par exemple : `Azure AD B2C App`.
@@ -89,7 +90,8 @@ La [vérification de l’éditeur](../active-directory/develop/publisher-verific
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Configurer Azure AD en tant que fournisseur d’identité
 
-1. Veillez à bien utiliser le répertoire qui contient le locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser le répertoire qui contient le locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Fournisseurs d’identité**, puis **Nouveau fournisseur OpenID Connect**.
 1. Saisissez un **Nom**. Par exemple, entrez *Contoso Azure AD*.
@@ -113,7 +115,7 @@ La [vérification de l’éditeur](../active-directory/develop/publisher-verific
     - **Nom d’affichage** : *name*
     - **Prénom** : *given_name*
     - **Nom** : *family_name*
-    - **Adresse e-mail** : *preferred_username*
+    - **Adresse e-mail** : *email*
 
 1. Sélectionnez **Enregistrer**.
 
@@ -140,7 +142,8 @@ Si le processus de connexion réussit, votre navigateur est redirigé vers `http
 
 Vous devez stocker la clé d’application que vous avez créée dans votre locataire Azure AD B2C.
 
-1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Stratégies**, sélectionnez **Identity Experience Framework**.
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 09/16/2021
 ms.author: aahi
-ms.openlocfilehash: 5b1883b06ae234ed8a4f9adf949cf26919f7b877
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: d86e9d5cbd9168625f71ce7b4ebb0be598d00557
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113550153"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128677419"
 ---
 # <a name="how-to-use-text-analytics-for-health"></a>Guide pratique : Utiliser l’Analyse de texte pour la santé
 
@@ -83,7 +83,7 @@ Pour exécuter le conteneur Analyse de texte pour la santé dans votre propre en
 
 ## <a name="using-the-client-library"></a>Utilisation de la bibliothèque de client
 
-La dernière préversion de la bibliothèque de client Analyse de texte vous permet d’appeler Analyse de texte pour la santé en utilisant un objet client. Reportez-vous à la documentation de référence et consultez les exemples sur GitHub :
+La dernière préversion de la bibliothèque de client Analyse de texte vous permet d’appeler Analyse de texte pour la santé en utilisant la bibliothèque de client. Reportez-vous à la documentation de référence et consultez les exemples sur GitHub :
 * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
 * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
 * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)

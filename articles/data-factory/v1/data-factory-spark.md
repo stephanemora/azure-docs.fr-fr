@@ -5,14 +5,15 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 73e20cfcdd0c56f2136b4ce658f7d2d2bed53022
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 65d7a45ab8e0432fa62d5e298fe50be50580804e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527772"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667252"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -83,7 +84,7 @@ Pour créer une fabrique de données, procédez comme suit :
 
 1. Une fois la fabrique de données créée, la page **Fabrique de données** correspondante s’affiche avec son contenu. Si vous ne voyez pas la page **Fabrique de données**, sélectionnez la vignette de votre fabrique de données sur le tableau de bord.
 
-    ![Panneau Data Factory](./media/data-factory-spark/data-factory-blade.png)
+    :::image type="content" source="./media/data-factory-spark/data-factory-blade.png" alt-text="Panneau Data Factory":::
 
 ### <a name="create-linked-services"></a>Créez des services liés
 Dans cette étape, vous créez deux services liés. Un service relie votre cluster Spark à votre fabrique de données, et l’autre service relie votre stockage à votre fabrique de données.
@@ -95,11 +96,11 @@ Dans cette étape, vous liez votre compte de stockage à votre fabrique de donn�
 
 1. Sélectionnez **Nouveau magasin de données** et choisissez **Stockage Azure**.
 
-   ![Nouveau magasin de données](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
+   :::image type="content" source="./media/data-factory-spark/new-data-store-azure-storage-menu.png" alt-text="Nouveau magasin de données":::
 
 1. Le script JSON que vous utilisez pour créer un service lié Stockage dans l’éditeur apparaît.
 
-   ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
+   :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png" alt-text="AzureStorageLinkedService":::
 
 1. Remplacez **account name** et **account key** par le nom et la clé d’accès de votre compte de stockage. Pour découvrir comment obtenir votre clé d’accès au stockage, consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
 
@@ -110,7 +111,7 @@ Dans cette étape, vous créez un service lié HDInsight pour lier à la fabriqu
 
 1. Dans Data Factory Editor, sélectionnez **Plus** > **Nouveau calcul** > **Cluster HDInsight**.
 
-    ![Créer un service lié Azure HDInsight](media/data-factory-spark/new-hdinsight-linked-service.png)
+    :::image type="content" source="media/data-factory-spark/new-hdinsight-linked-service.png" alt-text="Créer un service lié Azure HDInsight":::
 
 1. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. Dans l’éditeur JSON, procédez comme suit :
 
@@ -232,13 +233,13 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 ### <a name="monitor-a-pipeline"></a>Surveiller un pipeline
 1. Dans le panneau **Fabrique de données**, sélectionnez **Surveiller et gérer** pour démarrer l’application de surveillance dans un autre onglet.
 
-    ![Vignette Surveiller et gérer](media/data-factory-spark/monitor-and-manage-tile.png)
+    :::image type="content" source="media/data-factory-spark/monitor-and-manage-tile.png" alt-text="Vignette Surveiller et gérer":::
 
 1. Modifiez le filtre de **début** en haut de la page sur **2/1/2017**, puis sélectionnez **Appliquer**.
 
 1. Une seule fenêtre d’activité apparaît puisqu’il n’y a qu’un seul jour entre le début (2017-02-01) et la fin (2017-02-02) du pipeline. Vérifiez que la tranche de données est à l’état **Prêt**.
 
-    ![Surveiller le pipeline](media/data-factory-spark/monitor-and-manage-app.png)
+    :::image type="content" source="media/data-factory-spark/monitor-and-manage-app.png" alt-text="Surveiller le pipeline":::
 
 1. Dans la liste des **fenêtres d’activité**, sélectionnez une exécution d’activité pour en afficher les détails. S’il y a une erreur, vous pouvez en afficher les détails dans le volet droit.
 
@@ -248,7 +249,7 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 
 1. Sélectionnez **Nouveau** > **PySpark** pour ouvrir un nouveau bloc-notes.
 
-    ![Nouveau bloc-notes Jupyter](media/data-factory-spark/jupyter-new-book.png)
+    :::image type="content" source="media/data-factory-spark/jupyter-new-book.png" alt-text="Nouveau bloc-notes Jupyter":::
 
 1. Exécutez la commande suivante en copiant et en collant le texte et en appuyant sur les touches Maj + Entrée à la fin de la deuxième instruction :
 
@@ -259,7 +260,7 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
     ```
 1. Vérifiez que les données figurent dans la table hvac.
 
-    ![Résultats de la requête Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
+    :::image type="content" source="media/data-factory-spark/jupyter-notebook-results.png" alt-text="Résultats de la requête Jupyter":::
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
 Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
@@ -272,15 +273,15 @@ Pour résoudre des problèmes, procédez comme suit :
 
 1. Atteindre `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
-    ![Application d’interface utilisateur YARN](media/data-factory-spark/yarnui-application.png)
+    :::image type="content" source="media/data-factory-spark/yarnui-application.png" alt-text="Application d’interface utilisateur YARN":::
 
 1. Sélectionnez **Journaux d’activité** pour l’une des tentatives d’exécution.
 
-    ![Page d’application](media/data-factory-spark/yarn-applications.png)
+    :::image type="content" source="media/data-factory-spark/yarn-applications.png" alt-text="Page d’application":::
 
 1. Vous voyez d’autres informations d’erreur sur la page du journal :
 
-    ![Erreur du journal](media/data-factory-spark/yarnui-application-error.png)
+    :::image type="content" source="media/data-factory-spark/yarnui-application-error.png" alt-text="Erreur du journal":::
 
 Les sections suivantes fournissent des informations sur les entités de fabrique de données pour utiliser le cluster Spark et l’activité Spark dans votre fabrique de données.
 

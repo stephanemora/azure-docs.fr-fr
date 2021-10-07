@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: f798f8be2989140711cb9122c9d59e7b91248f61
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 899a6c1f0e5f2eb7441ea2035cdb12bed13a4b85
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128600377"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457313"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge-preview"></a>Publier et s’abonner avec Azure IoT Edge (préversion)
 
@@ -417,7 +417,7 @@ La réception d’une méthode directe est similaire à la réception des jumeau
 
 ### <a name="send-direct-methods"></a>Envoyer des méthodes directes
 
-L’envoi d’une méthode directe est un appel HTTP qui ne s’effectue pas par le biais du répartiteur MQTT. Pour envoyer une méthode directe à IoT Hub, consultez [Comprendre et appeler des méthodes directes](../iot-hub/iot-hub-devguide-direct-methods.md). Pour envoyer une méthode directe localement à un autre module, consultez cet [exemple d’appel de méthode directe du SDK C# Azure IoT](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/ModuleClient.cs#L597).
+L’envoi d’une méthode directe est un appel HTTP qui ne s’effectue pas par le biais du répartiteur MQTT. Pour envoyer une méthode directe à IoT Hub, consultez [Comprendre et appeler des méthodes directes](../iot-hub/iot-hub-devguide-direct-methods.md). Pour envoyer une méthode directe localement à un autre module, consultez cet [exemple d’appel de méthode directe du SDK C# Azure IoT](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/src/ModuleClient.cs#L597).
 
 ## <a name="publish-and-subscribe-between-mqtt-brokers"></a>Publier et s’abonner entre des répartiteurs MQTT
 

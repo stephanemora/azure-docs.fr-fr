@@ -2,13 +2,13 @@
 title: Déployer des modèles avec le service Cloud Shell
 description: Utilisez Azure Resource Manager et Azure Cloud Shell pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Azure Resource Manager (modèle ARM).
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: bd597c2cb29120e680493a99aac33f146940bc19
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.date: 09/03/2021
+ms.openlocfilehash: 0228f4862cbdcda98bc577844bca9dad34feb96f
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111957874"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535090"
 ---
 # <a name="deploy-arm-templates-from-azure-cloud-shell"></a>Déployer des modèles ARM à partir d’Azure Cloud Shell
 
@@ -54,41 +54,17 @@ Pour déployer un modèle externe, indiquez précisément l’URI du modèle com
 
 Pour déployer un modèle local, vous devez commencer par charger votre modèle dans le compte de stockage connecté à votre session Cloud Shell.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous à [Cloud Shell](https://shell.azure.com).
 
-1. Sélectionnez votre groupe de ressources Cloud Shell. Le modèle de nom est `cloud-shell-storage-<region>`.
+1. Sélectionnez **PowerShell** ou **Bash**.
 
-   ![Sélection du groupe de ressources](./media/deploy-cloud-shell/select-cloud-shell-resource-group.png)
+   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-bash-powershell.png" alt-text="Sélectionnez Bash ou PowerShell":::
 
-1. Sélectionnez le compte de stockage de votre Cloud Shell.
+1. Sélectionnez **Charger/Télécharger des fichiers**, puis **Charger**.
 
-   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-storage.png" alt-text="Sélectionner un compte de stockage":::
+   :::image type="content" source="./media/deploy-cloud-shell/cloud-shell-upload.png" alt-text="Charger un fichier":::
 
-1. Sélectionnez **Partages de fichiers**.
-
-   :::image type="content" source="./media/deploy-cloud-shell/files-shares.png" alt-text="Sélectionner des partages de fichiers":::
-
-1. Sélectionnez le partage de fichiers par défaut pour le service Cloud Shell. Le format de nom du partage de fichiers est `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   :::image type="content" source="./media/deploy-cloud-shell/select-file-share.png" alt-text="Partage de fichiers par défaut":::
-
-1. Ajoutez un répertoire pour stocker vos modèles. Sélectionnez ce répertoire.
-
-   :::image type="content" source="./media/deploy-cloud-shell/add-directory.png" alt-text="Ajouter un répertoire":::
-
-1. Sélectionnez **Télécharger**.
-
-   :::image type="content" source="./media/deploy-cloud-shell/upload-template.png" alt-text="Charger un modèle":::
-
-1. Recherchez et chargez votre modèle.
-
-   :::image type="content" source="./media/deploy-cloud-shell/select-template.png" alt-text="Sélectionner un modèle":::
-
-1. Ouvrez l’invite du service Cloud Shell.
-
-   :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Ouvrir Cloud Shell":::
-
-1. Accédez au répertoire **clouddrive**. Accédez au répertoire que vous avez ajouté pour stocker les modèles.
+1. Sélectionnez le modèle ARM que vous souhaitez télécharger, puis sélectionnez **Ouvrir**.
 
 1. Pour déployer le modèle, exécutez les commandes suivantes :
 

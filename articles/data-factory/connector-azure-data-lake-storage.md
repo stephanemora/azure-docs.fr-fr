@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
-ms.openlocfilehash: e568c2c8056c0d33be5fe1f748092ae2639be360
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/09/2021
+ms.openlocfilehash: abd839bdc15430b3b4936fe1d2b65826ae792da8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314703"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128592543"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données dans Data Lake Storage Gen2 avec Data Factory ou Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ Utilisez les étapes suivantes pour créer un service lié Azure Data Lake Stora
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -544,7 +544,7 @@ Les paramètres spécifiques du format se trouvent dans la documentation de ce f
 
 Dans la transformation de la source, vous pouvez lire à partir d’un conteneur, d’un dossier ou d’un fichier individuel dans Azure Data Lake Storage Gen2. L’onglet **Options de la source** vous permet de gérer la façon dont les fichiers sont lus. 
 
-![Options de la source](media/data-flow/sourceOptions1.png "Options de la source")
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Options de la source":::
 
 **Chemin contenant des caractères génériques :** Si vous utilisez un modèle à caractères génériques, le système demande à ADF de lire chaque dossier et fichier correspondants en boucle dans une même transformation de source. Il s’agit d’un moyen efficace de traiter plusieurs fichiers dans un seul et même flux. Ajoutez plusieurs modèles de correspondance à caractères génériques avec le signe + qui apparaît quand vous placez le pointeur sur votre modèle existant.
 
@@ -566,11 +566,11 @@ Exemples de caractères génériques :
 
 Tout d’abord, définissez un caractère générique pour inclure tous les chemins d’accès aux dossiers partitionnés, ainsi qu’aux fichiers feuilles que vous souhaitez lire.
 
-![Paramètres du fichier source de partition](media/data-flow/partfile2.png "Paramètre du fichier de partition")
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Paramètres du fichier source de partition":::
 
 Utilisez le paramètre Chemin racine de la partition pour définir le niveau supérieur de la structure de dossiers. Quand vous affichez le contenu de vos données à l’aide d’un aperçu des données, vous voyez qu’ADF ajoute les partitions résolues trouvées dans chacun de vos niveaux de dossiers.
 
-![Chemin racine de la partition](media/data-flow/partfile1.png "Aperçu du chemin racine de la partition")
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Chemin racine de la partition":::
 
 **Liste de fichiers :** Il s’agit d’un ensemble de fichiers. Créez un fichier texte qui inclut une liste de fichiers avec chemin relatif à traiter. Pointez sur ce fichier texte.
 
@@ -582,15 +582,15 @@ Pour déplacer les fichiers sources vers un autre emplacement de post-traitement
 
 Si vous avez un chemin d’accès source avec caractère générique, votre syntaxe se présente comme suit :
 
-```/data/sales/20??/**/*.csv```
+`/data/sales/20??/**/*.csv`
 
 vous pouvez spécifier «from» sous la forme
 
-```/data/sales```
+`/data/sales`
 
 et « to » sous la forme
 
-```/backup/priorSales```
+`/backup/priorSales`
 
 Dans le cas présent, tous les fichiers qui provenaient de /data/sales sont déplacés dans /backup/priorSales.
 
@@ -603,7 +603,7 @@ Dans le cas présent, tous les fichiers qui provenaient de /data/sales sont dép
 
 Dans la transformation du récepteur, vous pouvez écrire dans un conteneur ou un dossier dans Azure Data Lake Storage Gen2. L’onglet **Paramètres** vous permet de gérer la façon dont les fichiers sont écrits.
 
-![Options du récepteur](media/data-flow/file-sink-settings.png "Options du récepteur")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="Options du récepteur":::
 
 **Effacer le contenu du dossier :** Détermine si le contenu du dossier de destination doit être effacé avant l’écriture des données.
 
@@ -615,6 +615,34 @@ Dans la transformation du récepteur, vous pouvez écrire dans un conteneur ou u
    * **Sortie d’un seul fichier** : Combinez les fichiers de sortie partitionnés en un seul fichier nommé. Le chemin est relatif au dossier du jeu de données. Sachez que cette opération de fusion peut échouer en fonction de la taille du nœud. Cette option n’est pas recommandée pour des jeux de données volumineux.
 
 **Tout mettre entre guillemets :** Détermine si toutes les valeurs doivent être placées entre guillemets
+    
+### ```umask```
+
+Vous pouvez éventuellement définir le ```umask``` pour les fichiers à l’aide des indicateurs de lecture, d’écriture et d’exécution POSIX pour le propriétaire, l’utilisateur et le groupe.
+    
+### <a name="pre-processing-and-post-processing-commands"></a>Commandes de pré-traitement et de traitement
+    
+Vous pouvez éventuellement exécuter des commandes du système de fichiers Hadoop avant ou après l’écriture dans un récepteur d’ADLS Gen2. Les commandes suivantes sont prises en charge :
+    
+* ```cp```
+* ```mv```
+* ```rm```
+* ```mkdir```
+
+Exemples :
+
+* ```mkdir /folder1```
+* ```mkdir -p folder1```
+* ```mv /folder1/*.* /folder2/```
+* ```cp /folder1/file1.txt /folder2```
+* ```rm -r /folder1```
+
+Les paramètres sont également pris en charge par le générateur d’expressions, par exemple :
+
+`mkdir -p {$tempPath}/commands/c1/c2`
+`mv {$tempPath}/commands/*.* {$tempPath}/commands/c1/c2`
+
+Par défaut, les dossiers sont créés en tant qu’utilisateur/racine. Reportez-vous au conteneur de niveau supérieur avec « / ».
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
@@ -643,7 +671,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 | modifiedDatetimeStart | Filtre de fichiers en fonction de l’attribut Dernière modification. Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les performances globales du déplacement des données sont influencées par l’activation de ce paramètre lorsque vous souhaitez appliquer un filtre sur de grandes quantités de fichiers. <br/><br/> Les propriétés peuvent être NULL, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données. Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés. Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non |
 | modifiedDatetimeEnd | Filtre de fichiers en fonction de l’attribut Dernière modification. Les fichiers sont sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> Les performances globales du déplacement des données sont influencées par l’activation de ce paramètre lorsque vous souhaitez appliquer un filtre sur de grandes quantités de fichiers. <br/><br/> Les propriétés peuvent être NULL, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données. Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés. Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non |
 | format | Si vous souhaitez copier des fichiers en l’état entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser ou générer des fichiers dans un format spécifique, les types de format de fichier suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Définissez la propriété **type** située sous **Format** sur l’une de ces valeurs. Pour en savoir plus, voir les sections [Format Text](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Format ORC](supported-file-formats-and-compression-codecs-legacy.md#orc-format) et [Format Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format). |Non (uniquement pour un scénario de copie binaire) |
-| compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**.<br/>Les niveaux pris en charge sont **Optimal** et **Fastest**. |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Les types pris en charge sont ```**GZip**, **Deflate**, **BZip2**, and **ZipDeflate**``` .<br/>Les niveaux pris en charge sont **Optimal** et **Fastest**. |Non |
 
 >[!TIP]
 >Pour copier tous les fichiers d’un dossier, spécifiez **folderPath** uniquement.<br>Pour copier un seul fichier avec un nom donné, spécifiez **folderPath** avec la partie dossier et **fileName** avec un nom de fichier.<br>Pour copier un sous-ensemble de fichiers d’un dossier, spécifiez **folderPath** avec la partie dossier et **fileName** avec un filtre de caractères génériques. 

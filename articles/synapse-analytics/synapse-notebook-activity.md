@@ -10,12 +10,12 @@ ms.date: 05/19/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 9c021b8b0aec025458179ffb4859c351572762ee
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: c8c2246822cdf9faa06833020cd1951bde9e86a3
+ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186980"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123449294"
 ---
 # <a name="transform-data-by-running-a-synapse-notebook"></a>Transformer des données en exécutant un notebook Synapse
 
@@ -32,6 +32,10 @@ Vous pouvez créer une activité de bloc-notes Synapse directement à partir du 
 Glisser-déplacer un **bloc-notes Synapse** sous **Activités** dans le canevas de pipeline Synapse. Sélectionnez dans la zone activité du bloc-notes Synapse et configurez le contenu du bloc-notes pour l’activité en cours dans les **paramètres**. Vous pouvez sélectionner un bloc-notes existant à partir de l’espace de travail actuel ou en ajouter un nouveau. 
 
 ![capture d’écran-présentation-créer-bloc-notes-activité](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
+
+> [!NOTE]
+> L’exécution de blocs-notes Spark parallèles dans les pipelines Azure Synapse est mise en file d’attente et exécutée de manière FIFO, l’ordre des travaux dans la file d’attente est défini en fonction de la séquence temporelle, le délai d’expiration d’un travail dans la file d’attente est de 3 jours. Notez que la file d’attente pour les bloc-notes fonctionne uniquement dans un pipeline Synapse.
+
 
 ### <a name="add-a-notebook-to-synapse-pipeline"></a>Ajouter un bloc-notes à un pipeline Synapse
 

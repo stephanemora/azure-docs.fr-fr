@@ -8,14 +8,14 @@ ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 783299359b1b7b9cbe75fd36f534ac18563c0fee
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: b72066dbeda75ae651b26c76b99697d978986a50
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123102921"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123435291"
 ---
-# <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Changer votre niveau de performance à l’aide du module Azure PowerShell ou de l’interface Azure CLI
+# <a name="change-your-performance-tier-without-downtime-using-the-azure-powershell-module-or-the-azure-cli"></a>Changer votre niveau de performance sans temps d’arrêt à l’aide du module Azure PowerShell ou de l’interface Azure CLI
 
 **S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
@@ -85,55 +85,55 @@ New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGro
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="prerequisites"></a>Prérequis
+1. Vous devez activer la fonctionnalité pour votre abonnement avant de pouvoir modifier le niveau de performance d'un disque sans temps d'arrêt. La procédure suivante permet d’activer la fonctionnalité sur votre abonnement :
 
-Vous devez activer la fonctionnalité pour votre abonnement avant de pouvoir modifier le niveau de performance d'un disque sans temps d'arrêt. La procédure suivante permet d’activer la fonctionnalité sur votre abonnement :
+    1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
 
-1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
+        ```azurecli
+        az feature register --namespace Microsoft.Compute --name LiveTierChange
+        ```
+
+    1.  Vérifiez que l'état de l'inscription est **Inscrit** (cela peut prendre quelques minutes) à l'aide de la commande suivante avant d'essayer la fonctionnalité.
+
+        ```azurecli
+        az feature show --namespace Microsoft.Compute --name LiveTierChange
+        ```
+2. Mettez à jour le niveau d’un disque même s’il est attaché à une machine virtuelle en cours d’exécution
 
     ```azurecli
-    az feature register --namespace Microsoft.Compute --name LiveTierChange
+    resourceGroupName=<yourResourceGroupNameHere>
+    diskName=<yourDiskNameHere>
+    performanceTier=<yourDesiredPerformanceTier>
+
+    az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
     ```
- 
-1.  Vérifiez que l'état de l'inscription est **Inscrit** (cela peut prendre quelques minutes) à l'aide de la commande suivante avant d'essayer la fonctionnalité.
-
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name LiveTierChange
-    ```
-
-```azurecli
-resourceGroupName=<yourResourceGroupNameHere>
-diskName=<yourDiskNameHere>
-performanceTier=<yourDesiredPerformanceTier>
-
-az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
-```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Vous devez activer la fonctionnalité pour votre abonnement avant de pouvoir modifier le niveau de performance d'un disque sans temps d'arrêt. La procédure suivante permet d’activer la fonctionnalité sur votre abonnement :
+1. Vous devez activer la fonctionnalité pour votre abonnement avant de pouvoir modifier le niveau de performance d'un disque sans temps d'arrêt. La procédure suivante permet d’activer la fonctionnalité sur votre abonnement :
 
-1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
+    1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
+
+        ```azurepowershell
+         Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
+        ```
+
+    1.  Vérifiez que l'état de l'inscription est **Inscrit** (cela peut prendre quelques minutes) à l'aide de la commande suivante avant d'essayer la fonctionnalité.
+
+        ```azurepowershell
+        Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
+        ```
+2. Mettez à jour le niveau d’un disque même s’il est attaché à une machine virtuelle en cours d’exécution
 
     ```azurepowershell
-     Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
+    $resourceGroupName='yourResourceGroupName'
+    $diskName='yourDiskName'
+    $performanceTier='P1'
+
+    $diskUpdateConfig = New-AzDiskUpdateConfig -Tier $performanceTier
+
+    Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -DiskUpdate $diskUpdateConfig
     ```
- 
-1.  Vérifiez que l'état de l'inscription est **Inscrit** (cela peut prendre quelques minutes) à l'aide de la commande suivante avant d'essayer la fonctionnalité.
-
-    ```azurepowershell
-    Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-```azurepowershell
-$resourceGroupName='yourResourceGroupName'
-$diskName='yourDiskName'
-$performanceTier='P1'
-
-$diskUpdateConfig = New-AzDiskUpdateConfig -Tier $performanceTier
-
-Update-AzDisk -ResourceGroupName $resourceGroupName -DiskName $diskName -DiskUpdate $diskUpdateConfig
-```
 ---
 
 ## <a name="show-the-tier-of-a-disk"></a>Afficher le niveau d’un disque

@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: a132fdf16fa62360827a516f034bcd37c38b2928
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 6503433f164e0b8153aa8832473fd06ad3959bae
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564096"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434859"
 ---
 #  <a name="cloudevents-extension-for-azure-web-pubsub"></a>Extension CloudEvents pour Azure Web PubSub
 
@@ -62,6 +62,7 @@ Cette extension définit les attributs utilisés par Web PubSub pour chaque év�
 | `connectionId` | `string` | L’ID de connexion est unique pour la connexion cliente | |
 | `eventName` | `string` | Le nom de l’événement sans préfixe | |
 | `subprotocol` | `string` | Le sous-protocole utilisé par le client, le cas échéant | |
+| `connectionState` | `string` | Définit l’état de la connexion. Vous pouvez utiliser le même en-tête de réponse pour réinitialiser la valeur de l’état. Il est interdit d'utiliser plusieurs en-têtes `connectionState`. Codez en base64 la valeur de chaîne si elle contient des caractères complexes. Par exemple, vous pouvez `base64(jsonString)` pour transmettre un objet complexe à l’aide de cet attribut.| |
 | `signature` | `string` | La signature du webhook en amont pour valider si la requête entrante provient de l’origine attendue. Le service calcule la valeur à l’aide de la clé d’accès primaire et de la clé d’accès secondaire comme la clé HMAC : `Hex_encoded(HMAC_SHA256(accessKey, connectionId))`. L’amont doit vérifier si la requête est valide avant de la traiter. | |
 
 ## <a name="events"></a>Événements
@@ -115,12 +116,14 @@ ce-eventName: connect
 ```
 
 #### <a name="success-response-format"></a>Format de la réponse en cas de réussite :
-
-* `204` : Réussite, sans contenu.
-* `200` : Réussite, le contenu DOIT être au format JSON, avec les propriétés suivantes autorisées :
-
+* Code d’état :
+    * `204` : Réussite, sans contenu.
+    * `200` : Réussite, le contenu DOIT être au format JSON, avec les propriétés suivantes autorisées :
+* En-tête `ce-connectionState` : si cet en-tête existe, l’état de cette connexion est mis à jour avec la valeur de l’en-tête. Notez que seuls les événements *bloquants* peuvent mettre à jour l’état de la connexion. L’exemple ci-dessous utilise une chaîne JSON codée en base64 pour stocker un état complexe pour la connexion.
+* 
 ```HTTP
 HTTP/1.1 200 OK
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 {
     "groups": [],
@@ -164,6 +167,7 @@ HTTP/1.1 401 Unauthorized
 
 * `ce-type`: `azure.webpubsub.sys.connected`
 * `Content-Type`: `application/json`
+* `ce-connectionState`: `eyJrZXkiOiJhIn0=`
 
 Le corps de la requête est un JSON vide.
 
@@ -186,6 +190,7 @@ ce-connectionId: {connectionId}
 ce-hub: {hub}
 ce-eventName: connect
 ce-subprotocol: abc
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 {}
 
@@ -228,6 +233,7 @@ ce-connectionId: {connectionId}
 ce-hub: {hub}
 ce-eventName: disconnect
 ce-subprotocol: abc
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 {
     "reason": "{Reason}"
@@ -277,6 +283,7 @@ ce-userId: {userId}
 ce-connectionId: {connectionId}
 ce-hub: {hub}
 ce-eventName: message
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 UserPayload
 
@@ -288,6 +295,8 @@ UserPayload
     * `204` : Réussite, sans contenu.
     * `200` : Réussite, le format de `UserResponsePayload` dépend du `Content-Type` de la réponse.
 * `Content-Type` : `application/octet-stream` pour une trame binaire ; `text/plain` pour une trame texte. 
+* En-tête `Content-Type` : `application/octet-stream` pour une trame binaire ; `text/plain` pour une trame texte ; 
+* En-tête `ce-connectionState` : si cet en-tête existe, l’état de cette connexion est mis à jour avec la valeur de l’en-tête. Notez que seuls les événements *bloquants* peuvent mettre à jour l’état de la connexion. L’exemple ci-dessous utilise une chaîne JSON codée en base64 pour stocker un état complexe pour la connexion.
 
 Lorsque `Content-Type` est `application/octet-stream`, le service envoie `UserResponsePayload` au client à l’aide d’une trame WebSocket `binary`. Lorsque `Content-Type` est `text/plain`, le service envoie `UserResponsePayload` au client à l’aide d’une trame WebSocket `text`. 
 
@@ -295,6 +304,7 @@ Lorsque `Content-Type` est `application/octet-stream`, le service envoie `UserRe
 HTTP/1.1 200 OK
 Content-Type: application/octet-stream (for binary frame) or text/plain (for text frame)
 Content-Length: nnnn
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 UserResponsePayload
 ```
@@ -336,6 +346,7 @@ ce-connectionId: {connectionId}
 ce-hub: {hub_name}
 ce-eventName: <event_name>
 ce-subprotocol: json.webpubsub.azure.v1
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 text data
 
@@ -372,6 +383,7 @@ ce-connectionId: {connectionId}
 ce-hub: {hub_name}
 ce-eventName: <event_name>
 ce-subprotocol: json.webpubsub.azure.v1
+ce-connectionState: eyJrZXkiOiJhIn0=
 
 {
     "hello": "world"
@@ -425,8 +437,8 @@ UserResponsePayload
 * Code d'état
     * `204` : Réussite, sans contenu.
     * `200` : Réussite, l’envoi de données au client WebSocket PubSub dépend du `Content-Type`. 
-
-* Lorsque `Content-Type` est `application/octet-stream`, le service renvoie `UserResponsePayload` au client avec `dataType` correspondant à `binary` et une charge utile codée en base64. Exemple de réponse :
+* En-tête `ce-connectionState` : si cet en-tête existe, l’état de cette connexion est mis à jour avec la valeur de l’en-tête. Notez que seuls les événements *bloquants* peuvent mettre à jour l’état de la connexion. L’exemple ci-dessous utilise une chaîne JSON codée en base64 pour stocker un état complexe pour la connexion.
+* Lorsque En-tête `Content-Type` est `application/octet-stream`, le service renvoie `UserResponsePayload` au client avec `dataType` correspondant à `binary` et une charge utile codée en base64. Exemple de réponse :
     ```json
     {
         "type": "message",

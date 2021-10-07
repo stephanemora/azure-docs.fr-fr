@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 33e332b05cbb6c0d20b73a13134590ed3cda4f38
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 8d5feae71fc6b901f761e6a52805a7ac5fad04a4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112298778"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673537"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migration de serveur Azure Migrate : Questions courantes
 
@@ -181,7 +181,7 @@ Durée d’exécution de la réplication initiale = {taille des disques (ou tail
 
 ### <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Comment faire pour limiter la réplication lors de l’utilisation de l’appliance Azure Migrate pour une réplication VMware sans agent ?  
 
-Vous pouvez limiter l’utilisation de NetQosPolicy. Par exemple :
+Vous pouvez limiter l’utilisation de NetQosPolicy. Notez que cette limitation s’applique uniquement aux connexions sortant de l’appliance Azure Migrate. Par exemple :
 
 L’AppNamePrefix à utiliser dans NetQosPolicy est « GatewayWindowsService.exe ». Vous pouvez créer une stratégie sur l’appliance Azure Migrate pour limiter le trafic de réplication de l’appliance en créant une stratégie telle que celle-ci :
 

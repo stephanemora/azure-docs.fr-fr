@@ -3,19 +3,19 @@ title: Analyser la référence de données Azure Machine Learning | Microsoft Do
 description: Documentation de référence pour la supervision d’Azure Machine Learning. Découvrez les données et les ressources collectées et disponibles dans Azure Monitor.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 04/07/2021
-ms.openlocfilehash: 124b8679ad11eb9a39881cdcf39969360e3275a6
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 099da6c4e3906b118bdfb5df80cf44ad3814660d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114227808"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427150"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Informations de référence sur l’analyse des données Azure Machine Learning
 

@@ -12,12 +12,12 @@ ms.date: 07/28/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3b1d7d8b658e0a0ac01789ca8a13ce0a2f779767
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3a530dae026ffe87efe06fb413966df43ce32314
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524537"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128588288"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -206,6 +206,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS700054 | Response_type « id_token » n’est pas activé pour l’application.  L’application a demandé un jeton d’ID au point de terminaison d’autorisation, mais n’a pas activé l’octroi implicite de jeton d’ID.  Accédez à Portail Azure > Azure Active Directory > Inscriptions d’applications > Sélectionner votre application > Authentification > Sous « Octroi implicite et flux hybrides », assurez-vous que « Jetons d’ID » est sélectionné.|
 | AADSTS70007 | UnsupportedResponseMode : l’application a renvoyé une valeur non prise en charge pour `response_mode` lors de la requête d’un jeton.  |
 | AADSTS70008 | ExpiredOrRevokedGrant : le jeton d’actualisation a expiré en raison d’une inactivité. Le jeton a été émis le XXX et il était inactif pendant un certain laps de temps. |
+| AADSTS700084 | Le jeton d’actualisation ayant été délivré à une application monopage (SPA), il a une durée de vie fixe et limitée de {time}, laquelle ne peut pas être prolongée. Il a entre-temps expiré et une nouvelle demande de connexion doit être envoyée par la SPA à la page de connexion. Le jeton a été délivré le {issueDate}.|
 | AADSTS70011 | InvalidScope : la portée demandée par l’application n’est pas valide. |
 | AADSTS70012 | MsaServerError : une erreur de serveur s’est produite lors de l’authentification d’un utilisateur de compte de service administré (consommateur). Réessayez. Si le problème persiste, [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS70016 | AuthorizationPending : erreur de flux d’appareil d’OAuth 2.0. Une autorisation est en attente. L’appareil va réessayer l’interrogation de la requête. |

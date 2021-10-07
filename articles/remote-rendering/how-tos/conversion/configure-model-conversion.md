@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 1cb5312e164bac09930497c377f1590b6a77ca05
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 263531d24d50c27309163f0671a41ff7aacd36c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92205317"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601365"
 ---
 # <a name="configure-the-model-conversion"></a>Configurer la conversion de modèle
 
@@ -109,13 +109,13 @@ Si un modèle est défini à l’aide de l’espace gamma, ces options doivent �
 ### <a name="scene-parameters"></a>Paramètres de scène
 
 * `sceneGraphMode` : définit la manière dont le graphique de scène dans le fichier source est converti :
-  * `dynamic` (par défaut) : Tous les objets du fichier sont exposés en tant [qu’entités](../../concepts/entities.md) dans l’API et peuvent être transformés indépendamment. La hiérarchie de nœuds au moment de l’exécution est identique à la structure dans le fichier source.
-  * `static`: Tous les objets sont exposés dans l’API, mais ils ne peuvent pas être transformés indépendamment.
+  * `dynamic` (valeur par défaut) : tous les objets du fichier sont exposés en tant qu'[entités](../../concepts/entities.md) dans l’API et peuvent être transformés et reapparentés arbitrairement. La hiérarchie de nœuds au moment de l’exécution est identique à la structure dans le fichier source.
+  * `static`: Semblable à `dynamic`, mais les objets dans le graphique de scène ne peuvent pas être réapparentés à d’autres objets de manière dynamique au moment de l’exécution. Pour les modèles dynamiques avec de nombreuses parties mobiles (par exemple, « vue d’explosion »), l'option `dynamic` génère un modèle qui est plus efficace à restituer, mais le mode `static` autorise toujours les transformations de parties individuelles. Si le réapparentage dynamique n’est pas requis, l'option `static` est la plus appropriée pour les modèles avec de nombreuses parties individuelles.
   * `none`: Le graphique de scène est réduit en un seul objet.
 
-Chaque mode a des performances d’exécution différentes. En mode `dynamic`, le coût des performances est mis à l’échelle de manière linéaire avec le nombre [d’entités](../../concepts/entities.md) dans le graphique, même si aucune partie n’est déplacée. Utilisez le mode `dynamic` uniquement lorsqu’il est nécessaire de déplacer des parties individuellement, par exemple pour une animation « vue en éclaté ».
+Chaque mode a des performances d’exécution différentes. En mode `dynamic`, le coût des performances est mis à l’échelle de manière linéaire avec le nombre [d’entités](../../concepts/entities.md) dans le graphique, même si aucune partie n’est déplacée. Utilisez le mode `dynamic` uniquement lorsqu’il est nécessaire de déplacer simultanément plusieurs parties ou sous-graphiques volumineux, par exemple pour une animation « vue d’explosion ».
 
-Le mode `static` exporte le graphique complet de la scène, mais les parties à l’intérieur de ce graphique ont une transformation constante par rapport à la partie racine. Toutefois, le nœud racine de l’objet peut toujours être déplacé, pivoté ou mis à l’échelle sans coût de performance significatif. En outre, les [requêtes spatiales](../../overview/features/spatial-queries.md) retournent des parties individuelles et chaque composant peut être modifié par le biais de [remplacements d’état](../../overview/features/override-hierarchical-state.md). Avec ce mode, la charge d’exécution par objet est négligeable. Il est idéal pour les grandes scènes où vous avez toujours besoin d’une inspection par objet, mais sans transformation par objet.
+Le mode `static` exporte également le graphique complet de la scène. Les [requêtes spatiales](../../overview/features/spatial-queries.md) retourneront des parties individuelles et chaque composant peut être modifié par le biais de [remplacements d’état](../../overview/features/override-hierarchical-state.md). Avec ce mode, la charge d’exécution par objet est négligeable. Il est idéal pour les grandes scènes dans lesquelles vous avez besoin d’une inspection par objet, de modifier occasionnellement des modifications sur des parties individuelles, mais aucun objet n’est à nouveau apparenté.
 
 Le mode `none` a la surcharge d’exécution la plus basse et des temps de chargement légèrement meilleurs. L’inspection ou la transformation d’objets uniques n’est pas possible dans ce mode. Les cas d’usage sont, par exemple, des modèles de photogrammétrie qui n’ont pas de graphique de scène significatif en premier lieu.
 

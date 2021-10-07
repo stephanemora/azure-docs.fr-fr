@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: vikancha
-ms.openlocfilehash: 034acde1f99409ef7d541d7705bb995e0db00d3b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: dba6962199f61eeb93dfb2f98e3e448c94ff633a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689101"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567097"
 ---
 # <a name="fpga-attestation-for-azure-np-series-vms-preview"></a>Attestation FPGA pour les machines virtuelles de la série Azure NP (préversion)
 
@@ -54,9 +54,9 @@ Vous pouvez également utiliser le portail Azure à cette fin.
 
 ## <a name="upload-your-netlist-file-to-azure-blob-storage"></a>Charger votre fichier netlist dans le stockage d’objets Blob Azure  
 
-Il existe plusieurs façons de copier le fichier ; vous trouverez ci-dessous un exemple d’utilisation de l’applet de commande az storage upload. Les commandes az s’exécutent à la fois sur Linux et Windows. Vous pouvez choisir n’importe quel nom pour le nom de l’objet Blob, mais veillez à conserver l’extension xclbin. 
+Il existe plusieurs façons de copier le fichier ; vous trouverez ci-dessous un exemple d’utilisation de l’applet de commande az storage upload. Les commandes az s’exécutent à la fois sur Linux et Windows. Vous pouvez choisir n’importe quel nom pour le nom de l’objet Blob, mais veillez à conserver l’extension `xclbin`.
 
-```az storage blob upload --account-name <storage account to receive netlist> --container-name <blob container name> --name <blob filename> --file <local file with netlist>  ```
+`az storage blob upload --account-name <storage account to receive netlist> --container-name <blob container name> --name <blob filename> --file <local file with netlist>`
 
 ## <a name="download-the-attestation-scripts"></a>Télécharger les scripts d’attestation  
 

@@ -3,15 +3,15 @@ title: Monter le Stockage Azure en tant que partage local (conteneur)
 description: Découvrez comment attacher un partage réseau personnalisé dans une application conteneurisée dans Azure App Service. Partagez des fichiers entre plusieurs applications, gérez le contenu statique à distance, accédez localement, etc.
 author: msangapu-msft
 ms.topic: article
-ms.date: 6/21/2021
+ms.date: 09/02/2021
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 445a834e32b11ca0f2a30120d2942c1057d83d50
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 77dc45d71a4a9706dd645289dd5839ee97c17314
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113006029"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123472017"
 ---
 # <a name="mount-azure-storage-as-a-local-share-in-a-container-app-in-app-service"></a>Monter le Stockage Azure en tant que partage local dans une application de conteneur dans App Service
 
@@ -39,8 +39,10 @@ Ce guide montre comment monter le Stockage Azure en tant que partage réseau dan
 
 Les fonctionnalités suivantes sont prises en charge pour les conteneurs Windows :
 
+- Accès sécurisé aux comptes de stockage avec des [liaisons privées](../storage/common/storage-private-endpoints.md) (quand l’[intégration au réseau virtuel](web-sites-integrate-with-vnet.md) est utilisée). Aucun support pour le [point de terminaison de service](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) n’est pas actuellement disponible.
 - Azure Files (lecture/écriture).
 - Jusqu’à cinq points de montage par application.
+- Affectations de lettres de lecteur (`C:` à `Z:`).
 
 ::: zone-end
 
@@ -82,11 +84,10 @@ Les fonctionnalités suivantes sont prises en charge pour les conteneurs Linux 
 ::: zone pivot="container-windows"
 
 - Les montages de Stockage ne sont pas pris en charge pour les applications natives Windows (non conteneurisées).
-- Ni le [pare-feu de stockage](../storage/common/storage-network-security.md), ni les [points de terminaison de service](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network), ni les [points de terminaison privés](../storage/common/storage-private-endpoints.md) ne sont pris en charge.
+- Les objets blobs Azure ne sont pas pris en charge.
+- [Le pare-feu de stockage](../storage/common/storage-network-security.md) est pris en charge uniquement via des [points de terminaison privés](../storage/common/storage-private-endpoints.md) (quand [l’intégration au réseau virtuel](web-sites-integrate-with-vnet.md) est utilisée). La prise en charge du système DNS personnalisé n’est pas disponible actuellement quand le compte Stockage Azure monté utilise un point de terminaison privé.
 - Accès FTP/FTPS au stockage monté non pris en charge (utilisez [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/)).
-- La prise en charge d’Azure CLI, d’Azure PowerShell et du kit Azure SDK est en préversion.
-- Le mappage `D:\` ou `D:\home` vers le stockage monté personnalisé n’est pas pris en charge.
-- Les affectations de lettres de lecteur (`C:` à `Z:`) ne sont pas prises en charge.
+- Les mappages `[C-Z]:\`, `[C-Z]:\home`, `/` et `/home` vers un stockage monté personnalisé ne sont pas pris en charge.
 - Les montages de Stockage ne peuvent pas être utilisés avec l’option de clonage des paramètres lors de la création de [l’emplacement de déploiement](deploy-staging-slots.md).
 - Les montages de Stockage ne sont pas sauvegardés quand vous [sauvegardez votre application](manage-backup.md). Veillez à suivre les meilleures pratiques pour sauvegarder les comptes Stockage Azure. 
 
@@ -104,29 +105,11 @@ Les fonctionnalités suivantes sont prises en charge pour les conteneurs Linux 
 ::: zone-end
 
 ::: zone pivot="container-windows"
-
 ## <a name="mount-storage-to-windows-container"></a>Monter le stockage sur un conteneur Windows
-
-Utilisez la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add). Par exemple :
-
-```azurecli
-az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory>
-```
-
-- `--storage-type` doit être `AzureFiles` pour les conteneurs Windows. 
-- `mount-path-directory` doit avoir la forme `/path/to/dir` ou `\path\to\dir` sans lettre de lecteur. Le montage s’effectue toujours sur le lecteur `C:\`. N’utilisez pas `/` ni `\` (dossier racine).
-
-Vérifiez que votre stockage est monté en exécutant la commande suivante :
-
-```azurecli
-az webapp config storage-account list --resource-group <resource-group> --name <app-name>
-```
-
 ::: zone-end
-
 ::: zone pivot="container-linux"
-
 ## <a name="mount-storage-to-linux-container"></a>Monter le stockage sur un conteneur Linux
+::: zone-end
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
@@ -134,6 +117,17 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 1. Dans la barre de navigation gauche, cliquez sur **Configuration** > **Mappages de chemin d’accès** > **Nouveau montage Stockage Azure**. 
 1. Configurez le montage de stockage conformément au tableau suivant. Lorsque vous avez terminé, cliquez sur **OK**.
 
+    ::: zone pivot="container-windows"
+    | Paramètre | Description |
+    |-|-|
+    | **Nom** | Nom de la configuration de montage. Les espaces ne sont pas autorisés. |
+    | **Options de configuration** | Sélectionnez **De base** si le compte de stockage n’utilise pas de [points de terminaison privés](../storage/common/storage-private-endpoints.md). Sinon, sélectionnez **Avancé**. |
+    | **Comptes de stockage** | Compte Stockage Azure. Il doit contenir un partage Azure Files. |
+    | **Nom de partage** | Partage de fichiers à monter. |
+    | **Clé d’accès** (Avancé uniquement) | [Clé d’accès](../storage/common/storage-account-keys-manage.md) de votre compte de stockage. |
+    | **Chemin de montage** | Répertoire dans le conteneur Windows à monter sur Stockage Azure. N’utilisez pas un répertoire racine (`[C-Z]:\` ou `/`) ou le répertoire `home` (`[C-Z]:\home` ou `/home`).|
+    ::: zone-end
+    ::: zone pivot="container-linux"
     | Paramètre | Description |
     |-|-|
     | **Nom** | Nom de la configuration de montage. Les espaces ne sont pas autorisés. |
@@ -142,25 +136,38 @@ az webapp config storage-account list --resource-group <resource-group> --name <
     | **Type de stockage** | Sélectionnez le type en fonction du stockage que vous souhaitez monter. Les objets blob Azure prennent en charge l’accès en lecture seule uniquement. |
     | **Conteneur de stockage** ou **Nom de partage** | Partage de fichiers ou conteneur d’objets blob à monter. |
     | **Clé d’accès** (Avancé uniquement) | [Clé d’accès](../storage/common/storage-account-keys-manage.md) de votre compte de stockage. |
-    | **Chemin de montage** | Répertoire dans le conteneur Linux à monter sur Stockage Azure. Ne pas utiliser `/` (répertoire racine). |
+    | **Chemin de montage** | Répertoire dans le conteneur Linux à monter sur Stockage Azure. N’utilisez pas `/` ou `/home`.|
+    ::: zone-end
 
     > [!CAUTION]
-    > Le répertoire spécifié dans **Chemin de montage** dans le conteneur Linux doit être vide. Tout contenu stocké dans ce répertoire est supprimé quand le Stockage Azure est monté (si vous spécifiez un répertoire sous `/home` par exemple). Si vous migrez des fichiers pour une application existante, faites une sauvegarde de l’application et de son contenu avant de commencer.
+    > Le répertoire spécifié dans **Chemin de montage** dans le conteneur doit être vide. Tout contenu stocké dans ce répertoire est supprimé quand le Stockage Azure est monté (si vous spécifiez un répertoire sous `/home` par exemple). Si vous migrez des fichiers pour une application existante, faites une sauvegarde de l’application et de son contenu avant de commencer.
     >
     
 # <a name="azure-cli"></a>[Azure CLI](#tab/cli)
 
-Utilisez la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add). 
+Utilisez la commande [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add). Par exemple :
 
 ```azurecli
 az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory>
 ```
 
+::: zone pivot="container-windows"
+- `--storage-type` doit être `AzureFiles` pour les conteneurs Windows. 
+- `mount-path-directory` doit avoir la forme `/path/to/dir` ou `[C-Z]:\path\to\dir` sans lettre de lecteur. N’utilisez pas un répertoire racine (`[C-Z]:\` ou `/`) ou le répertoire `home` (`[C-Z]:\home` ou `/home`).
+::: zone-end
+::: zone pivot="container-linux"
 - `--storage-type` peut avoir la valeur `AzureBlob` ou `AzureFiles`. `AzureBlob` est en lecture seule.
 - `--mount-path` est le répertoire dans le conteneur Linux à monter sur Stockage Azure. Ne pas utiliser `/` (répertoire racine).
+::: zone-end
+
+Vérifiez que votre stockage est monté en exécutant la commande suivante :
+
+```azurecli
+az webapp config storage-account list --resource-group <resource-group> --name <app-name>
+```
 
 > [!CAUTION]
-> Le répertoire spécifié dans `--mount-path` dans le conteneur Linux doit être vide. Tout contenu stocké dans ce répertoire est supprimé quand le Stockage Azure est monté (si vous spécifiez un répertoire sous `/home` par exemple). Si vous migrez des fichiers pour une application existante, faites une sauvegarde de l’application et de son contenu avant de commencer.
+> Le répertoire spécifié dans `--mount-path` dans le conteneur doit être vide. Tout contenu stocké dans ce répertoire est supprimé quand le Stockage Azure est monté (si vous spécifiez un répertoire sous `/home` par exemple). Si vous migrez des fichiers pour une application existante, faites une sauvegarde de l’application et de son contenu avant de commencer.
 >
 
 Vérifiez votre configuration en exécutant la commande suivante :
@@ -170,8 +177,6 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 ```
 
 ---
-
-::: zone-end
 
 > [!NOTE]
 > L’ajout, la modification ou la suppression d’un montage de stockage entraîne le redémarrage de l’application. 
@@ -195,27 +200,42 @@ Pour valider que le Stockage Azure est correctement monté pour l’application�
     tcpping Storageaccount.file.core.windows.net 
     ```
 
+::: zone-end
+
 ## <a name="best-practices"></a>Meilleures pratiques
 
 - Pour éviter tout problème potentiel lié à la latence, placez l’application et le compte Stockage Azure dans la même région Azure. Notez toutefois que si l’application et le compte Stockage Azure se trouvent dans la même région Azure, et que vous permettez l’accès à partir d’adresses IP App Service dans la [configuration du pare-feu Stockage Azure](../storage/common/storage-network-security.md), ces restrictions d’adresse IP ne sont pas respectées.
-- Le chemin de montage dans l’application de conteneur doit être vide. Tout contenu stocké dans ce chemin est supprimé quand le Stockage Azure est monté (si vous spécifiez un répertoire sous `/home` par exemple). Si vous migrez des fichiers pour une application existante, faites une sauvegarde de l’application et de son contenu avant de commencer.
+::: zone pivot="container-windows"
+- Le répertoire de montage dans l’application de conteneur doit être vide. Tout contenu stocké dans ce chemin est supprimé quand le Stockage Azure est monté. Si vous migrez des fichiers pour une application existante, faites une sauvegarde de l’application et de son contenu avant de commencer.
+::: zone-end
+::: zone pivot="container-linux"
+- Le répertoire de montage dans l’application de conteneur doit être vide. Tout contenu stocké dans ce chemin est supprimé quand le Stockage Azure est monté (si vous spécifiez un répertoire sous `/home` par exemple). Si vous migrez des fichiers pour une application existante, faites une sauvegarde de l’application et de son contenu avant de commencer.
+
 - Il n’est pas recommandé de monter le stockage sur `/home`, car cela peut entraîner des goulots d’étranglement des performances pour l’application. 
+::: zone-end
 - Dans le compte Stockage Azure, évitez de [régénérer la clé d’accès](../storage/common/storage-account-keys-manage.md) utilisée pour monter le stockage dans l’application. Le compte de stockage contient deux clés différentes. Utilisez une approche progressive pour vous assurer que le montage de stockage reste disponible pour l’application lors de la régénération de la clé. Imaginons par exemple que vous avez utilisé **key1** pour configurer le montage de stockage dans votre application :
+
     1. Régénérer **key2**. 
     1. Dans la configuration du montage de stockage, mettez à jour l’accès à la clé pour utiliser la clé régénérée **key2**.
     1. Régénérer **key1**.
+
 - Si vous supprimez un compte Stockage Azure, un conteneur ou un partage, supprimez la configuration de montage de stockage correspondante dans l’application pour éviter d’éventuels scénarios d’erreur. 
+
 - Le compte Stockage Azure monté peut être un niveau de performance Standard ou Premium. En fonction des exigences en termes de capacité et de débit de l’application, choisissez le niveau de performance approprié pour le compte de stockage. Consultez les objectifs de scalabilité et de performances qui correspondent au type de stockage :
-    - [Pour les fichiers](../storage/files/storage-files-scale-targets.md)
-    - [Pour les objets blobs](../storage/blobs/scalability-targets.md)  
+
+    - [Pour les fichiers](../storage/files/storage-files-scale-targets.md) (conteneurs Windows et Linux)
+    - [Pour les blobs](../storage/blobs/scalability-targets.md) (conteneurs Linux uniquement)
+
 - Si votre application [effectue une mise à l’échelle pour plusieurs instances](../azure-monitor/autoscale/autoscale-get-started.md), toutes les instances se connectent au même compte Stockage Azure monté. Pour éviter les problèmes de goulots d’étranglement des performances et de débit, choisissez le niveau de performance approprié pour le compte de stockage.  
+
 - Il n’est pas recommandé d’utiliser des montages de stockage pour les bases de données locales (comme SQLite) ou pour d’autres applications et composants qui reposent sur des verrous et handles de fichiers. 
+
 - Quand vous utilisez les [points de terminaison privés](../storage/common/storage-private-endpoints.md) Stockage Azure avec l’application, vous devez définir les deux paramètres d’application suivants :
+
     - `WEBSITE_DNS_SERVER` = `168.63.129.16`
     - `WEBSITE_VNET_ROUTE_ALL` = `1`
-- Si vous [initiez un basculement de stockage](../storage/common/storage-initiate-account-failover.md) et que le compte de stockage est monté sur l’application, le montage ne parvient pas à se connecter tant que vous n’avez pas redémarré l’application ni supprimé puis ajouté le montage Stockage Azure. 
 
-::: zone-end
+- Si vous [initiez un basculement de stockage](../storage/common/storage-initiate-account-failover.md) et que le compte de stockage est monté sur l’application, le montage ne parvient pas à se connecter tant que vous n’avez pas redémarré l’application ni supprimé puis ajouté le montage Stockage Azure. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

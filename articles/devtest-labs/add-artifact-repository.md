@@ -1,15 +1,15 @@
 ---
-title: Ajouter un référentiel d’artefacts à votre laboratoire dans Azure DevTest Labs | Microsoft Docs
+title: Ajouter un dépôt d’artefacts à votre labo
 description: Découvrez comment spécifier votre propre dépôt d’artefacts pour votre laboratoire dans Azure DevTest Labs afin de stocker des outils non disponibles dans le dépôt d’artefacts public.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0915254b5dbaabfc32a47b9b07713499a26c16a5
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 83a1cbb6c25c76d23977219d8e3b46491bbb363b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111954171"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644445"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Ajouter un référentiel d’artefacts à votre laboratoire dans Azure DevTest Labs.
 Azure DevTest Labs vous permet de spécifier l’ajout d’un artefact à une machine virtuelle pendant ou après la création de cette dernière. Cet artefact peut être un outil ou une application que vous souhaitez installer sur la machine virtuelle. Les artefacts sont définis dans un fichier JSON chargé à partir d’un référentiel Git Azure DevOps ou GitHub.

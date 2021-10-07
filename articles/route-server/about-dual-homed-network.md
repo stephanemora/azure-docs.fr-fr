@@ -1,20 +1,20 @@
 ---
-title: À propos du réseau à double hébergement avec le Serveur de routes Azure (préversion)
-description: Découvrez-en plus sur le fonctionnement du Serveur de routes Azure (préversion) dans un réseau à double hébergement.
+title: 'À propos du réseau à double hébergement avec le Serveur de routes Azure '
+description: Découvrez-en plus sur le fonctionnement du Serveur de routes Azure dans un réseau à double hébergement.
 services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 09/01/2021
 ms.author: duau
-ms.openlocfilehash: b786c58efd193eebbd43a4bd40f29201347c1309
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 76c1a1e424e4f8ae372f53ceab5da43ca9d40629
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108776727"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123434571"
 ---
-# <a name="about-dual-homed-network-with-azure-route-server-preview"></a>À propos du réseau à double hébergement avec le Serveur de routes Azure (préversion)
+# <a name="about-dual-homed-network-with-azure-route-server"></a>À propos du réseau à double hébergement avec le Serveur de routes Azure
 
 Le Serveur de routes Azure prend en charge la topologie standard de votre réseau hub-and-spoke. Cette configuration intervient quand le Serveur de routes et l’appliance virtuelle réseau se trouvent tous les deux dans le réseau virtuel hub. Le serveur routeur vous permet également de configurer une topologie différente appelée « réseau à double hébergement ». Cette configuration intervient quand vous disposez d’un réseau virtuel spoke appairé avec deux réseaux virtuels hub, ou plus. Les machines virtuelles du réseau virtuel spoke peuvent communiquer via un réseau virtuel hub avec votre réseau local ou Internet.
 

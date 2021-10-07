@@ -5,12 +5,12 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.openlocfilehash: 6bce47e07d2f9c2a9a8ac2043488739d2d2421c6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 99b87fd0066d67d09979965bab3a67d1b549afd4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773824"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599503"
 ---
 # <a name="sensor-partner-integration"></a>Intégration de partenaire de capteur
 
@@ -95,13 +95,13 @@ Voici les en-têtes de demande les plus courants qui doivent être spécifiés l
 
 **En-tête** | **Description et exemple**
 --- | ---
-Content-Type | Format de la demande (Content-Type: application/<format>). Pour les API FarmBeats Datahub, le format est JSON. Content-Type: application/json
-Autorisation | Spécifie le jeton d’accès requis pour effectuer un appel d’API. Autorisation : Porteur <jeton-accès>
+Content-Type | Format de la requête (Contenu -Type : `application/<format>`). Pour les API FarmBeats Datahub, le format est JSON. Content-Type: application/json
+Autorisation | Spécifie le jeton d’accès requis pour effectuer un appel d’API. Autorisation : Porteur \<Access-Token\>
 Acceptation | Format de la réponse. Pour les API FarmBeats Datahub, le format est JSON. Accept: application/json
 
 **Requêtes d’API**
 
-Pour effectuer une demande d’API REST, vous associez la méthode HTTP (GET, POST ou PUT), l’URL du service API, l’URI (Uniform Resource Identifier) d’une ressource à interroger, vers laquelle envoyer des données, à mettre à jour ou à supprimer et un ou plusieurs en-têtes de requête HTTP. L’URL du service API est le point de terminaison API que vous fournissez. Voici un exemple : https://\<yourdatahub-website-name>.azurewebsites.net
+Pour effectuer une demande d’API REST, vous associez la méthode HTTP (GET, POST ou PUT), l’URL du service API, l’URI (Uniform Resource Identifier) d’une ressource à interroger, vers laquelle envoyer des données, à mettre à jour ou à supprimer et un ou plusieurs en-têtes de requête HTTP. L’URL du service API est le point de terminaison API que vous fournissez. Voici un exemple : `https://\<yourdatahub-website-name>.azurewebsites.net`
 
 Si vous le souhaitez, vous pouvez inclure des paramètres de requête à des appels GET pour filtrer les données dans les réponses, en limiter la taille et les trier.
 

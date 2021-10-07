@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/30/2021
-ms.openlocfilehash: 4a0ebea8d0fb8d5b9ae5fa78004c071a348615e4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 5da6232a9bedeeb8228caecc79c7a7160630a8cd
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531774"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080810"
 ---
 # <a name="create-a-saas-offer"></a>Créer une offre SaaS
 
@@ -28,11 +28,38 @@ Si vous ne l’avez pas déjà fait, consultez [Planification d’une offre SaaS
 
 ## <a name="create-a-saas-offer"></a>Créer une offre SaaS
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+
+1. Sur la page d'accueil, sélectionnez la vignette **Offres de la Place de marché**.
+
+    [ ![Illustre la vignette Offres de la Place de marché sur la page d'accueil de l'Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Sur la page Offres de la Place de marché, sélectionnez **+ Nouvelle offre** > **SaaS**.
+
+    [ ![Illustre l'option d'offre SaaS dans la liste de nouvelles offres.](./media/new-offer-saas-workspaces.png) ](./media/new-offer-saas-workspaces.png#lightbox)
+
+1. Dans la boîte de dialogue **Nouveau Software as a service**, entrez un **ID de l'offre**. Cet ID est visible dans l’URL du référencement de la place de marché commercial et des modèles Azure Resource Manager, le cas échéant. Par exemple, si vous entrez **test-offer-1** dans cette zone, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+   + Chaque offre au sein de votre compte doit avoir un ID d’offre unique.
+   + Utilisez uniquement des lettres minuscules et des chiffres. Il peut inclure des traits d’union et des traits de soulignement, mais pas d’espaces, et est limité à 50 caractères.
+   + Vous ne pouvez pas modifier L’ID de l’offre une fois que vous avez sélectionné **Créer**.
+
+1. Entrez un **Alias d’offre**. Il s’agit du nom attribué à l’offre dans l’Espace partenaires.
+
+   + Ce nom n’est pas visible dans la place de marché commerciale, et diffère du nom de l’offre et d’autres valeurs présentées aux clients.
+   + Vous ne pouvez pas modifier l’alias de l’offre une fois que vous avez sélectionné **Créer**.
+1. Pour générer l’offre et continuer, sélectionnez **Créer**.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
 1. Sous l’onglet **Vue d’ensemble**, sélectionnez **+ Nouvelle offre** > **SaaS**.
 
-   :::image type="content" source="media/new-offer-saas.png" alt-text="Illustre le menu de navigation gauche et la liste Nouvelle offre.":::
+   :::image type="content" source="./media/new-offer-saas.png" alt-text="Illustre le menu de navigation gauche et la liste Nouvelle offre.":::
 
 1. Dans la boîte de dialogue **Nouvelle offre**, entrez l’**ID de l’offre**. Cet ID est visible dans l’URL du référencement de la place de marché commercial et des modèles Azure Resource Manager, le cas échéant. Par exemple, si vous entrez **test-offer-1** dans cette zone, l’adresse web de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
    + Chaque offre au sein de votre compte doit avoir un ID d’offre unique.
@@ -44,6 +71,8 @@ Si vous ne l’avez pas déjà fait, consultez [Planification d’une offre SaaS
    + Ce nom n’est pas visible dans la place de marché commerciale, et diffère du nom de l’offre et d’autres valeurs présentées aux clients.
    + Vous ne pouvez pas modifier l’alias de l’offre une fois que vous avez sélectionné **Créer**.
 1. Pour générer l’offre et continuer, sélectionnez **Créer**.
+
+---
 
 ## <a name="configure-your-saas-offer-setup-details"></a>Définit les détails de configuration de votre offre SaaS
 
@@ -67,8 +96,8 @@ Une version d’évaluation constitue un excellent moyen de présenter votre off
 
 ### <a name="to-enable-a-test-drive"></a>Pour activer une version d’évaluation
 
-1.  Sous **Version d’évaluation**, cochez la case **Activer une version d’évaluation**.
-1.  Sélectionnez le type de version d’évaluation dans la liste qui s’affiche.
+1. Sous **Version d’évaluation**, cochez la case **Activer une version d’évaluation**.
+1. Sélectionnez le type de version d’évaluation dans la liste qui s’affiche.
 
 ## <a name="configure-lead-management"></a>Configurer la gestion des prospects
 
@@ -88,7 +117,7 @@ Vous pouvez mettre en lumière la [découverte et la livraison unifiées](plan-S
 ### <a name="integrate-with-microsoft-api"></a>Intégrer avec une API Microsoft
 
 1. Si votre offre SaaS ne s’intègre pas avec l’API Microsoft Graph, sélectionnez **Non**. Continuez à lier les clients de consommation d’applications Microsoft 365 publiés.  
-1. Si votre offre SaaS s’intègre avec l’API Microsoft Graph API, sélectionnez **Oui**, puis indiquez l’ID d’application Azure Active Directory que vous avez créé et inscrit pour l’intégration avec l’API Microsoft Graph. 
+1. Si votre offre SaaS s’intègre avec l’API Microsoft Graph API, sélectionnez **Oui**, puis indiquez l’ID d’application Azure Active Directory que vous avez créé et inscrit pour l’intégration avec l’API Microsoft Graph.
 
 ### <a name="link-published-microsoft-365-app-consumption-clients"></a>Lier les clients de consommation d’applications Microsoft 365 publiés
 

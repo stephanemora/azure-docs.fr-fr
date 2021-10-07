@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: e15b3f81cf5f29efa739939fe29df25f338187cc
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 82f40d33d0465a7981105472ccd0487e7e24da80
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475255"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635125"
 ---
 # <a name="optimizing-log-alert-queries"></a>Optimisation des requêtes d’alerte de journal
 Cet article explique comment écrire et convertir des requêtes d’[alerte de journal](./alerts-unified-log.md) pour obtenir des performances optimales. Les requêtes optimisées réduisent la latence et la charge des alertes qui s’exécutent fréquemment.
@@ -47,7 +47,7 @@ Les [requêtes de journal dans Azure Monitor](../logs/log-query-overview.md) com
 
 Les requêtes pour les règles d’alerte de journal doivent toujours commencer par une table afin de définir une étendue claire, ce qui améliore à la fois les performances des requêtes et la pertinence des résultats. Les requêtes dans les règles d’alerte s’exécutent fréquemment. Par conséquent, l’utilisation de `search` et `union` peut entraîner une surcharge excessive ajoutant de la latence à l’alerte, car elle nécessite l’analyse de plusieurs tables. Ces opérateurs réduisent également la capacité du service d’alerte à optimiser la requête.
 
-Nous ne prenons pas en charge la création ou la modification des règles d’alerte de journal qui utilisent des opérateurs `search` ou `union`, si ce n’est pour des requêtes inter-ressources.
+Nous ne prenons pas en charge la création ou la modification des règles d’alerte de journal qui utilisent les opérateurs `search` ou `union`, sauf pour les requêtes inter-ressources.
 
 Par exemple la requête d’alerte suivante a pour étendue la table _SecurityEvent_ et recherche un ID d’événement spécifique. Il s’agit de la seule table que la requête doit traiter.
 

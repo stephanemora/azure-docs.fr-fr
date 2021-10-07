@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: dda885d55f2102f1fae478c8d214f2bca44f52f2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e2a49fb9de3c4f63edc483724769c5c726d3a63c
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532077"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129081849"
 ---
 # <a name="what-is-synapse-role-based-access-control-rbac"></a>Présentation du contrôle d’accès en fonction du rôle (RBAC) Synapse
 
@@ -28,7 +28,7 @@ RBAC Synapse permet de désigner les personnes autorisées à :
 - Surveiller ou annuler l’exécution d’un travail, passer en revue la sortie du travail et les journaux d’exécution.  
 
 >[!Note]
->Même si RBAC Synapse est utilisé pour gérer l’accès à des scripts SQL publiés, il offre uniquement un contrôle d’accès limité aux pools SQL serverless et il n’est _pas_ utilisé pour contrôler l’accès à des pools SQL dédiés.  L’accès aux pools SQL est principalement contrôlé à l’aide de la sécurité SQL.
+>Même si RBAC Synapse est utilisé pour gérer l'accès à des scripts SQL publiés, il offre uniquement un contrôle d'accès limité aux pools SQL serverless et dédiés. L’accès aux pools SQL est principalement contrôlé à l’aide de la sécurité SQL.
 
 ## <a name="what-can-i-do-with-synapse-rbac"></a>Comment utiliser le contrôle RBAC Synapse ?
 

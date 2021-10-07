@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/24/2020
+ms.date: 09/27/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 930341b60f785c2c618be4ee235225519a08aaa6
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f1797ce848793e8f0d129039f00bb491c09e8308
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530057"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153916"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossaire du développeur de la plateforme d’identité Microsoft
 
@@ -34,7 +34,7 @@ Les jetons d’accès sont parfois qualifiés de « utilisateur + Application »
 * [L’octroi d’autorisation « code d’autorisation »](#authorization-grant), l’utilisateur final s’authentifie tout d’abord en tant que propriétaire de la ressource, délégant l’autorisation d’accès à la ressource au client. Le client s’authentifie après, lors de l’obtention du jeton d’accès. Le jeton est alors parfois désigné plus spécifiquement sous le nom de jeton « utilisateur + application », car il représente à la fois l’utilisateur qui a autorisé l’application cliente et l’application.
 * [L’octroi d’autorisation « informations d’identification du client »](#authorization-grant), le client fournit l’authentification unique, fonctionnant sans authentification/autorisation du propriétaire des ressources. Le jeton est alors parfois désigné sous le nom de jeton « d’application uniquement ».
 
-Consultez [Informations de référence sur les jetons de la plateforme d’identités Microsoft][AAD-Tokens-Claims] pour en savoir plus.
+Pour plus d'informations, consultez les [informations de référence sur les jetons d'accès][AAD-Tokens-Claims] :
 
 ## <a name="application-id-client-id"></a>ID d’application (ID client)
 
@@ -113,7 +113,7 @@ Consultez l’[infrastructure de consentement](consent-framework.md) pour plus d
 
 [Jeton de sécurité][OpenIDConnect-ID-Token] [OpenID Connect](#security-token) fourni par le [point de terminaison d’autorisation](#authorization-server) d’un [serveur d’autorisation](#authorization-endpoint) et contenant des [revendications](#claim) se rapportant à l’authentification d’un [propriétaire de ressources](#resource-owner) utilisateur final. Comme un jeton d’accès, un jeton d’ID est représenté sous forme de jeton [JSON Web Token (JWT)][JWT] signé numériquement. À la différence d’un jeton d’accès cependant, les revendications d’un jeton d’ID ne sont pas utilisés à des fins liées à l’accès aux ressources et plus particulièrement pour le contrôle d’accès.
 
-Consultez [Informations de référence sur les jetons de la plateforme d’identités Microsoft][AAD-Tokens-Claims] pour en savoir plus.
+Pour plus d'informations, consultez les [informations de référence sur le jeton d'ID](id-tokens.md).
 
 ## <a name="microsoft-identity-platform"></a>Plateforme d’identité Microsoft
 
@@ -145,6 +145,8 @@ Vous pouvez configurer des requêtes d’autorisation dans la page **Autorisatio
 Un type de [jeton de sécurité](#security-token) émis par un [serveur d’autorisation](#authorization-server) et utilisé par une [application cliente](#client-application) pour demander un nouveau [jeton d’accès](#access-token) avant l’expiration du jeton d’accès. Généralement sous la forme d’un [JSON Web Token (JWT)][JWT].
 
 Contrairement aux jetons d’accès, les jetons d’actualisation peuvent être révoqués. Si une application cliente tente de demander un nouveau jeton d’accès à l’aide d’un jeton d’actualisation qui a été révoqué, le serveur d’autorisation refuse la demande et l’application cliente n’a plus l’autorisation d’accéder au [serveur de ressources](#resource-server) pour le compte du [propriétaire de la ressource](#resource-owner).
+
+Pour en savoir plus, consultez les [jetons d'actualisation](refresh-tokens.md).
 
 ## <a name="resource-owner"></a>propriétaire de la ressource
 

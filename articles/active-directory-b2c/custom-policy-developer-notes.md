@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/21/2021
+ms.date: 09/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 33389224bcc4abf05ffbb261e23409eb95896781
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: b428b069c0f576109179ecc64bddc409abe29e5f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220862"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128568321"
 ---
 # <a name="developer-notes-for-azure-active-directory-b2c"></a>Notes à destination des développeurs pour Azure Active Directory B2C
 
@@ -55,7 +55,9 @@ Le tableau suivant récapitule les flux d’authentification des applications OA
 [On-behalf-of](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| N/D | N/D | Une application appelle un service ou une API web, qui à son tour doit appeler un autre service ou une autre API web. <br />  <br /> Pour que le service de niveau intermédiaire effectue des demandes authentifiées auprès du service en aval, transmettez un jeton *d’informations d’identification du client* dans l’en-tête d’autorisation. Si vous le souhaitez, vous pouvez inclure un en-tête personnalisé avec le jeton de l’utilisateur Azure AD B2C.  |
 [OpenID Connect](openid-connect.md) | GA | GA | OpenID Connect introduit le concept de jeton d'ID, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur. |
 [Flux hybride OpenId Connect](openid-connect.md) | GA | GA | Permet à une application web de récupérer le jeton d’ID sur la demande d’autorisation, ainsi qu’un code d’autorisation.  |
-[Informations d’identification de mot de passe du propriétaire de ressource (ROPC)](add-ropc-policy.md) | PRÉVERSION | PRÉVERSION | Permet à une application mobile de connecter l’utilisateur en gérant directement son mot de passe. |
+[Informations d’identification de mot de passe du propriétaire de ressource (ROPC)](add-ropc-policy.md) | GA | GA | Permet à une application mobile de connecter l’utilisateur en gérant directement son mot de passe. |
+| [Déconnexion](session-behavior.md#sign-out)| GA | GA | |
+| [Authentification unique](session-behavior.md#sign-out)  | N/D | PRÉVERSION | |
 
 ### <a name="oauth-20-options"></a>Options OAuth 2.0
 
@@ -66,6 +68,7 @@ Le tableau suivant récapitule les flux d’authentification des applications OA
 | Insérer du code JSON dans le parcours utilisateur via `client_assertion`| N/D| Déprécié |  |
 | Insérer du code JSON dans le parcours utilisateur en tant que [id_token_hint](id-token-hint.md) | N/D | GA | |
 | [Transmettre le jeton du fournisseur d’identité à l’application](idp-pass-through-user-flow.md)| PRÉVERSION| PRÉVERSION| Par exemple, de Facebook à l’application. |
+| [Maintenir la connexion (KMSI)](session-behavior.md#enable-keep-me-signed-in-kmsi)| GA| GA| |
 
 ## <a name="saml2-application-authentication-flows"></a>Flux d’authentification d’application SAML2
 
@@ -81,6 +84,7 @@ Le tableau suivant récapitule les flux d’authentification d’application Sec
 |Fonctionnalité  |Flux utilisateur  |Stratégie personnalisée  |Notes  |
 |---------|:---------:|:---------:|---------|
 | [Prise en charge multilingue](localization.md)| GA | GA | |
+| [Domaines personnalisés](custom-domain.md)| GA | GA | |
 | [Vérification d’e-mail personnalisée](custom-email-mailjet.md) | N/D | GA| |
 | [Personnaliser l’interface utilisateur avec des modèles intégrés](customize-ui.md) | GA| GA| |
 | [Personnaliser l’interface utilisateur avec des modèles personnalisés](customize-ui-with-html.md) | GA| GA| À l’aide de modèles HTML. |
@@ -89,6 +93,7 @@ Le tableau suivant récapitule les flux d’authentification d’application Sec
 | [Expérience de connexion incorporée](embedded-login.md) | N/D |  PRÉVERSION| À l’aide de l’élément de cadre en ligne `<iframe>`. |
 | [Complexité du mot de passe](password-complexity.md) | GA | GA | |
 | [Désactiver la vérification e-mail](disable-email-verification.md) | GA|  GA| Non recommandé dans les environnements de production. La désactivation de la vérification par e-mail dans le processus d’inscription peut entraîner la réception de courrier indésirable. |
+
 
 
 
@@ -147,7 +152,7 @@ Le tableau suivant récapitule les flux d’authentification d’application Sec
 | [Fournisseur de session de connexion externe](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA |  |
 | [Fournisseur de session par authentification unique SAML](custom-policy-reference-sso.md#samlssosessionprovider) | GA |  |
 | [Fournisseur de session par authentification unique OAuth](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
-| [Authentification unique](session-behavior.md#sign-out)  |  PRÉVERSION |  |
+
 
 ### <a name="components"></a>Components
 
@@ -159,6 +164,7 @@ Le tableau suivant récapitule les flux d’authentification d’application Sec
 | [Azure Active Directory](active-directory-technical-profile.md) comme répertoire local | GA |  |
 | [Validations de prédicats](predicates.md) | GA | Par exemple, la complexité des mots de passe. |
 | [Contrôles d’affichage](display-controls.md) | GA |  |
+| [Sous-parcours](subjourneys.md) | GA | |
 
 ### <a name="developer-interface"></a>Interface de développeur
 

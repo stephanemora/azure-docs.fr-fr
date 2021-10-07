@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7d6111a68be8bc195b7268a778a77facdd944772
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 2940e407e88239aa1afec84137e72073b7a5028a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084129"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533233"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Démarrage rapide : Créer une application App Service à l’aide d’un modèle ARM
 
@@ -191,4 +191,3 @@ Quand il n’est plus nécessaire, [supprimez le groupe de ressources](../azure-
 - Python avec Postgres
 - [PHP avec MySQL](tutorial-php-mysql-app.md)
 - [Se connecter à Azure SQL Database à l’aide de Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-- [Mapper un domaine personnalisé](app-service-web-tutorial-custom-domain-uiex.md)

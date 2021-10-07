@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: f04ff9d68297c34adbdaa6e6c326b940e6c496bc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: a66eeec561b422cb7ce644facd7f273ab055e871
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697477"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123423661"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques dans le portail Azure
 
@@ -57,8 +57,11 @@ Si la demande de votre application augmente, la charge sur les instances de mach
     | *Refroidissement (minutes)*  | Temps d’attente avant que la règle soit appliquée à nouveau afin que les actions de mise à l’échelle automatique aient le temps de porter effet. | 5 minutes      |
 
     Les exemples suivants montrent une règle créée dans le portail Azure et qui correspond à ces paramètres :
-
+    
     ![Créer une règle de mise à l’échelle automatique pour augmenter le nombre d’instances de machine virtuelle](media/virtual-machine-scale-sets-autoscale-portal/rule-increase.png)
+
+    > [!NOTE]
+    > Les tâches qui s’exécutent à l’intérieur de l’instance s’arrêtent brusquement et l’instance est mise à l’échelle une fois la période de refroidissement écoulée.
 
 6. Pour créer la règle, sélectionnez **Ajouter**
 

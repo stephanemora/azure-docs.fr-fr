@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/27/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 301a386c9c9a21cf1f988ee62c19ca7cc60e7a39
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: ecbb461e45b19630319622e978ad3bd49a376e74
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429997"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129092734"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0
 
@@ -58,7 +58,7 @@ Ce type d’autorisation est courant pour les démons et les comptes de service 
 
 Pour activer ce modèle d’autorisation par listes ACL, Azure AD n’impose pas que les applications soient autorisées à obtenir des jetons pour une autre application. Les jetons de type application uniquement peuvent ainsi être émis sans revendication `roles`. Les applications qui exposent des API doivent implémenter des vérifications d’autorisation afin d’accepter les jetons.
 
-Si vous souhaitez empêcher les applications d’obtenir des jetons d’accès de type application uniquement sans rôle pour votre application, [veillez à ce que les exigences d’affectation d’utilisateurs soient activées pour votre application](../manage-apps/add-application-portal-configure.md#configure-app-properties). Ainsi, les utilisateurs et les applications dépourvus de rôles ne pourront pas récupérer de jeton pour cette application.
+Si vous souhaitez empêcher les applications d’obtenir des jetons d’accès de type application uniquement sans rôle pour votre application, [veillez à ce que les exigences d’affectation d’utilisateurs soient activées pour votre application](../manage-apps/assign-user-or-group-access-portal.md). Ainsi, les utilisateurs et les applications dépourvus de rôles ne pourront pas récupérer de jeton pour cette application. 
 
 ### <a name="application-permissions"></a>Autorisations de l’application
 
@@ -69,13 +69,13 @@ Au lieu d’utiliser des listes ACL, vous pouvez utiliser des API pour exposer u
 * Envoyer des messages en tant que n’importe quel utilisateur
 * Lire les données du répertoire
 
-Pour utiliser des autorisations d’application avec votre propre API (par opposition à Microsoft Graph), vous devez d’abord [exposer l’API](quickstart-configure-app-expose-web-apis.md) en définissant des étendues dans l’inscription de l’application de l’API dans le Portail Azure. Ensuite, [configurer l’accès à l’API](quickstart-configure-app-access-web-apis.md) en sélectionnant ces autorisations dans l’inscription de l’application de votre application cliente. Si vous n’avez pas exposé d’étendues dans l’inscription de l’application de votre API, vous ne pouvez pas spécifier d’autorisations d’application pour cette API dans l’inscription de l’application de votre application cliente dans le Portail Azure.
+Pour utiliser des autorisations d’application avec votre propre API (par opposition à Microsoft Graph), vous devez d’abord [exposer l’API](howto-add-app-roles-in-azure-ad-apps.md) en définissant des étendues dans l’inscription de l’application de l’API dans le Portail Azure. Ensuite, [configurer l’accès à l’API](howto-add-app-roles-in-azure-ad-apps.md#assign-app-roles-to-applications) en sélectionnant ces autorisations dans l’inscription de l’application de votre application cliente. Si vous n’avez pas exposé d’étendues dans l’inscription de l’application de votre API, vous ne pouvez pas spécifier d’autorisations d’application pour cette API dans l’inscription de l’application de votre application cliente dans le Portail Azure.
 
-Lors de l’authentification en tant qu’application (par opposition à l’authentification avec un utilisateur), vous ne pouvez pas utiliser *d’autorisations déléguées*, étendues accordées par un utilisateur. Vous devez utiliser des autorisations d’application, également appelées « rôles », accordées par un administrateur pour l’application ou par le biais d’une pré-autorisation par l’API web.
+Quand vous vous authentifiez en tant qu’application (par opposition à un utilisateur), vous ne pouvez pas utiliser de *permissions déléguées*, c’est-à-dire des étendues octroyées par un utilisateur, car votre application n’a aucun utilisateur au nom duquel agir. Vous devez utiliser des autorisations d’application, également appelées « rôles », accordées par un administrateur pour l’application ou par le biais d’une pré-autorisation par l’API web.
 
 Pour en savoir plus sur les autorisations d’application, consultez [Autorisation et Consentement](v2-permissions-and-consent.md#permission-types).
 
-#### <a name="recommended-sign-the-user-into-your-app"></a>Recommandé : connecter l’utilisateur à votre application
+#### <a name="recommended-sign-the-admin-into-your-app-to-have-app-roles-assigned"></a>Recommandé : Connectez l’administrateur à votre application pour qu’il attribue des rôles d’application
 
 En général, lorsque vous créez une application qui utilise des autorisations d’application, l’application doit disposer d’une page/vue qui permet à l’administrateur d’approuver les autorisations de l’application. Cette page peut faire partie du flux d’inscription de l’application, des paramètres de l’application ou d’un flux de connexion dédié. Dans de nombreux cas, il est judicieux pour l’application d’afficher la vue de « connexion » uniquement après qu’un utilisateur se soit connecté avec un compte Microsoft professionnel ou scolaire.
 

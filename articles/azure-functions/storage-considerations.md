@@ -3,12 +3,12 @@ title: Considérations relatives au stockage pour Azure Functions
 description: En savoir plus sur les exigences de stockage d’Azure Functions et sur le chiffrement des données stockées.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: ad9e7979eddac3fc102d9fddae68c230a7418762
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: dfbaf2947dd3eaacd155a240541a6abae3894b35
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259555"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599978"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considérations relatives au stockage pour Azure Functions
 
@@ -78,7 +78,7 @@ Si Azure Files n’est pas utilisé, vous devez prendre en compte ce qui suit :
 * Votre application ne peut pas utiliser le runtime de Functions v1
 * Les expériences de streaming de journaux dans les clients tels que le portail Azure s’apparentent aux journaux du système de fichiers. Privilégiez les journaux Application Insights.
 
-Si les éléments ci-dessus sont correctement pris en compte, vous pouvez créer l’application sans Azure Files. Créez l’application de fonction sans spécifier les paramètres `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` et `WEBSITE_CONTENTSHARE`.
+Si les éléments ci-dessus sont correctement pris en compte, vous pouvez créer l’application sans Azure Files. Créez l’application de fonction sans spécifier les paramètres `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` et `WEBSITE_CONTENTSHARE`. Pour ce faire, vous pouvez générer un modèle ARM pour un déploiement standard, supprimer ces deux paramètres, puis déployer le modèle. 
 
 ## <a name="mount-file-shares"></a>Monter des partages de fichiers
 

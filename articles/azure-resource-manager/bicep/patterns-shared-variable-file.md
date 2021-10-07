@@ -5,12 +5,12 @@ author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 812cb0b861418d3bd3d13959cf074442d9a81538
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: eb9a24c0c5b6b7bd037fe5da13fe108878f55a15
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535331"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648313"
 ---
 # <a name="shared-variable-file-pattern"></a>Modèle de fichier de variables partagées
 
@@ -24,7 +24,7 @@ En outre, lorsque vous utilisez des variables définies en tant que tableaux, vo
 
 ## <a name="solution"></a>Solution
 
-Créez un fichier JSON qui contient les variables que vous devez partager. Utilisez les fonctions Bicep `json()` et `loadTextContent()` pour charger le fichier et accéder aux variables. Pour les variables de tableau, utilisez la fonction `concat()`pour combiner les valeurs partagées avec toutes les valeurs personnalisées pour la ressource spécifique.
+Créez un fichier JSON qui contient les variables que vous devez partager. Utilisez la [fonction `json()`](bicep-functions-object.md#json) et la [fonction `loadTextContent()`](bicep-functions-files.md#loadtextcontent) pour charger le fichier et accéder aux variables. Pour les variables de tableau, utilisez la [fonction `concat()`](bicep-functions-array.md#concat) pour combiner les valeurs partagées avec toute valeur personnalisée pour la ressource spécifique.
 
 ## <a name="example-1-naming-prefixes"></a>Exemple 1 : préfixes d’attribution de noms
 

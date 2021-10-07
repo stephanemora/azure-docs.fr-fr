@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
-ms.openlocfilehash: 0a4b6e1f90e24b3289b453e849b4ad979b10e202
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: a5a65f99fec0bb0db245450ead9747776e194b46
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319914"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614426"
 ---
 # <a name="configure-log-analytics-workspace-for-vm-insights"></a>Configurer l’espace de travail Log Analytics pour VM Insights
 VM Insights collecte ses données à partir d’un ou plusieurs espaces de travail Log Analytics dans Azure Monitor. Avant d’intégrer des agents, vous devez créer et configurer un espace de travail. Cet article décrit les exigences de l’espace de travail et sa configuration pour VM Insights.
@@ -38,15 +38,13 @@ Vous pouvez créer un espace de travail Log Analytics à l’aide de l’une des
 
 
 * [Azure portal](../logs/quick-create-workspace.md)
-* [Azure CLI](../logs/quick-create-workspace-cli.md)
+* [Azure CLI](../logs/resource-manager-workspace.md)
 * [PowerShell](../logs/powershell-workspace-configuration.md)
 * [Azure Resource Manager](../logs/resource-manager-workspace.md)
 
 ## <a name="supported-regions"></a>Régions prises en charge
-VM Insights prend en charge tout espace de travail Log Analytics dans les [régions prises en charge par Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all), à l’exception des suivantes :
+VM Insights prend en charge un espace de travail Log Analytics dans toutes les [régions prises en charge par Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all)/
 
-- Allemagne Centre-Ouest
-- Centre de la Corée
 
 >[!NOTE]
 >Vous pouvez surveiller les machines virtuelles Azure de n’importe quelle région. Les machines virtuelles elles-même ne sont pas limitées aux régions prises en charge par l’espace de travail Log Analytics.

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Utilisez un réseau virtuel Azure isolé pour sécuriser votre espace de travail Azure Machine Learning et les ressources associées.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 10cd246d0a60184616facb799f9dc079cb5cf30d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7200c13d5ad4157afeb2c0dd1d7ab7445670609d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216780"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425332"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Sécuriser un espace de travail Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -58,7 +58,7 @@ Dans cet article, vous découvrirez comment activer les ressources d’espaces d
     - « Microsoft.Network/virtualNetworks/join/action » sur la ressource de réseau virtuel.
     - « Microsoft.Network/virtualNetworks/subnet/join/action » sur la ressource de sous-réseau virtuel.
 
-    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](../role-based-access-control/built-in-roles.md#networking)
+    Pour plus d’informations sur Azure RBAC avec la mise en réseau, consultez [Rôles intégrés pour la mise en réseau](../role-based-access-control/built-in-roles.md#networking).
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 

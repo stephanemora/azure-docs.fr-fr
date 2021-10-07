@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: andster
 keywords: visualstudio
-ms.openlocfilehash: de2c782b7b311256e287f49f931ed6ab1de09c55
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: d77e0c04e5fac91de2142d14ba88d3188303945d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688535"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582141"
 ---
 # <a name="visual-studio-images-on-azure"></a>Images de Visual Studio sur Azure
 **S’applique à :** :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
@@ -81,11 +81,11 @@ Azure offre une gamme complète de tailles de machine virtuelle. Visual Studio 
     
 Pour plus d’informations sur les tailles de machine les plus récentes, consultez [Tailles des machines virtuelles Windows dans Azure](../sizes.md).
 
-Avec Azure, vous pouvez rééquilibrer votre choix initial en redimensionnant la machine virtuelle. Vous pouvez soit provisionner une nouvelle machine virtuelle avec une taille plus appropriée, soit redimensionner votre machine virtuelle existante sur un autre matériel sous-jacent. Pour plus d’informations, consultez [Redimensionner une machine virtuelle Windows](./resize-vm.md).
+Avec Azure, vous pouvez rééquilibrer votre choix initial en redimensionnant la machine virtuelle. Vous pouvez soit provisionner une nouvelle machine virtuelle avec une taille plus appropriée, soit redimensionner votre machine virtuelle existante sur un autre matériel sous-jacent. Pour plus d’informations, consultez [Redimensionner une machine virtuelle Windows](../resize-vm.md).
 
 ## <a name="after-the-vm-is-running-whats-next"></a>Une fois que la machine virtuelle est en cours d’exécution, que faire ?
-Visual Studio suit le modèle BYOL (apportez votre propre licence) dans Azure. Comme pour une installation sur du matériel propriétaire, l’une des premières étapes est l’attribution d’une licence à votre installation Visual Studio. Pour déverrouiller Visual Studio, effectuez l’une des actions suivantes :
-- Connectez-vous à l’aide d’un compte Microsoft associé à un abonnement Visual Studio. 
+Visual Studio suit le modèle « BYOL (apportez votre propre licence) » dans Azure. Comme pour une installation sur du matériel propriétaire, l’une des premières étapes est l’attribution d’une licence à votre installation Visual Studio. Pour déverrouiller Visual Studio, effectuez l’une des actions suivantes :
+- Connectez-vous à l’aide d’un compte Microsoft associé à un abonnement Visual Studio 
 - Déverrouillez Visual Studio à l’aide de la clé de produit fournie avec votre achat initial.
 
 Pour plus d’informations, consultez [Se connecter à Visual Studio](/visualstudio/ide/signing-in-to-visual-studio) et [Guide pratique pour déverrouiller Visual Studio](/visualstudio/ide/how-to-unlock-visual-studio).
@@ -96,7 +96,7 @@ Le spectre des environnements de développement est énorme, et la création d�
 
 En bref : utilisez l’outil de préparation système (Sysprep) et arrêtez la machine virtuelle en cours d’exécution, puis capturez *(Figure 1)* la machine virtuelle en tant qu’image par le biais de l’interface utilisateur du portail Azure. Azure enregistre le fichier `.vhd` qui contient l’image dans le compte de stockage de votre choix. Ensuite, la nouvelle image apparaîtra en tant que ressource d’image dans la liste des ressources de votre abonnement.
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center> *(Figure 1) Capturer une image par le biais de l’interface utilisateur du Portail Azure.*</center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI"><center> *(Figure 1) Capturer une image par le biais de l’interface utilisateur du Portail Azure.*</center>
 
 Pour plus d’informations, consultez [Créer une image managée d’une machine virtuelle généralisée dans Azure](./capture-image-resource.md).
 

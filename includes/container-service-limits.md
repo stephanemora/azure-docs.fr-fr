@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: fichier descriptif
+description: Fichier include
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/06/2021
 ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: d9566564c168e37477d8a0a8238c93dfb8be054d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 928c4669ec7b1a04874f760cc14234cfa874e99a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122336153"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437888"
 ---
 | Ressource                                                                                                           | Limite                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -27,8 +27,12 @@ ms.locfileid: "122336153"
 
 <sup>1</sup> Le module complémentaire OSM pour AKS est en préversion et fera l’objet d’améliorations supplémentaires avant sa mise en disponibilité générale. Pendant la phase de préversion, nous vous recommandons de ne pas dépasser les limites indiquées.<br />
 
-> [!IMPORTANT]
-> Nous recommandons aux clients d’activer le niveau Contrat SLA de durée de fonctionnement pour les charges de travail de production et de test de charge et de performances. Le niveau Contrat SLA de durée de fonctionnement permet la mise à l’échelle automatique du plan de contrôle Kubernetes et est requis pour prendre en charge les clusters avec des charges de travail de production dans [le Contrat SLA de durée de fonctionnement](../articles/aks/uptime-sla.md).
+<br />
+
+| Limites du plan de contrôle Kubernetes                                                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Niveau payant                                                                                  | Mise à l’échelle automatique en fonction de la charge                                                                                                                                                                                                        |
+| Niveau gratuit                       | Ressources limitées avec une [limite des demandes en cours](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) fixée à 50 appels en mutation et 100 appels en lecture seule                                                                                                                                                                                                         |
 
 <!-- LINKS - Internal -->
 

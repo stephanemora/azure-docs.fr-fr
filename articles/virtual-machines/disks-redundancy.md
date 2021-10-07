@@ -3,17 +3,17 @@ title: Options de redondance pour les disques managés Azure
 description: Apprenez-en davantage sur le stockage redondant interzone et le stockage localement redondant pour les disques managés Azure.
 author: roygara
 ms.author: rogarana
-ms.date: 07/12/2021
+ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: b24f24547e45b8ef580715828839ec1b1e5b4618
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.custom: references_regions
+ms.openlocfilehash: 3748b896956e058e9dc6c01083c19aa8e9c327e7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122692691"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569349"
 ---
 # <a name="redundancy-options-for-managed-disks"></a>Options de redondance pour les disques managés
 
@@ -32,11 +32,11 @@ Le stockage localement redondant (LRS) réplique vos données trois fois au sein
 
 Si votre workflow ne prend pas en charge les écritures synchrones au niveau de l’application entre les zones, ou si votre application doit respecter un RPO zéro, les disques ZRS représentent la solution idéale.
 
-## <a name="zone-redundant-storage-for-managed-disks-preview"></a>Stockage redondant interzone pour les disques managés (préversion)
+## <a name="zone-redundant-storage-for-managed-disks"></a>Stockage redondant interzone pour les disques managés
 
-Le stockage ZRS (stockage redondant interzone) réplique de manière synchrone votre disque managé Azure sur trois zones de disponibilité Azure dans la région de votre choix. Chaque zone de disponibilité est un emplacement physique distinct avec une alimentation, un refroidissement et une mise en réseau indépendants. 
+Le stockage ZRS (stockage redondant interzone) réplique de manière synchrone votre disque managé Azure sur trois zones de disponibilité Azure dans la région de votre choix. Chaque zone de disponibilité est un emplacement physique distinct avec une alimentation, un refroidissement et une mise en réseau indépendants.
 
-Un disque ZRS (préversion) vous permet d’effectuer une reprise d’activité après sinistre dans les zones de disponibilité. En cas de défaillance d’une zone, un disque ZRS peut être attaché à une machine virtuelle située dans une autre zone. Les disques ZRS peuvent également être partagés entre plusieurs machines virtuelles pour une meilleure disponibilité avec des applications en cluster ou des applications distribuées telles que SQL FCI, SAP ASCS/SCS ou GFS2. Un disque ZRS partagé peut être attaché à des machines virtuelles principale et secondaire dans différentes zones pour tirer parti de ZRS et des [zones de disponibilité](../availability-zones/az-overview.md). En cas de défaillance de la zone principale, vous pouvez rapidement basculer vers la machine virtuelle secondaire à l’aide de la [réservation persistante SCSI](disks-shared-enable.md#supported-scsi-pr-commands).
+Un disque ZRS vous permet d’effectuer une récupération après sinistre dans les zones de disponibilité. En cas de défaillance d’une zone, un disque ZRS peut être attaché à une machine virtuelle située dans une autre zone. Les disques ZRS peuvent également être partagés entre plusieurs machines virtuelles pour une meilleure disponibilité avec des applications en cluster ou des applications distribuées telles que SQL FCI, SAP ASCS/SCS ou GFS2. Un disque ZRS partagé peut être attaché à des machines virtuelles principale et secondaire dans différentes zones pour tirer parti de ZRS et des [zones de disponibilité](../availability-zones/az-overview.md). En cas de défaillance de la zone principale, vous pouvez rapidement basculer vers la machine virtuelle secondaire à l’aide de la [réservation persistante SCSI](disks-shared-enable.md#supported-scsi-pr-commands).
 
 ### <a name="billing-implications"></a>Implications de facturation
 
@@ -44,7 +44,7 @@ Pour plus d’informations, consultez la [page des tarifs Azure](https://azure.m
 
 ### <a name="comparison-with-other-disk-types"></a>Comparaison avec d’autres types de disques
 
-À l’exception d’une latence d’écriture plus importante, les disques utilisant ZRS sont identiques aux disques utilisant LRS. Ils ont les mêmes cibles de mise à l’échelle. [Évaluez vos disques](disks-benchmarks.md) pour simuler la charge de travail de votre application et comparer la latence entre les disques LRS et ZRS. 
+À l’exception d’une latence d’écriture plus importante, les disques utilisant ZRS sont identiques aux disques utilisant LRS. Ils ont les mêmes cibles de mise à l’échelle. [Évaluez vos disques](disks-benchmarks.md) pour simuler la charge de travail de votre application et comparer la latence entre les disques LRS et ZRS.
 
 ### <a name="limitations"></a>Limites
 

@@ -1,19 +1,19 @@
 ---
 title: Images Azure BYOS (Apportez votre propre abonnement) de Red Hat Enterprise Linux | Microsoft Docs
 description: Découvrez les images BYOS (Apportez votre propre abonnement) pour Red Hat Enterprise Linux sur Azure.
-author: asinn826
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 06/10/2020
-ms.author: alsin
-ms.openlocfilehash: 93557e5fb32a6f5100bdc99cdfbeed3375fcc379
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.author: mamccrea
+ms.openlocfilehash: 59a89c069c332d4d0346e0f3c795763818c601de
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691960"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457104"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Images Gold BYOS (Apportez votre propre abonnement) de Red Hat Enterprise Linux dans Azure
 
