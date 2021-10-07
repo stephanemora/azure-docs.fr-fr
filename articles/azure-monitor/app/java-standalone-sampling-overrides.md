@@ -6,12 +6,12 @@ ms.date: 03/22/2021
 author: trask
 ms.custom: devx-track-java
 ms.author: trstalna
-ms.openlocfilehash: 7602392b78f53e5b896e92058836fca60de39d64
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c0f6c1b0fce97bc835cb63a47d8827d7fab8ed56
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448880"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128599826"
 ---
 # <a name="sampling-overrides-preview---azure-monitor-application-insights-for-java"></a>Remplacements d’échantillonnage (préversion) – Azure Monitor Application Insights pour Java
 
@@ -19,8 +19,8 @@ ms.locfileid: "106448880"
 > La fonctionnalité de remplacements d’échantillonnage est en préversion depuis la mise en production 3.0.3.
 
 Les remplacements d’échantillonnage vous permettent de remplacer le [pourcentage d’échantillonnage par défaut](./java-standalone-config.md#sampling), par exemple :
- * Définir le pourcentage d’échantillonnage sur 0 (ou une valeur faible) pour les contrôles d’intégrité bruyants.
- * Définir le pourcentage d’échantillonnage sur 0 (ou une valeur faible) pour les appels de dépendance bruyants.
+ * Définissez le pourcentage d’échantillonnage sur 0 (ou une valeur faible) pour les contrôles d’intégrité bruyants.
+ * Définissez le pourcentage d’échantillonnage sur 0 (ou une valeur faible) pour les appels de dépendance bruyants.
  * Définir le pourcentage d’échantillonnage sur 100 pour un type de demande important (par exemple `/login`), même si vous avez configuré l’échantillonnage par défaut sur une valeur inférieure.
 
 ## <a name="terminology"></a>Terminologie
@@ -189,9 +189,10 @@ Cette section répertorie certains attributs d’étendue courants que des rempl
 |---|---|---|
 | `http.method` | string | Méthode de requête HTTP.|
 | `http.url` | string | URL complète de la requête HTTP sous la forme `scheme://host[:port]/path?query[#fragment]`. Le fragment n’est généralement pas transmis via HTTP. Toutefois, si le fragment est connu, il doit être inclus.|
-| `http.status_code` | nombre | [Code de statut de la réponse HTTP](https://tools.ietf.org/html/rfc7231#section-6).|
 | `http.flavor` | string | Type de protocole HTTP. |
 | `http.user_agent` | string | Valeur de l’en-tête [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) envoyé par le client. |
+
+Notez que `http.status_code` ne peut pas être utilisé pour prendre des décisions d’échantillonnage, car il n’est pas disponible au début de l’étendue.
 
 ### <a name="jdbc-spans"></a>Étendues JDBC
 

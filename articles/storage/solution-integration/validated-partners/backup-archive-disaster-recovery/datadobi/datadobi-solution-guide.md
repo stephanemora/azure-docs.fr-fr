@@ -8,12 +8,12 @@ ms.date: 04/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: ef74136627f7f7e90e94b91f212438d8e9daf0d6
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: cdeff15125a9af306e04baae5efaf758e8cf0b11
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489594"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278214"
 ---
 # <a name="backup-to-azure-with-dobiprotect"></a>Sauvegarder sur Azure avec DobiProtect
 
@@ -74,7 +74,7 @@ Utilisez les méthodes suivantes pour identifier la marge de bande passante que 
 
 ### <a name="choose-the-right-storage-options"></a>Choisir les options de stockage appropriées
 
-Quand vous utilisez Azure en tant que cible de sauvegarde, vous recourez au service [Stockage Blob Azure](../../../../blobs/storage-blobs-introduction.md). Le service Stockage Blob est une solution de stockage d’objets de Microsoft. Le stockage d’objets blob est optimisé pour stocker de grandes quantités de données non structurées ne suivant aucun modèle ni aucune définition. En outre, le service Stockage Azure est durable, hautement disponible, sécurisé et évolutif. Vous pouvez sélectionner le stockage approprié pour votre charge de travail afin d’offrir le [niveau de résilience](../../../../common/storage-redundancy.md) nécessaire pour honorer vos contrats de niveau de service (SLA) internes. Le service Stockage Blob est assorti d’un mode de paiement à l’utilisation. Vous êtes [facturé mensuellement](../../../../blobs/storage-blob-storage-tiers.md#pricing-and-billing) pour la quantité de données stockées, l’accès à celles-ci et, dans le cas des niveaux de stockage froid et archive, une période de rétention minimale requise. Les options de résilience et de hiérarchisation applicables aux données de sauvegarde sont résumées dans les tableaux suivants.
+Quand vous utilisez Azure en tant que cible de sauvegarde, vous recourez au service [Stockage Blob Azure](../../../../blobs/storage-blobs-introduction.md). Le service Stockage Blob est une solution de stockage d’objets de Microsoft. Le stockage d’objets blob est optimisé pour stocker de grandes quantités de données non structurées ne suivant aucun modèle ni aucune définition. En outre, le service Stockage Azure est durable, hautement disponible, sécurisé et évolutif. Vous pouvez sélectionner le stockage approprié pour votre charge de travail afin d’offrir le [niveau de résilience](../../../../common/storage-redundancy.md) nécessaire pour honorer vos contrats de niveau de service (SLA) internes. Le service Stockage Blob est assorti d’un mode de paiement à l’utilisation. Vous êtes [facturé mensuellement](../../../../blobs/access-tiers-overview.md#pricing-and-billing) pour la quantité de données stockées, l’accès à celles-ci et, dans le cas des niveaux de stockage froid et archive, une période de rétention minimale requise. Les options de résilience et de hiérarchisation applicables aux données de sauvegarde sont résumées dans les tableaux suivants.
 
 **Options de résilience du service Stockage Blob :**
 

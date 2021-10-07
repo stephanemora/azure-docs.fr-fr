@@ -3,12 +3,12 @@ title: Gérer la stratégie d’enregistrement avec Live Video Analytics – Azu
 description: Cette rubrique explique comment gérer la stratégie d’enregistrement avec Live Video Analytics.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: a8301b97e571370d498fba9a8d46cf3fc545ff29
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c9ec5a2efd56a0a2872f946dd23db72d2e7836b9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740361"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273644"
 ---
 # <a name="manage-recording-policy-with-live-video-analytics"></a>Gérer la stratégie d’enregistrement avec Live Video Analytics
 
@@ -44,7 +44,7 @@ Votre compte Media Service est lié à un compte Stockage Azure, et lorsque vous
 La règle ci-dessus :
 
 * s'applique à tous les objets blob de blocs du compte Stockage ;
-* spécifie qu'au bout de 30 jours, les objets blob sont déplacés du [niveau d'accès chaud au niveau d'accès froid](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
+* spécifie qu'au bout de 30 jours, les objets blob sont déplacés du [niveau d'accès chaud au niveau d'accès froid](../../storage/blobs/access-tiers-overview.md?tabs=azure-portal).
 * En outre, lorsque les objets blob ont plus de 90 jours, ils doivent être supprimés.
 
 Lorsque vous utilisez Live Video Analytics pour enregistrer sur une ressource, vous spécifiez une propriété `segmentLength` qui indique au module d’agréger une durée minimale de vidéo (en secondes) avant qu’elle ne soit écrite dans le cloud. Votre ressource contient une série de segments, chacun avec un horodatage de création `segmentLength` plus récent que le précédent. Lorsque la stratégie de gestion du cycle de vie démarre, elle supprime les segments antérieurs au seuil spécifié. Toutefois, vous pourrez continuer à accéder aux segments restants via les API Media Services et à les lire. Pour plus d’informations, consultez [Lecture des enregistrements](playback-recordings-how-to.md). 

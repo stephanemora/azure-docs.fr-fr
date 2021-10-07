@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 62fd9820d1ec743d7424679753828b0cb7837fbc
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.openlocfilehash: 9f5fae1fb1a4afaca021eddd8b04625d87b9b2d9
+ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113031046"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128707994"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning"></a>Assurer le suivi des expériences de Machine Learning Azure Databricks avec MLflow et Azure Machine Learning
 
@@ -214,7 +214,9 @@ display(preds)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous ne prévoyez pas d’utiliser les métriques et artefacts enregistrés dans votre espace de travail, la possibilité de les supprimer individuellement est actuellement indisponible. Au lieu de cela, supprimez le groupe de ressources contenant le compte de stockage et l’espace de travail afin d’éviter des frais supplémentaires :
+Si vous souhaitez conserver votre espace de travail Azure Databricks, mais que vous n’avez plus besoin de l’espace de travail Azure ML, vous pouvez supprimer l’espace de travail Azure ML. Cette action entraîne la dissociation de votre espace de travail Azure Databricks et de l’espace de travail Azure ML. 
+
+Si vous ne prévoyez pas d’utiliser les métriques et artefacts journalisés dans votre espace de travail, sachez qu’il n’est pas possible de les supprimer un par un. Au lieu de cela, supprimez le groupe de ressources contenant le compte de stockage et l’espace de travail afin d’éviter des frais supplémentaires :
 
 1. Dans le portail Azure, sélectionnez **Groupes de ressources** tout à gauche.
 

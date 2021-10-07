@@ -6,16 +6,16 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: rongzhang
-ms.openlocfilehash: 01b932cf33883f186f9f4ff69bc78869cdb4cb18
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 9dcbd1bf789d199b0561587949a5381027518ca3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516575"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123436407"
 ---
 # <a name="azure-api-management-diagnostics-overview"></a>Vue d’ensemble des diagnostics dans Gestion des API Azure
 
-Quand vous générez et gérez une API dans Gestion des API Azure, vous devez vous préparer à toutes sortes de problème pouvant se produire, des erreurs 404 (introuvable) aux erreurs 502 (passerelle incorrecte). Avec les diagnostics de Gestion des API (APIM, API Management), vous pouvez résoudre les problèmes de votre API publiée dans APIM de manière intelligente et interactive sans effectuer de configuration particulière. Si vous rencontrez des problèmes avec vos API publiées, les diagnostics de Gestion des API vous en indiquent la nature et vous orientent vers les informations appropriées pour les résoudre rapidement.
+Quand vous générez et gérez une API dans Gestion des API Azure, vous devez vous préparer à toutes sortes de problèmes pouvant se produire, des erreurs 404 (introuvable) aux erreurs 502 (passerelle incorrecte). Avec les diagnostics de Gestion des API (APIM, API Management), vous pouvez résoudre les problèmes de votre API publiée dans APIM de manière intelligente et interactive sans effectuer de configuration particulière. Si vous rencontrez des problèmes avec vos API publiées, les diagnostics de Gestion des API vous en indiquent la nature et vous orientent vers les informations appropriées pour les résoudre rapidement.
 
 Cette fonctionnalité est particulièrement utile quand vous rencontrez des problèmes avec votre API au cours des dernières 24 heures, mais vous pouvez aussi analyser tous les graphes de diagnostic à tout moment.
 

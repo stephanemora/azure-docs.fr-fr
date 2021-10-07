@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 7a5bea7e555bf4f388a06668b2e349045692a941
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: a4739276cd05ffae6015fb2464e464d0a9f15955
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123106624"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272045"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Intégration d’Azure Active Directory géré par AKS
 
@@ -394,6 +394,15 @@ aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
 aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
 aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 ```
+### <a name="apply-just-in-time-access-at-the-namespace-level"></a>Appliquer l’accès juste-à-temps au niveau de l’espace de noms
+
+1. Intégrez votre cluster AKS au [contrôle d’accès en fonction du rôle (RBAC) Azure](manage-azure-rbac.md).
+2. Associez le groupe que vous voulez intégrer à l’accès juste-à-temps à un espace de noms du cluster par le biais de l’attribution de rôle.
+
+```azurecli-interactive
+az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
+```
+3. Associez le groupe que vous venez de configurer au niveau de l’espace de noms avec PIM pour terminer la configuration.
 
 ### <a name="troubleshooting"></a>Dépannage
 

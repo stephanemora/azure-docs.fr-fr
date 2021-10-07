@@ -1,18 +1,18 @@
 ---
 title: 'Démarrage rapide : Créer un cache Redis open source'
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment créer une instance Azure Cache pour Redis dans le niveau De base, Standard ou Premium.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 32ad04c46989816b86a644925f8727e21deb38c4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c7f58eafda0a08d0ddd4aabc93528836a66dde63
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582858"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534297"
 ---
 # <a name="quickstart-create-an-open-source-redis-cache"></a>Démarrage rapide : Créer un cache Redis open source
 

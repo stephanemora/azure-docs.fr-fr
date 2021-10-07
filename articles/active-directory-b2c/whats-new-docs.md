@@ -1,7 +1,7 @@
 ---
 title: Nouveautés d’Azure Active Directory B2C (Business-to-Customer)
 description: Documentation et nouvelle et mise à jour pour Azure Active Directory B2C (Business-to-Customer)
-ms.date: 09/08/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -9,16 +9,56 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: a0c5ff9f91f436e7a5ede0c84e1cf5578fc5d500
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 48e2e033062126345f66387529485ee143489a24
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761369"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536168"
 ---
 # <a name="azure-active-directory-b2c-whats-new"></a>Azure Active Directory B2C : Nouveautés
 
 Bienvenue dans les nouveautés de la documentation Azure Active Directory B2C. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés du service B2C, consultez [Nouveautés d’Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## <a name="september-2021"></a>Septembre 2021
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Versions des mises en page](page-layout.md)
+- [Tutoriel : Créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md)
+- [Ajouter un connecteur d’API à un workflow d’utilisateur d’inscription](add-api-connector.md)
+- [Sécuriser votre API utilisée en tant que connecteur d’API dans Azure AD B2C](secure-rest-api.md)
+- [Configurer le comportement de session dans Azure Active Directory B2C](session-behavior.md)
+- [Gérer votre locataire Azure Active Directory B2C](tenant-management.md)
+- [Nettoyer les ressources et supprimer le locataire](tutorial-delete-tenant.md)
+- [Définir des attributs personnalisés dans Azure Active Directory B2C](user-flow-custom-attributes.md)
+- [Tutoriel : configurer Azure Active Directory B2C avec BlokSec pour une authentification sans mot de passe](partner-bloksec.md)
+- [Configuration d’itsme OpenID Connect (OIDC) avec Azure Active Directory B2C](partner-itsme.md)
+- [Tutoriel : Configurer Keyless avec Azure Active Directory B2C](partner-keyless.md)
+- [Tutoriel : Configuration de Nok Nok avec Azure Active Directory B2C pour activer l’authentification FIDO2 sans mot de passe](partner-nok-nok.md)
+- [Tutoriel de configuration de Saviynt avec Azure Active Directory B2C](partner-saviynt.md)
+- [Intégrer Trusona à Azure Active Directory B2C](partner-trusona.md)
+- [Intégration de l’application Twilio Verify à Azure Active Directory B2C](partner-twilio.md)
+- [Configurer les exigences de complexité pour les mots de passe dans Azure Active Directory B2C](password-complexity.md)
+- [Configurer l’inscription et la connexion par téléphone pour les flux d’utilisateurs](phone-authentication-user-flows.md)
+- [Configurer l’inscription et la connexion avec un compte Google à l’aide d’Azure Active Directory B2C](identity-provider-google.md)
+- [Configurer l’inscription et la connexion avec un compte ID.me à l’aide d’Azure Active Directory B2C](identity-provider-id-me.md)
+- [Configurer l’inscription et la connexion avec un compte LinkedIn à l’aide d’Azure Active Directory B2C](identity-provider-linkedin.md)
+- [Configurer l’inscription et la connexion avec un compte QQ à l’aide d’Azure Active Directory B2C](identity-provider-qq.md)
+- [Configurer la connexion avec un fournisseur SAML Salesforce à l’aide du protocole SAML dans Azure Active Directory B2C](identity-provider-salesforce-saml.md)
+- [Configurer l’inscription et la connexion avec un compte Salesforce à l’aide d’Azure Active Directory B2C](identity-provider-salesforce.md)
+- [Configurer l’inscription et la connexion avec un compte Twitter à l’aide d’Azure Active Directory B2C](identity-provider-twitter.md)
+- [Configurer l’inscription et la connexion avec un compte WeChat à l’aide d’Azure Active Directory B2C](identity-provider-wechat.md)
+- [Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C](identity-provider-weibo.md)
+- [Passer un jeton d’accès de fournisseur d’identité à votre application dans Azure Active Directory B2C](idp-pass-through-user-flow.md)
+- [Ajouter AD FS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C](identity-provider-adfs-saml.md)
+- [Configurer l’inscription et la connexion avec un compte Amazon à l’aide d’Azure Active Directory B2C](identity-provider-amazon.md)
+- [Configurer l’inscription et la connexion avec un compte Facebook à l’aide d’Azure Active Directory B2C](identity-provider-facebook.md)
+- [Superviser Azure AD B2C avec Azure Monitor](azure-monitor.md)
+- [Modèle de facturation pour Azure Active Directory B2C](billing.md)
+- [Ajouter l’accès conditionnel à des flux d’utilisateurs dans Azure Active Directory B2C](conditional-access-user-flow.md)
+- [Activer des domaines personnalisés pour Azure Active Directory B2C](custom-domain.md)
+
 
 ## <a name="august-2021"></a>Août 2021
 

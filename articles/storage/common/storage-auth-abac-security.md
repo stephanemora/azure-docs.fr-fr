@@ -10,12 +10,12 @@ ms.date: 05/06/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
-ms.openlocfilehash: 895f53ca3e8e1c68fa01ef44ffc47d88604bbea5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 46be6327052aa280b9d23bc05764550a05739c5e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070855"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627916"
 ---
 # <a name="security-considerations-for-azure-role-assignment-conditions-in-azure-storage-preview"></a>Considérations relatives à la sécurité pour les conditions d'attribution de rôle Azure dans le service Stockage Azure (préversion)
 
@@ -28,7 +28,7 @@ Pour que les ressources bénéficient d’une sécurité optimale via le [contr�
 
 Cet article décrit les considérations de sécurité à prendre en compte dans vos conditions d'attribution de rôle.
 
-## <a name="use-of-other-authorization-mechanisms"></a>Utilisation d'autres mécanismes d'autorisation 
+## <a name="use-of-other-authorization-mechanisms"></a>Utilisation d'autres mécanismes d'autorisation
 
 Les conditions d’attribution de rôle sont évaluées uniquement lors de l’utilisation d’Azure RBAC pour l’autorisation. Ces conditions peuvent être ignorées si vous autorisez l’accès à l’aide de méthodes d’autorisation alternatives :
 - Autorisation de [clé partagée](/rest/api/storageservices/authorize-with-shared-key)
@@ -116,4 +116,3 @@ Les conditions ne s'appliquent pas à l'accès à l'objet blob spécifié par le
 - [Autoriser l'accès aux objets blob à l'aide des conditions d'attribution de rôle Azure (préversion)](storage-auth-abac.md)
 - [Actions et attributs pour les conditions d'attribution de rôle Azure dans le service Stockage Azure (préversion)](storage-auth-abac-attributes.md)
 - [Qu'est-ce que le contrôle d'accès en fonction des attributs Azure (Azure ABAC) ? (préversion)](../../role-based-access-control/conditions-overview.md)
-

@@ -1,15 +1,15 @@
 ---
 title: Types de ressources Azure Resource Manager prises en charge
 description: Fournit la liste des types de ressources Azure Resource Manager prises en charge par Azure Resource Graph et l’historique des modifications.
-ms.date: 08/31/2021
+ms.date: 09/03/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 330c406ef1d45a3cd72ac7316ca3985d2a6cd647
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 9dfdd77d400dfa91ec26df23d323f8290dc97da0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123309770"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123536064"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informations de référence sur le type de ressource et la table Azure Resource Graph
 
@@ -22,6 +22,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - microsoft.advisor/configurations
 - microsoft.advisor/recommendations
   - Exemple de requête : [Obtenir le récapitulatif des économies d’Azure Advisor](../samples/samples-by-category.md#get-cost-savings-summary-from-azure-advisor)
+  - Exemple de requête : [liste des serveurs compatibles Arc n’exécutant pas la dernière version de l’agent libéré](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version)
 - microsoft.advisor/recommendations/suppressions
 - microsoft.advisor/suppressions
 
@@ -59,6 +60,15 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
   - Exemple de requête : [Liste des machines virtuelles et états de disponibilité associés par ID de ressource](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
   - Exemple de requête : [Liste des machines virtuelles par état de disponibilité et état d’alimentation avec les ID de ressource et les groupes de ressources](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - Exemple de requête : [Liste des machines virtuelles qui ne sont pas disponibles par ID de ressource](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
+
+## <a name="iotsecurityresources"></a>IoTSecurityResources
+
+- microsoft.iotsecurity/locations/devicegroups/alerts
+- microsoft.iotsecurity/locations/devicegroups/devices
+- microsoft.iotsecurity/locations/devicegroups/recommendations
+- microsoft.iotsecurity/onpremisesensors
+- microsoft.iotsecurity/sensors
+- microsoft.iotsecurity/sites
 
 ## <a name="kubernetesconfigurationresources"></a>kubernetesconfigurationresources
 
@@ -315,6 +325,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.ContainerRegistry/registries/webhooks (Webhooks du registre de conteneurs)
 - microsoft.containerservice/containerservices
 - Microsoft.ContainerService/managedClusters (Services Kubernetes)
+  - Exemple de requête : [ Lister les ressources impactées lors du transfert d’un abonnement Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.containerservice/openshiftmanagedclusters
 - microsoft.contoso/clusters
 - microsoft.contoso/employees
@@ -335,6 +346,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.DataFactory/factories (Fabriques de données (V2))
 - Microsoft.DataLakeAnalytics/accounts (Data Lake Analytics)
 - Microsoft.DataLakeStore/accounts (Data Lake Storage Gen1)
+  - Exemple de requête : [ Lister les ressources impactées lors du transfert d’un abonnement Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.datamigration/controllers
 - Microsoft.DataMigration/services (Services Azure Database Migration)
 - Microsoft.DataMigration/services/projects (Projets Azure Database Migration)
@@ -434,6 +446,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.HybridCompute/machines (Serveurs – Azure Arc)
   - Exemple de requête : [Obtenir le nombre et le pourcentage de serveurs avec Arc par domaine](../samples/samples-by-category.md#get-count-and-percentage-of-arc-enabled-servers-by-domain)
   - Exemple de requête : [Répertorier toutes les extensions installées sur un serveur avec Azure Arc](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
+  - Exemple de requête : [liste des serveurs compatibles Arc n’exécutant pas la dernière version de l’agent libéré](../samples/samples-by-category.md#list-arc-enabled-servers-not-running-latest-released-agent-version)
 - microsoft.hybridcompute/machines/extensions
   - Exemple de requête : [Répertorier toutes les extensions installées sur un serveur avec Azure Arc](../samples/samples-by-category.md#list-all-extensions-installed-on-an-azure-arc-enabled-server)
 - Microsoft.HybridCompute/privateLinkScopes (Étendues de liaison privée Azure Arc)
@@ -478,6 +491,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.KeyVault/vaults (Coffres de clés)
   - Exemple de requête : [Compter les ressources de coffre de clés](../samples/samples-by-category.md#count-key-vault-resources)
   - Exemple de requête : [Coffre de clés avec nom d’abonnement](../samples/samples-by-category.md#key-vaults-with-subscription-name)
+  - Exemple de requête : [ Lister les ressources impactées lors du transfert d’un abonnement Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - Microsoft.Kubernetes/connectedClusters (Kubernetes – Azure Arc)
   - Exemple de requête : [Lister tous les clusters Kubernetes compatibles avec Azure Arc sans l’extension Azure Monitor](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
   - Exemple de requête : [Lister toutes les ressources Kubernetes avec Azure Arc](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-resources)
@@ -513,6 +527,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - microsoft.maintenance/maintenancepolicies
 - microsoft.managedidentity/groups
 - Microsoft.ManagedIdentity/userAssignedIdentities (Identités managées)
+  - Exemple de requête : [ Lister les ressources impactées lors du transfert d’un abonnement Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.managednetwork/managednetworkgroups
 - microsoft.managednetwork/managednetworkpeeringpolicies
 - microsoft.managednetwork/managednetworks
@@ -717,6 +732,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
 - Microsoft.Sql/managedInstances/databases (Bases de données managées)
 - Microsoft.Sql/servers (Serveurs SQL)
 - Microsoft.Sql/servers/databases (Bases de données SQL)
+  - Exemple de requête : [ Lister les ressources impactées lors du transfert d’un abonnement Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
   - Exemple de requête : [Lister les bases de données SQL et leurs pools élastiques](../samples/samples-by-category.md#list-sql-databases-and-their-elastic-pools)
 - Microsoft.Sql/servers/elasticpools (Pools élastiques SQL)
   - Exemple de requête : [Lister les bases de données SQL et leurs pools élastiques](../samples/samples-by-category.md#list-sql-databases-and-their-elastic-pools)
@@ -730,6 +746,7 @@ Pour obtenir des exemples de requêtes pour cette table, consultez [Exemples de 
   - Exemple de requête : [Rechercher les comptes de stockage avec une étiquette spécifique qui ne respecte pas la casse sur le groupe de ressources](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Exemple de requête : [Rechercher les comptes de stockage avec une étiquette spécifique qui respecte la casse sur le groupe de ressources](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
   - Exemple de requête : [Lister tous les comptes de stockage avec une valeur d’étiquette spécifique](../samples/samples-by-category.md#list-all-storage-accounts-with-specific-tag-value)
+  - Exemple de requête : [ Lister les ressources impactées lors du transfert d’un abonnement Azure](../samples/samples-by-category.md#list-impacted-resources-when-transferring-an-azure-subscription)
 - microsoft.storagecache/amlfilesystems
 - Microsoft.StorageCache/caches (Caches HPC)
 - Microsoft.StoragePool/diskPools (Pools de disques)

@@ -2,17 +2,17 @@
 metadata:
   title: FAQ sur la planification d’Azure Cache pour Redis
   description: Découvrez les réponses aux questions courantes qui vous aideront à planifier des solutions pour Azure Cache pour Redis
-  author: yegu-ms
-  ms.author: yegu
+  author: curib
+  ms.author: cauribeg
   ms.service: cache
   ms.topic: conceptual
   ms.date: 08/06/2020
-  ms.openlocfilehash: d7aeffcbe1e6e08f6a7e6bcffb3fea52555b4aa4
-  ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+  ms.openlocfilehash: 1412776ea900bae35223b653173cd5b9e280820f
+  ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/01/2021
-  ms.locfileid: "113134405"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129537735"
 title: FAQ sur la planification d’Azure Cache pour Redis
 summary: >
   Cet article fournit des réponses aux questions courantes sur la planification de solutions pour Azure Cache pour Redis.

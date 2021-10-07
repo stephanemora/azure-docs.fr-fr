@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: 17bac4e1efc514440943cb474f2f86a7148d2ef4
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.date: 09/29/2021
+ms.openlocfilehash: 4fb8d5ea1bfaa9534f7db27296d3cb7f61d0c4fb
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060135"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274952"
 ---
 # <a name="flatten-transformation-in-mapping-data-flow"></a>Transformation d’aplatissement dans le flux de données de mappage
 
@@ -24,6 +24,8 @@ ms.locfileid: "129060135"
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Utilisez la transformation d’aplatissement pour prendre des valeurs de tableau à l’intérieur de structures hiérarchiques, par exemple au format JSON, et les dérouler dans des lignes individuelles. Ce processus est appelé « dénormalisation ».
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWLX9j]
 
 ## <a name="configuration"></a>Configuration
 

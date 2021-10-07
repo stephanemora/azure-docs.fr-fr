@@ -3,12 +3,12 @@ title: Configurer l’accès au registre public
 description: Configurez des règles IP pour activer l’accès à un registre de conteneurs Azure à partir de certaines IP publiques ou plages d’adresses.
 ms.topic: article
 ms.date: 07/30/2021
-ms.openlocfilehash: cb48a91190f352154a2f0af1e02dcd3e36f436d5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3a4a4a28dfbcd859cf97be6799e24a8110add436
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524017"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627004"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurer des règles de réseau IP public
 
@@ -18,7 +18,7 @@ Les règles de réseau IP sont configurées sur le point de terminaison du regi
 
 La configuration des règles d’accès IP est disponible uniquement au niveau de service **Premium** de registre de conteneurs. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Niveaux de service Azure Container Registry](container-registry-skus.md).
 
-Chaque registre prend en charge un maximum de 100 règles d’accès réseau.
+Chaque registre prend en charge un maximum de 100 règles d’accès IP.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
@@ -70,7 +70,7 @@ az acr network-rule add \
 
 ### <a name="disable-public-access---cli"></a>Désactiver l’accès public (CLI)
 
-Pour désactiver l’accès public à l’aide d’Azure CLI, exécutez [az acr update][az-acr-update] et définissez `--public-network-enabled` avec `false`. L’argument `public-network-enabled` nécessite Azure CLI 2.6.0 ou ultérieur. 
+Pour désactiver l’accès public à l’aide d’Azure CLI, exécutez [az acr update][az-acr-update] et définissez `--public-network-enabled` avec `false`. L’argument `public-network-enabled` requiert Azure CLI 2.6.0 ou une version ultérieure. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled false

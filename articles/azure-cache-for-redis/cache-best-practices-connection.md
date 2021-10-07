@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 999d8f1f4bf5ad1eef2008678f1e46d1586dd40a
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: a0dd6e3e8f4c2a7645da1ceccf77f7607d2b84b3
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223697"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656946"
 ---
 # <a name="connection-resilience"></a>Résilience des connexions
 
@@ -26,17 +26,19 @@ Testez la résilience de votre système aux interruptions de connexion en effect
 
 ## <a name="configure-appropriate-timeouts"></a>Configurer les délais d’attente appropriés
 
-Configurez votre bibliothèque de client pour utiliser un *délai de connexion* de 10 à 15 secondes et un *délai de commande* de 5 secondes. Le *délai de connexion* est le temps pendant lequel votre client attend l’établissement d’une connexion avec un serveur Redis. La plupart des bibliothèques de client ont une autre configuration de délai d’attente pour les *délais de commande*, qui est le temps pendant lequel le client attend une réponse du serveur Redis.
+Deux valeurs de délai d’attente doivent impérativement être prises en compte dans la résilience de la connexion : le [délai de connexion](#connect-timeout) et le [délai d’expiration de commande](#command-timeout).
 
-Par défaut, certaines bibliothèques ont le *délai de commande* défini sur 5 secondes. Songez à définir un délai plus long ou plus court en fonction de votre scénario et de la taille des valeurs stockées dans votre cache.
+### <a name="connect-timeout"></a>Connect timeout
 
-Si le *délai de commande* est trop court, il se peut que la connexion semble instable. En revanche, si le *délai de commande* est trop long, il se peut que votre application doive attendre longtemps avant de pouvoir déterminer si la commande va expirer ou non.
+Le `connect timeout` est le temps pendant lequel votre client attend l’établissement d’une connexion avec un serveur Redis. Configurez votre bibliothèque de client pour qu’elle observe un délai de connexion (`connect timeout`) de 5 secondes, afin de laisser au système le temps de se connecter même dans des conditions de sollicitation plus importante du processeur.
 
-Configurez votre bibliothèque de client pour qu’elle observe un *délai de connexion* d’au moins 15 secondes afin de laisser au système le temps de se connecter même dans des conditions de sollicitation plus importante du processeur. Un *délai de connexion* court ne garantit pas que la connexion puisse être établie dans ce laps de temps.
+Un `connection timeout` court ne garantit pas que la connexion puisse être établie dans ce laps de temps. Si un problème se produit (par exemple, une forte sollicitation du processeur du client ou du serveur), une valeur de délai de connexion (`connection timeout`) faible entraîne l’échec de la tentative de connexion. Ce comportement aggrave souvent une situation déjà détériorée. Au lieu d’améliorer la situation, la diminution des délais d’attente aggrave le problème en forçant le système à redémarrer le processus de tentative de reconnexion, avec le risque de générer au final une boucle *connexion -> échec -> nouvelle tentative*.
 
-Si un problème se produit (par exemple, forte sollicitation du processeur du client ou du serveur), une valeur de délai de connexion basse entraîne l’échec de la tentative de connexion. Ce comportement aggrave souvent une situation déjà détériorée. Au lieu d’améliorer la situation, la diminution des délais d’attente aggrave le problème en forçant le système à redémarrer le processus de tentative de reconnexion, avec le risque de générer au final une boucle *connexion -> échec -> nouvelle tentative*.
+### <a name="command-timeout"></a>Délai d’expiration de la commande
 
-Nous conseillons généralement de conserver un *délai de connexion* d’au moins 15 secondes. En effet, il est préférable d’attendre 15 ou 20 secondes que la première tentative de connexion aboutisse, plutôt que de faire plusieurs tentatives rapprochées qui échouent. Avec ce genre de boucle de nouvelles tentatives, votre système peut en fin de compte rester indisponible durant plus longtemps que si vous lui accordez initialement plus de temps.
+La plupart des bibliothèques de client ont une autre configuration de délai d’attente pour les `command timeouts`, qui est le temps pendant lequel le client attend une réponse du serveur Redis. Même si nous recommandons un paramètre initial inférieur à cinq secondes, envisagez de définir une valeur `command timeout` plus élevée ou plus faible en fonction de votre scénario et de la taille des valeurs stockées dans votre cache.
+
+Si le `command timeout` est trop court, il se peut que la connexion semble instable. Toutefois, si le délai de commande (`command timeout`) est trop long, il se peut que votre application doive attendre longtemps avant de pouvoir déterminer si la commande va expirer ou non.
 
 ## <a name="avoid-client-connection-spikes"></a>Éviter les pics de connexion client
 
@@ -53,7 +55,7 @@ Les caches sont limités quant au nombre de connexions clientes par niveau de ca
 
 ## <a name="advance-maintenance-notification"></a>Notification de maintenance à l’avance
 
-Utilisez des notifications pour être informé de la maintenance à venir. Pour plus d’informations, consultez [Puis-je être notifié à l’avance d’une maintenance planifiée ?](cache-failover.md#can-i-be-notified-in-advance-of-a-planned-maintenance).
+Utilisez des notifications pour être informé de la maintenance à venir. Pour plus d’informations, consultez [Puis-je être notifié à l’avance d’une maintenance planifiée ?](cache-failover.md#can-i-be-notified-in-advance-of-planned-maintenance).
 
 ## <a name="schedule-maintenance-window"></a>Fenêtre Planifier la maintenance
 
@@ -66,3 +68,9 @@ Appliquez des modèles de conception pour la résilience. Pour plus d’informat
 ## <a name="idle-timeout"></a>Délai d’inactivité
 
 Azure Cache pour Redis ayant actuellement un délai d’inactivité de 10 minutes pour les connexions. le paramètre de délai d’inactivité dans votre application cliente doit être inférieur à 10 minutes. La plupart des bibliothèques clientes courantes disposent d’un paramètre de configuration qui permet aux bibliothèques clientes d’envoyer des commandes Redis `PING` à un serveur Redis automatiquement et périodiquement. Toutefois, lors de l’utilisation de bibliothèques clientes sans ce type de paramètre, les applications clientes sont elles-mêmes responsables du maintien de la connexion active.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Meilleures pratiques relatives pour le développement](cache-best-practices-development.md)
+- [Questions fréquentes (FAQ) sur le développement d’Azure Cache pour Redis](cache-development-faq.yml)
+- [Basculement et correctif](cache-failover.md)

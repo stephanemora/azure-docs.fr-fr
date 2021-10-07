@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/15/2019
+ms.date: 09/02/2021
 ms.author: alkohli
-ms.openlocfilehash: cc67b678fabeb2a7878490a4ea713acb5709cdbc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 31fe8293abb25ed9a6f44660f32398dd44072c37
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643796"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123470109"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Options pour migrer des données de la gamme StorSimple 5000-7000 
 
@@ -45,6 +45,12 @@ Cette toute nouvelle option de migration permet aux clients de stocker les parta
 
 Pour plus d’informations sur la migration des données vers Azure File Sync, accédez à [Migrer des données de la gamme StorSimple 5000-7000 vers Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
+#### <a name="migrate-to-azure-netapp-files"></a>Migrer vers des fichiers NetApp Azure
+
+Les clients de la gamme StorSimple 5000-7000 peuvent migrer vers des fichiers NetApp Azure (ANF) associés au Cache de fichier NetApp Global (GFC) pour continuer à stocker des données critiques dans Azure tout en conservant du contenu sur des sites distants. Les clients peuvent rationaliser et simplifier l’infrastructure et le stockage informatique en centralisant les données non structurées dans Microsoft Azure à l’aide d’Azure NetApp Files afin de fournir un accès local rapide et distribué géographiquement avec NetApp Global File Cache.
+
+Pour obtenir une vue d’ensemble des capacités, des méthodologies de déploiement et de la migration, consultez [Architecture de référence : Partage de fichiers d’entreprise globalement distribués avec Azure NetApp Files et NetApp Global File Cache](https://f.hubspotusercontent20.net/hubfs/525875/r3_NA-581-0521-Ref-Arch-ANF-GFC-StorSimple%20(1)%20(1)%20(2).pdf), de NetApp.<!--Not included: 1) Partnership with MS; 2) How to initiate migration with NetApp (other providers point people to their site).-->
+
 ### <a name="third-party-options"></a>Options tierces
 
 #### <a name="migrate-to-panzura-freedom-nas"></a>Migrer vers Panzura Freedom NAS
@@ -64,12 +70,6 @@ En savoir plus sur la [migration vers la plateforme de données Cohesity](https:
 Nasuni permet aux clients StorSimple 5000-7000 de migrer et de conserver facilement leurs données dans Azure.  Nasuni est une solution de stockage NAS basée sur Azure, offrant aux clients les performances et la sécurité qu’ils attendent d’une solution locale de premier plan, tout en bénéficiant des avantages économiques et de l’échelle du cloud.  Outre le stockage de fichiers hautes performances, Nasuni et Azure prennent en charge la sauvegarde et la récupération d’urgence, tout en vous permettant de partager et de collaborer sur vos données dans le monde entier grâce à la gestion centralisée du stockage de fichiers. 
 
 Nasuni dispose de l’expérience nécessaire pour faciliter votre migration. Franchissez le pas dès aujourd’hui : https://www.nasuni.com/blog-migrating-off-storsimple/
-
-#### <a name="migrate-to-talon-fast"></a>Migrer vers Talon FAST
-
-Talon permet aux clients StorSimple 5000-7000 de continuer à bénéficier des précieux avantages offerts par la plateforme StorSimple (faible encombrement sur site et ressources cloud illimitées) avec encore plus de fonctions.  Avec la solution Talon FAST, les clients peuvent facilement migrer et conserver leurs données dans Azure. Avec un encombrement sur site encore plus réduit se limitant des logiciels, ils bénéficient de nouveaux avantages comme le verrouillage de fichiers global, l’espace de noms global et la collaboration multisite.  Talon est une solution d’écosystème Azure de premier plan qui permet à des clients du monde entier de migrer leurs charges de travail de serveurs de fichiers locaux pour bénéficier d’une empreinte Azure consolidé sans compromettre le workflow ou l’expérience utilisateur.  
-
-Découvrez plus en détail comment consolider votre entreprise dans le cloud.
 
 ## <a name="migration---frequently-asked-questions"></a>Migration - Forum aux questions
 

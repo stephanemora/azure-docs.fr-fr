@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/08/2021
 ms.author: rifox
-ms.openlocfilehash: 64b7021132196887440373f343626b43836a8b91
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a12f5717d927e8358a503a50f314c6b80f577952
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128700483"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585175"
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
@@ -23,7 +23,7 @@ ms.locfileid: "128700483"
 L’enregistrement des appels est une fonctionnalité étendue de l’API `Call` principale. Vous devez d’abord obtenir l’objet d’API de la fonctionnalité d’enregistrement :
 
 ```java
-RecordingFeature callRecordingFeature = call.api(RecordingFeature.class);
+RecordingCallFeature callRecordingFeature = call.api(Features.RECORDING);
 ```
 
 Ensuite, pour vérifier si l’appel est en train d’être enregistré, inspectez la propriété `isRecordingActive` de `callRecordingFeature`. Elle retourne `boolean`.

@@ -4,12 +4,12 @@ description: Apprenez à intégrer un client à Azure Lighthouse pour permettre 
 ms.date: 08/26/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e61fb83af009b96b5781912e2feff8c0c747827
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1d060a7e1a6f9b0ae17e90b1094ec0a5da744e5f
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123034237"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469677"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -332,13 +332,13 @@ Si vous devez apporter des modifications après l’intégration du client, vous
 
 Si vous ne parvenez pas à intégrer votre client ou si vos utilisateurs ont des difficultés à accéder aux ressources déléguées, vérifiez les conseils et les conditions suivantes, puis réessayez.
 
+- Les utilisateurs qui ont besoin d’afficher les ressources du client dans le portail Azure doivent avoir le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader) (ou un autre rôle intégré qui inclut l’accès Lecteur) durant le processus d’intégration.
 - La valeur `managedbyTenantId` ne doit pas être identique à l’ID de locataire pour l’abonnement en cours d’intégration.
 - Vous ne pouvez pas avoir plusieurs affectations dans la même étendue avec le même `mspOfferName`.
 - Le fournisseur de ressources **Microsoft.ManagedServices** doit être inscrit pour l’abonnement délégué. Cela doit se produire automatiquement pendant le déploiement, mais si ce n’est pas le cas, vous pouvez [l’inscrire manuellement](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Les autorisations ne doivent pas inclure d’utilisateurs dotés du rôle intégré [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) ni d’aucun rôle intégré avec [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - Les groupes doivent être créés avec un [**type de groupe**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) défini sur **Sécurité** et non **Microsoft 365**.
 - Il peut y avoir un délai supplémentaire avant l’activation de l’accès pour les [groupes imbriqués](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
-- Les utilisateurs qui ont besoin d’afficher les ressources dans le portail Azure doivent avoir le rôle [Lecteur](../../role-based-access-control/built-in-roles.md#reader) (ou un autre rôle intégré qui inclut l’accès Lecteur).
 - Les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) que vous incluez dans les autorisations ne doivent pas inclure de rôles déconseillés. Si un rôle intégré Azure est déconseillé, tous les utilisateurs qui étaient intégrés à ce rôle perdront l’accès et vous ne pourrez pas intégrer de délégations supplémentaires. Pour résoudre ce problème, mettez à jour votre modèle pour utiliser uniquement les rôles intégrés pris en charge, puis effectuez un nouveau déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes

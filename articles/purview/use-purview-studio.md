@@ -6,12 +6,12 @@ ms.author: nayenama
 ms.service: purview
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 8c2628922391f3b8f6570c011dbc2220b1e7f815
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 2e3bcd7e51226f437f42f03fa43b144bee434f33
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212851"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456135"
 ---
 # <a name="use-purview-studio"></a>Utiliser Purview Studio
 
@@ -59,7 +59,7 @@ Dans la liste suivante figurent les principales fonctionnalités de la **page d�
    > Pour plus d’informations sur les rôles Purview, consultez [Contrôle d’accès dans Azure Purview](catalog-permissions.md).
 
 5. La barre de navigation de gauche aide à localiser les pages principales de l’application.   
-6. L’onglet **Récemment consultés** donne la liste des ressources de données récemment consultées. Pour plus d’informations sur l’accès aux ressources, consultez [Rechercher dans le catalogue de données](how-to-search-catalog.md) et [Parcourir par type de ressource](how-to-browse-catalog.md#browse-experience).  L’onglet **Mes éléments** correspond à la liste des ressources de données détenues par l’utilisateur connecté.
+6. L’onglet **Récemment consultés** donne la liste des ressources de données récemment consultées. Pour plus d’informations sur l’accès aux ressources, consultez [Rechercher dans le catalogue de données](how-to-search-catalog.md) et [Parcourir par type de ressource](how-to-browse-catalog.md).  L’onglet **Mes éléments** correspond à la liste des ressources de données détenues par l’utilisateur connecté.
 7. **Liens** contient des liens vers l’état de la région, la documentation, les tarifs, la vue d’ensemble et l’état Purview.
 8. La barre de navigation supérieure contient des informations sur les sections Notes de publication/mises à jour, Modifier le compte Purview, Notifications, Aide et Commentaires.
 

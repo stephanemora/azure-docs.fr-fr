@@ -2,18 +2,19 @@
 title: Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 description: Découvrez comment créer des activités personnalisées et les utiliser dans un pipeline Azure Data Factory.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 ms.custom: devx-track-csharp
 robots: noindex
-ms.openlocfilehash: 3832175910f3a6d3e6a7de8da932b32436cc2452
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbf5a61e48a36a3eaa92a8c46e9cf943b8892247
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100393018"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128580638"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory version 1
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -382,7 +383,7 @@ La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ult
     > [!IMPORTANT]
     > Tous les fichiers contenus dans le fichier zip de l’activité personnalisée doivent se trouver au **premier niveau** et ne doivent pas contenir de sous-dossiers.
 
-    ![Fichiers de sortie binaires](./media/data-factory-use-custom-activities/Binaries.png)
+    :::image type="content" source="./media/data-factory-use-custom-activities/Binaries.png" alt-text="Fichiers de sortie binaires":::
 
 13. Si nécessaire, créez un conteneur de blobs nommé **customactivitycontainer**.
 
@@ -428,17 +429,17 @@ Voici les étapes que vous effectuez dans cette section :
    2. Dans le panneau **Nouveau**, cliquez sur **Données et analyses**.
    3. Cliquez sur **Data Factory** dans le panneau **Analyse des données**.
 
-      ![Nouveau menu Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
+      :::image type="content" source="media/data-factory-use-custom-activities/new-azure-data-factory-menu.png" alt-text="Nouveau menu Azure Data Factory":::
 2. Dans le panneau **Nouvelle fabrique de données**, spécifiez le nom **CustomActivityFactory**. Le nom de la fabrique de données Azure doit être un nom global unique. Si vous recevez le message d’erreur : **Data factory name "CustomActivityFactory" is not available** (Le nom de la fabrique de données « CustomActivityFactory » n’est pas disponible), changez le nom de la fabrique de données (par exemple, **votrenomCustomActivityFactory**), puis tentez de la recréer.
 
-    ![Nouveau panneau Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/new-azure-data-factory-blade.png" alt-text="Nouveau panneau Azure Data Factory":::
 3. Cliquez sur **NOM DU GROUPE DE RESSOURCES** pour sélectionner un groupe de ressources existant, ou créez un groupe de ressources.
 4. Veillez à utiliser **l’abonnement** et la **région** correspondant à ceux dans lesquels vous voulez créer la fabrique de données.
 5. Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
 6. La fabrique de données apparaît comme étant en cours de création dans le **Tableau de bord** du portail Azure.
 7. Une fois la fabrique de données créée, son contenu apparaîtra dans le panneau correspondant indiquant.
 
-    ![Panneau Data Factory](media/data-factory-use-custom-activities/data-factory-blade.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/data-factory-blade.png" alt-text="Panneau Data Factory":::
 
 ### <a name="step-2-create-linked-services"></a>Étape 2 : Créez des services liés
 Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Dans cette étape, vous allez lier vos comptes Stockage Azure et Azure Batch à votre fabrique de données.
@@ -447,16 +448,16 @@ Les services liés se chargent de lier des magasins de données ou des services 
 1. Cliquez sur la vignette **Créer et déployer** dans le panneau **DATA FACTORY** de **CustomActivityFactory**. Data Factory Editor s’affiche.
 2. Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **Stockage Azure**. Le script JSON de création d’un service lié Stockage Microsoft Azure doit apparaître dans l’éditeur.
 
-    ![Nouveau magasin de données - Stockage Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/new-data-store-menu.png" alt-text="Nouveau magasin de données - Stockage Azure":::
 3. Remplacez `<accountname>` par le nom de votre compte de stockage Azure et `<accountkey>` par la clé d’accès du compte de stockage Azure. Pour découvrir comment obtenir votre clé d’accès au stockage, consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
 
-    ![Service lié Stockage Azure](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/azure-storage-linked-service.png" alt-text="Service lié Stockage Azure":::
 4. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
 #### <a name="create-azure-batch-linked-service"></a>Créer un service lié Azure Batch
 1. Dans Data Factory Editor, dans la barre d’outils, cliquez sur **... Plus** dans la barre de commandes, cliquez sur **Nouveau calcul**, puis sélectionnez **Azure Batch** dans le menu.
 
-    ![Nouveau calcul - Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
+    :::image type="content" source="media/data-factory-use-custom-activities/new-azure-compute-batch.png" alt-text="Nouveau calcul - Azure Batch":::
 2. Apportez les modifications suivantes au script JSON :
 
    1. Spécifiez le nom du compte Azure Batch pour la propriété **accountName** . L’**URL** dans le **panneau du compte Azure Batch** est au format suivant : `http://accountname.region.batch.azure.com`. Pour la propriété **batchUri** dans le JSON, vous devez supprimer `accountname.` de l’URL et utiliser `accountname` pour la propriété JSON `accountName`.
@@ -632,13 +633,13 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 ### <a name="monitor-the-pipeline"></a>Surveiller le pipeline
 1. Dans le panneau Data Factory du portail Azure, cliquez sur **Diagramme**.
 
-    ![Vignette de diagramme](./media/data-factory-use-custom-activities/DataFactoryBlade.png)
+    :::image type="content" source="./media/data-factory-use-custom-activities/DataFactoryBlade.png" alt-text="Vignette de diagramme":::
 2. Dans la vue de diagramme, cliquez sur OutputDataset.
 
-    ![Vue schématique](./media/data-factory-use-custom-activities/diagram.png)
+    :::image type="content" source="./media/data-factory-use-custom-activities/diagram.png" alt-text="Vue schématique":::
 3. Les cinq tranches de sortie doivent être à l’état Prêt. Dans le cas contraire, cela signifie qu’elles n’ont pas encore été générées.
 
-   ![Tranches de sortie](./media/data-factory-use-custom-activities/OutputSlices.png)
+   :::image type="content" source="./media/data-factory-use-custom-activities/OutputSlices.png" alt-text="Tranches de sortie":::
 4. Vérifiez que les fichiers de sortie sont générés dans le stockage d’objets blob, dans le conteneur **adftutorial** .
 
    ![Sortie de l’activité personnalisée][image-data-factory-output-from-custom-activity]
@@ -669,15 +670,15 @@ Si vous créez un projet Data Factory dans Visual Studio, suivez les étapes sup
 ## <a name="data-factory-and-batch-integration"></a>Intégration de Data Factory et Batch
 Le service Data Factory crée un travail dans Azure Batch sous le nom **adf-poolname:job-xxx**. Cliquez sur **Travaux** dans le menu de gauche.
 
-![Azure Data Factory - Travaux Batch](media/data-factory-use-custom-activities/data-factory-batch-jobs.png)
+:::image type="content" source="media/data-factory-use-custom-activities/data-factory-batch-jobs.png" alt-text="Azure Data Factory - Travaux Batch":::
 
 Une tâche est créée pour chaque exécution d’activité d’une tranche. Si cinq tranches sont prêtes à être traitées, cinq tâches seront créées dans ce travail. S’il existe plusieurs nœuds de calcul dans le pool Batch, deux tranches ou plus peuvent s’exécuter en parallèle. Vous pouvez également avoir plusieurs tranches exécutées sur le même nœud de calcul si le nombre maximum de tâches par nœud de calcul est défini sur une valeur supérieure à 1.
 
-![Azure Data Factory - Tâches de travaux Batch](media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png)
+:::image type="content" source="media/data-factory-use-custom-activities/data-factory-batch-job-tasks.png" alt-text="Azure Data Factory - Tâches de travaux Batch":::
 
 Le diagramme suivant illustre la relation entre les tâches Azure Data Factory et les tâches Batch.
 
-![Data Factory et Batch](./media/data-factory-use-custom-activities/DataFactoryAndBatch.png)
+:::image type="content" source="./media/data-factory-use-custom-activities/DataFactoryAndBatch.png" alt-text="Data Factory et Batch":::
 
 ## <a name="troubleshoot-failures"></a>Résoudre les défaillances
 Quelques techniques de base peuvent être utilisées pour résoudre les défaillances :
@@ -1048,7 +1049,7 @@ L’exemple [Azure Data Factory - Environnement local](https://github.com/gbruec
 
 
 [developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
-[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[cmdlet-reference]: /powershell/resourcemanager/Azurerm.DataFactories/v2.2.0/Azurerm.DataFactories
 
 [new-azure-batch-account]: /previous-versions/azure/mt125880(v=azure.100)
 [new-azure-batch-pool]: /previous-versions/azure/mt125936(v=azure.100)

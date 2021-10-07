@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines 
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
 ms.date: 09/27/2021
-ms.openlocfilehash: 629465100106ff3a2403a27cae9bb00e1350bf5e
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 5469c10bb62164e7feea33a1b56cef3457d46efb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082723"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349679"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -21,9 +21,6 @@ Ce tutoriel vous explique comment sauvegarder des bases de données SAP HANA s�
 > * Configurer des sauvegardes
 
 [Voici](sap-hana-backup-support-matrix.md#scenario-support) tous les scénarios actuellement pris en charge.
-
->[!NOTE]
->Depuis le 1er août 2020, la sauvegarde SAP HANA pour RHEL (7.4, 7.6, 7.7 et 8.1) est en disponibilité générale.
 
 ## <a name="prerequisites"></a>Prérequis
 

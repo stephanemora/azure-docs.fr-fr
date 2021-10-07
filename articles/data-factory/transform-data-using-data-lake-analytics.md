@@ -1,35 +1,35 @@
 ---
 title: Transformer des données à l’aide d’un script U-SQL
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment traiter ou transformer les données en exécutant des scripts U-SQL sur le service de calcul Azure Data Lake Analytics.
+description: Découvrez comment traiter ou transformer les données en exécutant des scripts U-SQL sur le service de calcul Azure Data Lake Analytics avec Azure Data Factory et Synapse Analytics.
 ms.author: abnarain
 author: nabhishek
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/01/2018
-ms.openlocfilehash: abb3d151e943dd539fe7c2e349b662412ab24f7c
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: fae713e7998a2a5e9686b38bba1ae40b40a2bf32
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563792"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124806317"
 ---
-# <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Traiter des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics 
+# <a name="process-data-by-running-u-sql-scripts-on-azure-data-lake-analytics-with-azure-data-factory-and-synapse-analytics"></a>Traiter des données en exécutant des scripts U-SQL sur Azure Data Lake Analytics avec Azure Data Factory et Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-usql-activity.md)
 > * [Version actuelle](transform-data-using-data-lake-analytics.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Un pipeline dans une fabrique de données Azure traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l’**activité U-SQL de Data Lake Analytics** qui exécute un script **U-SQL** sur un service lié de calcul **Azure Data Lake Analytics**. 
+Un pipeline dans un espace de travail Azure Data Factory ou Synapse Analytics traite les données dans les services de stockage liés à l'aide des services de calcul liés. Il contient une séquence d'activités dans laquelle chaque activité effectue une opération de traitement spécifique. Cet article décrit l’**activité U-SQL de Data Lake Analytics** qui exécute un script **U-SQL** sur un service lié de calcul **Azure Data Lake Analytics**. 
 
 Créez un compte Azure Data Lake Analytics avant de créer un pipeline avec une activité U-SQL Data Lake Analytics. Pour plus d’informations sur Azure Data Lake Analytics, consultez [Prise en main d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Service lié Azure Data Lake Analytics
-Vous créez un service lié **Analytique Azure Data Lake** pour lier un service de calcul Analytique Azure Data Lake Analytics à une fabrique de données Azure. L’activité U-SQL Analytique Data Lake dans le pipeline fait référence à ce service lié. 
+Vous créez un service lié **Azure Data Lake Analytics** pour lier un service de calcul Azure Data Lake Analytics à un espace de travail Azure Data Factory ou Synapse Analytics. L’activité U-SQL Analytique Data Lake dans le pipeline fait référence à ce service lié. 
 
 Le tableau suivant décrit les propriétés génériques utilisées dans la définition JSON. 
 
@@ -87,7 +87,7 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 Pour en savoir plus sur le service lié, consultez [Services liés de calcul](compute-linked-services.md).
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Activité U-SQL Data Lake Analytics
-L'extrait de code JSON suivant définit un pipeline avec une activité U-SQL Data Lake Analytics. La définition d'activité comporte une référence au service lié Azure Data Lake Analytics créé précédemment. Pour exécuter un script U-SQL Data Lake Analytics, Data Factory soumet le script que vous avez spécifié au service Data Lake Analytics tandis que les entrées et les sorties nécessaires sont définies dans le script, afin que Data Lake Analytics procède à l’extraction et à la sortie. 
+L'extrait de code JSON suivant définit un pipeline avec une activité U-SQL Data Lake Analytics. La définition d'activité comporte une référence au service lié Azure Data Lake Analytics créé précédemment. Pour exécuter un script U-SQL Data Lake Analytics, le service soumet le script que vous avez spécifié au service Data Lake Analytics, tandis que les entrées et les sorties nécessaires sont définies dans le script afin que Data Lake Analytics procède à l'extraction et à la sortie. 
 
 ```json
 {
@@ -123,7 +123,7 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 | type                | Pour l’activité U-SQL Data Lake Analytics, le type d’activité est **DataLakeAnalyticsU-SQL**. | Oui      |
 | linkedServiceName   | Service lié à Azure Data Lake Analytics. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  |Oui       |
 | scriptPath          | Chemin d'accès au dossier qui contient le script SQL-U. Le nom de fichier respecte la casse. | Oui      |
-| scriptLinkedService | Service lié qui lie **Azure Data Lake Store** ou le **stockage Azure** qui contient le script à la fabrique de données | Oui      |
+| scriptLinkedService | Service lié qui lie **Azure Data Lake Store** ou **Stockage Azure** qui contient le script données | Oui      |
 | degreeOfParallelism | Le nombre maximal de nœuds utilisés simultanément pour exécuter le travail. | Non       |
 | priority            | Détermine les travaux parmi tous ceux qui sont en file d'attente qui doivent être sélectionnés pour s'exécuter en premier. Plus le numéro est faible, plus la priorité est élevée. | Non       |
 | parameters          | Paramètres à transmettre au script U-SQL.    | Non       |
@@ -161,7 +161,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Dans l’exemple de script ci-dessus, l’entrée et la sortie du script sont définies dans les paramètres **\@in** et **\@out**. Les valeurs des paramètres **\@in** et **\@out** dans le script U-SQL sont passées dynamiquement par Data Factory en utilisant la section « parameters ». 
+Dans l’exemple de script ci-dessus, l’entrée et la sortie du script sont définies dans les paramètres **\@in** et **\@out**. Les valeurs des paramètres **\@in** et **\@out** dans le script U-SQL sont transmises dynamiquement par le service en utilisant la section « parameters ». 
 
 Vous pouvez aussi spécifier d’autres propriétés comme degreeOfParallelism et priority dans votre définition de pipeline pour les travaux qui s’exécutent au niveau du service Azure Data Lake Analytics.
 

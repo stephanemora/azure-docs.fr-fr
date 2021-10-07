@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 09/14/2021
 ms.author: alkohli
-ms.openlocfilehash: 23ce17844a0113f63931c6ece7d36bfefedc2de5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 88ef9534c1a0048ef113ce0666ddcdd47171c234
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100552673"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128589369"
 ---
 #### <a name="to-add-a-storsimple-backup-policy"></a>Pour ajouter une stratégie de sauvegarde StorSimple
 
@@ -42,6 +42,9 @@ ms.locfileid: "100552673"
        4. Entrez l’heure et la date de début de la stratégie de sauvegarde.
 
        5. Cliquez sur **OK** pour définir la planification.
+       
+       > [!NOTE]
+       > Quand vous atteignez 64 sauvegardes pour une planification et voulez conserver ces sauvegardes, vous pouvez [désactiver la planification](..\articles\storsimple\storsimple-8000-manage-backup-policies-u2.md#disable-a-schedule), puis en ajouter une nouvelle avec une conservation des données maximale de 64 sauvegardes. Cette solution de contournement fonctionne jusqu’à atteindre la limite de 256 sauvegardes par volume. À ce stade, vous devez supprimer les anciennes sauvegardes pour pouvoir en effectuer de nouvelles.
 
    5. Cliquez sur **Créer** pour créer une stratégie de sauvegarde.
    

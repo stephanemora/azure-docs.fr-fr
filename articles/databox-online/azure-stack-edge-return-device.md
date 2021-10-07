@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 09/15/2021
 ms.author: alkohli
-ms.openlocfilehash: ab087747bbc6ee9edcb072223c2edf3465ba4cba
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3fa49fdab111c60c9f73dad5703c39dbc33e1472
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110460545"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554206"
 ---
 # <a name="return-your-azure-stack-edge-device"></a>Retourner votre appareil Azure Stack Edge
 
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+[!INCLUDE [applies-to-pro-fpga](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
 Cet article décrit comment effacer les données, puis retourner votre appareil Azure Stack Edge. Une fois que vous avez retourné l’appareil, vous pouvez également supprimer la ressource associée à l’appareil.
 
@@ -50,7 +50,7 @@ Vous pouvez réinitialiser votre appareil via l’interface utilisateur web loca
 
 Pour commencer le processus de retour, effectuez les étapes suivantes.
 
-1. Accédez à votre ressource Azure Stack Edge/Data Box Gateway dans le portail Azure. Dans la **Vue d’ensemble**, accédez à la barre de commandes dans le volet droit, puis sélectionnez **Retourner l’appareil**. 
+1. Accédez à la ressource de votre Azure Stack Edge dans le portail Azure. Dans la **Vue d’ensemble**, accédez à la barre de commandes dans le volet droit, puis sélectionnez **Retourner l’appareil**. 
 
     ![Retourner l’appareil 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -87,16 +87,31 @@ Pour commencer le processus de retour, effectuez les étapes suivantes.
 
 7. Une fois que l’équipe des opérations Azure Stack Edge reçoit l’e-mail, elle vous envoie une étiquette de livraison de retour. Lorsque vous recevez cette étiquette, vous pouvez planifier la collecte de l’appareil avec le transporteur. 
 
+## <a name="pack-the-device"></a>Empaqueter l’appareil
+
+Pour compresser l’appareil, procédez comme suit.
+
+1. Arrêtez l’appareil. Sur l’interface utilisateur web locale, accédez à **Maintenance > Paramètres d'alimentation**.
+2. Sélectionnez **Arrêter**. Lorsque la boîte de dialogue de confirmation apparaît, cliquez sur **Oui** pour continuer. Pour plus d’informations, consultez [Gérer l’alimentation](../databox-online/azure-stack-edge-manage-access-power-connectivity-mode.md#manage-power).
+3. Débranchez les câbles d’alimentation et retirez tous les câbles réseau de l’appareil.
+4. Préparez soigneusement le package d’expédition conformément aux instructions ci-dessous :
+    1. Utilisez la boîte d’envoi que vous avez demandée à partir d’Azure ou la boîte d’envoi d’origine avec son emballage en mousse. 
+    1. Placez la pièce en mousse inférieure dans la zone.
+    1. Posez l’appareil sur la mousse en veillant à ce qu’il soit placé dans la mousse.
+    1. Placez la pièce de mousse supérieure dans l’emballage.
+    1. Placez les cordons d’alimentation dans la barre des accessoires et les rails sur la pièce en mousse supérieure.
+    1. Scellez la boîte et apposez l’étiquette d’expédition que vous avez reçue d’Azure sur l’emballage.
+    
+    > [!IMPORTANT]
+    > Si les recommandations appropriées pour préparer la livraison de retour ne sont pas respectées, l’appareil peut être endommagé et des frais d’appareil endommagés peuvent s’appliquer. Passez en revue les [Conditions d’entretien du produit](https://www.microsoft.com/licensing/product-licensing/products) et le [Forum aux questions sur l’appareil perdu ou endommagé](https://azure.microsoft.com/pricing/details/databox/edge/).
+ 
+
+
 ## <a name="schedule-a-pickup"></a>Planification d’un enlèvement
 
 Pour planifier une collecte, procédez comme suit.
 
-1. Arrêtez l’appareil. Sur l’interface utilisateur web locale, accédez à **Maintenance > Paramètres d'alimentation**.
-2. Sélectionnez **Arrêter**. Lorsque la boîte de dialogue de confirmation apparaît, cliquez sur **Oui** pour continuer. Pour plus d’informations, consultez [Gérer l’alimentation](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
-3. Débranchez les câbles d’alimentation et retirez tous les câbles réseau de l’appareil.
-4. Préparez l’emballage d’expédition en utilisant votre propre boîte ou la boîte vide que vous avez reçue d’Azure. Placez l’appareil et les câbles d’alimentation fournis avec l’appareil dans la boîte.
-5. Apposez l’étiquette d’expédition que vous avez reçue d’Azure sur l’emballage.
-6. Planifiez un enlèvement avec votre transporteur régional. Si vous retournez l’appareil aux États-Unis, votre transporteur est UPS ou FedEx. Pour planifier un enlèvement avec UPS :
+1. Planifiez un enlèvement avec votre transporteur régional. Si vous retournez l’appareil aux États-Unis, votre transporteur est UPS ou FedEx. Pour planifier un enlèvement avec UPS :
 
     1. Appelez l’UPS local (numéro d’appel gratuit propre à chaque pays/région).
     2. Lors de votre appel, indiquez le numéro de suivi de retour mentionné sur votre étiquette imprimée.
@@ -109,7 +124,7 @@ Pour planifier une collecte, procédez comme suit.
 Lorsque l’appareil est reçu par le centre de données Azure, il est inspecté pour rechercher des dommages ou des signes de falsification.
 
 - Si l’appareil arrive intact et en bon état, le compteur de facturation s’arrête pour cette ressource. L’équipe des opérations Azure Stack Edge vous contactera pour confirmer que l’appareil a été renvoyé. Vous pouvez alors supprimer la ressource associée à l’appareil dans le Portail Azure.
-- Si l’appareil arrive sérieusement endommagé, des amendes peuvent s’appliquer. Pour plus de détails, consultez le [FAQ relatif aux appareils perdus ou endommagés](https://azure.microsoft.com/pricing/details/databox/edge/) et les [conditions d’utilisation du produit](https://www.microsoft.com/licensing/product-licensing/products).  
+- Si l’appareil arrive sérieusement endommagé, des frais peuvent s’appliquer. Pour plus de détails, consultez le [FAQ relatif aux appareils perdus ou endommagés](https://azure.microsoft.com/pricing/details/databox/edge/) et les [conditions d’utilisation du produit](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 Vous pouvez supprimer l’appareil dans le Portail Azure :

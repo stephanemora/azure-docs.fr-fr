@@ -4,12 +4,12 @@ description: Découvrez-en plus sur le service de sécurité Defender pour IoT e
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: c83aec4772942aeb269f04804d55fd887e552925
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 810ca270fed350da8beaa1c63fafe39df4ab6a61
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113015070"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658267"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Compréhension du fichier de configuration local (agent C#)
 
@@ -77,7 +77,7 @@ Pour Windows :
 | moduleName | string | Nom de l’identité du micro-agent Defender-IoT. Ce nom doit correspondre à celui de l’identité du module dans l’appareil. |
 | deviceId | string | ID de l’appareil (comme inscrit dans Azure IoT Hub). |
 | schedulerInterval | Chaîne TimeSpan | Intervalle du planificateur interne. |
-| gatewayHostname | string | Nom d’hôte du hub Azure Iot Hub. En général, il s’agit de <mon-hub>.azure-devices.net |
+| gatewayHostname | string | Nom d’hôte du hub Azure Iot Hub. Généralement \<my-hub\> .azure-devices.net |
 | filePath | Chaîne - Chemin d’accès au fichier | Chemin d’accès au fichier qui contient le secret d’authentification.|
 | type | "SymmetricKey", "SelfSignedCertificate" | Secret de l’utilisateur pour l’authentification. Choisissez *SymmetricKey* si le secret de l’utilisateur est une clé symétrique, ou *SelfSignedCertificate* si le secret est un certificat auto-signé. |
 | identité | "DPS", "Module", "Device" | Identité d’authentification : « DPS » si l’authentification est effectuée via DPS, « Module » si elle est effectuée via les informations d’identification du module de sécurité ou « Device » si elle est effectuée avec les informations d’identification de l’appareil.

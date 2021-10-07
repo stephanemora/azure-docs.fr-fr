@@ -1,21 +1,21 @@
 ---
-title: Fichier Include
-description: Fichier include
+title: fichier descriptif
+description: fichier descriptif
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/03/2021
+ms.date: 09/03/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6d7d9389e00b3b0f23d590563a242ae0c12e2463
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 78721aa407977262747c43be90001da2343322aa
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532229"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123483870"
 ---
-Pour l’instant, seuls les disques Ultra et les disques SSD Premium peuvent activer des disques partagés. Des tailles de disque différentes peuvent avoir une limite `maxShares` différente, que vous ne pouvez pas dépasser lors de la définition de la valeur `maxShares`. Pour les disques SSD Premium, les tailles de disque qui prennent en charge le partage de leurs disques sont P15 et supérieures.
+Pour le moment, seuls les disques Ultra, les disques SSD Premium et les disques SSD standard peuvent activer des disques partagés. Des tailles de disque différentes peuvent avoir une limite `maxShares` différente, que vous ne pouvez pas dépasser lors de la définition de la valeur `maxShares`. Pour les disques SSD Premium, les tailles de disque qui prennent en charge le partage de leurs disques sont P15 et supérieures.
 
 Pour chaque disque, vous pouvez définir une valeur de `maxShares` qui représente le nombre maximal de nœuds pouvant partager simultanément le disque. Par exemple, si vous envisagez de configurer un cluster de basculement à deux nœuds, vous devez définir `maxShares=2`. La valeur maximale est une limite supérieure. Les nœuds peuvent rejoindre ou quitter le cluster (monter ou démonter le disque) tant que le nombre de nœuds est inférieur à la valeur `maxShares` spécifiée.
 

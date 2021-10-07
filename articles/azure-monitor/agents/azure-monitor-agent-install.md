@@ -4,14 +4,14 @@ description: Options d’installation de l’agent de Azure Monitor (AMA) sur le
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/19/2021
+ms.date: 09/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9414ea2574737cdad2551442a2d1ce7c844b04b6
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
+ms.openlocfilehash: b7a35b819844b411a040542d4390fae3e69b9bcc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662336"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128656015"
 ---
 # <a name="install-the-azure-monitor-agent"></a>Installer l’agent Azure Monitor
 Cet article présente les différentes options actuellement disponibles pour installer l’[agent Azure Monitor](azure-monitor-agent-overview.md) sur les machines virtuelles Azure et les serveurs Azure Arc, ainsi que les options permettant de créer des [associations avec des règles de collecte de données](data-collection-rule-azure-monitor-agent.md) qui définissent les données que l’agent doit collecter.
@@ -27,7 +27,7 @@ Les conditions préalables suivantes sont requises avant l’installation de l�
   - *.control.monitor.azure.com
 
 > [!IMPORTANT]
-> L’agent Azure Monitor ne prend actuellement pas en charge les proxys réseau ou les liaisons privées.
+> L’agent Azure Monitor ne prend actuellement pas en charge les liaisons privées.
 
 ## <a name="virtual-machine-extension-details"></a>Détails de l’extension de machine virtuelle
 L’agent Azure Monitor est implémenté en tant qu’[extension de machine virtuelle Azure](../../virtual-machines/extensions/overview.md) avec les détails dans le tableau suivant. Il peut être installé à l’aide de l’une des méthodes d’installation des extensions de machine virtuelle, notamment celles décrites dans cet article.
@@ -46,6 +46,7 @@ Il est vivement recommandé d’effectuer la mise à jour vers les versions GA e
 | Juin 2021 | Disponibilité générale annoncée. <ul><li>Toutes les fonctionnalités à l’exception de la destination des métriques sont désormais en disponibilité générale</li><li>Qualité de production, sécurité et conformité</li><li>Disponibilité dans toutes les régions publiques</li><li>Améliorations des performances et de la mise à l’échelle pour l’EPS le plus élevé</li></ul> [En savoir plus](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
 | Juillet 2021 | <ul><li>Prise en charge des proxies directs</li><li>Prise en charge de la passerelle Log Analytics</li></ul> [En savoir plus](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
 | Août 2021 | Résolution du problème autorisant les métriques Azure Monitor comme seule destination | 1.1.2.0 | 1.10.9.0 (ne pas utiliser 1.10.7.0) |
+| Septembre 2021 | Résolution du problème à l’origine de la perte de données lors du redémarrage de l’agent | 1.1.3.1 | 1.12.2.0 |
 
 
 ## <a name="install-with-azure-portal"></a>Installer avec Portail Azure
@@ -117,11 +118,11 @@ Utilisez les commandes CLI suivantes pour installer l’agent Azure Monitor sur 
 
 # <a name="windows"></a>[Windows](#tab/CLIWindowsArc)
 ```azurecli
-az connectedmachine extension create --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
+az connectedmachine extension create --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
 ```
 # <a name="linux"></a>[Linux](#tab/CLILinuxArc)
 ```azurecli
-az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
+az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
 ```
 ---
 

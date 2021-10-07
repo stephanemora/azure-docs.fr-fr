@@ -1,17 +1,17 @@
 ---
 title: Surveillance d’Azure Cache pour Redis
 description: Découvrez comment surveiller l’état et les performances de vos instances de cache Azure pour Redis
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: 80290a9214e7d4b2715251f49b407d7456bd1fb6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 64234292051c5f780c33fd55fabf3305f45b756d
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293974"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538404"
 ---
 # <a name="monitor-azure-cache-for-redis"></a>Surveillance d’Azure Cache pour Redis
 
@@ -163,14 +163,16 @@ Pour configurer les règles d’alerte de votre cache, sélectionnez **Règles d
 
 Pour plus d’informations sur la configuration et l’utilisation des Alertes, consultez [Vue d’ensemble des Alertes](../azure-monitor/alerts/alerts-classic-portal.md).
 
-## <a name="activity-logs"></a>Journaux d’activité
+<!-- 
+## Activity Logs
 
-Les journaux d’activité fournissent des insights sur les opérations qui ont été effectuées sur vos instances Azure Cache pour Redis. Ils étaient auparavant nommés « Journaux d’audit » ou « Journaux d’activité des opérations ». À l’aide des journaux d’activité, vous pouvez déterminer les éléments « qui, quand et quoi » pour toutes les opérations d’écriture (PUT, POST, DELETE) sur vos instances de cache Azure pour Redis.
+Activity logs provide insight into the operations that completed on your Azure Cache for Redis instances. It was previously known as "audit logs" or "operational logs". Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your Azure Cache for Redis instances.
 
 > [!NOTE]
-> Les journaux d’activité n’incluent pas les opérations (GET) de lecture.
->
+> Activity logs do not include read (GET) operations.
+> 
 
-Pour afficher les journaux d’activité de votre cache, sélectionnez **Journaux d’activité** depuis le **menu Ressource**.
+To view activity logs for your cache, select **Activity logs** from the **Resource menu**.
 
-Pour plus d’informations à propos des Journaux d’activité, consultez [Vue d’ensemble des Journaux d’activité Azure](../azure-monitor/essentials/platform-logs-overview.md).
+For more information about Activity logs, see [Overview of the Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md).
+-->

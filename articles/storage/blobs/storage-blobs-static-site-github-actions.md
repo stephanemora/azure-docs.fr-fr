@@ -6,15 +6,15 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 05/05/2021
+ms.date: 09/17/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 88ad67b03b3362b3430daefd81a4d1b0475b0980
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 3ec1eb55ae54a29d8bb5334993edeee7308dd2de
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854645"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662530"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurer un workflow GitHub Actions pour déployer votre site web statique dans Stockage Azure
 
@@ -22,14 +22,14 @@ Commencez avec [GitHub Actions](https://docs.github.com/en/actions) en utilisant
 
 > [!NOTE]
 > Si vous utilisez [Azure Static Web Apps](../../static-web-apps/index.yml), vous n’avez pas besoin de configurer manuellement un workflow GitHub Actions.
-> Azure Static Web Apps crée automatiquement un workflow GitHub Actions pour vous. 
+> Azure Static Web Apps crée automatiquement un workflow GitHub Actions pour vous.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Un abonnement Azure et un compte GitHub. 
+Un abonnement Azure et un compte GitHub.
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Un référentiel GitHub avec votre code de site web statique. Si vous n’avez pas de compte GitHub, [inscrivez-vous gratuitement](https://github.com/join).  
+- Un référentiel GitHub avec votre code de site web statique. Si vous n’avez pas de compte GitHub, [inscrivez-vous gratuitement](https://github.com/join).
 - Un site web statique opérationnel hébergé dans Stockage Azure. Découvrez comment [héberger un site web statique dans Stockage Azure](storage-blob-static-website-how-to.md). Pour suivre cet exemple, vous devez également déployer [Azure CDN](static-website-content-delivery-network.md).
 
 > [!NOTE]
@@ -39,7 +39,7 @@ Un abonnement Azure et un compte GitHub.
 
 Vous pouvez créer un [principal de service](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) à l’aide de la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) dans [Azure CLI](/cli/azure/). Exécutez cette commande en utilisant [Azure Cloud Shell](https://shell.azure.com/) dans le portail Azure ou en sélectionnant le bouton **Essayer**.
 
-Remplacez l’espace réservé `myStaticSite` par le nom de votre site hébergé dans Stockage Azure. 
+Remplacez l’espace réservé `myStaticSite` par le nom de votre site hébergé dans Stockage Azure.
 
 ```azurecli-interactive
    az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
@@ -78,13 +78,13 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
 
 ## <a name="add-your-workflow"></a>Ajouter votre workflow
 
-1. Accédez à **Actions** pour votre référentiel GitHub. 
+1. Accédez à **Actions** pour votre référentiel GitHub.
 
     :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="Élément de menu GitHub Actions":::
 
-1. Sélectionnez **Configurer vous-même un workflow**. 
+1. Sélectionnez **Configurer vous-même un workflow**.
 
-1. Supprimez tous les éléments après la section `on:` de votre fichier de workflow. Par exemple, votre workflow restant peut ressembler à ce qui suit. 
+1. Supprimez tous les éléments après la section `on:` de votre fichier de workflow. Par exemple, votre workflow restant peut ressembler à ce qui suit.
 
     ```yaml
     name: CI
@@ -92,11 +92,9 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
     on:
         push:
             branches: [ master ]
-        pull_request:
-            branches: [ master ]
     ```
 
-1. Renommez votre workflow `Blob storage website CI` et ajoutez les actions d’extraction et de connexion. Ces actions extraient votre code de site et vous authentifient auprès d’Azure à l’aide du secret GitHub `AZURE_CREDENTIALS` que vous avez créé précédemment. 
+1. Renommez votre workflow `Blob storage website CI` et ajoutez les actions d’extraction et de connexion. Ces actions extraient votre code de site et vous authentifient auprès d’Azure à l’aide du secret GitHub `AZURE_CREDENTIALS` que vous avez créé précédemment.
 
     ```yaml
     name: Blob storage website CI
@@ -104,20 +102,18 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
     on:
         push:
             branches: [ master ]
-        pull_request:
-            branches: [ master ]
 
     jobs:
       build:
         runs-on: ubuntu-latest
-        steps:            
+        steps:
         - uses: actions/checkout@v2
         - uses: azure/login@v1
           with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Utilisez l’action Azure CLI pour charger votre code dans le stockage de blob et vider votre point de terminaison CDN. Pour `az storage blob upload-batch`, remplacez l’espace réservé par le nom de votre compte de stockage. Le script est chargé dans le conteneur `$web`. Pour `az cdn endpoint purge`, remplacez les espaces réservés par le nom de votre profil CDN, le nom de votre point de terminaison CDN et votre groupe de ressources. Pour accélérer le vidage de votre CDN, vous pouvez ajouter l’option `--no-wait` à `az cdn endpoint purge` .
+1. Utilisez l’action Azure CLI pour charger votre code dans le stockage de blob et vider votre point de terminaison CDN. Pour `az storage blob upload-batch`, remplacez l’espace réservé par le nom de votre compte de stockage. Le script est chargé dans le conteneur `$web`. Pour `az cdn endpoint purge`, remplacez les espaces réservés par le nom de votre profil CDN, le nom de votre point de terminaison CDN et votre groupe de ressources. Pour accélérer le vidage de votre CDN, vous pouvez ajouter l’option `--no-wait` à `az cdn endpoint purge` . Pour améliorer la sécurité, vous pouvez également ajouter l’option `--account-key` avec votre [clé de compte de stockage](../common/storage-account-keys-manage.md).
 
     ```yaml
         - name: Upload to blob storage
@@ -125,14 +121,14 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
           with:
             azcliversion: 2.0.72
             inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME>  --auth-mode key -d '$web' -s .
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
             azcliversion: 2.0.72
             inlineScript: |
                az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
-    ``` 
+    ```
 
 1. Terminez votre workflow en ajoutant une action permettant de vous déconnecter d’Azure. Voici le workflow terminé. Le fichier apparaît dans le dossier `.github/workflows` de votre référentiel.
 
@@ -142,13 +138,11 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
     on:
         push:
             branches: [ master ]
-        pull_request:
-            branches: [ master ]
 
     jobs:
       build:
         runs-on: ubuntu-latest
-        steps:            
+        steps:
         - uses: actions/checkout@v2
         - uses: azure/login@v1
           with:
@@ -159,15 +153,15 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
           with:
             azcliversion: 2.0.72
             inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> -d '$web' -s .
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> --auth-mode key -d '$web' -s .
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
             azcliversion: 2.0.72
             inlineScript: |
                az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
-      
-      # Azure logout 
+
+      # Azure logout
         - name: logout
           run: |
                 az logout
@@ -176,15 +170,15 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
 
 ## <a name="review-your-deployment"></a>Vérifier votre déploiement
 
-1. Accédez à **Actions** pour votre référentiel GitHub. 
+1. Accédez à **Actions** pour votre référentiel GitHub.
 
-1. Ouvrez le premier résultat pour afficher les journaux détaillés de l’exécution de votre workflow. 
- 
+1. Ouvrez le premier résultat pour afficher les journaux détaillés de l’exécution de votre workflow.
+
     :::image type="content" source="../media/index/github-actions-run.png" alt-text="Journal de l’exécution GitHub Actions":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsque votre site statique et votre référentiel GitHub ne sont plus nécessaires, nettoyez les ressources que vous avez déployées en supprimant le groupe de ressources et votre référentiel GitHub. 
+Lorsque votre site statique et votre référentiel GitHub ne sont plus nécessaires, nettoyez les ressources que vous avez déployées en supprimant le groupe de ressources et votre référentiel GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

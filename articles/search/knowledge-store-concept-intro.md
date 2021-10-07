@@ -7,24 +7,21 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: baa4a78e23b83fa7c138e71b92dba12ba23a3ab6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/02/2021
+ms.openlocfilehash: 07a4d0b7b932b92307b77420df1a21027df1efb0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524607"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538054"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Base de connaissances dans Recherche cognitive Azure
 
-La base de connaissances est une fonctionnalité du service Recherche cognitive Azure. Elle conserve la sortie d’un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) dans le service Stockage Azure pour une analyse indépendante ou un traitement en aval. Un *document enrichi* est la sortie d’un pipeline, créée à partir d’un contenu qui a été extrait, structuré et analysé à l’aide de processus IA. Dans un pipeline IA standard, les documents enrichis sont temporaires, utilisés uniquement pendant l’indexation, puis ignorés. La création d’une base de connaissances permet de conserver les documents enrichis à des fins d’inspection ou pour d’autres scénarios d’exploration des connaissances.
+La base de connaissances est une fonctionnalité de la Recherche cognitive d’Azure qui envoie la sortie d’un [pipeline d’enrichissement AI](cognitive-search-concept-intro.md) aux tables et objets blob dans le Stockage Azure pour une analyse indépendante ou un traitement en aval.
 
-Si vous avez déjà utilisé des compétences cognitives par le passé, vous savez que des *ensembles de compétences* déplacent un document dans une séquence d’enrichissements. Le résultat peut être un index de recherche ou des projections dans une base de connaissances. Les deux sorties, index de recherche et base de connaissances, sont des produits du même pipeline. Elles sont dérivées des mêmes entrées mais elles ont pour résultat une sortie structurée, stockée et utilisée dans des applications distinctes.
+Si vous avez utilisé des compétences cognitives dans le passé, vous savez déjà que l’*ensemble de compétences* déplace un document à travers une séquence d’enrichissements qui appellent des transformations atomiques, telles que la reconnaissance d’entités ou la traduction de texte. Le résultat peut être un index de recherche ou des projections dans une base de connaissances. Les deux sorties, index de recherche et base de connaissances, sont des produits du même pipeline. Elles sont dérivées des mêmes entrées mais elles ont pour résultat une sortie structurée, stockée et utilisée dans des applications distinctes.
 
 :::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg" alt-text="Pipeline avec ensemble de compétences" border="false":::
-
-<!-- previous version of the architecture diagram
-:::image type="content" source="media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png" alt-text="Knowledge store in pipeline diagram" border="false"::: -->
 
 Physiquement, une base de connaissances représente un [Stockage Azure](../storage/common/storage-account-overview.md), soit le Stockage Table Azure, soit le Stockage Blob Azure, ou les deux. Tout outil ou processus pouvant se connecter au Stockage Azure peut utiliser le contenu d’un magasin de connaissances.
 
@@ -34,25 +31,25 @@ Vue depuis l’Explorateur Stockage, une base de connaissances est juste une col
 
 ## <a name="benefits-of-knowledge-store"></a>Avantages de la base de connaissances
 
-Une base de connaissances vous fournit une structure, un contexte et un contenu réel, extraits de fichiers de données non structurés et semi-structurés, tels que des objets blob, des fichiers image ayant fait l’objet d’une analyse, ou même des données structurées remodelées dans nouveaux formulaires. Une [procédure pas à pas](knowledge-store-create-rest.md) montre comment un document JSON dense de source sure est partitionné en sous-structures, reconstitué en nouvelles structures et mis à disposition pour des processus en aval, comme des charges de travail liées au Machine Learning et à la science des données.
+Les principaux avantages d’une base de connaissances sont deux fois plus nombreux : un accès flexible au contenu et la possibilité de mettre en forme les données.
 
-Bien qu’il soit utile de voir ce qu’un pipeline d’enrichissement par l’IA peut produire, le véritable potentiel d’une base de connaissances réside dans sa capacité à remodeler les données. Vous pouvez commencer avec un ensemble de compétences de base, puis procéder à une itération sur celui-ci afin d’ajouter des niveaux de structure croissants, que vous pouvez ensuite combiner en nouvelles structures, utilisables dans des applications autres que la Recherche cognitive Azure.
+Contrairement à un index de recherche accessible uniquement par le biais de requêtes dans la Recherche cognitive, une base de connaissances est accessible par tout outil, application ou processus qui prend en charge les connexions vers le Stockage Azure. Cette flexibilité ouvre de nouveaux scénarios pour la consommation du contenu analysé et enrichi produit par un pipeline d’enrichissement.
 
-La base de connaissances vous offre notamment les avantages suivants :
+Les mêmes compétences qui enrichissent les données peuvent également être utilisées pour mettre en forme les données. Certains outils comme Power BI fonctionnent mieux avec les tables, alors qu’une charge de travail de science des données peut nécessiter une structure de données complexe dans un format blob. L’ajout d’une [compétence Modélisateur](cognitive-search-skill-shaper.md) à un ensemble de compétences vous permet de contrôler la forme de vos données. Vous pouvez ensuite passer ces formes à des projections, tables ou objets Blob, pour créer des structures de données physiques qui s’alignent sur l’utilisation prévue des données.
 
-+ Utilisez des documents enrichis dans des [outils d'analyse et de génération d'états](#tools-and-apps) autres que des outils de recherche. Power BI avec Power Query est un excellent choix, mais tout outil ou application capable de se connecter à Stockage Azure peut puiser dans une base de connaissances que vous avez créée.
-
-+ Affinez un pipeline d'indexation IA lors des étapes de débogage et de la définition des ensembles de compétences. Une base de connaissances vous présente le produit de la définition d'un ensemble de compétences dans un pipeline d'indexation IA. Vous pouvez utiliser ces résultats afin de concevoir un ensemble de compétences plus performant car vous voyez exactement à quoi ressemblent les enrichissements. Vous pouvez utiliser l’[Explorateur Stockage](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) de Stockage Azure pour afficher le contenu d’une base de connaissances.
-
-+ Modelez les données pour les transformer en nouveaux formulaires. La remodélisation est codifiée dans des ensembles de compétences, mais la [compétence Modélisateur](cognitive-search-skill-shaper.md) du service Recherche cognitive Azure offre un contrôle explicite et permet de créer plusieurs modélisations. La modélisation vous permet de définir une projection qui s’aligne sur l’utilisation prévue des données tout en conservant les relations.
+La vidéo suivante explique ces deux avantages, et bien plus encore.
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3]
 
 ## <a name="knowledge-store-definition"></a>Définition de la base de connaissances
 
-Au moment de l’exécution de l’indexeur, les bases de connaissances sont créées dans votre [compte Stockage Azure](../storage/common/storage-account-overview.md) à l’aide de Stockage Table Azure, Stockage Blob Azure, ou les deux. 
+Une base de connaissances est définie à l’intérieur d’une définition de compétences et possède deux composants : 
 
-Les structures de données du service Stockage Azure sont spécifiées via l’élément `projections` d’une définition `knowledgeStore` dans un ensemble de compétences. Les [projections](knowledge-store-projection-overview.md) peuvent être articulées sous forme de tables, d’objets ou de fichiers. Vous pouvez également avoir plusieurs ensembles (ou *groupes de projections*) pour créer plusieurs structures de données à des fins distinctes.
++ une chaîne de connexion cers le Stockage Azure
+
++ des [**Projections**](knowledge-store-projection-overview.md) qui déterminent si la base de connaissances comprend des tables, des objets ou des fichiers. 
+
+L’élément de projections est un tableau. Vous pouvez créer plusieurs ensembles de combinaisons table-objet-fichier au sein d’une base de connaissances.
 
 ```json
 "knowledgeStore":{
@@ -72,42 +69,42 @@ Le type de projection que vous spécifiez dans cette structure détermine le typ
 
 + `objects` permet de projeter un document JSON dans le service Stockage Blob. La représentation physique d’un `object` est une structure JSON hiérarchique représentant un document enrichi.
 
-+ `files` permet de projeter des fichiers image dans le service Stockage Blob. Un `file` est une image extraite d’un document, transférée intacte vers un stockage Blob.
++ `files` permet de projeter des fichiers image dans le service Stockage Blob. Un `file` est une image extraite d’un document, transférée intacte vers un stockage Blob. Bien qu’il soit nommé « fichiers », il s’affiche dans le Stockage Blob et non dans le stockage de fichiers.
 
 ## <a name="create-a-knowledge-store"></a>Créer une base de connaissances
 
 Pour créer une base de connaissances, utilisez le portail ou une API. Vous aurez besoin de [Stockage Azure](../storage/index.yml), d’un [ensemble de compétences](cognitive-search-working-with-skillsets.md) et d’un [indexeur](search-indexer-overview.md). Dans la mesure où les indexeurs nécessitent un index de recherche, vous devez également fournir une définition d’index.
 
+Utilisez l’approche du portail pour obtenir le chemin le plus rapide vers une base de connaissances terminée. Vous pouvez aussi choisir l’API REST pour une compréhension plus approfondie de la façon dont les objets sont définis et associés.
+
 ### <a name="azure-portal"></a>[**Portail Azure**](#tab/kstore-portal)
 
-[Créez votre première base de connaissances en quatre étapes](knowledge-store-connect-power-bi.md) à l’aide de l’Assistant **Importation des données**. L’Assistant vous guide tout au long des tâches suivantes :
+[**Créez votre première base de connaissances en quatre étapes**](knowledge-store-create-portal.md) à l’aide de l’Assistant **Importation des données**.
 
-1. Sélectionnez une source de données prise en charge, qui fournit le contenu brut.
+1. Définissez votre schéma de données
 
-1. Spécifier l’enrichissement : attachez une ressource Cognitive Services, sélectionnez des compétences, puis spécifiez une base de connaissances. Au cours de cette étape, vous allez choisir un compte Stockage Azure et décider de créer des objets ou des tables, ou les deux.
+1. Définissez votre ensemble de compétences et spécifiez une base de connaissances.
 
 1. Créez un schéma d’index. L’Assistant l’exige et peut en inférer un pour vous.
 
 1. Exécutez l’Assistant. L’extraction, l’enrichissement et le stockage se produisent dans cette dernière étape.
 
-Quand vous utilisez l’Assistant, plusieurs tâches supplémentaires sont gérées de manière interne, ce qui vous évite d’avoir à le faire dans le code. La modélisation et les projections (définitions des structures de données physiques dans le service Stockage Azure) sont créées automatiquement. Quand vous créez manuellement une base de connaissances, votre code doit couvrir ces étapes.
+L’Assistant automatise les tâches que vous devriez normalement gérer manuellement. La modélisation et les projections (définitions des structures de données physiques dans le service de Stockage Azure) sont créées automatiquement. 
 
 ### <a name="rest"></a>[**REST**](#tab/kstore-rest)
+
+[**Créer votre première base de connaissances à l’aide de Postman**](knowledge-store-create-rest.md) est un didacticiel qui vous guide tout au long des objets et des demandes appartenant à cette [collection de la base de connaissances](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store).
 
 Vous pouvez utiliser l’API REST version `2020-06-30` pour créer une base de connaissances via des ajouts à un ensemble de compétences.
 
 + [Créer un ensemble de compétences (api-version=2020-06-30)](/rest/api/searchservice/create-skillset)
 + [Mettre à jour un ensemble de compétences (api-version=2020-06-30)](/rest/api/searchservice/update-skillset)
 
-Une `knowledgeStore` est définie au sein d’un [ensemble de compétences](cognitive-search-working-with-skillsets.md) qui est appelé à son tour par un [indexeur](search-indexer-overview.md). Pendant l’enrichissement, la Recherche cognitive Azure crée un espace dans votre compte de stockage Azure et projette les documents enrichis en tant qu’objets blob ou dans des tables, en fonction de votre configuration.
-
-Tâches que votre code doit gérer :
+Dans les compétences suivantes :
 
 + Spécifier les projections à intégrer au service Stockage Azure (tables, objets, fichiers)
 + Incluez une compétence Modélisateur dans votre ensemble de compétences pour déterminer le schéma et le contenu de la projection
 + Affecter la modélisation nommée à une projection
-
-Pour découvrir facilement comment procéder, vous pouvez [créer votre première base de connaissances à l’aide de Postman](knowledge-store-create-rest.md).
 
 ### <a name="net-sdk"></a>[**Kit de développement logiciel (SDK) .NET**](#tab/kstore-dotnet)
 
@@ -158,5 +155,3 @@ L’approche la plus simple pour créer des documents enrichis consiste à [util
 
 > [!div class="nextstepaction"]
 > [Créer une base de connaissances à l’aide de Postman et de REST](knowledge-store-create-rest.md)
-
-Ou, examinez de plus près les [projections](knowledge-store-projection-overview.md). Pour accéder à un exemple illustrant les concepts de projections avancées tels que le découpage, la modélisation inline et les relations, commencez par [définir les projections dans une base de connaissances](knowledge-store-projections-examples.md).

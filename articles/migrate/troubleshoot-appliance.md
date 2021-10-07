@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 07/01/2020
-ms.openlocfilehash: c67ad02737fc8a40895f99cd3acf05ba98e7643e
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: d6d87d7503a68091e72f1aa84703966ab28f32b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123305892"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654515"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance"></a>Résoudre les problèmes de l’appliance Azure Migrate
 
@@ -275,10 +275,7 @@ Vous obtenez l’erreur « Le service WS-Management ne peut pas traiter la requ�
 
 - Si vous obtenez cette erreur, assurez-vous que le compte d’utilisateur fourni (domaine/local) dans le gestionnaire de configuration de l’appliance a été ajouté aux groupes suivants : Utilisateurs de gestion à distance, Utilisateurs de l’Analyseur de performances et Utilisateurs du Journal des performances.
 - Si le groupe Utilisateurs de gestion à distance n’est pas présent, ajoutez le compte d’utilisateur au groupe WinRMRemoteWMIUsers_.
-- Vous pouvez également vérifier si le protocole WS-Management est activé sur le serveur en exécutant la commande suivante à l’invite de commandes du serveur cible :
-    
-    ```` winrm qc ````
-
+- Vous pouvez également vérifier si le protocole WS-Management est activé sur le serveur en exécutant la commande suivante à l’invite de commandes du serveur cible : `winrm qc`
 - Si vous rencontrez toujours le problème, assurez-vous que le compte d’utilisateur dispose des autorisations d’accès à l’espace de noms CIMV2 et aux sous-espaces de noms dans le Panneau de configuration WMI. Vous pouvez définir l’accès en suivant ces étapes :
 
     1. Accédez au serveur dont la validation échoue sur l’appliance.

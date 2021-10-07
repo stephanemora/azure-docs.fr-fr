@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d704e8f9687f3987d80018d84b41c0fd519da172
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 43e0d3228937e507f988aa241b6fa0b619892c10
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791894"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273682"
 ---
 # <a name="how-to-reprovision-devices"></a>Comment reprovisionner des appareils
 
@@ -79,7 +79,7 @@ La fréquence à laquelle un appareil envoie une demande de provisionnement vari
 
 La stratégie de reprovisionnement sur une entrée d’inscription définit de quelle manière l’instance du service Device Provisioning gère ces demandes de provisionnement, et détermine si les données d’état de l’appareil doivent être migrées au moment du reprovisionnement. Les mêmes stratégies sont disponibles pour les inscriptions individuelles et les groupes d’inscriptions :
 
-Pour obtenir un exemple de code qui envoie des demandes de provisionnement depuis un appareil lors d’une séquence de démarrage, consultez [Provisionnement automatique d’un appareil simulé](quick-create-simulated-device.md).
+Pour obtenir un exemple de code qui envoie des demandes de provisionnement depuis un appareil lors d’une séquence de démarrage, consultez [Provisionnement automatique d’un appareil simulé](quick-create-simulated-device-tpm.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

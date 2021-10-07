@@ -4,14 +4,14 @@ description: Liste des métriques disponibles pour chaque type de ressource avec
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 09/10/2021
 ms.author: robb
-ms.openlocfilehash: 4975d83773edba94676b7beeff166c6edb86248d
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: c08644242bc811bfce8be2883bc2dec95f83f13d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533337"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128616723"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -123,6 +123,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |---|---|---|---|---|---|---|
 |BackendDuration|Oui|Durées des demandes back-end|Millisecondes|Average|Durée des demandes back-end, en millisecondes|Emplacement, nom d’hôte|
 |Capacité|Oui|Capacité|Pourcentage|Average|Métrique d’utilisation pour le service ApiManagement. Remarque : Pour les SKU autres que Premium, l’agrégation « Max » affiche la valeur 0|Emplacement|
+|ConnectionAttempts|Oui|Tentatives de connexion WebSocket (préversion)|Nombre|Total|Nombre de tentatives de connexion WebSocket basées sur la source et la destination sélectionnées|Emplacement, Source, Destination, État|
 |Duration|Oui|Durée globale des demandes de passerelle|Millisecondes|Average|Durée globale des demandes de passerelle en millisecondes|Emplacement, nom d’hôte|
 |EventHubDroppedEvents|Oui|Événements EventHub supprimés|Count|Total|Nombre d’événements ignorés car la limite de taille de la file d’attente a été atteinte|Emplacement|
 |EventHubRejectedEvents|Oui|Événements EventHub rejetés|Count|Total|Nombre d’événements EventHub rejetés (configuration incorrecte ou non autorisée)|Emplacement|
@@ -139,6 +140,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |SuccessfulRequests|Oui|Demandes de la passerelle ayant abouti (déprécié)|Count|Total|Nombre de demandes de la passerelle ayant abouti : utilisez une métrique de demande multi-dimension avec la dimension GatewayResponseCodeCategory à la place|Emplacement, nom d’hôte|
 |TotalRequests|Oui|Nombre total de demandes de la passerelle (déprécié)|Count|Total|Nombre de demandes de la passerelle : utilisez une métrique de demande multi-dimension avec la dimension GatewayResponseCodeCategory à la place|Emplacement, nom d’hôte|
 |UnauthorizedRequests|Oui|Demandes de la passerelle non autorisées (déprécié)|Count|Total|Nombre de demandes de la passerelle non autorisées : utilisez une métrique de demande multi-dimension avec la dimension GatewayResponseCodeCategory à la place|Emplacement, nom d’hôte|
+|WebSocketMessages|Oui|Messages WebSocket (préversion)|Nombre|Total|Nombre de messages WebSocket basés sur la source et la destination sélectionnées|Emplacement, Source, Destination|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -169,6 +171,14 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |gen-1-size|Oui|gen-1-size|Octets|Average|Taille du tas de génération 1|Deployment, AppName, Pod|
 |gen-2-gc-count|Oui|gen-2-gc-count|Count|Average|Nombre de nettoyages de la mémoire de génération 2|Deployment, AppName, Pod|
 |gen-2-size|Oui|gen-2-size|Octets|Average|Taille du tas de génération 2|Deployment, AppName, Pod|
+|IngressBytesReceived|Oui|Octets reçus|Octets|Average|Nombre d’octets reçus par Azure Spring Cloud en provenance des clients|Hostname, HttpStatus|
+|IngressBytesReceivedRate|Oui|Débit entrant (octets/s)|BytesPerSecond|Average|Octets reçus par seconde par Azure Spring Cloud en provenance des clients|Hostname, HttpStatus|
+|IngressBytesSent|Oui|Octets envoyés|Octets|Average|Nombre d’octets envoyés par Azure Spring Cloud aux clients|Hostname, HttpStatus|
+|IngressBytesSentRate|Oui|Débit sortant (octets/s)|BytesPerSecond|Average|Octets envoyés par seconde par Azure Spring Cloud aux clients|Hostname, HttpStatus|
+|IngressFailedRequests|Oui|Demandes ayant échoué|Count|Average|Nombre de requêtes en échec par Azure Spring Cloud émises par les clients|Hostname, HttpStatus|
+|IngressRequests|Oui|Demandes|Count|Average|Nombre de requêtes par Azure Spring Cloud émises par les clients|Hostname, HttpStatus|
+|IngressResponseStatus|Oui|État de la réponse|Count|Average|Statut de la réponse HTTP retourné par Azure Spring Cloud. La distribution du code d’état de la réponse peut être subdivisée afin d’afficher les réponses dans les catégories 2xx, 3xx, 4xx et 5xx|Hostname, HttpStatus|
+|IngressResponseTime|Oui|Temps de réponse|Secondes|Average|Temps de réponse HTTP retourné par Azure Spring Cloud|Hostname, HttpStatus|
 |jvm.gc.live.data.size|Oui|jvm.gc.live.data.size|Octets|Average|Taille du pool de mémoire d’ancienne génération après un GC complet|Deployment, AppName, Pod|
 |jvm.gc.max.data.size|Oui|jvm.gc.max.data.size|Octets|Average|Taille maximale du pool de mémoire d’ancienne génération|Deployment, AppName, Pod|
 |jvm.gc.memory.allocated|Oui|jvm.gc.memory.allocated|Octets|Maximale|Incrémenté pour une augmentation de la taille du pool de mémoire de nouvelle génération après un GC avant le suivant|Deployment, AppName, Pod|
@@ -207,6 +217,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |total-requests|Oui|total-requests|Count|Average|Nombre total de demandes au cours de la durée de vie du processus|Deployment, AppName, Pod|
 |working-set|Oui|working-set|Count|Average|Quantité de la plage de travail utilisée par le processus (Mo)|Deployment, AppName, Pod|
 
+
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -215,7 +226,8 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |TotalUpdateDeploymentMachineRuns|Oui|Nombre total d’exécutions de déploiement de mises à jour de machines|Count|Total|Nombre total d'exécutions de déploiement de mises à jour logicielles de machines lors d'une exécution de déploiement de mises à jour logicielles|SoftwareUpdateConfigurationName, Status, TargetComputer, SoftwareUpdateConfigurationRunId|
 |TotalUpdateDeploymentRuns|Oui|Nombre total d’exécutions de déploiement de mises à jour|Count|Total|Nombre total d’exécutions de déploiement de mises à jour logicielles|SoftwareUpdateConfigurationName, Status|
 
-## <a name="microsoftavsprivateclouds"></a>Microsoft.AVS/privateClouds
+
+## <a name="microsoftavsprivateclouds"></a>microsoft.avs/privateClouds
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -227,6 +239,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |TotalMbAverage|Oui|Mémoire totale moyenne|Octets|Average|Mémoire totale du cluster|clustername|
 |UsageAverage|Oui|Utilisation moyenne de la mémoire|Pourcentage|Average|Utilisation de la mémoire sous forme de pourcentage du total configuré ou de la mémoire disponible|clustername|
 |UsedLatest|Oui|Disque de magasin de données utilisé|Octets|Average|Quantité totale du disque utilisée dans le magasin de données|dsname|
+
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -264,6 +277,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |UnusableNodeCount|Non|Nombre de nœuds inutilisables|Count|Total|Le nombre de nœuds inutilisables|Aucune dimension|
 |WaitingForStartTaskNodeCount|Non|Nombre de nœuds en attente de démarrage de tâche|Count|Total|Nombre de nœuds en attente de la fin d’une tâche de démarrage|Aucune dimension|
 
+
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -283,6 +297,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |Nombre total de nœuds|Oui|Nombre total de nœuds|Count|Average|Nombre total de nœuds|Scenario, ClusterName|
 |Cœurs inutilisables|Oui|Cœurs inutilisables|Count|Average|Nombre de cœurs inutilisables|Scenario, ClusterName|
 |Nœuds inutilisables|Oui|Nœuds inutilisables|Count|Average|Le nombre de nœuds inutilisables|Scenario, ClusterName|
+
 
 ## <a name="microsoftbingaccounts"></a>microsoft.bing/accounts
 
@@ -793,26 +808,48 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
+|AudioSecondsTranscribed|Oui|Secondes d’audio transcrites|Nombre|Total|Nombre de secondes transcrites|ApiName, FeatureName, UsageChannel, Region|
+|AudioSecondsTranslated|Oui|Secondes d’audio traduites|Nombre|Total|Nombre de secondes traduites|ApiName, FeatureName, UsageChannel, Region|
 |BlockedCalls|Oui|Appels bloqués|Count|Total|Nombre d’appels ayant dépassé la limite de débit ou de quota.|ApiName, OperationName, Region|
-|CharactersTrained|Oui|Caractères formés|Count|Total|Nombre total de caractères formés.|ApiName, OperationName, Region|
-|CharactersTranslated|Oui|Caractères traduits|Count|Total|Nombre total de caractères dans la requête de texte entrante.|ApiName, OperationName, Region|
+|CharactersTrained|Oui|Caractères entraînés (déprécié)|Nombre|Total|Nombre total de caractères formés.|ApiName, OperationName, Region|
+|CharactersTranslated|Oui|Caractères traduits (déprécié)|Nombre|Total|Nombre total de caractères dans la requête de texte entrante.|ApiName, OperationName, Region|
 |ClientErrors|Oui|Erreurs de client|Count|Total|Nombre d’appels avec erreur côté client (code de réponse HTTP : 4xx).|ApiName, OperationName, Region|
+|ComputerVisionTransactions|Oui|Transactions Vision par ordinateur|Nombre|Total|Nombre de transactions Vision par ordinateur|ApiName, FeatureName, UsageChannel, Region|
+|CustomVisionTrainingTime|Oui|Durée d’entraînement de Custom Vision|Secondes|Total|Durée d’entraînement de Custom Vision|ApiName, FeatureName, UsageChannel, Region|
+|CustomVisionTransactions|Oui|Transactions Custom Vision|Nombre|Total|Nombre de transactions de prédiction Custom Vision|ApiName, FeatureName, UsageChannel, Region|
 |DataIn|Oui|Données entrantes|Octets|Total|Taille des données entrantes en octets.|ApiName, OperationName, Region|
 |DataOut|Oui|Données sortantes|Octets|Total|Taille des données sortantes en octets.|ApiName, OperationName, Region|
+|DocumentCharactersTranslated|Oui|Caractères de documentation traduits|Nombre|Total|Nombre de caractères dans la demande de traduction de documentation.|ApiName, FeatureName, UsageChannel, Region|
+|DocumentCustomCharactersTranslated|Oui|Caractères personnalisés de documentation traduits|Nombre|Total|Nombre de caractères dans la demande de traduction de documentation personnalisé.|ApiName, FeatureName, UsageChannel, Region|
+|FaceImagesTrained|Oui|Images de visage entraînées|Nombre|Total|Nombre d’images entraînées. 1 000 images entraînées par transaction.|ApiName, FeatureName, UsageChannel, Region|
+|FacesStored|Oui|Visages stockés|Nombre|Total|Nombre de visages stockés, calculé au prorata du taux journalier. Le nombre de visages stockés est indiqué quotidiennement.|ApiName, FeatureName, UsageChannel, Region|
+|FaceTransactions|Oui|Transactions du service Visage|Nombre|Total|Nombre d’appels d’API effectués au service Visage|ApiName, FeatureName, UsageChannel, Region|
+|ImagesStored|Oui|Images stockées|Nombre|Total|Nombre d’images Custom Vision stockées.|ApiName, FeatureName, UsageChannel, Region|
 |Latence|Oui|Latence|Millisecondes|Average|Latence en millisecondes.|ApiName, OperationName, Region|
 |LearnedEvents|Oui|Événements appris|Count|Total|Nombre d’événements appris.|IsMatchBaseline, Mode, RunId|
-|MatchedRewards|Oui|Récompenses en correspondance|Count|Total| Nombre de récompenses en correspondance.|Mode, RunId|
+|LUISSpeechRequests|Oui|Demandes de discours LUIS|Nombre|Total|Nombre de demandes de compréhension de conversion de sortie orale en intention LUIS|ApiName, FeatureName, UsageChannel, Region|
+|LUISTextRequests|Oui|Demandes de texte LUIS|Nombre|Total|Nombre de demandes de texte LUIS|ApiName, FeatureName, UsageChannel, Region|
+|MatchedRewards|Oui|Récompenses en correspondance|Count|Total|Nombre de récompenses en correspondance.|Mode, RunId|
+|NumberofSpeakerProfiles|Oui|Nombre de profils d’orateur|Nombre|Total|Nombre de profils d’orateur inscrits. Au prorata horaire.|ApiName, FeatureName, UsageChannel, Region|
 |ObservedRewards|Oui|Récompenses observées|Count|Total|Nombre de récompenses observées.|Mode, RunId|
-|ProcessedCharacters|Oui|Caractères traités|Count|Total|Nombre de caractères.|ApiName, FeatureName, UsageChannel, Region|
+|ProcessedCharacters|Oui|Caractères traités|Count|Total|Nombre de caractères traités par le Lecteur immersif.|ApiName, FeatureName, UsageChannel, Region|
+|ProcessedHealthTextRecords|Oui|Enregistrements texte d’intégrité traités|Nombre|Total|Nombre d’enregistrements texte d’intégrité traités|ApiName, FeatureName, UsageChannel, Region|
+|ProcessedImages|Oui|Images traitées|Count|Total|Nombre d’images traitées|ApiName, FeatureName, UsageChannel, Region|
+|ProcessedPages|Oui|Pages traitées|Nombre|Total|Nombre de pages traitées|ApiName, FeatureName, UsageChannel, Region|
 |ProcessedTextRecords|Oui|Enregistrements texte traités|Count|Total|Nombre d’enregistrements texte.|ApiName, FeatureName, UsageChannel, Region|
 |ServerErrors|Oui|Erreurs de serveur|Count|Total|Nombre d’appels avec erreur interne du service (code de réponse HTTP : 5xx).|ApiName, OperationName, Region|
-|SpeechSessionDuration|Oui|Durée de la session vocale|Secondes|Total|Durée totale de la session vocale en secondes.|ApiName, OperationName, Region|
+|SpeakerRecognitionTransactions|Oui|Transactions de reconnaissance de l’orateur|Nombre|Total|Nombre de transactions de reconnaissance de l’orateur|ApiName, FeatureName, UsageChannel, Region|
+|SpeechModelHostingHours|Oui|Heures d’hébergement du modèle vocal|Nombre|Total|Nombre d’heures d’hébergement du modèle vocal|ApiName, FeatureName, UsageChannel, Region|
+|SpeechSessionDuration|Oui|Durée de la session vocale (déprécié)|Secondes|Total|Durée totale de la session vocale en secondes.|ApiName, OperationName, Region|
 |SuccessfulCalls|Oui|Appels réussis|Count|Total|Nombre d’appels réussis.|ApiName, OperationName, Region|
 |SynthesizedCharacters|Yes|Caractères synthétisés|Nombre|Total|Nombre de caractères.|ApiName, FeatureName, UsageChannel, Region|
+|TextCharactersTranslated|Oui|Caractères de texte traduits|Nombre|Total|Nombre de caractères dans la demande de traduction de texte entrante.|ApiName, FeatureName, UsageChannel, Region|
+|TextCustomCharactersTranslated|Oui|Caractères personnalisés de texte traduits|Nombre|Total|Nombre de caractères dans la demande de traduction de texte personnalisée entrante.|ApiName, FeatureName, UsageChannel, Region|
+|TextTrainedCharacters|Oui|Caractères de texte entraînés|Nombre|Total|Nombre de caractères entraînés à l’aide de la traduction de texte.|ApiName, FeatureName, UsageChannel, Region|
 |TotalCalls|Oui|Nombre total d’appels|Count|Total|Nombre total d’appels.|ApiName, OperationName, Region|
 |TotalErrors|Oui|Nombre total d’erreurs|Count|Total|Nombre total d’appels avec réponse d’erreur (code de réponse HTTP : 4xx ou 5xx).|ApiName, OperationName, Region|
 |TotalTokenCalls|Oui|Total d’appels de jeton|Count|Total|Nombre total d’appels de jeton.|ApiName, OperationName, Region|
-|TotalTransactions|Oui|Nombre total de transactions|Count|Total|Nombre total de transactions.|Aucune dimension|
+|TotalTransactions|Oui|Nombre total de transactions (déprécié)|Nombre|Total|Nombre total de transactions.|Aucune dimension|
 |VoiceModelHostingHours|Yes|Heures d’hébergement du modèle vocal|Nombre|Total|Nombre d’heures.|ApiName, FeatureName, UsageChannel, Region|
 |VoiceModelTrainingMinutes|Yes|Minutes de formation du modèle vocal|Nombre|Total|Nombre de minutes.|ApiName, FeatureName, UsageChannel, Region|
 
@@ -823,7 +860,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |---|---|---|---|---|---|---|
 |APIRequestAuthentication|Non|Demandes d’API d’authentification|Count|Count|Nombre total de demandes sur le point de terminaison d’authentification de Communication Services.|Opération, StatusCode, StatusCodeClass|
 |APIRequestChat|Oui|Demandes d’API de conversation|Count|Count|Nombre total de demandes sur le point de terminaison de conversation de Communication Services.|Opération, StatusCode, StatusCodeClass|
-|APIRequestSMS|Oui|Demandes d’API SMS|Count|Count|Nombre total de demandes sur le point de terminaison SMS de Communication Services.|Opération, StatusCode, StatusCodeClass|
+|APIRequestSMS|Oui|Demandes d’API SMS|Count|Count|Nombre total de demandes sur le point de terminaison SMS de Communication Services.|Operation, StatusCode, StatusCodeClass, ErrorCode|
 
 
 ## <a name="microsoftcomputecloudservices"></a>Microsoft.Compute/cloudServices
@@ -918,6 +955,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |Pourcentage d’IOPS en cache de machine virtuelle consommées|Oui|Pourcentage d’IOPS en cache de machine virtuelle consommées|Pourcentage|Average|Pourcentage d'IOPS de disque en cache consommées par la machine virtuelle|Aucune dimension|
 |Pourcentage de bande passante non mise en cache consommée par la machine virtuelle|Oui|Pourcentage de bande passante non mise en cache consommée par la machine virtuelle|Pourcentage|Average|Pourcentage de bande passante de disque non mise en cache consommée par la machine virtuelle|Aucune dimension|
 |Pourcentage d’IOPS non mises en cache de machine virtuelle consommées|Oui|Pourcentage d’IOPS non mises en cache de machine virtuelle consommées|Pourcentage|Average|Pourcentage d'IOPS de disque non mises en cache consommées par la machine virtuelle|Aucune dimension|
+|VmAvailabilityMetric|Oui|Métrique de disponibilité des machines virtuelles (préversion)|Count|Average|Mesure de la disponibilité des machines virtuels au fil du temps. Remarque : Pour le moment, cette métrique est disponible en préversion pour un petit ensemble de clients, car nous donnons la priorité à l’amélioration de la qualité et de la cohérence des données. À mesure que nous améliorerons notre niveau de données, nous déploierons cette fonctionnalité sur l’ensemble des appareils de manière progressive.|Aucune dimension|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
@@ -1238,6 +1276,8 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |aborted_connections|Oui|Connexions abandonnées|Count|Total|Connexions abandonnées|Aucune dimension|
 |active_connections|Oui|Connexions actives|Count|Maximale|Connexions actives|Aucune dimension|
 |backup_storage_used|Oui|Stockage de sauvegarde utilisé|Octets|Maximale|Stockage de sauvegarde utilisé|Aucune dimension|
+|cpu_credits_consumed|Oui|Crédits de processeur consommés|Count|Maximale|Crédits de processeur consommés|Aucune dimension|
+|cpu_credits_remaining|Oui|Crédits de processeurs restants|Count|Maximale|Crédits de processeurs restants|Aucune dimension|
 |cpu_percent|Oui|Pourcentage de processeur hôte|Pourcentage|Maximale|Pourcentage de processeur hôte|Aucune dimension|
 |io_consumption_percent|Oui|Pourcentage d’E/S|Pourcentage|Maximale|Pourcentage d’E/S|Aucune dimension|
 |memory_percent|Oui|Pourcentage de mémoire hôte|Pourcentage|Maximale|Pourcentage de mémoire hôte|Aucune dimension|
@@ -1388,10 +1428,10 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |d2c.endpoints.latency.serviceBusQueues|Oui|Routage : latence des messages de la file d’attente Service Bus|Millisecondes|Average|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de file d’attente Service Bus.|Aucune dimension|
 |d2c.endpoints.latency.serviceBusTopics|Oui|Routage : latence des messages de la rubrique Service Bus|Millisecondes|Average|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de rubrique Service Bus.|Aucune dimension|
 |d2c.endpoints.latency.storage|Oui|Routage : latence des messages du stockage|Millisecondes|Average|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de stockage.|Aucune dimension|
-|d2c.telemetry.egress.dropped|Oui|Routage : messages de télémétrie annulés|Nombre|Total|Nombre de fois où des messages ont été annulés par le routage IoT Hub en raison de points de terminaison morts. Cette valeur ne compte pas les messages remis à un itinéraire de secours, car les messages annulés n’y sont pas remis.|Aucune dimension|
+|d2c.telemetry.egress.dropped|Oui|Routage : messages de télémétrie annulés |Count|Total|Nombre de fois où des messages ont été annulés par le routage IoT Hub en raison de points de terminaison morts. Cette valeur ne compte pas les messages remis à un itinéraire de secours, car les messages annulés n’y sont pas remis.|Aucune dimension|
 |d2c.telemetry.egress.fallback|Oui|Routage : messages remis à l’itinéraire de secours|Count|Total|Nombre de fois où le routage IoT Hub a remis des messages au point de terminaison associé à l’itinéraire de secours.|Aucune dimension|
 |d2c.telemetry.egress.invalid|Oui|Routage : messages de télémétrie incompatibles|Count|Total|Nombre de fois où le routage IoT Hub n’a pas réussi à remettre des messages en raison d’une incompatibilité avec le point de terminaison. Cette valeur n’inclut pas les nouvelles tentatives.|Aucune dimension|
-|d2c.telemetry.egress.orphaned|Oui|Routage : messages de télémétrie orphelins|Nombre|Total|Nombre de fois où des messages ont été définis comme orphelins par le routage IoT Hub, car ils ne correspondaient à aucune règle d’acheminement (y compris la règle de secours).|Aucune dimension|
+|d2c.telemetry.egress.orphaned|Oui|Routage : messages de télémétrie orphelins |Count|Total|Nombre de fois où des messages ont été définis comme orphelins par le routage IoT Hub car ils ne correspondaient à aucune règle de routage (y compris la règle de secours). |Aucune dimension|
 |d2c.telemetry.egress.success|Oui|Routage : messages de télémétrie remis|Count|Total|Nombre de fois où des messages ont été correctement remis à tous les points de terminaison à l’aide du routage IoT Hub. Si un message est routé vers plusieurs points de terminaison, cette valeur augmente d’une unité pour chaque remise réussie. Si un message est routé plusieurs fois vers le même point de terminaison, cette valeur augmente d’une unité pour chaque remise réussie.|Aucune dimension|
 |d2c.telemetry.ingress.allProtocol|Oui|Tentatives d’envoi de message de télémétrie|Count|Total|Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT|Aucune dimension|
 |d2c.telemetry.ingress.sendThrottle|Oui|Nombre d’erreurs de limitation|Count|Total|Nombre d’erreurs de limitation causées par des limitations de débit d’appareil|Aucune dimension|
@@ -1540,7 +1580,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |---|---|---|---|---|---|---|
 |AddRegion|Oui|Région ajoutée|Count|Count|Région ajoutée|Région|
 |AutoscaleMaxThroughput|Non|Débit maximal de mise à l’échelle automatique|Count|Maximale|Débit maximal de mise à l’échelle automatique|DatabaseName, CollectionName|
-|AvailableStorage|Non|(déconseillé) Stockage disponible|Octets|Total|« Stockage disponible » sera supprimé d’Azure Monitor à la fin du mois de septembre 2023. La taille de stockage de collection Cosmos DB est maintenant illimitée. La seule restriction est que la taille de stockage est de 20 Go par clé de partition logique. Vous pouvez activer PartitionKeyStatistics dans le journal de diagnostic pour connaître la consommation de stockage des principales clés de partition. Pour plus d’informations sur le quota de stockage de Cosmos DB, consultez ce document : [https://docs.microsoft.com/azure/cosmos-db/concepts-limits](/azure/cosmos-db/concepts-limits). À la date où la métrique sera déconseillée, les règles d’alerte qui seront encore définies dessus seront automatiquement désactivées.|CollectionName, DatabaseName, Region|
+|AvailableStorage|Non|(déconseillé) Stockage disponible|Octets|Total|« Stockage disponible » sera supprimé d’Azure Monitor à la fin du mois de septembre 2023. La taille de stockage de collection Cosmos DB est maintenant illimitée. La seule restriction est que la taille de stockage est de 20 Go par clé de partition logique. Vous pouvez activer PartitionKeyStatistics dans le journal de diagnostic pour connaître la consommation de stockage des principales clés de partition. Pour plus d’informations sur le quota de stockage Cosmos DB, consultez ce document : https://docs.microsoft.com/azure/cosmos-db/concepts-limits. À la date où la métrique sera déconseillée, les règles d’alerte qui seront encore définies dessus seront automatiquement désactivées.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|Non|Fermetures de connexion Cassandra|Count|Total|Nombre de connexions de Cassandra fermées, signalées à une granularité d'une minute|APIType, Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|Non|Latence de réplication moyenne du connecteur Cassandra|Millisecondes|Average|Latence de réplication moyenne du connecteur Cassandra|Aucune dimension|
 |CassandraConnectorReplicationHealthStatus|Non|État d’intégrité de la réplication du connecteur Cassandra|Count|Count|État d’intégrité de la réplication du connecteur Cassandra|NotStarted, ReplicationInProgress, Error|
@@ -1823,9 +1863,6 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |IoTConnectorMeasurementIngestionLatencyMs|Oui|Latence moyenne de la phase de regroupement|Millisecondes|Average|Délai entre le moment où le connecteur IoT a reçu les données de l’appareil et le moment où les données sont traitées par l’étape de conversion FHIR.|Opération, ConnectorName|
 |IoTConnectorNormalizedEvent|Oui|Nombre de messages normalisés|Count|SUM|Nombre total de valeurs normalisées mappées produites par la phase de normalisation du connecteur Azure IoT pour FHIR.|Opération, ConnectorName|
 |IoTConnectorTotalErrors|Oui|Nombre total d'erreurs|Count|SUM|Nombre total d’erreurs consignées par le connecteur Azure IoT pour FHIR|Nom, opération, ErrorType, ErrorSeverity, ConnectorName|
-|ServiceApiErrors|Oui|Erreurs du service|Count|SUM|Nombre total d’erreurs de serveur internes générées par le service.|Protocole, Authentification, Opération, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiLatency|Oui|Latence du service|Millisecondes|Average|Latence de réponse du service.|Protocole, Authentification, Opération, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiRequests|Oui|Service Requests|Count|SUM|Nombre total de demandes reçues par le service.|Protocole, Authentification, Opération, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalErrors|Oui|Nombre total d’erreurs|Count|SUM|Nombre total d’erreurs de serveur internes rencontrées par le service.|Protocole, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalLatency|Oui|Latence totale|Millisecondes|Average|Latence de réponse du service.|Protocol|
 |TotalRequests|Oui|Total de requêtes|Count|SUM|Nombre total de demandes reçues par le service.|Protocol|
@@ -1837,11 +1874,11 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |---|---|---|---|---|---|---|
 |DeviceEvent|Oui|Nombre de messages entrants|Count|SUM|Nombre total de messages reçus par le connecteur Azure IoT pour FHIR avant normalisation.|Operation, ResourceName|
 |DeviceEventProcessingLatencyMs|Oui|Latence moyenne de la phase de normalisation|Millisecondes|Average|Délai moyen entre le moment de l’ingestion d’un événement et le moment où l’événement est traité pour normalisation.|Operation, ResourceName|
-|IoTConnectorTotalErrors|Oui|Nombre total d'erreurs|Count|SUM|Nombre total d’erreurs consignées par le connecteur Azure IoT pour FHIR|Name, Operation, ErrorType, ErrorSeverity, ResourceName|
 |Mesure|Oui|Nombre de mesures|Count|SUM|Nombre de lectures de valeurs normalisées reçues par l’étape de conversion FHIR du connecteur Azure IoT pour FHIR.|Operation, ResourceName|
 |MeasurementGroup|Oui|Nombre de groupes de messages|Count|SUM|Nombre total de regroupements uniques de mesures sur le type, l’appareil, le patient et la période configurée, générés par l’étape de conversion FHIR.|Operation, ResourceName|
 |MeasurementIngestionLatencyMs|Oui|Latence moyenne de la phase de regroupement|Millisecondes|Average|Délai entre le moment où le connecteur IoT a reçu les données de l’appareil et le moment où les données sont traitées par l’étape de conversion FHIR.|Operation, ResourceName|
 |NormalizedEvent|Oui|Nombre de messages normalisés|Count|SUM|Nombre total de valeurs normalisées mappées produites par la phase de normalisation du connecteur Azure IoT pour FHIR.|Operation, ResourceName|
+|TotalErrors|Oui|Nombre total d'erreurs|Count|SUM|Nombre total d’erreurs consignées par le connecteur Azure IoT pour FHIR|Name, Operation, ErrorType, ErrorSeverity, ResourceName|
 
 
 ## <a name="microsofthybridnetworknetworkfunctions"></a>microsoft.hybridnetwork/networkfunctions
@@ -1973,7 +2010,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |CacheUtilization|Oui|Utilisation du cache|Pourcentage|Average|Niveau d’utilisation dans l’étendue du cluster|Aucune dimension|
 |CacheUtilizationFactor|Yes|Facteur d’utilisation du cache|Pourcentage|Average|Différence en pourcentage entre le nombre actuel d’instances et le nombre optimal d’instances (par utilisation du cache)|Aucune dimension|
 |ContinuousExportMaxLatenessMinutes|Oui|Retard max. pour l’exportation continue|Count|Maximale|Retard (en minutes) signalé par les travaux d’exportation continue dans le cluster|Aucune dimension|
-|ContinuousExportNumOfRecordsExported|Oui|Exportation continue du nombre d’enregistrements exportés|Nombre|Total|Nombre d’enregistrements exportés, déclenchés pour chaque artefact de stockage écrit pendant l’opération d’exportation|ContinuousExportName, Database|
+|ContinuousExportNumOfRecordsExported|Oui|Exportation continue : nombre d’enregistrements exportés|Count|Total|Nombre d’enregistrements exportés, déclenchés pour chaque artefact de stockage écrit pendant l’opération d’exportation|ContinuousExportName, Database|
 |ContinuousExportPendingCount|Oui|Nombre en attente d’exportations continues|Count|Maximale|Nombre de travaux d’exportation continue en attente prêts pour l’exécution|Aucune dimension|
 |ContinuousExportResult|Oui|Résultat de l’exportation continue|Count|Count|Indique si l’exportation continue a réussi ou échoué|ContinuousExportName, Result, Database|
 |UC|Oui|UC|Pourcentage|Average|Niveau d’utilisation de l’UC|Aucune dimension|
@@ -2192,6 +2229,13 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |EgressBandwidth|Non|Bande passante en sortie|BitsPerSecond|Average|Sortie de la bande passante en bits par seconde.|Aucune dimension|
 |Demandes|Oui|Demandes|Count|Total|Demandes à un point de terminaison de streaming.|OutputFormat, HttpStatusCode, ErrorCode|
 |SuccessE2ELatency|Oui|Latence de réussite de bout en bout|Millisecondes|Average|Latence moyenne des demandes réussies, en millisecondes.|OutputFormat|
+
+
+## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
+
+|Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ReceivedBytes|Oui|Octets reçus|Octets|Total|Nombre d’octets reçus par le nœud de pipeline.|PipelineTopology, Pipeline, Node|
 
 
 ## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft.MixedReality/remoteRenderingAccounts
@@ -2856,6 +2900,14 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |ScanTimeTaken|Oui|Durée de l’analyse|Secondes|Total|Indique la durée totale d’analyse en secondes.|Aucune dimension|
 
 
+## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
+
+|Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BackupHealthEvent|Oui|Événements d’intégrité de la sauvegarde (préversion)|Count|Count|Nombre d’événements d’intégrité liés à l’intégrité des travaux de sauvegarde|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
+|RestoreHealthEvent|Oui|Événements d’intégrité de la restauration (préversion)|Count|Count|Nombre d’événements d’intégrité liés à l’intégrité des travaux de restauration|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
+
+
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -2879,8 +2931,8 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Latence|Oui|Données de latence des demandes HTTP entrantes|Count|Average|Données de latence des demandes HTTP entrantes|Méthode, Espace de noms, RequestRegion, ResourceType, Microsoft.SubscriptionId|
-|Trafic|Oui|Trafic|Count|Average|Trafic HTTP|RequestRegion, StatusCode, StatusCodeClass, ResourceType, Espaces de noms, Microsoft.SubscriptionId|
+|Latence|Non|Latence|Secondes|Average|Données de latence pour toutes les demandes adressées à Azure Resource Manager|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft.SubscriptionId|
+|Trafic|Non|Trafic|Count|Count|Données de trafic pour toutes les demandes adressées à Azure Resource Manager|IsCustomerOriginated, Method, Namespace, RequestRegion, ResourceType, StatusCode, StatusCodeClass, Microsoft.SubscriptionId|
 
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
@@ -2919,23 +2971,6 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |WSXNS|Non|Utilisation de la mémoire (déprécié)|Pourcentage|Maximale|Métrique d’utilisation de la mémoire de l’espace de noms Service Bus Premium Cette métrique est déconseillée. Utilisez la métrique d’utilisation de la mémoire (NamespaceMemoryUsage) à la place.|Réplica|
 
 
-## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
-
-|Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|ActualCpu|Non|ActualCpu|Count|Average|Utilisation réelle du processeur en millicoeurs|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|ActualMemory|Non|ActualMemory|Octets|Average|Utilisation réelle de la mémoire en octets|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|AllocatedCpu|Non|AllocatedCpu|Count|Average|Processeur alloué à ce conteneur en millicoeurs|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|AllocatedMemory|Non|AllocatedMemory|Octets|Average|Mémoire allouée à ce conteneur en Mo|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|ApplicationStatus|Non|ApplicationStatus|Count|Average|État de l'application Service Fabric Mesh|ApplicationName, Status|
-|ContainerStatus|Non|ContainerStatus|Count|Average|État du conteneur dans l'application Service Fabric Mesh|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName, Status|
-|CpuUtilization|Non|CpuUtilization|Pourcentage|Average|Utilisation du processeur pour ce conteneur en pourcentage de AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|MemoryUtilization|Non|MemoryUtilization|Pourcentage|Average|Utilisation du processeur pour ce conteneur en pourcentage de AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|RestartCount|Non|RestartCount|Count|Average|Nombre de redémarrage d'un conteneur dans l'application Service Fabric Mesh|ApplicationName, Status, ServiceName, ServiceReplicaName, CodePackageName|
-|ServiceReplicaStatus|Non|ServiceReplicaStatus|Count|Average|État d’intégrité d’un réplica de service dans l'application Service Fabric Mesh|ApplicationName, Status, ServiceName, ServiceReplicaName|
-|ServiceStatus|Non|ServiceStatus|Count|Average|État d’intégrité d’un service dans l'application Service Fabric Mesh|ApplicationName, Status, ServiceName|
-
-
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -2970,17 +3005,6 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |virtual_core_count|Oui|Nombre de cœurs virtuels|Count|Average|Nombre de cœurs virtuels|Aucune dimension|
 
 
-## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
-
-|Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|database_dtu_consumption_percent|Non|Pourcentage DTU|Pourcentage|Average|Pourcentage DTU|DatabaseResourceId, ElasticPoolResourceId|
-|database_storage_used|Non|Espace de données utilisé|Octets|Average|Espace de données utilisé|DatabaseResourceId, ElasticPoolResourceId|
-|dtu_consumption_percent|Oui|Pourcentage DTU|Pourcentage|Average|Pourcentage DTU|ElasticPoolResourceId|
-|dtu_used|Oui|DTU utilisé|Count|Average|DTU utilisé|DatabaseResourceId|
-|storage_used|Oui|Espace de données utilisé|Octets|Average|Espace de données utilisé|ElasticPoolResourceId|
-
-
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -3000,8 +3024,9 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |cpu_percent|Oui|Pourcentage UC|Pourcentage|Average|Pourcentage UC|Aucune dimension|
 |cpu_used|Oui|UC utilisée|Count|Average|UC utilisée. S’applique aux bases de données basées sur vCore.|Aucune dimension|
 |deadlock|Oui|Blocages|Count|Total|Interblocages. Non applicable aux entrepôts de données.|Aucune dimension|
-|delta_num_of_bytes_read|Yes|Lectures de données distantes|Octets|Total|IOPS des lectures de données. Les unités sont en IOPS, ce qui équivaut à des octets divisés par 8 192.|Aucune dimension|
-|delta_num_of_bytes_written|Yes|Écritures de journaux à distance|Octets|Total|IOPS des écritures de journaux. Les unités sont en IOPS, ce qui équivaut à des octets divisés par 8 192.|Aucune dimension|
+|delta_num_of_bytes_read|Yes|Lectures de données distantes|Octets|Total|Lectures de données distantes, en octets|Aucune dimension|
+|delta_num_of_bytes_total|Oui|Nombre total d’octets distants lus et écrits|Octets|Total|Nombre total d’octets distants lus et écrits par calcul|Aucune dimension|
+|delta_num_of_bytes_written|Yes|Écritures de journaux à distance|Octets|Total|Écritures de journaux distants, en octets|Aucune dimension|
 |diff_backup_size_bytes|Oui|Taille de stockage de sauvegarde différentielle|Octets|Maximale|Taille de stockage de sauvegarde différentielle cumulée. S’applique aux bases de données basées sur vCore. Ne s'applique pas aux bases de données Hyperscale.|Aucune dimension|
 |dtu_consumption_percent|Oui|Pourcentage DTU|Pourcentage|Average|Pourcentage DTU. S’applique aux bases de données basées sur DTU.|Aucune dimension|
 |dtu_limit|Oui|Limite DTU|Count|Average|Limite DTU. S’applique aux bases de données basées sur DTU.|Aucune dimension|
@@ -3466,7 +3491,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |AverageResponseTime|Oui|Temps de réponse moyen (déconseillé)|Secondes|Average|Temps moyen, en secondes, nécessaire à l’application pour traiter les requêtes. Pour WebApps et FunctionApps.|Instance|
 |BytesReceived|Oui|Données entrantes|Octets|Total|Quantité de bande passante entrante, en Mio, consommée par l’application. Pour WebApps et FunctionApps.|Instance|
 |BytesSent|Oui|Données sortantes|Octets|Total|Quantité de bande passante sortante, en Mio, consommée par l’application. Pour WebApps et FunctionApps.|Instance|
-|CpuTime|Oui|Temps processeur|Secondes|Total|Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, Voir https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (Temps processeur et pourcentage UC). Pour WebApps uniquement.|Instance|
+|CpuTime|Oui|Temps processeur|Secondes|Total|Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (Temps processeur et pourcentage UC). Pour WebApps uniquement.|Instance|
 |CurrentAssemblies|Oui|Assemblys actuels|Count|Average|Nombre d’assemblys actuellement chargés dans tous les AppDomains dans cette application. Pour WebApps et FunctionApps.|Instance|
 |FileSystemUsage|Oui|Utilisation de systèmes de fichiers|Octets|Average|Pourcentage du quota de systèmes de fichiers consommé par l’application. Pour WebApps et FunctionApps.|Aucune dimension|
 |FunctionExecutionCount|Oui|Nombre d’exécutions de fonctions|Count|Total|Nombre d’exécutions de fonctions. Pour FunctionApps uniquement.|Instance|
@@ -3510,7 +3535,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |AverageResponseTime|Oui|Temps de réponse moyen (déconseillé)|Secondes|Average|Temps moyen, en secondes, nécessaire à l’application pour traiter les requêtes.|Instance|
 |BytesReceived|Oui|Données entrantes|Octets|Total|Quantité de bande passante entrante, en Mio, consommée par l’application.|Instance|
 |BytesSent|Oui|Données sortantes|Octets|Total|Quantité de bande passante sortante, en Mio, consommée par l’application.|Instance|
-|CpuTime|Oui|Temps processeur|Secondes|Total|Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, Voir https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (Temps processeur et pourcentage UC).|Instance|
+|CpuTime|Oui|Temps processeur|Secondes|Total|Temps processeur, en secondes, consommée par l’application. Pour plus d’informations sur cette métrique, consultez https://aka.ms/website-monitor-cpu-time-vs-cpu-percentage (Temps processeur et pourcentage UC).|Instance|
 |CurrentAssemblies|Oui|Assemblys actuels|Count|Average|Nombre d’assemblys actuellement chargés dans tous les AppDomains dans cette application.|Instance|
 |FileSystemUsage|Oui|Utilisation de systèmes de fichiers|Octets|Average|Pourcentage du quota de systèmes de fichiers consommé par l’application.|Aucune dimension|
 |FunctionExecutionCount|Oui|Nombre d’exécutions de fonctions|Count|Total|Nombre d’exécutions de fonctions|Instance|
@@ -3554,6 +3579,24 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |FunctionHits|Oui|FunctionHits|Count|Total|FunctionHits|Instance|
 |SiteErrors|Oui|SiteErrors|Count|Total|SiteErrors|Instance|
 |SiteHits|Oui|SiteHits|Count|Total|SiteHits|Instance|
+
+
+## <a name="wandiscofusionmigrators"></a>Wandisco.Fusion/migrators
+
+|Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BytesPerSecond|Oui|Octets par seconde.|BytesPerSecond|Average|Vitesse de débit, en octets/seconde, utilisée pour un outil de migration.||
+|DirectoriesCreatedCount|Oui|Nombre de répertoires créés|Nombre|Total|Cela fournit une vue dynamique du nombre de répertoires qui ont été créés dans le cadre d’une migration.||
+|FileMigrationCount|Oui|Nombre de fichiers de migration|Nombre|Total|Cela fournit un total cumulé du nombre de fichiers ayant été migrés.||
+|InitialScanDataMigratedInBytes|Oui|Données d’analyse initiales migrées, en octets|Octets|Total|Cela permet de voir le nombre total d’octets qui ont été transférés dans un nouvel outil de migration suite à l’analyse initiale du système de fichiers local. Toutes les données qui sont ajoutées à la migration après la migration de l’analyse initiale ne sont PAS incluses dans cette métrique.||
+|LiveDataMigratedInBytes|Oui|Données actives migrées, en octets|Nombre|Total|Fournit un total cumulé des données active qui ont été modifiées en raison de l’activité du client depuis le début de la migration.||
+|MigratorCPULoad|Oui|Charge processeur de l’outil de migration|Pourcentage|Average|Consommation du processeur par le processus de l’outil de migration.||
+|NumberOfExcludedPaths|Oui|Nombre de chemins exclus|Nombre|Total|Fournit le nombre cumulé des chemins qui ont été exclus de la migration en raison de règles d’exclusion.||
+|NumberOfFailedPaths|Oui|Nombre de chemins ayant échoué|Nombre|Total|Nombre de chemins dont la migration a échoué.||
+|SystemCPULoad|Oui|Charge processeur du système|Pourcentage|Average|Consommation totale du processeur.||
+|TotalMigratedDataInBytes|Oui|Quantité totale de données migrées, en octets|Octets|Total|Cela fournit une vue des octets correctement migrés pour un outil de migration donné||
+|TotalTransactions|Oui|Nombre total de transactions|Count|Total|Cela fournit un total cumulé des transactions de données pour lesquelles l’utilisateur peut être facturé.||
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

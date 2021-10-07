@@ -1,15 +1,15 @@
 ---
-author: ccompy
+author: madsd
 ms.service: app-service-web
 ms.topic: include
 ms.date: 10/01/2020
-ms.author: ccompy
-ms.openlocfilehash: 1c3542332fbdad13d56a141d677e91b68f7e99d0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.author: madsd
+ms.openlocfilehash: 8d4c2968e3b21269d233f584747856804f8ff9c6
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524269"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128641924"
 ---
 * Les systèmes multilocataires qui prennent en charge l’ensemble des plans de tarification, excepté « Isolé ».
 * La fonctionnalité App Service Environment qui opère un déploiement dans votre réseau virtuel et prend en charge les applications à plan tarifaire Isolé.
@@ -19,7 +19,7 @@ La fonctionnalité d’intégration au réseau virtuel est utilisée dans les ap
 L’intégration au réseau virtuel permet à votre application d’accéder aux ressources de votre réseau virtuel, sans pour autant accorder d’accès privé entrant à votre application à partir du réseau virtuel. L’accès aux sites privés fait référence au fait de rendre une application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. L’intégration au réseau virtuel sert uniquement à passer des appels sortants de votre application vers votre réseau virtuel. La fonctionnalité d’intégration au réseau virtuel se comporte différemment lorsqu’elle est utilisée avec un réseau virtuel situé dans la même région et dans d’autres régions. La fonctionnalité d’intégration au réseau virtuel présente deux variantes :
 
 * **Intégration au réseau virtuel régional** : Quand vous vous connectez à des réseaux virtuels Azure Resource Manager dans la même région, vous devez disposer d’un sous-réseau dédié dans le réseau virtuel avec lequel vous vous intégrez.
-* **Intégration au réseau virtuel avec passerelle obligatoire** : Lors de la connexion à des réseaux virtuels dans d’autres régions ou à un réseau virtuel classique dans la même région, vous avez besoin d’une passerelle de réseau virtuel Azure approvisionnée dans le réseau virtuel cible.
+* **Intégration au réseau virtuel avec passerelle obligatoire** : Lors de la connexion directe à des réseaux virtuels dans d’autres régions ou à un réseau virtuel classique dans la même région, vous avez besoin d’une passerelle de réseau virtuel Azure provisionnée dans le réseau virtuel cible.
 
 Les fonctionnalités d’intégration au réseau virtuel :
 

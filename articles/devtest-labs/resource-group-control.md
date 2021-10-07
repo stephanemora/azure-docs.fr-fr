@@ -1,14 +1,14 @@
 ---
-title: Spécifier un groupe de ressources pour les machines virtuelles dans Azure DevTest Labs | Microsoft Docs
+title: Spécifier un groupe de ressources pour des machines virtuelles
 description: Découvrez comment spécifier un groupe de ressources pour les machines virtuelles dans Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 8b7b331f505864edb5fd2b2cca2f56d9d6349db3
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: f8800674ca7d324037d026142cff41b4fbd018d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112282742"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128635429"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Spécifier un groupe de ressources pour les machines virtuelles de labo dans Azure DevTest Labs
 

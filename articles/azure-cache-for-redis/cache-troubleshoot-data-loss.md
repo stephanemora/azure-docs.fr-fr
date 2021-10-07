@@ -1,17 +1,17 @@
 ---
 title: Résoudre les problèmes de perte de données dans Azure Cache pour Redis
 description: Découvrez comment résoudre les problèmes de perte de données avec Azure Cache for Redis, tels que la perte partielle de clés, l’expiration des clés ou la perte complète des clés.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 3ae2d392e7349124012d782112ac873808512dbd
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: 02424338967d9a8bb376ba72938f30a4e217a83d
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113136505"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537431"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Résoudre les problèmes de perte de données dans Azure Cache pour Redis
 

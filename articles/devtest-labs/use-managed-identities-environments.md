@@ -1,14 +1,14 @@
 ---
-title: Utiliser des identités managées Azure pour créer des environnements dans DevTest Labs | Microsoft Docs
+title: Utiliser des identités managées Azure pour déployer des environnements
 description: Découvrez comment utiliser des identités managées dans Azure pour déployer des environnements dans un labo dans Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 4a8afd74014cb940be17d9a84168e8bfe7daff67
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 29ebda2920dc6fce5596d9b8b535ef014fd2240e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854681"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595963"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Utiliser des identités managées Azure pour déployer des environnements dans un labo 
 

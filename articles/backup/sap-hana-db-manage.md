@@ -3,12 +3,12 @@ title: Gérer les bases de données SAP HANA sauvegardées sur des machines virt
 description: Dans cet article, découvrez les tâches courantes de gestion et de supervision des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 54d3341a83873ad3cc50815f04a0b252bb44438e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d514a8f790f906a4830672dc726c03ad2cf41a2c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101703764"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128662245"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gérer et superviser des bases de données SAP HANA sauvegardées
 
@@ -85,6 +85,10 @@ Ces sauvegardes complètes figurent aussi dans la liste des points de restaurati
 #### <a name="restore"></a>Restaurer
 
 Les restaurations déclenchées à partir de clients HANA natifs (à l’aide de **Nackint**) pour restaurer sur la même machine peuvent être [surveillées](#monitor-manual-backup-jobs-in-the-portal) à partir de la page **Travaux de sauvegarde**.
+
+#### <a name="delete"></a>Supprimer
+
+L’opération de suppression native dans HANA **n’est pas** prise en charge par Sauvegarde Azure, car la stratégie de sauvegarde détermine le cycle de vie des sauvegardes dans le coffre Azure Recovery Services.
 
 ### <a name="run-sap-hana-native-client-backup-to-local-disk-on-a-database-with-azure-backup-enabled"></a>Exécuter une sauvegarde de client natif SAP HANA sur le disque local d’une base de données avec Sauvegarde Azure activé
 

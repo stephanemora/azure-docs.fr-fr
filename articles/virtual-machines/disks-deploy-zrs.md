@@ -1,25 +1,25 @@
 ---
-title: Déployer un disque managé ZRS (préversion)
+title: Déployer un disque managé ZRS
 description: Découvrez comment déployer un disque managé qui utilise le stockage redondant interzone (ZRS).
 author: roygara
 ms.author: rogarana
-ms.date: 07/12/2021
+ms.date: 09/01/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 7afa1a5416651dc7e93ff354e63fefb259ea81b4
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: 23629a5a15603697eb1feb6e964e63754fbed14c
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113667258"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426726"
 ---
-# <a name="deploy-a-managed-disk-that-uses-zone-redundant-storage-preview"></a>Déployer un disque managé qui utilise le stockage redondant interzone (préversion)
+# <a name="deploy-a-managed-disk-that-uses-zone-redundant-storage"></a>Déployer un disque managé qui utilise le stockage redondant interzone
 
-Cet article explique comment déployer un disque qui utilise le stockage redondant interzone (ZRS) comme option de redondance (préversion). ZRS réplique votre disque managé Azure de façon synchrone dans trois zones de disponibilité Azure au sein de la région sélectionnée. Chaque zone de disponibilité est un emplacement physique distinct avec une alimentation, un refroidissement et une mise en réseau indépendants.
+Cet article explique comment déployer un disque qui utilise le stockage redondant interzone (ZRS) comme option de redondance. ZRS réplique votre disque managé Azure de façon synchrone dans trois zones de disponibilité Azure au sein de la région sélectionnée. Chaque zone de disponibilité est un emplacement physique distinct avec une alimentation, un refroidissement et une mise en réseau indépendants.
 
-Pour obtenir des informations conceptuelles sur ZRS, consultez [Stockage redondant interzone pour les disques managés (préversion)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview)
+Pour obtenir des informations conceptuelles sur ZRS, consultez [Stockage redondant interzone pour les disques managés](disks-redundancy.md#zone-redundant-storage-for-managed-disks)
 
 ## <a name="limitations"></a>Limites
 

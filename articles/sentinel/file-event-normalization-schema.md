@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: da4412d81dfaf6bb88b62aee26dfcd4cfd2402db
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d5928cf93aed6e1a887be07f2befd27df9a8e276
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810139"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407833"
 ---
 # <a name="azure-sentinel-file-event-normalization-schema-reference-public-preview"></a>Informations de référence sur le schéma de normalisation des événements de fichier Azure Sentinel (préversion publique)
 
@@ -139,7 +139,7 @@ Par exemple : `JohnDoe` (**intervenant**) utilise `Windows File Explorer` (**pr
 |---------------|--------------|------------|-----------------|
 | **ActingProcessCommandLine** |Facultatif  |Chaîne  | Ligne de commande utilisée pour exécuter le processus agissant. <br><br>Exemple : `"choco.exe" -v` |
 |**ActingProcessGuid** |Facultatif     | Chaîne     |  Identificateur unique (GUID) généré du processus agissant. Permet d’identifier le processus entre les systèmes.  <br><br> Exemple : `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
-| **ActingProcessId**| Obligatoire    | Integer        | ID de processus (PID) du processus agissant.<br><br>Exemple : `48610176`           <br><br>**Remarque** : Le type est défini en tant que *chaîne* pour la prise en charge de différents systèmes. Cependant, sur Windows et Linux cette valeur doit être numérique. <br><br>Si vous utilisez un ordinateur Windows ou Linux et avez utilisé un type différent, assurez-vous de convertir les valeurs. Par exemple, si vous avez utilisé une valeur hexadécimale, convertissez-la en valeur décimale.    |
+| **ActingProcessId**| Obligatoire    | Chaîne        | ID de processus (PID) du processus agissant.<br><br>Exemple : `48610176`           <br><br>**Remarque** : Le type est défini en tant que *chaîne* pour la prise en charge de différents systèmes. Cependant, sur Windows et Linux cette valeur doit être numérique. <br><br>Si vous utilisez un ordinateur Windows ou Linux et avez utilisé un type différent, assurez-vous de convertir les valeurs. Par exemple, si vous avez utilisé une valeur hexadécimale, convertissez-la en valeur décimale.    |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Facultatif     | Chaîne     |   Nom du processus agissant. Ce nom est généralement dérivé de l’image ou du fichier exécutable utilisé pour définir le code et les données initiaux mappés dans l’espace d’adressage virtuel du processus.<br><br>Exemple : `C:\Windows\explorer.exe`  |
 |**Processus**| Alias| | Alias de [ActingProcessName](#actingprocessname)|
 | <a name="actoruserid"></a>**ActorUserId**    | Recommandé  | Chaîne     |   ID unique de l’**intervenant**. L’ID spécifique dépend du système qui génère l’événement. Pour plus d’informations, consultez [L’entité utilisateur](normalization-about-schemas.md#the-user-entity).  <br><br>Exemple : `S-1-5-18`    |

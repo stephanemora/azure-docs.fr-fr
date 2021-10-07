@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: f79325270dcd33cb451bd1f540ef60e0b1647f4d
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 872e55781a55ac15f960e0111f4b197ab380598d
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122694511"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279124"
 ---
 # <a name="import-your-training-data-into-machine-learning-studio-classic-from-various-data-sources"></a>Importer vos données de formation dans Machine Learning Studio (classique) à partir de différentes sources de données
 
@@ -153,7 +153,7 @@ Les sources de données en ligne prises en charge sont détaillées dans le tabl
 > En règle générale, les comptes de stockage Azure que vous avez peut-être créés avant que cette option de service ne soit disponible ne devraient pas être affectés.
 > Si vous avez besoin de créer un nouveau compte, sélectionnez **Classique** comme modèle de déploiement, ou utilisez Resource Manager et, comme **Type de compte**, sélectionnez **Usage général** plutôt que **Stockage Blob**.
 >
-> Pour plus d’informations, consultez [Stockage Blob Azure : niveaux de stockage chauds et froids](../../storage/blobs/storage-blob-storage-tiers.md).
+> Pour plus d’informations, consultez [Stockage Blob Azure : niveaux de stockage chauds et froids](../../storage/blobs/access-tiers-overview.md).
 
 ### <a name="supported-online-data-sources"></a>Sources de données en ligne prises en charge
 Le module **Importer les données** de Machine Learning Studio (classique) prend en charge les sources de données suivantes :

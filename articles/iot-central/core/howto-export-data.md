@@ -2,18 +2,18 @@
 title: Exporter des données à partir d'Azure IoT Central | Microsoft Docs
 description: Comment utiliser la nouvelle exportation de données pour exporter vos données IoT vers Azure et des destinations cloud personnalisées.
 services: iot-central
-author: viv-liu
-ms.author: viviali
+author: dominicbetts
+ms.author: dobett
 ms.date: 06/04/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 0435fece7394c0a1494e51581bce263cbf1e068a
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4006a144dfba6a0332c69d160943294b3447ae7f
+ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461176"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129153574"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exporter des données IoT vers des destinations cloud à l'aide des fonctionnalités d'exportation de données
 
@@ -140,14 +140,14 @@ Maintenant que vous disposez d'une destination vers laquelle exporter vos donné
     |--------------|------------------|
     |Télémétrie|<ul><li>Filtrer par nom d’appareil, identité d'appareil et modèle d’appareil et indiquez si l’appareil est simulé</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie correspondant aux conditions de filtre</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie des appareils dont les propriétés correspondent aux conditions de filtre</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement la télémétrie contenant des *propriétés de message* correspondant à la condition de filtre. Les *propriétés de message* (également appelées *propriétés d’application*) sont envoyées dans un ensemble de paires clé-valeur sur chaque message de télémétrie éventuellement envoyé par des appareils qui utilisent les kits de développement logiciel (SDK) d’appareil. Pour créer un filtre de propriété de message, entrez la clé de la propriété de message que vous recherchez, et spécifiez une condition. Seuls les messages de télémétrie dont les propriétés correspondent à la condition de filtre spécifiée sont exportés. [En savoir plus sur les propriétés d’application dans des documents IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
     |Modifications de la propriété|<ul><li>Filtrer par nom d’appareil, identité d'appareil et modèle d’appareil et indiquez si l’appareil est simulé</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements de propriété correspondant aux conditions de filtre</li></ul>|
-    |Connectivité des appareils|<ul><li>Filtrer par nom d’appareil, identité d'appareil et modèle d’appareil et indiquez si l’appareil est simulé</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements des appareils dont les propriétés correspondent aux conditions de filtre</li></ul>|
+    |Connectivité des appareils|<ul><li>Filtrer par nom d’appareil, ID d’appareil, modèle d’appareil, organisations et indiquer si l’appareil est simulé</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements des appareils dont les propriétés correspondent aux conditions de filtre</li></ul>|
     |Cycle de vie de l’appareil|<ul><li>Filtrer par nom d’appareil, identité d’appareil, modèle d’appareil et indiquez si l’appareil est approvisionné, activé ou simulé</li><li>Filtrer le flux de façon à ce qu’il contienne uniquement les changements des appareils dont les propriétés correspondent aux conditions de filtre</li></ul>|
     |Cycle de vie de modèle d’appareil|<ul><li>Filtrer par modèle d’appareil</li></ul>|
     
 1. Si vous le souhaitez, vous pouvez également enrichir les messages exportés avec des métadonnées supplémentaires dans les paires clé-valeur. Les enrichissements suivants sont disponibles pour les types d’exportation de données de télémétrie, de modification des propriétés, de connectivité des appareils et de cycle de vie des appareils : <a name="DataExportEnrichmnents"></a>
     - **Chaîne personnalisée** : Ajoute une chaîne statique personnalisée à chaque message. Entrez n’importe quelle clé, puis entrez une valeur de chaîne.
     - **Propriété**, qui ajoute à chaque message ce qui suit :
-       - Métadonnées d’appareil, telles que le nom d’appareil, le nom du modèle d’appareil, s’il est activé, approvisionné activé et simulé
+       - Métadonnées d’appareil, par exemple nom de l’appareil, nom du modèle d’appareil, informations relatives à l’activation, aux organisations, au provisionnement et à la simulation.
        - Valeur actuelle de la propriété rapportée d’appareil ou de la propriété de cloud à chaque message. Si le message exporté provient d'un appareil qui ne dispose pas de la propriété spécifiée, l'enrichissement ne s'applique pas à ce message.
 
 1. Ajoutez une nouvelle destination ou ajoutez une destination que vous avez déjà créée. Sélectionnez le lien **Créer** et ajoutez les informations suivantes :

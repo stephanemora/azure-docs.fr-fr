@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 07/20/2021
 ms.author: mesrivas
 ms.reviewer: jrasnick, wiassaf
-ms.openlocfilehash: 7e54c654428d86e77f3bad3a92ade0c33a278856
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 55585013df7c0fde6cb2eea1a9598d494cb4b2cb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225053"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583634"
 ---
 # <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Chiffrement pour les espaces de travail Azure Synapse Analytics
 
@@ -33,7 +33,7 @@ La première couche de chiffrement pour les services Azure est activée avec les
 Cette section vous permet de mieux comprendre la façon dont le chiffrement à clé gérée par le client est activé et appliqué dans les espaces de travail Synapse. Ce chiffrement utilise des clés existantes ou de nouvelles clés générées dans Azure Key Vault. Une clé unique est utilisée pour chiffrer toutes les données d’un espace de travail. Les espaces de travail Synapse prennent en charge les clés RSA de 2048 et 3072 octets, ainsi que les clés RSA-HSM.
 
 > [!NOTE]
-> Les espaces de travail Synapse ne prennent pas en charge l’utilisation de clés EC, EC-HSM, RSA-HSM et oct-HSM pour le chiffrement. 
+> Les espaces de travail Synapse ne prennent pas en charge l’utilisation de clés EC, EC-HSM et oct-HSM pour le chiffrement. 
 
 Les données des composants Synapse suivants sont chiffrées à l’aide de la clé gérée par le client configurée au niveau de l’espace de travail :
 * Pools SQL
@@ -101,3 +101,4 @@ SQL Transparent Data Encryption (TDE) est disponible pour les Pools SQL dédiés
 
 [Utiliser des stratégies Azure intégrées pour implémenter la protection du chiffrement pour les espaces de travail Synapse](../policy-reference.md)
 
+[Créer un coffre de clés Azure et une clé à l’aide d’un modèle ARM](../../key-vault/keys/quick-create-template.md)

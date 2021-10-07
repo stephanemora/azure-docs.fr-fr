@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 55e3f464f4494f6afa52b90eb50a1c1c66e6756f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: aefbd7c64ba243166a2122426a31f8a3996dd97d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674620"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361353"
 ---
 # <a name="authorize-access-to-blobs-using-azure-active-directory"></a>Autoriser l’accès aux blobs avec Azure Active Directory
 
@@ -67,7 +67,7 @@ RBAC Azure fournit un certain nombre de rôles intégrés pour autoriser l’ac
 
 Pour savoir comment attribuer un rôle intégré Azure à un principal de sécurité, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](../blobs/assign-azure-role-data-access.md). Pour apprendre à lister les rôles RBAC Azure et leurs autorisations, consultez [Lister les définitions de rôles Azure](../../role-based-access-control/role-definitions-list.md).
 
-Pour plus d’informations sur la définition des rôles intégrés pour le Stockage Azure, consultez [Comprendre les définitions de rôles](../../role-based-access-control/role-definitions.md#management-and-data-operations). Pour plus d’informations sur la création de rôles personnalisés Azure, consultez [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md).
+Pour plus d’informations sur la définition des rôles intégrés pour le Stockage Azure, consultez [Comprendre les définitions de rôles](../../role-based-access-control/role-definitions.md#control-and-data-actions). Pour plus d’informations sur la création de rôles personnalisés Azure, consultez [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md).
 
 Seuls les rôles explicitement définis pour l’accès aux données permettent à un principal de sécurité d’accéder aux données de blob. Des rôles intégrés tels que **Propriétaire**, **Contributeur** et **Contributeur de comptes de stockage** permettent à un principal de sécurité de gérer un compte de stockage, mais n’accordent pas l’accès aux données de blob dans ce compte via Azure AD. Toutefois, si un rôle comprend **Microsoft.Storage/storageAccounts/listKeys/action**, un utilisateur auquel ce rôle est affecté peut accéder aux données du compte de stockage via l’autorisation de la clé partagée avec les clés d’accès au compte. Pour plus d’informations, consultez [Choisir comment autoriser l’accès à des données blobs dans le portail Azure](../../storage/blobs/authorize-data-operations-portal.md).
 

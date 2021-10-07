@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 03/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9f1ace00356583dbb6102317e3d157fb58682710
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: c97d046208b2a2364b38ffd1e01ff0a9d25f7eeb
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832576"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271931"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gérer les variables dans Azure Automation
 
@@ -53,7 +53,7 @@ Vous pouvez stocker plusieurs valeurs dans une seule variable en créant un tabl
 
 ## <a name="powershell-cmdlets-to-access-variables"></a>Applets de commande PowerShell pour accéder aux variables
 
-Les applets de commande du tableau suivant créent et gèrent les variables Automation avec Windows PowerShell. Elles sont fournies dans le cadre des [modules Az](modules.md#az-modules).
+Les applets de commande du tableau suivant créent et gèrent les variables Automation avec Windows PowerShell. Elles sont fournies dans le cadre des modules Az.
 
 | Applet de commande | Description |
 |:---|:---|

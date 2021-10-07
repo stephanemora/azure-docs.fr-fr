@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/30/2021
 ms.author: jianleishen
-ms.openlocfilehash: 45f4f771d2cb289b9893bb8243add86df36ac915
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: edd54b8b6f96244bef4b78ab191e4b265a753e69
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124815035"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360489"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-or-synapse-analytics"></a>Copier des données depuis Office 365 avec Azure Data Factory ou Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -51,9 +51,6 @@ Si c’est la première fois que vous demandez des données pour ce contexte (un
 
 Cliquez [ici](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) pour obtenir des informations sur la façon dont l’approbateur peut approuver les demandes d’accès aux données et cliquez [ici](/graph/data-connect-pam) pour obtenir une explication sur l’intégration globale à Privileged Access Management, notamment comment configurer le groupe d’approbateurs d’accès aux données.
 
-## <a name="policy-validation"></a>Validation de la stratégie
-
-Si ADF est créé dans le cadre d’une application managée et que les affectations de stratégies Azure sont effectuées sur des ressources au sein du groupe de ressources de gestion, puis pour chaque exécution de l’activité de copie, ADF vérifie que les affectations de stratégie sont appliquées. Cliquez [ici](/graph/data-connect-policies#policies) pour obtenir la liste des stratégies prises en charge.
 
 ## <a name="getting-started"></a>Prise en main
 

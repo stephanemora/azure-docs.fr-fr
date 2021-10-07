@@ -1,17 +1,17 @@
 ---
 title: Configurer la persistance des données - Azure Cache pour Redis Premium
 description: Découvrez comment configurer et gérer la persistance des données pour vos instances de Cache Redis Azure de niveau Premium
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: e167abee5bd98e5dcef702ae4629cd886cb75967
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 472f06a10e76cb557bd5e9350c94a352ebad17b3
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114465727"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538128"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>Configurer la persistance des données pour une instance Azure Cache pour Redis Premium
 

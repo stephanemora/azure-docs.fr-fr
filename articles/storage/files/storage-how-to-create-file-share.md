@@ -9,12 +9,12 @@ ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions, devx-track-azurepowershell
-ms.openlocfilehash: f1eae19bda4fae0744483a647eed47104e366e52
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: ac4d4ba50b9da33040fc1da27775d72c0156cba2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867047"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547764"
 ---
 # <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 Pour créer un partage de fichiers Azure, vous devez répondre à trois questions se rapportant la façon dont vous allez l’utiliser :
@@ -211,9 +211,9 @@ Les partages de fichiers Standard peuvent être déployés sur l’un des niveau
 
 La propriété **quota** du partage de fichiers Premium est légèrement différente de celle du partage de fichiers Standard :
 
-- Pour les partages de fichiers Standard, il s’agit d’une limite supérieure du partage de fichiers Azure, au-delà de laquelle les utilisateurs finals ne peuvent pas aller. Si aucun quota n’est spécifié, le partage de fichiers standard peut s’étendre jusqu’à 100 Tio ou 5 Tio si la propriété de partages de fichiers volumineux n’est pas définie pour un compte de stockage. Si lors de la création de votre compte de stockage vous n’avez pas activé les partages de fichiers volumineux, consultez [Activer les partages de fichiers volumineux sur un compte existant](#enable-large-files-shares-on-an-existing-account) pour savoir comment activer les partages de fichiers de 100 Tio. Les performances (E/S par seconde et Mbits/s) que vous recevez dépendent du quota que vous avez défini.
+- Pour les partages de fichiers Standard, il s’agit d’une limite supérieure du partage de fichiers Azure, au-delà de laquelle les utilisateurs finals ne peuvent pas aller. Si aucun quota n’est spécifié, le partage de fichiers standard peut s’étendre jusqu’à 100 Tio ou 5 Tio si la propriété de partages de fichiers volumineux n’est pas définie pour un compte de stockage. Si lors de la création de votre compte de stockage vous n’avez pas activé les partages de fichiers volumineux, consultez [Activer les partages de fichiers volumineux sur un compte existant](#enable-large-files-shares-on-an-existing-account) pour savoir comment activer les partages de fichiers de 100 Tio. 
 
-- Pour les partages de fichiers Premium, le quota signifie la **taille approvisionnée**. La taille provisionnée est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Pour plus d’informations sur la planification d’un partage de fichiers Premium, consultez [Provisionnement des partages de fichiers Premium](understanding-billing.md#provisioned-model).
+- Pour les partages de fichiers Premium, le quota signifie la **taille approvisionnée**. La taille provisionnée est la quantité pour laquelle vous êtes facturé, quelle que soit l’utilisation faite. Les e/s par seconde et le débit disponibles sur un partage de fichiers Premium sont basés sur la taille configurée. Pour plus d’informations sur la planification d’un partage de fichiers Premium, consultez [Provisionnement des partages de fichiers Premium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 Si vous venez de créer votre compte de stockage, vous pouvez accéder à celui-ci depuis l’écran de déploiement en sélectionnant **Accéder à la ressource**. Une fois dans le compte de stockage, sélectionnez l’entrée **Partages de fichiers** dans la table des contenus pour le compte de stockage.

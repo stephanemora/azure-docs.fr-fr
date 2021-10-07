@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/17/2021
-ms.openlocfilehash: 4b8907b9a50be3bd6021b72dd05c7d5445da03f7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6c9580a051a7473e7009cf8df8d2ea8759834683
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128660200"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351176"
 ---
 # <a name="exchange-b2b-messages-between-partners-using-workflows-in-azure-logic-apps"></a>Échangez des messages B2B entre partenaires en utilisant des workflows dans Azure Logic Apps
 
@@ -27,15 +27,15 @@ Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Lo
 
 * Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) dans laquelle vous définissez et stockez les artefacts, comme les partenaires commerciaux, les contrats, les certificats, etc., à utiliser dans vos workflows d’intégration d’entreprise et B2B. Cette ressource doit remplir les conditions suivantes :
+* Une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) dans laquelle vous définissez et stockez les artefacts, comme les parties, les contrats, les certificats, etc., à utiliser dans vos flux de travail d’intégration d’entreprise et B2B. Cette ressource doit remplir les conditions suivantes :
 
   * Associé au même abonnement Azure que votre ressource d’application logique.
 
   * Existe dans le même emplacement ou la même région Azure que votre ressource d’application logique.
 
-  * Si vous utilisez le [type de ressource **Application logique (Consommation)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration requiert un [lien vers votre ressource d’application logique](logic-apps-enterprise-integration-create-integration-account.md#link-account) avant de pouvoir utiliser des artefacts dans votre workflow.
+  * Si vous utilisez le [type de ressource **Application logique (Consommation)**](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration requiert un [lien vers votre ressource d’application logique](logic-apps-enterprise-integration-create-integration-account.md#link-account) avant de pouvoir utiliser des artefacts dans votre workflow.
 
-  * Si vous utilisez le [type de ressource **Application logique (Standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration n’a pas besoin d’un lien vers votre ressource d’application logique, mais il est toujours nécessaire pour stocker d’autres artefacts, comme les partenaires, contrats et certificats, ainsi que pour utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) ou [EDIFACT](logic-apps-enterprise-integration-edifact.md). Votre compte d’intégration doit toujours répondre à d’autres exigences, comme l’utilisation du même abonnement Azure et la présence dans le même emplacement que votre ressource d’application logique.
+  * Si vous utilisez le [type de ressource **Application logique (Standard)**](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration n’a pas besoin d’un lien vers votre ressource d’application logique, mais il est toujours nécessaire pour stocker d’autres artefacts, comme les partenaires, contrats et certificats, ainsi que pour utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) ou [EDIFACT](logic-apps-enterprise-integration-edifact.md). Votre compte d’intégration doit toujours répondre à d’autres exigences, comme l’utilisation du même abonnement Azure et la présence dans le même emplacement que votre ressource d’application logique.
 
   > [!NOTE]
   > Actuellement, seul le type de ressource **Application logique (Consommation)** prend en charge les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). Le type de ressource **Application logique (Standard)** n’inclut pas les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
@@ -375,7 +375,7 @@ Ajoutez maintenant l’action **Décoder le message X12**.
 
 Vous avez maintenant terminé la configuration de votre workflow d’application logique B2B. Dans une application réelle, vous pourriez stocker les données X12 décodées dans une application métier ou un magasin de données. Par exemple, consultez la documentation suivante :
 
-* [Se connecter aux systèmes SAP à partir d’Azure Logic Apps](/logic-apps-using-sap-connector.md)
+* [Se connecter aux systèmes SAP à partir d’Azure Logic Apps](logic-apps-using-sap-connector.md)
 
 * [Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps](../connectors/connectors-sftp-ssh.md)
 

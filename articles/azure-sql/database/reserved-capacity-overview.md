@@ -12,12 +12,12 @@ author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
 ms.date: 10/13/2020
-ms.openlocfilehash: 4e4f1ba5d15921f30319b001474351d637a0e338
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: e3ff2d28aa3e2b54a43c65057f59a21534806e87
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413750"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658808"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Réduire les coûts des ressources grâce à une capacité de réserve – Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -58,7 +58,7 @@ Par exemple, supposez que vous exécutiez un pool élastique Gen5 à usage gén�
     | Champ      | Description|
     |------------|--------------|
     |Abonnement|Abonnement utilisé pour payer la réservation de capacité. Les coûts initiaux de la réservation sont facturés au mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un contrat Entreprise (numéro de l’offre MS-AZR-0017P ou MS-AZR-0148P) ou un contrat individuel avec paiement à l’utilisation (numéro de l’offre MS-AZR-0003P ou MS-AZR-0023P). Pour un abonnement d’entreprise, les frais sont déduits du Paiement anticipé Azure (précédemment appelé « solde de l’engagement financier ») de l’inscription ou facturés comme dépassement. Pour un abonnement individuel avec paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture sur l’abonnement.|
-    |Étendue       |L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez <br/><br/>**Partagée**, la remise de réservation vCore est appliquée à la base de données ou instance managée en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.<br/><br/>**Abonnement unique**, la remise de réservation vCore est appliquée à la base de données ou instance managée incluse dans cet abonnement. <br/><br/>**Groupe de ressources unique**, la remise de réservation est appliquée à la base de données ou instance managée incluse dans l’abonnement sélectionné et dans le groupe de ressources sélectionné au sein de cet abonnement.|
+    |Étendue       |L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez <br/><br/>**Partagée**, la remise de réservation vCore est appliquée à la base de données ou instance managée en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.<br/><br/>**Abonnement unique**, la remise de réservation vCore est appliquée à la base de données ou instance managée incluse dans cet abonnement. <br/><br/>**Groupe de ressources unique**, la remise de réservation est appliquée à la base de données ou instance managée incluse dans l’abonnement sélectionné et dans le groupe de ressources sélectionné au sein de cet abonnement.</br></br>**Groupe d’administration**, la remise de réservation est appliquée à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation.|
     |Région      |Région Azure couverte par la réservation de capacité.|
     |Type de déploiement|Type de ressource SQL pour laquelle vous voulez acheter la réservation.|
     |Niveau de performances|Niveau de service pour les bases de données ou instances managées. |
@@ -79,7 +79,7 @@ La flexibilité de la taille vCore vous permet de vous mettre à l’échelle au
 
 ## <a name="limitation"></a>Limitation
 
-Vous ne pouvez pas réserver de bases de données basées sur des DTU (De base, Standard ou Premium) dans SQL Database.
+Vous ne pouvez pas réserver de bases de données basées sur des DTU (De base, Standard ou Premium) dans SQL Database. La tarification de la capacité réservée est uniquement prise en charge pour les fonctionnalités et les produits qui sont dans l’état de Disponibilité générale. 
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 

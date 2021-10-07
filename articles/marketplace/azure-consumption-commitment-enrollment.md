@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/27/2021
-ms.openlocfilehash: a3fe8707df1270f8571ad86fe07406376f71ab93
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 7f784773ff2f29b7f5b9c244811f818861f5ae42
+ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524930"
+ms.lasthandoff: 09/27/2021
+ms.locfileid: "129080616"
 ---
 # <a name="azure-consumption-commitment-enrollment"></a>Inscription à Azure Consumption Commitment
 
@@ -35,6 +35,27 @@ Une offre doit remplir les conditions suivantes pour être inscrite au programme
 
 ## <a name="how-to-see-if-your-offer-is-enrolled-in-the-macc-program"></a>Comment savoir si votre offre est inscrite au programme MACC
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### <a name="workspaces-view"></a>[Vues d’espaces de travail](#tab/workspaces-view)
+
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
+1. Dans la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+
+    [ ![Illustre la vignette des offres de la Place de marché dans la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. Dans la page des offres de la Place de marché, sélectionnez l’offre à voir.
+1. Dans la page **Vue d’ensemble de l’offre**, sous la section **Programmes de la place de marché**, l’état relatif à **Microsoft Azure Consumption Commitment** indique _Inscrite_ ou _Non inscrite_.
+
+    [ ![Capture d’écran de la page Vue d’ensemble de l’offre dans l’Espace partenaires indiquant l’état relatif à Microsoft Azure Consumption Commitment.](media/azure-benefit/enrolled-workspaces.png) ](media/azure-benefit/enrolled-workspaces.png#lightbox)
+
+    ***Figure 1 : Offre inscrite au programme MACC***
+
+> [!NOTE]
+> L’état relatif au programme MACC pour les offres publiées dans la Place de marché Azure est mis à jour tous les lundis. Ainsi, si vous publiez une offre qui répond aux conditions d’éligibilité du programme MACC, l’état correspondant dans l’Espace partenaires n’affichera l’état Inscrite que le lundi suivant.
+
+#### <a name="current-view"></a>[Affichage actuel](#tab/current-view)
+
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 1. Dans le menu de navigation de gauche, sélectionnez **Place de marché commerciale** > **Vue d’ensemble**.
 1. Dans la section **Offres**, sélectionnez l’offre que vous souhaitez consulter.
@@ -46,6 +67,8 @@ Une offre doit remplir les conditions suivantes pour être inscrite au programme
 
 > [!NOTE]
 > L’état relatif au programme MACC pour les offres publiées dans la Place de marché Azure est mis à jour tous les lundis. Ainsi, si vous publiez une offre qui répond aux conditions d’éligibilité du programme MACC, l’état correspondant dans l’Espace partenaires n’affichera l’état Inscrite que le lundi suivant.
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

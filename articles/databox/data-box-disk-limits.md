@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 08/02/2021
+ms.date: 09/28/2021
 ms.author: alkohli
-ms.openlocfilehash: a176b971d830fcabf3eba1767b9ac198a4418f0b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ab759cf81ce95ca7cf61a3777092fd92040baf6c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563318"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208473"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites d’Azure Data Box Disk
 
@@ -46,8 +46,9 @@ Pour les informations les plus récentes sur les limites du service de stockage 
 
 - Ne copiez pas les données directement sur les disques. Copiez les données dans des dossiers *ObjetBlobDeBlocs*, *ObjetBlobDePages* et *FichierAzure* créés au préalable.
 - Un dossier présent sous *ObjetBlobDeBlocs* et *ObjetBlobDePages* est un conteneur. Par exemple, les conteneurs sont créés sous la forme suivante *ObjetBlobDeBlocs/conteneur* et *ObjetBlobDePages/conteneur*.
-- Si un dossier porte le même nom qu’un conteneur existant, le contenu du dossier est fusionné avec le contenu du conteneur. Les fichiers ou les objets blobs qui ne se trouvent pas déjà dans le cloud sont ajoutés au conteneur. Si un fichier ou un objet blob porte le même nom qu’un fichier ou un objet blob qui se trouve déjà dans le conteneur, le fichier ou l’objet blob existant est remplacé.
-- Chaque fichier écrit dans les partages *ObjetBlobDeBlocs* et *ObjetBlobDePages* est chargé respectivement en tant qu’objet blob de blocs et objet blob de pages.
+- Si un dossier porte le même nom qu’un conteneur existant, le contenu du dossier est fusionné avec le contenu du conteneur. Les fichiers ou les objets BLOB qui ne se trouvent pas déjà dans le Cloud sont ajoutés au conteneur. Si un fichier ou un objet blob porte le même nom qu’un fichier ou un objet blob qui se trouve déjà dans le conteneur, le fichier ou l’objet blob existant est remplacé.
+- Chaque fichier écrit dans les partages *ObjetBlobDeBlocs* et *ObjetBlobDePages* est chargé respectivement en tant qu’objet blob de blocs et objet blob de pages. 
+- La hiérarchie des fichiers est conservée lors du chargement vers le cloud pour les objets BLOB et les Azure Files. Par exemple, vous avez copié un fichier à ce chemin d’accès : `<container folder>\A\B\C.txt`. Ce fichier est chargé vers le même chemin d'accès virtuel dans le cloud.
 - Une hiérarchie de répertoires vides (sans fichiers) créée sous les dossiers *ObjetBlobDeBlocs* et *ObjetBlobDePages* n’est pas chargée.
 - Pour améliorer les performances lors des chargements de données, nous vous recommandons d’[activer les partages de fichiers volumineux sur le compte de stockage et d’augmenter la capacité de partage à 100 Tio](../../articles/storage/files/storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account). Les partages de fichiers volumineux sont uniquement pris en charge pour les comptes de stockage avec un stockage localement redondant (LRS).
 - S’il se produit des erreurs lors du chargement des données sur Azure, un journal des erreurs est créé dans le compte de stockage cible. Le chemin menant à ce journal des erreurs est disponible dans le portail à l’issue du chargement ; vous pouvez consulter ce journal afin de procéder aux corrections. Ne supprimez pas les données de la source sans avoir préalablement vérifié les données chargées.

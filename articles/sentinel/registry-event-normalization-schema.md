@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/01/2021
 ms.author: bagol
-ms.openlocfilehash: 0e38c7171d523f8b73df1b53750710bc170e1e81
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d10d1e9408db7ab29a7fe01e5bf906e9023124c7
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781265"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407225"
 ---
 # <a name="azure-sentinel-registry-event-normalization-schema-reference-public-preview"></a>Référence de schéma de normalisation d’événement du registre Azure Sentinel (préversion publique)
 
@@ -133,10 +133,10 @@ Pour plus d’informations, consultez [Structure du Registre](/windows/win32/sys
 | **ActorUserIdType**| Recommandé  | Chaîne     |  Type de l’ID stocké dans le champ [ActorUserId](#actoruserid). Pour plus d’informations, consultez [L’entité utilisateur](normalization-about-schemas.md#the-user-entity). <br><br>Exemple : `SID`         |
 | **ActorSessionId** | Facultatif     | Chaîne     |   ID unique de la session de connexion de l’Intervenant.  <br><br>Exemple : `999`<br><br>**Remarque** : le type est défini en tant que *chaîne* pour la prise en charge de différents systèmes. Cependant, sur Windows cette valeur doit être numérique. Si vous utilisez un ordinateur Windows et que la source envoie un type différent, assurez-vous de convertir la valeur. Par exemple, si la source envoie une valeur hexadécimale, convertissez-la en valeur décimale.   |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Facultatif     | Chaîne     |   Nom de fichier du fichier image du processus en cours. Ce nom est généralement considéré comme le nom du processus.  <br><br>Exemple : `C:\Windows\explorer.exe`  |
-| **ActingProcessId**| Obligatoire    | Integer        | ID de processus (PID) du processus agissant.<br><br>Exemple : `48610176`           <br><br>**Remarque** : Le type est défini en tant que *chaîne* pour la prise en charge de différents systèmes. Cependant, sur Windows et Linux cette valeur doit être numérique. <br><br>Si vous utilisez un ordinateur Windows ou Linux et avez utilisé un type différent, assurez-vous de convertir les valeurs. Par exemple, si vous avez utilisé une valeur hexadécimale, convertissez-la en valeur décimale.    |
+| **ActingProcessId**| Obligatoire    | Chaîne        | ID de processus (PID) du processus agissant.<br><br>Exemple : `48610176`           <br><br>**Remarque** : Le type est défini en tant que *chaîne* pour la prise en charge de différents systèmes. Cependant, sur Windows et Linux cette valeur doit être numérique. <br><br>Si vous utilisez un ordinateur Windows ou Linux et avez utilisé un type différent, assurez-vous de convertir les valeurs. Par exemple, si vous avez utilisé une valeur hexadécimale, convertissez-la en valeur décimale.    |
 | **ActingProcessGuid**              | Facultatif     | Chaîne     |  Identificateur unique (GUID) généré du processus en cours d’action.   <br><br> Exemple : `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
 | **ParentProcessName**              | Facultatif     | Chaîne     |  Nom de fichier du fichier image du processus parent. Cette valeur est généralement considérée comme le nom du processus.    <br><br>Exemple : `C:\Windows\explorer.exe` |
-| **ParentProcessId**| Obligatoire    | Integer    | ID de processus (PID) du processus parent.   <br><br>     Exemple : `48610176`    |
+| **ParentProcessId**| Obligatoire    | Chaîne    | ID de processus (PID) du processus parent.   <br><br>     Exemple : `48610176`    |
 | **ParentProcessGuid**              | Facultatif     | Chaîne     |  Identificateur unique (GUID) généré du processus parent.     <br><br> Exemple : `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 
 

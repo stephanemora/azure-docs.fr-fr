@@ -7,24 +7,31 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: d3cffbe9ebaa71ca5c4dfd8681159f83ff06eb38
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: d1ac031b79372987561651044e81da2e3d2d2779
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821463"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128636480"
 ---
 # <a name="monitoring-virtual-wan"></a>Supervision de Virtual WAN
 
-Vous pouvez surveiller Azure Virtual WAN à l’aide d’Azure Monitor. Virtual WAN est un service de mise en réseau qui combine un grand nombre de fonctionnalités de mise en réseau, de sécurité et de routage pour fournir une interface opérationnelle unique. Les passerelles VPN Virtual WAN, les passerelles ExpressRoute et Pare-feu Azure disposent de journaux et de métriques disponibles via Azure Monitor.
+Vous pouvez surveiller Azure Virtual WAN à l’aide d’Azure Monitor. Virtual WAN est un service de mise en réseau qui combine un grand nombre de fonctionnalités de mise en réseau, de sécurité et de routage pour fournir une interface opérationnelle unique. Les passerelles VPN Virtual WAN, les passerelles ExpressRoute et Pare-feu Azure disposent de journaux et de métriques disponibles via Azure Monitor. 
 
 Cet article présente les métriques et les diagnostics disponibles via le portail. Les métriques sont légères et peuvent prendre en charge des scénarios en quasi-temps réel, ce qui les rend utiles pour les alertes et la détection rapide de problèmes.
 
 ### <a name="monitoring-secured-hub-azure-firewall"></a>Surveillance du hub sécurisé (Pare-feu Azure) 
 
-Vous pouvez surveiller le hub sécurisé à l'aide des journaux du Pare-feu Azure. Vous pouvez également utiliser les journaux d’activité pour auditer les opérations sur les ressources de Pare-feu Azure.
-
 Si vous avez choisi de sécuriser votre hub virtuel à l'aide du Pare-feu Azure, les journaux et métriques pertinents sont disponibles ici : [Journaux et métriques du Pare-feu Azure](../firewall/logs-and-metrics.md).
+Vous pouvez superviser le hub sécurisé à l’aide des journaux et métriques du Pare-feu Azure. Vous pouvez également utiliser les journaux d’activité pour auditer les opérations sur les ressources de Pare-feu Azure.
+Pour chaque réseau Azure Virtual WAN que vous sécurisez et convertissez en hub sécurisé, un objet de ressource de pare-feu explicite est créé dans le groupe de ressources où se trouve le hub. 
+
+:::image type="content" source="./media/monitor-virtual-wan/firewall-resources-portal.png" alt-text="Capture d’écran montrant une ressource de pare-feu dans le groupe de ressources du hub vWAN.":::
+
+La configuration des diagnostics et de la journalisation doit être effectuée à partir de lui en accédant à l’onglet **Paramètre de diagnostic** :
+
+:::image type="content" source="./media/monitor-virtual-wan/firewall-diagnostic-settings.png" alt-text="Capture d’écran montrant les paramètres de diagnostic du pare-feu.":::
+
 
 ## <a name="metrics"></a>Mesures
 
@@ -53,11 +60,11 @@ Les métriques suivantes sont disponibles pour les passerelles VPN site à site 
 | Métrique | Description|
 | --- | --- |
 | **État du pair BGP** | État de connectivité BGP par homologue et par instance.|
-| **Itinéraires BGP publiés** | Nombre d’itinéraires publiés par homologue et par instance.|
-| **Itinéraires BGP appris** | Nombre d’itinéraires appris par homologue et par instance.|
+| **Itinéraires BGP publiés** | Nombre de routes publiées par pair et par instance.|
+| **Itinéraires BGP appris** | Nombre de routes apprises par pair et par instance.|
 | **Nombre de préfixes d’adresse de réseau virtuel** | Nombre de préfixes d’adresse de réseau virtuel qui sont utilisés/publiés par la passerelle.|
 
-Vous pouvez consulter les métriques par homologue et métrique d’instance en sélectionnant **Apply splitting** (Appliquer le fractionnement) et en choisissant la valeur par défaut. 
+Vous pouvez consulter les métriques par pair et par instance en sélectionnant **Appliquer la division** et en choisissant la valeur par défaut. 
 
 #### <a name="traffic-flow-metrics"></a>Métrique de flux de circulation
 | Métrique | Description|
@@ -78,7 +85,7 @@ Les métriques suivantes sont disponibles pour les passerelles VPN point à site
 | Métrique | Description|
 | --- | --- |
 | **Bande passante P2S de passerelle** | Bande passante moyenne agrégée point à site d’une passerelle en octets par seconde. |
-| **Nombre de connexions P2S** |Nombre de connexions point à site d’une passerelle. Nombre de connexions point à site d’une passerelle. Pour vous assurer de voir des métriques exactes dans Azure Monitor, sélectionnez **Somme** comme **type d’agrégation** pour **Nombre de connexions P2S**. Vous pouvez également sélectionner **Max** si vous fractionnez également par **Instance**. |
+| **Nombre de connexions P2S** |Nombre de connexions point à site d’une passerelle. Nombre de connexions point à site d’une passerelle. Pour veiller à consulter les métriques exactes dans Azure Monitor, sélectionnez **Somme** comme **type d’agrégation** pour **Nombre de connexions P2S**. Vous pouvez également sélectionner **Max** si vous fractionnez également par **Instance**. |
 | **Nombre d’itinéraires VPN de l’utilisateur** | Nombre d’itinéraires VPN utilisateur configurés sur la passerelle VPN. Cette métrique peut être répartie en itinéraires **statiques** et en itinéraires **dynamiques**.
 
 ### <a name="azure-expressroute-gateways"></a>Passerelles ExpressRoute Azure
@@ -96,11 +103,11 @@ Les étapes suivantes vous aident à localiser et à afficher les métriques :
 
 1. Dans le portail, accédez au hub virtuel qui contient la passerelle.
 
-2. Sélectionnez **VPN (site à site)** pour localiser une passerelle site à site, **ExpressRoute** pour localiser une passerelle ExpressRoute ou **VPN utilisateur (point à site)** pour localiser une passerelle point à site. Sur la page, vous pouvez voir les informations de la passerelle. Copiez ces informations. Vous les utiliserez ultérieurement pour afficher les diagnostics à l’aide d’Azure Monitor.
+2. Sélectionnez **VPN (site à site)** pour localiser une passerelle site à site, **ExpressRoute** pour localiser une passerelle ExpressRoute ou **VPN utilisateur (point à site)** pour localiser une passerelle point à site.
 
 3. Sélectionnez **Métriques**.
 
-   :::image type="content" source="./media/monitor-virtual-wan/metrics.png" alt-text="Capture d'écran d'un volet de VPN site à site dans lequel Afficher dans Azure Monitor est sélectionné.":::
+   :::image type="content" source="./media/monitor-virtual-wan/view-metrics.png" alt-text="Capture d’écran montrant un volet de VPN site à site dans lequel Afficher dans Azure Monitor est sélectionné.":::
 
 4. Dans la page **Métriques**, vous pouvez afficher les métriques qui vous intéressent.
 
@@ -114,9 +121,9 @@ Les diagnostics suivants sont disponibles pour les passerelles VPN site à site 
 
 | Métrique | Description|
 | --- | --- |
-| **Journaux de diagnostic de passerelle** | Diagnostics spécifiques à la passerelle, tels que l’intégrité, la configuration, les mises à jour du service, ainsi que des diagnostics supplémentaires.|
-| **Journaux de diagnostic de tunnel** | Il s’agit de journaux relatifs au tunnel IPsec, tels que les événements de connexion et de déconnexion pour un tunnel IPsec site à site, les associations de sécurité négociées, les raisons de la déconnexion, ainsi que des diagnostics supplémentaires.|
-| **Journaux de diagnostic d’itinéraires** | Il s’agit des journaux relatifs aux événements pour les itinéraires statiques, Border Gateway Protocol, les mises à jour des itinéraires, ainsi que des diagnostics supplémentaires. |
+| **Journaux de diagnostic de passerelle** | Diagnostics propres à la passerelle, comme l’intégrité, la configuration, les mises à jour du service et des diagnostics supplémentaires.|
+| **Journaux de diagnostic de tunnel** | Il s’agit de journaux relatifs au tunnel IPsec, tels que les événements de connexion et de déconnexion pour un tunnel IPsec site à site, les associations de sécurité négociées, les raisons de la déconnexion et des diagnostics supplémentaires.|
+| **Journaux de diagnostic d’itinéraires** | Il s’agit des journaux relatifs aux événements pour les itinéraires statiques, Border Gateway Protocol, les mises à jour des itinéraires et des diagnostics supplémentaires. |
 | **Journaux de diagnostics IKE** | Diagnostics spécifiques à IKE pour les connexions IPsec. |
 
 ### <a name="point-to-site-vpn-gateways"></a>Passerelles VPN point à site
@@ -125,39 +132,55 @@ Les diagnostics suivants sont disponibles pour les passerelles VPN point à site
 
 | Métrique | Description|
 | --- | --- |
-| **Journaux de diagnostic de passerelle** | Diagnostics spécifiques à la passerelle, tels que l’intégrité, la configuration, les mises à jour du service, ainsi que d’autres diagnostics. |
+| **Journaux de diagnostic de passerelle** | Diagnostics spécifiques à la passerelle, tels que l’intégrité, la configuration, les mises à jour du service et d’autres diagnostics. |
 | **Journaux de diagnostics IKE** | Diagnostics spécifiques à IKE pour les connexions IPsec.|
-| **Journaux de diagnostics PS2** | Il s’agit des événements de client et de configuration P2S (point à site) du VPN des utilisateurs. Il s’agit notamment de la connexion/déconnexion des clients, de l’allocation d’adresses de clients VPN, ainsi que d’autres Diagnostics.|
+| **Journaux de diagnostics PS2** | Il s’agit des événements de client et de configuration P2S (point à site) du VPN des utilisateurs. Il s’agit notamment de la connexion/déconnexion des clients, de l’allocation d’adresses de clients VPN et d’autres diagnostics.|
 
-### <a name="view-diagnostic-logs"></a><a name="diagnostic-steps"></a>Afficher les journaux de diagnostic
+### <a name="express-route-gateways"></a>Passerelles Express Route
 
-Les étapes suivantes vous aident à localiser et à afficher les diagnostics :
+Les journaux de diagnostic pour les passerelles Express Route dans Azure Virtual WAN ne sont pas pris en charge.
 
-1. Dans le portail, accédez à votre ressource Virtual WAN. Dans la section **Vue d’ensemble** de la page Virtual WAN du portail, sélectionnez **Essentiels** pour développer la vue et obtenir des informations sur le groupe de ressources. Copiez les informations du groupe de ressources.
+### <a name="view-diagnostic-logs-configuration"></a><a name="diagnostic-steps"></a>Afficher la configuration des journaux de diagnostic
 
-   :::image type="content" source="./media/monitor-virtual-wan/3.png" alt-text="Capture d’écran montrant la section « Vue d’ensemble » avec une flèche pointant vers le bouton « Copier ».":::
+Les étapes suivantes vous permettent de créer, modifier et afficher les paramètres de diagnostic :
 
-2. Accédez à **Surveiller** à partir de la barre de recherche et, dans la section Paramètres, sélectionnez **Paramètres de diagnostic**, puis entrez le groupe de ressources, le type de ressources et les informations sur les ressources. Il s’agit des informations relatives au groupe de ressources que vous avez copiées à l’étape 2 de la section [Afficher les métriques de passerelle](#metrics-steps), plus haut dans cet article.
+1. Dans le portail, accédez à votre ressource Virtual WAN, puis sélectionnez **Hubs** dans le groupe **Connectivité**. 
 
-   :::image type="content" source="./media/monitor-virtual-wan/4.png" alt-text="Capture d’écran montrant la section « Surveillance » avec une flèche pointant vers la liste déroulante « Ressource ».":::
+   :::image type="content" source="./media/monitor-virtual-wan/select-hub.png" alt-text="Capture d’écran montrant la sélection du hub dans le portail vWAN.":::
 
-3. Dans la page des résultats, sélectionnez **+ Ajouter un paramètre de diagnostic**, puis sélectionnez une option. Vous pouvez choisir d’envoyer à Log Analytics, de diffuser vers un Event Hub ou de simplement archiver dans un compte de stockage.
+2. Sous le groupe **Connectivité** à gauche, sélectionnez la passerelle dont vous voulez examiner les diagnostics :
 
-   :::image type="content" source="./media/monitor-virtual-wan/5.png" alt-text="page métriques":::
+   :::image type="content" source="./media/monitor-virtual-wan/select-hub-gateway.png" alt-text="Capture d’écran montrant la section Connectivité du hub.":::
+
+3. Dans la partie droite de la page, cliquez sur le lien **Afficher dans Azure Monitor** à droite de **Journaux**, puis sélectionnez une option. Vous pouvez choisir d’envoyer à Log Analytics, de diffuser vers un Event Hub ou de simplement archiver dans un compte de stockage.
+
+   :::image type="content" source="./media/monitor-virtual-wan/view-hub-gateway-logs.png" alt-text="Capture d’écran de la sélection de l’option Afficher dans Azure Monitor pour les journaux.":::
+
+4. Dans cette page, vous pouvez créer un paramètre de diagnostic ( **+Ajouter un paramètre de diagnostic**) ou en modifier un existant (**Modifier le paramètre**). Vous pouvez choisir d’envoyer les journaux de diagnostic à Log Analytics (comme indiqué dans l’exemple ci-dessous), de les envoyer en streaming vers un hub d’événements, de les envoyer à une solution tierce ou de les archiver dans un compte de stockage.
+
+    :::image type="content" source="./media/monitor-virtual-wan/select-gateway-settings.png" alt-text="Capture d’écran de la sélection des paramètres des journaux de diagnostic.":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Exemple de requête Log Analytics
 
-Les journaux se trouvent dans **Espace de travail Log Analytics Azure**. Vous pouvez configurer une requête dans Log Analytics. L’exemple suivant contient une requête visant à obtenir des diagnostics d’itinéraire site à site.
+Si vous avez choisi d’envoyer les données de diagnostic à un espace de travail Log Analytics, alors vous pouvez utiliser des requêtes de type SQL, comme dans l’exemple ci-dessous, pour examiner les données. Pour plus d’informations, consultez [Langage de requête Log Analytics](/services-hub/health/log_analytics_query_language).
 
-```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
+L’exemple suivant contient une requête visant à obtenir des diagnostics d’itinéraire site à site.
 
-Remplacez les valeurs ci-dessous, après le caractère **==** , si nécessaire.
+`AzureDiagnostics | where Category == "RouteDiagnosticLog"`
+
+Remplacez les valeurs ci-dessous, après **= =** , selon vos besoins en vous reportant aux tableaux figurant dans la section précédente de cet article.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"
 * "P2SDiagnosticLog”
 * "TunnelDiagnosticLog"
 * "RouteDiagnosticLog"
+
+Pour exécuter la requête, vous devez ouvrir la ressource Log Analytics que vous avez configurée pour recevoir les journaux de diagnostic, puis sélectionner **Journaux** sous l’onglet **Général** dans la partie gauche du volet :
+
+:::image type="content" source="./media/monitor-virtual-wan/log-analytics-query-samples.png" alt-text="Exemples de requêtes Log Analytics.":::
+
+Pour obtenir d’autres exemples de requêtes Log Analytics pour la passerelle VPN Azure, à la fois de site à site et de point à site, vous pouvez visiter la page [Résoudre les problèmes de passerelle VPN Azure à l’aide des journaux de diagnostic](../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md). Pour le Pare-feu Azure, un [classeur](../firewall/firewall-workbook.md) est fourni afin de faciliter l’analyse des journaux. En utilisant son interface graphique, il est possible d’examiner les données de diagnostic sans écrire manuellement de requêtes Log Analytics. 
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>Journaux d’activité
 

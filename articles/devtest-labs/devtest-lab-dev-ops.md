@@ -1,14 +1,14 @@
 ---
-title: Intégration d’Azure DevTest Labs et DevOps | Microsoft Docs
+title: Intégration d’Azure DevTest Labs et d’Azure DevOps
 description: Découvrez comment utiliser des labs d’Azure DevTest Labs au sein de pipelines d’intégration continue (CI) / livraison continue (CD) dans un environnement d’entreprise.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9c18df3c651dc3f11bbaaec4e71aea38644dffe1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85481066"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128595082"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Intégration d’Azure DevTest Labs et d’Azure DevOps
 DevOps est une méthodologie de développement de logiciel qui intègre le développement de logiciels (Dev) avec des opérations (Ops) pour un système. Ce système peut fournir de nouvelles fonctionnalités, des mises à jour et des correctifs adaptés aux objectifs de l’entreprise. Cette méthodologie comprend tout, de la conception de nouvelles fonctionnalités basées sur les objectifs, les modèles d’utilisation et les commentaires des clients ; à la résolution, la récupération et le renforcement du système en cas de problèmes. Un composant facilement identifié de cette méthodologie est le pipeline d’intégration continue (CI) / de livraison continue (CD). Un pipeline CI/CD accepte des informations, du code et des ressources d’une validation via une série d’étapes qui incluent la création, le test et le déploiement, afin de générer le système. Cet article se concentre sur les différentes façons d’utiliser efficacement les labs au sein d’un pipeline dans un environnement d’entreprise. 

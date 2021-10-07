@@ -10,12 +10,12 @@ ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 395b3d14571b9cf8ab2080c77aadf686dc8aea29
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7f0c0928a32807844d57eb91a903994a0264e460
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599276"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534387"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurer la réplication d’objets pour des objets blob de blocs
 
@@ -45,7 +45,7 @@ Quand vous configurez la réplication d’objets dans le portail Azure, vous dev
 Pour créer une stratégie de réplication dans le portail Azure, procédez comme suit :
 
 1. Accédez au compte de stockage source dans le portail Azure.
-1. Sous **Service BLOB**, sélectionnez **Réplication d’objet**.
+1. Sous **Gestion des données**, sélectionnez **Réplication d’objets**.
 1. Sélectionnez **Configurer des règles de réplication**.
 1. Sélectionnez le compte de stockage et l’abonnement de destination.
 1. Dans la section **Paires de conteneurs**, sélectionnez un conteneur source dans le compte source et un conteneur de destination dans le compte de destination. Vous pouvez créer jusqu’à 10 paires de conteneurs par stratégie de réplication.

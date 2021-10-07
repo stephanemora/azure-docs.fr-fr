@@ -6,12 +6,12 @@ ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: a456db938d1607565525aea7ab2e9b43bc368aeb
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: d7c73473952bfec537cc26c9f50092a198afc1d5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122525851"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614464"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métriques personnalisées dans Azure Monitor (Préversion)
 
@@ -187,7 +187,7 @@ Une fois les métriques personnalisées envoyées à Azure Monitor, vous pouvez 
 > Pour plus d’informations sur l’affichage des métriques dans le portail Azure, consultez [Bien démarrer avec Azure Metrics Explorer](./metrics-getting-started.md).
 
 ## <a name="supported-regions"></a>Régions prises en charge
-Dans la préversion publique, la publication des métriques personnalisées n’est possible que dans un sous-ensemble de régions Azure. Cette restriction signifie que vous ne pouvez publier des métriques que pour les ressources qui sont situées dans l’une de ces régions. Consultez [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/) pour plus d’informations sur les régions Azure. Le code de région Azure utilisé dans les points de terminaison ci-dessous correspond simplement au nom de la région sans espaces. Le tableau suivant liste l’ensemble des régions Azure prises en charge pour les métriques personnalisées. Il répertorie également les points de terminaison où peuvent être publiées les métriques concernant les ressources situées dans ces régions :
+Dans la préversion publique, la publication des métriques personnalisées n’est possible que dans un sous-ensemble de régions Azure. Cette restriction signifie que vous ne pouvez publier des métriques que pour les ressources qui sont situées dans l’une de ces régions. Consultez [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/) pour plus d’informations sur les régions Azure. Le code de la région Azure utilisé dans les points de terminaison ci-dessous est simplement le nom de la région sans espace blanc. Le tableau suivant répertorie les régions Azure qui prennent en charge les métriques personnalisées. Il répertorie également les points de terminaison où peuvent être publiées les métriques concernant les ressources situées dans ces régions :
 
 |Région Azure |Préfixe du point de terminaison régional|
 |---|---|

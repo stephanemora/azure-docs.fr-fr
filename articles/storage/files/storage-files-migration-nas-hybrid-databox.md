@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/5/2021
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7f60c2e03b666c51769473120097034830f599b4
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: fb7132e0a7b9dc59ac6b047d431acf0e740aba0a
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "114462282"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123430825"
 ---
 # <a name="use-data-box-to-migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-by-using-azure-file-sync"></a>Utiliser Data Box pour migrer de Network Attached Storage (NAS) vers un déploiement cloud hybride avec Azure File Sync
 
@@ -219,6 +219,20 @@ Vous avez terminé la migration d’un partage ou d’un groupe de partages vers
 
 Vous pouvez essayer d’exécuter quelques-unes de ces copies en parallèle. Nous vous recommandons de traiter l’étendue d’un partage de fichiers Azure à la fois.
 
+## <a name="deprecated-option-offline-data-transfer"></a>Option obsolète : « transfert de données hors connexion »
+
+Avant la sortie de la version 13 de l’agent Azure File Sync, l’intégration de Data Box était réalisée par un processus appelé « transfert de données hors connexion ». Ce processus est devenu obsolète. Avec la version 13 de l’agent, il a été remplacé par la procédure bien plus simple et rapide décrite dans cet article. Cependant, si vous le souhaitez, vous pouvez toujours utiliser la fonctionnalité « transfert de données hors connexion » obsolète. Elle est toujours disponible en utilisant un [module PowerShell AFS plus ancien](https://www.powershellgallery.com/packages/Az.StorageSync/1.4.0) spécifique:
+
+```powershell
+Install-Module Az.StorageSync -RequiredVersion 1.4.0
+Import-module Az.StorageSync -RequiredVersion 1.4.0
+# Verify the specific version is loaded:
+Get-module Az.StorageSync
+```
+Vous pouvez ensuite continuer à créer un point de terminaison de serveur à l’aide du même module PowerShell et spécifier un partage de mise en lots dans le processus.
+Si vous avez une migration en cours avec le processus de transfert de données hors connexion, votre migration se poursuivra comme prévu, et vous devrez toujours désactiver ce paramètre une fois la migration terminée.
+La possibilité de démarrer de nouvelles migrations avec ce processus obsolète sera supprimée lors d’une prochaine version de l’agent.
+
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
 Le problème le plus courant est un échec de la commande Robocopy de type « Volume plein » côté Windows Server. Toutes les heures, la hiérarchisation cloud retire le contenu du disque Windows Server local qui a été synchronisé. Son objectif est d’atteindre 99 % d’espace libre sur le volume.
@@ -234,6 +248,6 @@ Pour résoudre les problèmes liés à Azure File Sync, consultez l’article in
 Il y a bien d’autres choses à apprendre sur les partages de fichiers Azure et Azure File Sync. Les articles suivants vous aideront à comprendre les options avancées et les bonnes pratiques. Vous verrez également comment résoudre les problèmes. Ces articles contiennent des liens vers la [documentation sur les partages de fichiers Azure](storage-files-introduction.md), le cas échéant.
 
 * [Vue d’ensemble de la migration](storage-files-migration-overview.md)
-* [Planification d’un déploiement d’Azure File Sync](../file-sync/file-sync-planning.md)
+* [Planification d’un déploiement de synchronisation de fichiers Azure](../file-sync/file-sync-planning.md)
 * [Créer un partage de fichiers](storage-how-to-create-file-share.md)
 * [Résoudre les problèmes d’Azure File Sync](../file-sync/file-sync-troubleshoot.md)

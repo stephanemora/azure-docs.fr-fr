@@ -3,19 +3,19 @@ title: Créer une voix personnalisée Custom Voice - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Pour charger vos données, accédez au portail Custom Voice. Créez ou sélectionnez un projet Custom Voice. Il doit avoir des paramètres régionaux et des propriétés de langue et de sexe adaptés aux données qui seront utilisées pour l’apprentissage de votre voix.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: lajanuar
-ms.openlocfilehash: a380c66159304e8e5fabbc73c8a2c663f7d23c27
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.author: pafarley
+ms.openlocfilehash: 1f444ca13224c27918812c12f0a9e86a50e0b994
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533044"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128644673"
 ---
 # <a name="create-and-use-your-voice-model"></a>Créer et utiliser votre modèle vocal
 
@@ -90,7 +90,7 @@ Dans les **détails des données**, vous pouvez vérifier les détails du jeu d�
 
 Les problèmes sont divisés en trois types. Reportez-vous aux trois tableaux suivants pour vérifier leurs types d’erreurs respectifs.
 
-Les erreurs du premier type listées dans le tableau ci-dessous doivent être corrigées manuellement, sans quoi les données concernées par ces erreurs sont exclues lors de l’entraînement.
+Corrigez manuellement les erreurs du premier type listées dans le tableau ci-dessous, sans quoi les données concernées par ces erreurs sont exclues lors de l’entraînement.
 
 | Category | Nom | Description |
 | --------- | ----------- | --------------------------- |
@@ -140,26 +140,43 @@ Si vous ne corrigez pas les erreurs du troisième type figurant dans le tableau 
 
 Une fois vos fichiers de données validés, vous pouvez les utiliser pour créer votre modèle de voix neuronale personnalisée.
 
-1. Sous l’onglet **Effectuer l’apprentissage du modèle**, cliquez sur **Effectuer l’apprentissage du modèle** pour créer un modèle vocal avec les données que vous avez chargées.
+1. Sous l’onglet **Effectuer l’apprentissage du modèle**, cliquez sur **Entraîner le modèle** pour créer un modèle vocal avec les données que vous avez chargées.
 
 2. Sélectionnez la méthode d’entraînement neuronal pour votre modèle et votre langue cible.
 
 Par défaut, votre modèle vocal est entraîné dans la même langue que vos données d’entraînement. Vous pouvez aussi choisir de créer une langue secondaire (fonctionnalité en préversion) pour votre modèle vocal.  Vérifiez les langues prises en charge pour la voix neuronale personnalisée et la fonctionnalité multilingue : [langue de personnalisation](language-support.md#customization).
+
+L’entraînement des voix neuronales personnalisées n’est pas gratuit. Pour plus d’informations, consultez les [prix](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Cependant, si vous avez des modèles de voix statistiques paramétriques ou concaténés déployés avant le 31/3/2021 avec des ressources vocales S0, des crédits d’entraînement neuronal gratuits sont offerts à votre abonnement Azure, et vous pouvez entraîner gratuitement 5 versions différentes de voix neuronales.
 
 3. Ensuite, choisissez les données à utiliser pour l’apprentissage et spécifiez un fichier d’orateur.
 
 >[!NOTE]
 >- Vous devez sélectionner au moins 300 énoncés pour créer une voix neuronale personnalisée.
 >- Pour entraîner une voix neuronale, vous devez spécifier un profil de talent vocal avec le fichier de consentement audio fourni par le talent vocal qui a accepté que ses données vocales soient utilisées pour entraîner un modèle vocal personnalisé. La voix neuronale personnalisée est disponible avec un accès limité. Veillez à bien comprendre les [conditions de l’IA responsable](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) et [demandez l’accès ici](https://aka.ms/customneural).
->- Dans cette page, vous pouvez également choisir de charger votre script à des fins de test. Le script de test doit être un fichier .txt d’une taille inférieure à 1 Mo. ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE et UTF-16-BE sont des formats d’encodage pris en charge. Chaque paragraphe de l’énoncé produira fera l’objet d’un audio distinct. Si vous préférez combiner toutes les phrases dans un seul audio, incluez-les toutes dans un même paragraphe.
 
-4. Ensuite, entrez un **nom** et une **nescription** pour identifier plus facilement ce modèle.
+4. Ensuite, choisissez votre script de test.
+
+Chaque entraînement va générer automatiquement 100 exemples de fichiers audio pour vous aider à tester le modèle. Si vous le souhaitez, vous pouvez aussi fournir votre propre script de test. Le script de test doit exclure les noms de fichiers (l’ID de chaque énoncé). Si ce n’est pas le cas, ces ID sont prononcés. Voici un exemple d’organisation des énoncés dans un fichier.txt :
+
+```
+This is the waistline, and it's falling.
+We have trouble scoring.
+It was Janet Maslin.
+```
+
+Chaque paragraphe de l’énoncé produira fera l’objet d’un audio distinct. Si vous préférez combiner toutes les phrases dans un seul audio, incluez-les toutes dans un même paragraphe.
+
+>[!NOTE]
+>- Le script de test doit être un fichier .txt d’une taille inférieure à 1 Mo. ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE et UTF-16-BE sont des formats d’encodage pris en charge.  
+>- Les fichiers audio générés sont une combinaison du script de test chargé et du script de test par défaut.
+
+5. Entrez un **Nom** et une **Description** pour identifier plus facilement ce modèle.
 
 Choisissez un nom avec soin. Le nom que vous entrez ici est celui que vous utiliserez pour spécifier la voix dans votre requête de synthèse vocale dans le cadre de l’entrée SSML. Seuls les lettres, les chiffres et quelques caractères de ponctuation comme -, _ et (', ') sont autorisés. Utilisez un nom différent par modèle vocal neuronal.
 
 Le champ **Description** sert souvent à enregistrer les noms des données qui ont été utilisées pour créer le modèle.
 
-5. Passez en revue les paramètres, puis sélectionner **Envoyer** pour commencer l’apprentissage du modèle.
+6. Passez en revue les paramètres, puis sélectionner **Envoyer** pour commencer l’apprentissage du modèle.
 
 > [!NOTE]
 > Les noms audio en double seront retirés de l’apprentissage. Vérifiez que les données que vous sélectionnez ne comportent pas les mêmes noms audio dans plusieurs fichiers .zip.
@@ -172,22 +189,22 @@ L’état indiqué reflète le processus de conversion des données en modèle v
 | ----- | ------- |
 | Traitement en cours | Le modèle vocal est en cours de création. |
 | Opération réussie | Le modèle vocal a été créé et peut être déployé. |
-| Échec | L’entraînement du modèle vocal a échoué pour plusieurs raisons possibles, par exemple, des problèmes inédits de données ou de réseau. |
+| Échec | L’entraînement du modèle vocal a échoué pour plusieurs raisons possibles, par exemple des problèmes non visibles liés aux données ou au réseau. |
 
 La durée d’entraînement varie en fonction de la quantité de données que vous êtes en train d’entraîner. En moyenne, 40 heures de calcul sont nécessaires pour entraîner une voix neuronale personnalisée. 
 
 > [!NOTE]
-> L’entraînement des voix neuronales personnalisées n’est pas gratuit. Consultez les [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) ici. Ceux qui disposent d’un abonnement standard (S0) peuvent, quant à eux, en entraîner trois simultanément. Si vous atteignez la limite, attendez au moins la fin de la formation de l’une de vos polices de la voix, puis réessayez. 
+> Ceux qui disposent d’un abonnement standard (S0) peuvent, quant à eux, en entraîner trois simultanément. Si vous atteignez la limite, attendez au moins la fin de l’entraînement d’un de vos modèles vocaux, puis réessayez. 
 
-6. Une fois que vous avez fini d’entraîner le modèle, vous pouvez passer en revue ses détails.
+7. Une fois que vous avez fini d’entraîner le modèle, vous pouvez passer en revue ses détails.
 
-Chaque formation génère automatiquement 100 exemples de fichiers audio pour vous aider à tester le modèle. Une fois votre modèle vocal créé, vous pouvez le tester avant de procéder à son déploiement.
+Une fois votre modèle vocal créé, vous pouvez utiliser les exemples de fichiers audio pour le tester avant de le déployer pour l’utiliser.
 
 La qualité de la voix dépend de nombreux facteurs, parmi lesquels la taille des données d’entraînement, la qualité de l’enregistrement, la précision du fichier de transcription, la correspondance entre la voix enregistrée dans les données d’entraînement et la personnalité de la voix créée pour le cas d’usage prévu, etc. [Consultez cette page pour en savoir plus sur les capacités et les limites de notre technologie, ainsi que sur les bonnes pratiques permettant d’améliorer la qualité de votre modèle](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 ## <a name="create-and-use-a-custom-neural-voice-endpoint"></a>Créer et utiliser un point de terminaison de voix neuronale personnalisée
 
-Une fois que vous avez créé et testé votre modèle vocal, déployez-le sur un point de terminaison de synthèse vocale personnalisé. Vous pouvez ensuite utiliser ce point de terminaison à la place du point de terminaison habituel quand vous effectuez des requêtes de synthèse vocale par le biais de l’API REST. Votre point de terminaison personnalisé peut être appelé uniquement par l’abonnement que vous avez utilisé pour déployer la police.
+Une fois que vous avez créé et testé votre modèle vocal, déployez-le sur un point de terminaison de synthèse vocale personnalisé. Vous pouvez ensuite utiliser ce point de terminaison à la place du point de terminaison habituel quand vous effectuez des requêtes de synthèse vocale par le biais de l’API REST. Votre point de terminaison personnalisé peut être appelé seulement par l’abonnement que vous avez utilisé pour déployer le modèle.
 
 Vous pouvez effectuer les opérations suivantes pour créer un point de terminaison de voix neuronale personnalisée.
 

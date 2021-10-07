@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/11/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: bf52db4950fd14e15cbd52d94b2e4ffbb9d225bb
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: dc687c2f3d14c2da02fa3ce5b3a3357292977771
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123314545"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648959"
 ---
 # <a name="preview-flexible-orchestration-for-virtual-machine-scale-sets-in-azure"></a>Préversion : Orchestration flexible pour des groupes de machines virtuelles identiques
 
@@ -54,18 +54,16 @@ Avant de pouvoir déployer des groupes de machines virtuelles identiques en mode
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pendant la préversion du mode d’orchestration flexible pour les groupes identiques, utilisez le portail Azure *préversion* lié dans les étapes ci-dessous. 
-
-1. Connectez-vous au portail Azure à l’adresse https://preview.portal.azure.com.
+1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
 1. Accédez à vos **Abonnements**.
-1. Accédez à la page des détails de l’abonnement pour lequel vous souhaitez créer un groupe identique en mode d’orchestration flexible en sélectionnant le nom de l’abonnement.
+1. Accédez à la page des informations de l’abonnement pour lequel vous souhaitez créer un groupe identique en mode d’orchestration Flexible en sélectionnant le nom de l’abonnement.
 1. Dans le menu, sous **Paramètres**, sélectionnez **Fonctionnalités en préversion**.
 1. Sélectionnez les quatre fonctionnalités d’orchestrateur à activer : *VMOrchestratorSingleFD*, *VMOrchestratorMultiFD*, *VMScaleSetFlexPreview* et *SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview*.
 1. Sélectionnez **Inscription**.
 
 Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul. 
 
-1. Dans le menu de gauche, sous **Paramètres**, sélectionnez **Fournisseurs de ressources**.
+1. Dans le menu, sous **Paramètres**, sélectionnez **Fournisseurs de ressources**.
 1. Sélectionnez `Microsoft.compute`.
 1. Sélectionnez **Ré-inscrire**.
 
@@ -86,6 +84,12 @@ L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour v
 Get-AzProviderFeature -FeatureName VMOrchestratorMultiFD -ProviderNamespace Microsoft.Compute
 ```
 
+Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+```
+
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 Utilisez [az feature register](/cli/azure/feature#az_feature_register) pour activer la préversion pour votre abonnement.
 
@@ -102,6 +106,11 @@ L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Pour v
 az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 ```
 
+Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul.
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute
+```
 
 ## <a name="get-started-with-flexible-orchestration-mode"></a>Démarrer avec le mode d’orchestration Flexible
 
@@ -123,22 +132,27 @@ Les groupes de machines virtuelles identiques avec une orchestration flexible fo
 
     Lorsque vous créez une machine virtuelle, vous pouvez spécifier qu’elle est ajoutée à un groupe de machines virtuelles identiques. Une machine virtuelle ne peut être ajoutée à un groupe identique qu’au moment de la création de la machine virtuelle.
 
+Le mode d’orchestration flexible peut être utilisé avec les références SKU de machine virtuelle qui prennent en charge les [mises à jour de préservation de la mémoire ou la migration dynamique](../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), qui comprend 90 % de toutes les machines virtuelles IaaS déployées dans Azure. Globalement, cela comprend des familles de tailles à usage général, comme les machines virtuelles des séries B, D, E et F. Actuellement, le mode flexible ne peut pas orchestrer des références SKU ou familles de machines virtuelles qui ne prennent pas en charge les mises à jour de préservation de la mémoire, notamment des machines virtuelles des séries G, H, L, M et N. Vous pouvez utiliser l’[API des références SKU de ressources de calcul](/rest/api/compute/resource-skus/list) pour déterminer si une référence SKU de machine virtuelle spécifique est prise en charge.
+
+```azurecli-interactive
+az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[name, value]" -o table
+```
 
 ## <a name="explicit-network-outbound-connectivity-required"></a>Connectivité réseau sortante explicite requise 
 
 Pour améliorer la sécurité réseau par défaut, les groupes de machines virtuelles identiques avec une orchestration flexible requièrent que les instances créées implicitement via le profil de mise à l’échelle automatique disposent d’une connectivité sortante définie explicitement à l’aide de l’une des méthodes suivantes : 
 
 - Pour la plupart des scénarios, nous recommandons le service [NAT Gateway attaché au sous-réseau](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
-- Pour les scénarios assortis d’exigences de sécurité élevées ou lors de l’utilisation d’un Pare-feu Azure ou d’une appliance virtuelle réseau, vous pouvez spécifier un itinéraire personnalisé défini par l’utilisateur en tant que tronçon suivant via le pare-feu. 
-- Les instances se trouvent dans le pool principal d’une référence (SKU) standard Azure Load Balancer. 
+- Pour les scénarios assortis d’exigences de sécurité élevées ou lors de l’utilisation d’un Pare-feu Azure ou d’une Appliance virtuelle réseau (NVA), vous pouvez spécifier un Itinéraire personnalisé défini par l’utilisateur en tant que tronçon suivant via le pare-feu. 
+- Les instances se trouvent dans le pool principal d’un Équilibreur de charge Azure de Référence SKU standard. 
 - Attachez une adresse IP publique à l’interface réseau de l’instance. 
 
 Avec des machines virtuelles à instance unique et des groupes de machines virtuelles identiques avec orchestration uniforme, la connectivité sortante est fournie automatiquement. 
 
 Les scénarios courants nécessitant une connectivité sortante explicite sont les suivants : 
 
-- L’activation d’une machine virtuelle Windows nécessite que vous ayez défini une connectivité sortante à partir de l’instance de machine virtuelle vers le service de gestion des clés d’activation Windows (KMS). Pour plus d’informations, consultez [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).  
-- Accédez aux comptes de stockage ou au Key Vault. La connectivité aux services Azure peut également être établie via [Private Link](../private-link/private-link-overview.md). 
+- L’activation d’une machine virtuelle Windows nécessite que vous ayez défini une connectivité sortante à partir de l’instance de machine virtuelle vers le Service de gestion des clés d’activation Windows (KMS). Pour plus d’informations, consultez [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).  
+- Accédez aux comptes de stockage ou au Coffre de clés. La connectivité aux services Azure peut également être établie via une [Liaison privée](../private-link/private-link-overview.md). 
 
 Pour plus d’informations sur la définition de connexions sortantes sécurisées, consultez [Accès sortant par défaut dans Azure](https://aka.ms/defaultoutboundaccess).
 

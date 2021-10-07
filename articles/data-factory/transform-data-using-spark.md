@@ -1,29 +1,29 @@
 ---
 title: Transformer des données à l’aide de l’activité Spark
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment transformer des données en exécutant des programmes Spark à partir d’un pipeline Azure Data Factory et à l’aide de l’activité de Spark.
+description: Découvrez comment transformer des données en exécutant des programmes Spark à partir d'un pipeline Azure Data Factory ou Synapse Analytics à l'aide de l'activité Spark.
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 06/09/2021
-ms.openlocfilehash: 702c1a5208fae42e3704e345713f540b0e05d900
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.date: 09/09/2021
+ms.openlocfilehash: b5b877d27e04aa81e710b518d3923d438fe0afd2
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534906"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805965"
 ---
-# <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Spark dans Azure Data Factory
+# <a name="transform-data-using-spark-activity-in-azure-data-factory-and-synapse-analytics"></a>Transformer des données à l'aide d'une activité Spark dans Azure Data Factory et Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-spark.md)
 > * [Version actuelle](transform-data-using-spark.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L’activité Spark d’un [pipeline](concepts-pipelines-activities.md) Data Factory exécute des programmes Spark sur [votre propre](compute-linked-services.md#azure-hdinsight-linked-service) cluster HDInsight ou sur un [à la demande](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Cet article s'appuie sur l'article [Activités de transformation des données](transform-data.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge. Quand vous utilisez un service lié Spark à la demande, Data Factory crée automatiquement un cluster Spark pour vous, juste le temps nécessaire pour traiter les données, puis il le supprime une fois le traitement terminé. 
+L'activité Spark dans une fabrique de données et des [pipelines](concepts-pipelines-activities.md) Synapse exécute un programme Spark [sur votre propre cluster](compute-linked-services.md#azure-hdinsight-linked-service) ou sur un cluster HDInsight [à la demande](compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Cet article s'appuie sur l'article [Activités de transformation des données](transform-data.md) qui présente une vue d'ensemble de la transformation des données et les activités de transformation prises en charge. Quand vous utilisez un service lié Spark à la demande, le service crée automatiquement un cluster Spark pour vous, juste le temps nécessaire pour traiter les données, puis il le supprime une fois le traitement terminé. 
 
 
 ## <a name="spark-activity-properties"></a>Propriétés de l'activité Spark
@@ -76,7 +76,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 ## <a name="folder-structure"></a>Structure de dossiers
 Les travaux Spark sont plus extensibles que les travaux Pig/Hive. Pour les travaux Spark, vous pouvez fournir plusieurs dépendances, telles que des packages jar (placés dans le CLASSPATH Java), des fichiers Python (placés dans le PYTHONPATH) et tout autre fichier.
 
-Créez la structure de dossiers suivante dans le stockage Blob Azure référencé par le service lié HDInsight. Ensuite, téléchargez les fichiers dépendants dans les sous-dossiers appropriés dans le dossier racine représenté par **entryFilePath**. Par exemple, téléchargez les fichiers Python dans le sous-dossier pyFiles et les fichiers jar dans le sous-dossier jars du dossier racine. Lors de l’exécution, le service Data Factory attend la structure de dossiers suivante dans le stockage Blob Azure :     
+Créez la structure de dossiers suivante dans le stockage Blob Azure référencé par le service lié HDInsight. Ensuite, téléchargez les fichiers dépendants dans les sous-dossiers appropriés dans le dossier racine représenté par **entryFilePath**. Par exemple, téléchargez les fichiers Python dans le sous-dossier pyFiles et les fichiers jar dans le sous-dossier jars du dossier racine. Lors de l'exécution, le service attend la structure de dossiers suivante dans le stockage Blob Azure :     
 
 | Path                  | Description                              | Obligatoire | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |

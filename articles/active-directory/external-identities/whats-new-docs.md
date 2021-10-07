@@ -1,7 +1,7 @@
 ---
 title: Nouveautés des identités externes d’Azure Active Directory
 description: Identités externes Azure Active Directory - Nouvelle documentation et documentation mise à jour.
-ms.date: 09/08/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -9,16 +9,26 @@ ms.workload: identity
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
-ms.openlocfilehash: b6346a9e8ff776143b6e000f945fcd9400e03a0d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3247f9e13e50a9fb7b4792be518af5b85767822a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124776478"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533635"
 ---
 # <a name="azure-active-directory-external-identities-whats-new"></a>Identités externes d’Azure Active Directory : Nouveautés
 
 Bienvenue dans les nouveautés de la documentation sur les identités externes Azure Active Directory. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés liées au service d’identités externes, consultez [Nouveautés d'Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="september-2021"></a>Septembre 2021
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Fédération avec des fournisseurs d’identité SAML/WS-Fed pour les utilisateurs invités (préversion)](direct-federation.md)
+- [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure](add-users-administrator.md)
+- [Quitter une organisation en tant qu’utilisateur invité](leave-the-organization.md)
+- [Inviter des utilisateurs internes sur B2B Collaboration](invite-internal-users.md)
+
 
 ## <a name="august-2021"></a>Août 2021
 

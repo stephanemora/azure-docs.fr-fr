@@ -1,13 +1,9 @@
 ---
 title: Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure
 description: Guide de haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -15,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aab3807a9a69052de3e6b66b44e6ebacc616fce6
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: ef0f3cf29927e0d15702a9429fcabc54d10a8506
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112297626"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648655"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure
 
@@ -1609,7 +1605,7 @@ Vous pouvez facilement tester et surveiller le basculement et la réplication de
 
 Le groupe de clusters **SAP PR1** s’exécute sur le nœud de cluster A, par exemple sur **pr1-ascs-0**. Affectez le lecteur de disque partagé S, qui fait partie du groupe de clusters **SAP PR1** et que l’instance ASCS/SCS utilise, au nœud de cluster A.
 
-![Figure 61 : Gestionnaire du cluster de basculement : Le groupe de cluster SAP <SID> s’exécute sur le nœud de cluster A][sap-ha-guide-figure-5000]
+![Figure 61 : Gestionnaire du cluster de basculement : le groupe de cluster SAP \<SID\> s’exécute sur le nœud de cluster A][sap-ha-guide-figure-5000]
 
 _**Figure 61 :** Gestionnaire du cluster de basculement : Le groupe de cluster SAP <*SID*> s’exécute sur le nœud de cluster A_
 
@@ -1638,7 +1634,7 @@ _**Figure 62 :** Dans SIOS DataKeeper, répliquer le volume local du nœud de 
 
    Après le basculement, le groupe de clusters SAP <*SID*> s’exécute sur le nœud de cluster B. Par exemple, il s’exécute sur **pr1-ascs-1**.
 
-   ![Figure 63 : Dans le Gestionnaire du cluster de basculement, le groupe de cluster SAP <SID> s’exécute sur le nœud de cluster B][sap-ha-guide-figure-5002]
+   ![Figure 63 : Dans le Gestionnaire du cluster de basculement, le groupe de cluster SAP \<SID\> s’exécute sur le nœud de cluster B][sap-ha-guide-figure-5002]
 
    _**Figure 63** : Dans le Gestionnaire du cluster de basculement, le groupe de cluster SAP <*SID*> s’exécute sur le nœud de cluster B_
 

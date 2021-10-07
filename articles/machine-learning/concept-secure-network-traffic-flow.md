@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment le trafic réseau circule entre les composants lorsque votre espace de travail Azure Machine Learning se trouve dans un réseau virtuel sécurisé.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/22/2021
-ms.openlocfilehash: 6265d433e20cfc5d1ee1bc9ae87c5c764f9eff60
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 033bd5a96c75a1097438e01390ba800089d89d1d
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092544"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426922"
 ---
 # <a name="network-traffic-flow-when-using-a-secured-workspace"></a>Flux de trafic réseau lors de l’utilisation d’un espace de travail sécurisé
 

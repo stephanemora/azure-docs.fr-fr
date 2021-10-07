@@ -5,23 +5,45 @@ description: Nouvelle documentation mise à jour pour la plateforme d’identit�
 services: active-directory
 author: mmacy
 manager: CelesteDG
-ms.date: 09/01/2021
+ms.date: 10/01/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1e639cfe0b3c86e2a2f422250979a292020e7fbf
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 9383c05ed797e4a00470240ce9a25541988d9b6d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433122"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349547"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentation relative à la plateforme d’identités Microsoft : Nouveautés
 
 Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative à la plateforme d’identités Microsoft. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois.
+
+## <a name="september-2021"></a>Septembre 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Application de bureau appelant des API web : acquérir un jeton de manière interactive](scenario-desktop-acquire-token-interactive.md)
+- [Application de bureau appelant des API web : acquérir un jeton à l’aide d’un flux de code d’appareil](scenario-desktop-acquire-token-device-code-flow.md)
+- [Appareil de bureau qui appelle des API web : acquérir un jeton en utilisant l’authentification Windows intégrée](scenario-desktop-acquire-token-integrated-windows-authentication.md)
+- [Application de bureau appelant des API web : acquérir un jeton à l’aide d’un mot de passe et d’un nom d’utilisateur](scenario-desktop-acquire-token-username-password.md)
+- [Application de bureau appelant des API web : acquérir un jeton à l’aide d’un gestionnaire de comptes web](scenario-desktop-acquire-token-wam.md)
+- [Implémenter un contrôle d’accès en fonction du rôle dans les applications](howto-implement-rbac-for-apps.md)
+- [Migrer des applications clientes publiques d’ADAL.NET vers MSAL.NET](msal-net-migration-public-client.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Renforcer la sécurité avec le principe des privilèges minimum](secure-least-privileged-access.md)
+- [Migrer des applications clientes confidentielles de ADAL.NET vers MSAL.NET](msal-net-migration-confidential-client.md)
+- [Vidéos sur la plateforme d’identités Microsoft](identity-videos.md)
+- [Clouds nationaux](authentication-national-cloud.md)
+- [Mode d’appareil partagé pour les appareils Android](msal-android-shared-devices.md)
+- [Sérialisation du cache de jetons dans MSAL.NET](msal-net-token-cache-serialization.md)
+- [Différences de validation par types de comptes pris en charge (signInAudience)](supported-accounts-validation.md)
 
 ## <a name="august-2021"></a>Août 2021
 
@@ -54,22 +76,3 @@ Bienvenue sur cette page dédiée aux nouveautés dans la documentation relative
 - [Autorisations et consentement dans la plateforme d’identités Microsoft](v2-permissions-and-consent.md)
 - [API web protégée : Vérifier les étendues et les rôles d’application](scenario-protected-web-api-verification-scope-app-roles.md)
 - [Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core](quickstart-v2-aspnet-core-webapp.md)
-
-## <a name="june-2021"></a>Juin 2021
-
-### <a name="new-articles"></a>Nouveaux articles
-
-- [Bonnes pratiques pour les droits d’accès minimal pour les applications](secure-least-privileged-access.md)
-- [Différences entre les applications ADAL.NET et MSAL.NET](msal-net-differences-adal-net.md)
-- [Comment : obtenir la liste complète des applications à l’aide de ADAL dans votre locataire](howto-get-list-of-all-active-directory-auth-library-apps.md)
-- [Comment migrer des applications clientes confidentielles de ADAL.NET vers MSAL.NET](msal-net-migration-confidential-client.md)
-
-### <a name="updated-articles"></a>Articles mis à jour
-
-- [Objets application et principal du service dans Azure Active Directory](app-objects-and-service-principals.md)
-- [Application web appelant des API web : Configuration de code](scenario-web-app-call-api-app-configuration.md)
-- [Personnaliser des revendications émises dans des jetons pour une application spécifique au sein d’un locataire](active-directory-claims-mapping.md)
-- [Exemples de code pour la plateforme d’identités Microsoft](sample-v2-code.md)
-- [Migration d’applications vers MSAL.NET ou Microsoft.Identity.Web](msal-net-migration.md)
-- [Sérialisation du cache de jetons dans MSAL.NET](msal-net-token-cache-serialization.md)
-- [Quelles sont les nouveautés en matière d’authentification ?](reference-breaking-changes.md)

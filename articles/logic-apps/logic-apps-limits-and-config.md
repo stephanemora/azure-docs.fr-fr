@@ -5,22 +5,22 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
-ms.date: 08/30/2021
-ms.openlocfilehash: da7c4b159111165b1dabb6ff3ca45715b442daba
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 09/16/2021
+ms.openlocfilehash: 77bbfb886f04c7917154ee5817b21ee1b2053d79
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219903"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128675798"
 ---
 # <a name="limits-and-configuration-reference-for-azure-logic-apps"></a>Limites et références de configuration pour Azure Logic Apps
 
-> Pour Power Automate, consultez [Limites et configuration dans Power Automate](/power-automate/limits-and-config).
+> Pour Power Automate, consultez [Limites et configuration dans Power Automate](/power-automate/limits-and-config).
 
 Cet article décrit les limites et informations de configuration relatives à Azure Logic Apps et aux ressources associées. Pour créer des workflows d’application logique, vous choisissez le type de ressource d’**application logique** en fonction de votre scénario, les spécifications de la solution, les fonctionnalités souhaitées et l’environnement dans lequel vous voulez exécuter vos workflows.
 
 > [!NOTE]
-> De nombreuses limites sont les mêmes sur l’ensemble de ces environnements d’hôte, mais les différences sont indiquées quand elles existent. Si vos scénarios requièrent des limites différentes, [contactez l’équipe Logic Apps](mailto://logicappspm@microsoft.com) afin de discuter de vos besoins.
+> De nombreuses limites sont identiques dans les environnements disponibles où Azure Logic Apps s’exécute, mais les différences sont indiquées là où elles existent. 
 
 Le tableau suivant résume brièvement les différences entre le type de ressource d’**application logique (Consommation)** d’origine et le type de ressource d’**application logique (Standard)** . Vous apprendrez également comment l’environnement *monolocataire* est comparé aux environnements *mutualisés* et de *service d’intégration (ISE)* pour le déploiement, l’hébergement et l’exécution de vos workflows d’application logique.
 
@@ -158,7 +158,7 @@ Le tableau suivant répertorie les valeurs possibles pour une boucle **Until** 
 
 | Nom | Multi-locataire | Monolocataire | Environnement de service d’intégration (ISE) | Notes |
 |------|--------------|---------------|---------------------------------|-------|
-| Déclencheur - exécutions simultanées | Simultanéité désactivée : llimité <p><p>Simultanéité activée (irréversible) : <p><p>- Par défaut : 25 <br>- Min : 1 <br>- Max : 100 | Simultanéité désactivée : illimitée <p><p>Simultanéité activée (irréversible) : <p><p>- Valeur par défaut : 100 <br>- Min : 1 <br>- Max : 100 | Simultanéité désactivée : illimitée <p><p>Simultanéité activée (irréversible) : <p><p>- Par défaut : 25 <br>- Min : 1 <br>- Max : 100 | Nombre d'exécutions simultanées qu'un déclencheur peut lancer en même temps ou en parallèle. <p><p>**Remarque** : lorsque la simultanéité est activée, la limite **SplitOn** est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier cette valeur dans le service multilocataire, consultez [Modifier la limite de simultanéité du déclencheur](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances de manière séquentielle](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). <p><p>Pour modifier la valeur par défaut dans le service monolocataire, consultez [Modifier les paramètres de l’hôte et de l’application pour les applications logiques dans Azure Logic Apps monolocataire](edit-app-settings-host-settings.md). |
+| Déclencheur - exécutions simultanées | Simultanéité désactivée : llimité <p><p>Simultanéité activée (irréversible) : <p><p>- Par défaut : 25 <br>- Min : 1 <br>- Max : 100 | Simultanéité désactivée : llimité <p><p>Simultanéité activée (irréversible) : <p><p>- Valeur par défaut : 100 <br>- Min : 1 <br>- Max : 100 | Simultanéité désactivée : llimité <p><p>Simultanéité activée (irréversible) : <p><p>- Par défaut : 25 <br>- Min : 1 <br>- Max : 100 | Nombre d'exécutions simultanées qu'un déclencheur peut lancer en même temps ou en parallèle. <p><p>**Remarque** : lorsque la simultanéité est activée, la limite **SplitOn** est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier cette valeur dans le service multilocataire, consultez [Modifier la limite de simultanéité du déclencheur](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances de manière séquentielle](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). <p><p>Pour modifier la valeur par défaut dans le service monolocataire, consultez [Modifier les paramètres de l’hôte et de l’application pour les applications logiques dans Azure Logic Apps monolocataire](edit-app-settings-host-settings.md). |
 | Exécutions en attente maximale | Simultanéité désactivée : <p><p>- Min : 1 exécution <p>- Max : 50 exécutions <p><p>Simultanéité activée : <p><p>- Min : 10 exécutions, plus le nombre d'exécutions simultanées <p>- Max : 100 exécutions | Simultanéité désactivée : <p><p>- Min : 1 exécution <br>(Par défaut) <p>- Max : 50 exécutions <br>(Par défaut) <p><p>Simultanéité activée : <p><p>- Min : 10 exécutions, plus le nombre d'exécutions simultanées <p>- Max : 200 exécutions <br>(Par défaut) | Simultanéité désactivée : <p><p>- Min : 1 exécution <p>- Max : 50 exécutions <p><p>Simultanéité activée : <p><p>- Min : 10 exécutions, plus le nombre d'exécutions simultanées <p>- Max : 100 exécutions | Nombre d'instances de workflow dont l'exécution peut attendre lorsque votre instance de workflow actuelle exécute déjà le nombre maximal d'instances simultanées. <p><p>Pour modifier cette valeur dans le service multilocataire, consultez [Modifier la limite d'exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). <p><p>Pour modifier la valeur par défaut dans le service monolocataire, consultez [Modifier les paramètres de l’hôte et de l’application pour les applications logiques dans Azure Logic Apps monolocataire](edit-app-settings-host-settings.md). |
 | Éléments **SplitOn** | Simultanéité désactivée : 100 000 éléments <p><p>Simultanéité activée : 100 éléments | Simultanéité désactivée : 100 000 éléments <p><p>Simultanéité activée : 100 éléments | Simultanéité désactivée : 100 000 éléments <br>(Par défaut) <p><p>Simultanéité activée : 100 éléments <br>(Par défaut) | Pour les déclencheurs qui renvoient un tableau, vous pouvez spécifier une expression utilisant une propriété **SplitOn** qui [fractionne ou décompose des éléments de tableau en plusieurs instances de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) à des fins de traitement, au lieu d'utiliser une boucle **For each**. Cette expression fait référence au tableau à utiliser pour la création et l’exécution d’une instance de workflow pour chaque élément du tableau. <p><p>**Remarque** : lorsque la simultanéité est activée, la limite **SplitOn** est réduite à 100 éléments. |
 ||||||
@@ -359,13 +359,14 @@ Le tableau suivant répertorie les valeurs possibles pour une définition de wor
 
 ## <a name="custom-connector-limits"></a>Limites des connecteurs personnalisés
 
-Pour le service multilocataire et l'environnement de service d'intégration uniquement, vous pouvez créer et utiliser des [connecteurs managés personnalisés](/connectors/custom-connectors), qui sont des wrappers entourant une API REST ou une API SOAP existante. Pour le service monolocataire, vous pouvez créer et utiliser des [connecteurs intégrés personnalisés](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+Dans Azure Logic Apps multilocataire et l’environnement de service d’intégration uniquement, vous pouvez créer et utiliser des [connecteurs managés personnalisés](/connectors/custom-connectors), qui sont des wrappers entourant une API REST ou une API SOAP existante. Dans Azure Logic Apps monolocataire, vous pouvez uniquement créer et utiliser des [connecteurs intégrés personnalisés](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 Le tableau suivant répertorie les valeurs possibles pour les connecteurs personnalisés :
 
 | Nom | Multi-locataire | Monolocataire | Environnement de service d’intégration (ISE) | Notes |
 |------|--------------|---------------|---------------------------------|-------|
 | Connecteurs personnalisés | 1 000 par abonnement Azure | Illimité | 1 000 par abonnement Azure ||
+| Connecteurs personnalisés - Nombre d’API | Basé sur SOAP : 50 | Non applicable | Basé sur SOAP : 50 ||
 | Requêtes par minute pour un connecteur personnalisé | 500 demandes par minute par connexion | En fonction de votre implémentation | 2 000 demandes par minute par *connecteur personnalisé* ||
 | Délai de connexion | 2 minutes | Connexions inactives : <br>4 minutes <p><p>Connexion active : <br>10 min | 2 minutes ||
 ||||||
@@ -419,12 +420,12 @@ Les tableaux suivants répertorient les valeurs possibles en termes de nombre d'
 
 | Artefact | Gratuit | De base | standard |
 |----------|------|-------|----------|
-| Contrats commerciaux EDI | 10 | 1 | 1 000 |
-| Partenaires commerciaux EDI | 25 | 2 | 1 000 |
-| Cartes | 25 | 500 | 1 000 |
-| Schémas | 25 | 500 | 1 000 |
-| Assemblys | 10 | 25 | 1 000 |
-| Certificats | 25 | 2 | 1 000 |
+| Contrats commerciaux EDI | 10 | 1 | 1 000 |
+| Partenaires commerciaux EDI | 25 | 2 | 1 000 |
+| Cartes | 25 | 500 | 1 000 |
+| Schémas | 25 | 500 | 1 000 |
+| Assemblys | 10 | 25 | 1 000 |
+| Certificats | 25 | 2 | 1 000 |
 | Configurations par lots | 5 | 1 | 50 |
 ||||
 
@@ -443,7 +444,7 @@ Les tableaux suivants répertorient les valeurs possibles en termes de nombre d'
 
 ### <a name="throughput-limits"></a>Limites de débit
 
-| Point de terminaison du runtime | Gratuit | De base | Standard | Notes |
+| Point de terminaison du runtime | Gratuit | De base | standard | Notes |
 |------------------|------|-------|----------|-------|
 | Appels de lecture par tranche de 5 minutes | 3 000 | 30,000 | 60 000 | Cette limite s’applique aux appels qui obtiennent les entrées et sorties brutes à partir de l’historique des exécutions d’une application logique. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
 | Appels d'invocation par tranche de 5 minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
@@ -507,7 +508,7 @@ Avant de configurer votre pare-feu avec des adresses IP, passez en revue les co
 
 * Si vos applications logiques rencontrent des problèmes d’accès aux comptes Stockage Azure qui utilisent des [pare-feux et des règles de pare-feu](../storage/common/storage-network-security.md), vous disposez de [différentes options alternatives pour activer l’accès](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
-  Par exemple, les applications logiques n’ont pas directement accès aux comptes de stockage qui utilisent des règles de pare-feu et se trouvent dans la même région. Toutefois, si vous autorisez les [adresses IP sortantes pour les connecteurs managés dans votre région](../logic-apps/logic-apps-limits-and-config.md#outbound), vos applications logiques peuvent accéder à des comptes de stockage dans une autre région, sauf lorsque vous utilisez le connecteur de Stockage Table Azure ou des connecteurs de Stockage File d’attente Azure. Pour accéder à votre Stockage Table ou Stockage File d’attente, vous pouvez toujours utiliser le déclencheur et les actions HTTP à la place. Pour d’autres options, voir [Accéder à des comptes de stockage derrière des pare-feu](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+  Par exemple, les applications logiques n’ont pas directement accès aux comptes de stockage qui utilisent des règles de pare-feu et se trouvent dans la même région. Toutefois, si vous autorisez les [adresses IP sortantes pour les connecteurs managés dans votre région](/connectors/common/outbound-ip-addresses), vos applications logiques peuvent accéder à des comptes de stockage dans une autre région, sauf lorsque vous utilisez le connecteur de Stockage Table Azure ou des connecteurs de Stockage File d’attente Azure. Pour accéder à votre Stockage Table ou Stockage File d’attente, vous pouvez toujours utiliser le déclencheur et les actions HTTP à la place. Pour d’autres options, voir [Accéder à des comptes de stockage derrière des pare-feu](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
 <a name="inbound"></a>
 
@@ -589,7 +590,10 @@ Cette section répertorie les adresses IP entrantes pour le service Azure Logic
 
 ### <a name="outbound-ip-addresses"></a>Adresses IP sortantes
 
-Cette section répertorie les adresses IP sortantes pour le service Azure Logic Apps. Si vous avez Azure Government, consultez [Azure Government - Adresses IP sortantes](#azure-government-outbound).
+Cette section répertorie les adresses IP sortantes pour le service Azure Logic Apps. Si vous avez Azure Government, consultez [Azure Government - Adresses IP sortantes](#azure-government-outbound). Si votre workflow utilise des [connecteurs managés](../connectors/managed.md), comme le connecteur Office 365 Outlook ou le connecteur SQL, ou qu’il utilise des [connecteurs personnalisés](/connectors/custom-connectors/), le pare-feu doit également autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](/connectors/common/outbound-ip-addresses) dans la région Azure de votre application logique. Si votre workflow utilise des connecteurs personnalisés qui accèdent à des ressources locales via la [ressource de passerelle de données locale dans Azure](logic-apps-gateway-connection.md), vous devez configurer l’installation de la passerelle pour autoriser l’accès aux [*adresses IP sortantes* de connecteurs managés](/connectors/common/outbound-ip-addresses). Pour plus d’informations sur la configuration des paramètres de communication sur la passerelle, consultez les rubriques suivantes :
+
+* [Ajuster les paramètres de communication pour la passerelle de données locale](/data-integration/gateway/service-gateway-communication)
+* [Configurer les paramètres de proxy pour la passerelle de données locale](/data-integration/gateway/service-gateway-proxy)
 
 > [!TIP]
 > Pour réduire la complexité de la création des règles de sécurité, vous pouvez éventuellement utiliser la [balise de service](../virtual-network/service-tags-overview.md), **LogicApps**, au lieu de spécifier les préfixes d’adresses IP Logic Apps sortants pour chaque région. Vous pouvez éventuellement utiliser l’étiquette de service **AzureConnectors** pour les connecteurs managés qui effectuent des appels sortants vers leurs services respectifs, tels que Stockage Azure ou Azure Event Hubs, plutôt que de spécifier des préfixes d’adresse IP sortante de connecteur managé pour chaque région. Ces balises fonctionnent dans les régions où le service Logic Apps est disponible.

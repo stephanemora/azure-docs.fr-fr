@@ -3,12 +3,12 @@ title: Gérer les capteurs depuis la console de gestion locale
 description: Apprenez à gérer des capteurs à partir de la console de gestion, notamment la mise à jour des versions de capteur, l’envoi (push) des paramètres système aux capteurs et l’activation et la désactivation de moteurs sur les capteurs.
 ms.date: 07/08/2021
 ms.topic: how-to
-ms.openlocfilehash: 46571552295bcaf71a03bd20cdf9f4f71f0ed308
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: dbdee98fc1f7e6bc294bd54d72e64fa8f053eb8e
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564068"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431185"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gérer les capteurs depuis la console de gestion
 
@@ -111,7 +111,7 @@ Vous pouvez surveiller l'état de mise à jour de chaque capteur dans la fenêtr
 
 Vous pouvez consulter l'état de mise à jour de vos capteurs à partir de la console de gestion. Si la mise à jour a échoué, vous pouvez effectuer une nouvelle tentative à partir de la console de gestion locale (versions 2.3.5 et suivantes).
 
-Pour mettre à jour le capteur à partir de la console de gestion locale :
+**Pour mettre à jour le capteur à partir de la console de gestion locale :**
 
 1. Connectez-vous à la console de gestion locale et accédez à la page **Gestion des sites**.
 
@@ -131,7 +131,7 @@ Le paquet de données pour le renseignement sur les menaces est fourni avec chaq
 
 Vous pouvez charger ce fichier manuellement à partir de la page **Mises à jour** du portail Defender pour IoT et le mettre automatiquement à jour sur les capteurs. 
 
-Pour mettre à jour les données de renseignement sur les menaces : 
+**Pour mettre à jour les données de renseignement sur les menaces :**
 
 1. Accédez à la page **Mises à jour** de Defender pour IoT. 
 
@@ -174,7 +174,7 @@ Les capteurs sont protégés par cinq moteurs Defender pour IoT. Vous pouvez act
 | Moteur opérationnel | Ce moteur détecte les incidents opérationnels ou les entités défectueuses. | Alerte `Device is Suspected to be Disconnected (Unresponsive)`. Cette alerte est déclenchée lorsqu’un appareil ne répond à aucune requête pendant une période prédéfinie. Cela peut indiquer un arrêt, une déconnexion ou un dysfonctionnement de l’appareil.
 |
 
-Pour activer ou désactiver des moteurs pour les capteurs connectés :
+**Pour activer ou désactiver des moteurs pour les capteurs connectés :**
 
 1. Dans le volet gauche de la console, sélectionnez **Paramètres système**.
 
@@ -238,7 +238,7 @@ Lorsque vous dépassez le nombre de sauvegardes défini, le fichier de sauvegard
 
 Les fichiers de sauvegarde des capteurs sont automatiquement nommés au format suivant : `<sensor name>-backup-version-<version>-<date>.tar`. Par exemple : `Sensor_1-backup-version-2.6.0.102-2019-06-24_09:24:55.tar`. 
 
-Pour sauvegarder des capteurs :
+**Pour sauvegarder des capteurs :**
 
 1. Sélectionnez **Planifier la sauvegarde des capteurs** dans la fenêtre **Paramètres système**. Les capteurs gérés par votre console de gestion locale s’affichent dans la boîte de dialogue **Planification des sauvegardes des capteurs**.  
 
@@ -258,7 +258,7 @@ Pour sauvegarder des capteurs :
 
 1. Sélectionnez **Enregistrer**. 
 
-Pour sauvegarder immédiatement : 
+**Pour sauvegarder immédiatement :**
 
 - Sélectionnez **Sauvegarder maintenant**. La console de gestion locale crée et collecte des fichiers de sauvegarde de capteur. 
 
@@ -284,7 +284,7 @@ Vous pouvez envoyer une notification par e-mail, des mises à jour Syslog et des
 
 Vous pouvez restaurer des sauvegardes à partir de la console de gestion locale et à l’aide de l’interface CLI.  
 
-Pour effectuer une restauration à partir de la console : 
+**Pour effectuer une restauration à partir de la console :**
 
 - Sélectionnez **Restaurer une image** dans la fenêtre **Paramètres système** du capteur.
 
@@ -298,7 +298,7 @@ Pour effectuer une restauration à l’aide de l’interface CLI :
 
 ### <a name="save-a-sensor-backup-to-an-external-smb-server"></a>Enregistrer une sauvegarde de capteur sur un serveur SMB externe
 
-Pour configurer un serveur SMB afin de pouvoir enregistrer une sauvegarde de capteur sur un lecteur externe : 
+**Pour configurer un serveur SMB afin de pouvoir enregistrer une sauvegarde de capteur sur un lecteur externe :**
 
 1. Créez un dossier partagé sur le serveur SMB externe. 
 

@@ -2,14 +2,14 @@
 title: Vue d'ensemble du traitement des transactions dans Azure Service Bus
 description: Cet article offre une vue d'ensemble du traitement transactionnel et de la fonctionnalité « Envoyer par » dans Azure Service Bus.
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 09/21/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e2848f41d5557584b0f1a197b548a00a4aef1564
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 5eb3bf6eef551fd13788f7659eb8becede8e250d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183741"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666209"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Vue d’ensemble du traitement des transactions Service Bus
 
@@ -30,10 +30,14 @@ Service Bus prend en charge les opérations de regroupement par rapport à une e
 
 Les opérations qui peuvent être effectuées dans une étendue de transaction sont les suivantes :
 
-* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**  : `Send`, `SendAsync`, `SendBatch`, `SendBatchAsync`
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)** : `Complete`, `CompleteAsync`, `Abandon`, `AbandonAsync`, `Deadletter`, `DeadletterAsync`, `Defer`, `DeferAsync`, `RenewLock`, `RenewLockAsync` 
+- Envoyer
+- Terminé
+- Arrêter
+- Deadletter
+- Defer
+- Renouveler les verrous
 
-Les opérations de réception ne sont pas incluses, car on suppose que l’application acquiert d’abord des messages à l’aide du mode [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) dans une boucle de réception ou avec un rappel [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) avant d’ouvrir une étendue de transaction pour le traitement du message.
+Les opérations de réception ne sont pas incluses, car on suppose que l’application acquiert d’abord des messages à l’aide du mode peek-lock dans une boucle de réception ou avec un rappel avant d’ouvrir une étendue de transaction pour le traitement du message.
 
 Le traitement du message (exécution, abandon, lettre morte, report) se produit dans l’étendue du résultat global de la transaction et selon ce résultat.
 
@@ -49,49 +53,25 @@ Si vous devez recevoir un abonnement à une rubrique, puis l’envoyer vers une 
 
 Pour configurer ces transferts, vous devez créer un expéditeur de message qui cible la file d’attente de destination via la file d’attente de transfert. Il vous faut également un destinataire qui extrait les messages de cette même file d’attente. Par exemple :
 
-```csharp
-var connection = new ServiceBusConnection(connectionString);
-
-var sender = new MessageSender(connection, QueueName);
-var receiver = new MessageReceiver(connection, QueueName);
-```
-
-Une simple transaction utilise alors ces éléments, comme dans l’exemple suivant. Pour vous référer à l’exemple complet, veuillez consulter le [code source sur GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia) :
+Une simple transaction utilise alors ces éléments, comme dans l’exemple suivant. Pour vous référer à l’exemple complet, veuillez consulter le [code source sur GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md#transactions-across-entities) :
 
 ```csharp
-var receivedMessage = await receiver.ReceiveAsync();
+var options = new ServiceBusClientOptions { EnableCrossEntityTransactions = true };
+await using var client = new ServiceBusClient(connectionString, options);
+
+ServiceBusReceiver receiverA = client.CreateReceiver("queueA");
+ServiceBusSender senderB = client.CreateSender("queueB");
+
+ServiceBusReceivedMessage receivedMessage = await receiverA.ReceiveMessageAsync();
 
 using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 {
-    try
-    {
-        // do some processing
-        if (receivedMessage != null)
-            await receiver.CompleteAsync(receivedMessage.SystemProperties.LockToken);
-
-        var myMsgBody = new MyMessage
-        {
-            Name = "Some name",
-            Address = "Some street address",
-            ZipCode = "Some zip code"
-        };
-
-        // send message
-        var message = myMsgBody.AsMessage();
-        await sender.SendAsync(message).ConfigureAwait(false);
-        Console.WriteLine("Message has been sent");
-
-        // complete the transaction
-        ts.Complete();
-    }
-    catch (Exception ex)
-    {
-        // This rolls back send and complete in case an exception happens
-        ts.Dispose();
-        Console.WriteLine(ex.ToString());
-    }
+    await receiverA.CompleteMessageAsync(receivedMessage);
+    await senderB.SendMessageAsync(new ServiceBusMessage());
+    ts.Complete();
 }
 ```
+
 
 ## <a name="timeout"></a>Délai d'expiration
 Une transaction expire au bout de 2 minutes. Le minuteur de transaction démarre lorsque la première opération de la transaction démarre. 

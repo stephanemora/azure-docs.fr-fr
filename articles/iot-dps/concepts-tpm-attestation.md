@@ -1,19 +1,19 @@
 ---
 title: Service Azure IoT Hub Device Provisioning - Attestation TPM
 description: Cet article fournit une vue d’ensemble conceptuelle du flux de l’attestation TPM utilisant le service IoT Device Provisioning (DPS).
-author: wesmc7777
-ms.author: wesmc
-ms.date: 06/21/2021
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 09/22/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: e670b0feabfe785712dc7140bcc594b770783e74
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 46f2b66412497a7fda7c9019b82146cc59f69362
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112457873"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278915"
 ---
 # <a name="tpm-attestation"></a>Attestation TPM
 
@@ -69,4 +69,4 @@ L’appareil se connecte maintenant à IoT Hub et vous êtes sûr que les clés 
 
 * [Découvrir plus d’informations sur les concepts du provisionnement](about-iot-dps.md#provisioning-process)
 * [Bien démarrer avec le provisionnement automatique](./quick-setup-auto-provision.md) 
-* [Créer des inscriptions TPM à l’aide des kits de développement logiciel](./quick-enroll-device-tpm-java.md)
+* [Créer des inscriptions TPM à l’aide des kits de développement logiciel](./quick-enroll-device-tpm.md)

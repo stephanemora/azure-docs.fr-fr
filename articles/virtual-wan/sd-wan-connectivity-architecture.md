@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: 08e20a497c7fddfe00e70fcf1d9d4c6e5f76054f
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 4711e63e1d9309d3111e3207f6cb824704ac4290
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563808"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128652791"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Architecture de connectivité SD-WAN avec Azure Virtual WAN
 
@@ -71,5 +71,5 @@ Dans ce modèle d’architecture, les entreprises peuvent tirer parti d’un ser
 
 ## <a name="additional-information"></a>Informations supplémentaires
 
-* [FAQ sur Include](virtual-wan-faq.md)
+* [Questions fréquentes (FAQ) sur Azure Virtual WAN](virtual-wan-faq.md)
 * [Résolution de connectivité à distance](work-remotely-support.md)

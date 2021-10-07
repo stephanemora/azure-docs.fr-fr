@@ -1,27 +1,26 @@
 ---
 title: Vue d’ensemble du registre Azure SQL Database
 description: Découvrez les principes de base de la fonctionnalité de registre d’Azure SQL Database.
-ms.custom: references_regions
-ms.date: 07/23/2021
+ms.date: 09/09/2021
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: 6b8ca057d896cc7fa353e8b09b1d1667b87cc273
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5651981c663ba5d119a5ae4089ab3f693dad1552
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524224"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646453"
 ---
 # <a name="azure-sql-database-ledger"></a>Registre Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Le registre Azure SQL Database est actuellement en préversion publique et disponible dans les régions Europe Ouest, Brésil Sud et USA Centre-Ouest.
+> Le Registre Azure SQL Database est actuellement en préversion publique.
 
 L’instauration d’une confiance dans l’intégrité des données stockées dans des systèmes de base de données est depuis longtemps un problème pour toutes les organisations qui gèrent des données financières, médicales ou autres données sensibles. La fonctionnalité de registre d[Azure SQL Database](sql-database-paas-overview.md) offre des capacités de protection contre la falsification dans votre base de données. Vous pouvez attester de manière chiffrée à d’autres parties, telles que des auditeurs ou autres tiers professionnels, que vos données n’ont pas été falsifiées.
 
@@ -61,7 +60,7 @@ Les modèles classiques pour résoudre ce problème impliquent une réplication 
 
 Chaque transaction que la base de données reçoit est hachée par chiffrement (SHA-256). La fonction de hachage utilise en entrée la valeur de la transaction, ainsi que le code de hachage de la transaction précédente. (La valeur comprend les codes de hachage des lignes contenues dans la transaction.) La fonction lie toutes les transactions par chiffrement, comme une blockchain. 
 
-Les codes de hachage par chiffrement ([synthèses de base de données](#database-digests)) représentent l’état de la base de données. Ils sont générés périodiquement et stockés en dehors d’Azure SQL Database dans un emplacement de stockage infalsifiable. Un exemple d’emplacement de stockage est la [fonctionnalité de stockage immuable de Stockage Blob Azure](../../storage/blobs/immutable-storage-overview.md) ou [Registre confidentiel Azure](../../confidential-ledger/index.yml). Les synthèses de base de données sont utilisées ultérieurement pour vérifier l’intégrité de la base de données en comparant la valeur du code de hachage dans la synthèse aux codes de hachage calculés dans la base de données. 
+Le hachage par chiffrement ([bases de données](#database-digests)) représente l’état de la base de données. Ils sont générés périodiquement et stockés en dehors d’Azure SQL Database dans un emplacement de stockage infalsifiable. Un exemple d’emplacement de stockage est la [fonctionnalité de stockage immuable de Stockage Blob Azure](../../storage/blobs/immutable-storage-overview.md) ou [Registre confidentiel Azure](../../confidential-ledger/index.yml). Les synthèses de base de données sont utilisées ultérieurement pour vérifier l’intégrité de la base de données en comparant la valeur du code de hachage dans la synthèse aux codes de hachage calculés dans la base de données. 
 
 La fonctionnalité de registre est introduite dans les tables d’Azure SQL Database sous deux formes :
 

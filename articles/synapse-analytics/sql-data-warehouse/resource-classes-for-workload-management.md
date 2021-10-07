@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7714ce748eb172565357723924ab2212e9559e1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7c7dccf94c1211ef318d538c3a5c74ae16e427e
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685325"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388809"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Gestion des charges de travail avec des classes de ressources dans Azure Synapse Analytics
 
@@ -84,8 +84,6 @@ La classe de ressources de l’administrateur de service est fixée à smallrc e
 
 > [!NOTE]
 > Les utilisateurs ou groupes définis en tant qu’administrateur Active Directory sont également administrateurs de service.
->
->
 
 ## <a name="resource-class-operations"></a>Opérations de ressources de classe
 
@@ -107,8 +105,6 @@ Les opérations suivantes sont régies par des classes de ressources :
 
 > [!NOTE]  
 > Les instructions SELECT sur des vues de gestion dynamique (DMV) ou d’autres vues système ne sont régies par aucune limite de concurrence. Les utilisateurs peuvent surveiller le système en toutes circonstances, quel que soit le nombre de requêtes en cours d’exécution dessus.
->
->
 
 ### <a name="operations-not-governed-by-resource-classes"></a>Opérations non régies par des classes de ressources
 
@@ -185,8 +181,6 @@ Les utilisateurs peuvent être membres de plusieurs classes de ressources. Quand
 
 >[!NOTE]
 >Tirez parti des fonctionnalités de gestion des charges de travail ([isolation de charge de travail](sql-data-warehouse-workload-isolation.md), [classification](sql-data-warehouse-workload-classification.md) et [importance](sql-data-warehouse-workload-importance.md)) pour obtenir un meilleur contrôle de votre charge de travail et des performances prévisibles.  
->
->
 
 Nous recommandons de créer un utilisateur dédié à l’exécution d’un type spécifique d’opération de requête ou de chargement. Accordez à cet utilisateur une classe de ressources permanente au lieu de modifier fréquemment la classe de ressources. Les classes de ressources statiques offrent un plus grand contrôle global de la charge de travail. Nous vous suggérons donc de les utiliser avant d’envisager l’utilisation de classes de ressources dynamiques.
 
