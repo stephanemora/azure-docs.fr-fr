@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a02624f4e5cf3ebbcd2f476372707f58c1d99f69
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "73468558"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128664064"
 ---
 # <a name="azure-data-share-concepts"></a>Concepts d’Azure Data Share 
 
@@ -27,7 +27,7 @@ Un consommateur de données est l’organisation qui reçoit des données venant
 
 ## <a name="data-share"></a>Partage de données
 
-Un partage de données est un groupe de jeux de données qui est partagé en tant qu’entité unique. Les jeux de données peuvent provenir de différentes sources de données Azure prises en charge par Azure Data Share. Actuellement, Azure Data Share prend en charge le stockage Blob Azure et Azure Data Lake Store. 
+Un partage de données est un groupe de jeux de données qui est partagé en tant qu’entité unique. Les jeux de données peuvent provenir de différentes sources de données Azure prises en charge par Azure Data Share. Actuellement, Azure Data Share [magasins de données pris en charge](supported-data-stores.md#supported-data-stores). 
 
 ## <a name="share-subscription"></a>Abonnement de partage 
 

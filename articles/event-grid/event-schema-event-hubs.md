@@ -3,12 +3,12 @@ title: Azure Event Hubs en tant que source Event Grid
 description: Décrit les propriétés qui sont fournies pour les événements de hubs d’événements avec Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/15/2021
-ms.openlocfilehash: 48d982e27d9da83d16bfbaad1a24ad1c8991a065
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b29f7f104ca0616a27abb5009e5ec27262169f00
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647420"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358815"
 ---
 # <a name="azure-event-hubs-as-an-event-grid-source"></a>Azure Event Hubs en tant que source Event Grid
 
@@ -126,6 +126,7 @@ L’objet de données comporte les propriétés suivantes :
 | `lastSequenceNumber` | entier | Dernier numéro de séquence de la file d’attente. |
 | `firstEnqueueTime` | string | Première heure de la file d’attente. |
 | `lastEnqueueTime` | string | Dernière heure de la file d’attente. |
+
 
 ## <a name="tutorials-and-how-tos"></a>Tutoriels et articles de procédures
 

@@ -1,17 +1,17 @@
 ---
 title: 'Démarrage rapide : Votre première requête Python'
 description: Dans ce démarrage rapide, vous suivez les étapes pour activer la bibliothèque Resource Graph pour Python et vous exécutez votre première requête.
-ms.date: 07/09/2021
+ms.date: 10/01/2021
 ms.topic: quickstart
 ms.custom:
 - devx-track-python
 - mode-api
-ms.openlocfilehash: aa64fb646e45c950dcade38ee7cec189b3501f9e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0dfe97eda8244eb0926709d3ed39a514fbb984e9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114457404"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355470"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de Python
 
@@ -53,6 +53,9 @@ Pour permettre à Python d’interroger Azure Resource Graph, vous devez ajouter
 
    # Add the CLI Core library for Python for authentication (development only!)
    pip install azure-cli-core
+
+   # Add the Azure identity library for Python
+   pip install azure.identity
    ```
 
    > [!NOTE]
@@ -62,7 +65,7 @@ Pour permettre à Python d’interroger Azure Resource Graph, vous devez ajouter
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
+   pip show azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core azure.identity
    ```
 
 ## <a name="run-your-first-resource-graph-query"></a>Exécuter votre première requête Resource Graph
@@ -76,14 +79,14 @@ Une fois les bibliothèques Python ajoutées à l’environnement de votre choix
    import azure.mgmt.resourcegraph as arg
 
    # Import specific methods and models from other libraries
-   from azure.common.credentials import get_azure_cli_credentials
-   from azure.common.client_factory import get_client_from_cli_profile
    from azure.mgmt.resource import SubscriptionClient
+   from azure.identity import AzureCliCredential
 
    # Wrap all the work in a function
    def getresources( strQuery ):
        # Get your credentials from Azure CLI (development only!) and get your subscription list
-       subsClient = get_client_from_cli_profile(SubscriptionClient)
+       credential = AzureCliCredential()
+       subsClient = SubscriptionClient(credential)
        subsRaw = []
        for sub in subsClient.subscriptions.list():
            subsRaw.append(sub.as_dict())
@@ -92,7 +95,7 @@ Une fois les bibliothèques Python ajoutées à l’environnement de votre choix
            subsList.append(sub.get('subscription_id'))
 
        # Create Azure Resource Graph client and set options
-       argClient = get_client_from_cli_profile(arg.ResourceGraphClient)
+       argClient = arg.ResourceGraphClient(credential)
        argQueryOptions = arg.models.QueryRequestOptions(result_format="objectArray")
 
        # Create query
@@ -133,7 +136,7 @@ Si vous souhaitez supprimer les bibliothèques installées de votre environnemen
 
 ```bash
 # Remove the installed libraries from the Python environment
-pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core
+pip uninstall azure-mgmt-resourcegraph azure-mgmt-resource azure-cli-core azure.identity
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

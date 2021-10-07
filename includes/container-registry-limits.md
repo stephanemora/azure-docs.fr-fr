@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: fichier descriptif
+description: Fichier include
 services: container-registry
 author: dlepow
 ms.service: container-registry
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/12/2021
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5e633bc71da050f3d580a6f0d0a4db25102ac360
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 43baf554bda4c2b3ae9bda9d79b46035e073cead
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122262103"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128582329"
 ---
 | Ressource | De base | standard | Premium |
 |---|---|---|---|
@@ -33,6 +33,7 @@ ms.locfileid: "122262103"
 | &bull; Points de terminaison privés | N/A | N/A | 10 |
 | Règles de réseau d’adresses IP publiques | N/A | N/A | 100 |
 | Accès au réseau virtuel du point de terminaison de service | N/A | N/A | [Préversion][vnet] |
+| &bull; Règles de réseau virtuel | N/A | N/A | 100 |
 | Clés gérées par le client | N/A | N/A | [Pris en charge][cmk] |
 | Autorisations délimitées par le référentiel | N/A | N/A | [Préversion][token]|
 | &bull; Jetons | N/A | N/A | 20 000 |

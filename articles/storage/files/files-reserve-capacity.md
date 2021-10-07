@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/23/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 216ebdeb843f2faa76751f333e838c3cc32a6664
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 7fc4bb71327b2621d60a525ab277305ef13f40c7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112539265"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128673233"
 ---
 # <a name="optimize-costs-for-azure-files-with-reserved-capacity"></a>Optimiser les coûts d’Azure Files avec la capacité de réserve
 Vous pouvez réaliser des économies sur les coûts de stockage pour les partages de fichiers Azure avec des réservations de capacité. La capacité de réserve Azure Files vous propose une remise sur les coûts de capacité pour le stockage lorsque vous vous engagez sur une durée de un à trois ans. Une réservation offre une quantité fixe de capacité de stockage pour la durée de la réservation.
@@ -37,7 +37,7 @@ Les sections suivantes énoncent les conditions d’une réservation de capacit�
 Vous pouvez acheter une capacité de réserve Azure Files en unités de 10 Tio et 100 Tio par mois pour une période d’un an ou de trois ans.
 
 ### <a name="reservation-scope"></a>Étendue de la réservation
-La capacité de réserve Azure Files est disponible pour un abonnement unique ou pour plusieurs abonnements (étendue partagée). En cas de limitation à un seul abonnement, la remise de réservation est appliquée à l’abonnement sélectionné uniquement. Lorsque plusieurs abonnements sont concernés, la remise de réservation est partagée entre ces abonnements dans la facturation du client. Une réservation s’applique à votre utilisation dans le cadre de l’étendue achetée et ne peut pas se limiter à un compte de stockage, un conteneur ou un objet spécifique de l’abonnement.
+La capacité réservée du Stockage Fichier est disponible pour un seul abonnement ou plusieurs abonnements (étendue partagée) et groupes de gestion. En cas de limitation à un seul abonnement, la remise de réservation est appliquée à l’abonnement sélectionné uniquement. Lorsque plusieurs abonnements sont concernés, la remise de réservation est partagée entre ces abonnements dans la facturation du client. Dans le cadre d’un groupe d’administration, la remise de réservation est appliquée aux abonnements qui font partie du groupe d’administration et de l’étendue de facturation. Une réservation s’applique à votre utilisation dans le cadre de l’étendue achetée et ne peut pas se limiter à un compte de stockage, un conteneur ou un objet spécifique de l’abonnement.
 
 Une réservation de capacité pour Azure Files couvre uniquement la quantité de données stockées dans un abonnement ou un groupe de ressources partagé. Les frais relatifs aux opérations, à la bande passante et au transfert de données ne sont pas inclus dans la réservation. Dès que vous achetez une réservation, les frais de capacité qui correspondent aux attributs de la réservation sont facturés au tarif de la réduction plutôt qu’à celui du paiement à l’utilisation. Pour plus d’informations sur les réservations Azure, consultez [Qu’est-ce qu’une réservation Azure ?](../../cost-management-billing/reservations/save-compute-costs-reservations.md).
 

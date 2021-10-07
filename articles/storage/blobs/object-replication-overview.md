@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dce411e6359a760f50dd4bbbbeba369e2a67f386
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 8ba9a24e050307b029e4026a7e8e519a1b4043dc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254216"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607042"
 ---
 # <a name="object-replication-for-block-blobs"></a>Réplication d'objets blob de blocs
 
@@ -32,8 +32,6 @@ Le diagramme suivant montre comment la réplication d’objets réplique les obj
 
 Pour plus d'informations sur la configuration de la réplication d'objets, consultez [Configurer la réplication d'objets](object-replication-configure.md).
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
 ## <a name="prerequisites-for-object-replication"></a>Prérequis pour la réplication d’objets
 
 La réplication d'objets exige que les fonctionnalités de stockage Azure suivantes soient également activées :
@@ -43,7 +41,10 @@ La réplication d'objets exige que les fonctionnalités de stockage Azure suivan
 
 L’activation de ces fonctionnalités peut entraîner des coûts supplémentaires. Pour plus d’informations, consultez la [page des tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-La réplication est prise en charge uniquement pour les comptes de stockage v2 universels. Les comptes source et de destination doivent être à usage général v2. La réplication d’objets prend en charge uniquement les objets blob de blocs. Les objets blob d’ajouts et les objets blob de pages ne sont pas pris en charge.
+La réplication d’objet est prise en charge pour les comptes de stockage v2 universels et les comptes de stockage d’objets blob de blocs Premium. Les comptes source et de destination doivent être des comptes à usage général v2 ou des comptes d’objet blob de blocs Premium. La réplication d’objets prend en charge uniquement les objets blob de blocs. Les objets blob d’ajouts et les objets blob de pages ne sont pas pris en charge.
+
+> [!IMPORTANT]
+> La réplication d’objets pour les comptes d’objets Blob de blocs Premium est actuellement en version **PRÉLIMINAIRE**. Pour connaître les conditions juridiques qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou plus généralement non encore en disponibilité générale, consultez [l’Avenant aux conditions d’utilisation des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-object-replication-works"></a>Fonctionnement de la réplication d’objets
 
@@ -54,9 +55,9 @@ La réplication d’objets copie de façon asynchrone les objets blob de blocs d
 
 ### <a name="blob-versioning"></a>Contrôle de version des objets blob
 
-La réplication d’objets implique que le contrôle de version des objets blob soit activé sur les comptes source et de destination. Lorsqu’un objet blob répliqué dans le compte source est modifié, une nouvelle version de l’objet blob est créée dans le compte source et reflète l’état précédent de l’objet blob, avant modification. La version actuelle (ou objet blob de base) du compte source reflète les mises à jour les plus récentes. La version actuelle mise à jour et la nouvelle version précédente sont répliquées vers le compte de destination. Pour plus d’informations sur la façon dont les opérations d’écriture affectent les versions d’objets blob, consultez [Contrôle de version sur les opérations d’écriture](versioning-overview.md#versioning-on-write-operations).
+La réplication d’objets implique que le contrôle de version des objets blob soit activé sur les comptes source et de destination. Lorsqu’un objet blob répliqué dans le compte source est modifié, une nouvelle version de l’objet blob est créée dans le compte source et reflète l’état précédent de l’objet blob, avant modification. La version actuelle du compte source reflète les mises à jour les plus récentes. La version actuelle ainsi que toutes les versions précédentes sont répliquées vers le compte de destination. Pour plus d’informations sur la façon dont les opérations d’écriture affectent les versions d’objets blob, consultez [Contrôle de version sur les opérations d’écriture](versioning-overview.md#versioning-on-write-operations).
 
-Lorsqu’un objet blob du compte source est supprimé, la version actuelle de l’objet blob est capturée dans une version antérieure, puis supprimée. Toutes les versions antérieures de l’objet blob sont conservées même après la suppression de la version actuelle. Cet état est répliqué dans le compte de destination. Pour plus d’informations sur la façon dont les opérations de suppression affectent les versions d’objets blob, consultez [Contrôle de version sur les opérations de suppression](versioning-overview.md#versioning-on-delete-operations).
+Lorsqu’un objet blob du compte source est supprimé, la version actuelle de l’objet blob devient une version antérieure, et il n’y a plus de version précédente. Toutes les versions antérieures du blob sont conservées. Cet état est répliqué dans le compte de destination. Pour plus d’informations sur la façon dont les opérations de suppression affectent les versions d’objets blob, consultez [Contrôle de version sur les opérations de suppression](versioning-overview.md#versioning-on-delete-operations).
 
 ### <a name="snapshots"></a>Instantanés
 
@@ -82,11 +83,11 @@ Une fois que vous avez configuré la réplication d’objets, Stockage Azure vé
 
 ### <a name="replication-policies"></a>Stratégies de réplication
 
-Lorsque vous configurez la réplication d’objets, une stratégie de réplication est créée à la fois sur le compte source et le compte de destination par le biais du fournisseur de ressources de Stockage Azure. La stratégie de réplication est identifiée par un ID de stratégie. La stratégie sur les comptes source et de destination doit avoir le même ID de stratégie pour que la réplication ait lieu.
+Lorsque vous configurez une réplication d’objet, vous créez une stratégie de réplication sur le compte de destination via le fournisseur de ressources de Stockage Azure. Une fois la stratégie de réplication créée, le service Stockage Azure lui attribue un ID de stratégie. Vous devez ensuite associer cette stratégie de réplication au compte source à l’aide de l’ID de stratégie. Pour que la réplication ait lieu, l’ID de stratégie doit être le même sur les comptes source et de destination.
 
 Un compte source peut être répliqué sur deux comptes de destination maximum, avec une stratégie pour chaque compte de destination. De même, un compte peut faire office de compte de destination pour au moins deux stratégies de réplication.
 
-Les comptes source et de destination peuvent se trouver dans la même région ou dans des régions différentes. Ils peuvent également être associés à des abonnements et à des locataires Azure Active Directory (Azure AD) différents. Une seule stratégie de réplication peut être créée pour chaque paire compte source/compte de destination.
+Les comptes source et de destination peuvent se trouver dans la même région ou dans des régions différentes. Ils peuvent également résider dans le même abonnement ou dans des abonnements différents. Si vous le souhaitez, les comptes source et de destination peuvent se trouver dans différents locataires du répertoire actif Azure (Azure AD). Une seule stratégie de réplication peut être créée pour chaque paire compte source/compte de destination.
 
 ### <a name="replication-rules"></a>Règles de réplication
 
@@ -96,9 +97,84 @@ Quand vous créez une règle de réplication, par défaut, seuls les nouveaux ob
 
 Vous pouvez aussi spécifier un ou plusieurs filtres dans le cadre d’une règle de réplication pour filtrer les objets blob de blocs par préfixe. Lorsque vous spécifiez un préfixe, seuls les objets blob correspondant à ce préfixe dans le conteneur source sont copiés dans le conteneur de destination.
 
-Les conteneurs source et de destination doivent tous les deux exister pour que vous puissiez les spécifier dans une règle. Une fois que vous avez créé la stratégie de réplication, les opérations d’écriture dans le conteneur de destination ne sont pas autorisées. Toute tentative d’écriture dans le conteneur de destination échoue avec le code d’erreur 409 (Conflit). Pour écrire dans un conteneur de destination pour lequel une règle de réplication est configurée, vous devez soit supprimer la règle configurée pour ce conteneur, soit supprimer la stratégie de réplication. Les opérations de lecture et de suppression sur le conteneur de destination sont autorisées lorsque la stratégie de réplication est active.
+Les conteneurs source et de destination doivent tous les deux exister pour que vous puissiez les spécifier dans une règle. Une fois que vous avez créé la stratégie de réplication, les opérations d’écriture vers le conteneur de destination ne sont pas autorisées. Toute tentative d’écriture dans le conteneur de destination échoue avec le code d’erreur 409 (Conflit). Pour écrire dans un conteneur de destination pour lequel une règle de réplication est configurée, vous devez soit supprimer la règle configurée pour ce conteneur, soit supprimer la stratégie de réplication. Les opérations de lecture et de suppression sur le conteneur de destination sont autorisées lorsque la stratégie de réplication est active.
 
 Vous pouvez appeler l’opération [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) sur un blob dans le conteneur de destination pour le déplacer vers le niveau archive. Pour plus d’informations sur le niveau d’archive, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md#archive-access-tier).
+
+## <a name="policy-definition-file"></a>Fichier de définition de la stratégie
+
+Une stratégie de réplication d’objet est définie par le fichier JSON. Vous pouvez récupérer le fichier de définition de la stratégie à partir d’une stratégie de réplication d’objet existante. Vous pouvez également créer une stratégie de réplication d’objet en téléchargeant un fichier de définition de la stratégie.
+
+### <a name="sample-policy-definition-file"></a>Exemple de fichier de définition de la stratégie
+
+L’exemple suivant définit une stratégie de réplication sur le compte de destination avec une règle unique correspondant au préfixe *b*, et définit l’heure de création minimale des objets blob à répliquer. N’oubliez pas de remplacer les valeurs entre crochets par vos propres valeurs :
+
+```json
+{
+  "properties": {
+    "policyId": "default",
+    "sourceAccount": "/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "destinationAccount": "/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "rules": [
+      {
+        "ruleId": "",
+        "sourceContainer": "<source-container>",
+        "destinationContainer": "<destination-container>",
+        "filters": {
+          "prefixMatch": [
+            "b"
+          ],
+          "minCreationTime": "2021-08-028T00:00:00Z"
+        }
+      }
+    ]
+  }
+}
+```
+
+### <a name="specify-full-resource-ids-for-the-source-and-destination-accounts"></a>Spécifiez des ID de ressources complets pour les comptes source et de destination
+
+Lorsque vous créez le fichier de définition de la stratégie, spécifiez les ID de ressource complets du Gestionnaire de ressource Azure pour les entrées **sourceAccount** et **destinationAccount**, comme indiqué dans l’exemple de la section précédente. Pour savoir comment localiser l’ID de ressource pour un compte de stockage, consultez [Obtenir l’ID de ressource pour un compte de stockage](../common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account).
+
+L’ID de ressource complet est au format suivant :
+
+```http
+/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
+```
+
+Le fichier de définition de la stratégie ne nécessitait précédemment que le nom du compte, au lieu de l’ID de ressource complet du compte de stockage. Avec l’introduction de la propriété de sécurité **AllowCrossTenantReplication** dans la version du 02/01/2021 de l’API REST du fournisseur de ressource du Stockage Azure, vous devez maintenant fournir l’ID de ressource complet pour toutes les stratégies de réplication d’objet créées lorsque la réplication entre locataires est interdite pour un compte de stockage qui participe à la stratégie de réplication. Le Stockage Azure utilise l’ID de ressource complet pour vérifier si les comptes source et de destination se trouvent dans le même locataire. Pour en savoir plus sur l’interdiction des stratégies de réplication entre locataires, consultez [Empêcher la réplication entre les locataires Azure AD](#prevent-replication-across-azure-ad-tenants).
+
+Si le nom du compte est toujours pris en charge lorsque la réplication entre locataires est autorisée pour un compte de stockage, Microsoft recommande de toujours fournir l’ID de ressource complet comme meilleure pratique. Toutes les versions précédentes de l’API REST du fournisseur de ressource du Stockage Azure prennent en charge l’utilisation du chemin d’accès complet de l’ID de ressource dans les stratégies de réplication d’objets.
+
+Le tableau suivant décrit ce qui se produit lorsque vous créez une stratégie de réplication avec l’ID de ressource complet spécifié, plutôt que le nom du compte, dans les scénarios où la réplication entre locataires est autorisée ou interdite pour le compte de stockage.
+
+| Identificateur de compte de Stockage dans la définition de la stratégie | Réplication entre locataires autorisée | Réplication entre locataires interdite |
+|--|--|--|
+| ID de ressource complet | Les mêmes stratégies de locataire peuvent être créées.<br /><br /> Les stratégies entre locataires peuvent être créées. | Les mêmes stratégies de locataire peuvent être créées.<br /><br /> Les stratégies entre locataires ne peuvent pas être créées. |
+| Nom du compte uniquement | Les mêmes stratégies de locataire peuvent être créées.<br /><br /> Les stratégies entre locataires peuvent être créées. | Vous ne pouvez pas créer de stratégies de locataires identiques ou entre locataires. Une erreur se produit, car le Stockage Azure ne peut pas vérifier que les comptes source et de destination se trouvent dans le même locataire. L’erreur indique que vous devez spécifier l’ID de ressource complet pour les entrées **sourceAccount** et **destinationAccount** dans le fichier de définition de la stratégie. |
+
+### <a name="specify-the-policy-and-rule-ids"></a>Spécifier les ID de stratégie et de règle
+
+Le tableau suivant récapitule les valeurs à utiliser pour les entrées **policyId** et **ruleId** dans le fichier de définition de la stratégie de chaque scénario.
+
+| Lors de la création du fichier de définition de la stratégie pour ce compte... | Définissez l’ID de stratégie sur cette valeur | Définissez les ID de règle sur cette valeur |
+|-|-|-|
+| Compte de destination | Valeur de chaîne *par défaut*. Le service Stockage Azure créera la valeur d’ID de stratégie pour vous. | Chaîne vide. Le service Stockage Azure créera les valeurs d’ID de règle pour vous. |
+| Compte source | La valeur de l’ID de stratégie est retournée quand vous téléchargez le fichier de définition de la stratégie pour le compte de destination. | La valeur des ID de règle est retournée quand vous téléchargez le fichier de définition de la stratégie pour le compte de destination. |
+
+## <a name="prevent-replication-across-azure-ad-tenants"></a>Empêcher la réplication entre les locataires Azure AD
+
+Un locataire du répertoire actif Azure (Azure AD) est une instance dédiée d’Azure AD qui représente une organisation à des fins de gestion des identités et des accès. Chaque abonnement Azure dispose d’une relation d’approbation avec un locataire Azure AD. Toutes les ressources d’un abonnement, y compris les comptes de stockage, sont associées au même locataire Azure AD. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../../active-directory/fundamentals/active-directory-whatis.md)
+
+Par défaut, un utilisateur disposant des autorisations appropriées peut configurer la réplication d’objets avec un compte de stockage source qui se trouve dans un locataire Azure AD et un compte de destination qui se trouve dans un autre locataire. Si vos stratégies de sécurité exigent que vous restreigniez la réplication d’objets aux comptes de stockage qui résident dans le même locataire uniquement, vous pouvez interdire la réplication entre les locataires en définissant une propriété de sécurité, la propriété **AllowCrossTenantReplication** (préversion). Lorsque vous interdisez la réplication d’objets entre locataires pour un compte de stockage, le Stockage Azure demandera alors à toute stratégie de réplication d’objet configurée avec ce compte de stockage en tant que compte source ou de destination, que les comptes source et de destination résident dans le même Azure AD locataire. Pour plus d’informations sur l’interdiction de la réplication d’objets entre locataires, consultez [Empêcher la réplication d’objets entre les locataires du Répertoire actif Azure](object-replication-prevent-cross-tenant-policies.md).
+
+Pour interdire la réplication d’objets entre locataires pour un compte de stockage, affectez la valeur *false* à la propriété **AllowCrossTenantReplication**. Si le compte de stockage ne participe actuellement à aucune stratégie de réplication d’objet entre locataires, l’affectation de la valeur *false* à la propriété **AllowCrossTenantReplication** empêche la configuration ultérieure de stratégies de réplication d’objets entre locataires avec ce compte de stockage comme source ou destination.
+
+Si le compte de stockage participe actuellement à une ou plusieurs stratégies de réplication d’objet entre locataires, l’affectation de la valeur *false* à la propriété **AllowCrossTenantReplication** n’est pas autorisée. Vous devez supprimer les stratégies entre locataires existantes avant de pouvoir désactiver la réplication entre locataires.
+
+Par défaut, la propriété **AllowCrossTenantReplication** n’est pas définie pour un compte de stockage et sa valeur est *null*, ce qui équivaut à *true*. Lorsque la valeur de la propriété **AllowCrossTenantReplication** pour un compte de stockage est *null* ou *true*, les utilisateurs autorisés peuvent configurer des stratégies de réplication d’objets entre locataires avec ce compte comme source ou destination. Pour plus d’informations sur la configuration des stratégies entre locataires, consultez [Configurer la réplication d’objets pour les objets Blob de blocs](object-replication-configure.md).
+
+Vous pouvez utiliser la Stratégie Azure pour auditer un ensemble de comptes de stockage et vous assurer que la propriété **AllowCrossTenantReplication** est définie pour empêcher la réplication d’objets entre locataires. Vous pouvez également utiliser la Stratégie Azure pour appliquer la gouvernance d’un ensemble de comptes de stockage. Par exemple, vous pouvez créer une stratégie avec l’effet de refus pour empêcher un utilisateur de créer un compte de stockage où la propriété **AllowCrossTenantReplication** est définie sur *true* ou de modifier un compte de stockage existant pour remplacer la valeur de la propriété par *true*.
 
 ## <a name="replication-status"></a>État de la réplication
 
@@ -110,6 +186,17 @@ Si l’état de réplication d’un blob dans le compte source indique un échec
 - Vérifiez que le conteneur de destination existe toujours.
 - Si le blob source a été chiffré à l’aide d’une clé fournie par le client dans le cadre d’une opération d’écriture, la réplication d’objet échoue. Pour plus d’informations sur les clés fournies par le client, consultez [Fournir une clé de chiffrement lors d’une requête au stockage d’objets blob](encryption-customer-provided-keys.md).
 
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
+
 ## <a name="billing"></a>Facturation
 
 La réplication d'objets entraîne des coûts supplémentaires pour les transactions de lecture et d'écriture sur les comptes source et de destination, ainsi que des frais de sortie pour la réplication des données du compte source vers le compte de destination, et des frais de lecture pour le traitement des flux de modification.
@@ -117,5 +204,6 @@ La réplication d'objets entraîne des coûts supplémentaires pour les transact
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Configurer la réplication d’objets](object-replication-configure.md)
+- [Empêcher la réplication d’objets sur les locataires du Répertoire actif Azure ](object-replication-prevent-cross-tenant-policies.md)
+- [Contrôle de version des blobs](versioning-overview.md)
 - [Prise en charge du flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)
-- [Activer et gérer le contrôle de version des objets blob](versioning-enable.md)

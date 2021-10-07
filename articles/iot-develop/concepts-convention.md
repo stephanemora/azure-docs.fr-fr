@@ -7,12 +7,12 @@ ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: 26ed060e7cc0ccf8bf4e35ddd5ab62b8ba8eef09
-ms.sourcegitcommit: 8669087bcbda39e3377296c54014ce7b58909746
+ms.openlocfilehash: fc8992e8e602f4a92d870328b6da14dde06af087
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2021
-ms.locfileid: "114406516"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128670820"
 ---
 # <a name="iot-plug-and-play-conventions"></a>Conventions IoT Plug-and-Play
 
@@ -188,9 +188,84 @@ Un appareil peut signaler une erreur telle que :
 }
 ```
 
+### <a name="object-type"></a>Type d’objet
+
+Si une propriété accessible en écriture est définie en tant qu’objet, le service doit envoyer un objet complet à l’appareil. L’appareil doit accuser réception de la mise à jour en renvoyant suffisamment d’informations au service pour que celui-ci comprenne comment l’appareil a agi en réponse à la mise à jour. Cette réponse peut inclure ce qui suit :
+
+- L’objet entier
+- Uniquement les champs que l’appareil a mis à jour
+- Un sous-ensemble des champs
+
+Pour les objets volumineux, pensez à réduire la taille de l’objet que vous incluez dans l’accusé de réception.
+
+L’exemple suivant montre une propriété accessible en écriture définie comme `Object` avec quatre champs :
+
+DTDL :
+
+```json
+{
+  "@type": "Property",
+  "name": "samplingRange",
+  "schema": {
+    "@type": "Object",
+    "fields": [
+      {
+        "name": "startTime",
+        "schema": "dateTime"
+      },
+      {
+        "name": "lastTime",
+        "schema": "dateTime"
+      },
+      {
+        "name": "count",
+        "schema": "integer"
+      },
+      {
+        "name": "errorCount",
+        "schema": "integer"
+      }
+    ]
+  },
+  "displayName": "Sampling range"
+  "writable": true
+}
+```
+
+Pour mettre à jour cette propriété accessible en écriture, envoyez un objet complet à partir du service qui ressemble à ce qui suit :
+
+```json
+{
+  "samplingRange": {
+    "startTime": "2021-08-17T12:53:00.000Z",
+    "lastTime": "2021-08-17T14:54:00.000Z",
+    "count": 100,
+    "errorCount": 5
+  }
+}
+```
+
+L’appareil répond avec un accusé de réception ressemblant à ce qui suit :
+
+```json
+{
+  "samplingRange": {
+    "ac": 200,
+    "av": 5,
+    "ad": "Weighing status updated",
+    "value": {
+      "startTime": "2021-08-17T12:53:00.000Z",
+      "lastTime": "2021-08-17T14:54:00.000Z",
+      "count": 100,
+      "errorCount": 5
+    }
+  }
+}
+```
+
 ### <a name="sample-no-component-writable-property"></a>Exemple de propriété accessible en écriture sans composant
 
-Lorsqu’un appareil reçoit plusieurs propriétés rapportées dans une seule charge utile, il peut envoyer les réponses de propriété rapportée dans plusieurs charges utiles.
+Lorsqu’un appareil reçoit plusieurs propriétés souhaitées dans une seule charge utile, il peut envoyer les réponses de propriétés rapportées dans plusieurs charges utiles ou combiner les réponses dans une charge utile unique.
 
 Un appareil ou un module peut envoyer tout JSON valide qui respecte les règles DTDL v2 :
 
@@ -205,6 +280,12 @@ DTDL :
     {
       "@type": "Property",
       "name": "targetTemperature",
+      "schema": "double",
+      "writable": true
+    },
+    {
+      "@type": "Property",
+      "name": "targetHumidity",
       "schema": "double",
       "writable": true
     }
@@ -249,13 +330,16 @@ Exemple de deuxième charge utile de propriété rapportée :
 }
 ```
 
+> [!NOTE]
+> Vous pouvez choisir de combiner ces deux charges utiles de propriétés rapportées dans une charge utile unique.
+
 ### <a name="sample-multiple-components-writable-property"></a>Exemple de propriété accessible en écriture avec plusieurs composants
 
 L’appareil ou le module doit ajouter le marqueur `{"__t": "c"}` pour indiquer que l’élément fait référence à un composant.
 
 Le marqueur est envoyé uniquement pour les mises à jour des propriétés définies dans un composant. Les mises à jour des propriétés définies dans le composant par défaut n’incluent pas le marqueur. Voir [Exemple de propriété accessible en écriture sans composant](#sample-no-component-writable-property).
 
-Lorsqu’un appareil reçoit plusieurs propriétés rapportées dans une seule charge utile, il peut envoyer les réponses de propriété rapportée dans plusieurs charges utiles.
+Lorsqu’un appareil reçoit plusieurs propriétés rapportées dans une seule charge utile, il peut envoyer les réponses de propriétés rapportées dans plusieurs charges utiles ou combiner les réponses dans une charge utile unique.
 
 L’appareil ou le module doit confirmer qu’il a reçu les propriétés en envoyant des propriétés rapportées :
 
@@ -339,6 +423,9 @@ Exemple de deuxième charge utile de propriété rapportée :
   }
 }
 ```
+
+> [!NOTE]
+> Vous pouvez choisir de combiner ces deux charges utiles de propriétés rapportées dans une charge utile unique.
 
 ## <a name="commands"></a>Commandes
 

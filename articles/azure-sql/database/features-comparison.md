@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, mathoma, danil
-ms.date: 08/26/2021
-ms.openlocfilehash: 451dd198b5507b99400d4e1c8e1670e596016af1
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.date: 09/21/2021
+ms.openlocfilehash: 1b503462b7ff6abd1000e96fa2f3cfd6f15d33fc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123308290"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658960"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparaison des fonctionnalités : Azure SQL Database et Azure SQL Managed Instance
 
@@ -52,7 +52,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Fonctions intégrées](/sql/t-sql/functions/functions) | La plupart - voir Fonctions individuelles | Oui - voir [Procédures stockées, déclencheurs et fonctions définies par l’utilisateur](../managed-instance/transact-sql-tsql-differences-sql-server.md#stored-procedures-functions-and-triggers) |
 | [Instruction BULK INSERT](/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Oui, mais uniquement à partir de Stockage Blob Azure en tant que source. | Oui, mais uniquement à partir de Stockage Blob Azure en tant que source - voir [Différences](../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset). |
 | [Certificats et clés asymétriques](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Oui, sans accès au système de fichiers pour les opérations `BACKUP` et `CREATE`. | Oui, sans accès au système de fichiers pour les opérations `BACKUP` et `CREATE` - Voir [Différences entre certificats](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates). |
-| [Modifier la capture de données – CDC ](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Non | Oui |
+| [Modifier la capture de données – CDC ](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Oui (préversion) pour le niveau S3 et versions ultérieures. Basic, S0, S1, S2 ne sont pas pris en charge. | Oui |
 | [Classement - serveur/instance](/sql/relational-databases/collations/set-or-change-the-server-collation) | Non, par défaut, le classement du serveur `SQL_Latin1_General_CP1_CI_AS` est toujours utilisé. | Oui, peut être défini lorsque l’[instance est créée](../managed-instance/create-template-quickstart.md), mais pas mis à jour ultérieurement. |
 | [Index Columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview) | Oui - [niveau Premium, niveau Standard - S3 et supérieur, niveau Usage général, et niveaux Critique pour l’entreprise et HyperScale](/sql/relational-databases/indexes/columnstore-indexes-overview) |Oui |
 | [Common Language Runtime – CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Non | Oui, mais sans accès au système de fichiers dans l'instruction `CREATE ASSEMBLY` - Voir [Différences entre CLR](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |

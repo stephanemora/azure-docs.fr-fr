@@ -3,14 +3,14 @@ title: Sauvegarder une application
 description: Apprenez à créer des sauvegardes de vos applications Web dans Azure App Service. Exécutez des sauvegardes manuelles ou planifiées. Personnalisez les sauvegardes en incluant la base de données attachée.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 09/02/2021
 ms.custom: seodec18
-ms.openlocfilehash: aed7e341cf190e6daac237b87f17254c5c65bbab
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f1bd37c1b3557a8106981377f9ed75c50a28c773
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531404"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433050"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 
@@ -45,12 +45,12 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
 
 * La fonctionnalité de sauvegarde et de restauration nécessite un plan App Service de niveau **Standard**, **Premium** ou **Isolé**. Pour plus d'informations sur la mise à l’échelle de votre plan App Service en vue d'utiliser un niveau plus élevé, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](manage-scale-up.md). Les niveaux **Premium** et **Isolé** permettent un plus grand nombre de sauvegardes quotidiennes que le niveau **Standard**.
 * Vous avez besoin d’un compte de stockage Azure et d’un conteneur dans le même abonnement que l’application que vous souhaitez sauvegarder. Pour plus d’informations sur les comptes de stockage Azure, consultez [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
-* Les sauvegardes peuvent contenir jusqu’à 10 Go de contenu d’applications et de bases de données. Une erreur se produit si la taille de la sauvegarde dépasse cette limite.
-* La sauvegarde d’Azure Database pour MySQL avec TLS activé n’est pas prise en charge. Si une sauvegarde est configurée, vous rencontrerez des échecs de sauvegarde.
-* La sauvegarde d’Azure Database pour PostgreSQL avec TLS activé n’est pas prise en charge. Si une sauvegarde est configurée, vous rencontrerez des échecs de sauvegarde.
+* Les sauvegardes peuvent atteindre jusqu’à 10 Go de contenu d’application et de base de données, jusqu’à 4 Go pouvant être la sauvegarde de base de données. Une erreur se produit si la taille de la sauvegarde dépasse cette limite.
+* La sauvegarde [de la Base de données Azure pour MySQL avec TLS activé](../mysql/concepts-ssl-connection-security.md) n’est pas prise en charge. Si une sauvegarde est configurée, vous rencontrerez des échecs de sauvegarde.
+* La sauvegarde [de la Base de données Azure pour PostgreSQL avec TLS activé](../postgresql/concepts-ssl-connection-security.md) n’est pas prise en charge. Si une sauvegarde est configurée, vous rencontrerez des échecs de sauvegarde.
 * Les bases de données MySQL in-app sont automatiquement sauvegardées sans aucune configuration. Si vous définissez manuellement des paramètres des bases de données MySQL in-app, par exemple l’ajout de chaînes de connexion, il est possible que les sauvegardes ne fonctionnent pas correctement.
-* L’utilisation d’un compte de stockage avec pare-feu comme destination de vos sauvegardes n’est pas prise en charge. Si une sauvegarde est configurée, vous rencontrerez des échecs de sauvegarde.
-* Actuellement, vous ne pouvez pas utiliser la fonctionnalité de sauvegarde et de restauration avec les comptes de stockage Azure configurés pour utiliser un point de terminaison privé.
+* L’utilisation d’un [compte de stockage avec pare-feu](../storage/common/storage-network-security.md)comme destination de vos sauvegardes n’est pas prise en charge. Si une sauvegarde est configurée, vous rencontrerez des échecs de sauvegarde.
+* L’utilisation d’un [compte de stockage de point de terminaison privé activé](../storage/common/storage-private-endpoints.md) pour la sauvegarde et la restauration n’est pas prise en charge.
 
 <a name="manualbackup"></a>
 

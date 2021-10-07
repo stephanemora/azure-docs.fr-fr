@@ -1,19 +1,19 @@
 ---
 title: Mise à niveau sur place des images Red Hat Enterprise Linux sur Azure
 description: Découvrez comment effectuer une mise à niveau sur place des images Red Hat Enterprise 7.x vers la dernière version 8.x.
-author: mathapli
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: alsin
-ms.openlocfilehash: ccd3e58babc6627a384636dbea28ef82969be9fc
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.author: mamccrea
+ms.openlocfilehash: e127ec753a6db0556c901aff737656da47883c7a
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696743"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129454864"
 ---
 # <a name="red-hat-enterprise-linux-in-place-upgrades"></a>Mises à niveau sur place de Red Hat Enterprise Linux
 

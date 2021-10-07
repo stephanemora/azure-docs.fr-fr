@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.openlocfilehash: 74a438088e3e6c751785387580488efa17e82385
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 09/27/2021
+ms.openlocfilehash: 02ea61356157c7e2a421c736a1af5bd87a1bcb5c
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123035395"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129212334"
 ---
 # <a name="how-to-get-lineage-from-azure-synapse-analytics-into-azure-purview"></a>Comment obtenir la traçabilité des données depuis Azure Synapse Analytics dans Azure Purview
 
@@ -30,6 +30,10 @@ Actuellement, Azure Purview capture la traçabilité d’exécution des activit�
 
 [!INCLUDE[azure-synapse-supported-activity-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
+## <a name="access-secured-azure-purview-account"></a>Accéder à un compte Azure Purview sécurisé
+      
+Si votre compte Purview est protégé par un pare-feu, découvrez comment autoriser Azure Synapse à [accéder à un compte Purview sécurisé](../synapse-analytics/catalog-and-governance/how-to-access-secured-purview-account.md) via des points de terminaison privés Purview.
+
 ## <a name="bring-azure-synapse-lineage-into-purview"></a>Intégrer la traçabilité Azure Synapse dans Purview
 
 ### <a name="step-1-connect-azure-synapse-workspace-to-your-purview-account"></a>Étape 1 : Connecter l’espace de travail Azure Synapse à votre compte Purview
@@ -42,7 +46,7 @@ Vous pouvez créer des pipelines avec l’activité de copie dans l’espace de 
 
 ### <a name="step-3-monitor-lineage-reporting-status"></a>Étape 3 : Surveiller l’état des rapports de traçabilité
 
-Après avoir exécuté le pipeline Azure Synapse, dans la vue de supervision du pipeline Synapse, vous pouvez vérifier l’état du rapport de traçabilité en cliquant sur le bouton **État de la traçabilité** suivant. Les mêmes informations sont également disponibles dans le JSON de la sortie de l’activité -> section `reportLineageToPurvew`.
+Après avoir exécuté le pipeline Azure Synapse, dans la vue de supervision du pipeline Synapse, vous pouvez vérifier l’état du rapport de traçabilité en sélectionnant le bouton **État de la traçabilité** suivant. Les mêmes informations sont également disponibles dans le JSON de la sortie de l’activité -> section `reportLineageToPurvew`.
 
 :::image type="content" source="../data-factory/media/data-factory-purview/monitor-lineage-reporting-status.png" alt-text="Superviser l’état du rapport de traçabilité dans la vue de supervision du pipeline.":::
 

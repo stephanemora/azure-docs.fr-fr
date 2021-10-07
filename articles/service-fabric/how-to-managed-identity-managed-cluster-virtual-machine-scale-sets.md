@@ -4,12 +4,12 @@ description: Cet article explique comment ajouter une identité managée à un t
 ms.topic: how-to
 ms.date: 5/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6cf2d65fe90656fe3025e438a57ea60fe17abd0d
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 75f421ef750907a172ac3cf5c846b6b35f448521
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112453090"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544922"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type"></a>Ajouter une identité managée à un type de nœud de cluster managé Service Fabric
 
@@ -38,18 +38,18 @@ Avant de commencer :
 Une identité managée affectée par l’utilisateur peut être définie dans la section des ressources d’un modèle Azure Resource Manager (ARM) à des fins de création lors du déploiement :
 
 ```JSON
-{ 
-    "type": "Microsoft.ManagedIdentity/userAssignedIdentities", 
-    "name": "[parameters('userAssignedIdentityName')]", 
-    "apiVersion": "2018-11-30", 
-    "location": "[resourceGroup().location]"  
-},
+{
+  "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+  "name": "[parameters('userAssignedIdentityName')]",
+  "apiVersion": "2018-11-30",
+  "location": "[resourceGroup().location]"
+}
 ```
 
 ou créée via PowerShell :
 
 ```powershell
- New-AzResourceGroup -Name <managedIdentityRGName> -Location <location>
+New-AzResourceGroup -Name <managedIdentityRGName> -Location <location>
 New-AzUserAssignedIdentity -ResourceGroupName <managedIdentityRGName> -Name <userAssignedIdentityName>
 ```
 
@@ -85,20 +85,20 @@ Utilisez l’**Id** de la sortie précédente comme **principalId** et l’ID de
 
 Cette attribution de rôle peut être définie dans le modèle de la section Ressources à l’aide de l’ID de principal et de l’ID de définition de rôle :
 
-```JSON
+```json
 {
-    "type": "Microsoft.Authorization/roleAssignments", 
-    "apiVersion": "2020-04-01-preview",
-    "name": "[parameters('vmIdentityRoleNameGuid')]",
-    "scope": "[concat('Microsoft.ManagedIdentity/userAssignedIdentities', '/', parameters('userAssignedIdentityName'))]",
-    "dependsOn": [ 
-        "[concat('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
-    ], 
-    "properties": {
-        "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'f1a07417-d97a-45cb-824c-7a7467783830')]",
-        "principalId": "00000000-0000-0000-0000-000000000000" 
-    } 
-}, 
+  "type": "Microsoft.Authorization/roleAssignments",
+  "apiVersion": "2020-04-01-preview",
+  "name": "[parameters('vmIdentityRoleNameGuid')]",
+  "scope": "[concat('Microsoft.ManagedIdentity/userAssignedIdentities', '/', parameters('userAssignedIdentityName'))]",
+  "dependsOn": [
+    "[concat('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
+  ],
+  "properties": {
+    "roleDefinitionId": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'f1a07417-d97a-45cb-824c-7a7467783830')]",
+    "principalId": "00000000-0000-0000-0000-000000000000"
+  }
+}
 ```
 > [!NOTE]
 > vmIdentityRoleNameGuid doit être un GUID valide. Si vous redéployez le même modèle, dont cette attribution de rôle, vérifiez que le GUID est identique à celui utilisé à l’origine, ou supprimez cette ressource car elle doit être créée une seule fois.
@@ -123,26 +123,24 @@ New-AzResourceGroupDeployment -ResourceGroupName <managedIdentityRGName> -Templa
 Enfin, ajoutez les propriétés `vmManagedIdentity` et `userAssignedIdentities` à la définition du type de nœud du cluster managé avec l’ID de ressource complet de l’identité créée à la première étape. Veillez à utiliser **2021-05-01** ou une version ultérieure pour `apiVersion`.
 
 ```json
-
- {
-    "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-    "apiVersion": "2021-05-01",
-    ...
-    "properties": {
-        "isPrimary" : true,
-        "vmInstanceCount": 5,
-        "dataDiskSizeGB": 100,
-        "vmSize": "Standard_D2_v2",
-        "vmImagePublisher" : "MicrosoftWindowsServer",
-        "vmImageOffer" : "WindowsServer",
-        "vmImageSku" : "2019-Datacenter",
-        "vmImageVersion" : "latest",
-        "vmManagedIdentity": {
-            "userAssignedIdentities": [
-                "[parameters('userAssignedIdentityResourceId')]"
-            ]
-        }
+{
+  "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+  "apiVersion": "2021-05-01",
+  "properties": {
+    "isPrimary": true,
+    "vmInstanceCount": 5,
+    "dataDiskSizeGB": 100,
+    "vmSize": "Standard_D2_v2",
+    "vmImagePublisher": "MicrosoftWindowsServer",
+    "vmImageOffer": "WindowsServer",
+    "vmImageSku": "2019-Datacenter",
+    "vmImageVersion": "latest",
+    "vmManagedIdentity": {
+      "userAssignedIdentities": [
+        "[parameters('userAssignedIdentityResourceId')]"
+      ]
     }
+  }
 }
 ```
 

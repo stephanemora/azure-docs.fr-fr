@@ -2,14 +2,14 @@
 title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: a2b9fedbd2916953b0ff2166bc7fddb5f877ee07
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 2afcd6fa4598a881f0adc5f82c43c8d9c8021064
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754083"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672815"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Déploiements d’abonnements avec des modèles ARM
 
@@ -73,8 +73,8 @@ Pour les modèles, utilisez :
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  ...
 }
 ```
 
@@ -82,8 +82,8 @@ Le schéma d’un fichier de paramètres est le même pour toutes les étendues 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-    ...
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  ...
 }
 ```
 
@@ -99,7 +99,7 @@ Pour l’interface de ligne de commande Azure, utilisez [az deployment sub creat
 az deployment sub create \
   --name demoSubDeployment \
   --location centralus \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyrg.json" \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
@@ -111,7 +111,7 @@ Pour la commande de déploiement PowerShell, utilisez [New-AzDeployment](/powers
 New-AzSubscriptionDeployment `
   -Name demoSubDeployment `
   -Location centralus `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyrg.json" `
   -rgName demoResourceGroup `
   -rgLocation centralus
 ```
@@ -210,7 +210,7 @@ Le modèle suivant crée un groupe de ressources vide.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -241,7 +241,7 @@ Pour créer plus d’un groupe de ressources, utilisez l’[élément copy](copy
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -285,14 +285,14 @@ L’exemple suivant crée un groupe de ressources, et déploie un compte de stoc
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -308,7 +308,7 @@ L’exemple suivant crée un groupe de ressources, et déploie un compte de stoc
           "resources": [
             {
               "type": "Microsoft.Storage/storageAccounts",
-              "apiVersion": "2019-06-01",
+              "apiVersion": "2021-04-01",
               "name": "[variables('storageName')]",
               "location": "[parameters('rgLocation')]",
               "sku": {
@@ -352,7 +352,7 @@ L’exemple suivant assigne une définition de stratégie existante à l’abonn
   "resources": [
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2020-09-01",
       "name": "[parameters('policyName')]",
       "properties": {
         "scope": "[subscription().id]",
@@ -407,7 +407,7 @@ Vous pouvez [définir](../../governance/policy/concepts/definition-structure.md)
   "resources": [
     {
       "type": "Microsoft.Authorization/policyDefinitions",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-09-01",
       "name": "locationpolicy",
       "properties": {
         "policyType": "Custom",
@@ -425,7 +425,7 @@ Vous pouvez [définir](../../governance/policy/concepts/definition-structure.md)
     },
     {
       "type": "Microsoft.Authorization/policyAssignments",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-09-01",
       "name": "location-lock",
       "dependsOn": [
         "locationpolicy"
@@ -485,7 +485,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Contrôle d’accès
 
-Pour en savoir plus sur l’attribution de rôles, consultez [Ajouter des attributions de rôle Azure à l’aide de modèles Resource Manager](../../role-based-access-control/role-assignments-template.md).
+Pour en savoir plus sur l’attribution de rôles, consultez [Attribuer des rôles Azure à l’aide des modèles du gestionnaire de ressource Azure](../../role-based-access-control/role-assignments-template.md).
 
 L’exemple suivant crée un groupe de ressources, lui applique un verrou et attribue un rôle à un principal.
 

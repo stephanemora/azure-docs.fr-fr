@@ -7,14 +7,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: normesta
-ms.openlocfilehash: 758a89e8366e338fe5aaaee7fd6b89d9f7daa588
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e22e7dcfde1782600cdb53814014e6080ffbbfa1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604015"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271628"
 ---
-# <a name="blob-storage-feature-support-in-azure-storage-accounts"></a>Prise en charge des fonctionnalités de stockage Blob dans les comptes de stockage Azure
+# <a name="blob-storage-feature-support-in-azure-storage-accounts"></a>Prise en charge des fonctionnalités de Stockage Blob dans les comptes de Stockage Azure
 
 Cet article indique si une fonctionnalité est entièrement prise en charge (en disponibilité générale), prise en charge au niveau de la préversion ou n’est pas encore prise en charge. Les niveaux de support sont affectés par le type de compte de stockage et l’activation ou non de certaines fonctionnalités ou protocoles sur le compte.
 
@@ -24,9 +24,9 @@ Les éléments figurant dans ces tableaux seront modifiés au fil du temps, car 
 
 | Fonctionnalité Stockage | Stockage Blob (prise en charge par défaut) | Data Lake Storage Gen2 <sup>1</sup>   | NFS 3.0 <sup>1</sup>  |
 |---------------|-------------------|---|---|
-| [Niveau d’accès - archive](storage-blob-storage-tiers.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
-| [Niveau d’accès - froid](storage-blob-storage-tiers.md)   | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)|
-| [Niveau d’accès - chaud](storage-blob-storage-tiers.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
+| [Niveau d’accès - archive](access-tiers-overview.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
+| [Niveau d’accès - froid](access-tiers-overview.md)    | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)|
+| [Niveau d’accès - chaud](access-tiers-overview.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
 | [Accès public anonyme](anonymous-read-access-configure.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)|
 | [Sécurité Azure Active Directory](authorize-access-azure-active-directory.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 | [Inventaire des objets blob](blob-inventory.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup> | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup> |
@@ -57,12 +57,12 @@ Les éléments figurant dans ces tableaux seront modifiés au fil du temps, car 
 | [Suppression réversible pour les objets blob](./soft-delete-blob-overview.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup>   <sup>3</sup> | ![Non](../media/icons/no-icon.png) |
 | [Suppression réversible des conteneurs](soft-delete-container-overview.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 | [Sites web statiques](storage-blob-static-website.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
-| [Journaux Storage Analytics (classiques)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)  <sup>3</sup> | ![Non](../media/icons/no-icon.png) |
+| [Journaux Storage Analytics (classique)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)  <sup>3</sup> | ![Non](../media/icons/no-icon.png) |
 | [Métriques Storage Analytics (classiques)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
 
 <sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
-<sup>2</sup>    La fonctionnalité est prise en charge dans la préversion.
+<sup>2</sup> La fonctionnalité est prise en charge dans la préversion.
 
 <sup>3</sup>    Consultez [Problèmes connus avec Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md). Ces problèmes s'appliquent à tous les comptes pour lesquels la fonction d'espace de noms hiérarchique est activée.
 
@@ -70,9 +70,9 @@ Les éléments figurant dans ces tableaux seront modifiés au fil du temps, car 
 
 | Fonctionnalité Stockage | Stockage Blob (prise en charge par défaut) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
 |---------------|-------------------|---|---|
-| [Niveau d’accès - archive](storage-blob-storage-tiers.md)  | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
-| [Niveau d’accès - froid](storage-blob-storage-tiers.md) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
-| [Niveau d’accès - chaud](storage-blob-storage-tiers.md) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
+| [Niveau d’accès - archive](access-tiers-overview.md)  | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
+| [Niveau d’accès - froid](access-tiers-overview.md) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
+| [Niveau d’accès - chaud](access-tiers-overview.md) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
 | [Accès public anonyme](anonymous-read-access-configure.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
 | [Sécurité Azure Active Directory](authorize-access-azure-active-directory.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 | [Inventaire des objets blob](blob-inventory.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup> | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup> |
@@ -103,12 +103,12 @@ Les éléments figurant dans ces tableaux seront modifiés au fil du temps, car 
 | [Suppression réversible pour les objets blob](./soft-delete-blob-overview.md)   | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup>   <sup>3</sup> | ![Non](../media/icons/no-icon.png) |
 | [Suppression réversible des conteneurs](soft-delete-container-overview.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) |
 | [Sites web statiques](storage-blob-static-website.md) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
-| [Journaux Storage Analytics (classiques)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup>  <sup>3</sup> | ![Non](../media/icons/no-icon.png)|
+| [Journaux Storage Analytics (classique)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Oui](../media/icons/yes-icon.png) | ![Oui ](../media/icons/yes-icon.png) <sup>2</sup> <sup>3</sup> | ![Non](../media/icons/no-icon.png)|
 | [Métriques Storage Analytics (classiques)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png) |
 
 <sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
-<sup>2</sup>    La fonctionnalité est prise en charge dans la préversion.
+<sup>2</sup> La fonctionnalité est prise en charge dans la préversion.
 
 <sup>3</sup>    Consultez [Problèmes connus avec Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md). Ces problèmes s'appliquent à tous les comptes pour lesquels la fonction d'espace de noms hiérarchique est activée.
 

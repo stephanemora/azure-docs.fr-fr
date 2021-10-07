@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/17/2021
 ms.author: phjensen
-ms.openlocfilehash: 85f6c7d8ef0eced1e7cbb2259d4117bc1ae5ff89
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0fb0b0fc0734cc05952457e0e6fc6dc5ff5151b2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083725"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128614331"
 ---
 # <a name="troubleshoot-azure-application-consistent-snapshot-tool"></a>Dépanner l'outil Azure Application Consistent Snapshot
 
@@ -61,6 +61,66 @@ Lors de la validation de la communication avec Azure NetApp Files, la communicat
 
 - (https://)management.azure.com:443
 - (https://)login.microsoftonline.com:443 
+
+### <a name="testing-communication-using-cloud-shell"></a>Test de la communication à l’aide de Cloud Shell
+
+Vous pouvez tester la configuration correcte du Principal du service à l’aide de Cloud Shell via votre portail Azure. Cela permet de vérifier que la configuration est correcte en ignorant les contrôles réseau au sein d’un réseau virtuel ou d’une machine virtuelle. 
+
+**Solution :**
+
+1. Ouvrez une session [Cloud Shell](/azure/cloud-shell/overview) dans votre portail Azure. 
+1. Créez un répertoire de test (par exemple `mkdir azacsnap`)
+1. Accédez au répertoire azacsnap et téléchargez la dernière version de l’outil azacsnap.
+    
+    ```bash
+    wget https://aka.ms/azacsnapinstaller
+    ```
+   
+    ```output
+    ----<snip>----
+    HTTP request sent, awaiting response... 200 OK
+    Length: 24402411 (23M) [application/octet-stream]
+    Saving to: ‘azacsnapinstaller’
+
+    azacsnapinstaller 100%[=================================================================================>] 23.27M 5.94MB/s in 5.3s
+
+    2021-09-02 23:46:18 (4.40 MB/s) - ‘azacsnapinstaller’ saved [24402411/24402411]
+    ```
+    
+1. Créez le programme d’installation exécutable. (p. ex. `chmod +x azacsnapinstaller`)
+1. Extrayez le fichier binaire pour le test.
+
+    ```bash
+    ./azacsnapinstaller -X -d .
+    ```
+    
+    ```output
+    +-----------------------------------------------------------+
+    | Azure Application Consistent Snapshot Tool Installer |
+    +-----------------------------------------------------------+
+    |-> Installer version '5.0.2_Build_20210827.19086'
+    |-> Extracting commands into ..
+    |-> Cleaning up .NET extract dir
+    ```
+
+1. À l’aide de l’icône Cloud Shell Charger/Télécharger, téléchargez le fichier du Principal du Service (par exemple `azureauth.json`) et le fichier de configuration AzAcSnap aux fins de test (par exemple `azacsnap.json`)
+1. Exécutez le test Stockage à partir de la console Azure Cloud Shell. 
+
+    > [!NOTE]
+    > L’exécution de la commande de test peut prendre environ 90 secondes.
+
+    ```bash
+    ./azacsnap -c test --test storage
+    ```
+
+    ```output
+    BEGIN : Test process started for 'storage'
+    BEGIN : Storage test snapshots on 'data' volumes
+    BEGIN : 1 task(s) to Test Snapshots for Storage Volume Type 'data'
+    PASSED: Task#1/1 Storage test successful for Volume
+    END : Storage tests complete
+    END : Test process complete for 'storage'
+    ```
 
 ## <a name="problems-with-sap-hana"></a>Problèmes avec SAP HANA
 
@@ -128,7 +188,7 @@ Cannot get SAP HANA version, exiting with error: 127
 
 ### <a name="insufficient-privilege"></a>Privilège insuffisant
 
-Si l’exécution de `azacsnap` présente une erreur de type `* 258: insufficient privilege`, vérifiez le privilège attribué à l’utilisateur de base de données « AZACSNAP » (en supposant qu’il s’agit de l’utilisateur créé selon le [guide d’installation](azacsnap-installation.md#enable-communication-with-sap-hana)).  Pour cela, utilisez la commande suivante :
+Si l’exécution de `azacsnap` présente une erreur de type `* 258: insufficient privilege`, vérifiez le privilège attribué à l’utilisateur de base de données « AZACSNAP » (en supposant qu’il s’agit de l’utilisateur créé selon le [guide d’installation](azacsnap-installation.md#enable-communication-with-database)).  Pour cela, utilisez la commande suivante :
 
 ```bash
 hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges "' | grep -i -e GRANTEE -e azacsnap

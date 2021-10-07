@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 09/20/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da0d7c9812575ce6b957e70dbe4f8bc165f39315
-ms.sourcegitcommit: a2540262e05ffd4a4b059df0976940d60fabd125
+ms.openlocfilehash: 8f8a535f7c74e32e59918badbda7747f24a1756f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113138726"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128623985"
 ---
 # <a name="federation-with-samlws-fed-identity-providers-for-guest-users-preview"></a>Fédération avec des fournisseurs d’identité SAML/WS-Fed pour les utilisateurs invités (préversion)
 
@@ -59,29 +59,34 @@ Les utilisateurs invités de la fédération de fournisseur d’identité SAML/W
 
 Vous pouvez également fournir aux utilisateurs invités un lien direct vers une application ou une ressource en incluant les informations de votre locataire, par exemple `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
 
-## <a name="limitations"></a>Limites
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
-### <a name="dns-verified-domains-in-azure-ad"></a>Domaines vérifiés par DNS dans Azure AD
-Vous pouvez configurer la fédération de fournisseur d’identité SAML/WS-Fed avec des domaines qui ne sont pas vérifiés par DNS dans Azure AD, notamment les locataires Azure AD non mangés (vérifiés par e-mail ou « viraux »). Toutefois, nous bloquons la fédération de fournisseur d’identité SAML/WS-Fed pour les domaines vérifiés Azure AD en faveur des fonctionnalités natives de domaine managé Azure AD. Vous verrez une erreur dans le portail Azure ou PowerShell si vous essayez de configurer la fédération de fournisseur d’identité SAML/WS-Fed avec un domaine vérifié par DNS dans Azure AD.
+### <a name="can-i-set-up-samlws-fed-idp-federation-with-azure-ad-verified-domains"></a>Puis-je configurer la fédération de fournisseur d’identité SAML/WS-Fed avec les domaines vérifiés Azure AD ?
+Non, nous bloquons la fédération de fournisseur d’identité SAML/WS-Fed pour les domaines vérifiés Azure AD en faveur des fonctionnalités natives de domaine managé Azure AD. Si vous essayez de configurer la fédération de fournisseur d’identité SAML/WS-Fed avec un domaine vérifié par DNS dans Azure AD, une erreur s’affiche dans le portail Azure ou dans PowerShell.
 
-### <a name="signing-certificate-renewal"></a>Renouvellement du certificat de signature
-Si vous spécifiez l’URL de métadonnées dans les paramètres du fournisseur d’identité, Azure AD renouvelle automatiquement le certificat de signature à son expiration. Toutefois, si le certificat pivote avant le délai d’expiration pour une raison quelconque, ou si vous ne fournissez pas une URL de métadonnées, Azure AD ne pourra pas le renouveler. Dans ce cas, vous devez mettre à jour le certificat de signature manuellement.
+### <a name="can-i-set-up-samlws-fed-idp-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Puis-je configurer la fédération de fournisseur d’identité SAML/WS-Fed avec un domaine pour lequel un client non géré (vérifié par e-mail) existe ? 
+Oui, vous pouvez configurer la fédération de fournisseur d’identité SAML/WS-Fed avec des domaines qui ne sont pas vérifiés par DNS dans Azure AD, notamment les locataires Azure AD non mangés (vérifiés par e-mail ou « viraux »). Ces locataires sont créés quand un utilisateur accepte une invitation B2B ou effectue une inscription en libre-service pour Azure AD à l’aide d’un domaine qui n’existe pas actuellement. Si le domaine n’a pas été vérifié et que le locataire n’a pas subi de [prise en charge administrateur](../enterprise-users/domains-admin-takeover.md), vous pouvez configurer la fédération avec de domaine.
 
-### <a name="limit-on-federation-relationships"></a>Limite des relations de fédération
+### <a name="how-many-federation-relationships-can-i-create"></a>Combien de relations de fédération puis-je créer ?
 Pour le moment, le nombre de relations de fédération maximum pris en charge est limité à 1 000. Cette limite concerne à la fois les [fédérations internes et les fédérations de fournisseur d’identité SAML/WS-Fed](/powershell/module/msonline/set-msoldomainfederationsettings).
 
-### <a name="limit-on-multiple-domains"></a>Limite des domaines multiples
+### <a name="can-i-set-up-federation-with-multiple-domains-from-the-same-tenant"></a>Puis-je configurer la fédération avec plusieurs domaines du même locataire ?
 Nous ne prenons pas en charge actuellement la fédération de fournisseur d’identité SAML/WS-Fed avec plusieurs domaines du même locataire.
 
-## <a name="frequently-asked-questions"></a>Forum aux questions
-### <a name="can-i-set-up-samlws-fed-idp-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Puis-je configurer la fédération de fournisseur d’identité SAML/WS-Fed avec un domaine pour lequel un client non géré (vérifié par e-mail) existe ? 
-Oui. Si le domaine n’a pas été vérifié et que le locataire n’a pas subi de [prise en charge administrateur](../enterprise-users/domains-admin-takeover.md), vous pouvez configurer la fédération avec de domaine. Les clients non gérés, ou vérifiés par e-mail, sont créés lorsqu’un utilisateur a utilisé une invitation B2B ou effectue une inscription libre-service pour Azure AD à l’aide d’un domaine qui n’existe pas actuellement. Vous pouvez configurer la fédération de fournisseur d’identité SAML/WS-Fed avec ces domaines.
+### <a name="do-i-need-to-renew-the-signing-certificate-when-it-expires"></a>Dois-je renouveler le certificat de signature quand il expire ?
+Si vous spécifiez l’URL de métadonnées dans les paramètres du fournisseur d’identité, Azure AD renouvelle automatiquement le certificat de signature à son expiration. Toutefois, si le certificat pivote avant le délai d’expiration pour une raison quelconque, ou si vous ne fournissez pas une URL de métadonnées, Azure AD ne pourra pas le renouveler. Dans ce cas, vous devez mettre à jour le certificat de signature manuellement.
+
 ### <a name="if-samlws-fed-idp-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Si la fédération de fournisseur d’identité SAML/WS-Fed et l’authentification par code secret à usage unique par e-mail sont activées, quelle méthode est prioritaire ?
 Lorsque la fédération de fournisseur d’identité SAML/WS-Fed est établie avec une organisation partenaire, elle est prioritaire sur l’authentification par code secret à usage unique par e-mail pour les nouveaux utilisateurs invités de cette organisation. Si un utilisateur invité a utilisé une invitation à l’aide de l’authentification par code secret à usage unique avant que vous n’ayez configuré la fédération de fournisseur d’identité SAML/WS-Fed, il continue d’utiliser l’authentification par code secret à usage unique.
+
 ### <a name="does-samlws-fed-idp-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>La fédération de fournisseur d’identité SAML/WS-Fed répond-elle aux problèmes de connexion, étant une location partiellement synchronisée ?
 Non, la fonctionnalité de connexion par [code secret à usage unique par e-mail](one-time-passcode.md) doit être utilisée dans ce cas. Une « location partiellement synchronisée » fait référence à un locataire Azure AD partenaire où les identités utilisateur locales ne sont pas entièrement synchronisées avec le cloud. Un invité dont l’identité n’existe pas encore dans le cloud mais qui essaie d’utiliser votre invitation B2B ne pourra pas se connecter. La fonctionnalité de code secret à usage unique permettrait à cet invité de se connecter. La fonctionnalité de fédération de fournisseur d’identité SAML/WS-Fed répond aux scénarios où l’invité a son propre compte professionnel géré par le fournisseur d’identité, mais que l’organisation n’a aucune présence sur Azure AD.
+
 ### <a name="once-samlws-fed-idp-federation-is-configured-with-an-organization-does-each-guest-need-to-be-sent-and-redeem-an-individual-invitation"></a>Une fois que la fédération de fournisseur d’identité SAML/WS-Fed est configurée avec une organisation, faut-il envoyer une invitation individuelle à chaque invité pour qu’il l’utilise ?
 La configuration de la fédération de fournisseur d’identité SAML/WS-Fed ne change pas la méthode d’authentification pour les utilisateurs invités qui ont déjà utilisé une invitation de votre part. Vous pouvez mettre à jour la méthode d’authentification d’un utilisateur invité en [réinitialisant l’état d’acceptation](reset-redemption-status.md).
+
+### <a name="is-there-a-way-to-send-a-signed-request-to-the-saml-identity-provider"></a>Existe-t-il un moyen d’envoyer une demande signée au fournisseur d’identité SAML ?
+Actuellement, la fonctionnalité de fédération Azure AD SAML/WS-Fed ne prend pas en charge l’envoi d’un jeton d’authentification signé au fournisseur d’identité SAML.
 
 ## <a name="step-1-determine-if-the-partner-needs-to-update-their-dns-text-records"></a>Étape 1 : Déterminer si le partenaire doit mettre à jour ses enregistrements texte DNS
 
@@ -104,7 +109,10 @@ En fonction de son fournisseur d’identité, le partenaire devra peut-être met
 2. Si le fournisseur d'identité ne fait pas partie des fournisseurs autorisés répertoriés à l'étape précédente, vérifiez l'URL d'authentification du fournisseur d'identité du partenaire pour déterminer si le domaine correspond au domaine cible ou à un hôte du domaine cible. En d’autres termes, lors de la configuration de la fédération pour `fabrikam.com` :
 
      - Si l'URL d'authentification est `https://fabrikam.com` ou `https://sts.fabrikam.com/adfs` (hôte du même domaine), aucune modification des enregistrements DNS n'est nécessaire.
-     - Si l'URL d'authentification est `https://fabrikamconglomerate.com/adfs`,   ou  `https://fabrikam.com.uk/adfs`, le domaine ne correspond pas au domaine fabrikam.com. Le partenaire doit donc ajouter à sa configuration DNS un enregistrement texte pour l'URL d'authentification ; passez à l'étape suivante.
+     - Si l’URL d’authentification est `https://fabrikamconglomerate.com/adfs`  ou  `https://fabrikam.com.uk/adfs`, le domaine ne correspond pas au domaine fabrikam.com. Le partenaire doit donc ajouter à sa configuration DNS un enregistrement texte pour l’URL d’authentification.
+
+    > [!IMPORTANT]
+    > L’étape suivante présente un problème connu. Actuellement, l’ajout d’un enregistrement texte DNS au domaine de l’IdP de fédération ne débloque pas l’authentification. Nous travaillons activement à la résolution de ce problème.
 
 3. Si des modifications des enregistrements DNS sont nécessaires en fonction de l'étape précédente, demandez au partenaire d'ajouter un enregistrement TXT aux enregistrements DNS de son domaine, comme dans l'exemple suivant :
 
@@ -122,7 +130,7 @@ Votre organisation partenaire doit ensuite configurer son fournisseur d’identi
 Azure AD B2B peut être configuré pour la fédération avec les fournisseurs d’identité qui utilisent le protocole SAML avec certaines exigences spécifiques indiquées ci-dessous. Pour plus d’informations sur la configuration d’une approbation entre votre fournisseur d’identité SAML et Azure AD, consultez [Utiliser un fournisseur d’identité SAML 2.0 pour l’authentification unique](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
-> Le domaine cible pour la fédération de fournisseur d’identité SAML/WS-Fed ne doit pas être vérifié par DNS dans Azure AD. Consultez la section [Limitations](#limitations) pour plus d’informations.
+> Le domaine cible pour la fédération de fournisseur d’identité SAML/WS-Fed ne doit pas être vérifié par DNS dans Azure AD. Pour plus d’informations, consultez la section [Questions fréquentes (FAQ)](#frequently-asked-questions).
 
 #### <a name="required-saml-20-attributes-and-claims"></a>Attributs SAML 2.0 et revendications requises
 Les tableaux suivants présentent la configuration requise pour les attributs spécifiques et les revendications qui doivent être configurés au niveau du fournisseur d’identité tiers. Pour configurer la fédération, les attributs suivants doivent être reçus dans la réponse SAML 2.0 à partir du fournisseur d’identité. Ces attributs peuvent être configurés en liant le fichier XML du service d’émission de jeton de sécurité en ligne ou en les entrant manuellement.
@@ -148,7 +156,7 @@ Revendications requises pour le jeton SAML 2.0 émis par le fournisseur d’ide
 Azure AD B2B peut être configuré pour la fédération avec les fournisseurs d’identité qui utilisent le protocole WS-Fed avec certaines exigences spécifiques indiquées ci-dessous. Actuellement, les deux fournisseurs WS-Fed testés pour assurer la compatibilité avec Azure AD incluent AD FS et Shibboleth. Pour plus d’informations sur l’établissement d’une partie de confiance entre un fournisseur compatible WS-Fed avec Azure AD, consultez le document « STS Integration Paper using WS Protocols » (Intégration » STS à l’aide des protocoles WS) disponible dans [Compatibilité des fournisseurs d’identité Azure AD](https://www.microsoft.com/download/details.aspx?id=56843).
 
 > [!NOTE]
-> Le domaine cible pour la fédération ne doit pas être vérifié par DNS sur Azure AD. Consultez la section [Limitations](#limitations) pour plus d’informations.
+> Le domaine cible pour la fédération ne doit pas être vérifié par DNS sur Azure AD. Pour plus d’informations, consultez la section [Questions fréquentes (FAQ)](#frequently-asked-questions).
 
 #### <a name="required-ws-fed-attributes-and-claims"></a>Attributs WS-Fed et revendications requises
 

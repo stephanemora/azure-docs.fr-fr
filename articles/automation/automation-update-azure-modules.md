@@ -3,17 +3,17 @@ title: Mettre à jour des modules Azure PowerShell dans Azure Automation
 description: Cet article explique comment mettre à jour des modules Azure PowerShell courants fournis par défaut dans Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/14/2019
+ms.date: 09/16/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c1632da35864fc6822b385adac06d7f124aea061
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a2ff4799b335376f6f99004d45034ba6a4796059
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830409"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128654363"
 ---
-# <a name="update-azure-powershell-modules"></a>Mettre à jour les modules Azure PowerShell
+# <a name="update-azure-automation-powershell-modules"></a>Mettre à jour des modules PowerShell Azure Automation
 
 Les modules PowerShell les plus courants sont fournis par défaut dans chaque compte Automation. Voir [Modules par défaut](shared-resources/modules.md#default-modules). À mesure que l’équipe Azure met à jour les modules Azure, des modifications peuvent se produire avec les cmdlets incluses. Ces modifications, par exemple, en renommant un paramètre ou en déconseillant entièrement une cmdlet, peuvent avoir un impact négatif sur vos runbooks. 
 
@@ -24,7 +24,7 @@ Les modules PowerShell les plus courants sont fournis par défaut dans chaque co
 
 Pour éviter toute incidence sur vos runbooks et sur les processus qu’ils automatisent, veillez à tester et valider les mises à jour. Si vous n’avez pas de compte Automation dédié destiné à cet usage, créez-en un pour pouvoir tester différents scénarios pendant le développement de vos runbooks. Ces tests doivent comprendre des changements itératifs, comme la mise à jour des modules PowerShell.
 
-Assurez-vous que votre compte Automation dispose d’un [compte d’identification Azure](automation-security-overview.md#run-as-accounts).
+Vérifiez que votre compte Automation a ajouté une [identité managée affectée par le système ou une identité managée affectée par l’utilisateur](quickstarts/enable-managed-identity.md).
 
 Si vous développez vos scripts localement, il est recommandé de disposer localement des mêmes versions de module que celles disponibles dans votre compte Automation à des fins de test, pour être assuré d’obtenir les mêmes résultats. Une fois que les résultats sont validés et que vous avez appliqué les changements nécessaires, vous pouvez les passer en production.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 09/29/2021
 ms.author: b-juche
-ms.openlocfilehash: b4ea507087bbed2ee3ac49f3c58d81bbac24c90b
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: cc034689e2c3cd6846986680225ca7ca21ac41c8
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094269"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407529"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métriques pour Azure NetApp Files
 
@@ -83,9 +83,6 @@ Vous pouvez rechercher des métriques pour un pool de capacité ou un volume en 
 
 - *La réplication de volume est-elle en cours de transfert*    
     L’état de la réplication de volume est-il « En cours de transfert ». 
- 
-- *Décalage de la réplication de volume*   
-    Durée, en secondes, du retard des données présentes sur le miroir par rapport à la source 
 
 - *Durée du dernier transfert de réplication de volume*   
     Durée, en secondes, nécessaire au dernier transfert 
@@ -142,5 +139,5 @@ Vous pouvez rechercher des métriques pour un pool de capacité ou un volume en 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Comprendre la hiérarchie de stockage d’Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md)
+* [Créer un pool de capacités](azure-netapp-files-set-up-capacity-pool.md)
 * [Créer un volume pour Azure NetApp Files](azure-netapp-files-create-volumes.md)

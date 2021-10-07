@@ -4,16 +4,16 @@ description: Configurer un disque managé Azure avec la fonctionnalité Disques 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 09/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 594800dcd75de3e5539873f327b5b64b81a8cb1f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: bdf012d1ee6c1230e458b7b40e3130d8fa25e4a1
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122698185"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123424753"
 ---
 # <a name="enable-shared-disk"></a>Activer la fonctionnalité Disques partagés
 
@@ -62,9 +62,9 @@ Pour déployer un disque managé avec la fonctionnalité de disque partagé acti
 
     :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Capture d’écran du volet créer un disque géré, changer la taille mise en surbrillance." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
 
-1. Sélectionnez la taille de disque SSD Premium souhaitée, puis cliquez sur **OK**.
+1. Sélectionnez la taille de disque SSD Premium et la référence SKU souhaitées, puis cliquez sur **OK**.
 
-    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Capture d’écran de la référence du disque, SSD Premium mis en surbrillance." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Capture d’écran des références SKU du disque, du LRS Premium et des SKU ZRS SSD mis en surbrillance." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
 
 1. Continuez le déploiement jusqu'à ce que vous arriviez au volet **Avancé**.
 1. Sélectionnez **Oui** pour **Activer le disque partagé** et sélectionnez le nombre de **partages maximum** que vous souhaitez.
@@ -105,7 +105,23 @@ Pour déployer un disque managé avec la fonctionnalité de disque partagé acti
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-Actuellement, vous ne pouvez pas déployer un disque SSD standard partagé via le Portail Azure. Utilisez l’Azure CLI, le module Azure PowerShell ou un modèle Azure Resource Manager.
+1. Connectez-vous au portail Azure. 
+1. Recherchez et sélectionnez **Disques**.
+1. Sélectionnez **+ Créer** pour créer un disque.
+1. Renseignez les détails et sélectionnez une région appropriée, puis sélectionnez **Modifier la taille**.
+
+    :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Capture d’écran du volet créer un disque géré, changer la taille mise en surbrillance." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
+
+1. Sélectionnez la taille du disque SSD standard et la référence SKU souhaitées, puis cliquez sur **OK**.
+
+    :::image type="content" source="media/disks-shared-enable/select-standard-ssd-shared-disk.png" alt-text="Capture d’écran de la référence SKU du disque, des LRS SSD standard et des références SKU ZRS mis en surbrillance." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+
+1. Continuez le déploiement jusqu'à ce que vous arriviez au volet **Avancé**.
+1. Sélectionnez **Oui** pour **Activer le disque partagé** et sélectionnez le nombre de **partages maximum** que vous souhaitez.
+
+    :::image type="content" source="media/disks-shared-enable/enable-premium-shared-disk.png" alt-text="Capture d’écran du volet avancé, activer le disque partagé mis en surbrillance et définir sur Oui." lightbox="media/disks-shared-enable/enable-premium-shared-disk.png":::
+
+1. Sélectionnez **Vérifier + créer**.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

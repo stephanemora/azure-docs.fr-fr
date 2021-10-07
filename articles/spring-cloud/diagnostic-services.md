@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: karler
 ms.custom: devx-track-java
-ms.openlocfilehash: e2d903f781e86670139347930289599bec6ee7e7
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 8a462809ca7be524e0e5149808bdcbe28f49dd77
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533025"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649035"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
 
@@ -35,6 +35,7 @@ Choisissez la catégorie de journal et de métrique que vous souhaitez analyser.
 |----|----|
 | **ApplicationConsole** | Journal de la console de toutes les applications clientes. |
 | **SystemLogs** | Actuellement, seul [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) enregistre dans cette catégorie. |
+| **IngressLogs** | [Journaux d’entrée](#show-ingress-log-entries-containing-a-specific-host) de toutes les applications du client, accès uniquement aux journaux. |
 
 ## <a name="metrics"></a>Mesures
 
@@ -179,13 +180,37 @@ AppPlatformLogsforSpring
 | render piechart
 ```
 
+### <a name="show-ingress-log-entries-containing-a-specific-host"></a>Afficher les entrées du journal d’entrée contenant un hôte spécifique
+
+Pour consulter les entrées de journal générées par un hôte spécifique, exécutez la requête suivante :
+
+```sql
+AppPlatformIngressLogs
+| where TimeGenerated > ago(1h) and Host == "ingress-asc.test.azuremicroservices.io" 
+| project TimeGenerated, RemoteIP, Host, Request, Status, BodyBytesSent, RequestTime, ReqId, RequestHeaders
+| sort by TimeGenerated
+```
+
+Utilisez cette requête pour trouver la valeur `Status` de la réponse, `RequestTime` et d’autres propriétés des journaux d’entrée de cet hôte spécifique. 
+
+### <a name="show-ingress-log-entries-for-a-specific-requestid"></a>Afficher les entrées du journal d’entrée pour une valeur requestId spécifique
+
+Pour consulter les entrées de journal d’une valeur `requestId` *\<request_ID>* spécifique, exécutez la requête suivante :
+
+```sql
+AppPlatformIngressLogs
+| where TimeGenerated > ago(1h) and ReqId == "<request_ID>" 
+| project TimeGenerated, RemoteIP, Host, Request, Status, BodyBytesSent, RequestTime, ReqId, RequestHeaders
+| sort by TimeGenerated
+```
+
 ### <a name="learn-more-about-querying-application-logs"></a>En savoir plus sur l’interrogation des journaux d’application
 
 Azure Monitor fournit une prise en charge étendue de l’interrogation des journaux d’application à l’aide de Log Analytics. Pour plus d’informations sur ce service, consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](../azure-monitor/logs/get-started-queries.md). Pour plus d’informations sur la création de requêtes pour analyser vos journaux d’application, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
-### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Comment convertir des traces de pile Java à plusieurs lignes en une ligne unique ?
+### <a name="how-do-i-convert-multi-line-java-stack-traces-into-a-single-line"></a>Comment convertir des traces de pile Java à plusieurs lignes en une ligne unique ?
 
 Il existe une solution de contournement pour convertir les traces de pile à plusieurs lignes en une ligne unique. Vous pouvez modifier la sortie du journal Java pour remettre en forme les messages de trace de pile, en remplaçant les caractères de saut de ligne par un jeton. Si vous utilisez la bibliothèque Logback Java, vous pouvez remettre en forme les messages de trace de pile en ajoutant `%replace(%ex){'[\r\n]+', '\\n'}%nopex` comme suit :
 
@@ -204,7 +229,7 @@ Il existe une solution de contournement pour convertir les traces de pile à plu
 </configuration>
 ```
 
-Vous pouvez ensuite remplacer le jeton par des caractères de saut de ligne dans Log Analytics comme indiqué ci-dessous :
+Vous pouvez ensuite remplacer le jeton par des caractères de nouvelle ligne dans Log Analytics comme indiqué ci-dessous :
 
 ```sql
 AppPlatformLogsforSpring

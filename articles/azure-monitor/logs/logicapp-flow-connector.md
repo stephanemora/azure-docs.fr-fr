@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 9b6cddc32b81f0e1bf915bfa09527a3ef395f744
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a63eaf3047dec956755616e06e1c250d88825772
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531999"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128609780"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Connecteur Azure Monitor Logs pour Logic Apps et Power Automate
 [Azure Logic Apps](../../logic-apps/index.yml) et [Power Automate](https://flow.microsoft.com) vous permettent de créer des workflows automatisés utilisant des centaines d’actions pour divers services. Le connecteur Azure Monitor Logs vous permet de générer des workflows qui récupèrent des données à partir d’un espace de travail Log Analytics ou d’une application Application Insights dans Azure Monitor. Cet article décrit les actions incluses dans le connecteur et montre pas à pas comment générer un workflow utilisant ces données.
@@ -25,7 +25,7 @@ Le connecteur de journaux Azure Monitor a les limites suivantes :
 * Délai d’expiration maximal des requêtes : 110 secondes
 * Les visualisations de graphique peuvent être disponibles dans la page Journaux et manquantes dans le connecteur, car le connecteur et la page Journaux n’utilisent pas les mêmes bibliothèques de graphiques
 
-En fonction de la taille de vos données et de la requête que vous utilisez, le connecteur peut atteindre ses limites et échouer. Vous pouvez contourner ce type de situation en ajustant la périodicité du déclencheur pour que le connecteur s’exécute plus fréquemment et interroge moins de données. Vous pouvez utiliser des requêtes qui agrègent vos données pour retourner moins d’enregistrements et de colonnes.
+Le connecteur peut atteindre des limites en fonction de la requête que vous utilisez et de la taille des résultats. Vous pouvez souvent éviter de tels cas en ajustant la récurrence du flux pour qu’il s’exécute plus fréquemment sur une plage horaire plus petite, ou regroupe des données pour réduire la taille des résultats. Les requêtes fréquentes avec des intervalles inférieurs à 120 secondes ne sont pas recommandées en raison de la mise en cache.
 
 ## <a name="actions"></a>Actions
 Le tableau suivant décrit les actions incluses dans le connecteur Azure Monitor Logs. Les deux vous permettent d’exécuter une requête de journal sur un espace de travail Log Analytics ou une application Application Insights. La différence réside dans la façon dont les données sont retournées.

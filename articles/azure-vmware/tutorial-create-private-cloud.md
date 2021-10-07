@@ -2,19 +2,17 @@
 title: 'Tutoriel : Déployer un cloud privé Azure VMware Solution'
 description: Découvrez comment créer et déployer un cloud privé Azure VMware Solution
 ms.topic: tutorial
-ms.date: 06/11/2021
-ms.openlocfilehash: d91e9fe9261aa4a04f5e5dffd3505742d9886623
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/29/2021
+ms.openlocfilehash: 164795bddcd7557a90f2d087cdd5a239a95d3a71
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121730353"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274080"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Tutoriel : Déployer un cloud privé Azure VMware Solution
 
 Un cloud privé Azure VMware Solution vous donne la possibilité de déployer un cluster vSphere sur Azure. Pour chaque cloud privé créé, il existe un cluster vSAN par défaut. Vous pouvez ajouter, supprimer et mettre à l’échelle des clusters.  Le nombre minimal d’hôtes par cluster est de trois. Des hôtes supplémentaires peuvent être ajoutés un par un, jusqu’à un maximum de 16 hôtes par cluster. Le nombre maximal de clusters par cloud privé est de quatre.  Le déploiement initial de VMware Azure Solution comporte trois hôtes. 
-
-Des clusters d’essai sont disponibles à des fins d’évaluation et limités à trois hôtes. Il existe un cluster d’évaluation unique par cloud privé. Vous pouvez mettre à l’échelle un cluster d’évaluation à l’aide d’un seul hôte au cours de la période d’évaluation.
 
 Vous utilisez vSphere et NSX-T Manager pour gérer la plupart des autres aspects de la configuration ou de l’exploitation du cluster. Tout le stockage local de chaque hôte dans un cluster est contrôlé par le logiciel vSAN.
 

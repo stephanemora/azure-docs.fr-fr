@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 08/26/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7b0b5a35a85a8b0564112d62401c722e65505f2e
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: be29232e78ff3cbfa2aec9f880e42774ad0b2376
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123186224"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128570084"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modèle de facturation pour Azure Active Directory B2C
 
@@ -69,14 +69,15 @@ Un abonnement lié à un locataire Azure AD B2C peut être utilisé pour la fact
 ### <a name="create-the-link"></a>Créer le lien
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient l’abonnement Azure que vous souhaitez utiliser (et *non* votre locataire Azure AD B2C).
-3. Sélectionnez **Créer une ressource**, entrez `Active Directory B2C` dans le champ **Rechercher sur la Place de marché**, puis sélectionnez **Azure Active Directory B2C**.
-4. Sélectionnez **Create** (Créer).
-5. Sélectionnez **Lier un locataire Azure AD B2C existant à mon abonnement Azure**.
-6. Sélectionnez un **locataire Azure AD B2C** dans la liste déroulante. Seuls les locataires dont vous êtes administrateur général et qui ne sont pas déjà liés à un abonnement sont affichés. Le **nom de la ressource Azure AD B2C** est rempli avec le nom de domaine du locataire Azure AD B2C que vous sélectionnez.
-7. Sélectionnez un **abonnement** Azure actif dont vous êtes administrateur.
-8. Sous **Groupe de ressources**, sélectionnez **Créer**, puis spécifiez **l’emplacement du groupe de ressources**. Les paramètres de groupe de ressources n’ont ici aucun impact sur l’emplacement, les performances ou l’état de facturation du locataire Azure AD B2C.
-9. Sélectionnez **Create** (Créer).
+1. Vérifiez que vous utilisez le répertoire qui contient votre abonnement Azure AD, et non le répertoire contenant votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Sélectionnez **Créer une ressource**, entrez `Active Directory B2C` dans le champ **Rechercher sur la Place de marché**, puis sélectionnez **Azure Active Directory B2C**.
+1. Sélectionnez **Create** (Créer).
+1. Sélectionnez **Lier un locataire Azure AD B2C existant à mon abonnement Azure**.
+1. Sélectionnez un **locataire Azure AD B2C** dans la liste déroulante. Seuls les locataires dont vous êtes administrateur général et qui ne sont pas déjà liés à un abonnement sont affichés. Le **nom de la ressource Azure AD B2C** est rempli avec le nom de domaine du locataire Azure AD B2C que vous sélectionnez.
+1. Sélectionnez un **abonnement** Azure actif dont vous êtes administrateur.
+1. Sous **Groupe de ressources**, sélectionnez **Créer**, puis spécifiez **l’emplacement du groupe de ressources**. Les paramètres de groupe de ressources n’ont ici aucun impact sur l’emplacement, les performances ou l’état de facturation du locataire Azure AD B2C.
+1. Sélectionnez **Create** (Créer).
 
     ![Page de création de la ressource Azure AD B2C dans le portail Azure](./media/billing/portal-01-create-b2c-resource-page.png)
 
@@ -90,15 +91,17 @@ Pour changer votre niveau tarifaire, effectuez la procédure suivante.
 
 1. Connectez-vous au portail Azure.
 
-2. Sélectionnez le filtre **Répertoire + abonnement** dans le menu supérieur, puis sélectionnez le répertoire qui contient l’abonnement Azure auquel votre locataire Azure B2C est lié (*ne sélectionnez pas* le locataire Azure AD B2C lui-même).
+1. Pour sélectionner le répertoire Azure AD qui contient l’abonnement Azure auquel votre locataire Azure B2C est lié, et non le locataire Azure AD B2C lui-même, sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
 
-3. Dans la zone de recherche en haut du portail, entrez le nom de votre locataire Azure AD B2C. Ensuite, sélectionnez le locataire dans les résultats de la recherche, sous **Ressources**.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 
-4. Dans la page **Vue d’ensemble** de la ressource, sous **Niveau tarifaire**, sélectionnez **modifier**.
+1. Dans la zone de recherche en haut du portail, entrez le nom de votre locataire Azure AD B2C. Ensuite, sélectionnez le locataire dans les résultats de la recherche, sous **Ressources**.
+
+1. Dans la page **Vue d’ensemble** de la ressource, sous **Niveau tarifaire**, sélectionnez **modifier**.
 
    ![Changer le niveau tarifaire](media/billing/change-pricing-tier.png)
  
-5. Sélectionnez le niveau tarifaire qui comprend les fonctionnalités que vous souhaitez activer.
+1. Sélectionnez le niveau tarifaire qui comprend les fonctionnalités que vous souhaitez activer.
 
    ![Sélection du niveau tarifaire](media/billing/select-tier.png)
 
@@ -111,22 +114,18 @@ Le passage à la facturation des utilisateurs actifs mensuels (MAU) **n’est pa
 Voici comment effectuer le basculement vers la facturation MAU pour une ressource Azure AD B2C existante :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que propriétaire de l’abonnement avec un accès administratif à la ressource Azure AD B2C.
-
-2. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire Azure AD B2C que vous voulez mettre à niveau avec la facturation MAU.<br/>
-
-    ![Filtre de répertoire et d’abonnement dans le portail Azure](./media/billing/portal-mau-01-select-b2c-directory.png)
-
-3. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-
-4. Sur la page **Vue d’ensemble** du locataire Azure AD B2C, sélectionnez le lien sous **Nom de la ressource**. Vous êtes dirigé vers la ressource Azure AD B2C dans votre locataire Azure AD.<br/>
+1. Pour sélectionner le répertoire Azure AD B2C que vous souhaitez mettre à niveau vers la facturation MAU, sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sur la page **Vue d’ensemble** du locataire Azure AD B2C, sélectionnez le lien sous **Nom de la ressource**. Vous êtes dirigé vers la ressource Azure AD B2C dans votre locataire Azure AD.<br/>
 
     ![Lien de ressource Azure AD B2C mis en surbrillance dans le portail Azure](./media/billing/portal-mau-02-b2c-resource-link.png)
 
-5. Dans la page **Vue d’ensemble** de la ressource Azure AD B2C, sous **Unités facturables**, sélectionnez le lien **Par authentification (changer en MAU)** .<br/>
+1. Dans la page **Vue d’ensemble** de la ressource Azure AD B2C, sous **Unités facturables**, sélectionnez le lien **Par authentification (changer en MAU)** .<br/>
 
     ![Lien Changer en MAU mis en surbrillance dans le portail Azure](./media/billing/portal-mau-03-change-to-mau-link.png)
 
-6. Sélectionnez **Confirmer** pour terminer la mise à niveau vers la facturation MAU.<br/>
+1. Sélectionnez **Confirmer** pour terminer la mise à niveau vers la facturation MAU.<br/>
 
     ![Boîte de dialogue de confirmation de facturation MAU dans le portail Azure](./media/billing/portal-mau-04-confirm-change-to-mau.png)
 

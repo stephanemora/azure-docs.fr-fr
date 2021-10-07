@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.custom: subject-cost-optimization
 ms.topic: how-to
-ms.date: 07/27/2021
-ms.openlocfilehash: 6561bee9348edcc23bc6668748d0d6576155179d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/02/2021
+ms.openlocfilehash: 3e814541ecf43d8f9d12c028e8bebc8ac31fe411
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525151"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123433473"
 ---
 # <a name="plan-and-manage-costs-for-azure-sentinel"></a>Planifier et gérer les coûts pour Azure Sentinel
 
@@ -111,7 +111,7 @@ Une fois que vous avez activé Azure Sentinel sur un espace de travail Log Ana
 
 Vous pouvez spécifier différents paramètres de conservation des données pour des types de données individuels. Pour plus d’informations, consultez [Durée de conservation par type de données](../azure-monitor/logs/manage-cost-storage.md#retention-by-data-type).
 
-### <a name="additional-cef-ingestion-costs"></a>Coûts d’ingestion CEF supplémentaires
+### <a name="other-cef-ingestion-costs"></a>Autres coûts d’ingestion CEF
 
 Le CEF est un format d’événements Syslog pris en charge dans Azure Sentinel. Vous pouvez utiliser le CEF pour apporter de précieuses informations de sécurité provenant de diverses sources à votre espace de travail Azure Sentinel. Les journaux CEF atterrissent dans la table CommonSecurityLog d’Azure Sentinel, qui comprend tous les champs CEF standard à jour.
 
@@ -182,17 +182,7 @@ Par exemple, vous pouvez saisir le nombre de Go de données quotidiennes que vou
 - Analyse des données Azure Sentinel
 - Conservation des données Log Analytics
 
-## <a name="manage-azure-sentinel-costs"></a>Gérer les coûts d’Azure Sentinel
-
-Il existe plusieurs façons de comprendre et de gérer l’utilisation et les coûts d’Azure Sentinel.
-
-Gérer l’ingestion et la conservation des données :
-
-### <a name="using-azure-prepayment-with-azure-sentinel"></a>Utilisation du paiement anticipé Azure avec Azure Sentinel
-
-Vous pouvez payer les frais Azure Sentinel avec votre crédit de paiement anticipé Azure. Toutefois, vous ne pouvez pas utiliser le crédit de paiement anticipé Azure afin de payer des factures à des organisations tierces pour leurs produits et services, ou pour des produits de la Place de marché Azure.
-
-## <a name="monitor-costs"></a>Superviser les coûts
+## <a name="manage-and-monitor-azure-sentinel-costs"></a>Gérer et surveiller les coûts d’Azure Sentinel
 
 À mesure que vous utilisez des ressources Azure avec Azure Sentinel, vous générez des coûts. Les coûts unitaires d’utilisation des ressources Azure varient selon les intervalles de temps (secondes, minutes, heures et jours) ou selon l’utilisation d’unités (octets et mégaoctets). Dès que l’utilisation d’Azure Sentinel est lancée, des coûts sont occasionnés, que vous pouvez voir dans l’[analyse des coûts](../cost-management/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
@@ -212,74 +202,11 @@ Par exemple, pour voir les graphiques de vos coûts quotidiens pour une certaine
 
 Les niveaux tarifaires d’Azure Sentinel n’incluent pas les frais de Log Analytics. Pour modifier votre engagement de niveau tarifaire pour Log Analytics, consultez [Changement de niveau tarifaire](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
 
-#### <a name="define-a-data-volume-cap-in-log-analytics"></a>Définir un plafond de volume de données dans Log Analytics
+Pour plus d’informations, consultez [Créer des budgets](#create-budgets) et [Autres façons de gérer et de réduire les coûts d’Azure Sentinel](#other-ways-to-manage-and-reduce-azure-sentinel-costs).
 
-Dans Log Analytics, vous pouvez activer un plafond de volume quotidien qui limite l’ingestion quotidienne de votre espace de travail. Le plafond quotidien peut vous aider à gérer les augmentations inattendues du volume de données, à rester sous votre limite et à limiter les frais non planifiés.
+### <a name="using-azure-prepayment-with-azure-sentinel"></a>Utilisation du paiement anticipé Azure avec Azure Sentinel
 
-Pour définir un plafond de volume quotidien, sélectionnez **Utilisation et estimation des coûts** dans le volet de navigation gauche de votre espace de travail Log Analytics, puis sélectionnez **Plafond quotidien**. Sélectionnez **Activé**, entrez une valeur limite de volume quotidien, puis sélectionnez **OK**.
-
-
-![Capture d’écran montrant l’écran Utilisation et estimation des coûts et la fenêtre Plafond quotidien.](media/billing/daily-cap.png)
-
-L’écran **Utilisation et estimation des coûts** indique également la tendance du volume de données ingérées au cours des 31 derniers jours, ainsi que le volume total de données conservées.
-
-> [!IMPORTANT]
-> Le plafond quotidien ne limite pas la collecte de tous les types de données. Pour plus d’informations sur la gestion du plafond quotidien dans Log Analytics, consultez [Gérer votre volume de données maximal quotidien](../azure-monitor/logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume).
-
-#### <a name="optimize-log-analytics-costs-with-dedicated-clusters"></a>Optimiser les coûts de Log Analytics à l’aide de clusters dédiés
-
-Si vous ingérez au moins 1 To/jour dans votre espace de travail Azure Sentinel ou dans des espaces de travail de la même région, envisagez de passer à un cluster dédié Log Analytics pour réduire les coûts. Un niveau d’engagement pour cluster dédié Log Analytics agrège les volumes de données des espaces de travail qui ingèrent collectivement un total de 1 To/jour ou plus.
-
-Les clusters dédiés Log Analytics ne s’appliquent pas aux niveaux d’engagement d’Azure Sentinel. Les coûts d’Azure Sentinel s’appliquent toujours par espace de travail dans le cluster dédié.
-
-Vous pouvez ajouter plusieurs espaces de travail Azure Sentinel à un cluster dédié Log Analytics. L’utilisation d’un cluster dédié Log Analytics pour Azure Sentinel présente deux avantages :
-
-- Les requêtes interespaces de travail s’exécutent plus rapidement si tous les espaces de travail impliqués dans la requête se trouvent dans le cluster dédié. Il est toujours préférable d’avoir le moins d’espaces de travail possible dans votre environnement, et un cluster dédié conserve toujours la [limite de 100 espaces de travail](../azure-monitor/logs/cross-workspace-query.md) à inclure dans une seule requête interespace de travail.
-
-- Tous les espaces de travail du cluster dédié peuvent partager le niveau d’engagement Log Analytics défini sur le cluster. Le fait de ne pas avoir à s’engager sur des niveaux d’engagement Log Analytics distincts pour chaque espace de travail peut permettre de réaliser des économies et des gains d’efficacité. En activant un cluster dédié, vous vous engagez à un niveau d’engagement Log Analytics minimum de 1 To d’ingestion par jour.
-
-Voici d’autres considérations à prendre en compte pour passer à un cluster dédié afin d’optimiser les coûts :
-
-- Le nombre maximum de clusters par région et par abonnement est de deux.
-- Tous les espaces de travail liés à un cluster doivent se trouver dans la même région.
-- Le nombre maximal d’espaces de travail liés à un cluster est de 1000.
-- Vous pouvez dissocier un espace de travail lié à votre cluster. Le nombre d’opérations de liaison sur un espace de travail particulier est limité à 2 par période de 30 jours.
-- Vous ne pouvez pas déplacer un espace de travail existant vers un cluster avec clé gérée par le client (CMK). Vous devez créer l’espace de travail dans le cluster.
-- Le déplacement d’un cluster vers un autre groupe de ressources ou un autre abonnement n’est pas pris en charge actuellement.
-- Un lien d’espace de travail vers un cluster échoue si l’espace de travail est lié à un autre cluster.
-
-Pour plus d’informations sur les clusters dédiés, consultez [Clusters dédiés Log Analytics](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters).
-
-#### <a name="separate-non-security-data-in-a-different-workspace"></a>Séparer les données non relatives à la sécurité dans un espace de travail différent
-
-Azure Sentinel analyse toutes les données ingérées dans les espaces de travail Log Analytics avec Azure Sentinel. Il est préférable de disposer d’un espace de travail distinct pour les données d’opérations non liées à la sécurité, afin de s’assurer qu’elles n’entraînent pas de coûts d’Azure Sentinel.
-
-Lors de la chasse ou de l’investigation des menaces dans Azure Sentinel, vous pouvez avoir besoin d’accéder aux données opérationnelles stockées dans ces espaces de travail Azure Log Analytics autonomes. Vous pouvez accéder à ces données en utilisant des requêtes interespaces de travail dans l’expérience d’exploration des journaux et les classeurs. Toutefois, vous ne pouvez pas utiliser les règles d’analyse et les requêtes de chasse interespaces de travail, sauf si Azure Sentinel est activé sur tous les espaces de travail.
-
-#### <a name="reduce-long-term-data-retention-costs-with-adx"></a>Réduire les coûts de conservation des données à long terme grâce à ADX
-
-La conservation des données Azure Sentinel est gratuite pendant les 90 premiers jours. Pour ajuster la période de conservation des données dans Log Analytics, sélectionnez **Utilisation et estimation des coûts** dans le volet de navigation gauche, puis sélectionnez **Conservation des données** et réglez le curseur.
-
-Les données de sécurité d’Azure Sentinel peuvent perdre une partie de leur valeur après quelques mois. Les utilisateurs du centre des opérations de sécurité (SOC) n’ont peut-être pas besoin d’accéder aux anciennes données aussi fréquemment qu’aux nouvelles, mais ils peuvent tout de même avoir besoin d’accéder aux données à des fins d’investigation ou d’audit sporadiques. Pour réduire les coûts de conservation des données d’Azure Sentinel, vous pouvez utiliser Azure Data Explorer pour la conservation des données à long terme à moindre coût. ADX offre un juste équilibre entre coût et convivialité pour les données vieillies qui n’ont plus besoin des renseignements sur la sécurité d’Azure Sentinel.
-
-Grâce à ADX, vous pouvez stocker des données à moindre coût, tout en continuant à les explorer à l’aide des mêmes requêtes KQL (Kusto Query Language) que dans Azure Sentinel. Vous pouvez également utiliser la fonctionnalité de proxy d’ADX pour effectuer des requêtes multiplateformes. Ces requêtes agrègent et mettent en corrélation les données réparties dans ADX, Application Insights, Azure Sentinel et Log Analytics.
-
-Pour plus d’informations, consultez [Intégrer Azure Data Explorer pour la conservation des journaux à long terme](store-logs-in-azure-data-explorer.md).
-
-#### <a name="use-data-collection-rules-for-your-windows-security-events"></a>Utiliser les règles de collecte de données pour vos événements de sécurité Windows
-
-Le [connecteur d’événements de sécurité Windows](connect-windows-security-events.md?tabs=LAA) vous permet de diffuser des événements de sécurité à partir de n’importe quel ordinateur exécutant Windows Server connecté à votre espace de travail Azure Sentinel, dont les serveurs physiques, virtuels ou locaux, ou dans n’importe quel cloud. Ce connecteur prend en charge l’agent Azure Monitor, qui utilise des règles de collecte de données pour définir les données à collecter à partir de chaque agent. 
-
-Les règles de collecte de données vous permettent de gérer les paramètres de collecte à grande échelle, tout en continuant d’autoriser des configurations uniques, délimitées pour les sous-ensembles de machines. Pour plus d’informations, consultez [Configurer la collecte de données pour l’agent Azure Monitor](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
-
-En plus des ensembles d’événements prédéfinis que vous pouvez sélectionner pour l’ingestion, tels que Tous les événements, Minimal ou Courant, les règles de collecte de données vous permettent de créer des filtres personnalisés et de sélectionner des événements spécifiques à ingérer. L’agent Azure Monitor utilise ces règles pour filtrer les données à la source, puis ingérer uniquement les événements que vous avez sélectionnés tout en laissant les autres données de côté. La sélection d’événements spécifiques à ingérer peut vous aider à optimiser vos coûts et à faire plus d’économies.
-
-> [!NOTE]
-> Les coûts indiqués dans cette image sont donnés à titre d’exemple uniquement. Ils ne sont pas destinés à refléter les coûts réels.
-
-![Capture d’écran montrant un écran Analyse des coûts de Cost Management and Billing.](media/billing/cost-management.png)
-
-Vous pouvez également appliquer d’autres contrôles. Par exemple, pour afficher uniquement les coûts associés à Azure Sentinel, sélectionnez **Ajouter un filtre**, **Nom du service**, puis les noms de service **sentinel**, **log analytics** et **azure monitor**.
+Vous pouvez payer les frais Azure Sentinel avec votre crédit de paiement anticipé Azure. Toutefois, vous ne pouvez pas utiliser le crédit de paiement anticipé Azure afin de payer des factures à des organisations tierces pour leurs produits et services, ou pour des produits de la Place de marché Azure.
 
 ### <a name="run-queries-to-understand-your-data-ingestion"></a>Exécuter des requêtes pour comprendre votre ingestion des données
 
@@ -433,6 +360,13 @@ Le [connecteur d’événements de sécurité Windows](connect-windows-security-
 Les règles de collecte de données vous permettent de gérer les paramètres de collecte à grande échelle, tout en continuant d’autoriser des configurations uniques, délimitées pour les sous-ensembles de machines. Pour plus d’informations, consultez [Configurer la collecte de données pour l’agent Azure Monitor](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
 
 En plus des ensembles d’événements prédéfinis que vous pouvez sélectionner pour l’ingestion, tels que Tous les événements, Minimal ou Courant, les règles de collecte de données vous permettent de créer des filtres personnalisés et de sélectionner des événements spécifiques à ingérer. L’agent Azure Monitor utilise ces règles pour filtrer les données à la source, puis ingérer uniquement les événements que vous avez sélectionnés tout en laissant les autres données de côté. La sélection d’événements spécifiques à ingérer peut vous aider à optimiser vos coûts et à faire plus d’économies.
+
+> [!NOTE]
+> Les coûts indiqués dans cette image sont donnés à titre d’exemple uniquement. Ils ne sont pas destinés à refléter les coûts réels.
+
+![Capture d’écran montrant un écran Analyse des coûts de Cost Management and Billing.](media/billing/cost-management.png)
+
+Vous pouvez également appliquer d’autres contrôles. Par exemple, pour afficher uniquement les coûts associés à Azure Sentinel, sélectionnez **Ajouter un filtre**, **Nom du service**, puis les noms de service **sentinel**, **log analytics** et **azure monitor**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez [comment optimiser votre investissement cloud avec Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

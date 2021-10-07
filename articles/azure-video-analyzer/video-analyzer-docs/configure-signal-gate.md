@@ -3,12 +3,12 @@ title: Configuration d’une porte de signal pour l’enregistrement vidéo bas�
 description: Cet article fournit des conseils d’aide sur la configuration d’une porte de signal dans un pipeline.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: c0b38005010d2718235700f0ed13575e15119103
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 2da85aa31facbec922eac9ee895cd68d66326a42
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604074"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123427963"
 ---
 # <a name="configuring-a-signal-gate-for-event-based-video-recording"></a>Configuration d’une porte de signal pour l’enregistrement vidéo basé sur les événements
 
@@ -159,7 +159,7 @@ Exemple de diagramme :
 
 Les pipelines permettent d’enregistrer des vidéos dans le cloud ou sous forme de fichiers MP4 sur le périphérique. Il est possible de générer ces vidéos par [enregistrement vidéo continu](use-continuous-video-recording.md) ou par [enregistrement vidéo basé sur un événement](record-event-based-live-video.md).
 
-La structure de nommage recommandée pour l’enregistrement dans le cloud consiste à nommer la ressource vidéo « <anytext>-${System.TopologyName}-${System.PipelineName} ». Un pipeline en direct donné ne pouvant se connecter qu’à une seule caméra IP prenant en charge le protocole RTSP, vous devez enregistrer l’entrée de cette caméra sur une seule ressource vidéo. Par exemple, vous pouvez définir `VideoName` sur le récepteur vidéo comme suit :
+La structure de nom recommandée pour l’enregistrement dans le cloud consiste à nommer la ressource vidéo `<anytext>-${System.TopologyName}-${System.PipelineName}`. Un pipeline en direct donné ne pouvant se connecter qu’à une seule caméra IP prenant en charge le protocole RTSP, vous devez enregistrer l’entrée de cette caméra sur une seule ressource vidéo. Par exemple, vous pouvez définir `VideoName` sur le récepteur vidéo comme suit :
 
 ```
 "VideoName": "sampleVideo-${System.TopologyName}-${System.PipelineName}"

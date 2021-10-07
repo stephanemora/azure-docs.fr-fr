@@ -3,12 +3,12 @@ title: Déployer un cluster managé Service Fabric sur plusieurs zones de dispon
 description: Apprenez à déployer un cluster managé Service Fabric sur plusieurs zones de disponibilité et à le configurer dans un modèle ARM.
 ms.topic: how-to
 ms.date: 5/10/2021
-ms.openlocfilehash: 5278ea170e0a60907813b9a79b151dde44ab4a12
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b3c4e01ea66aa3a69b14806f2701020f1f529a5e
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956784"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544372"
 ---
 # <a name="deploy-a-service-fabric-managed-cluster-across-availability-zones"></a>Déployer un cluster managé Service Fabric sur plusieurs zones de disponibilité
 
@@ -58,10 +58,9 @@ Pour activer un cluster managé Azure Service Fabric résilient aux zones, vous 
 
 ```json
 {
-    "apiVersion": "2021-05-01",
-    "type": "Microsoft.ServiceFabric/managedclusters",
-    "ZonalResiliency": "true"
-    
+  "apiVersion": "2021-05-01",
+  "type": "Microsoft.ServiceFabric/managedclusters",
+  "zonalResiliency": "true"
 }
 ```
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png

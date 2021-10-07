@@ -17,12 +17,12 @@ ms.date: 04/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7ccca25bf140a51755c229f8c438e053a7ac7de
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 73ccb2ddb9e229faea69ae3f67ed8285b0256808
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319254"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128581263"
 ---
 # <a name="audit-logs-in-azure-active-directory"></a>Journaux d’audit dans Azure Active Directory 
 
@@ -227,6 +227,9 @@ Vous pouvez également télécharger les données filtrées, jusqu’à 250 000
 Vous pouvez consulter les journaux d’activité Microsoft 365 dans le [centre d’administration Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Bien que les journaux d’activité Microsoft 365 et Azure AD partagent une grande partie des ressources du répertoire, seul le centre d’administration Microsoft 365 offre une vue complète des journaux d’activité Microsoft 365. 
 
 Vous pouvez également accéder par programme aux journaux d’activité de Microsoft 365 en utilisant les [API de gestion Microsoft 365](/office/office-365-management-api/office-365-management-apis-overview).
+
+> [!NOTE]
+> La plupart des abonnements Microsoft 365 autonomes ou regroupés ont des dépendances de serveur principal sur certains sous-systèmes au sein de la limite du datacenter Microsoft 365. Les dépendances requièrent une écriture différée des informations pour assurer la synchronisation des répertoires et permettre une intégration sans soucis dans un abonnement pour Exchange Online. Pour ces écritures différées, les entrées du journal d’audit affichent les actions prises par la « Gestion du substrat Microsoft ». Ces entrées du journal d’audit font référence aux opérations de création/mise à jour/suppression exécutées par Exchange Online pour Azure AD. Les entrées sont fournies à titre d’information et ne nécessitent aucune action.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

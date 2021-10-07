@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e1af8651ac8b1031190249205d0a0f7f436711c4
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: d10c64af28f6b8dacdbc28d7d29c691fe50580e2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122696179"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128569330"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Créer un modèle de générateur d’images Azure 
 
@@ -25,32 +25,31 @@ Le générateur d’images Azure utilise un fichier .json pour transmettre des i
 Voici le format de modèle de base :
 
 ```json
- { 
+  { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
     "apiVersion": "2020-02-14", 
     "location": "<region>", 
     "tags": {
-        "<name": "<value>",
-        "<name>": "<value>"
-     },
-    "identity":{},           
+      "<name>": "<value>",
+      "<name>": "<value>"
+    },
+    "identity": {},          
     "dependsOn": [], 
     "properties": { 
-        "buildTimeoutInMinutes": <minutes>, 
-        "vmProfile": 
-            {
-            "vmSize": "<vmSize>",
+      "buildTimeoutInMinutes": <minutes>, 
+      "vmProfile": {
+        "vmSize": "<vmSize>",
         "proxyVmSize": "<vmSize>",
-            "osDiskSizeGB": <sizeInGB>,
-            "vnetConfig": {
-                "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
-                }
-            },
-        "source": {}, 
-        "customize": {}, 
-        "distribute": {} 
-      } 
- } 
+        "osDiskSizeGB": <sizeInGB>,
+        "vnetConfig": {
+          "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+        }
+      },
+      "source": {}, 
+      "customize": {}, 
+      "distribute": {} 
+    } 
+  } 
 ```
 
 
@@ -90,7 +89,7 @@ L’emplacement est la région dans laquelle l’image personnalisée sera cré�
 Le service Azure VM Image Builder ne stocke pas/ne traite pas les données client en dehors des régions qui imposent des exigences strictes en matière de résidence des données dans une seule région lorsqu'un client demande une build dans cette région. En cas d'interruption de service pour les régions qui présentent des exigences en matière de résidence des données, vous devrez créer des modèles dans une région et une zone géographique différentes.
 
 ### <a name="zone-redundancy"></a>Redondance de zone
-La distribution prend en charge la redondance de zone, les disques durs virtuels sont distribués dans un compte de stockage redondant dans une zone par défaut et la version de Shared Image Gallery prend en charge un [type de stockage ZRS](../disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview), s’il est spécifié.
+La distribution prend en charge la redondance de zone, les disques durs virtuels sont distribués dans un compte de stockage redondant dans une zone par défaut et la version de Shared Image Gallery prend en charge un [type de stockage ZRS](../disks-redundancy.md#zone-redundant-storage-for-managed-disks), s’il est spécifié.
  
 ## <a name="vmprofile"></a>vmProfile
 ## <a name="buildvm"></a>buildVM
@@ -143,11 +142,11 @@ Pour plus d’informations, consultez [Définir les dépendances des ressources]
 
 ```json
     "identity": {
-    "type": "UserAssigned",
-          "userAssignedIdentities": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
             "<imgBuilderId>": {}
         }
-        },
+    },
 ```
 
 
@@ -177,10 +176,10 @@ Azure Image Builder prend en charge les images Windows Server et client, ainsi q
 ```json
         "source": {
             "type": "PlatformImage",
-                "publisher": "Canonical",
-                "offer": "UbuntuServer",
-                "sku": "18.04-LTS",
-                "version": "latest"
+            "publisher": "Canonical",
+            "offer": "UbuntuServer",
+            "sku": "18.04-LTS",
+            "version": "latest"
         },
 ```
 
@@ -218,7 +217,7 @@ Définit l’image source comme une image managée existante d’un disque dur v
 ```json
         "source": { 
             "type": "ManagedImage", 
-                "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
+            "imageId": "/subscriptions/<subscriptionId>/resourceGroups/{destinationResourceGroupName}/providers/Microsoft.Compute/images/<imageName>"
         }
 ```
 
@@ -236,7 +235,7 @@ Définit l’image source comme une version d’image existante dans une galerie
         "source": { 
             "type": "SharedImageVersion", 
             "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/p  roviders/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>" 
-   } 
+        } 
 ```
 
 `imageVersionId` doit être l’ID de ressource de la version d’image. Utilisez [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list) pour répertorier les versions d’image.
@@ -308,13 +307,13 @@ L’interface de l’interpréteur de commandes prend en charge l’exécution d
             "sha256Checksum": "<sha256 checksum>"       
         }, 
     ], 
-        "customize": [ 
+    "customize": [ 
         { 
             "type": "Shell", 
             "name": "<name>", 
             "inline": "<commands to run>"
-        }, 
-    ], 
+    }, 
+    ],
 ```
 
 Système d’exploitation pris en charge : Linux 
@@ -397,7 +396,7 @@ Le personnalisateur PowerShell prend en charge l’exécution de scripts PowerSh
              "validExitCodes": "<exit code>",
              "runElevated": "<true or false>" 
          } 
-    ], 
+     ], 
 ```
 
 Système d’exploitation pris en charge : Windows et Linux
@@ -455,16 +454,16 @@ Ce personnalisateur est basé sur [le provisionneur Windows Update de la communa
 
 ```json
      "customize": [
-            {
-                "type": "WindowsUpdate",
-                "searchCriteria": "IsInstalled=0",
-                "filters": [
+          {
+               "type": "WindowsUpdate",
+               "searchCriteria": "IsInstalled=0",
+               "filters": [
                     "exclude:$_.Title -like '*Preview*'",
                     "include:$true"
-                            ],
-                "updateLimit": 20
-            }
-               ], 
+               ],
+               "updateLimit": 20
+          }
+     ], 
 ```
 
 Système d’exploitation pris en charge : Windows
@@ -580,7 +579,7 @@ La sortie de l’image correspond à une ressource d’image managée.
        "location": "<region>",
        "runOutputName": "<name>",
        "artifactTags": {
-            "<name": "<value>",
+            "<name>": "<value>",
             "<name>": "<value>"
         }
 }
@@ -607,7 +606,7 @@ Une galerie d’images partagées est constituée des éléments suivants :
 - Définitions d’image : regroupement logique d’images. 
 - Versions d’image : il s’agit d’un type d’image utilisé pour le déploiement d’une machine virtuelle ou d’un groupe identique. Des versions d’image peuvent être répliquées vers d’autres régions où des machines virtuelles doivent être déployées.
  
-Avant de pouvoir distribuer dans la galerie d’images, vous devez créer une galerie et une définition d’image, consultez [Images partagées](../shared-images-cli.md). 
+Avant de pouvoir distribuer dans la galerie d’images, vous devez créer une galerie et une définition d’image, consultez [Images partagées](../create-gallery.md). 
 
 ```json
 {
@@ -653,7 +652,7 @@ Vous pouvez générer sur un disque dur virtuel. Vous pouvez ensuite copier le d
     "type": "VHD",
     "runOutputName": "<VHD name>",
     "tags": {
-        "<name": "<value>",
+        "<name>": "<value>",
         "<name>": "<value>"
     }
 }
@@ -698,7 +697,7 @@ az resource invoke-action \
 ### <a name="cancelling-an-image-build"></a>Annulation d’un build d’image
 Si vous exécutez un build d’image qui vous semble incorrect, en attente d’une entrée d’utilisateur ou susceptible de ne jamais aboutir, vous pouvez l’annuler.
 
-Le build peut être annulé à tout moment. Si la phase de distribution a commencé, l’annulation reste possible, mais vous devrez nettoyer toutes les images non terminées. La commande Cancel n’attend pas la fin de l’annulation. Surveillez la progression de l’annulation dans `lastrunstatus.runstate` à l’aide de ces [commandes](image-builder-troubleshoot.md#customization-log) d’état.
+La build peut être annulée à tout moment. Si la phase de distribution a commencé, l’annulation reste possible, mais vous devrez nettoyer toutes les images non terminées. La commande Cancel n’attend pas la fin de l’annulation. Surveillez la progression de l’annulation dans `lastrunstatus.runstate` à l’aide de ces [commandes](image-builder-troubleshoot.md#customization-log) d’état.
 
 
 Exemples de commandes `cancel` :

@@ -16,12 +16,12 @@ ms.date: 08/06/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2988d846001876185d377672db1910e783aa3f8
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: b061c98b0e961d60d8edd9b0275c70ce3b005044
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535091"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128647933"
 ---
 # <a name="extend-or-renew-azure-ad-role-assignments-in-privileged-identity-management"></a>Étendre ou renouveler des attributions de rôle Azure AD dans Privileged Identity Management
 
@@ -89,6 +89,74 @@ Si un utilisateur affecté à un rôle ne demande pas d’extension pour une att
 Pour étendre une attribution de rôle, accédez à la vue de l’attribution ou du rôle dans Privileged Identity Management. Trouvez l’attribution qui a besoin d’une extension. Ensuite, sélectionnez **Étendre** dans la colonne d’action.
 
 ![Rôles Azure AD : page Attributions répertoriant les rôles éligibles avec des liens d’extension](./media/pim-how-to-renew-extend/extend-admin-extend.png)
+
+## <a name="extend-role-assignments-using-graph-api"></a>Étendre les attributions de rôles à l’aide de l’API Graph
+
+Étendez une attribution active à l’aide de l’API Graph.
+
+#### <a name="http-request"></a>Demande HTTP
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+ 
+{ 
+    "action": "AdminExtend", 
+    "justification": "abcde", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    `"principalId": "<principal-ID-GUID>", 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T19:15:08.941Z", 
+        "expiration": { 
+            "type": "AfterDuration", 
+            "duration": "PT3H" 
+        } 
+    } 
+}
+````
+
+#### <a name="http-response"></a>Réponse HTTP
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
+    "id": "<assignment-ID-GUID>", 
+    "status": "Provisioned", 
+    "createdDateTime": "2021-07-15T20:26:44.865248Z", 
+    "completedDateTime": "2021-07-15T20:26:47.9434068Z", 
+    "approvalId": null, 
+    "customData": null, 
+    "action": "AdminExtend", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": "2021-07-15T20:26:47.9434068Z", 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "afterDuration", 
+            "endDateTime": null, 
+            "duration": "PT3H" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
 
 ## <a name="renew-role-assignments"></a>Renouveler des attributions de rôles
 

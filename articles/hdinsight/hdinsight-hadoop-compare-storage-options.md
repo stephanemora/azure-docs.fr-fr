@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: b6dd0fd95280a65615d38ab11a2f9814f58586f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d58bfc14e4b61860d239cc3dcfd0ad276aec781
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945851"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273511"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
@@ -40,7 +40,7 @@ Le tableau suivant récapitule les services de stockage Azure pris en charge ave
 
 Pour plus d’informations sur les types de comptes de stockage Azure, consultez l’article [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
 
-Pour plus d’informations sur les niveaux d’accès du stockage Azure, consultez [Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive](../storage/blobs/storage-blob-storage-tiers.md)
+Pour plus d’informations sur les niveaux d’accès du stockage Azure, consultez [Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive](../storage/blobs/access-tiers-overview.md)
 
 Vous pouvez créer des clusters à l’aide de combinaisons de services pour le stockage principal et le stockage secondaire facultatif. Le tableau suivant résume les configurations de stockage de cluster actuellement prises en charge dans HDInsight :
 

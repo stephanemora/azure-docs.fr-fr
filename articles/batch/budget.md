@@ -2,13 +2,13 @@
 title: Analyse des coûts et définition de budgets pour Azure Batch
 description: Découvrez comment obtenir une analyse des coûts, définir un budget et réduire les coûts pour les ressources de calcul et licences logicielles sous-jacentes utilisées dans le cadre de l’exécution de vos charges de travail Batch.
 ms.topic: how-to
-ms.date: 01/29/2021
-ms.openlocfilehash: d1fc2d15a7037e56a8056efa67d2017badb77ffd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/03/2021
+ms.openlocfilehash: a590d8687c51b1693494c11d95de720f7f2c7eb0
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99091325"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538846"
 ---
 # <a name="get-cost-analysis-and-set-budgets-for-azure-batch"></a>Analyse des coûts et définition de budgets pour Azure Batch
 
@@ -78,11 +78,9 @@ Selon les scénarios, il peut être nécessaire de réduire autant que possible 
 
 Les [machines virtuelles de faible priorité](batch-low-pri-vms.md) réduisent le coût des charges de travail Batch en tirant parti de la capacité de calcul excédentaire disponible dans Azure. Lorsque vous spécifiez des machines virtuelles de faible priorité dans vos pools, Batch utilise ce surplus pour exécuter votre charge de travail. Vous pouvez réaliser des économies substantielles en utilisant des machines virtuelles de faible priorité plutôt que des machines virtuelles dédiées.
 
-### <a name="select-a-standard-virtual-machine-os-disk-type"></a>Sélection d’un type de disque de système d’exploitation de machine virtuelle standard
+### <a name="use-ephemeral-os-disks"></a>Utiliser des disques de système d’exploitation éphémères
 
-Azure offre plusieurs [types de disques de système d’exploitation de machine virtuelle](../virtual-machines/disks-types.md). La plupart des machines virtuelles ont des tailles qui prennent en charge le stockage Premium et Standard. Quand une machine virtuelle de taille « s » est sélectionnée pour un pool, Batch configure des disques de système d’exploitation SSD Premium. Quand la taille de machine virtuelle « non s » est sélectionnée, le type de disque dur standard moins cher est utilisé. Par exemple, les disques de système d’exploitation SSD Premium sont utilisés pour `Standard_D2s_v3`, et les disques de système d’exploitation de type standard sont utilisés pour `Standard_D2_v3`.
-
-Les disques de système d’exploitation de type SSD Premium sont plus onéreux, mais offrent des performances supérieures. Des machines virtuelles dotées de disques Premium peuvent démarrer légèrement plus rapidement que des machines virtuelles équipées de disques de système d’exploitation de type HDD Standard. Avec Batch, le disque du système d’exploitation est couvent peu utilisé, car les applications et les fichiers de tâches sont situés sur le disque SSD temporaire de la machine virtuelle. De ce fait, vous pouvez souvent sélectionner la taille de machine virtuelle « non-s » pour éviter de payer le coût accru du disque SSD Premium approvisionné quand la taille de machine virtuelle spécifiée est « s ».
+Les pools de configuration de machines virtuelles peuvent utiliser des [disques de système d’exploitation éphémères](create-pool-ephemeral-os-disk.md), qui créent le disque de système d’exploitation sur le cache de la machine virtuelle ou sur un SSD temporaire, afin d’éviter les coûts supplémentaires associés aux disques managés.
 
 ### <a name="purchase-reservations-for-virtual-machine-instances"></a>Achat de réservations pour les instances de machine virtuelle
 

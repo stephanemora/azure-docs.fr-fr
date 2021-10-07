@@ -3,12 +3,12 @@ title: Configurer une stratégie de stockage
 description: Découvrez comment configurer une stratégie de stockage pour vos machines virtuelles Azure VMware Solution.
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.openlocfilehash: b9535c5765b2ff024537ff44e2e24a76c992dd35
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: df8f6931dbae377833d3f380e3fd5fcad8bd73ba
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304053"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123431329"
 ---
 # <a name="configure-storage-policy"></a>Configurer une stratégie de stockage
 
@@ -97,6 +97,9 @@ Vous allez exécuter la cmdlet `Set-AvsVMStoragePolicy` pour modifier des strat�
 ## <a name="specify-storage-policy-for-a-cluster"></a>Spécifier une stratégie de stockage pour un cluster
 
 Vous allez exécuter la cmdlet `Set-ClusterDefaultStoragePolicy` pour spécifier la stratégie de stockage par défaut pour un cluster.
+
+>[!NOTE]
+>La modification de la stratégie de stockage du cluster de gestion par défaut n’est pas autorisée.
 
 1. Sélectionnez **Commande d’exécution** > **Packages** > **Set-ClusterDefaultStoragePolicy**.
 

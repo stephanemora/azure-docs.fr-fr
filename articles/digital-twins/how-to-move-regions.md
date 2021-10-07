@@ -4,20 +4,20 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment déplacer une instance Azure Digital Twins d’une région Azure à une autre.
 author: baanders
 ms.author: baanders
-ms.date: 08/26/2020
+ms.date: 9/8/2021
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 9617fc3cc7668d8449a9ec3b46e6c82228783e9d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9fc28555be055fe74f183c965190b2c784c4533b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447146"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676786"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Déplacer une instance Azure Digital Twins vers une autre région Azure
 
-Si vous devez déplacer votre instance Azure Digital Twins d’une région à l’autre, la démarche actuelle consiste à recréer vos ressources dans la nouvelle région, puis à supprimer les ressources d’origine. À l’issue de ce processus, vous utiliserez une nouvelle instance Azure Digital Twins identique à la première, à l’exception de l’emplacement mis à jour.
+Si vous devez déplacer votre instance Azure Digital Twins d’une région vers une autre, le processus actuel est de recréer vos ressources dans la nouvelle région. Une fois que les ressources ont été recréées dans la nouvelle région, les ressources d’origine sont supprimées. À l’issue de ce processus, vous utiliserez une nouvelle instance Azure Digital Twins identique à la première, à l’exception de l’emplacement mis à jour.
 
 Cet article fournit des conseils sur la mise en œuvre d’un déplacement complet et d’une copie de tout ce dont vous avez besoin pour que la nouvelle instance corresponde à celle d’origine.
 
@@ -56,22 +56,22 @@ Vous pouvez collecter ces informations en utilisant le [portail Azure](https://p
 
 ## <a name="prepare"></a>Préparation
 
-Dans cette section, vous allez préparer la recréation de votre instance en téléchargeant vos modèles, jumeaux et graphe d’origine à partir de votre instance de départ. Cet article utilise [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) pour cette tâche.
+Dans cette section, vous allez préparer la recréation de votre instance en téléchargeant vos modèles, vos jumeaux et votre graphe d’origine à partir de votre instance d’origine. Cet article utilise [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) pour cette tâche.
 
 >[!NOTE]
 >Vous avez peut-être déjà des fichiers qui contiennent les modèles ou le graphe dans votre instance. Si c’est le cas, vous n’avez pas besoin de tout retélécharger, mais uniquement ce qui vous manque ou ce qui a été modifié depuis le chargement initial de ces fichiers. Par exemple, vous pouvez avoir des jumeaux qui ont été mis à jour avec de nouvelles données.
 
 ### <a name="download-models-twins-and-graph-with-azure-digital-twins-explorer"></a>Télécharger les modèles, les jumeaux et le graphe à l’aide d’Azure Digital Twins Explorer
 
-Tout d’abord, ouvrez **Azure Digital Twins Explorer** pour votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com). Pour ce faire, accédez à l’instance Azure Digital Twins dans le portail en recherchant son nom dans la barre de recherche du portail. Ensuite, sélectionnez le bouton **Atteindre l’Explorateur (préversion)** . 
+Tout d’abord, ouvrez **Azure Digital Twins Explorer** pour votre instance Azure Digital Twins dans le [portail Azure](https://portal.azure.com). Pour cela, accédez à l’instance Azure Digital Twins dans le portail en recherchant son nom dans la barre de recherche du portail. Ensuite, sélectionnez le bouton **Atteindre l’Explorateur (préversion)** . 
 
 :::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Capture d’écran du portail Azure montrant la page de présentation d’une instance Azure Digital Twins. Le bouton Atteindre l’Explorateur (préversion) est en évidence." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
 
-Cela ouvre une fenêtre Azure Digital Twins Explorer connectée à cette instance.
+La sélection de ce bouton va ouvrir une fenêtre Azure Digital Twins Explorer connectée à cette instance.
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="Capture d’écran du portail Azure dans un navigateur Internet. Le portail affiche Azure Digital Twins Explorer, qui ne contient pas de données." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
-Suivez les instructions d’Azure Digital Twins Explorer pour [exporter le graphe et les modèles](how-to-use-azure-digital-twins-explorer.md#export-graph-and-models). Cela permet de télécharger un fichier JSON sur votre ordinateur, qui contient le code pour vos modèles, jumeaux et relations (y compris les modèles qui ne sont pas actuellement utilisés dans le graphe).
+Suivez les instructions d’Azure Digital Twins Explorer pour [exporter le graphe et les modèles](how-to-use-azure-digital-twins-explorer.md#export-graph-and-models). En suivant ces instructions, vous allez pouvoir télécharger un fichier JSON sur votre machine, qui contient le code pour vos modèles, vos jumeaux et vos relations (y compris les modèles qui ne sont pas actuellement utilisés dans le graphe).
 
 ## <a name="move"></a>Déplacer
 
@@ -90,11 +90,11 @@ Cette étape terminée, vous allez avoir besoin du nom d’hôte de votre nouvel
 
 #### <a name="upload-models-twins-and-graph-with-azure-digital-twins-explorer"></a>Charger les modèles, les jumeaux et le graphe à l’aide d’Azure Digital Twins Explorer
 
-Dans cette section, vous pouvez recharger vos modèles, jumeaux et graphe dans la nouvelle instance. Si votre instance d’origine ne comporte aucun modèle, jumeau ou graphe, ou si vous ne voulez pas les déplacer vers la nouvelle instance, passez à la [section suivante](#re-create-endpoints-and-routes).
+Dans cette section, vous pouvez recharger vos modèles, jumeaux et graphe dans la nouvelle instance. Si votre instance d’origine ne comporte aucun modèle, jumeau ou graphe, ou si vous ne voulez pas les déplacer vers la nouvelle instance, passez à la [section suivante](#recreate-endpoints-and-routes).
 
 Tout d’abord, accédez à **Azure Digital Twins Explorer** pour la nouvelle instance dans le [portail Azure](https://portal.azure.com). 
 
-Importez le [fichier JSON que vous avez téléchargé](#download-models-twins-and-graph-with-azure-digital-twins-explorer) plus tôt dans cet article dans votre nouvelle instance, en suivant les étapes décrites dans les instructions d’Azure Digital Twins Explorer pour [importer un fichier dans Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#import-file-to-azure-digital-twins-explorer). Cela permet de charger tous les modèles, jumeaux et relations à partir de votre instance d’origine dans la nouvelle instance.
+Importez dans votre nouvelle instance le [fichier JSON que vous avez téléchargé](#download-models-twins-and-graph-with-azure-digital-twins-explorer) précédemment dans cet article. Pour cela, suivez les étapes décrites dans les instructions d’Azure Digital Twins Explorer pour [Importer un fichier dans Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md#import-file-to-azure-digital-twins-explorer). Ces étapes vous permettent de charger tous les modèles, jumeaux et relations depuis votre instance d’origine dans la nouvelle instance.
 
 Pour vérifier que tout a été correctement chargé, retournez sous l’onglet **Graphe de jumeaux** et sélectionnez le bouton **Exécuter la requête** dans le panneau **Explorateur de requêtes** pour exécuter la requête par défaut, qui affiche tous les jumeaux et relations dans le graphe. Cette action actualise aussi la liste des modèles dans le panneau **Modèles**.
 
@@ -106,9 +106,9 @@ Vous devez voir votre graphe, avec tous ses jumeaux et toutes ses relations affi
 
 Ces vues confirment que vos modèles, jumeaux et graphe ont été rechargés dans la nouvelle instance de la région cible.
 
-#### <a name="re-create-endpoints-and-routes"></a>Recréer les points de terminaison et les routes
+#### <a name="recreate-endpoints-and-routes"></a>Recréer les points de terminaison et les routes
 
-Si vous avez des points de terminaison ou des routes dans votre instance d’origine, vous devez les recréer dans votre nouvelle instance. Si votre instance d’origine ne présente aucun point de terminaison et aucune route, ou si vous ne souhaitez pas les déplacer vers la nouvelle instance, vous pouvez passer à la [section suivante](#relink-connected-resources).
+Si vous avez des points de terminaison ou des routes dans votre instance d’origine, vous devez les recréer dans votre nouvelle instance. Si votre instance d’origine n’a aucun point de terminaison et aucune route, ou si vous ne voulez pas les déplacer vers la nouvelle instance, vous pouvez passer à la [section suivante](#relink-connected-resources).
 
 Sinon, suivez les étapes décrites dans [Gérer les points de terminaison et les routes](how-to-manage-routes.md) en utilisant la nouvelle instance. Gardez à l’esprit les conseils suivants :
 
@@ -122,7 +122,7 @@ Si vous avez d’autres applications ou d’autres ressources Azure connectées 
 
 Si vous n’avez pas d’autres ressources connectées à votre instance d’origine, ou si vous ne souhaitez pas les déplacer vers la nouvelle instance, vous pouvez passer à la [section suivante](#verify).
 
-Sinon, tenez compte des ressources connectées dans votre scénario. Vous n’avez pas besoin de supprimer puis de recréer les ressources connectées. Il vous suffit plutôt de modifier les points où elles se connectent à une instance Azure Digital Twins par le biais de son nom d’hôte. Ensuite, vous mettez à jour ces points pour utiliser le nom d’hôte de la nouvelle instance au lieu de l’original.
+Sinon, tenez compte des ressources connectées dans votre scénario. Vous n’avez pas besoin de supprimer, puis de recréer les ressources connectées. Il vous suffit plutôt de modifier les points où elles se connectent à une instance Azure Digital Twins par le biais de son nom d’hôte. Ensuite, vous mettez à jour ces points pour utiliser le nom d’hôte de la nouvelle instance au lieu de l’original.
 
 Les ressources exactes que vous devez modifier varient en fonction de votre scénario, mais il existe quelques points d’intégration courants que voici :
 
@@ -133,7 +133,7 @@ Les ressources exactes que vous devez modifier varient en fonction de votre scé
 * Azure Maps.
 * Service IoT Hub Device Provisioning.
 * Applications personnelles ou d’entreprise en dehors d’Azure, telles que l’application cliente créée dans le [Coder une application cliente](tutorial-code.md), qui se connecte à l’instance et appelle les API Azure Digital Twins.
-* Les inscriptions d’applications Azure AD n’ont *pas* besoin d’être recréées. Si vous utilisez une [inscription d’application](./how-to-create-app-registration-portal.md) pour vous connecter aux API Azure Digital Twins, vous pouvez réutiliser la même inscription d’application avec votre nouvelle instance.
+* Les inscriptions d’applications Azure AD *n’ont pas besoin* d’être recréées. Si vous utilisez une [inscription d’application](./how-to-create-app-registration-portal.md) pour vous connecter aux API Azure Digital Twins, vous pouvez réutiliser la même inscription d’application avec votre nouvelle instance.
 
 À l’issue de cette étape, votre nouvelle instance située dans la région cible doit être une copie de l’instance d’origine.
 

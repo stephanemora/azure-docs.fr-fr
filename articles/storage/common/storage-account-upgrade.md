@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0d5d9eb7d2d8097da47d6639b1b6bb6887825207
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ddb061acb98cea775e6d147146646916adf05d68
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649111"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129270597"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
@@ -73,7 +73,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 Les comptes v2 universels prennent en charge tous les services de stockage et objets de données Azure, mais les niveaux d’accès s’appliquent uniquement aux objets blob de blocs dans le stockage d’objets blob. Quand vous effectuez une mise à niveau vers un compte de stockage v2 universel, vous pouvez spécifier un niveau d’accès de compte par défaut chaud ou froid, qui indique le niveau par défaut sous lequel vos données blob sont chargées si le paramètre de niveau d’accès à l’objet blob en question n’est pas spécifié.
 
-Les niveaux d’accès aux objets BLOB vous permettent de choisir la solution de stockage la plus économique en fonction des modèles d’utilisation prévus. Les objets blob de blocs peuvent être stockés dans un niveau de stockage chaud, froid ou archive. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : Niveaux de stockage chaud, à froid et archivage](../blobs/storage-blob-storage-tiers.md).
+Les niveaux d’accès aux objets BLOB vous permettent de choisir la solution de stockage la plus économique en fonction des modèles d’utilisation prévus. Les objets blob de blocs peuvent être stockés dans un niveau de stockage chaud, froid ou archive. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : Niveaux de stockage chaud, à froid et archivage](../blobs/access-tiers-overview.md).
 
 Par défaut, un compte de stockage est créé dans le niveau d’accès chaud, tandis qu’un compte de stockage v1 universel peut être mis à niveau vers le niveau de compte chaud ou froid. Si aucun niveau d’accès de compte n’est spécifié lors de la mise à niveau, il est mis à niveau vers le niveau chaud par défaut. Si vous cherchez à déterminer le niveau d’accès à utiliser pour votre mise à niveau, examinez votre scénario d’usage des données actuel. Les utilisateurs se trouvent généralement face à deux scénarios lors de la migration vers un compte v2 à usage général :
 

@@ -1,17 +1,17 @@
 ---
 title: Ajouter des réplicas à Azure Cache pour Redis
 description: Découvrez comment ajouter des réplicas à vos instances Azure Cache pour Redis de niveau Premium
-author: curib
-ms.author: cauribeg
+author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: ca535f7f30db66bf527c00b737dc43ee1a7f1603
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 373928398595beb7e6564e3d290fa1ec9f702691
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538230"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124828933"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis"></a>Ajouter des réplicas à Azure Cache pour Redis
 

@@ -3,15 +3,15 @@ title: Liaison de sortie Azure Cosmos DB pour Functions 2.x et versions ulté
 description: Découvrez comment utiliser la liaison de sortie Azure Cosmos DB dans Azure Functions.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 09/01/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 779b66412319ec8422977a7e56570a4d16f89aa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f385ca93c3cee6535a71dcffdd9240871ab1bdce
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98071542"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128676387"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Liaison de sortie Azure Cosmos DB pour Azure Functions 2.x et versions ultérieures
 
@@ -26,6 +26,7 @@ Pour plus d’informations sur les détails d’installation et de configuration
 Cette section contient les exemples suivants :
 
 * [Déclencheur de file d’attente, écrire un document](#queue-trigger-write-one-doc-c)
+* [Déclencheur de file d’attente, écrire un document (extension v4)](#queue-trigger-write-one-doc-v4-c)
 * [Déclencheur de file d’attente, écrire des documents à l’aide d’IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c)
 
 Les exemples font référence à un type `ToDoItem` simple :
@@ -64,6 +65,40 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection")]out dynamic document,
+            ILogger log)
+        {
+            document = new { Description = queueMessage, id = Guid.NewGuid() };
+
+            log.LogInformation($"C# Queue trigger function inserted one row");
+            log.LogInformation($"Description={queueMessage}");
+        }
+    }
+}
+```
+
+<a id="queue-trigger-write-one-doc-v4-c"></a>
+
+### <a name="queue-trigger-write-one-doc-v4-extension"></a>Déclencheur de file d’attente, écrire un document (extension v4)
+
+Les applications utilisant la [version d’extension 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher) ou une version ultérieure de Cosmos DB auront des propriétés d’attribut différentes (présentées ci-dessous). L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui ajoute un document à une base de données, à l’aide des données fournies dans le message de Stockage File d’attente.
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
+using System;
+
+namespace CosmosDBSamplesV2
+{
+    public static class WriteOneDoc
+    {
+        [FunctionName("WriteOneDoc")]
+        public static void Run(
+            [QueueTrigger("todoqueueforwrite")] string queueMessage,
+            [CosmosDB(
+                databaseName: "ToDoItems",
+                containerName: "Items",
+                Connection = "CosmosDBConnection")]out dynamic document,
             ILogger log)
         {
             document = new { Description = queueMessage, id = Guid.NewGuid() };
@@ -594,6 +629,18 @@ Le constructeur de l’attribut accepte le nom de la base de données et le nom 
     }
 ```
 
+Dans la [version d’extension 4.x](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), certains paramètres et certaines propriétés ont été supprimés ou renommés. Pour obtenir des informations détaillées sur ces changements, consultez [Sortie - configuration](#configuration). Voici un exemple d’attribut `CosmosDB` dans une signature de méthode :
+
+```csharp
+    [FunctionName("QueueToCosmosDB")]
+    public static void Run(
+      [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem,
+      [CosmosDB("database", "container", Connection = "CosmosDBConnectionSetting")] out dynamic document)
+    {
+        ...
+    }
+```
+
 # <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Les attributs ne sont pas pris en charge par le script C#.
@@ -626,13 +673,13 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction**     | n/a | Cette propriété doit être définie sur `out`.         |
 |**name**     | n/a | Nom du paramètre de liaison qui représente le document dans la fonction.  |
 |**databaseName** | **DatabaseName**|Base de données contenant la collection dans laquelle le document est créé.     |
-|**collectionName** |**CollectionName**  | Nom de la collection dans laquelle le document est créé. |
+|**collectionName** <br> ou <br> **containerName** |**CollectionName** <br> ou <br> **ContainerName** | Nom de la collection dans laquelle le document est créé. <br><br> Dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `ContainerName`. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Valeur booléenne indiquant si la collection doit être créée si elle n’existe pas déjà. La valeur par défaut est *false* car les nouvelles collections sont créées avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
 |**partitionKey**|**PartitionKey** |Lorsque `CreateIfNotExists` a la valeur true, définit le chemin de la clé de partition pour la collection créée.|
-|**collectionThroughput**|**CollectionThroughput**| Lorsque `CreateIfNotExists` a la valeur true, définit le [débit](../cosmos-db/set-throughput.md) de la collection créée.|
-|**connectionStringSetting**    |**ConnectionStringSetting** |Nom du paramètre d’application contenant votre chaîne de connexion Azure Cosmos DB.        |
+|**collectionThroughput** <br> ou <br> **containerThroughput**|**CollectionThroughput** <br> ou <br> **ContainerThroughput**| Lorsque `CreateIfNotExists` a la valeur true, définit le [débit](../cosmos-db/set-throughput.md) de la collection créée. <br><br> Dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `ContainerThroughput`. |
+|**connectionStringSetting** <br> ou <br> **connection**   |**ConnectionStringSetting** <br> ou <br> **Connection**|Nom du paramètre d’application contenant votre chaîne de connexion Azure Cosmos DB.  <br><br> Dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher), cette propriété est appelée `Connection`. La valeur est le nom d’un paramètre d’application qui contient soit la chaîne de connexion, soit une section de configuration ou un préfixe qui définit la connexion. Consultez [Connexions](./functions-reference.md#connections). |
 |**preferredLocations**| **PreferredLocations**| (Facultatif) Définit les endroits par défaut (régions) des comptes de base de données géorépliqués dans le service Azure Cosmos DB. Les valeurs doivent être séparées par des virgules. Par exemple, « USA Est, USA Centre Sud, Europe Nord ». |
-|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (Facultatif) Lorsqu’il est défini sur `true` avec `PreferredLocations`, il peut tirer parti des [écritures multirégions](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) dans le service Azure Cosmos DB. |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (Facultatif) Lorsqu’il est défini sur `true` avec `PreferredLocations`, il peut tirer parti des [écritures multirégions](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) dans le service Azure Cosmos DB. <br><br> Cette propriété n’est pas disponible dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher). |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -653,7 +700,7 @@ Par défaut, lorsque vous écrivez dans le paramètre de sortie de votre fonctio
 
 ## <a name="hostjson-settings"></a>Paramètres host.json
 
-Cette section décrit les paramètres de configuration globale disponibles pour cette liaison dans la version 2.x. Pour plus d’informations sur les paramètres de configuration globale dans la version 2.x, voir [Informations de référence sur le fichier host.json pour Azure Functions version 2.x](functions-host-json.md).
+Cette section décrit les paramètres de configuration globale disponibles pour cette liaison dans Azure Functions version 2.x. Pour plus d’informations sur les paramètres de configuration globale dans Azure Functions version 2.x, consultez [Informations de référence sur host.json pour Azure Functions version 2.x](functions-host-json.md).
 
 ```json
 {
@@ -670,11 +717,11 @@ Cette section décrit les paramètres de configuration globale disponibles pour 
 }
 ```
 
-|Propriété  |Default | Description |
-|---------|---------|---------|
+|Propriété  |Default |Description |
+|----------|--------|------------|
 |GatewayMode|Passerelle|Le mode de connexion utilisé par la fonction lors de la connexion au service Azure Cosmos DB. Les options sont `Direct` et `Gateway`.|
-|Protocol|Https|Le protocole de connexion utilisé par la fonction lors de la connexion au service Azure Cosmos DB.  Voir [l’explication des deux modes](../cosmos-db/performance-tips.md#networking).|
-|leasePrefix|n/a|Préfixe de bail à utiliser dans toutes les fonctions d’une application.|
+|Protocol|Https|Le protocole de connexion utilisé par la fonction lors de la connexion au service Azure Cosmos DB. Lisez [ceci pour obtenir des explications sur les deux modes](../cosmos-db/performance-tips.md#networking). <br><br> Ce paramètre n’est pas disponible dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher). |
+|leasePrefix|n/a|Préfixe de bail à utiliser dans toutes les fonctions d’une application. <br><br> Ce paramètre n’est pas disponible dans la [version 4.x de l’extension](./functions-bindings-cosmosdb-v2.md#cosmos-db-extension-4x-and-higher).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

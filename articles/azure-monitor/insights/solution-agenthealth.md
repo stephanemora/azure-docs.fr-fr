@@ -1,114 +1,117 @@
 ---
 title: Solution Agent Health dans Azure Monitor | Microsoft Docs
-description: Cet article a pour but de vous apprendre à utiliser cette solution afin de surveiller l’intégrité de vos agents au service de Log Analytics ou de System Center Operations Manager.
+description: Découvrez comment utiliser cette solution afin de superviser l’intégrité de vos agents qui rendent directement compte à Log Analytics ou System Center Operations Manager.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 24797f6524cd9a129f8eafb5b13e4bd1a26cf803
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 33fd14f71e0ef441fc2b33765f7275fc33448e0b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432191"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128663437"
 ---
-#  <a name="agent-health-solution-in-azure-monitor"></a>Solution Agent Health dans Azure Monitor
-La solution Agent Health dans Azure vous permet de savoir quels agents, parmi tous ceux au service de l’espace de travail Log Analytics dans Azure Monitor ou d’un groupe d’administration System Center Operations Manager connecté à Azure Monitor, ne répondent pas et envoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
+# <a name="agent-health-solution-in-azure-monitor"></a>Solution Agent Health dans Azure Monitor
+La solution Agent Health dans Azure vous aide à comprendre quels agents de supervision ne répondent pas et envoient des données opérationnelles. Cela comprend tous les agents qui rendent directement compte à l’espace de travail Log Analytics dans Azure Monitor ou à un groupe d’administration System Center Operations Manager connecté à Azure Monitor.
 
-## <a name="prerequisites"></a>Configuration requise
-Avant de déployer cette solution, veuillez confirmer que vous avez bien pris en charge des [agents Windows](../agents/agent-windows.md) au service de l’espace de travail Log Analytics ou d’un [groupe d’administration Operations Manager](../agents/om-agents.md) inclut dans votre espace de travail.
+Vous pouvez également utiliser la solution Agent Health pour :
 
-## <a name="solution-components"></a>Composants de la solution
-Cette solution se compose des ressources suivantes qui sont ajoutées à votre espace de travail et d’agents directement connectés ou d’un groupe d’administration Operations Manager connecté.
+* Effectuer le suivi du nombre d’agents déployés et de leur distribution géographique.
+* Effectuer d’autres requêtes pour être tenus à jour de la distribution des agents déployés dans Azure, dans d’autres environnements cloud ou localement.    
 
-### <a name="management-packs"></a>Packs d’administration
-Si votre groupe d’administration System Center Operations Manager est connecté à un espace de travail Log Analytics, les packs d’administration suivants sont installés dans Operations Manager.  Ces packs d’administration sont également installés sur des ordinateurs Windows directement connectés après l’ajout de cette solution. Aucun élément ne doit être configuré ou géré avec ces packs d’administration.
+## <a name="prerequisites"></a>Prérequis
+Avant de déployer cette solution, confirmez que vous avez pris en charge des [agents Windows](../agents/agent-windows.md) qui rendent compte à l’espace de travail Log Analytics ou à un [groupe d’administration Operations Manager](../agents/om-agents.md) intégré à votre espace de travail.
+
+## <a name="management-packs"></a>Packs d’administration
+Si votre groupe d’administration Operations Manager est connecté à un espace de travail Log Analytics, les packs d’administration suivants sont installés dans Operations Manager. Ces packs d’administration sont également installés sur des ordinateurs Windows directement connectés après l’ajout de cette solution.
 
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager à Log Analytics](../agents/om-agents.md).
+Aucun élément ne doit être configuré ou géré avec ces packs d’administration. Pour plus d’informations sur la façon dont ces packs d’administration de solution sont mis à jour, consultez [Connecter Operations Manager à Log Analytics](../agents/om-agents.md).
 
 ## <a name="configuration"></a>Configuration
-Ajoutez la solution Agent Health à votre espace de travail Log Analytics en suivant la procédure décrite dans [Ajouter des solutions](solutions.md). Aucune configuration supplémentaire n’est requise.
+Ajoutez la solution Agent Health à votre espace de travail Log Analytics en suivant la procédure décrite dans [Ajouter des solutions](solutions.md). Aucune configuration supplémentaire n'est nécessaire.
 
-
-## <a name="data-collection"></a>Collecte de données
-### <a name="supported-agents"></a>Agents pris en charge
-Le tableau suivant décrit les sources connectées qui sont prises en charge par cette solution.
+## <a name="supported-agents"></a>Agents pris en charge
+Le tableau suivant décrit les sources connectées prises en charge par cette solution.
 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
 | Agents Windows | Oui | Les événements de pulsation sont rassemblés par des agents Windows directs.|
-| Groupe d’administration Microsoft System Center Operations Manager | Oui | Les événements de pulsation sont collectés toutes les 60 secondes par les agents au service du groupe d’administration et sont ensuite transférés à Azure Monitor. Une connexion directe entre les agents Operations Manager et Azure Monitor n’est pas obligatoire. Les données d’événement de pulsation sont transférées depuis le groupe d’administration vers l’espace de travail Log Analytics.|
+| Groupe d’administration Microsoft System Center Operations Manager | Oui | Les événements de pulsation sont collectés toutes les 60 secondes par les agents qui rendent compte au groupe d’administration, et sont ensuite transférés à Azure Monitor. Une connexion directe entre les agents Operations Manager et Azure Monitor n’est pas obligatoire. Les données d’événement de pulsation sont transférées depuis le groupe d’administration vers l’espace de travail Log Analytics.|
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
-Quand vous ajoutez la solution à votre espace de travail Log Analytics, la vignette **Agent Health** est ajoutée à votre tableau de bord. La vignette indique le nombre total d’agents et le nombre d’agents inactifs au cours des dernières 24 heures.<br><br> ![Vignette de la solution Agent Health du tableau de bord](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quand vous ajoutez la solution à votre espace de travail Log Analytics, la vignette **Agent Health** est ajoutée à votre tableau de bord. La vignette indique le nombre total d’agents et le nombre d’agents inactifs au cours des dernières 24 heures.
 
-Cliquez sur la vignette **Agent Health** pour ouvrir le tableau de bord **Agent Health**.  Le tableau de bord comprend les colonnes figurant dans le tableau suivant. Chaque colonne répertorie les dix premiers événements, classés selon leur nombre, correspondant aux critères de cette colonne pour l’intervalle de temps spécifié. Vous pouvez exécuter une recherche dans les journaux qui fournit la liste complète. Pour cela, sélectionnez **Afficher tout** dans l’angle inférieur droit de chaque colonne ou cliquez sur l’en-tête de colonne.
+![Capture d’écran montrant la vignette Agent Health sur le tableau de bord.](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+
+Sélectionnez la vignette **Agent Health** pour ouvrir le tableau de bord **Agent Health**.  Le tableau de bord comprend les colonnes figurant dans le tableau suivant. Chaque colonne liste les dix premiers événements, classés selon leur nombre, correspondant aux critères de cette colonne pour l’intervalle de temps spécifié. Vous pouvez exécuter une recherche dans les journaux qui fournit la liste complète en sélectionnant **Afficher tout** sous chaque colonne, ou en sélectionnant l’en-tête de colonne.
 
 | Colonne | Description |
 |--------|-------------|
-| Nombre d’agents au fil du temps | Tendance du nombre d’agents sur une période de sept jours (agents Linux et Windows).|
-| Nombre d’agents inactifs | Liste des agents n’ayant émis aucune pulsation au cours des dernières 24 heures.|
-| Distribution selon le système d’exploitation | Partition du nombre d’agents Windows et Linux dont vous disposez dans votre environnement.|
-| Distribution selon la version de l’agent | Partition des versions des agents installées dans votre environnement, et leur nombre.|
-| Distribution selon la catégorie de l’agent | Partition des différentes catégories d’agents émettant des événements de pulsation : agents directs, agents Operations Manager ou serveur d’administration Operations Manager.|
-| Distribution selon le groupe d’administration | Partition des différents groupes d’administration Operations Manager de votre environnement.|
-| Géolocalisation des agents | Partition des différents pays/régions dans lesquels vous disposez d’agents et nombre total d’agents installés par pays/région.|
-| Nombre de passerelles installées | Nombre et liste des serveurs disposant de la passerelle Log Analytics.|
+| Nombre d’agents au fil du temps | Tendance du nombre d’agents sur une période de sept jours (agents Linux et Windows)|
+| Nombre d’agents inactifs | Liste des agents n’ayant émis aucune pulsation au cours des dernières 24 heures|
+| Distribution selon le type de système d’exploitation | Partition du nombre d’agents Windows et Linux dont vous disposez dans votre environnement|
+| Distribution selon la version de l’agent | Partition des versions des agents installées dans votre environnement, et leur nombre|
+| Distribution selon la catégorie de l’agent | Partition des catégories d’agents émettant des événements de pulsation : agents directs, agents Operations Manager ou serveur d’administration Operations Manager|
+| Distribution selon le groupe d’administration | Partition des groupes d’administration Operations Manager de votre environnement|
+| Géolocalisation des agents | Partition des pays/régions dans lesquels vous disposez d’agents, et nombre total d’agents installés par pays/région|
+| Nombre de passerelles installées | Nombre et liste des serveurs disposant de la passerelle Log Analytics|
 
-![Exemple de tableau de bord pour la solution Agent Health](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
+![Capture d’écran montrant un exemple de tableau de bord de la solution Agent Health.](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
 
 ## <a name="azure-monitor-log-records"></a>Enregistrements de journaux Azure Monitor
-La solution crée un type d’enregistrement dans l’espace de travail Log Analytics.  
-
-### <a name="heartbeat-records"></a>Enregistrements de pulsation
-L’enregistrement d’un type de **pulsation** est créé.  Les propriétés de ces enregistrements sont décrites dans le tableau suivant.  
+La solution crée un type d’enregistrement dans l’espace de travail Log Analytics : pulsation. Les propriétés des enregistrements de pulsation sont décrites dans le tableau suivant :  
 
 | Propriété | Description |
 | --- | --- |
-| `Type` | *Pulsation*|
-| `Category` | La valeur correspond à *Agent Direct*, *Agent SCOM*, ou *Serveur d’administration SCOM*.|
-| `Computer` | Nom de l’ordinateur.|
-| `OSType` | Système d’exploitation : Windows ou Linux.|
-| `OSMajorVersion` | Version principale du système d’exploitation.|
-| `OSMinorVersion` | Version secondaire du système d’exploitation.|
-| `Version` | Version de l’agent Log Analytics ou de l’agent Operations Manager.|
-| `SCAgentChannel` | La valeur correspond à *Direct* et/ou *SCManagementServer*.|
-| `IsGatewayInstalled` | Si la passerelle Log Analytics est installée, la valeur correspond à *true*. Dans le cas contraire, elle correspond à *false*.|
-| `ComputerIP` | IP publique de l’ordinateur. Sur les machines virtuelles Azure, l’IP publique s’affiche, le cas échéant. Pour les machines virtuelles utilisant des IP privées, cette opération affiche l’adresse SNAT Azure (et non l’IP privée). |
-| `ComputerPrivateIPs` | Liste des adresses IP privées de l’ordinateur. |
-| `RemoteIPCountry` | Lieu où l’ordinateur est déployé.|
-| `ManagementGroupName` | Nom du groupe d’administration Operations Manager.|
-| `SourceComputerId` | ID unique de l’ordinateur.|
-| `RemoteIPLongitude` | Longitude de l’emplacement géographique de l’ordinateur.|
-| `RemoteIPLatitude` | Latitude de l’emplacement géographique de l’ordinateur.|
+| `Type` | `Heartbeat`|
+| `Category` | `Direct Agent`, `SCOM Agent`ou `SCOM Management Server`|
+| `Computer` | Nom de l'ordinateur|
+| `OSType` | Système d’exploitation : Windows ou Linux|
+| `OSMajorVersion` | Version principale du système d’exploitation|
+| `OSMinorVersion` | Version secondaire du système d’exploitation|
+| `Version` | Version de l’agent Log Analytics ou de l’agent Operations Manager|
+| `SCAgentChannel` | `Direct` et/ou `SCManagementServer`|
+| `IsGatewayInstalled` | `true` si la passerelle Log Analytics est installée ; sinon, `false`|
+| `ComputerIP` | Adresse IP publique d’une machine virtuelle Azure, si celle-ci est disponible ; Adresse SNAT Azure (et non l’adresse IP privée) d’une machine virtuelle qui utilise une adresse IP privée |
+| `ComputerPrivateIPs` | Liste des adresses IP privées de l’ordinateur |
+| `RemoteIPCountry` | Lieu où l’ordinateur est déployé|
+| `ManagementGroupName` | Nom du groupe d’administration Operations Manager|
+| `SourceComputerId` | ID unique de l’ordinateur|
+| `RemoteIPLongitude` | Longitude de l’emplacement géographique de l’ordinateur|
+| `RemoteIPLatitude` | Latitude de l’emplacement géographique de l’ordinateur|
 
-Tout agent au service d’un serveur d’administration Operations Manager émet deux pulsations. En fonction des sources de données et solutions de supervision activées lors de votre abonnement, la valeur de la propriété SCAgentChannel correspond à la fois à **Direct** et à **SCManagementServer**. Rappel : les données des solutions sont soit envoyées directement à partir d’un serveur d’administration Operations Manager à Azure Monitor, soit, en raison du volume de données collecté par l’agent, envoyées directement à partir de l’agent à Azure Monitor. Pour les événements de pulsation dont la valeur correspond à **SCManagementServer**, la valeur ComputerIP correspond à l’adresse IP du serveur d’administration, car les données sont chargées par ce dernier.  Pour les pulsations dont la valeur SCAgentChannel correspond à **Direct**, la valeur ComputerIP correspond à l’adresse IP publique de l’agent.  
+Chaque agent qui rend compte à un serveur d’administration Operations Manager envoie deux pulsations. La valeur de la propriété `SCAgentChannel` inclura à la fois `Direct` et `SCManagementServer`, en fonction des sources de données et des solutions de supervision que vous avez activées dans votre abonnement. 
+
+Souvenez-vous que les données des solutions sont envoyées :
+
+* Directement d’un serveur d’administration Operations Manager vers Azure Monitor, ou
+* Directement de l’agent vers Azure Monitor, en raison du volume de données collectées sur l’agent.
+
+Pour les événements de pulsation ayant la valeur `SCManagementServer`, la valeur `ComputerIP` est l’adresse IP du serveur d’administration, car c’est elle qui charge les données. Pour les pulsations dont la propriété `SCAgentChannel` a la valeur `Direct`, il s’agit de l’adresse IP publique de l’agent.  
 
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
-Le tableau suivant fournit des exemples de recherches de journaux pour les enregistrements collectés par cette solution.
+Le tableau suivant fournit des exemples de recherches dans les journaux pour les enregistrements collectés par cette solution.
 
 | Requête | Description |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Nombre total d’agents |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Nombre d’agents inactifs au cours des dernières 24 heures |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(15m) |Nombre d’agents inactifs au cours des 15 dernières heures |
-| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer in ((Heartbeat &#124; where TimeGenerated > ago(24h) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Ordinateurs en ligne (au cours des dernières 24 heures) |
+| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer in ((Heartbeat &#124; where TimeGenerated > ago(24h) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Ordinateurs en ligne au cours des dernières 24 heures |
 | Heartbeat &#124; where TimeGenerated > ago(24h) and Computer !in ((Heartbeat &#124; where TimeGenerated > ago(30m) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Total des agents hors ligne au cours des 30 dernières minutes (au cours des dernières 24 heures) |
-| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |Obtenir une tendance du nombre d’agents sur une période selon le système d’exploitation|
-| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |Distribution selon le système d’exploitation |
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |Tendance du nombre d’agents au fil du temps par système d’exploitation|
+| Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |Distribution selon le type de système d’exploitation |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by Version |Distribution selon la version de l’agent |
 | Heartbeat &#124; summarize AggregatedValue = count() by Category |Distribution selon la catégorie de l’agent |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Distribution selon le groupe d’administration |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Géolocalisation des agents |
-| Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Nombre de passerelles Log Analytics installées |
-
-
-
+| Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Nombre de passerelles Log Analytics installées |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la génération d’alertes à partir de requêtes de journal, consultez [Alertes dans Azure Monitor](../alerts/alerts-overview.md). 
+* Apprenez-en davantage sur la [génération d’alertes à partir de requêtes de journal](../alerts/alerts-overview.md). 
 

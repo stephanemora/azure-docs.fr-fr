@@ -1,37 +1,37 @@
 ---
 title: Créer des dépendances de déclencheur de fenêtre bascule
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment créer une dépendance envers un déclencheur de fenêtre bascule dans Azure Data Factory.
+description: Découvrez comment créer une dépendance envers un déclencheur de fenêtre bascule dans Azure Data Factory et Synapse Analytics.
 ms.author: chez
 author: chez-charlie
 ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/03/2020
-ms.openlocfilehash: 26e9be55b094212cc3e4e5139bf65934b7ff0d6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/09/2021
+ms.openlocfilehash: 89a6db7fcfd78ec2e1115256cc162a91cc9180da
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641338"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124805930"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Créer une dépendance de déclencheur de fenêtre bascule
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Cet article explique étape par étape comment créer une dépendance envers un déclencheur de fenêtre bascule. Pour des informations générales sur les déclencheurs de fenêtre bascule, voir [Guide pratique pour créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md).
 
-Pour créer une chaîne de dépendance et faire en sorte qu’un déclencheur ne soit exécuté qu’après l’exécution d’un autre déclencheur dans la fabrique de données, utilisez cette fonctionnalité avancée de création d’une dépendance envers une fenêtre bascule.
+Pour créer une chaîne de dépendance et faire en sorte qu'un déclencheur ne soit exécuté qu'après l'exécution d'un autre déclencheur dans le service, utilisez cette fonctionnalité avancée de création d'une dépendance envers une fenêtre bascule.
 
-Pour une démonstration de la création de pipelines dépendants dans votre fabrique de données Azure à l’aide d’un déclencheur de fenêtre bascule, regardez la vidéo suivante :
+Pour une démonstration de la création de pipelines dépendants à l'aide d'un déclencheur de fenêtre bascule, regardez la vidéo suivante :
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
-## <a name="create-a-dependency-in-the-data-factory-ui"></a>Créer une dépendance dans l’interface utilisateur de Data Factory
+## <a name="create-a-dependency-in-the-ui"></a>Créer une analyse de dépendance dans l'IU
 
-Pour créer une dépendance envers un déclencheur, sélectionnez **Déclencher > Avancé > Nouveau**, puis choisissez un déclencheur présentant un décalage et une taille adaptés. Sélectionnez **Terminer** et publiez les modifications de la fabrique de données pour que les dépendances prennent effet.
+Pour créer une dépendance envers un déclencheur, sélectionnez **Déclencher > Avancé > Nouveau**, puis choisissez un déclencheur présentant un décalage et une taille adaptés. Sélectionnez **Terminer** et publiez les modifications pour que les dépendances prennent effet.
 
-![Création de dépendances](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "Création de dépendances")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png" alt-text="Création de dépendances":::
 
 ## <a name="tumbling-window-dependency-properties"></a>Propriétés de la dépendance envers une fenêtre bascule
 
@@ -131,37 +131,37 @@ Voici les illustrations des scénarios et de l’utilisation des propriétés de
 
 ### <a name="dependency-offset"></a>Décalage de la dépendance
 
-![Exemple de décalage](media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png "Exemple de décalage")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png" alt-text="Exemple de décalage":::
 
 ### <a name="dependency-size"></a>Taille de la dépendance
 
-![Exemple de taille](media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png "Exemple de taille")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png" alt-text="Exemple de taille":::
 
 ### <a name="self-dependency"></a>Autodépendance
 
-![Autodépendance](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "Autodépendance")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png" alt-text="Autodépendance":::
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>Dépendance envers un autre déclencheur de fenêtre bascule
 
 Une tâche de traitement quotidien des données de télémétrie dépend d’une autre tâche quotidienne d’agrégation de la sortie des sept derniers jours et génère des flux de sept jours sur fenêtre glissante :
 
-![Exemple de dépendance](media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png "Exemple de dépendance")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png" alt-text="Exemple de dépendance":::
 
 ### <a name="dependency-on-itself"></a>Dépendance envers soi-même
 
 Voici une tâche quotidienne sans écart dans les flux de sortie :
 
-![Exemple d’autodépendance](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "Exemple d’autodépendance")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png" alt-text="Exemple d’autodépendance":::
 
 ## <a name="monitor-dependencies"></a>Effectuer le monitoring des dépendances
 
 Vous pouvez effectuer le monitoring de la chaîne de dépendance et des fenêtres correspondantes sur la page de monitoring des exécutions du déclencheur. Accédez à **Monitoring > Exécutions du déclencheur**. Si un déclencheur de fenêtre bascule a des dépendances, le nom du déclencheur porte un lien hypertexte vers la vue d’analyse des dépendances.  
 
-![Superviser les exécutions de déclencheur](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "Surveiller les exécutions du déclencheur : affichage des dépendances des entiers à la fenêtre bascule")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png" alt-text="Superviser les exécutions de déclencheur":::
 
 Cliquez sur le nom du déclencheur pour afficher les dépendances du déclencheur. Le panneau de droite affiche des informations détaillées sur l’exécution du déclencheur, telles que RunID, l’heure de la fenêtre, l’état, etc.
 
-![Monitor dependencies list view](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "Surveiller les dépendances Vue de la liste")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png" alt-text="Monitor dependencies list view":::
 
 Vous pouvez voir l’état des dépendances et les fenêtres pour chaque déclencheur dépendant. Si l’un des déclencheurs de dépendances échoue, vous devez le réexécuter correctement pour que le déclencheur dépendant s’exécute.
 
@@ -169,7 +169,7 @@ Un déclencheur de fenêtre bascule attend des dépendances pendant _sept jours_
 
 Pour un rendu plus visuel de la planification des dépendances du déclencheur, sélectionnez l’affichage de Gantt.
 
-![Monitor dependencies gantt chart](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "Surveiller les dépendances Vue du diagramme de Gantt")
+:::image type="content" source="media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png" alt-text="Monitor dependencies gantt chart":::
 
 Les zones transparentes montrent les fenêtres de dépendance pour chaque déclencheur dépendant du flux, tandis que les zones colorées ci-dessus montrent les différentes exécutions de fenêtre. Voici quelques conseils pour interpréter la vue du diagramme de Gantt :
 

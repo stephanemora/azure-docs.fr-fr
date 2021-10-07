@@ -1,18 +1,20 @@
 ---
 title: Partager des images de machine virtuelle avec les galeries partagées
 description: Découvrez comment utiliser les galeries d’images partagées pour partager des images de machine virtuelle Linux au sein de votre organisation.
+author: axayjo
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 6/8/2021
+ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: a62c7c80ad2e785e9f09b68d9a5ec9ca7d355800
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 1886015d88fb292de64c9e124fbd7609c6a27abe
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129454997"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124780868"
 ---
 # <a name="shared-image-galleries-overview"></a>Vue d’ensemble des galeries d’images partagées
 

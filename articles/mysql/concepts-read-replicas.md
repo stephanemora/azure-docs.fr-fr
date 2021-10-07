@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 89cb9122da21887165b2330f75dd316c184de823
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bb061fb11fbc770d751f60e15c81ce31c6a07440
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563159"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128666323"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -25,7 +25,7 @@ Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire au
 Pour découvrir plus en détail les fonctionnalités de réplication MySQL et les problèmes associés, consultez la [documentation sur la réplication MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> Cet article contient des références au terme _esclave_, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+> Cet article contient des références au terme *esclave*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Quand utiliser un réplica en lecture
@@ -99,9 +99,9 @@ Il existe toutefois quelques limitations à prendre en compte :
 ## <a name="create-a-replica"></a>Créer un réplica
 
 > [!IMPORTANT]
-> La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database pour MySQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur source se trouve dans l’un de ces niveaux tarifaires.
+> * La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs Azure Database pour MySQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur source se trouve dans l’un de ces niveaux tarifaires.
+> * Si votre serveur source n’a pas de serveurs de réplication existants, le serveur source peut nécessiter un redémarrage pour se préparer à la réplication en fonction du stockage utilisé (v1/v2). Veuillez envisager le redémarrage du serveur et effectuer cette opération pendant les heures creuses. Pour plus d’informations, consultez [Redémarrage du Serveur Source](./concepts-read-replicas.md#source-server-restart). 
 
-Si un serveur source ne dispose d’aucun serveur réplica, le serveur source redémarre tout d’abord afin de se préparer pour la réplication.
 
 Quand vous démarrez le workflow de création de réplica, un serveur Azure Database pour MySQL vide est créé. Le nouveau serveur est rempli avec les données qui se trouvaient sur le serveur source. Le temps de création dépend de la quantité de données présentes sur le serveur source et du temps écoulé depuis la dernière sauvegarde complète hebdomadaire. Le temps nécessaire peut aller de quelques minutes à plusieurs heures. Le serveur réplica est toujours créé dans le même groupe de ressources et dans le même abonnement que le serveur source. Si vous souhaitez créer un serveur réplica dans un autre groupe de ressources ou un autre abonnement, vous pouvez [déplacer le serveur réplica](../azure-resource-manager/management/move-resource-group-and-subscription.md) après sa création.
 
@@ -176,7 +176,7 @@ Les paramètres serveur suivants sont disponibles pour la configuration du GTID�
 > [!NOTE]
 > * Une fois le GTID activé, vous ne pouvez pas le désactiver. Si vous avez besoin de désactiver le GTID, contactez le support technique. 
 >
-> * La modification de la valeur d’un GTID ne peut être effectuée qu’une étape à la fois dans l’ordre croissant des modes. Par exemple, si gtid_mode est défini sur OFF_PERMISSIVE, il est possible de le changer en ON_PERMISSIVE mais pas sur ON.
+> * La modification de la valeur d’un GTID ne peut être effectuée qu’une étape à la fois dans l’ordre croissant des modes. Par exemple, si gtid_mode est défini sur OFF_PERMISSIVE, il est possible de le changer en ON_PERMISSIVE mais pas en ON.
 >
 > * Pour assurer la cohérence de la réplication, vous ne pouvez pas le mettre à jour pour un serveur maître/de réplication.
 >
@@ -198,7 +198,9 @@ Les réplicas en lecture ne sont actuellement disponibles que dans les niveaux t
 
 ### <a name="source-server-restart"></a>Redémarrage du serveur source
 
-Lorsque vous créez un réplica pour un serveur source qui n’en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
+Serveur disposant d’un stockage à usage général v1, le `log_bin` paramètre sera désactivé par défaut. La valeur est activée lorsque vous créez le premier réplica de lecture. Si un serveur source ne dispose d’aucun réplica en lecture, le serveur source redémarrera dans un premier temps afin de se préparer pour la réplication. Veuillez envisager le redémarrage du serveur et effectuer cette opération pendant les heures creuses.
+
+Serveur source disposant d’un stockage à usage général v2, le `log_bin` paramètre sera activé par défaut et ne nécessitera pas de redémarrage lorsque vous ajoutez un réplica en lecture. 
 
 ### <a name="new-replicas"></a>Nouveaux réplicas
 

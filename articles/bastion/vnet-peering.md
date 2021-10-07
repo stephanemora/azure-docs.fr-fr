@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: ccbee86e8f5ae2ab514c8ec7ece4d41e1e890e4e
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 4e5f474f08116cea39b565e76a9736b3e94eec9f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733283"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128668789"
 ---
 # <a name="vnet-peering-and-azure-bastion"></a>Appairage de réseaux virtuels et Azure Bastion
 
@@ -45,17 +45,17 @@ Cette figure représente l’architecture d’un déploiement Azure Bastion dans
    * Rôle de lecteur sur la carte réseau avec adresse IP privée de la machine virtuelle.
    * Rôle de lecteur sur la ressource Azure Bastion.
    * Rôle de lecteur sur le réseau virtuel (inutile s’il n’y a pas de réseau virtuel appairé).
-3. Pour afficher Bastion dans le menu déroulant **Connexion**, vous devez sélectionner les abonnements auxquels vous avez accès dans **Abonnement > Abonnement global**.
+3. Pour que Bastion apparaisse dans le menu déroulant **Connexion**, vous devez sélectionner l’abonnement auquel vous avez accès dans **Abonnement > Abonnement global**.
 4. Sélectionnez la machine virtuelle à laquelle vous souhaitez vous connecter.
 5. Azure Bastion est détecté en toute transparence sur le réseau virtuel appairé.
 6. D’un simple clic, la session RDP/SSH s’ouvre dans le navigateur.
 
-  :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connexion":::
+Pour plus d’informations sur la connexion à une machine virtuelle via Azure Bastion, consultez :
 
-   Pour plus d’informations sur la connexion à une machine virtuelle via Azure Bastion, consultez :
-
-   * [Se connecter à une machine virtuelle - RDP](bastion-connect-vm-rdp.md).
-   * [Se connecter à une machine virtuelle - SSH](bastion-connect-vm-ssh.md).
+   * [Se connecter à une machine virtuelle Windows - RDP](bastion-connect-vm-rdp-windows.md)
+   * [Se connecter à une machine virtuelle Windows - SSH](bastion-connect-vm-ssh-windows.md)
+   * [Se connecter à une machine virtuelle Linux - SSH](bastion-connect-vm-ssh-linux.md)
+   * [Se connecter à une machine virtuelle Linux - RDP](bastion-connect-vm-rdp-linux.md)
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

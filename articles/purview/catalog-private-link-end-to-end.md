@@ -6,13 +6,13 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: a4e1270751f0f675f579315bfc69a808ccf903ea
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/27/2021
+ms.openlocfilehash: 4f15d39da8f97897498f07892eb90d37a1bd8574
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123250685"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129209282"
 ---
 # <a name="connect-to-your-azure-purview-and-scan-data-sources-privately-and-securely"></a>Se connecter à Azure Purview et analyser des sources de données de manière privée et sécurisée
 
@@ -20,15 +20,15 @@ Dans ce guide, vous allez apprendre à déployer des points de terminaison priv�
 
 Le point de terminaison privé du _compte_ Azure Purview est utilisé pour ajouter une couche de sécurité supplémentaire en permettant des scénarios où seuls les appels client provenant du réseau virtuel sont autorisés à accéder au compte Azure Purview. Ce point de terminaison privé est également un prérequis pour le point de terminaison privé du portail.
 
-Le point de terminaison privé du _portail_ Azure Purview doit permettre la connectivité à Azure Purview Studio au moyen d’un réseau privé.
+Le point de terminaison privé du _portail_ Azure Purview est nécessaire pour permettre la connectivité à [Azure Purview Studio](https://web.purview.azure.com/resource/) via un réseau privé.
 
 Azure Purview peut analyser des sources de données dans un environnement Azure ou local à l’aide de points de terminaison privés d’_ingestion_. Trois ressources de point de terminaison privé supplémentaires doivent être déployées et liées aux ressources managées Azure Purview quand des points de terminaison privés d’ingestion sont déployés :
 
-- Le point de terminaison privé d’objet blob est lié à un compte de stockage géré Azure Purview.
-- Le point de terminaison privé de file d’attente est lié à un compte de stockage managé Azure Purview.
-- le point de terminaison privé de l’espace de noms est lié à l’espace de noms Event Hub managé Azure Purview.
+ - Le point de terminaison privé d’objet blob est lié à un compte de stockage géré Azure Purview.
+ - Le point de terminaison privé de file d’attente est lié à un compte de stockage managé Azure Purview.
+ - le point de terminaison privé de l’espace de noms est lié à l’espace de noms Event Hub managé Azure Purview.
 
-   :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Le diagramme qui affiche l’architecture d’Azure Purview et Private Link.":::
+  :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Le diagramme qui affiche l’architecture d’Azure Purview et Private Link.":::
 
 ## <a name="deployment-checklist"></a>Liste de vérification de déploiement
 À l’aide de l’une des options de déploiement expliquées plus loin dans ce guide, vous pouvez déployer un nouveau compte Azure Purview avec des points de terminaison privés de _compte_, de _portail_ et d’_ingestion_, ou vous pouvez choisir de déployer ces points de terminaison privés pour un compte Azure Purview existant :
@@ -55,11 +55,11 @@ Azure Purview peut analyser des sources de données dans un environnement Azure 
 
 3. Sous **Compte et portail**, sélectionnez **+ Ajouter** afin d’ajouter un point de terminaison privé pour votre compte Azure Purview.
 
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-3-1.png" alt-text="Capture d’écran qui montre les sélections de pages de bout en bout de la création de points de terminaison privés.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-end-to-end.png" alt-text="Capture d’écran qui montre les sélections de pages de bout en bout de la création de points de terminaison privés.":::
 
 4. Sur la page **Créer un point de terminaison privé**, pour la **sous-ressource Purview**, choisissez votre emplacement, fournissez un nom pour le point de terminaison privé du _compte_ et sélectionnez **compte**. Sous **mise en réseau**, sélectionnez votre réseau virtuel et votre sous-réseau, puis, si vous le souhaitez, sélectionnez **Intégrer à une zone DNS privé** pour créer une zone DNS privé Azure. 
 
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-1-2.png" alt-text="Capture d’écran montrant la page créer un point de terminaison privé de compte.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account.png" alt-text="Capture d’écran montrant la page créer un point de terminaison privé de compte.":::
 
    > [!NOTE]
    > Vous pouvez également utiliser vos zones Azure DNS privé existantes ou créer des enregistrements DNS dans vos serveurs DNS manuellement par la suite. Pour plus d’informations, consultez [Configurer la résolution de noms DNS pour les points de terminaison privés](./catalog-private-link-name-resolution.md).
@@ -69,6 +69,8 @@ Azure Purview peut analyser des sources de données dans un environnement Azure 
 6. Sous l’Assistant **Compte et portail**, sélectionnez à nouveau **+Ajouter** pour ajouter un point de terminaison privé de _portail_. 
   
 7. Sur la page **Créer un point de terminaison privé**, pour la **sous-ressource Purview**, choisissez votre emplacement, fournissez un nom pour le point de terminaison privé du _portail_ et sélectionnez **portail**. Sous **mise en réseau**, sélectionnez votre réseau virtuel et votre sous-réseau, puis, si vous le souhaitez, sélectionnez **Intégrer à une zone DNS privé** pour créer une zone DNS privé Azure. 
+
+   :::image type="content" source="media/catalog-private-link/purview-pe-deploy-portal.png" alt-text="Capture d’écran montrant la page de création d’un point de terminaison privé de portail.":::
    
    > [!NOTE]
    > Vous pouvez également utiliser vos zones Azure DNS privé existantes ou créer des enregistrements DNS dans vos serveurs DNS manuellement par la suite. Pour plus d’informations, consultez [Configurer la résolution de noms DNS pour les points de terminaison privés](./catalog-private-link-name-resolution.md).
@@ -79,7 +81,7 @@ Azure Purview peut analyser des sources de données dans un environnement Azure 
 
 10. Si vous le souhaitez, sélectionnez **Intégration de DNS privé** pour utiliser les zones DNS privé Azure.
    
-      :::image type="content" source="media/catalog-private-link/purview-pe-scenario-3-2.png" alt-text="Capture d’écran montrant la page de présentation de la création d’un point de terminaison privé.":::
+      :::image type="content" source="media/catalog-private-link/purview-pe-deploy-ingestion.png" alt-text="Capture d’écran montrant la page de présentation de la création d’un point de terminaison privé.":::
 
       > [!IMPORTANT]
       > Il est important de sélectionner les zones de DNS privé Azure appropriées pour permettre une résolution de nom correcte entre Azure Purview et les sources de données. Vous pouvez également utiliser vos zones Azure DNS privé existantes ou créer des enregistrements DNS dans vos serveurs DNS manuellement par la suite. Pour plus d’informations, consultez [Configurer la résolution de noms DNS pour les points de terminaison privés](./catalog-private-link-name-resolution.md).
@@ -91,9 +93,9 @@ Azure Purview peut analyser des sources de données dans un environnement Azure 
 
 ## <a name="option-2---enable-_account_-_portal_-and-_ingestion_-private-endpoint-on-existing-azure-purview-accounts"></a>Option 2 : activer les points de terminaison privé de _compte_, de _portail_ et d’_ingestion_ sur les comptes Azure Purview existants
 
-1. Accédez au [Portail Azure](https://portal.azure.com), puis cliquez sur votre compte Azure Purview, et sous **Paramètres**, sélectionnez **Mise en réseau**, puis sélectionnez **Connexions de point de terminaison privé**.
+1. Accédez au [portail Azure](https://portal.azure.com), sélectionnez votre compte Azure Purview, puis sous **Paramètres**, sélectionnez **Réseau** et ensuite **Connexions de point de terminaison privé**.
 
-    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Capture d’écran montrant comment créer un point de terminaison privé de compte.":::
+    :::image type="content" source="media/catalog-private-link/purview-pe-add-to-existing.png" alt-text="Capture d’écran montrant comment créer un point de terminaison privé de compte.":::
 
 2. Sélectionnez **+ Point de terminaison privé** pour créer un point de terminaison privé.
 
@@ -114,15 +116,14 @@ Azure Purview peut analyser des sources de données dans un environnement Azure 
    
 9. À partir de votre compte Azure Purview, sous **Paramètres**, sélectionnez **Mise en réseau**, puis sélectionnez **Connexions de point de terminaison privé d’ingestion**.
 
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario-3-3.png" alt-text="Capture d’écran qui montre comment ajouter un point de terminaison privé à un compte existant.":::
-
-
 10. Sous Connexions de point de terminaison privé d’ingestion, sélectionnez **+ Nouveau** pour créer un point de terminaison privé d’ingestion.
+
+      :::image type="content" source="media/catalog-private-link/purview-pe-add-ingestion-to-existing.png" alt-text="Capture d’écran qui montre comment ajouter un point de terminaison privé à un compte existant.":::
 
 11. Renseignez les informations de base, en sélectionnant votre réseau virtuel existant et les détails du sous-réseau. Si vous le souhaitez, sélectionnez **Intégration de DNS privé** pour utiliser les zones DNS privé Azure. Sélectionnez les zones DNS privé Azure appropriées dans chaque liste.
 
-   > [!NOTE]
-   > Vous pouvez également utiliser vos zones Azure DNS privé existantes ou créer des enregistrements DNS dans vos serveurs DNS manuellement par la suite. Pour plus d’informations, consultez [Configurer la résolution de noms DNS pour les points de terminaison privés](./catalog-private-link-name-resolution.md).
+      > [!NOTE]
+      > Vous pouvez également utiliser vos zones Azure DNS privé existantes ou créer des enregistrements DNS dans vos serveurs DNS manuellement par la suite. Pour plus d’informations, consultez [Configurer la résolution de noms DNS pour les points de terminaison privés](./catalog-private-link-name-resolution.md).
 
 12. Sélectionnez **Créer** pour terminer le processus.
 

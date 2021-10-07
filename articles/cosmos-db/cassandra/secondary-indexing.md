@@ -5,15 +5,15 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 04/04/2020
+ms.date: 09/03/2021
 ms.author: thvankra
 ms.reviewer: sngun
-ms.openlocfilehash: b31c351159ccba0718293dad5b81247d973ea275
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a3ac64590c2978ccd052a9dd294cf3ce49bb847e
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524247"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123479403"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Indexation secondaire dans l’API Cassandra Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -30,6 +30,9 @@ Il n’est pas recommandé de créer un index sur une colonne fréquemment mise 
 > - types de données tels que des types de collections gelées, de décimaux et de variantes.
 > - Colonnes statiques
 > - Clés de clustering
+
+> [!WARNING]
+> Si votre table comprend une [clé primaire composée](cassandra-partitioning.md#compound-primary-key) et que vous souhaitez filtrer *uniquement* sur l’élément de valeur de clé de partition de la clé primaire composée, assurez-vous d’*ajouter explicitement un index secondaire sur la clé de partition*. L’API Azure Cosmos DB Cassandra n’applique pas les index aux clés de partition par défaut, et l’index dans ce scénario peut améliorer considérablement les performances des requêtes. Pour plus d’informations, consultez notre article sur le [partitionnement](cassandra-partitioning.md).
 
 ## <a name="indexing-example"></a>Exemple d’indexation
 
@@ -72,6 +75,8 @@ Pour supprimer l’index, vous devez connaître son nom. Exécutez la commande `
 ```shell
 drop index sampleks.t1_lastname_idx;
 ```
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrir le fonctionnement de l’[indexation automatique](../index-overview.md) dans Azure Cosmos DB

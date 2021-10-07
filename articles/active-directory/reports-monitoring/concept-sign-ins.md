@@ -17,12 +17,12 @@ ms.date: 07/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9ed7b31625275c808555534fcd49314444ab0ad
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: 4ce1aecb88f595b7edba2e1f89d82c06e1fbbc69
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114388144"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622281"
 ---
 # <a name="sign-in-logs-in-azure-active-directory"></a>Journaux des connexions dans Azure Active Directory
 
@@ -69,7 +69,7 @@ Pour accéder au journal des connexions, vous devez être :
 
 ## <a name="what-azure-ad-license-do-you-need"></a>De quelle licence Azure AD avez-vous besoin ?
 
-Le rapport relatif à l'activité de connexion est disponible dans [toutes les éditions d'Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) ; il est également accessible via l'API Microsoft Graph.
+Le rapport d’activité de connexion est disponible avec [toutes les éditions d’Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). Si vous disposez d’une licence de Répertoire actif Azure P1 ou P2, vous pouvez également accéder au rapport d’activité de connexion via l’API Microsoft Graph.
 
 
 ## <a name="where-can-you-find-it-in-the-azure-portal"></a>Où le trouver dans le portail Azure ?

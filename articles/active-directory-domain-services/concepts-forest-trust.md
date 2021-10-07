@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 09/15/2021
 ms.author: justinha
-ms.openlocfilehash: 0d7c3eeb184f7ceb09541ca9533203f4b45194bb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 10cf2da31aa65714516797b478ab00f6759b0aff
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562425"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128561777"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Fonctionnement des relations d’approbation pour les forêts de ressources dans Azure Active Directory Domain Services
 
@@ -155,6 +155,9 @@ Si le compte n’existe pas dans la base de données, le contrôleur de domaine 
 Lorsque deux forêts sont connectées par une approbation de forêt, les demandes d’authentification effectuées à l’aide des protocoles NTLM ou Kerberos V5 peuvent être acheminées entre les forêts pour fournir un accès aux ressources dans les deux forêts.
 
 Lorsqu’une approbation de forêt est établie pour la première fois, chaque forêt collecte tous les espaces de noms approuvés dans sa forêt partenaire, et stocke les informations dans un [objet domaine approuvé](#trusted-domain-object). Les espaces de noms approuvés incluent les noms d’arborescence de domaine, les suffixes de nom d’utilisateur principal (UPN), les suffixes de nom de principal du service (SPN) et les espaces de noms d’ID de sécurité (SID) utilisés dans l’autre forêt. Les objets domaine approuvé (TDO) sont répliqués dans le catalogue global.
+
+>[!NOTE]
+>Les autres suffixes UPN sur les approbations ne sont pas pris en charge. Si un domaine local utilise le même suffixe UPN qu’Azure AD DS, la connexion doit utiliser **sAMAccountName**.  
 
 Avant que les protocoles d’authentification puissent suivre le chemin d’approbation de la forêt, le nom de principal du service (SPN) de l’ordinateur de la ressource doit être résolu en un emplacement dans l’autre forêt. Un principal du service peut porter l’un des noms suivants :
 

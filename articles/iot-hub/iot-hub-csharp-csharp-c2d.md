@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: 10e149218eb783b8cdb36412cca66bc7cd642df7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e7e7f8979ac07502f0e50f59b612f63b3e9a7240
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562766"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236820"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envoyer des messages du cloud à votre appareil avec IoT Hub (.NET)
 
@@ -226,7 +226,5 @@ Dans cette section, vous modifiez l’application **SendCloudToDevice** pour dem
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cette procédure, vous avez appris comment envoyer et recevoir des messages de cloud-à-appareil.
-
-Pour voir des exemples de solutions de bout en bout qui utilisent IoT Hub, consultez [Accélérateur de solution de supervision à distance Azure IoT](/azure/iot-suite/).
 
 Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez le [Guide du développeur d’IoT Hub](iot-hub-devguide.md).

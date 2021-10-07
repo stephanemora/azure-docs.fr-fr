@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
+title: fichier descriptif
 description: Fichier include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/25/2021
+ms.date: 09/27/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6a8a503f5357ec69a1bab007f4ae2849582fed3b
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: de89ce807b69cf9d9ef7db180b32dd1b7fe1d50c
+ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835586"
+ms.lasthandoff: 09/28/2021
+ms.locfileid: "129091158"
 ---
 La configuration des clés gérées par le client pour vos disques vous oblige à créer des ressources dans un ordre particulier si vous les utilisez pour la première fois. Tout d’abord, vous devez créer et configurer un Azure Key Vault.
 
@@ -73,3 +73,11 @@ Maintenant que vous avez créé le coffre de clés Azure et une clé, vous devez
 1. Sélectionnez **Vérifier + créer**, puis **Créer**.
 
     :::image type="content" source="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png" alt-text="Capture d’écran du volet de création du chiffrement de disque montrant l’abonnement, le groupe de ressources, le nom du jeu de chiffrement du disque, la région et le coffre de clés ainsi que le sélecteur de clé." lightbox="media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png":::
+
+1. Accédez au jeu de chiffrement de disque une fois qu’il est déployé, puis sélectionnez l’alerte affichée.
+
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png" alt-text="Capture d’écran de l’utilisateur sélectionnant l’alerte « Pour associer un disque, une image ou un instantané à ce jeu de chiffrement de disque, vous devez octroyer des autorisations au coffre de clés »." lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-alert.png":::
+
+1. Cela permet d’octroyer les autorisations de coffre de clés au jeu de chiffrement de disque.
+
+    :::image type="content" source="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-confirmation.png" alt-text="Capture d’écran de confirmation montrant que les autorisations ont bien été octroyées." lightbox="media/virtual-machines-disk-encryption-portal/disk-encryption-set-perm-confirmation.png":::

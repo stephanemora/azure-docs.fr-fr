@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova
 ms.date: 04/29/2021
-ms.openlocfilehash: d9958d30fff09ba0d6c66b71143ea68468dd0363
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0a9775691780a855824569f77a0bf4a1d3bf295b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532825"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128657763"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architecture de connectivité d’Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -105,6 +105,11 @@ Déployer SQL Managed Instance sur un sous-réseau dédié à l’intérieur du 
 - **Groupe de sécurité réseau :** Un groupe de sécurité réseau (NSG) doit être associé au sous-réseau de SQL Managed Instance. Vous pouvez utiliser un groupe de sécurité réseau pour contrôler l’accès au point de terminaison de données de l’instance managée SQL en filtrant le trafic sur les ports 1433 et 11000 à 11999 quand SQL Managed Instance est configuré pour rediriger les connexions. Le service approvisionne et conserve automatiquement les [règles](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) actuelles requises pour permettre un flux ininterrompu du trafic de gestion.
 - **Table d’itinéraire défini par l’utilisateur (UDR) :** Une table UDR doit être associée au sous-réseau de SQL Managed Instance. Vous pouvez utiliser la passerelle de réseau virtuel ou une appliance de réseau virtuel (NVA) pour ajouter des entrées à la table d’itinéraires pour acheminer le trafic disposant de plages d’adresses IP privées locales en tant que destination. Le service approvisionne et conserve automatiquement les [entrées](#mandatory-user-defined-routes-with-service-aided-subnet-configuration) actuelles requises pour permettre un flux ininterrompu du trafic de gestion.
 - **Nombre d’adresses IP suffisant :** le sous-réseau SQL Managed Instance doit disposer d’au moins 32 adresses IP. Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour SQL Managed Instance](vnet-subnet-determine-size.md). Vous pouvez déployer des instances gérées dans [le réseau existant](vnet-existing-add-subnet.md) une fois que vous l’avez configuré de manière à satisfaire les [exigences réseau pour SQL Managed Instance](#network-requirements). Sinon, créez un [nouveau réseau et sous-réseau](virtual-network-subnet-create-arm-template.md).
+- **Ressources déverrouillées :** le réseau virtuel qui contient le sous-réseau délégué à l’Instance managée SQL ne doit pas avoir de [verrous d’écriture ou de suppression](../../azure-resource-manager/management/lock-resources.md) placés sur la ressource du réseau virtuel, son groupe de ressources parent ou son abonnement. Le fait de placer des verrous sur le réseau virtuel ou ses ressources parentes peut empêcher l’Instance managée SQL d’effectuer la maintenance régulière et de dégrader les performances, les correctifs différés, la perte de conformité réglementaire, les opérations en dehors des objectifs et rendre l’Instance inutilisable.
+- **Autorisé par les stratégies Azure :** si vous exploitez la [Stratégie Azure](../../governance/policy/overview.md) pour contrôler la création, la modification et la suppression de ressources via des effets deny dans l’étendue qui comprend le réseau virtuel dont le sous-réseau est délégué à l’Instance managée SQL, vous devez prendre des mesures pour vous assurer que ces stratégies n’empêchent pas l’Instance managée SQL de déployer ou d’effectuer une maintenance régulière. Si les ressources de ces types de ressources ne peuvent pas être créées ou gérées par l’Instance managée SQL, le déploiement peut échouer ou devenir inutilisable après une opération de maintenance. Les types de ressources qui doivent être exclus des effets de refus sont les suivants :  
+  - Microsoft.Network/serviceEndpointPolicies
+  - Microsoft.Network/networkIntentPolicies
+  - Microsoft.Network/virtualNetworks/subnets/contextualServiceEndpointPolicies
 
 > [!IMPORTANT]
 > Lorsqu’une instance gérée est créée, une stratégie d’intention réseau est appliquée au sous-réseau afin d’empêcher toute modification non conforme de la configuration réseau. Lorsque la dernière instance restante est supprimée du sous-réseau, la stratégie d’intention réseau est également supprimée. Les règles ci-dessous sont fournies à titre d’information uniquement et ne doivent pas être déployées à l’aide d’un modèle ARM/PowerShell/CLI. Si vous souhaitez utiliser le dernier modèle officiel, vous pouvez toujours [le récupérer à partir du portail](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).

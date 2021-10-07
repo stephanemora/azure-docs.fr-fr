@@ -1,16 +1,16 @@
 ---
-title: Connecter plusieurs clouds privés Azure VMware Solution dans la même région (préversion)
+title: Connecter plusieurs clouds privés Azure VMware Solution dans la même région
 description: Découvrez comment créer une connexion réseau entre deux clouds privés Azure VMware Solution ou plus situés dans la même région.
 ms.topic: how-to
-ms.date: 07/02/2021
-ms.openlocfilehash: 562980ce52216f892cb10689206211e23f3c8886
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.date: 09/20/2021
+ms.openlocfilehash: daa4b60c0e42c77f61054d6d9a77898cc0448c37
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113586722"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128567838"
 ---
-# <a name="connect-multiple-azure-vmware-solution-private-clouds-in-the-same-region-preview"></a>Connecter plusieurs clouds privés Azure VMware Solution dans la même région (préversion)
+# <a name="connect-multiple-azure-vmware-solution-private-clouds-in-the-same-region"></a>Connecter plusieurs clouds privés Azure VMware Solution dans la même région
 
 La fonctionnalité d’**interconnexion AVS** vous permet de créer une connexion réseau entre deux clouds privés Azure VMware Solution ou plus situés dans la même région. Elle crée un lien de routage entre les réseaux de gestion et de charge de travail des clouds privés pour permettre la communication réseau entre les clouds.
 
@@ -18,14 +18,9 @@ Vous pouvez connecter un cloud privé à plusieurs clouds privés de manière no
 
 Vous pouvez uniquement connecter des clouds privés situés dans la même région. Pour connecter des clouds privés situés dans des régions différentes, [utilisez ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) afin de les connecter de la même façon que vous connectez votre cloud privé à votre circuit local. 
 
->[!IMPORTANT]
->La fonctionnalité d’interconnexion AVS (préversion) est actuellement disponible en préversion publique.  
->Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
->Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="supported-regions"></a>Régions prises en charge
 
-La fonctionnalité d’interconnexion AVS (préversion) est disponible dans toutes les régions sauf USA Centre Sud (SAT20), Europe Nord (DUB21), Asie Sud-Est (SG2) et Royaume-Uni Ouest (CWL20). 
+La fonctionnalité d’interconnexion AVS est disponible dans toutes les régions sauf USA Centre Sud (SAT20), Europe Nord (DUB21), Asie Sud-Est (SG2) et Royaume-Uni Ouest (CWL20). 
 
 ## <a name="prerequisites"></a>Configuration requise
 

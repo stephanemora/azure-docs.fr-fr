@@ -6,12 +6,12 @@ title: Architecture de référence Azure Spring Cloud
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Cette architecture de référence est une base qui utilise une conception hub-and-spoke typique des entreprises pour l’utilisation d’Azure Spring Cloud.
-ms.openlocfilehash: f0cc7a1345ff15a63c7cb9b0ebca51863fdf2791
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: d3124f9e9eac913a333e4ab186c871297e955d1e
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534899"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123469083"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Architecture de référence Azure Spring Cloud
 
@@ -28,7 +28,7 @@ Azure Spring Cloud requiert deux sous-réseaux dédiés :
 * Runtime du service
 * Applications Spring Boot
 
-Chacun de ces sous-réseaux nécessite un cluster dédié. Les clusters multiples ne peuvent pas partager les mêmes sous-réseaux. La taille minimale de chaque sous-réseau est de /28. Le nombre d’instances d’application qu’Azure Spring Cloud peut prendre en charge varie en fonction de la taille du sous-réseau. Vous trouverez les détails de la configuration requise pour le réseau virtuel dans la section [Configuration requise pour le réseau virtuel][11] de [Déployer Azure Spring Cloud dans un réseau virtuel][17].
+Chacun de ces sous-réseaux nécessite un cluster Azure Spring Cloud dédié. Les clusters multiples ne peuvent pas partager les mêmes sous-réseaux. La taille minimale de chaque sous-réseau est de /28. Le nombre d’instances d’application qu’Azure Spring Cloud peut prendre en charge varie en fonction de la taille du sous-réseau. Vous trouverez les détails de la configuration requise pour le réseau virtuel dans la section [Configuration requise pour le réseau virtuel][11] de [Déployer Azure Spring Cloud dans un réseau virtuel][17].
 
 > [!WARNING]
 > La taille du sous-réseau sélectionné ne peut pas chevaucher l’espace d’adressage du réseau virtuel existant et ne doit pas chevaucher les plages d’adresses de sous-réseau locales ou appairées.
@@ -37,8 +37,8 @@ Chacun de ces sous-réseaux nécessite un cluster dédié. Les clusters multiple
 
 Utilisations courantes de cette architecture :
 
-* Applications internes déployées dans des environnements cloud hybrides
-* Applications externes
+* Applications privées : applications internes déployées dans des environnements de cloud hybrides
+* Applications publiques : applications accessibles de l’extérieur
 
 Ces cas d’usage sont similaires, à l’exception de leurs règles de sécurité et de trafic. Cette architecture est conçue pour prendre en charge les nuances de chacun.
 
@@ -46,20 +46,20 @@ Ces cas d’usage sont similaires, à l’exception de leurs règles de sécurit
 
 La liste suivante décrit les exigences en matière d’infrastructure pour les applications privées. Ces exigences sont typiques des environnements hautement réglementés.
 
-* Aucune sortie directe vers l’Internet public, à l’exception du trafic du plan de contrôle.
-* Le trafic de sortie doit traverser une appliance centrale de réseau virtuel (par exemple, Pare-feu Azure).
+* Un sous-réseau ne doit avoir qu’une seule instance d’Azure Spring Cloud.
+* Le respect d’au moins un point de référence de sécurité doit être appliqué.
+* Les enregistrements DNS (Domain Name Service) de l’hôte d’application doivent être stockés dans DNS privé Azure.
+* Les dépendances de service Azure doivent communiquer par l’intermédiaire de points de terminaison de service ou d’une liaison privée.
 * Les données au repos doivent être chiffrées.
 * Les données en transit doivent être chiffrées.
 * Des pipelines de déploiement DevOps peuvent être utilisés (par exemple, Azure DevOps) et nécessitent une connectivité réseau avec Azure Spring Cloud.
+* Le trafic de sortie doit traverser une appliance centrale de réseau virtuel (par exemple, Pare-feu Azure).
+* Si le [composant Config Server d’Azure Spring Cloud][8] est utilisé pour charger des propriétés de configuration à partir d’un référentiel, le dépôt doit être privé.
 * L’approche de sécurité Zero Trust de Microsoft exige que les secrets, les certificats et les informations d’identification soient stockés dans un coffre sécurisé. Le service recommandé est Azure Key Vault.
-* Les enregistrements DNS (Domain Name Service) de l’hôte d’application doivent être stockés dans DNS privé Azure.
 * La résolution de noms des hôtes locaux et dans le cloud doit être bidirectionnelle.
-* Le respect d’au moins un point de référence de sécurité doit être appliqué.
-* Les dépendances de service Azure doivent communiquer par l’intermédiaire de points de terminaison de service ou d’une liaison privée.
+* Aucune sortie directe vers l’Internet public, à l’exception du trafic du plan de contrôle.
 * Les groupes de ressources gérés par le déploiement d’Azure Spring Cloud ne doivent pas être modifiés.
 * Les sous-réseaux gérés par le déploiement d’Azure Spring Cloud ne doivent pas être modifiés.
-* Un sous-réseau ne doit avoir qu’une seule instance d’Azure Spring Cloud.
-* Si le [composant Config Server d’Azure Spring Cloud][8] est utilisé pour charger des propriétés de configuration à partir d’un référentiel, le dépôt doit être privé.
 
 La liste suivante répertorie les composants qui constituent la conception :
 
@@ -67,24 +67,24 @@ La liste suivante répertorie les composants qui constituent la conception :
   * Service de nom de domaine (DNS)
   * Passerelle
 * Abonnement au hub
-  * Sous-réseau de Pare-feu Azure
   * Sous-réseau d’Application Gateway
+  * Sous-réseau de Pare-feu Azure
   * Sous-réseau de services partagés
 * Abonnement connecté
-  * Appairage de réseaux virtuels
   * Sous-réseau d’Azure Bastion
+  * Appairage de réseaux virtuels
 
 La liste suivante décrit les services Azure dans cette architecture de référence :
-
-* [Azure Spring Cloud][1] : service géré conçu et optimisé spécifiquement pour les applications Spring Boot en Java et les applications [Steeltoe][9] basées sur .NET.
 
 * [Azure Key Vault][2] : service de gestion des informations d’identification soutenu par matériel informatique qui est étroitement intégré aux services d’identité et aux ressources de calcul de Microsoft.
 
 * [Azure Monitor][3] : suite complète de services de surveillance pour les applications déployées sur Azure et localement.
 
+* [Azure Pipelines][5] : service complet d’intégration continue et de livraison continue (CI/CD) qui peut déployer automatiquement des applications Spring Boot mises à jour sur Azure Spring Cloud.
+
 * [Azure Security Center][4] : système unifié de gestion de la sécurité et de protection contre les menaces pour les charges de travail localement, sur plusieurs clouds et sur Azure.
 
-* [Azure Pipelines][5] : service complet d’intégration continue et de livraison continue (CI/CD) qui peut déployer automatiquement des applications Spring Boot mises à jour sur Azure Spring Cloud.
+* [Azure Spring Cloud][1] : service géré conçu et optimisé spécifiquement pour les applications Spring Boot en Java et les applications [Steeltoe][9] basées sur .NET.
 
 Le diagramme suivant représente une architecture hub-and-spoke bien conçue qui répond aux exigences ci-dessus :
 
@@ -92,24 +92,24 @@ Le diagramme suivant représente une architecture hub-and-spoke bien conçue qui
 
 ## <a name="public-applications"></a>Applications publiques
 
-La liste suivante décrit les exigences en matière d’infrastructure pour les applications publiques. Ces exigences sont typiques des environnements hautement réglementés.
+La liste suivante décrit les exigences en matière d’infrastructure pour les applications publiques. Ces exigences sont typiques des environnements hautement réglementés. Ces exigences sont un sur-ensemble de celles de la section précédente. Les éléments supplémentaires sont indiqués en italiques.
 
-* Le trafic d’entrée doit être géré au moins par Application Gateway ou Azure Front Door.
-* Azure DDoS Protection Standard doit être activé.
-* Aucune sortie directe vers l’Internet public, à l’exception du trafic du plan de contrôle.
-* Le trafic de sortie doit traverser une appliance centrale de réseau virtuel (par exemple, Pare-feu Azure).
+* Un sous-réseau ne doit avoir qu’une seule instance d’Azure Spring Cloud.
+* Le respect d’au moins un point de référence de sécurité doit être appliqué.
+* Les enregistrements DNS (Domain Name Service) de l’hôte d’application doivent être stockés dans DNS privé Azure.
+* _La Protection Azure DDoS standard doit être activée._
+* Les dépendances de service Azure doivent communiquer par l’intermédiaire de points de terminaison de service ou d’une liaison privée.
 * Les données au repos doivent être chiffrées.
 * Les données en transit doivent être chiffrées.
 * Des pipelines de déploiement DevOps peuvent être utilisés (par exemple, Azure DevOps) et nécessitent une connectivité réseau avec Azure Spring Cloud.
+* Le trafic de sortie doit traverser une appliance centrale de réseau virtuel (par exemple, Pare-feu Azure).
+* _Le trafic d’entrée doit être géré au moins par Application Gateway ou Azure Front Door._
+* _Les adresses Internet routables doivent être stockées dans DNS public Azure._
 * L’approche de sécurité Zero Trust de Microsoft exige que les secrets, les certificats et les informations d’identification soient stockés dans un coffre sécurisé. Le service recommandé est Azure Key Vault.
-* Les enregistrements DNS de l’hôte d’application doivent être stockés dans DNS privé Azure.
-* Les adresses Internet routables doivent être stockées dans DNS public Azure.
 * La résolution de noms des hôtes locaux et dans le cloud doit être bidirectionnelle.
-* Le respect d’au moins un point de référence de sécurité doit être appliqué.
-* Les dépendances de service Azure doivent communiquer par l’intermédiaire de points de terminaison de service ou d’une liaison privée.
+* Aucune sortie directe vers l’Internet public, à l’exception du trafic du plan de contrôle.
 * Les groupes de ressources gérés par le déploiement d’Azure Spring Cloud ne doivent pas être modifiés.
 * Les sous-réseaux gérés par le déploiement d’Azure Spring Cloud ne doivent pas être modifiés.
-* Un sous-réseau ne doit avoir qu’une seule instance d’Azure Spring Cloud.
 
 La liste suivante répertorie les composants qui constituent la conception :
 
@@ -117,30 +117,30 @@ La liste suivante répertorie les composants qui constituent la conception :
   * Service de nom de domaine (DNS)
   * Passerelle
 * Abonnement au hub
-  * Sous-réseau de Pare-feu Azure
   * Sous-réseau d’Application Gateway
+  * Sous-réseau de Pare-feu Azure
   * Sous-réseau de services partagés
 * Abonnement connecté
-  * Appairage de réseaux virtuels
   * Sous-réseau d’Azure Bastion
+  * Appairage de réseaux virtuels
 
 La liste suivante décrit les services Azure dans cette architecture de référence :
 
-* [Azure Spring Cloud][1] : service géré conçu et optimisé spécifiquement pour les applications Spring Boot en Java et les applications [Steeltoe][9] basées sur .NET.
+* _[Pare-feu de l’Application Azure][7] : fonctionnalité de la Passerelle d’application Azure qui protège les applications de manière centralisée contre les vulnérabilités et codes malveillants exploitant une faille de sécurité les plus courants._
+
+* _[Passerelle d’application Azure][6] : équilibreur de charge responsable du trafic d’application avec déchargement TLS (Transport Layer Security) fonctionnant au niveau de la couche 7._
 
 * [Azure Key Vault][2] : service de gestion des informations d’identification soutenu par matériel informatique qui est étroitement intégré aux services d’identité et aux ressources de calcul de Microsoft.
 
 * [Azure Monitor][3] : suite complète de services de surveillance pour les applications déployées sur Azure et localement.
 
-* [Azure Security Center][4] : système unifié de gestion de la sécurité et de protection contre les menaces pour les charges de travail localement, sur plusieurs clouds et sur Azure.
-
 * [Azure Pipelines][5] : service complet d’intégration continue et de livraison continue (CI/CD) qui peut déployer automatiquement des applications Spring Boot mises à jour sur Azure Spring Cloud.
 
-* [Azure Application Gateway][6] : équilibreur de charge responsable du trafic d’application avec déchargement TLS (Transport Layer Security) fonctionnant au niveau de la couche 7.
+* [Azure Security Center][4] : système unifié de gestion de la sécurité et de protection contre les menaces pour les charges de travail localement, sur plusieurs clouds et sur Azure.
 
-* [Pare-feu Azure Application][7] : fonctionnalité d’Azure Application Gateway qui protège les applications de manière centralisée contre les vulnérabilités et codes malveillants exploitant une faille de sécurité les plus courants.
+* [Azure Spring Cloud][1] : service géré conçu et optimisé spécifiquement pour les applications Spring Boot en Java et les applications [Steeltoe][9] basées sur .NET.
 
-Le diagramme suivant représente une architecture hub-and-spoke bien conçue qui répond aux exigences ci-dessus :
+Le diagramme suivant représente une architecture hub-and-spoke bien conçue qui répond aux exigences ci-dessus.  Notez que seul le réseau virtuel hub communique avec Internet :
 
 ![Diagramme d’architecture de référence pour les applications publiques](./media/spring-cloud-reference-architecture/architecture-public.png)
 
@@ -172,13 +172,13 @@ Azure Spring Cloud traite plusieurs aspects de l’excellence opérationnelle. V
 
 ### <a name="reliability"></a>Fiabilité
 
-Azure Spring Cloud est conçu avec AKS comme composant de base. Bien qu’AKS offre un niveau de résilience grâce au clustering, cette architecture de référence intègre des services et des considérations architecturales pour accroître la disponibilité de l’application en cas de défaillance d’un composant.
+Azure Spring Cloud est basé sur AKS. Bien qu’AKS offre un niveau de résilience grâce au clustering, cette architecture de référence intègre des services et des considérations architecturales pour accroître la disponibilité de l’application en cas de défaillance d’un composant.
 
 En s’appuyant sur une conception hub-and-spoke bien définie, la base de cette architecture garantit que vous pouvez la déployer dans plusieurs régions. En cas d’utilisation d’une application privée, l’architecture utilise DNS privé Azure pour garantir la disponibilité continue pendant une défaillance géographique. En cas d’utilisation d’une application publique, Azure Front Door et Azure Application Gateway garantissent la disponibilité.
 
 ### <a name="security"></a>Sécurité
 
-La sécurité de cette architecture est assurée par son respect des contrôles et des points de référence définis par le secteur d’activité. Les contrôles de cette architecture proviennent de la matrice [Cloud Control Matrix][19] (CCM) de [Cloud Security Alliance][18] (CSA) et du point de référence [Microsoft Azure Foundations Benchmark][20] (MAFB) de [Center for Internet Security][21] (CIS). Dans les contrôles appliqués, l’accent est mis sur les principaux principes de conception de la sécurité, à savoir la gouvernance, la mise en réseau et la sécurité des applications. Il vous appartient de gérer les principes de conception de l’identité, de la gestion des accès et du stockage en fonction de votre infrastructure cible.
+La sécurité de cette architecture est assurée par son respect des contrôles et des points de référence définis par le secteur d’activité. Dans ce contexte, le « contrôle » désigne une pratique recommandée concise et bien définie, telle que « utiliser le principe de privilège minimum lors de l’implémentation de l’accès au système d’information. IAM-05 » Les contrôles de cette architecture proviennent de la [Matrice CCM ][19](Cloud Control Matrix) via le[Cloud Security Alliance][18] (CSA) et du[Microsoft Azure Foundations MAFB][20] (MAFB) via le [Centre de Sécurité Internet][21] (CIS). Dans les contrôles appliqués, l’accent est mis sur les principaux principes de conception de la sécurité, à savoir la gouvernance, la mise en réseau et la sécurité des applications. Il vous appartient de gérer les principes de conception de l’identité, de la gestion des accès et du stockage en fonction de votre infrastructure cible.
 
 #### <a name="governance"></a>Gouvernance
 
@@ -192,7 +192,7 @@ La liste suivante montre le contrôle qui traite de la sécurité du centre de d
 
 #### <a name="network"></a>Réseau
 
-La conception du réseau prenant en charge cette architecture est dérivée du modèle hub-and-spoke traditionnel. Cette décision garantit que l’isolement réseau est une construction fondamentale. Le contrôle CCM IVS-06 recommande que le trafic entre les réseaux et les machines virtuelles soit restreint et surveillé entre les environnements approuvés et non approuvés. Cette architecture adopte le contrôle en implémentant les NSG pour le trafic est-ouest et le pare-feu Azure pour le trafic nord-sud. Le contrôle CCM IPY-04 recommande que l’infrastructure utilise des protocoles réseau sécurisés pour l’échange de données entre les services. Les services Azure qui prennent en charge cette architecture utilisent tous des protocoles sécurisés standard tels que TLS pour HTTP et SQL.
+La conception du réseau prenant en charge cette architecture est dérivée du modèle hub-and-spoke traditionnel. Cette décision garantit que l’isolement réseau est une construction fondamentale. Le contrôle CCM IVS-06 recommande que le trafic entre les réseaux et les machines virtuelles soit restreint et surveillé entre les environnements approuvés et non approuvés. Cette architecture adopte le contrôle en implémentant les NSG pour le trafic est-ouest (au sein du « centre de données ») et le Pare-feu Azure pour le trafic nord-sud (hors du « centre de données »). Le contrôle CCM IPY-04 recommande que l’infrastructure utilise des protocoles réseau sécurisés pour l’échange de données entre les services. Les services Azure qui prennent en charge cette architecture utilisent tous des protocoles sécurisés standard tels que TLS pour HTTP et SQL.
 
 La liste suivante répertorie les contrôles CCM qui traitent de la sécurité du réseau dans cette référence :
 

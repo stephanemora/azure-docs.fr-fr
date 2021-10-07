@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 09/01/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 64c2601199db5ca64ab22d49dff4435ecf2fcb44
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 985f649d864e0fad250a5b2342b8cb96c049c0ec
+ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112539958"
+ms.lasthandoff: 09/04/2021
+ms.locfileid: "123478353"
 ---
 # <a name="programmatically-create-azure-subscriptions-for-a-microsoft-partner-agreement-with-the-latest-apis"></a>Créer des abonnements Azure pour un Contrat Partenaire Microsoft programmatiquement avec les API les plus récentes
 
@@ -337,7 +337,7 @@ Passez la valeur *resellerId* facultative, que vous avez copiée à la deuxième
 
 Pour installer la version la plus récente du module contenant la cmdlet `New-AzSubscriptionAlias`, exécutez `Install-Module Az.Subscription`. Pour installer une version récente de PowerShellGet, consultez [Obtenir le module PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-Exécutez la commande [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) suivante à l’aide de l’étendue de facturation `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`. 
+Exécutez la commande New-AzSubscriptionAlias suivante à l’aide de l’étendue de facturation `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`. 
 
 ```azurepowershell
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"
@@ -387,11 +387,11 @@ Passez la valeur *resellerId* facultative, que vous avez copiée à la deuxième
 
 ---
 
-## <a name="use-arm-template"></a>Utiliser un modèle ARM
+## <a name="use-arm-template-or-bicep"></a>Utiliser un modèle ARM ou Bicep
 
-La section précédente vous a montré comment créer un abonnement avec PowerShell, Azure CLI ou l’API REST. Si vous devez automatiser la création des abonnements, utilisez plutôt un modèle ARM (Azure Resource Manager).
+La section précédente vous a montré comment créer un abonnement avec PowerShell, Azure CLI ou l’API REST. Si vous devez automatiser la création des abonnements, utilisez plutôt un modèle ARM (Azure Resource Manager) ou un [fichier Bicep](../../azure-resource-manager/bicep/overview.md).
 
-Le modèle suivant permet de créer un abonnement. Pour `billingScope`, indiquez l’ID client. L’abonnement est créé dans le groupe d’administration racine. Après avoir créé l’abonnement, vous pouvez le déplacer vers un autre groupe d’administration.
+Le modèle ARM suivant permet de créer un abonnement. Pour `billingScope`, indiquez l’ID client. L’abonnement est créé dans le groupe d’administration racine. Après avoir créé l’abonnement, vous pouvez le déplacer vers un autre groupe d’administration.
 
 ```json
 {
@@ -428,7 +428,29 @@ Le modèle suivant permet de créer un abonnement. Pour `billingScope`, indiquez
 }
 ```
 
-Déployez le modèle au [niveau du groupe d’administration](../../azure-resource-manager/templates/deploy-to-management-group.md).
+Ou, utilisez un fichier Bicep pour créer l’abonnement.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide a name for the alias. This name will also be the display name of the subscription.')
+param subscriptionAliasName string
+
+@description('Provide the full resource ID of billing scope to use for subscription creation.')
+param billingScope string
+
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+  scope: tenant()
+  name: subscriptionAliasName
+  properties: {
+    workload: 'Production'
+    displayName: subscriptionAliasName
+    billingScope: billingScope
+  }
+}
+```
+
+Déployez le modèle au [niveau du groupe d’administration](../../azure-resource-manager/templates/deploy-to-management-group.md). Les exemples suivants illustrent le déploiement du modèle ARM JSON, mais vous pouvez déployer un fichier Bicep à la place.
 
 ### <a name="rest"></a>[REST](#tab/rest)
 
@@ -483,7 +505,7 @@ az deployment mg create \
 
 ---
 
-Pour déplacer un abonnement vers un nouveau groupe d’administration, utilisez le modèle suivant.
+Pour déplacer un abonnement vers un nouveau groupe d’administration, utilisez le modèle ARM suivant.
 
 ```json
 {
@@ -514,6 +536,23 @@ Pour déplacer un abonnement vers un nouveau groupe d’administration, utilisez
         }
     ],
     "outputs": {}
+}
+```
+
+Ou, créez le fichier Bicep suivant.
+
+```bicep
+targetScope = 'managementGroup'
+
+@description('Provide the ID of the management group that you want to move the subscription to.')
+param targetMgId string
+
+@description('Provide the ID of the existing subscription to move.')
+param subscriptionId string
+
+resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01' = {
+  scope: tenant()
+  name: '${targetMgId}/${subscriptionId}'
 }
 ```
 

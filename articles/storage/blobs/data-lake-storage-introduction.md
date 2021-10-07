@@ -8,12 +8,12 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f7bd58361a4943ce295ab0f0b78f386079f0bba6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 34484c501a95379194ad2147fbcb553bf3f06980
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577858"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277686"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Présentation d'Azure Data Lake Storage Gen2
 
@@ -70,7 +70,7 @@ Les éléments suivants sont des entités équivalentes, décrites par différen
 
 ## <a name="supported-blob-storage-features"></a>Fonctionnalités Stockage Blob prises en charge
 
-Les fonctionnalités de Stockage Blob, telles que la [journalisation des diagnostics](../common/storage-analytics-logging.md), les [niveaux d’accès](storage-blob-storage-tiers.md) et les [stratégies de gestion du cycle de vie du stockage Blob](./lifecycle-management-overview.md) sont disponibles pour votre compte. La plupart des fonctionnalités de Stockage Blob sont entièrement prises en charge, mais certaines sont prises en charge uniquement au niveau de la préversion ou ne sont pas encore prises en charge.
+Les fonctionnalités de Stockage Blob, telles que la [journalisation des diagnostics](../common/storage-analytics-logging.md), les [niveaux d’accès](access-tiers-overview.md) et les [stratégies de gestion du cycle de vie du stockage Blob](./lifecycle-management-overview.md) sont disponibles pour votre compte. La plupart des fonctionnalités de Stockage Blob sont entièrement prises en charge, mais certaines sont prises en charge uniquement au niveau de la préversion ou ne sont pas encore prises en charge.
 
 Pour voir comment chaque fonctionnalité Stockage Blob est prise en charge avec Data Lake Storage Gen2, consultez [Prise en charge des fonctionnalités de Stockage Blob dans les comptes Stockage Azure](storage-feature-support-in-storage-accounts.md).
 

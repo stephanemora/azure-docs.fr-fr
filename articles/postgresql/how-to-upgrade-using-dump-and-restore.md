@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.openlocfilehash: 7e8e1db98ac79c2be6dbb399a14368ce3e2f898c
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 09/21/2021
+ms.openlocfilehash: b2216754cbdb6081a82f71392aee6e5f8ce2d3ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033494"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128648408"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Mettre à niveau votre base de données PostgreSQL par vidage et restauration
 
@@ -96,10 +96,10 @@ Les rôles (utilisateurs) sont des objets globaux et doivent être migrés sépa
 Pour vider tous les rôles du serveur source :
 
 ```azurecli-interactive
-pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser -- dbname=mySourceDB > roles.sql
+pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser --database=mySourceDB > roles.sql
 ```
 
-et restaurer à l’aide de psql sur le serveur cible :
+Modifiez `roles.sql` et supprimez les références de `NOSUPERUSER` et `NOBYPASSRLS` avant de restaurer le contenu à l’aide de psql sur le serveur cible :
 
 ```azurecli-interactive
 psql -f roles.sql --host=myTargetServer --port=5432 --username=myUser
@@ -198,6 +198,14 @@ Vous pouvez envisager cette méthode si vous avez peu de tables volumineuses dan
 
 > [!TIP]
 > Le processus mentionné dans ce document peut également être utilisé pour mettre à niveau votre Azure Database for PostgreSQL - Serveur flexible, qui est en préversion. La principale différence est que la chaîne de connexion pour le serveur flexible cible n’est pas `@dbName`.  Par exemple, si le nom d’utilisateur est `pg`, le nom d’utilisateur du serveur unique dans la chaîne de connexion est `pg@pg-95`, tandis qu’avec le serveur flexible, vous pouvez simplement utiliser `pg`.
+
+## <a name="post-upgrademigrate"></a>Après la mise à niveau/migration
+Une fois la mise à niveau de la version principale terminée, nous vous recommandons d’exécuter la commande `ANALYZE` dans chaque base de données afin d’actualiser la table `pg_statistic`. Sinon, vous risquez de rencontrer des problèmes de performance.
+
+```SQL
+postgres=> analyze;
+ANALYZE
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

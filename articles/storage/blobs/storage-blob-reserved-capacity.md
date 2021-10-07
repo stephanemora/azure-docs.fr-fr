@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 5f130e2367ed2fa4c9095479e9ff9d9722b010e5
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6bb24f33d93e58768af34359f4d803ca68cf4ac4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110098539"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645775"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimiser les coûts de stockage d’objets blob avec une capacité réservée
 
@@ -34,7 +34,7 @@ Vous pouvez acheter une capacité de réserve Stockage Azure en unités de 100 
 
 ### <a name="reservation-scope"></a>Étendue de la réservation
 
-La capacité de réserve Stockage Azure est disponible pour un seul abonnement ou plusieurs abonnements (étendue partagée). En cas de limitation à un seul abonnement, la remise de réservation est appliquée à l’abonnement sélectionné uniquement. Lorsque plusieurs abonnements sont concernés, la remise de réservation est partagée entre ces abonnements dans la facturation du client.
+La capacité réservée du Stockage Azure est disponible pour un seul abonnement ou plusieurs abonnements (étendue partagée), et groupes de gestion. En cas de limitation à un seul abonnement, la remise de réservation est appliquée à l’abonnement sélectionné uniquement. Lorsque plusieurs abonnements sont concernés, la remise de réservation est partagée entre ces abonnements dans la facturation du client. Dans le cadre d’un groupe d’administration, la remise de réservation est partagée entre les abonnements qui font partie du groupe d’administration et de l’étendue de facturation.
 
 Lorsque vous achetez une capacité de réserve Stockage Azure, vous pouvez utiliser votre réservation à la fois pour les objets blob de blocs et les données Azure Data Lake Storage Gen2. Une réservation s’applique à votre utilisation dans le cadre de l’étendue achetée et ne peut pas se limiter à un compte de stockage, un conteneur ou un objet spécifique au sein de l’abonnement.
 
@@ -49,7 +49,7 @@ Tous les niveaux d’accès (chaud, froid et archive) sont pris en charge pour l
 Tous les types de redondance sont pris en charge pour les réservations. Pour plus d’informations sur les options de redondance, consultez [Redondance du stockage Azure](../common/storage-redundancy.md).
 
 > [!NOTE]
-> La capacité de réserve Stockage Azure n’est pas disponible pour les comptes de stockage Premium, les comptes de stockage v1 universel (GPv1), Azure Data Lake Storage Gen1, les objets blobs de pages, le Stockage File d’attente Azure ou le stockage Tables Azure. Pour plus d’informations sur la capacité de réserve pour Azure Files, consultez [Optimiser les coûts d’Azure Files avec la capacité de réserve](../files/files-reserve-capacity.md).  
+> La capacité de réserve Stockage Azure n’est pas disponible pour les comptes de stockage Premium, les comptes de stockage v1 universel (GPv1), Azure Data Lake Storage Gen1, les objets blobs de pages, le Stockage File d’attente Azure ou le stockage Tables Azure. Pour plus d’informations sur la capacité de réserve pour Azure Files, consultez [Optimiser les coûts d’Azure Files avec la capacité de réserve](../files/files-reserve-capacity.md).
 
 ### <a name="security-requirements-for-purchase"></a>Exigences de sécurité pour l’achat
 
@@ -61,7 +61,7 @@ Pour acheter une capacité de réserve :
 
 ## <a name="determine-required-capacity-before-purchase"></a>Déterminer la capacité requise avant l’achat
 
-Lorsque vous achetez une réservation de stockage Azure, vous devez choisir la région, le niveau d’accès et l’option de redondance pour la réservation. Votre réservation est valide uniquement pour les données stockées dans cette région, ce niveau d’accès et ce niveau de redondance. Par exemple, supposons que vous achetez une réservation de données dans la région USA Ouest pour le niveau chaud utilisant un stockage redondant interzone (ZRS). Vous ne pouvez pas utiliser la même réservation pour des données dans la région USA Est, au niveau archive ou dans un stockage géoredondant (GRS). Toutefois, vous pouvez acheter une autre réservation pour vos autres besoins.  
+Lorsque vous achetez une réservation de stockage Azure, vous devez choisir la région, le niveau d’accès et l’option de redondance pour la réservation. Votre réservation est valide uniquement pour les données stockées dans cette région, ce niveau d’accès et ce niveau de redondance. Par exemple, supposons que vous achetez une réservation de données dans la région USA Ouest pour le niveau chaud utilisant un stockage redondant interzone (ZRS). Vous ne pouvez pas utiliser la même réservation pour des données dans la région USA Est, au niveau archive ou dans un stockage géoredondant (GRS). Toutefois, vous pouvez acheter une autre réservation pour vos autres besoins.
 
 Les réservations sont disponibles aujourd’hui pour les blocs de 100 Tio ou 1 Pio, avec des remises plus élevées pour les blocs de 1 Pio. Lorsque vous achetez une réservation dans le Portail Azure, il se peut que Microsoft vous suggère des recommandations en fonction de votre précédente utilisation pour vous permettre de déterminer quelle réservation acheter.
 
@@ -73,8 +73,8 @@ Pour obtenir de l’aide sur l’identification des conditions de réservation a
 
 Pour acheter une capacité de réserve, procédez comme suit :
 
-1. Accédez au volet [Acheter des réservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) dans le Portail Azure.  
-1. Sélectionnez **Stockage Blob Azure** pour acheter une nouvelle réservation.  
+1. Accédez au volet [Acheter des réservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) dans le Portail Azure.
+1. Sélectionnez **Stockage Blob Azure** pour acheter une nouvelle réservation.
 1. Renseignez les champs obligatoires, comme décrit dans le tableau suivant :
 
     ![Capture d’écran montrant comment acheter une capacité de réserve](media/storage-blob-reserved-capacity/select-reserved-capacity.png)

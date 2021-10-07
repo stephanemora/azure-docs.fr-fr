@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 4ef7d0146d1636a863941f4deb317149aeb48faf
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: fb276979530fccfb95fd9d34655573a04391e524
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830935"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129219170"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Les caractéristiques sont des informations sur les actions et sur le contexte
 
@@ -68,10 +68,10 @@ Voici quelques exemples d’espaces de noms de caractéristiques utilisés par d
 Vous pouvez nommer les espaces de noms de caractéristiques suivant vos propres conventions, pour autant qu’il s’agisse de clés JSON valides. Les espaces de noms sont utilisés pour organiser les fonctionnalités en ensembles distincts et pour lever l’ambiguïté entre des fonctionnalités ayant des noms similaires. Vous pouvez considérer les espaces de noms comme un « préfixe » ajouté aux noms de fonctionnalités. Les espaces de noms ne peuvent pas être imbriqués.
 
 
-Dans le JSON suivant, `user`, `state` et `device` sont des espaces de noms de caractéristiques. 
+Dans le contenu JSON suivant, `user`, `environment`, `device` et `activity` sont des espaces de noms de fonctionnalités. 
 
 > [!Note]
-> Pour le moment, nous vous recommandons vivement d’utiliser des noms pour les espaces de noms de fonctionnalités qui sont basés sur UTF-8 et qui commencent par des lettres différentes. Par exemple, `user`, `state`, et `device` commencent par `u`, `s`, et `d`. Si certains espaces de noms commencent par les mêmes caractères, cela risque de provoquer des collisions dans les index utilisés pour l’apprentissage automatique.
+> Pour le moment, nous vous recommandons vivement d’utiliser des noms pour les espaces de noms de fonctionnalités qui sont basés sur UTF-8 et qui commencent par des lettres différentes. Par exemple, `user`, `environment`, `device` et `activity` commencent par `u`, `e`, `d` et `a`. Si certains espaces de noms commencent par les mêmes caractères, cela risque de provoquer des collisions dans les index utilisés pour l’apprentissage automatique.
 
 Les objets JSON peuvent inclure des objets JSON imbriqués et de simples valeurs/propriétés. Un tableau peut être inclus uniquement si ces éléments sont des nombres. 
 
@@ -99,7 +99,7 @@ Les objets JSON peuvent inclure des objets JSON imbriqués et de simples valeurs
             }
         },
         {
-            "userActivity" : {
+            "activity" : {
                 "itemsInCart": 3,
                 "cartValue": 250,
                 "appliedCoupon": true

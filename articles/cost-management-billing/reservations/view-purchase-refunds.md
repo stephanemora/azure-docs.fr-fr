@@ -7,16 +7,16 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 06/14/2021
 ms.author: banders
-ms.openlocfilehash: 402f2b9b8d4e7528e6578f9735e0360b4a049878
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: f2b98768f10ad2c85a1808907e309a99bf685131
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112114518"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128646774"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>Affichage des transactions d’achat et de remboursement de réservations
 
-Il existe différentes façons d’afficher les transactions d’achat et de remboursement de réservations. Il est possible d’utiliser le Portail Azure, Power BI et les API REST.
+Il existe différentes façons d’afficher les transactions d’achat et de remboursement de réservations. Il est possible d’utiliser le Portail Azure, Power BI et les API REST. Vous pouvez afficher une réservation échangée comme remboursement et achat dans les transactions.
 
 ## <a name="view-reservation-purchases-in-the-azure-portal"></a>Afficher les achats de réservations dans le portail Azure
 

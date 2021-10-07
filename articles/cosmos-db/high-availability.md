@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c11a151876677e06a32364b050538f233cc2b9c4
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 5fdde23875d49d6bf4329a57081f12f517692062
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122525892"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128618644"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Comment Azure Cosmos DB fournit-il une haute disponibilité ?
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -41,7 +41,7 @@ Dans une région, Azure Cosmos DB conserve quatre copies de vos données sous fo
 
 * Chaque partition est répliquée dans toutes les régions. Chaque région contient toutes les partitions de données d’un conteneur Azure Cosmos, et peut servir des écritures quand les écritures multirégions sont activées.  
 
-Si votre compte Azure Cosmos est distribué entre *N* régions Azure, il y aura au moins *N* x 4 copies de toutes vos données. Le fait d’avoir un compte Azure Cosmos dans plus de deux régions améliore la disponibilité de votre application et fournit une latence faible dans les régions associées.
+Si votre compte Azure Cosmos est distribué entre *N* régions Azure, il y aura au moins *N* x 4 copies de toutes vos données. Pour obtenir une vue d’ensemble plus détaillée de la distribution des données, consultez [Principe de distribution de données mondiale](global-dist-under-the-hood.md). Le fait d’avoir un compte Azure Cosmos dans plus de deux régions améliore la disponibilité de votre application et fournit une latence faible dans les régions associées.
 
 ## <a name="slas-for-availability"></a>Contrats SLA pour la disponibilité
 
@@ -129,7 +129,7 @@ La fonctionnalité Zones de disponibilité peut être activée via :
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 
-* [Azure CLI](manage-with-cli.md#add-or-remove-regions)
+* [Azure CLI](sql/manage-with-cli.md#add-or-remove-regions)
 
 * [Modèles Microsoft Azure Resource Manager](./manage-with-templates.md)
 

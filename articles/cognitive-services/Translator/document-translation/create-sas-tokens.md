@@ -1,19 +1,19 @@
 ---
-title: Créer un jeton de signature d’accès partagé (SAS) pour les conteneurs et les blobs avec l’Explorateur Stockage Microsoft
-description: Comment créer un jeton d’accès partagé (SAS) pour les conteneurs et les blobs avec l’Explorateur Stockage Microsoft et le portail Azure
+title: Générer un jeton de signature d’accès partagé (SAS) pour les conteneurs et les blobs avec l’Explorateur Stockage Microsoft
+description: Comment générer des jetons de signature d’accès partagé (SAS) pour les conteneurs et les blobs avec l’Explorateur Stockage Microsoft et le portail Azure.
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 03/05/2021
-ms.openlocfilehash: 8a91829ce79c5cd9e32efefc809dd23a19382f49
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.date: 09/16/2021
+ms.openlocfilehash: ecc62d7b45bfb3b0b108057d5e3e25b189297165
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113360268"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128653302"
 ---
-# <a name="create-sas-tokens-for-your-storage-containers"></a>Créer des jetons SAS pour vos conteneurs de stockage
+# <a name="generate-sas-tokens-for-your-storage-containers"></a>Générer des jetons SAS pour vos conteneurs de stockage
 
 Dans cet article, vous allez apprendre à créer des jetons de signature d’accès partagé (SAS) avec l’Explorateur Stockage Azure ou le portail Azure. Un jeton SAS fournit un accès délégué sécurisé aux ressources dans votre compte de stockage Azure.
 
@@ -63,9 +63,6 @@ Dans cet article, vous allez apprendre à créer des jetons de signature d’acc
 ---
 
 ## <a name="create-sas-tokens-for-blobs-in-the-azure-portal"></a>Créer des jetons SAS pour les blobs dans le portail Azure
-
-> [!NOTE]
-> La création de jetons SAS pour les conteneurs directement dans le portail Azure n’est actuellement pas prise en charge. Toutefois, vous pouvez créer un jeton SAS avec l’[**Explorateur Stockage Azure**](#create-your-sas-tokens-with-azure-storage-explorer) ou effectuer la tâche [programmatiquement](../../../storage/blobs/sas-service-create.md).
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="prerequisites"></a>Prérequis

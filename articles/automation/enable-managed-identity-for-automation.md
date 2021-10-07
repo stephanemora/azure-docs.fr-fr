@@ -3,15 +3,15 @@ title: À l’aide d’une identité managée affectée par le système pour vot
 description: Cet article explique comment configurer une identité managée pour les comptes Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/12/2021
+ms.date: 09/23/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 882a55d017ed23dc7abbc9096e38f70abb41c425
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: b84c73e5286dc633b54ade2d59d43957f517361e
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214275"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057659"
 ---
 # <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account-preview"></a>À l’aide d’une identité managée affectée par le système pour votre compte Azure Automation (préversion)
 
@@ -21,7 +21,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un compte Azure Automation. Pour obtenir des instructions, consultez [Créer un compte Azure Automation](automation-quickstart-create-account.md).
+- Un compte Azure Automation. Pour obtenir des instructions, consultez [Créer un compte Azure Automation](./quickstarts/create-account-portal.md).
 
 - La dernière version des modules de compte Azure. Il s'agit actuellement de la version 2.2.8. (Pour plus d'informations sur cette version, consultez [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/)).
 
@@ -48,7 +48,7 @@ Vous pouvez activer une identité managée affectée par le système pour un com
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Identity
+    Connect-AzAccount
 }
 
 # If you have multiple subscriptions, set the one to use
@@ -270,11 +270,17 @@ New-AzRoleAssignment `
 
 ## <a name="authenticate-access-with-system-assigned-managed-identity"></a>Authentifier l’accès à l’aide d’une identité managée affectée par le système
 
-Après avoir activé l’identité managée pour votre compte Automation et accordé à une identité l’accès à la ressource cible, vous pouvez spécifier cette identité dans les runbooks pour les ressources qui prennent en charge l’identité managée. Pour la prise en charge des identités, utilisez l’applet de commande `Connect-AzAccount` de l’applet de commande Az. Consultez [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) dans les informations de référence sur PowerShell. Remplacez `SubscriptionID` par votre ID d’abonnement réel, puis exécutez la commande suivante :
+Après avoir activé l’identité managée pour votre compte Automation et accordé à une identité l’accès à la ressource cible, vous pouvez spécifier cette identité dans les runbooks pour les ressources qui prennent en charge l’identité managée. Pour la prise en charge des identités, utilisez l’applet de commande `Connect-AzAccount` de l’applet de commande Az. Consultez [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) dans les informations de référence sur PowerShell.
 
 ```powershell
-Connect-AzAccount -Identity
-$AzureContext = Set-AzContext -SubscriptionId "SubscriptionID"
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
 > [!NOTE]

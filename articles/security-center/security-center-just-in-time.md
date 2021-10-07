@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 07/12/2020
+ms.date: 09/05/2021
 ms.author: memildin
-ms.openlocfilehash: dff90bc02ef9ee20284adb895eb05e765bdfba72
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5a61ad8addfcb2840bbed1b9d56f37dfbb01b0bf
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524551"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123541384"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Sécuriser vos ports de gestion avec un accès juste-à-temps
 
@@ -36,7 +36,7 @@ Cette page vous explique comment inclure l’accès JAT dans votre programme de
 |État de sortie :|Disponibilité générale|
 |Prix :|Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)|
 |Machines virtuelles prises en charge :|:::image type="icon" source="./media/icons/yes-icon.png"::: Machines virtuelles déployées via Azure Resource Manager.<br>:::image type="icon" source="./media/icons/no-icon.png"::: Machines virtuelles déployées avec des modèles de déploiement classiques. [En savoir plus sur ces modèles de déploiement](../azure-resource-manager/management/deployment-models.md).<br>:::image type="icon" source="./media/icons/no-icon.png"::: Machines virtuelles protégées par des pare-feu Azure contrôlés par [Azure Firewall Manager](../firewall-manager/overview.md)|
-|Rôles et autorisations obligatoires :|Les rôles **Lecteur** et **SecurityReader** peuvent tous deux afficher l’état et les paramètres de l’accès JAT.<br>Pour créer des rôles personnalisés pouvant fonctionner avec l’accès JAT, consultez [Quelles autorisations sont nécessaires pour configurer et utiliser l’accès JAT ?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Pour créer un rôle de moindre privilège pour les utilisateurs qui doivent demander un accès JAT à une machine virtuelle et n’exécuter aucune autre opération JAT, utilisez le script [Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) à partir des pages de la communauté GitHub Security Center.|
+|Rôles et autorisations obligatoires :|Les rôles **Lecteur** et **SecurityReader** peuvent tous deux afficher l’état et les paramètres de l’accès JAT.<br>Pour créer des rôles personnalisés pouvant fonctionner avec l’accès JAT, consultez [Quelles autorisations sont nécessaires pour configurer et utiliser l’accès JAT ?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Pour créer un rôle de moindre privilège pour les utilisateurs qui doivent demander un accès JAT à une machine virtuelle et n’exécuter aucune autre opération JAT, utilisez le script [Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/main/Powershell%20scripts/JIT%20Scripts/JIT%20Custom%20Role) à partir des pages de la communauté GitHub Security Center.|
 |Clouds :|:::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png":::National/Souverain (Azure Government, Azure China 21Vianet)|
 |||
 
@@ -68,7 +68,7 @@ Chacune de ces options est expliquée dans un onglet séparé ci-dessous.
         - le dernier utilisateur
     - **Non configuré** : machines virtuelles sans l’accès JAT activé, mais qui peuvent prendre en charge l’accès JAT. Nous vous recommandons d’activer l’accès JAT pour ces machines virtuelles.
     - **Non pris en charge** : machines virtuelles sans l’accès JAT activé et qui ne prennent pas en charge la fonctionnalité. Votre machine virtuelle peut se trouver dans cet onglet pour les raisons suivantes :
-      - Groupe de sécurité réseau (NSG) manquant : l’accès JAT requiert la configuration d’un NSG
+      - Pare-feu Azure ou groupe de sécurité réseau (NSG) manquant : l’accès JAT a besoin qu’un groupe de sécurité réseau soit configuré ou d’une configuration de pare-feu (ou les deux)
       - Machine virtuelle classique : l’accès JAT prend en charge les machines virtuelles déployées via Azure Resource Manager, et non un « déploiement classique ». [En savoir plus sur les modèles de déploiement classiques vs Azure Resource Manager](../azure-resource-manager/management/deployment-models.md).
       - Autre : votre machine virtuelle peut figurer dans cet onglet si la solution JAT est désactivée dans la stratégie de sécurité de l’abonnement ou du groupe de ressources.
 
@@ -333,13 +333,6 @@ Pour en savoir plus, consultez [Stratégies d’accès réseau JAT](/rest/api/se
 
 ---
 
-
-
-
-
-
-
-
 ## <a name="audit-jit-access-activity-in-security-center"></a>Auditer l’activité d’accès JIT dans Security Center
 
 Vous pouvez obtenir des informations sur les activités des machines virtuelles à l’aide de la recherche dans les journaux. Comment afficher les journaux d’activité :
@@ -355,11 +348,6 @@ Vous pouvez obtenir des informations sur les activités des machines virtuelles 
    Le journal d’activité fournit une vue filtrée des opérations précédentes pour cette machine virtuelle, ainsi que l’abonnement, la date et l’heure.
 
 1. Pour télécharger les informations du journal, sélectionnez **Télécharger au format CSV**.
-
-
-
-
-
 
 
 

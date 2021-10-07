@@ -4,12 +4,12 @@ description: Cette rubrique explique comment gérer la stratégie d’enregistre
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 95e5decc8092c6a40e368c395da61fd8b9904e30
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e4d05733db5739087ac1f6b64f87436a018c5883
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124761996"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277837"
 ---
 # <a name="manage-recording-policy-with-video-analyzer"></a>Gérer la stratégie d’enregistrement avec Azure Video Analyzer
 
@@ -43,7 +43,7 @@ Votre compte Video Analyzer est lié à un compte Stockage Microsoft Azure et, l
 La règle ci-dessus :
 
 * s'applique à tous les objets blob de blocs du compte Stockage ;
-* spécifie qu'au bout de 30 jours, les objets blob sont déplacés du [niveau d'accès chaud au niveau d'accès froid](../../storage/blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
+* spécifie qu'au bout de 30 jours, les objets blob sont déplacés du [niveau d'accès chaud au niveau d'accès froid](../../storage/blobs/access-tiers-overview.md?tabs=azure-portal).
 * En outre, lorsque les objets blob ont plus de 90 jours, ils doivent être supprimés.
 
 Lorsque vous utilisez Azure Video Analyzer pour enregistrer sur une ressource vidéo, vous spécifiez une propriété `segmentLength` qui spécifie la durée minimale de la vidéo (en secondes) à agréger avant qu’elle ne soit écrite dans le compte de stockage. Votre ressource vidéo contient une série de segments, chacun avec un horodatage de création `segmentLength` plus récent que le précédent. Lorsque la stratégie de gestion du cycle de vie démarre, elle supprime les segments antérieurs au seuil spécifié. Toutefois, vous pourrez continuer à accéder aux segments restants via les API Video Analyzer et à les lire. Pour plus d’informations, consultez [Lecture des enregistrements](playback-recordings-how-to.md). 

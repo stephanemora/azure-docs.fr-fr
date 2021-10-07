@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2021
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 63796f3e569849227dd4fa9c2396f3b052540586
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: d266f059869bb0f25df10dcc4fad317d3d3da7c3
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525578"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123426703"
 ---
 # <a name="comparison-matrix"></a>Matrice de comparaison
 
@@ -60,12 +60,12 @@ La matrice de comparaison suivante montre les fonctionnalités de base des diff�
 | **Rapports sur la chaîne de responsabilité**            | Non  | Oui                        | Non  | Oui                            |
 | **Prise en charge d’autres flux de données**    | Non  | Oui                        | Oui | Non                             |
 | **Planification de la migration**              | Non  | Oui                        | Oui | Oui                            |
-| **Conservation des ACL**                        | Non  | Oui                        | Oui | Oui                            |
+| **Conservation des ACL**                        | Oui  | Oui                        | Oui | Oui                            |
 | **Prise en charge DACL**                          | Oui | Oui                        | Oui | Oui                            |
 | **Prise en charge SACL**                          | Oui | Oui                        | Oui | Non                             |
 | **Conservation du temps d’accès**                | Oui | Oui                        | Oui | Oui                            |
 | **Conservation de l’heure de modification**              | Oui | Oui                        | Oui | Oui                            |
-| **Conservation de l’heure de création**              | Non  | Oui                        | Oui | Oui                            |
+| **Conservation de l’heure de création**              | Oui  | Oui                        | Oui | Oui                            |
 | **Prise en charge d’Azure Data Box**       | Oui | Oui                        | Non  | Non                             |
 | **Migration des instantanés**                | Non  | Manuel                     | Oui | Non                             |
 | **Prise en charge des liens symboliques**                 | Non  | Oui                        | Non  | Oui                            |
@@ -101,6 +101,9 @@ La matrice de comparaison suivante montre les fonctionnalités de base des diff�
 ### <a name="azure-file-sync"></a>Azure File Sync
 
 - Validation de hachage interne
+
+> [!TIP]
+> La fonctionnalité Azure File Sync est conçue comme une solution permanente et hybride pour la mise en cache ou la synchronisation locales d’un certain nombre de partages de fichiers Azure. À cet égard, elle assure une migration cloud sans temps d’arrêt. Si vous n’envisagez pas de mettre en cache vos partages de fichiers Azure localement, Azure File Sync n’est pas un outil de migration recommandé. Consultez [Vue d’ensemble de la migration de partage de fichiers Azure](../../../files/storage-files-migration-overview.md) ou les autres outils de partenaires décrits dans cet article.
 
 ### <a name="datadobi-dobimigrate"></a>Datadobi DobiMigrate
 

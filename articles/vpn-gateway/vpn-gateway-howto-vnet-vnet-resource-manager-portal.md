@@ -6,22 +6,22 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 09/23/2021
 ms.author: cherylmc
-ms.openlocfilehash: 3e8c2846b58499e5aabdec80f8fcd75cab3e6eb5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 92ec3349f5e2e2f06fdbe7f56468a7145452276d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531688"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128667062"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
-Cet article vous explique comment connecter des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel. Les réseaux virtuels peuvent se trouver dans différentes régions et sous différents abonnements. Lors de la connexion de réseaux virtuels provenant de différents abonnements, les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. 
+Cet article vous explique comment connecter des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel à l’aide du portail Azure. Les réseaux virtuels peuvent se trouver dans différentes régions et sous différents abonnements. Lors de la connexion de réseaux virtuels provenant de différents abonnements, les abonnements ne sont pas tenus d’être associés au même locataire Active Directory. Ce type de configuration crée une connexion entre deux passerelles de réseau virtuel. Cet article ne s’applique pas au peering de réseaux virtuels. Pour le peering de réseaux virtuels, consultez l’article [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md). 
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="Diagramme de réseau virtuel à réseau virtuel":::
 
-Les étapes mentionnées dans cet article s’appliquent au [modèle de déploiement Azure Resource Manager](../azure-resource-manager/management/deployment-models.md) et font appel au portail Azure. Vous pouvez créer cette configuration avec un outil ou un modèle de déploiement différent en utilisant les options décrites dans les articles suivants :
+Vous pouvez créer cette configuration à l’aide de divers outils, en fonction du modèle de déploiement de votre réseau virtuel. Les étapes mentionnées dans cet article s’appliquent au [modèle de déploiement Azure Resource Manager](../azure-resource-manager/management/deployment-models.md) et au portail Azure. Pour basculer vers un autre modèle de déploiement ou une autre méthode de déploiement, utilisez la liste déroulante. 
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -41,7 +41,9 @@ Les sections ci-dessous décrivent les différentes manières de se connecter à
 
 La configuration d’une connexion de réseau virtuel à réseau virtuel est un moyen simple de se connecter à des réseaux virtuels. La connexion entre deux réseaux virtuels est semblable à la création d’une connexion IPsec de site à site dans un emplacement local. Ces deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé avec Ipsec/IKE et communiquent de la même façon. Toutefois, ils diffèrent en termes de configuration de la passerelle réseau locale. 
 
-Lorsque vous créez une connexion de réseau virtuel à réseau virtuel, l’espace d’adressage de la passerelle réseau locale est automatiquement créé et renseigné. Si vous mettez à jour l’espace d’adressage pour un réseau virtuel, l’autre réseau virtuel achemine automatiquement le trafic vers le nouvel espace d’adressage. Il est généralement plus rapide et plus simple de créer une connexion de réseau virtuel à réseau virtuel qu'une connexion de site à site.
+Lorsque vous créez une connexion de réseau virtuel à réseau virtuel, l’espace d’adressage de la passerelle réseau locale est automatiquement créé et renseigné. Si vous mettez à jour l’espace d’adressage pour un réseau virtuel, l’autre réseau virtuel achemine automatiquement le trafic vers le nouvel espace d’adressage. Il est généralement plus rapide et plus simple de créer une connexion de réseau virtuel à réseau virtuel qu'une connexion de site à site. Néanmoins, la passerelle de réseau local n’est pas visible dans cette configuration. 
+* Si vous savez que vous voulez spécifier des espaces d’adressage supplémentaires pour la passerelle de réseau local, ou si vous envisagez d’ajouter ultérieurement des connexions supplémentaires et avez besoin d’ajuster la passerelle de réseau local, vous devez créer la configuration à l’aide des étapes de site à site. 
+* La connexion de réseau virtuel à réseau virtuel n’inclut pas l’espace d’adressage du pool de clients de point à site. Si vous avez besoin d’un routage transitif pour les clients de point à site, créez une connexion de site à site entre les passerelles de réseau virtuel ou utilisez un peering de réseaux virtuels.
 
 ### <a name="site-to-site-ipsec"></a>Site à site (IPsec)
 
@@ -49,7 +51,10 @@ Si vous travaillez avec une configuration réseau complexe, vous pouvez connecte
 
 ### <a name="vnet-peering"></a>Peering de réseaux virtuels
 
-Vous pouvez également connecter vos réseaux virtuels à l’aide du peering de réseaux virtuels. VNet Peering n’utilise pas de passerelle VPN et a d’autres contraintes En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour plus d’informations, consultez l’article [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+Vous pouvez également connecter vos réseaux virtuels à l’aide du peering de réseaux virtuels.
+* VNet Peering n’utilise pas de passerelle VPN et a d’autres contraintes
+* Les [tarifs du peering de réseaux virtuels](https://azure.microsoft.com/pricing/details/virtual-network) sont calculés différemment des [tarifs de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway).
+* Pour plus d’informations sur le peering de réseaux virtuels, consultez l’article sur le [peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why-create-a-vnet-to-vnet-connection"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
 

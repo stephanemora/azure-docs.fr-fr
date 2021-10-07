@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 08/23/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 5645a872c0dbb5d1b80e6856b173b75d758a23ab
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: 38a1e264d3febfc114df253a24479d9580c86bb5
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122780125"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123538360"
 ---
 # <a name="use-an-azure-free-account-to-try-azure-database-for-postgresql---flexible-server-for-free"></a>Utilisez un compte gratuit Azure pour essayer gratuitement une Base de données Azure pour PostgreSQL - Serveur flexible gratuit
 
@@ -97,9 +97,9 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
     
     Dans le cadre de ce didacticiel, activez l’accès public pour la connexion au serveur.
 
-1. Sous l’onglet **Réseau**, pour **Méthode de connectivité**, sélectionnez **Accès public**.
+1. Sous l’onglet **Mise en réseau**, pour **Méthode de connectivité**, sélectionnez **Accès public**.
 
-1. Pour **Règles de pare-feu**, sélectionnez **Ajouter l’adresse IP actuelle du client**.
+1. Pour configurer les **Règles de pare-feu**, sélectionnez **Ajouter l’adresse IP actuelle du client**.
     
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/networking-postgresql.png" alt-text="Capture d’écran qui montre les options de mise en réseau à choisir et met en surbrillance le bouton Ajouter l’adresse IP du client actuel.":::
 
@@ -108,7 +108,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-create-postgresql.png" alt-text="Capture d’écran montrant le panneau Vérifier + créer.":::
 
     >[!IMPORTANT]
-    >Tant que vous utilisez votre compte gratuit Azure et que votre utilisation gratuite des services se situe dans les limites mensuelles (pour afficher des informations sur l’utilisation, consultez la section [**surveiller et suivre l’utilisation des services gratuits**](#monitor-and-track-free-services-usage) ci-dessous), vous ne serez pas facturé pour le service. Nous travaillons actuellement à l’amélioration de l’expérience **Résumé des coûts** pour les services gratuits. 
+    >Lors de la création de l’instance Serveur flexible à partir de votre compte gratuit Azure, vous voyez toujours un **coût estimé par mois** dans le panneau **Calcul + Stockage : Récapitulatif des coûts** et l’onglet **Vérifier + créer**. Toutefois, tant que vous utilisez votre compte gratuit Azure et que votre utilisation gratuite des services est comprise dans les limites mensuelles (pour afficher des informations sur l’utilisation, voir la section [**Surveiller et suivre l’utilisation des services gratuits**](#monitor-and-track-free-services-usage) ci-dessous), vous n’êtes pas facturé pour le service. Nous travaillons actuellement à l’amélioration de l’expérience **Résumé des coûts** pour les services gratuits. 
 
 1. Sélectionnez **Créer** pour approvisionner le serveur.
 
