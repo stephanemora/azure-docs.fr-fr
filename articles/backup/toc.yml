@@ -140,7 +140,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-vms-introduction.md
-        - name: Backup
+        - name: Sauvegarde
           items:
             - name: Sauvegarder et restaurer des machines virtuelles Azure avec la restauration instantanée de Sauvegarde Azure
               href: backup-instant-restore-capability.md
@@ -198,7 +198,7 @@
       items:
         - name: Vue d’ensemble
           href: backup-azure-database-postgresql-overview.md
-        - name: Backup
+        - name: Sauvegarde
           href: backup-azure-database-postgresql.md
         - name: Restaurer
           href: restore-azure-database-postgresql.md
@@ -214,7 +214,7 @@
               href: install-mars-agent.md
             - name: Mettre à niveau l’agent MARS
               href: upgrade-mars-agent.md
-        - name: Backup
+        - name: Sauvegarde
           items:
             - name: Sauvegarder les fichiers et dossiers de Windows Server
               href: backup-windows-with-mars-agent.md
@@ -238,7 +238,7 @@
           href: disk-backup-overview.md
         - name: À partir du portail Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-managed-disks.md
             - name: Restaurer
               href: restore-managed-disks.md
@@ -246,7 +246,7 @@
               href: manage-azure-managed-disks.md
         - name: Avec PowerShell
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-managed-disks-ps.md
             - name: Restaurer
               href: restore-managed-disks-ps.md
@@ -256,6 +256,14 @@
               href: backup-managed-disks-cli.md
             - name: Restaurer
               href: restore-managed-disks-cli.md
+        - name: Avec l’API REST
+          items:
+            - name: Stratégie
+              href: backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md
+            - name: Sauvegarde
+              href: backup-azure-dataprotection-use-rest-api-backup-disks.md
+            - name: Restaurer
+              href: backup-azure-dataprotection-use-rest-api-restore-disks.md
     - name: Sauvegarde des objets BLOB Azure
       items:
         - name: Vue d’ensemble
@@ -280,7 +288,7 @@
               href: restore-blobs-storage-account-cli.md
         - name: Avec l’API REST
           items:
-            - name: Stratégie d’objet blob
+            - name: Stratégie
               href: backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md
             - name: Sauvegarde
               href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
@@ -300,7 +308,7 @@
               href: manage-afs-backup.md
         - name: Avec l’interface de ligne de commande Azure
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-afs-cli.md
             - name: Restaurer
               href: restore-afs-cli.md
@@ -316,7 +324,7 @@
               href: manage-afs-powershell.md
         - name: Avec l’API REST
           items:
-            - name: Backup
+            - name: Sauvegarde
               href: backup-azure-file-share-rest-api.md
             - name: Restaurer
               href: restore-azure-file-share-rest-api.md
@@ -328,7 +336,7 @@
           href: sap-hana-db-about.md
         - name: Architecture
           href: azure-backup-architecture-for-sap-hana-backup.md
-        - name: Backup
+        - name: Sauvegarde
           href: backup-azure-sap-hana-database.md
         - name: Restaurer
           href: sap-hana-db-restore.md
@@ -422,7 +430,7 @@
           href: offline-backup-server-previous-versions.md
     - name: Supervision et alertes
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: monitoring-and-alerts-overview.md
         - name: Utilisation de l’Explorateur de sauvegarde
           href: monitor-azure-backup-with-backup-explorer.md

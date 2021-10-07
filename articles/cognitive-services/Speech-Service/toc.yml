@@ -31,6 +31,8 @@
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
         - name: Sélectionner un périphérique d’entrée de microphone spécifique
           href: how-to-select-audio-input-devices.md
+        - name: Identification de la langue
+          href: language-identification.md
         - name: Utiliser l’identification de la langue
           href: how-to-automatic-language-detection.md
         - name: Utiliser l’API de transcription Batch
@@ -330,8 +332,6 @@
       href: keyword-recognition-guidelines.md
     - name: Prise en charge de la région
       href: keyword-recognition-region-support.md
-- name: Identification de la langue
-  href: language-identification.md
 - name: Immersions dans des scénarios
   items:
     - name: Scénarios de conversation
@@ -539,7 +539,7 @@
   items:
     - name: Documentation sur Speech Devices
       href: index-devices.yml
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que le SDK d’appareils Speech\_?"
           href: speech-devices-sdk.md

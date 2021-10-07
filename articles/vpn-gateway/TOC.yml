@@ -259,8 +259,6 @@
           href: vpn-gateway-activeactive-rm-powershell.md
     - name: Configurer des passerelles redondantes dans une zone
       href: create-zone-redundant-vnet-gateway.md
-    - name: Configurer les captures de paquets
-      href: packet-capture.md
     - name: Surveillance
       items:
         - name: Supervision de la passerelle VPN
@@ -269,6 +267,8 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: Configurer des alertes basées sur des journaux de ressources
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
+        - name: Configurer les captures de paquets
+          href: packet-capture.md
     - name: Résolution des problèmes
       items:
         - name: Résoudre les problèmes liés à la passerelle VPN

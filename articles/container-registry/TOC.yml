@@ -145,6 +145,8 @@
                       href: authenticate-aks-cross-tenant.md
                     - name: S’authentifier avec un secret de tirage Kubernetes
                       href: container-registry-auth-kubernetes.md
+                - name: Activer l’accès par tirage non authentifié
+                  href: anonymous-pull-access.md
             - name: Contrôle d'accès en fonction du rôle Azure
               href: container-registry-roles.md
               displayName: 'permissions, authorization'

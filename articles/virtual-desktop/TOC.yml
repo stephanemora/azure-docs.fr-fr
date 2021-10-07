@@ -135,7 +135,11 @@
     - name: Configurer la redirection multimédia (préversion)
       href: multimedia-redirection.md
     - name: Installer des modules linguistiques
-      href: language-packs.md
+      items:
+        - name: "Images Windows\_10 multisession"
+          href: language-packs.md
+        - name: "Images Windows\_11 Entreprise"
+          href: windows-11-language-packs.md
     - name: Utiliser Azure Advisor
       href: azure-advisor.md
     - name: Résoudre les recommandations

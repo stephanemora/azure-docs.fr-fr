@@ -149,6 +149,8 @@
               href: azure-netapp-files-configure-export-policy.md
             - name: Configurer des autorisations Unix et modifier le mode de propriété
               href: configure-unix-permissions-change-ownership-mode.md
+            - name: Configurer les fonctionnalités réseau d’un volume
+              href: configure-network-features.md
         - name: Monter ou démonter un volume
           items:
             - name: Monter ou démonter un volume
@@ -221,6 +223,8 @@
           href: troubleshoot-capacity-pools.md
         - name: Résoudre les problèmes de réplication interrégion
           href: troubleshoot-cross-region-replication.md
+        - name: Résoudre les problèmes provenant d’erreurs de volume
+          href: troubleshoot-volumes.md
         - name: Résoudre les problèmes des volumes SMB ou à deux protocoles
           href: troubleshoot-dual-protocol-volumes.md
         - name: Résoudre les problèmes des volumes Kerberos NFSv4.1

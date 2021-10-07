@@ -730,6 +730,8 @@
           href: howto-hyperscale-restart.md
         - name: Superviser
           items:
+            - name: Afficher les mesures
+              href: howto-hyperscale-monitoring.md
             - name: Créer des alertes sur les mesures
               href: howto-hyperscale-alert-on-metric.md
               dispalyName: alerts on hyperscale
