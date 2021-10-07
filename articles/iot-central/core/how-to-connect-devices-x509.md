@@ -102,7 +102,7 @@ Après avoir enregistré le groupe d’inscriptions, prenez note de l’étendue
 
 ### <a name="run-sample-device-code&quot;></a>Exécuter l’exemple de code d’appareil
 
-:::zone pivot=&quot;programming-language-csharp&quot;
+:::zone pivot="programming-language-csharp"
 
 Si vous utilisez Windows, les certificats X.509 doivent se trouver dans le magasin de certificats Windows pour que l’exemple fonctionne. Pour ajouter des certificats dans le magasin :
 
