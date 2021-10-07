@@ -3,7 +3,7 @@ title: Enregistrement des événements sur Azure Event Hubs dans Gestion des API
 description: Découvrez comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure. Event Hubs est un service hautement évolutif d’entrée de données.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
@@ -12,18 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: apimpm
-ms.openlocfilehash: dc36caf8e00a3f23928b95eedc2574072f9c474d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.author: danlep
+ms.openlocfilehash: 80a518b7db0f28e92a421189d111bde2e82875ec
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532320"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591878"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
 Les concentrateurs d'événements Azure sont un service d'entrée de données hautement évolutif qui peut traiter des millions d'événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d'événements fonctionnent comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, elles peuvent être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification.
 
-Cet article, qui complète la vidéo [Intégrer la gestion des API Azure avec Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) , explique comment consigner les événements Gestion des API à l’aide d’Azure Event Hubs.
+Cet article décrit comment consigner les événements de Gestion des API à l’aide d’Azure Event Hubs.
 
 ## <a name="create-an-azure-event-hub"></a>Création d'un hub d'événements Azure
 

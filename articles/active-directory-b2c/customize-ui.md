@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/15/2021
 ms.custom: project-no-code, b2c-support
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cf4e674e1aca47b0f1ea4fa05aae110f8270b721
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 583c9fb66708cee46cbd0b7c7f341c1a6a9b7a55
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688893"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128575310"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur dans Azure Active Directory B2C
 
@@ -72,7 +72,8 @@ L'exemple suivant présente une page *Inscription et connexion* comportant un lo
 ::: zone pivot="b2c-user-flow"
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Flux d’utilisateurs**.
 1. Sélectionnez le flux d'utilisateurs que vous souhaitez personnaliser.
@@ -198,7 +199,8 @@ Pour personnaliser vos pages de flux d'utilisateurs, vous devez d'abord configur
 Commencez par définir le logo de bannière, l’image d’arrière-plan et la couleur d’arrière-plan dans **Marque de la société**.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Marque de la société**.
 1. Suivez les étapes décrites dans [Personnaliser la page de connexion Azure Active Directory de votre organisation](../active-directory/fundamentals/customize-branding.md).
@@ -210,10 +212,9 @@ Lorsque vous configurez la marque de la société dans Azure AD B2C, gardez à l
 * Le logo de bannière apparaît dans les e-mails de vérification envoyés aux utilisateurs quand ceux-ci démarrent un flux utilisateur d’inscription.
 
 
+::: zone pivot="b2c-user-flow"
 
 ## <a name="enable-company-branding-in-user-flow-pages"></a>Activer la marque de la société dans les pages de flux d'utilisateurs
-
-::: zone pivot="b2c-user-flow"
 
 Une fois que vous avez configuré la marque de la société, activez-la dans vos flux utilisateur.
 
@@ -231,6 +232,8 @@ Si vous souhaitez personnaliser toutes les pages du flux utilisateur, définisse
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="enable-company-branding-in-custom-policy-pages"></a>Activer la personnalisation de la société dans les pages de stratégie personnalisée
 
 Après avoir configuré la marque de la société, activez-la dans votre stratégie personnalisée. Configurez la [version de la mise en page](contentdefinitions.md#migrating-to-page-layout) avec la version `contract` de la page pour *toutes* les définitions de contenu de votre stratégie personnalisée. Le format de la valeur doit contenir le mot `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. Pour spécifier une mise en page dans vos stratégies personnalisées qui utilisent une ancienne valeur de **DataUri**, procédez comme suit. Pour plus d'informations, apprenez à [migrer vers la mise en page](contentdefinitions.md#migrating-to-page-layout) avec la version de la page.
 

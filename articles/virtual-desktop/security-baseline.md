@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b9a0d2b785f98555d723c81c6beecaa85313881e
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 0adc8638eeffedf1f8b2b31357b43fc38e67773f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114728654"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546330"
 ---
 # <a name="azure-security-baseline-for-azure-virtual-desktop"></a>Base de référence de sécurité Azure pour Azure Virtual Desktop
 
@@ -40,7 +40,7 @@ Pour les groupes de sécurité réseau associés aux sous-réseaux de votre mach
 
 - [Renforcement du réseau adaptatif dans Azure Security Center](../security-center/security-center-adaptive-network-hardening.md) 
 
-- [Pare-feu Azure pour Azure Virtual Desktop](../firewall/protect-windows-virtual-desktop.md)
+- [Pare-feu Azure pour Azure Virtual Desktop](../firewall/protect-azure-virtual-desktop.md)
 
 - [Comment créer un groupe de sécurité réseau avec des règles de sécurité](../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -640,9 +640,7 @@ Les sources de données à examiner comprennent les sources de journalisation ce
 
 Azure Sentinel fournit des analyses de données approfondies sur pratiquement toutes les sources de journal et un portail de gestion des cas pour gérer le cycle de vie complet des incidents. Les renseignements obtenus au cours d’une enquête peuvent être associés à un incident à des fins de suivi et de rapport. 
 
-- [Capture instantanée du disque d’un ordinateur Windows](../virtual-machines/windows/snapshot-copy-managed-disk.md)
-
-- [Capture instantanée du disque d’un ordinateur Linux](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Instantané du disque d’un ordinateur](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
 - [Collecte de l’image mémoire et des informations de diagnostic par le support Microsoft Azure](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 

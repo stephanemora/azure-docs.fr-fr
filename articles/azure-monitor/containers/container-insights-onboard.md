@@ -3,25 +3,24 @@ title: Activer Container Insights | Microsoft Docs
 description: Cet article explique comment activer et configurer Container Insights afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e0544232f40e93cce0705fff6814d29697a96218
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 04bc88034c3537431c4c1972611d0c4d93e4cda4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782114"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631397"
 ---
 # <a name="enable-container-insights"></a>Activer Container Insights
 
 Cet article offre un aperçu des options disponibles pour configurer Container Insights en vue de surveiller les performances des charges de travail qui sont déployées dans un environnement Kubernetes et hébergées sur :
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
-- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versions 3.x et 4.x  
-- [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x  
-- Un [cluster Kubernetes avec Arc](../../azure-arc/kubernetes/overview.md)
+- [Cluster Kubernetes avec Arc](../../azure-arc/kubernetes/overview.md)
+   - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) ou localement
+   - [Moteur AKS](https://github.com/Azure/aks-engine)
+   - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x  
+   - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x  
 
-Vous pouvez également superviser les performances des charges de travail déployées sur des clusters Kubernetes auto-gérés hébergés sur :
-- Azure, à l’aide du [moteur AKS](https://github.com/Azure/aks-engine)
-- [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) ou localement, à l’aide du moteur AKS.
 
 Vous pouvez activer Container Insights pour un nouveau déploiement ou pour un ou plusieurs déploiements existants de Kubernetes à l’aide de l’une des méthodes prises en charge suivantes :
 
@@ -29,6 +28,8 @@ Vous pouvez activer Container Insights pour un nouveau déploiement ou pour un o
 - Azure PowerShell
 - L’interface Azure CLI
 - [Terraform et AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
+
+Pour tout cluster kubernetes non AKS, vous devez d’abord connecter votre cluster à [Azure Arc](../../azure-arc/kubernetes/overview.md) avant d’activer la supervision.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -71,7 +72,8 @@ Avant de commencer, vérifiez que vous respectez les exigences suivantes :
 Container Insights prend officiellement en charge les configurations suivantes :
 
 - Environnements : Azure Red Hat OpenShift, Kubernetes local et le moteur AKS sur Azure et Azure Stack. Pour plus d’informations, consultez [Moteur AKS sur Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
-- Les versions de Kubernetes et de la stratégie de prise en charge sont les mêmes que celles [prises en charge dans Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md). 
+- Les versions de Kubernetes et de la stratégie de prise en charge sont les mêmes que celles [prises en charge dans Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md).
+- Nous vous recommandons de connecter votre cluster à [Azure Arc](../../azure-arc/kubernetes/overview.md) et d’activer la supervision par l’intermédiaire de Container Insights via Azure Arc.
 
 ## <a name="network-firewall-requirements"></a>Configuration requise du pare-feu réseau
 
@@ -125,15 +127,14 @@ Pour activer Container Insights, utilisez l’une des méthodes décrites dans l
 | | [Créer un cluster AKS à l’aide de Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Vous pouvez activer la supervision d’un nouveau cluster AKS que vous créez à l’aide de l’outil open source Terraform. |
 | | [Créer un cluster OpenShift à l’aide d’un modèle Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | Vous pouvez activer la supervision d’un cluster OpenShift que vous créez à l’aide d’un modèle Azure Resource Manager préconfiguré. |
 | | [Créer un cluster OpenShift à l’aide d’Azure CLI](/cli/azure/openshift#az_openshift_create) | Vous pouvez activer la supervision quand vous déployez un nouveau cluster OpenShift à l’aide d’Azure CLI. |
-| Cluster Kubernetes existant | [Activer la supervision d’un cluster AKS à l’aide d’Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Vous pouvez activer la supervision d’un cluster AKS déjà déployé à l’aide d’Azure CLI. |
+| Cluster AKS existant | [Activer la supervision d’un cluster AKS à l’aide d’Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Vous pouvez activer la supervision d’un cluster AKS déjà déployé à l’aide d’Azure CLI. |
 | |[Activer pour un cluster AKS à l’aide de Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Vous pouvez activer la supervision d’un cluster AKS déjà déployé à l’aide de l’outil open source Terraform. |
 | | [Activer pour un cluster AKS à partir d’Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Vous pouvez activer la supervision d’un ou plusieurs clusters AKS déjà déployés à partir de la page multi-cluster dans Azure Monitor. |
 | | [Activer à partir du cluster AKS](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| Vous pouvez activer la surveillance directement depuis un cluster AKS dans le portail Azure. |
 | | [Activer pour un cluster AKS à l’aide d’un modèle Azure Resource Manager](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| Vous pouvez activer la supervision d’un cluster AKS à l’aide d’un modèle Azure Resource Manager préconfiguré. |
-| | [Activer pour le cluster Kubernetes hybride](container-insights-hybrid-setup.md) | Vous pouvez activer la supervision pour le moteur AKS qui est hébergé sur Azure Stack ou pour un cluster Kubernetes hébergé localement. |
-| | [Activer pour un cluster Kubernetes avec Arc activé](container-insights-enable-arc-enabled-clusters.md). | Vous pouvez activer la supervision de vos clusters Kubernetes qui sont hébergés en dehors d’Azure et qui sont activés avec Azure Arc. |
-| | [Activer pour un cluster OpenShift à l’aide d’un modèle Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | Vous pouvez activer la supervision d’un cluster OpenShift existant à l’aide d’un modèle Azure Resource Manager préconfiguré. |
-| | [Activer pour un cluster OpenShift à partir d’Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | Vous pouvez activer la supervision d’un ou plusieurs clusters OpenShift déjà déployés à partir de la page multi-cluster dans Azure Monitor. |
+| Cluster Kubernetes non AKS existant | [Activer pour un cluster Kubernetes non AKS à l’aide d’Azure CLI](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-cli) | Vous pouvez activer la supervision de vos clusters Kubernetes qui sont hébergés en dehors d’Azure et dotés d’Azure Arc, y compris les clusters hybrides, OpenShift et multiclouds, à l’aide d’Azure CLI. |
+| | [Activer pour un cluster Kubernetes non AKS à l’aide d’un modèle Azure Resource Manager](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-resource-manager) | Vous pouvez activer la supervision de vos clusters avec Azure Arc à l’aide d’un modèle Azure Resource Manager préconfiguré. |
+| | [Activer pour un cluster Kubernetes non AKS à partir d’Azure Monitor](container-insights-enable-arc-enabled-clusters.md#create-extension-instance-using-azure-portal) | Vous pouvez activer la supervision d’un ou plusieurs clusters avec Azure Arc déjà déployés à partir de la page multi-cluster dans Azure Monitor. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 03/23/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4042ce416b2af83447af283d21c059050b9a144c
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 8ef9dca3604be281ccedf4d6f1af3e7861273e6b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866588"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590719"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
@@ -174,10 +174,10 @@ Pour afficher ou gérer les paramètres d’un appareil dans le portail Azure, v
 
 - **Administrateurs locaux supplémentaires sur les appareils joints à Azure AD** : vous pouvez sélectionner les utilisateurs qui peuvent disposer de droits d’administrateur local sur un appareil. Ces utilisateurs sont ajoutés au rôle *Administrateurs d’appareils* dans Azure AD. Les administrateurs généraux Azure AD et les propriétaires d’appareils bénéficient de droits d’administrateur local par défaut. Cette option est une fonctionnalité de l’édition Premium disponible dans les produits comme Azure AD Premium ou EMS (Enterprise Mobility Suite).
 - **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD** : vous devez configurer ce paramètre pour permettre l’inscription des appareils Windows 10 Personnel, iOS, Android et macOS dans Azure AD. Si vous sélectionnez **Aucun**, les appareils ne peuvent pas être inscrits dans Azure AD. L’inscription auprès de Microsoft Intune ou de la Gestion des appareils mobiles (MDM) pour Microsoft 365 nécessite l’enregistrement de l’appareil. Si vous avez configuré l’un de ces services, l’option **TOUS** est sélectionnée et l’option **AUCUN** est désactivée.
-- **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** (Les appareils qui doivent être joints ou inscrits à Azure AD nécessitent l’authentification multifacteur) : vous pouvez déterminer si les utilisateurs doivent indiquer un facteur d’authentification supplémentaire pour joindre ou inscrire leurs appareils à Azure AD. La valeur par défaut est **No**. Il est recommandé d’exiger l’authentification multifacteur au moment de l’inscription ou de la jointure d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les différents services Azure AD Multi-Factor Authentication, consultez [Bien démarrer avec Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
+- **Exiger une authentification multifacteur pour inscrire ou joindre des appareils avec Azure AD** : vous pouvez déterminer si les utilisateurs doivent indiquer un facteur d’authentification supplémentaire pour joindre ou inscrire leur appareil à Azure AD. La valeur par défaut est **No**. Il est recommandé d’exiger l’authentification multifacteur au moment de l’inscription ou de la jointure d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les différents services Azure AD Multi-Factor Authentication, consultez [Bien démarrer avec Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> Le paramètre **Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication** (Les appareils qui doivent être joints ou inscrits à Azure AD nécessitent l’authentification multifacteur) s’applique aux appareils joints à Azure AD (sauf exception) et aux appareils inscrits à Azure AD. Il ne s’applique ni aux appareils à jointure hybride Azure AD, ni aux [machines virtuelles à jointure Azure AD dans Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure), ni aux appareils à jointure Azure AD suivant le [mode de déploiement automatique Windows Autopilot](/mem/autopilot/self-deploying).
+> Le paramètre **Exiger une authentification multifacteur pour inscrire ou joindre des appareils avec Azure AD** s’applique aux appareils joints à Azure AD (sauf exception) et aux appareils inscrits auprès d’Azure AD. Il ne s’applique ni aux appareils à jointure hybride Azure AD, ni aux [machines virtuelles à jointure Azure AD dans Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure), ni aux appareils à jointure Azure AD suivant le [mode de déploiement automatique Windows Autopilot](/mem/autopilot/self-deploying).
 
 > [!IMPORTANT]
 > - Nous vous recommandons d’utiliser l’action de l’utilisateur [« Inscrire ou joindre des appareils »](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) dans l’accès conditionnel pour appliquer l’authentification multifacteur pour la jonction ou l’inscription d’un appareil. 

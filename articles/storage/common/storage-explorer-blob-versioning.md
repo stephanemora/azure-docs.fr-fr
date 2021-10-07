@@ -2,17 +2,17 @@
 title: Guide du contrôle de version des blobs d’Explorateur Stockage Azure | Microsoft Docs
 description: Guide de contrôle de version des blobs pour Explorateur Stockage Azure
 services: storage
-author: chuye
+author: JasonYeMSFT
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfff19eee4c852e336d0d943a9509d286d510347
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92783825"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626681"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Guide du contrôle de version des blobs d’Explorateur Stockage Azure
 
@@ -62,7 +62,7 @@ Dans cette vue, Explorateur Stockage affiche :
 
 - Blobs sans version actifs
 - Versions actuelles
-- Versions précédentes actives les plus récentes. 
+- Versions précédentes actives les plus récentes.
 
 Pour les blobs qui n’ont pas de version actuelle, mais qui ont une version précédente active, Explorateur Stockage affiche leur version précédente active la plus récente comme représentation de ce blob.
 
@@ -73,13 +73,13 @@ Dans cette vue, Explorateur Stockage affiche :
 - Blobs sans version actifs
 - Blobs sans version supprimés de manière réversible
 - Versions actuelles
-- Versions précédentes les plus récentes. 
+- Versions précédentes les plus récentes.
 
 Pour les blobs qui n’ont pas de version actuelle, Explorateur Stockage affiche leur version précédente la plus récente comme représentation de ce blob.
 
-> [!Note]
+> [!NOTE]
 > En raison de la limitation du service, Explorateur Stockage nécessite un traitement supplémentaire pour obtenir une vue hiérarchique de vos répertoires virtuels lors du listage des versions de blob. Il faudra plus de temps pour répertorier les blobs dans les vues suivantes :
-> 
+>
 > - Blobs actifs et blobs sans la version actuelle
 > - Tous les blobs et blobs sans la version actuelle
 
@@ -117,5 +117,6 @@ Chaque version de blob a son propre niveau d’accès. Pour modifier le niveau d
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Contrôle de version des blobs](../blobs/versioning-overview.md)
-* [Suppression réversible pour les objets blob](../blobs/soft-delete-blob-overview.md)
+- [Contrôle de version des blobs](../blobs/versioning-overview.md)
+- [Suppression réversible pour les objets blob](../blobs/soft-delete-blob-overview.md)
+- [Guide de suppression réversible Explorateur Stockage Azure](./storage-explorer-soft-delete.md)

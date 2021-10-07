@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Consultez comment récupérer, mettre à jour et supprimer des jumeaux et des relations individuels.
 author: baanders
 ms.author: baanders
-ms.date: 10/21/2020
+ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0873d6f0bfff73fc0bdc44ce90b322af23d4df28
-ms.sourcegitcommit: d858083348844b7cf854b1a0f01e3a2583809649
+ms.openlocfilehash: 4be8ef1085d6a940e7f2d95f43a75d1b4e7c11f8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122835732"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611685"
 ---
 # <a name="manage-digital-twins"></a>Gérer des jumeaux numériques
 
@@ -40,14 +40,13 @@ Pour créer un jumeau, vous utilisez la méthode `CreateOrReplaceDigitalTwinAsyn
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwinCall":::
 
 Pour créer un jumeau numérique, vous devez fournir les éléments suivants :
-* ID souhaité pour le jumeau numérique, que vous définissez ici
+* Une valeur d’identifiant que vous souhaitez attribuer au jumeau numérique (vous définissez cet identifiant lors de la création du jumeau)
 * Le [modèle](concepts-models.md) à utiliser
-
-Si vous le souhaitez, vous pouvez fournir des valeurs initiales pour toutes les propriétés du jumeau numérique. Les propriétés sont traitées comme facultatives et peuvent être définies ultérieurement, mais **elles ne s’affichent pas dans le cadre d’un jumeau tant qu’elles n’ont pas été définies.**
-
->[!NOTE]
->Bien que les propriétés de jumeau ne doivent pas obligatoirement être initialisées, tous les [composants](concepts-models.md#elements-of-a-model) sur les jumeaux **doivent** être définis lors de la création du jumeau. Il peut s’agir d’objets vides, mais les composants proprement dits doivent exister.
-
+* Toute initialisation souhaitée des données de jumeau, y compris…
+    - Les propriétés (facultatives pour l’initialisation) : si vous le souhaitez, vous pouvez définir les valeurs initiales des propriétés du jumeau numérique. Les propriétés sont considérées comme facultatives et peuvent être définies ultérieurement, mais notez qu’**elles ne s’affichent pas dans le cadre d’un jumeau tant qu’elles n’ont pas été définies**.
+    - La télémétrie (recommandée pour l’initialisation) : vous pouvez également définir les valeurs initiales des champs de télémétrie sur le jumeau. Bien que l’initialisation de la télémétrie ne soit pas obligatoire, les champs de télémétrie ne s’affichent pas non plus dans le cadre d’un jumeau tant qu’ils n’ont pas été définis. Cela signifie que **vous ne pourrez pas modifier les valeurs de télémétrie pour un jumeau, sauf si elles ont d’abord été initialisées**.
+    - Les composants (obligatoires pour l’initialisation s’ils sont présents sur le jumeau) : si votre jumeau contient des [composants](concepts-models.md#elements-of-a-model), ceux-ci doivent être initialisés lors de la création du jumeau. Il peut s’agir d’objets vides, mais les composants proprement dits doivent exister.
+    
 Le modèle et les éventuelles valeurs des propriétés initiales sont fournis par le biais du paramètre `initData`, qui est une chaîne JSON contenant les données pertinentes. Pour plus d’informations sur la structuration de cet objet, passez à la section suivante.
 
 > [!TIP]
@@ -146,7 +145,7 @@ Pour plus d’informations sur les classes d’assistance de sérialisation comm
 
 ## <a name="view-all-digital-twins"></a>Supprimer tous les jumeaux numériques
 
-Pour afficher tous les représentations numériques présents dans votre instance, utilisez une [requête](how-to-query-graph.md). Vous pouvez exécuter une requête avec les [API de requête](/rest/api/digital-twins/dataplane/query) ou les [commandes CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+Pour afficher tous les représentations numériques présents dans votre instance, utilisez une [requête](how-to-query-graph.md). Vous pouvez exécuter une requête avec les [API de requête](/rest/api/digital-twins/dataplane/query) ou les [commandes CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query).
 
 Voici le corps de la requête de base qui retourne la liste de tous les jumeaux numériques dans l’instance :
 

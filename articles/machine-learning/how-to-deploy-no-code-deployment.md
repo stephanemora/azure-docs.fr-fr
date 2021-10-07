@@ -5,20 +5,18 @@ description: Aucun déploiement de code ne vous permet de déployer un modèle e
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 094005b471bd1f4ea996defddf1f080481fa7c7b
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 80dd7b06b725e4e30aa51eaabede4e6a91c69554
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296390"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649319"
 ---
-# <a name="preview-no-code-model-deployment"></a>(Préversion) Modèle de déploiement sans code
+# <a name="no-code-model-deployment-preview"></a>Modèle de déploiement sans code (préversion)
 
 Le modèle de déploiement sans code est actuellement en version préliminaire et prend en charge les infrastructures d’apprentissage automatique suivants :
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/29/2020
+ms.date: 09/13/2021
 ms.author: duau
-ms.openlocfilehash: 977a0d3eb0081818c0afe4f544dd33169cea0e95
-ms.sourcegitcommit: 4f185f97599da236cbed0b5daef27ec95a2bb85f
+ms.openlocfilehash: 1fb1aafed996fa79177157f6c20e6727ee532e7d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112370470"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563112"
 ---
 # <a name="caching-with-azure-front-door"></a>Mise en cache avec Azure Front Door
 Le document suivant explique comment spécifier les comportements d’une porte d’entrée à l’aide de règles de routage ayant la mise en cache activée. Front Door est un réseau de distribution de contenu (CDN) moderne qui, outre l’accélération de site dynamique et l’équilibrage de charge, prend en charge les comportements de mise en cache comme n’importe quel autre CDN.
@@ -81,6 +81,9 @@ Ces profils prennent en charge les encodages de compression suivants :
 Si une demande prend en charge la compression gzip et Brotli, la compression Brotli est prioritaire.</br>
 Quand une demande portant sur un élément multimédia spécifie une compression et qu’il en résulte une absence dans le cache, Front Door compresse l’élément multimédia directement sur le serveur POP. Ensuite, le fichier compressé est servi à partir du cache. L’élément qui en résulte est retourné avec un encodage de transfert : segmenté.
 
+> [!NOTE]
+> Les demandes de plage peuvent être compressées dans différentes tailles. Azure Front Door requiert que les valeurs Content-Length soient identiques pour toute requête HTTP GET. Si les clients envoient des demandes de plage d’octets avec l’en-tête `accept-encoding` qui amène l’origin à répondre avec des longueurs de contenu différentes, alors Azure Front Door renvoie une erreur 503. Vous pouvez soit désactiver la compression sur Origin/Azure Front Door, soit créer une règle Ensemble de règles pour supprimer `accept-encoding` de la requête pour les demandes de plage d’octets.
+
 ## <a name="query-string-behavior"></a>Comportement des chaînes de requête
 Avec Front Door, vous pouvez contrôler la manière dont les fichiers sont mis en cache pour une requête web qui contient une chaîne de requête. Dans une requête web contenant une chaîne de requête, la chaîne de requête représente la partie de la demande qui apparaît après le point d’interrogation (?). Une chaîne de requête peut contenir une ou plusieurs paires clé-valeur où le nom du champ et sa valeur sont séparés par un signe égal (=). Chaque paire clé-valeur est séparée par une esperluette (&). Par exemple : `http://www.contoso.com/content.mov?field1=value1&field2=value2`. S’il existe plusieurs paires clé-valeur dans la chaîne de requête d’une demande, leur ordre n’a pas d’importance.
 - **Ignorer les chaînes de requête** : Dans ce mode, Front Door transmet les chaînes de requête du demandeur au backend à la première demande et met en cache l’élément multimédia. Toutes les demandes subséquentes portant sur l’élément multimédia, qui sont traitées par l’environnement Front Door, ignorent les chaînes de requête tant que l’élément multimédia mis en cache n’est pas arrivé à expiration.
@@ -121,11 +124,20 @@ Les en-têtes de demande suivants ne sont pas transférés à un serveur princip
 - Content-Length
 - Transfer-Encoding
 
-## <a name="cache-duration"></a>Durée du cache
+## <a name="cache-behavior-and-duration"></a>Comportement et durée de mise en cache
 
-La durée du cache peut être configurée à la fois dans le concepteur Front Door et dans Rules Engine. La durée du cache définie dans le concepteur Front Door correspond à la durée minimale du cache. Ce remplacement ne fonctionnera pas si l’en-tête de contrôle du cache de l’origine a une durée de vie supérieure à la valeur de remplacement. 
+Le comportement et la durée de la mise en cache peuvent être configurés à la fois dans la règle d’acheminement du concepteur Front Door et dans le moteur de règles. La configuration de la mise en cache du moteur de règles aura toujours la priorité sur la configuration de la règle d’acheminement du concepteur Front Door.
 
-La durée du cache définie via le moteur de règles est un véritable remplacement de cache, ce qui signifie qu’elle utilise la valeur de remplacement, quelle que soit l’en-tête de réponse d’origine.
+* Lorsque la *mise en cache* est **désactivée**, Front Door ne met pas en cache le contenu de la réponse, quelles que soient les directives de réponse de l’origin.
+
+* Lorsque la *mise en cache* est **activée**, le comportement de mise en cache est différent selon les valeurs de l’option *Utiliser la durée de mise en cache par défaut*.
+    * Lorsque l’option *Utiliser la durée de mise en cache par défaut* est définie sur **Oui**, Front Door respecte toujours la directive d’en-tête de réponse de l’origin. Si la directive de l’origin est absente, Front Door mettra le contenu en cache entre un et trois jours.
+    * Lorsque l’option *Utiliser la durée de mise en cache par défaut* est définie sur **Non**, Front Door utilise toujours la *durée de mise en cache* (champs obligatoires), ce qui signifie qu’il met en cache le contenu pendant la durée de mise en cache en ignorant les valeurs des directives de réponse de l’origin. 
+
+> [!NOTE]
+> * La *durée de mise en cache* définie dans la règle d’acheminement du concepteur Front Door correspond à la **durée minimale de mise en cache**. Ce remplacement ne fonctionnera pas si l’en-tête de contrôle du cache de l’origin a une durée de vie supérieure à la valeur de remplacement.
+> * Les contenus mis en cache peuvent être supprimés d’Azure Front Door avant leur expiration s’ils ne sont pas demandés aussi fréquemment, afin de faire de la place pour des contenus plus fréquemment demandés.
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

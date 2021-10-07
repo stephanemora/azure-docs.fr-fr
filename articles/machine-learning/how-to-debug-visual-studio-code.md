@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 08/11/2021
-ms.openlocfilehash: 4488670a5dfbedf22fa2880d6e4093c4fbfa52b9
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.date: 09/16/2021
+ms.openlocfilehash: 78726daeb82b652bb162eb1d9b165521cccb62c0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527822"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591612"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Débogage interactif avec Visual Studio Code
 
@@ -29,7 +29,7 @@ Utilisez l’extension Azure Machine Learning pour valider, exécuter et débogu
 * Extension VS Code Azure Machine Learning (préversion). Pour plus d’informations, consultez [Configurer l’extension VS Code Azure Machine Learning](how-to-setup-vs-code.md).
 
     > [!IMPORTANT]
-    > L’extension Azure Machine Learning pour VS Code utilise l’interface CLI (v2) par défaut. Les instructions de ce guide utilisent l’interface CLI 1.0. Pour passer à l’interface CLI 1.0, définissez le paramètre `azureML.CLI Compatibility Mode` dans Visual Studio Code sur `1.0`. Pour plus d’informations sur la modification de vos paramètres dans Visual Studio, consultez la [documentation sur les paramètres de l’utilisateur et de l’espace de travail](https://code.visualstudio.com/docs/getstarted/settings).
+    > L’extension Azure Machine Learning pour VS Code utilise l’interface CLI (v2) par défaut. Les instructions de ce guide utilisent l’interface CLI 1.0. Pour passer à l’interface CLI 1.0, définissez le paramètre `azureML.CLI Compatibility Mode` dans Visual Studio Code sur `1.0`. Pour plus d’informations sur la modification de vos paramètres dans Visual Studio Code, consultez la [documentation sur les paramètres de l’utilisateur et de l’espace de travail](https://code.visualstudio.com/docs/getstarted/settings).
 
 * [Docker](https://www.docker.com/get-started)
   * Docker Desktop pour Mac et Windows
@@ -46,7 +46,10 @@ Utilisez l’extension Azure Machine Learning pour valider, exécuter et débogu
 ### <a name="debug-experiment-locally"></a>Déboguer une expérience localement
 
 > [!IMPORTANT]
-> Avant d’exécuter votre expérience localement, assurez-vous que Docker est en cours d’exécution.
+> Avant d’exécuter votre expérience localement, assurez-vous des points suivants :
+>
+> * Docker fonctionne.
+> * Le paramètre `azureML.CLI Compatibility Mode` de Visual Studio Code est défini sur `1.0` comme indiqué dans les prérequis.
 
 1. Dans VS Code, ouvrez l’affichage de l’extension Azure Machine Learning.
 1. Développez le nœud d’abonnement contenant votre espace de travail. Si vous n’en avez pas encore, vous pouvez [créer un espace de travail Azure Machine Learning](how-to-manage-resources-vscode.md#create-a-workspace) à l’aide de l’extension.

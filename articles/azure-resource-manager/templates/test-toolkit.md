@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 07/16/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c53ede7df0fd8ba24ef82e7de5a793a4e55f204
-ms.sourcegitcommit: e2fa73b682a30048907e2acb5c890495ad397bd3
+ms.openlocfilehash: c02d7183304ec3474427bf1687d67d7dd7058d44
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114393274"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128576653"
 ---
 # <a name="use-arm-template-test-toolkit"></a>Utiliser un kit de ressources de test de modèle ARM
 
@@ -24,6 +24,10 @@ Le kit de ressources contient quatre ensembles de tests :
 - [Cas de test pour les fichiers de paramètres](parameter-file-test-cases.md)
 - [Cas de test pour createUiDefinition.json](createUiDefinition-test-cases.md)
 - [Cas de test pour tous les fichiers](all-files-test-cases.md)
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur le kit de ressources de test de modèle ARM et pour obtenir une aide pratique, consultez [Valider des ressources Azure à l’aide du kit de ressources de test de modèle ARM](/learn/modules/arm-template-test) sur **Microsoft Learn**.
 
 ## <a name="install-on-windows"></a>Installer sur Windows
 

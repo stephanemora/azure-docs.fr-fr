@@ -1,39 +1,75 @@
 ---
-title: Ajouter des schémas pour valider du code XML
-description: Ajouter des schémas pour valider les documents XML dans les Applications logiques Azure avec le Pack d’intégration d’entreprise
+title: Ajouter des schémas de validation XML dans des flux de travail
+description: Ajoutez des schémas pour valider les documents XML pour les flux de travail dans Azure Logic Apps à l’aide d’Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.openlocfilehash: dc55e70e9ceaa9546890b2ed7dd5df0d705b1a92
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 09/14/2021
+ms.openlocfilehash: f80ed9c7fa9aa2d291e4f045b6cfc7da695cb22b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099988"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611431"
 ---
-# <a name="add-schemas-to-validate-xml-in-azure-logic-apps"></a>Ajouter des schémas pour valider du code XML dans les Applications logiques Azure
+# <a name="add-schemas-to-validate-xml-documents-for-workflows-in-azure-logic-apps"></a>Ajouter des schémas pour valider les documents XML pour les flux de travail dans Azure Logic Apps
 
-Pour vérifier que les documents utilisent du code XML valide et qu’ils contiennent les données attendues au format prédéfini pour les scénarios d’intégration entreprise dans Azure Logic Apps, votre application logique peut utiliser des schémas. Un schéma peut également valider des messages que les applications logiques échangent dans les scénarios B2B.
+Pour vérifier que les documents utilisent un XML valide et contiennent les données attendues dans le format prédéfini, le flux de travail de votre application logique peut utiliser des schémas XML avec l’action **Validation XML**. Un schéma XML décrit un document d’entreprise qui est représenté en XML à l’aide de la [définition de schéma XML (XSD)](https://www.w3.org/TR/xmlschema11-1/).
 
-Si vous débutez avec les applications logiques, consultez la documentation suivante :
+Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Logic Apps](logic-apps-overview.md) ? Pour plus d’informations sur l’intégration d’entreprise B2B, consultez [Workflows d’intégration d’entreprise B2B avec Azure Logic Apps et Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
-* [En quoi consistent les Applications Azure Logic - Type de ressources et environnements d’hôte ?](logic-apps-overview.md#resource-type-and-host-environment-differences)
+## <a name="prerequisites"></a>Prérequis
 
-* [Créer un flux de travail d’intégration avec des Applications logiques Azure monolocataires (Standard)](create-single-tenant-workflows-azure-portal.md)
+* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* [Créer des flux de travail d’applications logiques monolocataires](create-single-tenant-workflows-azure-portal.md)
+* Pour créer des schémas, vous pouvez utiliser les outils suivants :
 
-* [Modèles de mesure de l’utilisation, de facturation et de tarification pour les Applications logiques Azure](logic-apps-pricing.md)
+  * Visual Studio 2019 et l’extension [Microsoft Azure Logic Apps Enterprise Integration Tools](https://aka.ms/vsenterpriseintegrationtools).
+
+  * Visual Studio 2015 et l’extension [Microsoft Azure Logic Apps Enterprise Integration Tools pour Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas).
+
+   > [!IMPORTANT]
+   > N’installez pas l’extension à côté de l’extension BizTalk Server. Ces deux extensions installées côte à côte risquent d’entraîner un comportement inattendu. Vérifiez que seule l’une de ces extensions est installée.
+
+   > [!NOTE]
+   > Sur les moniteurs à haute résolution, vous risquez de rencontrer un [problème d’affichage avec le concepteur de mappages](/visualstudio/designers/disable-dpi-awareness) dans Visual Studio. Pour résoudre ce problème d’affichage, [redémarrez Visual Studio en mode sans prise en charge DPI](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process) ou ajoutez la [valeur de Registre DPIUNAWARE](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
+
+* Une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) dans laquelle vous définissez et stockez les artefacts, comme les parties, les contrats, les certificats, etc., à utiliser dans vos workflows d’intégration d’entreprise et B2B. Cette ressource doit remplir les conditions suivantes :
+
+  * Associé au même abonnement Azure que votre ressource d’application logique.
+
+  * Existant dans le même emplacement ou la même région Azure que la ressource d’application logique dans laquelle vous envisagez d’utiliser l’action **Validation XML**.
+
+  * Si vous utilisez le [**type de ressource Application logique (Consommation)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), vous devez [lier votre compte d’intégration à votre ressource d’application logique](logic-apps-enterprise-integration-create-integration-account.md#link-account) avant de pouvoir utiliser vos artefacts dans votre workflow.
+
+    Pour l’instant, vous n’avez pas besoin d’une ressource d’application logique pour créer et ajouter des schémas à utiliser dans les flux de travail **Application logique (consommation)** . Toutefois, lorsque vous êtes prêt à utiliser ces schémas dans vos flux de travail, votre ressource d’application logique requiert un compte d’intégration lié qui stocke ces schémas.
+
+  * Si vous utilisez le [type de ressource **Application logique (standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), vous avez besoin d’une ressource d’application logique existante, car vous ne stockez pas de schémas dans votre compte d’intégration. Au lieu de cela, vous pouvez directement ajouter des schémas à votre ressource d’application logique à l’aide du portail Azure ou de Visual Studio Code. Vous pouvez ensuite utiliser ces schémas sur plusieurs flux de travail au sein de la *même ressource d’application logique*.
+
+    Vous avez tout de même besoin d’un compte d’intégration pour stocker d’autres artefacts, tels que les partenaires, les contrats et les certificats, en plus d’utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](logic-apps-enterprise-integration-edifact.md). Toutefois, vous n’avez pas besoin de lier votre ressource d’application logique à votre compte d’intégration ; la fonctionnalité de liaison n’existe donc pas. Votre compte d’intégration doit encore répondre à d’autres exigences, telles que l’utilisation du même abonnement Azure et le même emplacement que votre ressource d’application logique.
+
+    > [!NOTE]
+    > Actuellement, seul le type de ressource **Application logique (Consommation)** prend en charge les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). Le type de ressource **Application logique (Standard)** n’inclut pas les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
+
+* Si la taille de votre schéma est [inférieure ou égale à 2 Mo](#smaller-schema), vous pouvez ajouter votre schéma à votre compte d’intégration *directement* à partir du portail Azure. Toutefois, si la taille de votre schéma est supérieure à 2 Mo, mais qu’elle ne dépasse pas la [taille limite des schémas](logic-apps-limits-and-config.md#artifact-capacity-limits), vous pouvez charger votre schéma vers un compte de stockage Azure. Pour ajouter ce schéma à votre compte d’intégration, vous pouvez associer votre compte de stockage à votre compte d’intégration. Pour cette tâche, voici les éléments dont vous avez besoin :
+
+    | Élément | Description |
+    |------|-------------|
+    | [Compte Azure Storage](../storage/common/storage-account-overview.md) | Dans ce compte, créez un conteneur d’objets blob Azure pour votre shéma. Découvrez comment [créer un compte de stockage](../storage/common/storage-account-create.md). |
+    | Conteneur d’objets blob | Dans ce conteneur, vous pouvez charger votre schéma. Vous aurez également besoin de l’URI de contenu de votre conteneur plus tard, lorsque vous ajouterez le schéma à votre compte d’intégration. Découvrez comment [créer un conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md). |
+    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Cet outil facilite la gestion des comptes de stockage et des conteneurs d’objets blob. Pour utiliser l’Explorateur de stockage, choisissez une étape : <p>- Dans le portail Azure, sélectionnez votre compte de stockage. Dans le menu de votre compte de stockage, sélectionnez **Explorateur Stockage**. <p>- Pour la version de bureau, [téléchargez et installez l’Explorateur de stockage Azure](https://www.storageexplorer.com/). Ensuite, connectez l’Explorateur Stockage à votre compte de stockage en suivant les étapes décrites dans [Prise en main de l’Explorateur Stockage](../vs-azure-tools-storage-manage-with-storage-explorer.md). Pour en savoir plus, consultez [Démarrage rapide : Créer un objet blob dans le stockage d’objets avec l’Explorateur Stockage Azure](../storage/blobs/quickstart-storage-explorer.md).  |
+    |||
+
+  Pour ajouter des schémas de plus grande taille pour le type de ressource [Application logique (consommation)](/rest/api/logic/schemas/create-or-update), vous pouvez également utiliser l’**API REST Azure Logic Apps – Schémas**. Toutefois, pour le type de ressource **Application logique (standard)** , l’API REST Azure Logic Apps n’est pas disponible actuellement.
 
 ## <a name="limits"></a>Limites
 
-* Pour les ressources d’applications logiques **Standard**, il n’existe aucune limite concernant les tailles de fichier de schéma.
+* Pour le type de ressource **Application logique (standard)** , il n’existe aucune limite aux tailles de fichier de schéma.
 
-* Pour les ressources d’applications logiques de **Consommation**, il existe des limites pour les comptes et artefacts d’intégration comme les schémas. Pour plus d’informations, consultez [Informations relatives aux limites et à la configuration pour les Applications logiques Azure](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+* Pour le type de ressource **Application logique (consommation)** , il existe des limites pour les comptes d’intégration et les artefacts comme les schémas. Pour plus d’informations, consultez [Informations relatives aux limites et à la configuration pour les Applications logiques Azure](logic-apps-limits-and-config.md#integration-account-limits).
 
   En règle générale, lorsque vous utilisez un compte d’intégration avec votre workflow et que vous souhaitez valider le code XML, vous ajoutez ou chargez le schéma dans ce compte. Si vous référencez ou importez un schéma absent de votre compte d’intégration, vous pouvez recevoir l’erreur suivante lorsque vous utilisez l’élément `xsd:redefine` :
 
@@ -41,38 +77,11 @@ Si vous débutez avec les applications logiques, consultez la documentation suiv
 
   Pour y remédier, vous devez utiliser l’élément `xsd:import` ou `xsd:include` plutôt que `xsd:redefine`, ou utiliser un URI.
 
-## <a name="prerequisites"></a>Prérequis
-
-* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* Si vous utilisez le type de ressource **Application logique (standard)** , vous n’avez pas besoin de compte d’intégration. Au lieu de cela, vous pouvez ajouter des schémas directement à votre ressource d’application logique dans le portail Azure ou Visual Studio Code. Vous pouvez ensuite utiliser ces schémas sur plusieurs flux de travail au sein de la *même ressource d’application logique*.
-
-* Si vous utilisez le type de ressource **Application logique (Consommation)** , vous devez posséder une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) où vous pouvez stocker vos schémas et autres artefacts à utiliser dans les solutions d’intégration d’entreprise et les solutions B2B. Cette ressource doit remplir les conditions suivantes :
-
-  * Est associé au même abonnement Azure que votre ressource d’application logique.
-
-  * Existe dans le même emplacement ou la même région Azure que la ressource d’application logique dans laquelle vous envisagez d’utiliser l’action de validation XML.
-
-  * Est [liée](logic-apps-enterprise-integration-create-integration-account.md#link-account) à votre ressource d’application logique lorsque vous souhaitez utiliser des schémas.
-
-    Pour créer et ajouter des schémas à utiliser dans les flux de travail d’application logique de consommation, vous n’avez pas encore besoin d’une ressource d’application logique. Toutefois, lorsque vous êtes prêt à utiliser ces schémas dans vos flux de travail, votre ressource d’application logique requiert un compte d’intégration lié qui stocke ces schémas.
-
-* Si la taille de votre schéma est [inférieure ou égale à 2 Mo](#smaller-schema), vous pouvez ajouter votre schéma à votre compte d’intégration *directement* à partir du portail Azure. Toutefois, si la taille de votre schéma est supérieure à 2 Mo, mais qu’elle ne dépasse pas la [taille limite des schémas](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), vous pouvez charger votre schéma vers un compte de stockage Azure. Pour ajouter ce schéma à votre compte d’intégration, vous pouvez associer votre compte de stockage à votre compte d’intégration. Pour cette tâche, voici les éléments dont vous avez besoin :
-
-    | Élément | Description |
-    |------|-------------|
-    | [Compte Azure Storage](../storage/common/storage-account-overview.md) | Dans ce compte, créez un conteneur d’objets blob Azure pour votre shéma. Découvrez comment [créer un compte de stockage](../storage/common/storage-account-create.md). |
-    | Conteneur d’objets blob | Dans ce conteneur, vous pouvez charger votre schéma. Vous aurez également besoin de l’URI de contenu de votre conteneur plus tard, lorsque vous ajouterez le schéma à votre compte d’intégration. Découvrez comment [créer un conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md). |
-    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Cet outil facilite la gestion des comptes de stockage et des conteneurs d’objets blob. Pour utiliser l’Explorateur de stockage, choisissez une étape : <p>- Dans le portail Azure, sélectionnez votre compte de stockage. Dans le menu de votre compte de stockage, sélectionnez **Explorateur Stockage**. <p>- Pour la version de bureau, [téléchargez et installez l’Explorateur de stockage Azure](https://www.storageexplorer.com/). Ensuite, connectez l’Explorateur Stockage à votre compte de stockage en suivant les étapes décrites dans [Prise en main de l’Explorateur Stockage](../vs-azure-tools-storage-manage-with-storage-explorer.md). Pour en savoir plus, consultez [Démarrage rapide : Créer un objet blob dans le stockage d’objets avec l’Explorateur Stockage Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).  |
-    |||
-
-  Pour ajouter des cartes de plus grande taille pour la consommation des ressources d’application logique, vous pouvez également utiliser [API REST Applications logiques Azure - Schémas](/rest/api/logic/schemas/create-or-update). Toutefois, pour les ressources d’application logique Standard, l’API REST Applications logiques Azure n’est pas disponible actuellement.
-
-<a name="add-schemas"></a>
+<a name="add-schema"></a>
 
 ## <a name="add-schemas"></a>Ajouter des schémas
 
-### <a name="consumption-resource"></a>[Ressource de consommation](#tab/consumption-1)
+### <a name="consumption"></a>[Consommation](#tab/consumption)
 
 1. Dans le [portail Azure](https://portal.azure.com) connectez-vous avec les informations d’identification de votre compte Azure.
 
@@ -90,9 +99,9 @@ En fonction de la taille de votre schéma (.xsd), suivez les étapes de chargeme
 
 ### <a name="add-schemas-up-to-2-mb"></a>Ajouter des schémas de taille inférieure ou égale à 2 Mo
 
-1. Sous **Ajouter un schéma**, saisissez un nom pour votre schéma. L’option **Fichier de petite taille** doit rester cochée. À côté de la zone **Schéma**, choisissez l’icône de dossier. Recherchez puis sélectionnez le schéma à charger.
+1. Dans le volet **Ajouter un schéma**, entrez un nom pour votre schéma. L’option **Fichier de petite taille** doit rester cochée. À côté de la zone **Schéma**, choisissez l’icône de dossier. Recherchez puis sélectionnez le schéma à charger.
 
-1. Quand vous êtes prêt, sélectionnez **OK**.
+1. Quand vous avez terminé, sélectionnez **OK**.
 
    Lorsque le chargement de votre schéma est terminé, celui-ci s’affiche dans la liste **Schémas**.
 
@@ -114,7 +123,7 @@ Pour ajouter des schémas plus volumineux, vous pouvez charger votre schéma dan
 
      ![Accès public](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Si votre conteneur d’objets blob ne dispose pas d’un accès public, sélectionnez **Annuler**, puis suivez les étapes fournies plus loin sur cette page : [Charger vers des conteneurs sans accès public](#public-access)
+   * Si votre conteneur d’objets blob ne dispose pas d’un accès public, sélectionnez **Annuler**, puis suivez les étapes fournies plus loin sur cette page : [Charger vers des conteneurs avec un accès public](#public-access)
 
      ![Aucun accès public](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
@@ -152,7 +161,7 @@ Lorsque le chargement de votre schéma est terminé, celui-ci s’affiche dans l
 
 Lorsque le chargement de votre schéma est terminé, celui-ci s’affiche dans la liste **Schémas**. Sur la page **Vue d’ensemble** de votre compte d’intégration, sous **Artefacts**, s’affiche votre schéma téléchargé.
 
-### <a name="standard-resource"></a>[Ressource standard](#tab/standard-1)
+### <a name="standard"></a>[Standard](#tab/standard)
 
 #### <a name="azure-portal"></a>Portail Azure
 
@@ -160,11 +169,11 @@ Lorsque le chargement de votre schéma est terminé, celui-ci s’affiche dans l
 
 1. Dans la barre d’outils du volet **Schémas**, sélectionnez **Ajouter**.
 
-1. Sous **Ajouter un schéma**, saisissez un nom unique pour votre schéma.
+1. Dans le volet **Ajouter un schéma**, saisissez un nom unique pour votre schéma.
 
 1. À côté de la zone **Schéma**, choisissez l’icône de dossier. Sélectionnez le schéma à télécharger.
 
-1. Quand vous êtes prêt, sélectionnez **OK**.
+1. Quand vous avez terminé, sélectionnez **OK**.
 
    Lorsque le chargement de votre schéma est terminé, celui-ci s’affiche dans la liste **Schémas**. Sur la page **Vue d’ensemble** de votre compte d’intégration, sous **Artefacts**, s’affiche également votre schéma téléchargé.
 
@@ -176,11 +185,13 @@ Lorsque le chargement de votre schéma est terminé, celui-ci s’affiche dans l
 
 ---
 
-## <a name="edit-schemas"></a>Modification de schémas
+<a name="edit-schema"></a>
+
+## <a name="edit-a-schema"></a>Modifier un schéma
 
 Pour mettre à jour un schéma existant, vous devez charger un nouveau fichier de schéma qui comporte les modifications souhaitées. Cependant, vous pouvez d’abord télécharger le schéma existant pour le modifier.
 
-### <a name="consumption-resource"></a>[Ressource de consommation](#tab/consumption-2)
+### <a name="consumption"></a>[Consommation](#tab/consumption)
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre compte d’intégration, s’il n’est pas déjà ouvert.
 
@@ -192,9 +203,11 @@ Pour mettre à jour un schéma existant, vous devez charger un nouveau fichier d
 
 1. Recherchez puis sélectionnez le schéma mis à jour que vous souhaitez charger.
 
+1. Quand vous avez terminé, sélectionnez **OK**.
+
    Lorsque le chargement du schéma mis à jour est terminé, celui-ci s’affiche dans la liste **Schémas**.
 
-### <a name="standard-resource"></a>[Ressource standard](#tab/standard-2)
+### <a name="standard"></a>[Standard](#tab/standard)
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez la ressource de votre application logique, si elle n’est pas encore ouverte.
 
@@ -204,19 +217,21 @@ Pour mettre à jour un schéma existant, vous devez charger un nouveau fichier d
 
 1. Dans la barre d’outils du volet **Schémas**, sélectionnez **Ajouter**.
 
-1. Sous **Ajouter un schéma**, saisissez un nom unique pour votre schéma.
+1. Dans le volet **Ajouter un schéma**, saisissez un nom unique pour votre schéma.
 
 1. À côté de la zone **Schéma**, choisissez l’icône de dossier. Sélectionnez le schéma à télécharger.
 
-1. Quand vous êtes prêt, sélectionnez **OK**.
+1. Quand vous avez terminé, sélectionnez **OK**.
 
    Lorsque le chargement du schéma mis à jour est terminé, celui-ci s’affiche dans la liste **Schémas**.
 
 ---
 
-## <a name="delete-schemas"></a>Suppression de schémas
+<a name="delete-schema"></a>
 
-### <a name="consumption-resource"></a>[Ressource de consommation](#tab/consumption-3)
+## <a name="delete-a-schema"></a>Supprimer un schéma
+
+### <a name="consumption"></a>[Consommation](#tab/consumption)
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre compte d’intégration, s’il n’est pas déjà ouvert.
 
@@ -226,7 +241,7 @@ Pour mettre à jour un schéma existant, vous devez charger un nouveau fichier d
 
 1. Pour confirmer que vous souhaitez supprimer le schéma, sélectionnez **Oui**.
 
-### <a name="standard-resource"></a>[Ressource standard](#tab/standard-3)
+### <a name="standard"></a>[Standard](#tab/standard)
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez la ressource de votre application logique, si elle n’est pas encore ouverte.
 

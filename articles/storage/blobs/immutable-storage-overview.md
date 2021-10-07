@@ -10,12 +10,12 @@ ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: ed7a8fb4420108ea76e21e30f14897e5857c0445
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: ca0ec185721b0e35c15dfe99e361ff024cf01a78
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273192"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584205"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Stocker des données blob critiques pour l’entreprise avec un stockage immuable
 
@@ -53,7 +53,7 @@ Le rapport Cohasset est disponible dans le [Centre de gestion de la confidential
 
 Les stratégies d’immuabilité peuvent être étendues à une version d’objet blob (préversion) ou à un conteneur. Dans le cadre d’une stratégie d’immuabilité, le comportement d’un objet dépend de l’étendue de la stratégie. Pour plus d’informations sur l’étendue des stratégies pour chaque type de stratégie d’immuabilité, consultez les sections suivantes :
 
-- [Etendue de la stratégie de rétention limitée dans le temps](immutable-time-based-retention-policy-overview.md#time-based-retention-policy-scope) 
+- [Etendue de la stratégie de rétention limitée dans le temps](immutable-time-based-retention-policy-overview.md#time-based-retention-policy-scope)
 - [Étendue de conservation légale](immutable-legal-hold-overview.md#legal-hold-scope)
 
 Vous pouvez configurer une stratégie de rétention basée sur le temps et une conservation légale pour une ressource (version de conteneur ou d’objet blob), en fonction de l’étendue. Le tableau suivant récapitule les stratégies d’immuabilité prises en charge pour chaque étendue des ressources :
@@ -162,6 +162,19 @@ L’utilisation du stockage immuable en génère pas de frais de capacité suppl
 La création, la modification ou la suppression d’une stratégie de conservation légale ou de rétention limitée dans le temps portant sur une version blob entraîne des frais de transaction d’écriture.
 
 Si vous ne vous acquittez pas de votre facture et que votre compte présente une stratégie de rétention basée sur le temps active, les stratégies de rétention des données classiques s’appliquent comme stipulé dans les conditions générales du contrat Microsoft. Pour obtenir des informations générales, consultez [Gestion des données chez Microsoft](https://www.microsoft.com/trust-center/privacy/data-management).
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)<sup>2</sup>              | ![Oui](../media/icons/yes-icon.png)<sup>2</sup> |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)<sup>2</sup> | ![Oui](../media/icons/yes-icon.png)<sup>2</sup> |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
+
+<sup>2</sup> La fonctionnalité est prise en charge dans la préversion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 01/20/2021
+ms.date: 09/20/2021
 ms.author: tisande
-ms.openlocfilehash: 7468b544f36645609e1da344aef583c33157da7d
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 680b383cee86ec4233579b9305c47e60ad4d5ff4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533183"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625338"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Mots clés dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -102,11 +102,30 @@ Les résultats sont :
 ]
 ```
 
-Les requêtes comprenant une fonction système d’agrégation et une sous-requête avec `DISTINCT` ne sont pas prises en charge. Par exemple, la requête suivante n’est pas prise en charge :
+Les requêtes comprenant une fonction système d’agrégation et une sous-requête avec `DISTINCT` ne sont prises en charge que dans des versions spécifiques du Kit de développement logiciel (SDK). Par exemple, les requêtes avec la forme suivante sont uniquement prises en charge dans les versions du Kit de développement logiciel (SDK) spécifiques suivantes :
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
+
+**Versions prises en charge du Kit de développement logiciel (SDK) :**
+
+|**Kit SDK**|**Versions prises en charge**|
+|-------|----------------------|
+|Kit de développement logiciel (SDK) .NET|3.18.0 ou ultérieure|
+|Kit de développement logiciel (SDK) Java|4.19.0 ou ultérieur|
+|Kit de développement logiciel (SDK) Node.js|Non pris en charge|
+|Kit de développement logiciel (SDK) Python|Non pris en charge|
+
+Il existe certaines restrictions supplémentaires concernant les requêtes comportant une fonction système d’agrégation et une sous-requête avec `DISTINCT` :
+
+|**Restriction**|**Exemple**|
+|-------|----------------------|
+|Clause WHERE dans la requête externe|SELECT COUNT(1) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName WHERE lastName = "Smith"|
+|Clause ORDER BY dans la requête externe|SELECT VALUE COUNT(1) FROM (SELECT DISTINCT VALUE c.lastName FROM c) AS lastName ORDER BY lastName|
+|Clause GROUP BY dans la requête externe|SELECT COUNT(1) as annualCount, d.year FROM (SELECT DISTINCT c.year, c.id FROM c) AS d GROUP BY d.year|
+|Sous-requête imbriquée|SELECT COUNT(1) FROM (SELECT y FROM (SELECT VALUE StringToNumber(SUBSTRING(d.date, 0, 4 FROM (SELECT DISTINCT c.date FROM c) d) AS y WHERE y > 2012)|
+|Agrégations multiples|SELECT COUNT(1) as AnnualCount, SUM(d.sales) as TotalSales FROM (SELECT DISTINCT c.year, c.sales, c.id FROM c) AS d|
 
 ## <a name="like"></a>LIKE
 

@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d4f48f8a8c573ac03f5637b74b740c5710af92b3
-ms.sourcegitcommit: 5d605bb65ad2933e03b605e794cbf7cb3d1145f6
+ms.openlocfilehash: 82f860b78a8c0c4114a2250912fb6ec22e040d71
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122597680"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128606073"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -116,6 +116,7 @@ Vous pouvez gérer les règles d’accès réseau par défaut pour les comptes d
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
+
 ---
 
 ## <a name="grant-access-from-a-virtual-network"></a>Accorder l’accès à partir d’un réseau virtuel
@@ -126,7 +127,7 @@ Activez un [point de terminaison de service](../../virtual-network/virtual-netwo
 
 Chaque compte de stockage prend en charge jusqu’à 200 règles de réseau virtuel qui peuvent être combinées avec des [règles de réseau IP](#grant-access-from-an-internet-ip-range).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Si vous supprimez un sous-réseau qui a été inclus dans une règle réseau, il sera supprimé des règles réseau pour le compte de stockage. Si vous créez un sous-réseau portant le même nom, il n’aura pas accès au compte de stockage. Pour autoriser l’accès, vous devez autoriser explicitement le nouveau sous-réseau dans les règles réseau du compte de stockage.
 
 ### <a name="available-virtual-network-regions"></a>Régions de réseau virtuel disponibles
@@ -252,21 +253,21 @@ Vous pouvez utiliser des règles réseau IP pour autoriser l’accès à partir 
 
 Les restrictions suivantes s’appliquent aux plages d’adresses IP.
 
-- Les règles de réseau IP sont autorisées uniquement pour les adresses IP de l’**internet public**. 
+- Les règles de réseau IP sont autorisées uniquement pour les adresses IP de l’**internet public**.
 
-  Les plages d’adresses IP réservées aux réseaux privés (comme défini dans [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) ne sont pas autorisées dans les règles IP. Les réseaux privés incluent des adresses qui commencent par _10.*_ , _172.16.*_  - _172.31.*_ et _192.168.*_ .
+  Les plages d’adresses IP réservées aux réseaux privés (comme défini dans [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) ne sont pas autorisées dans les règles IP. Les réseaux privés incluent des adresses qui commencent par *10.**, *172.16.** à *172.31.** et *192.168.**.
 
-- Vous devez fournir des plages d’adresses Internet autorisées à l’aide de la [notation CIDR](https://tools.ietf.org/html/rfc4632) sous la forme *16.17.18.0/24* ou sous la forme d’adresses IP individuelles de type *16.17.18.19*. 
+- Vous devez fournir des plages d’adresses Internet autorisées à l’aide de la [notation CIDR](https://tools.ietf.org/html/rfc4632) sous la forme *16.17.18.0/24* ou sous la forme d’adresses IP individuelles de type *16.17.18.19*.
 
-- Les petites plages d’adresses qui utilisent les tailles de préfixe « /31 » ou « /32 » ne sont pas prises en charge. Ces plages doivent être configurées à l’aide des règles d’adresses IP individuelles. 
+- Les petites plages d’adresses qui utilisent les tailles de préfixe « /31 » ou « /32 » ne sont pas prises en charge. Ces plages doivent être configurées à l’aide des règles d’adresses IP individuelles.
 
 - Seules les adresses IPV4 sont prises en charge dans la configuration des règles de pare-feu de stockage.
 
 Les règles de réseau IP ne peuvent pas être utilisées dans les cas suivants :
 
 - Pour restreindre l’accès aux clients situés dans la même région Azure que le compte de stockage.
-  
-  Les règles de réseau IP n’ont aucun effet sur les requêtes provenant de la même région Azure que le compte de stockage. Utilisez des [règles de réseau virtuel](#grant-access-from-a-virtual-network) pour autoriser les requêtes de même région. 
+
+  Les règles de réseau IP n’ont aucun effet sur les requêtes provenant de la même région Azure que le compte de stockage. Utilisez des [règles de réseau virtuel](#grant-access-from-a-virtual-network) pour autoriser les requêtes de même région.
 
 - Pour restreindre l’accès aux clients dans une [région jumelée](../../best-practices-availability-paired-regions.md) qui se trouvent dans un réseau virtuel doté d’un point de terminaison de service.
 
@@ -388,7 +389,6 @@ Les types d’opérations qu’une instance de ressource peut effectuer sur les 
 > [!NOTE]
 > Les règles d’instance de ressource sont actuellement prises en charge uniquement pour Microsoft Azure Synapse Analytics. La prise en charge d’autres services Azure listés dans la section [Accès approuvé basé sur l’identité managée affectée par le système](#trusted-access-system-assigned-managed-identity) de cet article sera disponible dans les semaines à venir.
 
-
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Vous pouvez ajouter ou supprimer des règles de réseau de ressources dans le portail Azure.
@@ -399,11 +399,11 @@ Vous pouvez ajouter ou supprimer des règles de réseau de ressources dans le po
 
 3. Sélectionnez **Mise en réseau** pour afficher la page de configuration de la mise en réseau.
 
-4. Dans la liste déroulante **Type de ressource**, choisissez le type de ressource de votre instance de ressource. 
+4. Dans la liste déroulante **Type de ressource**, choisissez le type de ressource de votre instance de ressource.
 
 5. Dans la liste déroulante **Nom de l’instance**, choisissez l’instance de ressource. Vous pouvez également choisir d’inclure toutes les instances de ressource dans le locataire, l’abonnement ou le groupe de ressources actif.
 
-6. Sélectionnez **Enregistrer** pour enregistrer vos modifications. L’instance de ressource s’affiche dans la section **Instances de ressource** de la page des paramètres réseau. 
+6. Sélectionnez **Enregistrer** pour enregistrer vos modifications. L’instance de ressource s’affiche dans la section **Instances de ressource** de la page des paramètres réseau.
 
 Pour supprimer l’instance de ressource, sélectionnez l’icône de suppression (:::image type="icon" source="media/storage-network-security/delete-icon.png":::) à côté de l’instance de ressource.
 
@@ -551,7 +551,7 @@ az storage account network-rule list \
 <a id="exceptions"></a>
 <a id="trusted-microsoft-services"></a>
 
-## <a name="grant-access-to-trusted-azure-services"></a>Accorder l’accès aux services Azure approuvés 
+## <a name="grant-access-to-trusted-azure-services"></a>Accorder l’accès aux services Azure approuvés
 
 Certains services Azure fonctionnent à partir de réseaux qui ne peuvent pas être inclus dans vos règles de réseau. Vous pouvez accorder à une partie de ces services Azure approuvés l’accès au compte de stockage, mais conserver des règles de réseau pour d’autres applications. Ces services approuvés utilisent ensuite une authentification forte pour se connecter en toute sécurité à votre compte de stockage.
 
@@ -566,7 +566,7 @@ Lorsque vous accordez l’accès à des services Azure approuvés, vous accordez
 
 ### <a name="trusted-access-for-resources-registered-in-your-subscription"></a>Accès approuvé pour les ressources inscrites dans votre abonnement
 
-Les ressources de certains services, **quand ils sont inscrits dans votre abonnement**, peuvent accéder à votre compte de stockage **dans le même abonnement** pour des opérations spécifiques, comme la journalisation ou la sauvegarde.  Le tableau suivant décrit chaque service et les opérations autorisées. 
+Les ressources de certains services, **quand ils sont inscrits dans votre abonnement**, peuvent accéder à votre compte de stockage **dans le même abonnement** pour des opérations spécifiques, comme la journalisation ou la sauvegarde.  Le tableau suivant décrit chaque service et les opérations autorisées.
 
 | Service                  | Nom du fournisseur de ressources     | Opérations autorisées                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -595,7 +595,6 @@ Vous pouvez utiliser la même technique pour un compte sur lequel la fonctionnal
 > [!TIP]
 > La méthode recommandée pour accorder l’accès à des ressources spécifiques consiste à utiliser des règles d’instance de ressource. Pour accorder l’accès à des instances de ressource spécifiques, consultez la section [Accorder l’accès à partir d’instances de ressource Azure (préversion)](#grant-access-specific-instances) de cet article.
 
-
 | Service                        | Nom du fournisseur de ressources                 | Objectif            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Gestion des API Azure           | Microsoft.ApiManagement/service        | Active l’accès au service Gestion des API pour les comptes de stockage derrière un pare-feu à l’aide de stratégies. [Plus d’informations](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy) |
@@ -620,7 +619,7 @@ Vous pouvez utiliser la même technique pour un compte sur lequel la fonctionnal
 
 ## <a name="grant-access-to-storage-analytics"></a>Accorder l’accès à Storage Analytics
 
-Dans certains cas, un accès en lecture aux journaux et aux métriques de ressources est nécessaire en dehors de la limite du réseau. Quand vous configurez l’accès aux services approuvés pour le compte de stockage, vous pouvez autoriser l’accès en lecture aux fichiers journaux ou aux tables de métriques, ou aux deux, en créant une exception de règle de réseau. Pour obtenir des instructions pas à pas, consultez la section **Gérer les exceptions** ci-dessous. Pour en savoir plus sur l’utilisation de Storage Analytics, consultez [Utiliser Azure Storage Analytics pour collecter des données de journaux et de métriques](./storage-analytics.md). 
+Dans certains cas, un accès en lecture aux journaux et aux métriques de ressources est nécessaire en dehors de la limite du réseau. Quand vous configurez l’accès aux services approuvés pour le compte de stockage, vous pouvez autoriser l’accès en lecture aux fichiers journaux ou aux tables de métriques, ou aux deux, en créant une exception de règle de réseau. Pour obtenir des instructions pas à pas, consultez la section **Gérer les exceptions** ci-dessous. Pour en savoir plus sur l’utilisation de Storage Analytics, consultez [Utiliser Azure Storage Analytics pour collecter des données de journaux et de métriques](./storage-analytics.md).
 
 <a id="manage-exceptions"></a>
 

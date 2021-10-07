@@ -4,14 +4,14 @@ description: Sécurisez le trafic entre réseaux virtuels, comptes de stockage e
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 07/25/2021
-ms.openlocfilehash: 4726df91efb18b2d9beec77606db449bd4aee3fa
-ms.sourcegitcommit: 6f21017b63520da0c9d67ca90896b8a84217d3d3
+ms.topic: how-to
+ms.date: 08/31/2021
+ms.openlocfilehash: 658d8c8c43bd2795a6a25730ff85ffb6bbd3a63c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114652645"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598172"
 ---
 # <a name="secure-traffic-between-virtual-networks-and-single-tenant-workflows-in-azure-logic-apps-using-private-endpoints"></a>Sécuriser le trafic entre réseaux virtuels et flux de travail monolocataires dans Azure Logic Apps à l’aide de points de terminaison privés
 
@@ -112,7 +112,7 @@ Pour plus d’informations, consultez [Créer des flux de travail d’applicatio
 
 - En cas d’accès depuis l’extérieur de votre réseau virtuel, l’affichage de la surveillance ne peut pas accéder aux entrées et sorties des déclencheurs et des actions.
 
-- Le déploiement à partir de Visual Studio Code ou Azure CLI fonctionne uniquement à partir du réseau virtuel. Vous pouvez utiliser le centre de déploiement pour lier votre application logique à un dépôt GitHub. Vous pouvez ensuite utiliser l’infrastructure Azure pour créer et déployer votre code. 
+- Le déploiement à partir de Visual Studio Code ou Azure CLI fonctionne uniquement à partir du réseau virtuel. Vous pouvez utiliser le centre de déploiement pour lier votre application logique à un dépôt GitHub. Vous pouvez ensuite utiliser l’infrastructure Azure pour créer et déployer votre code.
 
   Pour que l’intégration de GitHub fonctionne, supprimez le paramètre `WEBSITE_RUN_FROM_PACKAGE` de votre application logique ou définissez la valeur sur `0`.
 
@@ -122,50 +122,57 @@ Pour plus d’informations, consultez [Créer des flux de travail d’applicatio
 
 ## <a name="set-up-outbound-traffic-through-private-endpoints"></a>Configurer le trafic sortant via des points de terminaison privés
 
-Pour sécuriser le trafic sortant de votre application logique, vous pouvez intégrer votre application logique avec un réseau virtuel. Par défaut, le trafic sortant de votre application logique est uniquement affecté par les groupes de sécurité réseau et les itinéraires définis par l’utilisateur (UDR) quand vous accédez à une adresse privée, telle que `10.0.0.0/8`, `172.16.0.0/12` et `192.168.0.0/16`. Toutefois, en routant tout le trafic sortant via votre propre réseau virtuel, vous pouvez assujettir tout le trafic sortant à des groupes de sécurité réseau, des itinéraires et des pare-feu. Pour vous assurer que tout le trafic sortant est affecté par les groupes de sécurité réseau et itinéraires définis par l’utilisateur sur votre sous-réseau d’intégration, définissez le paramètre d’application logique `WEBSITE_VNET_ROUTE_ALL` sur `1`.
+Pour sécuriser le trafic sortant de votre application logique, vous pouvez intégrer votre application logique avec un réseau virtuel. Par défaut, le trafic sortant de votre application logique est uniquement affecté par les groupes de sécurité réseau et les itinéraires définis par l’utilisateur (UDR) quand vous accédez à une adresse privée, telle que `10.0.0.0/8`, `172.16.0.0/12` et `192.168.0.0/16`.
+
+Si vous utilisez votre propre serveur de noms de domaine (DNS) avec votre réseau virtuel, définissez le paramètre d’application `WEBSITE_DNS_SERVER` de votre ressource d’application logique sur l’adresse IP de votre DNS. Si vous avez un DNS secondaire, ajoutez un autre paramètre d’application nommé `WEBSITE_DNS_ALT_SERVER` et définissez la valeur sur l’adresse IP de votre DNS. Par ailleurs, mettez à jour vos enregistrements DNS pour faire pointer vos points de terminaison privés vers votre adresse IP interne. Les points de terminaison privés envoient la recherche DNS à l’adresse privée, et non à l’adresse publique de la ressource spécifique. Pour en savoir plus, consultez [Points de terminaison privés – Intégrer votre application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
 
 > [!IMPORTANT]
-> Pour que le runtime Logic Apps fonctionne, vous devez disposer d’une connexion ininterrompue au stockage principal. Pour que les connecteurs gérés hébergés par Azure fonctionnent, vous devez disposer d’une connexion ininterrompue au service de l’API managée.
-
-Pour vous assurer que votre application logique utilise des zones DNS privées dans votre réseau virtuel, définissez WEBSITE_DNS_SERVER sur 168.63.129.16 pour vous assurer que votre application utilise des zones DNS privées dans votre réseau virtuel.
+> Pour que le runtime Azure Logic Apps fonctionne, vous devez disposer d’une connexion ininterrompue au stockage principal. Pour que les connecteurs gérés hébergés par Azure fonctionnent, vous devez disposer d’une connexion ininterrompue au service de l’API managée.
 
 ### <a name="considerations-for-outbound-traffic-through-private-endpoints"></a>Considérations relatives au trafic sortant via des points de terminaison privés
 
-La configuration de l’intégration du réseau virtuel n’affecte pas le trafic entrant qui continue à utiliser le point de terminaison partagé App Service. Pour sécuriser le trafic entrant, consultez [Configurer le trafic entrant via des points de terminaison privés](#set-up-inbound).
+La configuration de l’intégration du réseau virtuel ne concerne que le trafic sortant. Pour sécuriser le trafic entrant, qui continue à utiliser le point de terminaison partagé App Service, consultez [Configurer le trafic entrant via des points de terminaison privés](#set-up-inbound).
 
 Pour plus d’informations, consultez la documentation suivante :
 
 - [Intégrer votre application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md)
+
 - [Groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md)
+
 - [Routage du trafic de réseau virtuel](../virtual-network/virtual-networks-udr-overview.md)
 
 ## <a name="connect-to-storage-account-with-private-endpoints"></a>Se connecter à un compte de stockage avec des points de terminaison privés
 
-Vous pouvez restreindre l’accès au compte de stockage pour que seules les ressources d’un réseau virtuel puissent se connecter. Le service Stockage Azure prend en charge l’ajout de points de terminaison privés à votre compte de stockage. Les flux de travail d’application logique peuvent ensuite utiliser ces points de terminaison pour communiquer avec le compte de stockage.
+Vous pouvez restreindre l’accès au compte de stockage pour que seules les ressources d’un réseau virtuel puissent se connecter. Le service Stockage Azure prend en charge l’ajout de points de terminaison privés à votre compte de stockage. Les flux de travail de votre application logique peuvent ensuite utiliser ces points de terminaison pour communiquer avec le compte de stockage. Pour plus d’informations, consultez [Utiliser des points de terminaison privés pour Stockage Azure](../storage/common/storage-private-endpoints.md).
 
-Dans les paramètres de votre application logique, définissez `AzureWebJobsStorage` sur la chaîne de connexion pour le compte de stockage contenant les points de terminaison privés en choisissant l’une des options suivantes :
+> [!NOTE]
+> Les étapes suivantes requièrent l’activation temporaire de l’accès public sur votre compte de stockage. Si vous ne pouvez pas activer l’accès public en raison des stratégies de votre organisation, vous pouvez toujours déployer votre application logique à l’aide d’un compte de stockage privé. Cependant, vous devez utiliser un modèle Azure Resource Manager (modèle ARM) pour le déploiement. Pour obtenir un exemple de modèle ARM, consultez [Déployer une application logique à l’aide d’un compte de stockage sécurisé avec des points de terminaison privés](https://github.com/VeeraMS/LogicApp-deployment-with-Secure-Storage).
 
-- **Portail Azure** : dans le menu de votre application logique, sélectionnez **Configuration**. Mettez à jour le paramètre `AzureWebJobsStorage` avec la chaîne de connexion pour le compte de stockage.
+1. Créez des points de terminaison privés différents pour chacun des services de stockage Table, File d’attente, Blob et Fichier.
 
-- **Visual Studio code** : dans le fichier **local.settings.json** au niveau racine de votre projet, mettez à jour le paramètre `AzureWebJobsStorage` avec la chaîne de connexion pour le compte de stockage.
+1. Activez l’accès public temporaire sur votre compte de stockage lorsque vous déployez votre application logique.
 
- Pour plus d’informations, consultez la [documentation sur l’utilisation de points de terminaison privés pour le Stockage Azure](../storage/common/storage-private-endpoints.md).
+   1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre ressource de compte de stockage.
 
-### <a name="considerations-for-private-endpoints-on-storage-accounts"></a>Considérations relatives aux points de terminaison privés sur des comptes de stockage
+   1. Dans le menu de la ressource de compte de stockage, sous **Sécurité + mise en réseau**, sélectionnez **Mise en réseau**.
 
-- Créez des points de terminaison privés différents pour chacun des services de stockage Table, File d’attente, Blob et Fichier.
+   1. Dans le volet **Mise en réseau**, dans l’onglet **Pare-feux et réseaux virtuels**, sous **Autoriser l’accès depuis**, sélectionnez **Tous les réseaux**.
 
-- Routez tout le trafic sortant via votre réseau virtuel en utilisant ce paramètre :
+1. Déployez votre ressource d’application logique à l’aide du portail Azure ou de Visual Studio Code.
 
-  `"WEBSITE_VNET_ROUTE_ALL": "1"`
+1. Une fois le déploiement terminé, activez l’intégration entre votre application logique et les points de terminaison privés sur le réseau virtuel ou le sous-réseau qui se connecte à votre compte de stockage.
 
-- Pour que votre application logique utilise des zones DNS privées dans votre réseau virtuel, définissez le paramètre `WEBSITE_DNS_SERVER` de l’application logique sur `168.63.129.16`.
+   1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre ressource d’application logique.
 
-- Lorsque vous déployez votre application logique, vous devez disposer d’un compte de stockage séparé accessible publiquement. Veillez à définir le paramètre `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` sur la chaîne de connexion pour ce compte de stockage.
+   1. Dans le menu de la ressource d’application logique, sous **Paramètres**, sélectionnez **Mise en réseau**.
 
-- Si votre application logique utilise des points de terminaison privés, opérez le déploiement à l’aide d’[intégrations GitHub](https://docs.github.com/en/github/customizing-your-github-workflow/about-integrations).
+   1. Configurez les connexions nécessaires entre votre application logique et les adresses IP pour les points de terminaison privés.
 
-  Si votre application logique n’utilise pas de points de terminaison privés, vous pouvez opérer le déploiement à partir de Visual Studio Code et définir le paramètre `WEBSITE_RUN_FROM_PACKAGE` sur `1`. 
+   1. Pour accéder aux données de flux de travail de votre application logique sur le réseau virtuel, dans les paramètres de votre ressource d’application logique, définissez le paramètre `WEBSITE_CONTENTOVERVNET` sur `1`.
+
+   Si vous utilisez votre propre serveur de noms de domaine (DNS) avec votre réseau virtuel, définissez le paramètre d’application `WEBSITE_DNS_SERVER` de votre ressource d’application logique sur l’adresse IP de votre DNS. Si vous avez un DNS secondaire, ajoutez un autre paramètre d’application nommé `WEBSITE_DNS_ALT_SERVER` et définissez la valeur sur l’adresse IP de votre DNS. Par ailleurs, mettez à jour vos enregistrements DNS pour faire pointer vos points de terminaison privés vers votre adresse IP interne. Les points de terminaison privés envoient la recherche DNS à l’adresse privée, et non à l’adresse publique de la ressource spécifique. Pour en savoir plus, consultez [Points de terminaison privés – Intégrer votre application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
+
+1. Après avoir appliqué ces paramètres d’application, vous pouvez supprimer l’accès public de votre compte de stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

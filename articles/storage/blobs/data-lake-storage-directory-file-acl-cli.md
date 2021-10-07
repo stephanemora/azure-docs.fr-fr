@@ -10,12 +10,12 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 08e1976a1bc97ae83d1b9d45700fd614420be0c2
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 8dec2e939c6f39169d4c8fbbdfbcdf08d4d42599
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413066"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651576"
 ---
 # <a name="use-azure-cli-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Utiliser Azure CLI pour gérer les répertoires et les fichiers dans Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ Pour en savoir plus sur la façon d’obtenir, de définir et de mettre à jour 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
+- Un abonnement Azure. Pour plus d’informations, consultez [Obtenir l’essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 - Un compte de stockage doté d’un espace de noms hiérarchique activé. Pour créer un test, suivez [ces](create-data-lake-storage-account.md) instructions.
 
@@ -43,7 +43,7 @@ Pour en savoir plus sur la façon d’obtenir, de définir et de mettre à jour 
     az --version
    ```
 
-   Si la version d’Azure CLI est inférieure à `2.6.0`, installez une version plus récente. Voir [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
+   Si la version d’Azure CLI est inférieure à `2.6.0`, installez une version plus récente. Pour plus d’informations, consultez la rubrique [Installation de l’interface de ligne de commande Azure (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Se connecter au compte
 
@@ -72,7 +72,7 @@ Pour en savoir plus sur la façon d’obtenir, de définir et de mettre à jour 
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Un conteneur fait office de système de fichiers pour vos fichiers. Vous pouvez en créer un à l’aide de la commande `az storage fs create`. 
+Un conteneur fait office de système de fichiers pour vos fichiers. Vous pouvez en créer un à l’aide de la commande `az storage fs create`.
 
 Cet exemple crée un conteneur nommé `my-file-system`.
 
@@ -102,7 +102,7 @@ az storage fs file list -f my-file-system --account-name mystorageaccount --auth
 
 Supprimez un conteneur à l’aide de la commande `az storage fs delete`.
 
-Cet exemple supprime un conteneur nommé `my-file-system`. 
+Cet exemple supprime un conteneur nommé `my-file-system`.
 
 ```azurecli
 az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -110,7 +110,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 ## <a name="create-a-directory"></a>Créer un répertoire
 
-Créez une référence de répertoire à l’aide de la commande `az storage fs directory create`. 
+Créez une référence de répertoire à l’aide de la commande `az storage fs directory create`.
 
 Cet exemple ajoute un répertoire nommé `my-directory` à un conteneur nommé `my-file-system` qui se trouve dans un compte nommé `mystorageaccount`.
 
@@ -146,27 +146,27 @@ az storage fs directory move -n my-directory -f my-file-system --new-directory "
 
 Supprimez un répertoire à l’aide de la commande `az storage fs directory delete`.
 
-Cet exemple supprime un répertoire nommé `my-directory`. 
+Cet exemple supprime un répertoire nommé `my-directory`.
 
 ```azurecli
-az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login 
+az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login
 ```
 
 ## <a name="check-if-a-directory-exists"></a>Vérifier l’existence d’un répertoire
 
 Déterminez si un répertoire spécifique existe dans le conteneur à l’aide de la commande `az storage fs directory exists`.
 
-Cet exemple indique si un répertoire nommé `my-directory` existe dans le conteneur `my-file-system`. 
+Cet exemple indique si un répertoire nommé `my-directory` existe dans le conteneur `my-file-system`.
 
 ```azurecli
-az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
+az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## <a name="download-from-a-directory"></a>Télécharger à partir d’un répertoire
 
 Téléchargez un fichier à partir d’un répertoire à l’aide de la commande `az storage fs file download`.
 
-Cet exemple télécharge un fichier nommé `upload.txt` à partir d’un répertoire nommé `my-directory`. 
+Cet exemple télécharge un fichier nommé `upload.txt` à partir d’un répertoire nommé `my-directory`.
 
 ```azurecli
 az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\myFolder\download.txt" --account-name mystorageaccount --auth-mode login
@@ -176,7 +176,7 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 Affichez le contenu d’un répertoire à l’aide de la commande `az storage fs file list`.
 
-Cet exemple liste le contenu d’un répertoire nommé `my-directory` qui se trouve dans le conteneur `my-file-system` d’un compte de stockage nommé `mystorageaccount`. 
+Cet exemple liste le contenu d’un répertoire nommé `my-directory` qui se trouve dans le conteneur `my-file-system` d’un compte de stockage nommé `mystorageaccount`.
 
 ```azurecli
 az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
@@ -186,7 +186,7 @@ az storage fs file list -f my-file-system --path my-directory --account-name mys
 
 Téléchargez un fichier dans un répertoire à l’aide de la commande `az storage fs file upload`.
 
-Cet exemple charge un fichier nommé `upload.txt` dans un répertoire nommé `my-directory`. 
+Cet exemple charge un fichier nommé `upload.txt` dans un répertoire nommé `my-directory`.
 
 ```azurecli
 az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt  -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -217,7 +217,7 @@ Supprimez un fichier à l’aide de la commande `az storage fs file delete`.
 Cet exemple supprime un fichier nommé `my-file.txt`.
 
 ```azurecli
-az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
+az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login
 ```
 
 ## <a name="see-also"></a>Voir aussi

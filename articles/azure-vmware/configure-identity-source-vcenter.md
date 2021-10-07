@@ -3,12 +3,12 @@ title: Configurer une source d’identité externe pour vCenter
 description: Découvrez comment configurer Active Directory via LDAP ou LDAP sécurisé pour vCenter en tant que source d’identité externe.
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.openlocfilehash: 50a79c54c57649fd8dc565a7634823bf4a7a0f86
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 77644c2d52a5eed87ab4dca83632b69834dd4c58
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123315919"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123537109"
 ---
 # <a name="configure-external-identity-source-for-vcenter"></a>Configurer une source d’identité externe pour vCenter
 
@@ -58,14 +58,52 @@ Vous exécuterez l'`Get-ExternalIdentitySources`applet de commande pour réperto
    
    | **Champ** | **Valeur** |
    | --- | --- |
-   | **Conserver jusqu’à**  |Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60.   |
+   | **Conserver jusqu’à**  |Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60 jours.   |
    | **Spécifier un nom pour l’exécution**  | Nom alphanumérique, par exemple, **getExternalIdentity**.  |
    | **Délai d'expiration**  |  Période après laquelle une cmdlet s’arrête si son exécution prend trop de temps.  |
 
-1. Consultez **Notifications** pour voir la progression.
+1. Vérifiez les **notifications** ou le volet **Exécuter l’état d’exécution** pour afficher la progression.
+
+
+## <a name="add-active-directory-over-ldap-with-ssl"></a>Ajouter Active Directory via LDAP avec SSL
+
+Vous exécuterez l'`New-AvsLDAPSIdentitySource`applet de commande pour ajouter un AD sur LDAP avec SSL comme source d’identité externe à utiliser avec l’authentification unique dans vCenter. 
+
+1. Téléchargez le certificat pour l’authentification AD et chargez-le dans un compte Stockage Azure en tant que stockage d’objets blob. Si plusieurs certificats sont requis, chargez chaque certificat individuellement.  
+
+1. Pour chaque certificat, [accordez un accès aux ressources Stockage Azure à l’aide de signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md). Ces chaînes SAP sont fournies à la cmdlet en tant que paramètre. 
+
+   >[!IMPORTANT]
+   >Veillez à copier chaque chaîne SAP, car elles ne seront plus disponibles une fois que vous aurez quitté cette page.  
+   
+1. Sélectionnez **Exécuter la commande** > **Packages** > **New-AvsLDAPSIdentitySource**.
+
+1. Fournissez les valeurs requises ou modifiez les valeurs par défaut, puis sélectionnez **Exécuter**.
+
+   | **Champ** | **Valeur** |
+   | --- | --- |
+   | **Nom**  | Nom convivial de la source d’identité externe, par exemple, **avslap.local**.  |
+   | **DomainName**  | Nom de domaine complet du domaine.   |
+   | **DomainAlias**  | Pour les sources d’identité Active Directory, le nom NetBIOS du domaine. Ajoutez le nom NetBIOS du domaine AD en tant qu’alias de la source d’identité si vous utilisez des authentifications SSPI.     |
+   | **PrimaryUrl**  | URL principale de la source d’identité externe, par exemple, **ldap://yourserver:389**.  |
+   | **SecondaryURL**  | URL de restauration secondaire en cas d’échec principal.  |
+   | **BaseDNUsers**  |  Où rechercher des utilisateurs valides, par exemple, **CN=users,DC=yourserver,DC=internal**.  Le ND de base est nécessaire pour utiliser l’authentification LDAP.  |
+   | **BaseDNGroups**  | Où rechercher des groupes, par exemple, **CN=users,DC=yourserver,DC=internal**. Le ND de base est nécessaire pour utiliser l’authentification LDAP.  |
+   | **Informations d'identification**  | Les nom d’utilisateur et mot de passe utilisés pour l’authentification auprès de la source AD (et non cloudadmin).  |
+   | **CertificateSAS** | Chemin d’accès aux chaînes SAS avec les certificats pour l’authentification auprès de la source AD. Si vous utilisez plusieurs certificats, séparez chaque chaîne SAP par une virgule. Par exemple, **pathtocert1,pathtocert2**.  |
+   | **GroupName**  | Groupe dans la source d’identité externe qui donne l’accès cloudadmin. Par exemple, **avs-admins**.  |
+   | **Conserver jusqu’à**  | Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60 jours.   |
+   | **Spécifier un nom pour l’exécution**  | Nom alphanumérique, par exemple, **addexternalIdentity**.  |
+   | **Délai d'expiration**  |  Période après laquelle une cmdlet s’arrête si son exécution prend trop de temps.  |
+
+1. Vérifiez les **notifications** ou le volet **Exécuter l’état d’exécution** pour afficher la progression.
+
 
 
 ## <a name="add-active-directory-over-ldap"></a>Ajouter Active Directory via LDAP
+
+>[!NOTE]
+>Nous ne recommandons pas cette méthode. Utilisez plutôt la méthode [Ajouter Active Directory via LDAP avec SSL](#add-active-directory-over-ldap-with-ssl).
 
 Vous exécuterez l'`New-AvsLDAPIdentitySource`applet de commande pour ajouter ad sur LDAP comme source d’identité externe à utiliser avec l’authentification unique dans vCenter. 
 
@@ -84,45 +122,11 @@ Vous exécuterez l'`New-AvsLDAPIdentitySource`applet de commande pour ajouter ad
    | **BaseDNGroups**  | Où rechercher des groupes, par exemple, **CN=users,DC=yourserver,DC=internal**. Le ND de base est nécessaire pour utiliser l’authentification LDAP.  |
    | **Informations d'identification**  | Nom d’utilisateur et mot de passe utilisés pour l’authentification auprès de la source AD (et non cloudadmin).  |
    | **GroupName**  | Groupe pour permettre à l’administrateur cloud d’accéder à votre source d’identité externe, par exemple **avs-admins**.  |
-   | **Conserver jusqu’à**  | Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60.   |
+   | **Conserver jusqu’à**  | Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60 jours.   |
    | **Spécifier un nom pour l’exécution**  | Nom alphanumérique, par exemple, **addexternalIdentity**.  |
    | **Délai d'expiration**  |  Période après laquelle une cmdlet s’arrête si son exécution prend trop de temps.  |
 
-1. Consultez **Notifications** pour voir la progression.
-
-
-
-## <a name="add-active-directory-over-ldap-with-ssl"></a>Ajouter Active Directory via LDAP avec SSL
-
-Vous exécuterez l'`New-AvsLDAPSIdentitySource`applet de commande pour ajouter un AD sur LDAP avec SSL comme source d’identité externe à utiliser avec l’authentification unique dans vCenter. 
-
-1. Téléchargez le certificat pour l’authentification AD et chargez-le dans un compte Stockage Azure en tant que stockage d’objets blob.  
-
-1. [Accordez un accès limité aux ressources Stockage Azure à l’aide de la signature d’accès partagé (SAP)](../storage/common/storage-sas-overview.md).  
-   
-1. Sélectionnez **Exécuter la commande** > **Packages** > **New-AvsLDAPSIdentitySource**.
-
-1. Fournissez les valeurs requises ou modifiez les valeurs par défaut, puis sélectionnez **Exécuter**.
-
-   | **Champ** | **Valeur** |
-   | --- | --- |
-   | **Nom**  | Nom convivial de la source d’identité externe, par exemple, **avslap.local**.  |
-   | **DomainName**  | Nom de domaine complet du domaine.   |
-   | **DomainAlias**  | Pour les sources d’identité Active Directory, le nom NetBIOS du domaine. Ajoutez le nom NetBIOS du domaine AD en tant qu’alias de la source d’identité si vous utilisez des authentifications SSPI.     |
-   | **PrimaryUrl**  | URL principale de la source d’identité externe, par exemple, **ldap://yourserver:389**.  |
-   | **SecondaryURL**  | URL de restauration secondaire en cas d’échec principal.  |
-   | **BaseDNUsers**  |  Où rechercher des utilisateurs valides, par exemple, **CN=users,DC=yourserver,DC=internal**.  Le ND de base est nécessaire pour utiliser l’authentification LDAP.  |
-   | **BaseDNGroups**  | Où rechercher des groupes, par exemple, **CN=users,DC=yourserver,DC=internal**. Le ND de base est nécessaire pour utiliser l’authentification LDAP.  |
-   | **Informations d'identification**  | Les nom d’utilisateur et mot de passe utilisés pour l’authentification auprès de la source AD (et non cloudadmin).  |
-   | **CertificateSAS** | Chemin d’accès aux chaînes SAS avec les certificats pour l’authentification auprès de la source AD.  |
-   | **GroupName**  | Groupe pour permettre à l’administrateur cloud d’accéder à votre source d’identité externe, par exemple **avs-admins**.  |
-   | **Conserver jusqu’à**  | Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60.   |
-   | **Spécifier un nom pour l’exécution**  | Nom alphanumérique, par exemple, **addexternalIdentity**.  |
-   | **Délai d'expiration**  |  Période après laquelle une cmdlet s’arrête si son exécution prend trop de temps.  |
-
-1. Consultez **Notifications** pour voir la progression.
-
-
+1. Vérifiez les **notifications** ou le volet **Exécuter l’état d’exécution** pour afficher la progression.
 
 
 ## <a name="add-existing-ad-group-to-cloudadmin-group"></a>Ajouter un groupe AD existant au groupe cloudadmin
@@ -136,12 +140,11 @@ Vous exécuterez l'`Add-GroupToCloudAdmins`applet de commande pour ajouter un gr
    | **Champ** | **Valeur** |
    | --- | --- |
    | **GroupName**  | Nom du groupe à ajouter, par exemple, **VcAdminGroup**.  |
-   | **Conserver jusqu’à**  | Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60.   |
+   | **Conserver jusqu’à**  | Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60 jours.   |
    | **Spécifier un nom pour l’exécution**  | Nom alphanumérique, par exemple, **addADgroup**.  |
    | **Délai d'expiration**  |  Période après laquelle une cmdlet s’arrête si son exécution prend trop de temps.  |
 
-1. Consultez **Notifications** pour voir la progression.
-
+1. Vérifiez les **notifications** ou le volet **Exécuter l’état d’exécution** pour afficher la progression.
 
 
 
@@ -156,11 +159,11 @@ Vous exécuterez l'`Remove-GroupFromCloudAdmins`applet de commande pour supprime
    | **Champ** | **Valeur** |
    | --- | --- |
    | **GroupName**  | Nom du groupe à supprimer, par exemple, **VcAdminGroup**.  |
-   | **Conserver jusqu’à**  | Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60.   |
+   | **Conserver jusqu’à**  | Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60 jours.   |
    | **Spécifier un nom pour l’exécution**  | Nom alphanumérique, par exemple, **removeADgroup**.  |
    | **Délai d'expiration**  |  Période après laquelle une cmdlet s’arrête si son exécution prend trop de temps.  |
 
-1. Consultez **Notifications** pour voir la progression.
+1. Vérifiez les **notifications** ou le volet **Exécuter l’état d’exécution** pour afficher la progression.
 
 
 
@@ -177,11 +180,11 @@ Vous exécuterez l'`Remove-ExternalIdentitySources`applet de commande pour suppr
 
    | **Champ** | **Valeur** |
    | --- | --- |
-   | **Conserver jusqu’à**  | Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60.   |
+   | **Conserver jusqu’à**  | Période de rétention de la sortie de la cmdlet. La valeur par défaut est 60 jours.   |
    | **Spécifier un nom pour l’exécution**  | Nom alphanumérique, par exemple, **remove_externalIdentity**.  |
    | **Délai d'expiration**  |  Période après laquelle une cmdlet s’arrête si son exécution prend trop de temps.  |
 
-1. Consultez **Notifications** pour voir la progression.
+1. Vérifiez les **notifications** ou le volet **Exécuter l’état d’exécution** pour afficher la progression.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

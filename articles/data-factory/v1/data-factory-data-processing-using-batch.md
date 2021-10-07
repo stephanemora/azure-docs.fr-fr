@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2568fc2ea133a0cdd49e0a2577ce1e580056a74c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8dc93266244c6dd806d7ab7457893d6d2c89ce13
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783130"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637645"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -60,7 +61,7 @@ Vous pouvez également créer des activités .NET personnalisées pour déplacer
 
 Le diagramme illustre comment Azure Data Factory orchestre le traitement et le déplacement des données. Il montre également comment Azure Batch traite les données en parallèle. Téléchargez et imprimez le diagramme pour le consulter facilement (11 x 17 pouces ou format A3). Pour accéder au diagramme et l’imprimer facilement, consultez [HPC and data orchestration by using Batch and Data Factory (Orchestration de HPC et des données à l’aide d’Azure Batch et d’Azure Data Factory)](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Diagramme de traitement des données à grande échelle](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
+:::image type="content" alt-text="Diagramme de traitement des données à grande échelle." source="./media/data-factory-data-processing-using-batch/large-scale-data-processing-diagram.png":::
 
 La liste suivante fournit les étapes de base du processus. La solution inclut du code et des explications relatives à la génération de la solution de bout en bout.
 
@@ -125,7 +126,7 @@ Vous utilisez [Explorateur Stockage Azure 6](https://azurestorageexplorer.codepl
 
 1. Si vous utilisez CloudXplorer, créez des dossiers et des sous-dossiers avec la structure suivante :
 
-   ![Structure de dossiers et sous-dossiers](./media/data-factory-data-processing-using-batch/image3.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image3.png" alt-text="Structure de dossiers et sous-dossiers":::
 
    `Inputfolder` et `outputfolder` sont des dossiers de niveau supérieur de `mycontainer`. Le dossier `inputfolder` contient des sous-dossiers horodatés (AAAA-MM-JJ-HH).
 
@@ -135,7 +136,7 @@ Vous utilisez [Explorateur Stockage Azure 6](https://azurestorageexplorer.codepl
 
 1. Chargez le fichier dans les dossiers d’entrée suivants du stockage d’objets blob Azure :
 
-   ![Dossiers d’entrée](./media/data-factory-data-processing-using-batch/image4.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image4.png" alt-text="Dossiers d’entrée":::
 
    Si vous utilisez Explorateur Stockage Azure, chargez le fichier **file.txt** dans **mycontainer**. Cliquez sur **Copier** dans la barre d’outils pour créer une copie de l’objet blob. Dans la boîte de dialogue **Copy Blob** (Copie de l’objet blob), remplacez le **nom d’objet blob de destination** par `inputfolder/2015-11-16-00/file.txt`. Répétez cette étape pour créer `inputfolder/2015-11-16-01/file.txt`, `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt` et ainsi de suite. Cette action crée automatiquement les dossiers.
 
@@ -397,7 +398,7 @@ Cette méthode a quelques composants clés qu’il est important de comprendre :
 
 1. Créez un fichier zip **MyDotNetActivity.zip** contenant tous les fichiers binaires dans le dossier **\\bin\\Debug**. Vous pouvez également inclure le fichier MyDotNetActivity.**pdb** afin d’obtenir des détails supplémentaires, comme le numéro de ligne du code source à l’origine du problème en cas de défaillance.
 
-   ![La liste du dossier bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image5.png" alt-text="La liste du dossier bin\Debug":::
 
 1. Chargez le fichier **MyDotNetActivity.zip** en tant qu’objet blob dans le conteneur d’objets blob `customactivitycontainer` du Stockage Blob Azure que le service lié StorageLinkedService dans ADFTutorialDataFactory utilise. S’il n’existe pas déjà, créez le conteneur d’objets blob `customactivitycontainer`.
 
@@ -541,7 +542,7 @@ La procédure pas à pas suivante fournit des détails supplémentaires.
 
 1. Une fois la fabrique de données créée, la page **Fabrique de données** correspondante s’affiche et indique son contenu.
 
-   ![Page de la fabrique de données](./media/data-factory-data-processing-using-batch/image6.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image6.png" alt-text="Page de la fabrique de données":::
 
 #### <a name="step-2-create-linked-services"></a>Étape 2 : Créez des services liés
 Les services liés relient des magasins de données ou des services de calcul à une fabrique de données. À cette étape, vous liez votre compte de stockage et votre compte Azure Batch à votre fabrique de données.
@@ -551,13 +552,13 @@ Les services liés relient des magasins de données ou des services de calcul à
 
 1. Sélectionnez **Nouvelle banque de données** dans la barre de commandes et choisissez **Stockage Azure**. Le script JSON que vous utilisez pour créer un service lié au stockage dans l’éditeur s’affiche.
 
-   ![Nouveau magasin de données](./media/data-factory-data-processing-using-batch/image7.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image7.png" alt-text="Nouveau magasin de données":::
 
 1. Remplacez **nom de compte** par le nom de votre compte de stockage. Remplacez **clé de compte** par la clé d’accès du compte de stockage. Pour découvrir comment obtenir votre clé d’accès au stockage, consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
 
 1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le service lié.
 
-   ![Déployer](./media/data-factory-data-processing-using-batch/image8.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image8.png" alt-text="Déployer":::
 
 #### <a name="create-an-azure-batch-linked-service"></a>Créer un service lié Azure Batch
 À cette étape, vous créez un service lié pour votre compte Azure Batch, qui sert à exécuter l’activité personnalisée de la fabrique de données.
@@ -577,7 +578,7 @@ Les services liés relient des magasins de données ou des services de calcul à
       > [!IMPORTANT]
       > L’URL dans le panneau **Compte Batch** est au format suivant : `<accountname>.<region>.batch.azure.com`. Pour la propriété `batchUri` dans le script JSON, vous devez supprimer `<accountname>.` de l’URL. par exemple `"batchUri": "https://eastus.batch.azure.com"`.
 
-      ![Panneau Compte Batch](./media/data-factory-data-processing-using-batch/image9.png)
+      :::image type="content" source="./media/data-factory-data-processing-using-batch/image9.png" alt-text="Panneau Compte Batch":::
 
       Pour la propriété **poolName**, vous pouvez également spécifier l’ID du pool au lieu du nom du pool.
 
@@ -805,27 +806,27 @@ Au cours de cette étape, vous testez le pipeline en déposant des fichiers dans
 
 1. Dans le panneau **Fabrique de données** du portail Azure, sélectionnez **Diagramme**.
 
-   ![Diagramme](./media/data-factory-data-processing-using-batch/image10.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image10.png" alt-text="Diagramme":::
 
 1. Dans la vue **Diagramme**, double-cliquez sur le jeu de données d’entrée **InputDataset**.
 
-   ![InputDataset](./media/data-factory-data-processing-using-batch/image11.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image11.png" alt-text="InputDataset":::
 
 1. Le panneau **InputDataset** apparaît avec les cinq tranches prêtes. Notez **l’HEURE DE DÉBUT DE LA TRANCHE** et **l’HEURE DE FIN DE LA TRANCHE** pour chaque tranche.
 
-   ![Heures de début et de fin de la tranche d’entrée](./media/data-factory-data-processing-using-batch/image12.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image12.png" alt-text="Heures de début et de fin de la tranche d’entrée":::
 
 1. Dans la vue **Diagramme**, sélectionnez **OutputDataset**.
 
 1. Les cinq tranches de sortie s’affichent dans l’état **Prêt** si elles ont été générées.
 
-   ![Heures de début et de fin de la tranche de sortie](./media/data-factory-data-processing-using-batch/image13.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image13.png" alt-text="Heures de début et de fin de la tranche de sortie":::
 
 1. Utilisez le portail pour afficher les tâches associées aux tranches et voir la machine virtuelle sur laquelle chaque tranche a été exécutée. Pour plus d’informations, consultez la section [Data Factory and Batch integration (Intégration de Data Factory et de Batch)](#data-factory-and-batch-integration).
 
 1. Les fichiers de sortie apparaissent sous `mycontainer` dans `outputfolder` dans votre stockage d’objets blob.
 
-   ![Fichiers de sortie dans le stockage](./media/data-factory-data-processing-using-batch/image15.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image15.png" alt-text="Fichiers de sortie dans le stockage":::
 
    Cinq tranches de sortie sont indiquées, une pour chaque tranche d’entrée. Chaque fichier de sortie a un contenu similaire à ce qui suit :
 
@@ -834,7 +835,7 @@ Au cours de cette étape, vous testez le pipeline en déposant des fichiers dans
     ```
    Le diagramme suivant illustre comment les tranches Data Factory sont mappées à des tâches dans Azure Batch. Dans cet exemple, une tranche n’est exécutée qu’une seule fois.
 
-   ![Schéma de mappage de tranche](./media/data-factory-data-processing-using-batch/image16.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image16.png" alt-text="Schéma de mappage de tranche":::
 
 1. À présent, essayons avec plusieurs fichiers dans un dossier. Créez les fichiers **file2.txt**, **file3.txt**, **file4.txt** et **file5.txt** avec le même contenu que le fichier file.txt dans le dossier **2015-11-06-01**.
 
@@ -842,7 +843,7 @@ Au cours de cette étape, vous testez le pipeline en déposant des fichiers dans
 
 1. Dans le panneau **OutputDataset**, cliquez avec le bouton droit sur la tranche dont l’**HEURE DE DÉBUT DE LA TRANCHE** est **16/11/2015 01:00:00 AM**. Sélectionnez **Exécuter** pour réexécuter/retraiter la tranche. La tranche contient maintenant cinq fichiers au lieu d’un seul.
 
-    ![Exécuter](./media/data-factory-data-processing-using-batch/image17.png)
+    :::image type="content" source="./media/data-factory-data-processing-using-batch/image17.png" alt-text="Exécuter":::
 
 1. Une fois la tranche exécutée, quand elle est dans l’état **Prêt**, vérifiez le contenu de son fichier de sortie (**2015-11-16-01.txt**). Le fichier de sortie apparaît sous `mycontainer` dans `outputfolder` dans votre stockage d’objets blob. Il doit y avoir une ligne pour chaque fichier de la tranche.
 
@@ -862,7 +863,7 @@ Au cours de cette étape, vous testez le pipeline en déposant des fichiers dans
 #### <a name="data-factory-and-batch-integration"></a>Intégration de Data Factory et Batch
 Le service Data Factory crée un travail dans Azure Batch avec le nom `adf-poolname:job-xxx`.
 
-![Travaux Azure Batch](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
+:::image type="content" source="media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png" alt-text="Travaux Azure Batch":::
 
 Une tâche dans le travail est créée pour chaque exécution d’activité d’une tranche. Si 10 tranches sont prêtes à être traitées, 10 tâches sont créées dans le travail. Plusieurs tranches peuvent être exécutées en parallèle si vous disposez de plusieurs nœuds de calcul dans le pool. Si le nombre maximum de tâches par nœud de calcul est défini sur une valeur supérieure à 1, plusieurs tranches peuvent s’exécuter sur le même nœud de calcul.
 
@@ -870,14 +871,14 @@ Dans cet exemple, il y a cinq tranches, donc cinq tâches dans Azure Batch. Avec
 
 Utilisez le portail pour afficher le travail Azure Batch et ses tâches associées aux tranches et voir sur quelle machine virtuelle chaque tranche s’est exécutée.
 
-![Tâches de travail Azure Batch](media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png)
+:::image type="content" source="media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png" alt-text="Tâches de travail Azure Batch":::
 
 ### <a name="debug-the-pipeline"></a>Déboguer le pipeline
 Le débogage consiste à utiliser quelques techniques de base.
 
 1. Si la tranche d’entrée n’est pas définie sur **Prêt**, vérifiez que la structure du dossier d’entrée est correcte et que le fichier file.txt existe dans les dossiers d’entrée.
 
-   ![Structure du dossier d’entrée](./media/data-factory-data-processing-using-batch/image3.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image3.png" alt-text="Structure du dossier d’entrée":::
 
 1. Dans la méthode **Execute** de votre activité personnalisée, utilisez l’objet **IActivityLogger** pour journaliser les informations qui vous aident à résoudre d’éventuels problèmes. Les messages consignés s’affichent dans le fichier user\_0.log.
 
@@ -885,11 +886,11 @@ Le débogage consiste à utiliser quelques techniques de base.
 
    Lorsque vous sélectionnez l’exécution de l’activité, le panneau **Détails de l’exécution de l’activité** s’affiche avec une liste de fichiers journaux. Les messages consignés s’affichent dans le fichier user\_0.log. Lorsqu’une erreur se produit, vous verrez trois exécutions d’activité car le nombre de tentatives est défini sur 3 dans le script JSON du pipeline et de l’activité. Lorsque vous sélectionnez l’exécution de l’activité, vous voyez les fichiers journaux qui vous permettront de résoudre l’erreur.
 
-   ![Panneaux OutputDataset et de tranche de données](./media/data-factory-data-processing-using-batch/image18.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image18.png" alt-text="Panneaux OutputDataset et de tranche de données":::
 
    Dans la liste des fichiers journaux, cliquez sur le fichier **user-0.log**. Le volet droit affiche les résultats de l’utilisation de la méthode **IActivityLogger.Write**.
 
-   ![Panneau Détails de l’exécution de l’activité](./media/data-factory-data-processing-using-batch/image19.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image19.png" alt-text="Panneau Détails de l’exécution de l’activité":::
 
    Consultez le fichier system-0.log pour vérifier les exceptions et messages d’erreur système.
 
@@ -906,13 +907,13 @@ Le débogage consiste à utiliser quelques techniques de base.
 
 1. Tous les fichiers contenus dans le fichier zip de l’activité personnalisée doivent se trouver au niveau supérieur et ne contenir aucun sous-dossier.
 
-   ![Liste des fichiers zip de l’activité personnalisée](./media/data-factory-data-processing-using-batch/image20.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image20.png" alt-text="Liste des fichiers zip de l’activité personnalisée":::
 
 1. Assurez-vous que les paramètres **assemblyName** (MyDotNetActivity.dll), **entryPoint** (MyDotNetActivityNS.MyDotNetActivity), **packageFile** (customactivitycontainer/Mydotnetactivity.zip) et **packageLinkedService** (qui doit pointer vers le Stockage Blob Azure contenant le fichier zip) ont des valeurs correctes.
 
 1. Si vous avez corrigé une erreur et que vous souhaitez relancer le traitement de la tranche, cliquez avec le bouton droit sur la tranche dans le panneau **OutputDataset** puis sélectionnez **Exécuter**.
 
-   ![Option Exécuter du panneau de OutputDataset](./media/data-factory-data-processing-using-batch/image21.png)
+   :::image type="content" source="./media/data-factory-data-processing-using-batch/image21.png" alt-text="Option Exécuter du panneau de OutputDataset":::
 
    > [!NOTE]
    > Un conteneur se trouve dans votre stockage d’objets blob nommé `adfjobs`. Ce conteneur n’est pas automatiquement supprimé, mais vous pouvez le supprimer en toute sécurité après avoir testé la solution. De même, la solution Data Factory crée un travail Azure Batch nommé `adf-\<pool ID/name\>:job-0000000001`. Si vous le souhaitez, vous pouvez supprimer ce travail après avoir testé la solution.

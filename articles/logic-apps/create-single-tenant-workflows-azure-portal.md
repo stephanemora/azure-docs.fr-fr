@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
-ms.openlocfilehash: 2178b3d4ea9c1cc650685b90fa5dc2cdf6551191
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.date: 09/25/2021
+ms.openlocfilehash: 82d08db8a5686e6e13eaff5d18c6ba3afd254b2a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112116613"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584462"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-the-azure-portal"></a>Créer un workflow d’intégration avec Azure Logic Apps monolocataire (Standard) dans le Portail Azure
 
@@ -65,9 +65,7 @@ Bien que cet exemple de flux de travail soit basé sur le cloud et ne comporte q
 
    ![Capture d’écran montrant la zone de recherche du portail Azure contenant le texte de recherche « logic apps » et la ressource « Logic App (Standard) » sélectionnée.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
 
-1. Dans la page **Logic Apps**, sélectionnez **Ajouter** > **Standard**.
-
-   Cette étape crée une ressource d’application logique qui s’exécute dans l’environnement Azure Logic Apps monocataire, et utilise un [modèle de tarification monolocataire](logic-apps-pricing.md#standard-pricing).
+1. Dans la page **Applications logiques**, sélectionnez **Ajouter**.
 
 1. Sur la page **Créer une application logique**, sous l’onglet **De base**, fournissez les informations suivantes sur votre ressource d’application logique :
 
@@ -75,6 +73,7 @@ Bien que cet exemple de flux de travail soit basé sur le cloud et ne comporte q
    |----------|----------|-------|-------------|
    | **Abonnement** | Oui | <*Azure-subscription-name*> | Abonnement Azure à utiliser pour votre application logique. |
    | **Groupe de ressources** | Oui | <*nom-groupe-de-ressources-Azure*> | Groupe de ressources Azure dans lequel vous créez votre application logique et les ressources associées. Ce nom de ressource doit être unique d’une région à l’autre et peut uniquement contenir des lettres, des chiffres, des traits d’union ( **-** ), des traits de soulignement ( **_** ), des parenthèses [ **()** ] et des points ( **.** ). <p><p>Cet exemple crée un groupe de ressources nommé `Fabrikam-Workflows-RG`. |
+   | **Type** | Oui | **Standard** | Ce type de ressource d’application logique s’exécute dans l’environnement Azure Logic Apps monolocataire et utilise le [modèle d’utilisation, de facturation et de tarification Standard](logic-apps-pricing.md#standard-pricing). |
    | **Nom de l’application logique** | Oui | <*logic-app-name*> | Nom à utiliser pour votre application logique. Ce nom de ressource doit être unique d’une région à l’autre et peut uniquement contenir des lettres, des chiffres, des traits d’union ( **-** ), des traits de soulignement ( **_** ), des parenthèses [ **()** ] et des points ( **.** ). <p><p>Cet exemple crée une application logique nommée `Fabrikam-Workflows`. <p><p>**Remarque** : le nom de votre application logique reçoit automatiquement le suffixe `.azurewebsites.net`, car la ressource **Application logique (standard)** est alimentée par Azure Functions, qui utilise la même convention d’affectation de noms d’application. |
    | **Publier** | Oui | <*deployment-environment*> | Destination de déploiement pour votre application logique. Par défaut, le **flux de travail** est sélectionné pour le déploiement sur un seul locataire Azure Logic Apps. Azure crée une ressource d’application logique vide dans laquelle vous devez ajouter votre premier flux de travail. <p><p>**Remarque** : actuellement, l’option de **conteneur Docker** requiert un [*emplacement personnalisé*](../azure-arc/kubernetes/conceptual-custom-locations.md) sur un cluster Kubernetes avec Azure Arc, que vous pouvez utiliser sur [Azure Arc avec Logic Apps (préversion)](azure-arc-enabled-logic-apps-overview.md). Les emplacements de ressources doivent tous être identiques pour votre application logique, votre emplacement personnalisé et votre cluster. |
    | **Région** | Oui | <*Azure-region*> | L’emplacement à utiliser pour la création de votre groupe de ressources et de vos ressources. Si vous avez sélectionné **conteneur Docker**, sélectionnez votre emplacement personnalisé. <p><p>Cet exemple déploie l’exemple d’application logique sur Azure et utilise **USA Ouest**. |
@@ -100,14 +99,12 @@ Bien que cet exemple de flux de travail soit basé sur le cloud et ne comporte q
 
    1. Pour le paramètre **Application Insights**, sélectionnez une instance existante d’Application Insights ou, si vous souhaitez créer une nouvelle instance, sélectionnez **Créer nouveau** et indiquez le nom que vous souhaitez utiliser.
 
-1. Une fois qu’Azure a validé les paramètres de votre application logique, sous l’onglet **Vérifier + créer**, sélectionnez **Créer**.
-
-   Par exemple :
+1. Une fois qu’Azure a validé les paramètres de votre application logique, sous l’onglet **Vérifier + créer**, sélectionnez **Créer**. Par exemple :
 
    ![Capture d’écran montrant le portail Azure et les nouveaux paramètres de ressource d’application logique.](./media/create-single-tenant-workflows-azure-portal/check-logic-app-resource-settings.png)
 
    > [!TIP]
-   > Si vous recevez une erreur de validation après avoir sélectionné **Créer**, ouvrez et passez en revue les détails de l’erreur. Par exemple, si votre région sélectionnée atteint un quota pour les ressources que vous essayez de créer, essayez éventuellement une autre région.
+   > Si vous recevez une erreur de validation après cette étape, ouvrez et passez en revue les détails de l’erreur. Par exemple, si votre région sélectionnée atteint un quota pour les ressources que vous essayez de créer, essayez éventuellement une autre région.
 
    Une fois qu’Azure a terminé le déploiement, votre application logique est automatiquement opérationnelle, mais elle ne fait rien encore car la ressource est vide du fait que vous n’avez pas encore ajouté de flux de travail.
 

@@ -1,22 +1,22 @@
 ---
 title: Découvrir Azure Policy pour Kubernetes
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer des clusters exécutant Kubernetes dans Azure ou localement.
-ms.date: 08/17/2021
+ms.date: 09/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 615145c7267d580d7a22dd34452e68c9cd905cdc
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 55a8f2f1cbb67c80c82e367a870cd61d76178518
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122965129"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556324"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Comprendre Azure Policy pour les clusters Kubernetes
 
 Azure Policy étend [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) v3, un _webhook contrôleur d’admission_ pour [Open Policy Agent](https://www.openpolicyagent.org/) (OPA), afin d’appliquer des mises en œuvre et protections à grande échelle à vos clusters d’une manière centralisée et cohérente. Azure Policy vous permet de gérer vos clusters Kubernetes et de générer des rapports sur leur état de conformité à partir d’un seul emplacement. Le module complémentaire implémente les fonctions suivantes :
 
 - Il vérifie auprès du service Azure Policy les affectations de stratégies au cluster.
-- Il déploie des définitions de stratégies dans le cluster en tant que ressources personnalisées [modèle de contrainte](https://github.com/open-policy-agent/gatekeeper#constraint-templates) et [contrainte](https://github.com/open-policy-agent/gatekeeper#constraints).
+- Il déploie des définitions de stratégies dans le cluster en tant que ressources personnalisées [modèle de contrainte](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) et [contrainte](https://github.com/open-policy-agent/gatekeeper#constraints).
 - Il fournit des rapports d’audit et de conformité au service Azure Policy.
 
 Azure Policy pour Kubernetes prend en charge les environnements de cluster suivants :
@@ -26,7 +26,8 @@ Azure Policy pour Kubernetes prend en charge les environnements de cluster suiva
 - [Moteur AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Les modules complémentaires pour le moteur AKS et les instances Kubernetes compatibles avec Arc sont en **préversion**. Azure Policy pour Kubernetes prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées. Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en version préversion avec les effets **EnforceOPAConstraint** et **EnforceRegoPolicy**, ainsi que la catégorie **Service Kubernetes** associée sont _déconseillées_. À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
+> Les modules complémentaires pour le moteur AKS et les instances Kubernetes compatibles avec Arc sont en **préversion**. Azure Policy pour Kubernetes prend uniquement en charge les pools de nœuds Linux et les définitions de stratégie intégrées (les définitions de stratégie personnalisées sont une fonctionnalité disponible en _préversion publique_). Les définitions de stratégie intégrée se trouvent dans la catégorie **Kubernetes**. Les définitions de stratégie limitées en version préversion avec les effets **EnforceOPAConstraint** et **EnforceRegoPolicy**, ainsi que la catégorie **Service Kubernetes** associée sont _déconseillées_.
+> À la place, utilisez les effets _audit_ et _deny_ avec le mode Fournisseur de ressources `Microsoft.Kubernetes.Data`.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -42,7 +43,7 @@ Pour activer et utiliser Azure Policy avec votre cluster Kubernetes, procédez c
 
 1. [Comprendre le langage d’Azure Policy pour Kubernetes](#policy-language)
 
-1. [Affecter une définition intégrée à votre cluster Kubernetes](#assign-a-built-in-policy-definition)
+1. [Attribuer une définition à votre cluster Kubernetes](#assign-a-policy-definition)
 
 1. [Attendre la validation](#policy-evaluation)
 
@@ -51,8 +52,9 @@ Pour activer et utiliser Azure Policy avec votre cluster Kubernetes, procédez c
 Les limitations générales suivantes s’appliquent au module complémentaire Azure Policy pour les clusters Kubernetes :
 
 - Le module complémentaire Azure Policy pour Kubernetes est pris en charge sur la version **1.14** ou ultérieure de Kubernetes.
-- Le module complémentaire Azure Policy pour Kubernetes peut uniquement être déployé dans des pools de nœuds Linux
-- Seules les définitions de stratégie intégrées sont prises en charge
+- Le module complémentaire Azure Policy pour Kubernetes peut uniquement être déployé dans des pools de nœuds Linux.
+- Seules les définitions de stratégie intégrées sont prises en charge. Les définitions de stratégie personnalisées sont une fonctionnalité en _préversion publique_.
+- Nombre maximal de pods pris en charge par le module complémentaire Azure Policy : **10 000**.
 - Nombre maximal d’enregistrements non conformes par stratégie par cluster : **500**
 - Nombre maximal d’enregistrements non conformes par abonnement : **1 million**
 - Les installations de Gatekeeper en dehors du module complémentaire Azure Policy ne sont pas prises en charge. Désinstallez tous les composants installés par une installation antérieure de Gatekeeper avant d’activer le module complémentaire Azure Policy.
@@ -360,13 +362,16 @@ kubectl get pods -n gatekeeper-system
 
 La structure du langage Azure Policy pour la gestion de Kubernetes suit celle des définitions de stratégies existantes. Avec un [mode Fournisseur de ressources](./definition-structure.md#resource-provider-modes) de `Microsoft.Kubernetes.Data`, les effets [audit](./effects.md#audit) et [deny](./effects.md#deny) sont utilisés pour gérer vos clusters Kubernetes. Les effets _audit_ et _deny_ doivent fournir des **informations** sur les propriétés spécifiques à l’utilisation d’[OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint) et de Gatekeeper v3.
 
-Au sein des propriétés _details.constraintTemplate_ et _details.constraint_ de la définition de stratégie, Azure Policy transmet les URI de ces [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) au module complémentaire. Rego est le langage pris en charge par OPA et Gatekeeper pour valider une requête au cluster Kubernetes. Grâce à la prise en charge d’une norme existante pour la gestion de Kubernetes, Azure Policy permet de réutiliser des règles existantes et de les jumeler avec Azure Policy afin de bénéficier d’une expérience de rapports de conformité du cloud unifiée. Pour plus d’informations, consultez [What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
+Dans le cadre des propriétés _details.templateInfo_, _details.constraint_ ou _details.constraintTemplate_ de la définition de stratégie, Azure Policy transmet l’URI ou la valeur Base64Encoded de ces [CustomResourceDefinitions](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) (CRD) au module complémentaire. Rego est le langage pris en charge par OPA et Gatekeeper pour valider une requête au cluster Kubernetes. Grâce à la prise en charge d’une norme existante pour la gestion de Kubernetes, Azure Policy permet de réutiliser des règles existantes et de les jumeler avec Azure Policy afin de bénéficier d’une expérience de rapports de conformité du cloud unifiée. Pour plus d’informations, consultez [What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
-## <a name="assign-a-built-in-policy-definition"></a>Affecter une définition de stratégie intégrée
+## <a name="assign-a-policy-definition"></a>Affecter une définition de stratégie
 
 Pour que vous puissiez affecter une définition de stratégie à votre cluster Kubernetes, il faut que les opérations appropriées d’attribution de stratégie de contrôle d’accès Azure en fonction du rôle (Azure RBAC) vous aient été attribuées. Les rôles Azure intégrés **Contributeur de la stratégie de ressource** et **Propriétaire** incluent ces opérations. Pour plus d’informations, consultez [Autorisations Azure RBAC dans Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
-Recherchez les définitions de stratégie intégrées pour la gestion de votre cluster à l’aide du portail Azure en procédant comme suit :
+> [!NOTE]
+> Les définitions de stratégie personnalisées sont une fonctionnalité en _préversion publique_.
+
+Recherchez les définitions de stratégie intégrées pour la gestion de votre cluster à l’aide du portail Azure en procédant comme suit. Si vous utilisez une définition de stratégie personnalisée, recherchez-la par son nom ou par la catégorie avec laquelle vous l’avez créée.
 
 1. Démarrez le service Azure Policy dans le portail Azure. Sélectionnez **Tous les services** dans le volet gauche, puis recherchez et sélectionnez **Stratégie**.
 
@@ -428,6 +433,21 @@ Quelques autres considérations :
 
 - Si un cluster comporte une stratégie de refus qui valide les ressources, l’utilisateur ne verra pas de message de refus lors de la création d’un déploiement. Prenons l’exemple d’un déploiement Kubernetes contenant des jeux de réplicas et des pods. Lorsqu’un utilisateur exécute `kubectl describe deployment $MY_DEPLOYMENT`, il ne renvoie pas de message de refus dans le cadre des événements. Toutefois, `kubectl describe replicasets.apps $MY_DEPLOYMENT` retourne les événements associés au rejet.
 
+> [!NOTE]
+> Les conteneurs init peuvent être inclus lors de l’évaluation de la stratégie. Pour voir si des conteneurs init sont inclus, vérifiez dans la CRD la déclaration suivante ou une déclaration similaire :
+>
+> ```rego
+> input_containers[c] { 
+>    c := input.review.object.spec.initContainers[_] 
+> }
+> ```
+
+### <a name="constraint-template-conflicts"></a>Conflits de modèles de contrainte
+
+Si les modèles de contrainte ont le même nom de métadonnées de ressource, mais que la définition de stratégie fait référence à la source à différents emplacements, les définitions de stratégie sont considérées comme étant en conflit. Exemple : Deux définitions de stratégie font référence au même fichier `template.yaml` stocké à différents emplacements sources, tels que le magasin de modèles Azure Policy (`store.policy.core.windows.net`) et GitHub.
+
+Lorsque des définitions de stratégie et leurs modèles de contrainte sont attribués, mais ne sont pas déjà installés sur le cluster et sont en conflit, ils sont signalés comme un conflit et ne seront pas installés dans le cluster jusqu’à ce que le conflit soit résolu. De même, toutes les définitions de stratégie existantes et leurs modèles de contrainte qui se trouvent déjà sur le cluster et qui sont en conflit avec les définitions de stratégie nouvellement attribuées continuent de fonctionner normalement. Si une attribution existante est mise à jour et qu’il est impossible de synchroniser le modèle de contrainte, le cluster est également marqué comme un conflit. Pour tous les messages de conflit, consultez [Raisons de conformité du mode fournisseur de ressources AKS](../how-to/determine-non-compliance.md#aks-resource-provider-mode-compliance-reasons).
+
 ## <a name="logging"></a>Journalisation
 
 En tant que contrôleur/conteneur Kubernetes, les pods _azure-policy_ et _gatekeeper_ conservent les journaux dans le cluster Kubernetes. Les journaux peuvent être exposés dans la page **Insights** du cluster Kubernetes. Pour plus d’informations, consultez [Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs](../../../azure-monitor/containers/container-insights-analyze.md).
@@ -442,7 +462,100 @@ kubectl logs <azure-policy pod name> -n kube-system
 kubectl logs <gatekeeper pod name> -n gatekeeper-system
 ```
 
-Pour plus d’informations, consultez [Déboguer Gatekeeper](https://github.com/open-policy-agent/gatekeeper#debugging) dans la documentation de Gatekeeper.
+Pour plus d’informations, consultez [Déboguer Gatekeeper](https://open-policy-agent.github.io/gatekeeper/website/docs/debug/) dans la documentation de Gatekeeper.
+
+## <a name="view-gatekeeper-artifacts"></a>Afficher les artefacts de Gatekeeper
+
+Une fois que le module complémentaire a téléchargé les attributions de stratégie et installé les modèles de contrainte et les contraintes sur le cluster, il les annote à l’aide d’informations Azure Policy telles que l’ID d’attribution de stratégie et l’ID de définition de stratégie. Pour configurer votre client afin qu’il puisse afficher les artefacts associés au module complémentaire, procédez comme suit :
+
+1. Configurez `kubeconfig` pour le cluster.
+
+   Pour un cluster Azure Kubernetes Service, utilisez la commande Azure CLI suivante :
+
+   ```azurecli-interactive
+   # Set context to the subscription
+   az account set --subscription <YOUR-SUBSCRIPTION>
+
+   # Save credentials for kubeconfig into .kube in your home folder
+   az aks get-credentials --resource-group <RESOURCE-GROUP> --name <CLUSTER-NAME>
+   ```
+
+1. Testez la connexion du cluster.
+
+   Exécutez la commande `kubectl cluster-info`. Si l’exécution est réussie, chaque service répond avec une URL de l’emplacement où il s’exécute.
+
+### <a name="view-the-add-on-constraint-templates"></a>Afficher les modèles de contrainte du module complémentaire
+
+Pour afficher les modèles de contrainte téléchargés par le module complémentaire, exécutez `kubectl get constrainttemplates`.
+Les modèles de contrainte qui commencent par `k8sazure` sont ceux installés par le module complémentaire.
+
+### <a name="get-azure-policy-mappings"></a>Obtenir les mappages Azure Policy
+
+Pour identifier le mappage entre un modèle de contrainte téléchargé sur le cluster et la définition de stratégie, utilisez `kubectl get constrainttemplates <TEMPLATE> -o yaml`. Les résultats ressemblent à la sortie suivante :
+
+```yaml
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+    annotations:
+    azure-policy-definition-id: /subscriptions/<SUBID>/providers/Microsoft.Authorization/policyDefinitions/<GUID>
+    constraint-template-installed-by: azure-policy-addon
+    constraint-template: <URL-OF-YAML>
+    creationTimestamp: "2021-09-01T13:20:55Z"
+    generation: 1
+    managedFields:
+    - apiVersion: templates.gatekeeper.sh/v1beta1
+    fieldsType: FieldsV1
+...
+```
+
+`<SUBID>` est l’ID d’abonnement et `<GUID>` est l’ID de la définition de stratégie mappée.
+`<URL-OF-YAML>` est l’emplacement source du modèle de contrainte que le complément a téléchargé pour l’installer sur le cluster.
+
+### <a name="view-constraints-related-to-a-constraint-template"></a>Afficher les contraintes associées à un modèle de contrainte
+
+Une fois que vous avez les noms des [modèles de contrainte téléchargés par le module complémentaire](#view-the-add-on-constraint-templates), vous pouvez utiliser le nom pour afficher les contraintes associées. Utilisez `kubectl get <constraintTemplateName>` pour récupérer la liste.
+Les contraintes installées par le module complémentaire commencent par `azurepolicy-`.
+
+### <a name="view-constraint-details"></a>Afficher les détails de la contrainte
+
+La contrainte contient des détails sur les violations et les mappages à la définition et à l’attribution de la stratégie. Pour afficher les détails, utilisez `kubectl get <CONSTRAINT-TEMPLATE> <CONSTRAINT> -o yaml`. Les résultats ressemblent à la sortie suivante :
+
+```yaml
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sAzureContainerAllowedImages
+metadata:
+  annotations:
+    azure-policy-assignment-id: /subscriptions/<SUB-ID>/resourceGroups/<RG-NAME>/providers/Microsoft.Authorization/policyAssignments/<ASSIGNMENT-GUID>
+    azure-policy-definition-id: /providers/Microsoft.Authorization/policyDefinitions/<DEFINITION-GUID>
+    azure-policy-definition-reference-id: ""
+    azure-policy-setdefinition-id: ""
+    constraint-installed-by: azure-policy-addon
+    constraint-url: <URL-OF-YAML>
+  creationTimestamp: "2021-09-01T13:20:55Z"
+spec:
+  enforcementAction: deny
+  match:
+    excludedNamespaces:
+    - kube-system
+    - gatekeeper-system
+    - azure-arc
+  parameters:
+    imageRegex: ^.+azurecr.io/.+$
+status:
+  auditTimestamp: "2021-09-01T13:48:16Z"
+  totalViolations: 32
+  violations:
+  - enforcementAction: deny
+    kind: Pod
+    message: Container image nginx for container hello-world has not been allowed.
+    name: hello-world-78f7bfd5b8-lmc5b
+    namespace: default
+  - enforcementAction: deny
+    kind: Pod
+    message: Container image nginx for container hello-world has not been allowed.
+    name: hellow-world-89f8bfd6b9-zkggg
+```
 
 ## <a name="troubleshooting-the-add-on"></a>Résolution des problèmes liés au module complémentaire
 

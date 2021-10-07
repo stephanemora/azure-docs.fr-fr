@@ -1,5 +1,5 @@
 ---
-title: Acheminer des événements avec une identité managée (préversion)
+title: Acheminer des événements avec une identité managée
 titleSuffix: Azure Digital Twins
 description: Découvrez comment activer une identité affectée par le système pour Azure Digital Twins, et comment l’utiliser pour router des événements à l’aide du portail Azure ou CLI.
 author: baanders
@@ -8,16 +8,16 @@ ms.date: 6/15/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: subject-rbac-steps, contperf-fy21q4
-ms.openlocfilehash: 8990536b4ddc09f5673fe00a70bc4f12f4f4a169
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4d50c40426d5fb687b28a965b9d921ef6fc4df38
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468790"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128651911"
 ---
-# <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview"></a>Activer une identité managée pour les événements de routage Azure Digital Twins (préversion)
+# <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events"></a>Activer une identité managée pour le routage des événements Azure Digital Twins
 
-Cet article explique comment activer une [identité affectée par le système pour une instance Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources-preview) (actuellement en préversion) et utiliser l’identité lors du transfert d’événements vers des destinations d’acheminement prises en charge. La configuration d'une identité managée n'est pas requise pour le routage, mais elle peut aider l'instance à accéder facilement à d'autres ressources protégées par Azure AD, telles que [Event Hub](../event-hubs/event-hubs-about.md), les destinations [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)  et [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
+Cet article explique comment activer une [identité affectée par le système pour une instance Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources) et utiliser l’identité lors du transfert d’événements vers des destinations de routage prises en charge. La configuration d'une identité managée n'est pas requise pour le routage, mais elle peut aider l'instance à accéder facilement à d'autres ressources protégées par Azure AD, telles que [Event Hub](../event-hubs/event-hubs-about.md), les destinations [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)  et [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
 
 Les étapes décrites dans cet article sont les suivantes : 
 
@@ -45,7 +45,7 @@ L’option d’identité gérée par le système se trouve dans l’onglet **Ava
 
 Dans cet onglet, sélectionnez l’option **On** (Activer) pour **Identité gérée par le système** afin d’activer cette fonctionnalité.
 
-:::image type="content" source="media/how-to-enable-managed-identities/create-instance-advanced.png" alt-text="Capture d’écran du portail Azure, montrant l’onglet Avancé de la boîte de dialogue Créer une ressource pour Azure Digital Twins. L’identité gérée par le système est activée.":::
+:::image type="content" source="media/how-to-route-with-managed-identity/create-instance-advanced.png" alt-text="Capture d’écran du portail Azure, montrant l’onglet Avancé de la boîte de dialogue Créer une ressource pour Azure Digital Twins. L’identité gérée par le système est activée.":::
 
 Vous pouvez ensuite utiliser les boutons de navigation inférieurs pour continuer le reste de la configuration de l’instance.
    
@@ -71,13 +71,13 @@ Commencez par ouvrir le [portail Azure](https://portal.azure.com) dans le naviga
 
 1. Recherchez le nom de votre instance dans la barre de recherche du portail, puis sélectionnez-le pour afficher plus de détails.
 
-1. Sélectionnez **Identité (préversion)** dans le menu de gauche.
+1. Sélectionnez **Identité** dans le menu de gauche.
 
 1. Dans cette page, sélectionnez l’option **On** (Activer) pour activer cette fonctionnalité.
 
 1. Sélectionnez le bouton **Enregistrer**, puis **Oui** pour confirmer.
 
-    :::image type="content" source="media/how-to-enable-managed-identities/identity-digital-twins.png" alt-text="Capture d’écran du portail Azure, montrant la page Identité (préversion) pour une instance Azure Digital Twins.":::
+    :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Capture d’écran du portail Azure, montrant la page Identité pour une instance Azure Digital Twins.":::
 
 Une fois la modification enregistrée, d’autres champs s’affichent sur cette page pour les champs **ID d’objet** et **Autorisations** de la nouvelle identité.
 

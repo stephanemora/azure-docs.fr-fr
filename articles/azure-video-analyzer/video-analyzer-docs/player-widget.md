@@ -4,12 +4,12 @@ description: Cet article de référence explique comment ajouter un widget du le
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 06/01/2021
-ms.openlocfilehash: b70bfc9a10e357c6f1e64c1737fdb4c049b505f5
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: ffc17e756a303723fe1d21c6ba221fed31147eaa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037441"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620570"
 ---
 # <a name="use-the-azure-video-analyzer-player-widget"></a>Utiliser le widget du lecteur d’Azure Video Analyzer
 
@@ -30,89 +30,9 @@ Les éléments suivants sont requis pour suivre ce tutoriel :
 
 * Un compte Azure disposant d’un abonnement actif. Si vous n’en avez pas déjà un, [créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) ou un autre éditeur pour le fichier HTML.
-* Avoir suivi le tutoriel [Enregistrement et lecture de vidéo continue](./use-continuous-video-recording.md) ou le guide de démarrage rapide [Détecter les mouvements et enregistrer des vidéos sur des appareils de périphérie](./detect-motion-record-video-clips-cloud.md).
-
-En outre, il est utile de connaître les ressources suivantes :
-
-- [Composants web](https://developer.mozilla.org/docs/Web/Web_Components)
-- [TypeScript](https://www.typescriptlang.org)
-
-## <a name="create-a-token"></a>Créer un jeton
-
-Dans cette section, vous allez créer un jeton JWT (JSON Web Token) que vous utiliserez plus loin dans cet article. Vous allez utiliser un exemple d’application qui va générer le jeton JWT et vous fournir tous les champs nécessaires pour créer la stratégie d’accès.
-
-> [!NOTE] 
-> Si vous savez comment générer un jeton JWT basé sur un certificat RSA ou ECC, vous pouvez ignorer cette section.
-
-1. Clonez le [dépôt des exemples C# AVA](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp). Ensuite, accédez au dossier *src/jwt-token-issuer*, puis recherchez l’application *JWTTokenIssuer*.
-
-    > [!NOTE] 
-    > Pour plus d’informations sur la configuration de vos valeurs d’audience, consultez [Stratégies d’accès](./access-policies.md).
-
-2. Ouvrez Visual Studio Code, puis accédez au dossier dans lequel vous avez téléchargé l’application *JWTTokenIssuer*. Ce dossier doit contenir le fichier *\*.csproj*.
-3. Dans le volet de l’explorateur, accédez au fichier *program.cs*.
-4. À la ligne 77, remplacez l’audience par le point de terminaison d’Azure Video Analyzer, suivi de /videos/\*. Il doit se présenter comme suit :
-
-   ```
-   https://{Azure Video Analyzer Account ID}.api.{Azure Long Region Code}.videoanalyzer.azure.net/videos/*
-   ```
-
-   > [!NOTE] 
-   > Vous pouvez trouver le point de terminaison de Video Analyzer dans la section de vue d’ensemble de la ressource Video Analyzer dans le portail Azure. La section [Lister les ressources vidéo](#list-video-resources), plus loin dans cet article, fait référence à cette valeur sous la forme `clientApiEndpointUrl`.
-
-   :::image type="content" source="media/player-widget/client-api-url.png" alt-text="Capture d’écran montrant le point de terminaison du widget du lecteur.":::
-    
-5. À la ligne 78, remplacez l’émetteur par la valeur de l’émetteur de votre certificat (par exemple, `https://contoso.com`).
-6. Enregistrez le fichier . Vous verrez peut-être le message **« jwt token issuer » ne contient pas les ressources nécessaires à la génération et au débogage. Voulez-vous les ajouter ?** Sélectionnez **Oui**.
-   
-   :::image type="content" source="media/player-widget/visual-studio-code-required-assets.png" alt-text="Capture d’écran montrant l’invite relative aux ressources nécessaires dans Visual Studio Code.":::
-   
-7. Ouvrez la fenêtre d’invite de commandes et accédez au dossier contenant les fichiers *JWTTokenIssuer*. Exécutez les deux commandes suivantes : `dotnet build`, suivie de `dotnet run`. Si vous avez l’extension C# sur Visual Studio Code, vous pouvez également appuyer sur F5 pour exécuter l’application *JWTTokenIssuer*.
-
-L'application se génère et s'exécute. Une fois générée, elle crée un certificat auto-signé et génère les informations de jeton JWT à partir de ce certificat. Vous pouvez également exécuter le fichier *JWTTokenIssuer.exe* qui se trouve dans le dossier de débogage du répertoire à partir duquel *JWTTokenIssuer* a été généré. L’avantage de l’exécution de l’application est que vous pouvez spécifier des options d’entrée comme suit :
-
-- `JwtTokenIssuer [--audience=<audience>] [--issuer=<issuer>] [--expiration=<expiration>] [--certificatePath=<filepath> --certificatePassword=<password>]`
-
-*JWTTokenIssuer* crée le jeton JWT et les composants nécessaires suivants :
-
-- `Issuer`, `Audience`, `Key Type`, `Algorithm`, `Key Id`, `RSA Key Modulus`, `RSA Key Exponent`, `Token`
-
-**Veillez à copier et enregistrer ces valeurs pour une utilisation ultérieure.**
-
-## <a name="create-an-access-policy"></a>Définition d’une stratégie d’accès.
-
-Des stratégies d’accès définissent les autorisations et la durée d’accès à un flux vidéo spécifique. Pour les besoins de ce tutoriel, configurez une stratégie d’accès pour Video Analyzer dans le portail Azure.  
-
-1. Connectez-vous au portail Azure et accédez au groupe de ressources où se trouve votre compte Video Analyzer.
-1. Sélectionnez la ressource Video Analyzer.
-1. Sous **Video Analyzer**, sélectionnez **Stratégies d’accès**.
-
-   :::image type="content" source="./media/player-widget/portal-access-policies.png" alt-text="Capture d’écran montrant l’option Stratégies d’accès.":::
-   
-1. Sélectionnez **Nouveau** et entrez les informations suivantes :
-
-   - **Nom de la stratégie d’accès** : vous pouvez choisir n’importe quel nom.
-
-   - **Émetteur** : cette valeur doit correspondre à l’émetteur du jeton JWT. 
-
-   - **Audience** : l’audience pour ce jeton JWT. `${System.Runtime.BaseResourceUrlPattern}` est la valeur par défaut. Pour en savoir plus sur l’audience et sur `${System.Runtime.BaseResourceUrlPattern}`, consultez [Stratégies d’accès](./access-policies.md).
-
-   - **Type de clé** : RSA 
-
-   - **Algorithme** : les valeurs prises en charge sont RS256, RS384 et RS512.
-
-   - **ID de clé** : cet ID est généré à partir de votre certificat. Pour plus d’informations, consultez [Créer un jeton](#create-a-token).
-
-   - **Module clé RSA** : cette valeur est générée à partir de votre certificat. Pour plus d’informations, consultez [Créer un jeton](#create-a-token).
-
-   - **Exposant clé RSA** : cette valeur est générée à partir de votre certificat. Pour plus d’informations, consultez [Créer un jeton](#create-a-token).
-
-   :::image type="content" source="./media/player-widget/access-policies-portal.png" alt-text="Capture d’écran montrant le portail des stratégies d’accès."::: 
-   
-   > [!NOTE] 
-   > Ces valeurs proviennent de l’application *JWTTokenIssuer* créée à l’étape précédente.
-
-1. Sélectionnez **Enregistrer**.
+* [Enregistrement et lecture de vidéo continue](./use-continuous-video-recording.md) ou [Détecter les mouvements et enregistrer des vidéos sur des appareils de périphérie](./detect-motion-record-video-clips-cloud.md)
+* Créer un [jeton](./access-policies.md#creating-a-token)
+* Créer une [stratégie d’accès](./access-policies.md#creating-an-access-policy)
 
 ## <a name="list-video-resources"></a>Lister les ressources vidéo
 
@@ -132,7 +52,7 @@ function getVideos()
 }
 ```
    > [!NOTE]
-   >Le `clientApiEndPoint` et le jeton sont ceux traités dans la section [Créer un jeton](#create-a-token).
+   >Le `clientApiEndPoint` et le jeton sont ceux traités lors de la [création d’un jeton](./access-policies.md#creating-a-token).
 
 ## <a name="add-the-video-analyzer-player-component"></a>Ajouter le composant de lecteur de Video Analyzer
 
@@ -161,6 +81,33 @@ Vous disposez à présent d’une URL de point de terminaison d’API client, d�
 1. Chargez la vidéo dans le lecteur pour commencer.
    ```javascript
    avaPlayer.load();
+   ```
+   
+## <a name="add-the-zone-drawer-component"></a>Ajouter le composant de dessinateur de zone
+
+1. Ajoutez un élément AVA-Zone-Drawer au document :
+   ```html
+   <ava-zone-drawer width="720px" id="zoneDrawer"></ava-zone-drawer>
+   ```
+1. Obtenez un lien vers le dessinateur de zone de Video Analyzer qui se trouve dans la page :
+   ```javascript
+   const zoneDrawer = document.getElementById("zoneDrawer");
+   ```
+1. Chargez le dessinateur de zone dans le lecteur :
+   ```javascript
+   zoneDrawer.load();
+   ```
+1. Pour créer et enregistrer des zones, vous devez ajouter des écouteurs d’événements ici :
+   ```javascript
+   zoneDrawer.addEventListener('ZONE_DRAWER_ADDED_ZONE', (event) => {
+            console.log(event);
+            document.getElementById("zoneList").value = JSON.stringify(event.detail);
+        });
+
+        zoneDrawer.addEventListener('ZONE_DRAWER_SAVE', (event) => {
+            console.log(event);
+            document.getElementById("zoneList").value = JSON.stringify(event.detail);
+        });
    ```
 
 ## <a name="put-it-all-together"></a>Assemblage
@@ -192,6 +139,19 @@ En associant les éléments web précédents, vous obtenez la page HTML statique
             videoName: document.getElementById("videoName").value
         } );
         avaPlayer.load();
+    
+        const zoneDrawer = document.getElementById("zoneDrawer");
+        zoneDrawer.load();
+
+        zoneDrawer.addEventListener('ZONE_DRAWER_ADDED_ZONE', (event) => {
+            console.log(event);
+            document.getElementById("zoneList").value = JSON.stringify(event.detail);
+        });
+
+        zoneDrawer.addEventListener('ZONE_DRAWER_SAVE', (event) => {
+            console.log(event);
+            document.getElementById("zoneList").value = JSON.stringify(event.detail);
+        });
     }
 </script>
 Client API endpoint URL: <input type="text" id="clientApiEndpointUrl" /><br><br>
@@ -200,7 +160,10 @@ Token: <input type="text" id="token" /><br><br>
 <textarea rows="20" cols="100" id="videoList"></textarea><br><br>
 Video name: <input type="text" id="videoName" /><br><br>
 <button type="submit" onclick="playVideo()">Play Video</button><br><br>
-<ava-player width="720px" id="avaPlayer"></ava-player>
+<textarea rows="5" cols="100" id="zoneList"></textarea><br><br>
+<ava-zone-drawer width="720px" id="zoneDrawer">
+    <ava-player id="avaPlayer"></ava-player>
+</ava-zone-drawer>
 </body>
 </html>
 ```
@@ -270,7 +233,8 @@ npm install @azure/video-analyzer/widgets
 Vous pouvez aussi l’importer dans le code de votre application en utilisant le code suivant pour TypeScript :
 
 ```typescript
-import { Player } from '@video-analyzer/widgets';
+import { Player } from '@azure/video-analyzer-widgets';
+import { ZoneDrawer } from '@azure/video-analyzer-widgets';
 ```
 
 Si vous souhaitez créer un widget de lecteur dynamiquement, vous pouvez utiliser le code suivant pour JavaScript :
@@ -278,22 +242,29 @@ Si vous souhaitez créer un widget de lecteur dynamiquement, vous pouvez utilise
 <script async type="module" src="https://unpkg.com/@azure/video-analyzer-widgets@latest/dist/global.min.js"></script>
 ```
 
-Si vous utilisez cette méthode pour importer, vous devrez créer l’objet lecteur par programmation une fois l’importation terminée. Dans l’exemple précédent, vous avez ajouté le module à la page à l’aide de la balise HTML `ava-player`. Pour créer un objet lecteur avec du code, vous pouvez procéder comme suit dans JavaScript :
+
+Si vous utilisez cette méthode pour importer, vous devrez créer les objets dessinateur de zone et lecteur par programmation une fois l’importation terminée.  Dans l’exemple précédent, vous avez ajouté le module à la page à l’aide de la balise HTML `ava-player`. Pour créer un objet dessinateur de zone et un objet lecteur par le biais du code, vous pouvez procéder comme suit dans JavaScript :
+
 
 ```javascript
-const avaPlayer = new ava.widgets.player();
+const zoneDrawer = new window.ava.widgets.zoneDrawer();
+document.firstElementChild.appendChild(zoneDrawer);
+const playerWidget = new window.ava.widgets.player();
+zoneDrawer.appendChild(playerWidget);
 ```
 
 Ou dans TypeScript :
 
 ```typescript
 const avaPlayer = new Player();
+const zoneDrawer = new ZoneDrawer();
 ```
 
 Ensuite, vous devez l’ajouter au code HTML :
 
 ```javascript
-document.firstElementChild.appendChild(avaPlayer);
+document.firstElementChild.appendChild(zoneDrawer);
+zoneDrawer.appendChild(playerWidget);
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

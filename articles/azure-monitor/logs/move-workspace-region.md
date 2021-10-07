@@ -1,59 +1,87 @@
 ---
 title: Déplacer un espace de travail Log Analytics vers une autre région Azure à l’aide du portail Azure
-description: Utilisez un modèle Azure Resource Manager pour déplacer espace de travail Log Analytics d’une région Azure vers une autre à l’aide du portail Azure.
+description: Utilisez un modèle Azure Resource Manager pour déplacer espace de travail Log Analytics d’une région Azure à une autre à l’aide du portail Azure.
 author: yossiy
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: yossiy
-ms.openlocfilehash: f3aeb0614907d1f10e3f080a2399029711192bb8
-ms.sourcegitcommit: c2f0d789f971e11205df9b4b4647816da6856f5b
+ms.openlocfilehash: cecfa72493545f40c2e7326fece88cb85f99974b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122662217"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565410"
 ---
-# <a name="move-log-analytics-workspace-to-another-region-using-the-azure-portal"></a>Déplacer un espace de travail Log Analytics vers une autre région à l’aide du portail Azure
+# <a name="move-a-log-analytics-workspace-to-another-region-by-using-the-azure-portal"></a>Déplacer un espace de travail Log Analytics vers une autre région à l’aide du portail Azure
 
 Il existe différents scénarios dans lesquels vous pouvez être amené à déplacer votre espace de travail Log Analytics existant d’une région à une autre. Par exemple, Log Analytics est récemment devenu disponible dans une région qui héberge la plupart de vos ressources et vous voulez que l’espace de travail soit plus proche et fasse des économies sur les frais de sortie. Vous pouvez également souhaiter déplacer votre espace de travail vers une région nouvellement ajoutée pour des raisons de souveraineté des données.
 
-Un espace de travail Log Analytics ne peut pas être déplacé d’une région à une autre. Toutefois, vous pouvez utiliser un modèle de Azure Resource Manager pour exporter la ressource d’espace de travail et les ressources associées. Vous pouvez ensuite indexer les ressources dans une autre région en exportant l’espace de travail vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant le modèle dans la nouvelle région. Pour plus d’informations sur Resource Manager et les modèles, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Un environnement d’espace de travail peut être complexe et inclure des sources connectées, des solutions gérées, des services liés, des alertes et des packs de requêtes. Toutes les ressources ne peuvent pas être exportées dans un modèle Resource Manager, et certaines nécessitent une configuration distincte lorsque vous déplacez un espace de travail.
+Un espace de travail Log Analytics ne peut pas être déplacé d’une région à une autre. Toutefois, vous pouvez utiliser un modèle Azure Resource Manager pour exporter la ressource d’espace de travail et les ressources associées. Vous pouvez ensuite indexer les ressources dans une autre région en exportant l’espace de travail vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant le modèle dans la nouvelle région. Pour plus d’informations sur Resource Manager et les modèles, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). 
+
+Un environnement d’espace de travail peut être complexe et inclure des sources connectées, des solutions gérées, des services liés, des alertes et des packs de requêtes. Toutes les ressources ne peuvent pas être exportées dans un modèle Resource Manager, et certaines nécessitent une configuration distincte lorsque vous déplacez un espace de travail.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Pour exporter la configuration de l’espace de travail vers un modèle qui peut être déployé dans une autre région, vous devez avoir le rôle [Contributeur Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) ou [Contributeur d’analyse](../../role-based-access-control/built-in-roles.md#monitoring-contributor), ou avoir un rôle ayant des privilèges plus élevés.
 
 - Identifiez toutes les ressources actuellement associées à votre espace de travail, notamment :
-  - Agents connectés : Accédez à *Journaux* dans votre espace de travail et interrogez la table [Heartbeat](../insights/solution-agenthealth.md#heartbeat-records) pour répertorier les agents connectés.
+  - *Agents connectés* : Accédez à **Journaux** dans votre espace de travail et interrogez la table [heartbeat](../insights/solution-agenthealth.md#azure-monitor-log-records) pour répertorier les agents connectés.
     ```kusto
     Heartbeat
     | summarize by Computer, Category, OSType, _ResourceId
     ```
-  - Solutions installées : Cliquez sur **Solutions** dans le volet de navigation de l’espace de travail pour obtenir la liste des solutions installées.
-  - API de collecte de données : Les données arrivant par le biais de l’[API de collecte de données](../logs/data-collector-api.md) sont stockées dans des tables de journal personnalisées. Cliquez sur ***Journaux** _ dans le volet de navigation de l’espace de travail, puis sur _ *Journal personnalisé** dans le volet du schéma pour obtenir la liste des tables de journal personnalisées.
-  - Services liés : L’espace de travail peut avoir des services liés à des ressources dépendantes telles qu’un compte Automation, un compte de stockage ou un cluster dédié. Supprimez les services liés de votre espace de travail. Ils doivent être reconfigurés manuellement dans l’espace de travail cible.
-  - Alertes : Cliquez sur **Alertes** dans le volet de navigation de votre espace de travail, puis sur **Gérer les règles d’alerte** dans la barre d’outils pour répertorier les alertes. Les alertes des espaces de travail créés après le 1er juin 2019 ou des espaces de travail qui ont été [mis à niveau de l’API d’alerte Log Analytics héritée vers l’API scheduledQueryRules](../alerts/alerts-log-api-switch.md) peuvent être incluses dans le modèle. Vous pouvez [vérifier si l’API scheduledQueryRules est utilisée pour les alertes dans votre espace de travail](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Vous pouvez également configurer manuellement les alertes dans l’espace de travail cible.
-  - Packs de requêtes : Un espace de travail peut être associé à plusieurs packs de requêtes. Pour identifier les packs de requêtes dans votre espace de travail, cliquez sur **Journaux** dans le volet de navigation de l’espace de travail, sur **requêtes** dans le volet de gauche, puis sur le bouton de sélection à droite de la zone de recherche. Une boîte de dialogue contenant les packs de requêtes sélectionnés s’ouvre sur la droite. Si vos packs de requêtes se trouvent dans le même groupe de ressources que l’espace de travail que vous déplacez, vous pouvez les inclure dans cette migration.
-- Vérifiez que votre abonnement Azure vous permet de créer un espace de travail Log Analytics dans la région cible.
+  - *Paramètres de diagnostic* : Les ressources peuvent envoyer des journaux à Diagnostics Azure ou à des tables dédiées dans votre espace de travail. Accédez à **Journaux** dans votre espace de travail, puis exécutez cette requête pour les ressources qui envoient des données à la table `AzureDiagnostics` :
+
+    ```kusto
+    AzureDiagnostics
+    | where TimeGenerated > ago(12h)
+    | summarize by  ResourceProvider , ResourceType, Resource
+    | sort by ResourceProvider, ResourceType
+    ```
+
+    Exécutez cette requête pour les ressources qui envoient des données à des tables dédiées :
+
+    ```kusto
+    search *
+    | where TimeGenerated > ago(12h)
+    | where isnotnull(_ResourceId)
+    | extend ResourceProvider = split(_ResourceId, '/')[6]
+    | where ResourceProvider !in ('microsoft.compute', 'microsoft.security')
+    | extend ResourceType = split(_ResourceId, '/')[7]
+    | extend Resource = split(_ResourceId, '/')[8]
+    | summarize by tostring(ResourceProvider) , tostring(ResourceType), tostring(Resource)
+    | sort by ResourceProvider, ResourceType
+    ```
+
+  - *Solutions installées* : Sélectionnez **Solutions** dans le volet de navigation de l’espace de travail pour obtenir la liste des solutions installées.
+  - *API de collecte de données* : Les données arrivant par le biais d’une [API de collecte de données](../logs/data-collector-api.md) sont stockées dans des tables de journaux personnalisés. Pour obtenir la liste des tables de journaux personnalisés, sélectionnez **Journaux** dans le volet de navigation de l’espace de travail, puis sélectionnez **Journal personnalisé** dans le volet du schéma.
+  - *Services liés* : Les espaces de travail peuvent avoir des services liés à des ressources dépendantes telles qu’un compte Azure Automation, un compte de stockage ou un cluster dédié. Supprimez les services liés de votre espace de travail. Reconfigurez-les manuellement dans l’espace de travail cible.
+  - *Alertes* : Pour répertorier les alertes, sélectionnez **Alertes** dans le volet de navigation de votre espace de travail, puis sélectionnez **Gérer les règles d’alerte** dans la barre d’outils. Les alertes des espaces de travail créés après le 1er juin 2019 ou des espaces de travail qui ont été [mis à niveau de l’API d’alerte Log Analytics vers l’API scheduledQueryRules](../alerts/alerts-log-api-switch.md) peuvent être incluses dans le modèle. 
+  
+     Vous pouvez [vérifier si l’API scheduledQueryRules est utilisée pour les alertes dans votre espace de travail](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Vous pouvez également configurer manuellement les alertes dans l’espace de travail cible.
+  - *Packs de requêtes* : Un espace de travail peut être associé à plusieurs packs de requêtes. Pour identifier les packs de requêtes dans votre espace de travail, sélectionnez **Journaux** dans le volet de navigation de l’espace de travail, sélectionnez **requêtes** dans le volet gauche, puis cliquez sur le bouton de sélection à droite de la zone de recherche. Une boîte de dialogue avec les packs de requêtes sélectionnés s’ouvre à droite. Si vos packs de requêtes se trouvent dans le même groupe de ressources que l’espace de travail que vous déplacez, vous pouvez les inclure dans cette migration.
+- Vérifiez que votre abonnement Azure vous permet de créer des espaces de travail Log Analytics dans la région cible.
 
 ## <a name="prepare-and-move"></a>Préparer et déplacer
-Les étapes suivantes vous montrent comment préparer l’espace de travail et les ressources pour le déplacement en utilisant un modèle Resource Manager, puis comment les déplacer vers la région cible en utilisant le portail. Toutes les ressources ne peuvent pas être exportées à l’aide d’un modèle. Vous devrez les configurer séparément après la création de l’espace de travail dans la région cible.
+Les procédures suivantes montrent comment préparer l’espace de travail et les ressources pour le déplacement en utilisant un modèle Resource Manager, puis comment les déplacer vers la région cible en utilisant le portail. Suivez les procédures dans l’ordre.
 
-### <a name="export-the-template-and-deploy-from-the-portal"></a>Exporter le modèle et le déployer à partir du portail
+> [!NOTE]
+> Toutes les ressources ne peuvent pas être exportées par le biais d’un modèle. Vous devez les configurer séparément après la création de l’espace de travail dans la région cible.
+
+### <a name="select-resource-groups-and-edit-parameters"></a>Sélectionner les groupes de ressources et modifier les paramètres
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
-2. Localisez le groupe de ressources contenant votre espace de travail et cliquez dessus.
-3. Pour afficher la ressource des alertes, cochez la case **Afficher les types cachés**.
-4. Cliquez sur le filtre « Type » et sélectionnez **Espace de travail Log Analytics**, **Solution**, **SavedSearches**, **microsoft.insights/scheduledqueryrules** et **defaultQueryPack** le cas échéant, puis cliquez sur Appliquer.
-5. Sélectionnez l’espace de travail, les solutions, les alertes, les recherches enregistrées et le(s) pack(s) de requêtes que vous souhaitez déplacer, puis cliquez sur **Exporter le modèle** dans la barre d’outils.
+1. Recherchez le groupe de ressources contenant votre espace de travail et sélectionnez-le.
+1. Pour afficher une ressource d’alerte, cochez la case **Afficher les types cachés**.
+1. Sélectionnez le filtre **Type**. Sélectionnez **Espace de travail Log Analytics**, **Solution**, **SavedSearches**, **microsoft.insights/scheduledqueryrules**, **defaultQueryPack** et d’autres ressources liées à l’espace de travail dont vous disposez (par exemple, un compte Automation). Ensuite, sélectionnez **Appliquer**.
+1. Sélectionnez l’espace de travail, les solutions, les recherches enregistrées, les alertes, les packs de requêtes et les autres ressources liées à l’espace de travail dont vous disposez (par exemple, un compte Automation). Sélectionnez ensuite **Exporter le modèle** dans la barre d’outils.
     
     > [!NOTE]
-    > Sentinel ne peut pas être exporté avec le modèle et vous devez [intégrer Sentinel](../../sentinel/quickstart-onboard.md) à l’espace de travail cible.
+    > Azure Sentinel ne peut pas être exporté avec un modèle. Vous devez [intégrer Sentinel](../../sentinel/quickstart-onboard.md) à un espace de travail cible.
    
-6. Cliquez sur **Déployer** dans la barre d’outils pour modifier et préparer le modèle pour le déploiement.
-7. Cliquez sur **Modifier les paramètres** dans la barre d’outils pour ouvrir le fichier **parameters.json** dans l’éditeur en ligne.
-8. Pour modifier les paramètres, modifiez la propriété **value** sous **parameters** :
-
-    Exemple de fichier de paramètres :
+1. Sélectionnez **Déployer** dans la barre d’outils pour modifier et préparer le modèle pour le déploiement.
+1. Sélectionnez **Modifier les paramètres** dans la barre d’outils pour ouvrir le fichier *parameters.json* dans l’éditeur en ligne.
+1. Pour modifier les paramètres, modifiez la propriété `value` sous `parameters`. Voici un exemple :
 
     ```json
     {
@@ -76,12 +104,17 @@ Les étapes suivantes vous montrent comment préparer l’espace de travail et l
     }
     ```
 
-9. Cliquez sur **Enregistrer** dans l’éditeur.
-10. Cliquez sur **Modifier le modèle** dans la barre d’outils pour ouvrir le fichier **template.json** dans l’éditeur en ligne.
-11. Pour modifier la région cible dans laquelle l’espace de travail Log Analytics sera déployé, modifiez la propriété **location** sous **resources** dans l’éditeur en ligne. Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/). Le code d’une région est le nom de la région en anglais et sans espace, **Central US** = **centralus**.
-12. Supprimez les ressources des services liées `microsoft.operationalinsights/workspaces/linkedservices` si ces derniers sont présents dans le modèle. Ils doivent être reconfigurés manuellement dans l’espace de travail cible.
+1. Sélectionnez **Enregistrer** dans l’éditeur.
 
-    Exemple de modèle incluant l’espace de travail, la recherche enregistrée, les solutions, l’alerte et le pack de requêtes :
+### <a name="edit-the-template"></a>Modifier le modèle
+
+1. Sélectionnez **Modifier le modèle** dans la barre d’outils pour ouvrir le fichier *template.json* dans l’éditeur en ligne.
+1. Pour modifier la région cible dans laquelle l’espace de travail Log Analytics sera déployé, modifiez la propriété `location` sous `resources` dans l’éditeur en ligne. 
+
+   Pour obtenir les codes d’emplacement des régions, consultez [Résidence des données dans Azure](https://azure.microsoft.com/global-infrastructure/locations/). Le code d’une région est le nom de la région sans espace. Par exemple, **Central US** (nom de la région USA Centre en anglais) doit être `centralus`.
+1. Supprimez les ressources des services liés (`microsoft.operationalinsights/workspaces/linkedservices`) si elles sont présentes dans le modèle. Vous devez reconfigurer ces ressources manuellement dans l’espace de travail cible.
+
+   L’exemple de modèle suivant inclut l’espace de travail, la recherche enregistrée, les solutions, l’alerte et le pack de requêtes :
 
     ```json
     {
@@ -241,27 +274,32 @@ Les étapes suivantes vous montrent comment préparer l’espace de travail et l
     }
     ```
 
-13. Cliquez sur **Enregistrer** dans l’éditeur en ligne.
-14. Cliquez sur **Abonnement** pour choisir l’abonnement dans lequel l’espace de travail cible sera déployé.
-16. Cliquez sur **Groupe de ressources** pour choisir le groupe de ressources dans lequel l’espace de travail cible sera déployé. Vous pouvez cliquer sur **Créer nouveau** pour créer un groupe de ressources pour l’espace de travail cible.
-17. Vérifiez que la **région** est définie su l’emplacement cible où vous souhaitez déployer le groupe de sécurité réseau.
-18. Cliquez sur le bouton **Vérifier + créer** pour vérifier votre modèle.
-19. Cliquez sur **Créer** pour déployer l’espace de travail et la ressource sélectionnée dans la région cible.
-20. Votre espace de travail, ressources sélectionnées comprises, est maintenant déployé dans la région cible, et vous pouvez terminer la configuration restante dans l’espace de travail pour récupérer les fonctionnalités de l’espace de travail original.
-    - Connecter des agents : Utilisez l’une des options disponibles, notamment DCR, pour configurer les agents requis sur les machines virtuelles et les groupes de machines virtuelles identiques, et spécifiez le nouvel espace de travail cible comme destination.
-    - Installer des solutions : Certaines solutions, comme [Azure Sentinel](../../sentinel/quickstart-onboard.md), nécessitent une procédure d’intégration particulière et n’ont pas été incluses dans le modèle. Vous devez les intégrer séparément au nouvel espace de travail.
-    - API de collecte de données : Configurez des instances de l’API de collecte de données pour envoyer des données à l’espace de travail cible.
-    - Règles d’alerte : Lorsque les alertes ne sont pas exportées dans le modèle, vous devez les configurer manuellement dans l’espace de travail cible.
-21. Vérifiez que les nouvelles données ne sont pas ingérées dans l’espace de travail d’origine. Exécutez cette requête dans votre espace de travail d’origine et assurez-vous qu’il n’y a pas d’ingestion après la migration.
+1. Sélectionnez **Enregistrer** dans l’éditeur en ligne.
+
+### <a name="deploy-the-workspace"></a>Déployer l’espace de travail
+
+1. Sélectionnez **Abonnement** pour choisir l’abonnement dans lequel l’espace de travail cible sera déployé.
+1. Sélectionnez **Groupe de ressources** pour choisir le groupe de ressources dans lequel l’espace de travail cible sera déployé. Vous pouvez sélectionner **Créer nouveau** pour créer un groupe de ressources pour l’espace de travail cible.
+1. Vérifiez que le paramètre **Région** est défini sur l’emplacement cible où vous voulez déployer le groupe de sécurité réseau.
+1. Sélectionnez le bouton **Vérifier + créer** pour vérifier votre modèle.
+1. Sélectionnez **Créer** pour déployer l’espace de travail et la ressource sélectionnée dans la région cible.
+1. Votre espace de travail, y compris les ressources sélectionnées, est maintenant déployé dans la région cible. Vous pouvez terminer la configuration restante dans l’espace de travail pour jumeler les fonctionnalités avec celles de l’espace de travail d’origine.
+   - *Connecter des agents* : Utilisez l’une des options disponibles, notamment Règles de collecte de données, pour configurer les agents requis sur les machines virtuelles et les groupes de machines virtuelles identiques et pour spécifier le nouvel espace de travail cible comme destination.
+   - *Paramètres de diagnostic* : Mettez à jour les paramètres de diagnostic dans les ressources identifiées, avec l’espace de travail cible comme destination.
+   - *Installer des solutions* : Certaines solutions, comme [Azure Sentinel](../../sentinel/quickstart-onboard.md), nécessitent des procédures d’intégration particulières et n’ont pas été incluses dans le modèle. Vous devez les intégrer séparément au nouvel espace de travail.
+   - *Configurer l’API de collecte de données* : Configurez les instances de l’API de collecte de données pour envoyer des données à l’espace de travail cible.
+   - *Configurer des règles d’alerte* : Lorsque les alertes ne sont pas exportées dans le modèle, vous devez les configurer manuellement dans l’espace de travail cible.
+1. Vérifiez que les nouvelles données ne sont pas ingérées dans l’espace de travail d’origine. Exécutez la requête suivante dans votre espace de travail d’origine, et observez qu’il n’y a pas d’ingestion après la migration :
 
     ```kusto
     search *
+    | where TimeGenerated > ago(12h)
     | summarize max(TimeGenerated) by Type
     ```
 
-Les données ingérées après la connexion des sources de données à l’espace de travail cible sont stockées dans l’espace de travail cible, tandis que les données plus anciennes restent dans l’espace de travail d’origine. Vous pouvez effectuer une [requête sur plusieurs espaces de travail](./cross-workspace-query.md#performing-a-query-across-multiple-resources) et, si les deux espaces de travail ont reçu le même nom, utilisez le nom qualifié (*subscriptionName/resourceGroup/componentName*) dans la référence de l’espace de travail.
+Une fois les sources de données connectées à l’espace de travail cible, les données ingérées sont stockées dans l’espace de travail cible. Les anciennes données restent dans l’espace de travail d’origine et sont soumises à la stratégie de rétention. Vous pouvez effectuer une [requête sur plusieurs espaces de travail](./cross-workspace-query.md#performing-a-query-across-multiple-resources). Si les deux espaces de travail ont reçu le même nom, utilisez un nom qualifié (*subscriptionName/resourceGroup/componentName*) dans la référence de l’espace de travail.
 
-Exemple de requête sur deux espaces de travail portant le même nom :
+Voici un exemple de requête sur deux espaces de travail portant le même nom :
 
 ```kusto
 union 
@@ -274,15 +312,26 @@ union
 
 ## <a name="discard"></a>Abandonner
 
-Si vous souhaitez abandonner l’espace de travail source, supprimez les ressources exportées ou le groupe de ressources qui les contient. Pour ce faire, sélectionnez le groupe de ressources cible dans Portail Azure : si vous avez créé un nouveau groupe de ressources pour ce déploiement, cliquez sur **Supprimer le groupe de ressources** dans la barre d’outils de la page Vue d’ensemble. Si le modèle a été déployé sur un groupe de ressources existant, sélectionnez les ressources qui ont été déployées avec le modèle, puis cliquez sur **Supprimer** dans la barre d’outils.
+Si vous souhaitez abandonner l’espace de travail source, supprimez les ressources exportées ou le groupe de ressources qui les contient :
+
+1. Sélectionnez le groupe de ressources cible dans le portail Azure.
+1. Sur la page **Vue d’ensemble** :
+   
+   - Si vous avez créé un nouveau groupe de ressources pour ce déploiement, sélectionnez **Supprimer le groupe de ressources** dans la barre d’outils pour supprimer le groupe de ressources.
+   - Si le modèle a été déployé dans un groupe de ressources existant, sélectionnez les ressources qui ont été déployées avec le modèle, puis sélectionnez **Supprimer** dans la barre d’outils pour supprimer les ressources sélectionnées.
 
 ## <a name="clean-up"></a>Nettoyage
 
-Alors que les nouvelles données sont ingérées dans votre nouvel espace de travail, les anciennes données de l’espace de travail d’origine restent disponibles pour les requêtes et sont soumises à la stratégie de rétention définie dans l’espace de travail. Il est recommandé de conserver l’espace de travail d’origine pendant toute la durée de vie de vos données antérieures, afin de vous permettre d’effectuer des [requêtes](./cross-workspace-query.md#performing-a-query-across-multiple-resources) sur les espaces de travail. Si vous n’avez plus besoin d’accéder à des données antérieures dans l’espace de travail d’origine, sélectionnez le groupe de ressources d’origine dans le Portail Azure, sélectionnez les ressources que vous souhaitez supprimer et cliquez sur **Supprimer** dans la barre d’outils.
+Alors que les nouvelles données sont ingérées dans votre nouvel espace de travail, les anciennes données de l’espace de travail d’origine restent disponibles pour les requêtes et sont soumises à la stratégie de rétention définie dans l’espace de travail. Nous vous recommandons de conserver l’espace de travail d’origine aussi longtemps que vous aurez besoin des anciennes données pour [interroger plusieurs](./cross-workspace-query.md#performing-a-query-across-multiple-resources) espaces de travail. 
+
+Si vous n’avez plus besoin d’accéder aux anciennes données de l’espace de travail d’origine :
+
+1. Sélectionnez le groupe de ressources d’origine dans le portail Azure. 
+1. Sélectionnez toutes les ressources que vous souhaitez supprimer, puis sélectionnez **Supprimer** dans la barre d’outils.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez déplacé un espace de travail Log Analytics et les ressources associées d’une région vers une autre et nettoyé les ressources sources. Pour en savoir plus sur le déplacement de ressources entre régions et la reprise d’activité après sinistre dans Azure, consultez :
+Dans cet article, vous avez déplacé un espace de travail Log Analytics et les ressources associées d’une région à une autre et nettoyé les ressources sources. Pour plus d’informations sur le déplacement de ressources entre régions et la reprise d’activité dans Azure, consultez :
 
 - [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [Déplacer des machines virtuelles Azure vers une autre région](../../site-recovery/azure-to-azure-tutorial-migrate.md)

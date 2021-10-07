@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c150fdae1820dee3ae440f4d4acdacff04e14e66
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 13120c083eda20b76581448c842db94d657cf42b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527633"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128571895"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurer l’inscription et la connexion avec un ID Apple à l’aide d’Azure Active Directory B2C (préversion)
 
@@ -78,7 +78,8 @@ Pour permettre la connexion des utilisateurs avec un ID Apple dans Azure Active 
 ## <a name="configure-apple-as-an-identity-provider"></a>Configurer Apple en tant que fournisseur d’identité
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
-1. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Apple (préversion)** .
 1. Pour le **nom**, entrez **Se connecter avec Apple**. 
@@ -126,6 +127,7 @@ Utilisez le fichier .p8 téléchargé précédemment pour signer la clé secrè
 
     - **appleTeamId** : votre ID d’équipe de développeurs Apple
     - **appleServiceId** : ID de service Apple (ID client)
+    - **appleKeyId** : Identifiant de clé à 10 chiffres stocké dans l’en-tête JWT (requis par Apple)
     - **p8key** : clé au format PEM. Vous pouvez obtenir la clé en ouvrant le fichier .p8 dans un éditeur de texte et en copiant tout ce qui se trouve entre `-----BEGIN PRIVATE KEY-----` et `-----END PRIVATE KEY-----`, sans sauts de ligne.
  
 Le code JSON suivant est un exemple d’appel de la fonction Azure :
@@ -134,6 +136,7 @@ Le code JSON suivant est un exemple d’appel de la fonction Azure :
 {
     "appleTeamId": "ABC123DEFG",
     "appleServiceId": "com.yourcompany.app1",
+    "appleKeyId": "URKEYID001",
     "p8key": "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg+s07NiAcuGEu8rxsJBG7ttupF6FRe3bXdHxEipuyK82gCgYIKoZIzj0DAQehRANCAAQnR1W/KbbaihTQayXH3tuAXA8Aei7u7Ij5OdRy6clOgBeRBPy1miObKYVx3ki1msjjG2uGqRbrc1LvjLHINWRD"
 }
 ```
@@ -151,8 +154,9 @@ La fonction Azure répond avec un jeton JWT de secret client correctement mis en
 Vous devez stocker la clé secrète client que vous avez enregistrée dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez l’annuaire qui contient votre locataire Azure AD B2C.
-2. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Sous **Services Azure**, sélectionnez **Azure AD B2C**. Vous pouvez également utiliser la zone de recherche pour rechercher et sélectionner **Azure AD B2C**.
 1. Dans la page **de présentation**, sélectionnez **Identity Experience Framework**.
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 1. Dans **Options**, choisissez **Manuel**.

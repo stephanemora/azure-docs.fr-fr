@@ -1,15 +1,15 @@
 ---
-title: Démarrer des machines avec des runbooks Automation dans Azure DevTest Labs
+title: Démarrer des machines à l’aide de runbooks Automation
 description: Découvrez comment démarrer des machines virtuelles dans un labo dans Azure DevTest Labs en utilisant des runbooks Azure Automation.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 84e784c0c5b9845c03cc28591a9ed8d4240fdc6b
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: ee3054c5b5434cba526c2025d5649fed0b44d391
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702907"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604762"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Démarrer des machines virtuelles dans un labo dans un certain ordre en utilisant des runbooks Azure Automation
 La fonctionnalité de [démarrage automatique](devtest-lab-set-lab-policy.md#set-autostart) de DevTest Labs vous permet configurer des machines virtuelles pour qu’elles démarrent automatiquement à une heure spécifiée. Cependant, cette fonctionnalité ne prend pas en charge le démarrage des machines dans un ordre spécifique. Il existe plusieurs scénarios où ce type d’automatisation peut être utile.  Voici un de ces scénarios : une machine virtuelle Jumpbox dans un labo doit être démarrée en premier, avant les autres machines virtuelles, car la machine Jumpbox est utilisée comme point d’accès aux autres machines virtuelles.  Cet article vous montre comment configurer un compte Azure Automation avec un runbook PowerShell qui exécute un script. Le script utilise des étiquettes sur les machines virtuelles du labo pour vous permettre de contrôler l’ordre de démarrage sans devoir modifier le script.
@@ -21,7 +21,7 @@ Dans cet exemple, l’étiquette **StartupOrder** avec la valeur appropriée (0,
 Créez un compte Azure Automation en suivant les instructions de [cet article](../automation/automation-create-standalone-account.md). Choisissez l’option **Compte d’identification** lors de la création du compte. Une fois que le compte Automation est créé, ouvrez la page **Modules**, puis sélectionnez **Mettre à jour les modules Azure** sur la barre de menus. Les modules par défaut sont dans des versions plus anciennes ; le script ne peut pas fonctionner sans la mise à jour.
 
 ## <a name="add-a-runbook"></a>Ajouter un runbook
-Maintenant, pour ajouter un runbook au compte Automation, sélectionnez **Runbooks** sur le menu de gauche. Sélectionnez **Ajouter un runbook** sur le menu, puis suivez les instructions pour [créer un runbook PowerShell](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
+Maintenant, pour ajouter un runbook au compte Automation, sélectionnez **Runbooks** sur le menu de gauche. Sélectionnez **Ajouter un runbook** sur le menu, puis suivez les instructions pour [créer un runbook PowerShell](../automation/learn/powershell-runbook-managed-identity.md).
 
 ## <a name="powershell-script"></a>Script PowerShell
 Le script suivant prend comme paramètres le nom de l’abonnement et le nom du labo. Le flux du script est destiné à obtenir toutes les machines virtuelles dans le labo, puis d’analyser les informations des étiquettes pour créer une liste des noms des machines virtuelles et de leur ordre de démarrage. Le script parcourt les machines virtuelles dans l’ordre et les démarre. S’il existe plusieurs machines virtuelles avec un même numéro d’ordre, elles sont démarrées de façon asynchrone via des travaux PowerShell. Pour les machines virtuelles qui n’ont pas d’étiquette, définissez la valeur du démarrage sur la dernière (10) : par défaut, elles sont démarrées en dernier.  Si le labo ne veut pas que la machine virtuelle soit démarrée automatiquement, définissez la valeur de l’étiquette sur 11 : elle est alors ignorée.

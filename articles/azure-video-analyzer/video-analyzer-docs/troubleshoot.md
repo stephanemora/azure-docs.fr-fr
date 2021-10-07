@@ -3,12 +3,12 @@ title: Résoudre les problèmes liés à Azure Video Analyzer - Azure
 description: Cet article explique comment résoudre les problèmes liés à Azure Video Analyzer.
 ms.topic: troubleshooting
 ms.date: 07/15/2021
-ms.openlocfilehash: c3b95936eabfcaefa12b9271b152d196790841c4
-ms.sourcegitcommit: 47ac63339ca645096bd3a1ac96b5192852fc7fb7
+ms.openlocfilehash: be8bbe61bd9d33557184b11c722141cfbc880fed
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114362643"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563616"
 ---
 # <a name="troubleshoot-azure-video-analyzer"></a>Résoudre les problèmes liés à Azure Video Analyzer
 
@@ -39,7 +39,7 @@ Si l’infrastructure Edge est correcte, vous pouvez rechercher des problèmes 
 az iot edge set-modules --hub-name <iot-hub-name> --device-id avasample-iot-edge-device --content <path-to-deployment_manifest.json>
 ```
 
-Si le code JSON n’est pas bien formé, vous pouvez recevoir l’erreur suivante : &nbsp;&nbsp;&nbsp; **Impossible d’analyser le code JSON du fichier : « <deployment manifest.json> » pour l’argument « content ». Exception : « Données supplémentaires : ligne 101 colonne 1 (char 5325) »**
+Si le code JSON n’est pas bien formé, vous pouvez recevoir l’erreur suivante : &nbsp;&nbsp;&nbsp; **Impossible d’analyser le code JSON du fichier : « \<deployment manifest.json\> » pour l’argument « content ». Exception : « Données supplémentaires : ligne 101 colonne 1 (char 5325) »**
 
 Si vous rencontrez cette erreur, nous vous recommandons de vérifier dans le fichier JSON s’il manque des crochets ou si la structure du fichier présente d’autres problèmes. Pour valider la structure des fichiers, vous pouvez utiliser un client tel que [Notepad++ avec le plug-in JSON Viewer](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) ou un outil en ligne tel que [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
 
@@ -155,6 +155,17 @@ Pour collecter les journaux qui doivent être ajoutés au ticket, suivez les ins
 1. [Configurer le module Video Analyzer pour collecter des journaux détaillés](#configure-video-analyzer-module-to-collect-verbose-logs)
 1. [Activer les journaux de débogage](#video-analyzer-debug-logs).
 1. Reproduisez le problème
+1. Redémarrez le module Edge Video Analyzer. 
+    > [!NOTE]
+    > Cette étape est nécessaire pour terminer normalement le module Edge et obtenir tous les fichiers journaux dans un format utilisable sans supprimer d’événements.   
+    
+    Sur l’appareil IoT Edge, utilisez la commande suivante après avoir remplacé `<avaedge>` par le nom de votre module Edge Video Analyzer :
+    
+    ```cmd
+    sudo iotedge restart <avaedge>
+    ```
+
+   Vous pouvez également redémarrer les modules à distance sur le Portail Azure. Pour plus d’informations, consultez [Surveillance et résolution des problèmes des appareils IoT Edge sur le Portail Azure](../../iot-edge/troubleshoot-in-portal.md).
 1. Connectez-vous à la machine virtuelle sur la page **IoT Hub** du portail.
 
    1. Compressez tous les fichiers dans le dossier _debugLogs_.
@@ -293,7 +304,7 @@ Il existe plusieurs moyens d’obtenir des informations sur le problème.
 - Pour tester la connectivité réseau, vous pouvez exécuter la commande suivante à partir de l’appareil Edge.
 
   ```
-  sudo docker exec avaedge /bin/bash -c “apt update; apt install -y telnet; telnet <inference-host> <inference-port>”
+  sudo docker exec avaedge /bin/bash -c "apt update; apt install -y telnet; telnet <inference-host> <inference-port>"
   ```
 
   Si la commande génère une courte chaîne de texte brouillé, c’est le signe que Telnet a pu ouvrir une connexion à votre serveur d’inférence et ouvrir un canal gRPC binaire. Dans le cas contraire, Telnet signale une erreur réseau.

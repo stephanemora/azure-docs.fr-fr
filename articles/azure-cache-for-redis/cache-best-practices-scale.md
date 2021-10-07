@@ -1,5 +1,5 @@
 ---
-title: Bonnes pratiques concernant la mise à l’échelle d’Azure Cache pour Redis
+title: Meilleures pratiques relatives à la mise à l’échelle
 titleSuffix: Azure Cache for Redis
 description: Apprenez comment mettre à l’échelle Azure Cache pour Redis.
 author: shpathak-msft
@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 01fbebb06ba408232add1f0f05c5b715816e9e69
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 7aa65bbddc03eaf7c80717aa83fe41054617d116
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116240"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598667"
 ---
 # <a name="scaling"></a>Mise à l'échelle
 
@@ -33,3 +33,8 @@ Commencez la mise à l’échelle avant que la charge du serveur ou l’utilisat
 Si vous utilisez TLS et que vous disposez d’un grand nombre de connexions, envisagez une opération de scale-out afin de pouvoir distribuer la charge sur plus de cœurs. Certaines tailles de cache sont hébergées sur des machines virtuelles à quatre cœurs, voire plus.
 
 Distribuez le chiffrement/déchiffrement TLS et les charges de travail de connexion/déconnexion TLS sur plusieurs cœurs, afin de réduire l’utilisation globale du processeur sur les machines virtuelles du cache. Pour plus d’informations, consultez les [informations sur les cœurs et les tailles de machines virtuelles](./cache-planning-faq.yml#azure-cache-for-redis-performance).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Configurer le paramètre maxmemory-reserved](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting)
+- [Mettre à l'échelle une instance Cache Redis Azure](cache-how-to-scale.md)

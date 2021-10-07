@@ -1,15 +1,15 @@
 ---
-title: Créer une ressource Azure Monitor Application Insights basée sur un espace de travail | Microsoft Docs
+title: Créer une ressource Azure Monitor Application Insights basée sur un espace de travail
 description: En savoir plus sur les étapes requises pour activer les nouvelles ressources Azure Monitor Application Insights basées sur un espace de travail.
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 21cf89c7d89e310f98fea4421076d298405b6fc3
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 42025ec3e2c509e2fcf7aa4874d9d5363f134a97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114464457"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604490"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Ressources Application Insights basées sur l’espace de travail
 
@@ -208,8 +208,7 @@ Dans le volet des ressources Application Insights, sélectionnez **Propriétés*
 La fonctionnalité héritée d’exportation continue n’est pas prise en charge pour les ressources basées sur l’espace de travail. Au lieu de cela, sélectionnez **Paramètres de diagnostic** > **Ajouter un paramètre de diagnostic** à partir de votre ressource Application Insights. Vous pouvez sélectionner toutes les tables ou un sous-ensemble de tables à archiver dans un compte de stockage ou à transmettre en continu à un Event Hub Azure.
 
 > [!NOTE]
-> Il n’y a actuellement pas de frais supplémentaires pour l’exportation de la télémétrie. Les informations de tarification pour cette fonctionnalité sont disponibles sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Avant le début de la facturation, des notifications seront envoyées. Si vous choisissez de continuer à utiliser <feature name> après la période de préavis, vous serez facturé au tarif en vigueur. 
- 
+> Il n’y a actuellement pas de frais supplémentaires pour l’exportation de la télémétrie. Les informations de tarification pour cette fonctionnalité sont disponibles sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Avant le début de la facturation, des notifications seront envoyées. Si vous choisissez de continuer à utiliser l’exportation de la télémétrie après la période de préavis, vous serez facturé au tarif applicable. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

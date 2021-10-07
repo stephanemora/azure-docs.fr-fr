@@ -1,18 +1,17 @@
 ---
 title: Open Service Mesh avec Azure Arc (préversion)
-description: Extension Open Service Mesh (OSM) sur le cluster Kubernetes avec Arc activé
-services: azure-arc
+description: Extension Open Service Mesh (OSM) sur le cluster Kubernetes avec Azure Arc
 ms.service: azure-arc
 ms.date: 07/23/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
-ms.openlocfilehash: c8a10873f420b5aba75596a4377bfa4f0b37d4f7
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 1909b6efc46e40de0b0e4a864e8a5e3d852da366
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122606892"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637835"
 ---
 # <a name="azure-arc-enabled-open-service-mesh-preview"></a>Open Service Mesh avec Azure Arc (préversion)
 
@@ -20,11 +19,11 @@ ms.locfileid: "122606892"
 
 OSM exécute un plan de contrôle basé sur un envoi sur Kubernetes, peut être configuré avec des API [SMI](https://smi-spec.io/) et fonctionne en injectant un proxy Envoy en tant que conteneur side-car à côté de chaque instance de votre application. [Découvrez-en plus](https://docs.openservicemesh.io/#features) sur les scénarios de maillage de service activés par Open Service Mesh.
 
-### <a name="support-limitations-for-arc-enabled-open-service-mesh"></a>Limitations de prise en charge pour Arc avec Open Service Mesh
+### <a name="support-limitations-for-azure-arc-enabled-open-service-mesh"></a>Limitations de prise en charge pour Open Service Mesh avec Azure Arc
 
-- Une seule instance d’Open Service Mesh peut être déployée sur un cluster Kubernetes connecté avec Arc
+- Une seule instance d’Open Service Mesh peut être déployée sur un cluster Kubernetes avec Azure Arc.
 - La préversion publique est disponible pour Open Servie Mesh version v0.8.4 et versions ultérieures. Découvrez la version la plus récente [ici](https://github.com/Azure/osm-azure/releases). Les versions de publication prises en charge sont ajoutées aux notes. Ignorez les étiquettes associées aux versions intermédiaires. 
-- Les distributions Kubernetes prises en charge sont les suivantes
+- Les distributions Kubernetes prises en charge sont les suivantes :
     - Moteur AKS
     - AKS sur HCI
     - Cluster API Azure
@@ -33,8 +32,7 @@ OSM exécute un plan de contrôle basé sur un envoi sur Kubernetes, peut être 
     - Rancher Kubernetes Engine
     - OpenShift Kubernetes Distribution
     - Amazon Elastic Kubernetes Service
-- L’intégration Azure Monitor avec Open Service Mesh avec Azure Arc est disponible avec une [prise en charge limitée](https://github.com/microsoft/Docker-Provider/blob/ci_dev/Documentation/OSMPrivatePreview/ReadMe.md).
-
+- L’intégration d’Azure Monitor à Open Service Mesh avec Azure Arc est disponible avec une [prise en charge limitée](https://github.com/microsoft/Docker-Provider/blob/ci_dev/Documentation/OSMPrivatePreview/ReadMe.md).
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -43,7 +41,7 @@ OSM exécute un plan de contrôle basé sur un envoi sur Kubernetes, peut être 
 - Vérifiez que vous respectez toutes les conditions préalables courantes pour les extensions de cluster répertoriées [ici](extensions.md#prerequisites).
 - Utiliser az k8s-extension CLI version >= v0.4.0
 
-## <a name="install-arc-enabled-open-service-mesh-osm-on-an-arc-enabled-kubernetes-cluster"></a>Installer Open Service Mesh (OSM) sur un cluster Kubernetes avec Arc
+## <a name="install-azure-arc-enabled-open-service-mesh-osm-on-an-azure-arc-enabled-kubernetes-cluster"></a>Installer Open Service Mesh (OSM) avec Azure Arc sur un cluster Kubernetes avec Azure Arc
 
 Les étapes suivantes supposent que vous disposez déjà d’un cluster avec une distribution Kubernetes prise en charge connectée à Azure Arc.
 
@@ -59,7 +57,7 @@ export CLUSTER_NAME=<arc-cluster-name>
 export RESOURCE_GROUP=<resource-group-name>
 ```
 
-Lorsque l’Open Service Mesh avec Arc est en préversion, la commande `az k8s-extension create` accepte uniquement `pilot` pour l'indicateur `--release-train`. `--auto-upgrade-minor-version` a toujours la valeur `false` et une version doit être fournie. Si vous disposez d’un cluster OpenShift, suivez les étapes de la [section](#install-a-specific-version-of-osm-on-openshift-cluster).
+Tant qu’Open Service Mesh avec Azure Arc est en préversion, la commande `az k8s-extension create` accepte uniquement `pilot` pour l’indicateur `--release-train`. `--auto-upgrade-minor-version` a toujours la valeur `false` et une version doit être fournie. Si vous disposez d’un cluster OpenShift, suivez les étapes de la [section](#install-a-specific-version-of-osm-on-openshift-cluster).
 
 ```azurecli-interactive
 az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.openservicemesh --scope cluster --release-train pilot --name osm --version $VERSION
@@ -126,9 +124,9 @@ Le déploiement du graphique OSM Helm réel sur le cluster peut prendre 3-5 minu
 
 Pour vous assurer que le paramètre de conteneur init privilégié n’est pas rétabli à la valeur par défaut, transmettez le paramètre de configuration « osm.OpenServiceMesh.enablePrivilegedInitContainer » : « true » à toutes les commandes de création de l’extension az k8s-extension ultérieures.
 
-### <a name="install-arc-enabled-osm-using-arm-template"></a>Installer l’OSM avec Arc à l’aide d’un modèle ARM
+### <a name="install-azure-arc-enabled-osm-using-arm-template"></a>Installer OSM avec Azure Arc à l’aide d’un modèle ARM
 
-Après avoir connecté votre cluster à Azure Arc, créez un fichier json avec le format suivant, en vous assurant de mettre à jour la valeur <cluster-name> :
+Après avoir connecté votre cluster à Azure Arc, créez un fichier JSON avec le format suivant, en vous assurant de mettre à jour la valeur \<cluster-name\> :
 
 ```json
 {
@@ -203,7 +201,7 @@ az deployment group create --name $DEPLOYMENT_NAME --resource-group $RESOURCE_GR
 
 À présent, vous devriez être en mesure d’afficher les ressources OSM et d’utiliser l’extension OSM dans votre cluster.
 
-## <a name="validate-the-arc-enabled-open-service-mesh-installation"></a>Valider l’installation Open Service Mesh avec Arc
+## <a name="validate-the-azure-arc-enabled-open-service-mesh-installation"></a>Valider l’installation d’Open Service Mesh avec Azure Arc
 
 Exécutez la commande suivante.
 
@@ -355,7 +353,7 @@ Pour apporter des modifications à l’élément OSM ConfigMap pour la version 
     > [!NOTE]
     > Pour vous assurer que les modifications apportées à élément ConfigMap ne sont pas rétablies à la valeur par défaut, transmettez les mêmes paramètres de configuration à toutes les commandes suivantes de création de az k8s-extension.
 
-## <a name="using-the-arc-enabled-open-service-mesh"></a>Utiliser Open Service Mesh avec Arc
+## <a name="using-the-azure-arc-enabled-open-service-mesh"></a>Utiliser Open Service Mesh avec Azure Arc
 
 Pour commencer à utiliser les fonctionnalités OSM, vous devez d’abord intégrer les espaces de noms de l’application à la maille du service. Téléchargez l’interface de commande OSM à partir de la [page de versions GitHub d’OSM](https://github.com/openservicemesh/osm/releases/). Une fois les espaces de noms ajoutés à la maille, vous pouvez configurer les stratégies SMI pour obtenir la fonction OSM souhaitée.
 
@@ -392,7 +390,7 @@ L’extension OSM n’installe pas les modules complémentaires comme [Jaeger](h
 
 Azure Monitor et Azure Application Insights vous aident à optimiser la disponibilité et les performances de vos applications et services en fournissant une solution complète pour collecter, analyser et utiliser la télémétrie de vos environnements cloud et locaux.
 
-Open Service Mesh avec Arc sera profondément intégré à ces deux services Azure et fournira une expérience Azure transparente permettant de visualiser les indicateurs clés de performance essentiels fournis par les métriques d’OSM et d’y répondre. Suivez les étapes ci-dessous pour autoriser Azure Monitor à mettre en rebut les points de terminaison Prometheus pour la collecte des métriques d’application. 
+Open Service Mesh avec Azure Arc sera profondément intégré à ces deux services Azure et fournira une expérience Azure transparente permettant de visualiser les indicateurs clés de performance essentiels fournis par les métriques d’OSM et d’y répondre. Suivez les étapes ci-dessous pour autoriser Azure Monitor à mettre en rebut les points de terminaison Prometheus pour la collecte des métriques d’application. 
 
 1. Assurez-vous que les espaces de noms d’application que vous souhaitez analyser sont intégrés à la maille. Suivez les instructions [disponibles ici](#onboard-namespaces-to-the-service-mesh).
 
@@ -427,7 +425,7 @@ En savoir plus sur l’intégration avec Azure Monitor [ici](https://github.com/
 
 ### <a name="navigating-the-osm-dashboard"></a>Navigation dans le tableau de bord OSM
 
-1. Accédez à votre cluster Kubernetes connecté avec Arc à l’aide de ce [lien](https://aka.ms/azmon/osmarcux).
+1. Accédez à votre cluster Kubernetes avec Azure Arc à l’aide de ce [lien](https://aka.ms/azmon/osmarcux).
 2. Accédez à Azure Monitor et accédez à l’onglet rapports pour accéder au classeur OSM.
 3. Sélectionnez l’intervalle de temps et l’espace de noms pour étendre vos services.
 
@@ -466,7 +464,7 @@ Veillez à sauvegarder vos ressources personnalisées avant de supprimer les CRD
 
 ### <a name="upgrade-instructions"></a>Instructions de mise à niveau
 
-1. Supprimez les anciennes définitions CRD et ressources personnalisées (exécutées à partir de la racine du [dépôt OSM](https://github.com/openservicemesh/osm)). Veillez à ce que l’étiquette des [définitions CRD OSM](https://github.com/openservicemesh/osm/tree/main/charts/osm/crds) corresponde à la nouvelle version du graphique.
+1. Supprimez les anciennes définitions CRD et ressources personnalisées (exécutées à partir de la racine du [dépôt OSM](https://github.com/openservicemesh/osm)). Veillez à ce que l’étiquette des [définitions CRD OSM](https://github.com/openservicemesh/osm/tree/main/cmd/osm-bootstrap/crds) corresponde à la nouvelle version du graphique.
     ```azurecli-interactive
     kubectl delete --ignore-not-found --recursive -f ./charts/osm/crds/
 
@@ -487,7 +485,7 @@ Veillez à sauvegarder vos ressources personnalisées avant de supprimer les CRD
 
 5. Recréer des ressources personnalisées à l’aide des nouvelles définitions CRD
 
-## <a name="uninstall-arc-enabled-open-service-mesh"></a>Désinstaller Open Service Mesh avec Arc
+## <a name="uninstall-azure-arc-enabled-open-service-mesh"></a>Désinstaller Open Service Mesh avec Azure Arc
 
 Utilisez la commande suivante :
 
@@ -510,7 +508,7 @@ Quand vous utilisez la commande az k8s-extension pour supprimer l’extension OS
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
-Reportez-vous au guide de dépannage [disponible ici](troubleshooting.md#arc-enabled-open-service-mesh).
+Reportez-vous au guide de dépannage [disponible ici](troubleshooting.md#azure-arc-enabled-open-service-mesh).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

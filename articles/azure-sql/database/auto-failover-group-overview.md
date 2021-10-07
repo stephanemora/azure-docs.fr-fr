@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 08/30/2021
-ms.openlocfilehash: 68c657b7e8e045b8756bc2db8de2b4024b7530b8
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.date: 09/14/2021
+ms.openlocfilehash: 71b2e494d8a570c38180f4dfc86bda87b23f4e95
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123256491"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128554582"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -222,7 +222,7 @@ Pour illustrer la séquence de changement, nous partons du principe que le serve
 
 ## <a name="best-practices-for-sql-managed-instance"></a>Meilleures pratiques pour SQL Managed Instance
 
-Le groupe de basculement automatique doit être configuré sur l’instance primaire, qu’il connectera à l’instance secondaire dans une autre région Azure.  Toutes les bases de données de l’instance seront répliquées sur l’instance secondaire.
+Le groupe de basculement automatique doit être configuré sur l’instance primaire, qu’il connectera à l’instance secondaire dans une autre région Azure.  Toutes les bases de données utilisateur de l’instance seront répliquées sur l’instance secondaire. Les bases de données système telles que _MASTER_ et _msdb_ ne seront pas répliquées.
 
 Le diagramme suivant illustre la configuration standard d’une application cloud géoredondante avec une instance managée et un groupe de basculement automatique.
 
@@ -320,12 +320,13 @@ Supposons que l’instance A est l’instance principale, que l’instance B e
 > Une fois le groupe de basculement supprimé, les enregistrements DNS des points de terminaison de l’écouteur sont également supprimés. À ce stade, il n’est pas entièrement exclu que quelqu’un d’autre crée un groupe de basculement ou un alias de serveur sous le même nom, ce qui vous empêchera de l’utiliser à nouveau. Pour limiter ce risque, évitez d’utiliser des noms de groupe de basculement génériques.
 
 ### <a name="enable-scenarios-dependent-on-objects-from-the-system-databases"></a>Activer les scénarios dépendant des objets des bases de données système
-Les bases de données système ne sont pas répliquées vers l’instance secondaire dans un groupe de basculement. Pour activer les scénarios dépendant d’objets des bases de données système, assurez-vous de créer ces objets sur l’instance secondaire. Par exemple, si vous envisagez d’utiliser les mêmes connexions sur l’instance secondaire, veillez à les créer avec un ID de sécurité identique. 
+Les bases de données système ne sont **pas** répliquées vers l’instance secondaire dans un groupe de basculement. Pour permettre les scénarios qui dépendent des objets des bases de données système, assurez-vous de créer les mêmes objets sur l’instance secondaire et de les maintenir synchronisés avec ceux de l’instance primaire. Par exemple, si vous envisagez d’utiliser les mêmes connexions sur l’instance secondaire, veillez à les créer avec un ID de sécurité identique. 
 ```SQL
 -- Code to create login on the secondary instance
 CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 ``` 
-
+### <a name="synchronize-instance-properties-and-retention-policies-between-primary-and-secondary-instance"></a>Synchroniser les propriétés d’instance et les stratégies de rétention entre les instances primaire et secondaire
+Les instances du groupe de basculement restent des ressources Azure distinctes, et aucune modification apportée à la configuration de l’instance primaire n’est automatiquement répliquée sur l’instance secondaire. Veillez à effectuer toutes les modifications pertinentes à la fois sur l’instance primaire _et_ sur l’instance secondaire. Par exemple, si vous modifiez la redondance du stockage de sauvegarde ou la stratégie de rétention des sauvegardes à long terme sur l’instance primaire, veillez à la modifier également sur l’instance secondaire.
 
 ## <a name="failover-groups-and-network-security"></a>Groupes de basculement et sécurité réseau
 

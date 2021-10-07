@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/11/2021
+ms.date: 09/23/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb911bb58413e6551224d98371cf56ecbd8e01f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e8b0279e0f97f3440bdef04046c2cb6eb35b6573
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524650"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605788"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurer un passe d’accès temporaire dans Azure AD pour inscrire des méthodes d’authentification sans mot de passe (préversion)
 
@@ -26,7 +26,6 @@ Les méthodes d’authentification sans mot de passe, telles que FIDO2 et la con
 - Utilisation d’un passe d’accès temporaire 
 
 Un passe d’accès temporaire est un code secret limité dans le temps émis par un administrateur, qui répond à des exigences d’authentification fortes et qui peut être utilisé pour intégrer d’autres méthodes d’authentification, y compris sans mot de passe. Un passe d’accès temporaire facilite également la récupération quand un utilisateur perd ou oublie son facteur d’authentification fort, comme une clé de sécurité FIDO2 ou l’application Microsoft Authenticator, mais doit se connecter pour inscrire de nouvelles méthodes d’authentification fortes.
-
 
 Cet article explique comment activer et utiliser un passe d’accès temporaire dans Azure AD à l’aide du portail Azure. Vous pouvez également effectuer ces actions à l’aide des API REST. 
 
@@ -120,13 +119,23 @@ L’utilisation la plus courante d’un passe d’accès temporaire consiste pou
 L’utilisateur est maintenant connecté et peut mettre à jour ou inscrire une méthode telle que la clé de sécurité FIDO2. Les utilisateurs qui mettent à jour leurs méthodes d’authentification en raison de la perte de leurs informations d’identification ou de leur appareil doivent veiller à supprimer les anciennes méthodes d’authentification.
 Les utilisateurs peuvent également continuer à se connecter à l’aide de leur mot de passe. Un passe d’accès temporaire ne remplace pas le mot de passe d’un utilisateur.
 
-Les utilisateurs peuvent également se servir de leur passe d’accès temporaire afin de s’inscrire pour une connexion par téléphone sans mot de passe directement à partir de l’application Microsoft Authenticator. Pour plus d’informations, consultez [Ajouter votre compte professionnel ou scolaire dans l’application Microsoft Authenticator](../user-help/user-help-auth-app-add-work-school-account.md).
+### <a name="passwordless-phone-sign-in"></a>Connexion par téléphone sans mot de passe
+
+Les utilisateurs peuvent également se servir de leur passe d’accès temporaire afin de s’inscrire pour une connexion par téléphone sans mot de passe directement à partir de l’application Microsoft Authenticator. Pour plus d’informations, consultez [Ajouter votre compte professionnel ou scolaire dans l’application Microsoft Authenticator](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c).
 
 ![Capture d’écran montrant comment entrer un passe d’accès temporaire en utilisant un compte professionnel ou scolaire](./media/how-to-authentication-temporary-access-pass/enter-work-school.png)
 
-## <a name="delete-a-temporary-access-pass"></a>Supprimer un passe d’accès temporaire
+### <a name="guest-access"></a>Accès invité
 
-Un passe d’accès temporaire expiré est inutilisable. Sous les **Méthodes d’authentification** d’un utilisateur, la colonne **Détails** indique quand le passe d’accès temporaire a expiré. Vous pouvez supprimer un passe d’accès temporaire expiré en procédant comme suit :
+Les utilisateurs invités peuvent se connecter à un locataire de ressources à l’aide d’un passe d’accès temporaire qui a été émis par leur locataire d’origine si ce passe d’accès temporaire répond à l’exigence d’authentification du locataire d’origine. Si l’authentification multifacteur est requise pour le locataire de ressources, l’utilisateur invité doit effectuer une authentification multifacteur pour accéder à la ressource.
+
+### <a name="expiration"></a>Expiration
+
+Un passe d’accès temporaire expiré ou supprimé ne peut pas être utilisé pour une authentification interactive ou non interactive. Les utilisateurs doivent se réauthentifier avec d’autres méthodes d’authentification après l’expiration ou la suppression du passe d’accès temporaire. 
+
+## <a name="delete-an-expired-temporary-access-pass"></a>Supprimer un passe d’accès temporaire expiré
+
+Sous les **Méthodes d’authentification** d’un utilisateur, la colonne **Détails** indique quand le passe d’accès temporaire a expiré. Vous pouvez supprimer un passe d’accès temporaire expiré en procédant comme suit :
 
 1. Dans le portail Azure AD, accédez à **Utilisateurs**, sélectionnez un utilisateur, par exemple *Utilisateur de passe d’accès temporaire*, puis choisissez **Méthodes d’authentification**.
 1. Sur le côté droit de la méthode d’authentification **Passe d’accès temporaire (préversion)** présentée dans la liste, sélectionnez **Supprimer**.
@@ -152,7 +161,6 @@ Pour plus d’informations sur les normes NIST pour l’intégration et la réc
 Gardez ces limites à l’esprit :
 
 - Lors de l’utilisation d’un passe d’accès temporaire à usage unique pour inscrire une méthode sans mot de passe telle que FIDO2 ou une connexion par téléphone, l’utilisateur doit accomplir l’inscription dans les 10 minutes suivant la connexion avec le passe. Cette limitation ne s’applique pas à un passe d’accès temporaire utilisable plusieurs fois.
-- Des utilisateurs invités ne peuvent pas se connecter avec un passe d’accès temporaire.
 - Le passe d’accès temporaire est en préversion publique et n’est actuellement pas disponible dans Azure pour le gouvernement des États-Unis.
 - Les utilisateurs concernés par la stratégie d’inscription Réinitialisation du mot de passe en libre-service (SSPR) *ou* par la [stratégie d’inscription de l’authentification multifacteur Identity Protection](../identity-protection/howto-identity-protection-configure-mfa-policy.md)seront tenus d’inscrire des méthodes d’authentification après s’être connectés avec un passe d’accès temporaire. Les utilisateurs concernés par ces stratégies seront redirigés vers le [mode d’interruption de l’inscription combinée](concept-registration-mfa-sspr-combined.md#combined-registration-modes). Cette expérience ne prend actuellement pas en charge l’inscription de FIDO2 et de la connexion par téléphone. 
 - Il est impossible d’utiliser un passe d’accès temporaire avec l’extension NPS (Network Policy Server) et l’adaptateur des services de fédération Active Directory (AD FS), durant l’installation/expérience OOBE (out-of-box experience) de Windows, avec Autopilot, ou pour déployer Windows Hello Entreprise. 
@@ -173,4 +181,3 @@ Gardez ces limites à l’esprit :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory](howto-authentication-passwordless-deployment.md)
-

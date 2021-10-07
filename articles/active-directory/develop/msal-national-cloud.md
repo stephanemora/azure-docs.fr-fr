@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/22/2019
+ms.date: 09/21/2021
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: c1ecf807d566fd6603f12ebc820c176edf96ec14
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8b8ae31aa2af84a6f8dfd4f93c90a09e58805f73
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071837"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598797"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Utiliser MSAL dans un environnement de cloud national
 
@@ -26,13 +26,20 @@ Les [clouds nationaux](authentication-national-cloud.md), également appelés cl
 
 En plus du cloud Microsoft global, Microsoft Authentication Library (MSAL) permet aux développeurs d’applications dans des clouds nationaux d’acquérir des jetons pour authentifier et appeler des API web sécurisées. Ces API web peuvent être Microsoft Graph ou d’autres API Microsoft.
 
-Outre le cloud global, Azure Active Directory (Azure AD) est déployé dans les clouds nationaux suivants :  
+Outre le cloud Azure global, Azure Active Directory (Azure AD) est déployé dans les clouds nationaux suivants : 
 
 - Azure Government
 - Azure China 21Vianet
-- Azure Germany
+- Azure Allemagne ([clôture le 29 octobre 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions))
 
 Ce guide montre comment se connecter à des comptes professionnels et scolaires, obtenir un jeton accès et appeler l’API Microsoft Graph dans l’environnement [cloud Azure Government](https://azure.microsoft.com/global-infrastructure/government/).
+
+## <a name="azure-germany-microsoft-cloud-deutschland"></a>Azure Allemagne (Microsoft Cloud Deutschland)
+
+> [!WARNING]
+> Azure Allemagne (Microsoft Cloud Deutschland) sera [clôturé le 29 octobre 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Les services et applications que vous choisissez de _ne pas_ migrer vers une région dans Azure global avant cette date deviendront inaccessibles.
+
+Si vous n’avez pas migré votre application à partir d’Azure Allemagne, suivez [les informations d’Azure Active Directory relatives à la migration à partir d’Azure Allemagne](/microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad) pour commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -214,4 +221,4 @@ Documentation sur le cloud national :
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
-- [Azure Allemagne](../../germany/index.yml)
+- [Azure Allemagne (clôture le 29 octobre 2021)](../../germany/index.yml)

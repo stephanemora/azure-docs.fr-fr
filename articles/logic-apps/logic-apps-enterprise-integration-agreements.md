@@ -1,115 +1,123 @@
 ---
-title: Accords de partenariat commercial
-description: Créer et gérer des accords entre partenaires commerciaux à l'aide d'Azure Logic Apps et d'Enterprise Integration Pack
+title: Définir les accords entre partenaires dans les flux de travail
+description: Ajoutez des accords à votre compte d’intégration pour les flux de travail dans Azure Logic Apps à l’aide de l’extension Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 06/22/2019
-ms.openlocfilehash: dc084da6ef7f26b9e434acf8985c7077f5eaffe2
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 09/15/2021
+ms.openlocfilehash: 3a1b714be1f6eb70a4780c7abf58f13a45eb3f3f
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078364"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584160"
 ---
-# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Créer et gérer des contrats de partenariat commercial dans Azure Logic Apps
+# <a name="add-agreements-between-partners-to-integration-accounts-for-workflows-in-azure-logic-apps"></a>Ajouter des accords entre partenaires à des comptes d’intégration pour les flux de travail dans Azure Logic Apps
 
-Un [accord](../logic-apps/logic-apps-enterprise-integration-partners.md) 
-*de partenariat commercial* aide les organisations et les entreprises à communiquer entre elles en toute transparence en définissant le protocole standard à utiliser lors de l'échange de messages interentreprises (B2B). Les accords offrent des avantages communs, par exemple :
+Après avoir ajouté des partenaires à votre compte d’intégration, spécifiez la manière dont les partenaires échangent des messages en définissant des [*accords*](logic-apps-enterprise-integration-agreements.md) dans votre compte d’intégration. Les accords aident les organisations à communiquer entre elles de manière transparente en définissant le protocole conforme aux normes du secteur d’activité spécifique à l’échange de messages et en offrant les avantages partagés suivants :
 
 * Ils permettent aux organisations d'échanger des informations en utilisant un format qu'elles connaissent bien.
-* Ils améliorent l'efficacité des transactions B2B.
-* Ils sont faciles à créer, gérer et utiliser lors de la conception de solutions d'intégration d'entreprise.
 
-Cet article explique comment créer un accord AS2, EDIFACT ou X12 que vous pouvez utiliser lors de la création de solutions d'intégration d'entreprise pour les scénarios B2B à l'aide d'[Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) et d'[Azure Logic Apps](../logic-apps/logic-apps-overview.md). Après avoir créé un accord, vous pouvez utiliser les connecteurs AS2, EDIFACT ou X12 pour échanger des messages B2B.
+* Ils améliorent l’efficacité des transactions entre entreprises (B2B).
 
-Pour créer des contrats pour l’échange de messages RosettaNet, consultez [Échanger des messages RosettaNet](../logic-apps/logic-apps-enterprise-integration-rosettanet.md).
+* Ils facilitent la création, la gestion et l’utilisation d’accords visant à créer des solutions d’intégration d’entreprise.
+
+Un accord nécessite un *partenaire hôte*, qui est toujours votre organisation, et un *partenaire invité*, qui est l’organisation qui échange des messages avec votre organisation. Le partenaire invité peut être une autre entreprise ou même un service au sein de votre organisation. Cet accord vous permet de spécifier la manière de traiter les messages entrants et sortants du point de vue du partenaire hôte.
+
+Cet article explique comment créer et gérer un accord, que vous pouvez ensuite utiliser pour échanger des messages B2B avec un autre partenaire en utilisant les opérations AS2, X12, EDIFACT ou RosettaNet.
+
+Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Logic Apps](logic-apps-overview.md) ? Pour plus d’informations sur l’intégration d’entreprise B2B, consultez [Workflows d’intégration d’entreprise B2B avec Azure Logic Apps et Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
+* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Un [compte d'intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) pour stocker votre accord et d'autres artefacts B2B. Ce compte d'intégration doit être associé à votre abonnement Azure.
+* Une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) dans laquelle vous définissez et stockez les artefacts, comme les parties, les contrats, les certificats, etc., à utiliser dans vos workflows d’intégration d’entreprise et B2B. Cette ressource doit remplir les conditions suivantes :
 
-* Au moins deux [partenaires commerciaux](../logic-apps/logic-apps-enterprise-integration-partners.md) que vous avez déjà créés dans votre compte d'intégration. Un accord requiert un partenaire hôte et un partenaire invité. Les deux partenaires doivent utiliser le même qualificateur d'« identité d'entreprise » que l'accord que vous souhaitez créer, comme AS2, X12 ou EDIFACT.
+  * Associé au même abonnement Azure que votre ressource d’application logique.
 
-* Facultatif : l'application logique sur laquelle vous souhaitez utiliser votre accord et un déclencheur qui lance le flux de travail de votre application logique. Pour créer votre compte d'intégration et vos artefacts B2B, vous n'avez pas besoin d'application logique. Mais avant que votre application logique puisse utiliser les artefacts B2B dans votre compte d'intégration, vous devez lier celui-ci à votre application logique. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  * Existe dans le même emplacement ou la même région Azure que votre ressource d’application logique.
 
-## <a name="create-agreements"></a>Créer des accords
+  * Si vous utilisez le [type de ressource **Application logique (Consommation)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration requiert un [lien vers votre ressource d’application logique](logic-apps-enterprise-integration-create-integration-account.md#link-account) avant de pouvoir utiliser des artefacts dans votre workflow.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration » comme filtre. Dans les résultats, sélectionnez la ressource suivante : **Comptes d’intégration**
+  * Si vous utilisez le [type de ressource **Application logique (Standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration n’a pas besoin d’un lien vers votre ressource d’application logique, mais il est toujours nécessaire pour stocker d’autres artefacts, comme les partenaires, contrats et certificats, ainsi que pour utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](logic-apps-enterprise-integration-edifact.md). Votre compte d’intégration doit encore répondre à d’autres exigences, telles que l’utilisation du même abonnement Azure et le même emplacement que votre ressource d’application logique.
 
-   ![Recherche du compte d’intégration](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
+  > [!NOTE]
+  > Actuellement, seul le type de ressource **Application logique (Consommation)** prend en charge les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). Le type de ressource **Application logique (Standard)** n’inclut pas les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 
-1. Sous **Comptes d'intégration**, sélectionnez le compte d'intégration dans lequel vous voulez créer l'accord.
+* Au moins deux [parties](logic-apps-enterprise-integration-partners.md) dans votre compte d’intégration. Un accord requiert un partenaire hôte et un partenaire invité. En outre, un accord requiert que les deux partenaires utilisent le même qualificateur d’*identité d’entreprise* ou un qualificateur compatible et approprié pour un accord AS2, X12, EDIFACT ou RosettaNet.
 
-   ![Sélectionnez le compte d’intégration dans lequel vous souhaitez créer le contrat](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
+* Il peut aussi s’agir de la ressource d’application logique et du flux de travail dans lesquels vous souhaitez utiliser l’accord pour échanger des messages. Le workflow nécessite un déclencheur qui démarre le workflow de votre application logique.
 
-1. Dans le volet de droite, sous **Composants**, choisissez la vignette **Accords**.
+Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](quickstart-create-first-logic-app-workflow.md).
 
-   ![Choisissez « Accords ».](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+## <a name="add-an-agreement"></a>Ajouter un accord
 
-1. Sous **Contrats**, choisissez **Ajouter**. Dans le volet **Ajouter**, fournissez des informations sur votre accord, par exemple :
+1. Dans la zone de recherche du [portail Azure](https://portal.azure.com), entrez `integration accounts` et sélectionnez **Comptes d’intégration**.
 
-   ![Choisir « Ajouter »](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+1. Sous **Comptes d’intégration**, sélectionnez le compte d’intégration dans lequel vous souhaitez ajouter vos partenaires.
+
+1. Dans le menu du compte d’intégration, sous **Paramètres**, sélectionnez **Accords**.
+
+1. Dans le volet **Accords**, sélectionnez **Ajouter**.
+
+1. Dans le volet **Ajouter**, fournissez les informations suivantes concernant l’accord :
 
    | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
    | **Nom** | Oui | <*nom de l'accord*> | Nom de votre accord |
-   | **Type d'accord** | Oui | **AS2**, **X12** ou **EDIFACT** | Type de protocole de votre accord. Lorsque vous créez le fichier de votre accord, son contenu doit correspondre au type de l'accord. |
-   | **Partenaire hôte** | Oui | <*nom du partenaire hôte*> | Le partenaire hôte représente l'organisation qui spécifie l'accord. |
+   | **Type d'accord** | Oui | **AS2**, **X12**, **EDIFACT** ou **RosettaNet** | Type de protocole de votre accord. Lorsque vous créez le fichier de votre accord, son contenu doit correspondre au type de l'accord. |
+   | **Partenaire hôte** | Oui | <*nom du partenaire hôte*> | Le partenaire hôte représente votre organisation |
    | **Identité de l'hôte** | Oui | <*identificateur du partenaire hôte*> | Identificateur du partenaire hôte. |
-   | **Partenaire invité** | Oui | <*nom du partenaire invité*> | Le partenaire invité représente l’organisation qui travaille avec le partenaire hôte. |
+   | **Partenaire invité** | Oui | <*nom du partenaire invité*> | Le partenaire invité représente l’organisation qui communique avec votre organisation |
    | **Identité de l'invité** | Oui | <*identificateur du partenaire invité*> | Identificateur du partenaire invité. |
-   | **Paramètres de réception** | Variable | Variable | Ces propriétés spécifient comment le partenaire hôte reçoit tous les messages entrants du partenaire invité dans le contrat. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
-   | **Paramètres d'envoi** | Variable | Variable | Ces propriétés spécifient comment le partenaire hôte envoie tous les messages sortants au partenaire invité dans le contrat. Pour plus d'informations, consultez le type d'accord correspondant : <p>- [Paramètres des messages AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
+   | **Paramètres de réception** | Variable | Variable | Ces propriétés spécifient la façon dont le partenaire hôte reçoit les messages entrants du partenaire invité dans l’accord. Pour plus d’informations, consultez le type d’accord correspondant : <p>- [Paramètres des messages AS2](logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
+   | **Paramètres d'envoi** | Variable | Variable | Ces propriétés spécifient la façon dont le partenaire hôte envoie les messages sortants au partenaire invité dans l’accord. Pour plus d’informations, consultez le type d’accord correspondant : <p>- [Paramètres des messages AS2](logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Paramètres des messages EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Paramètres des messages X12](logic-apps-enterprise-integration-x12.md) |
+   | **RosettaNet PIP references** (Références de processus PIP RosettaNet) | Variable | Variable | Ce volet contient des informations sur un ou plusieurs processus d’interface partenaire (PIP) pour utiliser les messages RosettaNet. Pour plus d’informations, consultez [Échanger des messages RosettaNet](logic-apps-enterprise-integration-rosettanet.md) |
+   |||||
 
    > [!IMPORTANT]
-   > La résolution d’un contrat dépend de la correspondance de ces éléments qui sont définis dans le partenaire et le message entrant :
+   > La résolution d’un accord dépend de la correspondance des éléments suivants qui sont définis dans le partenaire et le message entrant :
    >
    > * Qualificateur et identificateur de l’expéditeur
    > * Qualificateur et identificateur du récepteur
    >
    > Si ces valeurs changent pour votre partenaire, veillez à également mettre à jour le contrat.
 
-1. Une fois votre accord créé, sur la page **Ajouter**, choisissez **OK** et revenez à votre compte d'intégration.
+1. Quand vous avez terminé, sélectionnez **OK**.
 
-   La liste **Accords** contient désormais votre nouvel accord.
+   Votre accord figure désormais dans la liste des **Accords**.
 
-## <a name="edit-agreements"></a>Modifier des accords
+## <a name="edit-an-agreement"></a>Modifier un accord
 
-1. Sur le [portail Azure](https://portal.azure.com), accédez au menu principal Azure et sélectionnez **Tous les services**.
+1. Dans la zone de recherche du [portail Azure](https://portal.azure.com), entrez `integration accounts` et sélectionnez **Comptes d’intégration**.
 
-1. Dans la zone de recherche, entrez « intégration » comme filtre. Dans les résultats, sélectionnez la ressource suivante : **Comptes d’intégration**
+1. Sous **Comptes d’intégration**, sélectionnez le compte d’intégration dans lequel vous souhaitez ajouter vos partenaires.
 
-1. Sous **Comptes d'intégration**, sélectionnez le compte d'intégration associé à l'accord à modifier.
+1. Dans le menu du compte d’intégration, sous **Paramètres**, sélectionnez **Accords**.
 
-1. Dans le volet de droite, sous **Composants**, choisissez la vignette **Accords**.
+1. Dans le volet **Accords**, sélectionnez votre accord, sélectionnez **Modifier**, puis apportez vos modifications.
 
-1. Sous **Accords**, sélectionnez votre accord et choisissez **Modifier**.
+1. Quand vous avez terminé, sélectionnez **OK**.
 
-1. Apportez les modifications nécessaires et enregistrez-les.
+## <a name="delete-an-agreement"></a>Supprimer un accord
 
-## <a name="delete-agreements"></a>Supprimer des accords
+1. Dans la zone de recherche du [portail Azure](https://portal.azure.com), entrez `integration accounts` et sélectionnez **Comptes d’intégration**.
 
-1. Sur le [portail Azure](https://portal.azure.com), accédez au menu principal Azure et sélectionnez **Tous les services**.
+1. Sous **Comptes d’intégration**, sélectionnez le compte d’intégration dans lequel vous souhaitez ajouter vos partenaires.
 
-1. Dans la zone de recherche, entrez « intégration » comme filtre. Dans les résultats, sélectionnez la ressource suivante : **Comptes d’intégration**
+1. Dans le menu du compte d’intégration, sous **Paramètres**, sélectionnez **Accords**.
 
-1. Sous **Comptes d'intégration**, sélectionnez le compte d'intégration associé à l'accord à supprimer.
+1. Dans le volet **Accords**, sélectionnez l’accord à supprimer, puis sélectionnez **Supprimer**.
 
-1. Dans le volet de droite, sous **Composants**, choisissez la vignette **Accords**.
-
-1. Sous **Accords**, sélectionnez votre accord et choisissez **Supprimer**.
-
-1. Confirmez que vous souhaitez supprimer le contrat sélectionné.
+1. Sélectionnez **Oui** pour confirmer que vous souhaitez supprimer l’accord.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Échanger des messages AS2](logic-apps-enterprise-integration-as2.md)
 * [Échanger des messages EDIFACT](logic-apps-enterprise-integration-edifact.md)
 * [Échanger des messages X12](logic-apps-enterprise-integration-x12.md)
+* [Messages Exchange RosettaNet](logic-apps-enterprise-integration-rosettanet.md)

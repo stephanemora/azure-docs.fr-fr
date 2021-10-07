@@ -8,75 +8,78 @@ metadata:
   ms.topic: article
   ms.date: 04/22/2020
   ms.author: errobin
-  ms.openlocfilehash: 912eba524c212878735a26ba7b340887e088bcbb
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: 0a855bf66c705e07d556831b60f7f4ec391e29fd
+  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "122524975"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129272306"
 title: Questions fréquentes sur Load Balancer
 summary: ''
 sections:
 - name: Ignoré
   questions:
   - question: >
-      What types of Load Balancer exist?
-    answer: "Internal load balancers which balance traffic within a VNET and external load balancers which balance traffic to and from an internet connected endpoint. For more information, see [Load Balancer Types](./load-balancer-overview.md). \n\nFor both these types, Azure offers a Basic SKU and Standard SKU that have different functional, performance, security and health tracking capabilities. These differences are explained in our [SKU Comparison](skus.md) article.\n"
+      Quels types d’instances Load Balancer existent ?
+    answer: "Les équilibreurs de charge internes qui équilibrent le trafic au sein d’un réseau virtuel et les équilibreurs de charge externes qui équilibrent le trafic vers et à partir d’un point de terminaison connecté à Internet. Pour plus d’informations, consultez [Types de Load balancer](./load-balancer-overview.md). \n\nPour ces deux types, Azure propose une référence SKU de base et une référence SKU standard qui ont des fonctionnalités de suivi d’intégrité, de performances et de sécurité différentes. Ces différences sont expliquées dans notre article [Comparaison des références SKU](skus.md).\n"
   - question: >
-      How can I upgrade from a Basic to a Standard Load Balancer?
+      Comment puis-je effectuer une mise à niveau de Load Balancer Basic vers Standard Load Balancer ?
     answer: >
-      See the [upgrade from Basic to Standard](upgrade-basic-standard.md) article for an automated script and guidance on upgrading a Load Balancer SKU.
+      Pour obtenir un script automatisé et des conseils sur la mise à niveau d’une référence Load Balancer, consultez l’article [Mise à niveau de l’instance de base vers l’instance standard](upgrade-basic-standard.md).
   - question: >
-      What are the different load-balancing options in Azure?
+      Quelles sont les différentes options d’équilibrage de charge dans Azure ?
     answer: >
-      See the [load balancer technology guide](/azure/architecture/guide/technology-choices/load-balancing-overview)  for the available load-balancing services and recommended uses for each.
+      Consultez le [guide de la technologie de l’équilibreur de charge](/azure/architecture/guide/technology-choices/load-balancing-overview) pour connaître les services d’équilibrage de charge disponibles et les utilisations recommandées pour chacun d’entre eux.
   - question: >
-      Where can I find Load Balancer ARM templates?
+      Où puis-je trouver les modèles ARM de Load Balancer ?
     answer: >
-      See the [list of Azure Load Balancer quickstart templates](/azure/templates/microsoft.network/loadbalancers#quickstart-templates) for ARM templates of common deployments.
+      Consultez la [liste des modèles de démarrage rapide Azure Load Balancer](/azure/templates/microsoft.network/loadbalancers#quickstart-templates) pour les modèles ARM de déploiements courants.
   - question: >
-      How are inbound NAT rules different from load-balancing rules?
+      Quelle est la différence entre les règles NAT entrantes et les règles d’équilibrage de charge ?
     answer: >
-      NAT rules are used to specify a backend resource to route traffic to. For example, configuring a specific load balancer port to send RDP traffic to a specific VM. Load-balancing rules are used to specify a pool of backend resources to route traffic to, balancing the load across each instance. For example, a load balancer rule can route TCP packets on port 80 of the load balancer across a pool of web servers.
+      Les règles NAT sont utilisées pour spécifier une ressource backend vers laquelle acheminer le trafic. Par exemple, la configuration d’un port d’équilibrage de charge spécifique pour envoyer le trafic RDP vers une machine virtuelle spécifique. Les règles d’équilibrage de charge sont utilisées pour spécifier un pool de ressources backend vers lequel acheminer le trafic, en équilibrant la charge sur chaque instance. Par exemple, une règle d’équilibreur de charge peut acheminer les paquets TCP sur le port 80 de l’équilibreur de charge sur un pool de serveurs Web.
   - question: >
-      What is IP 168.63.129.16?
+      Qu’est-ce que l’adresse IP 168.63.129.16 ?
     answer: >
-      The virtual IP address for the host tagged as the Azure infrastructure Load Balancer where the Azure Health Probes originate. When configuring backend instances, they must allow traffic from this IP address to successfully respond to health probes. This rule does not interact with access to your Load Balancer frontend. If you're not using the Azure Load Balancer, you can override this rule. You can learn more about service tags [here](../virtual-network/service-tags-overview.md#available-service-tags).
+      Adresse IP virtuelle de l’hôte marquée en tant qu’infrastructure Azure Load Balancer d’où proviennent les sondes d’intégrité Azure. Lors de la configuration d’instances backend, elles doivent autoriser le trafic à partir de cette adresse IP pour répondre correctement aux sondes d’intégrité. Cette règle n’interagit pas avec l’accès à votre frontend Load Balancer. Vous pouvez remplacer cette règle si vous n’utilisez pas Azure Load Balancer. Apprenez-en davantage sur les balises de service [ici](../virtual-network/service-tags-overview.md#available-service-tags).
   - question: >
-      Can I use Global VNet peering with Basic Load Balancer?
+      Puis-je utiliser le peering de Global VNet avec la version basique de Load Balancer ?
     answer: >
-      No. Basic Load Balancer does not support Global VNET peering. You can use a Standard Load Balancer instead. See the [upgrade from Basic to Standard](upgrade-basic-standard.md) article for seamless upgrade.
+      Non. La version basique de Load Balancer ne prend pas en charge le peering de Global VNET. Vous pouvez utiliser la version standard de Load Balancer à la place. Pour une mise à niveau transparente, consultez l’article [Mise à niveau de la version basique à la version standard](upgrade-basic-standard.md).
   - question: >
-      How can I discover the public IP that an Azure VM uses?
-    answer: "There are many ways to determine the public source IP address of an outbound connection. OpenDNS provides a service that can show you the public IP address of your VM.\nBy using the nslookup command, you can send a DNS query for the name myip.opendns.com to the OpenDNS resolver. The service returns the source IP address that was used to send the query. When you run the following query from your VM, the response is the public IP used for that VM:\n\n ```nslookup myip.opendns.com resolver1.opendns.com```\n \n"
+      Comment puis-je trouver l’adresse IP publique utilisée par une machine virtuelle Azure ?
+    answer: "Il existe de nombreuses manières de déterminer l’adresse IP source publique d’une connexion sortante. OpenDNS fournit un service qui peut vous indiquer l’adresse IP publique votre machine virtuelle.\nLa commande nslookup vous permet d’envoyer une requête DNS sur le nom myip.opendns.com au programme de résolution OpenDNS. Le service retourne l’adresse IP source qui a été utilisée pour envoyer la requête. Quand vous exécutez la requête suivante à partir de votre machine virtuelle, la réponse est l’adresse IP publique utilisée pour cette machine virtuelle :\n\n ```nslookup myip.opendns.com resolver1.opendns.com```\n \n"
   - question: >
-      Can I add a VM from the same availability set to different backend pools of a Load Balancer?
+      Puis-je ajouter une machine virtuelle du même groupe à haute disponibilité à différents pools principaux d’un équilibreur de charge ?
     answer: >
-      No, this is not possible.
+      Non, cela n’est pas possible.
   - question: >
-      What is the maximum data throughput that can be achieved via an Azure Load Balancer?
+      Quel est le débit de données maximal qui peut être atteint via un équilibreur de charge Azure ?
     answer: >
-      Since Azure LB is a pass-through network load balancer, throughput limitations are dictated by the type of virtual machine used in the backend pool. To learn about other network throughput related information refer to [Virtual Machine network throughput](../virtual-network/virtual-machine-network-throughput.md).
+      Étant donné qu’un équilibreur de charge Azure est un équilibreur de charge réseau direct, les limites de débit sont dictées par le type de machine virtuelle utilisé dans le pool principal. Pour en savoir plus sur les autres informations relatives au débit réseau, consultez [Débit réseau des machines virtuelles](../virtual-network/virtual-machine-network-throughput.md).
   - question: >
-      How do connections to Azure Storage in the same region work?
+      Comment fonctionnent les connexions au Stockage Azure dans la même région ?
     answer: >
-      Having outbound connectivity via the scenarios above is not necessary to connect to Storage in the same region as the VM. If you do not want this, use network security groups (NSGs) as explained above. For connectivity to Storage in other regions, outbound connectivity is required. Please note that when connecting to Storage from a VM in the same region, the source IP address in the Storage diagnostic logs will be an internal provider address, and not the public IP address of your VM. If you wish to restrict access to your Storage account to VMs in one or more Virtual Network subnets in the same region, use [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) and not your public IP address when configuring your storage account firewall. Once service endpoints are configured, you will see your Virtual Network private IP address in your Storage diagnostic logs and not the internal provider address.
+      Il n’est pas nécessaire de disposer d’une connectivité sortante via les scénarios ci-dessus pour vous connecter au Stockage Azure dans la même région que la machine virtuelle. Si vous n’en souhaitez pas, utilisez les groupes de sécurité réseau (NSG), comme expliqué ci-dessus. Pour la connectivité vers le Stockage Azure dans d’autres régions, une connectivité sortante est requise. Lorsque vous vous connectez au Stockage Azure à partir d’une machine virtuelle dans la même région, l’adresse IP source dans les journaux de diagnostic de stockage est une adresse de fournisseur interne, et non l’adresse IP publique de votre machine virtuelle. Si vous souhaitez restreindre l’accès à votre compte de stockage aux machines virtuelles dans un ou plusieurs sous-réseaux du réseau virtuel dans la même région, utilisez des [points de terminaison de service du réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md) et non votre adresse IP publique lors de la configuration de votre pare-feu de compte de stockage. Une fois les points de terminaison de service configurés, l’adresse IP privée de votre réseau virtuel apparaît dans vos journaux de diagnostic de stockage, mais pas l’adresse interne du fournisseur.
   - question: >
-      Does Azure Load Balancer support TLS/SSL termination?
+      Azure Load Balancer prend-il en charge l’arrêt TLS/SSL ?
     answer: >
-      No, Azure Load Balancer doesn't currently support termination as it is a pass through network load balancer. Application Gateway could be a potential solution if your application requires this.
+      Non, actuellement, Azure Load Balancer ne prend pas en charge l’arrêt, car il s’agit d’un équilibreur de charge réseau direct. Application Gateway peut être une solution si votre application en a besoin.
   - question: >
-      How do I configure my Load Balancer with an Azure Firewall?
+      Comment configurer mon équilibreur de charge avec un Pare-feu Azure ?
     answer: >
-      Follow these [instructions](../firewall/integrate-lb.md) to configure your Load Balancer with an Azure Firewall.
+      Suivez ces [instructions](../firewall/integrate-lb.md) pour configurer votre équilibreur de charge avec un Pare-feu Azure.
   - question: >
-      What are best practices with respect to outbound connectivity?
-    answer: "Standard Load Balancer and Standard Public IP introduces abilities and different behaviors to outbound connectivity. They are not the same as Basic SKUs. If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard Public IP addresses or Standard public Load Balancer. This includes creating outbound connectivity when using an internal Standard Load Balancer. We recommend you always use outbound rules on a Standard public Load Balancer. That means when an internal Standard Load Balancer is used, you need to take steps to create outbound connectivity for the VMs in the backend pool if outbound connectivity is desired. In the context of outbound connectivity,a single standalone VM, all the VM's in an Availability Set, all the instances in a virtual machine scale set behave as a group. This means, if a single VM in an Availability Set is associated with a Standard SKU, all VM instances within this Availability Set now behave by the same rules as if they are associated with Standard SKU, even if an individual instance is not directly associated with it. This behavior is also observed in the case of a standalone VM with multiple network interface cards attached to a load balancer. If one NIC is added as a standalone, it will have the same behavior. Carefully review this entire document to understand the overall concepts, review [Standard Load Balancer](./load-balancer-overview.md) for differences between SKUs, and review [outbound rules](load-balancer-outbound-connections.md#outboundrules).\n Using outbound rules allows you fine grained control over all aspects of outbound connectivity.\n \n"
-  - question: >
-      How can I view the traffic from my configured health probe(s)?
+      Puis-je accéder au serveur frontal de mon équilibreur de charge interne à partir de la machine virtuelle du pool principal participant ?
     answer: >
-      To view the traffic sent to each backend instance from the health probe you can use IP stack statistics with a tool such as netstat. When looking through this tool, the health probe traffic will be coming from 168.63.129.16.
+      Non, Azure Load Balancer ne prend pas en charge ce scénario. Pour en savoir plus sur ce sujet, consultez notre [page de résolution des problèmes](load-balancer-troubleshoot-backend-traffic.md#cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm).
   - question: >
-      If I enable DDoS Protection Standard for my load balancer frontend, what does that mean for the resources in the backend pool?
-    answer: "When enabled on the frontend IP for a load balancer, DDoS Protection Standard will apply protection for all backend pool resources that are accessible through that public IP.  Please see [Azure DDoS Protection Reference](../ddos-protection/ddos-protection-reference-architectures.md) for more details. \n"
-additionalContent: "\n## Next steps\n   If your question is not listed above, please send feedback about this page with your question. This will create a GitHub issue for the product team to ensure all of our valued customer questions are answered."
+      Quelles sont les meilleures pratiques en matière de connectivité sortante ?
+    answer: "Standard Load Balancer et les adresses IP publiques standard introduisent des fonctionnalités et des comportements différents pour la connectivité sortante. Ils ne sont pas identiques aux références SKU De base. Si vous souhaitez une connectivité sortante lorsque vous travaillez avec des références SKU Standard, vous devez explicitement la définir avec des adresses IP publiques Standard ou l’équilibreur de charge public Standard. Cela inclut la création de la connectivité sortante lors de l’utilisation d’un équilibreur de charge Standard interne. Nous vous recommandons de toujours utiliser des règles de trafic sortant sur un équilibreur de charge public Standard. Cela signifie que lorsqu’un équilibreur de charge interne Standard est utilisé, vous devez prendre des mesures pour créer une connectivité sortante pour les machines virtuelles dans le pool principal si la connectivité sortante est souhaitée. Dans le contexte de la connectivité sortante, une seule machine virtuelle autonome, toutes les machines virtuelles d’un groupe à haute disponibilité et toutes les instances d’un groupe de machines virtuelles identiques se comportent comme un groupe. Cela signifie que, si une seule machine virtuelle d’un groupe à haute disponibilité est associée à une référence SKU Standard, toutes les instances de machine virtuelle au sein de ce groupe à haute disponibilité se comportent maintenant selon les mêmes règles que si elles étaient associées avec la référence SKU Standard, même si une instance individuelle n’est pas directement associée. Ce comportement est également observé dans le cas d’une machine virtuelle autonome avec plusieurs cartes d’interface réseau attachées à un équilibreur de charge. Si une carte réseau est ajoutée comme composant autonome, elle aura le même comportement. Lisez attentivement la totalité de ce document pour comprendre les concepts généraux, passer en revue [Standard Load Balancer](./load-balancer-overview.md) pour connaître les différentes entre les références SKU et les [règles de trafic sortant](load-balancer-outbound-connections.md#outboundrules).\nL’utilisation de règles de trafic sortant vous permet un contrôle précis de tous les aspects de la connectivité sortante.\n \n"
+  - question: " Comment puis-je afficher le trafic à partir de mes sondes d’intégrité configurées ?\n"
+    answer: >
+      Pour afficher le trafic envoyé à chaque instance back-end à partir de la sonde d’intégrité, vous pouvez utiliser les statistiques de pile IP avec un outil tel que netstat. Lorsque vous examinez cet outil, le trafic de la sonde d’intégrité provient de l’IP 168.63.129.16.
+  - question: >
+      Si j’active Protection DDos Standard pour le serveur frontal de mon équilibreur de charge, qu’est-ce que cela signifie pour les ressources du pool principal ?
+    answer: "Lorsque le service Protection DDos Standard est activé sur l’adresse IP frontale d’un équilibreur de charge, il applique la protection à toutes les ressources du pool principal qui sont accessibles par l’intermédiaire de cette IP publique.  Pour plus d’informations, consultez [Référence Azure DDoS Protection](../ddos-protection/ddos-protection-reference-architectures.md). \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n   Si votre question ne figure pas dans la liste ci-dessus, veuillez envoyer vos commentaires sur cette page avec votre question. Cela créera un problème GitHub pour l’équipe produit afin de s’assurer que toutes les questions des clients reçoivent une réponse."

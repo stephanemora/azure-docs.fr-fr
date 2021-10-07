@@ -9,18 +9,22 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7cfa2059cc03b96db39183cfa5056c9934a02290
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 0461228678762adbc4db936c35849f16a482c1a9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814349"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605503"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Meilleures pratiques pour utiliser Key Vault
 
 ## <a name="use-separate-key-vaults"></a>Utiliser des coffres de clés distincts
 
 Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production). Cela vous aide à éviter le partage de secrets entre environnements et réduit la menace en cas de violation.
+
+### <a name="why-we-recommend-separate-key-vaults"></a>Pourquoi nous recommandons des coffres de clés distincts
+
+Les stratégies d’accès sont un concept de « tout ou rien » dans Azure Key Vault. Si une identité a une autorisation spécifique (**Get**, par exemple), l’identité peut obtenir *n’importe quels* secrets, clés ou certificats dans le coffre. Cela signifie que le regroupement de données sensibles dans un même coffre augmente le *rayon d’impact* d’un événement de sécurité, car les attaques pourraient être en mesure d’accéder aux informations sensibles des différentes préoccupations. Pour atténuer ce risque, réfléchissez aux informations sensibles auxquelles une application spécifique *doit* avoir accès, puis séparez vos coffres de clés en fonction de cette délimitation. La séparation des coffres de clés par application est la limite la plus courante.
 
 ## <a name="control-access-to-your-vault"></a>Contrôler l’accès à votre coffre
 
@@ -57,3 +61,6 @@ Veillez à effectuer des sauvegardes régulières de votre coffre lors de la mis
 
 1. Activez la [suppression réversible](soft-delete-overview.md).
 2. Activez la protection contre le vidage si vous souhaitez vous prémunir contre la suppression forcée du secret ou du coffre, même après activation de la suppression réversible.
+
+## <a name="learn-more"></a>En savoir plus
+- [Meilleures pratiques de gestion des secrets dans Key Vault](../secrets/secrets-best-practices.md)

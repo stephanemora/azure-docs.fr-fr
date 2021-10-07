@@ -4,12 +4,12 @@ description: Cet article décrit comment mettre à jour Container Insights afin 
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1921a0cc0aa15a5e877d64cbe2c7ad094f9e144f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: cff5933db1d74e9853120a07444e399005b2e498
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532551"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128620822"
 ---
 # <a name="how-to-update-container-insights-to-enable-metrics"></a>Comment mettre à jour Container Insights pour activer les métriques
 
@@ -77,6 +77,7 @@ Pour mettre à jour un cluster spécifique de votre abonnement au moyen d’Azur
 
 1. Exécutez la commande ci-après par le biais d’Azure CLI. Remplacez les valeurs **subscriptionId**, **resourceGroupName** et **clusterName** par celles qui figurent sur la page **Vue d’ensemble d’AKS** du cluster AKS.  La valeur **clientIdOfSPN** est renvoyée lors de l’exécution de la commande `az aks show`, comme indiqué dans l’exemple ci-dessous.
 
+
     ```azurecli
     az login
     az account set --subscription "<subscriptionName>"
@@ -84,7 +85,9 @@ Pour mettre à jour un cluster spécifique de votre abonnement au moyen d’Azur
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ```
 
+
     Pour obtenir la valeur pour **clientIdOfSPNOrMsi**, exécutez la commande `az aks show`, comme indiqué dans l’exemple ci-dessous. Si l’objet **servicePrincipalProfile** dispose d’une valeur *clientid* valide, vous pouvez l’utiliser. Sinon, s’il est défini sur *msi*, vous devez transmettre la valeur clientid depuis `addonProfiles.omsagent.identity.clientId`.
+
 
     ```azurecli
     az login
@@ -92,6 +95,11 @@ Pour mettre à jour un cluster spécifique de votre abonnement au moyen d’Azur
     az aks show -g <resourceGroupName> -n <clusterName> 
     az role assignment create --assignee <clientIdOfSPNOrMsi> --scope <clusterResourceId> --role "Monitoring Metrics Publisher"
     ```
+
+
+
+>[!NOTE]
+>Si vous utilisez votre compte d’utilisateur et souhaitez exécuter l’attribution de rôle, utilisez le paramètre --assignee comme indiqué dans l’exemple ci-dessous. Sinon, si vous vous connectez avec le nom de principal du service et souhaitez exécuter l’attribution de rôle, utilisez les paramètres --assignee-object-id et --assignee-principal-type à la place du paramètre --assignee.
 
 ## <a name="upgrade-all-clusters-using-azure-powershell"></a>Mettre à niveau tous les clusters à l’aide d’Azure PowerShell
 

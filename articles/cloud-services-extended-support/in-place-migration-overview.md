@@ -9,12 +9,12 @@ ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: ef2d8b68d6fb56f5d9b3508d550303aa9d9526d1
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 1542a8dd6c36c2a623f11179c0871a9fef2e3619
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532917"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128665508"
 ---
 # <a name="migrate-azure-cloud-services-classic-to-azure-cloud-services-extended-support"></a>Migrer les services cloud Azure (classiques) vers les services cloud Azure (support étendu)
 
@@ -63,7 +63,7 @@ Un nouveau service cloud (support étendu) peut être déployé directement dans
 La migration prise en charge par la plateforme offre les principaux avantages suivants :
 
 - Permet une migration fluide orchestrée par une plateforme sans temps d’arrêt pour la plupart des scénarios. Apprenez-en davantage sur les [scénarios pris en charge](in-place-migration-technical-details.md).  
-- Migre les services cloud actuels en trois étapes simples : valider, préparer, valider (ou abandonner). Apprenez-en davantage sur la façon dont l’[outil de migration fonctionne]in-place-migration-overview.md#migration-steps).
+- Migre les services cloud actuels en trois étapes simples : valider, préparer, valider (ou abandonner). En savoir plus sur le [fonctionnement de l’outil de migration](in-place-migration-overview.md#migration-steps).
 - Offre la possibilité de tester les déploiements migrés après une préparation réussie. Valide et finalise la migration alors que la fonction d’abandon restaure la migration.
 
 L’outil de migration utilise les mêmes API et a la même expérience que la [migration des machines virtuelles (classiques)](../virtual-machines/migration-classic-resource-manager-overview.md). 

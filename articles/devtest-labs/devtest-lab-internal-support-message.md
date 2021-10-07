@@ -1,14 +1,14 @@
 ---
-title: Ajouter une déclaration de support interne à un lab dans Azure DevTest Labs
+title: Ajouter une instruction de support interne à un laboratoire
 description: Découvrez comment publier une déclaration de support interne sur un lab dans Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1c9920e6fe7fbfe2a8d0aeacb896150b342981b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 20cd7494eb0a0df340866d344b48d87e94cca490
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85480471"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612146"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Ajouter une déclaration de support interne à un lab dans Azure DevTest Labs
 

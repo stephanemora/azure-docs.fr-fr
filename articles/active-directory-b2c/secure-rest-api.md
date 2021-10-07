@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ef1c747666b2c75567d88f440cef37a631f64064
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f77c099425aac4f6484db8745e036a6dd1833ed4
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562426"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578942"
 ---
 # <a name="secure-your-api-used-an-api-connector-in-azure-ad-b2c"></a>Sécuriser votre API utilisée en tant que connecteur d’API dans Azure AD B2C 
 
@@ -36,7 +36,7 @@ Vous pouvez protéger votre point de terminaison d’API à l’aide de l’auth
 
 ## <a name="http-basic-authentication"></a>Authentification HTTP de base
 
-L’authentification de base HTTP est définie dans le document [RFC 2617](https://tools.ietf.org/html/rfc2617). L’authentification de base fonctionne comme suit : Azure AD B2C envoie une requête HTTP avec les informations d’identification du client (`username` et `password`) dans l’en-tête `Authorization`. Les informations d'identification sont mises en forme en tant que chaîne `username:password` codée en base64. Votre API est ensuite chargée de vérifier ces valeurs pour mettre en œuvre d’autres décisions d’autorisation.
+L’authentification de base HTTP est définie dans le document [RFC 2617](https://tools.ietf.org/html/rfc2617). L’authentification de base fonctionne comme suit : Azure AD B2C envoie une requête HTTP avec les informations d’identification du client (`username` et `password`) dans l’en-tête `Authorization`. Les informations d'identification sont mises en forme en tant que chaîne `username:password` codée en base64. Votre API est ensuite chargée de vérifier ces valeurs pour prendre d’autres décisions d’autorisation.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -59,7 +59,8 @@ Pour configurer un connecteur d'API avec l'authentification de base HTTP, procé
 Pour configurer un profil technique API REST avec l’authentification HTTP de base, créez les clés de chiffrement suivantes pour stocker le nom d’utilisateur et le mot de passe :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez votre annuaire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
@@ -162,7 +163,7 @@ Pour configurer un connecteur d'API avec l'authentification par certificat clien
 7. Sélectionnez **Enregistrer**.
 
 ### <a name="perform-authorization-decisions"></a>Prendre des décisions d’autorisation 
-Votre API doit implémenter l'autorisation basée sur les certificats clients envoyés afin de protéger les points de terminaison d'API. Pour Azure App Service et Azure Functions, consultez [Configurer l'authentification mutuelle TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) afin de savoir comment activer et *valider le certificat à partir de votre code d'API*.  Vous pouvez également utiliser Gestion des API Azure en tant que couche devant un service API pour [vérifier les propriétés de certificat client](
+Votre API doit implémenter l'autorisation basée sur les certificats clients envoyés afin de protéger les points de terminaison d'API. Pour Azure App Service et Azure Functions, consultez [Configurer l'authentification mutuelle TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) afin de savoir comment activer et *valider le certificat à partir de votre code d'API*.  Vous pouvez également utiliser la gestion des API Azure en tant que couche devant un service API pour [vérifier les propriétés de certificat client](
 ../api-management/api-management-howto-mutual-certificates-for-clients.md) par rapport aux valeurs souhaitées.
 
 ### <a name="renewing-certificates"></a>Renouvellement de certificats
@@ -179,7 +180,8 @@ Pour charger un nouveau certificat sur un connecteur d'API existant, sélectionn
 ### <a name="add-a-client-certificate-policy-key"></a>Ajoutez une clé de stratégie de certificat client
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez votre annuaire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
@@ -285,14 +287,14 @@ L’exemple suivant utilise un profil technique de l’API REST pour soumettre u
 Avant que le profil technique puisse interagir avec Azure AD pour obtenir un jeton d'accès, vous devez inscrire une application. Azure AD B2C repose sur la plateforme Azure AD. Vous pouvez créer l'application dans votre locataire Azure AD B2C, ou dans n'importe quel locataire Azure AD que vous gérez. Pour inscrire une application :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l'annuaire qui contient votre locataire Azure AD B2C ou Azure AD.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD ou Azure AD B2C dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le menu de gauche, sélectionnez **Azure Active Directory**. Vous pouvez également sélectionner **Tous les services**, et rechercher et sélectionner **Azure Active Directory**.
 1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Entrez un **Nom** pour l’application. Par exemple, *Client_Credentials_Auth_app*.
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel uniquement**.
 1. Sélectionnez **Inscription**.
-2. Enregistrez l’**ID d’application (client)** . 
-
+1. Enregistrez l’**ID d’application (client)** .
 
 Pour un flux d’informations d’identification de client, vous devez créer un secret d’application. Le secret client est également appelé mot de passe d’application. Le secret sera utilisé par votre application pour acquérir un jeton d’accès.
 
@@ -308,18 +310,19 @@ Pour un flux d’informations d’identification de client, vous devez créer un
 Vous devez stocker l’ID de client et la clé secrète du client que vous avez enregistrée dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur et choisissez l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
-5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
-6. Pour **Options**, choisissez `Manual`.
-7. Entrez un **Nom** pour la clé de stratégie, `SecureRESTClientId`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
-8. Dans **Secret**, entrez l’ID de client que vous avez enregistrée.
-9. Pour **Utilisation de la clé**, sélectionnez `Signature`.
-10. Sélectionnez **Create** (Créer).
-11. Créez une autre clé de stratégie avec les paramètres suivants :
-    -   **Nom** : `SecureRESTClientSecret`.
-    -   **Secret** : entrez la clé secrète client que vous avez enregistrée
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Pour **Options**, choisissez `Manual`.
+1. Entrez un **Nom** pour la clé de stratégie, `SecureRESTClientId`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
+1. Dans **Secret**, entrez l’ID de client que vous avez enregistrée.
+1. Pour **Utilisation de la clé**, sélectionnez `Signature`.
+1. Sélectionnez **Create** (Créer).
+1. Créez une autre clé de stratégie avec les paramètres suivants :
+    - **Nom** : `SecureRESTClientSecret`.
+    - **Secret** : entrez la clé secrète client que vous avez enregistrée
 
 Au niveau de ServiceUrl, remplacez your-tenant-name par le nom de votre locataire Azure AD. Consultez la référence [Profil technique RESTful](restful-technical-profile.md) pour connaître toutes les options disponibles.
 
@@ -402,7 +405,8 @@ Une fois les extraits de code ci-dessus ajoutés, votre profil technique doit se
 Pour configurer un profil technique API REST avec un jeton du porteur OAuth2, obtenez un jeton d’accès à partir du propriétaire de l’API REST. Créez ensuite la clé de chiffrement suivante pour stocker le jeton du porteur.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez votre annuaire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
@@ -474,7 +478,8 @@ La clé API est un identificateur unique utilisé pour authentifier un utilisate
 Pour configurer un profil technique d’API REST avec l’authentification par clé API, créez la clé de chiffrement suivante pour stocker la clé API :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez votre annuaire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité**.
 1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.

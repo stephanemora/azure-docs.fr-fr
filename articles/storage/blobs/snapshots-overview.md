@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 58120c05e4ee0c3310a5da75377cd941aa289de7
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 5eaefbe835d7660de8bd0712d55c75149cc588a8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453065"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591080"
 ---
 # <a name="blob-snapshots"></a>Instantanés d’objet blob
 
@@ -126,7 +126,7 @@ Si vous avez défini explicitement le niveau d’objet blob pour un objet blob o
 
 Le tableau suivant décrit le comportement de facturation d’un objet blob ou d’une capture instantanée lors de leur déplacement vers un nouveau niveau.
 
-| Quand le niveau d’objet blob est défini explicitement sur… | Vous êtes facturé pour... |
+| Quand le niveau du blob est défini explicitement sur… | Vous êtes facturé pour... |
 |-|-|
 | Un objet blob de base avec une capture instantanée | L’objet blob de base dans le nouveau niveau et la capture instantanée la plus ancienne dans le niveau d’origine, ainsi que tous les blocs uniques dans d’autres captures instantanées.<sup>1</sup> |
 | Un objet blob de base avec une version précédente et une capture instantanée | L’objet blob de base dans le nouveau niveau, la version la plus ancienne dans le niveau d’origine et la capture instantanée la plus ancienne dans le niveau d’origine, ainsi que tous les blocs uniques dans d’autres versions ou captures instantanées<sup>1</sup>. |
@@ -153,10 +153,23 @@ Lorsque la suppression réversible d’objet blob est activée, si vous supprime
 
 Le tableau suivant décrit le comportement de facturation d’un objet blob supprimé de manière réversible, selon que le contrôle de version est activé ou désactivé. Quand le contrôle de version est activé, une nouvelle version est créée lors de la suppression d’un objet blob de manière réversible. Quand le contrôle de version est désactivé, la suppression réversible d’un objet blob crée une capture instantanée de suppression réversible.
 
-| Quand vous remplacez un objet blob de base par son niveau explicitement défini… | Vous êtes facturé pour... |
+| Quand vous remplacez un blob de base par son niveau explicitement défini… | Vous êtes facturé pour... |
 |-|-|
 | Si la suppression réversible et le contrôle de version d’objet blob sont tous deux activés | Toutes les versions existantes pour la longueur totale du contenu, quel que soit le niveau. |
 | Si la suppression réversible d’objet blob est activée alors que le contrôle de version est désactivé | Tous les captures instantanées de suppression réversible existantes pour la longueur totale du contenu, quel que soit le niveau. |
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)<sup>2</sup>              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)<sup>2</sup>              | ![Non](../media/icons/no-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
+
+<sup>2</sup> La fonctionnalité est prise en charge dans la préversion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,20 +11,20 @@ ms.author: rohitna
 ms.reviewer: mathoma, vanto
 ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 77b629f5fb354ee94d06055999ece59aea05e592
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: de6af2c8581c157634ee1f8676e3dbc84ccd1803
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525252"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590669"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Paramètres de connectivité pour Azure SQL
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)]
 
 Cet article présente les paramètres qui contrôlent la connectivité au serveur pour Azure SQL Database et le [pool SQL dédié (anciennement SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) dans Azure Synapse Analytics. Ces paramètres s’appliquent à toutes les bases de données SQL Database et bases de données de pool SQL dédié (anciennement SQL DW) associées au serveur.
 
 > [!IMPORTANT]
-> Il ne s’applique pas à Azure SQL Managed Instance.
+> Il ne s’applique pas à Azure SQL Managed Instance. Cet article ne s’applique pas non plus aux pools SQL dédiés dans les espaces de travail Azure Synapse Analytics. Pour obtenir de l’aide sur la façon de configurer des règles de pare-feu IP pour Azure Synapse Analytics avec des espaces de travail, consultez [Règles de pare-feu IP Azure Synapse Analytics](../../synapse-analytics/security/synapse-workspace-ip-firewall.md).
 
 Les paramètres de connectivité sont accessibles à partir de l’écran **Pare-feu et réseaux virtuels**, comme illustré dans la capture d’écran suivante :
 

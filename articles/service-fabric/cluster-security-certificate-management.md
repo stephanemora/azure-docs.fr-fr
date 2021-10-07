@@ -4,12 +4,12 @@ description: En savoir plus sur la gestion des certificats dans un cluster Servi
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 2674e0e01432fdd45ae01632c69ada66222247f6
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 580831c402c8d07eead9f3b90215faa106640bfc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114293257"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601973"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Gestion des certificats dans des clusters Service Fabric
 
@@ -449,7 +449,7 @@ Dans les deux cas, le transport échoue et le cluster peut cesser de fonctionn
 
 Pour minimiser de tels incidents, suivez les recommandons suivantes :
   - Ne mélangez pas les SAN de différents certificats de coffre. Chaque certificat de coffre doit avoir un objectif propre, et son objet ainsi que son SAN doivent refléter cela de façon spécifique.
-  - Incluez le nom commun de l’objet dans la liste SAN (littéralement, sous la forme "CN=<subject common name>").  
+  - Incluez le nom commun de l’objet dans la liste SAN (littéralement, sous la forme `CN=<subject common name>`).  
   - En cas de doute, désactivez la liaison lors du renouvellement des certificats approvisionnés avec l’extension de machine virtuelle de KeyVault. 
 
 #### <a name="why-use-a-user-assigned-managed-identity-what-are-the-implications-of-using-it"></a>Pourquoi utiliser une identité managée affectée par l’utilisateur ? Quelles sont les implications de son utilisation ?

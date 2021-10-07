@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 826217091b3297da0c068336ff67a0a58841716d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4e494b38bea9b799a6a2ee82b3fbb9847446d699
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690457"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128611704"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termes du fichier détaillant l’utilisation et les frais Azure dans le cadre d’un Contrat client Microsoft
 
@@ -32,9 +32,9 @@ Les clients EA remarqueront que les termes employés dans le fichier CSV d’uti
 
 | Fichier CSV détaillant l’utilisation Azure dans le cadre d’un Contrat Entreprise | Fichier CSV détaillant l'utilisation et les frais Azure dans le cadre d'un Contrat client Microsoft |
 | --- | --- |
-| Date | Date |
+| Date | date |
 | Month| Date |
-| jour | Date |
+| Jour | Date |
 | Year | Date |
 | Produit | product |
 | ID du compteur | meterID |
@@ -44,14 +44,14 @@ Les clients EA remarqueront que les termes employés dans le fichier CSV d’uti
 | MeterName | meterName |
 | ConsumedQuantity | quantité |
 | ResourceRate | effectivePrice |
-| ExtendedCost | coût |
+| ExtendedCost | cost |
 | ResourceLocation | resourceLocation |
 | ConsumedService | consumedService |
 | InstanceId | instanceId |
 | ServiceInfo1 | serviceInfo1 |
 | ServiceInfo2 | serviceInfo2 |
 | AdditionalInfo | additionalInfo |
-| Balises | tags |
+| Étiquettes | tags |
 | StoreServiceIdentifier | N/A |
 | DepartmentName | invoiceSection |
 | CostCenter | costCenter |
@@ -90,7 +90,7 @@ meterSubCategory | Nom de la catégorie de sous-classification du compteur
 meterRegion | Nom de la région où le compteur du service est disponible. Identifie l'emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement.
 offer | Nom de l'offre achetée
 PayGPrice | Prix de vente au détail de la ressource.
-PricingModel | Identificateur indiquant le mode de facturation utilisé par le compteur (valeurs : à la demande, réservation, Spot)
+PricingModel | Identificateur indiquant le mode de tarification du compteur (valeurs : À la demande, Réservation, Spot)
 productId | Identificateur unique du produit auquel les frais s'appliquent
 product | Nom du produit auquel les frais s'appliquent
 ID d’abonnement | Identificateur unique de l'abonnement auquel les frais s'appliquent
@@ -107,8 +107,8 @@ resourceLocation | Identifie l'emplacement du centre de données dans lequel la 
 location | Emplacement normalisé de la ressource si différents emplacements de ressource sont configurés pour les mêmes régions
 quantité | Nombre d'unités achetées ou consommées
 unitOfMeasure | Unité de mesure pour la facturation du service. Par exemple, les services de calcul sont facturés à l’heure.
-chargeType | Type de frais. Valeurs : <ul><li>AsCharged-Usage : frais comptabilisés en fonction de l'utilisation d'un service Azure. Cela inclut l'utilisation sur des machines virtuelles non facturés pour cause d'instances réservées.</li><li>AsCharged-PurchaseMarketplace : frais récurrents ponctuels ou fixes liés à des achats effectués sur la Place de marché</li><li>AsCharged-UsageMarketplace : frais liés à des services de la Place de marché facturés en unités de consommation</li></ul>
-isAzureCreditEligible | Indicateur signalant si les frais liés au service peuvent être payés à l'aide de crédits Azure (valeurs : True, False)
+chargeType | Type de frais. Valeurs : <ul><li>AsCharged-Usage : frais encourus en fonction de l’utilisation d’un service Azure. Cela inclut l'utilisation sur des machines virtuelles non facturés pour cause d'instances réservées.</li><li>AsCharged-PurchaseMarketplace : frais uniques ou récurrents fixes liés à des achats effectués sur Place de marché</li><li>AsCharged-UsageMarketplace : frais liés à des services de Place de marché facturés en fonction des unités de consommation</li></ul>
+isAzureCreditEligible | Indicateur signalant si les frais liés au service peuvent être payés à l’aide de crédits Azure (valeurs : True, False)
 serviceInfo1 | Métadonnées spécifiques au service
 serviceInfo2 | Champ hérité capturant les métadonnées facultatives propres au service
 additionalInfo | Autres métadonnées spécifiques au service

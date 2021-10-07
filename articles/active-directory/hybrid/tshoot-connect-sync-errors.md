@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fe6c04cf29a4c45436948eaea6fc8d0276ec16f
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: ff1b95ac26be1697e5211c024bc148222823e36d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895781"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128622091"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Résolution des erreurs lors de la synchronisation
 Des erreurs peuvent se produire lorsque les données d’identité sont synchronisées à partir de Windows Server Active Directory (AD DS) vers Azure Active Directory (Azure AD). Cet article fournit une vue d’ensemble des différents types d’erreurs de synchronisation, certains des scénarios qui provoquent ces erreurs et les méthodes possibles pour les résoudre. Cet article inclut les types d’erreur courants et peut ne pas couvrir toutes les erreurs possibles.
@@ -180,6 +180,15 @@ a. Assurez-vous que l’attribut userPrincipalName utilise des caractères pris 
 
 #### <a name="related-articles"></a>Articles connexes
 * [Préparation de l’approvisionnement d’utilisateurs via la synchronisation d’annuaires sur Microsoft 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+
+## <a name="deletion-access-violation-and-password-access-violation-errors"></a>Erreurs de violation d’accès Supprimer et de violation d’accès Mot de passe
+
+Azure Active Directory empêche toute mise à jour des objets cloud uniquement via Azure AD Connect. Bien qu’il ne soit pas possible de mettre à jour ces objets par le biais d’Azure AD Connect, il est possible d’appeler directement le serveur principal côté cloud d’AADConnect pour tenter de modifier les objets cloud uniquement. Dans ce cas, les erreurs suivantes peuvent être renvoyées :
+
+* Cette opération de synchronisation, Supprimer, n’est pas valide. Contactez le support technique.
+* Impossible de traiter cette mise à jour, car la mise à jour des informations d’identification d’un ou plusieurs utilisateurs cloud uniquement est incluse dans la demande actuelle.
+* La suppression d’un objet cloud uniquement n’est pas prise en charge. Contactez le support de Microsoft.
+* La demande de modification du mot de passe ne peut pas être exécutée, car elle contient des modifications apportées à un ou plusieurs objets utilisateur cloud uniquement, ce qui n’est pas pris en charge. Contactez le support de Microsoft.
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>Description

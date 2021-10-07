@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: 835be5b867826d75732c9482743ad6a4ca2900e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2086351f1e66cbd2ef41ac98b2ab86fe7275823b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98231840"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621354"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Travailler à distance à l’aide des services de mise en réseau Azure
 
@@ -52,7 +52,7 @@ Pour accéder à vos ressources déployées dans Azure, les développeurs distan
 
 Pour l’agrégation d’une connexion VPN à grande échelle, pour prendre en charge des connexions entre ressources situées dans des emplacements globaux locaux différents, dans différents réseaux virtuels hub et spoke et pour optimiser l’utilisation de plusieurs réseaux haut débit à distance, vous pouvez utiliser Azure Virtual WAN. Pour plus d’informations, consultez [Vous avez du mal à répondre aux besoins de votre entreprise ? C’est là qu’Azure Virtual WAN peut vous aider](../virtual-wan/work-remotely-support.md).
 
-Une autre façon de prendre en charge votre personnel à distance consiste à déployer une infrastructure de bureau virtuel (VDI) hébergée dans votre réseau virtuel Azure, et sécurisée avec un pare-feu Azure. Par exemple, Windows Virtual Desktop (WVD) est un service de virtualisation de bureau et d’application qui s’exécute dans Azure. Avec Windows Virtual Desktop, vous pouvez configurer un environnement évolutif et flexible dans votre abonnement Azure sans avoir à exécuter d’autres serveurs de passerelle. Vous êtes uniquement responsable des machines virtuelles WVD de votre réseau virtuel. Pour plus d’informations, consultez [Prise en charge du travail à distance par le pare-feu Azure](../firewall/remote-work-support.md). 
+Une autre façon de prendre en charge votre personnel à distance consiste à déployer une infrastructure de bureau virtuel (VDI) hébergée dans votre réseau virtuel Azure, et sécurisée avec un pare-feu Azure. Par exemple, Azure Virtual Desktop (AVD) est un service de virtualisation de bureau et d’application qui s’exécute dans Azure. Grâce à Azure Virtual Desktop, vous pouvez configurer un environnement évolutif et flexible dans votre abonnement Azure sans avoir à exécuter d’autres serveurs de passerelle. Vous êtes uniquement responsable des machines virtuelles AVD de votre réseau virtuel. Pour plus d’informations, consultez [Prise en charge du travail à distance par le pare-feu Azure](../firewall/remote-work-support.md). 
 
 Azure propose également un ensemble complet de partenaires d’écosystème. Les appliances virtuelles réseau de nos partenaires sur Azure peuvent également vous aider à mettre à l’échelle la connectivité VPN. Pour plus d’informations, consultez [Considérations relatives aux appliances virtuelles réseau (NVA) pour le travail à distance](../vpn-gateway/nva-work-remotely-support.md).
 

@@ -6,14 +6,14 @@ ms.date: 05/21/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: Résolution des problèmes courants liés aux clusters Kubernetes avec Arc.
-keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: e1a04e95924f4a217cdceca383637bcee7ea368a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+description: Résolution des problèmes courants liés aux clusters Kubernetes avec Azure Arc.
+keywords: Kubernetes, Arc, Azure, conteneurs
+ms.openlocfilehash: f6f29b30f3a62653c032b7aae40cac5afdcf96b9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562962"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546506"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Résolution des problèmes liés à Kubernetes avec Azure Arc
 
@@ -77,6 +77,19 @@ Tous les pods doivent indiquer que le `STATUS` est `Running` avec `3/3` ou `2/2`
 
 La connexion de clusters à Azure nécessite à la fois l’accès à un abonnement Azure et l’accès `cluster-admin` à un cluster cible. Si vous ne pouvez pas joindre le cluster ou si vous disposez d’autorisations insuffisantes, la connexion du cluster à Azure Arc ne pourra pas s’effectuer.
 
+### <a name="azure-cli-is-unable-to-download-helm-chart-for-azure-arc-agents"></a>Azure CLI ne peut pas télécharger le chart Helm pour les agents Azure Arc
+
+Si vous utilisez Helm 3.7.0 ou une version ultérieure, vous rencontrerez l’erreur suivante lors de l’exécution de `az connectedk8s connect` pour connecter le cluster à Azure Arc :
+
+```console
+$ az connectedk8s connect -n AzureArcTest -g AzureArcTest
+
+Unable to pull helm chart from the registry 'mcr.microsoft.com/azurearck8s/batch1/stable/azure-arc-k8sagents:1.4.0': Error: unknown command "chart" for "helm"
+Run 'helm --help' for usage.
+```
+
+Dans ce cas, vous devez installer une version antérieure de [Helm 3](https://helm.sh/docs/intro/install/), où la version &lt; 3.7.0. Après cela, réexécutez la commande `az connectedk8s connect` pour connecter le cluster à Azure Arc.
+
 ### <a name="insufficient-cluster-permissions"></a>Autorisations du cluster insuffisantes
 
 Si le fichier kubeconfig fourni ne dispose pas des autorisations suffisantes pour installer les agents Azure Arc, la commande Azure CLI retourne une erreur.
@@ -119,7 +132,7 @@ This operation might take a while...
 La version `v3.3.0-rc.1` de Helm présente un [problème](https://github.com/helm/helm/pull/8527) : l’installation/la mise à niveau de Helm (utilisée par l’extension CLI `connectedk8s`) entraîne l’exécution de tous les hooks, ce qui donne lieu à l’erreur suivante :
 
 ```console
-$ az connectedk8s connect -n shasbakstest -g shasbakstest
+$ az connectedk8s connect -n AzureArcTest -g AzureArcTest
 Ensure that you have the latest helm version installed before proceeding.
 This operation might take a while...
 
@@ -198,6 +211,7 @@ metadata:
   resourceVersion: ""
   selfLink: ""
 ```
+
 ## <a name="monitoring"></a>Surveillance
 
 Azure Monitor pour conteneurs exige que son DaemonSet soit exécuté en mode privilégié. Pour configurer correctement un cluster Kubernetes Charmed Canonical pour la supervision, exécutez la commande suivante :
@@ -237,7 +251,7 @@ L’avertissement ci-dessus est émis lorsque vous avez utilisé un principal de
 
 Une fois que les autorisations ci-dessus sont accordées, vous pouvez [activer la fonctionnalité d’emplacement personnalisé](custom-locations.md#enable-custom-locations-on-cluster) sur le cluster.
 
-## <a name="arc-enabled-open-service-mesh"></a>Open Service Mesh avec Azure Arc
+## <a name="azure-arc-enabled-open-service-mesh"></a>Open Service Mesh avec Azure Arc
 
 Les étapes de dépannage suivantes fournissent une aide concernant la validation du déploiement de tous les composants de l’extension Open Service Mesh sur votre cluster.
 

@@ -3,14 +3,14 @@ title: Utiliser Azure Policy pour sécuriser votre cluster
 description: Utilisez Azure Policy pour sécuriser un cluster Azure Kubernetes Service (AKS).
 ms.service: container-service
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 09/01/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 6462c2987155925b7df5241d8fb6aa13c1e37b89
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: eb2f85064413f3d4700fea01aa4ead81508dd8c9
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777722"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128631492"
 ---
 # <a name="secure-your-cluster-with-azure-policy"></a>Sécuriser votre cluster avec Azure Policy
 
@@ -35,6 +35,24 @@ Pour appliquer une définition de stratégie ou une initiative, utilisez le Port
 1. Définissez **l’étendue** du groupe de ressources du cluster AKS avec le module complémentaire Azure Policy activé.
 1. Sélectionnez la page **Paramètres** et mettez à jour **l’Effet** de `audit` à `deny` pour bloquer les nouveaux déploiements enfreignant l’initiative de base. Vous pouvez également ajouter des espaces de noms supplémentaires à exclure de l’évaluation. Pour cet exemple, conservez les valeurs par défaut.
 1. Cliquez sur **Vérifier + Créer** puis **Créer** pour soumettre l’attribution des stratégies.
+
+## <a name="create-and-assign-a-custom-policy-definition-preview"></a>Créer et attribuer une définition de stratégie personnalisée (préversion)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+Les stratégies personnalisées vous permettent de définir des règles d’utilisation d’Azure. Par exemple, vous pouvez appliquer :
+- Des mesures de sécurité
+- la gestion des coûts ;
+- Des règles propres à l’organisation (par exemple, de nommage ou d’emplacements)
+
+Avant de créer une stratégie personnalisée, consultez la [liste des modèles courants et des exemples][azure-policy-samples] pour voir si votre cas y est déjà traité.
+
+Les définitions de stratégie personnalisée sont écrites en JSON. Pour en savoir plus sur la création d’une stratégie personnalisée, consultez [Structure de définition Azure Policy][azure-policy-definition-structure] et [Créer une définition de stratégie personnalisée][custom-policy-tutorial-create].
+
+> [!NOTE]
+> Azure Policy utilise désormais une nouvelle propriété appelée *templateInfo* qui permet aux utilisateurs de définir le type de source pour le modèle de contrainte. En définissant *templateInfo* dans les définitions de stratégie, les utilisateurs n’ont pas à définir *constraintTemplate* ni les propriétés des *contraintes*. Les utilisateurs doivent toujours définir les *apiGroups* et les *types*. Pour plus d’informations à ce sujet, consultez [Présentation des effets Azure Policy][azure-policy-effects-audit].
+
+Une fois que votre définition de stratégie personnalisée a été créée, consultez [Affecter une définition de stratégie][custom-policy-tutorial-assign] pour découvrir comment attribuer la stratégie à votre cluster Kubernetes, étape par étape.
 
 ## <a name="validate-a-azure-policy-is-running"></a>Valider l’exécution d’une stratégie Azure Policy
 
@@ -174,6 +192,11 @@ Pour plus d’informations sur le fonctionnement d’Azure Policy :
 [azure-policy]: ../governance/policy/overview.md
 [azure-policy-addon]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
 [azure-policy-addon-remove]: ../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on-from-aks
-[azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition
+[azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
+[azure-policy-effects-audit]: ../governance/policy/concepts/effects.md#audit-properties
+[custom-policy-tutorial-create]: ../governance/policy/tutorials/create-custom-policy-definition.md
+[custom-policy-tutorial-assign]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-policy-definition
+[azure-policy-samples]: ../governance/policy/samples/index.md
+[azure-policy-definition-structure]: ../governance/policy/concepts/definition-structure.md

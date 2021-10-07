@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2021
+ms.date: 09/10/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3926fb277251f7020539942c76d9c97f0ce46d75
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 677de5e28ed4dcae5081f362804ef18e0971c322
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524598"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639695"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Activer mes rôles Azure AD dans PIM
 
@@ -49,7 +49,7 @@ Lorsque vous devez assumer un rôle Azure AD, vous pouvez demander une activatio
 
     ![Rôles Azure AD : la page d’activation contient la durée et l’étendue](./media/pim-how-to-activate-role/activate-page.png)
 
-1. Sélectionnez **Vérification supplémentaire requise**** et suivez les instructions pour effectuer une vérification de sécurité supplémentaire. Vous ne pouvez vous authentifier qu’une seule fois par session.
+1. Sélectionnez **Vérification supplémentaire requise** et suivez les instructions pour effectuer une vérification de sécurité. Vous ne pouvez vous authentifier qu’une seule fois par session.
 
     ![Écran de vérification de sécurité permettant la saisie d’un code secret, par exemple](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
@@ -69,7 +69,127 @@ Lorsque vous devez assumer un rôle Azure AD, vous pouvez demander une activatio
 
     ![La requête d’activation est en attente de la notification d’approbation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests-for-new-version"></a>Afficher l’état de vos requêtes pour la nouvelle version
+## <a name="activate-a-role-using-graph-api"></a>Activer un rôle à l’aide d’API Graph
+
+### <a name="get-all-eligible-roles-that-you-can-activate"></a>Obtenir tous les rôles qualifiés que vous pouvez activer
+
+Lorsqu’un utilisateur obtient sa qualification de rôle via son appartenance à un groupe, cette requête Graph ne renvoie pas sa qualification.
+
+#### <a name="http-request"></a>Demande HTTP
+
+````HTTP
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleEligibilityScheduleRequests/filterByCurrentUser(on='principal')  
+````
+
+#### <a name="http-response"></a>Réponse HTTP
+
+Pour gagner de l’espace, nous ne montrons que la réponse pour un seul rôle, mais toutes les attributions de rôle qualifiées que vous pouvez activer sont répertoriées.
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#Collection(unifiedRoleEligibilityScheduleRequest)", 
+    "value": [ 
+        { 
+            "@odata.type": "#microsoft.graph.unifiedRoleEligibilityScheduleRequest", 
+            "id": "<request-ID-GUID>", 
+            "status": "Provisioned", 
+            "createdDateTime": "2021-07-15T19:39:53.33Z", 
+            "completedDateTime": "2021-07-15T19:39:53.383Z", 
+            "approvalId": null, 
+            "customData": null, 
+            "action": "AdminAssign", 
+            "principalId": "<principal-ID-GUID>", 
+            "roleDefinitionId": "<definition-ID-GUID>", 
+            "directoryScopeId": "/", 
+            "appScopeId": null, 
+            "isValidationOnly": false, 
+            "targetScheduleId": "<schedule-ID-GUID>", 
+            "justification": "test", 
+            "createdBy": { 
+                "application": null, 
+                "device": null, 
+                "user": { 
+                    "displayName": null, 
+                    "id": "<user-ID-GUID>" 
+                } 
+            }, 
+            "scheduleInfo": { 
+                "startDateTime": "2021-07-15T19:39:53.3846704Z", 
+                "recurrence": null, 
+                "expiration": { 
+                    "type": "noExpiration", 
+                    "endDateTime": null, 
+                    "duration": null 
+                } 
+            }, 
+            "ticketInfo": { 
+                "ticketNumber": null, 
+                "ticketSystem": null 
+            } 
+        },
+} 
+````
+
+### <a name="activate-a-role-assignment-with-justification"></a>Activer une attribution de rôle avec justification
+
+#### <a name="http-request"></a>Demande HTTP
+
+````HTTP
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests 
+
+{ 
+    "action": "SelfActivate", 
+    "justification": "adssadasasd", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "principalId": "<principal-ID-GUID>" 
+} 
+````
+
+#### <a name="http-response"></a>Réponse HTTP
+
+````HTTP
+{ 
+    "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
+    "id": "f1ccef03-8750-40e0-b488-5aa2f02e2e55", 
+    "status": "PendingApprovalProvisioning", 
+    "createdDateTime": "2021-07-15T19:51:07.1870599Z", 
+    "completedDateTime": "2021-07-15T19:51:17.3903028Z", 
+    "approvalId": "<approval-ID-GUID>", 
+    "customData": null, 
+    "action": "SelfActivate", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
+    "directoryScopeId": "/", 
+    "appScopeId": null, 
+    "isValidationOnly": false, 
+    "targetScheduleId": "<schedule-ID-GUID>", 
+    "justification": "test", 
+    "createdBy": { 
+        "application": null, 
+        "device": null, 
+        "user": { 
+            "displayName": null, 
+            "id": "<user-ID-GUID>" 
+        } 
+    }, 
+    "scheduleInfo": { 
+        "startDateTime": null, 
+        "recurrence": null, 
+        "expiration": { 
+            "type": "afterDuration", 
+            "endDateTime": null, 
+            "duration": "PT5H30M" 
+        } 
+    }, 
+    "ticketInfo": { 
+        "ticketNumber": null, 
+        "ticketSystem": null 
+    } 
+} 
+````
+
+## <a name="view-the-status-of-activation-requests"></a>Afficher l’état des demandes d’activation
 
 Vous pouvez afficher l’état de vos demandes d’activation en attente.
 
@@ -95,9 +215,9 @@ Si vous n’avez pas besoin de l’activation d’un rôle nécessitant une appr
 
    ![Ma liste de demandes dans laquelle l’action d’annulation est mise en surbrillance](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot-for-new-version"></a>Résoudre les problèmes pour la nouvelle version
+## <a name="troubleshoot-portal-delay"></a>Résoudre les problèmes de retard du portail
 
-### <a name="permissions-are-not-granted-after-activating-a-role"></a>Les autorisations ne sont pas accordées après l’activation d’un rôle
+### <a name="permissions-arent-granted-after-activating-a-role"></a>Les autorisations ne sont pas accordées après l’activation d’un rôle
 
 Quand vous activez un rôle dans Privileged Identity Management, il est possible que l’activation ne se propage pas instantanément à tous les portails qui nécessitent le rôle privilégié. Parfois, même si la modification est propagée, son application immédiate peut être empêchée par la mise en cache web dans un portail. Si votre activation est retardée, déconnectez-vous du portail dans lequel vous essayez d’effectuer l’action, puis reconnectez-vous. Dans le portail Azure, PIM vous déconnecte et vous reconnecte automatiquement.
 

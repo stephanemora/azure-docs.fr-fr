@@ -1,14 +1,14 @@
 ---
 title: Meilleures pratiques
 description: Découvrez les bonnes pratiques et des conseils utiles pour le développement de vos solutions Azure Batch.
-ms.date: 04/29/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
-ms.openlocfilehash: db67f91257db1ddb44f7dfb103ac02e49febe562
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: 5227b738ab5d7af19ed2877a1c3d6b37ea08c556
+ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113126461"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123535812"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -48,6 +48,8 @@ La durée de vie d’un pool peut varier en fonction de la méthode de répartit
 - **Recréation de pool :** Dans le même ordre d’idées, évitez de supprimer et de recréer des pools quotidiennement. Au lieu de cela, créez un pool, puis mettez à jour vos travaux existants pour qu’ils pointent vers le nouveau pool. Une fois que toutes les tâches ont été déplacées vers le nouveau pool, supprimez l’ancien pool.
 
 - **Efficacité du pool et facturation :** Batch n’entraîne pas en soi de frais supplémentaires, mais vous êtes facturé pour les ressources de calcul utilisées. Vous êtes facturé pour chaque nœud de calcul dans le pool, quel que soit l’état dans lequel il se trouve. Cela comprend les frais requis pour le fonctionnement du nœud, tels que les coûts de stockage et de réseau. Pour plus d’informations, consultez [Analyse des coûts et budgets pour Azure Batch](budget.md).
+
+- **Disques de système d’exploitation éphémères :** Les pools de configuration de machines virtuelles peuvent utiliser des [disques de système d’exploitation éphémères](create-pool-ephemeral-os-disk.md), qui créent le disque de système d’exploitation sur le cache de la machine virtuelle ou sur un SSD temporaire, afin d’éviter les coûts supplémentaires associés aux disques managés.
 
 ### <a name="pool-allocation-failures"></a>Échecs de répartition de pool
 

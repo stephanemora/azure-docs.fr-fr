@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 2f5537ec3ad34e3f0ad7eff32d32762ed6fedef3
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 546215d70341402fcc66d2865d291211960cb4a1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123273379"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557059"
 ---
 # <a name="remove-a-vm-association-from-a-capacity-reservation-group-preview"></a>Supprimer une association de machines virtuelles d’un groupe de réservations de capacité (préversion)
 
@@ -31,7 +31,7 @@ Vous pouvez modifier l’association de deux façons :
 
 ## <a name="register-for-capacity-reservation"></a>S’inscrire à la réservation de capacité 
 
-Avant de pouvoir utiliser la fonctionnalité Réservation de capacité, vous devez [inscrire votre abonnement à la préversion](capacity-reservation-overview.md#register-for-capacity-reservation). L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour finaliser l’inscription de la fonctionnalité.
+Avant de pouvoir utiliser la fonctionnalité Réservation de capacité, vous devez [inscrire votre abonnement pour la préversion](capacity-reservation-overview.md#register-for-capacity-reservation). L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour finaliser l’inscription de la fonctionnalité.
 
 
 ## <a name="deallocate-the-vm"></a>Libérer la machine virtuelle
@@ -51,7 +51,7 @@ La première option est de libérer la machine virtuelle, modifier la propriét�
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/update?api-version=2021-04-01
     ```
-    Dans le corps de la demande, affectez à la propriété `capacityReservationGroup` la valeur vide pour supprimer l’association de machines virtuelles au groupe :
+    Dans le corps de la demande, définissez la propriété `capacityReservationGroup` sur zéro pour supprimer l’association de la machine virtuelle au groupe :
 
     ```json
      {
@@ -59,7 +59,7 @@ La première option est de libérer la machine virtuelle, modifier la propriét�
     "properties": {
         "capacityReservation": {
             "capacityReservationGroup": {
-                "id":""
+                "id":null
             }
         }
     }
@@ -91,7 +91,7 @@ La première option est de libérer la machine virtuelle, modifier la propriét�
 
     Vous savez que votre machine virtuelle est libérée lorsque l’état passe à **Arrêté (libéré)** .
 
-1. Mettez à jour la machine virtuelle pour supprimer l’association avec le groupe de réservations de capacité en affectant à la propriété `CapacityReservationGroupId` la valeur vide :
+1. Mettez à jour la machine virtuelle afin de supprimer l’association avec le groupe de réservations de capacité en définissant la propriété `CapacityReservationGroupId` sur zéro :
 
     ```powershell-interactive
     $VirtualMachine =
@@ -102,7 +102,7 @@ La première option est de libérer la machine virtuelle, modifier la propriét�
     Update-AzVM
     -ResourceGroupName "myResourceGroup"
     -VM $VirtualMachine
-    -CapacityReservationGroupId " "
+    -CapacityReservationGroupId $null
     ```
 
 Pour en savoir plus, allez voir les commandes Azure PowerShell [Stop-AzVM](/powershell/module/az.compute/stop-azvm), [Get-AzVM](/powershell/module/az.compute/get-azvm), et [Update-AzVM](/powershell/module/az.compute/update-azvm).
@@ -144,7 +144,7 @@ Cette option fonctionne bien lorsque la machine virtuelle ne peut pas être lib�
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{VirtualMachineName}/update?api-version=2021-04-01
     ```
 
-    Dans le corps de la demande, affectez à la propriété `capacityReservationGroup` la valeur vide pour supprimer l’association :
+    Dans le corps de la demande, définissez la propriété `capacityReservationGroup` sur zéro pour supprimer l’association :
     
     ```json
     {
@@ -152,7 +152,7 @@ Cette option fonctionne bien lorsque la machine virtuelle ne peut pas être lib�
     "properties": {
         "capacityReservation": {
             "capacityReservationGroup": {
-                "id":""
+                "id":null
             }
         }
     }
@@ -176,23 +176,17 @@ Cette option fonctionne bien lorsque la machine virtuelle ne peut pas être lib�
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
->[!NOTE]
-> La commande `Update-AzCapacityReservation` n’est pas disponible pendant la version préliminaire. Utilisez `New-AzCapacityReservation` pour modifier une réservation de capacité existante.
-
 1. Mettez à jour la quantité réservée à zéro
 
     ```powershell-interactive
-    New-AzCapacityReservation
+    Update-AzCapacityReservation
     -ResourceGroupName "myResourceGroup"
-    -Location "eastus"
-    -Zone "1"
     -ReservationGroupName "myCapacityReservationGroup"
     -Name "myCapacityReservation"
-    -Sku "Standard_D2s_v3"
     -CapacityToReserve 0
     ```
 
-1. Mettez à jour la machine virtuelle pour supprimer l’association avec le groupe de réservations de capacité en affectant à la propriété `CapacityReservationGroupId` la valeur vide :
+1. Mettez à jour la machine virtuelle afin de supprimer l’association avec le groupe de réservations de capacité en définissant la propriété `CapacityReservationGroupId` sur zéro :
 
     ```powershell-interactive
     $VirtualMachine =
@@ -203,7 +197,7 @@ Cette option fonctionne bien lorsque la machine virtuelle ne peut pas être lib�
     Update-AzVM
     -ResourceGroupName "myResourceGroup"
     -VM $VirtualMachine
-    -CapacityReservationGroupId " "
+    -CapacityReservationGroupId $null
     ```
 
 Pour en savoir plus, allez voir les commandes Azure PowerShell [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation), [Get-AzVM](/powershell/module/az.compute/get-azvm), et [Update-AzVM](/powershell/module/az.compute/update-azvm).

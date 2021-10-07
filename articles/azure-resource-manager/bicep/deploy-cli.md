@@ -1,18 +1,19 @@
 ---
-title: Déployer des ressources avec Azure CLI et des fichiers Bicep
+title: Déployer des ressources avec Azure CLI et des fichiers Bicep | Microsoft Docs
 description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans le fichier Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/15/2021
-ms.openlocfilehash: 1feb5f2e858113086b9349c79dacb024570fb5a4
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+ms.openlocfilehash: 0c474a7bf1d74b44b85f108b6a7fa28bcdc48902
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635156"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625617"
 ---
-# <a name="deploy-resources-with-bicep-and-azure-cli"></a>Déployer des ressources avec Bicep et Azure CLI
+# <a name="how-to-deploy-resources-with-bicep-and-azure-cli"></a>Déploiement de ressources avec Bicep et Azure CLI
 
 Cet article explique comment utiliser Azure CLI avec les fichiers Bicep pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble de Bicep](./overview.md).
 
@@ -86,7 +87,7 @@ Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message 
 
 ## <a name="deploy-remote-bicep-file"></a>Déployer un fichier Bicep distant
 
-Actuellement, Azure CLI ne prend pas en charge le déploiement de fichiers bicep distants. Utilisez [bicep CLI](./install.md#development-environment) pour compiler le fichier Bicep dans un modèle JSON, puis chargez le fichier JSON dans l’emplacement distant.
+Actuellement, Azure CLI ne prend pas en charge le déploiement de fichiers bicep distants. Utilisez [bicep CLI](./install.md#vs-code-and-bicep-extension) pour compiler le fichier Bicep dans un modèle JSON, puis chargez le fichier JSON dans l’emplacement distant.
 
 ## <a name="parameters"></a>Paramètres
 
@@ -182,7 +183,7 @@ Avant de déployer votre fichier Bicep, vous pouvez obtenir un aperçu des chan
 
 ## <a name="deploy-template-specs"></a>Déployer des specs de modèle
 
-Actuellement, Azure CLI ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer une spécification de modèle. Voici un [exemple](https://github.com/Azure/azure-docs-bicep-samples/blob/main/create-template-spec-using-bicep/azuredeploy.bicep). Vous pouvez également générer votre fichier Bicep dans le JSON d’un modèle ARM à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
+Actuellement, Azure CLI ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer un spec de modèle. L’[exemple de création de spec de modèle](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) montre comment créer un spec de modèle dans un fichier Bicep. Vous pouvez également générer votre fichier Bicep dans le JSON d’un modèle ARM à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
 
 ## <a name="deployment-name"></a>Nom du déploiement
 

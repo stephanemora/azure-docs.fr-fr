@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: eb6608e03debb7811497a1347c718bb2845cf87c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: c7bc61691f0035c9f1aa0361ae3439cfb1e1485e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110688203"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128604395"
 ---
 # <a name="link-a-partner-id-to-your-power-apps-accounts"></a>Lier un ID de partenaire à vos comptes Power Apps
 
@@ -39,7 +39,7 @@ Quand vous avez accès aux ressources de votre client, utilisez le portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez à [Lien vers un ID partenaire](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) dans le portail Azure.
-1. Entrez l’ID [Microsoft Partner Network](https://partner.microsoft.com/) de votre organisation. Veillez à utiliser l’**ID MPN associé** qui est indiqué dans votre profil partenaire.  
+1. Entrez l’ID [Microsoft Partner Network](https://partner.microsoft.com/) de votre organisation. Veillez à utiliser l’**ID MPN associé** qui est indiqué dans votre profil Espace partenaires. Il s’agit généralement de l’[ID MPN de votre compte d’emplacement de partenaire](/partner-center/account-structure).  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/link-partner-id.png" alt-text="Capture d’écran montrant la fenêtre Lien vers un ID partenaire." lightbox="./media/link-partner-id-power-apps-accounts/link-partner-id.png" :::
 1. Pour lier votre ID partenaire à un autre client, changez de répertoire. Sous **Changer de répertoire**, sélectionnez le répertoire approprié.  
     :::image type="content" source="./media/link-partner-id-power-apps-accounts/switch-directory.png" alt-text="Capture d’écran montrant la fenêtre Répertoire + abonnement vous permettant de changer de répertoire." lightbox="./media/link-partner-id-power-apps-accounts/switch-directory.png" :::

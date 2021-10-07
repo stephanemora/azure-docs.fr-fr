@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1aaabce5dc13098d183ee595d27b5b45a3fd0caa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91449204"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128586285"
 ---
 # <a name="how-requests-are-matched-to-a-routing-rule"></a>Comment les demandes sont mises en correspondance avec une règle de routage
 
@@ -69,8 +69,8 @@ Si les demandes entrantes suivantes étaient envoyées à la porte d’entrée, 
 ### <a name="path-matching"></a>Mise en correspondance avec un chemin
 Après avoir identifié l’hôte frontend spécifique et filtré les règles de routage possibles, qui se limitent aux itinéraires de cet hôte frontend, la porte d’entrée filtre alors les règles de routage en fonction du chemin de la demande. Nous utilisons une logique comparable à celle des hôtes frontend :
 
-1. Recherche d’une règle de routage ayant une correspondance exacte dans le chemin.
-2. Si aucune correspondance exacte n’est trouvée dans le chemin, recherche de règles de routage avec un chemin générique qui correspond.
+1. Recherchez une règle d’acheminement ayant une correspondance exacte dans le chemin.
+2. Si aucune correspondance exacte n’est trouvée dans le chemin, recherchez des règles d’acheminement avec un chemin générique qui correspond.
 3. Si aucune règle de routage n’est trouvée avec un chemin correspondant, la demande est rejetée et une réponse HTTP 400 : Demande incorrecte est retournée.
 
 >[!NOTE]
@@ -123,7 +123,8 @@ Compte tenu de cette configuration, le tableau d’exemples de correspondances o
 > | profile.domain.com/other | Aucun. Erreur 400 : Demande incorrecte |
 
 ### <a name="routing-decision"></a>Décision de routage
-Dès lors qu’une correspondance a été établie avec une règle de routage de porte d’entrée, il convient de choisir le mode de traitement de la demande. Si, pour la règle de routage correspondante, la porte d’entrée dispose d’une réponse dans le cache, celle-ci est renvoyée au client. Autrement, la prochaine évaluation vise à déterminer si vous avez configuré [Réécriture d’URL (chemin de transfert personnalisé)](front-door-url-rewrite.md) pour la règle de routage correspondante. Si aucun chemin de transfert personnalisé n’est défini, la demande est transférée en l’état au backend approprié dans le pool de backends configuré. Sinon, le chemin de la demande est mis à jour selon le [chemin de transfert personnalisé](front-door-url-rewrite.md) défini, puis transféré au backend.
+
+Après avoir établi une correspondance avec une seule règle d’acheminement Front Door, choisissez le mode de traitement de la demande. Si Front Door dispose d’une réponse en cache pour la règle d’acheminement correspondante, cette réponse est renvoyée au client. Si Front Door n’a pas de réponse en cache pour la règle d’acheminement correspondante, l’évaluation suivante consiste à déterminer si vous avez configuré [une réécriture d’URL (un chemin de transfert personnalisé)](front-door-url-rewrite.md) pour la règle d’acheminement correspondante. Si aucun chemin de transfert personnalisé n’est défini, la demande est transférée en l’état au serveur principal approprié dans le pool principal configuré. Si un chemin de transfert personnalisé a été défini, le chemin de la demande est mis à jour selon le [chemin de transfert personnalisé](front-door-url-rewrite.md) défini, puis transféré au serveur principal.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

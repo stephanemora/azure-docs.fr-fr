@@ -1,19 +1,19 @@
 ---
 title: Optimiser les coûts de Azure Databricks avec un pré-achat
 description: Découvrez comment pré-payer Azure Databricks avec une capacité réservée pour économiser de l’argent.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 09/20/2021
 ms.author: banders
-ms.openlocfilehash: 390a8b421a7b34391bde689e4b968fa98cdbaf76
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 8047c57c929deeffcb69943ce17fa5fe81d31af1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599163"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645053"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimiser les coûts de Azure Databricks avec un pré-achat
 
@@ -53,6 +53,7 @@ Vous pouvez acheter des plans Databricks dans le [portail Azure](https://portal.
     - **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
     - **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
     - **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription.
+    - **Groupe d’administration** : applique la remise de réservation à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation.
 1. Sélectionnez le nombre d’unités de validation Azure Databricks que vous souhaitez acheter et terminez l’achat.
 
 

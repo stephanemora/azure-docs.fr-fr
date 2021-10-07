@@ -8,12 +8,12 @@ ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
 ms.custom: template-concept
-ms.openlocfilehash: 80706316490cde805ef19b0f1c90f2870dc195ab
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 00b6429e14dcb04a76abbc1a8d49a29b220c7c06
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535276"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128607067"
 ---
 # <a name="elastic-data-map-in-azure-purview"></a>Mappage de données élastique dans Azure Purview
 
@@ -21,7 +21,7 @@ Azure Purview Data Map fournit la base de la découverte des données et de la g
 
 ## <a name="elastic-data-map"></a>Mappage de données élastique
 
-Tous les comptes Azure Purview ont un mappage de données qui peut croître de manière élastique à partir d’une unité de capacité. Ils sont mis à l’échelle en fonction de la charge de la demande dans la fenêtre d’élasticité ([Vérifiez les limites actuelles](how-to-manage-quotas.md)). Si vous utilisez des jeux de données très volumineux ou un environnement massif et que vous avez besoin de plus de capacité, vous pouvez demander une plus grande capacité de la fenêtre d’élasticité en complétant l’[enquête ici](https://aka.ms/PurviewProdSurvey).
+Tous les comptes Azure Purview ont un mappage de données qui peut croître de manière élastique à partir d’une unité de capacité. Ils sont mis à l’échelle en fonction de la charge de la demande dans la fenêtre d’élasticité ([Vérifiez les limites actuelles](how-to-manage-quotas.md)). Ces limites doivent couvrir la plupart des paysages de données. Toutefois, si vous avez besoin d’une capacité supérieure, [vous pouvez créer un ticket de support](#request-capacity).
 
 ## <a name="data-map-capacity-unit"></a>Unité de capacité du mappage de données
 
@@ -47,8 +47,6 @@ Les métadonnées techniques incluent le schéma, le type de données, les colon
 - **Mappage de données élastique avec mise à l’échelle automatique** : vous commencerez avec un mappage de données d’une unité de capacité pouvant être mise à l’échelle automatiquement en fonction de la charge. Pour la plupart des organisations, cette fonctionnalité débouche sur plus d’économies et un coût de démarrage des projets de gouvernance des données faible. Cette fonctionnalité aura un impact sur la tarification.
 
 - **Analyse et ingestion améliorées** : vous pouvez suivre et contrôler la population des ressources de données, ainsi que la classification et la traçabilité à la fois dans les processus d’analyse et d’ingestion. Cette fonctionnalité aura un impact sur la tarification.
-
-- **Jeu de ressources avancé** : vous pouvez réduire la taille du mappage de données en traitant des fichiers partitionnés dans un lac de données, de façon à ce qu’il soit traité comme une ressource de données unique appelé [jeu de ressources](concept-resource-sets.md). Il s’agit d’une fonctionnalité facultative qui aura un impact sur la tarification.
 
 ## <a name="scenario"></a>Scénario
 
@@ -109,6 +107,16 @@ En fonction des opérations de mappage de données/seconde et de la consommation
 
 >[!Important]
 >Le mappage de données Purview peut être mis à l’échelle automatiquement dans la fenêtre d’élasticité ([Vérifiez les limites actuelles](how-to-manage-quotas.md)). Pour obtenir le niveau suivant de fenêtre d’élasticité, vous devez créer un ticket de support.
+
+## <a name="request-capacity"></a>Demande de capacité
+
+Si vous utilisez des jeux de données très volumineux ou un environnement massif et que vous avez besoin de plus de capacité pour votre mappage de données élastique, vous pouvez demander une plus grande capacité de la fenêtre d’élasticité en [créant un ticket de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+Sélectionnez **Limites du service et des abonnements (quota)** et suivez les instructions à l’écran en choisissant le compte Purview pour lequel vous souhaitez demander une plus grande capacité.
+
+:::image type="content" source="./media/concept-elastic-data-map/increase-limit.png" alt-text="Capture d’écran montrant la création d’un cas de support, avec les options d’augmentation de la limite sélectionnées.":::
+
+Dans la description, fournissez autant d’informations pertinentes que vous le pouvez concernant votre environnement et la capacité supplémentaire que vous souhaitez demander.
 
 ## <a name="summary"></a>Résumé
 

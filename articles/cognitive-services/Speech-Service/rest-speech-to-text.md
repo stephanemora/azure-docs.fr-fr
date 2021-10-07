@@ -3,20 +3,20 @@ title: Informations de référence sur l’API de reconnaissance vocale (REST) -
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser l’API REST de reconnaissance vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2021
-ms.author: lajanuar
+ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2c97213b9163d6371bcee875d34dfc95cab3badc
-ms.sourcegitcommit: e7d500f8cef40ab3409736acd0893cad02e24fc0
+ms.openlocfilehash: 31759756a886093c53d1537db609bfc58fb4af8b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533053"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610462"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
@@ -153,7 +153,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 Nous recommandons vivement un chargement par streaming (transfert en bloc) lors de la publication des données audio, ce qui peut réduire considérablement la latence. Consultez [exemple de code dans différents langages de programmation](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) pour voir comment activer le streaming.
 
 >[!NOTE]
-> La fonctionnalité d’évaluation de prononciation prend actuellement en charge la langue `en-US`, qui est disponible dans toutes les [régions de reconnaissance vocale](regions.md#speech-to-text). La prise en charge des langues `en-GB` et `zh-CN` est en préversion, disponible dans les régions `westus`, `eastasia` et `centralindia`.
+> La fonctionnalité d’évaluation de prononciation prend actuellement en charge la langue `en-US`, qui est disponible dans toutes les [régions de reconnaissance vocale](regions.md#speech-to-text). La prise en charge des langues `en-GB` et `zh-CN` est en cours de préparation.
 
 ### <a name="sample-request"></a>Exemple de requête
 

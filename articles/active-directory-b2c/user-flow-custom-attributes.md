@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 836802e65c8eb76f17bbf053e54ed9dbedf54049
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3e3cb266e9da128e9379d6868d189ac72408c4f7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532224"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605826"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Définir des attributs personnalisés dans Azure Active Directory B2C
 
@@ -75,7 +75,8 @@ Les attributs d’extension ne peuvent être inscrits que pour un objet applicat
 Pour récupérer l’ID de l’application :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez **Toutes les applications**.
 1. Sélectionner l’application `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
@@ -88,7 +89,8 @@ Pour récupérer l’ID de l’application :
 Obtenir les propriétés de l’application :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications**, puis sélectionnez **Toutes les applications**.
 1. Sélectionner l’application `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.`.
@@ -128,10 +130,11 @@ Pour activer des attributs personnalisés dans votre stratégie, fournissez l’
 ## <a name="upload-your-custom-policy"></a>Télécharger votre stratégie personnalisée
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire et abonnement** dans le menu supérieur et en choisissant l’annuaire qui contient votre locataire Azure AD B2C.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
-4. Sélectionnez **Infrastructure d’expérience d’identité**.
-5. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les fichiers de stratégie TrustFrameworkExtensions.xml que vous avez modifiés.
+1. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
+1. Sélectionnez **Infrastructure d’expérience d’identité**.
+1. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les fichiers de stratégie TrustFrameworkExtensions.xml que vous avez modifiés.
 
 > [!NOTE]
 > La première fois que le profil technique Azure AD enregistre la revendication dans l’annuaire, il vérifie si l’attribut personnalisé existe. Si ce n’est pas le cas, il crée l’attribut personnalisé.  

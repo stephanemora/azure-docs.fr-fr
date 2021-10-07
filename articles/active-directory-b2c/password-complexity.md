@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/12/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 81c6e58e34f30d5736c40c77a308321dee28ae34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14c269ae8cb29d32659f500357bbc7bcd81e6d8c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103224263"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578923"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurer les exigences de complexité pour les mots de passe dans Azure Active Directory B2C
 
@@ -48,11 +48,12 @@ Si vous utilisez des stratégies personnalisées, vous pouvez ([configurer la co
 ## <a name="configure-password-complexity"></a>Configurer la complexité du mot de passe
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
-3. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
-4. Sélectionnez **Flux d’utilisateurs**.
-2. Sélectionnez un flux d’utilisateur, puis cliquez sur **Propriétés**.
-3. Sous **Complexité du mot de passe**, changez la complexité du mot de passe de ce flux d’utilisateur : **Simple**, **Fort** ou **Personnalisé**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD B2C dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Flux d’utilisateurs**.
+1. Sélectionnez un flux d’utilisateur, puis cliquez sur **Propriétés**.
+1. Sous **Complexité du mot de passe**, changez la complexité du mot de passe de ce flux d’utilisateur : **Simple**, **Fort** ou **Personnalisé**.
 
 ### <a name="comparison-chart"></a>Tableau comparatif
 
@@ -222,12 +223,13 @@ Enregistrez le fichier de stratégie.
 ### <a name="upload-the-files"></a>Téléchargement des fichiers
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Sélectionnez **Infrastructure d’expérience d’identité**.
-5. Dans la page Stratégies personnalisées, cliquez sur **Charger une stratégie**.
-6. Sélectionnez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
-7. Cliquez sur **Télécharger**.
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Infrastructure d’expérience d’identité**.
+1. Dans la page Stratégies personnalisées, cliquez sur **Charger une stratégie**.
+1. Sélectionnez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
+1. Cliquez sur **Télécharger**.
 
 ### <a name="run-the-policy"></a>Exécuter la stratégie
 

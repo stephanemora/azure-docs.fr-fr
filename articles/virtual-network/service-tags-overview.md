@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/23/2021
+ms.date: 9/20/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 11f8c7ddd7e06e9cc4c27173d5bb8f9dd14cbd42
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 79785c82e06c9dc1621b3278ef886866ae9695ab
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768471"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590287"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -101,6 +101,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **Internet** | Espace d’adresse IP qui se trouve en dehors du réseau virtuel et est accessible sur les réseaux Internet publics.<br/><br/>La plage d’adresse inclut l’[espace de l’adresse IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Les deux | Non | Non |
 | **LogicApps** | Logic Apps. | Les deux | Non | Non |
 | **LogicAppsManagement** | Trafic de gestion pour Logic Apps. | Trafic entrant | Non | Non |
+| **MicrosoftAzureFluidRelay** | Cette étiquette représente les adresses IP utilisées pour Azure Microsoft Fluid Relay Server. | Règle de trafic sortant | Non | Non |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Règle de trafic sortant | Non | Non |
 | **MicrosoftContainerRegistry** | Registre de conteneurs pour les images de conteneur Microsoft. <br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport à la balise **AzureFrontDoor.FirstParty**. | Règle de trafic sortant | Oui | Oui |
 | **PowerBI** | PowerBi. *Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure*. | Les deux | Non | Non|
@@ -155,6 +156,19 @@ Vous pouvez télécharger des fichiers JSON qui contiennent la liste actuelle de
 - [Azure Allemagne](https://www.microsoft.com/download/details.aspx?id=57064)   
 
 Les plages d’adresses IP de ces fichiers sont en notation CIDR. 
+
+Notez que les étiquettes AzureCloud suivantes n’ont pas de noms régionaux formatés selon le schéma normal : 
+- AzureCloud.centralfrance (FranceCentral)
+- AzureCloud.southfrance (FranceSouth)
+- AzureCloud.germanywc (GermanyWestCentral)
+- AzureCloud.germanyn (GermanyNorth)
+- AzureCloud.norwaye (NorwayEast)
+- AzureCloud.norwayw (NorwayWest)
+- AzureCloud.switzerlandn (SwitzerlandNorth)
+- AzureCloud.switzerlandw (SwitzerlandWest)
+- AzureCloud.usstagee (EastUSSTG)
+- AzureCloud.usstagec (SouthCentralUSSTG)
+
 
 > [!NOTE]
 >Un sous-ensemble de ces informations a été publié dans des fichiers XML pour [Azure public](https://www.microsoft.com/download/details.aspx?id=41653), [Azure Chine](https://www.microsoft.com/download/details.aspx?id=42064) et [Azure Allemagne](https://www.microsoft.com/download/details.aspx?id=54770). Ces téléchargements XML seront obsolètes à compter du 30 juin 2020 et ne seront plus disponibles après cette date. Vous devez effectuer une migration à l’aide de l’API Discovery ou des téléchargements de fichiers JSON, comme décrit dans les sections précédentes.

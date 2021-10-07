@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: b0643f0245a208d2011d7508b4b7593e81e6d510
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: a75ea7e9f3659b45e79748fdead7be9aa8ca4f94
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964209"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128649470"
 ---
 # <a name="azure-load-balancer-components"></a>Composants Azure Load Balancer
 
@@ -70,7 +70,7 @@ L’équilibreur de charge de base ne prend pas en charge les sondes HTTPS. Il f
 
 ## <a name="load-balancing-rules"></a>Règles d’équilibrage de la charge
 
-Une règle d’équilibreur de charge sert à définir la manière dont le trafic entrant est distribué à **toutes** les instances du pool de back-ends. Une règle d’équilibrage de charge fait correspondre une configuration d’adresse IP frontale et un port donnés à plusieurs adresses IP frontales et ports.
+Une règle d’équilibreur de charge sert à définir la manière dont le trafic entrant est distribué à **toutes** les instances du pool principal. Une règle d’équilibrage de charge fait correspondre une configuration d’adresse IP frontale et un port donnés à plusieurs adresses IP frontales et ports.
 
 Par exemple, utilisez une règle d’équilibrage de charge pour le port 80 afin de router le trafic de votre adresse IP de front-end vers le port 80 de vos instances de back-end.
 

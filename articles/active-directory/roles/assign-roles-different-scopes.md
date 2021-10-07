@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 09/13/2021
 ms.author: absinh
 ms.reviewer: rolyon
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c9e92d09ce929b47cd9a71559eabb4e7c40858
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 951431ca79bfeb182eb5d1252851edb767120039
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532927"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128658238"
 ---
 # <a name="assign-azure-ad-roles-at-different-scopes"></a>Attribuer des rôles Azure AD à différentes étendues
 
-Cet article explique comment attribuer des rôles Azure AD à différentes étendues. Pour comprendre les étendues dans Azure AD, consultez [Vue d’ensemble du contrôle d’accès en fonction du rôle dans Azure Active Directory](custom-overview.md). En général, vous devez appartenir à l’étendue à laquelle vous souhaitez limiter l’attribution de rôle. Par exemple, si vous souhaitez attribuer un rôle Administrateur de support technique dont l’étendue se limite à une [unité administrative](administrative-units.md), accédez à **Azure AD > Unités administratives > {unité administrative} > Rôles et administrateurs**, puis procédez à l’attribution du rôle. Cela vous permet d’effectuer une attribution de rôle au niveau d’une unité administrative, et non dans l’ensemble du locataire.
+Dans Azure Active Directory (Azure AD), vous attribuez généralement les rôles Azure AD de manière à ce qu’ils s’appliquent à l’ensemble du locataire. Toutefois, vous pouvez également attribuer des rôles Azure AD pour différentes ressources, telles que des unités administratives ou des inscriptions d’application. Par exemple, vous pouvez attribuer le rôle Administrateur du support technique pour qu’il s’applique uniquement à une unité administrative particulière et non à l’ensemble du locataire. Les ressources auxquelles s’applique une attribution de rôle sont également appelées l’étendue. Cet article explique comment attribuer des rôles Azure AD aux étendues de locataire, d’unité administrative et d’inscription d’application. Pour plus d’informations sur l’étendue, consultez [Vue d’ensemble du RBAC dans Azure AD](custom-overview.md#scope).
 
 ## <a name="prerequisites"></a>Configuration requise
 
@@ -122,6 +122,8 @@ Suivez ces instructions pour attribuer un rôle à l’aide de l’API Microsoft
     ```
 
 ## <a name="assign-roles-scoped-to-an-administrative-unit"></a>Attribuer des rôles au niveau d’une unité administrative
+
+Cette section explique comment attribuer des rôles à une étendue d’[unité administrative](administrative-units.md).
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -226,6 +228,8 @@ Suivez ces instructions pour attribuer un rôle au niveau de l’unité administ
 >Ici, directoryScopeId est spécifié en tant que */administrativeUnits/foo* au lieu de */foo*. C’est voulu. L’étendue */administrativeUnits/foo* signifie que le principal peut gérer les membres de l’unité administrative (en fonction du rôle qui lui est attribué), et non l’unité administrative même. L’étendue */foo* signifie que le principal peut gérer cet objet Azure AD. Dans la section suivante, vous verrez que l’étendue est */foo*, car un rôle attribué au niveau d’une inscription d’application accorde le privilège nécessaire pour gérer l’objet.
 
 ## <a name="assign-roles-scoped-to-an-app-registration"></a>Attribuer des rôles au niveau d’une inscription d’application
+
+Cette section explique comment attribuer des rôles à une étendue d’inscription d’application.
 
 ### <a name="azure-portal"></a>Portail Azure
 

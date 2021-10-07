@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/20/2021
-ms.openlocfilehash: c65d2947e6e0f9505f1827ec8dbb32f59855d332
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.date: 9/13/2021
+ms.openlocfilehash: 72996a44892d17a44ea58405e92bb9ac6cc52c68
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633889"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546434"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Journaux dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -55,6 +55,15 @@ AzureDiagnostics
 ```
 
 Remplacez le nom du serveur de l’exemple ci-dessus par le nom de votre serveur. Le nom du nœud coordinateur a le suffixe `-c` et les nœuds Worker sont nommés avec le suffixe `-w0`, `-w1`, etc.
+
+Les journaux Azure peuvent être filtrés de différentes façons. Voici comment trouver les journaux de la journée dont les messages correspondent à une expression régulière.
+
+```kusto
+AzureDiagnostics
+| where TimeGenerated > ago(24h)
+| order by TimeGenerated desc
+| where Message matches regex ".*error.*"
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

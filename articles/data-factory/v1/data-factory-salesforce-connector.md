@@ -3,16 +3,17 @@ title: Déplacer des données à partir de Salesforce avec Data Factory
 description: Découvrez comment déplacer des données depuis Salesforce à l’aide d’Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 61ba29c656859f21c135b0466e5d48440f7a8d17
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f25329389952546007ddf6365fa7b40c9870e264
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741566"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128610374"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Déplacer des données depuis Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -81,7 +82,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 > [!IMPORTANT]
 > La partie « __c » du nom de l’API est requise pour tout objet personnalisé.
 
-![Capture d’écran montrant le détail de la définition d’objet personnalisé dans lequel vous pouvez voir les noms d’API des objets personnalisés.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png" alt-text="Capture d’écran montrant le détail de la définition d’objet personnalisé dans lequel vous pouvez voir les noms d’API des objets personnalisés.":::
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Les propriétés telles que le nom, la description, les tables d’entrée et de sortie, les différentes stratégies, etc. sont disponibles pour tous les types d’activités.
@@ -97,7 +98,7 @@ Dans l’activité de copie, lorsque la source est de type **RelationalSource** 
 > [!IMPORTANT]
 > La partie « __c » du nom de l’API est requise pour tout objet personnalisé.
 
-![Capture d’écran montrant les champs et relations personnalisés où vous pouvez voir les noms d’API des objets personnalisés.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png" alt-text="Capture d’écran montrant les champs et relations personnalisés où vous pouvez voir les noms d’API des objets personnalisés.":::
 
 ## <a name="query-tips"></a>Conseils pour les requêtes
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Récupération de données à l’aide de la clause where sur la colonne DateTime
@@ -192,7 +193,7 @@ La définition de **external** sur **true** informe le service Data Factory qu�
 > [!IMPORTANT]
 > La partie « __c » du nom de l’API est requise pour tout objet personnalisé.
 
-![Capture d’écran montrant le détail d’une définition d’objet personnalisé dans lequel vous pouvez voir une étiquette au singulier, une étiquette au pluriel, un nom d’objet et un nom d’API.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png" alt-text="Capture d’écran montrant le détail d’une définition d’objet personnalisé dans lequel vous pouvez voir une étiquette au singulier, une étiquette au pluriel, un nom d’objet et un nom d’API.":::
 
 **Jeu de données de sortie d’objet Blob Azure**
 
@@ -273,7 +274,7 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, vo
 > [!IMPORTANT]
 > La partie « __c » du nom de l’API est requise pour tout objet personnalisé.
 
-![Capture d’écran montrant les champs et relations personnalisés avec les noms d’API en évidence.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+:::image type="content" source="media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png" alt-text="Capture d’écran montrant les champs et relations personnalisés avec les noms d’API en évidence.":::
 
 
 ### <a name="type-mapping-for-salesforce"></a>Mappage de type pour Salesforce

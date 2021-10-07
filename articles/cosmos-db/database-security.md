@@ -4,14 +4,14 @@ description: Découvrez comment Azure Cosmos DB garantit la protection de la bas
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/16/2021
 ms.author: mjbrown
-ms.openlocfilehash: ee5b5421ea0cb43371f790eecc31f22cc4ae7142
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 818c380d1ec2b3d7095eccec94b8e6f324cb45d0
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257826"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128615001"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Indexation dans Azure Cosmos DB - Vue d’ensemble
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -99,7 +99,7 @@ Les clés primaire/secondaire sont disponibles en deux versions : lecture/écrit
 
 ### <a name="key-rotation-and-regeneration"></a><a id="key-rotation"></a> Rotation et régénération des clés
 
-Le processus de rotation et de régénération des clés est simple. Tout d’abord, assurez-vous que **votre application utilise régulièrement la clé primaire ou la clé secondaire** pour accéder à votre compte Azure Cosmos DB. Puis, suivez les étapes présentées ci-dessous.
+Le processus de rotation et de régénération des clés est simple. Tout d’abord, assurez-vous que **votre application utilise régulièrement la clé primaire ou la clé secondaire** pour accéder à votre compte Azure Cosmos DB. Puis, suivez les étapes présentées ci-dessous. Pour surveiller les mises à jour et la régénération des clés de votre compte, consultez l’article [Surveiller les mises à jour de clés avec des métriques et des alertes](monitor-account-key-updates.md).
 
 # <a name="sql-api"></a>[API SQL](#tab/sql-api)
 
@@ -107,7 +107,7 @@ Le processus de rotation et de régénération des clés est simple. Tout d’ab
 
 1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
 
-1. Sélectionnez **Clés** dans le menu de gauche, puis sélectionnez **Régénérer la clé secondaire** à partir de l’ellipse sur la droite de votre clé secondaire.
+1. Sélectionnez **Clés** dans le menu gauche, puis sélectionnez **Régénérer la clé secondaire** à partir de l’ellipse sur la droite de votre clé secondaire.
 
     :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
 
@@ -123,7 +123,7 @@ Le processus de rotation et de régénération des clés est simple. Tout d’ab
 
 1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
 
-1. Sélectionnez **Clés** dans le menu de gauche, puis sélectionnez **Régénérer la clé primaire** à partir de l’ellipse sur la droite de votre clé primaire.
+1. Sélectionnez **Clés** dans le menu gauche, puis sélectionnez **Régénérer la clé primaire** à partir de l’ellipse sur la droite de votre clé primaire.
 
     :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
 
@@ -169,7 +169,7 @@ Le processus de rotation et de régénération des clés est simple. Tout d’ab
 
     :::image type="content" source="./media/database-security/regenerate-secondary-key-mongo.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
 
-# <a name="cassandra-api"></a>[API Cassandra](#tab/Cassandra-api)
+# <a name="cassandra-api"></a>[API Cassandra](#tab/cassandra-api)
 
 #### <a name="if-your-application-is-currently-using-the-primary-key"></a>Si votre application utilise actuellement la clé primaire
 
@@ -209,7 +209,7 @@ Le processus de rotation et de régénération des clés est simple. Tout d’ab
 
 1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
 
-1. Sélectionnez **Clés** dans le menu de gauche, puis sélectionnez **Régénérer la clé secondaire** à partir de l’ellipse sur la droite de votre clé secondaire.
+1. Sélectionnez **Clés** dans le menu gauche, puis sélectionnez **Régénérer la clé secondaire** à partir de l’ellipse sur la droite de votre clé secondaire.
 
     :::image type="content" source="./media/database-security/regenerate-secondary-key-gremlin.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
 
@@ -225,7 +225,7 @@ Le processus de rotation et de régénération des clés est simple. Tout d’ab
 
 1. Dans le portail Azure, accédez à votre compte Azure Cosmos DB.
 
-1. Sélectionnez **Clés** dans le menu de gauche, puis sélectionnez **Régénérer la clé primaire** à partir de l’ellipse sur la droite de votre clé primaire.
+1. Sélectionnez **Clés** dans le menu gauche, puis sélectionnez **Régénérer la clé primaire** à partir de l’ellipse sur la droite de votre clé primaire.
 
     :::image type="content" source="./media/database-security/regenerate-primary-key-gremlin.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé primaire" border="true":::
 
@@ -272,6 +272,21 @@ Le processus de rotation et de régénération des clés est simple. Tout d’ab
     :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Capture d’écran du portail Azure montrant comment régénérer la clé secondaire" border="true":::
 
 ---
+
+## <a name="track-the-status-of-key-regeneration"></a>Suivre l’état de la régénération des clés
+
+Une fois que vous avez fait pivoter une clé ou que vous l’avez régénérée, vous pouvez suivre son état dans le journal d’activité. Effectuez les étapes suivantes pour suivre l’état :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) et accédez à votre compte Azure Cosmos DB.
+
+1. Ouvrez le volet **Journal d’activité** et définissez les filtres suivants :
+
+   * Définissez le **type de ressource** sur **Comptes Azure Cosmos DB**.
+   * Définissez l’**opération** sur **Faire pivoter les clés**.
+
+   :::image type="content" source="./media/database-security/track-key-regeneration-status.png" alt-text="État de la régénération des clés à partir du journal d’activité" border="true":::
+
+1. Vous devriez voir les événements de régénération de clé avec leur état, l’heure à laquelle l’opération a été lancée et les détails de l’utilisateur qui a initié la régénération de clé. L’opération de génération de clé démarre avec l’état **Acceptée**, puis passe à **Démarrée**, puis à **Opération réussie** lorsque l’opération se termine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

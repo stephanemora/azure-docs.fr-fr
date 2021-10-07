@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 464ffc8b5d4d04aeb7e4013f5b25d240d5ee9b06
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 1cdd083c1f3e394feea1e29434f87878ace8dbfc
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688962"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546222"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Réduisez les coûts avec les réservations Azure Dedicated Host
 
@@ -43,7 +43,7 @@ Les remises de réservation ne s’appliquent pas dans les cas suivants :
 
 - **Clouds** : les réservations ne sont pas disponibles à l’achat dans les régions Allemagne et Chine.
 
-- **Quota insuffisant** : une réservation qui est limitée à un seul abonnement doit avoir un quota de processeurs virtuels disponible dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a une limite de quota de 10 processeurs virtuels pour la série DSv3, vous ne pouvez pas acheter de réservation d’hôtes dédiés prenant en charge cette série. La vérification du quota pour les réservations inclut les machines virtuelles et les hôtes dédiés déjà déployés dans l’abonnement. Pour résoudre ce problème, vous pouvez [créer une demande d’augmentation de quota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+- **Quota insuffisant** : une réservation qui est limitée à un seul abonnement doit avoir un quota de processeurs virtuels disponible dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a une limite de quota de 10 processeurs virtuels pour la série DSv3, vous ne pouvez pas acheter de réservation d’hôtes dédiés prenant en charge cette série. La vérification du quota pour les réservations inclut les machines virtuelles et les hôtes dédiés déjà déployés dans l’abonnement. Pour résoudre ce problème, vous pouvez [créer une demande d’augmentation de quota](../azure-portal/supportability/regional-quota-requests.md).
 
 - **Restrictions de capacité** : dans de rares cas, Azure limite l’achat de nouvelles réservations pour un sous-ensemble de références SKU d’hôtes dédiés, en raison d’une faible capacité dans une région donnée.
 
@@ -85,6 +85,8 @@ Si vous avez un Accord Entreprise, vous pouvez utiliser l’option **Ajouter** p
 - **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
 
 - **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients EA, le contexte de facturation est défini par l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
+
+- **Groupe d’administration** : applique la remise de réservation à la ressource correspondante dans la liste des abonnements qui font partie du groupe d’administration et de l’étendue de facturation.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Données d’utilisation et utilisation de la réservation
 

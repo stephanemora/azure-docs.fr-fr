@@ -1,17 +1,17 @@
 ---
 title: Haute disponibilité pour Azure Cache pour Redis
 description: En savoir plus sur les fonctionnalités et les options de haute disponibilité d’Azure Cache pour Redis
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.author: yegu
-ms.openlocfilehash: e06ced47829beeab46edbc98ddeb92fa4e959ec0
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.author: cauribeg
+ms.openlocfilehash: 2fb0440ed6946f9595f1c78c5528fdb3c627de0b
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110614759"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538547"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Haute disponibilité pour Azure Cache pour Redis
 
@@ -38,7 +38,7 @@ Une instance Azure Cache pour Redis dans le niveau Standard ou Premium s’exéc
 
 Si le nœud principal d’un cache Redis n’est pas disponible, le réplica se promeut automatiquement pour devenir le nouveau nœud principal. Ce processus s’appelle le *basculement*. Le réplica attendra suffisamment de temps avant de prendre le relais, au cas où le nœud principal se rétablirait rapidement. En cas de basculement, Azure Cache pour Redis approvisionne une nouvelle machine virtuelle et la joint au cache en tant que nœud de réplica. Le réplica effectue une synchronisation complète des données avec le nœud principal, afin de disposer d’une autre copie des données du cache.
 
-Un nœud principal peut être mis hors service dans le cadre d’une activité de maintenance planifiée, telle que la mise à jour du système d’exploitation ou du logiciel Redis. Il peut également cesser de fonctionner en raison d’événements imprévus tels que des défaillances du matériel, du logiciel ou du réseau sous-jacent. L’article [Basculement et mise à jour corrective pour Azure Cache pour Redis](cache-failover.md) fournit une explication détaillée sur les types de basculements de Redis. Une instance Azure Cache pour Redis connaît de nombreux basculements au cours de sa vie. La conception de l’architecture de haute disponibilité rend ces modifications à l’intérieur d’un cache aussi transparente que possible pour ses clients.
+Un nœud principal peut être mis hors service dans le cadre d’une activité de maintenance planifiée, telle que la mise à jour du système d’exploitation ou du logiciel Redis. Il peut également cesser de fonctionner en raison d’événements imprévus tels que des défaillances du matériel, du logiciel ou du réseau sous-jacent. L’article [Basculement et mise à jour corrective pour Azure Cache pour Redis](cache-failover.md) fournit une explication détaillée sur les types de basculements de Redis. Une instance Azure Cache pour Redis connaît de nombreux basculements au cours de sa vie. La conception de l’architecture de haute disponibilité rend ces modifications à l’intérieur d’un cache aussi transparentes que possible pour ses clients.
 
 Azure Cache pour Redis fournit également plus de nœuds de réplica dans le niveau Premium. Un [cache à réplicas multiples](cache-how-to-multi-replicas.md) peut être configuré avec un maximum de trois nœuds de réplica. Le fait de disposer d’un plus grand nombre de réplicas améliore généralement la résilience, car les nœuds supplémentaires viennent en renfort du nœud principal. Même avec davantage de réplicas, une instance Azure Cache pour Redis peut toujours subir les conséquences d’une panne du centre de données ou de la zone de disponibilité. Vous pouvez augmenter la disponibilité du cache en utilisant plusieurs réplicas avec la [redondance de zone](#zone-redundancy).
 

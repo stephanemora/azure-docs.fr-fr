@@ -5,19 +5,19 @@ description: Cette page fournit des informations sur les règles et groupes CRS 
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/06/2021
+ms.date: 09/02/2021
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 9aa4277c3d13419a4083193c07d807decea21c59
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ad8b70e7a5b07b2e933bc01af42dca0e89683959
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562367"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128638004"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Règles et groupes de règles CRS de pare-feu d’applications web
 
-Le pare-feu d’applications web Application Gateway protège les applications web contre les vulnérabilités et failles de sécurité. Cette protection s’effectue par le biais de règles définies à partir des ensembles de règles de base OWASP 3.2, 3.1, 3.0 ou 2.2.9. Ces règles peuvent être désactivées une par une. Cet article contient les règles et ensembles de règles actuellement proposées.
+Le pare-feu d’applications web Application Gateway protège les applications web contre les vulnérabilités et failles de sécurité. Cette protection s’effectue par le biais de règles définies à partir des ensembles de règles de base OWASP 3.2, 3.1, 3.0 ou 2.2.9. Ces règles peuvent être désactivées une par une. Cet article contient les règles et ensembles de règles actuellement proposées. Dans les rares cas où un ensemble de règles publié doit être mis à jour, il sera documenté ici.
 
 ## <a name="core-rule-sets"></a>Ensembles de règles de base
 
@@ -130,17 +130,17 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 
 ## <a name="32-rule-sets"></a><a name="owasp32"></a> Ensembles de règles 3.2
 
-### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-32"></a> <p x-ms-format-detection="none">Général</p>
+### <a name="general"></a><a name="general-32"></a> Général
 |ID de la règle|Description|
 |---|---|
 |200004|Possible limite multipart sans correspondance.|
 
-### <a name="p-x-ms-format-detectionnonerequest-911-method-enforcementp"></a><a name="crs911-32"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
+### <a name="request-911-method-enforcement"></a><a name="crs911-32"></a> REQUEST-911-METHOD-ENFORCEMENT
 |ID de la règle|Description|
 |---|---|
 |911100|Méthode non autorisée par la stratégie|
 
-### <a name="p-x-ms-format-detectionnonerequest-913-scanner-detectionp"></a><a name="crs913-32"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
+### <a name="request-913-scanner-detection"></a><a name="crs913-32"></a> REQUEST-913-SCANNER-DETECTION
 |ID de la règle|Description|
 |---|---|
 |913100|Détection d’agent utilisateur associé au scanner de sécurité|
@@ -149,7 +149,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |913110|Détection d’en-tête de requête associé au scanner de sécurité|
 |913120|Détection de nom de fichier/argument associé au scanner de sécurité|
 
-### <a name="p-x-ms-format-detectionnonerequest-920-protocol-enforcementp"></a><a name="crs920-32"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
+### <a name="request-920-protocol-enforcement"></a><a name="crs920-32"></a> REQUEST-920-PROTOCOL-ENFORCEMENT
 |ID de la règle|Description|
 |---|---|
 |920100|Ligne de requête HTTP non valide|
@@ -191,7 +191,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |920470|En-tête Content-type non conforme|
 |920480|Restriction du paramètre charset dans l’en-tête Content-type|
 
-### <a name="p-x-ms-format-detectionnonerequest-921-protocol-attackp"></a><a name="crs921-32"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
+### <a name="request-921-protocol-attack"></a><a name="crs921-32"></a> REQUEST-921-PROTOCOL-ATTACK
 
 |ID de la règle|Description|
 |---|---|
@@ -205,7 +205,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |921170|Pollution du paramètre HTTP|
 |921180|Pollution du paramètre HTTP (%{TX.1})|
 
-### <a name="p-x-ms-format-detectionnonerequest-930-application-attack-lfip"></a><a name="crs930-32"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
+### <a name="request-930-application-attack-lfi"></a><a name="crs930-32"></a> REQUEST-930-APPLICATION-ATTACK-LFI
 |ID de la règle|Description|
 |---|---|
 |930100|Attaque par traversée de chemin (/../)|
@@ -213,7 +213,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |930120|Tentative d’accès au fichier du système d’exploitation|
 |930130|Tentative d’accès au fichier restreint|
 
-### <a name="p-x-ms-format-detectionnonerequest-931-application-attack-rfip"></a><a name="crs931-32"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
+### <a name="request-931-application-attack-rfi"></a><a name="crs931-32"></a> REQUEST-931-APPLICATION-ATTACK-RFI
 |ID de la règle|Description|
 |---|---|
 |931100|Attaque possible par inclusion de fichier distant : paramètre d’URL utilisant l’adresse IP|
@@ -221,7 +221,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |931120|Attaque possible par inclusion de fichier distant : charge utile URL utilisée avec caractère point d’interrogation de fin (?)|
 |931130|Attaque possible par inclusion de fichier distant : Référence/Lien hors domaine|
 
-### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-32"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
+### <a name="request-932-application-attack-rce"></a><a name="crs932-32"></a> REQUEST-932-APPLICATION-ATTACK-RCE
 |ID de la règle|Description|
 |---|---|
 |932100|Exécution de commande à distance : Injection de commande Unix|
@@ -239,7 +239,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |932180|Tentative de chargement de fichier limitée|
 |932190|Exécution de commande à distance : Tentative de technique de contournement générique|
 
-### <a name="p-x-ms-format-detectionnonerequest-933-application-attack-phpp"></a><a name="crs933-32"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
+### <a name="request-933-application-attack-php"></a><a name="crs933-32"></a> REQUEST-933-APPLICATION-ATTACK-PHP
 |ID de la règle|Description|
 |---|---|
 |933100|Attaque par injection de code PHP : balise d’ouverture/fermeture détectée|
@@ -259,7 +259,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |933200|Attaque par injection de code PHP : schéma de wrapper détecté|
 |933210|Attaque par injection de code PHP : appel de fonction variable détecté|
 
-### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-32"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
+### <a name="request-941-application-attack-xss"></a><a name="crs941-32"></a> REQUEST-941-APPLICATION-ATTACK-XSS
 |ID de la règle|Description|
 |---|---|
 |941100|Attaque XSS détectée via libinjection|
@@ -291,7 +291,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |941350|XSS IE d’encodage UTF-7 - Attaque détectée.|
 |941360|Obfuscation JavaScript détectée.|
 
-### <a name="p-x-ms-format-detectionnonerequest-942-application-attack-sqlip"></a><a name="crs942-32"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
+### <a name="request-942-application-attack-sqli"></a><a name="crs942-32"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
 |ID de la règle|Description|
 |---|---|
 |942100|Attaque par injection de code SQL détectée via libinjection|
@@ -341,14 +341,14 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |942490|Détecte les sondes d’injection SQL classiques 3/3|
 |942500|Commentaire en ligne MySQL détecté.|
 
-### <a name="p-x-ms-format-detectionnonerequest-943-application-attack-session-fixationp"></a><a name="crs943-32"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
+### <a name="request-943-application-attack-session-fixation"></a><a name="crs943-32"></a> REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
 |ID de la règle|Description|
 |---|---|
 |943100|Attaque possible par fixation de session : définition de valeurs de cookies en HTML|
 |943110|Attaque possible par fixation de session : nom du paramètre SessionID avec référent hors domaine|
 |943120|Attaque possible par fixation de session : nom du paramètre SessionID sans référent|
 
-### <a name="p-x-ms-format-detectionnonerequest-944-application-attack-javap"></a><a name="crs944-32"></a> <p x-ms-format-detection="none">REQUEST-944-APPLICATION-ATTACK-JAVA</p>
+### <a name="request-944-application-attack-java"></a><a name="crs944-32"></a> REQUEST-944-APPLICATION-ATTACK-JAVA
 |ID de la règle|Description|
 |---|---|
 |944100|Exécution de commande à distance : Apache Struts, Oracle WebLogic|
@@ -365,20 +365,20 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 
 ## <a name="31-rule-sets"></a><a name="owasp31"></a> Ensembles de règles 3.1
 
-### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-31"></a> <p x-ms-format-detection="none">Général</p>
+### <a name="general"></a><a name="general-31"></a> Général
 
 |ID de la règle|Description|
 |---|---|
 |200004|Possible limite multipart sans correspondance.|
 
-### <a name="p-x-ms-format-detectionnonerequest-911-method-enforcementp"></a><a name="crs911-31"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
+### <a name="request-911-method-enforcement"></a><a name="crs911-31"></a> REQUEST-911-METHOD-ENFORCEMENT
 
 |ID de la règle|Description|
 |---|---|
 |911100|Méthode non autorisée par la stratégie|
 
 
-### <a name="p-x-ms-format-detectionnonerequest-913-scanner-detectionp"></a><a name="crs913-31"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
+### <a name="request-913-scanner-detection"></a><a name="crs913-31"></a> REQUEST-913-SCANNER-DETECTION
 
 |ID de la règle|Description|
 |---|---|
@@ -389,7 +389,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |913120|Détection de nom de fichier/argument associé au scanner de sécurité|
 
 
-### <a name="p-x-ms-format-detectionnonerequest-920-protocol-enforcementp"></a><a name="crs920-31"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
+### <a name="request-920-protocol-enforcement"></a><a name="crs920-31"></a> REQUEST-920-PROTOCOL-ENFORCEMENT
 
 |ID de la règle|Description|
 |---|---|
@@ -427,12 +427,6 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |920340|Requête contenant du contenu mais dont l’en-tête Content-Type est manquant|
 |920341|Requête dont le contenu nécessite l’en-tête Content-Type|
 |920350|L’en-tête d’hôte est une adresse IP numérique|
-|920360|Nom d’argument trop long|
-|920370|Valeur d’argument trop longue|
-|920380|Trop d’arguments dans la requête|
-|920390|Taille totale d’arguments dépassée|
-|920400|Taille du fichier chargé trop volumineuse|
-|920410|Taille totale des fichiers chargés trop volumineuse|
 |920420|Type de contenu de requête non autorisé par la stratégie|
 |920430|Version du protocole HTTP non autorisée par la stratégie|
 |920440|Extension de fichier URL limitée par la stratégie|
@@ -441,7 +435,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |920470|En-tête Content-type non conforme|
 |920480|Restriction du paramètre charset dans l’en-tête Content-type|
 
-### <a name="p-x-ms-format-detectionnonerequest-921-protocol-attackp"></a><a name="crs921-31"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
+### <a name="request-921-protocol-attack"></a><a name="crs921-31"></a> REQUEST-921-PROTOCOL-ATTACK
 
 |ID de la règle|Description|
 |---|---|
@@ -455,7 +449,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |921170|Pollution du paramètre HTTP|
 |921180|Pollution du paramètre HTTP (%{TX.1})|
 
-### <a name="p-x-ms-format-detectionnonerequest-930-application-attack-lfip"></a><a name="crs930-31"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
+### <a name="request-930-application-attack-lfi"></a><a name="crs930-31"></a> REQUEST-930-APPLICATION-ATTACK-LFI
 
 |ID de la règle|Description|
 |---|---|
@@ -464,7 +458,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |930120|Tentative d’accès au fichier du système d’exploitation|
 |930130|Tentative d’accès au fichier restreint|
 
-### <a name="p-x-ms-format-detectionnonerequest-931-application-attack-rfip"></a><a name="crs931-31"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
+### <a name="request-931-application-attack-rfi"></a><a name="crs931-31"></a> REQUEST-931-APPLICATION-ATTACK-RFI
 
 |ID de la règle|Description|
 |---|---|
@@ -473,7 +467,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |931120|Possible attaque par inclusion de fichier distant = Charge utile URL utilisée avec caractère point d’interrogation de fin (?)|
 |931130|Attaque possible par inclusion de fichier distant = Référence/Lien hors domaine|
 
-### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-31"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
+### <a name="request-932-application-attack-rce"></a><a name="crs932-31"></a> REQUEST-932-APPLICATION-ATTACK-RCE
 
 |ID de la règle|Description|
 |---|---|
@@ -492,7 +486,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |932180|Tentative de chargement de fichier limitée|
 |932190|Exécution de commande à distance : Tentative de technique de contournement générique|
 
-### <a name="p-x-ms-format-detectionnonerequest-933-application-attack-phpp"></a><a name="crs933-31"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
+### <a name="request-933-application-attack-php"></a><a name="crs933-31"></a> REQUEST-933-APPLICATION-ATTACK-PHP
 
 |ID de la règle|Description|
 |---|---|
@@ -511,7 +505,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |933180|Attaque par injection de code PHP = Appel de fonction variable détecté|
 |933190|Attaque par injection de code PHP : Balise de fermeture PHP détectée|
 
-### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-31"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
+### <a name="request-941-application-attack-xss"></a><a name="crs941-31"></a> REQUEST-941-APPLICATION-ATTACK-XSS
 
 |ID de la règle|Description|
 |---|---|
@@ -543,7 +537,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |941350|XSS IE d’encodage UTF-7 - Attaque détectée.|
 
 
-### <a name="p-x-ms-format-detectionnonerequest-942-application-attack-sqlip"></a><a name="crs942-31"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
+### <a name="request-942-application-attack-sqli"></a><a name="crs942-31"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
 
 |ID de la règle|Description|
 |---|---|
@@ -593,7 +587,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |942480|Attaque par injection de code SQL|
 |942490|Détecte les sondes d’injection SQL classiques 3/3|
 
-### <a name="p-x-ms-format-detectionnonerequest-943-application-attack-session-fixationp"></a><a name="crs943-31"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
+### <a name="request-943-application-attack-session-fixation"></a><a name="crs943-31"></a> REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
 
 |ID de la règle|Description|
 |---|---|
@@ -601,7 +595,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |943110|Possible attaque par fixation de session = Nom du paramètre SessionID avec référent hors domaine|
 |943120|Possible attaque par fixation de session = Nom du paramètre SessionID sans référent|
 
-### <a name="p-x-ms-format-detectionnonerequest-944-application-attack-session-javap"></a><a name="crs944-31"></a> <p x-ms-format-detection="none">REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA</p>
+### <a name="request-944-application-attack-session-java"></a><a name="crs944-31"></a> REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA
 
 |ID de la règle|Description|
 |---|---|
@@ -613,20 +607,20 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 
 ## <a name="30-rule-sets"></a><a name="owasp30"></a> Ensembles de règles 3.0
 
-### <a name="p-x-ms-format-detectionnonegeneralp"></a><a name="general-30"></a> <p x-ms-format-detection="none">Général</p>
+### <a name="general"></a><a name="general-30"></a> Général
 
 |ID de la règle|Description|
 |---|---|
 |200004|Possible limite multipart sans correspondance.|
 
-### <a name="p-x-ms-format-detectionnonerequest-911-method-enforcementp"></a><a name="crs911-30"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
+### <a name="request-911-method-enforcement"></a><a name="crs911-30"></a> REQUEST-911-METHOD-ENFORCEMENT
 
 |ID de la règle|Description|
 |---|---|
 |911100|Méthode non autorisée par la stratégie|
 
 
-### <a name="p-x-ms-format-detectionnonerequest-913-scanner-detectionp"></a><a name="crs913-30"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
+### <a name="request-913-scanner-detection"></a><a name="crs913-30"></a> REQUEST-913-SCANNER-DETECTION
 
 |ID de la règle|Description|
 |---|---|
@@ -636,7 +630,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |913101|Détection d’agent utilisateur associé aux scripts/client HTTP générique|
 |913102|Détection d’agent utilisateur associé à l’analyseur web/robot|
 
-### <a name="p-x-ms-format-detectionnonerequest-920-protocol-enforcementp"></a><a name="crs920-30"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
+### <a name="request-920-protocol-enforcement"></a><a name="crs920-30"></a> REQUEST-920-PROTOCOL-ENFORCEMENT
 
 |ID de la règle|Description|
 |---|---|
@@ -682,7 +676,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |920274|Caractère non valide dans les en-têtes de requête (en dehors de l’ensemble très strict)|
 |920460|Caractères d’échappement anormaux|
 
-### <a name="p-x-ms-format-detectionnonerequest-921-protocol-attackp"></a><a name="crs921-30"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
+### <a name="request-921-protocol-attack"></a><a name="crs921-30"></a> REQUEST-921-PROTOCOL-ATTACK
 
 |ID de la règle|Description|
 |---|---|
@@ -697,7 +691,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |921170|Pollution du paramètre HTTP|
 |921180|Pollution du paramètre HTTP (% @{TX.1})|
 
-### <a name="p-x-ms-format-detectionnonerequest-930-application-attack-lfip"></a><a name="crs930-30"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
+### <a name="request-930-application-attack-lfi"></a><a name="crs930-30"></a> REQUEST-930-APPLICATION-ATTACK-LFI
 
 |ID de la règle|Description|
 |---|---|
@@ -706,7 +700,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |930120|Tentative d’accès au fichier du système d’exploitation|
 |930130|Tentative d’accès au fichier restreint|
 
-### <a name="p-x-ms-format-detectionnonerequest-931-application-attack-rfip"></a><a name="crs931-30"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
+### <a name="request-931-application-attack-rfi"></a><a name="crs931-30"></a> REQUEST-931-APPLICATION-ATTACK-RFI
 
 |ID de la règle|Description|
 |---|---|
@@ -715,7 +709,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |931120|Possible attaque par inclusion de fichier distant = Charge utile URL utilisée avec caractère point d’interrogation de fin (?)|
 |931130|Attaque possible par inclusion de fichier distant = Référence/Lien hors domaine|
 
-### <a name="p-x-ms-format-detectionnonerequest-932-application-attack-rcep"></a><a name="crs932-30"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
+### <a name="request-932-application-attack-rce"></a><a name="crs932-30"></a> REQUEST-932-APPLICATION-ATTACK-RCE
 
 |ID de la règle|Description|
 |---|---|
@@ -726,7 +720,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |932170|Exécution de la commande à distance = Shellshock (CVE-2014-6271)|
 |932171|Exécution de la commande à distance = Shellshock (CVE-2014-6271)|
 
-### <a name="p-x-ms-format-detectionnonerequest-933-application-attack-phpp"></a><a name="crs933-30"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
+### <a name="request-933-application-attack-php"></a><a name="crs933-30"></a> REQUEST-933-APPLICATION-ATTACK-PHP
 
 |ID de la règle|Description|
 |---|---|
@@ -742,7 +736,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |933161|Attaque par injection de code PHP = Appel de fonction PHP à risque faible détecté|
 |933111|Attaque par injection de code PHP = Chargement de fichiers de script PHP détecté|
 
-### <a name="p-x-ms-format-detectionnonerequest-941-application-attack-xssp"></a><a name="crs941-30"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
+### <a name="request-941-application-attack-xss"></a><a name="crs941-30"></a> REQUEST-941-APPLICATION-ATTACK-XSS
 
 |ID de la règle|Description|
 |---|---|
@@ -769,7 +763,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |941350|XSS IE d’encodage UTF-7 - Attaque détectée.|
 |941320|Possible attaque XSS détectée - Gestionnaire de balise HTML|
 
-### <a name="p-x-ms-format-detectionnonerequest-942-application-attack-sqlip"></a><a name="crs942-30"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
+### <a name="request-942-application-attack-sqli"></a><a name="crs942-30"></a> REQUEST-942-APPLICATION-ATTACK-SQLI
 
 |ID de la règle|Description|
 |---|---|
@@ -801,7 +795,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |942251|Détecte des injections de code HAVING|
 |942460|Alerte de détection d’anomalies de métacaractères - Caractères non textuels répétitifs|
 
-### <a name="p-x-ms-format-detectionnonerequest-943-application-attack-session-fixationp"></a><a name="crs943-30"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
+### <a name="request-943-application-attack-session-fixation"></a><a name="crs943-30"></a> REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION
 
 |ID de la règle|Description|
 |---|---|
@@ -811,7 +805,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 
 # <a name="owasp-229"></a>[OWASP 2.2.9](#tab/owasp2)
 
-## <a name="29-rule-sets"></a><a name="owasp229"></a> Ensembles de règles 2.9
+## <a name="229-rule-sets"></a><a name="owasp229"></a> Ensembles de règles 2.2.9
 
 ### <a name="crs_20_protocol_violations"></a><a name="crs20"></a> crs_20_protocol_violations
 

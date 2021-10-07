@@ -5,12 +5,12 @@ description: Découvrez les quotas par défaut, les tailles des références SKU
 services: container-service
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: ea32c0e58894fe57a51cd22fccce8b2fb2fb0489
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 6e965bd958b23598f7b11dcf9a12dafb33f26680
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762294"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123437889"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)
 
@@ -30,6 +30,10 @@ Toutes les autres limitations réseau, de calcul et de stockage s’appliquent �
 > Lorsque vous mettez à niveau un cluster AKS, des ressources supplémentaires sont consommées momentanément. Ces ressources incluent les adresses IP disponibles dans un sous-réseau de réseau virtuel ou le quota de processeurs virtuels de machines virtuelles. 
 >
 > Pour les conteneurs Windows Server, vous pouvez effectuer une opération de mise à niveau pour appliquer les dernières mises à jour des nœuds. Si vous ne disposez pas de l’espace d’adressage IP ou du quota de processeurs virtuels disponibles pour gérer ces ressources temporaires, le processus de mise à niveau du cluster échoue. Pour plus d’informations sur la mise à niveau d’un nœud Windows Server, voir [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
+
+## <a name="supported-vm-sizes"></a>Tailles des machines virtuelles prises en charge
+
+La liste des tailles de machines virtuelles prises en charge dans AKS évolue avec la publication de nouveaux niveaux tarifaires de machine virtuelle dans Azure. Veuillez suivre les [notes de publication d’AKS](https://github.com/Azure/AKS/releases) pour rester informé des nouveaux niveaux tarifaires pris en charge.
 
 ## <a name="restricted-vm-sizes"></a>Tailles de machines virtuelles limitées
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b4e268d35a2e31db0ce92ff61e66fd23bce68e38
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 98ab4a660923f1a399317b9682a231774f310f3c
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97516364"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546951"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Vue d’ensemble des jetons dans Azure Active Directory B2C
 
@@ -76,11 +76,11 @@ Les propriétés suivantes servent à [gérer les durées de vie des jetons de s
 
 - **Durée de vie du jeton d’actualisation (jours)** - La durée maximale avant laquelle un jeton d’actualisation peut être utilisé pour acquérir un nouveau jeton d’accès ou d’ID. La période concerne également l’acquisition d’un nouveau jeton d’actualisation si l’étendue `offline_access` a été accordée à votre application. La valeur par défaut est de 14 jours. La valeur minimale (inclusive) est de 1 jour. La valeur maximale (inclusive) est de 90 jours.
 
-- **Durée de vie fenêtre glissante du jeton d’actualisation (jours)**  : une fois cette période écoulée, l’utilisateur est obligé de s’authentifier de nouveau, quelle que soit la période de validité de dernier jeton d’actualisation obtenu par l’application. Cette valeur ne peut être fournie que si le commutateur est défini sur **Délimité**. Elle doit être supérieure ou égale à la valeur **Durée de vie du jeton d’actualisation (jours)** . Si le commutateur est défini sur **Non délimité**, vous ne pouvez pas fournir une valeur spécifique. La valeur par défaut est de 90 jours. La valeur minimale (inclusive) est de 1 jour. La valeur maximale (inclusive) est de 365 jours.
+- **Durée de vie fenêtre glissante du jeton d’actualisation (jours)**  : une fois cette période écoulée, l’utilisateur est obligé de s’authentifier de nouveau, quelle que soit la période de validité de dernier jeton d’actualisation obtenu par l’application. Cette valeur ne peut être fournie que si le commutateur est défini sur **Délimité**. Elle doit être supérieure ou égale à la valeur **Durée de vie du jeton d’actualisation (jours)** . Si le commutateur est défini sur **Pas d’expiration**, vous ne pouvez pas fournir de valeur spécifique. La valeur par défaut est de 90 jours. La valeur minimale (inclusive) est de 1 jour. La valeur maximale (inclusive) est de 365 jours.
 
 Les cas d’usage suivants sont activés à l’aide de ces propriétés :
 
-- Autoriser un utilisateur à rester connecté à une application mobile indéfiniment, tant qu’il est actif en permanence sur l’application. Vous pouvez définir le paramètre **Durée de vie fenêtre glissante du jeton d’actualisation (jours)** sur **Non délimité** dans votre flux d’utilisateur de connexion.
+- Autoriser un utilisateur à rester connecté à une application mobile indéfiniment, tant qu’il est actif en permanence sur l’application. Vous pouvez définir le paramètre **Durée de vie de la fenêtre glissante du jeton d’actualisation (jours)** sur **Pas d’expiration** dans votre flux d’utilisateur de connexion.
 - Respectez les exigences de conformité et de sécurité de votre secteur en définissant les durées de vie correctes du jeton d’accès.
 
 Ces paramètres ne sont pas disponibles pour les flux d’utilisateur de réinitialisation de mot de passe.

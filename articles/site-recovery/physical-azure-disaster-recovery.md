@@ -4,12 +4,12 @@ description: Découvrez comment configurer la récupération d’urgence vers Az
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2021
-ms.openlocfilehash: 6811511cf45d342691a76ddb14b631601db56c36
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 93a7d3274dbe682a6a08763302804c250545ec47
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114290273"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591251"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
@@ -82,7 +82,7 @@ Le service Mobilité doit être installé sur chaque serveur que vous souhaitez 
 
 - Vous pouvez utiliser un compte local ou de domaine
 - Pour les machines virtuelles Windows, si vous n’utilisez pas un compte de domaine, désactivez le contrôle d’accès des utilisateurs distants sur la machine locale. Pour cela, dans le registre situé sous **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, ajoutez l’entrée DWORD **LocalAccountTokenFilterPolicy** avec une valeur de 1.
-- Pour ajouter l’entrée de registre pour désactiver le paramètre à partir d’une interface CLI, tapez :       ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- Pour ajouter l’entrée de registre afin de désactiver le paramètre à partir d’une interface CLI, saisissez : `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.`
 - Pour Linux, le compte doit être un utilisateur racine sur le serveur Linux source.
 
 

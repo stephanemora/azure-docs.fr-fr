@@ -6,19 +6,19 @@ ms.topic: conceptual
 ms.date: 01/04/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 013dea780c1f5819d9b9caefeec3b66066d1f44c
-ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
+ms.openlocfilehash: 93ef2ea1bcb10c08cfe6dc47027d12eeae3002b7
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113033548"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547482"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Conteneurs de profil FSLogix et fichiers Azure
 
 Le service Azure Virtual Desktop recommande comme solution de profil utilisateur les conteneurs de profils FSLogix. FSLogix est conçu pour l’itinérance des profils dans des environnements informatiques à distance comme Azure Virtual Desktop. Il stocke un profil utilisateur complet dans un seul conteneur. Lors de la connexion, ce conteneur est dynamiquement attaché à l’environnement informatique en utilisant le disque dur virtuel et le disque dur virtuel Hyper-V pris en charge en mode natif. Le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur natif. Cet article décrit le fonctionnement des conteneurs de profils FSLogix utilisés avec Azure Files dans Azure Virtual Desktop.
 
->[!NOTE]
->Si vous recherchez des éléments de comparaison sur les différentes options de stockage pour les conteneurs de profil FSLogix sur Azure, consultez [Options de stockage pour les conteneurs de profil FSLogix](store-fslogix-profile.md).
+> [!NOTE]
+> Si vous recherchez des éléments de comparaison sur les différentes options de stockage pour les conteneurs de profil FSLogix sur Azure, consultez [Options de stockage pour les conteneurs de profil FSLogix](store-fslogix-profile.md).
 
 ## <a name="user-profiles"></a>Profils utilisateur
 
@@ -77,7 +77,7 @@ Depuis cette acquisition, Microsoft a commencé à remplacer les solutions de pr
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Intégration d’Azure Files au service de domaine Azure Active Directory
 
-Les fonctionnalités et les performances des conteneurs de profil FSLogix tirent parti du cloud. Le 7 août 2019, Microsoft Azure Files a annoncé la mise à la disponibilité générale de l’[authentification Azure Files avec Azure Active Directory Domaine Services (AD DS)](../storage/files/storage-files-active-directory-overview.md). En résolvant les problèmes liés aux coûts et à la charge d’administration, Azure Files avec authentification Azure AD DS constitue une solution de premier plan pour les profils utilisateur dans le service Azure Virtual Desktop.
+Les fonctionnalités et les performances des conteneurs de profil FSLogix tirent parti du cloud. Le 7 août 2019, Microsoft Azure Files a annoncé la disponibilité générale de l’[authentification Azure Files avec Azure Active Directory Domaine Services (Azure AD DS)](../storage/files/storage-files-active-directory-overview.md). En résolvant les problèmes liés aux coûts et à la charge d’administration, Azure Files avec authentification Azure AD DS constitue une solution de premier plan pour les profils utilisateur dans le service Azure Virtual Desktop.
 
 ## <a name="best-practices-for-azure-virtual-desktop"></a>Meilleures pratiques pour Azure Virtual Desktop
 

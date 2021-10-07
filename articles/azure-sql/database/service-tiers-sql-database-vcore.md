@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
-ms.date: 07/14/2021
+ms.date: 09/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3e80c1153737514575017685310b6e5306a47167
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: a92dd67011d7ef7d5ad162983de51b98839c4a84
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113730823"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128621979"
 ---
 # <a name="vcore-purchase-model-overview---azure-sql-database"></a>Vue générale du modèle d’achat vCore - Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,11 +39,14 @@ Les options de niveau de service du modèle d’achat vCore sont les suivantes :
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques. |Offre aux applications métier la résilience la plus élevée aux défaillances en utilisant plusieurs réplicas isolés et assure les meilleures performances d’E/S par réplica de base de données.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité.  Offre une meilleure résilience aux défaillances en autorisant la configuration de plusieurs réplicas de base de données isolés. |
 |Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné par SQL Database** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To|Utilise le stockage SSD local.<br/>**Calcul provisionné par SQL Database** :<br/>5 Go - 4 To|Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
 |IOPS et débit (approximatif)|**SQL Database** : Consultez les limites de ressources pour les [bases de données uniques](resource-limits-vcore-single-databases.md) et les [pools élastiques](resource-limits-vcore-elastic-pools.md).|Consultez les limites de ressources pour les [bases de données uniques](resource-limits-vcore-single-databases.md) et les [pools élastiques](resource-limits-vcore-elastic-pools.md).|L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’IOPS et le débit réels dépendront de la charge de travail.|
-|Disponibilité|1 réplica, réplicas sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](read-scale-out.md),<br/>haute disponibilité (HA) redondante interzone|1 réplica en lecture-écriture, plus 0 à 4 [réplicas avec échelle lecture](read-scale-out.md)|
-|Sauvegardes|[Stockage géoredondant avec accès en lecture (RA-GRS)](../../storage/common/geo-redundant-design.md), 1 à 35 jours (7 jours par défaut)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 1 à 35 jours (7 jours par défaut)|Sauvegardes basées sur des instantanés dans le stockage distant Azure. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S de calcul. Les restaurations sont rapides et ne sont pas des opérations à l’échelle des données (elles durent quelques minutes plutôt que quelques heures ou jours).|
+|Disponibilité|1 réplica, réplicas sans échelle lecture, <br/>haute disponibilité (HA) redondante interzone (préversion)|3 réplicas, 1 [réplica avec échelle lecture](read-scale-out.md),<br/>haute disponibilité (HA) redondante interzone|1 réplica en lecture-écriture, plus 0 à 4 [réplicas avec échelle lecture](read-scale-out.md)|
+|Sauvegardes|Choix d’un stockage de sauvegarde géoredondant, redondant interzone\* ou localement redondant\*, conservation des données comprise entre 1 et 35 jours (7 jours par défaut)|Choix d’un stockage de sauvegarde géoredondant, redondant interzone\* ou localement redondant\*, conservation des données comprise entre 1 et 35 jours (7 jours par défaut)|Choix d’un stockage de sauvegarde géoredondant, redondant interzone\*\* ou localement redondant\*\*, conservation des données pendant 7 jours<p>Sauvegardes basées sur des instantanés dans le stockage distant Azure. Les restaurations utilisent des instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S de calcul. Les restaurations sont rapides et ne sont pas des opérations à l’échelle des données (elles durent quelques minutes plutôt que plusieurs heures).|
 |En mémoire|Non pris en charge|Prise en charge|Prise en charge partielle. Les types de tables optimisées en mémoire, les variables de table et les modules compilés en mode natif sont pris en charge.|
 |||
 
+\* En préversion
+
+\*\* En préversion, pour des nouvelles bases de données Hyperscale uniquement
 
 ### <a name="choosing-a-service-tier"></a>Choix d’un niveau de service
 

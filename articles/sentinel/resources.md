@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 270e7f748f0d7fda14d93ac753ba655117f7ad36
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 247b025524a029fcb68fbe0682b365e9b7f240b5
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044143"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128565170"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Ressources utiles lorsque vous travaillez avec Azure Sentinel
 
@@ -40,6 +40,19 @@ Azure Sentinel utilise le langage de requête Kusto (KQL) d’Azure Monitor Log 
 Créez une automatisation dans Azure Sentinel à l’aide d’Azure Logic Apps, avec une galerie croissante de playbooks intégrés. 
 
 Pour plus d’informations, consultez [Connecteurs Azure Logic Apps](/connectors/).
+
+## <a name="compare-playbooks-workbooks-and-notebooks"></a>Comparer des playbooks, des classeurs et des notebooks
+
+Le tableau suivant décrit les différences entre les playbooks, les classeurs et les notebooks dans Azure Sentinel :
+
+|  |Playbooks  |Classeurs  |Notebooks  |
+|---------|---------|---------|---------|
+|**Rôles**     |   <ul><li>Ingénieurs du SOC</li><li>Analystes de tous les niveaux</li></ul>      | <ul><li> Ingénieurs du SOC</li><li>Analystes de tous les niveaux</li></ul>       | <ul><li>Chasseurs de menaces et analystes de niveau 2 ou 3</li><li>Enquêteurs sur les incidents</li><li>Scientifiques des données</li><li>Chercheurs en sécurité</li></ul>       |
+|**Utilisations**     | Automatisation des tâches simples et reproductibles :<ul><li>Ingestion de données externes </li><li>Enrichissement de données avec TI, recherches GeoIP et plus encore </li><li> Examen </li><li>Correction </li></ul>       | <ul><li>Visualisation</li></ul>        |   <ul><li>Interrogation des données Azure Sentinel et des données externes </li><li>Enrichissement de données avec TI, recherches GeoIP, recherches WhoIs et plus encore </li><li> Examen </li><li> Visualisation </li><li> Chasse </li><li>Machine Learning et analytique du Big Data </li></ul>      |
+|**Avantages**     |<ul><li> Idéal pour les tâches uniques et reproductibles </li><li>Aucune connaissance en codage n’est requise  </li></ul>      |<ul><li>Idéal pour une vue élémentaire des données Azure Sentinel </li><li>Aucune connaissance en codage n’est requise</li></ul>       | <ul><li>Idéal pour les chaînes complexes de tâches reproductibles </li><li>Contrôle ad hoc, plus procédural</li><li>Ajout plus facile d’un tableau croisé dynamique grâce aux fonctionnalités interactives </li><li>Bibliothèques Python riches pour la manipulation et la visualisation des données </li><li>Machine Learning et analyse personnalisée </li><li>Facilité de documentation et de partage des preuves d’analyse </li></ul>       |
+|**Défis**     | <ul><li>Non adapté aux chaînes ad hoc et complexes de tâches </li><li>Ne convient pas à la documentation et au partage de preuves</li></ul>        |   <ul><li>Intégration impossible à des données externes </li></ul>     |    <ul><li> La courbe d’apprentissage est élevée et nécessite des connaissances en codage </li></ul>   |
+|  **Plus d’informations**   | [Automatiser la réponse aux menaces à l’aide de playbooks dans Azure Sentinel](automate-responses-with-playbooks.md)        | [Visualiser les données collectées](get-visibility.md)        | [Utiliser des notebooks Jupyter pour repérer des menaces de sécurité](notebooks.md)        |
+|     |         |         |         |
 
 ## <a name="comment-on-our-blogs-and-forums"></a>Commentaire sur nos blogs et forums
 

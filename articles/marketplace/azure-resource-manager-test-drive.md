@@ -4,15 +4,15 @@ description: Types de versions d’évaluation sur la Place de marché commercia
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: b1ca1b1caa1da1c38e0a7af8ec714c3734ca1191
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.date: 09/09/2021
+ms.openlocfilehash: 6c563b7661b62c81b6094f1a662faa1cdc28c57a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113110292"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632003"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation Azure Resource Manager
 
@@ -306,39 +306,46 @@ La dernière section à effectuer vise à permettre le déploiement automatique 
 
    Si vous n’avez pas d’ID de locataire, créez-en un dans Azure Active Directory. Pour obtenir de l’aide sur la configuration d’un locataire, consultez [Démarrage rapide : Configurer un locataire](../active-directory/develop/quickstart-create-new-tenant.md).
 
-3. **ID application Azure AD** : créez et inscrivez une nouvelle application. Nous utiliserons cette application pour effectuer des opérations sur l’instance de votre version d’évaluation.
+3. Approvisionnez l’application Microsoft Test-Drive sur votre locataire. Nous utiliserons cette application pour effectuer des opérations sur vos ressources de version d’évaluation.
+    1. Si ce n’est pas déjà fait, installez le [module Azure Az PowerShell](/powershell/azure/install-az-ps?view=azps-6.3.0).
+    1. Ajoutez le principal de service pour l’application Microsoft Test-Drive.
+        1. Exécutez `Connect-AzAccount` et fournissez les informations d’identification requises pour vous connecter à votre compte Azure, ce qui nécessite le [rôle intégré](/azure/active-directory/roles/permissions-reference#global-administrator) **Administrateur général** d’Azure Active Directory. 
+        1. Créez un nouveau principal de service : `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment`.
+        1. Assurez-vous que le principal de service a été créé : `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
+      ![Affiche le code permettant de vérifier le principal de service](media/test-drive/commands-to-verify-service-principal.png)
 
-   1. Accédez au répertoire que vous venez de créer ou au répertoire existant, et sélectionnez Azure Active Directory dans le volet de filtre.
-   2. Recherchez **Inscriptions d’applications** et sélectionnez **Ajouter**.
-   3. Entrez un nom d’application.
-   4. Sélectionnez le **Type** **Application/API web**.
-   5. Spécifiez une valeur quelconque dans URL de connexion. Ce champ n’est pas utilisé.
-   6. Sélectionnez **Create** (Créer).
-   7. Une fois l’application créée, sélectionnez **Propriétés** > **Définir l’application comme étant multilocataire**, puis **Enregistrer**.
+4. Pour **Identifiant Azure AD App**, collez cet ID d’application : `d7e39695-0b24-441c-a140-047800a05ede`.
+5. Pour **Clé Azure AD App**, dans la mesure où aucun secret n’est requis, insérez un secret factice, tel que « sans secret ».
+6. Étant donné que nous utilisons l’application pour le déploiement sur l’abonnement, nous devons ajouter cette application en tant que contributeur dans l’abonnement à partir du portail Azure ou de PowerShell :
 
-4. Sélectionnez **Enregistrer**.
+   1. À partir du portail Azure :
 
-5. Copiez l’ID de cette application inscrite et collez-le dans le champ de la version d’évaluation.
+       1. Sélectionnez l’**abonnement** utilisé pour la version d’évaluation.
+       1. Sélectionnez **Contrôle d’accès (IAM)** .<br>
 
-   ![Détails de l’ID d’application Azure AD](media/test-drive/azure-ad-application-id-detail.png)
+          ![Ajouter un nouveau contributeur Contrôle d’accès (IAM)](media/test-drive/access-control-principal.png)
 
-6. Étant donné que nous utilisons l’application pour le déploiement sur l’abonnement, nous devons ajouter cette application en tant que contributeur dans l’abonnement :
+       1. Sélectionnez l’onglet **Attributions de rôle**, puis **+ Ajouter une attribution de rôle**.
 
-   1. Sélectionnez le type d’**Abonnement** que vous utilisez pour la version d’évaluation.
-   1. Sélectionnez **Contrôle d’accès (IAM)** .
-   1. Sélectionnez l’onglet **Attributions de rôle**, puis **Ajouter une attribution de rôle**.
+          ![Fenêtre Sélectionner Contrôle d’accès (IAM) ; montre comment sélectionner l’onglet Attributions de rôle, puis + Ajouter une attribution de rôle.](media/test-drive/access-control-principal-add-assignments.jpg)
 
-      ![Ajouter un nouveau principal de contrôle d’accès](media/test-drive/access-control-principal.jpg)
+       1. Entrez ce nom d’application Azure AD : `Microsoft TestDrive`. Sélectionnez l’application à laquelle vous souhaitez affecter le rôle de **Contributeur**.
 
-   1. Définissez **Rôle** et **Attribuer l’accès à** comme indiqué. Dans le champ **Sélectionner**, entrez le nom de l’application Azure AD. Sélectionnez l’application à laquelle vous souhaitez affecter le rôle de **Contributeur**.
+          ![Montre comment attribuer le rôle Contributeur](media/test-drive/access-control-permissions.jpg)
 
-      ![Ajouter les autorisations](media/test-drive/access-control-permissions.jpg)
+       1. Sélectionnez **Enregistrer**.
+   1. En cas d’utilisation de PowerShell :
+      1. Exécutez la commande suivante pour obtenir l’object-id ServicePrincipal : `(Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive').id`.
+      1. Exécutez la commande suivante avec l’ObjectId et l’ID d’abonnement : `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>`.
 
-   1. Sélectionnez **Enregistrer**.
-
-7. Générez une clé d’authentification **Azure AD App**. Sous **Clés**, ajoutez une **Description de clé**, définissez la durée sur **N’expire jamais** (une clé expirée interrompt votre version d’évaluation en production), puis sélectionnez **Enregistrer**. Copiez cette valeur et collez-la dans le champ obligatoire de votre version d’évaluation.
-
-![Affiche les clés de l’application Azure AD](media/test-drive/azure-ad-app-keys.png)
+> [!NOTE]
+> Avant de supprimer l’ancien appID, accédez au portail Azure, puis à **Groupes de ressources**, et recherchez `CloudTry_`. Vérifiez la colonne **Événement lancé par**.
+>
+> :::image type="content" source="media/test-drive/event-initiated-by-field.png" lightbox="media/test-drive/event-initiated-by-field.png" alt-text="Montre le champ Événement lancé par":::
+>
+> Ne supprimez pas l’ancien appID, sauf si au moins une ressource (**Nom d’opération**) est définie sur **Microsoft TestDrive**.
+>
+> Pour supprimer l’appID, dans le menu de navigation de gauche, sélectionnez **Azure Active Directory** > **Inscriptions d’applications**, puis l’onglet **Toutes les applications**. Choisissez votre application et sélectionnez **Supprimer**.
 
 ## <a name="republish"></a>Republier
 

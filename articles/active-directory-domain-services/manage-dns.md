@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 09/16/2021
 ms.author: justinha
-ms.openlocfilehash: 935abb1a1eae362e3036c323da35aa5fd7b9b018
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: a02dbe66e255cd56865a0ce75310260fd690b069
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707972"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128546989"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrer DNS et créer des redirecteurs conditionnels dans un domaine managé Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ Dans un environnement hybride, les zones DNS et les enregistrements configurés 
 Cet article explique comment installer les Outils du serveur DNS, puis utiliser la console DNS pour gérer les enregistrements et créer des redirecteurs conditionnels dans Azure AD DS.
 
 >[!NOTE]
->La création ou la modification de redirecteurs DNS au niveau du serveur n’est pas prise en charge et causera des problèmes au domaine managé Azure AD DS.
+>La création ou la modification de conseils racine ou de redirecteurs DNS au niveau du serveur ne sont pas prises en charge et entraîneront des problèmes pour le domaine managé Azure AD DS. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

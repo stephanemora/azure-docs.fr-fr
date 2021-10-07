@@ -2,25 +2,25 @@
 title: Architecture client et serveur
 titleSuffix: An Azure Communication Services concept document
 description: Découvrez l’architecture de Communication Services.
-author: mikben
+author: probableprime
 manager: mikben
 services: azure-communication-services
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: a278a83f0a498baef991f75d4dd77a572c4c2470
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 1346c9f6505c03ccebb2d2e2dc33e899050bfe20
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114288398"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672017"
 ---
 # <a name="client-and-server-architecture"></a>Architecture client et serveur
 
 Cette page illustre les composants architecturaux et flux de données typiques dans divers scénarios d’utilisation de la solution Azure Communication Services. Les composants concernés sont les suivants :
 
-1. **Application cliente.** Les utilisateurs finaux utilisent ce site web ou cette application native pour communiquer. La solution Azure Communication Services fournit des [bibliothèques de client SDK](sdk-options.md) pour plusieurs navigateurs et plateformes d’application. En plus de nos kits de développement logiciel (SDK) principaux, une [boîte à outils d’interface utilisateur](https://aka.ms/acsstorybook) est disponible pour accélérer le développement d’applications de navigateur.
+1. **Application cliente.** Les utilisateurs finaux utilisent ce site web ou cette application native pour communiquer. La solution Azure Communication Services fournit des [bibliothèques de client SDK](sdk-options.md) pour plusieurs navigateurs et plateformes d’application. En plus de nos Kits de développement logiciel (SDK) principaux, une [bibliothèque d’interface utilisateur](https://aka.ms/acsstorybook) est disponible pour accélérer le développement d’applications de navigateur.
 1. **Service de gestion des identités.**  Ce service vous permet de mapper des utilisateurs et d’autres concepts de votre logique métier à Azure Communication Services, ainsi que de créer des jetons pour ces utilisateurs si nécessaire.
 1. **Service de gestion des appels.**  Ce service vous permet de gérer et surveiller les appels vocaux et vidéo.  Ce service peut créer des appels, inviter des utilisateurs, appeler des numéros de téléphone, lire des fichiers audio, écouter des tonalités DMTF et tirer parti de nombreuses autres fonctionnalités d’appel via le kit de développement logiciel (SDK) et les API REST d’automatisation des appels.
 

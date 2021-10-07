@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: 613d5dd906795b59465458565a00cd37b7374e65
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 36fe87e03a78a4dee34c2016b8f4723cb8aa95be
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116257"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128598724"
 ---
 # <a name="memory-management"></a>Gestion de la mémoire
 
@@ -43,3 +43,10 @@ Configurez le [paramètre maxmemory-reserved](cache-configure.md#maxmemory-polic
 * Le paramètre  `maxfragmentationmemory-reserved`  détermine la quantité de mémoire (en mégaoctets par instance dans un cluster) réservée pour la fragmentation de la mémoire. La définition de ce paramètre vous permet d’avoir un serveur Redis plus cohérent lorsque le cache est plein ou presque, et que le taux de fragmentation est élevé. Lorsque la mémoire est réservée pour ces opérations, elle n’est pas disponible pour le stockage des données mises en cache.
 
 * Un aspect à prendre en compte lors du choix d’une nouvelle valeur de réservation de mémoire (`maxmemory-reserved`  ou  `maxfragmentationmemory-reserved`) est la manière dont cette modification peut affecter un cache déjà en cours d’exécution, qui contient de grandes quantités de données. Par exemple, si vous disposez d’un cache de 53 Go avec 49 Go de données, que vous modifiez la valeur de réservation en la définissant sur 8 Go, la mémoire maximale disponible pour le système chute à 45 Go. Si vos valeurs  `used_memory`  ou  `used_memory_rss`  actuelles sont supérieures à la nouvelle limite de 45 Go, le système doit supprimer des données jusqu’à ce que les valeurs  `used_memory`  et  `used_memory_rss`  soient toutes deux inférieures à 45 Go. La suppression de données peut augmenter la fragmentation de la charge et de la mémoire du serveur. Pour plus d’informations sur les métriques de cache, telles que  `used_memory`  et  `used_memory_rss`, consultez  [Métriques et intervalles de création de rapports disponibles](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Meilleures pratiques relatives pour le développement](cache-best-practices-development.md)
+* [FAQ sur le développement d’Azure Cache pour Redis](cache-development-faq.yml)
+* [Paramètre maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)
+* [Meilleures pratiques relatives à la mise à l’échelle](cache-best-practices-scale.md)

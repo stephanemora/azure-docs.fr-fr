@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/01/2021
 ms.author: marayerm
-ms.openlocfilehash: a4afdc8897e15fcb563812bda9da378c66ca4bd9
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 2731f4473b726e7433167fe15c9e1f29c775d9cb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432425"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128627878"
 ---
 # <a name="network-connections-in-storage-explorer"></a>Connexions réseau dans l’Explorateur Stockage
 
@@ -21,30 +21,31 @@ Lorsqu’il n’est pas connecté à un émulateur local, l’Explorateur Stocka
 ## <a name="hostnames-accessed-by-storage-explorer"></a>Noms d’hôtes auxquels accède l’Explorateur Stockage
 
 Explorateur Stockage envoie des requêtes à différents points de terminaison en cours d’utilisation. La liste suivante détaille les noms d’hôte courants auxquels Explorateur Stockage envoie des requêtes :
+
 - Points de terminaison ARM :
-    - `management.azure.com` (Azure global)
-    - `management.chinacloudapi.cn` (Azure Chine)
-    - `management.microsoftazure.de` (Azure Allemagne)
-    - `management.usgovcloudapi.net` (Azure Gouvernement américain)
+  - `management.azure.com` (Azure global)
+  - `management.chinacloudapi.cn` (Azure Chine)
+  - `management.microsoftazure.de` (Azure Allemagne)
+  - `management.usgovcloudapi.net` (Azure Gouvernement américain)
 - Points de terminaison de connexion :
-    - `login.microsoftonline.com` (Azure global)
-    - `login.chinacloudapi.cn` (Azure Chine)
-    - `login.microsoftonline.de` (Azure Allemagne)
-    - `login.microsoftonline.us` (Azure Gouvernement américain)
+  - `login.microsoftonline.com` (Azure global)
+  - `login.chinacloudapi.cn` (Azure Chine)
+  - `login.microsoftonline.de` (Azure Allemagne)
+  - `login.microsoftonline.us` (Azure Gouvernement américain)
 - Points de terminaison de Graph :
-    - `graph.windows.net` (Azure global)
-    - `graph.chinacloudapi.cn` (Azure Chine)
-    - `graph.cloudapi.de` (Azure Allemagne)
-    - `graph.windows.net` (Azure Gouvernement américain)
+  - `graph.windows.net` (Azure global)
+  - `graph.chinacloudapi.cn` (Azure Chine)
+  - `graph.cloudapi.de` (Azure Allemagne)
+  - `graph.windows.net` (Azure Gouvernement américain)
 - Points de terminaison stockage Azure :
-    - `(blob|file|queue|table|dfs).core.windows.net` (Azure global)
-    - `(blob|file|queue|table|dfs).core.chinacloudapi.net` (Azure Chine)
-    - `(blob|file|queue|table|dfs).core.cloudapi.net` (Azure Allemagne)
-    - `(blob|file|queue|table|dfs).core.cloudapi.net` (Azure Gouvernement américain)
-- Mise à jour de l’Explorateur Stockage : `storageexplorerpublish.blob.core.windows.net` 
+  - `(blob|file|queue|table|dfs).core.windows.net` (Azure global)
+  - `(blob|file|queue|table|dfs).core.chinacloudapi.cn` (Azure Chine)
+  - `(blob|file|queue|table|dfs).core.cloudapi.de` (Azure Allemagne)
+  - `(blob|file|queue|table|dfs).core.usgovcloudapi.net` (Azure Gouvernement américain)
+- Mise à jour de l’Explorateur Stockage : `storageexplorerpublish.blob.core.windows.net`
 - Transfert de liens Microsoft :
-    - `aka.ms`
-    - `go.microsoft.com`
+  - `aka.ms`
+  - `go.microsoft.com`
 - Tous les domaines personnalisés, liens privés ou points de terminaison spécifiques aux instances Azure Stack derrière lesquels se trouvent vos ressources
 - Noms d’hôtes d’émulateur distant
 
@@ -151,55 +152,55 @@ La liste suivante répertorie les fonctionnalités qui prennent en charge le **p
 - Recherche et téléchargement de mises à jour
 - Liste des abonnements
 - Fonctionnalités de compte de stockage
-    - Listing
+  - Listing
 - Fonctionnalités d’objet blob
-    - Conteneurs
-        - Créer
-        - Listing
-        - Gestion des stratégies d’accès stockées
-        - Modification du niveau d’accès public
-        - Bail
-        - Propriétés
-        - Supprimer
-    - Objets blob
-        - Listing
-        - Statistiques
-        - Annuler la suppression
-    - Objets blob ADLS Gen2
-        - Listing
-        - Statistiques
-        - Gestion des listes de contrôle d’accès (uniquement affichage et modification des entités existantes)
-        - Propagation des listes de contrôle d’accès
-        - Déplacer
-        - Renommer
-        - Créer un dossier
+  - Conteneurs
+    - Créer
+    - Listing
+    - Gestion des stratégies d’accès stockées
+    - Modification du niveau d’accès public
+    - Bail
+    - Propriétés
+    - Supprimer
+  - Objets blob
+    - Listing
+    - Statistiques
+    - Annuler la suppression
+  - Objets blob ADLS Gen2
+    - Listing
+    - Statistiques
+    - Gestion des listes de contrôle d’accès (uniquement affichage et modification des entités existantes)
+    - Propagation des listes de contrôle d’accès
+    - Déplacer
+    - Renommer
+    - Créer un dossier
 - Fonctionnalités de file d’attente
-    - Files d’attente
-        - Créer
-        - Listing
-        - Gestion des stratégies d’accès
-        - Propriétés
-        - Supprimer
-        - Effacer
-    - Messages de file d'attente
-        - Listing
-        - Déplacer
-        - Ajouter
-        - Dequeue (Enlever de la file d’attente)
+  - Files d’attente
+    - Créer
+    - Listing
+    - Gestion des stratégies d’accès
+    - Propriétés
+    - Supprimer
+    - Effacer
+  - Messages de file d'attente
+    - Listing
+    - Déplacer
+    - Ajouter
+    - Dequeue (Enlever de la file d’attente)
 - Fonctionnalités de partage de fichiers
-    - Fichiers et dossiers
-        - Nouveau dossier
-        - Propriétés
+  - Fichiers et dossiers
+    - Nouveau dossier
+    - Propriétés
 - Fonctionnalités de disque
-    - Liste des groupes de ressources
-    - Liste des disques
-    - Chargement de disques
-    - Téléchargement de disques
-    - Copie de disques
-    - Création d’instantanés
-    - Suppression de disques
+  - Liste des groupes de ressources
+  - Liste des disques
+  - Chargement de disques
+  - Téléchargement de disques
+  - Copie de disques
+  - Création d’instantanés
+  - Suppression de disques
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Résoudre des problèmes de proxy](./storage-explorer-troubleshooting.md#proxy-issues)
-* [Résolution des problèmes de certificat](./storage-explorer-troubleshooting.md#ssl-certificate-issues)
+- [Résoudre des problèmes de proxy](./storage-explorer-troubleshooting.md#proxy-issues)
+- [Résolution des problèmes de certificat](./storage-explorer-troubleshooting.md#ssl-certificate-issues)

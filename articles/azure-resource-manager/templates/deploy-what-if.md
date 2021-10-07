@@ -6,18 +6,22 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5e06d8dc5f7a7269cf2bb294663965b3cf2c0094
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 95d07e313b5b8d970b2d8471295ed00c29961b96
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963427"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626092"
 ---
 # <a name="arm-template-deployment-what-if-operation"></a>Opération what-if de déploiement de modèle ARM
 
 Avant de déployer un modèle Azure Resource Manager (modèle ARM), vous pouvez prévisualiser les changements qui se produiront. Azure Resource Manager met à votre disposition l’opération de simulation, qui vous permet de voir comment les ressources changent si vous déployez le modèle. L’opération de simulation n’apporte aucune modification aux ressources existantes. Au lieu de cela, elle prédit les modifications si le modèle spécifié est déployé.
 
 Vous pouvez utiliser l’opération de simulation avec des opérations d’Azure PowerShell, d’Azure CLI ou d’API REST. La simulation est prise en charge pour les déploiements de groupe de ressources, d’abonnement et de niveau locataire.
+
+### <a name="microsoft-learn"></a>Microsoft Learn
+
+Pour en savoir plus sur la simulation et pour obtenir une aide pratique, consultez [Prévisualiser les modifications du déploiement Azure à l’aide de la simulation](/learn/modules/arm-template-whatif) sur **Microsoft Learn**.
 
 ## <a name="install-azure-powershell-module"></a>Installer le module Azure PowerShell
 
@@ -151,7 +155,7 @@ La valeur par défaut est **FullResourcePayloads**.
 Pour les commandes de déploiement PowerShell, utilisez le paramètre `-WhatIfResultFormat`. Dans les commandes d’objet programmatique, utilisez le paramètre `ResultFormat`.
 
 Pour Azure CLI, utilisez le paramètre `--result-format`.
- 
+
 Les résultats suivants illustrent les deux formats de sortie :
 
 - Charges utiles de ressources complètes
@@ -321,7 +325,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 ## <a name="confirm-deletion"></a>Confirmer la suppression
 
-L’opération de simulation prend en charge l’utilisation du [mode de déploiement](deployment-modes.md). En mode Complete, les ressources qui ne sont pas dans le modèle sont supprimées. L’exemple suivant déploie un [modèle qui n’a aucune ressource définie](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) en mode Complete.
+L’opération de simulation prend en charge l’utilisation du [mode de déploiement](deployment-modes.md). En mode Complete, les ressources qui ne sont pas dans le modèle sont supprimées. L’exemple suivant déploie un [modèle qui n’a aucune ressource définie](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/azuredeploy.json) en mode Complete.
 
 Pour afficher un aperçu des modifications avant de déployer un modèle, utilisez le paramètre de commutateur de confirmation avec la commande de déploiement. Si les modifications sont bien celles que vous attendiez, répondez que vous souhaitez que le déploiement s’accomplisse.
 
@@ -332,7 +336,7 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
   -Mode Complete `
   -Confirm `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/azuredeploy.json"
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -342,7 +346,7 @@ az deployment group create \
   --resource-group ExampleGroup \
   --mode Complete \
   --confirm-with-what-if \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/azuredeploy.json"
 ```
 
 ---

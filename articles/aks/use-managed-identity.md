@@ -1,15 +1,14 @@
 ---
 title: Utiliser les identités managées dans Azure Kubernetes Service
 description: Découvrez comment utiliser les identités managées dans Azure Kubernetes Service (AKS).
-services: container-service
 ms.topic: article
 ms.date: 05/12/2021
-ms.openlocfilehash: dbc02f8b65235a47fc523665ea6337774a6eb557
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: e9a7a0a46e36d544a5b7d785da2b64ecde4f3faa
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527661"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585299"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Utiliser les identités managées dans Azure Kubernetes Service
 
@@ -83,7 +82,10 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
 > Après la mise à jour, le plan de contrôle de votre cluster et les pods des modules complèmentaires basculeront pour utiliser l’identité managée, mais kubelet CONTINUERA À UTILISER LE PRINCIPAL DE SERVICE tant que vous n’aurez pas mis à niveau votre agentpool. Effectuez une `az aks nodepool upgrade --node-image-only` sur vos nœuds pour terminer la mise à jour de l’identité managée. 
-
+>
+> Si votre cluster utilisait --attach-acr pour tirer (pull) à partir d’une image d’Azure Container Registry, après avoir mis à jour votre cluster vers Managed Identity, vous devez exécuter `az aks update --attach-acr <ACR Resource ID>` à nouveau pour permettre au kubelet nouvellement créé utilisé pour l’identité managée d’obtenir l’autorisation de tirer (pull) à partir d’ACR. Sinon, vous ne serez pas en mesure de tirer (pull) à partir d’ACR après la mise à niveau.
+>
+> L’interface de ligne de commande Azure s’assurera que l’autorisation de votre module complémentaire est correctement définie après la migration. Si vous n’utilisez pas l’interface de ligne de commande Azure pour effectuer l’opération de migration, vous devez gérer vous-même l’autorisation de l’identité du module complémentaire. Voici un exemple utilisant [ARM](../role-based-access-control/role-assignments-template.md). 
 
 ## <a name="obtain-and-use-the-system-assigned-managed-identity-for-your-aks-cluster"></a>Obtenir et utiliser l’identité managée affectée par le système pour votre cluster AKS
 
@@ -147,7 +149,7 @@ Le résultat doit avoir l’aspect suivant :
   "principalId": "<principalId>",
   "resourceGroup": "myResourceGroup",                       
   "tags": {},
-  "tenantId": "<tenant-id>>",
+  "tenantId": "<tenant-id>",
   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
 }
 ```

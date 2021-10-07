@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 771a2f6ba2206394162f767e9ad8d139fdb9cdd4
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 9cf53cdf35435030b9aa16b8336d80d887e6efbd
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534889"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584200"
 ---
 # <a name="azure-storage-blob-inventory"></a>Inventaire des objets blob du Stockage Azure
 
@@ -31,7 +31,7 @@ La liste suivante décrit les fonctionnalités et capacités disponibles dans la
 
 - **Schéma personnalisé**
 
-  Vous pouvez choisir les champs à afficher dans les rapports. Faites votre choix parmi une liste de champs pris en charge. Cette liste apparaît plus loin dans cet article. 
+  Vous pouvez choisir les champs à afficher dans les rapports. Faites votre choix parmi une liste de champs pris en charge. Cette liste apparaît plus loin dans cet article.
 
 - **Format de sortie CSV et Apache Parquet**
 
@@ -45,7 +45,7 @@ La liste suivante décrit les fonctionnalités et capacités disponibles dans la
 
 Activez les rapports d’inventaire des blobs en ajoutant une stratégie comprenant une ou plusieurs règles à votre compte de stockage. Pour obtenir une aide, consultez [Activer les rapports d’inventaire des blobs de Stockage Azure](blob-inventory-how-to.md).
 
-## <a name="upgrading-an-inventory-policy"></a>Mise à niveau d’une stratégie d’inventaire 
+## <a name="upgrading-an-inventory-policy"></a>Mise à niveau d’une stratégie d’inventaire
 
 Si vous êtes un utilisateur actuel de l’inventaire de blobs Stockage Azure qui a configuré son inventaire avant juin 2021, vous pouvez commencer à utiliser les nouvelles fonctionnalités en chargeant la stratégie, puis en réenregistrant la stratégie après avoir apporté des modifications. Lorsque vous rechargez la stratégie, les nouveaux champs de la stratégie sont renseignés avec les valeurs par défaut. Vous pouvez modifier ces valeurs si vous le souhaitez. En outre, les deux fonctionnalités suivantes seront disponibles.
 
@@ -59,20 +59,20 @@ Une stratégie d’inventaire est un ensemble de règles dans un document JSON.
 
 ```json
 {
+  "enabled": true,
+  "rules": [
+  {
     "enabled": true,
-    "rules": [
-    {
-        "enabled": true,
-        "name": "inventoryrule1",
-        "destination": "inventory-destination-container",
-        "definition": {. . .}
-    },
-    {
-        "enabled": true,
-        "name": "inventoryrule2",
-        "destination": "inventory-destination-container",
-        "definition": {. . .}
-    }]
+    "name": "inventoryrule1",
+    "destination": "inventory-destination-container",
+    "definition": {. . .}
+  },
+  {
+    "enabled": true,
+    "name": "inventoryrule2",
+    "destination": "inventory-destination-container",
+    "definition": {. . .}
+  }]
 }
 ```
 
@@ -123,43 +123,42 @@ Pour afficher le code JSON de règles d’inventaire, sélectionnez l’onglet *
 
 ```json
 {
-    "destination": "inventory-destination-container",
+  "destination": "inventory-destination-container",
+  "enabled": true,
+  "rules": [
+  {
+    "definition": {
+      "filters": {
+        "blobTypes": ["blockBlob", "appendBlob", "pageBlob"],
+        "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"],
+        "includeSnapshots": false,
+        "includeBlobVersions": true,
+      },
+      "format": "csv",
+      "objectType": "blob",
+      "schedule": "daily",
+      "schemaFields": ["Name", "Creation-Time"]
+    },
     "enabled": true,
-    "rules": [
-                             {
-            "definition": {
-                "filters": {
-                    "blobTypes": ["blockBlob", "appendBlob", "pageBlob"],
-                    "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"],
-                    "includeSnapshots": false,
-                    "includeBlobVersions": true,
-                },
-                "format": "csv",
-                "objectType": "blob",
-                "schedule": "daily",
-                "schemaFields": ["Name", "Creation-Time"]
-            }
-            "enabled": true,
-            "name": "blobinventorytest",
-            "destination": "inventorydestinationContainer"
-        },
-                             {
-            "definition": {
-                "filters": {
-                    "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"]
-                },
-                "format": "csv",
-                "objectType": "container",
-                "schedule": "weekly",
-                "schemaFields": ["Name", "HasImmutabilityPolicy", "HasLegalHold"]
-            }
-            "enabled": true,
-            "name": "containerinventorytest",
-            "destination": "inventorydestinationContainer"
-        }
-    ]
+    "name": "blobinventorytest",
+    "destination": "inventorydestinationContainer"
+  },
+  {
+    "definition": {
+      "filters": {
+        "prefixMatch": ["inventorytestcontainer1", "inventorytestcontainer2/abcd", "etc"]
+      },
+      "format": "csv",
+      "objectType": "container",
+      "schedule": "weekly",
+      "schemaFields": ["Name", "HasImmutabilityPolicy", "HasLegalHold"]
+    },
+    "enabled": true,
+    "name": "containerinventorytest",
+    "destination": "inventorydestinationContainer"
+    }
+  ]
 }
-
 ```
 
 ### <a name="custom-schema-fields-supported-for-blob-inventory"></a>Champs de schéma personnalisés pris en charge pour l’inventaire des blobs
@@ -183,8 +182,6 @@ Pour afficher le code JSON de règles d’inventaire, sélectionnez l’onglet *
 - IsCurrentVersion (disponible et obligatoire lorsque vous choisissez d’inclure des versions de blobs dans votre rapport)
 - Métadonnées
 - LastAccessTime
-
-
 
 ### <a name="custom-schema-fields-supported-for-container-inventory"></a>Champs de schéma personnalisés pris en charge pour l’inventaire des conteneurs
 
@@ -212,24 +209,24 @@ Les stratégies d’inventaire sont lues ou écrites en entier. Les mises à jou
 L’événement `BlobInventoryPolicyCompleted` est généré lorsque l’exécution de l’inventaire est terminée pour une règle. Cet événement se produit également si l’exécution de l’inventaire rencontre une erreur utilisateur avant de commencer. Par exemple, une stratégie non valide ou une erreur qui se produit lorsqu’un conteneur de destination n’est pas présent déclenchera l’événement. Le json suivant montre un exemple d’événement `BlobInventoryPolicyCompleted`.
 
 ```json
-{ 
-  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic", 
-  "subject": "BlobDataManagement/BlobInventory", 
-  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted", 
-  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
-  "data": { 
-    "scheduleDateTime": "2021-05-28T03:50:27Z", 
-    "accountName": "testaccount", 
-    "ruleName": "Rule_1", 
-    "policyRunStatus": "Succeeded", 
-    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.", 
+{
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
+  "subject": "BlobDataManagement/BlobInventory",
+  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "data": {
+    "scheduleDateTime": "2021-05-28T03:50:27Z",
+    "accountName": "testaccount",
+    "ruleName": "Rule_1",
+    "policyRunStatus": "Succeeded",
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
     "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv" 
-  }, 
-  "dataVersion": "1.0", 
-  "metadataVersion": "1", 
-  "eventTime": "2021-05-28T15:03:18Z" 
-} 
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-05-28T15:03:18Z"
+}
 ```
 
 Le tableau suivant décrit le schéma de l’événement `BlobInventoryPolicyCompleted`.
@@ -257,60 +254,59 @@ Chaque règle d’inventaire génère un ensemble de fichiers dans le conteneur 
 
 Chaque exécution d’inventaire pour une règle génère les fichiers suivants :
 
-- **Fichier d’inventaire** : L’exécution d’un inventaire pour une règle génère un ou plusieurs fichiers au format CSV ou Apache Parquet. Si le nombre d’objets mis en correspondance est important, plusieurs fichiers sont générés au lieu d’un seul. Chacun de ces fichiers contient les objets mis en correspondance et leurs métadonnées. Pour un fichier au format CS, la première ligne est toujours celle du schéma. Voici un fichier CSV d’inventaire ouvert dans Microsoft Excel.
+- **Fichier d’inventaire :** L’exécution d’un inventaire pour une règle génère un ou plusieurs fichiers au format CSV ou Apache Parquet. Si le nombre d’objets mis en correspondance est important, plusieurs fichiers sont générés au lieu d’un seul. Chacun de ces fichiers contient les objets mis en correspondance et leurs métadonnées. Pour un fichier au format CS, la première ligne est toujours celle du schéma. Voici un fichier CSV d’inventaire ouvert dans Microsoft Excel.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Capture d’écran d’un fichier CSV d’inventaire ouvert dans Microsoft Excel":::
 
-  > [!NOTE] 
+  > [!NOTE]
   > Les rapports au format Apache Parquet présentent les dates au format suivant : `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
 
+- **Fichier de somme de contrôle :** Un fichier de somme de contrôle contient la somme de contrôle MD5 du contenu du fichier manifest.json. Le nom du fichier de somme de contrôle est `<ruleName>-manifest.checksum`. La génération du fichier de somme de contrôle marque la fin de l’exécution d’une règle d’inventaire.
 
-- **Fichier de somme de contrôle** : Un fichier de somme de contrôle contient la somme de contrôle MD5 du contenu du fichier manifest.json. Le nom du fichier de somme de contrôle est `<ruleName>-manifest.checksum`. La génération du fichier de somme de contrôle marque la fin de l’exécution d’une règle d’inventaire.
+- **Fichier manifeste :** Un fichier manifest.json contient les détails du ou des fichiers d’inventaire générés pour cette règle. Le nom du fichier est `<ruleName>-manifest.json`. Ce fichier capture également la définition de règle fournie par l’utilisateur et le chemin vers l’inventaire pour cette règle. Le code JSON suivant montre le contenu d’un exemple de fichier manifest.json.
 
-- **Fichier manifeste** : Un fichier manifest.json contient les détails du ou des fichiers d’inventaire générés pour cette règle. Le nom du fichier est `<ruleName>-manifest.json`. Ce fichier capture également la définition de règle fournie par l’utilisateur et le chemin vers l’inventaire pour cette règle. Le code JSON suivant montre le contenu d’un exemple de fichier manifest.json.
-
-  ```json 
-  { 
-  "destinationContainer" : "inventory-destination-container", 
-  "endpoint" : "https://testaccount.blob.core.windows.net", 
-  "files" : [ 
-        { 
-            "blob" : "2021/05/26/13-25-36/Rule_1/Rule_1.csv", 
-            "size" : 12710092 
-        } 
-    ], 
-    "inventoryCompletionTime" : "2021-05-26T13:35:56Z", 
-    "inventoryStartTime" : "2021-05-26T13:25:36Z", 
-    "ruleDefinition" : { 
-        "filters" : { 
-            "blobTypes" : [ "blockBlob" ], 
-            "includeBlobVersions" : false, 
-            "includeSnapshots" : false, 
-            "prefixMatch" : [ "penner-test-container-100003" ] 
-        }, 
-        "format" : "csv", 
-        "objectType" : "blob", 
-        "schedule" : "daily", 
-        "schemaFields" : [ 
-            "Name", 
-            "Creation-Time", 
-            "BlobType", 
-            "Content-Length", 
-            "LastAccessTime", 
-            "Last-Modified", 
-            "Metadata", 
-            "AccessTier" 
-        ] 
-    }, 
-    "ruleName" : "Rule_1", 
-    "status" : "Succeeded", 
-    "summary" : { 
-        "objectCount" : 110000, 
-        "totalObjectSize" : 23789775 
-    }, 
-    "version" : "1.0" 
-    } 
-   ```
+  ```json
+  {
+  "destinationContainer" : "inventory-destination-container",
+  "endpoint" : "https://testaccount.blob.core.windows.net",
+  "files" : [
+    {
+      "blob" : "2021/05/26/13-25-36/Rule_1/Rule_1.csv",
+      "size" : 12710092
+    }
+  ],
+  "inventoryCompletionTime" : "2021-05-26T13:35:56Z",
+  "inventoryStartTime" : "2021-05-26T13:25:36Z",
+  "ruleDefinition" : {
+    "filters" : {
+      "blobTypes" : [ "blockBlob" ],
+      "includeBlobVersions" : false,
+      "includeSnapshots" : false,
+      "prefixMatch" : [ "penner-test-container-100003" ]
+    },
+    "format" : "csv",
+    "objectType" : "blob",
+    "schedule" : "daily",
+    "schemaFields" : [
+      "Name",
+      "Creation-Time",
+      "BlobType",
+      "Content-Length",
+      "LastAccessTime",
+      "Last-Modified",
+      "Metadata",
+      "AccessTier"
+    ]
+  },
+  "ruleName" : "Rule_1",
+  "status" : "Succeeded",
+  "summary" : {
+    "objectCount" : 110000,
+    "totalObjectSize" : 23789775
+  },
+  "version" : "1.0"
+  }
+  ```
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
@@ -325,6 +321,19 @@ Si une règle contient un préfixe qui chevauche le préfixe d’une autre règl
 Les instantanés et les versions d’un blob sont également pris en compte dans la facturation, même si vous avez défini les filtres `includeSnapshots` et `includeVersions` sur `false`. Ces valeurs de filtre sont sans effet sur la facturation. Vous pouvez les utiliser uniquement pour filtrer ce qui apparaît dans le rapport.
 
 Pour plus d’informations sur la tarification de l’inventaire de blobs Stockage Azure, consultez [Tarification Stockage Blob Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
+## <a name="feature-support"></a>Prise en charge des fonctionnalités
+
+Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
+
+| Type de compte de stockage | Stockage Blob (prise en charge par défaut) | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) | ![Oui](../media/icons/yes-icon.png)<sup>2</sup>              | ![Oui](../media/icons/yes-icon.png)<sup>2</sup> |
+| Objets blob de blocs Premium | ![Oui](../media/icons/yes-icon.png)| ![Oui](../media/icons/yes-icon.png)<sup>2</sup> | ![Oui](../media/icons/yes-icon.png)<sup>2</sup> |
+
+<sup>1</sup> Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
+
+<sup>2</sup> La fonctionnalité est prise en charge dans la préversion.
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -342,4 +351,4 @@ Une stratégie de réplication d’objet peut empêcher un travail d’inventair
 
 - [Activer les rapports d’inventaire d’objets blob de stockage Azure](blob-inventory-how-to.md)
 - [Calculer le nombre et la taille totale des objets blob par conteneur](calculate-blob-count-size.md)
-- [Gérer le cycle de vie de Stockage Blob Azure](storage-lifecycle-management-concepts.md)
+- [Gérer le cycle de vie de Stockage Blob Azure](./lifecycle-management-overview.md)

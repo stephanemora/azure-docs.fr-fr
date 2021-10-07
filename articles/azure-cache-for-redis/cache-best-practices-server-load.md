@@ -1,5 +1,5 @@
 ---
-title: Meilleures pratiques d’utilisation et de surveillance de la charge du serveur pour Azure Cache pour Redis
+title: Meilleures pratiques d’utilisation et de supervision de la charge du serveur
 titleSuffix: Azure Cache for Redis
 description: Découvrez comment utiliser et surveiller la charge de votre serveur pour Azure Cache pour Redis.
 author: shpathak-msft
@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/25/2021
 ms.author: shpathak
-ms.openlocfilehash: ceeff68f65ace76f4fe9060edeb775085508c969
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 51a0a5ede1c9d978fcc7eea98c7519c70bd9126e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123115861"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128626130"
 ---
 # <a name="manage-server-load-for-azure-cache-for-redis"></a>Gérer la charge du serveur pour Azure Cache pour Redis
 
@@ -47,6 +47,10 @@ Ajoutez une surveillance de la charge du serveur pour vous assurer que vous rece
 ## <a name="plan-for-server-maintenance"></a>Planifier la maintenance du serveur
 
 Vérifiez que vous disposez d’une capacité de serveur suffisante pour gérer vos pics de charge lorsque vos serveurs de cache sont en cours de maintenance. Testez votre système en redémarrant les nœuds pendant les pics de charge. Pour plus d’informations sur la façon de simuler le déploiement d’un patch, consultez la section relative au [redémarrage](cache-administration.md#reboot).
+
+## <a name="test-for-increased-server-load-after-failover"></a>Tester l’augmentation de la charge du serveur après le basculement
+
+Pour les SKU Standard et Premium, chaque cache est hébergé sur deux nœuds. Un équilibreur de charge distribue les connexions clientes entre les deux nœuds. Lorsque la maintenance planifiée ou non planifiée se produit sur le nœud principal, le nœud met fin à toutes les connexions clientes. Dans ce cas, toutes les connexions clientes peuvent atterrir sur un seul nœud, ce qui entraîne une augmentation de la charge du serveur sur le nœud restant. Nous vous recommandons de tester ce scénario en redémarrant le nœud principal et en veillant à ce qu’un nœud puisse gérer toutes vos connexions clientes sans que la charge du serveur soit trop élevée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

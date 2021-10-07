@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.openlocfilehash: fd7601ca87400314b9f282a0fe31035755def056
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 09/16/2021
+ms.openlocfilehash: aa10c93b63fd621397318c701deef8c3912b05da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033146"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601712"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduction au débit approvisionné dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -110,7 +110,7 @@ La valeur RU/s minimale réelle peut varier en fonction de la configuration de v
 
 * 400 RU/s 
 * Stockage actuel en Go * 10 RU (cette contrainte peut être assouplie dans certains cas, reportez-vous à notre [Programme de stockage élevé/faible débit](#high-storage-low-throughput-program))
-* Valeur RU/s la plus élevée provisionnée sur la base de données ou le conteneur / 100
+* Valeur RU/s la plus élevée jamais approvisionnée sur la base de données ou le conteneur / 100
 
 ### <a name="changing-the-provisioned-throughput"></a>Modification du débit approvisionné
 
@@ -122,6 +122,8 @@ Vous pouvez mettre à l’échelle le débit approvisionné d’un conteneur ou 
 Si vous **réduisez le débit approvisionné**, vous pouvez le faire jusqu’à la valeur [minimale](#current-provisioned-throughput).
 
 Si vous **augmentez le débit approvisionné**, la plupart du temps, l’opération est instantanée. Toutefois, dans certains cas, l’opération peut prendre plus de temps en raison des tâches du système pour approvisionner les ressources requises. Dans ce cas, une tentative de modification du débit approvisionné pendant que cette opération est en cours génère une réponse HTTP 423 avec un message d’erreur indiquant qu’une autre opération de mise à l’échelle est en cours.
+
+Pour en savoir plus, consultez l’article [Meilleures pratiques pour la mise à l’échelle du débit approvisionné (RU/s)](scaling-provisioned-throughput-best-practices.md).
 
 > [!NOTE]
 > Si vous planifiez une charge de travail d’ingestion très importante qui nécessite une forte augmentation du débit approvisionné, gardez à l’esprit que l’opération de mise à l’échelle n’a pas de contrat SLA et, comme indiqué dans le paragraphe précédent, elle peut prendre beaucoup de temps lorsque l’augmentation est importante. Il serait bon de planifier et de commencer la mise à l’échelle avant que la charge de travail ne démarre et d’utiliser les méthodes ci-dessous pour vérifier la progression.

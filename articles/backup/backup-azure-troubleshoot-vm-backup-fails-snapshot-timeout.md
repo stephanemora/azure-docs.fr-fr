@@ -4,12 +4,12 @@ description: Symptômes, causes et résolution des défaillances de la Sauvegard
 ms.topic: troubleshooting
 ms.date: 05/25/2021
 ms.service: backup
-ms.openlocfilehash: 57a0002d353ebb75570dc3b70c55d2f17f70db35
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 72e2ce2c32a1be1e6f116ef5513c1c24a42284bc
+ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110472471"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123438192"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -45,7 +45,7 @@ Les échecs de sauvegarde les plus courants peuvent se résoudre de manière aut
 - Assurez-vous que tous les [problèmes d’extension](../virtual-machines/extensions/overview.md#troubleshoot-extensions) sont résolus et relancez l’opération de sauvegarde.
 - **Assurez-vous que l’application système COM+** est opérationnelle. En outre, le **service Distributed Transaction Coordinator** doit s’exécuter en tant que **compte de service réseau**. Suivez les étapes de cet article pour [résoudre les problèmes liés à COM+ et MSDTC](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
 
-### <a name="step-4-check-azure-backup-vm-extension-health"></a>Étape 4 : Vérifier l’intégrité de l’extension de machine virtuelle Sauvegarde Azure
+### <a name="step-4-check-azure-backup-extension-health"></a>Étape 4 : Vérifier l’intégrité de l’extension Sauvegarde Azure
 
 Sauvegarde Azure se sert de l’extension de capture instantanée de machine virtuelle pour récupérer une sauvegarde cohérente des applications de la machine virtuelle Azure. Sauvegarde Azure installe l’extension lors de la première sauvegarde planifiée qui est déclenchée après l’activation du service de sauvegarde.
 

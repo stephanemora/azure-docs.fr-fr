@@ -2,14 +2,14 @@
 title: Prise en charge du niveau de stockage archive
 description: En savoir plus sur la prise en charge du niveau Archive pour le service Sauvegarde Azure
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 09/10/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 228ab85a0cde5ed37156a5821ad3ac2acd6a7209
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 0468e463caa6d589b22596d2fe845014e96e10b8
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123260789"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128632459"
 ---
 # <a name="archive-tier-support"></a>Prise en charge du niveau de stockage archive
 
@@ -76,7 +76,7 @@ Clients pris en charge :
 
     - Pour des machines virtuelles SQL Server dans Azure :
 
-        `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
+        `$bckItm = $BackupItemList | Where-Object {$_.FriendlyName -eq '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
 1. Ajoutez la plage de dates pour laquelle vous souhaitez afficher les points de récupération. Par exemple, si vous voulez afficher les points de récupération correspondant à la plage de dates allant du 124e au 95e derniers jours, utilisez la commande suivante :
 
@@ -88,6 +88,16 @@ Clients pris en charge :
     >[!NOTE]
     >Si vous voulez afficher les points de récupération pour un autre intervalle de temps, modifiez les dates de début et de fin en conséquence.
 ## <a name="use-powershell"></a>Utiliser PowerShell
+
+### <a name="check-the-archivable-status-of-all-the-recovery-points"></a>Vérifier l’état d’archivage de tous les points de récupération
+
+Vous pouvez maintenant vérifier l’état d’archivage de tous les points de récupération d’un élément de sauvegarde en utilisant la cmdlet suivante :
+
+```azurepowershell
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() 
+
+$rp | select RecoveryPointId, @{ Label="IsArchivable";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].IsReadyForMove}}, @{ Label="ArchivableInfo";Expression={$_.RecoveryPointMoveReadinessInfo["ArchivedRP"].AdditionalInfo}}
+```
 
 ### <a name="check-archivable-recovery-points"></a>Vérifier les points de récupération archivables
 
@@ -149,7 +159,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 Pour les points de récupération dans l’archive, le service Sauvegarde Azure fournit une méthodologie de restauration intégrée.
 
-La restauration intégrée est un processus en deux étapes. La première étape consiste à réalimenter les points de récupération stockés dans l’archive, et à stocker celle-ci temporairement au niveau Coffre-Standard pour une durée (également appelée « durée de réalimentation ») de 10 à 30 jours. La durée par défaut est de 15 jours. Il existe deux priorités de réalimentation : Standard et Haute. Apprenez-rn davantage sur la [priorité de réalimentation](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
+La restauration intégrée est un processus en deux étapes. La première étape consiste à réalimenter les points de récupération stockés dans l’archive, et à stocker celle-ci temporairement au niveau Coffre-Standard pour une durée (également appelée « durée de réalimentation ») de 10 à 30 jours. La durée par défaut est de 15 jours. Il existe deux priorités de réalimentation : Standard et Haute. Apprenez-rn davantage sur la [priorité de réalimentation](../storage/blobs/archive-rehydrate-overview.md#rehydration-priority).
 
 >[!NOTE]
 >
@@ -171,6 +181,17 @@ Pour afficher les travaux de déplacement et de restauration, utilisez la cmdlet
 ```azurepowershell
 Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ```
+
+### <a name="move-recovery-points-to-archive-tier-at-scale"></a>Déplacer des points de récupération vers le niveau archive à grande échelle
+
+Vous pouvez maintenant utiliser des exemples de scripts pour effectuer des opérations à l’échelle. [En savoir plus](https://github.com/hiaga/Az.RecoveryServices/blob/master/README.md) sur la procédure d’exécution des exemples de scripts. Vous pouvez télécharger les scripts [ici](https://github.com/hiaga/Az.RecoveryServices).
+
+Vous pouvez effectuer les opérations suivantes à l’aide des exemples de scripts fournis par Sauvegarde Azure :
+
+- Déplacez tous les points de récupération admissibles pour une base de données spécifique ou pour toutes les bases de données d’un serveur SQL dans une machine virtuelle Azure vers le niveau archive.
+- Déplacez tous les points de récupération recommandés pour une machine virtuelle Azure particulière vers le niveau archive.
+ 
+Vous pouvez également écrire un script en fonction de vos besoins ou modifier les exemples de scripts ci-dessus pour récupérer (fetch) les éléments de sauvegarde requis.
 
 ## <a name="use-the-portal"></a>Utiliser le portail
 
@@ -211,7 +232,7 @@ L’option Arrêter la protection et supprimer les données supprime tous les po
 
 | Charges de travail | Préversion | Mise à la disposition générale |
 | --- | --- | --- |
-| SQL Server dans les machines virtuelles Azure | USA Est, USA Centre Sud, USA Centre Nord, Europe Ouest | Australie Est, Inde Centre, Europe Nord, Asie Sud-Est, Asie Est, Australie Sud-Est, Canada Centre, Brésil Sud, Canada Est, France Centre, France Sud, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Inde Sud, Royaume-Uni Ouest, Royaume-Uni Sud, USA Centre, USA Est 2, USA Ouest, USA Ouest 2, USA Centre-Ouest |
+| SQL Server dans les machines virtuelles Azure | USA Centre Sud, USA Centre Nord, Europe Ouest | Australie Est, Inde Centre, Europe Nord, Asie Sud-Est, Asie Est, Australie Sud-Est, Canada Centre, Brésil Sud, Canada Est, France Centre, France Sud, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Inde Sud, Royaume-Uni Ouest, Royaume-Uni Sud, USA Centre, USA Est 2, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Est |
 | Machines virtuelles Azure | USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Centre Nord, Brésil Sud, Canada Est, Canada Centre, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Est, Japon Est, Inde Sud, Asie Sud-Est, Australie Est, Inde Centre, Europe Nord, Australie Sud-Est, France Centre, France Sud, Japon Ouest, Corée Centre, Corée Sud | Aucun |
 
 ## <a name="error-codes-and-troubleshooting-steps"></a>Codes d’erreur et étapes de résolution des problèmes

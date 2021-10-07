@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: f9f787af8cad8dffa728e29fd3a13defc8e160ca
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 2335b1e85290cdea805c3a77754a5843da6cbbda
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110494866"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128672359"
 ---
 # <a name="pronunciation-assessment"></a>Évaluation de la prononciation
 
@@ -28,7 +28,7 @@ Les enseignants peuvent utiliser la fonctionnalité pour évaluer la prononciati
 Dans cet article, vous allez découvrir comment configurer `PronunciationAssessmentConfig` et récupérer le `PronunciationAssessmentResult` à l’aide du SDK Speech.
 
 > [!NOTE]
-> La fonctionnalité d’évaluation de prononciation prend actuellement en charge la langue `en-US`, qui est disponible dans toutes les [régions de reconnaissance vocale](regions.md#speech-to-text-text-to-speech-and-translation). La prise en charge des langues `en-GB` et `zh-CN` est en préversion, disponible dans les régions `westus`, `eastasia` et `centralindia`.
+> La fonctionnalité d’évaluation de prononciation prend actuellement en charge la langue `en-US`, qui est disponible dans toutes les [régions de reconnaissance vocale](regions.md#speech-to-text-text-to-speech-and-translation). La prise en charge des langues `en-GB` et `zh-CN` est en cours de préparation.
 
 ## <a name="pronunciation-assessment-with-the-speech-sdk"></a>Évaluation de la prononciation avec le SDK Speech
 

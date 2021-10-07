@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: edc246a414401c4c1c0248787eda0381fcd63037
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37192a38376536143472f406b9fd11c490a98e5b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96741760"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128578815"
 ---
 # <a name="monitor-and-review-logs-for-on-premises-azure-ad-password-protection-environments"></a>Surveiller les environnements de protection par mot de passe Azure AD locaux et en consulter les journaux d’activité
 
@@ -124,36 +124,55 @@ Notez que l’applet de commande `Get-AzureADPasswordProtectionSummaryReport` es
 > [!NOTE]
 > Cette cmdlet fonctionne en interrogeant à distance le journal des événements administrateur de chaque agent de service DC. Si les journaux des événements contiennent un grand nombre d’événements, la cmdlet peut prendre beaucoup de temps à se faire. En outre, les requêtes de réseau en bloc de grands jeux de données peuvent affecter les performances du contrôleur de domaine. Par conséquent, cette cmdlet doit être utilisée avec précaution dans les environnements de production.
 
-### <a name="sample-event-log-message-for-event-id-10014-successful-password-change"></a>Exemple de message de journal des événements pour l’ID d’événement 10014 (mot de passe changé)
+### <a name="sample-event-log-messages"></a>Exemples de messages du journal des événements
+
+#### <a name="event-id-10014-successful-password-change"></a>Identifiant d’événement 10014 (modification réussie du mot de passe)
 
 ```text
 The changed password for the specified user was validated as compliant with the current Azure password policy.
 
- UserName: BPL_02885102771
- FullName:
+UserName: SomeUser
+FullName: Some User
 ```
 
-### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Exemple de message de journal des événements pour les ID d’événement 10017 et 30003 (mot de passe non défini)
-
-10017 :
+#### <a name="event-id-10017-failed-password-change"></a>Identifiant d’événement 10017 (échec de la modification du mot de passe) :
 
 ```text
 The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
 
- UserName: BPL_03283841185
- FullName:
+UserName: SomeUser
+FullName: Some User
 ```
 
-30003 :
+#### <a name="event-id-30003-failed-password-change"></a>Identifiant d’événement 30003 (échec de la modification du mot de passe) :
 
 ```text
 The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
 
- UserName: BPL_03283841185
- FullName:
+UserName: SomeUser
+FullName: Some User
 ```
 
-### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>Exemple de message de journal des événements pour l’ID d’événement 30001 (mot de passe accepté, aucune stratégie disponible)
+#### <a name="event-id-10024-password-accepted-due-to-policy-in-audit-only-mode"></a>Identifiant d’événement 10024 (mot de passe accepté en raison d’une stratégie en mode d’audit seul)
+
+``` text
+The changed password for the specified user would normally have been rejected because it did not comply with the current Azure password policy. The current Azure password policy is con-figured for audit-only mode so the password was accepted. Please see the correlated event log message for more details. 
+ 
+UserName: SomeUser
+FullName: Some User
+```
+
+#### <a name="event-id-30008-password-accepted-due-to-policy-in-audit-only-mode"></a>Identifiant d’événement 30008 (mot de passe accepté en raison d’une stratégie en mode d’audit seul)
+
+``` text
+The changed password for the specified user would normally have been rejected because it matches at least one of the tokens present in the per-tenant banned password list of the current Azure password policy. The current Azure password policy is configured for audit-only mode so the password was accepted. 
+
+UserName: SomeUser
+FullName: Some User
+
+```
+
+#### <a name="event-id-30001-password-accepted-due-to-no-policy-available"></a>Identifiant d’événement 30001 (mot de passe accepté en raison de l’absence de stratégie disponible)
 
 ```text
 The password for the specified user was accepted because an Azure password policy is not available yet
@@ -180,7 +199,7 @@ This condition may be caused by one or more of the following reasons:%n
    Resolution steps: ensure network connectivity exists to the domain.
 ```
 
-### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>Exemple de message de journal des événements pour l’ID d’événement 30006 (nouvelle stratégie appliquée)
+#### <a name="event-id-30006-new-policy-being-enforced"></a>Identifiant d’événement 30006 (nouvelle stratégie en cours d’application)
 
 ```text
 The service is now enforcing the following Azure password policy.
@@ -192,13 +211,12 @@ The service is now enforcing the following Azure password policy.
  Enforce tenant policy: 1
 ```
 
-### <a name="sample-event-log-message-for-event-id-30019-azure-ad-password-protection-is-disabled"></a>Exemple de message de journal des événements pour l’ID d’événement 30019 (protection par mot de passe Azure AD désactivée)
+#### <a name="event-id-30019-azure-ad-password-protection-is-disabled"></a>Identifiant d’événement 30019 (protection par mot de passe Azure AD désactivée)
 
 ```text
 The most recently obtained Azure password policy was configured to be disabled. All passwords submitted for validation from this point on will automatically be considered compliant with no processing performed.
 
 No further events will be logged until the policy is changed.%n
-
 ```
 
 ## <a name="dc-agent-operational-log"></a>Journal des opérations de l’agent DC

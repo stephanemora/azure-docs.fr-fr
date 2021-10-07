@@ -4,16 +4,16 @@ description: Cet article fournit des informations de référence sur la commande
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: faa9dab677c410e877601297ec72f451219da47c
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 4cb943230c0211c67caf5d7a074d21077358c143
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968294"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128605446"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -67,6 +67,7 @@ Charger un fichier à l’aide de l’authentification OAuth. Si vous ne vous �
 ```azcopy
 azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
+
 Comme ci-dessus, mais cette fois-ci, calcule également le hachage MD5 du contenu du fichier et l’enregistre en tant que propriété Content-MD5 de l’objet blob :
 
 ```azcopy
@@ -80,13 +81,13 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
 ```
 
 Charger un seul fichier à l’aide d’un jeton SAS et du piping (objets blob de blocs uniquement) :
-  
+
 ```azcopy
 cat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]
 ```
 
 Charger un répertoire entier à l’aide d’un jeton SAS :
-  
+
 ```azcopy
 azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
@@ -98,7 +99,7 @@ azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[p
 ```
 
 Charger un ensemble de fichiers à l’aide d’un jeton SAS et de caractères génériques (*) :
- 
+
 ```azcopy
 azcopy cp "/path/*foo/*bar/*.pdf" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
 ```
@@ -109,10 +110,10 @@ Charger des fichiers et des répertoires à l’aide d’un jeton SAS et de cara
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
 
-Charger des fichiers et des répertoires dans le compte de stockage Azure et définir les balises encodées de chaîne de requête sur l’objet blob. 
+Charger des fichiers et des répertoires dans le compte de stockage Azure et définir les balises encodées de chaîne de requête sur l’objet blob.
 
 - Pour définir les balises {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, utilisez la syntaxe suivante : `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
-    
+
 - Les clés et les valeurs sont encodées en URL et les paires clé-valeur sont séparées par une esperluette ('&')
 
 - Lors de la définition des balises sur les objets blob, il existe des autorisations supplémentaires (« t ») dans SAS, sans lesquelles le service renvoie une erreur d’autorisation.
@@ -130,27 +131,27 @@ azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[S
 ```
 
 Télécharger un seul fichier à l’aide d’un jeton SAS, puis diriger la sortie vers un fichier (objets blob de blocs uniquement) :
- 
+
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" > "/path/to/file.txt"
-``` 
+```
 
 Télécharger un répertoire entier à l’aide d’un jeton SAS :
- 
+
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive
-``` 
+```
 
 Remarque sur l’utilisation d’un caractère générique (*) dans les URL :
 
-Il existe seulement deux façons d’utiliser un caractère générique dans une URL. 
+Il existe seulement deux façons d’utiliser un caractère générique dans une URL.
 
-- Vous pouvez en utiliser un juste après la barre oblique finale (/) d’une URL. Cette utilisation des caractères génériques copie tous les fichiers d’un répertoire directement vers la destination sans les placer dans un sous-répertoire. 
+- Vous pouvez en utiliser un juste après la barre oblique finale (/) d’une URL. Cette utilisation des caractères génériques copie tous les fichiers d’un répertoire directement vers la destination sans les placer dans un sous-répertoire.
 
-- Vous pouvez également utiliser un caractère générique dans le nom d’un conteneur, tant que l’URL fait référence uniquement à un conteneur et non à un objet blob. Vous pouvez adopter cette approche pour obtenir des fichiers à partir d’un sous-ensemble de conteneurs. 
+- Vous pouvez également utiliser un caractère générique dans le nom d’un conteneur, tant que l’URL fait référence uniquement à un conteneur et non à un objet blob. Vous pouvez adopter cette approche pour obtenir des fichiers à partir d’un sous-ensemble de conteneurs.
 
 Télécharger le contenu d’un répertoire sans copier le répertoire contenant lui-même.
- 
+
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/folder]/*?[SAS]" "/path/to/dir"
 ```
@@ -173,7 +174,7 @@ Copier un seul objet blob vers un autre objet blob à l’aide d’un jeton SAS.
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Copier un seul objet blob dans un autre objet blob à l’aide d’un jeton SAP et d’un jeton Auth. Vous devez utiliser un jeton SAP à la fin de l’URL du compte source, mais le compte de destination n’en a pas besoin si vous vous connectez à AzCopy à l’aide de la commande `azcopy login`. 
+Copier un seul objet blob dans un autre objet blob à l’aide d’un jeton SAP et d’un jeton Auth. Vous devez utiliser un jeton SAP à la fin de l’URL du compte source, mais le compte de destination n’en a pas besoin si vous vous connectez à AzCopy à l’aide de la commande `azcopy login`.
 
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
@@ -192,27 +193,27 @@ azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccou
 ```
 
 Copier un seul objet dans le stockage d’objets blob à partir d’Amazon Web Services (AWS) S3 à l’aide d’une clé d’accès et d’un jeton SAS. Tout d’abord, définissez les variables d’environnement `AWS_ACCESS_KEY_ID` et `AWS_SECRET_ACCESS_KEY` de la source AWS S3.
-  
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 Copier l’intégralité d’un répertoire dans le stockage d’objets blob à partir d’AWS S3 à l’aide d’une clé d’accès et d’un jeton SAS. Tout d’abord, définissez les variables d’environnement `AWS_ACCESS_KEY_ID` et `AWS_SECRET_ACCESS_KEY` de la source AWS S3.
- 
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
-    
+
   Reportez-vous à https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html pour mieux comprendre l’espace réservé [dossier].
 
 Copier tous les compartiments dans le stockage d’objets blob à partir d’Amazon Web Services (AWS) à l’aide d’une clé d’accès et d’un jeton SAS. Tout d’abord, définissez les variables d’environnement `AWS_ACCESS_KEY_ID` et `AWS_SECRET_ACCESS_KEY` de la source AWS S3.
- 
+
 ```azcopy
 azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
 Copier tous les compartiments dans le stockage d’objets blob à partir d’une région Amazon Web Services (AWS) à l’aide d’une clé d’accès et d’un jeton SAS. Tout d’abord, définissez les variables d’environnement `AWS_ACCESS_KEY_ID` et `AWS_SECRET_ACCESS_KEY` de la source AWS S3.
- 
+
 ```azcopy
 - azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
@@ -223,22 +224,22 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 - azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive
 ```
 
-Transférez des fichiers et des répertoires dans le compte de stockage Azure et définir les balises encodées de chaîne de requête données sur l’objet blob. 
+Transférez des fichiers et des répertoires dans le compte de stockage Azure et définir les balises encodées de chaîne de requête données sur l’objet blob.
 
 - Pour définir les balises {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, utilisez la syntaxe suivante : `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
-        
+
 - Les clés et les valeurs sont encodées en URL et les paires clé-valeur sont séparées par une esperluette ('&')
-    
+
 - Lors de la définition des balises sur les objets blob, il existe des autorisations supplémentaires (« t ») dans SAS, sans lesquelles le service renvoie une erreur d’autorisation.
 
 Copiez un seul objet dans le Stockage Blob à partir de Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAP. Tout d’abord, définissez la variable d’environnement GOOGLE_APPLICATION_CREDENTIALS pour la source Google Cloud Storage.
-  
+
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 Copiez un répertoire entier dans le Stockage Blob à partir de Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAP. Tout d’abord, définissez la variable d’environnement GOOGLE_APPLICATION_CREDENTIALS pour la source Google Cloud Storage.
- 
+
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
@@ -249,14 +250,14 @@ Copiez un compartiment entier dans le Stockage Blob à partir de Google Cloud St
 azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-Copiez tous les compartiments dans le Stockage Blob à partir de Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAP. Tout d’abord, définissez les variables d’environnement GOOGLE_APPLICATION_CREDENTIALS et GOOGLE_CLOUD_PROJECT=<project-id> pour la source GCS.
+Copiez tous les compartiments dans le Stockage Blob à partir de Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAP. Tout d’abord, définissez les variables d’environnement GOOGLE_APPLICATION_CREDENTIALS et GOOGLE_CLOUD_PROJECT=<`project-id`> pour la source GCS.
 
 ```azcopy
   - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
 
-Copiez un sous-ensemble de compartiments à l’aide d’un caractère générique (*) dans le nom du compartiment à partir Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAS pour la destination. Tout d’abord, définissez les variables d’environnement GOOGLE_APPLICATION_CREDENTIALS et GOOGLE_CLOUD_PROJECT=<project-id> pour la source Google Cloud Storage.
- 
+Copiez un sous-ensemble de compartiments à l’aide d’un caractère générique (*) dans le nom du compartiment à partir Google Cloud Storage à l’aide d’une clé de compte de service et d’un jeton SAS pour la destination. Tout d’abord, définissez les variables d’environnement GOOGLE_APPLICATION_CREDENTIALS et GOOGLE_CLOUD_PROJECT=<`project-id`> pour la source Google Cloud Storage.
+
 ```azcopy
 azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
 ```
@@ -287,17 +288,25 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--content-type** string Spécifie le type de contenu du fichier. Implique l’utilisation de no-guess-mime-type. Retourné au moment du téléchargement.
 
+Chaîne **--cpk-by-name** La clé fournie par le client par nom permet aux clients qui effectuent des requêtes auprès de Stockage Blob Azure de fournir une clé de chiffrement sur demande. Le nom de la clé fournie sera récupéré dans Azure Key Vault et sera utilisé pour chiffrer les données.
+
+Chaîne **--cpk-by-value** La clé fournie par le client par nom permet aux clients qui effectuent des requêtes auprès de Stockage Blob Azure de fournir une clé de chiffrement sur demande. La clé fournie et son code de hachage sont récupérés à partir des variables d’environnement.
+
 **--decompress** Décompresser automatiquement les fichiers lors du téléchargement, si content-encoding indique qu’ils sont compressés. Les valeurs de content-encoding prises en charge sont `gzip` et `deflate`. Les extensions de fichiers `.gz`/`.gzip` ou `.zz` ne sont pas nécessaires, mais seront supprimées si elles sont présentes.
+
+**--dry-run** Imprime le chemin des fichiers qui seraient copiés par cette commande. Cet indicateur ne copie pas les fichiers réels.
 
 **--disable-auto-decoding**    False par défaut pour activer le décodage automatique de caractères non conformes sur Windows. Peut être défini sur `true` pour désactiver le décodage automatique.
 
 **--exclude-attributes** string (Windows uniquement) Exclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple : A;S;R
 
-**--exclude-blob-type** string (Facultatif) Spécifie le type d’objet blob (`BlockBlob`/ `PageBlob`/ `AppendBlob`) à exclure lors de la copie d’objets blob à partir du conteneur ou du compte. L’utilisation de cet indicateur ne s’applique pas à la copie de données à partir d’un service non Azure. Si vous avez plusieurs objets blob, vous devez les séparer par un point-virgule (`;`). 
+**--exclude-blob-type** string (Facultatif) Spécifie le type d’objet blob (`BlockBlob`/ `PageBlob`/ `AppendBlob`) à exclure lors de la copie d’objets blob à partir du conteneur ou du compte. L’utilisation de cet indicateur ne s’applique pas à la copie de données à partir d’un service non Azure. Si vous avez plusieurs objets blob, vous devez les séparer par un point-virgule (`;`).
 
 **--exclude-path** string Exclure ces chemins lors de la copie. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe du chemin d’accès relatif (par exemple, `myFolder;myFolder/subDirName/file.pdf`). En cas d’utilisation combinée avec la traversée de comptes, les chemins n’incluent pas le nom du conteneur.
 
 **--exclude-pattern** string Exclure ces fichiers lors de la copie. Cette option prend en charge les caractères génériques (*).
+
+Chaîne **--exclude-regex** Exclut tout le chemin d’accès relatif des fichiers qui correspondent à des expressions régulières. Séparez les expressions régulières par des points-virgules (;).
 
 **--follow-symlinks** Suivre les liens symboliques quand vous effectuez un chargement à partir d’un système de fichiers local.
 
@@ -307,19 +316,23 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **-h, --help** Aider pour la copie
 
-**--include-after** string Inclure uniquement les fichiers modifiés à la date/l’heure donnée. La valeur doit être au format ISO8601. Si aucun fuseau horaire n’est spécifié, la valeur est supposée être dans le fuseau horaire local de l’ordinateur exécutant AzCopy. Par exemple, `2020-08-19T15:04:00Z` pour une heure UTC, ou `2020-08-19` pour minuit (00:00) dans le fuseau horaire local. Comme au niveau d’AzCopy 10.5, cet indicateur s’applique uniquement aux fichiers, non aux dossiers. Les propriétés de dossier ne sont donc pas copiées lors de l’utilisation de cet indicateur avec `--preserve-smb-info` ou `--preserve-smb-permissions`.
+**--include-after** string Inclure uniquement les fichiers modifiés à la date/l’heure donnée. La valeur doit être au format ISO8601. Si aucun fuseau horaire n’est spécifié, la valeur est supposée être dans le fuseau horaire local de l’ordinateur exécutant AzCopy. Par exemple, `2020-08-19T15:04:00Z` pour une heure UTC, ou `2020-08-19` pour minuit (00:00) dans le fuseau horaire local. Comme au niveau d’AzCopy 10.5, cet indicateur s’applique uniquement aux fichiers, non aux dossiers. Les propriétés de dossier ne sont donc pas copiées lors de l’utilisation de cet indicateur avec `--preserve-smb-info` ou `--preserve-permissions`.
 
- **--include-before** string Inclure uniquement les fichiers modifiés avant ou à la date/l’heure donnée. La valeur doit être au format ISO8601. Si aucun fuseau horaire n’est spécifié, la valeur est supposée être dans le fuseau horaire local de l’ordinateur exécutant AzCopy. Par exemple, `2020-08-19T15:04:00Z` pour une heure UTC, ou `2020-08-19` pour minuit (00:00) dans le fuseau horaire local. À partir d’AzCopy 10.7, cet indicateur s’applique uniquement aux fichiers, et non aux dossiers. Les propriétés de dossier ne sont donc pas copiées lors de l’utilisation de cet indicateur avec `--preserve-smb-info` ou `--preserve-smb-permissions`.
+ **--include-before** string Inclure uniquement les fichiers modifiés avant ou à la date/l’heure donnée. La valeur doit être au format ISO8601. Si aucun fuseau horaire n’est spécifié, la valeur est supposée être dans le fuseau horaire local de l’ordinateur exécutant AzCopy. Par exemple, `2020-08-19T15:04:00Z` pour une heure UTC, ou `2020-08-19` pour minuit (00:00) dans le fuseau horaire local. À partir d’AzCopy 10.7, cet indicateur s’applique uniquement aux fichiers, et non aux dossiers. Les propriétés de dossier ne sont donc pas copiées lors de l’utilisation de cet indicateur avec `--preserve-smb-info` ou `--preserve-permissions`.
 
 **--include-attributes** string (Windows uniquement) Inclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple : A;S;R
 
 **--include-path** string Inclure uniquement ces chemins lors de la copie. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe du chemin d’accès relatif (par exemple, `myFolder;myFolder/subDirName/file.pdf`).
 
+**--include-directory-stub** False par défaut pour ignorer les stubs de répertoire. Les stubs de répertoire sont des blobs dotés des métadonnées « hdi_isfolder:true ». Si vous définissez la valeur sur true, les stubs de répertoire seront conservés pendant les transferts.
+
 **--include-pattern** string Inclure uniquement ces fichiers lors de la copie. Cette option prend en charge les caractères génériques (*). Séparez les fichiers à l’aide d’un point-virgule (`;`).
+
+Chaîne **--include-regex** Inclut uniquement le chemin d’accès relatif des fichiers qui correspondent à des expressions régulières. Séparez les expressions régulières par des points-virgules (;).
 
 **--list-of-versions** string Spécifie un fichier où chaque ID de version est listé sur une ligne distincte. Assurez-vous que la source pointe vers un blob unique et que tous les ID de version spécifiés dans le fichier à l’aide de cet indicateur appartiennent uniquement au blob source. AzCopy télécharge les versions spécifiées dans le dossier de destination indiqué. Pour plus d’informations, consultez [Télécharger des versions précédentes d’un objet blob](./storage-use-azcopy-v10.md#transfer-data).
 
-**--log-level** string Définir le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut `INFO`) 
+**--log-level** string Définir le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut `INFO`)
 
 **--metadata** string Charger dans Stockage Azure avec ces paires clé-valeur en tant que métadonnées.
 
@@ -331,11 +344,11 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 
 **--preserve-last-modified-time** Disponible uniquement quand la destination est un système de fichiers.
 
-**--Preserve-owner** N’a d’effet que dans les téléchargements, et uniquement quand `--preserve-smb-permissions` est utilisé. Si la valeur est true (valeur par défaut), le groupe et le propriétaire des fichiers sont conservés dans les téléchargements. Si la valeur est false, `--preserve-smb-permissions` conserve toujours les listes de contrôle d’accès, mais le propriétaire et le groupe sont basés sur l’utilisateur qui exécute AzCopy (true par défaut).
+**--Preserve-owner** N’a d’effet que dans les téléchargements, et uniquement quand `--preserve-permissions` est utilisé. Si la valeur est true (valeur par défaut), le groupe et le propriétaire des fichiers sont conservés dans les téléchargements. Si la valeur est false, `--preserve-permissions` conserve toujours les listes de contrôle d’accès, mais le propriétaire et le groupe sont basés sur l’utilisateur qui exécute AzCopy (true par défaut).
 
-**--preserve-smb-info** False par défaut. Conserve les informations de propriété SMB (heure de la dernière écriture, heure de création, bits d’attribut) entre les ressources prenant en charge SMB (Windows et Azure Files). Seuls les bits d’attribut pris en charge par Azure Files sont transférés ; les autres sont ignorés. Cet indicateur s’applique aux fichiers et aux dossiers, à moins qu’un filtre de fichier uniquement soit spécifié (par exemple, include-pattern). Les informations transférées pour les dossiers sont les mêmes que pour les fichiers, à l’exception de l’heure de la dernière écriture, qui n’est jamais conservée pour les dossiers.
+**--preserve-smb-info** True par défaut. Conserve les informations de propriété SMB (heure de la dernière écriture, heure de création, bits d’attribut) entre les ressources prenant en charge SMB (Windows et Azure Files). Seuls les bits d’attribut pris en charge par Azure Files sont transférés ; les autres sont ignorés. Cet indicateur s’applique aux fichiers et aux dossiers, à moins qu’un filtre de fichier uniquement soit spécifié (par exemple, include-pattern). Les informations transférées pour les dossiers sont les mêmes que pour les fichiers, à l’exception de l’heure de la dernière écriture, qui n’est jamais conservée pour les dossiers.
 
-**--preserve-smb-permissions** False par défaut. Conserve les listes de contrôle d’accès (ACL) SMB entre les ressources prenant en charge SMB (Windows et Azure Files). Pour les téléchargements, vous devez également utiliser l’indicateur `--backup` pour restaurer les autorisations où le nouveau propriétaire n’est pas l’utilisateur qui exécute AzCopy. Cet indicateur s’applique aux fichiers et aux dossiers, à moins qu’un filtre de fichier uniquement soit spécifié (par exemple, `include-pattern`).
+**--preserve-smb-permissions** False par défaut. Préserve les listes de contrôle d’accès entre les ressources sensibles (Windows et Azure Files, ou Data Lake Storage Gen2 vers Data Lake Storage Gen2). Pour les comptes qui ont un espace de noms hiérarchique, vous aurez besoin d’un jeton SAP ou d’un jeton OAuth de conteneur avec les autorisations Modifier la propriété et Modifier les autorisations. Pour les téléchargements, vous devez également utiliser l’indicateur --backup pour restaurer les autorisations lorsque le nouveau propriétaire ne sera pas l’utilisateur qui exécute AzCopy. Cet indicateur s’applique aux fichiers et aux dossiers, à moins qu’un filtre de fichier uniquement soit spécifié (par exemple, include-pattern).
 
 **--put-md5** Crée un hachage MD5 de chaque fichier, puis enregistre le hachage en tant que propriété Content-MD5 de l’objet blob ou du fichier de destination. (par défaut, le hachage n’est pas créé.) Disponible uniquement lors du chargement.
 
@@ -346,6 +359,8 @@ azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccoun
 **--s2s-handle-invalid-metadata** string   Spécifie la manière dont les clés de métadonnées non valides sont gérées. Options disponibles : ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid (par défaut `ExcludeIfInvalid`).
 
 **--s2s-preserve-access-tier** Conserver le niveau d’accès lors d’une copie de service à service Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut `true`).
+
+**--s2s-preserve-blob-tags** Préserve les balises d’index pendant le transfert service à service d’un stockage blob à un autre.
 
 **--s2s-preserve-properties** Conserver l’intégralité des propriétés lors d’une copie de service à service. Pour une source de fichier non unique Azure Files et AWS S3, l’opération de liste ne retourne pas les propriétés complètes des objets et des fichiers. Pour conserver l’intégralité des propriétés, AzCopy doit envoyer une requête supplémentaire par objet ou fichier. (par défaut : true)
 

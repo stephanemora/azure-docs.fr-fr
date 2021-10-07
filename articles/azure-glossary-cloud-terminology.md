@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 08/22/2021
 ms.author: monicar
-ms.openlocfilehash: a97726498adc89a8453d88bef9a61aa343da2c5e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e57dd133a9145356c64faa3854a121834fbdb2ae
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111956440"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128645148"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
@@ -28,6 +28,7 @@ Le glossaire Microsoft Azure est un petit dictionnaire de la terminologie des te
 
 * [Microsoft Azure et Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Définitions des services Azure et de leurs équivalents AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Termes de cloud computing](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - Termes généraux liés aux technologies cloud.
+* [Concepts fondamentaux d’Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) – Microsoft Cloud Adoption Framework pour Azure.
 
 ## <a name="account"></a>account
 Compte utilisé pour l’accès et la gestion d’un abonnement Azure. On l’appelle souvent « compte Azure », bien qu’il puisse s’agir d’un compte Microsoft professionnel, scolaire ou personnel existant. Vous pouvez également créer un compte pour gérer un abonnement Azure lorsque vous vous inscrivez pour bénéficier de la [version d’évaluation gratuite](https://azure.microsoft.com).  

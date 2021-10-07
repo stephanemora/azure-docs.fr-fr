@@ -9,18 +9,26 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/01/2021
 ms.author: lajanuar
-ms.openlocfilehash: 2efc4d2c546cff172164b9416cbe5a0772167631
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d575af739fa299cc32576bd2798eeb8165fe37c2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122535025"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128590027"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 # <a name="whats-new-in-azure-form-recognizer"></a>Nouveautés dans Azure Form Recognizer
 
 Le service Form Recognizer est régulièrement mis à jour. Ajoutez cette page aux favoris pour rester informé des mises à jour des notes de publication, des améliorations apportées aux fonctionnalités et des mises à jour de la documentation.
+
+## <a name="september-2021"></a>Septembre 2021
+
+« Corriger l’extraction inexacte du nom dans les ID prédéfinis (licence du pilote) lorsqu’il y a un suffixe/point dans le nom. »
+
+[Fonctionnalités avancées de l’explorateur de métriques Azure](/azure/azure-monitor/essentials/metrics-charts) disponibles sur la page de présentation des ressources Form Recognizer dans le portail Azure. 
+
+:::image type="content" source="media/portal-metrics.png" alt-text="Capture d’écran : graphiques de métriques dans Portail Azure.":::
 
 ## <a name="july-2021"></a>Juillet 2021
 

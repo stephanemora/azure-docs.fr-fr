@@ -1,18 +1,20 @@
 ---
-title: Déployer des ressources avec Azure CLI et un modèle
-description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
+title: Modèles de déploiement Azure avec Azure CLI – Azure Resource Manager | Microsoft Docs
+description: Utilisez Azure Resource Manager et Azure CLI pour créer et déployer des groupes de ressources sur Azure. Les ressources sont définies dans un modèle de déploiement Azure.
 ms.topic: conceptual
-ms.date: 07/15/2021
-ms.openlocfilehash: 8ecb8bb2e6b24571d91e97157ff91ba931b0719d
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.date: 09/17/2021
+ms.custom: devx-track-azurecli, seo-azure-cli
+keywords: azure cli deploy arm template, create resource group azure, azure deployment template, deployment resources, arm template, azure arm template
+ms.openlocfilehash: 5b7734e3b91f7e842f17888f3f3c67d05655fc97
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296770"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128585011"
 ---
-# <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles ARM et l’interface CLI Azure
+# <a name="how-to-use-azure-resource-manager-arm-deployment-templates-with-azure-cli"></a>Utilisation des modèles de déploiement Azure Resource Manager (ARM) avec Azure CLI
 
-Cet article explique comment utiliser Azure CLI avec des modèles Resource Manager pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble du déploiement de modèles](overview.md).
+Cet article explique comment utiliser Azure CLI avec des modèles Resource Manager pour déployer vos ressources dans Azure.  Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble du déploiement de modèles](overview.md).
 
 Les commandes de déploiement ont changé dans la version 2.2.0 d’Azure CLI. Les exemples de cet article nécessitent la [Azure CLI version 2.20.0 ou une version ultérieure](/cli/azure/install-azure-cli).
 
@@ -22,7 +24,7 @@ Si Azure CLI n’est pas installé, vous pouvez utiliser Azure Cloud Shell. Pour
 
 ## <a name="deployment-scope"></a>Étendue du déploiement
 
-Vous pouvez cibler votre déploiement au niveau d’un groupe de ressources, d’un abonnement, d’un groupe d’administration ou d’un locataire. Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement.
+Vous pouvez cibler votre modèle de déploiement Azure au niveau d’un groupe de ressources, d’un abonnement, d’un groupe d’administration ou d’un locataire. Les commandes à utiliser diffèrent en fonction de l’étendue du déploiement.
 
 * Pour un déploiement dans un **groupe de ressources**, utilisez [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) :
 
@@ -58,7 +60,7 @@ Pour chaque étendue, l’utilisateur qui déploie le modèle doit disposer des 
 
 ## <a name="deploy-local-template"></a>Déployer un modèle local
 
-Vous pouvez déployer un modèle à partir de votre ordinateur local ou d’un modèle stocké en externe. Cette section décrit le déploiement d’un modèle local.
+Vous pouvez déployer un modèle ARM à partir de votre ordinateur local ou d’un modèle stocké en externe. Cette section décrit le déploiement d’un modèle local.
 
 Si vous effectuez un déploiement vers un groupe de ressources qui n’existe pas, vous devez commencer par créer ce dernier. Le nom du groupe de ressources ne peut contenir que des caractères alphanumériques, des points, des traits de soulignement, des traits d'union et des parenthèses. Il peut comprendre jusqu’à 90 caractères. Le nom ne peut pas se terminer par un point.
 
@@ -76,7 +78,7 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message qui inclut le résultat :
+Le déploiement d’un modèle Azure peut prendre plusieurs minutes. Au terme, vous voyez un message qui inclut le résultat :
 
 ```output
 "provisioningState": "Succeeded",
@@ -118,9 +120,9 @@ az deployment group create \
 
 Pour plus d’informations, consultez [Utiliser le chemin d’accès relatif pour les modèles liés](./linked-templates.md#linked-template).
 
-## <a name="deployment-name"></a>Nom du déploiement
+## <a name="azure-deployment-template-name"></a>Nom du modèle de déploiement Azure
 
-Lors du déploiement d’un modèle ARM, vous pouvez attribuer un nom au déploiement. Ce nom peut vous aider à récupérer le déploiement à partir de l’historique de déploiement. Si vous n’attribuez pas de nom au déploiement, le nom du fichier de modèle est utilisé. Par exemple, si vous déployez un modèle nommé _azuredeploy.json_ et que vous ne spécifiez pas de nom de déploiement, le déploiement est nommé `azuredeploy`.
+Lors du déploiement d’un modèle ARM, vous pouvez attribuer un nom au modèle de déploiement Azure. Ce nom peut vous aider à récupérer le déploiement à partir de l’historique de déploiement. Si vous n’attribuez pas de nom au déploiement, le nom du fichier de modèle est utilisé. Par exemple, si vous déployez un modèle nommé _azuredeploy.json_ et que vous ne spécifiez pas de nom de déploiement, le déploiement est nommé `azuredeploy`.
 
 Chaque fois que vous exécutez un déploiement, une entrée est ajoutée à l’historique de déploiement du groupe de ressources avec le nom du déploiement. Si vous exécutez un autre déploiement et que vous lui attribuez le même nom, l’entrée précédente est remplacée par le déploiement actuel. Si vous souhaitez conserver des entrées uniques dans l’historique de déploiement, attribuez un nom unique à chaque déploiement.
 
@@ -175,7 +177,7 @@ Pour plus d’informations, consultez [Specs de modèle Azure Resource Manager](
 
 ## <a name="preview-changes"></a>Prévisualiser les modifications
 
-Avant de déployer votre modèle, vous pouvez afficher un aperçu des modifications que le modèle apportera à votre environnement. Utilisez l’[opération de simulation](./deploy-what-if.md) pour vérifier que le modèle apporte les changements prévus. Cette opération vérifie aussi que le modèle est exempt d’erreurs.
+Avant de déployer votre modèle ARM, vous pouvez prévisualiser les modifications que le modèle apportera à votre environnement. Utilisez l’[opération de simulation](./deploy-what-if.md) pour vérifier que le modèle apporte les changements prévus. Cette opération vérifie aussi que le modèle est exempt d’erreurs.
 
 ## <a name="parameters"></a>Paramètres
 

@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b344e2a845a9da8333860599bd4ff9041108202f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4659e44475c09a1a42c06041e3f180357af9ee2
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100588250"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556024"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---flexible-server"></a>Journalisation d’audit dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -27,12 +27,30 @@ Par défaut, les instructions de journal pgAudit sont émises en même temps que
 
 Pour savoir comment configurer la journalisation dans les services Stockage Azure et Event Hubs ou les journaux Azure Monitor, consultez la section concernant les journaux de ressources dans l’[article sur les journaux de serveur](concepts-logging.md).
 
-## <a name="enabling-pgaudit"></a>Activation de pgAudit
+## <a name="installing-pgaudit"></a>Installation de pgAudit
 
-Pour activer pgAudit, vous devez vous connecter à votre serveur à l’aide d’un client (comme psql) et activer l’extension pgAudit en exécutant la commande suivante :
-```SQL
-CREATE EXTENSION pgaudit;
-```
+Pour installer pgAudit, vous devez l’inclure dans les bibliothèques de préchargement partagées du serveur. Une modification apportée au paramètre `shared_preload_libraries` de Postgres nécessite un redémarrage du serveur pour prendre effet. Vous pouvez modifier les paramètres à l’aide du [portail Azure](howto-configure-server-parameters-using-portal.md), d’[Azure CLI](howto-configure-server-parameters-using-cli.md) ou de l’[API REST](/rest/api/postgresql/singleserver/configurations/createorupdate).
+
+À l’aide du [Portail Azure](https://portal.azure.com) :
+
+   1. Sélectionnez votre instance Azure Database pour PostgreSQL – Serveur flexible.
+   2. Dans la barre latérale, sélectionnez **Paramètres du serveur**.
+   3. Recherchez le paramètre `shared_preload_libraries`.
+   4. Sélectionnez **pgaudit**.
+     :::image type="content" source="./media/concepts-audit/shared-preload-libraries.png" alt-text="Capture d’écran montrant Azure Database pour PostgreSQL ; activation de shared_preload_libraries pour pgaudit":::
+   5. Vous pouvez vérifier que **pgaudit** est chargé dans shared_preload_libraries en exécutant la requête suivante dans psql :
+        ```SQL
+      show shared_preload_libraries;
+      ```
+      Vous devriez voir **pgaudit** dans le résultat de la requête qui renverra shared_preload_libraries.
+
+   6. Connectez-vous à votre serveur à l’aide d’un client (par exemple, psql), puis activez l’extension pgAudit.
+      ```SQL
+      CREATE EXTENSION pgaudit;
+      ```
+
+> [!TIP]
+> Si une erreur s’affiche, vérifiez que vous avez redémarré le serveur après l’enregistrement de `shared_preload_libraries`.
 
 ## <a name="pgaudit-settings"></a>Paramètres pgAudit
 
@@ -41,7 +59,16 @@ pgAudit vous permet de configurer la journalisation d’audit des sessions et de
 > [!NOTE]
 > Les paramètres pgAudit sont spécifiés globalement et ne peuvent pas être spécifiés au niveau d’une base de données ou d’un rôle.
 
-Une fois que vous avez [activé pgAudit](#enabling-pgaudit), vous pouvez configurer ses paramètres pour démarrer la journalisation. La [documentation pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) donne la définition de chaque paramètre. Testez d’abord les paramètres pour vérifier que vous obtenez le comportement attendu.
+Une fois que vous avez [activé pgAudit](#installing-pgaudit), vous pouvez configurer ses paramètres pour démarrer la journalisation. Pour configurer pgAudit, vous pouvez suivre les instructions ci-dessous. À l’aide du [Portail Azure](https://portal.azure.com) :
+
+   1. Sélectionnez votre serveur Azure Database pour PostgreSQL.
+   2. Dans la barre latérale, sélectionnez **Paramètres du serveur**.
+   3. Recherchez les paramètres `pg_audit`.
+   4. Choisissez les paramètres de configuration appropriés à modifier. Par exemple, pour démarrer la journalisation, définissez `pgaudit.log` sur `WRITE`. :::image type="content" source="./media/concepts-audit/pgaudit-config.png" alt-text="Capture d’écran montrant Azure Database pour PostgreSQL ; configuration de la journalisation avec pgaudit":::
+   5. Cliquez sur le bouton **Enregistrer** pour enregistrer les modifications.
+
+
+La [documentation pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) donne la définition de chaque paramètre. Testez d’abord les paramètres pour vérifier que vous obtenez le comportement attendu.
 
 > [!NOTE]
 > L’affectation de la valeur ON à `pgaudit.log_client` permet de rediriger les journaux vers un processus client (comme psql) au lieu de les écrire dans un fichier. Ce paramètre doit généralement rester désactivé. <br> <br>

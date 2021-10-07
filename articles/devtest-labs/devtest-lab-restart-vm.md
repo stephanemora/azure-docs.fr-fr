@@ -1,14 +1,14 @@
 ---
-title: Redémarrer une machine virtuelle dans un laboratoire dans Azure DevTest Labs | Microsoft Docs
+title: Redémarrer une machine virtuelle dans un laboratoire
 description: Cet article décrit les étapes permettant de redémarrer rapidement et facilement des machines virtuelles dans Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: d2bcbcbea613aa84da91789fb9f118afd7023fab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07d580421c4f4bca8fbf81e7d300d1e38873c386
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85481987"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128625180"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Redémarrer une machine virtuelle dans un laboratoire dans Azure DevTest Labs
 Vous pouvez rapidement et facilement redémarrer une machine virtuelle dans DevTest Labs en suivant les étapes décrites dans cet article. Prenez en considération les éléments suivants avant de redémarrer une machine virtuelle :

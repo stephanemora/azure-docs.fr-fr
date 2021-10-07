@@ -2,13 +2,13 @@
 title: Migrer les espaces de noms Azure Service Bus Standard vers Premium
 description: Guide pour permettre la migration d’espaces de noms Standard Service Bus Azure existants vers le niveau Premium
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/20/2021
+ms.openlocfilehash: eea34edddf641e3ee1c07bea92b20364e7aeaf34
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85340753"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128602066"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrer des espaces de noms Standard Service Bus existants vers le niveau Premium
 
@@ -90,30 +90,38 @@ Pour migrer votre espace de noms Standard Service Bus vers Premium à l'aide de 
 La migration à l’aide du portail Azure suit le même flux logique que la migration avec les commandes. Suivez ces étapes pour migrer à l’aide du portail Azure.
 
 1. Dans le menu **Navigation** du volet de gauche, sélectionnez **Migrer vers Premium**. Cliquez sur le bouton **Commencer** pour passer à la page suivante.
-    ![Page d’accueil de migration][]
+    :::image type="content" source="./media/service-bus-standard-premium-migration/migrate-premium-page.png" alt-text="Image montrant la page Migrer vers Premium.":::
+1. La page suivante s’affiche : **Configurer des espaces de noms**.
 
-1. Exécutez l’**installation**.
-   ![Configurer l'espace de noms][]
-   1. Créez et attribuez l'espace de noms Premium vers lequel migrer l'espace de noms Standard existant.
-        ![Créer un espace de noms - créer un espace de noms Premium][]
-   1. Choisissez un **nom de post- migration**. Vous utiliserez ce nom pour accéder à l'espace de noms Standard une fois la migration terminée.
-        ![Configurer un espace de noms - choisir le nom de la post-migration][]
-   1. Sélectionnez **Suivant** pour continuer.
-1. Synchronisez les entités entre les espaces de noms Standard et Premium.
-    ![Configurer un espace de noms - synchroniser les entités - démarrer][]
+    :::image type="content" source="./media/service-bus-standard-premium-migration/setup-namespaces-page.png" alt-text="Image montrant la page Configurer des espaces de noms.":::
+1. Dans les pages **Configurer des espaces de noms**, effectuez l’une des étapes suivantes : 
+    1. Si vous sélectionnez **Créer un nouvel espace de noms Premium** :
+        1. Dans la page **Créer un espace de noms** , entrez un nom pour l’espace de noms, puis sélectionnez **Vérifier + créer**.
+        1. Dans la page **Vérifier + créer**, sélectionnez **Créer**.
 
-   1. Sélectionnez **Démarrer la synchronisation** pour lancer la synchronisation des entités.
-   1. Sélectionnez **Oui** dans la boîte de dialogue pour confirmer et démarrer la synchronisation.
-   1. Attendez la fin de la synchronisation. Le statut est disponible dans la barre d'état.
-        ![Configurer l'espace de noms - synchroniser les entités - avancement][]
-        >[!IMPORTANT]
-        > Si vous avez besoin d'interrompre la migration pour une raison quelconque, veuillez consulter la section FAQ de ce document.
-   1. Une fois la synchronisation terminée, sélectionnez **Suivant** en bas de la page.
+            :::image type="content" source="./media/service-bus-standard-premium-migration/create-premium-namespace.png" alt-text="Image montrant la page Créer un espace de noms.":::
+    1. Si vous sélectionnez **Sélectionner un espace de noms Premium vide** :
+        1. Sélectionnez l’abonnement Azure et le groupe de ressources qui possède l’espace de nom.
+        1. Sélectionnez ensuite l’espace de noms Premium.
+        1. Puis cliquez sur **Sélectionner**.
+        
+            :::image type="content" source="./media/service-bus-standard-premium-migration/select-existing-namespace.png" alt-text="Image montrant la sélection d’un espace de noms Premium existant.":::
+1. Entrez un **nom post-migration**, puis sélectionnez **Suivant**. Vous utiliserez ce nom pour accéder à l'espace de noms Standard une fois la migration terminée.
 
-1. Examinez les changements sur la page Résumé. Sélectionnez **Terminer la migration** pour changer d'espace de noms et terminer la migration.
-    ![Changer d'espace de noms - changer de menu][]  
-    La page de confirmation s'affiche lorsque la migration est terminée.
-    ![Changer d'espace de noms - réussite][]
+    :::image type="content" source="./media/service-bus-standard-premium-migration/enter-post-migration-name.png" alt-text="Image montrant le nom post-migration de l’espace de noms Standard.":::
+1. Sélectionnez **Commencer la synchronisation** pour synchroniser les entités entre les espaces de noms Standard et Premium.
+
+    :::image type="content" source="./media/service-bus-standard-premium-migration/start-sync-button.png" alt-text="Image montrant le bouton Démarrer la synchronisation.":::
+1. Sélectionnez **Oui** dans la boîte de dialogue pour confirmer et démarrer la synchronisation. Attendez la fin de la synchronisation. Ensuite, sélectionnez **Suivant**.
+
+    >[!IMPORTANT]
+    > Si vous avez besoin d'interrompre la migration pour une raison quelconque, veuillez consulter la section FAQ de ce document.    
+1. Sélectionnez **Terminer la migration** sur la page **Basculer**. 
+
+    :::image type="content" source="./media/service-bus-standard-premium-migration/complete-migration.png" alt-text="Image montrant la page **Basculer** de l’Assistant de migration.":::
+1. Sélectionnez **Oui** pour confirmer le basculement de votre espace de noms Standard vers Premium. Une fois le basculement terminé, le nom DNS de votre espace de noms Standard pointera vers votre espace de noms Premium. Cette opération ne peut pas être annulée. La page **Opération réussie** s’affiche lorsque la migration est terminée.
+
+    :::image type="content" source="./media/service-bus-standard-premium-migration/success-page.png" alt-text="Image montrant la page Opération réussie.":::
 
 ## <a name="caveats"></a>Mises en garde
 
@@ -178,8 +186,13 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Portail Azure
 
-![Abandonner le flux - abandonner la synchronisation][]
-![Abandonner le flux - abandon terminé][]
+Sélectionnez **Abandonner** sur la page **Synchroniser les entités**. 
+
+:::image type="content" source="./media/service-bus-standard-premium-migration/abort1.png" alt-text="Image montrant la page Abandonner.":::
+
+Une fois l’opération terminée, la page suivante s’affiche : 
+
+:::image type="content" source="./media/service-bus-standard-premium-migration/abort3.png" alt-text="Image montrant la page Abandon terminé.":::
 
 Lorsque le processus de migration est abandonné, il interrompt le processus de copie des entités (rubriques, abonnements et filtres) de l'espace de noms Standard vers l'espace de noms Premium et interrompt aussi le jumelage.
 
@@ -213,14 +226,3 @@ Cependant, si vous pouvez migrer au cours d'une fenêtre de maintenance planifi�
 * En savoir plus sur les [différences entre les messageries Standard et Premium](./service-bus-premium-messaging.md).
 * En savoir plus sur les [Aspects liés à la haute disponibilité et à la géo-reprise d'activité après sinistre pour Service Bus Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
-[Page d’accueil de migration]: ./media/service-bus-standard-premium-migration/1.png
-[Configurer l'espace de noms]: ./media/service-bus-standard-premium-migration/2.png
-[Créer un espace de noms - créer un espace de noms Premium]: ./media/service-bus-standard-premium-migration/3.png
-[Configurer un espace de noms - choisir le nom de la post-migration]: ./media/service-bus-standard-premium-migration/4.png
-[Configurer un espace de noms - synchroniser les entités - démarrer]: ./media/service-bus-standard-premium-migration/5.png
-[Configurer l'espace de noms - synchroniser les entités - avancement]: ./media/service-bus-standard-premium-migration/8.png
-[Changer d'espace de noms - changer de menu]: ./media/service-bus-standard-premium-migration/9.png
-[Changer d'espace de noms - réussite]: ./media/service-bus-standard-premium-migration/12.png
-
-[Abandonner le flux - abandonner la synchronisation]: ./media/service-bus-standard-premium-migration/abort1.png
-[Abandonner le flux - abandon terminé]: ./media/service-bus-standard-premium-migration/abort3.png

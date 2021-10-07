@@ -1,20 +1,20 @@
 ---
 title: Vue d’ensemble des Azure Dedicated Hosts pour machines virtuelles
 description: Découvrez-en plus sur la manière dont les hôtes dédiés Azure peuvent être utilisés pour déployer des machines virtuelles.
-author: cynthn
+author: brittanyrowe
 ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 12/07/2020
-ms.author: cynthn
-ms.reviewer: zivr
-ms.openlocfilehash: bbc2cda053a2a9fafd88f974eaf10be4ae0c1784
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.author: brittanyrowe
+ms.reviewer: brittanyrowe
+ms.openlocfilehash: 6e34d5c638c8501840c9ef8d9bbaf22ae2874ff1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687523"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128557095"
 ---
 # <a name="azure-dedicated-hosts"></a>Hôtes dédiés Azure
 
@@ -80,7 +80,6 @@ Les groupes hôtes activés pour la sélection élective automatique n’exigent
 
 Problèmes connus et limitations lors de l’utilisation de la sélection élective automatique :
 
-- Vous ne pourrez pas appliquer Azure Hybrid Benefit sur vos hôtes dédiés.
 - Vous ne pourrez pas redéployer votre machine virtuelle.
 - Vous ne pourrez pas utiliser de machines virtuelles Lsv2, NVasv4, NVsv3, Msv2 ou de série M avec des hôtes dédiés.
 
@@ -176,7 +175,7 @@ Azure surveille et gère l’état d’intégrité de vos hôtes. Les états sui
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Vous pouvez déployer un hôte dédié à l’aide d’[Azure PowerShell](./windows/dedicated-hosts-powershell.md), du [portail](./dedicated-hosts-portal.md) et d’[Azure CLI](./linux/dedicated-hosts-cli.md).
+- Pour déployer un hôte dédié, consultez [Déployer des machines virtuelles et des groupes identiques sur des hôtes dédiés](./dedicated-hosts-how-to.md).
 
 - Il existe un [exemple de modèle](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md) qui utilise à la fois les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
 

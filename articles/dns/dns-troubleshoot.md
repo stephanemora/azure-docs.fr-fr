@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: fae63c61949302e25c9dee2899577fa4f0d2a975
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4621b73c8b71ba3bb4b42801de5e306cfa3562e
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94965576"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128573102"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure DNS
 
@@ -72,6 +72,33 @@ La résolution de noms DNS est un processus en plusieurs étapes. Elle peut éch
 * [Délégation de domaine à Azure DNS](dns-domain-delegation.md)
 
 
+## <a name="unhealthy-dns-zones"></a>Zones DNS non saines
+
+Les erreurs de configuration peuvent amener les zones DNS à devenir non saines. Les scénarios suivants peuvent entraîner ce comportement :
+
+* **Délégation non saine** : Une zone contient des enregistrements de délégation *NS* qui permettent de déléguer le trafic de la zone principale vers les zones enfants. Si l’un des enregistrements *NS* est présent dans la zone parente, le serveur DNS est censé masquer les autres enregistrements en dessous de la délégation, à l’exception des enregistrements de collage. Toutefois, si la zone contient d’autres enregistrements en dessous de la délégation, la zone est marquée non saine.
+
+    Le tableau ci-dessous présente les scénarios et leurs résultats correspondants en matière d’intégrité de la zone lorsqu’une zone contient un enregistrement de délégation NS.
+
+    | Scénario | La zone contient</br>un enregistrement de délégation NS ? | La zone contient</br>des enregistrements de collage ? | La zone contient d’autres</br>enregistrements en dessous</br>de la délégation ? | Intégrité de la zone |
+    |----------|-------------------------------------|-----------------------------|--------------------------------------------------|-------------|
+    | 1        | Non                                  | -                           | -                                                | Healthy     |
+    | 2        | Oui                                 | Oui                         | Non                                               | Healthy     |
+    | 3        | Oui                                 | Non                          | Non                                               | Healthy     |
+    | 4        | Oui                                 | Non                          | Oui                                              | Unhealthy   |
+    | 5        | Oui                                 | Oui                         | Oui                                              | Unhealthy   |
+
+    **Recommandation :** Supprimez tous les enregistrements, à l’exception des enregistrements de collage, sous les enregistrements de délégation qui se trouvent dans vos zones.
+
+* **TTL zéro :** La TTL (durée de vie) est un paramètre qui indique à l’outil de résolution DNS la durée de mise en cache d’une requête avant d’en demander une nouvelle. Les informations collectées sont ensuite stockées dans le cache de l’outil de résolution récursif ou local pendant la période de la durée de vie avant qu’il ne retourne collecter les détails nouveaux et mis à jour.
+
+    Si la durée de vie est définie sur zéro dans la configuration, vous pouvez rencontrer l’un des problèmes suivants :
+
+    * Réponse longue.
+    * Augmentation du trafic et du coût du DNS.
+    * Susceptible de subir des attaques DDoS.
+
+    **Recommandation** : Assurez-vous que la valeur de la durée de vie n’est pas définie sur *0*. 
 
 ## <a name="how-do-i-specify-the-service-and-protocol-for-an-srv-record"></a>Comment spécifier le « service » et le « protocole » pour un enregistrement SRV ?
 

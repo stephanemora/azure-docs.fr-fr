@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 09/14/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cfb09f383d8425a644d3e2e87d190b350f5f41a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c47530e3fd7626674297a2d910ff9c39722c228b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564634"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128650835"
 ---
 # <a name="configure-privileged-access-group-settings-preview-in-privileged-identity-management"></a>Configurer les paramètres de groupe d’accès privilégié (préversion) dans Privileged Identity Management
 
@@ -30,7 +30,7 @@ Les paramètres de rôle sont les paramètres par défaut appliqués aux attribu
 
 Procédez comme suit pour ouvrir les paramètres d’un rôle de groupe d’accès privilégié Azure.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../roles/permissions-reference.md#privileged-role-administrator).
+1. Connectez-vous à [Portail Azure](https://portal.azure.com/) avec un utilisateur ayant le rôle [Administrateur général](../roles/permissions-reference.md#global-administrator) ou qui est affecté en tant que propriétaire du groupe.
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
@@ -90,17 +90,17 @@ Vous pouvez choisir l’une de ces options de durée d’attribution **active**�
 > [!NOTE]
 > Toutes les attributions qui ont une date de fin spécifiée peuvent être renouvelées par les administrateurs de ressources. De plus, les utilisateurs peuvent lancer des demandes en libre-service afin d’[étendre ou renouveler des attributions de rôles](pim-resource-roles-renew-extend.md).
 
-## <a name="require-multi-factor-authentication"></a>Exiger une authentification multifacteur
+## <a name="require-multifactor-authentication"></a>Exiger l’authentification multifacteur
 
 Privileged Identity Management permet également l'implémentation facultative d'Azure AD Multi-Factor Authentication dans deux scénarios distincts.
 
-### <a name="require-multi-factor-authentication-on-active-assignment"></a>Demander l'authentification multifacteur lors de l'attribution active
+### <a name="require-multifactor-authentication-on-active-assignment"></a>Exiger l’authentification multifacteur lors de l’attribution active
 
-Dans certains cas, vous pouvez attribuer un utilisateur ou un groupe à un rôle pour une courte durée (une journée, par exemple). Les utilisateurs attribués n’ont alors pas besoin de demander l’activation. Dans ce scénario, Privileged Identity Management ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
+Avec cette option, les administrateurs doivent effectuer une authentification multifacteur avant de créer une attribution de rôle active (par opposition à éligible). Privileged Identity Management ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
 
-Pour garantir que l’administrateur de ressources qui réalise l’attribution est bien celui qu’il prétend être, vous pouvez appliquer l’authentification multifacteur lors de l’attribution active en cochant la case **Demander l’authentification multifacteur lors de l’attribution active**.
+Pour exiger une authentification multifacteur lors de la création d’une attribution de rôle active, cochez la case **Demander l’authentification multifacteur lors de l’attribution active**.
 
-### <a name="require-multi-factor-authentication-on-activation"></a>Exiger Multi-Factor Authentication lors de l’activation
+### <a name="require-multifactor-authentication-on-activation"></a>Exiger l’authentification multifacteur lors de l’activation
 
 Vous pouvez exiger des utilisateurs éligibles à un rôle qu'ils s'authentifient à l'aide d'Azure AD Multi-Factor Authentication pour effectuer l'activation. L’authentification multifacteur garantit, avec une certitude raisonnable, que l’utilisateur est bien celui qu’il prétend être. L’application de cette option permet de protéger les ressources critiques au cas où le compte d’utilisateur pourrait être compromis.
 

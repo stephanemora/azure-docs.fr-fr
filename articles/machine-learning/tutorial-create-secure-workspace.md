@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 08/17/2021
+ms.date: 09/15/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: c704064685b4096c8ee7b4a1015d82fae7c40ba9
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: f0b4f19e8c1e06aa8ab5657fd1c70a75814451ad
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527725"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128612184"
 ---
 # <a name="how-to-create-a-secure-workspace"></a>Procédure de création d’un espace de travail sécurisé
 
@@ -79,22 +79,30 @@ Pour créer un réseau virtuel, procédez comme suit :
     1. Pour créer un sous-réseau contenant l’espace de travail, les services de dépendance et les ressources utilisées pour la formation, sélectionnez __+ Ajouter un sous-réseau__ et utilisez les valeurs suivantes pour le sous-réseau :
         * __Nom du sous-réseau__ : Formation
         * __Plage d’adresses de sous-réseau__ : 172.17.0.0/24
-        * __Services__ : Sélectionnez les services suivants :
-            * __Microsoft.Storage__
-            * __Microsoft.KeyVault__
-            * __Microsoft.ContainerRegistry__
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-training-subnet.png" alt-text="Capture d’écran du sous-réseau Formation":::
+
+        > [!TIP]
+        > Si vous prévoyez d’utiliser un _point de terminaison de service_ pour ajouter vos instances Stockage Azure, Azure Key Vault et Azure Container Registry au réseau virtuel, sélectionnez les éléments suivants sous __Services__ :
+        > * __Microsoft.Storage__
+        > * __Microsoft.KeyVault__
+        > * __Microsoft.ContainerRegistry__
+        >
+        > Si vous envisagez d’utiliser un _point de terminaison privé_ pour ajouter ces services au réseau virtuel, vous n’avez pas besoin de sélectionner ces entrées. Les étapes décrites dans cet article utilisent un point de terminaison privé pour ces services. Vous n’avez donc pas besoin de les sélectionner lorsque vous suivez ces étapes.
 
     1. Pour créer un sous-réseau pour les ressources de calcul utilisées pour le scoring de vos modèles, sélectionnez à nouveau __+ Ajouter un sous-réseau__, et utilisez les valeurs suivantes :
         * __Nom du sous-réseau__ : Scoring
         * __Plage d’adresses de sous-réseau__ : 172.17.1.0/24
-        * __Services__ : Sélectionnez les services suivants :
-            * __Microsoft.Storage__
-            * __Microsoft.KeyVault__
-            * __Microsoft.ContainerRegistry__
 
         :::image type="content" source="./media/tutorial-create-secure-workspace/vnet-add-scoring-subnet.png" alt-text="Capture d’écran du sous-réseau Scoring":::
+
+        > [!TIP]
+        > Si vous prévoyez d’utiliser un _point de terminaison de service_ pour ajouter vos instances Stockage Azure, Azure Key Vault et Azure Container Registry au réseau virtuel, sélectionnez les éléments suivants sous __Services__ :
+        > * __Microsoft.Storage__
+        > * __Microsoft.KeyVault__
+        > * __Microsoft.ContainerRegistry__
+        >
+        > Si vous envisagez d’utiliser un _point de terminaison privé_ pour ajouter ces services au réseau virtuel, vous n’avez pas besoin de sélectionner ces entrées. Les étapes décrites dans cet article utilisent un point de terminaison privé pour ces services. Vous n’avez donc pas besoin de les sélectionner lorsque vous suivez ces étapes.
 
 1. Sélectionnez __Sécurité__. Pour __BastionHost__, sélectionnez __Activer__. [Azure Bastion](../bastion/bastion-overview.md) fournit un moyen sécurisé d’accéder au serveur de rebond de la machine virtuelle que vous créerez à l’intérieur du réseau virtuel à une étape ultérieure. Utilisez les valeurs suivantes pour les champs restants :
 
@@ -282,21 +290,6 @@ Pour créer un réseau virtuel, procédez comme suit :
 ## <a name="enable-studio"></a>Activer le studio
 
 Azure Machine Learning studio est une application web qui vous permet de gérer facilement votre espace de travail. Toutefois, elle nécessite une configuration supplémentaire avant de pouvoir être utilisée avec des ressources sécurisées à l’intérieur d’un réseau virtuel. Suivez les étapes suivantes pour activer le studio :
-
-1. À partir du portail Azure, sélectionnez votre compte de stockage, puis sélectionnez __Contrôle d’accès (IAM)__ .
-1. Sélectionnez __+ Ajouter__, puis __Ajouter une attribution de rôle (préversion)__ .
-
-    ![Page Contrôle d’accès (IAM) avec le menu Ajouter une attribution de rôle ouvert.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
-
-1. Dans l’onglet __Rôle__, sélectionnez __Contributeur aux données Blob du stockage__.
-
-    ![Page Ajouter une attribution de rôle avec l’onglet Rôle sélectionné.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
-
-1. Dans l’onglet __Membres__, sélectionnez __Utilisateur, groupe ou principal de service__ dans la zone __Attribuer l’accès à__, puis sélectionnez __+ Sélectionner des membres__. Dans la boîte de dialogue __Sélectionner des membres__, entrez le nom de votre espace de travail Azure Machine Learning. Sélectionnez le principal de service de l’espace de travail, puis utilisez le bouton __Sélectionner__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/studio-select-service-principal.png" alt-text="Capture d’écran de la sélection du principal de service":::
-
-1. Dans l’onglet **Passer en revue + affecter**, sélectionnez **Passer en revue + affecter** pour affecter le rôle.
 
 1. Lorsque vous utilisez un compte stockage Azure disposant d’un point de terminaison privé, ajoutez le principal du service pour l’espace de travail en tant que __Lecteur__ pour le(s) point(s) de terminaison privé(s) de stockage. À partir du portail Azure, sélectionnez votre compte de stockage, puis sélectionnez __Mise en réseau__. Ensuite, sélectionnez __Connexions de point de terminaison privé__.
 

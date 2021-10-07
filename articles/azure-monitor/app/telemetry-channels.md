@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: a22a0d112671019d73eb4c9a3853462e4e9c8c75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bba7516637bedf6e81747cbb27f926964c63f53
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98937354"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128556506"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canaux de télémétrie dans Application Insights
 
@@ -111,7 +111,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 `ServerTelemetryChannel` stocke les éléments entrants dans la mémoire tampon. Les éléments sont sérialisés, compressés et stockés dans une instance `Transmission` toutes les 30 secondes, ou dès que la mémoire tampon atteint 500 éléments. Une seule instance `Transmission` peut contenir jusqu’à 500 éléments de télémétrie, constituant un lot qui est envoyé au service Application Insights par le biais d’un appel HTTPS unique.
 
-Par défaut, un maximum de 10 instances `Transmission` peuvent être envoyées en parallèle. Si les données de télémétrie arrivent à un rythme plus rapide, ou si le réseau ou le serveur back-end Application Insights est lent, les instances `Transmission` sont mises en mémoire tampon. La capacité par défaut de cette mémoire tampon `Transmission` est de 5 Mo. En cas de dépassement de la capacité mémoire, les instances `Transmission` sont stockées sur le disque local à hauteur de 50 Mo. Les instances `Transmission` sont également stockées sur le disque local quand des problèmes réseau se produisent. Seuls les éléments stockés sur un disque local sont conservés après un plantage de l’application. Ils sont envoyés au redémarrage de l’application.
+Par défaut, un maximum de 10 instances `Transmission` peuvent être envoyées en parallèle. Si les données de télémétrie arrivent à un rythme plus rapide, ou si le réseau ou le serveur back-end Application Insights est lent, les instances `Transmission` sont mises en mémoire tampon. La capacité par défaut de cette mémoire tampon `Transmission` est de 5 Mo. En cas de dépassement de la capacité mémoire, les instances `Transmission` sont stockées sur le disque local à hauteur de 50 Mo. Les instances `Transmission` sont également stockées sur le disque local quand des problèmes réseau se produisent. Seuls les éléments stockés sur un disque local sont conservés après un plantage de l’application. Ils sont envoyés au redémarrage de l’application. Si les problèmes de réseau persistent, `ServerTelemetryChannel` utilise une logique de backoff exponentiel allant de 10 secondes à 1 heure avant une nouvelle tentative d’envoi de télémétrie. 
 
 ## <a name="configurable-settings-in-channels"></a>Paramètres configurables dans les canaux
 

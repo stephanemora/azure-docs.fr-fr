@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 09/13/2021
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: f8db25d79784b1a2ca2b63ace57f729271271a43
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: cccd744e8c123cd9441ff9aca47d2341ea9d80fb
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113218868"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128679860"
 ---
 # <a name="about-connectors-in-azure-logic-apps"></a>À propos des connecteurs dans Azure Logic Apps
 
@@ -46,7 +46,7 @@ Une *action* est une opération qui suit le déclencheur et effectue un certain 
 
 ## <a name="connector-categories"></a>Catégories de connecteurs
 
-Dans Logic Apps, la plupart des déclencheurs et des actions sont disponibles dans une version *intégrée* ou une version de *connecteur managé* . Peu de déclencheurs et d’actions sont disponibles dans les deux versions. Les versions disponibles varient selon que vous créez une application logique multilocataire ou une application logique à locataire unique, qui n’est actuellement disponible que dans la [Azure Logic Apps monolocataire](../logic-apps/single-tenant-overview-compare.md).
+Dans Azure Logic Apps, la plupart des déclencheurs et des actions sont disponibles dans une version *intégrée* ou une version de *connecteur managé*. Peu de déclencheurs et d’actions sont disponibles dans les deux versions. Les versions disponibles varient selon que vous créez une application logique multilocataire ou une application logique à locataire unique, qui n’est actuellement disponible que dans la [Azure Logic Apps monolocataire](../logic-apps/single-tenant-overview-compare.md).
 
 Les [déclencheurs et actions intégrés](built-in.md) s’exécutent en mode natif sur le runtime Logic Apps, ne nécessitent pas la création de connexions, et effectuent ces types de tâches :
 
@@ -61,13 +61,27 @@ Les [connecteurs managés](managed.md) sont déployés, hébergés et managés p
 - [Connecteurs de compte d’intégration](managed.md#integration-account-connectors), qui prennent en charge les scénarios de communication B2B (Business-to-Business).
 - [Connecteurs d’environnement de service d’intégration (ISE)](managed.md#ise-connectors), qui constituent un petit groupe de [connecteurs managés disponibles uniquement pour les ISE](#ise-and-connectors).
 
+<a name="connection-configuration"></a>
+
 ## <a name="connection-configuration"></a>Configuration de connexion
 
-Pour la plupart des connecteurs, vous devez d’abord créer une *connexion* au service ou système cible, avant de pouvoir utiliser ses déclencheurs ou actions dans votre workflow. Pour créer une connexion, vous devez authentifier votre identité avec les informations d’identification du compte et parfois d’autres informations de connexion. Par exemple, pour permettre à votre workflow d’accéder à votre compte de messagerie Office 365 Outlook et l’utiliser, vous devez autoriser une connexion à ce compte.
+Pour créer ou gérer des ressources et des connexions d’application logique, vous avez besoin de certaines autorisations, qui sont fournies par le biais de rôles utilisant le [contrôle d’accès en fonction du rôle (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Vous pouvez attribuer des rôles intégrés ou personnalisés aux membres qui ont accès à votre abonnement Azure. Azure Logic Apps a ces rôles spécifiques :
+
+* [Contributeur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-contributor) : Permet de gérer des applications logiques, mais pas d’en modifier l’accès.
+
+* [Opérateur d’application logique](../role-based-access-control/built-in-roles.md#logic-app-operator) : Permet de lire, d’activer et de désactiver des applications logiques, mais pas de les modifier ni de les mettre à jour.
+
+* [Contributeur](../role-based-access-control/built-in-roles.md#contributor) : Accorde un accès total pour gérer toutes les ressources, mais ne vous permet pas d’affecter des rôles dans Azure RBAC, de gérer des affectations dans Azure Blueprints ou de partager des galeries d’images.
+
+  Par exemple, supposez que vous devez utiliser une application logique que vous n’avez pas créée, et authentifier les connexions utilisées par le flux de travail de cette application logique. Votre abonnement Azure requiert des autorisations de Contributeur pour le groupe de ressources qui contient cette ressource d’application logique. Si vous créez une ressource d’application logique, vous bénéficiez automatiquement d’un accès Contributeur.
+
+Avant de pouvoir utiliser les déclencheurs ou les actions d’un connecteur dans votre flux de travail, la plupart des connecteurs exigent que vous établissiez d’abord une *connexion* avec le service ou le système cible. Pour créer une connexion à partir d’un flux de travail d’application logique, vous devez authentifier votre identité avec les informations d’identification du compte et parfois d’autres informations de connexion. Par exemple, pour permettre à votre workflow d’accéder à votre compte de messagerie Office 365 Outlook et l’utiliser, vous devez autoriser une connexion à ce compte. Pour un petit nombre d’opérations intégrées et de connecteurs managés, vous pouvez [configurer et utiliser une identité managée pour l’authentification](../logic-apps/create-managed-service-identity.md#triggers-actions-managed-identity) plutôt que de fournir vos informations d’identification.
+
+<a name="connection-security-encyrption"></a>
 
 ### <a name="connection-security-and-encryption"></a>Sécurité et chiffrement de la connexion
 
-Dans le cas des connecteurs qui utilisent l’authentification OAuth Azure AD (Azure Active Directory), tels qu’Office 365, Salesforce ou GitHub, vous devez vous connecter au service où votre jeton d’accès est [chiffré](../security/fundamentals/encryption-overview.md) et stocké de manière sécurisée dans un secret Azure. D’autres connecteurs, comme FTP et SQL, nécessitent une connexion comprenant des détails de configuration, tels que l’adresse du serveur, le nom d’utilisateur et le mot de passe. Ces informations de configuration de connexion sont également [chiffrées et stockées de manière sécurisée dans Azure](../security/fundamentals/encryption-overview.md).
+Les détails de configuration de la connexion (adresse du serveur, nom d’utilisateur, mot de passe, etc.), les informations d’identification et les secrets sont [chiffrés et stockés dans l’environnement Azure sécurisé](../security/fundamentals/encryption-overview.md). Ces informations peuvent être utilisées uniquement dans les ressources d’application logique et par les clients qui ont des autorisations pour la ressource de connexion, ce qui est assuré par des contrôles de l’accès lié. Les connexions qui utilisent Azure Active Directory Open Authentication (Azure AD OAuth), comme Office 365, Salesforce et GitHub, nécessitent que vous vous connectiez, mais Azure Logic Apps stocke uniquement les jetons d’accès et d’actualisation en tant que secrets, et non les informations d’identification de connexion.
 
 Les connexions établies peuvent accéder au service ou système cible aussi longtemps que ce dernier l’autorise. Pour les services qui utilisent des connexions OAuth Azure AD, tels qu’Office 365 et Dynamics, le service Logic Apps actualise les jetons d’accès indéfiniment. D’autres services peuvent imposer des limites concernant la durée pendant laquelle Logic Apps peut utiliser un jeton sans actualisation. Certaines actions, telles que la modification de votre mot de passe, invalident tous les jetons d’accès.
 
@@ -76,11 +90,13 @@ Bien que les connexions soient créées à partir d’un workflow, il s’agit d
 > [!TIP]
 > Si votre organisation ne vous autorise pas à accéder à des ressources spécifiques par le biais de connecteurs Logic Apps, vous pouvez [bloquer la possibilité de créer ce genre de connexion](../logic-apps/block-connections-connectors.md) avec [Azure Policy](../governance/policy/overview.md).
 
+Pour plus d’informations sur la sécurisation des connexions et des applications logiques, consultez [Sécuriser l’accès et les données dans Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md).
+
 <a name="firewall-access"></a>
 
 ### <a name="firewall-access-for-connections"></a>Accès au pare-feu pour les connexions
 
-Si vous utilisez un pare-feu qui limite le trafic et que votre application logique doit communiquer via ce pare-feu, vous devez configurer votre pare-feu de manière à autoriser l’accès à la fois aux adresses IP [entrantes](../logic-apps/logic-apps-limits-and-config.md#inbound) et [sortante](../logic-apps/logic-apps-limits-and-config.md#outbound) utilisées par le service ou le runtime Logic Apps dans la région Azure où se trouvent vos workflows d’application logique. Si vos workflows utilisent également des connecteurs managés, comme le connecteur Office 365 Outlook ou le connecteur SQL, ou des connecteurs personnalisés, votre pare-feu doit aussi autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](../logic-apps/logic-apps-limits-and-config.md#outbound) dans la région Azure de votre application logique. Pour plus d’informations, consultez [Configuration du pare-feu](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags).
+Si vous utilisez un pare-feu qui limite le trafic et que votre application logique doit communiquer via ce pare-feu, vous devez configurer votre pare-feu de manière à autoriser l’accès à la fois aux adresses IP [entrantes](../logic-apps/logic-apps-limits-and-config.md#inbound) et [sortante](../logic-apps/logic-apps-limits-and-config.md#outbound) utilisées par le service ou le runtime Logic Apps dans la région Azure où se trouvent vos workflows d’application logique. Si vos workflows utilisent également des connecteurs managés, comme le connecteur Office 365 Outlook ou le connecteur SQL, ou des connecteurs personnalisés, votre pare-feu doit aussi autoriser l’accès pour *toutes* les [adresses IP sortantes de connecteur managé](/connectors/common/outbound-ip-addresses#azure-logic-apps) dans la région Azure de votre application logique. Pour plus d’informations, consultez [Configuration du pare-feu](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags).
 
 ## <a name="recurrence-behavior"></a>Comportement lié à la périodicité
 
@@ -186,4 +202,4 @@ Le tableau suivant répertorie les problèmes connus liés aux connecteurs Logic
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](../logic-apps/logic-apps-create-api-app.md)
+> [Créer des API personnalisées que vous pouvez appeler à partir de Logic Apps](../logic-apps/logic-apps-create-api-app.md)

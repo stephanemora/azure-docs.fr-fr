@@ -3,12 +3,12 @@ title: Vue d’ensemble des modèles
 description: Décrit les avantages apportés par l’utilisation de modèles Azure Resource Manager (modèles ARM) pour le déploiement de ressources.
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 62d25d2bd87f9335ac6442a7038f9326b04b36b0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 02731a2f37fda2758c9b9e9980b56a5017ed3506
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111960370"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128637572"
 ---
 # <a name="what-are-arm-templates"></a>Que sont les modèles ARM ?
 
@@ -36,7 +36,7 @@ Si vous essayez de choisir entre utiliser des modèles Resource Manager et l’u
 
    ![Comparaison de déploiements de modèles](./media/overview/template-processing.png)
 
-* **Fichiers modulaires** : Vous pouvez diviser vos modèles en composants plus petits et réutilisables et les lier au moment du déploiement. Vous pouvez également imbriquer un modèle dans d’autres modèles.
+* **Fichiers modulaires** : Vous pouvez diviser vos modèles en composants plus petits et réutilisables et les lier au moment du déploiement. Vous pouvez également imbriquer un modèle dans un autre modèle.
 
 * **Créez une ressource Azure** : Vous pouvez utiliser immédiatement les nouveaux services et fonctionnalités Azure dans les modèles. Dès qu’un fournisseur de ressources introduit de nouvelles ressources, vous pouvez les déployer par le biais de modèles. Vous n’avez pas besoin d’attendre la mise à jour des outils ou des modules avant d’utiliser les nouveaux services.
 
@@ -153,4 +153,4 @@ Cette approche signifie que vous pouvez partager en toute sécurité des modèle
 * Pour en savoir plus sur les modèles ARM par le biais d’un ensemble prédéfini de modules Microsoft Learn, consultez [Déployer et gérer des ressources dans Azure en utilisant des modèles ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 * Pour plus d’informations sur les propriétés de fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./syntax.md).
 * Pour en savoir plus sur l’exportation de modèles, consultez [Démarrage rapide : Créer et déployer des modèles Resource Manager à l’aide du portail Azure](quickstart-create-templates-use-the-portal.md).
-* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Foire aux questions sur les modèles ARM](frequently-asked-questions.md).
+* Pour obtenir des réponses aux questions les plus fréquentes, consultez [Foire aux questions sur les modèles ARM](./frequently-asked-questions.yml).

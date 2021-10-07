@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 09/13/2021
 tags: connectors
-ms.openlocfilehash: 10c946010fa3caba14130c3c7055c711323ad93c
-ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
+ms.openlocfilehash: 1c894c6162a8c9e24794f5c52ce1f6cefb6fa85a
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110498289"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563709"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS à partir d'Azure Logic Apps
 
@@ -256,7 +256,9 @@ Par exemple, supposons que vous ayez une application logique qui envoie une requ
 
 ## <a name="asynchronous-request-response-behavior"></a>Comportement de type requête-réponse asynchrone
 
-Par défaut, dans Azure Logic Apps, toutes les actions HTTP suivent le [modèle d’opération asynchrone standard](/azure/architecture/patterns/async-request-reply). Ce modèle spécifie qu’après l’appel d’une action HTTP ou l’envoi d’une requête à un point de terminaison, un service, un système ou une API, le récepteur retourne immédiatement la réponse [« 202 ACCEPTED »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Ce code confirme que le récepteur a accepté la requête, mais indique qu’il n’a pas terminé le traitement. La réponse peut inclure un en-tête `location` qui spécifie l’URL et un ID d’actualisation que l’appelant peut utiliser pour interroger ou vérifier l’état de la requête asynchrone jusqu’à ce que le récepteur arrête le traitement et retourne la réponse de réussite [« 200 OK »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou une réponse autre qu’une réponse 202. Toutefois, l’appelant n’a pas besoin d’attendre la fin du traitement de la requête et peut exécuter l’action suivante. Pour plus d’informations, consultez [L’intégration asynchrone des microservices permet l’autonomie des microservices](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+Pour les flux de travail *avec état* dans les applications logiques Azure multilocataires et monolocataires, toutes les actions HTTP suivent le [modèle d’opération asynchrone](/azure/architecture/patterns/async-request-reply) standard par défaut. Ce modèle spécifie qu’après l’appel d’une action HTTP ou l’envoi d’une requête à un point de terminaison, un service, un système ou une API, le récepteur retourne immédiatement la réponse [« 202 ACCEPTED »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Ce code confirme que le récepteur a accepté la requête, mais indique qu’il n’a pas terminé le traitement. La réponse peut inclure un en-tête `location` qui spécifie l’URI et un ID d’actualisation que l’appelant peut utiliser pour interroger ou vérifier l’état de la requête asynchrone jusqu’à ce que le récepteur arrête le traitement et renvoie la réponse de réussite [« 200 OK »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) ou une réponse autre qu’une réponse 202. Toutefois, l’appelant n’a pas besoin d’attendre la fin du traitement de la requête et peut exécuter l’action suivante. Pour plus d’informations, consultez [L’intégration asynchrone des microservices permet l’autonomie des microservices](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+
+Pour les flux de travail *sans état* dans les applications logiques Azure monolocataires, les actions HTTP n’utilisent pas le modèle d’opération asynchrone. Au lieu de cela, elles s’exécutent uniquement de façon synchrone, renvoient la réponse [« 202 ACCEPTED »](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) telle quelle et passent à l’étape suivante de l’exécution du flux de travail. Si la réponse comprend un en-tête `location`, un flux de travail sans état n’interrogera pas l’URI spécifié pour vérifier l’état. Pour suivre le [modèle d’opération asynchrone](/azure/architecture/patterns/async-request-reply) standard, utilisez plutôt un flux de travail avec état.
 
 * Dans le concepteur d’applications logiques, c’est l’action HTTP (et non le déclencheur) qui comporte un paramètre **Modèle asynchrone** qui est activé par défaut. Ce paramètre spécifie que l’appelant n’a pas à attendre la fin du traitement et peut passer à l’action suivante, tout en continuant de vérifier l’état jusqu’à ce que le traitement s’arrête. S’il est désactivé, ce paramètre spécifie que l’appelant doit attendre la fin du traitement avant de passer à l’action suivante.
 
@@ -306,6 +308,22 @@ Les requêtes HTTP ont un [délai d’expiration](../logic-apps/logic-apps-limi
 * Remplacez l’action HTTP par l’[action webhook HTTP](../connectors/connectors-native-webhook.md), qui attend que le récepteur réponde en indiquant l’état et les résultats à la fin du traitement de la requête.
 
 <a name="disable-location-header-check"></a>
+
+### <a name="set-up-interval-between-retry-attempts-with-the-retry-after-header"></a>Configurer l’intervalle entre les nouvelles tentatives avec l’en-tête Retry-After
+
+Pour spécifier le nombre de secondes entre chaque nouvelle tentative, vous pouvez ajouter l’en-tête `Retry-After` à la réponse de l’action HTTP. Par exemple, si le point de terminaison cible renvoie le code d’état `429 - Too many requests`, vous pouvez spécifier un intervalle plus long entre les nouvelles tentatives. L’en-tête `Retry-After` fonctionne également avec le code d’état `202 - Accepted`.
+
+Voici le même exemple qui affiche la réponse d’action HTTP qui contient `Retry-After` :
+
+```json
+{
+    "statusCode": 429,
+    "headers": {
+        "Retry-After": "300"
+    }
+}
+```
+
 
 ## <a name="disable-checking-location-headers"></a>Désactiver la vérification des en-têtes d’emplacement
 

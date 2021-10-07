@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: f1af7fd0dc4b1e790a120c8fb9086d886487c34d
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 62616465b98feca1052ac3e45932120fdf0ffd42
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113302785"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128584505"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Ajouter la prise en charge d’IPv6 pour le Peering privé à l’aide d’Azure PowerShell (préversion)
 
@@ -136,6 +136,8 @@ Suivez les étapes ci-dessous si vous disposez d’un environnement de ressource
     $gw = Get-AzVirtualNetworkGateway -Name "GatewayName" -ResourceGroupName "ExpressRouteResourceGroup"
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
     ```
+>[!NOTE]
+> Si vous disposez déjà d’une passerelle qui n’est pas redondante interzone (c’est-à-dire qu’il s’agit d’un niveau tarifaire Standard, Haute performance ou Ultra-performance), vous devez supprimer et [recréer la passerelle](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) avec n’importe quel niveau tarifaire et une IP publique statique standard.
 
 ## <a name="create-a-connection-to-a-new-virtual-network"></a>Créer une connexion à un nouveau réseau virtuel
 
@@ -152,7 +154,7 @@ Suivez les étapes ci-dessous si vous envisagez de vous connecter à un nouvel e
 ## <a name="limitations"></a>Limites
 Bien que la prise en charge IPV6 soit disponible pour les connexions à des déploiements dans des régions Azure publiques, elle ne prend pas en charge les cas d’utilisation suivants :
 
-* Connexions à des passerelles ExpressRoute existantes qui ne sont *pas* redondantes dans une zone
+* Connexions à des passerelles ExpressRoute *existantes* qui ne sont pas redondantes interzones. Notez que les passerelles ExpressRoute *nouvellement* créées de n’importe quel niveau tarifaire (redondant interzone ou non) à l’aide d’une adresse IP statique standard peuvent être utilisées pour les connexions ExpressRoute à double pile
 * Connexions Global Reach entre des circuits ExpressRoute
 * Utiliser ExpressRoute avec un WAN virtuel
 * FastPath avec circuits non ExpressRoute Direct

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
-ms.openlocfilehash: 56337e349cf2cfad792cecbec11503a4fd866095
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 88597690ca4b3bf9cfd51b6e56eb9395df8ee1ba
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534861"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128583669"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Comprendre les rôles requis pour effectuer des tâches courantes dans Synapse
 
@@ -27,7 +27,7 @@ Cet article vous aidera à comprendre les différents rôles de type de contrôl
 
 ### <a name="resource-management"></a>Gestion des ressources
 
-- Vous pouvez créer des pools SQL, des pools Apache Spark et des runtimes d’intégration, si vous avez le statut de Propriétaire ou de Contributeur Azure sur l’espace de travail.
+- Vous pouvez créer des pools SQL, des pools Apache Spark et des runtimes d’intégration, si vous avez le statut de Propriétaire ou de Contributeur Azure sur l’espace de travail. Lorsque vous utilisez des modèles ARM pour un déploiement automatisé, vous devez être un contributeur Azure sur le groupe de ressources.
 - Vous pouvez suspendre ou mettre à l’échelle un pool SQL dédié, configurer un pool Spark ou un runtime d’intégration si vous êtes un Propriétaire ou un Contributeur Azure sur l’espace de travail ou cette ressource.
 
 ### <a name="viewing-and-editing-code-artifacts"></a>Affichage et modification des artefacts de code
@@ -76,7 +76,7 @@ Gérer (suspendre, mettre à l’échelle ou supprimer) un pool SQL dédié|Prop
 Créer un script SQL</br>|Utilisateur Synapse, ou </br>Propriétaire ou Contributeur Azure sur l’espace de travail, </br>*Des autorisations SQL supplémentaires sont requises pour exécuter un script SQL ou pour publier ou valider des modifications*|
 Répertorier et ouvrir tout script SQL publié| Utilisateur d'artefact Synapse, Éditeur d’artefacts, Contributor Synapse|artifacts/read
 Exécuter un script SQL sur un pool SQL serverless|Autorisations SQL sur le pool (accordées automatiquement à un Administrateur Synapse)|aucun
-Exécuter un script SQL sur un pool SQL dédié|Autorisations SQL sur le pool|aucun
+Exécuter un script SQL sur un pool SQL dédié|Autorisations SQL sur le pool (accordées automatiquement à un Administrateur Synapse)|aucun
 Publier un script SQL nouveau, mis à jour ou supprimé|Éditeur d’artefacts Synapse, Contributor Synapse|sqlScripts/write, delete
 Valider les modifications apportées à un script SQL dans le référentiel Git|Nécessite des autorisations Git sur le référentiel|
 Attribuer des droits Administrateur Active Directory sur l’espace de travail (via les propriétés de l’espace de travail dans le portail Azure)|Propriétaire ou Contributeur Azure sur l’espace de travail |

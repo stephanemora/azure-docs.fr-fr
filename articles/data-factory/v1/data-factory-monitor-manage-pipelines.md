@@ -5,15 +5,16 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2d2f29553d831d80923f569211bc15855b96f591
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 9310b08a41932e92ab57728c2c55476c67f086b1
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110665927"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128601631"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide du portail Azure et de PowerShell
 > [!div class="op_single_selector"]
@@ -46,39 +47,39 @@ Cette section décrit également comment une tranche de jeu de données passe d�
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Cliquer sur **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas cette option, cliquez sur **Autres services >**, puis sur **Fabriques de données** dans la catégorie **INTELLIGENCE + ANALYSE**.
 
-   ![Parcourir tout > Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png" alt-text="Parcourir tout > Fabriques de données":::
 3. Dans le panneau **Fabriques de données**, sélectionnez la fabrique de données qui vous intéresse.
 
-    ![Sélectionner une fabrique de données](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/select-data-factory.png" alt-text="Sélectionner une fabrique de données":::
 
    Vous devez voir la page d’accueil de la fabrique de données apparaître.
 
-   ![Panneau Data Factory](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/data-factory-blade.png" alt-text="Panneau Data Factory":::
 
 #### <a name="diagram-view-of-your-data-factory"></a>Vue schématique de votre fabrique de données
 La vue **schématique** d’une fabrique de données est un point unique de surveillance et de gestion de la fabrique de données et de ses ressources. Cliquez sur **Schématique** sur la page d’accueil de la fabrique de données ci-dessus pour afficher la vue **schématique** de votre fabrique de données.
 
-![Vue schématique](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/diagram-view.png" alt-text="Vue schématique":::
 
 Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster l’affichage à la taille de l’écran, figer l’affichage schématique et positionner automatiquement les pipelines et les jeux de données. Vous pouvez également afficher le lignage (c.-à-d. mise en surbrillance des éléments en amont et en aval des éléments sélectionnés).
 
 ### <a name="activities-inside-a-pipeline"></a>Activités à l'intérieur d'un pipeline
 1. Cliquez avec le bouton droit sur le pipeline de votre choix, puis cliquez sur **Ouvrir le pipeline** pour faire apparaître toutes les activités dans le pipeline, ainsi que les jeux de données d’entrée et de sortie des activités. Cette fonctionnalité est utile quand votre pipeline comprend plusieurs activités et que vous souhaitez comprendre le lignage opérationnel d’un seul pipeline.
 
-    ![Menu Ouvrir un pipeline](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png" alt-text="Menu Ouvrir un pipeline":::     
 2. Dans l’exemple suivant, vous voyez une activité de copie dans le pipeline avec une entrée et une sortie. 
 
-    ![Activités à l'intérieur d'un pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png" alt-text="Activités à l'intérieur d'un pipeline":::
 3. Vous pouvez revenir à la page d’accueil de la fabrique de données en cliquant sur le lien **Data Factory** dans l’arborescence de navigation située dans le coin supérieur gauche.
 
-    ![Revenir à la fabrique de données](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png" alt-text="Revenir à la fabrique de données":::
 
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Afficher l’état de chaque activité à l’intérieur d’un pipeline
 Vous pouvez afficher l’état actuel d’une activité en consultant l’état de l’un des jeux de données générés par l’activité.
 
 En double-cliquant sur **OutputBlobTable** dans le **Diagramme**, vous pouvez voir toutes les tranches produites par les différentes exécutions de l’activité à l’intérieur d’un pipeline. Vous pouvez voir que l’activité de copie a été exécutée correctement au cours des huit dernières heures et qu’elle a produit les tranches dont l’état est **Prêt**.  
 
-![État du pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png" alt-text="État du pipeline":::
 
 Voici la liste des différents états possibles pour les tranches d’un jeu de données de la fabrique de données :
 
@@ -143,20 +144,20 @@ Voici la liste des différents états possibles pour les tranches d’un jeu de 
 
 Vous pouvez afficher les détails relatifs à une tranche en cliquant sur une entrée de tranche dans le panneau **Tranches mises à jour récemment**.
 
-![Détails de la tranche](./media/data-factory-monitor-manage-pipelines/slice-details.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/slice-details.png" alt-text="Détails de la tranche":::
 
 Si la tranche a été exécutée plusieurs fois, plusieurs lignes s’affichent dans la liste **Exécutions d’activité** . Vous pouvez afficher des détails sur une exécution d’activité en cliquant sur l’entrée d’exécution dans la liste **Exécutions de l’activité**. Tous les fichiers journaux, ainsi que le message d’erreur associé, le cas échéant, s’affichent. Cette fonctionnalité est utile et pour cause. Vous visualisez et déboguez les journaux d’activité sans le souci de quitter votre fabrique de données.
 
-![Détails de l'exécution d'activité](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details.png" alt-text="Détails de l'exécution d'activité":::
 
 Si la tranche n’a pas l’état **Prêt**, vous pouvez voir les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**. Cette fonctionnalité est utile lorsque votre tranche présente l’état **En attente** et que vous voulez connaître les dépendances en amont à l’origine de cette attente.
 
-![Tranches en amont qui ne sont pas prêtes](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png" alt-text="Tranches en amont qui ne sont pas prêtes":::
 
 ### <a name="dataset-state-diagram"></a>Schéma d’état de jeux de données
 Quand vous avez déployé une fabrique de données et que la période d’activation des pipelines est valide, les tranches de données des jeux de données passent d’un état à un autre. Actuellement, l’état de la tranche suit le schéma d’état suivant :
 
-![Schéma d'état](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/state-diagram.png" alt-text="Schéma d'état":::
 
 Le flux de transition d’états des jeux de données de la fabrique de données est le suivant : En attente -> En cours/En cours (Validation) -> Prête/Échec.
 
@@ -204,13 +205,13 @@ En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de do
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Utiliser le portail Azure pour déboguer une erreur
 1. Dans le panneau **Table**, cliquez sur la tranche qui pose problème, dont **l’état** est défini sur **Échec**.
 
-   ![Panneau de table avec tranche problématique](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png" alt-text="Panneau de table avec tranche problématique":::
 2. Dans le panneau **Tranche de données**, cliquez sur l’exécution d’activité qui a échoué.
 
-   ![Tranche de données avec une erreur](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png" alt-text="Tranche de données avec une erreur":::
 3. Dans le panneau **Détails sur l’exécution d’activité**, vous pouvez télécharger les fichiers associés au traitement HDInsight. Cliquez sur **Télécharger** pour que Status/stderr télécharge le fichier journal d’erreur qui contient les détails sur l’erreur.
 
-   ![Panneau de détails sur l’exécution d’activité](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png" alt-text="Panneau de détails sur l’exécution d’activité":::     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Utiliser PowerShell pour déboguer une erreur
 1. Lancez **PowerShell**.
@@ -278,11 +279,11 @@ En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de do
 ### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
 Après avoir débogué et résolu les problèmes dans un pipeline, vous pouvez réexécuter ceux-ci en accédant à la tranche qui pose problème, puis en cliquant sur le bouton **Exécuter** dans la barre de commandes.
 
-![Réexécuter une tranche de données ayant échoué](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/rerun-slice.png" alt-text="Réexécuter une tranche de données ayant échoué":::
 
 En cas d’échec de validation de la tranche à cause d’une erreur de stratégie (p. ex. données indisponibles), vous pouvez résoudre le problème et relancer la validation en cliquant sur le bouton **Valider** de la barre de commandes.
 
-![Corriger les erreurs et valider](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png" alt-text="Corriger les erreurs et valider":::
 
 ### <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
 Vous pouvez exécuter à nouveau des problèmes à l’aide de la cmdlet **Set-AzDataFactorySliceStatus**. Consultez la rubrique [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) pour en savoir plus sur la syntaxe et la cmdlet.
@@ -300,37 +301,37 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
 1.  Connectez-vous au portail et sélectionnez **Surveiller -> Alertes** pour ouvrir la page des alertes.
 
-    ![Ouvrez la page Alertes.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image1.png" alt-text="Ouvrez la page Alertes.":::
 
 2.  Sélectionnez **+ Nouvelle règle d’alerte** pour créer une nouvelle alerte.
 
-    ![Créer une nouvelle alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image2.png" alt-text="Créer une nouvelle alerte":::
 
 3.  Définissez la **condition de l’alerte**. (Veillez à sélectionner **Fabriques de données** dans le champ **Filtrer par type de ressource**.) Vous pouvez également spécifier les valeurs du champ **Dimensions**.
 
-    ![Définir la condition de l’alerte - Sélectionner la cible](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image3.png" alt-text="Définir la condition de l’alerte - Sélectionner la cible":::
 
-    ![Définir la condition de l’alerte - Ajouter des critères d’alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image4.png" alt-text="Définir la condition de l’alerte - Ajouter des critères d’alerte":::
 
-    ![Définir la condition de l’alerte - Ajouter une logique d’alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image5.png" alt-text="Définir la condition de l’alerte - Ajouter une logique d’alerte":::
 
 4.  Définissez les **détails de l’alerte**.
 
-    ![Définir les détails de l’alerte](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image6.png" alt-text="Définir les détails de l’alerte":::
 
 5.  Définissez le **groupe d’actions**.
 
-    ![Définir le groupe d’actions - Créer un nouveau groupe d’actions](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image7.png" alt-text="Définir le groupe d’actions - Créer un nouveau groupe d’actions":::
 
-    ![Définir le groupe d’actions - Définir les propriétés](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image8.png" alt-text="Définir le groupe d’actions - Définir les propriétés":::
 
-    ![Définir le groupe d’actions - Nouveau groupe d’actions créé](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image9.png" alt-text="Définir le groupe d’actions - Nouveau groupe d’actions créé":::
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Déplacer une fabrique de données vers un autre groupe de ressources ou abonnement
 Vous pouvez déplacer une fabrique de données vers un autre groupe de ressources ou abonnement à l’aide du bouton de la barre de commandes **Déplacer** situé sur la page d’accueil de votre fabrique de données.
 
-![Déplacer la fabrique de données](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png" alt-text="Déplacer la fabrique de données":::
 
 Vous pouvez également déplacer toutes les ressources associées (notamment les alertes associées à la fabrique de données) en même temps que la fabrique de données.
 
-![Boîte de dialogue Déplacer des ressources](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/MoveResources.png" alt-text="Boîte de dialogue Déplacer des ressources":::

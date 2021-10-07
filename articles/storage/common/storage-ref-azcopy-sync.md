@@ -4,16 +4,16 @@ description: Cet article fournit des informations de référence sur la commande
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/24/2020
+ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c08d0f561e743b33720258ce5d6886411f3859f0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9ba814b4188984f3a0f6dbe16e866d6184d8cf2b
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462520"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128547658"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -66,7 +66,7 @@ Synchroniser un fichier :
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-Comme ci-dessus, mais calcule également le hachage MD5 du contenu du fichier et l’enregistre en tant que propriété Content-MD5 de l’objet blob. 
+Comme ci-dessus, mais calcule également le hachage MD5 du contenu du fichier et l’enregistre en tant que propriété Content-MD5 de l’objet blob.
 
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
@@ -120,10 +120,10 @@ Synchronisez un répertoire virtuel portant le même nom qu’un objet blob (ajo
 azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/" --recursive=true
 ```
 
-Synchronisez un répertoire Azure File (même syntaxe que l’objet blob) :
+Synchroniser un répertoire Azure Files :
 
 ```azcopy
-azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]" --recursive=true
+azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" --recursive=true
 ```
 
 > [!NOTE]
@@ -135,7 +135,13 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--check-md5** string   Spécifie la manière dont les hachages MD5 doivent être validés lors du téléchargement. Disponible uniquement lors du téléchargement. Les valeurs disponibles sont les suivantes : `NoCheck`, `LogOnly`, `FailIfDifferent`, `FailIfDifferentOrMissing`. (par défaut `FailIfDifferent`). (valeur par défaut `FailIfDifferent`)
 
+Chaîne **--cpk-by-name** La clé fournie par le client par nom permet aux clients qui effectuent des requêtes auprès de Stockage Blob Azure de fournir une clé de chiffrement sur demande. Le nom de la clé fournie sera récupéré dans Azure Key Vault et sera utilisé pour chiffrer les données.
+
+Chaîne **--cpk-by-value** La clé fournie par le client par nom permet aux clients qui effectuent des requêtes auprès de Stockage Blob Azure de fournir une clé de chiffrement sur demande. La clé fournie et son code de hachage sont récupérés à partir des variables d’environnement.
+
 **--delete-destination** string   Détermine si les fichiers de l’emplacement de destination qui ne sont pas présents dans l’emplacement source doivent être supprimés. Peut être défini sur `true`, `false`, ou `prompt`. Si la valeur est définie sur `prompt`, l’utilisateur est invité à répondre à une question avant de planifier la suppression des fichiers et des objets blob. (par défaut `false`). (valeur par défaut `false`)
+
+**--dry-run** Imprime le chemin des fichiers qui seraient copiés ou supprimés par la commande sync. Cet indicateur ne copie ni ne supprime les fichiers réels.
 
 **--exclude-attributes** string (Windows uniquement) Exclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple : `A;S;R`
 
@@ -143,25 +149,29 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 Chaîne **--exclude-pattern** Exclut les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : `*.jpg;*.pdf;exactName`
 
+Chaîne **--exclude-regex** Exclut le chemin d’accès relatif des fichiers qui correspondent aux expressions régulières. Séparez les expressions régulières par des points-virgules (;).
+
 **--help**    Aide pour la synchronisation.
 
 **--include-attributes** string   (Windows uniquement) Inclut uniquement les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple : `A;S;R`
 
 Chaîne **--include-pattern** Inclut uniquement les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : `*.jpg;*.pdf;exactName`
 
-**--log-level** string     Définit le niveau de détail pour le fichier journal. Niveaux disponibles : `INFO`(toutes les demandes et réponses), `WARNING`(réponses lentes), `ERROR`(uniquement les demandes ayant échoué) et `NONE`(aucun journal de sortie). (par défaut `INFO`). 
+**--log-level** string     Définit le niveau de détail pour le fichier journal. Niveaux disponibles : `INFO`(toutes les demandes et réponses), `WARNING`(réponses lentes), `ERROR`(uniquement les demandes ayant échoué) et `NONE`(aucun journal de sortie). (par défaut `INFO`).
 
 **--mode miroir**          Désactive la comparaison basée sur la dernière modification et remplace les fichiers et objets blob en conflit à la destination si cet indicateur a la valeur `true`. La valeur par défaut est `false`.
 
-**--preserve-smb-info** False par défaut. Conserve les informations de propriété SMB (heure de la dernière écriture, heure de création, bits d’attribut) entre les ressources prenant en charge SMB (Windows et Azure Files). Cet indicateur s’applique aux fichiers et aux dossiers, à moins qu’un filtre de fichier uniquement soit spécifié (par exemple, include-pattern).  Les informations transférées pour les dossiers sont les mêmes que pour les fichiers, à l’exception de l’heure de la dernière écriture, qui n’est pas conservée pour les dossiers.
+**--preserve-smb-info** True par défaut. Conserve les informations de propriété SMB (heure de la dernière écriture, heure de création, bits d’attribut) entre les ressources prenant en charge SMB (Windows et Azure Files). Cet indicateur s’applique aux fichiers et aux dossiers, à moins qu’un filtre de fichier uniquement soit spécifié (par exemple, include-pattern).  Les informations transférées pour les dossiers sont les mêmes que pour les fichiers, à l’exception de l’heure de la dernière écriture, qui n’est pas conservée pour les dossiers.
 
-**--preserve-smb-permissions** False par défaut. Conserve les listes de contrôle d’accès (ACL) SMB entre les ressources prenant en charge SMB (Windows et Azure Files). Cet indicateur s’applique aux fichiers et aux dossiers, à moins qu’un filtre de fichier uniquement soit spécifié (par exemple, `include-pattern`).
+**--preserve-permissions** False par défaut. Préserve les listes de contrôle d’accès entre les ressources sensibles (Windows et Azure Files, ou Data Lake Storage Gen2 vers Data Lake Storage Gen2). Pour les comptes qui ont un espace de noms hiérarchique, vous aurez besoin d’un jeton SAP ou d’un jeton OAuth de conteneur avec les autorisations Modifier la propriété et Modifier les autorisations. Pour les téléchargements, vous devez également utiliser l’indicateur --backup pour restaurer les autorisations lorsque le nouveau propriétaire ne sera pas l’utilisateur qui exécute AzCopy. Cet indicateur s’applique aux fichiers et aux dossiers, à moins qu’un filtre de fichier uniquement soit spécifié (par exemple, include-pattern).
 
 **--put-md5**     Crée un hachage MD5 de chaque fichier, puis enregistre le hachage en tant que propriété Content-MD5 de l’objet blob ou du fichier de destination. (par défaut, le hachage n’est pas créé.) Disponible uniquement lors du chargement.
 
-**--recursive**    `True` par défaut. Examine les sous-répertoires de manière récursive lors de la synchronisation des répertoires. (par défaut `True`). 
+**--recursive**    `True` par défaut. Examine les sous-répertoires de manière récursive lors de la synchronisation des répertoires. (par défaut `True`).
 
-**--s2s-preserve-access-tier**  Conserver le niveau d’accès lors d’une copie de service à service. Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut `true`). 
+**--s2s-preserve-access-tier**  Conserver le niveau d’accès lors d’une copie de service à service. Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut `true`).
+
+**--s2s-preserve-blob-tags** Préserve les balises d’index pendant la synchronisation service à service d’un stockage blob à un autre.
 
 ## <a name="options-inherited-from-parent-commands"></a>Options héritées des commandes parentes
 
