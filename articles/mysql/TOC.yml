@@ -13,6 +13,8 @@
       href: flexible-server/whats-new.md
     - name: Essayer le serveur flexible gratuitement
       href: flexible-server/how-to-deploy-on-azure-free-account.md
+    - name: Prépayer pour une capacité de réserve
+      href: concept-reserved-pricing.md
     - name: Politique de support des versions
       href: concepts-version-policy.md
       displayName: version policy
@@ -31,8 +33,6 @@
           items:
             - name: Niveaux de tarification
               href: concepts-pricing-tiers.md
-            - name: Prépayer pour une capacité de réserve
-              href: concept-reserved-pricing.md
     - name: Démarrages rapides
       expanded: true
       items:
@@ -478,7 +478,7 @@
               href: flexible-server/concepts-slow-query-logs.md
             - name: Journaux d’audit
               href: flexible-server/concepts-audit-logs.md
-            - name: Workbooks
+            - name: Classeurs
               href: flexible-server/concepts-workbooks.md
         - name: Réplication
           items:
