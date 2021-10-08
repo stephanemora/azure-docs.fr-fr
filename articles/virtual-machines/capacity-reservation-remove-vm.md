@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 546215d70341402fcc66d2865d291211960cb4a1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0ac1f38d65542ac6c8a892a6469cd8c9301dd463
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557059"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532604"
 ---
 # <a name="remove-a-vm-association-from-a-capacity-reservation-group-preview"></a>Supprimer une association de machines virtuelles d’un groupe de réservations de capacité (préversion)
 
@@ -28,11 +28,6 @@ Vous pouvez modifier l’association de deux façons :
 > [!IMPORTANT]
 > La réservation de capacité est actuellement en version préliminaire publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="register-for-capacity-reservation"></a>S’inscrire à la réservation de capacité 
-
-Avant de pouvoir utiliser la fonctionnalité Réservation de capacité, vous devez [inscrire votre abonnement pour la préversion](capacity-reservation-overview.md#register-for-capacity-reservation). L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour finaliser l’inscription de la fonctionnalité.
-
 
 ## <a name="deallocate-the-vm"></a>Libérer la machine virtuelle
 

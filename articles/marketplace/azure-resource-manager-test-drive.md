@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: trkeya
 author: trkeya
 ms.date: 09/09/2021
-ms.openlocfilehash: 6c563b7661b62c81b6094f1a662faa1cdc28c57a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7825dff873afaf223cab7b86c73083027caccc72
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632003"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363610"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation Azure Resource Manager
 
@@ -307,7 +307,7 @@ La dernière section à effectuer vise à permettre le déploiement automatique 
    Si vous n’avez pas d’ID de locataire, créez-en un dans Azure Active Directory. Pour obtenir de l’aide sur la configuration d’un locataire, consultez [Démarrage rapide : Configurer un locataire](../active-directory/develop/quickstart-create-new-tenant.md).
 
 3. Approvisionnez l’application Microsoft Test-Drive sur votre locataire. Nous utiliserons cette application pour effectuer des opérations sur vos ressources de version d’évaluation.
-    1. Si ce n’est pas déjà fait, installez le [module Azure Az PowerShell](/powershell/azure/install-az-ps?view=azps-6.3.0).
+    1. Si ce n’est pas déjà fait, installez le [module Azure Az PowerShell](/powershell/azure/install-az-ps).
     1. Ajoutez le principal de service pour l’application Microsoft Test-Drive.
         1. Exécutez `Connect-AzAccount` et fournissez les informations d’identification requises pour vous connecter à votre compte Azure, ce qui nécessite le [rôle intégré](/azure/active-directory/roles/permissions-reference#global-administrator) **Administrateur général** d’Azure Active Directory. 
         1. Créez un nouveau principal de service : `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment`.

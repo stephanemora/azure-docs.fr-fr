@@ -3,12 +3,12 @@ title: Gérer et surveiller les sauvegardes de machines virtuelles Azure
 description: Découvrez comment gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: d1040c1261c3edff3010403a63c856ff1c0200fa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1fe5b1511147b8db3b0c46504ee88d99dd272287
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605617"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271799"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gérer les sauvegardes de machines virtuelles Azure avec le service Sauvegarde Azure
 
@@ -97,7 +97,7 @@ Vous pouvez exécuter une sauvegarde à la demande d’une machine virtuelle une
 * La plage de conservation pour une sauvegarde à la demande correspond à la valeur de conservation que vous spécifiez quand vous déclenchez la sauvegarde.
 
 > [!NOTE]
-> Sauvegarde Azure recommande quatre sauvegardes par jour pour une machine virtuelle : une sauvegarde planifiée selon la stratégie de sauvegarde et trois sauvegardes à la demande. Toutefois, pour permettre à l’utilisateur d’effectuer de nouvelles tentatives en cas d’échec, la limite stricte pour les sauvegardes à la demande est fixée à neuf tentatives.
+> Sauvegarde Azure recommande quatre sauvegardes par jour pour une machine virtuelle : une sauvegarde planifiée selon la stratégie de sauvegarde et trois sauvegardes à la demande. Toutefois, pour permettre à l’utilisateur de réaliser de nouvelles tentatives en cas d’échec, la limite matérielle pour les sauvegardes à la demande est définie à neuf tentatives.
 
 Pour déclencher une sauvegarde à la demande :
 
@@ -142,7 +142,7 @@ Une notification vous informe que les travaux de sauvegarde ont été interrompu
 Pour arrêter la protection et supprimer les données d’une machine virtuelle :
 
 >[!Note]
->Pour les points de récupération qui ne sont pas restés pendant une durée de 180 jours au niveau archive, leur suppression occasionne un coût de suppression précoce. [Plus d’informations](../storage/blobs/storage-blob-storage-tiers.md#cool-and-archive-early-deletion)
+>Pour les points de récupération qui ne sont pas restés pendant une durée de 180 jours au niveau archive, leur suppression occasionne un coût de suppression précoce. [Plus d’informations](../storage/blobs/access-tiers-overview.md)
 
 
 1. Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Arrêter la sauvegarde**.

@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 06/24/2021
-ms.openlocfilehash: d57941c06f4917c8ff3b27f5e566fc9d5f95474b
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 9a72ec356161646df093bb6ca054f84ea0cfe6da
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273000"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128563062"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Utiliser Jupyter Notebook pour rechercher des menaces de sécurité
 
@@ -61,11 +61,11 @@ Pour éviter d’avoir à saisir ou coller du code complexe et répétitif dans 
 
 Les notebooks Azure Sentinel utilisent un package Python appelé [MSTICPy](https://github.com/Microsoft/msticpy/), qui est une collection d’outils de cybersécurité pour l’extraction, l’analyse, l’enrichissement et la visualisation de données. 
 
-Les outils de MSTICPy sont conçus spécialement pour faciliter la création de notebooks pour la chasse et l’investigation, et nous travaillons activement pour vous proposer de nouvelles fonctionnalités et améliorations. Pour plus d'informations, consultez les pages suivantes :
+Les outils de MSTICPy sont conçus spécialement pour faciliter la création de notebooks pour la chasse et l’investigation, et nous travaillons activement pour vous proposer de nouvelles fonctionnalités et améliorations. Pour plus d’informations, consultez :
 
 - [Documentation relatives aux outils de sécurité MSTIC Jupyter et Python](https://msticpy.readthedocs.io/)
-- [Didacticiel : Prise en main des notebooks Jupyter et de MSTICPy dans Azure Sentinel](notebook-get-started.md)
-- [Configurations avancées pour les blocs-notes Jupyter et MSTICPy dans Azure Sentinel](notebooks-msticpy-advanced.md)
+- [Tutoriel : Prise en main des notebooks Jupyter et de MSTICPy dans Azure Sentinel](notebook-get-started.md)
+- [Configurations avancées pour les notebooks Jupyter et MSTICPy dans Azure Sentinel](notebooks-msticpy-advanced.md)
 
 Le [référentiel GitHub de la communauté Azure Sentinel](https://github.com/Azure/Azure-Sentinel-Notebooks/) est l’emplacement de tous les futurs notebooks Azure Sentinel créés par Microsoft ou fournis par la communauté.
 
@@ -247,7 +247,7 @@ Le fait de stocker les notebooks Azure Sentinel dans votre espace de travail Azu
     ```
 
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 En général, un notebook crée un noyau ou s’y attache naturellement, et vous n’avez pas besoin d’apporter des modifications manuelles. Si vous obtenez des erreurs, ou si le notebook ne semble pas fonctionner, vous devrez peut-être vérifier la version et l’état du noyau.
 
@@ -322,7 +322,7 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
     ModuleNotFoundError: No module named 'gi'
     ```
 
-1. Utilisez le script [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/HowTos/aml-compute-setup.sh), situé dans le référentiel GitHub de notebooks Azure Sentinel, pour installer automatiquement le `pygobject` dans tous les notebooks et environnements Anaconda sur l’instance de calcul.
+1. Utilisez le script [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/master/HowTos/aml-compute-setup.sh), situé dans le référentiel GitHub de notebooks Azure Sentinel, pour installer automatiquement le `pygobject` dans tous les notebooks et environnements Anaconda sur l’instance de calcul.
 
 > [!TIP]
 > Vous pouvez également corriger cet avertissement en exécutant le code suivant à partir d’un notebook :
@@ -350,9 +350,9 @@ Nous apprécions les commentaires, qu’il s’agisse de suggestions, de demande
     - Le répertoire [**Procédures**](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/HowTos) comprend des notebooks qui décrivent des concepts tels que la définition de votre version de Python par défaut, la création de signets Azure Sentinel à partir d’un notebook, et bien plus encore.
 
 
-Pour plus d'informations, consultez les pages suivantes :
+Pour plus d’informations, consultez :
 
-  - [Didacticiel : Prise en main des notebooks Jupyter et de MSTICPy dans Azure Sentinel](notebook-get-started.md)
+  - [Tutoriel : Prise en main des notebooks Jupyter et de MSTICPy dans Azure Sentinel](notebook-get-started.md)
 - [Tutoriel : Notebooks Azure Sentinel – Prise en main](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) (vidéo)
 - [Tutoriel : Modifier et exécuter des notebooks Jupyter sans quitter Azure ML studio](https://www.youtube.com/watch?v=AAj-Fz0uCNk) (vidéo)
 - [Webinaire : notions de base du notebook Azure Sentinel](https://www.youtube.com/watch?v=rewdNeX6H94)

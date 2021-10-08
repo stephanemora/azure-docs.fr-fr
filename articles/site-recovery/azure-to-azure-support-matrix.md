@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 11/29/2020
 author: Sharmistha-Rai
 ms.author: sharrai
-ms.openlocfilehash: a960064aa9ee23c5d82c605aa551cdc0a4e07c49
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 49abd2f167eb51cfaf4a431488b1e85c68bc7b5d
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129363453"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128591308"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Prendre en charge la matrice de la récupération d’urgence de machines virtuelles Azure entre les régions Azure
 
@@ -236,10 +236,9 @@ Groupes de placement de proximité | Prise en charge | Les machines virtuelles s
 
 **Action** | **Détails**
 -- | ---
-Redimensionner le disque sur la machine virtuelle répliquée | Le redimensionnement vers le haut sur la VM source est pris en charge. Le redimensionnement vers le bas sur la VM source n'est pas pris en charge. Le redimensionnement doit être effectué avant le basculement. Vous n’avez pas besoin de désactiver/réactiver la réplication.<br/><br/> Si vous modifiez la machine virtuelle source après le basculement, les modifications ne sont pas capturées.<br/><br/> Si vous modifiez la taille du disque sur la machine virtuelle Azure après le basculement, les modifications ne sont pas capturées par Site Recovery et la restauration automatique sera à la taille de la machine virtuelle d’origine.<br/><br/> Si le redimensionnement est >= 4 To, veuillez noter l’aide d’Azure relative à la mise en cache du disque [ici](../virtual-machines/premium-storage-performance.md). 
+Redimensionner le disque sur la machine virtuelle répliquée | L’augmentation de la taille sur la machine virtuelle source est prise en charge. La réduction de la taille sur la machine virtuelle source n’est pas prise en charge. Le redimensionnement doit être effectué avant le basculement. Vous n’avez pas besoin de désactiver/réactiver la réplication.<br/><br/> Si vous modifiez la machine virtuelle source après le basculement, les modifications ne sont pas capturées.<br/><br/> Si vous modifiez la taille du disque sur la machine virtuelle Azure après le basculement, les modifications ne sont pas capturées par Site Recovery et la restauration automatique sera à la taille de la machine virtuelle d’origine.<br/><br/> Si le redimensionnement est >= 4 To, veuillez noter l’aide d’Azure relative à la mise en cache du disque [ici](../virtual-machines/premium-storage-performance.md). 
 Ajouter un disque à une machine virtuelle répliquée | Prise en charge
 Modifications hors connexion apportées aux disques protégés | La déconnexion des disques et leur modification hors connexion nécessitent le déclenchement d’une resynchronisation complète.
-Mise en cache du disque | La mise en cache du disque n’est pas prise en charge pour les disques 4 Tio et supérieurs. Si plusieurs disques sont attachés à votre machine virtuelle, chaque disque d’une taille inférieure à 4 Tio prend en charge la mise en cache. La modification du paramètre de cache d’un disque Azure détache et rattache le disque cible. S’il s’agit du disque du système d’exploitation, la machine virtuelle redémarre. Arrêtez toutes les applications et services qui risquent d’être affectés par cette indisponibilité avant de modifier le paramètre de cache du disque. Le non-respect de ces recommandations peut entraîner une altération des données.
 
 ## <a name="replicated-machines---storage"></a>Machines répliquées - Stockage
 

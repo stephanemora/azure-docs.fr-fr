@@ -4,17 +4,17 @@ titleSuffix: Azure Machine Learning
 description: Déboguer du code, des pipelines et des déploiements Azure Machine Learning de manière interactive à l’aide de Visual Studio Code
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/16/2021
-ms.openlocfilehash: 78726daeb82b652bb162eb1d9b165521cccb62c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 88d7d9976e5b0eeecd656f5aaf68fa603425c3a9
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591612"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424404"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Débogage interactif avec Visual Studio Code
 

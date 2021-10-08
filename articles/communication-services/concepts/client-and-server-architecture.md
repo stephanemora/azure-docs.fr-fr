@@ -4,17 +4,16 @@ titleSuffix: An Azure Communication Services concept document
 description: Découvrez l’architecture de Communication Services.
 author: probableprime
 manager: mikben
-services: azure-communication-services
 ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 1346c9f6505c03ccebb2d2e2dc33e899050bfe20
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6d1228ab412ff87f3004e6e1dd5ab1486cee67a0
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672017"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360106"
 ---
 # <a name="client-and-server-architecture"></a>Architecture client et serveur
 
@@ -85,7 +84,7 @@ Les applications Azure Communication Services peuvent rejoindre des appels Teams
 
 
 ### <a name="dataflows"></a>Dataflows
-1. Le service de gestion des appels crée un appel de groupe avec des [API Graph](/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Un autre modèle des utilisateurs finaux créant l’appel de groupe à l’aide de [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), d’Outlook, de Teams ou d’une autre expérience de planification de l’écosystème Microsoft 365.
+1. Le service de gestion des appels crée un appel de groupe avec des [API Graph](/graph/api/resources/onlinemeeting?view=graph-rest-1.0&preserve-view=true). Un autre modèle des utilisateurs finaux créant l’appel de groupe à l’aide de [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), d’Outlook, de Teams ou d’une autre expérience de planification de l’écosystème Microsoft 365.
 2. Le service de gestion des appels partage les détails de l’appel Teams avec des clients Azure Communication Services.
 3. En règle générale, un utilisateur de Teams doit rejoindre l’appel et autoriser des utilisateurs externes à participer via la salle d’attente. Toutefois, cette expérience est sensible à la configuration de locataire Teams et à des paramètres de réunion spécifiques.
 4. Les utilisateurs d’Azure Communication Services initialisent leur client d’appel et rejoignent la réunion Teams en utilisant les détails reçus à l’étape 2.

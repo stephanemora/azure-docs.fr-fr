@@ -8,12 +8,12 @@ metadata:
   ms.topic: article
   ms.date: 04/22/2020
   ms.author: errobin
-  ms.openlocfilehash: 0a855bf66c705e07d556831b60f7f4ec391e29fd
-  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+  ms.openlocfilehash: 65fdc072fed31da0ad452a3ef5426b6e53f9c47f
+  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129272306"
+  ms.lasthandoff: 09/24/2021
+  ms.locfileid: "128556313"
 title: Questions fréquentes sur Load Balancer
 summary: ''
 sections:
@@ -72,7 +72,7 @@ sections:
   - question: >
       Puis-je accéder au serveur frontal de mon équilibreur de charge interne à partir de la machine virtuelle du pool principal participant ?
     answer: >
-      Non, Azure Load Balancer ne prend pas en charge ce scénario. Pour en savoir plus sur ce sujet, consultez notre [page de résolution des problèmes](load-balancer-troubleshoot-backend-traffic.md#cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm).
+      Non, Azure Load Balancer ne prend pas en charge ce scénario. Pour en savoir plus sur ce sujet, consultez notre [page de résolution des problèmes](https://docs.microsoft.com/azure/load-balancer/load-balancer-troubleshoot-backend-traffic#cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm).
   - question: >
       Quelles sont les meilleures pratiques en matière de connectivité sortante ?
     answer: "Standard Load Balancer et les adresses IP publiques standard introduisent des fonctionnalités et des comportements différents pour la connectivité sortante. Ils ne sont pas identiques aux références SKU De base. Si vous souhaitez une connectivité sortante lorsque vous travaillez avec des références SKU Standard, vous devez explicitement la définir avec des adresses IP publiques Standard ou l’équilibreur de charge public Standard. Cela inclut la création de la connectivité sortante lors de l’utilisation d’un équilibreur de charge Standard interne. Nous vous recommandons de toujours utiliser des règles de trafic sortant sur un équilibreur de charge public Standard. Cela signifie que lorsqu’un équilibreur de charge interne Standard est utilisé, vous devez prendre des mesures pour créer une connectivité sortante pour les machines virtuelles dans le pool principal si la connectivité sortante est souhaitée. Dans le contexte de la connectivité sortante, une seule machine virtuelle autonome, toutes les machines virtuelles d’un groupe à haute disponibilité et toutes les instances d’un groupe de machines virtuelles identiques se comportent comme un groupe. Cela signifie que, si une seule machine virtuelle d’un groupe à haute disponibilité est associée à une référence SKU Standard, toutes les instances de machine virtuelle au sein de ce groupe à haute disponibilité se comportent maintenant selon les mêmes règles que si elles étaient associées avec la référence SKU Standard, même si une instance individuelle n’est pas directement associée. Ce comportement est également observé dans le cas d’une machine virtuelle autonome avec plusieurs cartes d’interface réseau attachées à un équilibreur de charge. Si une carte réseau est ajoutée comme composant autonome, elle aura le même comportement. Lisez attentivement la totalité de ce document pour comprendre les concepts généraux, passer en revue [Standard Load Balancer](./load-balancer-overview.md) pour connaître les différentes entre les références SKU et les [règles de trafic sortant](load-balancer-outbound-connections.md#outboundrules).\nL’utilisation de règles de trafic sortant vous permet un contrôle précis de tous les aspects de la connectivité sortante.\n \n"

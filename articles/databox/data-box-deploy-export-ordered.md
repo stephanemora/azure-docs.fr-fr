@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 10/01/2021
 ms.author: alkohli
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: db5b98170446e93737fd625671f5351cc11da337
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 298d935b9b673e0b77bdd3e66cc3d348e2d52a07
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591916"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361521"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Tutoriel : Créer une commande d’exportation pour Azure Data Box
 
@@ -346,8 +346,8 @@ Les exemples de chemins d’accès ci-dessous sont utilisés avec la balise &lt;
 |------------------------|--------------------------------------------------------------------------------|------------------------------------|
 |/                       |Exporte tous les blobs présents dans le compte de stockage.                                       |`<BlobPathPrefix>/</BlobPathPrefix>`|
 |/$root/                 |Exporte tous les blobs présents dans le conteneur racine.                                        |`<BlobPathPrefix>/$root/</BlobPathPrefix>`|
-|/container2/            |Exporte tous les blobs présents dans le conteneur **container2**.                              |`<BlobPathPrefix>/container1/</BlobPathPrefix>`|
-|/container          |Exporte tous les blobs présents dans un conteneur commençant par le préfixe **container**.      |`<BlobPathPrefix>/containers</BlobPathPrefix>`|
+|/container2/            |Exporte tous les blobs présents dans le conteneur **container2**.                              |`<BlobPathPrefix>/container2/</BlobPathPrefix>`|
+|/container          |Exporte tous les blobs présents dans un conteneur commençant par le préfixe **container**.      |`<BlobPathPrefix>/container</BlobPathPrefix>`|
 |/container1/2021Q2      |Exporte tous les blobs présents dans le conteneur **container1** qui commencent par le préfixe **2021Q2**.|`<BlobPathPrefix>/container1/2021Q2</BlobPathPrefix>`|
 
 Pour sélectionner un *seul* blob à exporter, utilisez la balise &lt;BlobPath&gt; avec un chemin d’accès au conteneur et un nom de blob. Par exemple, pour sélectionner **blob.txt** dans le conteneur **container1**, vous devez utiliser cette balise : `<BlobPath>/container1/blob.txt</BlobPath>`.
@@ -358,10 +358,10 @@ Les exemples de chemins d’accès ci-dessous sont utilisés avec la balise&lt;F
 
 |Préfixe de chemin d’accès de fichier        |Description                                                                                          |Exemple de balise|
 |------------------------|-----------------------------------------------------------------------------------------------------|-----------|
-|/                       |Exporte tous les fichiers et répertoires présents dans le compte de stockage. |`<FilePathPrefix>/</FilePath>Prefix`|
-|/fileshare1/            |Exporte tous les fichiers et répertoires présents dans le partage nommé **fileshare1**.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix`|
-|/fileshare              |Exporte tous les fichiers et répertoires présents dans un partage de fichiers commençant par le préfixe **fileshare**. |`<FilePathPrefix>/fileshare</FilePath>Prefix`|
-|/fileshare2/contosowest |Exporte tous les fichiers et répertoires présents dans le partage de fichiers **fileshare2** qui commencent par le préfixe **contosowest**.|`<FilePathPrefix>/fileshare1/contosowest</FilePath>Prefix`|
+|/                       |Exporte tous les fichiers et répertoires présents dans le compte de stockage. |`<FilePathPrefix>/</FilePath>Prefix>`|
+|/fileshare1/            |Exporte tous les fichiers et répertoires présents dans le partage nommé **fileshare1**.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix>`|
+|/fileshare              |Exporte tous les fichiers et répertoires présents dans un partage de fichiers commençant par le préfixe **fileshare**. |`<FilePathPrefix>/fileshare</FilePath>Prefix>`|
+|/fileshare2/contosowest |Exporte tous les fichiers et répertoires présents dans le partage de fichiers **fileshare2** qui commencent par le préfixe **contosowest**.|`<FilePathPrefix>/fileshare2/contosowest</FilePath>Prefix>`|
 
 Pour sélectionner un *seul* fichier à exporter, utilisez la balise &lt;FilePath&gt; avec un chemin d’accès de partage et un nom de fichier. Par exemple, pour sélectionner **file.txt** dans **fileshare1**, vous devez utiliser cette balise : `<FilePath>/fileshare1/file.txt</FilePath>`.
 

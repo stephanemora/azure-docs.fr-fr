@@ -3,15 +3,15 @@ title: Déployer un modèle Azure Resource Manager dans un runbook PowerShell Az
 description: Cet article explique comment déployer un modèle Azure Resource Manager stocké dans Stockage Azure à partir d’un runbook PowerShell.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 09/15/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61ff25cd9878ee94ce0ba6db7b2c4e4ac8e649de
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 12ac36645b037eb54522ecc8251501bdb6552776
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057754"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128639600"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-automation-powershell-runbook"></a>Déployer un modèle Azure Resource Manager dans un runbook Automation PowerShell
 
@@ -189,15 +189,9 @@ param (
 Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with user-assigned managed identity
-$AzureContext = (Connect-AzAccount -Identity).context
-$identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup `
-    -Name $userAssignedManagedIdentity `
-    -DefaultProfile $AzureContext
-$AzureContext = (Connect-AzAccount -Identity -AccountId $identity.ClientId).context
-
-# set and store context
-$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
-    -DefaultProfile $AzureContext
+Connect-AzAccount -Identity
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $userAssignedManagedIdentity
+Connect-AzAccount -Identity -AccountId $identity.ClientId
 
 #Set the parameter values for the Resource Manager template
 $Parameters = @{
