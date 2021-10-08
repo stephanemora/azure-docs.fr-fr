@@ -4,14 +4,20 @@
       href: 'https://azure.microsoft.com/features/resiliency'
     - name: Concevoir des applications résilientes pour Azure
       href: /azure/architecture/framework/resiliency/app-design
+- name: Bases des zones de disponibilité
+  items:
+    - name: Régions et zones de disponibilité dans Azure
+      href: az-overview.md
+    - name: Services Azure
+      href: region-types-service-categories-azure.md
+    - name: Services Azure prenant en charge les zones de disponibilité
+      href: az-region.md
+    - name: Terminologie
+      href: glossary.md
 - name: Haute disponibilité
   items:
-    - name: Régions et zones de disponibilité
-      href: az-overview.md
-    - name: Documentation sur les zones de disponibilité
+    - name: Guides de démarrage rapide
       items:
-        - name: Services Azure prenant en charge les zones de disponibilité
-          href: az-region.md
         - name: Machines virtuelles
           items:
             - name: "Créer une machine virtuelle Linux dans une zone de disponibilité avec l’interface\_CLI"

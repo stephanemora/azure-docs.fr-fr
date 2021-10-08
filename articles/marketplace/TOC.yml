@@ -147,6 +147,8 @@
           href: azure-app-test-publish.md
         - name: Commercialiser votre offre
           href: azure-app-marketing.md
+        - name: Facturation à l’usage des applications managées
+          href: azure-app-metered-billing.md
         - name: Facturation à l’usage
           href: marketplace-metering-service-apis.md
         - name: Configurer les prix pour une facturation mensuelle à l’usage

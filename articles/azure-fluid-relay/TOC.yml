@@ -1,0 +1,46 @@
+- name: Documentation Relais Azure Fluid
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: Vue d’ensemble de Relais Azure Fluid
+      href: overview/overview.md
+- name: Démarrages rapides
+  items:
+    - name: "Démarrage rapide\_: Lanceur de dés"
+      href: quickstarts/quickstart-dice-roll.md
+- name: Concepts
+  items:
+    - name: Architecture
+      href: concepts/architecture.md
+    - name: Gestion de conteneur
+      href: concepts/container-management.md
+    - name: Structures de données distribuées
+      href: concepts/data-structures.md
+    - name: Authentification et autorisation dans votre application
+      href: concepts/authentication-authorization.md
+    - name: Compatibilité des versions
+      href: concepts/version-compatibility.md
+- name: Guides pratiques
+  items:
+    - name: "Guide pratique\_: Provisionner un service Relais Azure Fluid"
+      href: how-tos/provision-fluid-azure-portal.md
+    - name: "Guide pratique\_: Se connecter à un service Relais Azure Fluid"
+      href: how-tos/connect-fluid-azure-service.md
+    - name: "Guide pratique\_: Utiliser AzureClient pour les tests locaux"
+      href: how-tos/local-mode-with-azure-client.md
+    - name: "Guide pratique\_: Écrire un TokenProvider avec une fonction Azure"
+      href: how-tos/azure-function-token-provider.md
+    - name: "Guide pratique\_: Utiliser des jetons JWT"
+      href: how-tos/fluid-json-web-token.md
+    - name: "Guide pratique\_: Utiliser l’automatisation des tests avec Relais Azure Fluid"
+      href: how-tos/test-automation.md
+    - name: "Guide pratique\_: Supprimer un conteneur Fluid"
+      href: how-tos/container-deletion.md
+- name: Référence
+  items:
+    - name: Documentation de l’API
+      href: 'https://fluidframework.com/docs/apis/'
+- name: Ressources
+  items:
+    - name: Page d’accueil de l’infrastructure Fluid
+      href: 'https://fluidframework.com'

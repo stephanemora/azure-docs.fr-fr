@@ -2,10 +2,8 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce qu’Azure IoT Hub\_?"
-      href: about-iot-hub.md
-    - name: Concepts de l’IoT
-      href: iot-concepts.md
+    - name: Concepts IoT et Azure IoT Hub
+      href: iot-concepts-and-iot-hub.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -535,5 +533,5 @@
       href: 'https://azure.microsoft.com/updates/?product=iot-hub'
     - name: Études de cas techniques
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

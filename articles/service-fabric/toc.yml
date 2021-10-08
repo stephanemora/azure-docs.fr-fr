@@ -420,6 +420,8 @@
           href: how-to-managed-cluster-app-deployment-template.md
         - name: Déployer une application avec une identité managée sur un cluster managé
           href: how-to-managed-cluster-application-managed-identity.md
+        - name: Accorder l’accès à d’autres ressources Azure sur un cluster managé
+          href: how-to-managed-cluster-grant-access-other-resources.md
         - name: Déployer des types de nœuds sans état uniquement sur un cluster managé
           href: how-to-managed-cluster-stateless-node-type.md
         - name: Configurer un type de nœud secondaire pour une grande mise à l’échelle sur un cluster managé

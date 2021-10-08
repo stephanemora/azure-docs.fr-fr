@@ -1,6 +1,6 @@
 - name: Documentation Azure Cost Management + Facturation
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Cost Management et Facturation\_?"
       href: cost-management-billing-overview.md
@@ -394,6 +394,8 @@
           href: manage/ea-portal-troubleshoot.md
         - name: Contacter le support technique
           href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+        - name: Créer une demande de support Contrat Entreprise
+          href: manage/how-to-create-azure-support-request-ea.md
 - name: Informations de référence
   items:
     - name: Azure CLI

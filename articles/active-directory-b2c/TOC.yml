@@ -7,6 +7,8 @@
       href: overview.md
     - name: Vue d’ensemble technique et des fonctionnalités
       href: technical-overview.md
+    - name: Fonctionnalités Azure AD prises en charge
+      href: supported-azure-ad-features.md
     - name: Nouveautés dans la documentation
       href: whats-new-docs.md
 - name: Démarrages rapides
@@ -26,7 +28,9 @@
       href: tutorial-register-applications.md
     - name: 3 - Créer des flux d’utilisateur et des stratégies personnalisées
       href: tutorial-create-user-flows.md
-    - name: Nettoyer et supprimer un locataire
+    - name: 4 - Gérer votre locataire
+      href: tenant-management.md
+    - name: 5 - Nettoyer et supprimer un locataire
       href: tutorial-delete-tenant.md
 - name: Exemples
   items:
@@ -82,14 +86,14 @@
       href: user-overview.md
     - name: Attributs de profil utilisateur
       href: user-profile-attributes.md
+    - name: Rôles et contrôle d’accès aux ressources
+      href: roles-resource-access-control.md
     - name: Protection des identités et accès conditionnel
       href: conditional-access-identity-protection-overview.md
     - name: Clés de stratégies
       href: policy-keys-overview.md
 - name: Guides pratiques
   items:
-    - name: Gérer votre locataire
-      href: tenant-management.md
     - name: Intégration d’applications
       items:
         - name: Application web ASP.NET Core
