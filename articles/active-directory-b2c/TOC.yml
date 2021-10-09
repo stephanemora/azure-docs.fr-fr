@@ -398,15 +398,13 @@
           displayName: rest claims exchange
         - name: Sécuriser un connecteur d’API
           href: secure-rest-api.md
-    - name: Stratégie personnalisée
+    - name: Dépannage
       items:
-        - name: Dépannage
-          items:
-            - name: Collecter les journaux d’activité à l’aide d’Application Insights
-              href: troubleshoot-with-application-insights.md
-              displayName: 'troubleshooting, app insights'
-            - name: Résolution des problèmes des stratégies personnalisées
-              href: troubleshoot-custom-policies.md
+        - name: Collecter les journaux d’activité à l’aide d’Application Insights
+          href: troubleshoot-with-application-insights.md
+          displayName: 'troubleshooting, app insights'
+        - name: Résolution des problèmes et gestion des erreurs
+          href: troubleshoot.md
     - name: Point de terminaison UserInfo
       href: userinfo-endpoint.md
     - name: Intégration des partenaires

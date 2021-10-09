@@ -737,6 +737,8 @@ items:
                 href: monitor-install-analytics.md
           - name: Surveiller avec les Kits de développement logiciel (SDK)
             href: monitor-programmatically.md
+          - name: Surveiller les pipelines avec des notifications par e-mail
+            href: how-to-send-email.md
           - name: Surveiller les pipelines avec les notifications Microsoft Teams
             href: how-to-send-notifications-to-teams.md
           - name: Surveiller le runtime d’intégration
@@ -876,7 +878,9 @@ items:
             href: how-to-discover-explore-purview-data.md
       - name: Scénarios
         items:
-          - name: Surveiller les pipelines avec les notifications Microsoft Teams
+          - name: Envoyer un e-mail depuis un pipeline
+            href: how-to-send-email.md
+          - name: Envoyer des notifications Microsoft Teams depuis un pipeline
             href: how-to-send-notifications-to-teams.md
           - name: Migration des données pour Data Lake et EDW
             items:
