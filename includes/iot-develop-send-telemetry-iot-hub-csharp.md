@@ -1,5 +1,5 @@
 ---
-title: fichier descriptif
+title: Fichier include
 description: Fichier include
 author: timlt
 ms.service: iot-develop
@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 08/03/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 6f8cf902303dec652c8b1217815ccd9698e2f21e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 086370583f77ddadeae156fe0fa3d5babf80d815
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610238"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129516630"
 ---
 [![Parcourir le code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples)
 
@@ -21,7 +21,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir un workflow simple de 
 ## <a name="prerequisites"></a>Prérequis
 - Si vous n’avez pas d’abonnement Azure, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - [Visual Studio (Community, Professional ou Enterprise) 2019](https://visualstudio.microsoft.com/downloads/).
-- Une copie locale du dépôt GitHub [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp). Téléchargez une copie du dépôt et extrayez-la : [Télécharger le fichier .zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip).
+- Une copie locale du dépôt GitHub [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp). Téléchargez une copie du dépôt et extrayez-la : [Télécharger le fichier .zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip).
 - [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) : utilitaire multiplateforme basé sur l’interface graphique utilisateur permettant de surveiller et gérer Azure IoT. 
 - Azure CLI. Vous avez le choix entre deux options pour exécuter les commandes Azure CLI dans ce guide de démarrage rapide :
     - Utilisez Azure Cloud Shell, un interpréteur de commandes interactif qui exécute des commandes CLI dans votre navigateur. Cette option est recommandée, car vous n’avez pas besoin d’installer quoi que ce soit. Si vous utilisez Cloud Shell pour la première fois, connectez-vous au [portail Azure](https://portal.azure.com). Suivez les étapes décrites dans [Démarrage rapide de Cloud Shell](../articles/cloud-shell/quickstart.md) pour **démarrer Cloud Shell** et **sélectionner l’environnement Bash**.
@@ -34,7 +34,7 @@ Dans cette section, vous allez utiliser le kit SDK C# pour envoyer des messages
 
 Pour exécuter l’exemple d’application dans Visual Studio :
 
-1. Dans le dossier où vous avez décompressé les exemples Azure IoT pour C#, ouvrez le fichier solution *azure-iot-samples-csharp-master\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* dans Visual Studio. 
+1. Dans le dossier où vous avez décompressé les exemples Azure IoT pour C#, ouvrez le fichier de solution *azure-iot-samples-csharp-main\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* dans Visual Studio. 
 
 1. Dans **Explorateur de solutions**, sélectionnez le fichier de projet **PnpDeviceSamples > TemperatureController**, cliquez dessus avec le bouton droit et sélectionnez **Définir comme projet de démarrage**.
 

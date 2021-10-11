@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/10/2021
 ms.author: jeedes
-ms.openlocfilehash: d39ff00d2771a31fa4e83804745e0b2cffecb4a9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: df176704d778a2fab093a0d49b4c585d64f63fc6
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124802610"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230757"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-isams"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à iSAMS
 
@@ -151,7 +151,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     ![Capture d’écran montrant la page User Accounts avec l’option Modify User Properties sélectionnée.](./media/isams-tutorial/modify-user-properties.png)
 
 
-3. Dans la fenêtre contextuelle qui s’affiche, sélectionnez l’onglet **Détails du compte**, puis remplacez l’**autorisation** par celle du fournisseur d’identité que vous venez de créer.
+3. Dans la fenêtre contextuelle qui s’affiche, sélectionnez l’onglet **Détails du compte** et remplacez l’**autorisation** par celle du fournisseur d’identité que vous venez de créer.
 
     ![Capture d’écran montrant la zone des détails du compte, avec une valeur indiquée pour Authorization.](./media/isams-tutorial/account-details.png)
 

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2f01b1d222470c49505638be64180948b6f7e046
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: ceeb1804c9332d9e0d3e11336ff92e8aacc8516c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728250"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129585101"
 ---
 Utilisez l'API REST Reconnaissance optique de caractères pour lire du texte imprimé et manuscrit.
 
@@ -32,10 +32,10 @@ Utilisez l'API REST Reconnaissance optique de caractères pour lire du texte imp
 * Installation de [cURL](https://curl.haxx.se/)
 
 
+## <a name="extract-printed-and-handwritten-text"></a>Extraire du texte imprimé et manuscrit
 
-## <a name="read-printed-and-handwritten-text"></a>Lire du texte imprimé et manuscrit
+Le service OCR peut extraire le texte visible dans une image ou un document et le convertir en flux de caractères. Pour plus d'informations sur l’extraction de texte, consultez la [Présentation de la reconnaissance optique de caractères (OCR)](../overview-ocr.md).
 
-Le service OCR peut lire du texte visible dans une image et le convertir en flux de caractères. Pour plus d'informations sur la reconnaissance de texte, consultez la [Présentation de la reconnaissance optique de caractères (OCR)](../overview-ocr.md).
 
 ### <a name="call-the-read-api"></a>Appeler l’API Lire
 
@@ -55,6 +55,9 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```
 
 La réponse inclut un en-tête `Operation-Location`, dont la valeur est une URL unique. Utilisez cette URL pour interroger les résultats de l’opération de lecture. L’URL expire au bout de 48 heures.
+
+### <a name="how-to-use-preview-features"></a>Comment utiliser les fonctionnalités en préversion
+Pour les langues et les fonctionnalités en préversion, consultez [Comment spécifier la version du modèle](../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) pour utiliser la dernière préversion. Le modèle en préversion comprend toutes les améliorations apportées aux langues et fonctionnalités actuellement en disponibilité générale.
 
 ### <a name="get-read-results"></a>Obtenir les résultats de la lecture
 

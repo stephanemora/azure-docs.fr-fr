@@ -5,15 +5,15 @@ author: Jejiang
 ms.service: synapse-analytics
 ms.subservice: purview
 ms.topic: quickstart
-ms.date: 09/02/2021
+ms.date: 09/29/2021
 ms.author: jejiang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b7d729234244302e648a2d3a0bf9c8dc94f10d5a
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 894df32142cf29e59e40b1e9218f4090bbda93f0
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450356"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351614"
 ---
 # <a name="quickstartconnect-a-synapse-workspace-to-an-azure-purview-account"></a>Démarrage rapide : Connectez un compte Azure Purview à un espace de travail Synapse
 
@@ -71,13 +71,24 @@ L’identité managée de l’espace de travail Synapse est utilisée pour authe
 
     Lors de la connexion de l’espace de travail Synapse à Purview dans Synapse Studio, Synapse tente d’ajouter automatiquement une telle attribution de rôle. Si vous détenez le rôle **Administrateur de collection** sur la collection racine Purview et que vous avez accès au compte Purview à partir de votre réseau, cette opération s’effectue avec succès.
 
-- Pour un compte Purview créé **avant le 18 août 2021**, accordez à l’identité managée de l’espace de travail Synapse le rôle Azure [**Curateur de données Purview**](../../role-based-access-control/built-in-roles.md#purview-data-curator) intégré à votre compte Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview - Autorisations héritées](../../purview/catalog-permissions.md#legacy-permission-guide).
+- Pour un compte Purview créé **avant le 18 août 2021**, accordez à l’identité managée de l’espace de travail Synapse le rôle Azure intégré [**Curateur de données Purview (hérité)** ](../../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) à votre compte Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview - Autorisations héritées](../../purview/catalog-permissions.md#legacy-permission-guide).
 
     Lors de la connexion de l’espace de travail Synapse à Purview dans Synapse Studio, Synapse tente d’ajouter automatiquement une telle attribution de rôle. Si vous avez le rôle intégré Azure **Propriétaire** ou **Administrateur de l’accès utilisateur** sur le compte Purview, cette opération est effectuée avec succès.
 
-Vous pouvez voir l’avertissement ci-dessous si vous avez le privilège de lire les informations d’attribution de rôle Purview et que le rôle requis n’est pas accordé. Pour vous assurer que la connexion est correctement configurée pour le push de lignage de pipeline, accédez à votre compte Purview et vérifiez si le rôle **Curateur de données Purview** est accordé à l’identité managée de l’espace de travail Synapse. Si ce n’est pas le cas, ajoutez manuellement l’attribution de rôle.
+## <a name="monitor-purview-connection"></a>Contrôle de la connexion Purview
 
-:::image type="content" source="./media/register-purview-account-warning.png" alt-text="Capture d’écran de l’avertissement lors de l’inscription d’un compte Purview.":::
+Une fois l’espace de travail Synapse connecté à un compte Purview, vous voyez la page suivante avec des détails sur les fonctionnalités d’intégration activées.
+
+:::image type="content" source="./media/monitor-purview-connection-status.png" alt-text="Capture d’écran permettant de superviser l’état de l’intégration entre Azure Synapse et Purview.":::
+
+Pour **Traçabilité des données - Pipeline Synapse**, vous pouvez voir l’état suivant :
+
+- **Connecté** : l’espace de travail Synapse est connecté au compte Purview. Notez que cela indique que l’espace de travail Synapse est associé à un compte Purview et qu’il a la permission d’y envoyer (push) la traçabilité. Si votre compte Purview est protégé par un pare-feu, vous devez également vous assurer que le runtime d'intégration utilisé pour exécuter les activités et effectuer la traçabilité push peut atteindre le compte Purview. Pour plus d’informations, consultez [Accéder à un compte Azure Purview sécurisé](how-to-access-secured-purview-account.md).
+- **Déconnecté** : l’espace de travail Synapse ne peut pas envoyer (push) la traçabilité à Purview, car le rôle de curateur de données Purview n’est pas accordé à l’identité managée de l’espace de travail Synapse. Pour résoudre ce problème, accédez à votre compte Purview pour vérifier l'attribution des rôles, et accordez manuellement le rôle si nécessaire. Pour plus d’informations, consultez la section [configurer l’authentification](#set-up-authentication) .
+- **Inconnu** : Azure Synapse ne peut pas vérifier l’état. Les raisons possibles sont :
+
+    - Impossible d'atteindre le compte Purview depuis votre réseau actuel car le compte est protégé par un pare-feu. Vous pouvez lancer Synapse Studio à partir d’un réseau privé qui dispose d’une connectivité à votre compte Purview à la place.
+    - Vous n'avez pas le droit de vérifier les affectations de rôles sur le compte Purview. Vous pouvez contacter l'administrateur du compte Purview pour qu'il vérifie l'attribution des rôles pour vous. Pour en savoir plus sur le rôle Purview nécessaire, consultez la section [Configuration de l'authentification](#set-up-authentication).
 
 ## <a name="report-lineage-to-azure-purview"></a>Rapporter la traçabilité à Azure Purview
 

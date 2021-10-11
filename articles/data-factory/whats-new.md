@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.date: 07/14/2021
-ms.openlocfilehash: 7509be190afd0354f730f72dd97c5b5a118f20dd
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 090b0eaca0e46969aa98e6ac7878da3333602ab6
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187340"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533488"
 ---
 # <a name="whats-new-in-azure-data-factory"></a>Nouveautés d’Azure Data Factory
 
@@ -25,6 +25,21 @@ Le service Azure Data Factory fait l’objet d’améliorations continues. Pou
 - Modifications planifiées
 
 Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. 
+
+## <a name="september-2021"></a>Septembre 2021
+<br>
+<table>
+<tr><td><b>Catégorie de service</b></td><td><b>Améliorations du service</b></td><td><b>Détails</b></td></tr>
+  <tr><td><b>Intégration continue et livraison continue (CI/CD)</b></td><td>Fonctionnalités de CI/CD étendues</td><td>Vous pouvez maintenant créer une branche Git basée sur n’importe quelle autre branche dans Azure Data Factory.<br><a href="source-control.md#version-control">En savoir plus</a></td></tr>
+<tr><td rowspan=3><b>Déplacement des données</b></td><td>Sources Amazon Relational Database Service (RDS) pour Oracle</td><td>Le connecteur de sources Amazon RDS pour Oracle est maintenant disponible dans Azure Data Factory et Azure Synapse.<br><a href="connector-amazon-rds-for-oracle.md">En savoir plus</a></td></tr>
+<tr><td>Sources Amazon RDS pour SQL Server</td><td>Le connecteur de sources Amazon RDS pour SQL Server est maintenant disponible dans Azure Data Factory et Azure Synapse.<br><a href="connector-amazon-rds-for-sql-server.md">En savoir plus</a></td></tr>
+<tr><td>Prise en charge de la copie parallèle à partir d’Azure Database pour PostgreSQL</td><td>Le connecteur Azure Database pour PostgreSQL prend maintenant en charge les opérations de copie parallèle.<br><a href="connector-azure-database-for-postgresql.md">En savoir plus</a></td></tr>
+<tr><td rowspan=3><b>Flux de données</b></td><td>Utilisation d’Azure Data Lake Storage (ADLS) Gen2 pour exécuter des commandes de prétraitement et de post-traitement</td><td>Les commandes de prétraitement et de post-traitement HDFS (Hadoop Distributed File System) peuvent maintenant être exécutées en utilisant des récepteurs ADLS Gen2 dans les flux de données<br><a href="connector-azure-data-lake-storage.md#pre-processing-and-post-processing-commands">En savoir plus</a></td></tr>
+<tr><td>Modification des propriétés de flux de données pour les instances existantes d’Azure Integration Runtime (IR)</td><td>Azure Integration Runtime (IR) a été mis à jour afin de permettre la modification des propriétés de flux de données pour les instances d’IR existantes. Vous pouvez maintenant modifier les propriétés de calcul de flux de données sans avoir à créer une nouvelle instance d’Azure IR.<br><a href="concepts-integration-runtime.md">En savoir plus</a></td></tr>
+<tr><td>Paramètre TTL pour Azure Synapse qui accélère le temps de démarrage de l’exécution des activités de pipeline</td><td>Azure Synapse Analytics a ajouté le paramètre TTL à Azure Integration Runtime pour que les activités de pipeline de flux de données commencent à s’exécuter en quelques secondes, ce qui réduit de manière considérable le runtime de vos pipelines de flux de données.<br><a href="control-flow-execute-data-flow-activity.md#data-flow-integration-runtime">En savoir plus</a></td></tr>
+<tr><td><b>Runtime d’intégration</b></td><td>Disponibilité générale du VNET managé Azure Data Factory</td><td>Vous pouvez provisionner Azure Integration Runtime dans un réseau virtuel (VNET) managé et utiliser des points de terminaison privés pour établir des connexions sécurisées aux magasins de données pris en charge. Le trafic de données passe alors par des liaisons privées Azure Private Link qui fournissent une connectivité sécurisée à la source de données. En outre, cela empêche l’exfiltration de données vers l’Internet public.<br><a href="managed-virtual-network-private-endpoint.md">En savoir plus</a></td></tr>
+<tr><td><b>Orchestration</b></td><td>Rendre les pipelines de données opérationnels et fournir un Contrat de niveau de service (SLA) pour ces pipelines</td><td>Avec la nouvelle métrique Exécution de pipeline - Temps écoulé, combinée aux alertes Data Factory, les développeurs de pipelines de données peuvent améliorer les contrats SLA fournis à leurs clients ; vous nous indiquez la durée d’exécution souhaitée pour un pipeline et nous vous avertissons de manière proactive si le pipeline s’exécute plus longtemps que prévu.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/operationalize-and-provide-sla-for-data-pipelines/ba-p/2767768">En savoir plus</a></td></tr>
+</table>
 
 ## <a name="august-2021"></a>Août 2021
 <br>

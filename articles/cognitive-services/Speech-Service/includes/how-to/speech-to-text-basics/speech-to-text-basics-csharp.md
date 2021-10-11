@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5df77bcee69c07b8705b656ae7d4d44d921dcc08
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e8475ffeefbc057f22e2c795da730528d3ff079a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542815"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378622"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -313,7 +313,7 @@ Il est possible d’ajouter des mots uniques ou des expressions entières à une
 >
 > La fonctionnalité Liste d’expressions ne doit pas être utilisée avec plus de quelques centaines d’expressions. Si vous disposez d’une liste plus grande ou pour des langues qui ne sont pas prises en charge actuellement, la [formation d’un modèle personnalisé](../../../custom-speech-overview.md) sera probablement le meilleur choix pour améliorer la précision.
 >
-> N’utilisez pas la fonctionnalité de liste d’expressions avec les points de terminaison personnalisés. Préférez plutôt l’entraînement d’un modèle personnalisé qui comprend les expressions.
+> La fonctionnalité de liste d’expressions n’est pas prise en charge avec les points de terminaison personnalisés. Vous ne devez donc pas l’utiliser avec ce type de points de terminaison. Préférez plutôt l’entraînement d’un modèle personnalisé qui comprend les expressions.
 
 Pour utiliser une liste d’expressions, commencez par créer un objet [`PhraseListGrammar`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar), puis ajoutez des mots et des expressions spécifiques avec [`AddPhrase`](/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase).
 

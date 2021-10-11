@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/21/2021
 ms.author: thwimmer
-ms.openlocfilehash: f08ee68a3ee51e7d42b1939cf3e4ecee03808f93
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 16f9124abf34892f00ebb1dadde229ef6d140e55
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122327087"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355164"
 ---
 # <a name="tutorial-configure-smallstep-ssh-for-automatic-user-provisioning"></a>Tutoriel : Configurer Smallstep SSH pour l’approvisionnement automatique d’utilisateurs
 
@@ -54,7 +54,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 2. Accédez à l’onglet **Utilisateurs** et sélectionnez **Azure AD** comme fournisseur d’identité.
 
-3. Sur la page suivante, fournissez votre **ID de locataire Azure AD** et la **Liste de domaines autorisés** pour configurer OIDC.
+3. Dans la page suivante, fournissez votre **ID de locataire Azure AD** et la liste verte pour configurer OIDC.
 
 4. Sous Détails de SCIM, copiez et enregistrez votre **URL de locataire** et votre **Jeton secret** SCIM. Ces valeurs doivent être entrées dans les champs **URL de locataire** et **Jeton secret** dans l’onglet Approvisionnement de votre application Smallstep SSH dans le portail Azure.
 

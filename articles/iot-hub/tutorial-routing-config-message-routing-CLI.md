@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 8/20/2021
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 117b2cee63e8defb53e21cf05c76c344006ddae3
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: bbcc5e60396f3c2e7265378291c5bde5135b8c37
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122829318"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457373"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Tutoriel : Utiliser Azure CLI pour configurer le routage des messages IoT Hub
 
@@ -25,7 +25,7 @@ ms.locfileid: "122829318"
 
 Dans la deuxième partie de ce tutoriel, vous téléchargez et vous exécutez une application Visual Studio qui envoie des messages au hub IoT. Le téléchargement contient un dossier où se trouvent le modèle et le fichier de paramètres Azure Resource Manager ainsi que les scripts Azure CLI et PowerShell.
 
-Si vous souhaitez voir le script terminé, téléchargez les [exemples Azure IoT pour C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Décompressez le fichier master.zip. Le script Azure CLI est dans le fichier **iothub_routing_cli.azcli**, sous /iot-hub/Tutorials/Routing/SimulatedDevice/resources/.
+Si vous souhaitez voir le script terminé, téléchargez les [exemples Azure IoT pour C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Décompressez le fichier main.zip. Le script Azure CLI est dans le fichier **iothub_routing_cli.azcli**, sous /iot-hub/Tutorials/Routing/SimulatedDevice/resources/.
 
 ## <a name="use-the-azure-cli-to-create-your-resources"></a>Utiliser Azure CLI pour créer vos ressources
 

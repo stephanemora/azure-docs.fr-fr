@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4d2b1a60856877c24d61379a688ea630e506a848
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: fab3983d4061b494fdadf9ab2c09f2827735e9da
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075234"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229959"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemples de code Azure Active Directory (point de terminaison v1.0)
 
@@ -72,7 +72,7 @@ Les exemples suivants montrent comment implémenter le contrôle d’accès en f
 Les exemples suivants illustrent des applications clientes publiques (applications de bureau/mobiles) qui accèdent à l’API web ou à Microsoft Graph pour le compte d’un utilisateur. Selon les plateformes et les appareils, les applications peuvent connecter les utilisateurs de différentes façons (flux/privilèges) :
 
 - de manière interactive,
-- de manière silencieuse (avec l’Authentification Windows intégrée sous Windows ou une combinaison nom d’utilisateur/mot de passe),
+- de manière silencieuse (avec l’authentification Windows intégrée sur Windows ou une combinaison nom d’utilisateur/mot de passe),
 - en déléguant la connexion interactive à un autre appareil (flux de code d’appareil utilisé sur les appareils qui ne fournissent pas de contrôles web).
 
 Application cliente | Plateforme | Flux/Grant | Appelle Microsoft Graph | Appelle une API web ASP.NET ou ASP.NET Core 2.x

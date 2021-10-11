@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 06/21/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3c644a62dfd48f86fd21a39af57211ff7c20ae36
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: 48b1eaa6e01bf25b11ca269e0771b4fd03530bba
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112520617"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533224"
 ---
 # <a name="what-is-optical-character-recognition"></a>Présentation de la Reconnaissance optique de caractères
 
@@ -45,20 +45,26 @@ L’appel **Lire** utilise des images et des documents comme entrée. Les condit
 * La taille de fichier doit être inférieure à 50 Mo (6 Mo pour le niveau gratuit), et les dimensions comprises entre 50 × 50 pixels et 10000 × 10000 pixels. 
 
 ## <a name="supported-languages"></a>Langues prises en charge
-L’API Read prend en charge un total de 73 langues pour le texte de style d’impression. Consultez la liste complète des [langues prises en charge par OCR](./language-support.md#optical-character-recognition-ocr). Le style OCR manuscrit est exclusivement pris en charge pour l'anglais.
+L’API Read prend en charge 122 langues pour le texte imprimé et 7 langues pour le texte manuscrit, y compris les langues et les fonctionnalités en préversion.
+
+L’OCR pour le texte à imprimé prend en charge l’anglais, le français, l’allemand, l’italien, le portugais, l’espagnol, le chinois, le japonais, le coréen et le russe (en préversion), ainsi que les langues latines et cyrilliques dans la dernière mise à jour de la préversion.
+
+L’OCR pour le texte manuscrit comprend la prise en charge de l’anglais, le français (en préversion), l’allemand, l’italien, le portugais, l’espagnol et le chinois.
+
+Consultez [Comment spécifier la version du modèle](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) pour utiliser les langages et fonctionnalités en préversion. Consultez la liste complète des [langues prises en charge par OCR](./language-support.md#optical-character-recognition-ocr). Le modèle en préversion comprend toutes les améliorations apportées aux langues et fonctionnalités actuellement en disponibilité générale.
 
 ## <a name="key-features"></a>Fonctionnalités clés
 
-L’API Read comprend les fonctionnalités suivantes. 
+L’API Read comprend les fonctionnalités suivantes.
 
-* Impression de l’extraction de texte en 73 langues
-* Extraction de texte manuscrit en anglais
+* Extraction de texte imprimé en 122 langues
+* Extraction de texte manuscrit en 7 langues
 * Lignes de texte et mots avec scores de localisation et de confiance
 * Aucune identification de langue requise
 * Prise en charge des langues mixtes et du mode mixte (impression et écriture manuscrite)
 * Sélection de pages et de plages de pages à partir de grands documents multipages
-* Ordre de lecture naturel pour les lignes de texte
-* Classification de l’écriture manuscrite pour les lignes de texte
+* Option d’ordre de lecture naturel pour la sortie des lignes de texte (Latin uniquement)
+* Classification de l’écriture manuscrite pour les lignes de texte (Latin uniquement)
 * Disponible en tant que conteneur Docker Distroless pour un déploiement local
 
 Découvrez [comment utiliser les fonctionnalités OCR](./vision-api-how-to-topics/call-read-api.md).
@@ -78,4 +84,4 @@ Comme avec tous les services Cognitive Services, les développeurs utilisant le 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Démarrez avec les [guides de démarrage rapide consacrés à la bibliothèque de client ou à l’API REST (Lire) OCR](./quickstarts-sdk/client-library.md).
-- Découvrez l’[API REST Lire 3.2](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- Découvrez l’[API REST Lire 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).

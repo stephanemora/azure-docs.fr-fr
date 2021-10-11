@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: d2ec1be20c7453d64b3255f9756676d06b023d38
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3cf44d5ebe1ea643f588f1f63e0f5695240b1c95
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121747318"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233159"
 ---
 # <a name="what-is-azure-iot-edge"></a>Qu’est-ce qu’Azure IoT Edge
 
@@ -65,7 +65,7 @@ Le runtime Azure IoT Edge s'exécute sur un grand nombre d'appareils IoT, ce qui
 
 Il est difficile de gérer le cycle de vie des logiciels pour des millions d'appareils IoT qui sont souvent de marques et de modèles différents, ou dispersées géographiquement. Les charges de travail sont créées et configurées pour un type particulier d’appareil, déployées sur tous vos appareils et supervisées pour intercepter tous les appareils présentant un dysfonctionnement. Ces activités ne peuvent pas être effectuées sur chaque appareil : elles doivent être appliquées à grande échelle.
 
-Azure IoT Edge s’intègre parfaitement avec les accélérateurs de solution Azure IoT pour fournir un plan de contrôle pour les besoins de votre solution. Les services cloud vous permettent de :
+Azure IoT Edge s’intègre parfaitement à Azure IoT Central afin de fournir un plan de contrôle pour les besoins de votre solution. Les services cloud vous permettent de :
 
 * Créer et configurer une charge de travail à exécuter sur un type d’appareil spécifique.
 * Envoyer une charge de travail à un ensemble d’appareils.

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Apprenez à gérer le processus d’étiquetage des images afin qu’elles puissent être utilisées dans les modèles de classification d’images multiclasse.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/09/2020
+ms.date: 09/30/2021
 ms.custom: data4ml
-ms.openlocfilehash: 2dcd31493bf8ebc7c5096bfe7fda3e2b3f1641be
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 89d3a569a8e202ff2fbe43f697de3598b9b767ad
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112459547"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129423931"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutoriel : Créer un projet d’étiquetage pour la classification d’images multiclasse 
 
@@ -96,6 +96,10 @@ Maintenant que vous disposez de l’accès aux données à étiqueter, créez vo
     Type de tâche d’étiquetage | Sélectionnez **Classification d’images (plusieurs classes)** .  
     
     Sélectionnez **Suivant** pour poursuivre la création du projet.
+
+### <a name="add-workforce-optional"></a>Ajouter des employés (facultatif)
+
+Sélectionnez **Suivant** pour continuer.  Vous n’utiliserez pas d’employés externes pour ce tutoriel.
 
 ### <a name="select-or-create-a-dataset"></a>Sélectionner ou créer un jeu de données
 

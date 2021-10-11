@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à ADP | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à ADP'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ADP.
 services: active-directory
 author: jeevansd
@@ -9,23 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.date: 09/30/2021
 ms.author: jeedes
-ms.openlocfilehash: ab53dc218bee83476811e6d42dec76479559b50b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b0ee99863c0ba0287d3fd192ed04145fd3a3c69f
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803229"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402595"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ADP
+# <a name="tutorial-azure-ad-sso-integration-with-adp"></a>Tutoriel : Intégration de l’authentification unique Azure AD à ADP
 
 Dans ce tutoriel, vous allez apprendre à intégrer ADP dans Azure Active Directory (Azure AD). Quand vous intégrez ADP dans Azure AD, vous pouvez :
 
 * contrôler dans Azure AD qui a accès à ADP ;
 * permettre à vos utilisateurs de se connecter automatiquement à ADP avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,16 +33,19 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement ADP pour lequel l’authentification unique (SSO) est activée.
 
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
+
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* ADP prend en charge l’authentification unique initiée par le **fournisseur d’identité**
+* ADP prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
-## <a name="adding-adp-from-the-gallery"></a>Ajout d’ADP depuis la galerie
+## <a name="add-adp-from-the-gallery"></a>Ajouter ADP depuis la galerie
 
 Pour configurer l’intégration d’ADP à Azure AD, vous devez ajouter ADP disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
@@ -73,7 +75,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **ADP**, cliquez sur **l’onglet Propriétés** et effectuez les étapes suivantes : 
 
-    ![Propriétés de l’authentification unique](./media/adpfederatedsso-tutorial/tutorial_adp_prop.png)
+    ![Propriétés de l’authentification unique](./media/adpfederatedsso-tutorial/properties.png)
 
     a. Définissez le champ **Activé pour que les utilisateurs se connectent** sur **Oui**.
 
@@ -91,13 +93,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL : `https://fed.adp.com`
+    Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL : `https://fed.adp.com`
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-6. Dans la section **Configurer ADP**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer ADP**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -146,7 +148,7 @@ Une fois la confirmation reçue de votre représentant ADP, configurez vos servi
 1. Sélectionnez **ADP** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 1. Dans le portail Azure, dans la page d’intégration de votre application **ADP**, cliquez sur **l’onglet Propriétés** et effectuez les étapes suivantes :  
 
-    ![Propriétés de l’authentification unique liée](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![Onglet Propriétés de l’authentification unique liée](./media/adpfederatedsso-tutorial/application.png)
 
     1. Définissez le champ **Activé pour que les utilisateurs se connectent** sur **Oui**.
 
@@ -158,11 +160,11 @@ Une fois la confirmation reçue de votre représentant ADP, configurez vos servi
 
 1. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le **Mode****Lié**. pour lier votre application à **ADP**.
 
-    ![Authentification unique liée](./media/adpfederatedsso-tutorial/tutorial_adp_linked.png)
+    ![Authentification unique liée](./media/adpfederatedsso-tutorial/linked.png)
 
 1. Accédez à la section **Configurer l’URL d’authentification**, puis effectuez les étapes suivantes :
 
-    ![Propriétés de l’authentification unique](./media/adpfederatedsso-tutorial/tutorial_adp_linkedsignon.png)
+    ![Configurer l’authentification unique](./media/adpfederatedsso-tutorial/users.png)
 
     1. Collez l’**URL d’accès utilisateur**, que vous avez copiée à partir de l’**onglet Propriétés** plus haut (à partir de l’application ADP principale).
 
@@ -206,10 +208,9 @@ L’objectif de cette section est de créer un utilisateur appelé B. Simon dans
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-* Cliquez sur Tester cette application dans le portail Azure : vous devez être connecté automatiquement à l’instance d’ADP pour laquelle vous avez configuré l’authentification unique.
+* Cliquez sur Tester cette application dans le portail Azure, ce qui devrait vous connecter automatiquement à l’application ADP pour laquelle vous avez configuré l’authentification unique.
 
 * Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette ADP dans Mes applications, vous devez vous connecter automatiquement à l’application ADP pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 06/07/2021
+ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7fb3dcb07b8b868dda7bfef587b930765c4f661e
-ms.sourcegitcommit: e1874bb73cb669ce1e5203ec0a3777024c23a486
+ms.openlocfilehash: 0aad268f8721d2f4747c4e3dec3860e52dd7112a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112199235"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352794"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C
 
@@ -60,11 +60,14 @@ Avec un compte *consommateur*, les utilisateurs peuvent se connecter aux applica
 Un compte consommateur peut être associé à ces types d’identités :
 
 * **Identité locale**, avec le nom d’utilisateur et le mot de passe stockés localement dans l’annuaire Azure AD B2C. Nous faisons souvent référence à ces identités en parlant de « comptes locaux ».
-* Identités **sociales** ou **d’entreprise**, pour lesquelles l’identité de l’utilisateur est managée par un fournisseur d’identité fédéré. Par exemple, Facebook, Microsoft, ADFS ou Salesforce.
+* Identités **sociales** ou **d’entreprise**, pour lesquelles l’identité de l’utilisateur est managée par un fournisseur d’identité fédéré. Par exemple, Facebook, Google, Microsoft, ADFS ou Salesforce.
 
 Un utilisateur disposant d’un compte consommateur peut se connecter avec plusieurs identités. Par exemple, le nom d’utilisateur, l’adresse e-mail, l’ID d’employé, l’ID gouvernemental, etc. Un compte unique peut avoir plusieurs identités, qu’elles soient locales et de réseaux sociaux.
 
-![Identités d’un compte consommateur](media/technical-overview/identities.png)<br/>*Figure : Compte consommateur unique doté de plusieurs identités dans Azure AD B2C*
+
+
+:::image type="content" source="media/technical-overview/identities.png" alt-text="Identités d’un compte consommateur.":::
+<br/>*Figure : Compte consommateur unique doté de plusieurs identités dans Azure AD B2C*
 
 Pour plus d’informations, consultez [Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C](user-overview.md).
 
@@ -87,13 +90,17 @@ Vous pouvez également étendre le schéma Azure AD pour stocker des information
 
 Vous pouvez configurer Azure AD B2C pour permettre aux utilisateurs de se connecter à votre application avec des informations d’identification de fournisseurs d’identités de réseau social et d’entreprise. Azure AD B2C peut fédérer avec les fournisseurs d’identité qui prennent en charge les protocoles OAuth 1.0, OAuth 2.0, OpenID Connect et SAML. Par exemple, Facebook, un compte Microsoft, Google, Twitter et AD FS.
 
-![Fournisseurs d’identité externes](media/technical-overview/external-idps.png)
+
+
+:::image type="content" source="media/technical-overview/external-idps.png" alt-text="Fournisseurs d’identité externes.":::
 
 Avec la fédération des fournisseurs d’identités externes, vous pouvez donner à vos consommateurs la possibilité de se connecter avec leurs comptes de réseaux sociaux ou d’entreprise existants, sans avoir à créer de compte spécialement pour votre application.
 
 Dans la page d’inscription ou de connexion, Azure AD B2C affiche une liste de fournisseurs d’identités externes à partir de laquelle l’utilisateur peut faire son choix pour se connecter. Dès lors qu’il a sélectionné un des fournisseurs d’identités externes, il est emmené (redirigé) sur le site web du fournisseur sélectionné pour terminer le processus de connexion. Une fois l’utilisateur dûment connecté, il est retourné à Azure AD B2C pour l’authentification du compte dans votre application.
 
-![Exemple de connexion sur un appareil mobile avec un compte de réseau social (Facebook)](media/technical-overview/external-idp.png)
+
+
+:::image type="content" source="media/technical-overview/external-idp.png" alt-text="Exemple de connexion sur un appareil mobile avec un compte de réseau social (Facebook).":::
 
 Pour voir comment ajouter des fournisseurs d’identité dans Azure AD B2C, consultez [Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C](add-identity-provider.md).
 
@@ -117,7 +124,9 @@ Lisez l’article [Vue d’ensemble des flux d’utilisateurs et des stratégies
 
 Dans Azure AD B2C, vous pouvez concevoir les expériences d’identité de vos utilisateurs de manière à ce que les pages s’affichent harmonieusement avec l’apparence personnalisée de votre marque. Vous bénéficiez d’un contrôle presque total sur le contenu HTML et CSS présenté à vos utilisateurs lorsqu’ils suivent les parcours d’identité de votre application. Grâce à cette flexibilité, vous pouvez conserver la marque et la cohérence visuelle entre votre application et Azure AD B2C.
 
-![Captures d’écran de la page d’inscription et de connexion personnalisée associant la marque](media/technical-overview/seamless-ux.png)
+
+
+:::image type="content" source="media/technical-overview/seamless-ux.png" alt-text="Captures d’écran de la page d’inscription et de connexion personnalisée avec une marque.":::
 
 Pour plus d’informations sur la personnalisation de l’interface utilisateur, consultez :
 
@@ -165,7 +174,9 @@ Les programmes de fidélité sont un autre scénario activé par la prise en cha
 
 Les données retournées peuvent être stockées dans le compte d’annuaire de l’utilisateur dans Azure AD B2C. Elles peuvent ensuite être évaluées dans les étapes suivantes de la stratégie ou être incluses dans le jeton d’accès.
 
-![Intégration cœur de métier dans une application mobile](media/technical-overview/lob-integration.png)
+
+
+:::image type="content" source="media/technical-overview/lob-integration.png" alt-text="Intégration métier dans une application mobile.":::
 
 Vous pouvez ajouter un appel d’API REST à n’importe quelle étape du parcours utilisateur défini par une stratégie personnalisée. Par exemple, vous pouvez appeler une API REST :
 
@@ -195,7 +206,7 @@ Le schéma suivant montre comment Azure AD B2C peut communiquer via divers prot
 
 Lorsqu’un utilisateur veut se connecter à votre application, l’application initie une requête d’autorisation sur un point de terminaison fourni par un flux d’utilisateurs ou une stratégie personnalisée. Le flux d’utilisateur ou la stratégie personnalisée définit et contrôle l’expérience de l’utilisateur. Lorsque ce dernier termine un flux utilisateur, par exemple le flux *d’inscription ou de connexion*, Azure AD B2C génère un jeton, puis redirige l’utilisateur vers votre application.
 
-![Application mobile, avec des flèches montrant le flux circulant entre l’application et la page de connexion Azure AD B2C](media/technical-overview/app-integration.png)
+:::image type="content" source="media/technical-overview/app-integration.png" alt-text="Application mobile, avec des flèches montrant le flux circulant entre l’application et la page de connexion Azure AD B2C.":::
 
 Plusieurs applications peuvent utiliser le même flux utilisateur ou la même stratégie personnalisée. Une seule application peut utiliser plusieurs flux utilisateur ou stratégies personnalisées.
 
@@ -229,7 +240,9 @@ Pour plus d’informations, consultez [Configurer les exigences de complexité d
 
 En tant qu’administrateur du locataire Azure AD B2C, vous pouvez [réinitialiser le mot de passe d’un utilisateur](manage-users-portal.md#reset-a-users-password) qui viendrait à l’oublier. Vous pouvez aussi forcer les utilisateurs à réinitialiser leur mot de passe régulièrement. Pour plus d’informations, consultez [Configurer un flux de réinitialisation forcée du mot de passe](force-password-reset.md).
 
-![Flux de réinitialisation forcée du mot de passe](media/technical-overview/force-password-reset-flow.png)
+
+
+:::image type="content" source="media/technical-overview/force-password-reset-flow.png" alt-text="Flux de réinitialisation forcée du mot de passe.":::
 
 ## <a name="smart-account-lockout"></a>Verrouillage intelligent de compte
 
@@ -245,7 +258,8 @@ Azure AD B2C est conforme à la sécurité, à la confidentialité et aux autres
 
 Les sessions sont modélisées en tant que données chiffrées, avec la clé de déchiffrement connue uniquement du service d’émission de jeton de sécurité Azure AD B2C. Un algorithme de chiffrement renforcé, AES-192, est utilisé. La confidentialité et l’intégrité de tous les chemins de communication sont protégées au moyen de TLS. Notre service d’émission de jeton de sécurité utilise un certificat de validation étendue (EV) pour TLS. En général, le service d’émission de jeton de sécurité atténue les attaques par scripts intersites (XSS) en ne restituant pas les entrées non approuvées.
 
-![Diagramme des données sécurisées, en transit et au repos](media/technical-overview/user-data.png)
+
+:::image type="content" source="media/technical-overview/user-data.png" alt-text="Diagramme des données sécurisées, en transit et au repos.":::
 
 ### <a name="access-to-user-data"></a>Accès aux données utilisateur
 
@@ -286,6 +300,12 @@ En intégrant Azure Application Insights dans les stratégies personnalisées Az
 
 Pour plus d’informations, consultez [Suivre le comportement des utilisateurs dans Azure Active Directory B2C à l’aide d’Application Insights](analytics-with-application-insights.md).
 
+## <a name="azure-ad-b2c-service-limits-and-restrictions"></a>Restrictions et limites du service Azure AD B2C
+En savoir plus sur les [Restrictions et limites du service Azure AD B2C](service-limits.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous disposez d’une vue plus détaillée des fonctionnalités et les aspects techniques d’Azure Active Directory B2C, commencez à utiliser notre [tutoriel pour la création d’un client Azure Active Directory B2C](tutorial-create-tenant.md).
+Maintenant que vous disposez d’une vue plus détaillée sur les fonctionnalités et les aspects techniques d’Azure Active Directory B2C :
+- Démarrez avec notre [tutoriel pour créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md).
+- [Configurer la connexion pour une application monopage avec Azure Active Directory B2C](quickstart-single-page-app.md)
+- [Concepts Azure Active Directory B2C](application-types.md) 

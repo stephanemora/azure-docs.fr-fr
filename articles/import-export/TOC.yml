@@ -5,6 +5,14 @@
   items:
     - name: "Qu’est-ce qu’Import/Export\_?"
       href: storage-import-export-service.md
+- name: Tutoriels
+  items:
+    - name: Importer des données dans un stockage Blob
+      href: storage-import-export-data-to-blobs.md
+    - name: Importer des données dans des fichiers Azure Files
+      href: storage-import-export-data-to-files.md
+    - name: Exporter des données depuis un stockage Blob
+      href: storage-import-export-data-from-blobs.md
 - name: Concepts
   items:
     - name: Examiner les conditions requises
@@ -14,21 +22,15 @@
 - name: Procédures
   expanded: true
   items:
-    - name: Déployer
-      items:
-        - name: Importer des données dans des objets BLOB
-          href: storage-import-export-data-to-blobs.md
-        - name: Importer des données dans des fichiers
-          href: storage-import-export-data-to-files.md
-        - name: Importer des données à partir d’objets BLOB
-          href: storage-import-export-data-from-blobs.md
     - name: Utiliser des clés gérées par le client
       href: storage-import-export-encryption-key-portal.md
+    - name: Identifier les disques à utiliser
+      href: storage-import-export-determine-drives-for-export.md
     - name: Superviser
       items:
         - name: Afficher l’état des travaux et des lecteurs
           href: storage-import-export-view-drive-status.md
-        - name: Revoir le statut du travail
+        - name: Consulter les journaux de copie
           href: storage-import-export-tool-reviewing-job-status-v1.md
     - name: Dépanner
       items:

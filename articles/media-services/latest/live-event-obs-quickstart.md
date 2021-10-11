@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 03/20/2021
-ms.openlocfilehash: 0e425cddea1adaec8bfb8f0055b55bb0c45fb168
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 43f1602b22a761461f84761ed3a3806397011ae2
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123098"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389511"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Créer un stream en direct Azure Media Services avec OBS
 
@@ -63,7 +63,7 @@ Ouvrez votre navigateur web et accédez au [portail Microsoft Azure](https://por
 
    ![Zone Nom de l’événement en direct.](media/live-events-obs-quickstart/live-event-name.png)
 1. Entrez une description de l’événement dans la zone **Description** (facultatif).
-1. Sélectionnez l’option **Transfert direct - pas d’encodage cloud**.
+1. Sélectionnez l’option de base **Pass-through - pas d’encodage cloud**.
 
    ![Option Encodage cloud.](media/live-events-obs-quickstart/cloud-encoding.png)
 1. Sélectionnez l’option **RTMP**.
@@ -151,7 +151,7 @@ Dans le cadre de la procédure suivante, vous allez revenir à Azure Media Servi
 
 #### <a name="x264-encoder-settings"></a>Paramètres de l’encodeur X264
 
-1. Si vous avez sélectionné l’option d’encodage **X264**, sélectionnez la case **Redimensionner la sortie**. Sélectionnez 1920x1080 si vous utilisez un événement en direct Premium dans Media Services ou 1280x720 si vous utilisez un événement en direct Standard (720P).  Si vous utilisez un événement en direct Pass-through, vous pouvez choisir n’importe quelle résolution disponible.
+1. Si vous avez sélectionné l’option d’encodage **X264**, sélectionnez la case **Redimensionner la sortie**. Sélectionnez 1920x1080 si vous utilisez un événement en direct Premium dans Media Services ou 1280x720 si vous utilisez un événement en direct Standard (720P).  Si vous utilisez un événement en direct Pass-through de base ou standard, vous pouvez choisir n’importe quelle résolution disponible.
 
 1. Définissez la **Vitesse de transmission** sur une valeur au choix comprise entre 1 500 Kbits/s et 4 000 Kbits/s. Nous vous recommandons 2 500 Kbits/s si vous utilisez un événement en direct d’encodage Standard à 720P. Si vous utilisez un événement en direct Premium de 1080P, la valeur 4 000 Kbits/s est recommandée. Vous pouvez ajuster la vitesse de transmission en fonction des capacités de l’UC et de la bande passante disponibles sur votre réseau pour obtenir le paramètre de qualité souhaité.
 
@@ -165,7 +165,7 @@ Dans le cadre de la procédure suivante, vous allez revenir à Azure Media Servi
 
 #### <a name="nvidia-nvenc-encoder-settings"></a>Paramètres de l’encodeur NVIDIA NVENC
 
-1. Si vous avez sélectionné l’option d’encodage de GPU **NVENC**, sélectionnez la case **Redimensionner la sortie** et 1920x1080 si vous utilisez un événement en direct Premium dans Media Services ou 1280x720 si vous utilisez un événement en direct Standard (720P). Si vous utilisez un événement en direct Pass-through, vous pouvez choisir n’importe quelle résolution disponible.
+1. Si vous avez sélectionné l’option d’encodage de GPU **NVENC**, sélectionnez la case **Redimensionner la sortie** et 1920x1080 si vous utilisez un événement en direct Premium dans Media Services ou 1280x720 si vous utilisez un événement en direct Standard (720P). Si vous utilisez un événement en direct Pass-through de base ou standard, vous pouvez choisir n’importe quelle résolution disponible.
 
 1. Définissez le **Contrôle de la vitesse de transmission** sur CBR pour le contrôle de la vitesse de transmission constante.
 
@@ -189,7 +189,7 @@ Dans le cadre de la procédure suivante, vous allez revenir à Azure Media Servi
 
 #### <a name="intel-quicksync-encoder-settings"></a>Paramètres de l’encodeur Intel QuickSync
 
-1. Si vous avez sélectionné l’option d’encodage de GPU **QuickSync**, sélectionnez la case **Redimensionner la sortie** et 1920x1080 si vous utilisez un événement en direct Premium dans Media Services ou 1280x720 si vous utilisez un événement en direct Standard (720P). Si vous utilisez un événement en direct Pass-through, vous pouvez choisir n’importe quelle résolution disponible.
+1. Si vous avez sélectionné l’option d’encodage de GPU **QuickSync**, sélectionnez la case **Redimensionner la sortie** et 1920x1080 si vous utilisez un événement en direct Premium dans Media Services ou 1280x720 si vous utilisez un événement en direct Standard (720P). Si vous utilisez un événement en direct Pass-through de base ou standard, vous pouvez choisir n’importe quelle résolution disponible.
 
 1. Définissez l'**Utilisation cible** sur « équilibrée » ou ajustez-la selon vos besoins en fonction de la charge combinée de l’UC et du GPU. Ajustez-les en fonction des besoins et faites des essais pour obtenir une utilisation maximale de 80 % de l’UC en moyenne avec la qualité que votre matériel est peut offrir. Si votre matériel est plus limité, effectuez un test avec « fast » ou désélectionnez « very fast » si vous rencontrez des problèmes de performances.
 

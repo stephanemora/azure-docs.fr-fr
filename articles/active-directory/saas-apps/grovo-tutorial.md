@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 59d46fefca4955c9cee641cb4ae0a2f815fabcbb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 82324eca3d638724f946885fe809f2aba261a692
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124833380"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229694"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grovo"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Grovo
 
@@ -143,7 +143,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Capture d’écran montrant la section « SP initiated SAML 2.0 » avec le bouton « Set up » sélectionné.](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
-4. Dans la fenêtre contextuelle **SP initiated SAML 2.0** (SAML 2.0 initié SP), effectuez les actions suivantes :
+4. Dans la fenêtre contextuelle **SP initiated SAML 2.0**, effectuez les actions suivantes :
 
     ![Configuration de Grovo](./media/grovo-tutorial/tutorial_grovo_saml.png)
 

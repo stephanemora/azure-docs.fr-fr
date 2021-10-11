@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Keeper Password Manager | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Keeper Password Manager'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Keeper Password Manager.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/03/2021
+ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: bbfec5e90f76d96870c0768b82b86360c19a7020
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3488ecba825d82cd1f3790b977b8b039eb38486f
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124822196"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402944"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager"></a>Tutoriel : Intégration d’Azure Active Directory à Keeper Password Manager
+# <a name="tutorial-azure-ad-sso-integration-with-keeper-password-manager"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Keeper Password Manager
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Keeper Password Manager à Azure Active Directory (Azure AD). Quand vous intégrez Keeper Password Manager à Azure AD, vous pouvez :
 
@@ -32,6 +32,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Keeper Password Manager pour lequel l’authentification unique est activée.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -67,7 +70,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Keeper Pass
     1. [Créer un utilisateur test Keeper Password Manager](#create-a-keeper-password-manager-test-user) pour avoir, dans Keeper Password Manager, un équivalent de Britta Simon lié à la représentation Azure AD de l’utilisateur.
 1. [Tester l’authentification unique](#test-sso) pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
@@ -145,6 +148,9 @@ Configurez l’authentification unique pour l’application en vous reportant au
 ### <a name="create-a-keeper-password-manager-test-user"></a>Créer un utilisateur test Keeper Password Manager
 
 Pour permettre aux utilisateurs Azure AD de se connecter à Keeper Password Manager, vous devez les attribuer. L’application prend en charge le provisionnement d’utilisateurs juste-à-temps ; après l’authentification, les utilisateurs sont créés automatiquement dans l’application. Si vous voulez configurer des utilisateurs manuellement, contactez le [support technique de Keeper](https://keepersecurity.com/contact.html).
+
+> [!NOTE]
+> Keeper Password Manager prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./keeper-password-manager-digitalvault-provisioning-tutorial.md).
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

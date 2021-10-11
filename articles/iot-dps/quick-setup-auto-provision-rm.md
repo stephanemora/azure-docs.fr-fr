@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 8ec795e7ad54d2101573d857fa52b5aaad0ed71d
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 20a6ced453ca49c08131917f0d22c4c7d9f759a9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112032390"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278744"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec un modèle ARM
 
@@ -170,4 +170,4 @@ Vous pouvez également supprimer des groupes de ressources et des ressources ind
 Dans ce guide de démarrage rapide, vous avez déployé un hub IoT et une instance du service Device Provisioning, puis vous avez lié ces deux ressources. Pour savoir comment utiliser cette configuration pour provisionner un appareil, passez au démarrage rapide traitant de la création d’un appareil.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide pour provisionner un appareil](./quick-create-simulated-device-symm-key.md)
+> [Démarrage rapide : Provisionner un appareil à clé symétrique simulé](./quick-create-simulated-device-symm-key.md)

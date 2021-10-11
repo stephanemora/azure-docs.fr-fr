@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3cff113ffd6a37406a88eb5ad5a4e3d5e85e10c5
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: abf39ce59bec57d765ab981eae94b1b49b41e4b1
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039419"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390080"
 ---
 # <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>Tutoriel : Développer des modules IoT Edge avec des conteneurs Linux
 
@@ -178,7 +178,7 @@ L’extension IoT Edge tente d’extraire d’Azure vos informations d’identif
 3. Enregistrez les modifications apportées au fichier .env.
 
 >[!NOTE]
->Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Lorsque vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification de moindre privilège, comme les principaux de service. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
+>Ce tutoriel utilise les informations d’identification de l’administrateur pour Azure Container Registry, qui sont pratiques pour les scénarios de développement et de test. Quand vous êtes prêt pour les scénarios de production, nous vous recommandons d’utiliser l’option d’authentification avec les privilèges minimum, comme les principaux de service ou les jetons délimités au dépôt. Pour plus d’informations, consultez [Gérer l’accès au registre de conteneurs](production-checklist.md#manage-access-to-your-container-registry).
 
 ### <a name="select-your-target-architecture"></a>Sélectionner votre architecture cible
 

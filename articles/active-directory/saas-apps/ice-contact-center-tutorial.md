@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à ice Contact Center | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à ice Contact Center'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ice Contact Center.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/09/2021
+ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: cf9e228769531095ae4e8b6629b2377af2df3a0c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: df556e930bd570960080233bc17e77c0bcc5510f
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124790659"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401044"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ice-contact-center"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ice Contact Center
+# <a name="tutorial-azure-ad-sso-integration-with-ice-contact-center"></a>Tutoriel : Intégration de l’authentification unique Azure AD à ice Contact Center
 
 Dans ce tutoriel, vous allez apprendre à intégrer ice Contact Center à Azure Active Directory (Azure AD). Quand vous intégrez ice Contact Center à Azure AD, vous pouvez :
 
@@ -32,6 +32,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement ice Contact Center pour lequel l’authentification unique est activée
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 

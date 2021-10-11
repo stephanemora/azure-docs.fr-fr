@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : intégration d’Azure Active Directory à Insight4GRC | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Insight4GRC'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Insight4GRC.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 09/30/2021
 ms.author: jeedes
-ms.openlocfilehash: 9c5de8d0444012d7c10f35740f524ae0621eee3c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 47356ee5c3c67b417db24325b2250e42cb7fb5d9
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676235"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402166"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>Tutoriel : intégration d’Azure Active Directory à Insight4GRC
+# <a name="tutorial-azure-ad-sso-integration-with-insight4grc"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Insight4GRC
 
 Dans ce tutoriel, vous allez apprendre à intégrer Insight4GRC à Azure Active Directory (Azure AD). Quand vous intégrez Insight4GRC à Azure AD, vous pouvez :
 
@@ -33,6 +33,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Insight4GRC pour lequel l’authentification unique est activée.
 
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
+
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
@@ -41,7 +44,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 * Insight4GRC prend en charge l’attribution d’utilisateurs **Juste-à-temps**.
 * Insight4GRC prend en charge l’[attribution automatisée d’utilisateurs](insight4grc-provisioning-tutorial.md).
 
-## <a name="adding-insight4grc-from-the-gallery"></a>Ajout de Insight4GRC à partir de la galerie
+## <a name="add-insight4grc-from-the-gallery"></a>Ajouter Insight4GRC à partir de la galerie
 
 Pour configurer l’intégration de Insight4GRC dans Azure AD, vous devez ajouter Insight4GRC depuis la galerie à votre liste d’applications SaaS gérées.
 
@@ -51,7 +54,6 @@ Pour configurer l’intégration de Insight4GRC dans Azure AD, vous devez ajoute
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Insight4GRC** dans la zone de recherche.
 1. Sélectionnez **Insight4GRC** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-insight4grc"></a>Configurer et tester l’authentification unique Azure AD pour Insight4GRC
 

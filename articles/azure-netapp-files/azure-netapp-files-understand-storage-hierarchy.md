@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: fd96a8c2002bc22a0e4ef2c5a19fa06bf10b5565
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 41ccd31a5e42b2765ffa778dc347cc848090ffee
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071890"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407510"
 ---
 # <a name="storage-hierarchy-of-azure-netapp-files"></a>Hiérarchie de stockage d’Azure NetApp Files
 
@@ -68,7 +68,7 @@ Le type de QoS est un attribut d’un pool de capacités. Azure NetApp Files fou
 
     Dans un pool de capacités de QoS manuel, vous pouvez affecter la capacité et le débit d’un volume de manière indépendante. Le débit total de tous les volumes créés avec un pool de capacités de QoS manuel est limité par le débit total du pool.  Il est déterminé par la combinaison de la taille du pool et du débit au niveau du service. 
 
-    Par exemple, un pool de capacités de 4 Tio avec le niveau de service Ultra a une capacité de débit totale de 512 Mio/s (4 Tio x 128 Mio/s/Tio) disponible pour les volumes.
+    Par exemple, un pool de capacités de 4 Tio avec le niveau de service Ultra a une capacité de débit totale de 512 Mio/s (4 Tio x 128 Mio/s/Tio) disponible pour les volumes.
 
 
 ## <a name="volumes"></a><a name="volumes"></a>Volumes
@@ -86,8 +86,7 @@ L’exemple suivant montre les relations entre l’abonnement Azure, les comptes
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Limites des ressources pour Azure NetApp Files](azure-netapp-files-resource-limits.md)
-- [Register for Azure NetApp Files](azure-netapp-files-register.md) (S’inscrire à Azure NetApp Files)
 - [Niveaux de service pour Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Considérations sur les performances pour Azure NetApp Files](azure-netapp-files-performance-considerations.md)
-- [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md)
+- [Créer un pool de capacités](azure-netapp-files-set-up-capacity-pool.md)
 - [Gérer un pool de capacités de QoS manuel](manage-manual-qos-capacity-pool.md)

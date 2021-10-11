@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 09/23/2021
 ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0c07d17269911043c71fc0d89a5a290f053e39a4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e7ee0deb84b6b7ef7c10c296eab236524a3ee487
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639733"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357340"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
@@ -299,42 +299,36 @@ Maintenant que vous avez activé l’authentification et l’autorisation pour v
 
 L’application front-end dispose maintenant des autorisations nécessaires pour accéder à l’application back-end en tant qu’utilisateur connecté. Dans cette étape, vous configurez l’authentification et l’autorisation App Service pour obtenir un jeton d’accès utilisable pour accéder au serveur principal. Pour cette étape, vous avez besoin de l’ID de client du back-end, que vous avez copié dans la section [Activer l’authentification et l’autorisation pour l’application back-end](#enable-authentication-and-authorization-for-back-end-app).
 
-1. Accédez à [Azure Resource Explorer](https://resources.azure.com) et, à l’aide de l’arborescence de ressources, localisez votre application web front-end.
+Dans Cloud Shell, exécutez la commande suivante sur l’application front-end pour ajouter le paramètre `scope` au paramètre d’authentification `identityProviders.azureActiveDirectory.login.loginParameters`. Remplacez *\<front-end-app-name>* et *\<back-end-client-id>* .
 
-1. [Azure Resource Explorer](https://resources.azure.com) est désormais ouvert avec votre application front-end sélectionnée dans l’arborescence des ressources. En haut de la page, cliquez sur **Lecture/écriture** pour apporter des modifications à vos ressources Azure.
+```azurecli-interactive
+az webapp auth set --resource-group myAuthResourceGroup --name <front-end-app-name> --body '{"identityProviders":{"azureActiveDirectory":{"login":{"loginParameters":["scope=openid profile email offline_access api://<back-end-client-id>/user_impersonation"]}}}}'
+```
 
-    :::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Capture d’écran des boutons Lecture seule et Lecture/écriture situés en haut de la page Azure Resource Explorer, avec le bouton Lecture/écriture sélectionné.":::
+Voici une explication des étendues demandées :
 
-1. Dans le navigateur de gauche, descendez dans la hiérarchie jusqu’à **config** > **authsettingsV2**.
+- `openid`, `profile` et `email` sont déjà demandés par App Service par défaut. Pour plus d’informations, consultez [Étendues OpenID Connect](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
+- `api://<back-end-client-id>/user_impersonation` est une API exposée dans l’inscription de votre application back-end. C’est l’étendue qui vous donne un jeton JWT qui inclut l’application back-end comme [audience de jeton](https://wikipedia.org/wiki/JSON_Web_Token). 
+- [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) est inclus ici pour des raisons pratiques (au cas où vous souhaiteriez [actualiser des jetons](#when-access-tokens-expire)).
 
-1. Dans l’affichage **authsettingsV2**, cliquez sur **Modifier**. Descendez dans la hiérarchie jusqu’à `properties.identityProviders.azureActiveDirectory.login` et ajoutez `loginParameters` avec la chaîne JSON suivante, en utilisant l’ID client que vous avez copié. 
+> [!TIP]
+> - Pour voir l’étendue `api://<back-end-client-id>/user_impersonation` dans le portail Azure, accédez à la page **Authentification** de l’application back-end, cliquez sur le lien sous **Fournisseur d’identité**, puis cliquez sur **Exposer une API** dans le menu gauche.
+> - Pour configurer les étendues requises avec une interface web à la place, consultez les étapes de Microsoft dans [Actualiser les jetons d’authentification](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
+> - Certaines étendues demandent le consentement de l’administrateur ou de l’utilisateur. Cette nécessité entraîne l’affichage de la page de demande de consentement quand un utilisateur se connecte à l’application front-end dans le navigateur. Pour éviter cette page de consentement, ajoutez l’inscription de l’application front-end en tant qu’application cliente autorisée dans la page **Exposer une API** en cliquant sur **Ajouter une application cliente**, puis en fournissant l’ID client de l’inscription de l’application front-end.
 
-    ```json
-    "loginParameters": ["response_type=code id_token","scope=openid api://<back-end-client-id>/user_impersonation"],
-    ```
+::: zone pivot="platform-linux"
 
-    :::image type="content" source="./media/tutorial-auth-aad/add-loginparameters.png" alt-text="Capture d’écran d’un exemple de code dans l’affichage authsettingsV2 montrant la chaîne loginParameters avec un exemple d’ID client.":::
+> [!NOTE]
+> Pour les applications Linux, il est provisoirement nécessaire de configurer un paramètre de versioning pour l’inscription de l’application back-end. Dans Cloud Shell, configurez-le avec les commandes suivantes. Veillez à remplacer *\<back-end-client-id>* par l’ID client de votre back-end.
+>
+> ```azurecli-interactive
+> id=$(az ad app show --id <back-end-client-id> --query objectId --output tsv)
+> az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
+> ```    
 
-    > [!TIP]
-    > L’étendue `api://<back-end-client-id>/user_impersonation` est ajoutée par défaut à l’inscription de l’application pour l’application back-end. Pour l’afficher dans le portail Azure, accédez à la page **Authentification** de l’application back-end, cliquez sur le lien sous **Fournisseur d’identité**, puis cliquez sur **Exposer une API** dans le menu gauche.
-    >
-    > Notez que l’étendue nécessite le consentement de l’administrateur ou de l’utilisateur. Cette nécessité entraîne l’affichage de la page de demande de consentement quand un utilisateur se connecte à l’application front-end dans le navigateur. Pour éviter cette page de consentement, ajoutez l’inscription de l’application front-end en tant qu’application cliente autorisée dans la page **Exposer une API** en cliquant sur **Ajouter une application cliente**, puis en fournissant l’ID client de l’inscription de l’application front-end.
-
-1. Enregistrez vos paramètres en cliquant sur **PUT**.
-
-    ::: zone pivot="platform-linux"
+::: zone-end
     
-    > [!NOTE]
-    > Pour les applications Linux, il est provisoirement nécessaire de configurer un paramètre de versioning pour l’inscription de l’application back-end. Dans Cloud Shell, configurez-le avec les commandes suivantes. Veillez à remplacer *\<back-end-client-id>* par l’ID client de votre back-end.
-    >
-    > ```azurecli-interactive
-    > id=$(az ad app show --id <back-end-client-id> --query objectId --output tsv)
-    > az rest --method PATCH --url https://graph.microsoft.com/v1.0/applications/$id --body "{'api':{'requestedAccessTokenVersion':2}}" 
-    > ```    
-
-    ::: zone-end
-    
-    Vos applications sont désormais configurées. Le serveur frontal est maintenant prêt à accéder au serveur principal avec un jeton d’accès approprié.
+Vos applications sont désormais configurées. Le serveur frontal est maintenant prêt à accéder au serveur principal avec un jeton d’accès approprié.
 
 Pour plus d’informations sur la configuration du jeton d’accès pour d’autres fournisseurs, consultez [Actualiser les jetons de fournisseur d’identité](configure-authentication-oauth-tokens.md#refresh-auth-tokens).
 

@@ -10,12 +10,12 @@ ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d3a1fe8f4b06601ed6b3e77ffa5743506e923ec4
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 9e610e7ec02ec16d077087dab4742721c4209bfa
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771747"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234848"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Contrôler l’accès au compte de stockage pour le pool SQL serverless dans Azure Synapse Analytics
 
@@ -36,7 +36,7 @@ Vous pouvez également rendre vos fichiers disponibles publiquement en autorisan
 
 ## <a name="supported-storage-authorization-types"></a>Types d’autorisations de stockage pris en charge
 
-Un utilisateur qui s’est connecté à un pool SQL serverless doit être autorisé à accéder aux fichiers présents dans Stockage Azure et à les interroger si les fichiers ne sont pas publiquement disponibles. Vous pouvez utiliser trois types d’autorisation pour accéder au stockage non public : [Identité de l’utilisateur](?tabs=user-identity), [Signature d’accès partagé](?tabs=shared-access-signature) et [Identité managée](?tabs=managed-identity).
+Un utilisateur qui s’est connecté à un pool SQL serverless doit être autorisé à accéder aux fichiers présents dans Stockage Azure et à les interroger si les fichiers ne sont pas publiquement disponibles. Vous pouvez utiliser quatre types d’autorisation pour accéder au stockage non public : [Identité de l’utilisateur](?tabs=user-identity), [Signature d’accès partagé](?tabs=shared-access-signature), [Principal de service](?tab/service-principal) et [Identité managée](?tabs=managed-identity).
 
 > [!NOTE]
 > Le **pass-through Azure AD** est le comportement qui est utilisé par défaut quand vous créez un espace de travail.
@@ -46,7 +46,7 @@ Un utilisateur qui s’est connecté à un pool SQL serverless doit être autori
 L’**identité de l’utilisateur** (également appelée « pass-through Azure AD ») est un type d’autorisation où l’identité de l’utilisateur Azure AD qui s’est connecté au pool SQL serverless est utilisée pour autoriser l’accès aux données. Avant d’accéder aux données, l’administrateur du stockage Azure doit accorder des autorisations à l’utilisateur Azure AD. Comme indiqué dans le tableau ci-dessous, elle n’est pas prise en charge pour le type d’utilisateur SQL.
 
 > [!IMPORTANT]
-> Le jeton d'authentification AAD peut être mis en cache par les applications clientes. Par exemple, PowerBI met en cache le jeton AAD et réutilise le même jeton pendant une heure. Les requêtes durables peuvent échouer si le jeton expire pendant leur exécution. Si des requêtes échouent parce que le jeton d'accès AAD expire au milieu de celles-ci, envisagez de passer à l'[identité managée](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou à la [signature d'accès partagé](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
+> Le jeton d'authentification AAD peut être mis en cache par les applications clientes. Par exemple, PowerBI met en cache le jeton AAD et réutilise le même jeton pendant une heure. Les requêtes durables peuvent échouer si le jeton expire pendant leur exécution. Si des requêtes échouent parce que le jeton d’accès AAD expire au milieu de celles-ci, envisagez de passer au [principal de service](develop-storage-files-storage-access-control.md?tabs=service-principal#supported-storage-authorization-types) ,à l’[identité managée](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou à la [signature d’accès partagé](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#supported-storage-authorization-types).
 
 Pour utiliser votre identité afin d’accéder aux données, vous devez disposer d’un rôle de propriétaire, de contributeur ou de lecteur pour les données blob de stockage. Vous pouvez également spécifier des règles ACL affinées pour accéder aux fichiers et aux dossiers. Même si vous êtes propriétaire d’un compte de stockage, vous devez vous ajouter à l’un des rôles de données blob de stockage.
 Pour plus d’informations sur le contrôle d’accès dans Azure Data Lake Store Gen2, consultez l’article [Contrôle d’accès dans Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
@@ -69,6 +69,14 @@ Pour autoriser l’accès à l’aide du jeton SAP, vous devez créer des inform
 > [!IMPORTANT]
 > Vous ne pouvez pas accéder aux comptes de stockage privés avec le jeton SAS. Envisagez de passer à l'[identité managée](develop-storage-files-storage-access-control.md?tabs=managed-identity#supported-storage-authorization-types) ou à l'[authentification directe Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) pour accéder au stockage protégé.
 
+
+### <a name="service-principal"></a>[Principal du service](#tab/service-principal)
+Un **principal de service** est la représentation locale d’un objet d’application global dans un locataire Azure AD particulier. Cette méthode d’authentification est appropriée quand l’accès au stockage doit être autorisé pour une application utilisateur, un service ou un outil d’automatisation. 
+
+L’application doit être inscrite auprès d’Azure Active Directory. Pour le processus d’inscription, vous pouvez consulter [Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft](../../active-directory/develop/quickstart-register-app.md). Une fois l’application inscrite, son principal de service peut être utilisé pour l’autorisation. 
+
+Pour que l’application puisse accéder aux données, le principal de service doit avoir le rôle Contributeur, Lecteur ou Propriétaire des données blob du stockage. Même si le principal de service est propriétaire d’un compte de stockage, il doit toujours disposer d’un rôle approprié sur les données blob du stockage. Une autre façon d’accorder l’accès aux fichiers et aux dossiers de stockage consiste à définir des règles ACL affinées pour le principal de service. Pour plus d’informations sur le contrôle d’accès dans Azure Data Lake Store Gen2, consultez l’article [Contrôle d’accès dans Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
+
 ### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
 
 L’**identité managée** est également connue sous le nom de MSI. Il s’agit d’une fonctionnalité Azure Active Directory (Azure AD) qui fournit des services Azure pour un pool SQL serverless. En outre, elle déploie automatiquement une identité managée dans Azure AD. Cette identité peut être utilisée pour autoriser les demandes d’accès aux données dans le stockage Azure.
@@ -81,15 +89,19 @@ Vous pouvez accéder aux fichiers publiquement disponibles placés sur des compt
 
 ---
 
+#### <a name="cross-tenant-scenarios"></a>Scénarios inter-locataires
+Si le stockage Azure se trouve dans un locataire différent du pool SQL serverless Synapse, l’autorisation par le biais du **principal de service** est la méthode recommandée. L’autorisation **SAS** est également possible, mais l’**identité managée** n’est pas prise en charge. 
+
 ### <a name="supported-authorization-types-for-databases-users"></a>Types d’autorisation pris en charge pour les utilisateurs de bases de données
 
-Le tableau ci-dessous présente les types d’autorisation disponibles :
+Dans le tableau ci-dessous, vous trouverez les types d’autorisation disponibles pour différentes méthodes de connexion au point de terminaison SQL Serverless Synapse :
 
-| Type d’autorisation                    | *Utilisateur SQL*    | *Utilisateur Azure AD*     |
-| ------------------------------------- | ------------- | -----------    |
-| [Identité de l’utilisateur](?tabs=user-identity#supported-storage-authorization-types)       | Non pris en charge | Prise en charge      |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Prise en charge     | Prise en charge      |
-| [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge | Prise en charge      |
+| Type d’autorisation                    | *Utilisateur SQL*    | *Utilisateur Azure AD*     | *Principal du service* |
+| ------------------------------------- | ------------- | -----------    | -------- |
+| [Identité de l’utilisateur](?tabs=user-identity#supported-storage-authorization-types)       |  Non pris en charge | Prise en charge      | Prise en charge|
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Prise en charge     | Pris en charge      | Pris en charge|
+| [Principal du service](?tabs=service-principal#supported-storage-authorization-types) | Pris en charge | Pris en charge      | Prise en charge|
+| [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge | Prise en charge      | Prise en charge|
 
 ### <a name="supported-storages-and-authorization-types"></a>Types d’autorisations et de stockage pris en charge
 
@@ -98,6 +110,7 @@ Vous pouvez utiliser les combinaisons de types d’autorisations et de stockage 
 | Type d’autorisation  | Stockage Blob   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Prise en charge      | Non pris en charge   | Prise en charge     |
+| [Principal du service](?tabs=managed-identity#supported-storage-authorization-types) | Pris en charge   | Prise en charge      | Prise en charge  |
 | [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge      | Pris en charge        | Prise en charge     |
 | [Identité de l’utilisateur](?tabs=user-identity#supported-storage-authorization-types)    | Pris en charge      | Pris en charge        | Pris en charge     |
 
@@ -109,6 +122,15 @@ Lors de l’accès à un stockage protégé par le pare-feu, vous pouvez utilise
 > [!NOTE]
 > La fonctionnalité de pare-feu de Stockage est en préversion publique et est disponible dans toutes les régions de cloud public. 
 
+
+Dans le tableau ci-dessous, vous trouverez les types d’autorisation disponibles pour différentes méthodes de connexion au point de terminaison SQL Serverless Synapse :
+
+| Type d’autorisation                    | *Utilisateur SQL*    | *Utilisateur Azure AD*     | *Principal du service* |
+| ------------------------------------- | ------------- | -----------    | -------- |
+| [Identité de l’utilisateur](?tabs=user-identity#supported-storage-authorization-types)       |  Non pris en charge | Prise en charge      | Prise en charge|
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)       | Non pris en charge     | Non pris en charge      | Non pris en charge|
+| [Principal du service](?tabs=service-principal#supported-storage-authorization-types) | Non pris en charge | Non pris en charge      | Non pris en charge|
+| [Identité gérée](?tabs=managed-identity#supported-storage-authorization-types) | Prise en charge | Pris en charge      | Prise en charge|
 
 ### <a name="user-identity"></a>[Identité de l’utilisateur](#tab/user-identity)
 
@@ -193,6 +215,10 @@ Suivez ces étapes pour configurer le pare-feu de votre compte de stockage et aj
 
 Les signatures d’accès partagé ne peuvent pas être utilisées pour accéder au stockage protégé par un pare-feu.
 
+### <a name="service-principal"></a>[Principal du service](#tab/service-principal)
+
+Le principal de service ne peut pas être utilisé pour accéder au stockage protégé par un pare-feu. Utilisez l’identité managée à la place.
+
 ### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
 
 Vous devez activer l’option [Autoriser les services Microsoft approuvés...](../../storage/common/storage-network-security.md#trusted-microsoft-services) et [Attribuer un rôle Azure](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights) de façon explicite à l’[identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/overview.md) pour cette instance de ressource. Dans ce cas, l’étendue de l’accès pour l’instance correspond au rôle Azure affecté à l’identité managée.
@@ -263,8 +289,18 @@ GO
 
 Si vous le souhaitez, vous pouvez utiliser uniquement l’URL de base du compte de stockage, sans nom de conteneur.
 
-### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
+### <a name="service-principal"></a>[Principal du service](#tab/service-principal)
 
+Le script suivant crée des informations d’identification au niveau du serveur qui permettent d’accéder aux fichiers dans un stockage en utilisant le principal de service pour l’authentification et l’autorisation. Vous pouvez obtenir l’**AppID** en visitant Inscriptions d’applications dans le portail Azure et en sélectionnant l’application qui demande l’accès au stockage. Le **Secret** est obtenu durant l’inscription de l’application. **AuthorityUrl** est l’URL de l’autorité AAD OAUTH 2.0.
+
+```sql
+CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+WITH IDENTITY = '<AppID>@<AuthorityUrl>' 
+, SECRET = '<Secret>'
+```
+
+### <a name="managed-identity"></a>[Identité gérée](#tab/managed-identity)
+ 
 Le script suivant crée des informations d’identification au niveau du serveur que la fonction `OPENROWSET` peut utiliser pour accéder à n’importe quel fichier sur un stockage Azure à l’aide d’une identité managée d’espace de travail.
 
 ```sql
@@ -313,6 +349,24 @@ GO
 CREATE EXTERNAL DATA SOURCE mysample
 WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
           CREDENTIAL = SasToken
+)
+```
+
+
+### <a name="service-principal"></a>[Principal du service](#tab/service-principal)
+Le script suivant crée des informations d’identification délimitées à la base de données qui permettent d’accéder aux fichiers dans un stockage en utilisant le principal de service pour l’authentification et l’autorisation. Vous pouvez obtenir l’**AppID** en visitant Inscriptions d’applications dans le portail Azure et en sélectionnant l’application qui demande l’accès au stockage. Le **Secret** est obtenu durant l’inscription de l’application. **AuthorityUrl** est l’URL de l’autorité AAD OAUTH 2.0.
+
+```sql
+-- Optional: Create MASTER KEY if not exists in database:
+-- CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<Very Strong Password>
+
+CREATE DATABASE SCOPED CREDENTIAL [<CredentialName>] WITH
+IDENTITY = '<AppID>@<AuthorityUrl>' 
+, SECRET = '<Secret>'
+GO
+CREATE EXTERNAL DATA SOURCE MyDataSource
+WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>',
+          CREDENTIAL = CredentialName
 )
 ```
 
@@ -394,14 +448,18 @@ Modifiez le script suivant pour créer une table externe qui accède au stockage
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'Y*********0'
 GO
 
--- Create databases scoped credential that use Managed Identity or SAS token. User needs to create only database-scoped credentials that should be used to access data source:
+-- Create databases scoped credential that use Managed Identity, SAS token or Service Principal. User needs to create only database-scoped credentials that should be used to access data source:
 
 CREATE DATABASE SCOPED CREDENTIAL WorkspaceIdentity
 WITH IDENTITY = 'Managed Identity'
 GO
 CREATE DATABASE SCOPED CREDENTIAL SasCredential
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2019-10-1********ZVsTOL0ltEGhf54N8KhDCRfLRI%3D'
-
+GO
+CREATE DATABASE SCOPED CREDENTIAL SPNCredential WITH
+IDENTITY = '**44e*****8f6-ag44-1890-34u4-22r23r771098@https://login.microsoftonline.com/**do99dd-87f3-33da-33gf-3d3rh133ee33/oauth2/token' 
+, SECRET = '.7OaaU_454azar9WWzLL.Ea9ePPZWzQee~'
+GO
 -- Create data source that one of the credentials above, external file format, and external tables that reference this data source and file format:
 
 CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] WITH ( FORMAT_TYPE = PARQUET)
@@ -412,6 +470,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 -- Uncomment one of these options depending on authentication method that you want to use to access data source:
 --,CREDENTIAL = WorkspaceIdentity 
 --,CREDENTIAL = SasCredential 
+--,CREDENTIAL = SPNCredential
 )
 
 CREATE EXTERNAL TABLE dbo.userData ( [id] int, [first_name] varchar(8000), [last_name] varchar(8000) )

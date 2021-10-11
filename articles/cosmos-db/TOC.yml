@@ -1303,6 +1303,8 @@
           href: graph/powershell-samples.md
         - name: Gérer à l’aide d’Azure CLI
           href: graph/cli-samples.md
+        - name: Solution de traçabilité de chaîne logistique
+          href: graph/supply-chain-traceability-solution.md
     - name: Informations de référence
       items:
         - name: En-têtes de réponse

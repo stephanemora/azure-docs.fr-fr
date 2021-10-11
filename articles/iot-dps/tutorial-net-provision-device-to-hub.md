@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 84fe935c1122d3d5c65423341b8760643257f992
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 19f36e926ada75f36ddb34f1ad8d98cdf531fd22
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868568"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457427"
 ---
 # <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Tutoriel : Inscrire l’appareil à un hub IoT avec le client du service IoT Hub Provisioning (.NET)
 
-Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous allez apprendre à utiliser ce service pour approvisionner votre appareil sur un seul hub IoT à l’aide d’une **_inscription individuelle_** et des **_groupes d’inscriptions_**. Ce didacticiel vous explique les procédures suivantes :
+Dans le tutoriel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous allez apprendre à utiliser ce service pour approvisionner votre appareil sur un seul hub IoT à l’aide d’une **_inscription individuelle_** et des **_groupes d’inscriptions_**. Ce didacticiel vous explique les procédures suivantes :
 
 > [!div class="checklist"]
 > * Inscrire l’appareil
@@ -221,17 +221,17 @@ Une fois l’appareil correctement inscrit, il doit apparaître comme suit dans 
 
 À ce stade, la configuration suivante est prête pour l’enregistrement de l’appareil :
 
-1. Votre appareil ou groupe d’appareils est inscrit auprès de votre service Device Provisioning. 
+1. Votre appareil ou groupe d’appareils est inscrit auprès de votre service Device Provisioning et 
 2. votre appareil est prêt avec la sécurité configurée et accessible via l’application à l’aide du kit de développement logiciel (SDK) client du service Device Provisioning.
 
-Démarrez l’appareil pour autoriser votre application cliente à démarrer l’enregistrement auprès de votre service Device Provisioning.  
+Démarrez l’appareil pour autoriser votre application cliente à lancer l’inscription auprès de votre service Device Provisioning.  
 
 
 ## <a name="verify-the-device-is-registered"></a>Vérifier que l’appareil est enregistré
 
-Une fois que votre appareil démarre, les actions suivantes doivent se produire. Consultez l’article relatif à [l’approvisionnement d’un exemple d’appareil client](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device) pour plus d’informations. 
+Une fois que votre appareil démarre, les actions suivantes doivent se produire. Consultez l’article relatif à [l’approvisionnement d’un exemple d’appareil client](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/device) pour plus d’informations. 
 
-1. L’appareil envoie une demande d’enregistrement à votre service Device Provisioning.
+1. L’appareil envoie une demande d’inscription au service de provisionnement des appareils.
 2. Pour les appareils TPM, le service Device Provisioning envoie une demande d’enregistrement à laquelle répond votre appareil. 
 3. Une fois l’inscription réussie, le service Device Provisioning envoie l’URI du hub IoT, l’ID de l’appareil et la clé chiffrée à l’appareil. 
 4. L’application cliente IoT Hub sur l’appareil peut alors se connecter à votre hub. 

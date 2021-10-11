@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 27e17c5adeb7ab5a55b4783bac86301ba4237f45
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: cf15fd428c7e487b82823586be6edfd21f6cab48
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538198"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057395"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -70,12 +70,13 @@ Le certificat gratuit comprend les limitations suivantes :
 - Ne prend pas en charge les certificats avec caractères génériques.
 - Ne prend pas en charge l’utilisation en tant que certificat client par empreinte numérique de certificat (la suppression de l’empreinte numérique de certificat est planifiée).
 - Il n’est pas exportable.
+- N’est pas pris en charge sur App Service et pas accessible à tous.
 - N’est pas pris en charge sur App Service Environment (ASE).
 - N’est pas pris en charge avec les domaines racine intégrés à Traffic Manager.
 - Si un certificat est destiné à un domaine avec mappage CNAM, le CNAM doit être mappé directement à `<app-name>.azurewebsites.net`.
 
 > [!NOTE]
-> Le certificat gratuit est émis par DigiCert. Pour certains domaines de niveau supérieur, vous devez autoriser explicitement DigiCert comme émetteur de certificat en créant un [enregistrement de domaine CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) avec la valeur : `0 issue digicert.com`.
+> Le certificat gratuit est émis par DigiCert. Pour certains domaines, vous devez autoriser explicitement DigiCert comme émetteur de certificat en créant un [enregistrement de domaine CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) avec la valeur : `0 issue digicert.com`.
 > 
 
 Sur le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, dans le menu de gauche, sélectionnez **App Services** >  **\<app-name>** .
@@ -131,7 +132,7 @@ Aidez-vous du tableau suivant pour configurer le certificat. Lorsque vous avez t
 | Termes et conditions | Cliquez pour confirmer que vous acceptez les termes et conditions. Les certificats sont obtenus auprès de GoDaddy. |
 
 > [!NOTE]
-> Les certificats App Service achetés auprès d’Azure sont émis par GoDaddy. Pour certains domaines de niveau supérieur, vous devez autoriser explicitement GoDaddy comme émetteur de certificat en créant un [enregistrement de domaine CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) avec la valeur : `0 issue godaddy.com`
+> Les certificats App Service achetés auprès d’Azure sont émis par GoDaddy. Pour certains domaines, vous devez autoriser explicitement GoDaddy comme émetteur de certificat en créant un [enregistrement de domaine CAA](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) avec la valeur : `0 issue godaddy.com`
 > 
 
 ### <a name="store-in-azure-key-vault"></a>Stocker dans Azure Key Vault
@@ -331,6 +332,9 @@ Pour remplacer un certificat arrivant à expiration, la façon dont vous mettez 
 3. Supprimez le certificat existant.
 
 ### <a name="renew-an-app-service-certificate"></a>Renouveler un certificat App Service
+
+> [!NOTE]
+> Depuis le 23 septembre 2021, les certificats App Service nécessitent la validation de domaine tous les 395 jours. Contrairement au certificat managé App Service, la revalidation de domaine pour App Service Certificate NE sera PAS automatisée.
 
 > [!NOTE]
 > Le processus de renouvellement exige que [le principal de service connu pour App Service dispose des autorisations requises sur votre coffre de clés](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). Cette autorisation est configurée pour vous lorsque vous importez un App Service Certificate via le portail et ne doit pas être supprimée de votre coffre de clés.

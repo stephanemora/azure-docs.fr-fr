@@ -5,12 +5,12 @@ metadata:
   ms.date: 04/22/2020
   ms.topic: article
   ms.service: backup
-  ms.openlocfilehash: ac3cc6f6fc6b6896e236fd28c4808c49616cf68a
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 22aeb3771f0a1c1d1f7baafc4ce4a2e5885aa4bc
+  ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122252313"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129533123"
 title: Questions sur la sauvegarde des fichiers Azure
 summary: >
   Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Sauvegarde Azure dans la [page de questions Microsoft Q&A](/answers/topics/azure-backup.html).
@@ -74,6 +74,10 @@ sections:
       Puis-je utiliser PowerShell pour configurer/gérer/restaurer des sauvegardes de partages de fichiers Azure ?
     answer: >
       Oui. Reportez-vous à la documentation détaillée [ici](backup-azure-afs-automation.md).
+  - question: >
+      Pourquoi les sauvegardes Azure Files ne sont-elles pas répliquées selon le paramètre Type de réplication de stockage du coffre ?
+    answer: >
+      Le paramètre Type de réplication de stockage du coffre n’est pas pertinent pour la sauvegarde Azure Files. Cela est dû au fait que la solution actuelle est basée sur des instantanés et qu’aucune donnée n’est transférée vers le coffre. Les instantanés sont stockés dans le même compte de stockage que le partage des fichiers sauvegardés, et par conséquent répliqués selon le paramètre de réplication du compte de stockage.
   - question: >
       Puis-je accéder aux instantanés effectués par les sauvegardes Azure et les monter ?
     answer: >

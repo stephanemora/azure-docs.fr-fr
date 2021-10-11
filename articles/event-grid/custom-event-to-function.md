@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Envoyer des événements personnalisés vers une fonction Azure - Event Grid'
 description: 'Démarrage rapide : Utilisez Azure Event Grid et Azure CLI ou le portail pour publier une rubrique et vous abonner à cet événement. Une fonction Azure est utilisée pour le point de terminaison.'
-ms.date: 07/07/2020
+ms.date: 09/28/2021
 ms.topic: quickstart
-ms.openlocfilehash: 6240d9595022ee4ac5a705fd48bc9618e6782659
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: c6f0377b1b6489927de6a980bf4fc1ecb080e051
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107898024"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277490"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers une fonction Azure avec Event Grid
 
@@ -20,14 +20,17 @@ Azure Event Grid est un service de gestion d’événements pour le cloud. Azure
 Avant de nous abonner à la rubrique personnalisée, créez une fonction pour gérer les événements. 
 
 1. Créez une application de fonction à l’aide des instructions indiquées dans [Créer une application de fonction](../azure-functions/functions-get-started.md).
-2. Créez une fonction à l’aide du **déclencheur Event Grid**. Si vous utilisez ce déclencheur pour la première fois, vous devrez peut-être cliquer sur Installer pour installer l’extension.
-    1. Dans la page **Application de fonction**, sélectionnez **Fonctions** dans le menu de gauche, recherchez **Event Grid** dans les modèles, puis sélectionnez **Déclencheur Azure Event Grid**. 
+1. Dans la page **Function App**, choisissez **Fonctions** dans le menu de gauche. 
+1. Sélectionnez **+Créer** dans la barre d’outils pour créer une fonction.
+1. Dans la page **Créer une fonction**, effectuez les étapes suivantes :
+    1. Cette étape est facultative. Pour **Environnement de développement**, sélectionnez l’environnement de développement que vous voulez utiliser pour travailler avec le code de fonction. 
+    1. Sélectionnez **Déclencheur Azure Event Grid** dans la section **Sélectionner un modèle**. 
+    1. Entrez un nom pour la fonction. Dans cet exemple, il s’agit de **HandleEventsFunc**. 
 
-        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Sélectionner le déclencheur Event Grid":::
-3. Dans la page **Nouvelle fonction**, entrez un nom pour la fonction, puis sélectionnez **Créer une fonction**.
-
-    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Page Nouvelle fonction":::
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" lightbox="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Sélectionner le déclencheur Event Grid.":::
 4. Utilisez la page **Code + test** pour voir le code existant de la fonction et le mettre à jour. 
+
+    :::image type="content" source="./media/custom-event-to-function/function-code-test-menu.png" alt-text="Image montrant la sélection du menu Code + test pour une fonction Azure.":::
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -38,33 +41,22 @@ Une rubrique de grille d’événement fournit un point de terminaison défini p
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Tous les services** dans le menu de navigation gauche, recherchez **Event Grid**, puis sélectionnez **Rubriques Event Grid**. 
 
-    ![Sélectionner Rubriques Event Grid](./media/custom-event-to-function/select-event-grid-topics.png)
+    :::image type="content" source="./media/custom-event-to-function/select-event-grid-topics.png" alt-text="Image montrant la sélection de Rubriques Event Grid.":::
 3. Dans la page **Rubriques Event Grid**, sélectionnez **+ Ajouter** dans la barre d’outils. 
 
-    ![Bouton d’ajout de rubrique Event Grid](./media/custom-event-to-function/add-event-grid-topic-button.png)
-
+    :::image type="content" source="./media/custom-event-to-function/add-event-grid-topic-button.png" alt-text="Image montrant le bouton Créer pour créer une rubrique Event Grid.":::
 4. Dans la page **Créer une rubrique**, procédez comme suit :
-
-    1. Donnez un **nom** unique à la rubrique personnalisée. Le nom de la rubrique doit être unique, car elle est représentée par une entrée DNS. N’utilisez pas le nom indiqué dans l’image. Au lieu de cela, créez votre propre nom : il doit comprendre entre 3 et 50 caractères, et contenir uniquement des valeurs a-z, A-Z, 0-9 et « - ».
-    2. Sélectionnez votre **abonnement** Azure.
-    3. Sélectionnez le même groupe de ressources que celui des étapes précédentes.
+    1. Sélectionnez votre **abonnement Azure**.
+    2. Sélectionnez le même **groupe de ressources** que celui des étapes précédentes.
+    3. Donnez un **nom** unique à la rubrique personnalisée. Le nom de la rubrique doit être unique, car elle est représentée par une entrée DNS. N’utilisez pas le nom indiqué dans l’image. Au lieu de cela, créez votre propre nom : il doit comprendre entre 3 et 50 caractères, et contenir uniquement des valeurs a-z, A-Z, 0-9 et « - ».
     4. Sélectionnez un **emplacement** pour la rubrique Event Grid.
-    5. Conservez la valeur par défaut **Schéma Event Grid** pour le champ **Schéma d’événement**. 
+    5. Sélectionnez **Revoir + créer**. 
+    
+        :::image type="content" source="./media/custom-event-to-function/create-custom-topic.png" alt-text="Image montrant la page Créer une rubrique.":::      
+    1. Dans la page **Vérifier +créer**, passez en revue les paramètres, puis sélectionnez **Créer**. 
+5. Une fois la rubrique personnalisée créée, sélectionnez le lien **Accéder à la ressource** pour voir la page Rubrique Event Grid suivante pour la rubrique que vous avez créée. 
 
-       ![Page Créer une rubrique](./media/custom-event-to-function/create-custom-topic.png)
-    6. Sélectionnez **Create** (Créer). 
-
-5. Une fois la rubrique personnalisée créée, vous voyez la notification de réussite. Sélectionnez **Accéder au groupe de ressources**. 
-
-   ![Voir la notification de réussite](./media/custom-event-to-function/success-notification.png)
-
-6. Dans la page **Groupe de ressources**, sélectionnez la rubrique Event Grid. 
-
-   ![Sélectionner la ressource Rubrique Event Grid](./media/custom-event-to-function/select-event-grid-topic.png)
-
-7. La page **Rubrique Event Grid** associée à votre grille d’événement apparaît. Ne fermez pas cette page. Vous l’utiliserez plus loin dans le guide de démarrage rapide. 
-
-    ![Page d’accueil de la rubrique Event Grid](./media/custom-event-to-function/event-grid-topic-home-page.png)
+    :::image type="content" source="./media/custom-event-to-function/event-grid-topic-home-page.png" alt-text="Image montrant la page d’accueil de votre rubrique personnalisée Event Grid.":::
 
 ## <a name="subscribe-to-custom-topic"></a>S’abonner à une rubrique personnalisée
 
@@ -72,23 +64,21 @@ Vous vous abonnez à une rubrique Event Grid pour indiquer à Event Grid les év
 
 1. Maintenant, dans la page **Rubrique Event Grid** de votre rubrique personnalisée, sélectionnez **+ Abonnement aux événements** sur la barre d’outils.
 
-   ![Ajouter un abonnement à un événement](./media/custom-event-to-function/new-event-subscription.png)
-
+    :::image type="content" source="./media/custom-event-to-function/new-event-subscription.png" alt-text="Image montrant la sélection de l’option Ajouter un abonnement à un événement dans la barre d’outils.":::
 2. Dans la page **Créer un abonnement aux événements**, effectuez les étapes suivantes :
     1. Entrez un **nom** pour l’abonnement aux événements.
     3. Sélectionnez **Fonction Azure** pour le **Type de point de terminaison**. 
     4. Choisissez **Sélectionner un point de terminaison**. 
 
-       ![Fournir des valeurs d’abonnement à un événement](./media/custom-event-to-function/provide-subscription-values.png)
-
+        :::image type="content" source="./media/custom-event-to-function/provide-subscription-values.png" alt-text="Image montrant les valeurs d’abonnement à un événement.":::
     5. Pour le point de terminaison de la fonction, sélectionnez l’abonnement Azure et le groupe de ressources dans lequel se trouve votre application de fonction, puis sélectionnez cette dernière, ainsi que la fonction que vous avez créée précédemment. Sélectionnez **Confirmer la sélection**.
 
-       ![Fournir une URL du point de terminaison](./media/custom-event-to-function/provide-endpoint.png)
+        :::image type="content" source="./media/custom-event-to-function/provide-endpoint.png" alt-text="Image montrant la page Sélectionner une fonction Azure qui présente la sélection de la fonction que vous avez créée précédemment.":::
     6. Cette étape est facultative, mais recommandée pour les scénarios de production. Dans la page **Créer un abonnement aux événements**, basculez vers l’onglet **fonctionnalités avancées** et définissez des valeurs pour **Nb max. d’événements par lot** et **Taille de lot par défaut en kilo-octets**. 
     
         Le traitement par lot peut vous offrir un débit élevé. Pour **Nb max. d’événements par lot**, définissez le nombre maximal d’événements qu’un abonnement doit inclure dans un lot. La taille de lot par défaut définit la limite supérieure par défaut de la taille de lot en kilo-octets, mais peut être dépassée si un seul événement est supérieur à ce seuil.
     
-        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Activer le traitement par lot":::
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Image montrant les paramètres de traitement par lot pour un abonnement à un événement.":::
     6. Dans la page **Créer un abonnement aux événements**, sélectionnez **Créer**.
 
 ## <a name="send-an-event-to-your-topic"></a>Envoyer un événement à votre rubrique
@@ -101,7 +91,7 @@ Le premier exemple utilise Azure CLI. Il obtient l’URL et la clé de la rubriq
 ### <a name="azure-cli"></a>Azure CLI
 1. Dans le portail Azure, sélectionnez **Cloud Shell**. Sélectionnez **Bash** dans l’angle supérieur gauche de la fenêtre Cloud Shell. 
 
-    ![Cloud Shell - Bash](./media/custom-event-quickstart-portal/cloud-shell-bash.png)
+    :::image type="content" source="./media/custom-event-quickstart-portal/cloud-shell-bash.png" alt-text="Image montrant la fenêtre Cloud Shell - Bash":::
 1. Exécutez la commande suivante afin d’obtenir le **point de terminaison** pour la rubrique : Après avoir copié et collé la commande, et avant de l’exécuter, mettez à jour le **nom de la rubrique** et le **nom du groupe de ressources**. 
 
     ```azurecli
@@ -170,10 +160,10 @@ Le deuxième exemple utilise PowerShell pour effectuer des étapes similaires.
     Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
     ```
 
-### <a name="verify-in-the-event-grid-viewer"></a>Vérifier dans la visionneuse Event Grid
+### <a name="verify-that-function-received-the-event"></a>Vérifier que la fonction a reçu l’événement
 Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Accédez à la fonction déclenchée par Event Grid et ouvrez les journaux. Vous devez voir une copie de la charge utile de données de l’événement dans les journaux. Si vous n’ouvrez pas d’abord la fenêtre Journaux, ou si vous n’appuyez pas sur Reconnexion, essayez à nouveau d’envoyer un événement de test.
 
-![Journal des déclenchements de fonctions réussis](./media/custom-event-to-function/successful-function.png)
+:::image type="content" source="./media/custom-event-to-function/successful-function.png" alt-text="Image montrant la vue de supervision de la fonction Azure avec un journal.":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les ressources créées dans cet article. Dans le cas contraire, supprimez les ressources créées avec cet article.
@@ -198,8 +188,8 @@ Maintenant que vous savez créer des rubriques et des abonnements d’événemen
 
 Consultez les exemples suivants pour en savoir plus sur la publication d’événements sur Event Grid et leur consommation avec différents langages de programmation. 
 
-- [Exemples Azure Event Grid pour .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
-- [Exemples Azure Event Grid pour Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
-- [Exemples Azure Event Grid pour Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
-- [Exemples Azure Event Grid pour JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
-- [Exemples Azure Event Grid pour TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)
+- [Exemples Azure Event Grid pour .NET](/samples/azure/azure-sdk-for-net/azure-event-grid-sdk-samples/)
+- [Exemples Azure Event Grid pour Java](/samples/azure/azure-sdk-for-java/eventgrid-samples/)
+- [Exemples Azure Event Grid pour Python](/samples/azure/azure-sdk-for-python/eventgrid-samples/)
+- [Exemples Azure Event Grid pour JavaScript](/samples/azure/azure-sdk-for-js/eventgrid-javascript/)
+- [Exemples Azure Event Grid pour TypeScript](/samples/azure/azure-sdk-for-js/eventgrid-typescript/)

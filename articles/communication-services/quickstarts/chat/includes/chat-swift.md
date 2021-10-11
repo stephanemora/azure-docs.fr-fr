@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: inclure fichier
 services: azure-communication-services
 author: probableprime
@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: rifox
-ms.openlocfilehash: cccf6c4c5882c7132bf526095e331035f1e665af
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: d61120d3f4e1256b9da50b8128b23fd73b36a5ef
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967936"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129406804"
 ---
 ## <a name="sample-code"></a>Exemple de code
 Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-chat).
@@ -47,8 +47,8 @@ Utilisez CocoaPods pour installer les dépendances nécessaires de Communication
 Ouvrez le Podfile et ajoutez les dépendances suivantes à la cible `ChatQuickstart` :
 
 ```
-pod 'AzureCommunicationCommon', '~> 1.0'
-pod 'AzureCommunicationChat', '~> 1.0.1'
+pod 'AzureCommunicationCommon', '~> 1.0.2'
+pod 'AzureCommunicationChat', '~> 1.1.0-beta.2'
 ```
 
 Installez les dépendances à l’aide de la commande suivante : `pod install`. Notez que cette opération crée également un espace de travail Xcode.
@@ -107,7 +107,13 @@ override func viewDidLoad() {
 
 ### <a name="create-a-chat-client"></a>Créer un client de conversation
 
-Remplacez le commentaire `<CREATE A CHAT CLIENT>` par le code suivant :
+Pour créer un client de conversation, vous allez utiliser votre point de terminaison Communication Services ainsi que le jeton d’accès qui a été généré au cours des étapes prérequises.
+
+Apprenez-en davantage sur les [jetons d’accès utilisateur](../../access-tokens.md).
+
+Ce guide de démarrage rapide ne couvre pas la création d’un niveau de service pour gérer les jetons de votre application de conversation, bien que cette opération soit recommandée. En savoir plus sur l’[Architecture de conversation](../../../concepts/chat/concepts.md)
+
+Remplacez le commentaire `<CREATE A CHAT CLIENT>` par l’extrait de code suivant :
 
 ```
 let endpoint = "<ACS_RESOURCE_ENDPOINT>"
@@ -126,13 +132,9 @@ let chatClient = try ChatClient(
 
 Remplacez `<ACS_RESOURCE_ENDPOINT>` par le point de terminaison de votre ressource Azure Communication Services. Remplacez `<ACCESS_TOKEN>` par un jeton d’accès Communication Services valide.
 
-Ce guide de démarrage rapide ne couvre pas la création d’un niveau de service permettant de gérer les jetons de votre application de conversation, mais cette opération est recommandée. Pour plus d’informations, consultez la section « Architecture des conversations » de [Concepts relatifs aux conversations](../../../concepts/chat/concepts.md).
-
-Pour obtenir plus d’informations sur les jetons d’accès utilisateur, consultez [Démarrage rapide : Créer et gérer des jetons d’accès](../../access-tokens.md).
-
 ## <a name="object-model"></a>Modèle objet 
 
-Les classes et interfaces suivantes gèrent quelques-unes des principales fonctionnalités du kit de développement logiciel (SDK) Azure Communication Services Chat pour JavaScript.
+Les classes et interfaces suivantes gèrent quelques-unes des principales fonctionnalités du kit SDK Azure Communication Services Chat pour iOS.
 
 | Nom                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -141,9 +143,10 @@ Les classes et interfaces suivantes gèrent quelques-unes des principales foncti
 
 ## <a name="start-a-chat-thread"></a>Démarrer un fil de conversation
 
-À présent, utilisez votre `ChatClient` pour créer un fil avec un utilisateur initial.
+`CreateChatThreadResult` correspond à la réponse renvoyée par la création d’un fil de conversation.
+Il contient une propriété `chatThread` qui correspond à l’objet `ChatThreadProperties`. Cet objet contient la propriété threadId qui permet d’obtenir un `ChatThreadClient` pour effectuer des opérations sur le thread créé : ajouter des participants, envoyer un message, etc.
 
-Remplacez le commentaire `<CREATE A CHAT THREAD>` par le code suivant :
+Remplacez le commentaire `<CREATE A CHAT THREAD>` par l’extrait de code suivant :
 
 ```
 let request = CreateChatThreadRequest(
@@ -200,7 +203,7 @@ semaphore.wait()
 
 ## <a name="get-a-chat-thread-client"></a>Obtenir un client de fil de conversation
 
-Maintenant que vous avez créé un fil de conversation, vous pouvez obtenir un `ChatThreadClient` pour effectuer des opérations au sein du fil.
+La méthode `createClient` retourne un `ChatThreadClient` pour un fil qui existe déjà. Elle peut être utilisée pour effectuer des opérations sur le fil créé : ajout de participants, envoi d’un message, etc. threadId est l’ID unique du fil de conversation existant.
 
 Remplacez le commentaire `<GET A CHAT THREAD CLIENT>` par le code suivant :
 
@@ -210,13 +213,29 @@ let chatThreadClient = try chatClient.createClient(forThread: threadId!)
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Envoyer un message à un fil de conversation
 
-Remplacez le commentaire `<SEND A MESSAGE>` par le code suivant :
+Utilisez la méthode `send` pour envoyer un message à un thread identifié par threadId.
+
+`SendChatMessageRequest` est utilisé pour décrire la demande de message :
+
+- Utiliser `content` pour fournir le contenu du message de conversation
+- Utiliser `senderDisplayName` pour spécifier le nom d’affichage de l’expéditeur
+- Utiliser `type` pour spécifier le type de message, par exemple « text » ou « html »
+- Utilisez `metadata` (facultatif) pour inclure toutes les données supplémentaires que vous souhaitez envoyer avec le message. Ce champ constitue un mécanisme permettant aux développeurs d’étendre les fonctionnalités des messages de conversation et d’ajouter des informations personnalisées selon le cas d’usage. Par exemple, lors du partage d’un lien de fichier dans le message, vous souhaiterez peut-être ajouter « hasAttachment:true » dans les métadonnées pour que l’application du destinataire puisse l’analyser et l’afficher en conséquence.
+
+`SendChatMessageResult` est la réponse retournée à la suite de l’envoi du message; elle contient un ID, qui est l’ID unique du message.
+
+Remplacez le commentaire `<SEND A MESSAGE>` par l’extrait de code suivant :
 
 ```
 let message = SendChatMessageRequest(
-    content: "Hello!",
-    senderDisplayName: "Jack"
-)
+                        content: "Hello!",
+                        senderDisplayName: "Jack",
+                        type: .text,
+                        metadata: [
+                            "hasAttachment": "true",
+                            "attachmentUrl": "https://contoso.com/files/attachment.docx"
+                        ]
+                    )
 
 var messageId: String?
 
@@ -233,12 +252,12 @@ chatThreadClient.send(message: message) { result, _ in
 semaphore.wait()
 ```
 
-Tout d’abord, vous élaborez l’élément `SendChatMessageRequest` qui renferme le contenu et le nom d’affichage de l’expéditeur. Cette requête peut également contenir l’heure du partage de l’historique, si vous souhaitez l’inclure. La réponse retournée au gestionnaire d’achèvement contient l’ID du message qui a été envoyé.
-
-
 ## <a name="send-a-read-receipt"></a>Envoyer une confirmation de lecture
 
-Vous pouvez envoyer une confirmation de lecture pour un message particulier en appelant la méthode `ChatThreadClients` `sendReadReceipt`. Remplacez le commentaire `<SEND A READ RECEIPT>` par le code suivant :
+Utilisez la méthode `sendReadReceipt` pour publier un événement de confirmation de lecture sur un fil de conversation, pour le compte d’un utilisateur.
+`messageId` correspond à ID unique du message de conversation lu.
+
+Remplacez le commentaire `<SEND A READ RECEIPT>` par le code suivant :
 
 ```
 if let id = messageId {
@@ -259,9 +278,33 @@ if let id = messageId {
 
 ## <a name="receive-chat-messages-from-a-chat-thread"></a>Recevoir les messages de conversation d’un fil de conversation
 
-Vous pouvez recevoir des messages d’un fil de conversation en appelant la méthode `listMessages()` à partir de `ChatThreadClient`. Les messages de liste incluent les messages système ainsi que les messages envoyés par l’utilisateur. Pour plus d’informations sur les types de messages que vous pouvez recevoir, consultez [Types de messages](../../../concepts/chat/concepts.md#message-types)
+Avec la signalisation en temps réel, vous pouvez vous abonner pour écouter les nouveaux messages entrants et mettre à jour en conséquence les messages actuellement en mémoire. Azure Communication Services prend en charge une [liste d’événements auxquels vous pouvez vous abonner](../../../concepts/chat/concepts.md#real-time-notifications).
 
-Remplacez le commentaire `<RECEIVE MESSAGES>` par le code suivant :
+Remplacez le commentaire `<RECEIVE MESSAGES>` par le code suivant. Après avoir activé les notifications, essayez d’envoyer de nouveaux messages pour voir les ChatMessageReceivedEvents.
+
+```
+chatClient.startRealTimeNotifications { result in
+    switch result {
+    case .success:
+        print("Real-time notifications started.")
+    case .failure:
+        print("Failed to start real-time notifications.")
+    }
+    semaphore.signal()
+}
+semaphore.wait()
+
+chatClient.register(event: .chatMessageReceived, handler: { response in
+    switch response {
+    case let .chatMessageReceivedEvent(event):
+        print("Received a message: \(event.message)")
+    default:
+        return
+    }
+})
+```
+
+Vous pouvez aussi récupérer les messages de conversation en interrogeant la méthode `listMessages` selon des intervalles définis. Regarder l’extrait de code suivant pour `listMessages`
 
 ```
 chatThreadClient.listMessages { result, _ in
@@ -286,6 +329,13 @@ semaphore.wait()
 
 ## <a name="add-a-user-as-a-participant-to-the-chat-thread"></a>Ajouter un utilisateur comme participant au fil de conversation
 
+Une fois qu’un fil est créé, vous pouvez y ajouter des utilisateurs ou en supprimer. En ajoutant des utilisateurs, vous leur permettez d’envoyer des messages au fil de conversation et d’ajouter ou de supprimer d’autres participants. Avant d’appeler `add`, vérifiez que vous avez acquis un nouveau jeton d’accès et une identité pour cet utilisateur. L’utilisateur aura besoin de ce jeton d’accès pour initialiser son client de conversation.
+
+Utilisez la méthode `add` de `ChatThreadClient` pour ajouter un ou plusieurs participants au thread de conversation. Voici les attributs pris en charge pour chaque participant au fil de conversation :
+- `id`, obligatoire. Il s’agit de l’identité du participant au fil de conversation.
+- `displayName`, facultatif, est le nom d’affichage pour le participant au fil.
+- `shareHistoryTime`, facultatif. Il s’agit du moment à partir duquel l’historique de conversation est partagé avec le participant.
+
 Remplacez le commentaire `<ADD A USER>` par le code suivant :
 
 ```
@@ -308,9 +358,9 @@ semaphore.wait()
 
 Remplacez `<USER_ID>` par l’ID d’utilisateur Communication Services de l’utilisateur à ajouter.
 
-Lorsque vous ajoutez un participant à un fil, la réponse retournée peut contenir des erreurs. Ces erreurs représentent l’échec de l’ajout de participants particuliers.
-
 ## <a name="list-users-in-a-thread"></a>Lister les utilisateurs dans un fil de conversation
+
+Utilisez la méthode `listParticipants` pour obtenir tous les participants d’un thread de conversation particulier.
 
 Remplacez le commentaire `<LIST USERS>` par le code suivant :
 
@@ -339,4 +389,4 @@ semaphore.wait()
 
 Dans Xcode, cliquez sur le bouton Run (Exécuter) pour générer et exécuter le projet. Dans la console, vous pouvez voir la sortie du code et la sortie de l’enregistreur d’événements du ChatClient.
 
-**Remarque :** Définissez `Build Settings > Build Options > Enable Bitcode` sur `No`. Actuellement, le Kit de développement logiciel (SDK) AzureCommunicationChat pour iOS ne prend pas en charge l’activation du Bitcode. Le [problème suivant](https://github.com/Azure/azure-sdk-for-ios/issues/787) est suivi sur GitHub.
+**Remarque :** Définissez `Build Settings > Build Options > Enable Bitcode` sur `No`. Actuellement, le kit SDK AzureCommunicationChat pour iOS ne prend pas en charge l’activation du Bitcode. Le [problème suivant](https://github.com/Azure/azure-sdk-for-ios/issues/787) est suivi sur GitHub.

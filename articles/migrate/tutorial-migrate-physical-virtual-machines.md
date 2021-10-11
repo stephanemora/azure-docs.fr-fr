@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 6c392d1af427c7a9837519ea8443efc5773aa6db
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 00d069257d25441f16fb82cae720bb49b8e0f15f
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154809"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536951"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrer des machines en tant que serveurs physiques vers Azure
 
@@ -308,14 +308,15 @@ Effectuez une migration de test de la façon suivante :
 
 2. Cliquez avec le bouton droit sur la machine virtuelle à tester, puis cliquez sur **Migration de test**.
 
-    ![Migration de test](./media/tutorial-migrate-physical-virtual-machines/test-migrate.png)
-
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/test-migrate-inline.png" alt-text="Capture d’écran montrant le résultat après un clic sur Migration de test." lightbox="./media/tutorial-migrate-physical-virtual-machines/test-migrate-expanded.png":::
+ 
 3. Dans **Migration de test**, sélectionnez le réseau virtuel Azure dans lequel la machine virtuelle Azure se trouvera après la migration. Nous vous recommandons d’utiliser un réseau virtuel hors production.
 4. Le travail **Migration de test** démarre. Supervisez le travail dans les notifications du portail.
 5. Une fois la migration terminée, affichez la machine virtuelle Azure migrée dans **Machines virtuelles** dans le portail Azure. Le nom de la machine a le suffixe **-Test**.
 6. Une fois le test terminé, cliquez avec le bouton droit sur la machine virtuelle Azure dans **Réplication des machines**, puis cliquez sur **Nettoyer la migration de test**.
 
-    ![Nettoyer la migration](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/clean-up-inline.png" alt-text="Capture d’écran montrant le résultat après le nettoyage de la migration de test." lightbox="./media/tutorial-migrate-physical-virtual-machines/clean-up-expanded.png":::
+
     > [!NOTE]
     > Vous pouvez désormais inscrire vos serveurs exécutant SQL Server auprès du fournisseur de ressources SQL Server sur des machines virtuelles Azure pour bénéficier de la mise à jour corrective automatisée, de la sauvegarde automatisée et de la gestion simplifiée des licences à l’aide de l’extension SQL IaaS Agent.
     >- Sélectionnez **Gérer** > **Réplication de serveurs** > **Machine contenant SQL Server** > **Calcul et réseau**, puis sélectionnez **oui** pour effectuer l’inscription auprès du fournisseur de ressources SQL Server sur des machines virtuelles Azure.

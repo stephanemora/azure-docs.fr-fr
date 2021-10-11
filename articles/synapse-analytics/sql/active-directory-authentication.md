@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: c547f3b2657d31e4d25dbb884a5a75c2c8b9c5f2
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 48e5c42eca957db9aa45117c21a4ec70869a5ef5
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112452581"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389225"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Utiliser l’authentification Azure Active Directory pour l’authentification auprès de Synapse SQL
 
@@ -61,7 +61,7 @@ Il est important de comprendre que l’accès à une base de données à l’aid
 
 ## <a name="administrator-structure"></a>Structure de l’administrateur
 
-En cas d’utilisation de l’authentification Azure AD, il existe deux comptes administrateur pour l’instance Synapse SQL ; l’administrateur SQL Server d’origine et l’administrateur Azure AD. Seul l’administrateur basé sur un compte Azure AD peut créer le premier utilisateur de la base de données autonome Azure AD dans une base de données utilisateur. 
+En cas d’utilisation de l’authentification Azure AD, il existe deux comptes Administrateur pour l’instance Synapse SQL : l’administrateur SQL d’origine (avec l’authentification SQL) et l’administrateur Azure AD. Seul l’administrateur basé sur un compte Azure AD peut créer le premier utilisateur de la base de données autonome Azure AD dans une base de données utilisateur. 
 
 La connexion d’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Lorsque l’administrateur est un compte de groupe, il peut être utilisé par n’importe quel membre du groupe, autorisant plusieurs administrateurs Azure AD à accéder à l’instance Synapse SQL. 
 
@@ -71,7 +71,7 @@ L’utilisation d’un compte de groupe en tant qu’administrateur facilite la 
 
 ## <a name="permissions"></a>Autorisations
 
-Pour créer de nouveaux utilisateurs, vous devez disposer de l’autorisation `ALTER ANY USER` dans la base de données. L’autorisation `ALTER ANY USER` peut être octroyée à un utilisateur de base de données. L’autorisation `ALTER ANY USER` est également détenue par les comptes d’administrateur de serveur et les utilisateurs de base de données avec les autorisations `CONTROL ON DATABASE` ou `ALTER ON DATABASE` pour cette base de données et par les membres du rôle de base de données `db_owner`.
+Pour créer de nouveaux utilisateurs, vous devez disposer de l’autorisation `ALTER ANY USER` dans la base de données. L’autorisation `ALTER ANY USER` peut être octroyée à un utilisateur de base de données. L’autorisation `ALTER ANY USER` est également détenue par les comptes d’administrateur SQL et Azure AD, et les utilisateurs de base de données avec les autorisations `CONTROL ON DATABASE` ou `ALTER ON DATABASE` pour cette base de données et par les membres du rôle de base de données `db_owner`.
 
 Pour créer un utilisateur de base de données autonome dans Synapse SQL, vous devez vous connecter à la base de données ou à l’instance à l’aide d’une identité Azure AD. Pour créer le premier utilisateur de la base de données autonome, vous devez vous connecter à la base de données à l’aide d’un administrateur Azure AD (le propriétaire de la base de données). 
 

@@ -5,17 +5,17 @@ services: synapse-analytics
 author: saveenr
 ms.author: saveenr
 manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick, wiassaf
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 03/24/2021
-ms.openlocfilehash: 56115e977603e1f2148f84569373dcf4d351e0c4
-ms.sourcegitcommit: 40dfa64d5e220882450d16dcc2ebef186df1699f
+ms.date: 09/29/2021
+ms.openlocfilehash: cf1aabdef95a58c4bdd5a14e3714da37295ed790
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113038207"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387731"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analyser des données avec des pools SQL dédiés
 
@@ -23,9 +23,9 @@ Dans ce tutoriel, vous allez utiliser les données NYC Taxi pour explorer les f
 
 ## <a name="create-a-dedicated-sql-pool"></a>Créer un pool SQL dédié
 
-1. Dans Synapse Studio, dans le volet de gauche, sélectionnez **Gérer** > **Pools SQL**.
+1. Dans Synapse Studio, dans le volet de gauche, sélectionnez **Gérer** > **Pools SQL** sous **Pools analytiques**.
 1. Sélectionnez **Nouveau**
-1. Pour **Nom du pool SQL**, sélectionnez **SQLPOOL1**
+1. Pour **Nom du pool SQL dédié**, sélectionnez **SQLPOOL1**
 1. Pour **Niveau de performances**, choisissez **DW100C**
 1. Sélectionnez **Vérifier + créer** > **Créer**. Votre pool SQL dédié sera prêt en quelques minutes. 
 
@@ -37,12 +37,14 @@ Tant qu’il est actif, un pool SQL dédié consomme des ressources facturables.
 
 > [!NOTE] 
 > Quand vous créez un pool SQL dédié (anciennement SQL DW) dans votre espace de travail, la page de provisionnement des pools SQL s’ouvre. Le provisionnement s’effectue sur le serveur SQL logique.
+
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Charger les données NYC Taxi dans SQLPOOL1
 
 1. Dans Synapse Studio, accédez au hub **Développer**, cliquez sur le bouton **+** pour ajouter une nouvelle ressource, puis créez un script SQL.
-1. Sélectionnez le pool « SQLPOOL1 » (pool créé à l’[étape 1](./get-started-create-workspace.md) de ce tutoriel) dans la liste déroulante « Se connecter à » au-dessus du script.
+1. Sélectionnez le pool « SQLPOOL1 » (pool créé à l’[étape 1](./get-started-create-workspace.md) de ce tutoriel) dans la liste déroulante **Se connecter à** au-dessus du script.
 1. Entrez le code suivant :
-    ```
+
+    ```sql
     IF NOT EXISTS (SELECT * FROM sys.objects O JOIN sys.schemas S ON O.schema_id = S.schema_id WHERE O.NAME = 'NYCTaxiTripSmall' AND O.TYPE = 'U' AND S.NAME = 'dbo')
     CREATE TABLE dbo.NYCTaxiTripSmall
         (
@@ -93,8 +95,8 @@ Tant qu’il est actif, un pool SQL dédié consomme des ressources facturables.
         ,IDENTITY_INSERT = 'OFF'
     )
     ```
-1. Cliquez sur le bouton Réexécuter pour exécuter le script.
-1. Ce script met moins de 60 secondes à s’exécuter. Il charge 2 millions lignes de données NYC Taxi dans une table appelée **dbo.NYCTaxiTripSmall**.
+1. Cliquez sur le bouton **Exécuter** pour exécuter le script.
+1. Ce script met moins de 60 secondes à s’exécuter. Il charge 2 millions lignes de données NYC Taxi dans une table appelée `dbo.NYCTaxiTripSmall`.
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Explorer les données NYC Taxi dans le pool SQL dédié
 

@@ -4,14 +4,14 @@ description: Dans ce tutoriel, vous allez apprendre à intégrer à Azure Defend
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 10/05/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: cd62dfaa3a90c6efde1f758bec3e7062ce3e858c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 717b65b78d177e277922687c4c290035b57ab6ab
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642146"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537042"
 ---
 # <a name="tutorial-azure-defender-for-iot-trial-setup"></a>Tutoriel : Installation d’un essai d’Azure Defender pour IoT
 
@@ -282,7 +282,7 @@ Un commutateur virtuel ne dispose pas de capacités de mise en miroir, mais vous
 
 Avant de commencer, vous devez :
 
-- Vérifier qu’aucune instance de ClearPass VA n’est en cours d’exécution.
+- Vérifier qu’aucune instance d’appliance virtuelle n’est en cours d’exécution.
 
 - Activer SPAN sur le port de données, et non sur le port de gestion.
 
@@ -306,11 +306,11 @@ Avant de commencer, vous devez :
 
 1. Sélectionnez **OK**.
 
-#### <a name="attach-a-clearpass-span-virtual-interface-to-the-virtual-switch"></a>Attacher une interface virtuelle ClearPass SPAN au commutateur virtuel
+#### <a name="attach-a-span-virtual-interface-to-the-virtual-switch"></a>Attacher une interface virtuelle SPAN au commutateur virtuel
 
-Vous pouvez attacher une interface virtuelle ClearPass SPAN au commutateur virtuel avec Windows PowerShell ou le gestionnaire Hyper-V.
+Vous pouvez attacher une interface virtuelle SPAN au commutateur virtuel via Windows PowerShell ou via le gestionnaire Hyper-V.
 
-**Pour attacher une interface virtuelle ClearPass SPAN au commutateur virtuel avec PowerShell** :
+**Pour attacher une interface virtuelle SPAN au commutateur virtuel avec PowerShell** :
 
 1. Sélectionnez le commutateur virtuel SPAN qui vient d’être ajouté, puis ajoutez une nouvelle carte réseau avec la commande suivante :
 
@@ -334,7 +334,7 @@ Vous pouvez attacher une interface virtuelle ClearPass SPAN au commutateur virtu
 
 Ces commandes définissent l’adaptateur qui vient d’être ajouté avec le nom `Monitor`. Si vous utilisez le gestionnaire Hyper-V, le matériel de l’adaptateur récemment ajouté est défini avec le nom `Network Adapter`.
 
-**Pour attacher une interface virtuelle ClearPass SPAN au commutateur virtuel avec le gestionnaire Hyper-V** :
+**Pour attacher une interface virtuelle SPAN au commutateur virtuel avec le gestionnaire Hyper-V** :
 
 1. Sous la liste du matériel, sélectionnez **Carte réseau**.
 

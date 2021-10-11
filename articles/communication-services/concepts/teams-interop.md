@@ -3,19 +3,17 @@ title: Interopérabilité des réunions Teams
 titleSuffix: An Azure Communication Services concept document
 description: Participer aux réunions Teams
 author: chpalm
-manager: chpalm
-services: azure-communication-services
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 15936b796e677f913e6814b29c68394a9560285d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 85616e754df0eebc76dd3dceea48dfefe4acf971
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609723"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362365"
 ---
 # <a name="teams-interoperability"></a>Interopérabilité de Teams
 
@@ -60,9 +58,11 @@ Lorsqu’un point de terminaison se connecte à une réunion Teams avec une iden
 
 BYOI (Bring your own identity) est le modèle commun pour l’utilisation d’Azure Communication Services et de l’interopérabilité avec Teams. Il prend en charge tous les fournisseurs d’identité et tous les schémas d’authentification. Le premier scénario activé permet à votre application de rejoindre des réunions Microsoft Teams, et Teams traite ces utilisateurs comme des comptes externes anonymes, les mêmes que les utilisateurs qui participent à l’aide de l’application web anonyme Teams. C’est idéal pour les applications interentreprises qui rassemblent les employés (familiarisés avec Teams) et les utilisateurs externes (à l’aide d’une expérience d’application personnalisée) dans une réunion. À l’avenir, nous allons activer des scénarios supplémentaires, notamment les conversations et les appels directs, ce qui permettra à votre application de lancer des appels et des conversations avec les utilisateurs Teams en dehors du contexte d’une réunion Teams.
 
-La possibilité pour les utilisateurs Communication Services de rejoindre des réunions Teams en tant qu’utilisateurs anonymes est contrôlée par la configuration « autoriser l’accès anonyme aux réunions » qui contrôle également l’accès anonyme aux réunions Teams existant.  Ce paramètre peut être mis à jour dans le centre d’administration Teams (https://admin.teams.microsoft.com/meetings/settings) ou avec l’applet de commande PowerShell Teams Set-CsTeamsMeetingConfiguration (https://docs.microsoft.com/powershell/module/skype/set-csteamsmeetingconfiguration). Comme avec l’accès anonyme aux réunions Teams, votre application doit disposer du lien de la réunion pour y accéder, qui peut être récupéré via l’API Graph ou à partir du calendrier dans Microsoft Teams.  Le nom des utilisateurs d’Azure Communication Services est affiché dans Teams est configurable via le kit de développement logiciel (SDK) d’Azure Communication Services.
+La possibilité pour les utilisateurs Communication Services de rejoindre des réunions Teams en tant qu’utilisateurs anonymes est contrôlée par la configuration « autoriser l’accès anonyme aux réunions » qui contrôle également l’accès anonyme aux réunions Teams existant.  Ce paramètre peut être mis à jour dans le [Centre d’administration Teams](https://admin.teams.microsoft.com/meetings/settings) ou avec l’applet de commande PowerShell Teams [Set-CsTeamsMeetingConfiguration](/powershell/module/skype/set-csteamsmeetingconfiguration). Comme avec l’accès anonyme aux réunions Teams, votre application doit disposer du lien de la réunion pour y accéder, qui peut être récupéré via l’API Graph ou à partir du calendrier dans Microsoft Teams.  Le nom des utilisateurs d’Azure Communication Services est affiché dans Teams est configurable via le kit de développement logiciel (SDK) d’Azure Communication Services.
 
-Les utilisateurs externes pourront utiliser les fonctionnalités audio, vidéo, de partage d’écran et de conversation de base via les kits de développement logiciel (SDK) d’Azure communication services. Les fonctionnalités telles que Lever la main, le mode ensemble et les salles de pause ne seront disponibles que pour les utilisateurs Teams. Les utilisateurs d’Azure Communication Services peuvent envoyer et recevoir des messages uniquement lorsqu’ils sont présents dans la réunion Teams et si la réunion n’est pas planifiée pour un canal précis.
+Les utilisateurs externes pourront utiliser les fonctionnalités audio, vidéo, de partage d’écran et de conversation de base via les kits de développement logiciel (SDK) d’Azure communication services. Les fonctionnalités telles que Lever la main, le mode ensemble et les salles de pause ne seront disponibles que pour les utilisateurs Teams. Les utilisateurs d’Azure Communication Services peuvent envoyer et recevoir des messages uniquement lorsqu’ils sont présents dans la réunion Teams et si la réunion n’est pas planifiée pour un canal précis. 
+
+Vous trouverez la liste des types de messages pris en charge pour les utilisateurs Communication Services dans nos [concepts de conversation](./chat/concepts.md#message-types). Les types de messages non pris en charge peuvent être ignorés.
 
 Votre application personnalisée doit envisager l’authentification des utilisateurs et d’autres mesures de sécurité pour protéger les réunions Teams. Pensez à ce que cela implique en terme de sécurité si vous autorisez les utilisateurs anonymes à rejoindre des réunions et utilisez le [Guide sur la sécurité de Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) pour configurer les fonctionnalités disponibles pour les utilisateurs anonymes.
 

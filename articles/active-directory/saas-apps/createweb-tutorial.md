@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Create!Webフロー | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Create!Webフロー '
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Create!Webフロー.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 09/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 1aaabacff8e1512931aa18c7fe6db20708425096
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 38fab4d4e1dff8f9916693442926312d81409884
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124802857"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401994"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-createweb"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Create!Webフロー
+# <a name="tutorial-azure-ad-sso-integration-with-createweb"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Create!Webフロー
 
 Dans ce tutoriel, vous allez apprendre à intégrer Create!Webフロー à Azure Active Directory (Azure AD). Lorsque vous intégrez Create!Webフロー à Azure AD, vous pouvez :
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<user-hostname>:8443/XFV20`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Create!Webフロー](mailto:solution-cwf@iftc.co.jp). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Create!Webフロー](https://support.createwebflow.jp/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -130,11 +130,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-createweb-sso"></a>Configurer l’authentification unique Create!Webフロー
 
-Pour configurer l’authentification unique côté **Create!Webフロー**, vous devez envoyer le **certificat (en base64)** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de Create!Webフロー](mailto:solution-cwf@iftc.co.jp). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Create!Webフロー**, vous devez envoyer le **certificat (en base64)** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de Create!Webフロー](https://support.createwebflow.jp/contact/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-createweb-test-user"></a>Créer un utilisateur de test Create!Webフロー
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Create!Webフロー. Travaillez en collaboration avec l’[équipe du support technique de Create!Webフロー](mailto:solution-cwf@iftc.co.jp) pour ajouter l’utilisateur à la plateforme Create!Webフロー. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Create!Webフロー. Travaillez en collaboration avec l’[équipe du support technique de Create!Webフロー](https://support.createwebflow.jp/contact/) pour ajouter l’utilisateur à la plateforme Create!Webフロー. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

@@ -1,14 +1,14 @@
 ---
 title: Vue d’ensemble des serveurs avec Azure Arc
 description: Découvrez comment utiliser les serveurs avec Azure Arc afin de gérer les serveurs hébergés en dehors d’Azure comme une ressource Azure.
-ms.date: 08/27/2021
+ms.date: 09/30/2021
 ms.topic: overview
-ms.openlocfilehash: 5bca2ec2bdf46f27ca83c4747c5ecb5688fa1708
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c064abb4258f36207e8bd4f02f7cb68d8ce1fce1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807139"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355383"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Qu’est-ce qu’un serveur avec Azure Arc ?
 
@@ -32,8 +32,8 @@ Quand vous connectez votre machine à des serveurs avec Azure Arc, elle vous per
 | Azure Security Center | Protégez les serveurs non Azure avec [Microsoft Defender pour point de terminaison](/microsoft-365/security/defender-endpoint), inclus dans [Azure defender](../../security-center/defender-for-servers-introduction.md), à des fins de détection des menaces, de gestion des vulnérabilités et de surveillance proactive des menaces de sécurité potentielles. Azure Security Center présente les alertes et les suggestions de correction à partir des menaces détectées. |
 | Azure Sentinel | Les machines connectées aux serveurs avec Arc peuvent être [configurées avec Azure Sentinel](scenario-onboard-azure-sentinel.md) pour collecter des événements liés à la sécurité et les mettre en corrélation avec d’autres sources de données. |
 |**Configurer** ||
-| Azure Automation |Évaluez les changements de configuration relatifs aux logiciels installés, aux services Microsoft, au registre et aux fichiers Windows ainsi qu’aux démons Linux avec [Suivi des modifications et inventaire](../../automation/change-tracking/overview.md).<br> Utilisez la fonctionnalité [Update Management](../../automation/update-management/overview.md) pour gérer les mises à jour du système d’exploitation de vos serveurs Windows et Linux. |
-| Azure Automanage | Intégrez un ensemble de services Azure quand vous utilisez [Automanage pour les machines pour les serveurs avec Arc](../../automanage/automanage-arc.md). |
+| Azure Automation |Automatisez les tâches de gestion fréquentes et chronophages à l’aide de [runbooks](../../automation/automation-runbook-execution.md)PowerShell et Python.<br> Évaluez les changements de configuration relatifs aux logiciels installés, aux services Microsoft, au registre et aux fichiers Windows ainsi qu’aux démons Linux avec [Suivi des modifications et inventaire](../../automation/change-tracking/overview.md).<br> Utilisez la fonctionnalité [Update Management](../../automation/update-management/overview.md) pour gérer les mises à jour du système d’exploitation de vos serveurs Windows et Linux. |
+| Azure Automanage (préversion) | Automatisez l’intégration et la configuration d’un ensemble de services Azure quand vous utilisez [Automanage pour les machines pour les serveurs avec Arc](../../automanage/automanage-arc.md). |
 | Extensions de machine virtuelle | Fournit des tâches d’automatisation et de configuration post-déploiement avec des [extensions de machines virtuelles pour les serveurs avec Arc](manage-vm-extensions.md) prises en charge pour votre machine Windows ou Linux non-Azure. |
 |**Surveiller**|
 | Azure Monitor | Supervisez les performances du système d’exploitation invité de la machine connectée, et découvrez les composants de l’application pour superviser leurs processus et dépendances avec d’autres ressources à l’aide de [VM Insights](../../azure-monitor/vm/vminsights-overview.md). Collectez d’autres données de journal, telles que des données de performances et des événements, à partir du système d’exploitation ou des charges de travail en cours d’exécution sur la machine avec l’[agent Log Analytics](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). Ces données sont stockées dans un [espace de travail Log Analytics](../../azure-monitor/logs/design-logs-deployment.md). |

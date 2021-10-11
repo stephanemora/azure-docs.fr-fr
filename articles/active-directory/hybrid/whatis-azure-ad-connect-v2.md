@@ -11,12 +11,12 @@ ms.date: 09/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management, has-adal-ref
-ms.openlocfilehash: 5f70c401799fb0b67f9f4013713eb89525072f45
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 06b982a43c5155ce5a111bafbac41862363ec07d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128670725"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355507"
 ---
 # <a name="introduction-to-azure-ad-connect-v20"></a>Présentation d’Azure AD Connect v 2.0 
 
@@ -77,7 +77,7 @@ Cette mise à niveau est d’autant plus importante que nous avons dû mettre à
 Non, cette version ne contient aucune nouvelle fonctionnalité. Cette version contient uniquement des mises à jour de certains composants fondamentaux d’Azure AD Connect. 
 
 **Puis-je effectuer une mise à niveau de n’importe quelle version précédente vers la version 2.0 ?** </br>
-Oui, les mises à niveau d’une version précédente d’Azure AD Connect vers Azure AD Connect 2.0 sont prises en charge. Suivez l’aide fournie dans cet article pour déterminer quelle est la meilleure stratégie de mise à niveau pour vous. 
+Oui, les mises à niveau d’une version précédente d’Azure AD Connect vers Azure AD Connect 2.0 sont prises en charge. Suivez l’aide fournie dans [cet article](how-to-upgrade-previous-version.md) pour déterminer quelle est la meilleure stratégie de mise à niveau pour vous. 
 
 **Puis-je exporter la configuration de mon serveur actuel et l’importer dans Azure AD Connect v2.0 ?** </br>
 Oui, c’est possible et c’est un excellent moyen de migrer vers Azure AD Connect v2.0, en particulier si vous effectuez également une mise à niveau vers une nouvelle version du système d’exploitation. Pour plus d’informations sur la fonctionnalité Importer/exporter la configuration et sur son utilisation, consultez cet [article](how-to-connect-import-export-config.md). 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f2e6918e6cdc6eb87fe80e9110183ed5a0a3693b
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: d431e91eb71d5befe71f134e634fe5ad3c7b392d
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113106698"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274466"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Tutoriel : Provisionner plusieurs appareils X.509 à l’aide de groupes d’inscriptions
 
@@ -318,7 +318,7 @@ Vos certificats de signature sont désormais approuvés sur l’appareil Windows
 
 ## <a name="create-an-enrollment-group"></a>Création d’un groupe d’inscription
 
-1. Connectez-vous au portail Azure, sélectionnez le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service Device Provisioning.
+1. Connectez-vous au portail Azure, sélectionnez le bouton **Toutes les ressources** dans le menu de gauche, puis ouvrez votre service Device Provisioning.
 
 2. Sélectionnez l’onglet **Gérer les inscriptions**, puis le bouton **Ajouter un groupe d’inscriptions** en haut.
 
@@ -341,7 +341,7 @@ Dans cette section, vous mettez à jour l’exemple de code avec les information
 
 1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez la valeur **_Étendue de l’ID_**.
 
-    ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
 
 2. Lancez Visual Studio et ouvrez le nouveau fichier de solution créé dans le répertoire `cmake` que vous avez créé à la racine du dépôt git azure-iot-sdk-c. Le fichier de la solution est nommé `azure_iot_sdks.sln`.
 

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 0dc539a5f649ed4a894e92e579fdbd15d4d2b4be
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 410b0926faf2e5c6b8885c91cdf08343c3000469
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635790"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362330"
 ---
 # <a name="calling-sdk-overview"></a>Vue d’ensemble du kit SDK Appel
 
@@ -88,8 +88,8 @@ Le kit SDK Appel Communication Services prend en charge les configurations de st
 
 | Limite                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **Nombre de flux sortants qui peuvent être envoyés simultanément**     | 1 vidéo ou 1 partage d’écran | 1 vidéo + 1 partage d’écran |
-| **Nombre de flux entrants qui peuvent être restitués simultanément** | 1 vidéo ou 1 partage d’écran | 6 vidéos + 1 partage d’écran |
+| **Nombre maximal de flux locaux sortants qui peuvent être envoyés simultanément**     | 1 vidéo ou 1 partage d’écran | 1 vidéo + 1 partage d’écran |
+| **Nombre maximal de flux distants entrants qui peuvent être rendus simultanément** | 4 vidéos + 1 partage d’écran | 6 vidéos + 1 partage d’écran |
 
 Bien que le kit SDK Calling n’applique pas ces limites, vos utilisateurs peuvent subir une détérioration des performances si elles sont dépassées.
 
@@ -119,7 +119,6 @@ Le tableau suivant représente l’ensemble des navigateurs pris en charge dispo
 | Windows      | ✔️      | ❌      | ✔️           |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 
-* Les appels 1 à 1 ne sont pas pris en charge sur Safari.
 * Le partage d’écran sortant n’est pas pris en charge sur iOS ni Android.
 * [Une application iOS sur Safari ne peut pas énumérer/sélectionner des périphériques de microphone et de haut-parleur](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (par exemple, Bluetooth) ; il s’agit d’une limitation du système d’exploitation et il n’y a toujours qu’un seul périphérique ; le système d’exploitation contrôle la sélection du périphérique par défaut.
 

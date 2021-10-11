@@ -11,27 +11,29 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f560b5d288c1beea639476600a9a40fda19b8044
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 7dc02eb3c74208cf0d438640434430c7c04aeb9c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613401"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353653"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de cloud pour préserver la protection de votre application, de votre entreprise et de vos clients. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes des réseaux sociaux et de comptes d’entreprise à l’aide de protocoles standard ouverts. Dans ce démarrage rapide, vous utilisez un exemple d’application monopage pour vous connecter à l’aide d’un fournisseur d’identité sociale et appeler une API web protégée par Azure AD B2C.
+Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de cloud pour préserver la protection de votre application, de votre entreprise et de vos clients. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes des réseaux sociaux et de comptes d’entreprise à l’aide de protocoles standard ouverts. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Dans ce démarrage rapide, vous utilisez un exemple d’application monopage pour vous connecter à l’aide d’un fournisseur d’identité sociale et appeler une API web protégée par Azure AD B2C.
+
+<!--[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] -->
 
 ## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Node.JS](https://nodejs.org/en/download/)
 - Compte de réseau social Facebook, Google ou Microsoft
-- Exemple de code issu de GitHub : [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa)
+- Exemple de code de GitHub : [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) :
 
-    Vous pouvez [télécharger l’archive zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) ou cloner le dépôt :
+    Vous pouvez [télécharger l’archive zip](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa/archive/main.zip) ou cloner le dépôt.
 
     ```console
     git clone https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa.git
@@ -42,7 +44,8 @@ Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de c
 1. Démarrez le serveur en exécutant les commandes suivantes à partir de l’invite de commandes Node.js :
 
     ```console
-    npm install && npm update
+    npm install
+    npm update
     npm start
     ```
 
@@ -75,19 +78,16 @@ Cliquez sur **Call API** (Appeler une API) pour que votre nom d’affichage soit
 
 L’exemple d’application monopage inclut un jeton d’accès dans la requête envoyée à la ressource de l’API web protégée.
 
-## <a name="clean-up-resources"></a>Nettoyer les ressources
+<!-- ## Clean up resources
 
-Vous pouvez utiliser votre locataire Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels ou démarrages rapides Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-).
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-).-->
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé un exemple d’application monopage pour :
+<!---In this quickstart, you used a sample single-page application to:
 
-- Vous connecter avec un fournisseur d’identité sociale
-- Créer un compte d’utilisateur Azure AD B2C (créé automatiquement lors de la connexion)
-- Appeler une API web protégée par Azure AD B2C
+- Sign in with a social identity provider
+- Create an Azure AD B2C user account (created automatically at sign-in)
+- Call a web API protected by Azure AD B2C -->
 
-Passez maintenant à la création de votre propre locataire Azure AD B2C.
-
-> [!div class="nextstepaction"]
-> [Créer un locataire Azure Active Directory B2C dans le portail Azure](tutorial-create-tenant.md)
+- Commencer à créer votre propre [locataire Azure Active Directory B2C dans le portail Azure](tutorial-create-tenant.md)

@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e32e6ecacb2de646314be237c6b7bce973a0ed4e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5583596e399456461b2fc157a193b83b596180ee
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213474"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387389"
 ---
 # <a name="about-azure-key-vault-secrets"></a>À propos des secrets Azure Key Vault
 
@@ -81,49 +81,11 @@ Vous pouvez spécifier des métadonnées spécifiques à l’application supplé
 >[!Note]
 >Les étiquettes peuvent être lues par un appelant s’il dispose de l’autorisation *list* ou *get*.
 
-## <a name="azure-storage-account-key-management"></a>Gestion des clés de compte de stockage Azure
-
-Key Vault peut gérer les clés de [compte de stockage Azure](../../storage/common/storage-account-overview.md) :
-
-- En interne, Key Vault peut lister (synchroniser) les clés avec un compte de stockage Azure. 
-- Key Vault regénère (fait tourner) les clés régulièrement.
-- Les valeurs de clés ne sont jamais retournées en réponse à l’appelant.
-- Key Vault gère les clés des comptes de stockage et des comptes de stockage classiques.
-
-Pour plus d'informations, consultez les pages suivantes :
-- [Clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md)
-- [Gestion des clés de compte de stockage dans Azure Key Vault](../secrets/overview-storage-keys.md)
-
-
-## <a name="storage-account-access-control"></a>Contrôle d’accès aux comptes de stockage
-
-Vous pouvez utiliser les autorisations suivantes quand vous autorisez un utilisateur ou un principal d’application à effectuer des opérations sur un compte de stockage géré :  
-
-- Autorisations pour les opérations de définition SAS et de compte de stockage géré
-  - *get* : obtenir des informations sur un compte de stockage 
-  - *list* : lister les comptes de stockage gérés par un coffre de clés
-  - *update* : mettre à jour un compte de stockage
-  - *delete* : Suppression d'un compte de stockage  
-  - *recover* : récupérer un compte de stockage supprimé
-  - *backup* : sauvegarder un compte de stockage
-  - *restore* : restaurer un compte de stockage sauvegardé sur un coffre de clés
-  - *set* : créer ou mettre à jour un compte de stockage
-  - *regeneratekey* : regénérer une valeur de clé spécifiée pour un compte de stockage
-  - *getsas* : obtenir des informations sur une définition SAS pour un compte de stockage
-  - *listsas* : lister les définitions SAS de stockage d’un compte de stockage
-  - *deletesas* : supprimer une définition SAS d’un compte de stockage
-  - *setsas* : créer ou mettre à jour une définition/des attributs SAS pour un compte de stockage
-
-- Autorisations pour les opérations privilégiées
-  - *purge* : effacer (supprimer définitivement) un compte de stockage géré
-
-Pour plus d’informations, consultez [Informations de référence sur les opérations de compte de stockage dans l’API REST Key Vault](/rest/api/keyvault). Pour plus d’informations sur l’établissement d’autorisations, consultez [Coffres : créer ou mettre à jour](/rest/api/keyvault/vaults/createorupdate) et [Coffres : mettre à jour la stratégie d’accès](/rest/api/keyvault/vaults/updateaccesspolicy).
-
 ## <a name="usage-scenarios"></a>Scénarios d’utilisation
 
 | Quand l’utiliser | Exemples |
 |--------------|-------------|
-|Stockez de façon sécurisée les informations d’identification, gérez leur cycle de vie et supervisez-les dans le cadre des communications de service à service, par exemple, les mots de passe, les clés d’accès ou les secrets clients du principal du service.  | - [Utiliser Azure Key Vault avec une machine virtuelle](../general/tutorial-net-virtual-machine.md)<br> - [Utiliser Azure Key Vault avec une application web Azure](../general/tutorial-net-create-vault-azure-web-app.md) |
+|Stockez de façon sécurisée les informations d’identification, gérez leur cycle de vie et supervisez-les dans le cadre des communications de service à service, par exemple les mots de passe, clés d’accès ou secrets clients du principal de service.  | - [Utiliser Azure Key Vault avec une machine virtuelle](../general/tutorial-net-virtual-machine.md)<br> - [Utiliser Azure Key Vault avec une application web Azure](../general/tutorial-net-create-vault-azure-web-app.md) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

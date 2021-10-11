@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/22/2020
+ms.date: 09/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 529c4e6433d16f9d70530ba516b5ec1426806984
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 68049d5eb2d20c6b88319925892f0dda642f392c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92519229"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778454"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wedo"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à WEDO
 
@@ -25,8 +25,6 @@ Dans ce tutoriel, vous allez apprendre à intégrer WEDO à Azure Active Directo
 * Contrôler dans Azure AD qui a accès à WEDO.
 * Permettre à vos utilisateurs de se connecter automatiquement à WEDO avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
-
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,46 +37,44 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* WEDO prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
+* WEDO prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* WEDO prend en charge l’[attribution automatisée d’utilisateurs](wedo-provisioning-tutorial.md).
 
-* [Après avoir configuré WEDO, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-## <a name="adding-wedo-from-the-gallery"></a>Ajout de WEDO à partir de la galerie
+## <a name="add-wedo-from-the-gallery"></a>Ajouter WEDO à partir de la galerie
 
 Pour configurer l’intégration de WEDO avec Azure AD, vous devez ajouter WEDO à partir de la galerie à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **WEDO** dans la zone de recherche.
 1. Sélectionnez **WEDO** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on-for-wedo"></a>Configurer et tester l’authentification unique Azure AD pour WEDO
+## <a name="configure-and-test-azure-ad-sso-for-wedo"></a>Configurer et tester l’authentification unique Azure AD pour WEDO
 
 Configurez et testez l’authentification unique Azure AD avec WEDO pour un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur WEDO associé.
 
-Pour configurer et tester l’authentification unique Azure AD avec WEDO, suivez les indications des sections ci-après :
+Pour configurer et tester l’authentification unique Azure AD avec WEDO, effectuez les étapes suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique WEDO](#configure-wedo-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    * **[Créer un utilisateur de test WEDO](#create-wedo-test-user)** pour avoir un équivalent de B.Simon dans WEDO, associé à sa représentation dans Azure AD.
+    1. **[Créer un utilisateur de test WEDO](#create-wedo-test-user)** pour avoir un équivalent de B.Simon dans WEDO, associé à sa représentation dans Azure AD.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **WEDO**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **WEDO**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SUBDOMAIN>.wedo.swiss/sp/acs`
 
@@ -127,13 +123,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **WEDO**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
@@ -154,13 +144,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    c. Dans le Bloc-notes, ouvrez le **XML de métadonnées de fédération** téléchargé à partir du portail Azure, copiez son contenu et collez-le dans la zone de texte **X.509 Certificate**.
 
-   d. Dans le menu Paramètres, cliquez sur **Enregistrer**
+   d. Cliquez sur **Enregistrer**.
 
 ### <a name="create-wedo-test-user"></a>Créer un utilisateur de test WEDO
 
-Dans cette section, vous allez créer un utilisateur de test dans WEDO appelé Bob Simon. Les informations doivent être identiques à celles de *Créer un utilisateur de test Azure AD*.
+Dans cette section, vous allez créer un utilisateur de test dans WEDO appelé Bob Simon. Les informations doivent être identiques à celles de **Créer un utilisateur de test Azure AD**.
 
-1. Dans les paramètres de profil dans WEDO, sélectionnez **Users** (Utilisateurs) dans la section *Network settings*.
+1. Dans les paramètres de profil dans WEDO, sélectionnez **Users** (Utilisateurs) dans la section **Network settings**.
 1. Cliquez sur **Add User**.
 1. Dans la fenêtre contextuelle Add user, renseignez les informations de l’utilisateur
 
@@ -174,31 +164,34 @@ Dans cette section, vous allez créer un utilisateur de test dans WEDO appelé B
 
     e. Cliquez sur **Create User** (Créer un utilisateur).
 
-    f. Dans la page *Select teams* (Sélectionner les équipes), cliquez sur **Save**.
+    f. Dans la page **Select teams** (Sélectionner les équipes), cliquez sur **Save**.
 
-    g.  Dans la page *Invite user* (Inviter l’utilisateur), cliquez sur **Yes**.
+    g.  Dans la page **Invite user** (Inviter l’utilisateur), cliquez sur **Yes**.
 
 1. Valider l’utilisateur à l’aide du lien que vous avez reçu par e-mail
 
 > [!NOTE]
 > Si vous souhaitez créer un utilisateur factice (l’e-mail ci-dessus n’existe pas sur votre réseau), contactez [notre équipe de support](mailto:info@wedo.swiss) pour valider l’utilisateur*.
 
+> [!NOTE]
+> WEDO prend aussi en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./wedo-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette WEDO dans le volet d’accès, vous devez être connecté automatiquement à l’application WEDO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL d’authentification WEDO, d’où vous pouvez lancer le processus de connexion.  
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Accédez directement à l’URL d’authentification WEDO pour lancer le processus de connexion.
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+* Cliquez sur **Tester cette application** dans le portail Azure, ce qui devrait vous connecter automatiquement à l’application WEDO pour laquelle vous avez configuré l’authentification unique. 
 
-- [Essayer WEDO avec Azure AD](https://aad.portal.azure.com/)
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette WEDO dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page d’authentification de l’application pour lancer le processus de connexion. Si le mode Fournisseur d’identité est configuré, vous êtes automatiquement connecté à l’application WEDO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide pratique pour protéger WEDO avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Une fois que vous avez configuréWEDO, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -290,6 +290,8 @@
             - name: Utilisation d’un modèle Resource Manager
               displayName: arm
               href: how-to-create-workspace-template.md
+            - name: Utiliser Terraform
+              href: how-to-manage-workspace-terraform.md
             - name: Utiliser REST
               href: how-to-manage-rest.md
             - name: Lier à un espace de travail Azure Synapse Analytics
@@ -305,7 +307,7 @@
             - name: Mettre à niveau le système d’exploitation hôte
               displayName: 'upgrade compute cluster, upgrade compute instance, upgrade ubuntu'
               href: how-to-compute-cluster-instance-os-upgrade.md
-            - name: Machine Learning avec Azure Arc
+            - name: Machine learning avec Azure Arc
               displayName: 'Azure Arc, Kubernetes, on-premise, multi-cloud'
               href: how-to-attach-arc-kubernetes.md
             - name: Azure Kubernetes Service
@@ -569,11 +571,11 @@
               href: how-to-deploy-azure-container-instance.md
             - name: Inférence des GPU
               href: how-to-deploy-inferencing-gpus.md
+            - name: Recherche cognitive Azure
+              href: how-to-deploy-model-cognitive-search.md
             - name: Azure Functions
               displayName: functions app
               href: how-to-deploy-functions.md
-            - name: Recherche cognitive Azure
-              href: how-to-deploy-model-cognitive-search.md
             - name: Inférence de FPGA
               href: how-to-deploy-fpga-web-service.md
         - name: Images Docker prédéfinies

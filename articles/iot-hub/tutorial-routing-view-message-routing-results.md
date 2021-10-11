@@ -5,15 +5,15 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/25/2018
+ms.date: 09/21/2021
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp, devx-track-azurepowershell
-ms.openlocfilehash: 0ba5032d13e41702064aa1502bc9f7930624fc11
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e055868c04056170f351c3534f065d842f833691
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121742238"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457381"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutoriel : Partie 2 : Visualiser les messages routés
 
@@ -23,12 +23,13 @@ ms.locfileid: "121742238"
 
 ## <a name="rules-for-routing-the-messages"></a>Règles de routage des messages
 
-Voici les règles de routage des messages. Elles ont été définies dans la 1re partie de ce tutoriel. Vous les voyez à l’œuvre dans cette deuxième partie.
+Voici les règles de routage des messages qui ont été configurées dans la 1re partie de ce tutoriel. Vous allez les voir à l’œuvre dans cette deuxième partie.
 
 |Valeur |Résultats|
 |------|------|
 |level="storage" |Écrire dans Stockage Azure.|
-|level="critical" |Écrire dans une file d’attente Service Bus. Une application logique extrait le message de la file d’attente et utilise Office 365 pour envoyer le message par e-mail.|
+|level="critical" |Écrire dans une file d’attente Service Bus. Une application logique extrait le message de 
+ la file d’attente et utilise Office 365 pour envoyer le message par e-mail.|
 |default |Afficher ces données à l’aide de Power BI.|
 
 Vous créez maintenant les ressources vers lesquelles les messages seront routés, vous exécutez une application pour envoyer des messages au hub et vous voyez le routage en action.
@@ -37,57 +38,66 @@ Vous créez maintenant les ressources vers lesquelles les messages seront routé
 
 La file d’attente Service Bus doit être utilisée pour recevoir des messages indiqués comme étant critiques. Configurez une application logique pour surveiller la file d’attente Service Bus et envoyer un e-mail lors de l’ajout d’un message à la file d’attente.
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **+ Créer une ressource**. Tapez **application logique** dans la zone de recherche, puis cliquez sur Entrée. Dans les résultats de la recherche affichés, sélectionnez Application logique, puis sélectionnez **Créer** pour passer au volet **Créer une application logique**. Renseignez les champs.
-
-   **Name** : ce champ indique le nom de l'application logique. Ce didacticiel utilise **ContosoLogicApp**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **+ Créer une ressource**. Tapez **application logique** dans la zone de recherche, puis sélectionnez Entrée. Dans les résultats de la recherche affichés, sélectionnez Application logique, puis sélectionnez **Créer** pour passer au volet **Créer une application logique**. Renseignez les champs.
 
    **Abonnement**: Sélectionnez votre abonnement Azure.
 
-   **Groupe de ressources** : Sélectionnez **Utiliser existant**, puis sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**.
+   **Groupe de ressources** : sélectionnez **Créer** sous le champ Groupe de ressources. Spécifiez **ContosoResources** comme nom du groupe de ressources. 
 
-   **Emplacement** : utilisez votre emplacement. Ce didacticiel utilise **USA Ouest**.
+   **Détails de l’instance**
+   **Type** : sélectionnez **Consommation** comme type d’instance. 
 
-   **Activer Log Analytics** : cette option doit être désactivée.
+   Renseignez le champ **Nom de l’application logique**. Ce didacticiel utilise **ContosoLogicApp**. 
+
+   **Région** : utilisez l’emplacement du centre de données le plus proche. Ce didacticiel utilise **USA Ouest**.
+
+   **Activer l’analytique des journaux** : définissez ce bouton bascule pour ne pas activer l’analytique des journaux. 
 
    ![Écran Créer une application logique](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   Sélectionnez **Create** (Créer). Le déploiement de l’application peut prendre quelques minutes.
+   Sélectionnez **Vérifier + créer**. Le déploiement de l’application peut prendre quelques minutes. Quand vous avez terminé, un écran vous donne une vue d’ensemble du déploiement. 
 
-2. Accédez maintenant à l’application logique. La méthode la plus simple pour accéder à l’application logique consiste à sélectionner **Groupe de ressources**, à sélectionner votre groupe de ressources (ce tutoriel utilise **ContosoResources**), puis à sélectionner l’application logique dans la liste des ressources. 
+2. Accédez à l’application logique. Si vous êtes toujours dans la page de déploiement, vous pouvez sélectionner **Accéder à la ressource**. Sinon, vous pouvez sélectionner **Groupe de ressources**, votre groupe de ressources (**ContosoResources** dans ce tutoriel), puis l’application logique dans la liste des ressources. 
 
-    La page Concepteur d’applications logiques apparaît (vous devrez peut-être faire défiler vers la droite pour voir la page entière). Dans la page Concepteur d’applications logiques, faites défiler jusqu’à voir la vignette indiquant **Application logique vide +** et sélectionnez-la. L’onglet par défaut est « Pour vous ». Si ce volet est vide, sélectionnez **Tous** pour voir tous les connecteurs et les déclencheurs disponibles.
+    Faites défiler vers le bas jusqu’à ce qu’une vignette presque vide indiquant **Application logique vide +** apparaisse et sélectionnez-la. L’onglet par défaut de l’écran est « Pour vous ». Si ce volet est vide, sélectionnez **Tous** pour voir les connecteurs et les déclencheurs disponibles.
 
 3. Sélectionnez **Service Bus** dans la liste des connecteurs.
 
    ![Liste des connecteurs](./media/tutorial-routing-view-message-routing-results/logic-app-connectors.png)
 
-4. Une liste de déclencheurs s’affiche. Sélectionnez **Quand une file d’attente reçoit un message (saisie semi-automatique) / Service Bus**.
+4. Cette capture d’écran montre une liste de déclencheurs. Sélectionnez celui indiquant **Quand une file d’attente reçoit un message (saisie semi-automatique)** .
 
-   ![Liste des déclencheurs pour Service Bus](./media/tutorial-routing-view-message-routing-results/logic-app-triggers.png)
+   ![Liste des déclencheurs](./media/tutorial-routing-view-message-routing-results/logic-app-triggers.png)
 
-5. Dans l’écran suivant, indiquez le nom de connexion. Ce didacticiel utilise **ContosoConnection**.
+5. Renseignez les champs sur l’écran suivant avec les informations de connexion.
 
-   ![Configuration de la connexion pour la file d’attente Service Bus](./media/tutorial-routing-view-message-routing-results/logic-app-define-connection.png)
+   **Nom de la connexion** : ContosoConnection
+   
+   Sélectionnez l’espace de noms Service Bus. Ce didacticiel utilise **ContosoSBNamespace**. Le nom de la clé (RootManageSharedAccessKey) et les droits (écouter, gérer, envoyer) sont récupérés et chargés. Sélectionnez **RootManageSharedAccessKey**. Le bouton **Créer** devient bleu (actif). Sélectionnez-le pour afficher l’écran de sélection de la file d’attente.  
 
-   Sélectionnez l’espace de noms Service Bus. Ce didacticiel utilise **ContosoSBNamespace**. Lorsque vous sélectionnez l’espace de noms, le portail interroge l’espace de noms Service Bus pour récupérer les clés. Sélectionnez **RootManageSharedAccessKey**, puis **Créer**.
+6. Vous êtes ensuite invité à fournir des informations sur la file d’attente.  
 
-   ![Fin de la configuration de la connexion](./media/tutorial-routing-view-message-routing-results/logic-app-finish-connection.png)
+   ![Sélection d’une file d’attente](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
-6. Dans l’écran suivant, sélectionnez le nom de la file d’attente (ce didacticiel utilise **contososbqueue**) dans la liste déroulante. Vous pouvez utiliser les valeurs par défaut pour les autres champs.
+   **Nom de la file d’attente :** ce champ est le nom de la file d’attente à partir de laquelle le message est envoyé. Cliquez sur cette liste déroulante et sélectionnez le nom de la file d’attente défini précédemment dans les étapes de configuration. Ce didacticiel utilise **contososbqueue**.
 
-   ![Options de la file d’attente](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
+   **Type de file d’attente :** type de la file d’attente. Sélectionnez **Principal** dans la liste déroulante.
 
-7. Définissez maintenant l’action pour envoyer un e-mail quand un message est reçu dans la file d’attente. Dans le Concepteur d’applications logiques, sélectionnez **+ Nouvelle étape** pour ajouter une étape, puis sélectionnez **Tous** pour voir toutes les options disponibles. Dans le volet **Choisir une action**, recherchez et sélectionnez **Office 365 Outlook**. Dans l’écran Actions, sélectionnez **Envoyer un e-mail/Office 365 Outlook**.  
+   Conservez les valeurs par défaut pour autres champs. Sélectionnez **Enregistrer** pour enregistrer la configuration du concepteur d’application logique.
 
-   ![Options d’Office 365](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
+7. Sélectionnez **+ Nouvelle étape**. Le volet **Choisir une opération** s’affiche. Sélectionnez **Office 365 Outlook**. Dans la liste, recherchez et sélectionnez **Envoyer un e-mail (V2)** . Connectez-vous à votre compte Office 365.   
 
-8. Connectez-vous à votre compte professionnel ou scolaire pour configurer la connexion. En cas de dépassement du délai d’expiration, réessayez. Spécifiez les adresses e-mail des destinataires. Indiquez également l’objet et tapez le message que vous souhaitez que le destinataire voit dans le corps de l’e-mail. Pour tester si tout fonctionne bien, indiquez votre propre adresse e-mail dans le champ des destinataires.
+8. Renseignez les champs à utiliser lors de l’envoi d’un e-mail relatif au message dans la file d’attente. 
 
-   Sélectionnez **Ajouter du contenu dynamique** pour afficher le contenu du message que vous pouvez inclure. Sélectionnez **Contenu** pour que le message soit inclus dans l’e-mail.
+   ![Envoi d’un e-mail à partir de l’un des connecteurs Outlook](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png) 
 
-   ![Options d’e-mail pour l’application logique](./media/tutorial-routing-view-message-routing-results/logic-app-send-email.png)
+   **À** : entrez l’adresse e-mail à laquelle l’avertissement doit être envoyé.
 
-9. Sélectionnez **Enregistrer**. Puis, fermez le Concepteur d’applications logiques.
+   **Objet** : entrez l’objet de l’e-mail.
+
+   **Corps** : entrez le texte du corps de l’e-mail. Cliquez sur **Ajouter du contenu dynamique** pour voir les champs de l’e-mail que vous pouvez inclure. Si vous ne voyez rien, sélectionnez **Voir plus** pour afficher plus d’options. Sélectionnez **Contenu** pour afficher le corps de l’e-mail dans le message d’erreur.
+
+9. Cliquez sur **Enregistrer** pour enregistrer vos modifications. Fermez le concepteur d’application logique. 
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurer Azure Stream Analytics
 
@@ -95,7 +105,7 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
 ### <a name="create-the-stream-analytics-job"></a>Créer la tâche Stream Analytics
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Internet des objets** > **Tâche Stream Analytics**.
+1. Indiquez **travaux** **stream** **analytics** dans la zone de recherche du [portail Azure](https://portal.azure.com) et sélectionnez **Entrée**. Sélectionnez **Créer** pour accéder à l’écran Travaux Stream Analytics, puis sélectionnez à nouveau **Créer** pour accéder à l’écran de création. 
 
 2. Saisissez les informations ci-après concernant le travail.
 
@@ -111,7 +121,7 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
 3. Sélectionnez **Créer** pour créer le travail. Le déploiement peut prendre quelques minutes.
 
-    Pour revenir à la tâche, sélectionnez **Groupes de ressources**. Ce didacticiel utilise **ContosoResources**. Sélectionnez le groupe de ressources, puis sélectionnez la tâche Stream Analytics dans la liste des ressources.
+    Pour revenir à la tâche, sélectionnez **Accéder à la ressource**. Vous pouvez également sélectionner **Groupes de ressources**. Ce didacticiel utilise **ContosoResources**. Sélectionnez ensuite le groupe de ressources, puis la tâche Stream Analytics dans la liste des ressources.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Ajouter une entrée à la tâche Stream Analytics
 
@@ -121,18 +131,16 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
    **Alias d’entrée** : Ce didacticiel utilise **contosoinputs**.
 
-   **Sélectionner un hub IoT dans vos abonnements** : Sélectionnez cette case d’option.
-
-   **Abonnement**: Sélectionnez l’abonnement Azure que vous utilisez pour ce tutoriel.
-
+   Sélectionnez **Sélectionner un hub IoT dans vos abonnements**, puis sélectionnez votre abonnement dans la liste déroulante.
+   
    **Hub IoT** : Sélectionnez le hub IoT. Ce didacticiel utilise **ContosoTestHub**.
 
-   **Point de terminaison** : sélectionnez **Messagerie**. (Si vous sélectionnez Surveillance des opérations, vous obtenez les données de télémétrie sur l’IoT Hub, plutôt que les données que vous envoyez.) 
+   **Groupe de consommateurs** : Sélectionnez le groupe de consommateurs configuré dans la 1re partie de ce tutoriel. Ce didacticiel utilise **contosoconsumers**.
 
    **Nom de la stratégie d'accès partagé** : Sélectionnez **service**. Le portail renseigne la clé de la stratégie d’accès partagé pour vous.
 
-   **Groupe de consommateurs** : Sélectionnez le groupe de consommateurs configuré dans la 1re partie de ce tutoriel. Ce didacticiel utilise **contosoconsumers**.
-   
+   **Point de terminaison** : sélectionnez **Messagerie**. (Si vous sélectionnez Surveillance des opérations, vous obtenez les données de télémétrie sur l’IoT Hub, plutôt que les données que vous envoyez.) 
+
    Pour les autres champs, acceptez les valeurs par défaut. 
 
    ![Configurer les entrées de la tâche Stream Analytics](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
@@ -147,15 +155,15 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
    **Alias de sortie** : alias unique de la sortie. Ce didacticiel utilise **contosooutputs**. 
 
+   Sélectionnez **Sélectionner un espace de travail de groupe dans vos abonnements**. Dans **Espace de travail de groupe**, spécifiez **Mon espace de travail**.
+
+   **Mode d’authentification** : sélectionnez **Jeton utilisateur**. 
+
    **Nom du jeu de données** : nom du jeu de données à utiliser dans Power BI. Ce didacticiel utilise **contosodataset**. 
 
    **Nom de la table** : nom de la table à utiliser dans Power BI. Ce didacticiel utilise **contosotable**.
 
-  **Mode d'authentification** : sélectionnez le mode à utiliser.
-
-   Acceptez les valeurs par défaut pour les autres champs.
-
-3. Sélectionnez **Autoriser** et connectez-vous à votre compte Power BI. (Plusieurs tentatives peuvent s’avérer nécessaires.)
+3. Sélectionnez **Autoriser** et connectez-vous à votre compte Power BI. (Plusieurs tentatives de connexion peuvent s’avérer nécessaires.)
 
    ![Configurer les sorties de la tâche Stream Analytics](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-outputs.png)
 
@@ -179,15 +187,15 @@ Pour afficher les données dans une visualisation Power BI, commencez par config
 
 Dans la tâche Stream Analytics, sélectionnez **Démarrer** > **Maintenant** > **Démarrer**. Une fois la tâche lancée, l’état correspondant passe de **Arrêté** à **Exécution**.
 
-Pour configurer le rapport Power BI, vous avez besoin de données ; vous allez donc configurer Power BI après la création de l’appareil et l’exécution de l’application de simulation de l’appareil.
+Pour configurer le rapport Power BI, vous avez besoin de données. Vous allez donc configurer Power BI après la création de l’appareil et exécuter l’application de simulation d’appareil pour générer des données.
 
 ## <a name="run-simulated-device-app"></a>Exécuter l’application d’appareil simulé
 
-Dans la 1re partie de ce tutoriel, vous avez configuré un appareil pour simuler l’utilisation d’un appareil IoT. Dans cette section, vous téléchargez l’application console .NET. Elle simule l’appareil qui envoie des messages appareil-à-cloud à un hub IoT (en supposant que vous n’ayez pas déjà téléchargé l’application et les ressources dans la 1re partie).
+Dans la 1re partie de ce tutoriel, vous avez configuré un appareil pour simuler l’utilisation d’un appareil IoT. Si vous ne l’avez pas encore fait, téléchargez l’application console .NET qui simule l’appareil envoyant des messages appareil-à-cloud à un hub IoT.
 
 Cette application envoie des messages pour chacune des différentes méthodes de routage des messages. Le téléchargement contient aussi un dossier où se trouvent le modèle et le fichier de paramètres complets Azure Resource Manager ainsi que les scripts Azure CLI et PowerShell.
 
-Si vous n’avez pas téléchargé les fichiers depuis le dépôt au cours de la 1re partie de ce tutoriel, faites-le maintenant à partir de la [simulation d’appareil IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). La sélection de ce lien télécharge un dépôt contenant plusieurs applications. La solution que vous recherchez se trouve à l’emplacement iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln. 
+Si vous n’avez pas téléchargé les fichiers depuis le dépôt au cours de la 1re partie de ce tutoriel, faites-le maintenant à partir de la [simulation d’appareil IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). La sélection de ce lien télécharge un dépôt contenant plusieurs applications. La solution que vous recherchez se trouve à l’emplacement iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln. 
 
 Double-cliquez sur le fichier de solution (IoT_SimulatedDevice.sln) pour ouvrir le code dans Visual Studio, puis ouvrez Program.cs. Remplacez `{your hub name}` par le nom d’hôte IoT Hub. Le format du nom d’hôte IoT Hub est **{iot-hub-name}.azure-devices.net**. Pour ce didacticiel, le nom d’hôte IoT Hub est **ContosoTestHub.azure-devices.net**. Ensuite, remplacez `{your device key}` par la clé de l’appareil enregistrée précédemment lorsque vous avez configuré l’appareil simulé. 
 
@@ -203,7 +211,7 @@ Double-cliquez sur le fichier de solution (IoT_SimulatedDevice.sln) pour ouvrir 
 
 Exécutez l’application console. Patientez quelques minutes. Vous pouvez voir les messages envoyés sur l’écran de la console de l’application.
 
-L’application envoie un nouveau message appareil-à-cloud à l’IoT Hub toutes les secondes. Le message contient un objet sérialisé JSON avec l’ID d’appareil, la température, l’humidité et le niveau du message, qui est défini par défaut sur `normal`. Un niveau de `critical` ou `storage` est attribué de façon aléatoire, ce qui permet au message d’être acheminé vers le compte de stockage ou la file d’attente Service Bus (qui déclenche votre application logique pour envoyer un e-mail). Les mesures par défaut (`normal`) seront affichées dans le rapport BI que vous configurerez après.
+L’application envoie un nouveau message appareil-à-cloud à l’IoT Hub toutes les secondes. Le message contient un objet sérialisé JSON avec l’ID d’appareil, la température, l’humidité et le niveau du message, qui est défini par défaut sur `normal`. Un niveau de `critical` ou `storage` est attribué de façon aléatoire, ce qui permet au message d’être acheminé vers le compte de stockage ou la file d’attente Service Bus (qui déclenche votre application logique pour envoyer un e-mail). Vous pouvez afficher les lectures par défaut (`normal`) dans un rapport BI. 
 
 À ce stade, si tout est configuré correctement, vous devez voir les résultats suivants :
 
@@ -219,7 +227,7 @@ L’application envoie un nouveau message appareil-à-cloud à l’IoT Hub toute
 
 2. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Groupes de ressources**, puis votre groupe de ressources. Ce didacticiel utilise **ContosoResources**. 
 
-    Sélectionnez le compte de stockage, sélectionnez **Conteneurs**, puis sélectionnez le conteneur. Ce didacticiel utilise **contosoresults**. Vous devez voir un dossier, et vous pouvez explorer les répertoires jusqu’à voir un ou plusieurs fichiers. Ouvrez l’un de ces fichiers ; ils contiennent les entrées acheminées vers le compte de stockage. 
+    Sélectionnez le compte de stockage, **Conteneurs**, puis le conteneur qui stocke vos résultats. Ce didacticiel utilise **contosoresults**. Vous devez voir un dossier, et vous pouvez explorer les répertoires jusqu’à voir un ou plusieurs fichiers. Ouvrez l’un de ces fichiers ; ils contiennent les entrées acheminées vers le compte de stockage. 
 
    ![Fichiers résultants dans un stockage](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -227,43 +235,31 @@ Ce résultat signifie que l’affirmation suivante est vraie.
 
    * Que le routage vers le compte de stockage fonctionne correctement.
 
-À présent, l’application étant en cours d’exécution, configurez la visualisation Power BI pour voir les messages provenant du routage par défaut.
+L’application étant en cours d’exécution, configurez la visualisation Power BI pour voir les messages provenant du point de terminaison par défaut.
 
 ## <a name="set-up-the-power-bi-visualizations"></a>Configurer les visualisations Power BI
 
 1. Connectez-vous à votre compte [Power BI](https://powerbi.microsoft.com/).
 
-2. Accédez **Espace de travail** et sélectionnez l’espace de travail que vous avez défini lors de la création de la sortie du travail Stream Analytics. Ce didacticiel utilise **My Workspace**. 
+2. Sélectionnez **Mon espace de travail**. Vous devriez voir au moins un jeu de données créé. Si vous ne voyez rien, exécutez l’**application d’appareil simulé** 5 à 10 minutes de plus pour diffuser plus de données. Quand l’espace de travail apparaît, il doit avoir un jeu de données appelé ContosoDataset. Cliquez avec le bouton droit sur les trois points verticaux à droite du nom du jeu de données. Dans la liste déroulante, sélectionnez **Créer un rapport**.
 
-3. Sélectionnez **Jeux de données**. Si vous n’avez pas de jeux de données, attendez quelques minutes et revérifiez.
+     ![Création d’un rapport dans Power BI](./media/tutorial-routing-view-message-routing-results/bi-personal-workspace.png)
 
-   Vous devez voir apparaître le jeu de données répertorié que vous avez indiqué lors de la création de la sortie du travail Stream Analytics. Ce didacticiel utilise **contosodataset**. (5 à 10 minutes peuvent être nécessaires pour que le jeu de données s’affiche la première fois.)
+3. Examinez la section **Visualisations** à droite, puis sélectionnez **Graphique en courbes** pour sélectionner un graphique en courbes dans la page de rapport BI. Faites glisser le graphique pour qu’il remplisse l’espace horizontalement. Maintenant, dans la section **Champs** à droite, ouvrez ContosoTable. Sélectionnez **EventEnqueuedUtcTime**. Il doit être placé sur l’axe X. Sélectionnez **temperature** et faites-le glisser dans le champ **Valeurs**. Les températures sont ajoutées au graphique. Votre graphique doit alors ressembler à ce qui suit :
 
-4. Sous **ACTIONS**, sélectionnez la première icône pour créer un rapport.
+     ![Graphique de températures dans Power BI](./media/tutorial-routing-view-message-routing-results/bi-temperature-chart.png)
 
-   ![Espace de travail Power BI avec Actions et l’icône de rapport mise en surbrillance](./media/tutorial-routing-view-message-routing-results/power-bi-actions.png)
+4. Cliquez dans la partie inférieure de la zone de graphique. Sélectionnez de nouveau **Graphique en courbes**. Un graphique est créé sous le premier.
 
-5. Créez un graphique en courbes pour afficher la température en temps réel et au fil du temps.
+5. Dans la table, sélectionnez **EventQueuedTime**. Il est placé dans le champ Axe. Faites glisser **humidity** dans le champ Valeurs. Vous pouvez maintenant voir les deux graphiques.
 
-   * Sur la page de création de rapports, ajoutez un graphique en courbes en sélectionnant l’icône de graphiques en courbes.
+     ![Graphique Power BI des deux champs](./media/tutorial-routing-view-message-routing-results/bi-chart-temp-humidity.png)
 
-     ![Visualisations et champs](./media/tutorial-routing-view-message-routing-results/power-bi-visualizations-and-fields.png)
+   Vous avez envoyé des messages du point de terminaison par défaut du hub IoT à Azure Stream Analytics. Vous avez ensuite ajouté un rapport Power BI composé de deux graphiques (température et humidité) pour présenter les données. 
 
-   * Sur le volet **Champs**, développez la table que vous avez indiquée lors de la création de la sortie du travail Stream Analytics. Ce didacticiel utilise **contosotable**.
+7. Sélectionnez **Fichier > Enregistrer** pour enregistrer le rapport. Entrez un nom de rapport à l’invite. Enregistrez votre rapport dans votre espace de travail.
 
-   * Faites glisser **EventEnqueuedUtcTime** vers **Axe** dans le volet **Visualisations**.
-
-   * Faites glisser **Température** vers **Valeurs**.
-
-   Un graphique en courbes est créé. L’axe des abscisses affiche la date et l’heure du fuseau horaire UTC. Quant à l’axe des ordonnées, il affiche la température fournie par le capteur.
-
-6. Créez un autre graphique en courbes pour afficher l’humidité en temps réel, au fil du temps. Pour configurer le deuxième graphique, suivez le même processus que pour le premier en plaçant **EventEnqueuedUtcTime** sur l’axe X (**Axe**) et **humidité** sur l’axe Y (**Valeurs**).
-
-   ![Rapport Power BI final avec les deux graphiques](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
-
-7. Sélectionnez **Enregistrer** pour enregistrer le rapport. Entrez un nom de rapport, si vous y êtes invité.
-
-Vous devez être en mesure de voir les données sur les deux graphiques. Ce résultat signifie que les affirmations suivantes sont vraies :
+Vous devriez voir les données sur les deux graphiques. Ce résultat signifie que les affirmations suivantes sont vraies :
 
    * Que le routage vers le point de terminaison par défaut fonctionne correctement.
    * Que le travail Azure Stream Analytics est correctement diffusé en continu.
@@ -305,18 +301,21 @@ Dans ce tutoriel en deux parties, vous avez appris à utiliser le routage des me
 
 **Partie I : Créer des ressources, configurer le routage des messages**
 > [!div class="checklist"]
-> * Créez les ressources : un hub IoT, un compte de stockage, une file d’attente Service Bus et un appareil simulé.
+> * Créer les ressources : un hub IoT, un compte de stockage, une file d’attente Service Bus et un appareil simulé.
 > * Configurez les points de terminaison et les routes des messages dans IoT Hub pour le compte de stockage et la file d’attente Service Bus.
 
 **Partie II : Envoyer les messages au hub, visualiser les résultats routés**
 > [!div class="checklist"]
 > * Créer une application logique qui est déclenchée et qui envoie un e-mail lors de l’ajout d’un message à la file d’attente Service Bus.
 > * Télécharger et exécuter une application qui simule l’envoi de messages par un appareil IoT au Hub pour les différentes options de routage.
+>
 > * Créer une visualisation Power BI pour les données envoyées au point de terminaison par défaut.
+>
 > * Afficher les résultats...
 > * ... dans la file d’attente Service Bus et les e-mails.
 > * ... dans le compte de stockage.
 > * ... dans la visualisation Power BI.
+
 
 Passez au didacticiel suivant pour découvrir comment gérer l’état d’un appareil IoT. 
 

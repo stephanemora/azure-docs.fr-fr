@@ -12,18 +12,36 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/27/2021
+ms.date: 10/05/2021
 ms.author: b-juche
-ms.openlocfilehash: cae4e16f42d9031040060a33bb8a5795f7695f56
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 2dff42fcf855a41e2e907563b1aecccad0a1661a
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092126"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545922"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Nouveautés d’Azure NetApp Files
 
 Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les dernières fonctionnalités et améliorations. 
+
+    
+## <a name="october-2021"></a>Octobre 2021
+
+* [Fonctionnalités réseau Standard](configure-network-features.md) (préversion)
+
+    Azure NetApp Files prend maintenant en charge les fonctionnalités réseau **Standard** pour les volumes que les clients ont demandés depuis l’introduction. Cela a été rendu possible par une intégration matérielle et logicielle innovante. Les fonctionnalités réseau Standard offrent une expérience de réseau virtuel améliorée grâce à de nombreuses fonctionnalités pour une expérience fluide et cohérente, et la posture de sécurité de toutes les charges de travail, y compris Azure NetApp Files.
+    
+    Vous pouvez maintenant choisir les fonctionnalités réseau *Standard* ou *De base* lors de la création d’un volume Azure NetApp Files. Si vous choisissez les fonctionnalités réseau Standard, vous pouvez ensuite utiliser les fonctionnalités prises en charge suivantes pour les volumes Azure NetApp Files et les sous-réseaux délégués :   
+    * Augmentation des limites d’adresse IP pour les réseaux virtuels avec les volumes Azure NetApp Files au même niveau que les machines virtuelles
+    * Sécurité réseau améliorée avec prise en charge des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md) sur le sous-réseau délégué Azure NetApp Files
+    * Contrôle réseau amélioré avec prise en charge des [routes définies par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md#custom-routes) vers et à partir de sous-réseaux délégués Azure NetApp Files
+    * Configuration de la connectivité sur la passerelle VPN en mode actif/actif
+    * Connectivité [ExpressRoute FastPath](../expressroute/about-fastpath.md) vers Azure NetApp Files
+
+    Cette préversion publique est actuellement disponible dans la région **USA Centre Nord** et sera ensuite déployée dans d’autres régions.  Consultez [Azure Update](https://azure.microsoft.com/updates/) pour vous tenir informé de la disponibilité de cette préversion dans d’autres régions et des nouvelles fonctionnalités.  
+ 
+    Pour plus d’informations, consultez [Configurer les fonctionnalités réseau d’un volume Azure NetApp Files](configure-network-features.md).
 
 ## <a name="september-2021"></a>Septembre 2021
 

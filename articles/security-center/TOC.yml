@@ -130,19 +130,25 @@
         - name: Appliquer des bases de référence de sécurité Azure
           displayName: 'VM, guest configuration, vulnerabilities, ASB, benchmark'
           href: apply-security-baseline.md
-        - name: Analyse des vulnérabilités
+        - name: Évaluations des vulnérabilités
           items:
-            - name: Analyser vos ordinateurs avec le scanneur Qualys intégré
-              displayName: 'qualys, vulnerability, arc, hybrid'
+            - name: Rechercher des vulnérabilités avec Gestion des menaces et des vulnérabilités
+              displayName: 'mde, tvm, vulnerability, va, arc, hybrid'
+              href: deploy-vulnerability-assessment-tvm.md
+            - name: Rechercher des vulnérabilités avec le scanneur Qualys intégré
+              displayName: 'qualys, va, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
-            - name: Analyser vos machines virtuelles avec une solution VA BYOL
+            - name: Rechercher des vulnérabilités avec une solution VA BYOL
               displayName: 'qualys, rapid7, vulnerability'
               href: deploy-vulnerability-assessment-byol-vm.md
+            - name: Activer automatiquement une solution d’évaluation des vulnérabilités
+              displayName: 'qualys, rapid7, vulnerability, auto provision'
+              href: auto-deploy-vulnerability-assessment.md
             - name: Passer en revue et corriger les vulnérabilités
-              displayName: 'qualys, rapid7, vulnerability'
+              displayName: 'qualys, va, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
             - name: Désactiver des résultats de vulnérabilité spécifiques
-              displayName: 'qualys, rapid7'
+              displayName: 'qualys, rapid7, va'
               href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Sécuriser les ports de gestion avec un accès juste-à-temps à la machine virtuelle
           items:
@@ -216,7 +222,7 @@
         - name: Désactiver des résultats de vulnérabilités d’images spécifiques
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md#disable-specific-findings-preview
-        - name: "Défendre les clusters Kubernetes avec Azure\_Arc"
+        - name: Défendre des clusters Kubernetes avec Azure Arc
           displayName: 'k8s, containers, aks, hybrid, arc, azure arc, multicloud'
           href: defender-for-kubernetes-azure-arc.md
         - name: Protéger vos charges de travail Kubernetes

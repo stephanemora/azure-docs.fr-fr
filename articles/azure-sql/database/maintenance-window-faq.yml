@@ -10,13 +10,13 @@ metadata:
   ms.author: wiassaf
   ms.reviewer: mathoma
   ms.custom: 
-  ms.date: 09/15/2021
-  ms.openlocfilehash: ba903b2ed34877a05b5993095b65d537416486ca
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.date: 09/30/2021
+  ms.openlocfilehash: 608c13253f93f18a8bb1ef59b7af1501077f2c95
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128677717"
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129358464"
 title: FAQ sur la fenêtre de maintenance
 summary: Cet article répond aux questions les plus fréquentes sur la fenêtre de maintenance d’[Azure SQL Database](sql-database-paas-overview.md) et de [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md).
 sections:
@@ -83,6 +83,8 @@ sections:
   - question: J’ai sélectionné la fenêtre de maintenance par défaut. Puis-je activer les notifications préalables pour cette maintenance ?
     answer: >
       Non, les notifications préalables ne peuvent pas être configurées pour l’option de fenêtre de maintenance par défaut. Lors du choix d’une fenêtre de maintenance, choisissez une option autre que **Valeur système par défaut** pour configurer et activer les notifications préalables.
+  - question: Je ne parviens pas à configurer les notifications préalables pour la maintenance planifiée. Vais-je continuer à voir les événements de maintenance planifiée dans le tableau de bord Service Health ?
+    answer: "Non, si les notifications préalables ne sont pas configurées, Service Health n’affiche pas les événements de maintenance planifiée. \n"
 additionalContent: >-
   ## <a name="see-also"></a>Voir aussi
 

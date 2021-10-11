@@ -8,21 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
-ms.date: 09/12/2019
+ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 22a2f0a73992bd829d150243974701d07321f26b
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.openlocfilehash: 3c39780f1f8e84ed3fe58973f46274bad727d10e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110613314"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351372"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application ASP.NET à l’aide d’Azure Active Directory B2C
 
-Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de cloud pour préserver la protection de votre application, de votre entreprise et de vos clients. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes des réseaux sociaux et de comptes d’entreprise à l’aide de protocoles standard ouverts. Dans ce démarrage rapide, vous utilisez un exemple d’application ASP.NET pour vous connecter à l’aide d’un fournisseur d’identité sociale et appeler une API web protégée par Azure AD B2C.
+Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de cloud pour préserver la protection de votre application, de votre entreprise et de vos clients. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes des réseaux sociaux et de comptes d’entreprise à l’aide de protocoles standard ouverts. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Dans ce démarrage rapide, vous utilisez un exemple d’application ASP.NET pour vous connecter à l’aide d’un fournisseur d’identité sociale et appeler une API web protégée par Azure AD B2C.
+
+
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -44,7 +46,7 @@ Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de c
 1. Dans l’exemple de dossier de projet de l’application, ouvrez la solution **B2C-WebAPI-DotNet.sln** dans Visual Studio.
 2. Pour ce guide de démarrage rapide, vous exécutez les projets **TaskWebApp** et **TaskService** simultanément. Cliquez sur la solution **B2C-WebAPI-DotNet** avec le bouton droit de la souris dans l’Explorateur de solutions, puis sélectionnez **Définir les projets de démarrage**.
 3. Sélectionnez **Plusieurs projets de démarrage** et remplacez l’**action** pour les deux projets par **Démarrer**.
-4. Cliquez sur **OK**.
+4. Sélectionnez **OK**.
 5. Appuyez sur la touche **F5** pour déboguer les deux applications. Chaque application s’ouvre dans son propre onglet de navigateur :
 
     - `https://localhost:44316/` : application web ASP.NET. Dans ce démarrage rapide, vous allez interagir directement avec cette application.
@@ -52,13 +54,13 @@ Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de c
 
 ## <a name="sign-in-using-your-account"></a>Connectez-vous à l’aide de votre compte
 
-1. Cliquez sur le lien **S’inscrire/Se connecter** dans l’application web ASP.NET pour démarrer le workflow.
+1. Sélectionnez **S’inscrire/Se connecter** dans l’application web ASP.NET pour démarrer le workflow.
 
     ![Exemple d’application web ASP.NET dans un navigateur avec le lien s’inscrire/se connecter en surbrillance](./media/quickstart-web-app-dotnet/web-app-sign-in.png)
 
     L’exemple prend en charge plusieurs options d’inscription, notamment l’utilisation d’un fournisseur d’identité sociale ou la création d’un compte local à l’aide d’une adresse e-mail. Pour ce guide de démarrage rapide, utilisez un compte de fournisseur d’identité sociale provenant de Facebook, Google ou Microsoft.
 
-2. Azure AD B2C présente une page de connexion d’une entreprise fictive appelée Fabrikam pour l’exemple d’application web. Pour vous inscrire au moyen d’un fournisseur d’identité sociale, cliquez sur le bouton en regard du fournisseur d’identité que vous souhaitez utiliser.
+2. Azure AD B2C présente une page de connexion d’une entreprise fictive appelée Fabrikam pour l’exemple d’application web. Pour vous inscrire au moyen d’un fournisseur d’identité sociale, sélectionnez le bouton en regard du fournisseur d’identité que vous souhaitez utiliser.
 
     ![Page de connexion ou d’inscription affichant des boutons de fournisseur d’identité](./media/quickstart-web-app-dotnet/sign-in-or-sign-up-web.png)
 
@@ -70,19 +72,19 @@ Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de c
 
 Azure Active Directory B2C fournit des fonctionnalités permettant aux utilisateurs de mettre à jour leurs profils. L’exemple d’application web utilise un flux utilisateur de modification du profil Azure AD B2C pour le workflow.
 
-1. Dans la barre de menus de l’application, cliquez sur le nom de votre profil et sélectionnez **Modifier le profil** pour modifier le profil que vous avez créé.
+1. Dans la barre de menus de l’application, sélectionnez le nom de votre profil, puis **Modifier le profil** pour modifier le profil que vous avez créé.
 
     ![Exemple d’application web dans un navigateur avec le lien Modifier le profil en surbrillance](./media/quickstart-web-app-dotnet/edit-profile-web.png)
 
-2. Modifiez votre **nom d'affichage** ou **ville**, puis cliquez sur **Continuer** pour mettre à jour votre profil.
+2. Changez votre **nom d’affichage** ou **ville**, puis sélectionnez **Continuer** pour mettre à jour votre profil.
 
-    Le nouveau nom d’affichage s’affiche dans la partie supérieure droite de la page d’accueil de l’application web.
+    Le changement s’affiche dans la partie supérieure droite de la page d’accueil de l’application web.
 
 ## <a name="access-a-protected-api-resource"></a>Accéder à une ressource d’API protégée
 
-1. Cliquez sur **Liste de tâches** pour entrer et modifier des éléments de votre liste des tâches.
+1. Sélectionnez **Liste de tâches** pour entrer et modifier des éléments de votre liste des tâches.
 
-2. Entrez du texte dans la zone de texte **Nouvel élément**. Cliquez sur **Ajouter** pour appeler l’API web protégée par Azure AD B2C qui ajoute un élément de liste des tâches.
+2. Dans la zone de texte **Nouvel élément**, entrez du texte. Sélectionnez **Ajouter** pour appeler l’API web protégée par Azure AD B2C qui ajoute un élément de liste des tâches.
 
     ![Exemple d’application web dans un navigateur affichant l’option Ajouter un élément de la liste des tâches](./media/quickstart-web-app-dotnet/add-todo-item-web.png)
 
@@ -90,20 +92,7 @@ Azure Active Directory B2C fournit des fonctionnalités permettant aux utilisate
 
 Vous avez utilisé votre compte d’utilisateur Azure AD B2C pour effectuer un appel autorisé à une API web protégée par Azure AD B2C.
 
-## <a name="clean-up-resources"></a>Nettoyer les ressources
-
-Vous pouvez utiliser votre locataire Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels ou démarrages rapides Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé un exemple d’application ASP.NET pour :
-
-* Vous connecter avec une page de connexion personnalisée
-* Vous connecter avec un fournisseur d’identité sociale
-* Créer un compte Azure AD B2C
-* Appeler une API web protégée par Azure AD B2C
-
-Passez maintenant à la création de votre propre locataire Azure AD B2C.
-
-> [!div class="nextstepaction"]
-> [Créer un locataire Azure Active Directory B2C dans le portail Azure](tutorial-create-tenant.md)
+[Créer un locataire Azure Active Directory B2C dans le portail Azure](tutorial-create-tenant.md)

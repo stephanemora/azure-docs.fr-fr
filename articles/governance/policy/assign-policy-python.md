@@ -1,15 +1,15 @@
 ---
 title: "Démarrage rapide : Nouvelle attribution de stratégie à l'aide de Python"
 description: Dans ce guide de démarrage rapide, vous allez utiliser Python pour créer une attribution Azure Policy afin d'identifier les ressources non conformes.
-ms.date: 08/17/2021
+ms.date: 10/01/2021
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 59f61e05afd9e3abb0aa6bb6a76f632187940412
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: fd9328fdc3f925756652853a81e8b9c77a0266e7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323489"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350792"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Démarrage rapide : Créer une attribution de stratégie pour identifier les ressources non conformes à l'aide de Python
 
@@ -51,6 +51,9 @@ Pour permettre à Python de fonctionner avec Azure Policy, la bibliothèque doit
 
    # Add the CLI Core library for Python for authentication (development only!)
    pip install azure-cli-core
+
+   # Add the Azure identity library for Python
+   pip install azure.identity
    ```
 
    > [!NOTE]
@@ -60,7 +63,7 @@ Pour permettre à Python de fonctionner avec Azure Policy, la bibliothèque doit
 
    ```bash
    # Check each installed library
-   pip show azure-mgmt-policyinsights azure-mgmt-resource azure-cli-core
+   pip show azure-mgmt-policyinsights azure-mgmt-resource azure-cli-core azure.identity
    ```
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
@@ -71,16 +74,21 @@ Exécutez le code suivant pour créer une nouvelle attribution de stratégie :
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.credentials import get_azure_cli_credentials
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource.policy import PolicyClient
-from azure.mgmt.resource.policy.models import PolicyAssignment
+from azure.mgmt.resource.policy.models import PolicyAssignment, Identity, UserAssignedIdentitiesValue, PolicyAssignmentUpdate
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
+assignmentLocation = "westus2"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyClient = get_client_from_cli_profile(PolicyClient)
+credential = AzureCliCredential()
+policyClient = PolicyClient(credential, subId, base_url=none)
 
 # Create details for the assignment
-policyAssignmentDetails = PolicyAssignment(display_name="Audit VMs without managed disks Assignment", policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d", scope="{scope}", description="Shows all virtual machines not using managed disks")
+policyAssignmentIdentity = Identity(type="SystemAssigned")
+policyAssignmentDetails = PolicyAssignment(display_name="Audit VMs without managed disks Assignment", policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d", description="Shows all virtual machines not using managed disks", identity=policyAssignmentIdentity, location=assignmentLocation)
 
 # Create new policy assignment
 policyAssignment = policyClient.policy_assignments.create("{scope}", "audit-vm-manageddisks", policyAssignmentDetails)
@@ -92,6 +100,7 @@ print(policyAssignment)
 Les commandes précédentes utilisent les informations suivantes :
 
 Détails de l'attribution :
+- **subId** : votre abonnement. Nécessaire pour l’authentification. Remplacez `{subId}` par votre abonnement.
 - **display_name** : nom d'affichage de l'attribution de stratégie. Dans ce cas, nous allons utiliser l’affectation _Audit VMs without managed disks_ (Auditer les machines virtuelles sans disques managés).
 - **policy_definition_id** : chemin de la définition de la stratégie, basé sur celui que vous utilisez pour créer l’attribution. Dans ce cas, il s’agit de l’ID de la définition de stratégie _Auditer les machines virtuelles qui n’utilisent pas de disques managés_. Dans cet exemple, la définition de stratégie est intégrée et le chemin n'inclut pas d'informations sur le groupe d'administration ou l'abonnement.
 - **scope** : une étendue détermine les ressources ou le groupe de ressources sur lesquels l'attribution de stratégie est appliquée. Cette étendue peut aller d'un groupe d'administration à une ressource individuelle. Veillez à remplacer `{scope}` par l’un des modèles suivants :
@@ -115,24 +124,28 @@ Utilisez les informations suivantes pour identifier les ressources qui ne sont p
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.policyinsights._policy_insights_client import PolicyInsightsClient
 from azure.mgmt.policyinsights.models import QueryOptions
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyInsightsClient = get_client_from_cli_profile(PolicyInsightsClient)
+credential = AzureCliCredential()
+policyClient = PolicyInsightsClient(credential, subId, base_url=none)
 
 # Set the query options
 queryOptions = QueryOptions(filter="IsCompliant eq false and PolicyAssignmentId eq 'audit-vm-manageddisks'",apply="groupby((ResourceId))")
 
 # Fetch 'latest' results for the subscription
-results = policyInsightsClient.policy_states.list_query_results_for_subscription(policy_states_resource="latest", subscription_id="{subscriptionId}", query_options=queryOptions)
+results = policyInsightsClient.policy_states.list_query_results_for_subscription(policy_states_resource="latest", subscription_id=subId, query_options=queryOptions)
 
 # Show results
 print(results)
 ```
 
-Remplacez `{subscriptionId}` par l'abonnement dont vous souhaitez voir les résultats de conformité pour cette attribution de stratégie. Pour obtenir la liste des autres étendues et méthodes permettant de synthétiser les données, consultez [Méthodes relatives à l'état de la stratégie](/python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights.operations.policystatesoperations#methods).
+Remplacez `{subId}` par l'abonnement dont vous souhaitez voir les résultats de conformité pour cette attribution de stratégie. Pour obtenir la liste des autres étendues et méthodes permettant de synthétiser les données, consultez [Méthodes relatives à l'état de la stratégie](/python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights.operations.policystatesoperations#methods).
 
 Vos résultats doivent ressembler à l’exemple suivant :
 
@@ -155,11 +168,15 @@ Utilisez la commande suivante pour supprimer l’affectation créée :
 
 ```python
 # Import specific methods and models from other libraries
-from azure.common.client_factory import get_client_from_cli_profile
 from azure.mgmt.resource.policy import PolicyClient
+from azure.identity import AzureCliCredential
+
+# Set subscription
+subId = "{subId}"
 
 # Get your credentials from Azure CLI (development only!) and get your subscription list
-policyClient = get_client_from_cli_profile(PolicyClient)
+credential = AzureCliCredential()
+policyClient = PolicyClient(credential, subId, base_url=none)
 
 # Delete the policy assignment
 policyAssignment = policyClient.policy_assignments.delete("{scope}", "audit-vm-manageddisks")
@@ -168,7 +185,7 @@ policyAssignment = policyClient.policy_assignments.delete("{scope}", "audit-vm-m
 print(policyAssignment)
 ```
 
-Remplacez `{scope}` par l'étendue que vous avez utilisée pour créer l'attribution de stratégie.
+Remplacez `{subId}` par l’abonnement et `{scope}` par l’étendue que vous avez utilisée pour créer l’attribution de stratégie.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

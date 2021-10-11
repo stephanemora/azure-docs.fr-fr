@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 26063c9d0c02079b2c40eb85330be499b4bb624e
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 92b1eeb5317f5a7535406d1b3781a4b0b66cad45
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114461979"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272450"
 ---
 # <a name="quickstart---get-started-with-a-sample-scenario-in-azure-digital-twins-explorer"></a>Démarrage rapide - Bien démarrer avec un exemple de scénario dans Azure Digital Twins Explorer
 
 Avec Azure Digital Twins, vous pouvez créer et interagir avec les modèles de vos environnements réels. Tout d’abord, vous modélisez des éléments sous la forme de **jumeaux numériques**. Ensuite, vous les connectez à un **graphe** de connaissances qui peut répondre aux événements en direct et être interrogé.
 
-Dans ce guide de démarrage rapide, vous allez explorer un graphe Azure Digital Twins prédéfini à l’aide d’[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). Il s’agit d’un outil qui vous permet de visualiser vos données Azure Digital Twins dans le portail Azure, et d’interagir avec elles.
+Dans ce guide de démarrage rapide, vous allez explorer un graphe Azure Digital Twins prédéfini à l’aide d’[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md). Il s’agit d’un outil qui vous permet de visualiser vos données Azure Digital Twins dans le portail Azure, et d’interagir avec elles. 
 
 Vous allez effectuez les étapes suivantes :
 
@@ -31,6 +31,9 @@ Vous allez effectuez les étapes suivantes :
 L’exemple de graphe avec lequel vous allez travailler représente un bâtiment comprenant deux étages et deux pièces. Floor0 contient Room0, et Floor1 contient Room1. Le graphe ressemblera à cette image :
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Capture d’écran d’un graphe composé de quatre nœuds circulaires reliés par des flèches dans Azure Digital Twins Explorer.":::
+
+>[!NOTE]
+>Ce guide de démarrage rapide permet d’explorer un graphe prédéfini pour comprendre comment Azure Digital Twins représente les données. Par souci de simplicité, le guide de démarrage rapide ne couvre pas la configuration des connexions entre les appareils IoT Hub, ni leurs représentations à l’aide de graphes. Pour configurer un flux connecté de bout en bout pour votre graphe, passez aux tutoriels suivants : [Connecter une solution de bout en bout](tutorial-end-to-end.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

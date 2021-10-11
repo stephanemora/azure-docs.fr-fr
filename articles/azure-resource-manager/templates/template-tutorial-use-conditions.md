@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 38567f89e550f5b97599f823e8963f603785c665
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 4f6255c0a59a57677c4ff4119611630a4169133f
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113650192"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400740"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutoriel : Utiliser une condition dans des modèles ARM
 
@@ -45,11 +45,13 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 * Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple pour générer un mot de passe :
+* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Vous pouvez utiliser [Azure Cloud Shell](../../cloud-shell/overview.md) pour exécuter la commande suivante dans PowerShell ou Bash :
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    Pour plus d’informations, exécutez `man openssl rand` pour ouvrir la page manuelle.
 
     Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle ARM](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
@@ -137,7 +139,7 @@ Voici la procédure pour apporter les modifications :
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-1. Se connecter à [Azure Cloud Shell](https://shell.azure.com)
+1. Connectez-vous à [Cloud Shell](https://shell.azure.com).
 
 1. Choisissez votre environnement préféré en sélectionnant **PowerShell** ou **Bash** (pour CLI) en haut à gauche. Il est nécessaire de redémarrer l’interpréteur de commandes lors d’un tel changement.
 

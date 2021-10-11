@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
-ms.openlocfilehash: 35803ad7d63e107f71e71c6ce8292c5608740eec
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e0380c4d1b4fe9c82d6e9b82922b1a509f7dcdf4
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128555251"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545600"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Aide autonome pour le pool SQL serverless
 
@@ -495,7 +495,7 @@ La valeur spécifiée dans la clause `WITH` ne correspond pas aux types Cosmos D
 ### <a name="cosmosdb-performance-issues"></a>Problème de performances de CosmosDB
 
 Si vous rencontrez des problèmes de performances inattendus, assurez-vous que vous avez appliqué les meilleures pratiques, notamment :
-- Assurez-vous que vous avez placé l’application cliente, le pool serverless et le stockage analytique Cosmos DB dans [la même région](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
+- Assurez-vous que vous avez placé l’application cliente, le pool serverless et le stockage analytique Cosmos DB dans [la même région](best-practices-serverless-sql-pool.md#colocate-your-azure-cosmos-db-analytical-storage-and-serverless-sql-pool).
 - Assurez-vous que vous utilisez la clause `WITH` avec des [types de données optimaux](best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 - Assurez-vous que vous utilisez le [classement Latin1_General_100_BIN2_UTF8](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) lorsque vous filtrez vos données à l’aide de prédicats de chaîne.
 - En présence de requêtes répétitives susceptibles d’être mises en cache, essayez d’utiliser [CETAS pour stocker les résultats des requêtes dans Azure Data Lake Storage](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins).
@@ -644,10 +644,16 @@ Les pools SQL serverless affectent les ressources aux requêtes en fonction de l
 ### <a name="query-duration-is-very-long"></a>La durée des requêtes est très longue 
 
 Si vous utilisez Synapse Studio, essayez d’utiliser un client de bureau comme SQL Server Management Studio ou Azure Data Studio. Synapse Studio est un client web qui se connecte au pool serverless avec le protocole HTTP, ce qui est généralement plus lent que les connexions SQL natives utilisées dans SQL Server Management Studio ou Azure Data Studio.
+
 Si vous avez des requêtes d’une durée supérieure à 30 minutes, cela indique que le retour de résultats au client est lent. Le pool SQL serverless a une limite d’exécution de 30 minutes et tout temps additionnel est consacré au streaming des résultats.
+
+Si vous constatez un ralentissement de l’exécution des requêtes, vérifiez les points suivants :
 -   Assurez-vous que les applications clientes sont colocalisées avec le point de terminaison du pool SQL serverless. L’exécution d’une requête dans la région peut entraîner une latence supplémentaire et ralentir le streaming du jeu de résultats.
 -   Veillez à ne pas avoir de problèmes de réseau susceptibles de provoquer un ralentissement du streaming du jeu de résultats. 
--   Veillez à ce que l’application cliente dispose de suffisamment de ressources (par exemple, en n’utilisant pas 100 % du processeur). Consultez les bonnes pratiques pour [colocaliser les ressources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
+-   Veillez à ce que l’application cliente dispose de suffisamment de ressources (par exemple, en n’utilisant pas 100 % du processeur). 
+-   Vérifiez que le compte de stockage ou le stockage analytique Cosmos DB se trouve dans la même région que votre point de terminaison SQL serverless.
+
+Consultez les bonnes pratiques pour [colocaliser les ressources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
 
 ### <a name="high-variations-in-query-durations"></a>Variations élevées des durées des requêtes
 

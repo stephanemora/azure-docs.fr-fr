@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 03/02/2021
-  ms.openlocfilehash: 2cdb36e2cc141c440ab933ea77e4ef2e480a691e
-  ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+  ms.openlocfilehash: d0fbe222a6128604e5ed98d467f60cecbeeeebcf
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/23/2021
-  ms.locfileid: "112518767"
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129706832"
 landingContent:
 - title: À propos de la recherche cognitive
   linkLists:
@@ -28,7 +28,7 @@ landingContent:
       url: semantic-search-overview.md
     - text: Qu’est-ce que l’enrichissement par IA ?
       url: cognitive-search-concept-intro.md
-    - text: Qu’est-ce qu’un indexeur ?
+    - text: Que sont les indexeurs ?
       url: search-indexer-overview.md
     - text: Que sont les services Azure Applied AI Services ?
       url: ../applied-ai-services/what-are-applied-ai-services.md
@@ -36,6 +36,38 @@ landingContent:
     links:
     - text: Utiliser l’IA dans les solutions de recherche
       url: https://youtu.be/M4Rf1s0WcWQ?t=19
+- title: Développement d’applications
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Ajouter une recherche à des applications web
+      url: tutorial-csharp-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Développer dans .NET
+      url: search-howto-dotnet-sdk.md
+    - text: Appeler des API REST dans Postman
+      url: search-get-started-rest.md
+  - linkListType: reference
+    links:
+    - text: Kit SDK Azure pour .NET
+      url: /dotnet/api/overview/azure/search.documents-readme
+    - text: Kit SDK Azure pour Python
+      url: /python/api/overview/azure/search-documents-readme
+- title: Bien démarrer
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer un service
+      url: search-create-service-portal.md
+    - text: Création d'un index
+      url: search-get-started-portal.md
+    - text: Créer une application de démonstration
+      url: search-create-app-portal.md
+    - text: Traduire du texte et reconnaître des entités
+      url: cognitive-search-quickstart-blob.md
+    - text: Appliquer la reconnaissance optique des caractères et l’analyse d’images
+      url: cognitive-search-quickstart-ocr.md
 - title: Indexer des données
   linkLists:
   - linkListType: overview
@@ -54,40 +86,6 @@ landingContent:
       url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
     - text: Indexer à partir de Cosmos DB
       url: search-howto-index-cosmosdb.md
-- title: Bien démarrer
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Créer un service
-      url: search-create-service-portal.md
-    - text: Création d'un index
-      url: search-get-started-portal.md
-    - text: Créer une application de démonstration
-      url: search-create-app-portal.md
-    - text: Extraire du texte à partir d’images et de fichiers d’application
-      url: cognitive-search-quickstart-blob.md
-- title: Développement d’applications
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Ajouter une recherche à des applications web
-      url: tutorial-csharp-overview.md
-  - linkListType: how-to-guide
-    links:
-    - text: Développer dans .NET
-      url: search-howto-dotnet-sdk.md
-    - text: Appeler des API REST dans VS Code
-      url: search-get-started-vs-code.md
-    - text: Appeler des API REST dans Postman
-      url: search-get-started-rest.md
-  - linkListType: reference
-    links:
-    - text: Kit SDK Azure pour .NET
-      url: /dotnet/api/overview/azure/search.documents-readme
-    - text: Kit SDK Azure pour Python
-      url: /python/api/overview/azure/search-documents-readme
-    - text: Référence sur les API REST
-      url: /rest/api/searchservice/index
 - title: Enrichir avec l’intelligence artificielle
   linkLists:
   - linkListType: concept
@@ -106,10 +104,6 @@ landingContent:
       url: cognitive-search-defining-skillset.md
     - text: Créer une base de connaissances
       url: knowledge-store-create-portal.md
-  - linkListType: reference
-    links:
-    - text: Compétences prédéfinies
-      url: cognitive-search-predefined-skills.md
 - title: Interroger des données
   linkLists:
   - linkListType: concept
@@ -132,13 +126,3 @@ landingContent:
       url: query-odata-filter-orderby-syntax.md
     - text: Rechercher dans des documents (REST)
       url: /rest/api/searchservice/search-documents
-- title: Aide et commentaires
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Questions fréquentes (FAQ)
-      url: search-faq-frequently-asked-questions.yml
-    - text: Poser des questions sur Stack Overflow
-      url: https://stackoverflow.com/questions/tagged/azure-search
-    - text: Demander une fonctionnalité
-      url: https://feedback.azure.com/forums/263029-azure-search

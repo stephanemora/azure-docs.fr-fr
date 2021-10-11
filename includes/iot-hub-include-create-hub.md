@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier include
 author: robinsh
 ms.service: iot-hub
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: bfa5149cb9aea3ae8deea572abd86f5fb776e252
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.openlocfilehash: 9de7b8c91b1dfdbf10b4e8f5e61e9c8cd9f68abf
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114671199"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129300411"
 ---
 Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](https://portal.azure.com).
 
@@ -70,4 +70,4 @@ Cette section décrit comment créer un hub IoT à l’aide du [portail Azure](h
 
     :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-review-and-create.png" alt-text="Vérifiez les informations pour la création du hub.":::
 
-1. Sélectionnez **Créer** pour commencer le déploiement de votre nouveau hub. Votre déploiement sera en progression pendant quelques minutes, le temps que le hub soit créé. Une fois le déploiement terminé, cliquez sur **Accéder à la ressource** pour ouvrir le nouveau hub.
+1. Sélectionnez **Créer** pour commencer le déploiement de votre nouveau hub. Votre déploiement sera en progression pendant quelques minutes, le temps que le hub soit créé. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource** pour ouvrir le nouveau hub.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Starmind | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Starmind'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Starmind.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 09/20/2021
 ms.author: jeedes
-ms.openlocfilehash: ecccc0bf05dfc4e27835a676748ca144c6bcc6c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 535abbd360ffb3bbc2d07c8cc23491874679b813
+ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92521983"
+ms.lasthandoff: 09/24/2021
+ms.locfileid: "128669319"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-starmind"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Starmind
+# <a name="tutorial-azure-ad-sso-integration-with-starmind"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Starmind
 
 Dans ce tutoriel, vous allez apprendre à intégrer Starmind à Azure Active Directory (Azure AD). Quand vous intégrez Starmind à Azure AD, vous pouvez :
 
@@ -37,10 +37,10 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Starmind prend en charge l’authentification unique lancée par le **fournisseur de services**
-* Starmind prend en charge l’attribution d’utilisateurs **juste-à-temps**
+* Starmind prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Starmind prend en charge l’attribution d’utilisateurs **juste-à-temps**.
 
-## <a name="adding-starmind-from-the-gallery"></a>Ajout de Starmind à partir de la galerie
+## <a name="add-starmind-from-the-gallery"></a>Ajouter Starmind à partir de la galerie
 
 Pour configurer l’intégration de Starmind à Azure AD, vous devez ajouter Starmind, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
@@ -50,7 +50,6 @@ Pour configurer l’intégration de Starmind à Azure AD, vous devez ajouter St
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Starmind** dans la zone de recherche.
 1. Sélectionnez **Starmind** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-starmind"></a>Configurer et tester l’authentification unique Azure AD pour Starmind
 
@@ -71,23 +70,22 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Starmind**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.starmind.com`.
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint`
 
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint`
+    c. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.starmind.com`.
 
     d. Dans la zone de texte **URL de déconnexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.starmind.com/auth/realms/<ID>/broker/saml/endpoint`
 
-
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec les valeurs réelles de l’URL d’authentification, de l’identificateur, de l’URL de réponse et de l’URL de déconnexion. Pour obtenir ces valeurs, contactez l’[équipe du support technique Starmind](mailto:support@starmind.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec les valeurs réelles de l’identificateur, de l’URL de réponse, de l’URL d’authentification et de l’URL de déconnexion. Pour obtenir ces valeurs, contactez l’[équipe du support technique Starmind](mailto:support@starmind.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -133,11 +131,11 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Starmind
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-1. Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Starmind où vous pouvez lancer le processus de connexion. 
+* Cliquez sur **Tester cette application** dans le portail Azure. Cette opération redirige vers l’URL de connexion Starmind où vous pouvez lancer le processus de connexion. 
 
-2. Accédez directement à l’URL de connexion Starmind pour lancer le processus de connexion.
+* Accédez directement à l’URL de connexion Starmind pour lancer le processus de connexion.
 
-3. Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Starmind dans le volet d’accès vous redirige vers l’URL de connexion Starmind. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Le fait de cliquer sur la vignette Starmind dans Mes applications vous redirige vers l’URL d’authentification Starmind. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

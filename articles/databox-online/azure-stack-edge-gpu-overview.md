@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/12/2021
+ms.date: 10/05/2021
 ms.author: alkohli
-ms.openlocfilehash: a61178917214e53f6a2d01183a3d35a1ba93eff3
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 551933814b034c3ac6370e4fe25ffe93fc616a4a
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429661"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544979"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-gpu"></a>Qu’est-ce qu’Azure Stack Edge Pro avec GPU ?
 
@@ -42,19 +42,20 @@ Azure Stack Edge Pro avec GPU intègre les fonctionnalités suivantes :
 
 |Fonctionnalité |Description  |
 |---------|---------|
-|Inférence accélérée avec l’intelligence artificielle| Activé par le GPU intégré (un ou deux selon le modèle).|
-|Edge Computing      |Prend en charge les charges de travail de machine virtuelle et conteneurisées pour permettre l’analyse, le traitement et le filtrage des données. |
+|Inférence accélérée avec l’intelligence artificielle| Activé par le GPU intégré (un ou deux selon le modèle). <br> Pour plus d’informations, consultez [Partage de GPU sur votre appareil Azure Stack Edge](azure-stack-edge-gpu-sharing.md).|
+|Edge Computing      |Prend en charge les charges de travail de machine virtuelle et conteneurisées pour permettre l’analyse, le traitement et le filtrage des données. <ul><li>Pour plus d’informations sur les charges de travail de machine virtuelle, consultez [Présentation des machines virtuelles sur Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-overview.md).</li> <li>Pour les charges de travail conteneurisées, consultez [Présentation de Kubernetes sur Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md)</li></ul> |
 |Accès aux données     | Accès direct aux données à partir d’objets blob Stockage Azure et Azure Files à l’aide des API cloud pour le traitement d’autres données dans le cloud. Un cache local sur l’appareil est utilisé pour accéder rapidement aux fichiers les plus récemment utilisés.|
-|Géré par le cloud     |L’appareil et le service sont gérés via le portail Azure.  |
+|Géré par le cloud     |L’appareil et le service sont gérés via le portail Azure.|
 |Chargement hors connexion     | Un mode déconnecté prend en charge les scénarios de chargement hors connexion.|
 |Protocoles de transfert de fichiers pris en charge      | Prise en charge des protocoles SMB, NFS et REST standard pour l’ingestion des données. <br> Pour plus d’informations sur les versions prises en charge, consultez [Conditions requises pour Azure Stack Edge Pro avec GPU](azure-stack-edge-system-requirements.md).|
-|Actualisation des données     | Possibilité d’actualiser les fichiers locaux avec la dernière version issue du cloud.|
+|Actualisation des données     | Possibilité d’actualiser les fichiers locaux avec la dernière version issue du cloud. <br> Pour plus d’informations, consultez [Actualiser un partage sur votre appareil Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md#refresh-shares).|
 |Chiffrement    | Prise en charge de BitLocker pour chiffrer les données localement et transférer de façon sécurisée des données vers le cloud via *https*.|
-|Limitation de bande passante| Limiter l’utilisation de la bande passante pendant les heures de pointe.|
-|Classement facile| Classement en bloc et suivi de l’appareil via Azure Edge Hardware Center (préversion).|
+|Limitation de bande passante| Limiter l’utilisation de la bande passante pendant les heures de pointe. <br> Pour plus d’informations, consultez [Gérer les planifications de bande passante sur votre ressource Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
+|Classement facile| Classement en bloc et suivi de l’appareil via Azure Edge Hardware Center (préversion). <br> Pour plus d’informations, consultez [Acheter un appareil sur Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).|
 |Fonctions réseau spécialisées|Utilisez l’expérience Place de marché à partir d’Azure Network Function Manager pour déployer rapidement des fonctions réseau telles que le noyau de paquets mobiles, la périphérie SD-WAN et les services VPN sur un appareil Azure Stack Edge fonctionnant dans votre environnement local. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Network Function Manager ? (préversion)](../network-function-manager/overview.md).|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
+
 
 ## <a name="components"></a>Components
 

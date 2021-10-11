@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 06/16/2021
 ms.author: cshoe
-ms.openlocfilehash: b543831ceead6d386de0617b02db93a99d9507a6
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 167d6a2fbe6ec782a83c8dc3cb7f3ea57832a594
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609126"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275902"
 ---
 # <a name="quickstart-building-your-first-static-site-with-azure-static-web-apps"></a>Démarrage rapide : Création de votre premier site statique avec Azure Static Web Apps
 
@@ -62,17 +62,20 @@ Ensuite, ouvrez Visual Studio Code et accédez à **Fichier > Ouvrir le dossier
 
     :::image type="content" source="media/getting-started/extension-create-app.png" alt-text="Création d’application web statique":::
 
+1. Sélectionnez une région proche de chez vous.
+
+    > [!NOTE]
+    > Azure Static Web Apps distribue globalement vos ressources statiques. La région que vous sélectionnez détermine l’emplacement de votre application de fonction API et de vos environnements intermédiaires facultatifs.
+
 1. Sélectionnez les présélections correspondant à votre type d'application.
 
     # <a name="no-framework"></a>[Pas de framework](#tab/vanilla-javascript)
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Présélections d'application : Pas de framework":::
 
-    Entrez **./src** comme emplacement pour les fichiers de l’application, puis appuyez sur <kbd>Entrée</kbd>.
+    Entrez **/src** comme emplacement des fichiers d’application, puis appuyez sur <kbd>Entrée</kbd>.
 
-    :::image type="content" source="media/getting-started/extension-build-location.png" alt-text="Emplacement de sortie de la build d'application":::
-
-    Entrez **./src** comme emplacement de sortie de la build et appuyez sur <kbd>Entrée</kbd>.
+    Cette application ne produit pas une sortie de build. Vérifiez que l’emplacement de sortie de la build est vide et appuyez sur <kbd>Entrée</kbd>.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
@@ -80,7 +83,7 @@ Ensuite, ouvrez Visual Studio Code et accédez à **Fichier > Ouvrir le dossier
 
     :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Présélections d'application : Angular":::
 
-    Entrez **./** comme emplacement des fichiers d'application.
+    Entrez **/** comme emplacement des fichiers d’application.
 
     :::image type="content" source="media/getting-started/extension-app-location.png" alt-text="Emplacement des fichiers d'application : Angular":::
 
@@ -92,9 +95,17 @@ Ensuite, ouvrez Visual Studio Code et accédez à **Fichier > Ouvrir le dossier
 
     :::image type="content" source="media/getting-started/extension-presets-react.png" alt-text="Présélections d'application : React":::
 
+    Entrez **/** comme emplacement des fichiers d’application.
+
+    Entrez **build** comme emplacement de sortie de build.
+
     # <a name="vue"></a>[Vue](#tab/vue)
 
     :::image type="content" source="media/getting-started/extension-presets-vue.png" alt-text="Présélections d'application : Vue":::
+
+    Entrez **/** comme emplacement des fichiers d’application.
+
+    Entrez **dist** comme emplacement de sortie de build.
 
     ---
 

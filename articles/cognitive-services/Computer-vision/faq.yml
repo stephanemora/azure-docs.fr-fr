@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/17/2019
   ms.author: kefre
   ms.custom: seodec18
-  ms.openlocfilehash: b344ae378bc299a737e212205b2d85f6106424a6
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 5b13040c02d72a2cfd423f014f4f89ffba11d627
+  ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124824829"
+  ms.lasthandoff: 10/01/2021
+  ms.locfileid: "129350706"
 title: Questions fréquentes (FAQ) sur l’API Vision par ordinateur
 summary: >
   > [!TIP]
@@ -29,7 +29,7 @@ sections:
   - question: >
       Comment augmenter le nombre de transactions par seconde autorisées par le service ?
     answer: >
-      Le niveau gratuit (S0) autorise uniquement 20 transactions par minute. Effectuez une mise à niveau vers le niveau S1 pour obtenir jusqu’à 10 transactions par seconde. Si vous voyez le code d’erreur 429 et le message d’erreur « Trop de demandes », [soumettez un ticket de support Azure](https://azure.microsoft.com/support/create-ticket/) afin que le nombre de transactions par seconde soit porté à 50 ou plus, avec une brève justification métier. [Tarifs de Vision par ordinateur](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
+      Le niveau gratuit (S0) autorise uniquement 20 transactions par minute. Effectuez une mise à niveau vers le niveau S1 pour obtenir jusqu’à 30 transactions par seconde. Si vous voyez le code d’erreur 429 et le message d’erreur « Trop de demandes », [soumettez un ticket de support Azure](https://azure.microsoft.com/support/create-ticket/) afin que le nombre de transactions par seconde soit porté à 50 ou plus, avec une brève justification métier. [Tarifs de Vision par ordinateur](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/#pricing).
   - question: "Le service génère une erreur, car mon fichier image est trop grand. Comment résoudre ce problème ? \n"
     answer: >
       La taille limite de fichier pour la plupart des fonctionnalités de Vision par ordinateur est 4 Mo, mais les SDK de la bibliothèque de client peuvent gérer des fichiers jusqu’à 6 Mo. Pour la reconnaissance optique de caractères (OCR) qui gère les documents multipages, la taille de fichier maximale est de 50 Mo. Pour plus d’informations, consultez les [limites d’entrée pour l’analyse d’image](overview-image-analysis.md#image-requirements) et les [limites d’entrée pour la reconnaissance optique de caractères](overview-ocr.md#input-requirements).

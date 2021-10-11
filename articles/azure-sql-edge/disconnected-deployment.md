@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 548593a3b3c4548fbf1f037cd15c302a68df9845
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93392076"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235076"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Déployer Azure SQL Edge avec Docker
 
@@ -43,7 +43,7 @@ Avant de commencer les étapes suivantes, assurez-vous que vous avez sélectionn
         ```
 
 > [!NOTE]
-> Pour les commandes bash de cet article, `sudo` est utilisé. Sur macOS et Windows, sudo n’est peut-être pas nécessaire. Sur Linux, si vous ne souhaitez pas utiliser sudo pour exécuter Docker, vous pouvez configurer un groupe Docker et ajouter des utilisateurs à ce groupe. Pour plus d’informations, consultez [Étapes consécutives à l’installation pour Linux](https://docs.docker.com/engine/install/linux-postinstall/).
+> Pour les commandes bash de cet article, `sudo` est utilisé. Sur macOS et Windows, `sudo` n’est pas toujours nécessaire. Sur Linux, si vous ne souhaitez pas utiliser `sudo` pour exécuter Docker, vous pouvez configurer un groupe Docker et ajouter des utilisateurs à ce groupe. Pour plus d’informations, consultez [Étapes consécutives à l’installation pour Linux](https://docs.docker.com/engine/install/linux-postinstall/).
 
 La commande précédente tire (pull) les images conteneur Azure SQL Edge les plus récentes. Pour voir toutes les images disponibles, consultez [la page du hub Docker azure-sql-egde](https://hub.docker.com/_/microsoft-azure-sql-edge).
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 08/11/2021
+ms.date: 10/05/2021
 ms.author: alkohli
-ms.openlocfilehash: ab133e05cd08be42b212e72f801ee59ffa104d4a
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 6bf565a2f7d2d08931ca32f34ac07de2e8cec9b5
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122429639"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544751"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>Qu’est-ce qu’Azure Stack Edge Pro R ?
 
@@ -30,15 +30,15 @@ Azure Stack Edge Pro R intègre les fonctionnalités suivantes :
 |---------|---------|
 |Matériel robuste| Matériel de classe serveur robuste conçu pour les environnements exigeants. Appareil contenu dans une mallette de transport portable. |
 |Géré par le cloud     |L’appareil et le service sont gérés via le portail Azure.|
-|Charges de travail Edge Computing   |Permet l’analyse, le traitement et le filtrage des données. Prend en charge les machines virtuelles et les charges de travail conteneurisées.|
-|Inférence accélérée avec l’intelligence artificielle| Activé par GPU Nvidia T4.|
+|Charges de travail Edge Computing   |Permet l’analyse, le traitement et le filtrage des données. Prend en charge les machines virtuelles et les charges de travail conteneurisées. <ul><li>Pour plus d’informations sur les charges de travail de machine virtuelle, consultez [Présentation des machines virtuelles sur Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-overview.md).</li> <li>Pour les charges de travail conteneurisées, consultez [Présentation de Kubernetes sur Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md)</li></ul> |
+|Inférence accélérée avec l’intelligence artificielle| Activé par GPU Nvidia T4. <br> Pour plus d’informations, consultez [Partage de GPU sur votre appareil Azure Stack Edge](azure-stack-edge-gpu-sharing.md).|
 |Accès aux données     | Accès direct aux données à partir d’objets blob Stockage Azure et Azure Files à l’aide des API cloud pour le traitement d’autres données dans le cloud. Un cache local sur l’appareil est utilisé pour accéder rapidement aux fichiers les plus récemment utilisés.|
 |Mode déconnecté| L’appareil et le service peuvent être gérés par le biais d’Azure Stack Hub. Déployez, exécutez et gérez des applications en mode hors connexion. <br> Un mode déconnecté prend en charge les scénarios de chargement hors connexion.|
 |Protocoles de transfert de fichiers pris en charge     |Prise en charge des protocoles SMB, NFS et REST standard pour l’ingestion des données. <br> Pour plus d’informations sur les versions prises en charge, consultez [Conditions requises pour Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).|
-|Actualisation des données     | Possibilité d’actualiser les fichiers locaux avec la dernière version issue du cloud.|
-|Double chiffrement    | L’utilisation de lecteurs à chiffrement automatique fournit la première couche de chiffrement. Le VPN fournit la deuxième couche de chiffrement. Prise en charge de BitLocker pour chiffrer les données localement et transférer de façon sécurisée des données vers le cloud via *https*.|
-|Limitation de bande passante| Limiter l’utilisation de la bande passante pendant les heures de pointe.|
-|Classement facile| Classement en bloc et suivi de l’appareil via Azure Edge Hardware Center (préversion).|
+|Actualisation des données     | Possibilité d’actualiser les fichiers locaux avec la dernière version issue du cloud. <br> Pour plus d’informations, consultez [Actualiser un partage sur votre appareil Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md#refresh-shares).|
+|Double chiffrement    | L’utilisation de lecteurs à chiffrement automatique fournit la première couche de chiffrement. Le VPN fournit la deuxième couche de chiffrement. Prise en charge de BitLocker pour chiffrer les données localement et transférer de façon sécurisée des données vers le cloud via *https*. <br> Pour plus d’informations, consultez [Configurer un VPN sur votre appareil Azure Stack Edge Pro R](azure-stack-edge-mini-r-configure-vpn-powershell.md).|
+|Limitation de bande passante| Limiter l’utilisation de la bande passante pendant les heures de pointe. <br> Pour plus d’informations, consultez [Gérer les planifications de bande passante sur votre ressource Azure Stack Edge](azure-stack-edge-gpu-manage-bandwidth-schedules.md).|
+|Classement facile| Classement en bloc et suivi de l’appareil via Azure Edge Hardware Center (préversion). <br> Pour plus d’informations, consultez [Acheter un appareil sur Azure Edge Hardware Center](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource). |
 
 <!--|Scale out file server| Available as 1-node and 4-node cluster configurations|-->
 

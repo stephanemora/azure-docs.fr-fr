@@ -1,15 +1,15 @@
 ---
-title: Azure Schema Registry dans Event Hubs (préversion)
+title: Registre de schémas Azure dans Event Hubs (préversion)
 description: Cet article fournit une vue d’ensemble de la prise en charge du registre de schémas par Azure Event Hubs (version préliminaire).
 ms.topic: overview
 ms.date: 05/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: 43380ccd4f20616676f4eeb53fb2231b4f76f4e9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6ac6361643d9baafb41259e6db69f816d747b1d8
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371202"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534832"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Azure Schema Registry dans Event Hubs (préversion)
 Dans de nombreux scénarios de diffusion en continu d’événements et de messagerie, l’événement ou la charge utile de message contient des données structurées qui sont en cours de sérialisation ou de désérialisation à l’aide d’un format piloté par schéma comme Apache Avro. Les expéditeurs et les destinataires peuvent être amenés à valider l’intégrité des données avec un document de schéma comme avec le schéma JSON. Pour les formats pilotés par schéma, le fait de rendre le schéma disponible pour le consommateur du message est une condition préalable pour que le consommateur puisse désérialiser les données. 

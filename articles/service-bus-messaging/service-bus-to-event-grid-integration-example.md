@@ -4,15 +4,15 @@ description: Cet article explique comment gérer les événements Service Bus vi
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 08/13/2021
+ms.date: 10/04/2021
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 013468d1b6e5ba6fccb1277f715b5a42a469f4a2
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 5e5089985b56ad271f3de41fc3c68f091beddffb
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122182577"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457194"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-logic-apps"></a>Tutoriel : Répondre aux événements Azure Service Bus reçus via Azure Event Grid avec Azure Logic Apps
 Dans ce tutoriel, vous allez apprendre à répondre aux événements Azure Service Bus qui sont reçus via Azure Event Grid à l’aide d’Azure Logic Apps. 
@@ -24,12 +24,14 @@ Au cours de cette étape, vous allez créer une application logique Azure qui re
 
 1. Créez une application logique dans le portail Azure.
     1. Sélectionnez **+ Créer une ressource**, **Intégration**, puis **Application logique**. 
-    2. Dans la page **Application logique - Créer**, entrez un **nom** pour l’application logique.
-    3. Sélectionnez votre **abonnement** Azure. 
-    4. Sélectionnez **Utiliser l’existant** pour **Groupe de ressources**, puis le groupe de ressources que vous avez utilisé pour d’autres ressources (telles que la fonction Azure ou l’espace de noms Service Bus) créées précédemment. 
-    5. Sélectionnez l’**emplacement** de l’application logique. 
-    6. Sélectionnez **Vérifier + créer**. 
+    2. Sélectionnez votre **abonnement** Azure. 
+    3. Sélectionnez **Utiliser l’existant** pour **Groupe de ressources**, puis le groupe de ressources que vous avez utilisé pour d’autres ressources (telles que la fonction Azure ou l’espace de noms Service Bus) créées précédemment. 
+    1. Pour **Type**, sélectionnez **Consommation**. 
+    1. Entrez le **nom** de l’application logique.
+    1. Sélectionnez la **Région** de l’application logique. 
+    1. Sélectionnez **Vérifier + créer**. 
     1. Dans la page **Vérifier + créer**, sélectionnez **Créer** pour créer l’application logique. 
+    1. Dans la page **Déploiement terminé**, sélectionnez **Accéder à la ressource**. 
 1. Dans la page **Concepteur Logic Apps**, sélectionnez **Application logique vide** sous **Modèles**. 
 
 ### <a name="add-a-step-receive-messages-from-service-bus-via-event-grid"></a>Ajouter une étape pour recevoir des messages de Service Bus via Event Grid
@@ -43,10 +45,12 @@ Au cours de cette étape, vous allez créer une application logique Azure qui re
     1. Sélectionnez votre abonnement Azure. 
     2. Pour **Type de ressource**, sélectionnez **Microsoft.ServiceBus.Namespaces**. 
     3. Pour **Nom de la ressource**, sélectionnez votre espace de noms Service Bus. 
-    4. Sélectionnez **Ajouter un nouveau paramètre**, puis **Filtre de suffixe**. 
-    5. Pour **Filtre de suffixe**, entrez le nom de votre abonnement à la rubrique Service Bus. 
+    4. Sélectionnez **Ajouter un nouveau paramètre**, sélectionnez **Filtre de suffixe**, puis déplacez le focus en dehors de la liste déroulante.
+    
+        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/add-new-parameter-suffix-filter.png" alt-text="Image montrant l’ajout d’un filtre de suffixe.":::
+    1. Pour **Filtre de suffixe**, entrez le nom de votre abonnement à la rubrique Service Bus. 
         ![Concepteur Logic Apps - Configurer un événement](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
-6. Sélectionnez **+ Nouvelle étape** dans le concepteur et procédez comme suit :
+1. Sélectionnez **+ Nouvelle étape** dans le concepteur et procédez comme suit :
     1. Recherchez **Service Bus**.
     2. Sélectionnez **Service Bus** dans la liste. 
     3. Recherchez **Obtenir les messages** dans la liste **Actions**. 
@@ -86,16 +90,19 @@ Dans cette étape, vous allez ajouter des étapes pour envoyer le message reçu 
 1. Dans la zone de texte **Rechercher des connecteurs et des actions**, entrez **Office 365**. 
 1. Sélectionnez **Office 365 Outlook** dans les résultats de la recherche. 
 1. Dans la liste d’actions, sélectionnez **Envoyer un e-mail (v2)** . 
+1. Dans la fenêtre **Envoyer un e-mail (V2)** , effectuez les étapes suivantes : 
 1. Cliquez dans la zone de texte pour **Corps**, puis procédez comme suit :
+    1. Pour **À**, entrez une adresse e-mail. 
+    1. Pour **Objet**, entrez **Message reçu de l’abonnement à la rubrique Service Bus**.  
     1. Basculez sur l’onglet **Expression**.
-    1. Entrez `base64ToString(items('For_each')?['ContentData'])`. 
+    1. Entrez l’expression suivante :
+    
+        ```
+        base64ToString(items('For_each')?['ContentData'])
+        ``` 
     1. Sélectionnez **OK**. 
     
-        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/specify-expression-email.png" alt-text="Image montrant l’expression pour Corps dans l’activité Envoyer un e-mail":::
-1. Pour **Objet**, entrez **Message reçu de l’abonnement à la rubrique Service Bus**.  
-1. Pour **À**, entrez une adresse e-mail. 
-
-    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/send-email-configured.png" alt-text="Image montrant l’activité Envoyer un e-mail configurée":::
+        :::image type="content" source="./media/service-bus-to-event-grid-integration-example/specify-expression-email.png" alt-text="Image montrant l’expression pour Corps dans l’activité Envoyer un e-mail.":::
 
 #### <a name="add-another-action-in-the-foreach-loop-to-complete-the-message"></a>Ajouter une autre action dans la boucle foreach pour terminer le message         
 1. Dans la boucle **For Each**, sélectionnez **Ajouter une action**. 
@@ -112,7 +119,7 @@ Dans cette étape, vous allez ajouter des étapes pour envoyer le message reçu 
 
 ## <a name="test-the-app"></a>Tester l'application
 1. Si vous n’avez pas encore envoyé de messages de test à la rubrique, suivez les instructions de la section [Envoyer des messages à la rubrique Service Bus](#send-messages-to-the-service-bus-topic). 
-1. Basculez vers la page **Vue d’ensemble** de votre application logique. Vous voyez que l’application logique s’exécute dans **Historique des exécutions** pour les messages envoyés. L’exécution de l’application logique peut prendre quelques minutes. Sélectionnez **Actualiser** dans la barre d’outils pour actualiser la page. 
+1. Basculez vers la page **Vue d’ensemble** de votre application logique, puis passez à l’onglet **Historique des exécutions** dans le volet inférieur. Vous voyez que l’application logique exécute des messages qui ont été envoyés à la rubrique. L’exécution de l’application logique peut prendre quelques minutes. Sélectionnez **Actualiser** dans la barre d’outils pour actualiser la page. 
 
     ![Concepteur Logic Apps - l’application logique s’exécute](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 1. Sélectionnez une exécution de l’application logique pour voir les détails. Notez qu’elle a traité 5 messages dans la boucle for. 

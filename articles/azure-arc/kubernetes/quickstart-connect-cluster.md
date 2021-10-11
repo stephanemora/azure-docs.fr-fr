@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/09/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: bcc4d9183bf60e37c1d024462d7ab924df1f671e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 10c97945a78867d92b9ed4887e9655d49b195e33
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210767"
+ms.locfileid: "129273758"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Démarrage rapide : Connecter un cluster Kubernetes existant à Azure Arc
 
@@ -96,8 +96,8 @@ Dans ce guide de démarrage rapide, vous allez découvrir les avantages d’util
 | `https://<region>.dp.kubernetesconfiguration.azure.com` (pour le Cloud Azure), `https://<region>.dp.kubernetesconfiguration.azure.us` (pour Azure US Government) | Point de terminaison du plan de données permettant à l’agent d’envoyer (push) le statut et de récupérer (fetch) les informations de configuration. |
 | `https://login.microsoftonline.com`, `login.windows.net` (pour le Cloud Azure), `https://login.microsoftonline.us` (pour Azure US Government) | Requis pour extraire et mettre à jour des jetons Azure Resource Manager. |
 | `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Requis pour extraire des images conteneurs pour les agents Azure Arc.                                                                  |
-| `https://gbl.his.arc.azure.com` |  Requis pour obtenir le point de terminaison régional pour l’extraction des certificats Managed Service Identity (MSI) attribués par le système. |
-| `https://*.his.arc.azure.com` (pour le cloud Azure), `https://usgv.his.arc.azure.us` et `https://gbl.his.arc.azure.us` (pour Azure US Government) |  Nécessaire pour tirer (pull) les certificats d’identité managée affectée par le système. |
+| `https://gbl.his.arc.azure.com` (pour le Cloud Azure), `https://gbl.his.arc.azure.us` (pour Azure US Government) |  Requis pour obtenir le point de terminaison régional pour l’extraction des certificats d’identité managée affectée par le système. |
+| `https://*.his.arc.azure.com` (pour le Cloud Azure), `https://usgv.his.arc.azure.us` (pour Azure US Government) |  Nécessaire pour tirer (pull) les certificats d’identité managée affectée par le système. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | Pour les scénarios basés sur les [connexions de cluster](cluster-connect.md) et sur les [localisations personnalisées](custom-locations.md). |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Inscrire les fournisseurs pour Kubernetes avec Azure Arc

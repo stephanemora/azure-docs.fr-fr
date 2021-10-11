@@ -8,19 +8,19 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 84a0722a85e08de34841fef752ac8bb36c32f8b9
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 9fcc67dbcf0cdf6832a4f5ba7718d49c50308c5a
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357061"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458962"
 ---
 # <a name="help-and-support-options-for-azure-communication-services"></a>Options d’aide et de support pour Azure Communication Services
 
 Si vous avez un problème ou une question concernant Azure Communication Services, plusieurs possibilités s’offrent à vous.
 
 ## <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
-Grâce à Azure, une multitude [d’options et plans de support](https://azure.microsoft.com/support/plans/) s’offrent à vous. Vous pouvez créer un ticket de support dans le [Portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Grâce à Azure, une multitude [d’options et plans de support](https://azure.microsoft.com/support/plans/) s’offrent à vous. Vous pouvez créer un ticket de support dans le [Portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Publier une question sur Microsoft Q&A
 
@@ -31,6 +31,10 @@ Si vous ne trouvez pas de réponse à votre problème en effectuant une recherch
 ## <a name="post-a-question-on-stack-overflow"></a>Poser une question sur Stack Overflow
 
 Vous pouvez également poser votre question sur Stack Overflow, qui possède une grande communauté de développeurs et un écosystème. Azure Communication Services y possède également une [balise dédiée](https://stackoverflow.com/questions/tagged/azure-communication-services).
+
+## <a name="tech-community"></a>Communauté technique
+
+[Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-communication-services/bd-p/AzureCommunicationServices) est un autre endroit où vous pouvez poser des questions techniques ou sur un produit. L’équipe Azure Communication Services publie régulièrement des billets de [blogs](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog) et organise des événements « Demandez-moi ce que vous voulez » sur ce forum.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 

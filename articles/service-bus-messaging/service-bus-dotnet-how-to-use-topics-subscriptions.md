@@ -3,17 +3,20 @@ title: Prise en main des rubriques et abonnements Azure Service Bus
 description: Ce guide de démarrage rapide vous montre comment envoyer des messages à des rubriques Azure Service Bus à l’aide du package azure-messaging-servicebus.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.date: 06/29/2021
+ms.date: 09/16/2021
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 05772a7e4fbb2717dd34cbdaf82ae47162d4f149
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 330a69d437ffb58cb0e47ab6f9fe6a76fda9b8a6
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123451724"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533509"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-its-subscriptions-net"></a>Envoyer des messages à une rubrique Azure Service Bus et recevoir des messages de ses abonnements (.NET)
-Ce démarrage rapide montre comment envoyer des messages à une rubrique Service Bus et recevoir des messages d’un abonnement à cette rubrique à l’aide de la bibliothèque .NET [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/).
+Ce guide de démarrage rapide montre comment envoyer des messages à une rubrique Service Bus et recevoir des messages d’un abonnement à cette rubrique en utilisant la bibliothèque .NET [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/).
+
+> [!NOTE]
+> Vous trouverez d’autres échantillons .NET pour Azure Service Bus dans le [référentiel du kit de développement logiciel (SDK) Azure pour .NET sur GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples).
 
 ## <a name="prerequisites"></a>Prérequis
 Si vous débutez avec le service, consultez [Vue d’ensemble de Service Bus](service-bus-messaging-overview.md) avant de suivre ce démarrage rapide. 
@@ -170,8 +173,7 @@ Dans cette section, vous allez créer une application console .NET Core qui reç
     ```
 
 ### <a name="add-code-to-receive-messages-from-the-subscription"></a>Ajouter du code pour recevoir des messages de l’abonnement
-1. Remplacez le contenu de **Program.cs** par le code suivant. Voici les étapes importantes du code.
-    Voici les étapes importantes du code :
+1. Remplacez le contenu de **Program.cs** par le code suivant. Voici les étapes importantes du code :
     1. Crée un objet [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) à l’aide de la chaîne de connexion à l’espace de noms. 
     1. Appelle la méthode [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) sur l'objet `ServiceBusClient` pour créer un objet [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) pour la file d’attente Service Bus spécifiée. 
     1. Spécifie des gestionnaires pour les événements [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) et [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) de l’objet `ServiceBusProcessor`. 

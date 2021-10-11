@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Perforce Helix Core - Helix Authentication Service | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Perforce Helix Core - Helix Authentication Service'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Perforce Helix Core - Helix Authentication Service.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 09/24/2021
 ms.author: jeedes
-ms.openlocfilehash: 8f3695edd8529d28ea792fcca57e8225b511635f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e11a0aeff4168b850ae95be7ce26f97e4afa9c81
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124738023"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399600"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perforce-helix-core---helix-authentication-service"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Perforce Helix Core - Helix Authentication Service
+# <a name="tutorial-azure-ad-sso-integration-with-perforce-helix-core---helix-authentication-service"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Perforce Helix Core - Helix Authentication Service
 
 Dans ce tutoriel, vous allez apprendre à intégrer Perforce Helix Core - Helix Authentication Service à Azure Active Directory (Azure AD). Quand vous intégrez Perforce Helix Core - Helix Authentication Service à Azure AD, vous pouvez :
 
@@ -32,6 +32,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Perforce Helix Core - Helix Authentication Service pour lequel l’authentification unique est activée.
+
+> [!NOTE]
+> Cette intégration peut également être utilisée à partir de l’environnement cloud US Government Azure AD. Cette application est disponible dans la Galerie d’applications cloud US Government Azure AD et peut être configurée de la même façon que dans le cloud public.
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -73,16 +76,16 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/`
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml/sso`
 
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/saml/sso`
+    c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<HELIX-AUTH-SERVICE>.<CUSTOMER_HOSTNAME>.com/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour connaître ces valeurs, contactez l’[équipe de support technique Perforce Helix Core - Helix Authentication Service](mailto:support@perforce.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL d’authentification et l’URL de réponse réels. Pour connaître ces valeurs, contactez l’[équipe de support technique Perforce Helix Core - Helix Authentication Service](mailto:support@perforce.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 

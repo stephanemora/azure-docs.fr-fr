@@ -7,16 +7,21 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 08/04/2021
 ms.custom: mvc
-ms.openlocfilehash: 99216bd26bfff76c4342f1533ff4ced070a69e92
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ca3a4a3bbcfd1de92906b75ed56351afb04b4b17
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124735960"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389434"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Nouveautés d’Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) vous aide à découvrir, à évaluer et à migrer localement des serveurs, applications et données vers le cloud Microsoft Azure. Cet article synthétise les nouvelles versions et fonctionnalités d’Azure Migrate.
+
+## <a name="update-september-2021"></a>Mise à jour (septembre 2021)
+- Découvrir, évaluer et migrer des serveurs sur un réseau privé avec [Azure Private Link](../private-link/private-endpoint-overview.md).  est désormais disponible en préversion dans les [zones géographiques du cloud pour le secteur public](migrate-support-matrix.md#supported-geographies-azure-government). [En savoir plus](how-to-use-azure-migrate-with-private-endpoints.md)
+- Prise en charge de l’étiquetage et de l’ajout de noms personnalisés aux ressources pour les migrations de machines virtuelles VMware sans agent avec PowerShell.
+- Appliance Azure Migrate : option permettant de supprimer des serveurs de la liste de découverte des serveurs physiques.
 
 ## <a name="update-august-2021"></a>Mise à jour (août 2021)
 

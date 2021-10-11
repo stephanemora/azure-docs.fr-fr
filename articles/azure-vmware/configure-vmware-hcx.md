@@ -3,12 +3,12 @@ title: Configurer VMware HCX dans Azure VMware Solution
 description: Configurez le connecteur VMware HCX local pour votre cloud privé Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 09/07/2021
-ms.openlocfilehash: 1fbcd8cc2cc596395f3736949f54f30ac224d060
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 022936108246b57f27d26dfffdaa260399821740
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755821"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457503"
 ---
 # <a name="configure-on-premises-vmware-hcx-connector"></a>Configurer le connecteur VMware HCX local
 

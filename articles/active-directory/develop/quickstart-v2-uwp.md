@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: e9353c12c20ea8b08164ac057f886ca47cc8c383
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72f19c7f722900f46df07265407b28583412196d
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128552745"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235095"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Démarrage rapide : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
@@ -156,7 +156,7 @@ MSAL utilise deux méthodes d’acquisition de jetons dans une application UWP 
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
 
-Certaines situations nécessitent d’obliger les utilisateurs à interagir avec la plateforme d’identités Microsoft via une fenêtre contextuelle pour qu’ils valident leurs informations d’identification ou qu’ils donnent leur consentement. Voici quelques exemples :
+Certaines situations obligent les utilisateurs à interagir avec la plateforme d’identités Microsoft via une fenêtre contextuelle pour qu’ils valident leurs informations d’identification ou qu’ils donnent leur consentement. Voici quelques exemples :
 
 - Lorsque des utilisateurs se connectent pour la première fois à l’application
 - Quand les utilisateurs doivent de nouveau entrer leurs informations d’identification, car le mot de passe a expiré

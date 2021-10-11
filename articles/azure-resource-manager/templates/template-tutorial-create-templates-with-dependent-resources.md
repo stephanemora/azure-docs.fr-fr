@@ -5,16 +5,16 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 152494ef7d24d3e39af63fcb549a26c78bb27bc6
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b7e4fa06db063538c801b01225818c4c9311e3d6
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111959429"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400778"
 ---
 # <a name="tutorial-create-arm-templates-with-dependent-resources"></a>Tutoriel : Créer des modèles ARM avec des ressources dépendantes
 
-Découvrez comment créer un modèle Azure Resource Manager (modèle ARM) pour déployer plusieurs ressources et configurer l’ordre de déploiement. Après avoir créé le modèle, vous déployez le modèle à l’aide de Cloud Shell à partir du portail Azure.
+Découvrez comment créer un modèle Azure Resource Manager (modèle ARM) pour déployer plusieurs ressources et configurer l’ordre de déploiement. Après avoir créé le modèle, vous déployez le modèle à l’aide d’Azure Cloud Shell à partir du portail Azure.
 
 Dans ce didacticiel, vous créez un compte de stockage, une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes. Certaines ressources ne peuvent pas être déployées avant qu’une autre ressource n’existe. Par exemple, vous ne pouvez pas créer la machine virtuelle avant que son compte de stockage et son interface réseau n’existent. Vous définissez cette relation en rendant une seule ressource dépendante des autres ressources. Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle. Pour plus d’informations, consultez [Définir l’ordre de déploiement des ressources dans les modèles ARM](./resource-dependency.md).
 
@@ -36,11 +36,13 @@ Pour lire un module Microsoft Learn qui aborde les dépendances de ressources, c
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 * Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple pour générer un mot de passe :
+* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Vous pouvez utiliser [Azure Cloud Shell](../../cloud-shell/overview.md) pour exécuter la commande suivante dans PowerShell ou Bash :
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    Pour plus d’informations, exécutez `man openssl rand` pour ouvrir la page manuelle.
 
     Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle ARM](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
@@ -120,7 +122,7 @@ En spécifiant les dépendances, Resource Manager déploie efficacement la solut
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-1. Se connecter à [Azure Cloud Shell](https://shell.azure.com)
+1. Connectez-vous à [Cloud Shell](https://shell.azure.com).
 
 1. Choisissez votre environnement préféré en sélectionnant **PowerShell** ou **Bash** (pour CLI) en haut à gauche.  Il est nécessaire de redémarrer l’interpréteur de commandes lors d’un tel changement.
 

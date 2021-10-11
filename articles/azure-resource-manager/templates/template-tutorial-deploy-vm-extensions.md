@@ -6,12 +6,12 @@ ms.date: 03/26/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 14aece10cad828b82f2541e4f0478633382de662
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b7e7770df1195dc170a28246a572f8825b39a860
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656243"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401272"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Tutoriel : Déployer des extensions de machine virtuelle avec des modèles ARM
 
@@ -32,11 +32,13 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 * Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple pour générer un mot de passe :
+* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Vous pouvez utiliser [Azure Cloud Shell](../../cloud-shell/overview.md) pour exécuter la commande suivante dans PowerShell ou Bash :
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    Pour plus d’informations, exécutez `man openssl rand` pour ouvrir la page manuelle.
 
     Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à votre déploiement de modèle ARM](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 

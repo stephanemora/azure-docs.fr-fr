@@ -1,15 +1,15 @@
 ---
 title: 'Démarrage rapide : Envoyer des événements personnalisés à Event Hubs - Event Grid, Azure CLI'
 description: 'Démarrage rapide : Utilisez Azure Event Grid et Azure CLI pour publier une rubrique et pour vous abonner à cet événement. Un concentrateur d’événements est utilisé comme point de terminaison.'
-ms.date: 07/07/2020
+ms.date: 09/28/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 37523e907eb891a326c8dbe975593554958a44b9
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: f725af009f8c2b8f8c4595865d6d746ff9f55849
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897916"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230155"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Démarrage rapide : Router des événements personnalisés vers Azure Event Hubs avec Azure CLI et Event Grid
 
@@ -37,6 +37,9 @@ Une rubrique de grille d’événement fournit un point de terminaison défini p
 
 ```azurecli-interactive
 topicname=<your-topic-name>
+```
+
+```azurecli-interactive
 az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 ```
 
@@ -46,6 +49,9 @@ Avant de nous abonner à la rubrique personnalisée, nous allons créer le point
 
 ```azurecli-interactive
 namespace=<unique-namespace-name>
+```
+
+```azurecli-interactive
 hubname=demohub
 
 az eventhubs namespace create --name $namespace --resource-group gridResourceGroup
@@ -94,7 +100,7 @@ done
 
 Accédez au concentrateur d’événements dans le portail et notez que Event Grid a envoyé ces trois événements vers le concentrateur d’événements.
 
-![Afficher les messages](./media/custom-event-to-eventhub/show-result.png)
+:::image type="content" source="./media/custom-event-to-eventhub/show-result.png" lightbox="./media/custom-event-to-eventhub/show-result.png" alt-text="Image montrant la page du portail avec 3 comme nombre de messages entrants.":::
 
 En général, vous créez une application qui récupère les événements dans un concentrateur d’événements. Pour créer une application qui obtient les messages dans un concentrateur d’événements, consultez :
 

@@ -2,16 +2,16 @@
 title: Tutoriel - Créer et déployer un modèle
 description: Créez votre premier modèle ARM (Azure Resource Manager). Dans ce tutoriel, vous découvrirez la syntaxe des fichiers de modèle et comment déployer un compte de stockage.
 author: mumian
-ms.date: 12/17/2020
+ms.date: 10/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 83a043084af78d382e06b3f860addb986423e9cb
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 7263a72f19d9dfea8044e55451a52ebdec29ec7d
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187124"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390232"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutoriel : Créer et déployer votre premier modèle ARM
 
@@ -100,18 +100,18 @@ az login
 
 ---
 
-Si vous avez plusieurs abonnements Azure, sélectionnez celui que vous souhaitez utiliser. Remplacez `[SubscriptionID/SubscriptionName]` et les crochets `[]` par vos informations d’abonnement :
+Si vous avez plusieurs abonnements Azure, sélectionnez celui que vous souhaitez utiliser. Remplacez `SubscriptionName` par votre nom d’abonnement. Vous pouvez également utiliser un ID d’abonnement au lieu du nom d’abonnement.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Set-AzContext [SubscriptionID/SubscriptionName]
+Set-AzContext SubscriptionName
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az account set --subscription [SubscriptionID/SubscriptionName]
+az account set --subscription SubscriptionName
 ```
 
 ---

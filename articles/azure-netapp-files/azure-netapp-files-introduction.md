@@ -12,27 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/28/2018
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 4ad556a6c720cb4eaac9a0c9cdf5c4346e2aa857
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcff7e8523e788adae30236782c23610d32a9f44
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87512939"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407814"
 ---
 # <a name="what-is-azure-netapp-files"></a>Présentation d’Azure NetApp Files
 
-Le service Azure NetApp Files est un service de stockage de fichiers limité, hautes performances et de classe entreprise. Azure NetApp Files prend en charge tout type de charge de travail et offre un niveau de disponibilité très élevé par défaut. Vous pouvez sélectionner des niveaux de performance et de service et configurer des instantanés via le service. 
-
-## <a name="learn-how-to-use-azure-netapp-files"></a>Apprendre à utiliser Azure NetApp Files
+Le service Azure NetApp Files est un service de stockage de fichiers limité, hautes performances et de classe entreprise. Azure NetApp Files prend en charge tout type de charge de travail et offre un niveau de disponibilité très élevé par défaut. Vous pouvez sélectionner des niveaux de service et de performances, créer des comptes NetApp, des pools de capacité et des volumes, et gérer la protection des données. 
 
 La documentation Azure NetApp Files fournit des instructions sur la création et la gestion des volumes à l’aide d’Azure NetApp Files. 
-
-> [!IMPORTANT] 
-> Toutes les tâches décrites dans cette documentation nécessitent d’être autorisé à accéder au service Azure Files de NetApp. Pour demander l’accès au service, consultez [soumettre une demande de liste d’attente pour l’accès au service](azure-netapp-files-register.md#waitlist).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Comprendre la hiérarchie de stockage d’Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) 
 * [Démarrage rapide : Configurer Azure NetApp Files et créer un volume NFS](azure-netapp-files-quickstart-set-up-account-create-volumes.md)
+* [Créer une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md)

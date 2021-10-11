@@ -1004,6 +1004,8 @@
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: Architecture de réseau virtuel HDInsight
           href: ./hdinsight-virtual-network-architecture.md
+        - name: Limiter la connectivité publique
+          href: ./hdinsight-restrict-public-connectivity.md
         - name: Liaison privée
           href: ./hdinsight-private-link.md
         - name: TLS (Transport Layer Security)

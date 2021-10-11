@@ -6,12 +6,12 @@ ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e2136e70f45fa909a306e1af2c25cb6e5c6a85d0
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: a352015437437ef47b076b487710018e7ef8e2d9
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081908"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402127"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutoriel : Intégrer Azure Key Vault à votre déploiement de modèle ARM
 
@@ -40,11 +40,13 @@ Pour lire un module Microsoft Learn dans lequel est utilisée une valeur sécuri
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 * Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
-* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple de génération de mot de passe :
+* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Vous pouvez utiliser [Azure Cloud Shell](../../cloud-shell/overview.md) pour exécuter la commande suivante dans PowerShell ou Bash :
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    Pour plus d’informations, exécutez `man openssl rand` pour ouvrir la page manuelle.
 
     Vérifiez que le mot de passe généré répond aux exigences relatives aux mots de passe de machine virtuelle. Chaque service Azure présente des exigences de mot de passe spécifiques. Pour connaître les exigences relatives aux mots de passe de machine virtuelle, consultez [Quelles sont les exigences en matière de mot de passe lors de la création d’une machine virtuelle ?](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
@@ -58,7 +60,7 @@ Dans cette section, vous créez un coffre de clés auquel vous ajoutez un secret
 > [!NOTE]
 > Si, en tant qu’utilisateur déployant le modèle de machine virtuelle, vous n’êtes ni le propriétaire ni un contributeur du coffre de clés, son propriétaire ou un contributeur doit vous accorder l’accès à l’autorisation `Microsoft.KeyVault/vaults/deploy/action` pour le coffre de clés. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](./key-vault-parameter.md).
 
-Pour exécuter le script Azure PowerShell suivant, sélectionnez **Essayer** afin d’ouvrir Azure Cloud Shell. Pour coller le script, cliquez avec le bouton droit dans volet de l’interpréteur de commandes, puis sélectionnez **Coller**.
+Pour exécuter le script Azure PowerShell suivant, sélectionnez **Essayer** afin d’ouvrir Cloud Shell. Pour coller le script, cliquez avec le bouton droit dans volet de l’interpréteur de commandes, puis sélectionnez **Coller**.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -171,7 +173,7 @@ En utilisant la méthode d’ID statique, aucune modification du fichier de mod�
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-1. Se connecter à [Azure Cloud Shell](https://shell.azure.com)
+1. Connectez-vous à [Cloud Shell](https://shell.azure.com).
 
 1. Choisissez votre environnement préféré en sélectionnant **PowerShell** ou **Bash** (pour CLI) en haut à gauche.  Il est nécessaire de redémarrer l’interpréteur de commandes lors d’un tel changement.
 

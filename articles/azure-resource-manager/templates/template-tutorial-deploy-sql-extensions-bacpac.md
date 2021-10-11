@@ -2,16 +2,16 @@
 title: Importer des fichiers SQL BACPAC avec des modèles
 description: Découvrez comment utiliser les extensions Azure SQL Database pour importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager (modèles ARM).
 author: mumian
-ms.date: 12/09/2019
+ms.date: 09/30/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b19c636d7f0f85b2b70aa953ac6e734820f8e33d
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3310d3f33d7aa31a24a19bc7c43b59173ffd78d6
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110702632"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456041"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Tutoriel : Importer des fichiers SQL BACPAC avec des modèles ARM
 
@@ -23,11 +23,11 @@ Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 >
-> * Préparer un fichier BACPAC
-> * Ouvrir un modèle de démarrage rapide
-> * Modifier le modèle
-> * Déployez le modèle.
-> * Vérifier le déploiement
+> - Préparer un fichier BACPAC
+> - Ouvrir un modèle de démarrage rapide
+> - Modifier le modèle
+> - Déployez le modèle.
+> - Vérifier le déploiement
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -35,12 +35,14 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* Visual Studio Code avec l’extension Outils Resource Manager Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
-* Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de serveur. Voici un exemple que vous pouvez utiliser pour générer un mot de passe :
+- Visual Studio Code avec l’extension Outils Resource Manager Consultez [Démarrage rapide : Créer des modèles ARM avec Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
+- Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de serveur. Vous pouvez utiliser [Azure Cloud Shell](../../cloud-shell/overview.md) pour exécuter la commande suivante dans PowerShell ou Bash :
 
-    ```console
+    ```shell
     openssl rand -base64 32
     ```
+
+    Pour plus d’informations, exécutez `man openssl rand` pour ouvrir la page manuelle.
 
     Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Didacticiel : Intégrer Azure Key Vault à un déploiement de modèle ARM](./template-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
@@ -48,15 +50,15 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 Un fichier BACPAC est partagé dans [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Pour créer le vôtre, consultez [Exporter une base de données d’Azure SQL Database vers un fichier BACPAC](../../azure-sql/database/database-export.md). Si vous choisissez de publier le fichier sur votre propre emplacement, vous devez mettre à jour le modèle plus tard dans ce didacticiel.
 
-Le fichier BACPAC doit être stocké dans un compte de stockage Azure avant de pouvoir être importé à l’aide d’un modèle ARM. Le script PowerShell suivant prépare le fichier BACPAC en suivant les étapes ci-dessous :
+Le fichier BACPAC doit être stocké dans un compte de stockage Azure avant de pouvoir être importé avec un modèle ARM. Le script PowerShell suivant prépare le fichier BACPAC en suivant les étapes ci-dessous :
 
-* Télécharger le fichier BACPAC.
-* Création d’un compte Azure Storage.
-* Créer un conteneur d’objets blob dans un compte de stockage
-* Télécharger le fichier BACPAC dans le conteneur.
-* Afficher la clé du compte de stockage et l’URL de l’objet blob
+- Télécharger le fichier BACPAC.
+- Création d’un compte Azure Storage.
+- Créer un conteneur d’objets blob dans un compte de stockage
+- Télécharger le fichier BACPAC dans le conteneur.
+- Afficher la clé du compte de stockage, l’URL de l’objet blob, le nom du groupe de ressources et l’emplacement.
 
-1. Sélectionnez **Essayer** pour ouvrir Azure Cloud Shell. Ensuite, collez le script PowerShell suivant dans la fenêtre de l’interpréteur de commandes.
+1. Sélectionnez **Essayer** pour ouvrir Cloud Shell. Ensuite, copiez et collez le script PowerShell suivant dans la fenêtre de l’interpréteur de commandes.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -93,10 +95,11 @@ Le fichier BACPAC doit être stocké dans un compte de stockage Azure avant de p
 
     Write-Host "The storage account key is $storageAccountKey"
     Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName"
+    Write-Host "The project name and location are $projectName and $location"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-1. Notez la clé du compte de stockage et l’URL du fichier BACPAC. Vous avez besoin de ces valeurs lorsque vous déployez le modèle.
+1. Enregistrez la clé du compte de stockage, l’URL du fichier BACPAC, le nom du projet et l’emplacement. Vous utiliserez ces valeurs quand vous déploierez le modèle plus loin dans ce tutoriel.
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
@@ -113,15 +116,16 @@ Le modèle utilisé dans ce tutoriel est stocké dans [GitHub](https://raw.githu
 
     Deux ressources sont définies dans le modèle :
 
-   * `Microsoft.Sql/servers`. Consultez la [référence de modèle](/azure/templates/microsoft.sql/servers).
-   * `Microsoft.SQL.servers/databases`. Consultez la [référence de modèle](/azure/templates/microsoft.sql/servers/databases).
+   - `Microsoft.Sql/servers`. Consultez la [référence de modèle](/azure/templates/microsoft.sql/servers).
+   - `Microsoft.SQL.servers/databases`. Consultez la [référence de modèle](/azure/templates/microsoft.sql/servers/databases).
 
-        Il est préférable d’avoir des notions de base sur ce modèle avant de le personnaliser.
-1. Sélectionnez **Fichier** > **Enregistrer sous** pour enregistrer une copie du fichier sur votre ordinateur local avec le nom *azuredeploy.json*.
+     Il est préférable d’avoir des notions de base sur ce modèle avant de le personnaliser.
+
+1. Sélectionnez **Fichier** > **Enregistrer sous** pour enregistrer une copie du fichier sur votre ordinateur local avec le nom _azuredeploy.json_.
 
 ## <a name="edit-the-template"></a>Modifier le modèle
 
-1. Ajoutez deux paramètres supplémentaires à la fin de la section des `parameters` pour définir la clé de compte de stockage et l’URL BACPAC.
+1. Ajoutez deux paramètres à la fin de la section `parameters` pour définir la clé du compte de stockage et l’URL BACPAC.
 
     ```json
         "storageAccountKey": {
@@ -140,17 +144,17 @@ Le modèle utilisé dans ce tutoriel est stocké dans [GitHub](https://raw.githu
 
     Ajoutez une virgule après l’accolade fermante de la propriété `adminPassword` (`}`). Pour mettre en forme le fichier JSON à partir de Visual Studio Code, sélectionnez Maj+Alt+F.
 
-    Pour obtenir ces deux valeurs, consultez [Préparer un fichier BACPAC](#prepare-a-bacpac-file).
+1. Ajoutez deux ressources au modèle.
 
-1. Ajoutez deux ressources supplémentaires au modèle.
+    - Pour permettre à l’extension SQL Database d’importer des fichiers BACPAC, vous devez autoriser le trafic à partir des services Azure. Au déploiement du serveur SQL, la règle de pare-feu active le paramètre **Autoriser les services et ressources Azure à accéder à ce serveur**.
 
-    * Pour permettre à l’extension SQL Database d’importer des fichiers BACPAC, vous devez autoriser le trafic à partir des services Azure. Ajoutez la définition de règle de pare-feu suivante sous la définition du serveur :
+      Ajoutez la règle de pare-feu suivante sous la définition du serveur :
 
         ```json
         "resources": [
           {
             "type": "firewallrules",
-            "apiVersion": "2015-05-01-preview",
+            "apiVersion": "2021-02-01-preview",
             "name": "AllowAllAzureIps",
             "location": "[parameters('location')]",
             "dependsOn": [
@@ -164,11 +168,11 @@ Le modèle utilisé dans ce tutoriel est stocké dans [GitHub](https://raw.githu
         ]
         ```
 
-        Le modèle ressemble à ceci :
+        L’exemple suivant présente le modèle mis à jour :
 
-        ![Modèle avec définition de règle de pare-feu](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-firewall.png)
+        :::image type="content" source="media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-firewall.png" alt-text="Modèle avec définition de pare-feu.":::
 
-    * Ajoutez une ressource d’extension SQL Database à la définition de base de données avec le code JSON suivant :
+    - Ajoutez une ressource d’extension SQL Database à la définition de base de données avec le code JSON suivant :
 
         ```json
         "resources": [
@@ -191,69 +195,74 @@ Le modèle utilisé dans ce tutoriel est stocké dans [GitHub](https://raw.githu
         ]
         ```
 
-        Le modèle ressemble à ceci :
+        L’exemple suivant présente le modèle mis à jour :
 
-        ![Modèle avec extension SQL Database](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
+        :::image type="content" source="media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png" alt-text="Modèle avec extension SQL Database.":::
 
-        Pour comprendre la définition de ressource, consultez la [référence de l’extension SQL Database](/azure/templates/microsoft.sql/servers/databases/extensions). Voici quelques éléments importants :
+        Pour comprendre la définition de ressource, consultez la [référence de l’extension SQL Database](/azure/templates/microsoft.sql/servers/databases/extensions) pour la version de l’API. Voici quelques éléments importants :
 
-        * `dependsOn` : la ressource d’extension doit être créée une fois que la base de données a été créée.
-        * `storageKeyType` : spécifiez le type de la clé de stockage à utiliser. La valeur peut être `StorageAccessKey` ou `SharedAccessKey`. Utilisez `StorageAccessKey` dans ce tutoriel.
-        * `storageKey` : Spécifiez la clé pour le compte de stockage où est stocké le fichier BACPAC. Si le type de clé de stockage est `SharedAccessKey`, il doit être précédé de « ? ».
-        * `storageUri` : spécifiez l’URL du fichier BACPAC stocké dans un compte de stockage.
-        * `administratorLoginPassword` : mot de passe de l'administrateur SQL. Utilisez un mot de passe généré. Consultez les [Conditions préalables](#prerequisites).
+        - `dependsOn` : la ressource d’extension doit être créée une fois que la base de données a été créée.
+        - `storageKeyType` : spécifiez le type de la clé de stockage à utiliser. La valeur peut être `StorageAccessKey` ou `SharedAccessKey`. Utilisez `StorageAccessKey` dans ce tutoriel.
+        - `storageKey` : Spécifiez la clé pour le compte de stockage où est stocké le fichier BACPAC. Si le type de clé de stockage est `SharedAccessKey`, il doit être précédé de « ? ».
+        - `storageUri` : spécifiez l’URL du fichier BACPAC stocké dans un compte de stockage.
+        - `administratorLogin` : nom du compte de l’administrateur SQL.
+        - `administratorLoginPassword` : mot de passe de l’administrateur SQL. Pour utiliser un mot de passe généré, consultez [Prérequis](#prerequisites).
 
-Le modèle complet ressemble à ceci :
+L'exemple suivant montre le modèle terminé :
 
 [!code-json[](~/resourcemanager-templates/tutorial-sql-extension/azuredeploy2.json?range=1-106&highlight=38-49,62-76,86-103)]
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Utilisez le nom et l’emplacement du projet qui ont été utilisés lors de la préparation du fichier BACPAC. Cela permet de placer toutes les ressources dans le même groupe de ressources, ce qui est pratique quand vous supprimez des ressources.
 
-Reportez-vous à la section [Déployer le modèle](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) pour connaître la procédure de déploiement. Utilisez plutôt le script de déploiement PowerShell suivant :
+1. Connectez-vous à [Cloud Shell](https://shell.azure.com).
+1. Sélectionnez **PowerShell** dans l’angle supérieur gauche.
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name that is used earlier"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$adminUsername = Read-Host -Prompt "Enter the SQL admin username"
-$adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
-$storageAccountKey = Read-Host -Prompt "Enter the storage account key"
-$bacpacUrl = Read-Host -Prompt "Enter the URL of the BACPAC file"
-$resourceGroupName = "${projectName}rg"
+    :::image type="content" source="media/template-tutorial-deploy-sql-extensions-bacpac/cloud-shell-select.png" alt-text="Ouvrez Azure Cloud Shell dans PowerShell et chargez un fichier.":::
 
-#New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -adminUser $adminUsername `
-    -adminPassword $adminPassword `
-    -TemplateFile "$HOME/azuredeploy.json" `
-    -storageAccountKey $storageAccountKey `
-    -bacpacUrl $bacpacUrl
+1. Sélectionnez **Charger/télécharger des fichiers** et chargez votre fichier _azuredeploy.json_.
+1. Pour déployer le modèle, copiez et collez le script suivant dans la fenêtre de l’interpréteur de commandes.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter the same project name that is used earlier"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
+    $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
+    $storageAccountKey = Read-Host -Prompt "Enter the storage account key"
+    $bacpacUrl = Read-Host -Prompt "Enter the URL of the BACPAC file"
+    $resourceGroupName = "${projectName}rg"
 
-Envisagez d’utiliser le même nom de projet que celui que vous avez utilisé lors de la préparation du fichier BACPAC, afin que toutes les ressources soient stockées dans le même groupe de ressources. De cette façon, il est plus facile de gérer les tâches liées aux ressources, telles que leur nettoyage. Si vous utilisez le même nom de projet, vous pouvez soit supprimer la commande `New-AzResourceGroup` du script, soit répondre oui (o) ou non (n) quand vous êtes invité à mettre à jour le groupe de ressources existant.
+    New-AzResourceGroupDeployment `
+        -ResourceGroupName $resourceGroupName `
+        -adminUser $adminUsername `
+        -adminPassword $adminPassword `
+        -TemplateFile "$HOME/azuredeploy.json" `
+        -storageAccountKey $storageAccountKey `
+        -bacpacUrl $bacpacUrl
 
-Utilisez un mot de passe généré. Consultez les [Conditions préalables](#prerequisites).
+    Write-Host "Press [ENTER] to continue ..."
+    ```
 
 ## <a name="verify-the-deployment"></a>Vérifier le déploiement
 
-Pour accéder au serveur à partir de votre ordinateur client, vous devez ajouter une règle de pare-feu supplémentaire. Pour plus d’informations, consultez [Créer et gérer des règles de pare-feu IP](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
+Pour accéder au serveur à partir de votre ordinateur client, vous devez ajouter une règle de pare-feu. L’adresse IP de votre client et l’adresse IP utilisée pour la connexion au serveur peuvent être différentes en raison de la traduction d’adresses réseau (NAT). Pour plus d’informations, consultez [Créer et gérer des règles de pare-feu IP](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
-Dans le portail Azure, sélectionnez la base de données dans le groupe de ressources qui vient d’être déployé. Sélectionnez l’**éditeur de requêtes (préversion)** , puis entrez les informations d’identification d’administrateur. Vous verrez deux tables importées dans la base de données.
+Par exemple, lorsque vous vous connectez à l’**Éditeur de requête**, un message s’affiche indiquant que l’adresse IP n’est pas autorisée. L’adresse est différente de l’adresse IP de votre client en raison de la traduction d’adresses réseau. Sélectionnez le lien du message afin d’ajouter une règle de pare-feu pour l’adresse IP. Lorsque vous avez terminé, supprimez l’adresse IP des paramètres **Pare-feu et réseaux virtuels** du serveur.
+
+Dans le portail Azure, dans le groupe de ressources, sélectionnez la base de données. Sélectionnez **Éditeur de requêtes (préversion)** et entrez les informations d’identification d’administrateur. Vous verrez deux tables importées dans la base de données.
 
 ![Éditeur de requêtes (préversion)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources.
+Lorsque vous n’avez plus besoin des ressources Azure que vous avez déployées, supprimez le groupe de ressources. Le groupe de ressources, le compte de stockage, le serveur SQL et les bases de données SQL sont supprimés.
 
-1. Dans le portail Azure, sélectionnez **Groupe de ressources** dans le menu de gauche.
-1. Entrez le nom du groupe de ressources dans le champ **Filtrer par nom**.
-1. Sélectionnez le nom du groupe de ressources. Vous verrez six ressources au total dans le groupe de ressources.
-1. Sélectionnez **Supprimer le groupe de ressources** dans le menu supérieur.
+1. Dans le portail Azure, entrez **Groupes de ressources** dans la zone de recherche.
+1. Dans le champ **Filtrer par nom**, entrez le nom du groupe de ressources.
+1. Sélectionnez le nom du groupe de ressources.
+1. Sélectionnez **Supprimer le groupe de ressources**.
+1. Pour confirmer la suppression, entrez le nom du groupe de ressources, puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

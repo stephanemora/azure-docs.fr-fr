@@ -5,13 +5,13 @@ metadata:
   ms.topic: article
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
-  ms.date: 08/19/2021
-  ms.openlocfilehash: 536dfd9fa71c2f6eaefe25ada08f537868cf3f58
-  ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+  ms.date: 09/29/2021
+  ms.openlocfilehash: 80610860b6af94e79a792d15af82041f65980b73
+  ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/26/2021
-  ms.locfileid: "129061710"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129458829"
 title: Questions fréquentes sur Azure VMware Solution
 summary: Cette page répond aux questions fréquentes sur Azure VMware Solution.
 sections:
@@ -36,8 +36,6 @@ sections:
     answer: Avec la nouvelle solution Azure VMware, Microsoft et VMware sont partenaires directs pour la prestation de services cloud. La nouvelle solution est conçue et prise en charge par Microsoft, et approuvée par VMware. Du point de l’architecture, les solutions sont cohérentes, la pile de technologies VMware s’exécutant sur une infrastructure Azure dédiée.
 - name: Facturation
   questions:
-  - question: Comment suis-je facturé pendant la période de préversion ?
-    answer: La facturation pendant la période de préversion est mensuelle et basée sur l’utilisation. Des options supplémentaires seront disponibles au moment de la mise en disponibilité générale (GA).
   - question: Existe-t-il un contrat SLA sur le remplacement d’un disque en cas de défaillance ?
     answer: Tout hôte avec des problèmes de disque est remplacé. Il existe une disponibilité SLA de 99,9 % du service Azure VMware Solution.
   - question: Comment les tarifs sont-ils structurés pour Azure VMware Solution ?
@@ -46,8 +44,6 @@ sections:
     answer: Si vous envisagez d’utiliser VMware HCX Enterprise, vérifiez que vous avez activé le module complémentaire VMware HCX Enterprise par le biais d’une [demande de support](https://rc.portal.azure.com/#create/Microsoft.Support). Il s’agit d’un essai gratuit de 12 mois dans Azure VMware Solution.
   - question: Le trafic entre la solution locale et Azure VMware Solution sur ExpressRoute entraînera-t-il des frais de transfert de données sortantes dans le plan de facturation à l’usage ?
     answer: "Le trafic dans le circuit ExpressRoute d’Azure VMware Solution n’est pas mesuré de quelque manière que ce soit. Le trafic entre votre circuit ExpressRoute qui se connecte à votre site local et Azure est facturé conformément aux plans de tarification d’ExpressRoute.\n\n- **Azure VMware Solution pour réseau virtuel** passe par un circuit ExpressRoute interne et est gratuit dans la même région qu’Azure VMware Solution. Toutefois, si le circuit ExpressRoute interne est connecté entre régions, des frais de transfert de données s’appliquent.\n\n- **Azure VMware Solution local** passe par un réseau virtuel ou ExpressRoute Global Reach (entre l’ExpressRoute interne et l’ExpressRoute externe). Il est toujours gratuit de fournir la connexion au réseau virtuel (mentionné ci-dessus) ou d’utiliser ExpressRoute Global Reach s’il se situe dans la région où l’instance Azure VMware Solution est déployée. \n"
-  - question: Quand la facturation à l’usage commence-t-elle et se termine-t-elle pour les clusters Azure VMware Solution en évaluation gratuite ?
-    answer: Les clusters d’évaluation sont limités à 3 hôtes utilisés pour des évaluations de 30 jours des clouds privés Azure VMware Solution. Après 30 jours, les clusters sont automatiquement facturés selon leurs tarifs respectifs. Si les clusters d’évaluation sont supprimés avant la fin des 30 jours, la version d’évaluation d’Azure VMware Solution prend fin au moment de la suppression.
   - question: Est-il nécessaire de procurer des licences et des ressources VMware supplémentaires autres que l’instance AV36 lors de la migration à partir de l’environnement de machine virtuelle locale avec extension L2 ?
     answer: "Non, vous n’avez pas besoin d’acheter de licences VMware supplémentaires au-delà du service Azure VMware Solution. Pour plus d’informations, consultez la [page de tarification d’Azure VMware Solution](https://azure.microsoft.com/pricing/details/azure-vmware/) pour voir la technologie VMware incluse.     \n"
 - name: Support
@@ -161,6 +157,8 @@ sections:
     answer: Le réseau WAN virtuel Azure ne fournit pas de routage transitif entre deux circuits ExpressRoute connectés et une passerelle ExpressRoute WAN non virtuelle. ExpressRoute Global Reach permet la connectivité entre la solution locale et Azure VMware, mais transite par le réseau global Microsoft au lieu du hub WAN virtuel.
   - question: Windows 2008 est-il pris en charge en tant que serveur Active Directory (AD) ou système d’exploitation RDSH (Remote Desktop Session Host) dans NSX-T ?
     answer: Non.
+  - question: Pourquoi ne puis-je pas accéder à l’appliance serveur VMware vCenter Azure VMware Solution ni à NSX-T Manager à partir d’un réseau local ou d’un réseau virtuel Azure ?
+    answer: "Cela est dû à la conception. Vous ne pouvez pas accéder à NSX-T Manager ni à vCenter Server Appliance (VCSA) à partir d’un emplacement local lorsque seule la route 0.0.0.0/0 (route par défaut) est publiée sur ExpressRoute Global Reach entre Azure VMware Solution et votre instance ExpressRoute locale ou via le réseau virtuel Azure vers Azure VMware Solution. Vous devez publier des routes/sous-réseaux spécifiques pour accéder à NSX-T Manager et à VCSA. \n"
 - name: Stockage
   questions:
   - question: Quelle est la bonne stratégie de stockage pour la configuration de la déduplication ?
@@ -197,12 +195,8 @@ sections:
     answer: Oui, tant que vous disposez du quota alloué à votre cloud privé, vous pouvez effectuer un scale-out de vos clusters. Lorsque la demande de charge de travail retombe, vous pouvez supprimer des hôtes du cluster pour effectuer un scale-down. Pour ce faire, vous pouvez utiliser le portail Azure VMware Solution.
   - question: L’infrastructure sous-jacente est-elle partagée ?
     answer: Non, les clusters et hôtes de cloud privé sont dédiés, et effacés en toute sécurité avant et après usage.
-  - question: Quels est le nombre minimal et maximal d’hôtes par cluster ?
-    answer: Les clusters peuvent être mis à l’échelle entre trois (minimum) et 16 (maximum) hôtes ESXi. Les clusters d’évaluation sont limités à trois hôtes.
-  - question: Puis-je mettre à l’échelle mes clusters de clouds privés ?
-    answer: Oui, les clusters peuvent être mis à l’échelle entre trois (minimum) et 16 (maximum) hôtes ESXi.
-  - question: Que sont les clusters d’évaluation ?
-    answer: Les clusters d’évaluation sont limités à trois hôtes utilisés pour effectuer des évaluations d’un mois de clouds privés Azure VMware Solution.
+  - question: Quels est le nombre minimal et maximal d’hôtes par cluster ? Puis-je mettre à l’échelle mes clusters de clouds privés ?
+    answer: Les clusters peuvent être mis à l’échelle entre trois (minimum) et 16 (maximum) hôtes ESXi.
 - name: Gestion des identités
   questions:
   - question: Quels comptes et privilèges vais-je obtenir avec mon nouveau cloud privé Azure VMware Solution ?

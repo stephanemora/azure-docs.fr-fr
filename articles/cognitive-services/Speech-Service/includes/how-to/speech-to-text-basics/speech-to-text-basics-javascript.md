@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 98ffbd2d8bed2ea59528fc7b7098d752c658792f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b652b2c7b3f1fd14e401381b5a83a5cf4a987fde
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "126057222"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378565"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -238,7 +238,7 @@ Il est possible d’ajouter des mots uniques ou des expressions entières à une
 >
 > La fonctionnalité Liste d’expressions ne doit pas être utilisée avec plus de quelques centaines d’expressions. Si vous disposez d’une liste plus grande ou pour des langues qui ne sont pas prises en charge actuellement, la [formation d’un modèle personnalisé](../../../custom-speech-overview.md) sera probablement le meilleur choix pour améliorer la précision.
 >
-> N’utilisez pas la fonctionnalité de liste d’expressions avec les points de terminaison personnalisés. Préférez plutôt l’entraînement d’un modèle personnalisé qui comprend les expressions.
+> La fonctionnalité de liste d’expressions n’est pas prise en charge avec les points de terminaison personnalisés. Vous ne devez donc pas l’utiliser avec ce type de points de terminaison. Préférez plutôt l’entraînement d’un modèle personnalisé qui comprend les expressions.
 
 Pour utiliser une liste d’expressions, commencez par créer un objet [`PhraseListGrammar`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar), puis ajoutez des mots et des expressions spécifiques avec [`addPhrase`](/javascript/api/microsoft-cognitiveservices-speech-sdk/phraselistgrammar#addphrase-string-).
 

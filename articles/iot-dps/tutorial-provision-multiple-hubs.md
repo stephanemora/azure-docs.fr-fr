@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 090d11866f3d3605a3703fd7ca39f820bbeb7187
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91315998"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273247"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutoriel : Provisionner des appareils sur des hubs IoT à charge équilibrée
 
-Ce didacticiel montre comment approvisionner des appareils sur plusieurs hubs IoT à charge équilibrée en utilisant le service Device Provisioning. Dans ce tutoriel, vous allez apprendre à :
+Ce didacticiel montre comment approvisionner des appareils sur plusieurs hubs IoT à charge équilibrée en utilisant le service Device Provisioning. Dans ce tutoriel, vous apprenez à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Utiliser le portail Azure pour approvisionner un deuxième appareil sur un deuxième hub IoT 
@@ -61,7 +61,7 @@ Effectuez les étapes suivantes pour définir la stratégie d’allocation :
 
 Liez le service Device Provisioning et le hub IoT pour que le service Device Provisioning puisse inscrire des appareils dans ce hub.
 
-1. Dans la page **Toutes les ressources**, cliquez sur le service Device Provisioning que vous avez créé.
+1. Dans la page **Toutes les ressources**, cliquez sur le service Device Provisioning que vous avez créé précédemment.
 2. Dans la page Service Device Provisioning, cliquez sur **Hubs IoT liés**.
 3. Cliquez sur **Add**.
 4. Dans la page **Ajouter un lien au hub IoT**, utilisez les cases d’option pour spécifier si le hub IoT lié se trouve dans l’abonnement actuel ou dans un autre abonnement. Ensuite, choisissez le nom du hub IoT dans la zone **Hub IoT**.

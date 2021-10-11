@@ -4,12 +4,12 @@ description: Découvrez comment restaurer un disque et créer une machine virtue
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7f4d70f43f76c3a72cd8e53037d06d32e61c3cdb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0de37086f3b7a968b69318ebe7bb73689812373a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107768493"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537216"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restaurer une machine virtuelle avec Azure CLI
 
@@ -163,6 +163,12 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 ```
 
 Quand l’*État* du travail de restauration indique *Terminé*, les informations nécessaires (configuration de la machine virtuelle et modèle de déploiement) ont été restaurées dans le compte de stockage.
+
+#### <a name="using-managed-identity-to-restore-disks"></a>Utilisation d’une identité managée pour restaurer des disques
+
+La Sauvegarde Azure vous permet également d’utiliser une identité managée (MSI) pendant l’opération de restauration pour accéder aux comptes de stockage sur lesquels les disques doivent être restaurés. Cette option est actuellement prise en charge uniquement pour la restauration de disque managé.
+
+Si vous souhaitez utiliser l’identité managée affectée par le système du coffre pour restaurer les disques, passez un indicateur supplémentaire * **--mi-system-assigned** _ à la commande [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks). Si vous souhaitez utiliser une identité managée affectée par l’utilisateur, passez un paramètre _*_ --mi-user-assigned_** avec l’ID ARM de l’identité managée du coffre comme valeur du paramètre. Reportez-vous à [cet article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) pour savoir comment activer l’identité managée pour vos coffres. 
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Créer une machine virtuelle à partir du disque restauré
 

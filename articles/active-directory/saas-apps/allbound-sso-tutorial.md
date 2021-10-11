@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Allbound SSO | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Allbound SSO'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Allbound SSO.
 services: active-directory
 author: jeevansd
@@ -9,106 +9,78 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 09/29/2021
 ms.author: jeedes
-ms.openlocfilehash: d8bac5651e0fe82ab018cb68af3a7a18027e1990
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: aba8b2f609a3ac5af79a5619eeb3b635b581ed54
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732378"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402237"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Tutoriel : Intégration d’Azure Active Directory à Allbound SSO
+# <a name="tutorial-azure-ad-sso-integration-with-allbound-sso"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Allbound SSO
 
-Dans ce tutoriel, vous allez apprendre à intégrer Allbound SSO à Azure Active Directory (Azure AD).
-L’intégration d’Allbound SSO à Azure AD offre les avantages suivants :
+Dans ce tutoriel, vous allez apprendre à intégrer Allbound SSO à Azure Active Directory (Azure AD). Quand vous intégrez Allbound SSO à Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Allbound SSO.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Allbound SSO (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Contrôler dans Azure AD qui a accès à Allbound SSO.
+* Permettre à vos utilisateurs de se connecter automatiquement à Allbound SSO avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="prerequisites"></a>Conditions préalables requises
+Pour commencer, vous devez disposer de ce qui suit :
 
-Pour configurer l’intégration d’Azure AD à Allbound SSO, vous avez besoin des éléments suivants :
-
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
-* Un abonnement Allbound SSO pour lequel l’authentification unique est activée
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Allbound SSO pour lequel l’authentification unique est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Allbound SSO prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
-* Allbound SSO prend en charge le provisionnement d’utilisateurs **Juste-à-temps**
+* Allbound SSO prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**.
+* Allbound SSO prend en charge l’attribution d’utilisateurs **Juste-à-temps**.
 
-## <a name="adding-allbound-sso-from-the-gallery"></a>Ajout d’Allbound SSO à partir de la galerie
+## <a name="add-allbound-sso-from-the-gallery"></a>Ajouter Allbound SSO à partir de la galerie
 
 Pour configurer l’intégration d’Allbound SSO à Azure AD, vous devez ajouter Allbound SSO, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Allbound SSO à partir de la galerie, effectuez les étapes suivantes :**
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Allbound SSO** dans la zone de recherche.
+1. Sélectionnez **Allbound SSO** dans le panneau de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-allbound-sso"></a>Configurer et tester l’authentification unique Azure AD pour Allbound SSO
 
-    ![Bouton Azure Active Directory](common/select-azuread.png)
+Configurez et testez l’authentification unique Azure AD avec Allbound SSO à l’aide d’un utilisateur test appelé **B. Simon**. Pour que l’authentification SSO fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur associé dans Allbound SSO.
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
+Pour configurer et tester l’authentification unique Azure AD avec Allbound SSO, effectuez les étapes suivantes :
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique de Allbound SSO](#configure-allbound-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur test Allbound SSO](#create-allbound-sso-test-user)** pour avoir un équivalent de B.Simon dans Allbound SSO lié à la représentation Azure AD de l’utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-    ![Bouton Nouvelle application](common/add-new-app.png)
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-4. Dans la zone de recherche, entrez **Allbound SSO**, sélectionnez **Allbound SSO** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Allbound SSO**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
-    ![Allbound SSO dans la liste des résultats](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
-
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Allbound SSO à l’aide d’un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, une relation entre un utilisateur Azure AD et l’utilisateur Allbound SSO associé doit être établie.
-
-Pour configurer et tester l’authentification unique Azure AD avec Allbound SSO, vous devez effectuer les modules suivants :
-
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Allbound SSO](#configure-allbound-sso-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Allbound SSO](#create-allbound-sso-test-user)** pour avoir un équivalent de Britta Simon dans Allbound SSO lié à la représentation Azure AD associée de l’utilisateur.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
-
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
-
-Pour configurer l’authentification unique Azure AD avec Allbound SSO, effectuez les étapes suivantes :
-
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Allbound SSO** et sélectionnez **Authentification unique**.
-
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
-
-    ![Capture d’écran montrant Configuration SAML de base, où vous pouvez entrer un identificateur et une URL de réponse, puis sélectionner Enregistrer.](common/idp-intiated.png)
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<SUBDOMAIN>.allbound.com/`
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<SUBDOMAIN>.allbound.com/acs`
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
-
-    ![Capture d’écran montrant Définir des URL supplémentaires, où vous pouvez entrer une URL de connexion.](common/metadata-upload-additional-signon.png)
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.allbound.com/`
 
@@ -123,66 +95,33 @@ Pour configurer l’authentification unique Azure AD avec Allbound SSO, effectu
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-    a. URL de connexion
-
-    b. Identificateur Azure AD
-
-    c. URL de déconnexion
-
-### <a name="configure-allbound-sso-single-sign-on"></a>Configurer l’authentification unique Allbound SSO
-
-Pour configurer l’authentification unique côté **Allbound SSO**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL correspondantes copiées à partir du portail Azure à l’[équipe du support technique Allbound SSO](mailto:engineering@allbound.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
-
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
-    Par exemple : BrittaSimon@contoso.com
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Allbound SSO.
+Dans cette section, vous allez permettre à B.Simon d’utiliser l’authentification unique Azure en lui accordant l’accès à Allbound SSO.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Allbound SSO**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Allbound SSO**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+## <a name="configure-allbound-sso"></a>Configurer l’authentification unique Allbound
 
-2. Dans la liste des applications, sélectionnez **Allbound SSO**.
-
-    ![Lien Allbound SSO dans la liste des applications](common/all-applications.png)
-
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
-
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+Pour configurer l’authentification unique côté **Allbound SSO**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL correspondantes copiées à partir du portail Azure à l’[équipe du support technique Allbound SSO](mailto:engineering@allbound.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-allbound-sso-test-user"></a>Créer un utilisateur de test Allbound SSO
 
@@ -191,16 +130,22 @@ Dans cette section, un utilisateur appelé Britta Simon est créé dans Allbound
 > [!Note]
 > Si vous avez besoin de créer un utilisateur manuellement, contactez l’[équipe du support technique d’Allbound SSO](mailto:engineering@allbound.com).
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
 
-Quand vous cliquez sur la vignette Allbound SSO dans le volet d’accès, vous devez être connecté automatiquement à l’application Allbound SSO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+#### <a name="sp-initiated"></a>Lancée par le fournisseur de services :
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Cliquez sur **Tester cette application** dans le portail Azure. Vous êtes alors redirigé vers l’URL d’authentification Allbound SSO, d’où vous pouvez lancer le processus de connexion.  
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+* Accédez directement à l’URL d’authentification Allbound SSO pour lancer le processus de connexion.
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>Lancée par le fournisseur d’identité :
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+* Cliquez sur **Tester cette application** dans le portail Azure, ce qui devrait vous connecter automatiquement à l’application Allbound SSO pour laquelle vous avez configuré l’authentification unique. 
+
+Vous pouvez aussi utiliser Mes applications de Microsoft pour tester l’application dans n’importe quel mode. Quand vous cliquez sur la vignette Allbound SSO dans Mes applications, si le mode Fournisseur de services est configuré, vous êtes redirigé vers la page d’authentification de l’application pour lancer le processus de connexion. Si le mode Fournisseur d’identité est configuré, vous devriez être automatiquement connecté à l’application Allbound SSO pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Une fois que vous avez configuré Allbound SSO, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

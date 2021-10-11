@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ff377b0f93968eb6743187e4e659f4e888e5010e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c150788f6b4c5439a20995c8db83b0f50c95a65
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94358897"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427093"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Didacticiel : configurer GoToMeeting pour l’approvisionnement automatique d’utilisateurs
 
@@ -60,17 +60,14 @@ Cette section explique comment connecter Azure AD à l’API de provisionnement 
 
 1. Définissez le **Mode d’approvisionnement** sur **Automatique**. 
 
-    ![Capture d’écran de l’onglet Approvisionnement pour GoToMeeting dans le portail Azure. Le mode d’approvisionnement est défini sur Automatique et les champs Nom d’utilisateur d’administrateur, Mot de passe et Tester la connexion sont en surbrillance.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Capture d’écran de l’onglet Approvisionnement pour GoToMeeting dans le portail Azure. Le mode d’approvisionnement est défini sur Automatique et les champs Nom d’utilisateur d’administrateur, Mot de passe et Tester la connexion sont en surbrillance.](https://user-images.githubusercontent.com/49566142/135871050-9d63861d-7963-47e0-bbdf-0e7c947e0b41.png)
 
-1. Dans la section Informations d’identification de l’administrateur, effectuez les étapes suivantes :
+
+1. Dans la section Informations d’identification de l’administrateur, cliquez sur **Autoriser** et connectez-vous à GoToMeeting dans la fenêtre indépendante qui s’affiche.
    
-    a. Dans la zone de texte **Nom d’utilisateur admin GoToMeeting**, tapez le nom d’utilisateur d’un administrateur.
-
-    b. Dans la zone de texte **Mot de passe de l’admin GoToMeeting**, tapez le mot de passe de l’administrateur.
 
 1. Dans le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application GoToMeeting. Si la connexion échoue, vérifiez que votre compte GoToMeeting dispose des autorisations d’administrateur d’équipe, puis revenez à l’étape **Informations d’identification de l’administrateur**.
 
-1. Entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement dans le champ **E-mail de notification**, puis cochez la case.
 
 1. Cliquez sur **Enregistrer.**
 

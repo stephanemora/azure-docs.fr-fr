@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: event-hubs
   ms.date: 01/20/2021
-  ms.openlocfilehash: 57f2f7c6cbb1cb502339d7fa87509672cef69e41
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: c4f0139377d24f5a7ad18f53f50c16d6bfd19191
+  ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122252634"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129536543"
 title: Forum Aux Questions (FAQ) sur Event Hubs
 summary: ''
 sections:
@@ -56,11 +56,7 @@ sections:
       Event Hubs émet des métriques exhaustives qui fournissent l’état de vos ressources à [Azure Monitor](../azure-monitor/overview.md). Elles vous permettent également d’évaluer l’intégrité globale du service Event Hubs non seulement au niveau de l’espace de noms mais également au niveau de l’entité. En savoir plus sur la supervision proposée pour les [Azure Event Hubs](monitor-event-hubs.md).
   - question: >
       Où le service Azure Event Hubs stocke-t-il des données ?
-    answer: >
-      Les niveaux Azure Event Hubs standard et dédié stockent les métadonnées et les données dans les régions que vous sélectionnez. Quand une géo-reprise d’activité après sinistre est configurée pour un espace de noms Azure Event Hubs, les métadonnées sont copiées dans la région secondaire que vous sélectionnez. Ainsi, ce service satisfait automatiquement aux exigences de résidence des données régionales, notamment à celles spécifiées dans le [centre de gestion de la confidentialité ](https://azuredatacentermap.azurewebsites.net/).
-
-
-      [!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]
+    answer: "Les niveaux Azure Event Hubs standard, Premium et dédiés stockent et traitent les données qui y sont publiées dans la région que vous sélectionnez quand vous créez un espace de noms Event Hubs. Par défaut, les données client restent dans cette région. Quand une géo-reprise d’activité après sinistre est configurée pour un espace de noms Azure Event Hubs, les métadonnées sont copiées dans la région secondaire que vous sélectionnez. Ainsi, ce service satisfait automatiquement aux exigences de résidence des données régionales, notamment à celles spécifiées dans le [centre de gestion de la confidentialité ](https://azuredatacentermap.azurewebsites.net/). \n\n[!INCLUDE [event-hubs-connectivity](./includes/event-hubs-connectivity.md)]\n"
 - name: Intégration d’Apache Kafka
   questions:
   - question: >

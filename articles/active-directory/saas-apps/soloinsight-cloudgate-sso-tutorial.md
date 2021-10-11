@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/24/2021
+ms.date: 09/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 7c52a14ce1115be6efcaf99a29f9ee7ca1836c71
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: f21c120374a7e6a42c5bb98a1db8687f00aba548
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110452667"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778473"
 ---
 # <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Tutoriel : Intégrer Soloinsight-CloudGate SSO à Azure Active Directory
 
@@ -38,6 +38,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Soloinsight-CloudGate SSO prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Soloinsight-CloudGate SSO prend en charge l’[attribution automatisée d’utilisateurs](soloinsight-cloudgate-sso-provisioning-tutorial.md).
 
 ## <a name="add-soloinsight-cloudgate-sso-from-the-gallery"></a>Ajouter Soloinsight-CloudGate SSO à partir de la galerie
 
@@ -67,13 +68,13 @@ Pour configurer et tester Azure AD SSO avec Soloinsight-CloudGate SSO, effectuez
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Soloinsight-CloudGate SSO**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Soloinsight-CloudGate SSO**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la boîte de dialogue **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+1. Dans la page **Configuration SAML de base**, effectuez les étapes suivantes :
 
     1. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.sigateway.com/login`
 
@@ -172,6 +173,9 @@ Pour créer un utilisateur de test, sélectionnez **Employees** dans le menu pri
 
 ![Test de l’employé](./media/soloinsight-cloudgate-sso-tutorial/employee-test.png)
 
+> [!NOTE]
+> Soloinsight-CloudGate SSO prend également en charge l’attribution automatique d’utilisateurs. Vous trouverez plus d’informations sur la configuration de cette fonctionnalité [ici](./soloinsight-cloudgate-sso-provisioning-tutorial.md).
+
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes. 
@@ -180,7 +184,7 @@ Dans cette section, vous allez tester votre configuration de l’authentificatio
 
 * Accédez directement à l’URL de connexion Soloinsight-CloudGate - SSO pour y lancer le flux de connexion.
 
-* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la tuile Soloinsight-CloudGate SSO dans Mes applications, vous serez redirigé vers l’URL de connexion Soloinsight-CloudGate SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
+* Vous pouvez utiliser Mes applications de Microsoft. Lorsque vous cliquez sur la tuile Soloinsight-CloudGate SSO dans Mes applications, vous serez redirigé vers l’URL de connexion Soloinsight-CloudGate SSO. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

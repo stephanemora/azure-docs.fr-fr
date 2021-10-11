@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 4aad194e1bfbd31cb31795ec4b6d21737800e06d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 616741c97b1e133dd9027b8622c181a9ca622b72
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121722566"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378237"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment rejoindre une conversation dans une réunion Teams à l’aide du kit SDK Conversation Azure Communication Services pour JavaScript.
 
@@ -24,7 +24,7 @@ Vous trouverez le code finalisé pour ce guide de démarrage rapide sur [GitHub]
 
 ## <a name="joining-the-meeting-chat"></a>Participation à la conversation d’une réunion 
 
-Un utilisateur de Communication Services peut participer à une réunion Teams en tant qu’utilisateur anonyme à l’aide du kit SDK Calling. En rejoignant la réunion, il est également ajouté comme participant à la conversation de la réunion, où il peut échanger des messages avec d’autres utilisateurs lors de la réunion. L’utilisateur n’aura pas accès aux messages de conversation envoyés avant qu’il rejoigne la réunion. Il ne pourra pas non plus envoyer ni recevoir des messages une fois la réunion terminée. Pour participer à la réunion et commencer à converser, vous pouvez suivre les étapes suivantes.
+Un utilisateur de Communication Services peut participer à une réunion Teams en tant qu’utilisateur anonyme à l’aide du kit de développement logiciel (SDK) Appel. En rejoignant la réunion, il est également ajouté comme participant à la conversation de la réunion, où il peut échanger des messages avec d’autres utilisateurs lors de la réunion. L’utilisateur n’aura pas accès aux messages de la conversation envoyés avant qu’il rejoigne la réunion. Il ne pourra pas non plus envoyer ni recevoir des messages une fois la réunion terminée. Pour participer à la réunion et commencer à converser, vous pouvez suivre les étapes suivantes.
 
 ## <a name="create-a-new-nodejs-application"></a>Création d’une application Node.js
 
@@ -205,118 +205,121 @@ const sendMessageButton = document.getElementById("send-message");
 const messagebox = document.getElementById("message-box");
 
 var userId = '';
-var messages = '';
+var lastMessage = '';
+var previousMessage = '';
 
 async function init() {
-    const connectionString = "<SECRET_CONNECTION_STRING>";
-    const endpointUrl = "<ENDPOINT_URL>";
+  const connectionString = "<SECRET_CONNECTION_STRING>";
+  const endpointUrl = "<ENDPOINT_URL>";
 
-    const identityClient = new CommunicationIdentityClient(connectionString);
+  const identityClient = new CommunicationIdentityClient(connectionString);
 
-    let identityResponse = await identityClient.createUser();
-    userId = identityResponse.communicationUserId;
-    console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
+  let identityResponse = await identityClient.createUser();
+  userId = identityResponse.communicationUserId;
+  console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
 
-    let tokenResponse = await identityClient.getToken(identityResponse, [
-        "voip",
-        "chat",
-    ]);
+  let tokenResponse = await identityClient.getToken(identityResponse, [
+    "voip",
+    "chat",
+  ]);
 
-    const { token, expiresOn } = tokenResponse;
-    console.log(`\nIssued an access token that expires at: ${expiresOn}`);
-    console.log(token);
+  const { token, expiresOn } = tokenResponse;
+  console.log(`\nIssued an access token that expires at: ${expiresOn}`);
+  console.log(token);
 
-    const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationTokenCredential(token);
-    callAgent = await callClient.createCallAgent(tokenCredential);
-    callButton.disabled = false;
+  const callClient = new CallClient();
+  const tokenCredential = new AzureCommunicationTokenCredential(token);
+  callAgent = await callClient.createCallAgent(tokenCredential);
+  callButton.disabled = false;
 
-    chatClient = new ChatClient(
-        endpointUrl,
-        new AzureCommunicationTokenCredential(token)
-    );
+  chatClient = new ChatClient(
+    endpointUrl,
+    new AzureCommunicationTokenCredential(token)
+  );
 
-    console.log('Azure Communication Chat client created!');
+  console.log('Azure Communication Chat client created!');
 }
 
 init();
 
 callButton.addEventListener("click", async () => {
-    // join with meeting link
-    call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
+  // join with meeting link
+  call = callAgent.join({meetingLink: meetingLinkInput.value}, {});
 
-    call.on('stateChanged', () => {
-        callStateElement.innerText = call.state;
-    })
-    // toggle button and chat box states
-    chatBox.style.display = "block";
-    hangUpButton.disabled = false;
-    callButton.disabled = true;
+  call.on('stateChanged', () => {
+      callStateElement.innerText = call.state;
+  })
+  // toggle button and chat box states
+  chatBox.style.display = "block";
+  hangUpButton.disabled = false;
+  callButton.disabled = true;
 
-    messagesContainer.innerHTML = messages;
+  messagesContainer.innerHTML = "";
 
-    console.log(call);
+  console.log(call);
 
-    // open notifications channel
-    await chatClient.startRealtimeNotifications();
+  // open notifications channel
+  await chatClient.startRealtimeNotifications();
 
-    // subscribe to new message notifications
-    chatClient.on("chatMessageReceived", (e) => {
-        console.log("Notification chatMessageReceived!");
+  // subscribe to new message notifications
+  chatClient.on("chatMessageReceived", (e) => {
+    console.log("Notification chatMessageReceived!");
 
       // check whether the notification is intended for the current thread
-        if (threadIdInput.value != e.threadId) {
-            return;
-        }
+    if (threadIdInput.value != e.threadId) {
+      return;
+    }
 
-        if (e.sender.communicationUserId != userId) {
-           renderReceivedMessage(e.message);
-        }
-        else {
-           renderSentMessage(e.message);
-        }
-    });
+    if (e.sender.communicationUserId != userId) {
+       renderReceivedMessage(e.message);
+    }
+    else {
+       renderSentMessage(e.message);
+    }
+  });
 
-    chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
+  chatThreadClient = await chatClient.getChatThreadClient(threadIdInput.value);
 });
 
 async function renderReceivedMessage(message) {
-    messages += '<div class="container lighter">' + message + '</div>';
-    messagesContainer.innerHTML = messages;
+  previousMessage = lastMessage;
+  lastMessage = '<div class="container lighter">' + message + '</div>';
+  messagesContainer.innerHTML = previousMessage + lastMessage;
 }
 
 async function renderSentMessage(message) {
-    messages += '<div class="container darker">' + message + '</div>';
-    messagesContainer.innerHTML = messages;
+  previousMessage = lastMessage;
+  lastMessage = '<div class="container darker">' + message + '</div>';
+  messagesContainer.innerHTML = previousMessage + lastMessage;
 }
 
 hangUpButton.addEventListener("click", async () => 
-    {
-        // end the current call
-        await call.hangUp();
+  {
+    // end the current call
+    await call.hangUp();
 
-        // toggle button states
-        hangUpButton.disabled = true;
-        callButton.disabled = false;
-        callStateElement.innerText = '-';
+    // toggle button states
+    hangUpButton.disabled = true;
+    callButton.disabled = false;
+    callStateElement.innerText = '-';
 
-        // toggle chat states
-        chatBox.style.display = "none";
-        messages = "";
-    });
+    // toggle chat states
+    chatBox.style.display = "none";
+    messages = "";
+  });
 
 sendMessageButton.addEventListener("click", async () =>
-    {
-        let message = messagebox.value;
+  {
+    let message = messagebox.value;
 
-        let sendMessageRequest = { content: message };
-        let sendMessageOptions = { senderDisplayName : 'Jack' };
-        let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
-        let messageId = sendChatMessageResult.id;
+    let sendMessageRequest = { content: message };
+    let sendMessageOptions = { senderDisplayName : 'Jack' };
+    let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
+    let messageId = sendChatMessageResult.id;
 
-        messagebox.value = '';
-        console.log(`Message sent!, message id:${messageId}`);
-    });
+    messagebox.value = '';
+    console.log(`Message sent!, message id:${messageId}`);
+  });
 ```
 
 Les noms d’affichage des participants aux conversations ne sont pas définis par le client Teams. La valeur Null est renvoyée dans l’API pour la liste des participants, dans l’événement `participantsAdded` et dans l’événement `participantsRemoved`. Les noms d’affichage des participants à la conversation peuvent être récupérés dans le champ `remoteParticipants` de l’objet `call`. Lorsque vous recevez une notification concernant une modification de la liste, vous pouvez utiliser ce code pour récupérer le nom de l’utilisateur qui a été ajouté ou supprimé :
@@ -327,7 +330,9 @@ var displayName = call.remoteParticipants.find(p => p.identifier.communicationUs
 
 ## <a name="get-a-teams-meeting-chat-thread-for-a-communication-services-user"></a>Obtenir le fil de conversation d’une réunion Teams pour un utilisateur Communication Services
 
-Il est possible récupérer le lien et la conversation de la réunion Teams à l’aide d’API Graph détaillées dans la [Documentation Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). Le kit SDK Communication Services Calling accepte un lien de réunion Teams complet. Ce lien est renvoyé avec la ressource `onlineMeeting`, accessible sous la propriété [`joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). Avec les [API Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), vous pouvez également obtenir le `threadId`. La réponse aura un objet `chatInfo` contenant le `threadID`. 
+Il est possible de récupérer les détails de la réunion Teams à l’aide d’API Graph décrites dans la [Documentation Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). Le kit SDK Communication Services Calling accepte un lien de réunion Teams complet ou un ID de réunion. Ces informations sont retournées dans le cadre de la ressource `onlineMeeting`, accessible sous la [propriété `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+
+Avec les [API Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true), vous pouvez également obtenir la valeur `threadID`. La réponse aura un objet `chatInfo` contenant le `threadID`. 
 
 Vous pouvez également récupérer les informations de réunion et l’ID de thread requis à partir de l’URL **Rejoindre la réunion** disponible dans l’invitation à la réunion Teams proprement dite.
 Un lien de réunion Teams ressemble à ceci : `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. Le `threadId` sera là où `meeting_chat_thread_id` se trouve dans le lien. Assurez-vous que le `meeting_chat_thread_id` n’est pas échappé avant de l’utiliser. Il doit être au format suivant : `19:meeting_ZWRhZDY4ZGUtYmRlNS00OWZaLTlkZTgtZWRiYjIxOWI2NTQ4@thread.v2`
@@ -345,7 +350,7 @@ Ouvrez votre navigateur et accédez à http://localhost:8080/. Les éléments su
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="Capture d’écran de l’application JavaScript terminée.":::
 
-Insérez le lien de réunion et l’ID de thread Teams dans les zones de texte. Appuyez sur *Participer à une réunion Teams* pour participer à la réunion Teams. Une fois que l’utilisateur Communication Services est admis à la réunion, vous pouvez converser à partir de votre application Azure Communication Services. Accédez à la zone en bas de la page pour commencer la conversation.
+Insérez le lien de réunion et l’ID de thread Teams dans les zones de texte. Appuyez sur *Participer à une réunion Teams* pour participer à la réunion Teams. Une fois que l’utilisateur Communication Services est admis à la réunion, vous pouvez converser à partir de votre application Azure Communication Services. Accédez à la zone en bas de la page pour commencer la conversation. Par souci de simplicité, l’application n’affichera que les deux derniers messages de la conversation.
 
 > [!NOTE] 
-> Actuellement, seuls l’envoi, la réception et la modification de messages et l’envoi de notifications de saisie sont pris en charge pour les scénarios d’interopérabilité avec Teams. D’autres fonctionnalités, telles que les accusés de réception et les utilisateurs Communication Services qui ajoutent ou suppriment d’autres utilisateurs dans la réunion Teams, ne sont pas prises en charge pour l’instant.
+> Actuellement, seuls l’envoi, la réception et la modification de messages et l’envoi de notifications de saisie sont pris en charge pour les scénarios d’interopérabilité avec Teams. D’autres fonctionnalités, telles que les accusés de réception et les utilisateurs Communication Services qui ajoutent ou suppriment d’autres utilisateurs dans la réunion Teams, ne sont pas prises en charge.

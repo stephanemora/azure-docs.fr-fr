@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 09/28/2021
 ms.author: jeedes
-ms.openlocfilehash: 0cc51035a8bdb0ee12d27763b1d03e6b08494b66
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5adf1f5c2c811bdc2b48e03c1e2892746d36da4b
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124795770"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402893"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Meraki Dashboard
 
@@ -37,7 +37,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-- Meraki Dashboard prend en charge l’authentification unique initiée par le **fournisseur d’identité**.
+- Meraki Dashboard prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -63,7 +63,7 @@ Pour configurer et tester l’authentification unique Azure AD avec Meraki Dash
    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Meraki Dashboard](#configure-meraki-dashboard-sso)** pour configurer les paramètres de l’authentification unique côté application
-   1. **[Créer un utilisateur de test Meraki Dashboard](#create-meraki-dashboard-test-user)** pour avoir un équivalent de B.Simon dans Meraki Dashboard qui soit lié à la représentation Azure AD de l’utilisateur
+   1. **[Créer des rôles d’administrateur Meraki Dashboard](#create-meraki-dashboard-admin-roles)** pour avoir un équivalent de B.Simon dans Meraki Dashboard, lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -169,7 +169,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
    ![Configuration de Meraki Dashboard](./media/meraki-dashboard-tutorial/configure-4.png)
 
-### <a name="create-meraki-dashboard-test-user"></a>Créer un utilisateur de test Meraki Dashboard
+### <a name="create-meraki-dashboard-admin-roles"></a>Créer des rôles d’administrateur Meraki Dashboard
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à Meraki Dashboard en tant qu’administrateur.
 
@@ -184,6 +184,26 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Entrez le rôle **meraki_full_admin**, choisissez **Full** pour **Organization access**, puis cliquez sur **Create role**. Répétez le processus pour **meraki_readonly_admin** mais en choisissant **Read-only** pour **Organization access**.
 
    ![Meraki Dashboard - Create user (Créer un utilisateur)](./media/meraki-dashboard-tutorial/user-3.png)
+
+1. Suivez les étapes ci-dessous pour mapper les rôles Meraki Dashboard à des rôles SAML Azure AD :
+
+   ![Capture d’écran des rôles d’application.](./media/meraki-dashboard-tutorial/app-role.png)
+
+   a. Dans le portail Azure, cliquez sur **Inscriptions d’applications**.
+
+   b. Sélectionnez Toutes les applications et cliquez sur **Meraki Dashboard**.
+
+   c. Cliquez sur **Rôles de l’application** et sur **Créer un rôle d’application**.
+
+   d. Entrez le nom d’affichage `Meraki Full Admin`.
+   
+   e. Sélectionnez Membres autorisés comme `Users/Groups`.
+
+   f. Entrez `meraki_full_admin` comme Valeur.
+
+   g. Entrez `Meraki Full Admin` comme Description.
+
+   h. Cliquez sur **Enregistrer**. 
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

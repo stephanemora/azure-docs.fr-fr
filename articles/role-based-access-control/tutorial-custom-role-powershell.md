@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 8b1815e7598410cd709572d93082d5dee5e0b0fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a4fac2cde6f18e504dc2866cc479ce51e3b70b2a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97369240"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361997"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Tutoriel : Créer un rôle personnalisé Azure à l’aide d’Azure PowerShell
 
-Si les [rôles intégrés Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Pour ce tutoriel, vous allez créer un rôle personnalisé nommé Reader Support Tickets à l’aide d’Azure PowerShell. Le rôle personnalisé permet à l’utilisateur de consulter tous les éléments du plan de gestion d’un abonnement et d’ouvrir des tickets de support.
+Si les [rôles intégrés Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Pour ce tutoriel, vous allez créer un rôle personnalisé nommé Reader Support Tickets à l’aide d’Azure PowerShell. Le rôle personnalisé permet à l’utilisateur de voir toutes les informations contenues dans le plan de contrôle d’un abonnement et d’ouvrir des tickets de support.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -93,7 +93,7 @@ Le moyen le plus simple de créer un rôle personnalisé consiste à commencer a
     }
     ```
     
-1. Modifiez le fichier JSON pour ajouter l’opération `"Microsoft.Support/*"` à la propriété `Actions`. Veillez à inclure une virgule après l’opération de lecture. Cette action autorise l’utilisateur à créer des tickets de support.
+1. Modifiez le fichier JSON pour ajouter l’action `"Microsoft.Support/*"` à la propriété `Actions`. Veillez à inclure une virgule après l’action de lecture. Cette action autorise l’utilisateur à créer des tickets de support.
 
 1. Obtenez l’ID de votre abonnement à l’aide de la commande [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
@@ -179,7 +179,7 @@ Pour mettre à jour le rôle personnalisé, vous pouvez mettre à jour le fichie
 
 1. Ouvrez le fichier dans un éditeur.
 
-1. Dans `Actions`, ajoutez l’opération pour créer et gérer les déploiements de groupes de ressources `"Microsoft.Resources/deployments/*"`.
+1. Dans `Actions`, ajoutez l’action pour créer et gérer des déploiements de groupes de ressources `"Microsoft.Resources/deployments/*"`.
 
     Votre fichier JSON mis à jour doit ressembler à ceci :
 
@@ -227,7 +227,7 @@ Pour mettre à jour le rôle personnalisé, vous pouvez mettre à jour le fichie
     $role = Get-AzRoleDefinition "Reader Support Tickets"
     ```
     
-1. Appelez la méthode `Add` pour ajouter l’opération de lecture des paramètres de diagnostic.
+1. Appelez la méthode `Add` pour ajouter l’action de lecture des paramètres de diagnostic.
 
     ```azurepowershell
     $role.Actions.Add("Microsoft.Insights/diagnosticSettings/*/read")

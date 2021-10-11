@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 05/17/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 9126b3a915f9d457b51a69a4cef9a79003597c31
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 3b731b83264802884bba01ed3c32db6152d0a4f9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091128"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356122"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle Azure (RBAC Azure) ?
 
@@ -48,7 +48,7 @@ Un *principal de sécurité* est un objet qui représente un utilisateur, un gro
 
 ### <a name="role-definition"></a>Définition de rôle
 
-Une *définition de rôle* est une collection d’autorisations. Elle est généralement simplement appelée *rôle*. Une définition de rôle répertorie les opérations qui peuvent être effectuées, telles que lire, écrire et supprimer. Les rôles peuvent être de haut niveau, comme propriétaire, ou spécifiques, comme lecteur de machines virtuelles.
+Une *définition de rôle* est une collection d’autorisations. Elle est généralement simplement appelée *rôle*. Une définition de rôle liste les actions qui peuvent être effectuées, comme lire, écrire et supprimer. Les rôles peuvent être de haut niveau, comme propriétaire, ou spécifiques, comme lecteur de machines virtuelles.
 
 ![Schéma présentant un exemple de définition de rôle pour une attribution de rôle](./media/shared/rbac-role-definition.png)
 
@@ -58,7 +58,7 @@ Cette vidéo fournit une vue d’ensemble rapide des rôles intégrés et des r�
 
 >[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
-Azure propose des opérations de données qui vous permettent d’accorder l’accès aux données au sein d’un objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données d’un compte de stockage, il peut lire les objets blob ou les messages de ce compte de stockage.
+Azure propose des actions de données qui vous permettent d’accorder l’accès aux données au sein d’un objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données d’un compte de stockage, il peut lire les objets blob ou les messages de ce compte de stockage.
 
 Pour plus d’informations, consultez [Comprendre les définitions de rôle Azure](role-definitions.md).
 

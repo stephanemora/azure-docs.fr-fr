@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 08a836e9615fe2368c4ff03256b295a2040f0c75
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 1f588231ad903730826b8235a52983aee60cf8f1
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542825"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129377791"
 ---
 L’une des principales fonctionnalités du service de reconnaissance vocale est la possibilité de reconnaître et de transcrire la voix humaine (souvent appelée « reconnaissance vocale »). Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le SDK de reconnaissance vocale dans vos applications et produits afin d’effectuer une conversion de voix en texte de qualité.
 
@@ -250,7 +250,7 @@ Il est possible d’ajouter des mots uniques ou des expressions entières à une
 >
 > La fonctionnalité Liste d’expressions ne doit pas être utilisée avec plus de quelques centaines d’expressions. Si vous disposez d’une liste plus grande ou pour des langues qui ne sont pas prises en charge actuellement, la [formation d’un modèle personnalisé](../../../custom-speech-overview.md) sera probablement le meilleur choix pour améliorer la précision.
 >
-> N’utilisez pas la fonctionnalité de liste d’expressions avec les points de terminaison personnalisés. Préférez plutôt l’entraînement d’un modèle personnalisé qui comprend les expressions.
+> La fonctionnalité de liste d’expressions n’est pas prise en charge avec les points de terminaison personnalisés. Vous ne devez donc pas l’utiliser avec ce type de points de terminaison. Préférez plutôt l’entraînement d’un modèle personnalisé qui comprend les expressions.
 
 Pour utiliser une liste d’expressions, commencez par créer un objet [`PhraseListGrammar`](/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar), puis ajoutez des mots et des expressions spécifiques avec [`AddPhrase`](/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar.addphrase#com_microsoft_cognitiveservices_speech_PhraseListGrammar_addPhrase_String_).
 

@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 04/05/2021
-  ms.openlocfilehash: ff157a3d8e744dffd314525a053b8c3ca1ab8999
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: d4877b7346e9854748f6106ca881732c549e98a1
+  ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122252495"
+  ms.lasthandoff: 09/29/2021
+  ms.locfileid: "129271666"
 title: 'Foire aux questions : agent Microsoft Azure Recovery Services (MARS)'
 summary: >
   Cet article répond aux questions courantes sur la sauvegarde de données à l’aide de l’agent MARS (Microsoft Azure Recovery Services) dans le service [Sauvegarde Microsoft Azure](backup-overview.md).
@@ -84,6 +84,10 @@ sections:
   - question: >
       Lorsque l'abonnement au coffre est transféré vers une autre instance d'Azure AD Directory, quel est l'impact sur les sauvegardes de l'agent MARS ?
     answer: "Le changement d'instance d'Azure AD Directory n'a aucun impact sur les sauvegardes de l'agent MARS. \n"
+  - question: >
+      Que se passe-t-il si la sauvegarde hebdomadaire, mensuelle ou annuelle prévue échoue ?
+    answer: >
+      Si la sauvegarde échoue, la sauvegarde suivante réussie après la sauvegarde hebdomadaire, mensuelle ou annuelle prévue est conservée pendant la période de conservation des données pour respectivement les points de récupération hebdomadaires, mensuels et annuels (points de conservation à long terme), conformément à la stratégie de sauvegarde. Cette sauvegarde réussie peut être une sauvegarde ad hoc ou une sauvegarde planifiée dans le cas de l’agent MARS.
 - name: Gestion des sauvegardes
   questions:
   - question: >

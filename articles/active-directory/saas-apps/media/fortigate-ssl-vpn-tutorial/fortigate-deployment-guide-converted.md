@@ -1,7 +1,6 @@
 ---
-title: Guide de déploiement FortiGate | Microsoft Docs
+title: Guide de déploiement FortiGate
 description: Configurez et utilisez le produit de pare-feu nouvelle génération Fortinet FortiGate.
-services: active-directory
 author: jeevansd
 manager: CelesteDG
 ms.reviewer: celested
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: jeedes
-ms.openlocfilehash: cdaa6a9601452100ab90ef8b0f2191002f256b74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1b3a2dca9e11e12a72ec99685ff71beb279473e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95025468"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353937"
 ---
 # <a name="fortigate-azure-virtual-machine-deployment-guide"></a>Guide de déploiement de machine virtuelle Azure FortiGate
 
@@ -217,4 +216,4 @@ Les machines virtuelles Azure multirésidentes possèdent toutes les interfaces 
 
 ## <a name="configure-fortigate-ssl-vpn"></a>Configurer FortiGate SSL VPN
 
-Suivre les étapes présentées dans https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial
+Suivre les étapes mises en avant dans [Tutoriel : Intégration de l’authentification unique Azure Active Directory à FortiGate SSL VPN](../../fortigate-ssl-vpn-tutorial.md)

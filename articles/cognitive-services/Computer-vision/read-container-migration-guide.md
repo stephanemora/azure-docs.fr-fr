@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 05/24/2021
+ms.date: 09/28/2021
 ms.author: aahi
-ms.openlocfilehash: f8913bc75688184d30711e4ee33b5d3601557ee7
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 5998ccdfa48a700ac8789954246f6b7bcec60543
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113303667"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360500"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrer vers des conteneurs OCR Read v3.x
 
@@ -39,7 +39,7 @@ Pour plus d’informations sur la mise à jour de vos applications pour utiliser
 
 ## <a name="memory-requirements"></a>Besoins en mémoire
 
-Les exigences et les suggestions sont basées sur des tests d’évaluation effectués avec une seule requête par seconde, à partir d’une image de 8 Mo d’une lettre d’entreprise analysée qui contient 29 lignes et 803 caractères au total. Le tableau suivant décrit l'allocation de ressources minimale et recommandée pour chaque conteneur OCR Read.
+Les exigences et les suggestions sont basées sur des tests d’évaluation effectués avec une seule requête par seconde, à partir d’une image de 8 Mo d’une lettre d’entreprise analysée qui contient 29 lignes et 803 caractères au total. Le tableau suivant décrit les allocations de ressources minimale et recommandée pour chaque conteneur OCR Read.
 
 |Conteneur  |Minimum | Recommandé  |
 |---------|---------|------|

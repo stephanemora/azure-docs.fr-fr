@@ -91,7 +91,7 @@
       items:
         - name: À propos de Logic Apps avec Azure Arc
           href: azure-arc-enabled-logic-apps-overview.md
-        - name: Créer et déployer des applications logiques avec Arc
+        - name: Créer et déployer des applications logiques avec Azure Arc
           href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
     - name: Développer
       items:

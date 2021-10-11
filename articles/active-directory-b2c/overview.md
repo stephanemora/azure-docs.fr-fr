@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29b34041042f00d72b8a9fe86e31bd80f8c77dc2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 916c5191acb0f7245c929c6ef1db5fca4fc3841b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94953948"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352457"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Qu’est-ce qu’Azure Active Directory B2C ?
 
@@ -23,7 +23,12 @@ Azure Active Directory B2C fournit une identité entreprise- client en tant que 
 
 ![Infographie des fournisseurs d’identité Azure AD B2C et d’applications en aval](./media/overview/azureadb2c-overview.png)
 
-Azure Active Directory B2C (Azure AD B2C) est une solution de gestion des identités et des accès clients, capable de prendre en charge des millions d’utilisateurs et des milliards d’authentifications par jour. Elle prend en charge la mise à l’échelle et la sécurité de la plateforme d’authentification, surveillant et gérant automatiquement les menaces, telles que les attaques par déni de service, pulvérisation de mot de passe ou force brute.
+Azure AD B2C est une solution de gestion des identités et des accès clients, capable de prendre en charge des millions d’utilisateurs et des milliards d’authentifications par jour. Elle prend en charge la mise à l’échelle et la sécurité de la plateforme d’authentification, surveillant et gérant automatiquement les menaces, telles que les attaques par déni de service, pulvérisation de mot de passe ou force brute.
+
+Azure AD B2C est un service distinct d’[Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md). Il repose sur la même technologie qu’Azure AD, mais dans un autre but : permettre aux entreprises de créer des applications orientées client, puis autoriser quiconque à s’y inscrire sans aucune restriction sur le compte d’utilisateur.
+   
+## <a name="who-uses-azure-ad-b2c"></a>Qui utilise Azure AD B2C ?
+Toute entreprise ou personne souhaitant autoriser quiconque à s’inscrire à ses applications web/mobiles. 
 
 ## <a name="custom-branded-identity-solution"></a>Solution d’identité personnalisée respectant la marque
 
@@ -35,9 +40,9 @@ Personnalisez chaque page affichée par Azure AD B2C lorsque vos utilisateurs s�
 
 ## <a name="single-sign-on-access-with-a-user-provided-identity"></a>Accès avec authentification unique et identité fournie par l’utilisateur
 
-Le service Azure AD B2C utilise des protocoles d’authentification reposant sur des normes, dont OpenID Connect, OAuth 2.0 et SAML. Il s’intègre à la plupart des applications modernes et logiciels du commerce.
+Azure AD B2C utilise des protocoles d’authentification reposant sur des normes, dont OpenID Connect, OAuth 2.0 et SAML (Security Assertion Markup Language). Il s’intègre à la plupart des applications modernes et logiciels du commerce.
 
-![Diagramme de fédération d’identités tierces avec Azure AD B2C](./media/overview/scenario-singlesignon.png)
+:::image type="content" source="./media/overview/scenario-singlesignon.png" alt-text="Diagramme d’une fédération d’identités tierces avec Azure AD B2C.":::
 
 En jouant le rôle d’autorité d’authentification centrale pour vos applications web, applications mobiles et API, Azure AD B2C vous permet de créer une solution d’authentification unique (SSO) pour celles-ci. Centralisez la collecte des informations de profil utilisateur et de préférence, et capturez une analytique détaillée sur le comportement de connexion et la conversion d’inscription.
 
@@ -45,25 +50,26 @@ En jouant le rôle d’autorité d’authentification centrale pour vos applicat
 
 Azure AD B2C fournit un annuaire pouvant contenir 100 attributs personnalisés par utilisateur. Cependant, vous pouvez également intégrer des systèmes externes. Par exemple, vous utilisez Azure AD B2C pour l’authentification, mais déléguez les données client à une base de données externe de gestion de la relation client (CRM) ou de fidélisation des clients en tant que source de confiance.
 
-Un autre scénario de magasin d’utilisateurs externes consiste à laisser Azure AD B2C gérer l’authentification pour votre application tout en intégrant un système externe qui stocke les données des profils utilisateur ou les données personnelles. Par exemple, pour répondre aux exigences de résidence des données, telles que les stratégies de stockage de données régionales ou locales.
+Un autre scénario de magasin d’utilisateurs externes consiste à laisser Azure AD B2C gérer l’authentification pour votre application tout en intégrant un système externe qui stocke les données des profils utilisateur ou les données personnelles. Par exemple, pour répondre aux exigences de résidence des données, telles que les stratégies de stockage de données régionales ou locales. Toutefois, le service Azure Active Directory B2C lui-même est disponible dans le monde entier via le cloud public Azure. 
 
-![Diagramme logique de la communication d’Azure AD B2C avec un magasin d’utilisateurs externes](./media/overview/scenario-remoteprofile.png)
+:::image type="content" source="./media/overview/scenario-remoteprofile.png" alt-text="Diagramme logique de la communication d’Azure AD B2C avec un magasin d’utilisateurs externes.":::
 
-Azure AD B2C peut faciliter la collecte des informations au niveau de l’utilisateur lors de l’inscription ou de la modification de profil, puis transmettre ces données au système externe. Par la suite, lors d’authentifications ultérieures, Azure AD B2C peut récupérer les données du système externe et, si nécessaire, les inclure dans le cadre de la réponse du jeton d’authentification qu’il envoie à votre application.
+Azure AD B2C peut faciliter la collecte des informations au niveau de l’utilisateur lors de l’inscription ou de la modification de profil, puis transmettre ces données au système externe via une API. Par la suite, lors d’authentifications ultérieures, Azure AD B2C peut récupérer les données du système externe et, si nécessaire, les inclure dans le cadre de la réponse du jeton d’authentification qu’il envoie à votre application.
 
 ## <a name="progressive-profiling"></a>Profilage progressif
 
 Une autre option de parcours utilisateur comprend le profilage progressif. Le profilage progressif permet à vos clients d’effectuer rapidement leur première transaction en recueillant une quantité minime d’informations. Ensuite, il collecte petit à petit plus de données de profil auprès du client lors de connexions futures.
 
-![Représentation visuelle d’un profilage progressif](./media/overview/scenario-progressive.png)
+:::image type="content" source="./media/overview/scenario-progressive.png" alt-text="Représentation visuelle d’un profilage progressif.":::
 
 ## <a name="third-party-identity-verification-and-proofing"></a>Vérification et confirmation d’identités tierces
 
-Utilisez Azure AD B2C pour faciliter la vérification et la confirmation d’identités en recueillant des données utilisateur, puis en les passant à un système tiers afin de procéder à la validation, au scoring de confiance et à l’approbation autorisant la création de comptes d’utilisateur.
+Utilisez Azure AD B2C pour faciliter la vérification et la confirmation d’identités en recueillant des données utilisateur, puis en les passant à un système tiers afin de procéder à la validation, au scoring de confiance et à l’approbation autorisant la création de comptes d’utilisateur.
 
-![Diagramme montrant le flux utilisateur pour la confirmation d’identités tierces](./media/overview/scenario-idproofing.png)
 
-Ce sont là seulement quelques-unes des actions qu’il vous est possible d’accomplir avec Azure AD B2C en tant que plateforme d’identités d’entreprise-client. Les sections suivantes de cette présentation vous guident tout au long d’une application de démonstration qui utilise Azure AD B2C. Vous êtes également invité à passer directement à une [vue d’ensemble technique plus détaillée d’Azure AD B2C](technical-overview.md).
+:::image type="content" source="./media/overview/scenario-idproofing.png" alt-text="Diagramme montrant le flux d’utilisateur pour la confirmation d’identités tierces.":::
+
+Vous avez appris quelques-unes des actions qu’il vous est possible d’accomplir avec Azure AD B2C en tant que plateforme d’identités entreprise-à-client. Les sections suivantes de cette présentation vous guident tout au long d’une application de démonstration qui utilise Azure AD B2C. Vous êtes également invité à passer directement à une [vue d’ensemble technique plus détaillée d’Azure AD B2C](technical-overview.md).
 
 ## <a name="example-woodgrove-groceries"></a>Exemple : WoodGrove Groceries
 
@@ -103,7 +109,7 @@ Le fait de cliquer sur le bouton **Create** déclenche la redirection de l’uti
 
 ### <a name="authenticate-business-customers"></a>Authentifier les clients professionnels
 
-Lorsqu’un client sélectionne une des options sous **Business clients**, le site web de WoodGrove Groceries appelle une autre stratégie Azure AD B2C que celle utilisée pour les particuliers.
+Lorsqu’un client sélectionne une des options sous **Business customers**, le site web de WoodGrove Groceries appelle une autre *stratégie Azure AD B2C* que celle utilisée pour les particuliers. Apprenez ce qu’est une *stratégie B2C* dans [Présentation technique d’Azure AD B2C](technical-overview.md).
 
 Cette stratégie propose à l’utilisateur de se servir de ses informations d’identification d’entreprise pour l’inscription et la connexion. Dans l’exemple de WoodGrove, les utilisateurs sont invités à se connecter avec un compte professionnel ou scolaire. Cette stratégie utilise une [application Azure AD multilocataire](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) et le point de terminaison Azure AD `/common` pour fédérer Azure AD B2C avec n’importe quel client Microsoft 365 dans le monde.
 

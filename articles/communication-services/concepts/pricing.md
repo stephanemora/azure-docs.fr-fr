@@ -9,12 +9,12 @@ ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: d8938a437db42a2d1cb5dd88f6102ce7f5facb3a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: d2ea2c510aa9e6225de215da128670514f1dba3b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259075"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360453"
 ---
 # <a name="pricing-scenarios"></a>Scénarios de tarifs
 
@@ -190,10 +190,10 @@ Les tarifs suivants comprennent les taxes et frais de communication :
 
 ### <a name="sms"></a>sms
 
-Les SMS sont facturés à l’utilisation. Le prix est fixé à l’unité, en fonction de la destination du message. Les messages peuvent être envoyés depuis des numéros gratuits vers des numéros de téléphone situés aux États-Unis. Notez que les numéros de téléphone locaux (géographiques) ne peuvent pas être utilisés pour envoyer des SMS.
+Les SMS sont facturés à l’utilisation. Le prix est fixé au segment de message, en fonction de la destination du message. Rendez-vous [ici](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit) pour en savoir plus sur les segments de message. Les messages peuvent être envoyés depuis des numéros gratuits vers des numéros de téléphone situés aux États-Unis. Notez que les numéros de téléphone locaux (géographiques) ne peuvent pas être utilisés pour envoyer des SMS.
 
 Les tarifs suivants comprennent les taxes et frais de communication :
 
 |Pays ou région   |Envoyer des messages|Recevoir des messages|
 |-----------|------------|------------|
-|États-Unis (numéro gratuit)    |0,0075 USD/SMS   | 0,0075 USD/SMS |
+|États-Unis (numéro gratuit)    |0,0075 USD/segment de message  | 0,0075 USD/segment de message |

@@ -11,12 +11,12 @@ ms.date: 08/24/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe1da3615d835b6a2d828fdbca989c805a9f9b17
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: cae6f7285618771f2486c62bfbd3d532db146c8a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823077"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350614"
 ---
 # <a name="troubleshoot-ecma-connector-host-issues"></a>Résoudre les problèmes liés à l’hôte du connecteur ECMA
 
@@ -187,7 +187,7 @@ Vous pouvez recevoir un message d’erreur lorsque vous installez l’agent de p
 
 Ce problème est généralement dû à l’incapacité de l’agent à exécuter les scripts d’inscription PowerShell en raison des stratégies d’exécution PowerShell locales.
 
-Pour résoudre ce problème, modifiez les stratégies d’exécution PowerShell sur le serveur. Les stratégies de la machine et de l’utilisateur doivent être définies sur *Undefined* ou *RemoteSigned*. Si elles sont définies sur *Unrestricted*, vous verrez ce message d’erreur. Pour plus d’informations, consultez [Stratégies d’exécution PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Pour résoudre ce problème, modifiez les stratégies d’exécution PowerShell sur le serveur. Les stratégies de la machine et de l’utilisateur doivent être définies sur *Undefined* ou *RemoteSigned*. Si elles sont définies sur *Unrestricted*, vous verrez ce message d’erreur. Pour plus d’informations, consultez [Stratégies d’exécution PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### <a name="log-files"></a>Fichiers journaux
 
@@ -219,7 +219,7 @@ Azure AD vous permet de superviser le service de provisionnement dans le cloud 
   ```
 
 ### <a name="i-am-getting-an-invalid-ldap-style-dn-error-when-trying-to-configure-the-ecma-connector-host-with-sql"></a>J’obtiens une erreur de DN de style LDAP non valide lors de la tentative de configuration de l’hôte connecteur ECMA avec SQL
-Par défaut, le connecteur genericSQL s’attend à ce que le DN soit rempli à l’aide du style LDAP (lorsque l’attribut « DN est une ancre » n’est pas activé dans la première page de connectivité). Dans le message d’erreur ci-dessus, vous pouvez voir que le DN est un UPN, plutôt qu’un DN de style LDAP attendu par le connecteur. 
+Par défaut, le connecteur genericSQL s’attend à ce que le DN soit rempli avec le style LDAP (lorsque l’attribut « DN est une ancre » n’est pas activé dans la première page de connectivité). Dans le message d’erreur ci-dessus, vous pouvez voir que le DN est un UPN, plutôt qu’un DN de style LDAP attendu par le connecteur. 
 
 Pour résoudre cette erreur, vérifiez que **généré automatiquement** est sélectionné sur la page Types d’objets lorsque vous configurez le connecteur.
 
@@ -227,7 +227,4 @@ Consultez [À propos des attributs d’ancre et des noms uniques](on-premises-ap
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Installation de l’hôte du connecteur Azure AD ECMA](on-premises-ecma-install.md)
-- [Configuration de l’hôte du connecteur Azure AD ECMA](on-premises-ecma-configure.md)
-- [Connecteur SQL générique](on-premises-sql-connector-configure.md)
 - [Tutoriel : Connecteur SQL générique pour l’Hôte de connecteur ECMA](tutorial-ecma-sql-connector.md)

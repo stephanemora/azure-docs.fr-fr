@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 20a1fd8b222da14eb70206d4a9e3b087d4b20690
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e3ed432e1c0c6b9fbe602720935e5c549437587a
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662587"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277116"
 ---
 # <a name="latency-in-blob-storage"></a>Latence dans le stockage d’objets blob
 
 La latence, parfois désignée sous le terme « temps de réponse », correspond au temps d’attente d’une application pendant le traitement d’une requête. La latence peut affecter directement les performances d’une application. Une faible latence est souvent primordiale dans les scénarios faisant intervenir des humains, par exemple pour le traitement de transactions par carte de crédit ou le chargement de pages web. Les systèmes qui doivent traiter des événements entrants moyennant des taux élevés, par exemple des événements IoT ou de journalisation de données de télémétrie, nécessitent également une faible latence. Cet article explique en quoi consiste la latence des opérations sur des objets blob de blocs et comment la mesurer. Il explique également comment concevoir des applications présentant une faible latence.
 
-Le stockage Azure offre deux options de performances pour les objets blob de blocs : Premium et standard. Avec les disques SSD hautes performances, les objets blob de blocs Premium offrent une latence plus constante et nettement inférieure à celle des objets standard. Pour plus d’informations, consultez la section **Stockage d’objets blob de blocs de performances Premium** de l’article [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md).
+Le stockage Azure offre deux options de performances pour les objets blob de blocs : Premium et standard. Avec les disques SSD hautes performances, les objets blob de blocs Premium offrent une latence plus constante et nettement inférieure à celle des objets standard. Pour plus d’informations, consultez **Stockage d’objets blob de blocs de performances Premium** dans [Niveaux d’accès chaud, froid et archive pour les données blob](access-tiers-overview.md).
 
 ## <a name="about-azure-storage-latency"></a>À propos de la latence du stockage Azure
 

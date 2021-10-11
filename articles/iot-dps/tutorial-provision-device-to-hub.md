@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b6dce9f84ff78a7caaf5f5f7ef702053640cee7a
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.openlocfilehash: eed3ff374850d4861c94fe79263c26a8f33760ac
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112519098"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271685"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Tutoriel : Approvisionner l’appareil sur un hub IoT avec le service IoT Hub Device Provisioning
 
-Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous apprenez à utiliser ce service pour approvisionner votre appareil sur un seul IoT Hub à l’aide de l’approvisionnement automatique et de **_listes d’inscriptions_** . Ce didacticiel vous explique les procédures suivantes :
+Dans le tutoriel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous apprenez à utiliser ce service pour approvisionner votre appareil sur un seul IoT Hub à l’aide de l’approvisionnement automatique et de **_listes d’inscriptions_** . Ce didacticiel vous explique les procédures suivantes :
 
 > [!div class="checklist"]
 > * Inscrire l’appareil
@@ -56,7 +56,7 @@ Il existe deux façons d’inscrire l’appareil auprès du service Device Provi
 
 Vous inscrivez l’appareil auprès de votre instance Device Provisioning Service à l’aide des artefacts de sécurité requis en fonction du mécanisme d’attestation de l’appareil : 
 
-1. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre instance Device Provisioning Service.
+1. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service Device Provisioning.
 
 2. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Suivant la configuration de votre appareil, sélectionnez l’onglet **Inscriptions individuelles** ou **Groupes d’inscriptions**. Cliquez sur le bouton **Ajouter** en haut. Sélectionnez **TPM** ou **X.509** comme *mécanisme* d’attestation de l’identité, puis entrez les artefacts de sécurité appropriés, comme indiqué précédemment. Vous pouvez entrer un nouvel **ID d’appareil IoT Hub**. Cela fait, cliquez sur le bouton **Enregistrer**. 
 
@@ -64,21 +64,21 @@ Vous inscrivez l’appareil auprès de votre instance Device Provisioning Servic
 
     ![Inscription TPM réussie dans le portail](./media/tutorial-provision-device-to-hub/tpm-enrollment-success.png)
 
-Après l’inscription, le service d’approvisionnement attend que l’appareil démarre et s’y connecte plus tard. Au premier démarrage de votre appareil, la bibliothèque du Kit de développement logiciel (SDK) client interagit avec votre processeur pour extraire les artefacts de sécurité de l’appareil et vérifie l’inscription auprès de votre instance Device Provisioning Service. 
+Après l’inscription, le service d’approvisionnement attend que l’appareil démarre et s’y connecte plus tard. Au premier démarrage de votre appareil, la bibliothèque du SDK client interagit avec votre processeur pour extraire les artefacts de sécurité de l’appareil, et vérifie l’inscription auprès de votre service Device Provisioning. 
 
 ## <a name="start-the-iot-device"></a>Démarrer l’appareil IoT
 
-Votre appareil IoT peut être un appareil réel ou un appareil simulé. Étant donné que l’appareil IoT est maintenant inscrit avec une instance de service Device Provisioning, l’appareil peut désormais démarrer et appeler le service d’approvisionnement pour être reconnu à l’aide du mécanisme d’attestation. Une fois l’appareil reconnu par le service d’approvisionnement, il est affecté à un hub IoT. 
+Votre appareil IoT peut être un appareil réel ou un appareil simulé. Étant donné que l’appareil IoT est maintenant inscrit avec une instance de service Device Provisioning, l’appareil peut désormais démarrer et appeler le service d’approvisionnement pour être reconnu à l’aide du mécanisme d’attestation. Une fois l’appareil reconnu par le service d’approvisionnement, il est affecté à un hub IoT.
 
-Des exemples d’appareil simulé, avec des attestations TPM et X.509, sont inclus pour C, Java, C#, Node.js et Python. Par exemple, un appareil simulé utilisant un TPM et le [kit de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdk-c) suit le processus traité dans la section [Simuler la première séquence de démarrage d’un appareil](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device). Le même appareil utilisant l’attestation de certificats X.509 fait référence à la section [Séquence de démarrage](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device).
+Des exemples d’appareil simulé, avec des attestations TPM et X.509, sont inclus pour C, Java, C#, Node.js et Python.  Pour obtenir un exemple d’appareil utilisant une attestation TPM, consultez [Démarrage rapide : Provisionner un appareil TPM simulé](quick-create-simulated-device-tpm.md). Pour obtenir un exemple d’appareil utilisant une attestation X.509, consultez [Démarrage rapide : Provisionner un appareil à clé symétrique simulé](quick-create-simulated-device-x509.md#prepare-and-run-the-device-provisioning-code).
 
-Démarrez l’appareil pour autoriser votre application cliente d’appareil à lancer l’inscription auprès de votre service Device Provisioning.  
+Démarrez l’appareil pour autoriser l’application cliente de votre appareil à commencer l’inscription auprès de votre service Device Provisioning.  
 
 ## <a name="verify-the-device-is-registered"></a>Vérifier que l’appareil est enregistré
 
 Une fois que votre appareil démarre, voici les actions qui doivent se produire :
 
-1. L’appareil envoie une demande d’enregistrement à votre service Device Provisioning.
+1. L’appareil envoie une demande d’inscription au service de provisionnement des appareils.
 2. Pour les appareils TPM, le service Device Provisioning envoie une demande d’enregistrement à laquelle répond votre appareil. 
 3. Une fois l’inscription réussie, le service Device Provisioning envoie l’URI du hub IoT, l’ID de l’appareil et la clé chiffrée à l’appareil. 
 4. L’application cliente IoT Hub sur l’appareil peut alors se connecter à votre hub. 
@@ -86,7 +86,7 @@ Une fois que votre appareil démarre, voici les actions qui doivent se produire�
 
     ![Connexion réussie au hub dans le portail](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
-Pour plus d’informations, consultez l’exemple de provisionnement de client d’appareil, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). L’exemple illustre le provisionnementd’un appareil simulé à l’aide du module de plateforme sécurisée (TPM), de certificats X.509 et de clés symétriques. Pour obtenir des instructions pas à pas sur l’utilisation de cet exemple, consultez les guides de démarrage rapide d’attestation [TPM](./quick-create-simulated-device.md), [X.509](./quick-create-simulated-device-x509.md) et [Clé symétrique](./quick-create-simulated-device-symm-key.md).
+Pour plus d’informations, consultez l’exemple de provisionnement de client d’appareil, [prov_dev_client_sample.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c). L’exemple illustre le provisionnementd’un appareil simulé à l’aide du module de plateforme sécurisée (TPM), de certificats X.509 et de clés symétriques. Pour obtenir des instructions pas à pas sur l’utilisation de cet exemple, consultez les guides de démarrage rapide d’attestation [TPM](./quick-create-simulated-device-tpm.md), [X.509](./quick-create-simulated-device-x509.md) et [Clé symétrique](./quick-create-simulated-device-symm-key.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à :
