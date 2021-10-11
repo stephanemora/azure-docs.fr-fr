@@ -297,20 +297,6 @@
               href: h-series-retirement.md
             - name: "Mise hors service de la série\_HB"
               href: hb-series-retirement.md
-        - name: États et facturation
-          href: states-billing.md
-        - name: Quotas de processeurs virtuels
-          items:
-            - name: Interface de ligne de commande
-              displayName: 'vCPU, quota, limit'
-              href: ./linux/quotas.md
-            - name: PowerShell
-              displayName: 'vCPU, quota, limit'
-              href: ./windows/quotas.md
-        - name: Machines virtuelles Azure sans disque temporaire
-          href: azure-vms-no-temp-disk.yml
-        - name: Conventions de nommage pour les tailles de machine virtuelle Azure
-          href: vm-naming-conventions.md
         - name: Générations précédentes
           displayName: 'older, retired, expired, deprecated'
           href: sizes-previous-gen.md
@@ -320,9 +306,6 @@
         - name: Tailles isolées
           displayName: 'isolated VM, sole-tenant, sole'
           href: isolation.md
-        - name: Générations précédentes
-          displayName: 'older, retired, expired, deprecated'
-          href: sizes-previous-gen.md
         - name: Unités de calcul Azure (ACU)
           href: acu.md
         - name: Scores de test d’évaluation

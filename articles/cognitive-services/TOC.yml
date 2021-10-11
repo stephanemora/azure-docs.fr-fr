@@ -5,8 +5,6 @@
   items:
     - name: Présentation de Cognitive Services
       href: what-are-cognitive-services.md
-    - name: Documentation sur les nouveautés Cognitive Services
-      href: whats-new-docs.md
     - name: Support multilingue
       href: language-support.md
     - name: Tarifs
