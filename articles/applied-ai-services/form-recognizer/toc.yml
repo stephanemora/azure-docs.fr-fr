@@ -16,19 +16,19 @@ items:
     items:
       - name: "Form Recognizer\_v2.1"
         items:
-          - name: "Bien démarrer\_: Outil d’étiquetage Form Recognizer"
+          - name: Outil d’étiquetage Form Recognizer
             href: quickstarts/try-sample-label-tool.md
-          - name: "Bien démarrer\_: Bibliothèques de client et API REST"
+          - name: Bibliothèques de client et API REST
             href: quickstarts/try-sdk-rest-api.md
       - name: "Form Recognizer\_v3.0 | Préversion"
         items:
-          - name: "Bien démarrer\_: Form Recognizer Studio (préversion)"
+          - name: Form Recognizer Studio (préversion)
             href: quickstarts/try-v3-form-recognizer-studio.md
-          - name: "Bien démarrer\_: API REST (préversion)"
+          - name: API REST (préversion)
             href: quickstarts/try-v3-rest-api.md
-          - name: "Bien démarrer\_: SDK C# (préversion)"
+          - name: Kit SDK C# (préversion)
             href: quickstarts/try-v3-csharp-sdk.md
-          - name: "Bien démarrer\_: SDK Python (préversion)"
+          - name: Kit SDK Python (préversion)
             href: quickstarts/try-v3-python-sdk.md
   - name: Exemples
     items:
@@ -133,6 +133,8 @@ items:
         href: tutorial-azure-function.md
   - name: Référence
     items:
+      - name: "Codes d’erreur et messages\_v3.0 (préversion)"
+        href: preview-error-guide.md
       - name: "API REST Azure Form Recognizer\_v2.1"
         items:
           - name: "Informations de référence sur l’API REST\_v2.1"

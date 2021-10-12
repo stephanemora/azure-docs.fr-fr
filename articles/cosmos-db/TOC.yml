@@ -1036,6 +1036,8 @@
         - name: Rechercher des frais d’unités de requête
           displayName: 'request units, RUs, RU, charge, consumption'
           href: cassandra/find-request-unit-charge-cassandra.md
+        - name: Empêcher les erreurs de limitation du débit
+          href: cassandra/prevent-rate-limiting-errors.md
         - name: Stocker et gérer Spring Data
           href: cassandra/access-data-spring-data-app.md
         - name: Résolution des problèmes courants

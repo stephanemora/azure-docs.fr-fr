@@ -11,24 +11,24 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.custom: custom-portals-hub
-  ms.date: 08/28/2020
+  ms.date: 10/08/2021
 highlightedContent:
   items:
     - title: Présentation de Cognitive Services
       itemType: overview
       url: ./what-are-cognitive-services.md
-    - title: Nouveautés dans la documentation
-      itemType: whats-new
-      url: whats-new-docs.md
+    - title: Conteneurs locaux Cognitive Services
+      itemType: concept
+      url: ./containers/index.yml
+    - title: Utilisation responsable de l’IA
+      itemType: concept
+      url: responsible-use-of-ai-overview.md
     - title: Options de développement
       itemType: concept
       url: ./cognitive-services-development-options.md
     - title: Cognitive Services et machine learning
       itemType: concept
       url: ./cognitive-services-and-machine-learning.md
-    - title: Conteneurs Cognitive Services locaux
-      itemType: concept
-      url: ./containers/index.yml
     - title: Cognitive Services avec des bases de données
       itemType: concept
       url: ./big-data/cognitive-services-for-big-data.md
@@ -130,12 +130,6 @@ conceptualContent:
         - url: ./big-data/samples-python.md
           itemType: reference
           text: Exemples Python
-    - title: Utilisation responsable de l’IA
-      summary: Azure Cognitive Services fournit des informations et des instructions sur l’utilisation responsable de nos services IA dans vos applications.
-      links:
-        - url: responsible-use-of-ai-overview.md
-          itemType: overview
-          text: Utilisation responsable de l’IA
 additionalContent:
   sections:
     - title: Ressources supplémentaires

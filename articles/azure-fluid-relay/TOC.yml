@@ -16,6 +16,8 @@
       href: concepts/container-management.md
     - name: Structures de données distribuées
       href: concepts/data-structures.md
+    - name: Chiffrement des données dans Relais Azure Fluid
+      href: concepts/data-encryption.md
     - name: Authentification et autorisation dans votre application
       href: concepts/authentication-authorization.md
     - name: Compatibilité des versions

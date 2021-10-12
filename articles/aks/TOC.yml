@@ -237,6 +237,8 @@
           href: load-balancer-standard.md
         - name: Utiliser une adresse IP statique et une étiquette DNS
           href: static-ip.md
+        - name: Utiliser un proxy HTTP (préversion)
+          href: http-proxy.md
         - name: Entrée
           items:
             - name: Créer un contrôleur de base

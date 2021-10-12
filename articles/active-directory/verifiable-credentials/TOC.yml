@@ -8,14 +8,12 @@
 - name: Tutoriels
   expanded: true
   items:
-    - name: Prise en main des justificatifs vérifiables
-      href: get-started-verifiable-credentials.md
-    - name: Configurer les justificatifs vérifiables dans votre locataire
-      items:
-        - name: "1 - Configurer l’émetteur de justificatifs vérifiables dans votre propre instance Azure\_AD"
-          href: enable-your-tenant-verifiable-credentials.md
-        - name: "2 - Connecter votre émetteur de justificatifs vérifiables à votre propre instance Azure\_AD"
-          href: issue-verify-verifiable-credentials-your-tenant.md
+    - name: Configurer le service Justificatifs vérifiables
+      href: verifiable-credentials-configure-tenant.md
+    - name: Émettre un justificatif vérifiable
+      href: verifiable-credentials-configure-issuer.md
+    - name: Vérifier un justificatif vérifiable
+      href: verifiable-credentials-configure-verifier.md
 - name: Concepts
   expanded: true
   items:
@@ -32,6 +30,8 @@
           href: plan-issuance-solution.md
         - name: Planifier votre solution de vérification
           href: plan-verification-solution.md
+    - name: Utilisation de l’API REST du service de demande
+      href: get-started-request-api.md
     - name: Personnaliser vos justificatifs
       href: credential-design.md
     - name: Gérer la révocation des justificatifs
@@ -49,6 +49,15 @@
       href: 'https://didvc-issuer-sample.azurewebsites.net/'
     - name: Exemple de vérificateur
       href: 'https://didvc-verifier-sample.azurewebsites.net/'
+- name: Informations de référence
+  expanded: true
+  items:
+    - name: Nouveautés
+      href: whats-new.md
+    - name: Spécification d’une API d’émission
+      href: issuance-request-api.md
+    - name: Spécification d’une API de présentation
+      href: presentation-request-api.md
 - name: Ressources
   expanded: true
   items:
