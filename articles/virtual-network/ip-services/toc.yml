@@ -59,7 +59,7 @@ items:
       - name: Sécurité
         items:
           - name: Base de référence de sécurité pour les adresses IP publiques
-        href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json?toc=/azure/virtual-network/toc.json
+            href: /security/benchmark/azure/baselines/public-ip-security-baseline?toc=/azure/virtual-network/ip-services/toc.json
   - name: Procédures
     items:
       - name: Configurer des adresses IP pour une interface réseau Azure

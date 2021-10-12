@@ -168,6 +168,8 @@
           href: cache-how-to-monitor.md
         - name: Définir des alertes pour les exceptions
           href: cache-how-to-monitor.md#operations-and-alerts
+        - name: Superviser avec les journaux de diagnostic
+          href: cache-monitor-diagnostic-settings.md
         - name: Questions fréquentes (FAQ) sur la supervision
           href: cache-monitor-troubleshoot-faq.yml
     - name: Scale
