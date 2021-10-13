@@ -4,12 +4,12 @@ description: Décrit comment sauvegarder et restaurer des machines virtuelles Az
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 89514bad58633727b5189c7d0daecccf5372efea
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: 6f669a7382cfe7dad4c1a58186ce3c6a30f49063
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123214994"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533968"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -529,6 +529,12 @@ Une fois le travail de restauration terminé, utilisez la cmdlet [Get-AzRecovery
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob -VaultId $targetVault.ID
 $details = Get-AzRecoveryServicesBackupJobDetail -Job $restorejob -VaultId $targetVault.ID
 ```
+
+#### <a name="using-managed-identity-to-restore-disks"></a>Utilisation d’une identité managée pour restaurer des disques
+
+La Sauvegarde Azure vous permet également d’utiliser une identité managée (MSI) pendant l’opération de restauration pour accéder aux comptes de stockage sur lesquels les disques doivent être restaurés. Cette option est actuellement prise en charge uniquement pour la restauration de disque managé.
+
+Si vous souhaitez utiliser l’identité managée affectée par le système du coffre pour restaurer les disques, transmettez un indicateur supplémentaire * **-UseSystemAssignedIdentity** _ à la commande Restore-AzRecoveryServicesBackupItem. Si vous souhaitez utiliser une identité managée affectée par l’utilisateur, passez un paramètre _*_ -UserAssignedIdentityId_** avec l’ID ARM de l’identité managée du coffre comme valeur du paramètre. Reportez-vous à [cet article](encryption-at-rest-with-cmk.md#enable-managed-identity-for-your-recovery-services-vault) pour savoir comment activer l’identité managée pour vos coffres. 
 
 #### <a name="restore-selective-disks"></a>Restaurer des disques de manière sélective
 

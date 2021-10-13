@@ -4,12 +4,12 @@ description: Répertorie tous les espaces de noms de fournisseurs de ressources 
 ms.topic: conceptual
 ms.date: 09/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c10fb3e92b4d7c31a311cad980ffdfca9b891c9c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a8a460407df41e6f80436ffc4e663dacc427d84f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657972"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711609"
 ---
 # <a name="resource-providers-for-azure-services"></a>Fournisseurs de ressources pour les services Azure
 
@@ -36,7 +36,7 @@ Les fournisseurs de ressources marqués avec **- inscrit** sont inscrits par dé
 | Microsoft.AutonomousSystems | [Systèmes autonomes](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
-| Microsoft.AzureArcData | Services de données avec Azure Arc |
+| Microsoft.AzureArcData | Services de données avec Azure Arc |
 | Microsoft.AzureData | Registre SQL Server |
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |

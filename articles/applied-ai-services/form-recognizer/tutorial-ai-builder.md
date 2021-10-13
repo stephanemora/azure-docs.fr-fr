@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 11/23/2020
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: ea5e49cf6a61ad89d182637c11b969ee80c754e6
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: b541c19f3a3bd129e81723df7b1b58ba75e4a540
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326926"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714442"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Tutoriel : Créer une application de traitement de formulaires avec AI Builder
 
@@ -57,7 +57,7 @@ Dans la page **Ajouter des documents**, vous devez ajouter des exemples de docum
 > - Documents PDF de plus de 50 pages
 > - PDF remplissables
 >
-> Pour plus d’informations sur les exigences relatives aux documents d’entrée, consultez [Critères des entrées](./overview.md#input-requirements).
+> Pour plus d’informations sur les exigences relatives aux documents d’entrée, consultez [Critères des entrées](concept-model-overview.md#input-requirements).
 
 ### <a name="upload-your-documents"></a>Charger les documents
 
@@ -78,7 +78,7 @@ Dans la page **Ajouter des documents**, vous devez ajouter des exemples de docum
 Quand l’analyse est terminée, sélectionnez la miniature pour ouvrir l’expérience de sélection de champ.
 
 > [!IMPORTANT]
-> Si l’analyse a échoué, il est probable qu’AI Builder n’ait pas pu détecter le texte structuré dans vos documents. Vérifiez que les documents que vous avez mis à jour respectent les [critères des entrées](./overview.md#input-requirements).
+> Si l’analyse a échoué, il est probable qu’AI Builder n’ait pas pu détecter le texte structuré dans vos documents. Vérifiez que les documents que vous avez mis à jour respectent les [critères des entrées](concept-model-overview.md#input-requirements).
 
 ## <a name="select-your-form-fields"></a>Sélectionner les champs de formulaire
 

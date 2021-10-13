@@ -6,13 +6,13 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 08/17/2021
-ms.openlocfilehash: cfbff4be8048090ec606fd8640281dccd17fe084
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/29/2021
+ms.openlocfilehash: 377c9fc994c4d26b67791e3eb525c7fba75a9d78
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128598003"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388885"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Nouveautés Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -21,6 +21,40 @@ ms.locfileid: "128598003"
 [Azure Database pour MySQL - Serveur flexible](./overview.md#azure-database-for-mysql---flexible-server-preview) est un mode de déploiement qui est conçu pour offrir un contrôle et une flexibilité plus granulaires des fonctions de gestion de base de données et des paramètres de configuration que le mode de déploiement Serveur unique. Le service prend actuellement en charge les versions de la communauté de MySQL 5.7 et 8.0.
 
 Cet article résume les nouvelles versions et fonctionnalités d’Azure Database pour MySQL - Serveur flexible à compter de janvier 2021. Les éléments s’affichent dans l’ordre chronologique inverse, avec les mises à jour les plus récentes en premier.
+## <a name="october-2021"></a>Octobre 2021
+- **Zones de disponibilité - Sélection lors de la création de réplicas en lecture**
+
+    Lorsque vous créez un réplica en lecture, vous avez la possibilité de sélectionner l’emplacement Zones de disponibilité de votre choix. Une zone de disponibilité est une offre à haute disponibilité qui protège vos applications et vos données contre les défaillances des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. [En savoir plus](../flexible-server/concepts-read-replicas.md)
+
+- **Réplicas en lecture dans Azure Database pour MySQL - Les serveurs flexibles ne seront plus disponibles sur les références (SKU) de type burstable**
+    
+    Vous ne serez pas en mesure de créer des réplicas de lecture existants ou de les gérer sur le serveur de niveau Burstable. Dans le but de fournir une expérience de développement et de requête satisfaisante pour les niveaux de référence Burstable, la prise en charge de la création et de la gestion des réplicas de lecture pour les serveurs dans le niveau tarifaire Burstable peut être interrompue. 
+
+    Si vous disposez d’un serveur flexible Azure Database pour MySQL avec un réplica en lecture activé, vous devez mettre à l’échelle votre serveur vers les niveaux tarifaires Usage général ou À mémoire optimisée ou supprimer le réplica en lecture dans un délai de 60 jours. Après la période de 60 jours, vous pouvez continuer à utiliser le serveur principal pour vos opérations de lecture-écriture, mais la réplication pour les serveurs de réplica en lecture sera arrêtée. Pour les serveurs nouvellement créés, l’option de réplica en lecture est disponible uniquement pour les niveaux de tarification Usage général et À mémoire optimisée.  
+
+ 
+
+## <a name="september-2021"></a>Septembre 2021
+
+Cette version d’Azure Database pour MySQL - Serveur flexible inclut les mises à jour suivantes.
+
+- **Disponibilité dans trois régions Azure supplémentaires**
+
+  La préversion publique d’Azure Database pour MySQL - Serveur flexible est maintenant disponible dans les régions Azure suivantes :
+
+  - Ouest du Royaume-Uni
+  - Est du Canada
+  - OuJapon Est
+
+- **Résolution des bogues**
+
+  La création d’une haute disponibilité de zone identique est résolue dans les régions suivantes :
+
+  - Inde centrale
+  - Asie Est
+  - Centre de la Corée
+  - Afrique du Sud Nord
+  - Suisse Nord
 
 ## <a name="august-2021"></a>Août 2021
 
@@ -48,7 +82,7 @@ Cette version d’Azure Database pour MySQL - Serveur flexible inclut les mises 
 
 - **Plug-ins validate_password et caching_sha2_password disponibles en préversion privée**
 
-  Me mode Serveur flexible prend maintenant en charge l’activation des plug-ins validate_password et caching_sha2_password en préversion privée. Veuillez nous envoyer un e-mail à l’adresse AskAzureDBforMySQL@service.microsoft.com.
+  Me mode Serveur flexible prend maintenant en charge l’activation des plug-ins validate_password et caching_sha2_password en préversion privée. Envoyez-nous un e-mail à l’adresse AskAzureDBforMySQL@service.microsoft.com
 
 - **Disponibilité dans quatre régions Azure supplémentaires**
 

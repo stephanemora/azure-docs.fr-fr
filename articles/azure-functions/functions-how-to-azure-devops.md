@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 7d3a108185c43be2f6de72466db10db5e2ec94f1
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6e35b814b8b6fce5f223200f1774b7da2fee7a8c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110077317"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660967"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Livraison continue à l’aide d’Azure DevOps
 
@@ -244,8 +244,6 @@ Si votre application JavaScript a une dépendance sur des modules natifs de Wind
 Lorsque vous créez un nouveau pipeline de mise en production, recherchez le modèle de mise en production d’Azure Functions.
 
 ![Rechercher le modèle de mise en production Azure Functions](media/functions-how-to-azure-devops/release-template.png)
-
-Le déploiement vers un emplacement de déploiement n’est pas pris en charge dans le modèle de mise en production.
 
 ## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Création d’un pipeline de build à l’aide de l’interface de ligne de commande Azure
 

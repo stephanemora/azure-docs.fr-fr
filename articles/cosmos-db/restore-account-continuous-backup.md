@@ -8,12 +8,12 @@ ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 62f2491bdd1d3b24be50410a88dcb2114e867913
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1f8622b37055cf8585e9c43f2e822756ac06d1de
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532760"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352187"
 ---
 # <a name="restore-an-azure-cosmos-db-account-that-uses-continuous-backup-mode"></a>Restaurer un compte Azure Cosmos DB qui utilise le mode de sauvegarde continue
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -49,6 +49,8 @@ Vous pouvez utiliser Portail Azure pour restaurer un compte actif entier ou cert
    :::image type="content" source="./media/restore-account-continuous-backup/restore-live-account-portal.png" alt-text="Restaurer un compte actif à la suite d’une modification accidentelle sur le portail Azure." border="true" lightbox="./media/restore-account-continuous-backup/restore-live-account-portal.png":::
 
 1. Après avoir sélectionné les paramètres ci-dessus, sélectionnez le bouton **Envoyer** pour lancer une restauration. Le coût de restauration est une charge unique, qui est basée sur la taille des données et le coût du stockage de sauvegarde dans la région sélectionnée. Pour plus d’informations, consultez la section [Tarification](continuous-backup-restore-introduction.md#continuous-backup-pricing).
+
+La suppression du compte source alors qu’une restauration est en cours peut entraîner l’échec de la restauration.
 
 ### <a name="use-event-feed-to-identify-the-restore-time"></a><a id="event-feed"></a>Utiliser un flux d’événements pour identifier l’heure de la restauration
 
@@ -95,7 +97,7 @@ Après avoir lancé une opération de restauration, sélectionnez l’icône **N
 
 Avant de restaurer le compte, installez la [dernière version d’Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) ou une version supérieure à 6.2.0. Connectez-vous ensuite à votre compte Azure et sélectionnez l’abonnement requis avec les commandes suivantes :
 
-1. Connectez-vous à Azureen utilisant la commande suivante :
+1. Connectez-vous à Azure en utilisant la commande suivante :
 
    ```azurepowershell
    Connect-AzAccount

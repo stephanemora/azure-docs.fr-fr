@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 08/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 01d62055de8e8327b518bc3638cab85426917247
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 98fd879cb8d960f2f688b3aa002fa86832981744
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864640"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353077"
 ---
 # <a name="media-reserved-units-migration-guidance"></a>Aide sur la migration avec unités réservées Multimédia
 
@@ -34,7 +34,7 @@ Cet article fournit des recommandations basées sur un scénario d’unités ré
 Procédez à la migration de vos unités réservées Multimédias en fonction des scénarios suivants :
 
 * Pour tous les comptes Media Services, vous n’avez plus besoin de définir des unités réservées Multimédias. Le système effectue un scale-up et un scale-down automatiquement en fonction de la charge.
-* Si vous avez un compte qui a été créé à l’aide d’une version antérieure à l’API 2020-05-01, vous avez toujours accès à l’API pour la gestion des unités réservées Multimédias. Toutefois, aucune des configurations d’unités réservées Multimédias que vous définissez ne sera utilisée pour contrôler la concurrence ou les performances d’encodage. Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). Vous pouvez gérer les unités réservées Multimédia à l’aide de CLI 2.0 pour Media Services V3 ou du portail Azure.
+* Si vous avez un compte qui a été créé à l’aide d’une version antérieure à l’API 2020-05-01 (ou version ultérieure), vous avez toujours accès à l’API pour la gestion des unités réservées Multimédias. Toutefois, aucune des configurations d’unités réservées Multimédias que vous définissez ne sera utilisée pour contrôler la concurrence ou les performances d’encodage. Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). Vous pouvez gérer les unités réservées Multimédia à l’aide de CLI 2.0 pour Media Services V3 ou du portail Azure.
 * Si vous ne voyez pas l’option permettant de gérer les unités réservées Multimédia dans le portail Azure, cela signifie que vous exécutez un compte créé avec l’API 2020-05-01 ou version ultérieure.
 * Si vous êtes familiarisé avec la définition de votre type d’unité réservée Multimédia sur S3, vos performances s’amélioreront ou resteront les mêmes avec la suppression des unités réservées multimédias.
 * Si vous êtes un client V2 existant, vous devez créer un compte V3 pour prendre en charge votre application existante avant de terminer la migration. 

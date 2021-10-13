@@ -1,26 +1,26 @@
 ---
-title: Tarifs du calcul réservé - Azure Database pour PostgreSQL - Serveur unique
+title: Tarifs du calcul réservé - Azure Database pour PostgreSQL
 description: Prépayer les ressources de calcul Azure Database pour PostgreSQL avec une capacité de réserve
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 958663ffc0b05b55d837ae565ee48ee03a54b0ba
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: 9d8c0a4f550442b59a65993aceba37a1672ce078
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674734"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389491"
 ---
-# <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Database pour PostgreSQL - Serveur unique avec une capacité de réserve
+# <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>Prépayer les ressources de calcul Azure Database pour PostgreSQL avec une capacité de réserve
 
 Faites des économies avec Azure Database pour PostgreSQL en utilisant le prépaiement de ressources de calcul au lieu d’appliquer le tarif du paiement à l’utilisation. Avec une capacité de réserve Azure Database pour PostgreSQL, vous prenez un engagement initial pour le serveur PostgreSQL, sur une période d’un ou de trois ans, afin de bénéficier d’une remise importante sur les coûts de calcul. Pour acheter une capacité de réserve Azure Database pour PostgreSQL, vous devez spécifier la région Azure, le type de déploiement, le niveau de performance et le terme. </br>
 
 Vous n’avez pas besoin d’attribuer la réservation à des serveurs Azure Database pour PostgreSQL spécifiques. Un serveur Azure Database pour PostgreSQL déjà en cours d’exécution (ou plusieurs récemment déployés) bénéficient automatiquement du tarif réservé. En achetant une réservation, vous payez d’avance les coûts de calcul pendant une durée d’un an ou de trois ans. Dès que vous achetez une réservation, les charges de calcul Azure Database pour PostgreSQL qui correspondent aux attributs de la réservation ne sont plus facturées au tarif du paiement à l’utilisation. Une réservation ne couvre pas les frais de logiciels, de mise en réseau ou de stockage qui sont associés aux serveurs de base de données PostgreSQL. À l’issue de la période de réservation, la remise sur facturation expire et les serveurs Azure Database pour PostgreSQL sont facturés au tarif du paiement à l’utilisation. Les réservations ne se renouvellent pas automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité de réserve Azure Database pour PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/). </br>
 
 > [!IMPORTANT]
-> La tarification de la capacité de réserve est disponible pour Azure Database pour PostgreSQL dans les options de déploiement [Serveur unique](./overview.md#azure-database-for-postgresql---single-server) et [Hyperscale Citus](./overview.md#azure-database-for-postgresql--hyperscale-citus). Pour plus d’informations sur la tarification d’instance réservée sur Hyperscale (Citus), consultez [cette page](concepts-hyperscale-reserved-pricing.md).
+> La tarification de la capacité de réserve est disponible pour Azure Database pour PostgreSQL dans les options de déploiement [Serveur unique](./overview.md#azure-database-for-postgresql---single-server), [Serveur flexible](flexible-server/overview.md) et [Hyperscale Citus](./overview.md#azure-database-for-postgresql--hyperscale-citus). Pour plus d’informations sur la tarification d’instance réservée sur Hyperscale (Citus), consultez [cette page](concepts-hyperscale-reserved-pricing.md).
 
 Vous pouvez acheter une capacité de réserve Azure Database pour PostgreSQL sur le [Portail Azure](https://portal.azure.com/). Payez la réservation [à l’avance ou par paiements mensuels](../cost-management-billing/reservations/prepare-buy-reservation.md). Pour acheter une capacité réservée :
 

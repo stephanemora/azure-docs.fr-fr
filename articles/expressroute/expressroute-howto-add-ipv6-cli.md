@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: duau
-ms.openlocfilehash: c93d56cb7f8cc6ffe897cb8a9321806b4a2c40ed
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 1c0b751d6a5107dcf9b7d04423b0b96e0036615d
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095036"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730410"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-cli-preview"></a>Ajouter la prise en charge d’IPv6 pour le Peering privé à l’aide d’Azure CLI (préversion)
 
@@ -22,7 +22,7 @@ Cet article explique comment ajouter la prise en charge d’IPv6 pour se connect
 
 * Examinez les [conditions préalables](expressroute-prerequisites.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 * Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Installez la dernière version des commandes CLI (version 2.0 ou ultérieure). Pour plus d’informations sur l’installation des commandes CLI, consultez [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli.md) et [Prise en main d’Azure CLI](/cli/azure/get-started-with-azure-cli.md).
+* Installez la dernière version des commandes CLI (version 2.0 ou ultérieure). Pour plus d’informations sur l’installation des commandes CLI, consultez [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli) et [Prise en main d’Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

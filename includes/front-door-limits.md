@@ -5,15 +5,15 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: b64cf919c0197ccc8e7128a045db0eee27356c78
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: 6f950725e0cb889a55f39cd4fe1dd00760274880
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123355215"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778836"
 ---
 | Ressource | Limite |
 | --- | --- |
@@ -89,3 +89,5 @@ ms.locfileid: "123355215"
 * Nombre de caractères maximum de la valeur d’en-tête de l’action du moteur de règles : 640 caractères.
 * Nombre de caractères maximum de la valeur d’en-tête de condition du moteur de règles : 256 caractères.
 * Taille maximale de l’en-tête ETag : 128 octets
+
+Pour plus d’informations sur les limites qui s’appliquent aux configurations du moteur de règles, consultez [Terminologie du moteur de règles](../articles/frontdoor/front-door-rules-engine.md#terminology)

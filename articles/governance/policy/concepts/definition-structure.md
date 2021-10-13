@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: e285ca8c47d73f8b9a23c005be8c8b88d38db879
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7665d2b3855765c0d3c60cdb9c7181720835a963
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123436101"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456971"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -774,6 +774,8 @@ Azure Policy prend en charge les types d’effet suivants :
 Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les propriétés et des exemples, consultez [Présentation des effets Azure Policy](effects.md).
 
 ### <a name="policy-functions"></a>Fonctions de stratégie
+
+Les fonctions peuvent être utilisées pour introduire une logique supplémentaire dans une règle de stratégie. Elles sont résolues dans la [règle de stratégie](#policy-rule) d’une définition de stratégie et dans les [valeurs de paramètre affectées aux définitions de stratégie dans une initiative](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
 
 Toutes les [fonctions de modèle Resource Manager](../../../azure-resource-manager/templates/template-functions.md) peuvent être utilisées dans une règle de stratégie, à l’exception des fonctions et fonctions définies par l’utilisateur suivantes :
 

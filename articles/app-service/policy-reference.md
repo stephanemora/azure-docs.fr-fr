@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Azure App Service
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure App Service. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 09/17/2021
+ms.date: 10/11/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3be634699425617db397b7238f911a17869831db
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a1c03db155fe4ebcce7b4df4e1d6720ec597fe9f
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669611"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808430"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-app-service"></a>Définitions intégrées d’Azure Policy pour Azure App Service
 

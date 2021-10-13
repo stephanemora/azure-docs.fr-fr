@@ -2,13 +2,13 @@
 title: Structure et syntaxe des fichiers Bicep
 description: Décrit la structure et les propriétés d’un fichier Bicep en utilisant une syntaxe déclarative.
 ms.topic: conceptual
-ms.date: 09/21/2021
-ms.openlocfilehash: f0fb7214d261c686273e275cb0d3d18b1d393f6b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: e627821f80f76ff536859fd643bd01c55d50ab7e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128654325"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350404"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Comprendre la structure et la syntaxe des fichiers Bicep
 
@@ -175,6 +175,17 @@ Le tableau suivant décrit les éléments décoratifs disponibles et leur utilis
 | minValue | int | int | Valeur minimale du paramètre de type entier. Cette valeur est inclusive. |
 | secure | string, object | Aucun | Marque le paramètre comme sécurisé. La valeur d’un paramètre sécurisé n’est pas enregistrée dans l’historique de déploiement et n’est pas journalisée. Pour plus d’informations, consultez [Sécuriser les chaînes et les objets](data-types.md#secure-strings-and-objects). |
 
+Les éléments décoratifs se trouvent dans l’[espace de noms sys](bicep-functions.md#namespaces-for-functions). Si vous devez différencier un élément décoratif d'un autre élément portant le même nom, faites précéder l’élément décoratif de `sys`. Par exemple, si votre fichier Bicep contient un paramètre nommé `description`, vous devez ajouter l’espace de noms sys lors de l’utilisation de l’élément décoratif **description**.
+
+```bicep
+@sys.description('The name of the instance.')
+param name string
+@sys.description('The description of the instance to display.')
+param description string
+```
+
+Pour plus d’informations, consultez [Éléments décoratifs](parameters.md#decorators).
+
 ## <a name="variables"></a>Variables
 
 Utilisez des variables pour les expressions complexes qui sont répétées dans un fichier Bicep. Par exemple, vous pouvez ajouter une variable pour un nom de ressource construit en concaténant plusieurs valeurs ensemble.
@@ -281,6 +292,8 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
   ...
 }]
 ```
+
+L’élément décoratif `batchSize` se trouve dans l’[espace de noms sys](bicep-functions.md#namespaces-for-functions). Si vous devez différencier cet élément décoratif d'un autre élément portant le même nom, faites précéder l’élément décoratif de **sys**: `@sys.batchSize(2)`
 
 Pour plus d’informations, consultez [Déployer par lots](loop-resources.md#deploy-in-batches).
 

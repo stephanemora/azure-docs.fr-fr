@@ -59,7 +59,7 @@ Pour créer un événement en direct avec la transcription activée, envoyez l�
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 
 ```
 
-L’opération a le corps suivant (où un événement en direct pass-through est créé avec RTMP comme protocole de réception). Notez l’ajout d’une propriété de transcriptions.
+L’opération a le corps suivant (où un événement en direct pass-through de base est créé avec RTMP comme protocole de réception). Notez l’ajout d’une propriété de transcriptions.
 
 ```
 {
@@ -93,7 +93,7 @@ L’opération a le corps suivant (où un événement en direct pass-through est
       }
     },
     "encoding": {
-      "encodingType": "None"
+      "encodingType": "PassthroughBasic"
     },
     "transcriptions": [
       {

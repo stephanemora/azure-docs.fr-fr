@@ -1,23 +1,23 @@
 ---
-title: Déployer un Runbook Worker hybride Linux dans Azure Automation
-description: Cet article explique comment déployer un runbook Worker hybride Azure Automation qui vous permet d’exécuter des runbooks sur les machines Linux de votre centre de données local ou de votre environnement cloud.
+title: Déployer un Runbook Worker hybride Linux basé sur un agent dans Automation
+description: Cet article explique comment déployer un runbook Worker hybride basé sur agent qui vous permet d’exécuter des runbooks sur les machines Linux de votre centre de données local ou de votre environnement cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/05/2021
+ms.date: 09/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c241c55c4eb075c98abeeb0fe221f62aca255809
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 79f18a9e36664c63017294b1f815dee3dfa58610
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771345"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354767"
 ---
-# <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
+# <a name="deploy-an-agent-based-linux-hybrid-runbook-worker-in-automation"></a>Déployer un Runbook Worker hybride Linux basé sur un agent dans Automation
 
 Vous pouvez utiliser la fonctionnalité Runbook Worker hybride utilisateur d’Azure Automation pour exécuter des runbooks directement sur la machine Azure ou non-Azure, y compris les serveurs inscrits auprès de [serveurs avec Azure Arc](../azure-arc/servers/overview.md). Sur l’ordinateur ou le serveur qui héberge le rôle, vous pouvez exécuter les runbooks directement avec les ressources disponibles dans l’environnement pour gérer ces ressources locales.
 
-La fonctionnalité Runbook Worker hybride Linux exécute des Runbooks en tant qu’utilisateur spécial dont les privilèges peuvent être élevés pour exécuter des commandes nécessitant une élévation. Azure Automation stocke et gère les runbooks, puis les remet à une ou plusieurs machines désignées. Cet article explique comment installer le Runbook Worker hybride sur une machine Linux, comment supprimer le Worker et comment supprimer un groupe Runbook Worker hybride.
+La fonctionnalité Runbook Worker hybride Linux exécute des Runbooks en tant qu’utilisateur spécial dont les privilèges peuvent être élevés pour exécuter des commandes nécessitant une élévation. Azure Automation stocke et gère les runbooks, puis les remet à une ou plusieurs machines choisies. Cet article explique comment installer le Runbook Worker hybride sur une machine Linux, comment supprimer le Worker et comment supprimer un groupe Runbook Worker hybride. Pour les Runbook Worker hybrides, consultez également [Déployer un Runbook Worker hybride d’utilisateur Windows ou Linux basé sur une extension dans Automation](./extension-based-hybrid-runbook-worker-install.md)
 
 Une fois le Runbook Worker déployé, consultez [Exécuter des runbooks sur un Runbook Worker hybride](automation-hrw-run-runbooks.md) pour apprendre à configurer vos Runbooks en vue d’automatiser les processus de votre centre de données local ou autre environnement cloud.
 
@@ -33,11 +33,7 @@ Si vous n’avez pas d’espace de travail Azure Monitor Log Analytics, consulte
 
 ### <a name="log-analytics-agent"></a>Agent Log Analytics
 
-Le rôle Runbook Worker hybride requiert l’[agent Log Analytics](../azure-monitor/agents/log-analytics-agent.md) pour le système d’exploitation Linux pris en charge. Pour les serveurs ou les ordinateurs hébergés en dehors d’Azure, vous pouvez installer l’agent Log Analytics à l’aide de [serveurs avec Azure Arc](../azure-arc/servers/overview.md).
-
-> [!NOTE]
-> Après l’installation de l’agent Log Analytics pour Linux, vous ne devez modifier ni les autorisations du dossier `sudoers.d` ni son appartenance. L’autorisation sudo est requise pour le compte **nxautomation**, qui est le contexte utilisateur sous lequel le Runbook Worker hybride s’exécute. Les autorisations ne doivent pas être supprimées. Limiter ce principe à certains dossiers ou à certaines commandes peut entraîner une modification critique.
->
+Le rôle Runbook Worker hybride requiert l’[agent Log Analytics](../azure-monitor/agents/log-analytics-agent.md) pour le système d’exploitation Linux pris en charge. Pour les serveurs ou les ordinateurs hébergés en dehors d’Azure, vous pouvez installer l’agent Log Analytics à l’aide de [serveurs avec Azure Arc](../azure-arc/servers/overview.md). L’agent est installé avec certains comptes de service qui exécutent des commandes nécessitant des autorisations racine. Pour plus d’informations, consultez [Comptes de service](./automation-hrw-run-runbooks.md#service-accounts).
 
 ### <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
 
@@ -110,7 +106,7 @@ Pour connaître la configuration réseau requise pour le Runbook Worker hybride,
 
 ## <a name="install-a-linux-hybrid-runbook-worker"></a>Installer un Runbook Worker hybride Linux
 
-Deux méthodes permettent de déployer un Runbook Worker hybride. Vous pouvez importer et exécuter un runbook à partir de la Galerie de runbooks dans le portail Azure ou exécuter manuellement une série de commandes PowerShell pour accomplir la même tâche.
+Deux méthodes permettent de déployer un Runbook Worker hybride. Vous pouvez importer et exécuter un runbook à partir de la Galerie de runbooks dans le portail Azure ou exécuter manuellement une série de commandes PowerShell.
 
 ### <a name="importing-a-runbook-from-the-runbook-gallery"></a>Importer un runbook à partir de la Galerie de runbooks
 
@@ -160,7 +156,7 @@ Pour installer et configurer un runbook Worker hybride pour Linux, effectuez les
 
         - Utilisation d’Azure Policy.
 
-            Avec cette approche, vous utilisez la définition de stratégie intégrée [Déployer l’agent Log Analytics sur des machines Linux ou Windows Azure Arc](../governance/policy/samples/built-in-policies.md#monitoring) d’Azure Policy pour vérifier si l’agent Log Analytics est installé sur le serveur compatible Arc. Si l’agent n’est pas installé, elle le déploie automatiquement en utilisant une tâche de remédiation. Autrement, si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../governance/policy/samples/built-in-initiatives.md#monitoring) pour installer et configurer l’agent Log Analytics.
+            Avec cette approche, vous utilisez la définition de stratégie intégrée [Déployer l’agent Log Analytics sur des machines Linux ou Windows Azure Arc](../governance/policy/samples/built-in-policies.md#monitoring) d’Azure Policy pour vérifier si l’agent Log Analytics est installé sur le serveur compatible Arc. Si l’agent n’est pas installé, elle le déploie automatiquement en utilisant une tâche de remédiation. Si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../governance/policy/samples/built-in-initiatives.md#monitoring) pour installer et configurer l’agent Log Analytics.
 
         Nous vous recommandons d’installer l’agent Log Analytics pour Windows ou Linux en utilisant Azure Policy.
 

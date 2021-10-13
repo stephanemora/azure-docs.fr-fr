@@ -10,12 +10,12 @@ ms.date: 05/18/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0bac6465ec392ac8d397f1210299c27c3a25c81e
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: a843952e05d71a13a26d56e1588fd10bea0e50c8
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113552313"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275864"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -151,7 +151,7 @@ Le tableau suivant décrit les champs de l’onglet **Avancé**.
 | Sécurité | Version TLS minimale | Obligatoire | Sélectionnez la version minimale requise du protocole TLS (Transport Layer Security) pour les demandes entrantes adressées au compte de stockage. La valeur par défaut est TLS version 1.2. Lorsqu’elle est définie sur la valeur par défaut, les requêtes entrantes effectuées à l’aide de TLS 1.0 ou TLS 1.1 sont rejetées. Pour plus d’informations, consultez [Appliquer une version minimale requise du protocole TLS (Transport Layer Security) pour des demandes adressées à un compte de stockage](transport-layer-security-configure-minimum-version.md). |
 | Data Lake Storage Gen2 | Activer l’espace de noms hiérarchique | Facultatif | Pour utiliser ce compte de stockage pour les charges de travail Azure Data Lake Storage Gen2, configurez un espace de noms hiérarchique. Pour plus d’informations, consultez [Présentation d’Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md). |
 | Stockage d'objets blob | Activer le partage de fichiers réseau (NFS) v3 | Facultatif | NFS v3 assure la compatibilité du système de fichiers Linux au niveau du stockage des objets, et permet aux clients Linux de monter un conteneur dans Stockage Blob à partir d’une machine virtuelle Azure ou d’un ordinateur local. Pour plus d’informations, consultez [Prise en charge du protocole NFS (Network File System) 3.0 dans le stockage Blob Azure](../blobs/network-file-system-protocol-support.md). |
-| Stockage d'objets blob | Niveau d’accès | Obligatoire | Les niveaux d’accès aux objets blob vous permettent de stocker les données blob de la manière la plus économique, en fonction de l’utilisation. Sélectionnez le niveau chaud (par défaut) pour les données fréquemment utilisées. Sélectionnez le niveau froid pour les données rarement utilisées. Pour plus d’informations, consultez [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](../blobs/storage-blob-storage-tiers.md). |
+| Stockage d'objets blob | Niveau d’accès | Obligatoire | Les niveaux d’accès aux objets blob vous permettent de stocker les données blob de la manière la plus économique, en fonction de l’utilisation. Sélectionnez le niveau chaud (par défaut) pour les données fréquemment utilisées. Sélectionnez le niveau froid pour les données rarement utilisées. Pour plus d’informations, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](../blobs/access-tiers-overview.md). |
 | Azure Files | Activer les partages de fichiers volumineux | Facultatif | Disponible uniquement pour les partages de fichiers standard avec les redondances LRS ou ZRS. |
 | Tables et files d’attente | Activer la prise en charge des clés gérées par le client | Facultatif | Pour activer la prise en charge des clés gérées par le client pour les tables et les files d’attente, vous devez sélectionner ce paramètre au moment de la création du compte de stockage. Pour plus d’informations, consultez [Créer un compte qui prend en charge les clés gérées par le client pour les tables et les files d’attente](account-encryption-key-create.md). |
 

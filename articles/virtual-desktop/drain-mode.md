@@ -1,6 +1,6 @@
 ---
-title: Définition du mode maintenance d’Azure Virtual Desktop – Azure
-description: Guide pratique pour configurer et utiliser le mode maintenance dans Azure Virtual Desktop.
+title: Comment utiliser le mode maintenance pour isoler les hôtes de session - Azure Virtual Desktop
+description: Comment utiliser le mode maintenance pour isoler les hôtes de session pour effectuer la maintenance dans Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,14 +9,14 @@ ms.date: 04/14/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 2ff90e2800da857dd5c82cd3b9402fa2454575ac
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 4bacff4ecef6762a4e08760c463531392a71245f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757838"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352009"
 ---
-# <a name="set-drain-mode"></a>Définir le mode maintenance
+# <a name="use-drain-mode-to-isolate-session-hosts-and-apply-patches"></a>Utiliser le mode maintenance pour isoler les hôtes de session et appliquer des correctifs
 
 Le mode maintenance isole un hôte de session quand vous voulez appliquer des correctifs et effectuer des opérations de maintenance sans interrompre les sessions utilisateur. Quand il est isolé, l’hôte de session n’accepte pas les nouvelles sessions utilisateur. Toutes les nouvelles connexions sont redirigées vers l’hôte de session disponible suivant. Les connexions existantes dans l’hôte de session continuent de fonctionner jusqu’à ce que l’utilisateur se déconnecte ou que l’administrateur mette fin à la session. Quand l’hôte de session est en mode maintenance, les administrateurs peuvent aussi se connecter à distance au serveur sans passer par le service Azure Virtual Desktop. Vous pouvez appliquer ce paramètre à des bureaux groupés et personnels.
 

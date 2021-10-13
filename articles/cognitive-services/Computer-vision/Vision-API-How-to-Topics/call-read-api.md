@@ -10,18 +10,49 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: pafarley
-ms.openlocfilehash: d5a1da6bbe251e6200cd3a64117748e9ebbfae2a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: ed19ddae799a743d3bc8e51c550e4a054ad42cf7
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112298112"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426748"
 ---
 # <a name="call-the-read-api"></a>Appeler l’API Lire
 
 Dans ce guide, vous allez apprendre à appeler l’API Read pour extraire du texte à partir d’images. Vous découvrirez les différentes façons dont vous pouvez configurer le comportement de cette API pour répondre à vos besoins.
 
 Ce guide part du principe que vous avez déjà <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="créé une ressource Vision par ordinateur"  target="_blank">créer une ressource Vision par ordinateur</a>, et obtenu une clé d'abonnement et une URL de point de terminaison. Si vous ne l'avez pas encore fait, suivez un guide de [démarrage rapide](../quickstarts-sdk/client-library.md) pour commencer.
+
+## <a name="determine-how-to-process-the-data-optional"></a>Déterminer le mode de traitement des données (facultatif)
+
+### <a name="specify-the-ocr-model"></a>Spécifier le modèle OCR
+
+Par défaut, le service utilise le dernier modèle GA pour extraire du texte. À partir de Read 3.2, un paramètre `model-version` permet de choisir entre les modèles GA et en préversion pour une version d’API donnée. Le modèle que vous spécifiez sera utilisé pour extraire du texte avec l’opération de Read.
+
+Lorsque vous utilisez l’opération Read, utilisez les valeurs suivantes pour le paramètre facultatif `model-version`.
+
+|Valeur| Modèle utilisé |
+|:-----|:----|
+| Non fourni | Dernier modèle en disponibilité générale et dernières langues |
+| latest | Dernier modèle en disponibilité générale et dernières langues|
+| 2021-09-30-preview | Modèle en préversion avec les langues et fonctionnalités supplémentaires de la préversion. Comprend toutes les améliorations apportées au modèle GA précédent.
+| 2021-04-12 | GA spécifique à une date, actuellement identique à la dernière version |
+
+### <a name="input-language"></a>Langue d’entrée
+
+Par défaut, le service extrait tout le texte de vos images ou documents, y compris les langues mixtes. L’[opération de lecture](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) a un paramètre de requête facultatif pour la langue. Ne fournissez un code de langue que si vous voulez forcer le document à être traité dans cette langue spécifique. Sinon, le service pourrait retourner du texte incomplet et incorrect.
+
+### <a name="natural-reading-order-output-latin-languages-only"></a>Sortie de l’ordre de lecture naturel (langues latines uniquement)
+
+Par défaut, le service génère les lignes de texte dans l’ordre de gauche à droite. En option, avec le paramètre de requête `readingOrder`, utilisez `natural` pour obtenir un ordre de lecture plus convivial, comme le montre l'exemple suivant. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
+
+:::image type="content" source="../Images/ocr-reading-order-example.png" alt-text="Exemple d’ordre de lecture OCR" border="true" :::
+
+### <a name="select-pages-or-page-ranges-for-text-extraction"></a>Sélectionner des pages ou des plages de pages pour l’extraction de texte
+
+Par défaut, le service extrait du texte de toutes les pages des documents. En option, utilisez le paramètre de requête `pages` pour spécifier des numéros de page ou des plages de pages afin d'extraire le texte de ces pages uniquement. L’exemple suivant montre un document de 10 pages, avec le texte extrait pour les deux cas : toutes les pages (1 à 10) et certaines pages (3 à 6).
+
+:::image type="content" source="../Images/ocr-select-pages.png" alt-text="Sortie des pages sélectionnées" border="true" :::
 
 ## <a name="submit-data-to-the-service"></a>Envoyer des données au service
 
@@ -42,23 +73,6 @@ L’appel retourne avec un champ d’en-tête de réponse appelé `Operation-Loc
 >
 > La page de [tarification de Vision par ordinateur](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) comprend le niveau tarifaire pour Lire. Chaque image ou page analysée est une transaction. Si vous appelez l’opération avec un document PDF ou TIFF contenant 100 pages, l’opération Lire compte cela comme 100 transactions et vous serez facturé pour 100 transactions. Si vous avez effectué 50 appels à l’opération et que chaque appel a envoyé un document avec 100 pages, vous êtes facturé pour 50 X 100 = 5000 transactions.
 
-## <a name="determine-how-to-process-the-data"></a>Déterminer le mode de traitement des données
-
-### <a name="language-specification"></a>Spécification du langage
-
-L’[appel de lecture](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) a un paramètre de requête facultatif pour la langue. L’opération de lecture prend en charge l’identification automatique des langues et les documents multilingues. Par conséquent, fournissez uniquement un code de langue si vous souhaitez forcer le traitement du document dans la langue en question.
-
-### <a name="natural-reading-order-output-latin-languages-only"></a>Sortie de l’ordre de lecture naturel (langues latines uniquement)
-
-Spécifiez l'ordre dans lequel les lignes de texte sont générées avec le paramètre de requête `readingOrder`. Utilisez `natural` pour une sortie d’ordre de lecture plus conviviale, comme illustré dans l’exemple suivant. Cette fonctionnalité est prise en charge uniquement pour les langues latines.
-
-:::image type="content" source="../Images/ocr-reading-order-example.png" alt-text="Exemple d’ordre de lecture OCR" border="true" :::
-
-### <a name="select-pages-or-page-ranges-for-text-extraction"></a>Sélectionner des pages ou des plages de pages pour l’extraction de texte
-
-Pour les documents multipages volumineux, utilisez le paramètre de requête `pages` pour spécifier des numéros de page ou des plages de pages afin d'extraire le texte de ces pages uniquement. L’exemple suivant montre un document de 10 pages, avec le texte extrait pour les deux cas : toutes les pages (1 à 10) et certaines pages (3 à 6).
-
-:::image type="content" source="../Images/ocr-select-pages.png" alt-text="Sortie des pages sélectionnées" border="true" :::
 
 ## <a name="get-results-from-the-service"></a>Obtenir les résultats du service
 
@@ -168,4 +182,5 @@ La réponse inclut le classement de chaque ligne de texte selon qu’elle est de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour essayer l'API REST, consultez [Informations de référence sur l'API Read](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).
+- Démarrez avec les [guides de démarrage rapide consacrés à la bibliothèque de client ou à l’API REST (Lire) OCR](../quickstarts-sdk/client-library.md).
+- Découvrez l’[API REST Lire 3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005).

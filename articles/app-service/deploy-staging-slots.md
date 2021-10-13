@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 925c468ff744df8b543618e4282ec9b6a9dda78a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 77e374e43722554a215675fd09d0317899d7992f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524034"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709057"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -274,9 +274,6 @@ Pour permettre aux utilisateurs d’accepter votre application bêta, définisse
 ```
 
 Par défaut, les nouveaux emplacements se voient attribuer une règle de routage de `0%` (indiquée en gris). Lorsque vous définissez cette valeur explicitement sur `0%` (indiquée en noir), vos utilisateurs peuvent accéder à l’emplacement de préproduction manuellement, à l’aide du paramètre de requête `x-ms-routing-name`. Toutefois, ils ne seront pas routés vers l’emplacement automatiquement, car le pourcentage de routage est défini sur 0. Il s’agit d’un scénario avancé où vous pouvez « cacher » votre emplacement de préproduction du public, tout en permettant aux équipes internes de tester les modifications sur l’emplacement.
-
-> [!NOTE]
-> Il existe une limitation connue affectant les points de terminaison privés et le routage du trafic avec des emplacements. Depuis avril 2021, le routage automatique et manuel des requêtes entre les emplacements entraîne une erreur « 403 Accès refusé ». Cette limite sera supprimée dans une prochaine version. 
 
 <a name="Delete"></a>
 

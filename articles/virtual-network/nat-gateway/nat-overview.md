@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: conceptual
 ms.date: 06/29/2021
 ms.author: allensu
-ms.openlocfilehash: afaee074fcfda1713031468a18039aac8aa398ca
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: dfd00b0eb924c13cc68dbf0d6d1b1833c3ad7893
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114297061"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236612"
 ---
 # <a name="what-is-virtual-network-nat"></a>Qu’est-ce que le service NAT de Réseau virtuel ?
 
@@ -120,6 +120,7 @@ Nous aimerions savoir comment nous pouvons améliorer le service. Proposez-nous 
 * NAT est compatible avec des ressources d’adresses IP publiques, de préfixes d’adresses IP publiques et d’équilibreur de charge de la référence SKU standard. Les ressources de base (par exemple, un équilibreur de charge de base) et tous les produits qui en dérivent ne sont pas compatibles avec NAT.  Les ressources de base doivent être placées sur un sous-réseau non configuré avec NAT.
 * La famille d’adresses IPv4 est prise en charge.  NAT n’interagit pas avec la famille d’adresses IPv6.  NAT ne peut pas être déployé sur un sous-réseau avec un préfixe IPv6.
 * NAT ne peut pas s’étendre sur plusieurs réseaux virtuels.
+* NAT ne peut pas être déployé dans un [sous-réseau de passerelle](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

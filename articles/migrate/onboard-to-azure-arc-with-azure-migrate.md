@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 04/27/2021
-ms.openlocfilehash: 675c90218f456fc0f238fcf3b1fb93d2e5a7bc44
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 83bee24ca8da03f6a6896bb47cc298860f941f4c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296309"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711971"
 ---
 # <a name="onboard-on-premises-servers-in-vmware-virtual-environment-to-azure-arc"></a>Intégration de serveurs locaux dans l’environnement virtuel VMware à Azure Arc   
 
@@ -37,7 +37,7 @@ Azure Arc vous permet de gérer votre parc informatique hybride depuis un volet 
     - Assurez-vous que votre compte Azure dispose des [rôles Azure requis](../azure-arc/servers/agent-overview.md#required-permissions).
     - Vérifiez que [les URL requises](../azure-arc/servers/agent-overview.md#networking-configuration) ne sont pas bloquées si les serveurs détectés se connectent via un pare-feu ou un serveur proxy pour communiquer par Internet.
     - Passez en revue les [régions prises en charge](../azure-arc/servers/overview.md#supported-regions) par Azure Arc. 
-    - Les serveurs compatibles avec Azure Arc prennent en charge jusqu’à 5 000 instances de machine dans un groupe de ressources.
+    - Les serveurs avec Azure Arc prennent en charge jusqu’à 5 000 instances de machine dans un groupe de ressources.
 
 
 ## <a name="set-up-the-azure-migrate-project"></a>Configurer un projet Azure Migrate  

@@ -1,14 +1,14 @@
 ---
 title: Gestion des extensions de machine virtuelle avec des serveurs activés par Azure Arc
 description: Les serveurs activés par Azure Arc peuvent gérer le déploiement d’extensions de machine virtuelle qui permettent d’effectuer des tâches d’automatisation et de configuration post-déploiement sur des machines virtuelles non Azure.
-ms.date: 08/24/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: bc19255d7e234b3ca4ada1bc2f9356dc52b3e4dc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d79bae8b84a9e776e64dbe5d93038f88db5bb04c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807255"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354524"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestion des extensions de machine virtuelle avec des serveurs activés par Azure Arc
 
@@ -64,6 +64,7 @@ Les serveurs compatibles avec les arcs prennent en charge le déplacement des ma
 |Azure Monitor pour machines virtuelles (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Extension de machine virtuelle Dependency Agent pour Windows](../../virtual-machines/extensions/agent-dependency-windows.md)|
 |Synchronisation du certificat Azure Key Vault | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Extension de machine virtuelle Key Vault pour Windows](../../virtual-machines/extensions/key-vault-windows.md) |
 |Agent Azure Monitor |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Installer l’agent Azure Monitor (préversion)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
+|Vue d’ensemble du Runbook Worker hybride Azure Automation (préversion) |Microsoft.Compute |HybridWorkerForWindows |[Déployez un Runbook Worker hybride basé sur une extension](../../automation/extension-based-hybrid-runbook-worker-install.md) pour exécuter des runbooks localement. |
 
 ### <a name="linux-extensions"></a>Extensions Linux
 
@@ -75,6 +76,7 @@ Les serveurs compatibles avec les arcs prennent en charge le déplacement des ma
 |Azure Monitor pour machines virtuelles (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Extension de machine virtuelle Dependency Agent pour Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 |Synchronisation du certificat Azure Key Vault | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Extension de machine virtuelle Key Vault pour Linux](../../virtual-machines/extensions/key-vault-linux.md) |
 |Agent Azure Monitor |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Installer l’agent Azure Monitor (préversion)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
+|Vue d’ensemble du Runbook Worker hybride Azure Automation (préversion) |Microsoft.Compute |HybridWorkerForLinux |[Déployez un Runbook Worker hybride basé sur une extension](../../automation/extension-based-hybrid-runbook-worker-install.md) pour exécuter des runbooks localement.|
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -91,7 +93,7 @@ Veillez à consulter la documentation relative à chacune des extensions de mach
 
 L’extension de machine virtuelle de l’agent Log Analytics pour Linux nécessite l’installation de Python 2.x sur la machine cible.
 
-### <a name="azure-key-vault-vm-extension"></a>Extension de machine virtuelle Azure Key Vault 
+### <a name="azure-key-vault-vm-extension"></a>Extension de machine virtuelle Azure Key Vault
 
 L’extension de machine virtuelle Key Vault ne prend pas en charge les systèmes d’exploitation Linux suivants :
 

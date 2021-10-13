@@ -1,7 +1,7 @@
 ---
 title: Nouveautés dans la gestion des applications Azure Active Directory
 description: Gestion des applications Azure Active Directory - Nouvelle documentation et documentation mise à jour
-ms.date: 09/08/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,52 @@ ms.author: davidmu
 author: davidmu1
 manager: CelesteDG
 reviewer: napuri
-ms.openlocfilehash: a5de6a248d389c90cbc67f59b0b94f53c35821f2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 260473c428e7bdc2bfd968aa2ba5469e578c1005
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810032"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533136"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestion des applications Azure Active Directory : Nouveautés
 
 Nouveautés de la documentation relative à la gestion des applications Azure Active Directory Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés en matière de gestion des applications d’entreprise, consultez [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="september-2021"></a>Septembre 2021
+
+### <a name="new-articles"></a>Nouveaux articles
+
+- [Découverte du domaine d’accueil pour une application dans Azure Active Directory](home-realm-discovery-policy.md)
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Affecter des utilisateurs et des groupes à une application dans Azure Active Directory](assign-user-or-group-access-portal.md)
+- [Configurer le comportement de la connexion pour une application à l’aide d’une stratégie de découverte du domaine d’accueil](configure-authentication-for-federated-users-portal.md)
+- [Désactiver la manière selon laquelle un utilisateur se connecte à une application dans Azure Active Directory](disable-user-sign-in-portal.md)
+- [Masquer une application d’entreprise dans Azure Active Directory](hide-application-from-user-portal.md)
+- [Activer l’attribution d’applications en libre-service dans Azure Active Directory](manage-self-service-access.md)
+- [Désactiver l’accélération automatique vers un fournisseur d’identité fédéré lors d’une connexion utilisateur avec la stratégie Découverte de domaine d’accueil](prevent-domain-hints-with-home-realm-discovery.md)
+- [Gérer l’accès aux applications dans Azure Active Directory](what-is-access-management.md)
+- [Didacticiel : Migrer vos applications d’Okta vers Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Didacticiel : Migrer une fédération Okta vers l’authentification gérée par Azure AD](migrate-okta-federation-to-azure-active-directory.md)
+- [Didacticiel : Migrer les stratégies de connexion Okta vers l’accès conditionnel Azure AD](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
+- [Tutoriel : Migrer le provisionnement de synchronisation Okta vers la synchronisation basée sur Azure AD Connect](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Accès hybride sécurisé avec les intégrations des partenaires Azure Active Directory](secure-hybrid-access-integrations.md)
+- [Gestion des applications Azure Active Directory : Nouveautés](whats-new-docs.md)
+- [Démarrage rapide : Créer et affecter un compte d’utilisateur dans Azure Active Directory](add-application-portal-assign-users.md)
+- [Démarrage rapide : Configurer les propriétés d’une application d’entreprise dans Azure Active Directory](add-application-portal-configure.md)
+- [Ajouter une application d’authentification unique basée sur OpenID Connect dans Azure Active Directory](add-application-portal-setup-oidc-sso.md)
+- [Démarrage rapide : Activer l’authentification unique pour une application d’entreprise dans Azure Active Directory](add-application-portal-setup-sso.md)
+- [Démarrage rapide : Ajouter une application d’entreprise dans Azure Active Directory](add-application-portal.md)
+- [Démarrage rapide : Supprimer une application d’entreprise dans Azure Active Directory](delete-application-portal.md)
+- [Démarrage rapide : Afficher les applications d’entreprise dans Azure Active Directory](view-applications-portal.md)
+- [Créer des collections sur le portail Mes applications](access-panel-collections.md)
+- [Gérer les stratégies de consentement des applications](manage-app-consent-policies.md)
+- [Ajoutez l’authentification unique liée à une application dans le Répertoire actif Azure](configure-linked-sign-on.md)
+- [Ajoutez l’authentification unique basée sur un mot de passe à une application dans le Répertoire actif Azure](configure-password-single-sign-on-non-gallery-applications.md)
+- [Planifier un déploiement de l’authentification unique dans Azure Active Directory](plan-sso-deployment.md)
+- [Qu’est-ce que l’authentification unique dans Azure Active Directory ?](what-is-single-sign-on.md)
+
 
 ## <a name="august-2021"></a>Août 2021
 

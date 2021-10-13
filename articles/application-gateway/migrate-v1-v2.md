@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 4757a8237aa6226b78e7c1e79ba50710e31d28e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 000daf7c60d0bc823aacdab85de42af3b6cbbf55
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99594263"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129419046"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrer la passerelle Azure Application Gateway et le pare-feu d’applications web de v1 à v2
 
@@ -84,6 +84,7 @@ Pour exécuter le script :
     -resourceId <v1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
+    -AppGwResourceGroupName <resource group name you want to use>
     -sslCertificates <comma-separated SSLCert objects as above>
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
@@ -101,8 +102,9 @@ Pour exécuter le script :
      $appgw.Id
      ```
 
-   * **subnetAddressRange : [chaîne] :  Requis** - Il s’agit de l’espace d’adressage IP que vous avez alloué (ou que vous souhaitez allouer) pour un nouveau sous-réseau qui contient votre nouvelle passerelle v2. Il doit être spécifié dans la notation CIDR. Par exemple : 10.0.0.0/24. Vous n’avez pas besoin de créer ce sous-réseau à l’avance. Le script le crée pour vous s’il n’existe pas.
+   * **subnetAddressRange : [chaîne] :  Requis** - Il s’agit de l’espace d’adressage IP que vous avez alloué (ou que vous souhaitez allouer) pour un nouveau sous-réseau qui contient votre nouvelle passerelle v2. Il doit être spécifié dans la notation CIDR. Par exemple : 10.0.0.0/24. Vous n’avez pas besoin de créer ce sous-réseau à l’avance, mais le CIDR doit faire partie de l’espace d’adressage du réseau virtuel. Le script le crée pour vous s’il n’existe pas et, s’il existe, il utilise le sous-réseau existant (assurez-vous que le sous-réseau est vide ou qu’il contient uniquement la passerelle v2, le cas échéant, et qu’il dispose de suffisamment d’adresses IP disponibles).
    * **appgwName : [chaîne] : Facultatif**. Il s’agit d’une chaîne que vous spécifiez comme nom de la nouvelle passerelle Standard_v2 ou WAF_v2. Si ce paramètre n’est pas fourni, le nom de votre passerelle v1 existante est utilisé avec le suffixe *_v2* ajouté.
+   * **AppGwResourceGroupName: [String] : facultatif**. Nom du groupe de ressources dans lequel vous souhaitez que les ressources Application Gateway v2 soient créées (la valeur par défaut est `<v1-app-gw-rgname>`)
    * **sslCertificates : [PSApplicationGatewaySslCertificate] : Facultatif**.  Une liste séparée par des virgules des objets PSApplicationGatewaySslCertificate que vous créez pour représenter les certificats TLS/SSL à partir de votre passerelle v1 doit être chargée sur la nouvelle passerelle v2. Pour chacun des certificats TLS/SSL configurés pour votre passerelle Standard v1 ou WAF v1, vous pouvez créer un nouvel objet PSApplicationGatewaySslCertificate via la commande `New-AzApplicationGatewaySslCertificate` illustrée ici. Vous avez besoin du mot de passe et du chemin d'accès à votre fichier de certificat TLS/SSL.
 
      Ce paramètre n’est facultatif que si vous n’avez pas d’écouteurs HTTPS configurés pour votre passerelle v1 ou pare-feu d’applications web. Si vous avez au moins une configuration d’écouteur HTTPS, vous devez spécifier ce paramètre.
@@ -140,6 +142,7 @@ Pour exécuter le script :
       -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
+      -AppGwResourceGroupName "MyResourceGroup" `
       -sslCertificates $mySslCert1,$mySslCert2 `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `

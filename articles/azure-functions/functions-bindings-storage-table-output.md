@@ -6,19 +6,19 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f793f96f55a258b2d7cb11f214984416557618df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b30fbbca1bfabfdbf9836e00ee2b2d585308774a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453000"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611764"
 ---
 # <a name="azure-table-storage-output-bindings-for-azure-functions"></a>Liaisons de sortie de stockage de table Azure pour Azure Functions
 
 Utilisez une liaison de sortie de stockage de table Azure pour écrire des entités dans une table d’un compte de Stockage Azure.
 
 > [!NOTE]
-> Cette liaison de sortie ne prend pas en charge la mise à jour d’entités existantes. Utilisez l’opération `TableOperation.Replace`[à partir du Kit de développement logiciel (SDK) Stockage Azure](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity) pour mettre à jour une entité existante.
+> Cette liaison de sortie ne prend pas en charge la mise à jour d’entités existantes. Utilisez l’opération `TableOperation.Replace`[à partir du Kit de développement logiciel (SDK) Stockage Azure](../cosmos-db/table/table-support.md) pour mettre à jour une entité existante.
 
 ## <a name="example"></a>Exemple
 

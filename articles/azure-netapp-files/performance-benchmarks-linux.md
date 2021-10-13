@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 09/29/2021
 ms.author: b-juche
-ms.openlocfilehash: b763a734866dd5fed5bf0500d4d52b9324c92a79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 814474418386041d2b20759c4fb2accc534e8b9d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82614010"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355859"
 ---
 # <a name="azure-netapp-files-performance-benchmarks-for-linux"></a>Benchmarks de performances Azure NetApp Files pour Linux
 
@@ -47,31 +47,31 @@ Ce graphique illustre des diminutions de 10 % à la fois, de la lecture pure à
 
 ## <a name="linux-scale-up"></a>Scale-up Linux  
 
-Le noyau Linux 5.3 permet la mise en réseau avec scale-out à un seul client pour NFS-`nconnect`. Les graphiques de cette section montrent les résultats des tests de validation de l’option de montage côté client avec NFSv3. La fonctionnalité est disponible sur SUSE (à partir de SLES12SP4) et Ubuntu (à partir de la version 19.10). C’est un concept similaire à la fois pour SMB Multichannel et Oracle Direct NFS.
+Les graphiques de cette section montrent les résultats des tests de validation de l’option de montage côté client avec NFSv3. Pour plus d’informations, consultez la [section `nconnect` des options de montage Linux](performance-linux-mount-options.md#nconnect).
 
-Les graphiques comparent les avantages de `nconnect` par rapport à un volume monté non connecté. Dans les graphiques, FIO a généré la charge de travail à partir d’une instance D32s_v3 unique dans la région Azure us-west2.
+Les graphiques comparent les avantages de `nconnect` par rapport à un volume monté non `connected`. Dans les graphiques, FIO a généré la charge de travail à partir d’une seule instance D32s_v4 dans la région Azure us-west2 à l’aide d’une charge de travail séquentielle 64 Kio, la plus grande taille d’E/S prise en charge par Azure NetApp Files au moment du test représenté ici. Azure NetApp Files prend désormais en charge des tailles d’E/S plus élevées. Pour plus d’informations, consultez les [sections `rsize` et `wsize` des options de montage Linux](performance-linux-mount-options.md#rsize-and-wsize).
 
 ### <a name="linux-read-throughput"></a>Débit de lecture Linux  
 
-Les graphiques suivants montrent des lectures séquentielles d’environ 3 500 Mio/s de lectures avec `nconnect`, approximativement 2,3 fois plus qu’avec l’option sans `nconnect`.
+Les graphiques suivants montrent des lectures séquentielles de 64 Kio d’environ 3500 Mio/s de lectures avec `nconnect`, approximativement 2,3 fois plus qu’avec l’option sans `nconnect`.
 
 ![Débit de lecture Linux](../media/azure-netapp-files/performance-benchmarks-linux-read-throughput.png)  
 
 ### <a name="linux-write-throughput"></a>Débit d’écriture Linux  
 
-Les graphiques suivants montrent des écritures séquentielles. Ils indiquent que `nconnect` n’a pas d’avantage notable pour les écritures séquentielles. 1 500 Mio/s correspond à peu près à la limite supérieure du volume en écriture séquentielle et à la limite de sortie de l’instance D32s_v3.
+Les graphiques suivants montrent des écritures séquentielles. Ils indiquent que `nconnect` n’a pas d’avantage notable pour les écritures séquentielles. 1 500 Mio/s correspond à peu près à la limite supérieure du volume en écriture séquentielle et à la limite de sortie de l’instance D32s_v4.
 
 ![Débit d’écriture Linux](../media/azure-netapp-files/performance-benchmarks-linux-write-throughput.png)  
 
 ### <a name="linux-read-iops"></a>E/S de lecture Linux  
 
-Les graphiques suivants montrent des lectures aléatoires d’environ 200 000 IOPS de lecture avec `nconnect`, environ 3 fois plus qu’avec l’option sans `nconnect`.
+Les graphiques suivants montrent des lectures aléatoires de 4 Kio d’environ 200 000 IOPS de lecture avec `nconnect`, environ 3 fois plus qu’avec l’option sans `nconnect`.
 
 ![IOPS de lecture Linux](../media/azure-netapp-files/performance-benchmarks-linux-read-iops.png)  
 
 ### <a name="linux-write-iops"></a>IOPS d’écriture Linux  
 
-Les graphiques suivants montrent des écritures aléatoires d’environ 135 000 IOPS d’écriture avec `nconnect`, environ 3 fois plus qu’avec l’option sans `nconnect`.
+Les graphiques suivants montrent des écritures aléatoires de 4 Kio d’environ 135 000 IOPS d’écriture avec `nconnect`, environ 3 fois plus qu’avec l’option sans `nconnect`.
 
 ![IOPS d’écriture Linux](../media/azure-netapp-files/performance-benchmarks-linux-write-iops.png)  
 

@@ -4,13 +4,13 @@ description: Décrit les fonctions à utiliser dans un fichier Bicep pour utili
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: fd65cc60412d46a734764d3566fa3606a48c7bf6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 38dfdee2dbe40b40631b45b8d0f9e157f5efc7ae
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124758443"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349845"
 ---
 # <a name="object-functions-for-bicep"></a>Fonctions d’objet pour Bicep
 
@@ -21,6 +21,8 @@ Cet article décrit les fonctions Bicep pour l’utilisation d’objets.
 `contains(container, itemToFind)`
 
 Vérifie si un tableau contient une valeur, un objet contient une clé ou une chaîne contient une sous-chaîne. La comparaison de chaînes est sensible à la casse. Cependant, quand vous testez si un objet contient une clé, la comparaison n’est pas sensible à la casse.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -75,6 +77,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Détermine si un tableau, un objet ou une chaîne est vide.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -113,6 +117,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Retourne un tableau ou un objet unique avec les éléments communs à partir des paramètres.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -121,7 +127,7 @@ Retourne un tableau ou un objet unique avec les éléments communs à partir des
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
 | arguments supplémentaires |Non |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
 
-### <a name="return-value"></a>Valeur de retour
+### <a name="return-value"></a>Valeur retournée
 
 Tableau ou objet avec les éléments communs.
 
@@ -168,6 +174,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `json(arg1)`
 
 Convertit une chaîne JSON valide en un type de données JSON.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -223,6 +231,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Retourne le nombre d’éléments d’un tableau, les caractères d’une chaîne ou les propriétés au niveau de la racine d’un objet.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -273,6 +283,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Retourne un tableau ou un objet unique avec tous les éléments communs à partir des paramètres. Les valeurs ou les clés en double sont uniquement incluses une seule fois.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -281,7 +293,7 @@ Retourne un tableau ou un objet unique avec tous les éléments communs à parti
 | arg2 |Oui |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
 | arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
 
-### <a name="return-value"></a>Valeur de retour
+### <a name="return-value"></a>Valeur retournée
 
 Objet ou tableau.
 

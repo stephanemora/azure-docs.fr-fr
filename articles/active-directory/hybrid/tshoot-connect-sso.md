@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba5db5208d53996d074dca15bdc8b7b3088e4dec
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 546a7bfbda3f037f3ad40ca9c5d59353cc1de0eb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113111192"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349600"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
 
@@ -128,8 +128,12 @@ Si vous n’avez pas réussi à résoudre le problème, vous pouvez réinitialis
    >Le compte administrateur de domaine utilisé ne doit pas être membre du groupe Utilisateurs protégés. Sinon, l’opération échoue.
 
 2. Appelez `Disable-AzureADSSOForest -OnPremCredentials $creds`. Cette commande supprime le compte d’ordinateur `AZUREADSSOACC` du contrôleur de domaine sur site pour cette forêt Azure Directory spécifique.
-3. Répétez les étapes précédentes pour chaque forêt Azure Directory dans laquelle vous avez configuré la fonctionnalité.
 
+   >[!NOTE]
+   >Si, pour une raison quelconque, vous ne pouvez pas accéder à votre AD localement, vous pouvez ignorer les **étapes 3.1** et **3.2**, et appeler `Disable-AzureADSSOForest -DomainFqdn <Domain name from the output list in step 2>` à la place. 
+   
+3. Répétez les étapes précédentes pour chaque forêt Azure Directory dans laquelle vous avez configuré la fonctionnalité.
+ 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Étape 4 : Activer l’authentification unique (SSO) transparente pour chaque forêt Azure Directory
 
 1. Appelez `Enable-AzureADSSOForest`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt Azure Directory souhaitée.

@@ -6,12 +6,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
-ms.openlocfilehash: 2b1ba0779649c4955987c7dae9802cefaba89b79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92819c28002c79ff905174e5b2f94779050237fd
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97109337"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356716"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>Rechercher l’ID du locataire, l’ID de l’objet et les détails de l’association de partenaires
 
@@ -64,7 +64,8 @@ Si vous avez besoin de captures d’écran de ces éléments dans Azure Cloud Sh
 
 6. Recherchez **attributions de rôle** en sélectionnant **Contrôle d’accès (IAM)** dans le menu de gauche, puis **Attributions de rôle**.
 
-    :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Attributions de rôles pour les ressources Azure":::
+    :::image type="content" source="../role-based-access-control/media/role-assignments-portal/rg-role-assignments.png" alt-text="Attributions de rôles pour les ressources Azure":::
+
 
 ## <a name="find-ids-for-debugging"></a>Rechercher des ID pour le débogage
 

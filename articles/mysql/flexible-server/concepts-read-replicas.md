@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/17/2021
-ms.openlocfilehash: 601b3659cd23cbd12d96f4e73c24a3a4a6c3fe55
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3684c038ab96fe16d28802012293357c0a8f4e5b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602258"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232011"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Réplicas en lecture dans Azure Database pour MySQL - Serveur flexible
 
@@ -27,6 +27,9 @@ Du côté des applications, l’application est généralement développée en J
 La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur flexible Azure Database pour MySQL sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur source vers **10** réplicas au maximum. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication selon la position du fichier journal binaire (binlog) native au moteur MySQL. Pour en savoir plus sur la réplication binlog, consultez la [vue d’ensemble de la réplication binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire à votre source Azure Database pour serveurs flexibles MySQL. Vous encourez des frais de facturation pour chaque réplica en lecture, en fonction de la capacité de calcul provisionnée dans les vCores et du stockage provisionné en Go/mois. Pour plus d’informations, voir la [tarification](./concepts-compute-storage.md#pricing).
+
+> [!NOTE]
+> La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs flexibles Azure Database pour MySQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur source se trouve dans l’un de ces niveaux tarifaires.
 
 Pour découvrir plus en détail les fonctionnalités de réplication MySQL et les problèmes associés, consultez la [documentation sur la réplication MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
@@ -141,7 +144,8 @@ Si le GTID est activé sur un serveur source (`gtid_mode` = ON), il sera égalem
 
 | Scénario | Limitation/Considération |
 |:-|:-|
-| Réplica sur serveur avec haute disponibilité redondante interzone | Non pris en charge |
+| Réplica sur le serveur avec haute disponibilité activée | Non pris en charge |
+| Réplica sur le serveur dans le niveau tarifaire Burstable| Non pris en charge |
 | Réplication en lecture inter-régions | Non pris en charge |
 | Tarifs | Le coût d’exécution du serveur de réplication est basé sur la région où le serveur de réplication est en cours d’exécution. |
 | Redémarrage du serveur source | Lorsque vous créez un réplica pour un serveur source qui n’en a pas, ce dernier commence par redémarrer afin de se préparer à la réplication. Tenez-en compte et effectuez ces opérations en période creuse. |

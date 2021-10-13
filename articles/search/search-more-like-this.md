@@ -2,19 +2,17 @@
 title: Fonctionnalité de requête moreLikeThis (préversion)
 titleSuffix: Azure Cognitive Search
 description: Décrit la fonctionnalité moreLikeThis (préversion), qui est disponible dans les versions préliminaires de l’API REST de Recherche cognitive Azure.
-manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
-ms.devlang: rest-api
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 595884bf9d73e6e7af6663c051a2735908670eb4
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.date: 10/06/2021
+ms.openlocfilehash: 1dae66ed27a0934d17503cc8262d39dfc02b46dc
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112578664"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612063"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (préversion) dans Recherche cognitive Azure
 
@@ -35,14 +33,14 @@ Tous les exemples suivants utilisent l’exemple Hôtels tirés du [Guide de dé
 
 La requête suivante recherche les documents dont les champs de description sont les plus proches du champ du document source, tel que spécifié par le paramètre `moreLikeThis`.
 
-```
+```http
 GET /indexes/hotels-sample-index/docs?moreLikeThis=29&searchFields=Description&api-version=2020-06-30-Preview
 ```
 
 Dans cet exemple, la requête recherche des hôtels similaires à celui ayant l’`HotelId` 29.
 Au lieu d’utiliser HTTP GET, vous pouvez également appeler `MoreLikeThis` avec HTTP POST :
 
-```
+```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
     {
       "moreLikeThis": "29",
@@ -54,7 +52,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
 
 `MoreLikeThis` peut être combiné avec d’autres paramètres de requête courants comme `$filter`. Par exemple, la requête peut être limitée à des hôtels dont la catégorie est « budget » et pour lesquels l’évaluation est supérieure à 3,5 :
 
-```
+```http
 GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2020-06-30-Preview
 ```
 
@@ -62,7 +60,7 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 
 Le sélecteur `$top` peut être utilisé pour limiter le nombre de résultats devant être retournés dans une requête `MoreLikeThis`. Les champs peuvent aussi être sélectionnés avec `$select`. Ici, les trois premiers hôtels sont sélectionnés avec leur ID, leur nom et leur évaluation : 
 
-```
+```http
 GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2020-06-30-Preview
 ```
 
@@ -71,4 +69,4 @@ GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$
 Vous pouvez utiliser n’importe quel outil de test web pour faire des essais avec cette fonctionnalité.  Nous vous recommandons d’utiliser Postman pour cet exercice.
 
 > [!div class="nextstepaction"]
-> [Explorer les API REST de Recherche cognitive Azure](search-get-started-rest.md)
+> [Explorer les API REST de Recherche cognitive Azure avec Postman](search-get-started-rest.md)

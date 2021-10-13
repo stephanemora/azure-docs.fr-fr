@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple – Modèle d’autorisation de cloud privé
 description: Décrit le modèle d’autorisation, les groupes et les catégories de cloud privé CloudSimple
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: be77be14acf05aa543c1494f16e499f00598e2b4
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: c49dcb4158785170d67742df5c8c797b139edbe5
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108184511"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620295"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>Modèle d’autorisation de cloud privé CloudSimple de VMware vCenter
 
@@ -55,7 +55,7 @@ Pour accorder à des utilisateurs individuels des autorisations leur permettant 
 | **autorisations** | Modifier l’autorisation |
 | **Bibliothèque de contenu** | Ajouter un élément de bibliothèque <br> Créer une bibliothèque locale <br> Créer une bibliothèque abonnée <br> Supprimer un élément de bibliothèque <br> Supprimer une bibliothèque locale <br> Supprimer une bibliothèque abonnée <br> Télécharger des fichiers <br> Expulser un élément de bibliothèque <br> Expulser une bibliothèque abonnée <br> Importer un stockage <br> Informations d’abonnement de probe <br> Lire le stockage <br> Synchroniser un élément de bibliothèque <br> Synchroniser une bibliothèque abonnée <br> Introspection de type <br> Mettre à jour les paramètres de configuration du système <br> Mettre à jour les fichiers <br> Mettre à jour la bibliothèque <br> Mettre à jour un élément de bibliothèque <br> Mettre à jour une bibliothèque locale <br> Mettre à jour une bibliothèque abonnée <br> Afficher les paramètres de configuration |
 | **Opérations de chiffrement** | Ajouter un disque <br> Clone <br> Déchiffrer <br> Direct Access <br> Encrypt (Chiffrer) <br> Chiffrer nouveau <br> Gérer KMS <br> Gérer les stratégies de chiffrement <br> Gérer les clés <br> Migrate <br> Chiffrer à nouveau <br> Inscrire la machine virtuelle <br> Inscrire l’hôte |
-| **groupe dvPort** | Créer <br> DELETE <br> Modifier <br> Opération de stratégie <br> Étendue de l’opération |
+| **groupe dvPort** | Créer <br> Supprimer <br> Modifier <br> Opération de stratégie <br> Étendue de l’opération |
 | **Magasins de données** | Allouer de l’espace <br> Parcourir les magasins de données <br> Configurer le magasin de données <br> Opérations de fichiers de bas niveau <br> Déplacer le magasin de données <br> Supprimer le magasin de données <br> Supprimer le fichier <br> Renommer le magasin de données <br> Mettre à jour les fichiers de machine virtuelle <br> Mettre à jour les métadonnées de machine virtuelle |
 | **Agent Manager ESX** | Config <br> Modifier <br> Affichage |
 | **Extension** | Inscrire l’extension <br> Annuler l’inscription de l’extension <br> Mettre à jour l'extension |
@@ -125,7 +125,7 @@ Pour accorder à des utilisateurs individuels des autorisations leur permettant 
 
 | **Catégorie** | **Privilège** |
 |----------|-----------|
-| **groupe dvPort** | Créer <br> DELETE <br> Modifier <br> Opération de stratégie <br> Étendue de l’opération |
+| **groupe dvPort** | Créer <br> Supprimer <br> Modifier <br> Opération de stratégie <br> Étendue de l’opération |
 | **Réseau** | Attribuer un réseau <br> Configurer <br> Déplacer le réseau <br> Supprimer |
 | **Machine virtuelle -> Configuration** | Modification des paramètres de l’appareil |
 

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b77a0a8f1a02fa970965d3393dada2a7720ab3e4
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: f3f8d5fb55d547a1c0602843fb36f19ad45dbc2a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821373"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536596"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Protéger les comptes d’utilisateur contre les attaques avec le verrouillage intelligent Azure Active Directory
 
@@ -24,7 +24,7 @@ Le verrouillage intelligent empêche les personnes malveillantes de deviner vos 
 
 ## <a name="how-smart-lockout-works"></a>Fonctionnement du verrouillage intelligent
 
-Par défaut, le verrouillage intelligent verrouille le compte et empêche les tentatives de connexion pendant une minute après 10 échecs de tentatives pour les locataires publics Azure et après 3 échecs pour les locataires Azure US Government. Le compte se verrouille à nouveau après chaque échec de connexion consécutif. Le premier verrouillage dure une minute, les suivants durent plus longtemps. Afin de minimiser les moyens dont dispose un attaquant pour contourner ce comportement, nous ne divulguons pas le rythme auquel la période de verrouillage s’allonge au fil des tentatives de connexion infructueuses.
+Par défaut, le verrouillage intelligent verrouille le compte et empêche les tentatives de connexion pendant une minute après 10 échecs de tentatives pour les locataires publics Azure et Azure China 21Vianet et après 3 échecs pour les locataires Azure US Government. Le compte se verrouille à nouveau après chaque échec de connexion consécutif. Le premier verrouillage dure une minute, les suivants durent plus longtemps. Afin de minimiser les moyens dont dispose un attaquant pour contourner ce comportement, nous ne divulguons pas le rythme auquel la période de verrouillage s’allonge au fil des tentatives de connexion infructueuses.
 
 Le verrouillage intelligent suit les trois derniers hachages de mots de passe incorrects afin d'éviter d'incrémenter le compteur de verrouillages pour le même mot de passe. Si un utilisateur entre plusieurs fois le même mot de passe incorrect, le compte n'est pas verrouillé.
 
@@ -65,7 +65,7 @@ Pour vérifier votre stratégie de verrouillage de compte AD DS locale, effectue
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Gérer les valeurs du verrouillage intelligent Azure AD
 
-En fonction des exigences de votre organisation, vous pouvez personnaliser les valeurs du verrouillage intelligent Azure AD. Pour personnaliser les paramètres de verrouillage intelligent en vue de répondre aux besoins de votre organisation, vos utilisateurs doivent disposer d’une licence Azure AD Premium P1 ou plus élevée.
+En fonction des exigences de votre organisation, vous pouvez personnaliser les valeurs du verrouillage intelligent Azure AD. Pour personnaliser les paramètres de verrouillage intelligent en vue de répondre aux besoins de votre organisation, vos utilisateurs doivent disposer d’une licence Azure AD Premium P1 ou plus élevée. La personnalisation des paramètres de verrouillage intelligent n’est pas disponible pour les locataires Azure China 21Vianet.
 
 Pour vérifier ou modifier les valeurs de verrouillage intelligent de votre organisation, procédez aux étapes suivantes :
 
@@ -84,13 +84,19 @@ Pour vérifier ou modifier les valeurs de verrouillage intelligent de votre orga
 
 ![Personnaliser la stratégie de verrouillage intelligent Azure AD dans le portail Azure](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Vérifier le bon fonctionnement de la fonctionnalité Verrouillage intelligent
+## <a name="testing-smart-lockout"></a>Test du verrouillage intelligent
 
 Lorsque le seuil de verrouillage intelligent est déclenché, le message suivant s'affiche en cas de verrouillage du compte :
 
 *Votre compte est verrouillé de façon temporaire afin d'éviter toute utilisation non autorisée. Réessayez plus tard. Si le problème persiste, contactez votre administrateur.*
 
 Lorsque vous testez le verrouillage intelligent, vos demandes de connexion peuvent être traitées par différents centres de données en raison de la nature géodistribuée et équilibrée en charge du service d’authentification d’Azure AD. Dans ce scénario, étant donné que chaque centre de données Azure AD effectue le suivi du verrouillage de façon indépendante, il se peut qu’il faille davantage de tentatives que le seuil de verrouillage défini pour provoquer un verrouillage. Un utilisateur a un nombre maximal (*threshold_limit * datacenter_count*) de tentatives incorrectes avant d’être complètement verrouillé.
+
+Le verrouillage intelligent suit les trois derniers hachages de mots de passe incorrects afin d'éviter d'incrémenter le compteur de verrouillages pour le même mot de passe. Si un utilisateur entre plusieurs fois le même mot de passe incorrect, le compte n'est pas verrouillé.
+
+
+## <a name="default-protections"></a>Protections par défaut
+En plus du verrouillage intelligent, Azure AD protège également contre les attaques en analysant les signaux, y compris le trafic IP et en identifiant les comportements anormaux. Azure AD bloque ces connexions malveillantes par défaut et retourne le [code d’erreur AADSTS50053-IdsLocked](../develop/reference-aadsts-error-codes.md), quelle que soit la validité du mot de passe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

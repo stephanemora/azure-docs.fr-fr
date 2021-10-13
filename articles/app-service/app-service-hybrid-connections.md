@@ -1,24 +1,24 @@
 ---
 title: Connexions hybrides
 description: Découvrez comment créer et utiliser des connexions hybrides dans Azure App Service pour accéder aux ressources de réseaux hétérogènes.
-author: ccompy
+author: madsd
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
 ms.date: 05/05/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: c8b0377207dc811358db14285a7e287cd7c72525
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 6ebfa0cb7e65ce09178e3b468a1bf766a0379595
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111412598"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425825"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service
 
 Les connexions hybrides sont un service dans Azure et une fonctionnalité dans Azure App Service. En tant que service, il exploite et inclut des fonctionnalités qui vont au-delà de celles utilisées dans App Service. Pour en savoir plus sur les connexions hybrides et leur utilisation en dehors d’App Service, consultez [Connexions hybrides Azure Relay][HCService].
 
-Dans App Service, les connexions hybrides peuvent être utilisées pour accéder aux ressources d’application dans les réseaux qui peuvent effectuer des appels sortants vers Azure via le port 443. Les connexions hybrides permettent l’accès entre votre application et un point de terminaison TCP, et ne permettent pas d’accéder autrement à votre application. Utilisée dans App Service, chaque connexion hybride correspond à une combinaison d’hôte et de port TCP unique. Cela permet aux applications d’accéder à des ressources sur n’importe quel système d’exploitation, à condition qu’il s’agisse d’un point de terminaison TCP. La fonctionnalité Connexions hybrides ne détectent pas et ne prennent pas en compte le protocole d’application ou les ressources auxquels vous accédez. Elle fournit simplement un accès réseau.  
+Dans App Service, les connexions hybrides peuvent être utilisées pour accéder aux ressources d’application dans les réseaux qui peuvent effectuer des appels sortants vers Azure via le port 443. Les connexions hybrides permettent l’accès entre votre application et un point de terminaison TCP, et ne permettent pas d’accéder autrement à votre application. Utilisée dans App Service, chaque connexion hybride correspond à une combinaison d’hôte et de port TCP unique. Cela permet aux applications d’accéder à des ressources sur n’importe quel système d’exploitation, à condition qu’il s’agisse d’un point de terminaison TCP. La fonctionnalité Connexions hybrides ne détecte pas et ne prend pas en compte le protocole d’application ou les ressources auxquels vous accédez. Elle fournit simplement un accès réseau.  
 
 ## <a name="how-it-works"></a>Fonctionnement ##
 Les connexions hybrides nécessitent qu’un agent de relais soit déployé à un emplacement d’où il pourra accéder à la fois au point de terminaison souhaité et à Azure. L’agent de relais, Hybrid Connection Manager (HCM), appelle Azure Relay sur le port 443. À partir du site de l’application web, l’infrastructure App Service se connecte également à Azure Relay au nom de votre application. Grâce aux connexions jointes, l’application accède au point de terminaison souhaité. La connexion utilise TLS 1.2 pour la sécurité et des clés de signature d’accès partagé (SAP) pour l’authentification et l’autorisation.
@@ -37,10 +37,10 @@ La fonctionnalité de connexions hybrides offre un certain nombre d’avantages,
 
 - Les applications peuvent accéder en toute sécurité aux systèmes et services locaux.
 - La fonctionnalité ne nécessite pas un point de terminaison accessible par Internet.
-- sa configuration est simple et rapide ; Aucune passerelle requise
+- Sa configuration est simple et rapide. Aucune passerelle requise.
 - Chaque connexion hybride correspond à une combinaison hôte:port unique, gage de sécurité.
 - Normalement, elle ne nécessite pas de trous de pare-feu. Les connexions sont toutes sortantes via des ports web standard.
-- la fonctionnalité se situant au niveau du réseau, elle n’est pas spécifique au langage utilisé par votre application et à la technologie utilisée par le point de terminaison ;
+- La fonctionnalité se situant au niveau du réseau, elle n’est pas spécifique au langage utilisé par votre application et à la technologie utilisée par le point de terminaison.
 - elle peut être utilisée pour fournir un accès à plusieurs réseaux à partir d’une même application. 
 - Elle est prise en charge en disponibilité générale pour les applications Windows et Linux. Elle n’est pas prise en charge pour les applications de conteneurs Windows.
 
@@ -199,6 +199,18 @@ Tout utilisateur disposant des autorisations suffisantes sur le relais Azure Ser
 
 Toute personne bénéficiant d’un accès `Reader` au relais peut _voir_ la connexion hybride lorsqu’elle essaye de l’ajouter à son application web dans le portail Azure. Toutefois, elle ne peut pas l’_ajouter_, car elle ne dispose pas des autorisations nécessaires pour récupérer la chaîne de connexion utilisée pour établir la connexion au relais. Pour ajouter la connexion hybride, les utilisateurs doivent disposer de l’autorisation `listKeys` (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). Le rôle `Contributor`, ou tout autre rôle comprenant cette autorisation sur le relais, permettra aux utilisateurs d’utiliser la connexion hybride et de l’ajouter à leurs propres applications web.
 
+## <a name="manage-your-hybrid-connections"></a>Gérer vos connexions hybrides ##
+
+Si vous avez besoin de modifier l’hôte de point de terminaison ou le port pour une connexion hybride, suivez les étapes ci-dessous :
+
+1. Supprimez la connexion hybride d’Hybrid Connection Manager sur l’ordinateur local en sélectionnant la connexion, puis **Supprimer** en haut à gauche de la fenêtre Détails de la connexion hybride.
+1. Déconnectez la connexion hybride de votre App Service en accédant à **Connexions hybrides** dans la page **Mise en réseau** d’App Service.
+1. Accédez au relais pour le point de terminaison que vous devez mettre à jour, puis sélectionnez **Connexions hybrides** sous **Entités** dans le menu de navigation de gauche.
+1. Sélectionnez la connexion hybride que vous souhaitez mettre à jour, puis **Propriétés** sous **Paramètres** dans le menu de navigation de gauche.
+1. Apportez vos modifications et cliquez sur **Enregistrer les modifications** en haut.
+1. Revenez aux paramètres de **Connexions hybrides** pour votre App Service et rajoutez la connexion hybride. Assurez-vous que le point de terminaison est mis à jour comme prévu. Si vous ne voyez pas la connexion hybride dans la liste, actualisez après 5-10 minutes.
+1. Revenez à Hybrid Connection Manager sur l’ordinateur local et rajoutez la connexion.
+
 ## <a name="troubleshooting"></a>Dépannage ##
 
 L’état « Connecté » signifie qu’au moins un HCM est configuré avec cette connexion hybride et qu’il est en mesure d’atteindre Azure. Si l’état de votre connexion hybride n’indique pas **Connecté**, votre connexion hybride n’est configurée sur aucun HCM ayant accès à Azure. Quand votre HCM affiche **Non connecté**, il y a plusieurs choses à vérifier :
@@ -210,14 +222,13 @@ L’état « Connecté » signifie qu’au moins un HCM est configuré avec ce
 
 Si l’état indique **Connecté** mais que votre application ne peut pas atteindre votre point de terminaison, procédez comme suit :
 
-* Vérifiez que vous utilisez un nom DNS dans votre connexion hybride. Si vous utilisez une adresse IP, la recherche DNS du client requis peut ne pas se produire. Si le client en cours d’exécution dans votre application web n’effectue pas de recherche DNS, la connexion hybride ne fonctionnera pas.
+* Vérifiez que vous utilisez un nom DNS dans votre connexion hybride. Si vous utilisez une adresse IP, la recherche DNS du client requis peut ne pas se produire. Si le client en cours d’exécution dans votre application web n’effectue pas de recherche DNS, la connexion hybride ne fonctionnera pas
 * Vérifiez que le nom DNS utilisé dans votre connexion hybride peut être résolu à partir de l’hôte HCM. Vérifiez la résolution à l’aide de *nslookup EndpointDNSname* où EndpointDNSname correspond exactement à ce qui est utilisé dans votre définition de connexion hybride.
 * Testez l’accès de votre hôte HCM à votre point de terminaison à l’aide de la commande PowerShell *Test-NetConnection EndpointDNSname -P Port*  Si vous ne pouvez pas atteindre le point de terminaison à partir de votre hôte HCM, alors vérifiez les pare-feux entre les deux hôtes, notamment les pare-feux basés sur un hôte, sur l’hôte de destination.
 
 Dans App Service, l’outil de ligne de commande **tcpping** peut être appelé à partir de la console Outils avancés (Kudu). Cet outil peut vous indiquer si vous avez accès à un point de terminaison TCP, mais ne vous dit pas si vous avez accès à un point de terminaison de connexion hybride. Lorsque vous utilisez l’outil dans la console par rapport à un point de terminaison de connexion hybride, vous confirmez seulement qu’il utilise une combinaison hôte:port.  
 
 Si vous avez un client de ligne de commande pour votre point de terminaison, vous pouvez tester la connectivité à partir de la console de l’application. Par exemple, vous pouvez tester l’accès aux points de terminaison de serveur web à l’aide de curl.
-
 
 <!--Links-->
 [HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/

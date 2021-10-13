@@ -1,20 +1,21 @@
 ---
-title: Traiter le flux de modification dans Stockage Blob Azure | Microsoft Docs
+title: Traiter le flux de modification dans Stockage Blob Azure
+titleSuffix: Azure Storage
 description: Découvrez comment traiter les journaux de flux de modification dans une application cliente .NET
 author: tamram
 ms.author: tamram
-ms.date: 09/08/2020
+ms.date: 10/01/2021
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d43b91fcebff017d6d18ee736cfddc858650fc7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cbd15bdc337bdb4a7221f634e6f9a66d4d503fe6
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620195"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400797"
 ---
 # <a name="process-change-feed-in-azure-blob-storage"></a>Traiter le flux de modification dans Stockage Blob Azure
 
@@ -31,7 +32,6 @@ Pour en savoir plus sur le flux de modification, consultez [Flux de modification
 dotnet add package Azure.Storage.Blobs --version 12.5.1
 dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
-
 
 ## <a name="read-records"></a>Lire les enregistrements
 
@@ -218,4 +218,5 @@ L'heure de début que vous indiquez est arrondie à l'heure inférieure, et l'he
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les journaux de flux de modification. Consultez [Flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)
+- [Vue d’ensemble de la protection des données](data-protection-overview.md)
+- [Flux de modification dans Stockage Blob Azure](storage-blob-change-feed.md)

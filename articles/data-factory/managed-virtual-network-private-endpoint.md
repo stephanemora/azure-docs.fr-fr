@@ -7,15 +7,15 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 10/15/2021
-ms.openlocfilehash: 845860e8aaebf7d74f294135f8eec92a8146bd3c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/28/2021
+ms.openlocfilehash: f9c07abdfe512c2564fdfe1595f16db8a6372a8b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627612"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230230"
 ---
-# <a name="azure-data-factory-managed-virtual-network-preview"></a>Réseau virtuel managé Azure Data Factory (préversion)
+# <a name="azure-data-factory-managed-virtual-network"></a>Réseau virtuel managé Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -36,9 +36,6 @@ Avantages de l’utilisation du réseau virtuel managé :
 
 > [!IMPORTANT]
 >Actuellement, le réseau virtuel managé n’est pris en charge que dans la même région qu’Azure Data Factory.
-
-> [!Note]
->Le réseau virtuel managé d’Azure Data Factory étant toujours en préversion publique, il ne bénéficie d’aucune garantie adossée à un SLA.
 
 > [!Note]
 >Le runtime d’intégration Azure public existant ne peut pas basculer vers le runtime d’intégration Azure dans un réseau virtuel managé Azure Data Factory, et inversement.
@@ -135,19 +132,20 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 ### <a name="supported-data-sources"></a>Sources de données prises en charge
 Les sources de données ci-dessous prennent en charge les points de terminaison privés natifs, et peuvent être connectées via une liaison privée à partir d’un réseau virtuel managé ADF.
 - Stockage Blob Azure (ne comprend pas de compte de stockage V1)
-- Stockage Table Azure (ne comprend pas de compte de stockage V1)
-- Azure Files (ne comprend pas de compte de stockage V1)
-- Azure Data Lake Gen2
-- Azure SQL Database (sans Azure SQL Managed Instance)
-- Azure Synapse Analytics
-- SQL Azure Cosmos DB
-- Azure Key Vault
-- Service Azure Private Link
-- Recherche Azure
+- Recherche cognitive Azure
+- API SQL Azure Cosmos DB
+- Azure Data Lake Storage Gen2
+- Azure Database for MariaDB
 - Azure Database pour MySQL
 - Azure Database pour PostgreSQL
-- Azure Database for MariaDB
+- Azure Files (ne comprend pas de compte de stockage V1)
+- Azure Key Vault
 - Azure Machine Learning
+- Service Azure Private Link
+- Azure Purview
+- Azure SQL Database (sans Azure SQL Managed Instance)
+- Azure Synapse Analytics
+- Stockage Table Azure (ne comprend pas de compte de stockage V1)
 
 > [!Note]
 > Vous pouvez toujours accéder à toutes les sources de données prises en charge par Data Factory via un réseau public.

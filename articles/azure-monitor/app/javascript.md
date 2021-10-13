@@ -4,12 +4,12 @@ description: Obtenir les nombres de sessions et d’affichage de page, les donn�
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 4ce6481a35b8a214a2203a165161183d384b4ea0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6e3b7601605eecafa969eec78b82b863580ecc2e
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662169"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235741"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -218,7 +218,7 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 | enable&#8203;AjaxErrorStatusText | Si la valeur est true, inclure le texte des données d’erreur de réponse dans l’événement de dépendance sur les demandes AJAX ayant échoué. | boolean<br/> false |
 | enable&#8203;AjaxPerfTracking |Indicateur pour activer la recherche et l’inclusion de minutages supplémentaires de window.performance du navigateur dans les métriques `ajax` (XHR et fetch) signalées. | boolean<br/> false |
 | maxAjaxPerf&#8203;LookupAttempts | Nombre maximal de fois où la fenêtre est recherchée. les minutages de performances (si disponibles) sont nécessaires, car tous les navigateurs remplissent la fenêtre de performances avant de signaler la fin de la demande XHR et les requêtes de récupération (fetch) sont ajoutées après son achèvement.| numeric<br/> 3 |
-| ajaxPerfLookupDelay | Délai d’attente avant la nouvelle tentative de recherche de minutages de windows.performance pour une requête `ajax`, le temps est exprimé en millisecondes et est transmis directement à setTimeout(). | numeric<br/> 25 ms |
+| ajaxPerfLookupDelay | Délai d’attente avant la nouvelle tentative de recherche de minutages de window.performance pour une requête `ajax`, le temps est exprimé en millisecondes et est transmis directement à setTimeout(). | numeric<br/> 25 ms |
 | enableUnhandled&#8203;PromiseRejection&#8203;Tracking | Si la valeur est true, les rejets de promesse non gérés sont collectés et signalés comme une erreur JavaScript. Quand disableExceptionTracking a la valeur true (ne pas suivre les exceptions), la valeur de configuration est ignorée et les rejets de promesse non gérés ne sont pas signalés. | boolean<br/> false |
 | disable&#8203;InstrumentationKey&#8203;Validation | Si la valeur est true, la vérification de la validation de la clé d’instrumentation est ignorée. | boolean<br/>false |
 | enablePerfMgr | Quand cette option est activée (true), elle crée des perfEvents locaux pour le code qui a été instrumenté pour émettre perfEvents (via l’assistance doPerf ()). Elle peut être utilisée pour identifier les problèmes de performances dans le kit de développement logiciel (SDK) en fonction de votre utilisation ou éventuellement dans votre propre code instrumenté. Des [informations supplémentaires sont disponibles dans la documentation de base](https://github.com/microsoft/ApplicationInsights-JS/blob/master/docs/PerformanceMonitoring.md). Depuis v2.5.7 | boolean<br/>false |
@@ -237,7 +237,7 @@ La gestion des cookies basée sur une instance remplace également les fonctions
 
 Configuration de cookie pour la gestion des cookies basée sur une instance ajoutée dans la version 2.6.0.
 
-| Nom | Description | Type et valeur par défaut |
+| Name | Description | Type et valeur par défaut |
 |------|-------------|------------------|
 | enabled | Une valeur booléenne indique si l’utilisation de cookies par le kit de développement logiciel (SDK) est activée par l’instance actuelle. Si la valeur est false, l’instance du kit de développement logiciel (SDK) initialisée par cette configuration ne stocke pas ou ne lit pas les données des cookies | boolean<br/> true |
 | domaine | Domaine de cookie personnalisé. Cela est utile si vous souhaitez partager des cookies Application Insights entre les sous-domaines. S’il n’est pas fourni, utilise la valeur de la valeur racine `cookieDomain`. | string<br/>null |

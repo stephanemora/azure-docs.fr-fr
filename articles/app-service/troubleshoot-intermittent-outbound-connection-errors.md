@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/19/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: dc6a56cff3492011a4717d867f08a580cf5a198c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fe746ed4fe8c24afa0667d8c2559d9c46fee5211
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562791"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660074"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Résolution des erreurs intermittentes de connexion sortante dans Azure App Service
 
@@ -165,14 +165,6 @@ Les connexions TCP et les ports SNAT ne sont pas directement liés. Un détecteu
  
 Si les ports SNAT sont épuisés, et que les WebJobs ne parviennent pas à se connecter à SQL Database, il n’existe aucune métrique pour afficher le nombre de connexions ouvertes par chaque processus d’application web individuel. Pour trouver les WebJobs problématiques, déplacez plusieurs WebJobs vers un autre plan App Service pour voir si la situation s’améliore ou si un problème persiste dans l’un des plans. Répétez le processus jusqu’à ce que vous trouviez le WebJob problématique.
 
-### <a name="using-snat-ports-sooner"></a>Utiliser les ports SNAT plus tôt
-
-Vous ne pouvez pas modifier les paramètres Azure pour libérer les ports SNAT utilisés plus tôt, car tous les ports SNAT sont publiés conformément aux conditions ci-dessous et le comportement est normal.
- 
-* Si le client ou serveur envoie un paquet FINACK, le [port SNAT est mis à disposition](../load-balancer/load-balancer-outbound-connections.md) après un délai de 240 secondes.
-* Si une instance RST est visible, le port SNAT est mis à disposition après un délai de 15 secondes.
-* Si le délai d’inactivité est atteint, le port est mis à disposition.
- 
 ## <a name="additional-information"></a>Informations supplémentaires
 
 * [SNAT avec App Service](https://4lowtherabbit.github.io/blogs/2019/10/SNAT/)

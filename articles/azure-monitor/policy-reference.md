@@ -1,17 +1,17 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Monitor
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Monitor. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 09/17/2021
+ms.date: 10/11/2021
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 26bbb8d1de10bc6b69110da293404cfb29139e15
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5dcd7f08507ef25b30094bb18af3f3d0e650a25f
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592569"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129809619"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-monitor"></a>Définitions intégrées d’Azure Policy pour Azure Monitor
 

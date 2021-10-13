@@ -5,12 +5,12 @@ ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: 70b27fec07d074dadb413d1debb098e23b4d33b3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f0a2fed2a7dc2fae62005d1f00fdb688a4f52ebe
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102428726"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232738"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Schéma d’extension de diagnostic Windows
 L’extension Diagnostics Azure est un agent présent dans Azure Monitor qui collecte des données de supervision dans le système d’exploitation invité et des charges de travail de ressources de calcul Azure. Cet article détaille le schéma utilisé pour la configuration de l’extension de diagnostic sur les machines virtuelles Windows et d’autres ressources de calcul.
@@ -222,7 +222,7 @@ Ajouté à la version 1.3.
 
 |Élément enfant|Description|  
 |-------------------|-----------------|  
-|**DataSource**|Journaux des événements Windows à collecter. Attribut requis :<br /><br /> **name** - Requête XPath décrivant les événements windows à collecter. Par exemple :<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Pour collecter tous les événements, spécifiez « * ». |
+|**DataSource**|Journaux des événements Windows à collecter. Attribut requis :<br /><br /> **name** - Requête XPath décrivant les événements Windows à collecter. Par exemple :<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Pour collecter tous les événements, spécifiez « * ». |
 |**récepteurs** | Ajouté à la version 1.5. facultatif. Pointe vers un emplacement de récepteur pour envoyer également des données de diagnostic à tous les éléments enfants qui prennent en charge les récepteurs. Des exemples de récepteur comme Application Insights ou Event Hubs.|  
 
 

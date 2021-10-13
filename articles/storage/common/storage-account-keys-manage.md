@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/29/2021
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cfea2bd15bceb7d1478059d9ef80f4eb33337dc6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a0f95f78b8ca84175be185088316209ea5eb1e97
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664748"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546814"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gérer les clés d’accès au compte de stockage
 
@@ -32,15 +32,17 @@ Vous pouvez afficher et copier les clés d’accès à votre compte avec le port
 
 Pour afficher et copier les clés d’accès ou la chaîne de connexion de votre compte de stockage à partir du portail Azure :
 
-1. Accédez à votre compte de stockage dans le [Portail Azure](https://portal.azure.com).
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
 
-2. Sous **Paramètres**, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
+2. Sous **Sécurité + mise en réseau**, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
 
-3. Recherchez la valeur de **Key** sous **key1**, puis cliquez sur le bouton **Copier** pour copier la clé du compte.
+3. Sélectionnez **Afficher les clés** pour afficher vos clés et les chaînes de connexion, et pour activer les boutons permettant de copier les valeurs.
 
-4. Vous pouvez aussi copier la chaîne de connexion complète. Recherchez la valeur de **Chaîne de connexion** sous **clé1**, puis cliquez sur le bouton **Copier** pour copier la chaîne de connexion.
+4. Sous **key1**, trouvez la valeur de **Clé**. Sélectionnez le bouton **Copier** pour copier la clé de compte.
 
-    :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Capture d’écran montrant comment afficher les clés d’accès dans le portail Azure":::
+5. Vous pouvez aussi copier la chaîne de connexion complète. Sous **key1**, recherchez la **Chaîne de connexion**. Sélectionnez le bouton **Copier** pour copier la chaîne de connexion.
+
+    :::image type="content" source="./media/storage-account-keys-manage/portal-connection-string.png" alt-text="Capture d’écran montrant comment afficher les clés d’accès dans le portail Azure":::
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -50,7 +52,7 @@ L’exemple suivant récupère la première clé. Pour récupérer la deuxième,
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzStorageAccountKey `
+    (Get-AzStorageAccountKey
     -ResourceGroupName <resource-group> `
     -Name <storage-account>).Value[0]
 ```
@@ -93,7 +95,19 @@ Si vous envisagez de faire pivoter manuellement les clés d’accès, Microsoft 
 
 #### <a name="portal"></a>[Portail](#tab/azure-portal)
 
-La possibilité de définir une stratégie d’expiration de clé à l’aide du portail Azure n’est pas encore disponible. Vous pouvez utiliser PowerShell ou l’interface de ligne de commande Azure.
+Pour créer une politique d'expiration des clés dans le portail Azure :
+
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
+
+2. Sous **Sécurité + mise en réseau**, sélectionnez **Clés d’accès**. Vos clés d’accès au compte s’affichent, ainsi que la chaîne de connexion complète de chaque clé.
+
+3. Sélectionnez le lien **Définir le rappel de rotation**.
+
+4. Dans **Définir un rappel pour faire pivoter les clés d'accès**, activez la case à cocher **Activer les rappels pour faire pivoter les clés d'accès** et définissez une fréquence pour le rappel.
+
+5. Sélectionnez **Enregistrer**.
+
+:::image type="content" source="media/storage-account-keys-manage/portal-key-expiration-policy.png" alt-text="Capture d’écran montrant comment créer une stratégie d’expiration de clé dans le portail Azure":::
 
 #### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -202,7 +216,7 @@ Pour opérer la rotation des clés d’accès de votre compte de stockage dans l
 
 2. Accédez à votre compte de stockage dans le [Portail Azure](https://portal.azure.com).
 
-3. Sous **Paramètres**, sélectionnez **Clés d’accès**.
+3. Sous **Sécurité + mise en réseau**, sélectionnez **Clés d’accès**.
 
 4. Pour régénérer la clé d’accès primaire de votre compte de stockage, sélectionnez le bouton **Régénérer** en regard de la clé d’accès primaire.
 

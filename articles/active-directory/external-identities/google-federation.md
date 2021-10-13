@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 10/01/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 687e23c7267991eee171e205a537a45546da73b2
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 510e2207a2c25c5da5f4de08f3bf16fbf6cf4c7d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864577"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354311"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B
 
@@ -31,7 +31,7 @@ En configurant la fédération avec Google, vous pouvez autoriser les utilisateu
 > [!IMPORTANT]
 >
 > - **À partir du 12 juillet 2021**, si les clients Azure AD B2B configurent de nouvelles intégrations Google pour une utilisation avec l’inscription en libre-service ou pour inviter des utilisateurs externes à utiliser leurs applications métier ou personnalisées, l’authentification peut être bloquée pour les utilisateurs de Gmail (avec l’erreur ci-dessous dans la page [À quoi s’attendre](#what-to-expect)). Ce problème se produit uniquement si vous créez une intégration Google pour des flux d’utilisateurs d’inscription en libre-service ou des invitations après le 12 juillet 2021 alors que les authentifications Gmail de vos applications métier ou personnalisées n’ont pas été déplacées vers les vues web système. Étant donné que les vues web système sont activées par défaut, la plupart des applications ne seront pas affectées. Pour éviter ce problème, nous vous recommandons vivement de déplacer les authentifications Gmail vers les navigateurs système avant de créer de nouvelles intégrations Google pour l’inscription en libre-service. Reportez-vous à [Action requise pour les vues web incorporées](#action-needed-for-embedded-frameworks).
-> - **À partir du 30 septembre 2021**, Google [déprécie la prise en charge de la connexion aux vues web](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vos applications authentifient les utilisateurs avec une vue Web incorporée et que vous utilisez Google Federation avec [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) ou Azure AD B2B pour des invitations utilisateur externes ou une [inscription en libre-service](identity-providers.md), les utilisateurs de Google Gmail ne peuvent pas s’authentifier. [Plus d’informations](#deprecation-of-web-view-sign-in-support)
+> - **À partir du 30 septembre 2021**, Google [déprécie la prise en charge de la connexion aux vues web](https://developers.googleblog.com/2021/06/upcoming-security-changes-to-googles-oauth-2.0-authorization-endpoint.html). Si vos applications authentifient les utilisateurs avec une vue Web incorporée et que vous utilisez Google Federation avec [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) ou Azure AD B2B pour des invitations utilisateur externes ou une [inscription en libre-service](identity-providers.md), les utilisateurs de Google Gmail ne peuvent pas s’authentifier. [Plus d’informations](#deprecation-of-web-view-sign-in-support)
 
 ## <a name="what-is-the-experience-for-the-google-user"></a>Quelle est l’expérience de l’utilisateur Google ?
 
@@ -58,7 +58,7 @@ Vous pouvez également fournir aux utilisateurs invités Google un lien direct v
 
 ## <a name="deprecation-of-web-view-sign-in-support"></a>Dépréciation de la prise en charge de la connexion via vue web
 
-À partir du 30 septembre 2021, Google [déprécie la prise en charge de la connexion aux vues web incorporées](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vos applications authentifient les utilisateurs avec une vue Web incorporée et que vous utilisez Google Federation avec [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) ou Azure AD B2B pour des [invitations utilisateur externes](google-federation.md) ou une [inscription en libre-service](identity-providers.md), les utilisateurs de Google Gmail ne peuvent pas s’authentifier.
+À partir du 30 septembre 2021, Google [déprécie la prise en charge de la connexion aux vues web incorporées](https://developers.googleblog.com/2021/06/upcoming-security-changes-to-googles-oauth-2.0-authorization-endpoint.html). Si vos applications authentifient les utilisateurs avec une vue Web incorporée et que vous utilisez Google Federation avec [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) ou Azure AD B2B pour des [invitations utilisateur externes](google-federation.md) ou une [inscription en libre-service](identity-providers.md), les utilisateurs de Google Gmail ne peuvent pas s’authentifier.
 
 Voici quelques scénarios connus ayant une incidence sur les utilisateurs de Gmail :
 - Applications Microsoft (par exemple, Teams et PowerApps) sur Windows 
@@ -72,11 +72,7 @@ Cette modification n’a aucune incidence sur les scénarios suivants :
 - Microsoft 365 les services accessibles via un site web (par exemple, SharePoint en ligne, Office web apps et Teams application web)
 - Applications mobiles utilisant des vues web système pour l’authentification ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) sur iOS, [Onglets personnalisés](https://developer.chrome.com/docs/android/custom-tabs/overview/) sur Android).  
 - Identités Google Workspace, par exemple la [fédération basée sur SAML](direct-federation.md) utilisée avec Google Workspace
-
-Nous vérifions actuellement auprès de Google si cette modification affecte les éléments suivants :
 - Applications Windows qui utilisent le gestionnaire de compte web (WAM) ou le répartiteur d’authentification web (WAB).  
-
-Nous continuons à tester différentes plateformes et différents scénarios. Cet article sera mis à jour en conséquence.
 
 ### <a name="action-needed-for-embedded-web-views"></a>Action requise pour les vues web incorporées
 
@@ -84,20 +80,55 @@ Modifiez vos applications de façon à utiliser le navigateur système pour la c
 
 ### <a name="what-to-expect"></a>À quoi s’attendre
 
-Avant que Google n’applique ces modifications le 30 septembre 2021, Microsoft déploiera une solution de contournement pour les applications qui utilisent toujours des vues web incorporées afin que l’authentification ne soit pas bloquée. Les utilisateurs qui se connectent avec un compte Gmail dans une vue web incorporée sont invités à entrer un code dans un navigateur distinct pour finaliser la connexion.
+À compter du 30 septembre, Microsoft déploiera globalement un circuit de connexion d’appareil qui sert de solution de contournement aux applications utilisant encore des vues web incorporées pour s’assurer que l’authentification n’est pas bloquée.
+
+### <a name="how-to-sign-in-with-the-device-sign-in-flow"></a>Processus de connexion de l’appareil
+
+Le processus de connexion de l’appareil invite les utilisateurs qui se connectent à l’aide d’un compte Gmail dans une vue web incorporée à entrer un code dans un navigateur distinct avant de pouvoir terminer la connexion. Si les utilisateurs se connectent avec leur compte Gmail pour la première fois sans aucune session active dans le navigateur, ils voient la séquence d’écrans suivante. Si un compte Gmail existant est déjà connecté, certaines de ces étapes peuvent être éliminées.
+
+1. Dans l’écran **Connexion**, l’utilisateur entre son adresse Gmail et sélectionne **Suivant**.
+
+   ![Capture d’écran montrant l’écran de connexion](media/google-federation/1-sign-in.png)
+
+1. L’écran suivant s’affiche et invite l’utilisateur à ouvrir une nouvelle fenêtre, à accéder à https://microsoft.com/devicelogin, puis à entrer le code alphanumérique à 9 chiffres affiché.
+
+   ![Capture d’écran montrant le code à 9 chiffres](media/google-federation/2-sign-in-code.png)
+
+1. La page de connexion à l’appareil s’ouvre, dans laquelle l’utilisateur peut entrer le code. 
+
+   ![Capture d’écran montrant la page de connexion de l’appareil](media/google-federation/3-enter-code.png)
+
+1. Si les codes correspondent, pour des raisons de sécurité, l’utilisateur est invité à entrer à nouveau son adresse de messagerie pour confirmer son application et son emplacement de connexion.
+
+   ![Capture d’écran montrant l’écran de la nouvelle saisie de l’e-mail](media/google-federation/4-sign-in-reenter-email.png)
+
+1. L’utilisateur se connecte à Google avec son adresse e-mail et son mot de passe.
+
+   ![Capture d’écran montrant l’écran de connexion Google](media/google-federation/5-sign-in-with-google.png)
+
+1. Il est à nouveau invité à confirmer l’application à laquelle il se connecte.
+
+   ![Capture d’écran montrant l’écran de confirmation de l’application](media/google-federation/6-confirm-sign-in.png)
+
+1. L’utilisateur sélectionne **Continuer**. Une invite confirme la connexion. L’utilisateur ferme l’onglet ou la fenêtre et est renvoyé au premier écran, où il est maintenant connecté à l’application.
+
+   ![Capture d’écran montrant la confirmation de connexion](media/google-federation/7-app-sign-in-confirmed.png)
 
 Vous pouvez également faire en sorte que vos utilisateurs Gmail nouveaux et existants se connectent avec un code secret à usage unique. Pour que vos utilisateurs Gmail utilisent un code secret à usage unique, vous devez :
+
 1. [Désactiver l’envoi d’un code à usage unique par e-mail](one-time-passcode.md#enable-email-one-time-passcode)
 2. [Supprimer la fédération Google](google-federation.md#how-do-i-remove-google-federation)
 3. [Réinitialiser l’état d’acceptation](reset-redemption-status.md) de vos utilisateurs Gmail afin qu’ils puissent utiliser le code secret à usage unique par e-mail.
+
+Si vous souhaitez demander une extension, les clients affectés avec un ou plusieurs ID de client OAuth doivent avoir reçu un e-mail de Google Developers avec les informations suivantes concernant une extension d’application de stratégie ponctuelle, qui doit être effectuée avant le 31 janvier 2022 :
+
+- « Si nécessaire, vous pouvez demander une **extension de l’application de la politique les vues web incorporées** pour chaque ID de client OAuth répertorié jusqu’au 31 janvier 2022. Pour plus de clarté, la politique pour les vues web incorporées sera appliquée le 1er février 2022, sans exceptions ou extensions. »
 
 Les applications qui sont migrées vers une vue web autorisée pour l’authentification ne sont pas affectées, et les utilisateurs sont autorisés à s’authentifier via Google comme d’habitude.
 
 Si les applications ne sont pas migrées vers une vue Web autorisée pour l’authentification, les utilisateurs Gmail affectés verront l’écran suivant.
 
 ![Erreur de connexion Google si les applications ne sont pas migrées vers des navigateurs système](media/google-federation/google-sign-in-error-ewv.png)
-
-Ce document sera mis à jour quand les dates et détails supplémentaires seront annoncés par Google.
 
 ### <a name="distinguishing-between-cefelectron-and-embedded-web-views"></a>Distinction entre CEF/Electron et les vues web incorporées
 

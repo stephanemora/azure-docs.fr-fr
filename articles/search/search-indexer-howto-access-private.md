@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/13/2021
-ms.openlocfilehash: 79bb517faffdda7e9d7ddef45e7b52f5e81dc201
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 484f52656c5e49113d50f25a94a33b94ed886ab0
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589679"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359194"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Établir des connexions d’indexeurs via un point de terminaison privé
 
@@ -56,7 +56,13 @@ Vous pouvez également envoyer une requête à propos des ressources Azure pour 
 Dans le reste de cet article, une combinaison du portail Azure (ou d’[Azure CLI](/cli/azure/) si vous préférez) et de [Postman](https://www.postman.com/) (ou tout autre client HTTP, comme [curl](https://curl.se/), si vous préférez) est utilisée pour illustrer les appels de l’API REST.
 
 > [!NOTE]
-> Pour créer une connexion de point de terminaison privé à Azure Data Lake Storage Gen2, vous devez créer deux points de terminaison privés. Un point d'extrémité privé avec le groupID 'dfs' et un autre point d'extrémité privé avec le groupID 'blob'.
+> Il existe des sources de données Recherche cognitive Azure et d’autres configurations qui requièrent la création d’une liaison privée partagée pour fonctionner de manière appropriée. Voici une liste des configurations avec cette exigence et les ID de groupe nécessaires pour chacune d’entre elles :
+> * **Source de données Azure Data Lake Storage Gen2** - Créez deux liaisons privées partagées : une avec le groupID « dfs » et l’un autre avec le groupID « blob ».
+> * **Ensemble de compétences avec une base de connaissances configurée** - Une ou deux liaisons privées partagées sont nécessaires, en fonction des projections définies pour la base de connaissances :
+>   * Si vous utilisez des projections d’objets blob et/ou de fichiers, créez une liaison privée partagée avec le groupID « blob ». 
+>   * Si vous utilisez des projections de table, créez une liaison privée partagée avec le groupID « table ». 
+>   * Dans le cas où vous utilisez les deux, créez deux liaisons privées partagées : l’une avec le groupID « blob » et l’autre avec le groupID « table ». 
+> * **Indexeur avec cache activé** - Créez deux liaisons privées partagées : l’une avec le groupID « table » et l’autre partagé avec le groupID « blob ».
 
 ## <a name="set-up-indexer-connection-through-private-endpoint"></a>Configurer la connexion de l’indexeur via un point de terminaison privé
 
@@ -70,25 +76,25 @@ Les exemples de cet article se basent sur les hypothèses suivantes :
 
 Les étapes de restriction de l’accès varient en fonction des ressources. Les scénarios suivants illustrent trois des types de ressources les plus courants.
 
-- Scénario 1 : Source de données
+- Scénario 1 : Stockage Azure
 
-    L’exemple suivant illustre la configuration d’un compte Stockage Azure. Si vous sélectionnez cette option sans renseigner le reste, cela signifie qu’aucun trafic provenant d’un réseau virtuel n’est autorisé.
+    L’exemple suivant illustre la configuration d’un pare-feu de compte Stockage Azure. Si vous sélectionnez cette option sans renseigner le reste, cela signifie qu’aucun trafic provenant d’un réseau virtuel n’est autorisé.
 
     ![Capture d’écran du volet « Pare-feux et réseaux virtuels » pour Stockage Azure mettant en avant l’option permettant d’autoriser l’accès aux réseaux sélectionnés.](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
 
 - Scénario 2 : Azure Key Vault
 
-    L’exemple suivant illustre la configuration d’Azure Key Vault.
+    L’exemple suivant illustre la configuration du pare-feu Azure Key Vault.
  
     ![Capture d’écran du volet « Pare-feux et réseaux virtuels » pour Azure Key Vault mettant en avant l’option permettant d’autoriser l’accès aux réseaux sélectionnés.](media\search-indexer-howto-secure-access\key-vault-firewall-noaccess.png)
     
 - Scénario 3 : Azure Functions
 
-    Aucune modification de paramètre réseau n’est nécessaire pour Azure Functions. Dans les étapes suivantes, lorsque vous créerez le point de terminaison privé partagé, la fonction autorisera automatiquement l’accès via un lien privé après la création d’un point de terminaison privé partagé à la fonction.
+    Aucune modification de paramètre réseau n’est nécessaire pour les pare-feu Azure Functions. Dans les étapes suivantes, lorsque vous créerez le point de terminaison privé partagé, la fonction autorisera automatiquement l’accès via une liaison privée après la création d’un point de terminaison privé partagé à la fonction.
 
 ### <a name="step-2-create-a-shared-private-link-resource-to-the-azure-resource"></a>Étape 2 : Créer une ressource de liaison privée partagée vers la ressource Azure
 
-La section suivante explique comment créer une ressource de liaison privée partagée à l’aide du portail Azure ou d’Azure CLI.
+La section suivante explique comment créer une ressource de liaison privée partagée à l’aide du portail Azure ou d’Azure CLI. 
 
 #### <a name="option-1-portal"></a>Option 1 : Portail
 

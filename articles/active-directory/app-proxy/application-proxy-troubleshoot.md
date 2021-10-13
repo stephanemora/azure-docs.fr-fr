@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 1e46bb0fad37e1a6da3676578f6cd92af912cb3f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 798f381ef067af174370fb21893c32386390449a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963898"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617280"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Résoudre les problèmes de proxy d’application et les messages d’erreur
 
@@ -80,10 +80,6 @@ Cette liste comprend des erreurs que vos utilisateurs finaux peuvent rencontrer 
 | Cette application d’entreprise n’est pas accessible. Vous n’êtes pas autorisé à accéder à cette application. Échec de l’autorisation. Vérifiez que l’utilisateur possède une licence Azure Active Directory Premium. | Il se peut que votre utilisateur obtienne cette erreur en tentant d’accéder à l’application que vous avez publiée si l’administrateur de l’abonné ne lui a pas assigné explicitement une licence Premium. Accédez à l’onglet **Licences** Active Directory de l’abonné et vérifiez qu’une licence Premium est affectée à cet utilisateur ou à ce groupe. |
 | Impossible de trouver un serveur avec le nom d’hôte spécifié. | Votre utilisateur peut recevoir cette erreur en tentant d’accéder à l’application que vous avez publiée si le domaine personnalisé de l’application n’est pas configuré correctement. Assurez-vous d’avoir chargé un certificat pour le domaine et configuré correctement l’enregistrement DNS en suivant les étapes décrites dans [Utilisation des domaines personnalisés dans le proxy d'application Azure AD](./application-proxy-configure-custom-domain.md) |
 |Interdit : Cette application d’entreprise n’est pas accessible OU l’utilisateur n’a pas pu être autorisé. Assurez-vous que l’utilisateur est défini dans votre annuaire AD local et que l’utilisateur a accès à l’application dans votre AD local. | Il pourrait s’agir d’un problème d’accès aux informations d’autorisation. Consultez [Certaines applications et API nécessitent l’accès à des informations d’autorisation sur des objets Compte]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information). Pour résumer, ajoutez le compte d’ordinateur connecteur de proxy d’application au groupe de domaines builtin « Groupe d’accès d’autorisation Windows » à résoudre. |
-
-## <a name="my-error-wasnt-listed-here"></a>Mon erreur n’était pas répertoriée ici
-
-Si vous rencontrez une erreur ou un problème avec le proxy d’application Azure AD qui ne figure pas dans ce guide de dépannage, veuillez nous contacter. Envoyez un message électronique à notre [équipe de commentaires](mailto:aadapfeedback@microsoft.com) comportant les détails de l’erreur qui s’est produite.
 
 ## <a name="see-also"></a>Voir aussi
 * [Activation du proxy d’application Azure AD](application-proxy-add-on-premises-application.md)

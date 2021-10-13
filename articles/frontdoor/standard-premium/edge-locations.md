@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 05/25/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: aa0419910c57f6bee218fb8558c6213eb267bb8b
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 4d215272732948efab0065fea9ec5289165da90c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129091841"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362649"
 ---
 # <a name="azure-front-door-standardpremium-edge-locations-by-metro"></a>Emplacements périphériques Standard/Premium Azure Front Door par métro
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "129091841"
 > * [Emplacements périphériques par abréviation](edge-locations-by-abbreviation.md)
 > 
 
-Cet article répertorie les métros actuels contenant des emplacements périphériques, triés par région, pour Azure Front Door. Chaque métro peut contenir plusieurs emplacements périphériques. Actuellement, Azure Front Door a 117 emplacements périphériques sur 100 zones urbaines.
+Cet article répertorie les métros actuels contenant des emplacements périphériques, triés par région, pour Azure Front Door. Chaque métro peut contenir plusieurs emplacements périphériques. Azure Front Door a 118 emplacements de périphérie dans 100 zones urbaines.
 
 ## <a name="microsoft-edge-locations"></a>Emplacements périphériques Microsoft
 

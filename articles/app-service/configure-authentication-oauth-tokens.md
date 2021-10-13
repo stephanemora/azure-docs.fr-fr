@@ -3,12 +3,12 @@ title: Jetons OAuth dans AuthN/AuthZ
 description: Découvrez comment récupérer des jetons et des jetons d’actualisation et étendre les sessions lors de l’utilisation de l’authentification et de l’autorisation intégrées dans App Service.
 ms.topic: article
 ms.date: 03/29/2021
-ms.openlocfilehash: 820ab9fe75bf960c5991187cfef25ace32b6995c
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: f158f9f76820635a65737b75f3c016ff67a3a92a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371177"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352084"
 ---
 # <a name="work-with-oauth-tokens-in-azure-app-service-authentication"></a>Utiliser des jetons OAuth dans le cadre de l’authentification Azure App Service
 
@@ -41,7 +41,7 @@ Lorsque le jeton d'accès de votre fournisseur (et non le [jeton de session](#ex
 - **Google** : ajouter un paramètre de chaîne de requête `access_type=offline` à votre appel d’API `/.auth/login/google`. Si vous utilisez le kit de développement logiciel Mobile Apps, vous pouvez ajouter le paramètre à l’une des surcharges `LogicAsync` (voir [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Jetons d’actualisation Google)).
 - **Facebook** : ne fournit pas de jetons d’actualisation. Les jetons de longue durée expirent au bout de 60 jours (voir [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) (Expiration et prolongation des jetons d’accès Facebook)).
 - **Twitter** : les jetons d’accès n’expirent pas (voir les [questions fréquentes sur Twitter OAuth](https://developer.twitter.com/en/docs/authentication/faq)).
-- **Azure Active Directory** : Dans [https://resources.azure.com](https://resources.azure.com), effectuez les étapes suivantes :
+- **Microsoft** : Dans [https://resources.azure.com](https://resources.azure.com), effectuez les étapes suivantes :
     1. En haut de la page, sélectionnez **Lecture/écriture**.
     2. Dans le navigateur de gauche, accédez à **subscriptions** > ** _\<subscription\_name_** > **resourceGroups** > **_ \<resource\_group\_name> _** > **providers** > **Microsoft.Web** > **sites** > **_ \<app\_name>_** > **config** > **authsettingsV2**.
     3. Cliquez sur **Modifier**.
@@ -51,16 +51,16 @@ Lorsque le jeton d'accès de votre fournisseur (et non le [jeton de session](#ex
         "identityProviders": {
           "azureActiveDirectory": {
             "login": {
-              "loginParameters": ["scope=openid offline_access"]
+              "loginParameters": ["scope=openid profile email offline_access"]
             }
           }
         }
         ```
 
     5. Cliquez sur **Put**.
-
-> [!NOTE]
-> Si vous avez configuré votre application avec le panneau Authentification (classique), au lieu de naviguer jusqu’à la section **authSettingsV2** dans [https://resources.azure.com](https://resources.azure.com), accédez à **authsettings**. Modifiez ensuite le paramètre ```"additionalLoginParams": ["scope=openid offline_access"]```.
+    
+    > [!NOTE]
+    > L’étendue qui vous donne un jeton d’actualisation est [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access). Découvrez l’utilisation dans le [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service](tutorial-auth-aad.md). Les autres étendues sont déjà demandées par défaut par App Service. Pour plus d’informations sur ces étendues par défaut, consultez [Étendues OpenID Connect](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 
 Une fois que votre fournisseur est configuré, vous pouvez [rechercher le jeton d’actualisation et l’heure d’expiration pour le jeton d’accès](#retrieve-tokens-in-app-code) dans le magasin de jetons. 
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 03/16/2020
-ms.openlocfilehash: ae8bbad9d99837bd1cd0d21b66a37c895b816f2a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2020
+ms.openlocfilehash: 3aa0ddf4a9013d5f64584fbe93a795f6420dc410
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642658"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389920"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configurer un abonnement de la Place de marché Azure pour les versions d'évaluation hébergées
 
@@ -65,7 +65,32 @@ Cet article explique comment configurer un abonnement de la Place de marché Azu
 
             :::image type="content" source="./media/test-drive/add-client-secret-customer.png" alt-text="Ajout d’un secret client.":::
 
-5. Ajoutez le rôle de principal de service à l’application pour permettre à l’application Azure AD de supprimer des utilisateurs de votre locataire Azure.
+5. Ajoutez le rôle de principal de service à l’application pour permettre à l’application Azure AD de supprimer des utilisateurs de votre locataire Azure. Il existe deux options pour effectuer cette étape.
+
+    **Option 1 :**
+
+    1. Recherchez **Rôles et administrateurs Azure AD**, puis sélectionnez le service.
+
+        :::image type="content" source="./media/test-drive/active-ad-roles.png" alt-text="Montre comment rechercher des rôles et des administrateurs Azure AD.":::
+
+    2. Dans la page **Tous les rôles**, recherchez le rôle **Administrateur d’utilisateurs**, puis double-cliquez sur **Administrateur d’utilisateurs**.
+
+        :::image type="content" source="./media/test-drive/user-administrator.png" alt-text="Montre comment rechercher et sélectionner l’administrateur d’utilisateurs.":::
+
+    3. Sélectionnez **Ajouter des attributions**.
+
+        :::image type="content" source="./media/test-drive/add-assignments-1.png" alt-text="Affiche le bouton Ajouter des affectations.":::
+
+    4. Recherchez et sélectionnez l’application créée ci-dessus, puis **Ajouter**.
+
+        :::image type="content" source="./media/test-drive/add-assignments-2.png" alt-text="Affiche une affectation d’application réussie.":::
+
+    5. Notez que le rôle principal du service a été attribué à l’application :
+
+        :::image type="content" source="./media/test-drive/successful-assignment.png" alt-text="Indique que le rôle principal du service a été attribué à l’application.":::
+
+    **Option 2 :**
+
     1. Ouvrez une invite de commandes PowerShell d’administration.
     2. Install-Module MSOnline (exécutez cette commande si MSOnline n’est pas installé).
     3. Connect-MsolService (cette opération permet d’afficher une fenêtre contextuelle ; connectez-vous avec le locataire d’organisation nouvellement créé).
@@ -73,7 +98,7 @@ Cet article explique comment configurer un abonnement de la Place de marché Azu
     5. $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId.
     6. Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal.
 
-        :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Connexion à votre compte.":::
+         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Connexion à votre compte.":::
 
 6. Créez un groupe de sécurité et ajoutez-le à l’application canevas (Power Apps). Cette étape s’applique uniquement aux offres Application canevas (Power Apps).
     1. Créez un groupe de sécurité.

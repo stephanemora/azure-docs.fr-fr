@@ -1,29 +1,29 @@
 ---
-title: Copier des données à partir de DB2 avec Azure Data Factory
+title: Copier des données de DB2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de DB2 vers des banques de données réceptrices prises en charge.
+description: Découvrez comment utiliser l'activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics pour copier des données de DB2 vers des banques de données réceptrices prises en charge.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: 01680713d0e21baa3433e79474a4ba4567d5c644
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: def376920d111f915edfa7f367fcbedd4bc370f4
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123313030"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778055"
 ---
-# <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copier des données de DB2 à l’aide d’Azure Data Factory
+# <a name="copy-data-from-db2-using-azure-data-factory-or-synapse-analytics"></a>Copier des données de DB2 à l’aide d’Azure Data Factory ou de Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-onprem-db2-connector.md)
 > * [Version actuelle](connector-db2.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’une base de données DB2. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article décrit comment utiliser l’activité de copie dans des pipelines Azure Data Factory et Synapse Analytics pour copier des données à partir d’une base de données DB2. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
@@ -67,7 +67,7 @@ Utilisez les étapes suivantes pour créer un service lié à DB2 dans l’inter
 
     # <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran de la création d’un nouveau service lié avec l’interface utilisateur Azure Data Factory.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Capture d’écran montrant la création d’un service lié avec l’interface utilisateur Azure Data Factory.":::
 
     # <a name="azure-synapse"></a>[Azure Synapse](#tab/synapse-analytics)
 
@@ -103,12 +103,12 @@ Propriétés courantes dans la chaîne de connexion :
 | database |Nom de la base de données DB2. |Oui |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données DB2.<br/>Valeur autorisée : **De base**. |Oui |
 | username |Spécifiez le nom d’utilisateur pour la connexion à la base de données DB2. |Oui |
-| mot de passe |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
-| packageCollection    | Spécifiez sous quel emplacement les packages nécessaires sont créés automatiquement par ADF lors de l’interrogation de la base de données. Si cette option n’est pas définie, Data Factory utilise {username} comme valeur par défaut. | Non |
+| mot de passe |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| packageCollection    | Spécifiez sous quel emplacement les packages nécessaires sont créés automatiquement par le service lors de l’interrogation de la base de données. Si cette option n’est pas définie, le service utilise {username} comme valeur par défaut. | Non |
 | certificateCommonName | Lorsque vous utilisez le chiffrement SSL (Secure Sockets Layer) ou TLS (Transport Layer Security), vous devez entrer une valeur pour le nom commun du certificat. | Non |
 
 > [!TIP]
-> Si vous recevez un message d’erreur indiquant `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, la raison est qu’un package nécessaire n’est pas créé pour l’utilisateur. Par défaut, ADF tente de créer le package sous le regroupement nommé en tant qu’utilisateur que vous avez utilisé pour vous connecter à DB2. Spécifiez la propriété du regroupement des packages pour indiquer à quel endroit vous souhaitez qu’ADF crée les packages nécessaires lors de l’interrogation de la base de données.
+> Si vous recevez un message d’erreur indiquant `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, la raison est qu’un package nécessaire n’est pas créé pour l’utilisateur. Par défaut, le service tente de créer le package sous le regroupement nommé en tant qu’utilisateur que vous avez utilisé pour vous connecter à DB2. Spécifiez la propriété du regroupement des packages pour indiquer à quel endroit vous souhaitez que le service crée les packages nécessaires lors de l’interrogation de la base de données.
 
 **Exemple :**
 
@@ -262,9 +262,9 @@ Si vous utilisiez une source de données typée `RelationalSource`, elle reste p
 
 ## <a name="data-type-mapping-for-db2"></a>Mappage de type de données pour DB2
 
-Lors de la copie de données de DB2, les mappages suivants sont utilisés entre les types de données DB2 et les types de données intermédiaires d’Azure Data Factory. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
+Lors de la copie de données à partir de DB2, les mappages suivants sont utilisés entre les types de données DB2 et les types de données intermédiaires utilisés en interne dans le service. Pour découvrir comment l’activité de copie mappe le schéma et le type de données la source au récepteur, voir [Mappages de schémas et de types de données](copy-activity-schema-and-type-mapping.md).
 
-| Type de base de données DB2 | Type de données intermédiaires de Data Factory |
+| Type de base de données DB2 | Type de données de service intermédiaire |
 |:--- |:--- |
 | BigInt |Int64 |
 | Binary |Byte[] |
@@ -298,4 +298,4 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Pour obtenir une liste des magasins de données pris en charge comme sources et récepteurs par l’activité de copie, consultez la section sur les [magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).

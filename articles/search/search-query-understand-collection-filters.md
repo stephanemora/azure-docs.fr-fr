@@ -2,29 +2,17 @@
 title: Présentation des filtres de collection OData
 titleSuffix: Azure Cognitive Search
 description: Découvrez les mécanismes de fonctionnement des filtres de collection OData dans les requêtes Azure Cognitive Search, y compris les limitations et les comportements propres aux collections.
-manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: 88387bbe51d71a2530d25608fee962e926cd6511
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.date: 10/06/2021
+ms.openlocfilehash: 9a73f5073d5388499a678b25db983046a50de717
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449150"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612081"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Présentation des filtres de collection OData dans Recherche cognitive Azure
 

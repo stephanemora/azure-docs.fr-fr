@@ -4,12 +4,12 @@ description: Cet article décrit ce qu’est un modèle de marques dans Azure Vi
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: juliako
-ms.openlocfilehash: b698bce219468ee44a78aea7b8e449b603ecd975
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b8516ca1d1d5d7020d645f54b1962076e9792f36
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128665660"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232624"
 ---
 # <a name="customize-a-brands-model-in-video-analyzer-for-media"></a>Personnaliser un modèle de marques dans Video Analyzer for Media
 
@@ -23,7 +23,7 @@ Dans la présentation « Microsoft Build 2017 Jour 2 », la marque « Microsof
 
 ![Vue d’ensemble des marques](./media/content-model-customization/brands-overview.png)
 
-La mention en anglais de windows (fenêtres) dans le contexte de la construction ne déclenche pas la détection de « Windows » en tant que marque. Il en est de même pour les termes Box, Apple, Fox, etc., grâce aux algorithmes de Machine Learning avancés qui savent différencier les termes en fonction du contexte. La détection des marques fonctionne pour toutes les langues prises en charge.  
+La mention en anglais de Windows (fenêtres) dans le contexte de la construction ne déclenche pas la détection de « Windows » en tant que marque. Il en est de même pour les termes Box, Apple, Fox, etc., grâce aux algorithmes de Machine Learning avancés qui savent différencier les termes en fonction du contexte. La détection des marques fonctionne pour toutes les langues prises en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

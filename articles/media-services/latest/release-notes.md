@@ -12,12 +12,12 @@ ms.custom: references_regions
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 46ebdd1f5cb3093b0c1c1a5bc3273cf1aa1afd8f
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 90f6470171db4be4e0d883196495ddaba16772fb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634826"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362775"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -30,15 +30,53 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Résolution des bogues
 * Fonctionnalités dépréciées
 
+## <a name="september-2021"></a>Septembre 2021
+
+### <a name="new-basic-pass-through-live-event-sku"></a>Nouvelle référence SKU d’événement en direct pass-through de base
+
+La nouvelle référence d’événement SKU en direct pass-through de base permet aux clients de créer des événements en direct à un [prix inférieur](https://azure.microsoft.com/pricing/details/media-services/). Elle est similaire aux événements en direct pass-through standard, mais avec des limites de bande passante d’entrée inférieures, moins de sorties dynamiques autorisées, des limites de longueur de fenêtre DVR différentes et aucun accès à la transcription en direct. Pour plus d’informations, consultez [Comparaison des types d’événements en direct](./live-event-types-comparison-reference.md#types-comparison).
+
+### <a name="improved-scale-management-and-monitoring-for-a-streaming-endpoint-in-the-portal"></a>Amélioration de la gestion de la mise à l’échelle et de la supervision d’un point de terminaison de streaming dans le portail
+
+La page du portail relative aux points de terminaison de streaming vous permet désormais de gérer facilement votre capacité de sortie et d’estimer la portée de votre audience avec ou sans CDN configuré.  Changez simplement le débit binaire de livraison et le taux attendu de correspondance dans le cache CDN pour obtenir des estimations rapides de la taille de votre audience et déterminer si vous devez effectuer un scale-up vers des points de terminaison de streaming Premium supplémentaires.
+
+   [ ![Mettre à l’échelle et superviser les points de terminaison de streaming dans le portail](./media/release-notes/streaming-endpoint-monitor-inline.png) ](./media/release-notes/streaming-endpoint-monitor.png#lightbox)
+
+### <a name="streaming-endpoint-portal-page-now-shows-cpu-egress-and-latency-metrics"></a>La page du portail relative aux points de terminaison de streaming affiche désormais les métriques de processeur, de sortie et de latence
+
+Vous pouvez désormais visualiser de bout en bout les métriques relatives à la charge des processeurs, à la bande passante de sortie et à la latence sur les points de terminaison de streaming correspondants dans le portail Azure. Vous pouvez créer des alertes de supervision basées sur les métriques de processeur, de sortie ou de latence directement dans le portail à l’aide de la puissance d’Azure Monitor.
+
+### <a name="user-assigned-managed-identities-support-for-media-services-accounts"></a>Prise en charge des identités managées affectées par l’utilisateur pour les comptes Media Services
+
+Avec les identités managées affectées par l’utilisateur, les clients peuvent désormais améliorer la sécurité de leurs comptes de stockage et des coffres de clés associés. L’accès au compte de stockage du client et aux coffres de clés est limité à l’identité managée affectée par l’utilisateur.  Vous avez un contrôle total sur la durée de vie des identités managées affectées par l’utilisateur. Ainsi, vous pouvez facilement révoquer l’accès du compte Media Services à un compte de stockage spécifique, selon les besoins.
+
+### <a name="media-services-storage-accounts-page-in-the-portal-now-support-both-uami-and-sami"></a>La page des comptes de stockage Media Services du portail prend désormais en charge UAMI et SAMI
+
+Vous pouvez désormais attribuer et gérer des identités managées affectées par l’utilisateur (UAMI) ou des identités managées affectées par le système (SAMI) à vos comptes de stockage directement dans le portail Azure pour Media Services.
+
+### <a name="bring-your-own-key-page-now-also-supports-both-uami-and-sami"></a>La page Bring Your Own Key prend maintenant en charge UAMI et SAMI.
+La page du portail de gestion des clés de Media Services prend désormais en charge la configuration et la gestion des identités managées affectées par l’utilisateur (UAMI) ou des identités managées affectées par le système (SAMI).
+
+   [ ![Page Bring Your Own Key pour le chiffrement du compte](./media/release-notes/byok-managed-identity.png)](./media/release-notes/byok-managed-identity.png)
+
+
+### <a name="private-link-support-for-media-services"></a>Prise en charge de Private Link pour Media Services
+Vous pouvez désormais restreindre l’accès public à vos événements en direct, à vos points de terminaison de streaming ainsi qu’au point de terminaison de services de remise de clés pour la protection du contenu et la gestion des droits numériques (DRM). Il vous suffit de créer un point de terminaison privé pour chacun des services. Cela limite l’accès public à chacun de ces services. Seul le trafic provenant du réseau virtuel (VNet) configuré dans le point de terminaison privé peut atteindre ces points de terminaison.
+
+### <a name="ip-allow-list-for-key-service"></a>Liste verte d’adresses IP pour le service de clés
+Vous pouvez désormais autoriser certaines adresses IP publiques à accéder au service de remise de clés pour la gestion DRM et la protection du contenu. Les points de terminaison d’événements en direct et les points de terminaison de streaming prennent déjà en charge la configuration des listes vertes d’adresses IP dans leurs pages respectives.
+
+Désormais, vous disposez également d’un indicateur de fonctionnalité au niveau du compte pour autoriser/bloquer l’accès Internet public à votre compte Media Services.
+
 ## <a name="july-2021"></a>Juillet 2021
 
-### <a name="net-sdk-microsoftazuremanagementmedia--500-release-available-in-nuget-coming-soon---early-september-2021"></a>Version 5.0.0 du kit de développement logiciel (SDK) .NET (Microsoft.Azure.Management.Media ) disponible dans NuGet (début septembre 2021)
+### <a name="net-sdk-microsoftazuremanagementmedia--500-release-available-in-nuget"></a>Kit SDK .NET (Microsoft.Azure.Management.Media) version 5.0.0 disponible dans NuGet
 
 La version 5.0.0 du kit de développement logiciel (SDK) [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) est désormais disponible sur NuGet. Cette version est générée pour être compatible avec la version [stable 2021-06-01](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) de l’API Rest ARM Open API (Swagger).
 
 Pour plus d’informations sur les changements apportés à la version 4.0.0, consultez le [journal des modifications](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mediaservices/Microsoft.Azure.Management.Media/CHANGELOG.md).
 
-#### <a name="changes-in-the-500-net-sdk-release-coming-soon---early-september-2021"></a>Modifications apportées à la version 5.0.0 du kit de développement logiciel (SDK) .NET (début septembre 2021)
+#### <a name="changes-in-the-500-net-sdk-release"></a>Changements apportés à la version 5.0.0 du kit SDK .NET
 
 * Le compte Media Services prend désormais en charge les identités managées affectées par le système et l’utilisateur.
 * Ajout de l’option **PublicNetworkAccess** aux comptes Media Services. Cette option peut être utilisée avec la fonctionnalité Private Link pour autoriser uniquement l’accès à partir de réseaux privés, et bloquer l’accès à partir de réseaux publics.
@@ -48,8 +86,9 @@ Pour plus d’informations sur les changements apportés à la version 4.0.0, co
 #### <a name="breaking-changes-in-tht-500-net-sdk-release"></a>Dernières modifications dans la version 5.0.0 du kit de développement logiciel (SDK) .NET
 
 * **ApiErrorException** a été remplacé par **ErrorResponseException** à des fins de cohérence avec tous les autres kits de développement logiciel (SDK) Azure. Le corps de l’exception n’a pas été modifié.
+* Tous les appels qui retournent l’erreur « 404 Not Found » lèvent maintenant l’exception **ErrorResponseException** au lieu de retourner une valeur null. Ce changement a été apporté par souci de cohérence avec les autres kits SDK Azure
 * Le constructeur Media Services inclut un nouveau paramètre PublicNetworkAccess facultatif après le paramètre KeyDelivery.
-* La propriété de type dans MediaServiceIdentity est passée de l’énumération à la chaîne ManagedIdentityType afin de prendre en charge plusieurs types séparés par des virgules. Les chaînes SystemAssigned ou SystemAssigned, UserAssigned ou UserAssigned sont valides pour le type.
+* La propriété de type dans **MediaServiceIdentity** est passée du ManagedIdentityType enum à chaîne pour permettre la prise en charge de plusieurs types séparés par des virgules. Les chaînes valides sont **SystemAssigned** ou **UserAssigned**.
 
 ## <a name="june-2021"></a>Juin 2021
 
@@ -71,9 +110,9 @@ Pour plus d’informations sur l’utilisation de Media Services avec des liaiso
 
 La région USA Ouest 3 est désormais en disponibilité générale et peut être utilisée par les clients lors de la création de nouveaux comptes Media Services.
 
-### <a name="key-delivery-supports-ip-allowlist-restrictions"></a>La remise de clés prend en charge les restrictions de liste d’adresses IP autorisées
+### <a name="key-delivery-supports-ip-allow-list-restrictions"></a>La remise de clés prend en charge les restrictions relatives aux listes vertes d’adresses IP
 
-Les comptes Media Services peuvent désormais être configurés avec des restrictions de liste d’adresses IP autorisées sur la remise de clés. Le nouveau paramètre de liste d’autorisation est disponible sur la ressource de compte Media Services via le kit de développement logiciel (SDK), ainsi que dans le portail et l’interface CLI.
+Les comptes Media Services peuvent désormais être configurés avec des restrictions basées sur les listes vertes d’adresses IP pour la remise de clés. Le nouveau paramètre de liste verte est disponible sur la ressource de compte Media Services via le kit SDK ainsi que dans le portail et l’interface CLI.
 Il permet aux opérateurs de limiter la remise de licences DRM et de clés de contenu AES-128 à des plages IPv4 spécifiques.
 
 Cette fonctionnalité peut également être utilisée pour désactiver la remise de licences DRM ou de clés AES-128 sur l’Internet public et restreindre la remise à un point de terminaison de type réseau privé.
@@ -162,6 +201,8 @@ La version 3 offre les avantages suivants :
 - API REST ARM, SDK clients pour .NET core, Node.js, Python, Java, Go et Ruby.
 - Clés gérées par le client, intégration du stockage approuvé, prise en charge des liens privés et [bien plus encore](./migrate-v-2-v-3-migration-benefits.md)
 
+Dans le cadre de la mise à jour vers les kits SDK et l’API v3, les unités réservées multimédias (MRU) ne sont plus nécessaires pour les comptes Media Services, car le système effectue automatiquement un scale-up et un scale-down en fonction de la charge. Pour plus d’informations, consultez les [conseils d’aide relatifs à la migration des unités réservées multimédias](./migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md).
+
 #### <a name="action-required"></a>Action requise
 
 Pour limiter les perturbations au niveau de vos charges de travail, consultez le [guide de migration](./migrate-v-2-v-3-migration-introduction.md) pour faire passer votre code de la version 2 de l’API et des SDK à la version 3 avant le 29 février 2024.
@@ -171,7 +212,7 @@ Consultez [l’annonce officielle sur les mises à jour Azure](https://azure.mic
 
 ### <a name="standard-encoder-support-for-v2-api-features"></a>Prise en charge de l’encodeur standard pour les fonctionnalités de l’API v2
 
-En plus de la nouvelle prise en charge de l’encodage HEVC (H.265), les fonctionnalités suivantes sont désormais disponibles dans la version 2020-05-01 de l’API d’encodage.
+En plus de la nouvelle prise en charge de l’encodage HEVC (H.265), les fonctionnalités suivantes sont désormais disponibles dans la version 2020-05-01 (ou ultérieure) de l’API d’encodage.
 
 - La combinaison de plusieurs fichiers d’entrée est désormais possible à l’aide de la nouvelle prise en charge de **JobInputClip**.
     - Un exemple est disponible pour .NET, montrant comment [combiner deux ressources](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets).

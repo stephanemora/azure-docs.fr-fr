@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 5dfd36891c52fb85ea7b7921f82059ed629158b8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4ffeba4fd01a88819857d137f79fef406b43b645
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124835409"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658858"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-factset"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à FactSet
 
@@ -78,9 +78,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une l’URL : `https://login.factset.com`
+    a. Dans la zone de texte **Identificateur**, tapez une l’URL : `https://auth.factset.com`
 
-    b. Dans la zone **URL de réponse**, tapez l’URL : `https://login.factset.com/services/saml2/`
+    b. Dans la zone **URL de réponse**, tapez l’URL : `https://auth.factset.com/sp/ACS.saml2`
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le fichier de métadonnées et l’enregistrer sur votre ordinateur.
 

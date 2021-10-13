@@ -1,18 +1,17 @@
 ---
 title: FAQ sur le WAN virtuel Azure | Microsoft Docs
 description: Consultez les réponses aux questions fréquemment posées sur les réseaux Virtual WAN Azure, les clients, les passerelles, les appareils, les partenaires et les connexions.
-services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: troubleshooting
 ms.date: 08/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: c4c31314ca8e559748425518258e0eec965d9c09
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: eaeefcfc48492686abc88215e80bc6d74a836f4f
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754429"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545036"
 ---
 # <a name="virtual-wan-faq"></a>FAQ sur Virtual WAN
 
@@ -36,7 +35,7 @@ Il existe deux types de réseaux Virtual WAN : De base et Standard. Dans le ré
 
 Virtual WAN est une collection de hubs et de services mis à votre disposition dans le hub. L’utilisateur peut avoir autant de WAN virtuels qu’il en a besoin. Dans un hub Virtual WAN, il existe plusieurs services tels que VPN, ExpressRoute, etc. Chacun de ces services est automatiquement déployé dans les zones de disponibilité (hormis Pare-feu Azure) si la région prend en charge les zones de disponibilité. Si une région devient une zone de disponibilité après le déploiement initial dans le hub, l’utilisateur peut recréer les passerelles, ce qui déclenche le déploiement d’une zone de disponibilité. Toutes les passerelles sont provisionnées dans un hub sous la forme active-active, ce qui implique une résilience intégrée au sein d’un hub. Les utilisateurs peuvent se connecter à plusieurs hubs s’ils souhaitent une résilience entre les régions. 
 
-Actuellement, le Pare-feu Azure peut être déployé pour prendre en charge les zones de disponibilité à l’aide du Portail Azure Firewall Manager, de [PowerShell](/powershell/module/az.network/new-azfirewall?view=azps-6.3.0#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) ou de l’interface CLI. Il n’existe actuellement aucun moyen de configurer un pare-feu existant pour qu’il soit déployé sur plusieurs zones de disponibilité. Vous devez supprimer et redéployer votre Pare-feu Azure. 
+Actuellement, le Pare-feu Azure peut être déployé pour prendre en charge les zones de disponibilité à l’aide du Portail Azure Firewall Manager, de [PowerShell](/powershell/module/az.network/new-azfirewall#example-6--create-a-firewall-with-no-rules-and-with-availability-zones) ou de l’interface CLI. Il n’existe actuellement aucun moyen de configurer un pare-feu existant pour qu’il soit déployé sur plusieurs zones de disponibilité. Vous devez supprimer et redéployer votre Pare-feu Azure. 
 
 Alors que le concept de Virtual WAN est global, la ressource Virtual WAN réelle est basée sur Resource Manager et déployée de manière régionale. Si la région du WAN virtuel présente elle-même un problème, tous les hubs de ce WAN virtuel continueront à fonctionner en l’état, mais l’utilisateur ne pourra pas créer de nouveaux hubs tant que la région du WAN virtuel ne sera pas disponible.
 
@@ -253,10 +252,10 @@ L’itinéraire par défaut ne provient pas du hub Virtual WAN ; il est propag�
 Si un hub virtuel apprend la même route à partir de plusieurs hubs distants, l’ordre dans lequel il prend sa décision est le suivant :
 
 1. Correspondance de préfixe la plus longue.
-1. Routes locales sur interhub (le hub virtuel affecte 65520-65520 pour interhub AS).
+1. Routes locales par rapport à interhub.
 1. Routes statiques par rapport à BGP : dans le contexte de la décision prise par le routeur de hub virtuel. Toutefois, si le décideur est la passerelle VPN dans laquelle un site publie des routes via le protocole BGP ou fournit des préfixes d’adresses statiques, les routes statiques peuvent être préférées aux routes BGP.
 1. ExpressRoute (ER) par rapport à VPN : ER est préféré à VPN lorsque le contexte est un hub local. La connectivité de transit entre les circuits ExpressRoute est disponible uniquement par le biais de Global Reach. Par conséquent, dans les scénarios où le circuit ExpressRoute est connecté à un hub et qu’un autre circuit ExpressRoute est connecté à un hub différent avec une connexion VPN, le VPN peut être préféré pour les scénarios entre hubs.
-1. Longueur des chemins entre les systèmes autonomes.
+1. Longueur de chemin AS (les hubs virtuels précéderont les itinéraires avec le chemin AS 65520-65520 lors de la publication d’itinéraires entre eux).
 
 ### <a name="does-the-virtual-wan-hub-allow-connectivity-between-expressroute-circuits"></a>Le hub Virtual WAN autorise-t-il la connectivité entre les circuits ExpressRoute ?
 

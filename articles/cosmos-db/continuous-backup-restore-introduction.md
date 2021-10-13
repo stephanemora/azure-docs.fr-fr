@@ -8,12 +8,12 @@ ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: a8862f0b71a6b3f8bba21bdd4ab40290a00d0959
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: e7d46d1680e11307eb873383e91e6e682f545549
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563855"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546536"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-in-azure-cosmos-db"></a>Sauvegarde continue avec restauration à un instant dans le passé dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -111,7 +111,9 @@ La fonctionnalité de restauration à un instant dans le passé présente les li
 
 * Les comptes d’écriture dans plusieurs régions ne sont pas pris en charge.
 
-* Pour les comptes avec Azure Synapse Link, les données du magasin analytique ne sont pas incluses dans les sauvegardes et les restaurations. Lorsque Synapse Link est activé, Azure Cosmos DB continue à effectuer des sauvegardes automatiques de vos données dans le magasin transactionnel à un intervalle de sauvegarde planifié. La sauvegarde et la restauration automatiques de vos données dans le magasin analytique ne sont pas prises en charge pour le moment.
+* Azure Synapse Link et le mode de sauvegarde périodique peuvent coexister dans le même compte de base de données. Cependant, les données du magasin analytique ne sont pas incluses dans les sauvegardes et les restaurations. Lorsque Synapse Link est activé, Azure Cosmos DB continue à effectuer des sauvegardes automatiques de vos données dans le magasin transactionnel à un intervalle de sauvegarde planifié. 
+
+* Azure Synapse Link et le mode de sauvegarde continue ne peuvent pas coexister dans le même compte de base de données. Actuellement, les comptes de base de données avec Synapse Link activé ne peuvent pas utiliser le mode de sauvegarde continu et vice-versa.
 
 * Le compte restauré est créé dans la même région que celle où se trouve votre compte source. Vous ne pouvez pas restaurer un compte dans une région où le compte source n’existait pas auparavant.
 

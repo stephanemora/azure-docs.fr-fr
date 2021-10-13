@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
-ms.openlocfilehash: f254cc5b8835bb0430d4c2d3ecd0bd2f7d9fa013
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 115baa8d181bd7ebef125e7a666216efe50680d2
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128701303"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740781"
 ---
 # <a name="configure-same-zone-high-availability-in-an-azure-database-for-mysql---flexible-server-preview-using-azure-cli"></a>Configurer la haute disponibilité dans la même zone dans une instance d’Azure Database pour MySQL - Serveur flexible (préversion) avec Azure CLI
 
-Cet exemple de script CLI montre comment configurer et gérer la [haute disponibilité dans la même zone](../concepts-high-availability.md) sur une instance d’Azure Database pour MySQL - Serveur flexible. La haute disponibilité dans la même zone peut uniquement être activée lors de la création d’un serveur flexible. Toutefois, elle peut être désactivée à tout moment. La haute disponibilité dans la même zone est prise en charge uniquement pour les niveaux tarifaires Usage général et Mémoire optimisée.
+Cet exemple de script CLI montre comment configurer et gérer la [haute disponibilité dans la même zone](../concepts-high-availability.md) sur une instance d’Azure Database pour MySQL - Serveur flexible. La haute disponibilité dans la même zone est prise en charge uniquement pour les niveaux tarifaires Usage général et Mémoire optimisée.
 
 
 [!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]

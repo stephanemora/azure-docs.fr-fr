@@ -1,15 +1,15 @@
 ---
 title: Définitions de stratégie intégrées pour Azure Lighthouse
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure Lighthouse. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 09/17/2021
+ms.date: 10/11/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 45f9887d2b7f7daff04ed61c3941769e225825a9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 930e3ae3e2ff032d94fd2c8e9d6a592e84221010
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638676"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807600"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-lighthouse"></a>Définitions intégrées d’Azure Policy pour Azure Lighthouse
 

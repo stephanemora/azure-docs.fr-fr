@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/07/2021
-ms.openlocfilehash: 2d145e62392ee95189a212c1cd0b294134ce1109
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dda75aedab0c17f14d2725ff9759d7ab30203474
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524732"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712928"
 ---
 # <a name="create-rich-interactive-reports-of-security-center-data"></a>Créer des rapports riches et interactifs de données de Security Center
 
@@ -95,7 +95,7 @@ Le Security Center inclut des scanneurs de vulnérabilité pour vos machines, de
 
 Apprenez-en davantage sur l’utilisation de ces scanneurs :
 
-- [Analyser vos machines avec le scanneur d’évaluation des vulnérabilités intégré](deploy-vulnerability-assessment-vm.md)
+- [Analyser vos ordinateurs avec le scanneur Qualys intégré](deploy-vulnerability-assessment-vm.md)
 - [Analyser les images de votre registre à la recherche de vulnérabilités](defender-for-container-registries-usage.md)
 - [Analyser vos ressources SQL à la recherche de vulnérabilités](defender-for-sql-on-machines-vulnerability-assessment.md)
 

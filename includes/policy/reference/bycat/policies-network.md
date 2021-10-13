@@ -1,20 +1,20 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/17/2021
-ms.author: dacoulte
+ms.date: 10/11/2021
+ms.author: gwallace
 ms.custom: generated
-ms.openlocfilehash: 31511661ec095e74bdbe0a211545fd749297b172
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4bada8d70e72633c9d24b93c1cf72d87af1ff549
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559149"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808157"
 ---
 |Nom<br /><sub>(Portail Azure)</sub> |Description |Effet(s) |Version<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Une stratégie IPsec/IKE personnalisée doit être appliquée à toutes les connexions de passerelle de réseau virtuel Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Cette stratégie garantit que toutes les connexions de passerelle de réseau virtuel Azure utilisent une stratégie IPsec (Internet Protocol Security)/IKE (Internet Key Exchange). Algorithmes et puissances de clé pris en charge – [https://aka.ms/AA62kb0](../../../../articles/vpn-gateway/vpn-gateway-about-compliance-crypto.md) |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json) |
+|[Une stratégie IPsec/IKE personnalisée doit être appliquée à toutes les connexions de passerelle de réseau virtuel Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F50b83b09-03da-41c1-b656-c293c914862b) |Cette stratégie garantit que toutes les connexions de passerelle de réseau virtuel Azure utilisent une stratégie IPsec (Internet Protocol Security)/IKE (Internet Key Exchange). Algorithmes et puissances de clé pris en charge – [https://aka.ms/AA62kb0](/azure/vpn-gateway/vpn-gateway-about-compliance-crypto#what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy) |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_CustomIpSecPolicies_Audit.json) |
 |[\[Préversion\] : L’ensemble du trafic Internet doit transiter par votre pare-feu Azure déployé](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |Azure Security Center a détecté que certains de vos sous-réseaux ne sont pas protégés par un pare-feu de nouvelle génération. Protégez vos sous-réseaux contre les menaces potentielles en limitant leur accès avec le pare-feu Azure ou un pare-feu de nouvelle génération pris en charge |AuditIfNotExists, Désactivé |[3.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |
 |[App Service doit utiliser un point de terminaison de service de réseau virtuel](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d21331d-a4c2-4def-a9ad-ee4e1e023beb) |Cette stratégie audite App Service s’il n’est pas configuré pour utiliser un point de terminaison de service de réseau virtuel. |AuditIfNotExists, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_AppService_AuditIfNotExists.json) |
 |[Les passerelles VPN Azure ne doivent pas utiliser la référence SKU « de base »](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345b6c3-24bd-4c93-9bbb-7e5e49a17b78) |Cette stratégie garantit que les passerelles VPN n’utilisent pas de référence SKU « de base ». |Audit, Désactivé |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_BasicSKU_Audit.json) |

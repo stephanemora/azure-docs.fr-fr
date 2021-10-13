@@ -1,7 +1,6 @@
 ---
 title: Accès hybride sécurisé à Azure AD | Microsoft Docs
 description: Cet article décrit les solutions de partenaires pour intégrer vos applications locales, de cloud public ou de cloud privé héritées à Azure AD.
-services: active-directory
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -11,12 +10,12 @@ ms.workload: identity
 ms.date: 8/17/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc8d5d0b62f75d73bbe8879739069f1d28ce15bb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8294a0d3668077a1ead9ccb8b2f020360a75dc37
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128642602"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273701"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Sécuriser l’accès hybride : Sécuriser des applications héritées avec Azure Active Directory
 
@@ -56,13 +55,13 @@ Les partenaires suivants proposent des solutions prédéfinies pour prendre en c
 
 - [Plateforme d’authentification Silverfort](../manage-apps/silverfort-azure-ad-integration.md)
 
-- [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+- [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
 
 Les partenaires suivants proposent des solutions prédéfinies et des conseils détaillés pour l’intégration avec Azure AD.
 
-- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
+- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
-- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
+- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 
 - [Palo Alto Networks Global Protect](../saas-apps/paloaltoadmin-tutorial.md)
 

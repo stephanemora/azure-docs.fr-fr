@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7a24b9631362618ee3be5e94066ac5267ac85962
-ms.sourcegitcommit: 0ab53a984dcd23b0a264e9148f837c12bb27dac0
+ms.openlocfilehash: e84ee56b57c4e97e2fd77e38acf45fc0d426fb58
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113504870"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277078"
 ---
 # <a name="url-path-based-routing-overview"></a>Présentation du routage basé sur le chemin d’accès de l’URL
 
@@ -64,7 +64,7 @@ L’élément urlPathMap est utilisé pour spécifier les modèles de chemin d�
 
 ### <a name="pathpattern"></a>PathPattern
 
-PathPattern est une liste de modèles de chemin à utiliser pour la correspondance. Chaque modèle doit commencer par le signe « / », et le seul emplacement autorisé pour un astérisque (« * ») est à la fin après un signe « / ». La chaîne transmise à l’outil de correspondance de chemin n’inclut pas de texte après le premier signe « ? » ou « # ». De plus, ces caractères ne sont pas autorisés. Sinon, tous les caractères autorisés dans une URL sont autorisés dans PathPattern.
+PathPattern est une liste de modèles de chemin à utiliser pour la correspondance. Chaque chemin doit commencer par / et peut utiliser \* comme caractère générique. La chaîne transmise à l’outil de correspondance de chemin n’inclut pas de texte après le premier signe « ? » ou « # ». De plus, ces caractères ne sont pas autorisés. Sinon, tous les caractères autorisés dans une URL sont autorisés dans PathPattern.
 
 Les modèles pris en charge varient selon la version d'Application Gateway déployée, à savoir v1 ou v2 :
 
@@ -76,9 +76,9 @@ Les règles de chemin ne respectent pas la casse.
 |---------|---------|
 |`/images/*`     |Oui|
 |`/images*`     |Oui|
-|`/images/*.jpg`     |Non|
-|`/*.jpg`     |Non|
-|`/Repos/*/Comments/*`     |Non|
+|`/images/*.jpg`     |non|
+|`/*.jpg`     |non|
+|`/Repos/*/Comments/*`     |non|
 |`/CurrentUser/Comments/*`     |Oui|
 
 #### <a name="v2"></a>v2
@@ -89,9 +89,9 @@ Les règles de chemin ne respectent pas la casse.
 |---------|---------|
 |`/images/*`     |Oui|
 |`/images*`     |Oui|
-|`/images/*.jpg`     |Non|
-|`/*.jpg`     |Non|
-|`/Repos/*/Comments/*`     |Non|
+|`/images/*.jpg`     |non|
+|`/*.jpg`     |non|
+|`/Repos/*/Comments/*`     |non|
 |`/CurrentUser/Comments/*`     |Oui|
 
 Pour plus d’informations, vous pouvez consulter un [modèle Resource Manager utilisant le routage basé sur URL](https://azure.microsoft.com/resources/templates/application-gateway-url-path-based-routing) .

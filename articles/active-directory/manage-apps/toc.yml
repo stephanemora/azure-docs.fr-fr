@@ -55,10 +55,10 @@
           href: my-apps-deployment-plan.md
     - name: Authentification unique
       items:
-        - name: Planifier le déploiement
-          href: plan-sso-deployment.md
         - name: "Qu’est-ce que l’authentification unique\_?"
           href: what-is-single-sign-on.md
+        - name: Planifier le déploiement
+          href: plan-sso-deployment.md
     - name: Sécurité des applications
       items:
         - name: Options d’accès aux applications
@@ -118,14 +118,14 @@
           href: prevent-domain-hints-with-home-realm-discovery.md
     - name: Migrer des applications
       items:
-        - name: Ressources de migration
-          href: migration-resources.md
         - name: "Migrer une application AD\_FS vers Azure"
           href: migrate-adfs-apps-to-azure.md
         - name: Migrer l’authentification des applications vers Azure Active Directory
           href: migrate-application-authentication-to-azure-active-directory.md
         - name: "Utiliser le rapport d’activité d’application AD\_FS"
           href: migrate-adfs-application-activity.md
+        - name: Ressources de migration
+          href: migration-resources.md
         - name: "Migrer des applications d’Okta vers Azure\_AD"
           items:
             - name: "Migrer des applications d’Okta vers Azure\_AD"

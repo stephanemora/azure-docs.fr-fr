@@ -5,16 +5,16 @@ services: iot-edge
 keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 08/11/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: cb0c6bd32c2bb1087635ee9ae61c0c569d3575f2
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: c65cd9e9e6d80222f60a3ee060ba697743713738
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563386"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362714"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code afin de développer et déboguer des modules pour Azure IoT Edge
 
@@ -64,14 +64,13 @@ Pour générer et déployer l'image de votre module, vous devez disposer de Dock
     > [!TIP]
     > Vous pouvez utiliser un registre Docker local pour le prototype et à des fins de test, au lieu d’un registre cloud.
 
-À moins que vous ne développiez votre module en C, vous devez également disposer de l'[outil de développement Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/) basé sur Python afin de configurer votre environnement de développement local pour déboguer, exécuter et tester votre solution IoT Edge. Si ce n’est pas déjà fait, installez [Python (2.7/3.6/3.7) et Pip](https://www.python.org/), puis installez **iotedgehubdev** en exécutant la commande suivante dans votre terminal.
+À moins que vous ne développiez votre module en C, vous devez également disposer de l'[outil de développement Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/) basé sur Python afin de configurer votre environnement de développement local pour déboguer, exécuter et tester votre solution IoT Edge. Si ce n’est pas déjà fait, installez [Python (2.7/3.6/3.7/3.8) et Pip](https://www.python.org/), puis installez **iotedgehubdev** en exécutant la commande suivante dans votre terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 
 > [!NOTE]
-> Actuellement, iotedgehubdev utilise une bibliothèque docker-py qui n’est pas compatible avec Python 3.8.
 >
 > Si vous avez plusieurs Python, y compris Python 2.7 préinstallé (par exemple, sur Ubuntu ou MacOS), assurez-vous que vous utilisez le bon `pip` ou `pip3` pour installer **iotedgehubdev**.
 
@@ -117,6 +116,18 @@ La solution comprend quatre éléments :
 - Un fichier **deployment.template.json**, qui répertorie votre nouveau module, ainsi qu’un exemple de module **SimulatedTemperatureSensor** qui simule les données que vous pouvez utiliser à des fins de test. Pour plus d’informations sur le fonctionnement des manifestes de déploiement, consultez [Découvrez comment utiliser des manifestes de déploiement pour déployer des modules et établir des itinéraires](module-composition.md).
 
 Pour savoir comment le module de température simulée fonctionne, afficher le [code source SimulatedTemperatureSensor.csproj](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+
+### <a name="set-iot-edge-runtime-version"></a>Définir la version du runtime IoT Edge
+
+L’extension IoT Edge est par défaut la dernière version stable du runtime IoT Edge lors de la création de vos ressources de déploiement. La dernière version stable est la version 1.2. Si vous développez des modules pour des appareils qui exécutent la version de support à long terme 1.1 ou la version 1.0 antérieure, mettez à jour la version du runtime IoT Edge dans Visual Studio Code pour qu’elle corresponde.
+
+1. Sélectionnez **Afficher** > **Palette de commandes**.
+
+1. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: Set default IoT Edge runtime version** (Azure IoT Edge : Définir la version du runtime IoT Edge par défaut).
+
+1. Dans la liste, choisissez la version du runtime que vos appareils IoT Edge exécutent.
+
+Une fois que vous avez sélectionné une nouvelle version du runtime, votre manifeste de déploiement est mis à jour dynamiquement pour refléter la modification apportée aux images du module de runtime.
 
 ## <a name="add-additional-modules"></a>Ajouter des modules supplémentaires
 

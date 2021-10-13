@@ -3,12 +3,12 @@ title: Schéma de ressource Azure Monitor Application Insights basé sur un espa
 description: Découvrez la nouvelle structure des tableaux et le nouveau schéma des ressources basées sur l'espace de travail Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: ef9d22cd2b45679928ee54778b2a521ea9ecab03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 040f53836466dec446da6fcd312910ca7ad600e4
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575602"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615502"
 ---
 # <a name="workspace-based-resource-changes"></a>Modifications des ressources basées sur un espace de travail
 
@@ -28,7 +28,7 @@ Les données de ressources Application Insights basées sur l’espace de travai
 | pageViews | AppPageViews| Données sur l’affichage de chaque site web avec des informations du navigateur. |
 | performanceCounters | AppPerformanceCounters | Mesures de performances provenant des ressources de calcul prenant en charge l’application, par exemple, de compteurs de performances Windows. |
 | requêtes | AppRequests | Requêtes que votre application reçoit. Par exemple, un enregistrement de demande distinct est journalisé pour chaque requête HTTP que reçoit votre application web.  |
-| exceptions | AppSystemEvents | Les exceptions levées par le runtime de l’application capturent des exceptions côté serveur et côté client (navigateurs). |
+| exceptions | AppExceptions | Les exceptions levées par le runtime de l’application capturent des exceptions côté serveur et côté client (navigateurs). |
 | traces | AppTraces | Journaux détaillés (traces) émis par le biais d’un code d’application ou de frameworks de journalisation enregistrés via TrackTrace (). |
 
 ## <a name="table-schemas"></a>Schémas de table

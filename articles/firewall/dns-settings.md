@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 05/26/2021
+ms.date: 09/28/2021
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4543af78b173632e3374567e9a199f182679e8f
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: e3c1da0e21f13357c5c537da2530e012101423dd
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701718"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215697"
 ---
 # <a name="azure-firewall-dns-settings"></a>Paramètres DNS du Pare-feu Azure
 
@@ -21,7 +21,7 @@ Vous pouvez configurer un serveur DNS personnalisé et activer le proxy DNS pour
 
 ## <a name="dns-servers"></a>Serveurs DNS
 
-Un serveur DNS gère et résout les noms de domaine en adresses IP. Par défaut, le Pare-feu Azure utilise Azure DNS pour la résolution de noms. Le paramètre **Serveur DNS** vous permet de configurer vos propres serveurs DNS pour la résolution de noms du Pare-feu Azure. Vous pouvez configurer un ou plusieurs serveurs.
+Un serveur DNS gère et résout les noms de domaine en adresses IP. Par défaut, le Pare-feu Azure utilise Azure DNS pour la résolution de noms. Le paramètre **Serveur DNS** vous permet de configurer vos propres serveurs DNS pour la résolution de noms du Pare-feu Azure. Vous pouvez configurer un ou plusieurs serveurs. Si vous configurez plusieurs serveurs DNS, le serveur utilisé est choisi de façon aléatoire.
 
 > [!NOTE]
 > Pour les instances Pare-feu Azure gérés à l’aide d’Azure Firewall Manager, les paramètres DNS sont configurés dans la stratégie Pare-feu Azure associée.
@@ -80,6 +80,8 @@ Lorsque Pare-feu Azure est un proxy DNS, deux types de fonctions de mise en cach
 - **Cache négatif** : la résolution DNS ne produit aucune réponse ni aucune résolution. Le pare-feu met en cache ces informations pendant une heure.
 
 Le proxy DNS stocke toutes les adresses IP résolues à partir de noms de domaine complets dans des règles de réseau. Nous vous recommandons d’utiliser des noms de domaine complets qui se résolvent en une seule adresse IP.
+
+En cas d’échec de connexion, le proxy DNS n’effectue pas de nouvelles tentatives ou bascule vers d’autres serveurs DNS, y compris Azure DNS.
 
 ### <a name="policy-inheritance"></a>Héritage de stratégie
 

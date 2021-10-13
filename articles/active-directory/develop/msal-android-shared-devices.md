@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 09/30/2021
 ms.author: marsma
-ms.reviewer: hahamil
+ms.reviewer: brandwe
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: 7b1c87c67413f8240746f2a793c913cd4add4865
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3a1539f80556afa9a3dbeb73edcd4d38380db33a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787279"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357663"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Mode d’appareil partagé pour les appareils Android
 
@@ -33,11 +33,13 @@ Pour créer une application en mode d’appareil partagé, les développeurs et 
 - Les développeurs écrivent une application monocompte (les applications multicomptes ne sont pas prises en charge en mode d’appareil partagé), ajoutent `"shared_device_mode_supported": true` à la configuration de l’application et écrivent du code pour gérer des opérations comme la déconnexion des appareils partagés.
 - Les administrateurs d’appareils préparent l’appareil à partager en installant l’application d’authentification et en définissant l’appareil en mode partagé à l’aide de l’application d’authentification. Seuls les utilisateurs qui ont le rôle [Administrateur d’appareil cloud](../roles/permissions-reference.md#cloud-device-administrator) peuvent mettre un appareil en mode partagé à l’aide de l’[application d’authentification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc). Vous pouvez configurer l’appartenance de vos rôles organisationnels dans le portail Azure via : **Azure Active Directory** > **Rôles et administrateurs** > **Administrateur d’appareil cloud**.
 
- Cet article se concentre principalement sur les points sur lesquels les développeurs doivent réfléchir.
+Cet article se concentre principalement sur les points sur lesquels les développeurs doivent réfléchir.
 
 ## <a name="single-vs-multiple-account-applications"></a>Applications monocomptes et multicomptes
 
-Les applications écrites à l’aide du SDK de la bibliothèque d’authentification Microsoft (MSAL) peuvent gérer un seul compte ou plusieurs comptes. Pour plus d’informations, consultez [Mode monocompte ou mode multicompte](single-multi-account.md). Les fonctionnalités de la plateforme d’identités Microsoft disponibles pour votre application varient selon que l’application s’exécute en mode monocompte ou en mode multicompte.
+Les applications écrites à l’aide du SDK de la bibliothèque d’authentification Microsoft (MSAL) peuvent gérer un seul compte ou plusieurs comptes. Pour plus d’informations, consultez [Mode monocompte ou mode multicompte](single-multi-account.md).
+
+Les fonctionnalités de la plateforme d’identités Microsoft disponibles pour votre application varient selon que l’application s’exécute en mode monocompte ou en mode multicompte.
 
 **Les applications en mode d’appareil partagé fonctionnent uniquement en mode monocompte**.
 
@@ -76,12 +78,12 @@ private IPublicClientApplication mApplication;
 
 Les différences suivantes s’appliquent selon que votre application s’exécute sur un appareil partagé ou sur un appareil personnel :
 
-|  | Appareil en mode partagé  | Appareil personnel |
-|---------|---------|---------|
-| **Comptes (Accounts)**     | Un seul compte | Plusieurs comptes |
-| **Connexion** | Global | Global |
-| **Déconnexion** | Global | Chaque application peut contrôler si la déconnexion est locale sur l’application ou pour la famille d’applications. |
-| **Types de comptes pris en charge** | Comptes professionnels uniquement | Comptes personnels et professionnels pris en charge  |
+|                             | Appareil en mode partagé | Appareil personnel                                                                                     |
+| --------------------------- | ------------------ | --------------------------------------------------------------------------------------------------- |
+| **Comptes (Accounts)**                | Un seul compte     | Plusieurs comptes                                                                                   |
+| **Connexion**                 | Global             | Global                                                                                              |
+| **Déconnexion**                | Global             | Chaque application peut contrôler si la déconnexion est locale sur l’application ou pour la famille d’applications. |
+| **Types de comptes pris en charge** | Comptes professionnels uniquement | Comptes personnels et professionnels pris en charge                                                                |
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Raisons de vouloir prendre en charge uniquement le mode monocompte
 
@@ -93,7 +95,7 @@ Si votre application s’exécute en mode multicomptes et qu’un administrateur
 
 ## <a name="shared-device-sign-out-and-the-overall-app-lifecycle"></a>Déconnexion des appareils partagés et cycle de vie global des applications
 
-Quand un utilisateur se déconnecte, vous devez prendre des mesures pour protéger la confidentialité et les données de l’utilisateur. Par exemple, si vous générez une application de dossiers médicaux, vous voulez garantir que les dossiers des patients précédemment affichés sont effacés quand l’utilisateur se déconnecte. Votre application doit être préparée à cette situation et procéder à une vérification chaque fois qu’elle passe au premier plan.
+Quand un utilisateur se déconnecte, vous devez prendre des mesures pour protéger la confidentialité et les données de l’utilisateur. Par exemple, si vous générez une application de dossiers médicaux, vous voulez garantir que les dossiers des patients précédemment affichés sont effacés quand l’utilisateur se déconnecte. Votre application doit être préparée à la protection des données personnelles et procéder à une vérification chaque fois qu’elle passe au premier plan.
 
 Quand votre application utilise MSAL pour déconnecter l’utilisateur dans une application en cours d’exécution sur un appareil en mode partagé, le compte connecté et les jetons mis en cache sont supprimés de l’application et de l’appareil.
 
@@ -103,4 +105,6 @@ Le diagramme suivant présente le cycle de vie global des applications et les é
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez le tutoriel [Utiliser le mode d’appareil partagé dans votre application Android](tutorial-v2-shared-device-mode.md) qui montre comment exécuter une application pour employés de terrain sur un appareil Android en mode partagé.
+Pour plus d’informations sur l’exécution d’une application de travailleur de première ligne sur un mode partagé sur un appareil Android, consultez :
+
+- [Utiliser le mode d’appareil partagé dans votre application Android](tutorial-v2-shared-device-mode.md)

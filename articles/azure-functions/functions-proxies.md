@@ -3,21 +3,23 @@ title: Utiliser des proxys dans Azure Functions
 description: Présentation de l’utilisation de Azure Functions Proxies
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: fb263239f99bcb4ec4c893b700d5c1cce078659f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34873d3d7e0200d2c6ee58096af880f26c428732
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96601371"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429601"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Utilisation d’Azure Functions Proxies
 
 Cet article vous explique comment configurer et utiliser Azure Functions Proxies. Cette fonctionnalité vous permet de spécifier des points de terminaison sur votre Function App implémentés par une autre ressource. Vous pouvez utiliser ces proxys pour diviser une API de grande taille en plusieurs applications Function (comme dans une architecture microservice), tout en continuant à présenter une surface API unique aux clients.
 
+Une facturation standard s’applique à l’exécution des proxys. Pour plus d’informations, consultez [Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE] 
-> Une facturation standard s’applique à l’exécution des proxys. Pour plus d’informations, consultez [Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+> Vous devez également envisager d’utiliser la [Gestion des API Azure](../api-management/api-management-key-concepts.md) pour votre application. Elle offre les mêmes fonctionnalités que les proxys Functions, ainsi que d’autres outils pour la création et la gestion des API, comme l’intégration d’OpenAPI, la limitation du débit et les stratégies avancées. 
 
 ## <a name="create-a-proxy"></a><a name="create"></a>Création d’un proxy
 
@@ -152,9 +154,9 @@ Pour désactivez des proxys individuels, ajoutez `"disabled": true` au proxy con
         "Root": {
             "disabled":true,
             "matchCondition": {
-                "route": "/example"
+                "route&quot;: &quot;/example"
             },
-            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
+            "backendUri&quot;: &quot;https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }

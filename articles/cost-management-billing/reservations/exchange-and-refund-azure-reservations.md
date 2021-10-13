@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/14/2021
 ms.author: banders
-ms.openlocfilehash: d45682a3ccdc67cdbff8ef0c1edd542817875fbc
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: 56ebba760defcb47d336874294255e2e97e5a151
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111891551"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546225"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 
@@ -80,6 +80,7 @@ Si l’achat d’origine a été effectué en tant que dépassement, la facture 
 ### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Paiements des factures à l’utilisation et programme Fournisseur de solutions cloud
 
 La facture d’achat de réservation d’origine est annulée, puis une facture est créée pour le remboursement. Pour les échanges, la nouvelle facture montre le remboursement et le nouvel achat. Le montant du remboursement est ajusté par rapport à l’achat. Dans le cas d’un simple remboursement d’une réservation, Microsoft conserve le montant au prorata, en vue de son ajustement par rapport à un achat de réservation futur. Si vous avez acheté une réservation aux tarifs du paiement à l’utilisation et que vous passez ensuite à un abonnement de fournisseur de solutions cloud, la réservation peut être retournée et rachetée sans pénalité.
+Vous ne pouvez pas effectuer de remboursement en libre-service dans CSP. Pour toute demande de remboursement, contactez le support par le biais de votre CSP.
 
 ### <a name="pay-as-you-go-credit-card-customers"></a>Clients qui paient à l’utilisation au moyen d’une carte de crédit
 

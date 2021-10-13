@@ -1,7 +1,7 @@
 ---
-title: Acquérir un jeton pour appeler une API web à l’aide d’un mot de passe de nom d’utilisateur (application de bureau) | Azure
+title: Acquérir un jeton pour appeler une API web à l’aide d’un nom d’utilisateur et d’un mot de passe (application de bureau) | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez comment générer une application de bureau qui appelle des API web en vue d’acquérir un jeton pour l’application à l’aide d’un mot de passe de nom d’utilisateur.
+description: Découvrez comment générer une application de bureau qui appelle des API web en vue d’acquérir un jeton pour l’application à l’aide d’un nom d’utilisateur et d’un mot de passe.
 services: active-directory
 author: maliksahil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/25/2021
 ms.author: sahmalik
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ae84fd2fb25a78687f3103a193e584efc14614ca
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 08c14161ea5a108c1c6205f352485c348871bae5
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124838456"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234867"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token-using-username-and-password"></a>Application de bureau appelant des API web : acquérir un jeton à l’aide d’un mot de passe et d’un nom d’utilisateur
 

@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/03/2021
-ms.openlocfilehash: 0a7bca44ccee4e836fd5aa8e0ef44412e1fc6985
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/29/2021
+ms.openlocfilehash: 6a1c13d8557b49b1481e94bc95eef10fd5e658f6
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836202"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230234"
 ---
 # <a name="copy-data-from-and-to-salesforce-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données de et vers Salesforce à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -41,6 +41,9 @@ Ce connecteur Salesforce prend en charge :
 - La copie de données depuis et vers le domaine de production, le bac à sable et le domaine personnalisé de Salesforce.
 
 Le connecteur Salesforce est basé sur l'API REST/en bloc Salesforce. Lors de la copie de données à partir de Salesforce, le connecteur choisit automatiquement entre les API REST et en bloc en fonction de la taille des données : lorsque le jeu de résultats est volumineux, l’API en bloc est utilisée pour de meilleures performances. Vous pouvez explicitement définir la version d’API utilisée pour lire/écrire des données via la [propriété `apiVersion` ](#linked-service-properties) du service lié.
+
+>[!NOTE]
+>Le connecteur ne définit plus la version par défaut de l’API Salesforce. Pour la compatibilité descendante, si une version d’API par défaut a été définie précédemment, elle continue à fonctionner. La valeur par défaut est 45.0 pour la source et 40.0 pour le récepteur.
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -2,18 +2,18 @@
 title: Déployer une surveillance continue des menaces SAP | Microsoft Docs
 description: Découvrez comment déployer la solution Azure Sentinel pour environnements SAP.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: 301181b291521b8a8b19a7d7266e90fa2c542e49
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fb8d75b9dbf4fd2e6c0fd82ecbc0dce2ce2447c0
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128562928"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857820"
 ---
 #  <a name="deploy-sap-continuous-threat-monitoring-public-preview"></a>Déployer une surveillance continue des menaces SAP (préversion publique)
 
@@ -136,7 +136,7 @@ Cette procédure décrit comment utiliser Azure CLI pour déployer une machine v
 1. Utilisez, par exemple, la commande suivante en insérant les valeurs de votre groupe de ressources et de votre nom de machine virtuelle :
 
     ```azurecli
-    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username AzureUser --data-disk-sizes-gb 10 – --size Standard_DS2_– --generate-ssh-keys  --assign-identity
+    az vm create  --resource-group [resource group name]   --name [VM Name] --image UbuntuLTS  --admin-username azureuser --data-disk-sizes-gb 10 – --size Standard_DS2 --generate-ssh-keys  --assign-identity
     ```
 
 1. Sur votre nouvelle machine virtuelle, installez :
@@ -293,23 +293,13 @@ Ajoutez manuellement les watchlists liées à SAP à votre espace de travail Azu
 
 Si vous avez un conteneur Docker s’exécutant avec une version antérieure du connecteur de données SAP, exécutez le script de mise à jour du connecteur de données SAP pour obtenir les dernières fonctionnalités disponibles.
 
-1. Assurez-vous que vous disposez des versions les plus récentes des scripts de déploiement appropriés du dépôt Github Azure Sentinel. Exécutez :
+Assurez-vous que vous disposez des versions les plus récentes des scripts de déploiement appropriés du dépôt Github Azure Sentinel. 
 
-    ```azurecli
-    wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
-    ```
+Exécutez :
 
-1. Exécutez la commande suivante sur votre ordinateur connecteur de données SAP :
-
-    ```azurecli
-    ./ sapcon-instance-update.sh
-    ```
-
-1. Redémarrez le conteneur Docker :
-
-    ```bash
-    docker restart sapcon-[SID]
-    ```
+```azurecli
+wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh
+```
 
 Le conteneur Docker du connecteur de données SAP sur votre ordinateur est mis à jour. 
 

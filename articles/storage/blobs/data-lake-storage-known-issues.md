@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4276311163134b428fe9d616bf1e6bc23fdedfaf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 11572f957fc2d305f5d6f17303bb8386345abc7b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638365"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714064"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -57,7 +57,6 @@ Ces API REST BLOB ne sont pas prises en charge :
 - [Obtenir les portées de page](/rest/api/storageservices/get-page-ranges)
 - [Copie incrémentielle BLOB](/rest/api/storageservices/incremental-copy-blob)
 - [Placer la page à partir de l’URL](/rest/api/storageservices/put-page-from-url)
-- [Put Block List](/rest/api/storageservices/put-block-list)
 
 Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les comptes qui ont un espace de noms hiérarchique. Si vous souhaitez activer un espace de noms hiérarchique sur un compte de stockage, placez les disques de machine virtuelle non gérés dans un compte de stockage pour lequel la fonctionnalité espace de noms hiérarchique n’est pas activée.
 

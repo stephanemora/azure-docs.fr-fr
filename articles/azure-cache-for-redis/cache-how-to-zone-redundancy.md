@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: fb68ea362c5b91e5c60578f63c752d1982495efb
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: ee4acc6e8e7abf8ece1c6808a810b022745fb66a
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538066"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612329"
 ---
 # <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Activer la redondance de zone pour Azure Cache pour Redis
 Dans cet article, vous allez apprendre à configurer une instance Azure Cache redondante interzone à l’aide du portail Azure.
@@ -74,7 +74,7 @@ Pour créer un cache, procédez comme suit :
 
 ### <a name="why-cant-i-enable-zone-redundancy-when-creating-a-premium-cache"></a>Pourquoi ne puis-je pas activer la redondance de zone lors de la création d’un cache Premium ?
 
-La redondance de zone est disponible uniquement dans les régions Azure qui disposent de la fonctionnalité Zones de disponibilité. Consultez [Régions Azure avec Zones de disponibilité](../availability-zones/az-region.md#azure-services-supporting-availability-zones) pour obtenir la liste la plus récente.
+La redondance de zone est disponible uniquement dans les régions Azure qui disposent de la fonctionnalité Zones de disponibilité. Consultez [Régions Azure avec Zones de disponibilité](../availability-zones/az-region.md#azure-regions-with-availability-zones) pour obtenir la liste la plus récente.
 
 ### <a name="why-cant-i-select-all-three-zones-during-cache-create"></a>Pourquoi ne puis-je pas sélectionner les trois zones pendant la création du cache ?
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 02fee85b929fe72de4f1a912812724519440471e
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "72793126"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233943"
 ---
 Sécuriser une infrastructure IoT implique la mise en œuvre d’une stratégie complète et rigoureuse. Dans le cadre de cette stratégie, vous devez sécuriser les données dans le cloud, protéger l’intégrité des données transitant sur le réseau Internet public et configurer des appareils en toute sécurité. Chaque couche contribue à garantir la sécurité de l’infrastructure globale.
 
@@ -23,7 +23,7 @@ Cette stratégie de sécurité complète peut être développée et appliquée a
 
 * **Fabricant/intégrateur de matériel IoT** : il s’agit généralement de fabricants de matériels IoT déployés, d’intégrateurs qui assemblent le matériel de différents fabricants ou de fournisseurs de matériels dédiés à un déploiement IoT réalisé ou intégré par d’autres fournisseurs.
 
-* **Développeur de solutions IoT** : le développement d’une solution IoT est généralement assuré par un développeur de solutions. Ce développeur peut faire partie d’une équipe interne ou être un intégrateur système spécialisé dans cette activité. Le développeur de solutions IoT peut développer plusieurs composants de la solution IoT en partant de zéro, intégrer de nombreux composants du commerce ou open source ou encore adopter des accélérateurs de solution moyennant une légère adaptation.
+* **Développeur de solutions IoT** : le développement d’une solution IoT est généralement assuré par un développeur de solutions. Ce développeur peut faire partie d’une équipe interne ou être un intégrateur système spécialisé dans cette activité. Le développeur de solutions IoT peut développer plusieurs composants de la solution IoT en partant de zéro, ou intégrer de nombreux composants du commerce ou open source.
 
 * **Responsable du déploiement de solutions IoT** : une fois développée, une solution IoT doit être déployée sur le terrain. Ce processus implique le déploiement du matériel, l’interconnexion des appareils et le déploiement des solutions sur les appareils ou dans le cloud.
 

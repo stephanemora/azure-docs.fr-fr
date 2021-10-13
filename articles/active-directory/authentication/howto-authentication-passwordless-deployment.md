@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ee82c26217ac1b760c59f56f9875b7dcbcaf663
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3427384d41b4ebdd5f65d9c7e9ecdde911b5f08e
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124759811"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807647"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planifier un déploiement d’authentification sans mot de passe dans Azure Active Directory
 
@@ -76,12 +76,12 @@ Les prérequis sont déterminés par les méthodes d’authentification sans mot
 
 | Prérequis| Application Microsoft Authenticator| Clés de sécurité FIDO2|
 | - | -|-|
-| [L’inscription combinée à Azure AD MFA (Multi-Factor Authentication) et à SSPR (réinitialisation de mot de passe en libre-service)](howto-registration-mfa-sspr-combined.md) est activée| √| √|  |
-| [Les utilisateurs peuvent effectuer l’authentification Azure AD MFA](howto-mfa-getstarted.md)| √| √|  |
-| [Les utilisateurs se sont inscrits à Azure AD MFA et SSPR](howto-registration-mfa-sspr-combined.md)| √| √|  |
-| [Les utilisateurs ont inscrit leurs appareils mobiles sur Azure Active Directory](../devices/overview.md)| √| |  |
-| Windows 10 version 1809 ou ultérieure utilisant un navigateur pris en charge, comme Microsoft Edge ou Mozilla Firefox (version 67 ou ultérieure). Microsoft recommande la version 1903 ou supérieure pour la prise en charge native.| | √|  |
-| Clés de sécurité compatibles. Veillez à utiliser une [clé de sécurité FIDO2 testée et vérifiée par Microsoft](concept-authentication-passwordless.md), ou une clé de sécurité FIDO2 compatible.| | √|  |
+| [L’inscription combinée à Azure AD MFA (Multi-Factor Authentication) et à SSPR (réinitialisation de mot de passe en libre-service)](howto-registration-mfa-sspr-combined.md) est activée| √| √|
+| [Les utilisateurs peuvent effectuer l’authentification Azure AD MFA](howto-mfa-getstarted.md)| √| √|
+| [Les utilisateurs se sont inscrits à Azure AD MFA et SSPR](howto-registration-mfa-sspr-combined.md)| √| √|
+| [Les utilisateurs ont inscrit leurs appareils mobiles sur Azure Active Directory](../devices/overview.md)| √| |
+| Windows 10 version 1809 ou ultérieure utilisant un navigateur pris en charge, comme Microsoft Edge ou Mozilla Firefox (version 67 ou ultérieure). Microsoft recommande la version 1903 ou supérieure pour la prise en charge native.| | √|
+| Clés de sécurité compatibles. Veillez à utiliser une [clé de sécurité FIDO2 testée et vérifiée par Microsoft](concept-authentication-passwordless.md), ou une clé de sécurité FIDO2 compatible.| | √|
 
 
 ### <a name="windows-hello-for-business"></a>Windows Hello Entreprise
@@ -97,7 +97,7 @@ L’Assistant utilise vos entrées pour créer un plan à suivre, étape par ét
 
 ## <a name="plan-the-project"></a>Planifier le projet
 
-Quand des échecs se produisent pour des projets reposant sur la technologie, cela provient généralement d’une disparité des attentes en ce qui concerne l’impact, les résultats et les responsabilités. Pour éviter ces écueils, [assurez-vous de faire appel aux bonnes personnes](../fundamentals/active-directory-deployment-plans.md), et que les rôles des parties prenantes soient bien compris.
+Les échecs de projets informatiques, lorsqu’ils se produisent, proviennent généralement d’une disparité entre les attentes et l’impact, les responsabilités et les résultats. Pour éviter un tel cas de figure, [veillez à faire appel aux bonnes personnes](../fundamentals/active-directory-deployment-plans.md) et à ce que les rôles des parties prenantes soient bien compris.
 
 ### <a name="plan-a-pilot"></a>Prévoir un pilote
 
@@ -224,7 +224,7 @@ L’activation de la connexion Windows 10 à l’aide des clés de sécurité F
 
 * [Activer le fournisseur d’informations d’identification avec un package d’approvisionnement](howto-authentication-passwordless-security-key-windows.md)
 
-  * Si le déploiement d’Intune est impossible, les administrateurs doivent déployer un package sur chaque machine pour activer la fonctionnalité de fournisseur d’informations d’identification. L’installation du package peut être effectuée à l’aide de l’une des options suivantes :
+  * Si le déploiement Intune n’est pas possible, les administrateurs doivent déployer un package sur chaque machine pour activer la fonctionnalité de fournisseur d’informations d’identification. L’installation du package peut être effectuée à l’aide de l’une des options suivantes :
     * Stratégie de groupe ou Configuration Manager
     * Installation locale sur une machine Windows 10
 
@@ -294,17 +294,15 @@ Voici les exemples de cas de test pour l’authentification sans mot de passe av
 
 ### <a name="troubleshoot-security-key-sign-in"></a>Résoudre les problèmes de connexion par clé de sécurité
 
-
 | Scénario| Solution |
 | - | -|
 | L’utilisateur ne peut pas effectuer d’inscription combinée.| Vérifiez que [l’inscription combinée](concept-registration-mfa-sspr-combined.md) est activée. |
 | L’utilisateur ne peut pas ajouter de clé de sécurité dans ses [paramètres de sécurité](https://aka.ms/mysecurityinfo).| Vérifiez que les [clés de sécurité](howto-authentication-passwordless-security-key.md) sont activées. |
 | L’utilisateur ne peut pas ajouter de clé de sécurité dans les options de connexion Windows 10.| [Vérifiez que les clés de sécurité pour la connexion Windows](concept-authentication-passwordless.md) sont activées |
-| **Message d’erreur** : nous avons détecté que ce navigateur ou cet OS ne prend pas en charge les clés de sécurité FIDO2.| Les appareils de sécurité FIDO2 sans mot de passe peuvent être inscrits uniquement dans les navigateurs pris en charge (Microsoft Edge, Firefox version 67) ou sur Windows 10 version 1809 ou ultérieure. |
+| **Message d’erreur** : Nous avons détecté que ce navigateur ou ce système d’exploitation ne prend pas en charge les clés de sécurité FIDO2.| Les appareils de sécurité FIDO2 sans mot de passe ne peuvent être inscrits que dans les navigateurs pris en charge (Microsoft Edge, Firefox version 67) sur Windows 10 version 1809 ou ultérieure. |
 | **Message d’erreur** : La stratégie de votre entreprise vous demande d’utiliser une autre méthode pour vous connecter.| Vérifiez que les clés de sécurité sont activées dans le locataire. |
 | L’utilisateur ne peut pas gérer ma clé de sécurité sur Windows 10 version 1809| La version 1809 vous demande d’utiliser le logiciel de gestion de clés de sécurité fourni par le fournisseur de clés FIDO2. Contactez le fournisseur pour obtenir de l’aide. |
 | Je pense que ma clé de sécurité FIDO2 peut être défectueuse, comment la tester.| Accédez à [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/), entrez les informations d’identification d’un compte de test, connectez la clé de sécurité suspecte, sélectionnez le bouton + en haut à droite de l’écran, sélectionnez Créer, puis suivez le processus de création. Si ce scénario échoue, votre appareil est peut-être défectueux. |
-
 
 ## <a name="manage-passwordless-authentication"></a>Gérer l’authentification sans mot de passe
 
@@ -320,7 +318,7 @@ Vous pouvez également gérer les méthodes d’authentification sans mot de pas
 
 * Gérez vos stratégies de méthode d’authentification pour les clés de sécurité et l’application Microsoft Authenticator.
 
-Pour plus d’informations sur les méthodes d’authentification pouvant être gérées dans Microsoft Graph, consultez la [Vue d’ensemble de l’API des méthodes d’authentification Azure AD](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Pour plus d’informations sur les méthodes d’authentification pouvant être gérées dans Microsoft Graph, consultez la [Vue d’ensemble de l’API des méthodes d’authentification Azure AD](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 ### <a name="rollback"></a>Restauration
 
@@ -340,12 +338,11 @@ Azure AD propose des rapports fournissant des insights techniques et commerciaux
 
 Le tableau ci-dessous fournit quelques exemples de scénarios de création de rapports typiques :
 
-| Gérer le risque.| Augmenter la productivité| Gouvernance et conformité|
-|-|-|-|
+| Gérer le risque.| Augmenter la productivité| Gouvernance et conformité| other|
+|-|-|-|-|
 | Types de rapports| Méthodes d’authentification - utilisateurs enregistrés pour l’inscription à la sécurité combinée| Méthodes d’authentification - utilisateurs inscrits pour la notification d’application| Connexions : vérifier qui accède au locataire et comment |
 | Actions potentielles| Utilisateurs cibles pas encore inscrits| Favoriser l’adoption de l’application Microsoft Authenticator ou des clés de sécurité| Révoquer l’accès ou appliquer des stratégies de sécurité supplémentaires pour les administrateurs |
 
- 
 
 #### <a name="track-usage-and-insights"></a>Effectuer le suivi de l’utilisation et des insights
 

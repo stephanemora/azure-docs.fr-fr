@@ -98,6 +98,8 @@ items:
     items:
       - name: Vue d’ensemble des modèles
         href: concept-model-overview.md
+      - name: Form Recognizer Studio | préversion
+        href: concept-form-recognizer-studio.md
       - name: Modèle de document général | préversion
         href: concept-general-document.md
       - name: Modèle de disposition

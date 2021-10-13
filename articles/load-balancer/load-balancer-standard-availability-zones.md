@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 87a7d10c9748a2e173d8f43dcca3611666277792
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 06b8e193f48a4e1d3956c8c40ee03dfd11a4a088
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128653702"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276016"
 ---
 # <a name="load-balancer-and-availability-zones"></a>Load Balancer et zones de disponibilité
 
@@ -59,7 +59,7 @@ Pour un équilibreur de charge frontend interne, ajoutez un paramètre **zones**
 
 ## <a name="non-zonal"></a>Non zonal
 
-Les équilibreurs de charge peuvent également être créés dans une configuration non zonale à l’aide d’un front-end « sans zone » (adresse IP publique ou préfixe d’adresse IP publique).  Cette option n’offre pas de garantie de redondance. Notez que toutes les adresses IP publiques [mises à niveau](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) de la référence SKU De base à la référence Standard sont de type « sans zone ».
+Les équilibreurs de charge peuvent également être créés dans une configuration non zonale à l’aide d’un front-end « sans zone » (adresse IP publique ou préfixe d’adresse IP publique).  Cette option n’offre pas de garantie de redondance. Notez que toutes les adresses IP publiques [mises à niveau](../virtual-network/public-ip-upgrade-portal.md) seront de type « sans zone ».
 
 ## <a name="design-considerations"></a><a name="design"></a> Remarques relatives à la conception
 
@@ -78,7 +78,7 @@ L’utilisation de plusieurs front-ends vous permet d’équilibrer la charge du
 
 ### <a name="transition-between-regional-zonal-models"></a>Transition entre les modèles zonaux régionaux
 
-Dans le cas où une région est augmentée pour avoir des [zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview), les adresses IP frontales existantes restent non zonales. Pour vous assurer que votre architecture peut tirer parti des nouvelles zones, nous vous recommandons de créer de nouvelles adresses IP frontales, et de répliquer les règles et configurations appropriées de façon à utiliser ces nouvelles adresses IP publiques.
+Dans le cas où une région est augmentée pour avoir des [zones de disponibilité](../availability-zones/az-overview.md), elle reste non zonale. Pour vous assurer que votre architecture peut tirer parti des nouvelles zones, nous vous recommandons de créer de nouvelles adresses IP frontales, et de répliquer les règles et configurations appropriées de façon à utiliser ces nouvelles adresses IP publiques.
 
 ### <a name="control-vs-data-plane-implications"></a>Implications au niveau du plan de contrôle et du plan de données
 

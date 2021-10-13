@@ -3,12 +3,12 @@ title: Test de disponibilité privé - Azure Monitor Application Insights
 description: Découvrez comment utiliser des tests de disponibilité sur des serveurs internes qui s’exécutent derrière un pare-feu avec des tests privés.
 ms.topic: conceptual
 ms.date: 05/14/2021
-ms.openlocfilehash: dca75f6497567c5c6855fc1b5b12aa17a41b3dec
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 713a57db66042c562e212d65c6dd265c2aab47cd
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110103949"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858440"
 ---
 # <a name="private-testing"></a>Tests privés
 
@@ -32,7 +32,7 @@ Configurez votre pare-feu pour autoriser les demandes entrantes de notre service
 
         :::image type="content" source="media/availability-private-test/service-tag.png" alt-text="Capture d’écran de l’onglet Ajouter des règles de sécurité de trafic entrant avec une source Balise de service.":::
 
-- Si vos points de terminaison sont hébergés en dehors d’Azure ou si les balises de service ne sont pas disponibles pour votre scénario, vous devez autoriser individuellement les [adresses IP de nos agents de test web](ip-addresses.md). Vous pouvez interroger les plages d’adresses IP directement à partir de PowerShell, Azure CLI ou d’un appel REST à l’aide de l’[API de balise de service](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). Vous pouvez également télécharger un [fichier JSON](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) pour obtenir la liste des balises de service actuelles avec les détails des adresses IP.
+- Si vos points de terminaison sont hébergés en dehors d’Azure ou si les balises de service ne sont pas disponibles pour votre scénario, vous devez autoriser individuellement les [adresses IP de nos agents de test web](ip-addresses.md). Vous pouvez interroger les plages d’adresses IP directement à partir de PowerShell, Azure CLI ou d’un appel REST à l’aide de l’[API de balise de service](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). Vous pouvez également télécharger un [fichier JSON](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) pour obtenir la liste des balises de service actuelles avec les détails des adresses IP.
     1. Dans votre ressource de groupe de sécurité réseau, sélectionnez **Règles de sécurité de trafic entrant** sous *Paramètres*, puis **Ajouter**.
     1. Ensuite, sélectionnez *Adresses IP* comme source, puis ajoutez vos adresses IP dans une liste séparée par des virgules dans les plages d’adresses IP source/CIDR.
 

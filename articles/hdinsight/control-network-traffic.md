@@ -4,12 +4,12 @@ description: Découvrez les techniques permettant de contrôler le trafic entran
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 66b078e8dfa1daa100978f04283e9bba7158bddf
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 78d61c1d775b2e710448283e283252b1cb85c802
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104867030"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857889"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Contrôler le trafic réseau dans Azure HDInsight
 
@@ -31,7 +31,7 @@ Si vous prévoyez d’utiliser des **groupes de sécurité réseau** pour contr�
 
 2. Identifiez les étiquettes de service demandées par HDInsight pour votre région. Il existe plusieurs façons d’obtenir ces étiquettes de service :
     1. Consultez la liste des étiquettes de service publiées dans [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](hdinsight-service-tags.md). 
-    2. Si votre région ne figure pas dans la liste, utilisez l’[API Service Tag Discovery](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) pour rechercher une étiquette de service pour votre région.
+    2. Si votre région ne figure pas dans la liste, utilisez l’[API Service Tag Discovery](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) pour rechercher une étiquette de service pour votre région.
     3. Si vous ne parvenez pas à utiliser l’API, téléchargez le [fichier JSON d’étiquette de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) et recherchez la région de votre choix.
 
 

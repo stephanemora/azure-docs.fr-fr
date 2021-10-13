@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 03/04/2020
+ms.date: 09/09/2021
 ms.author: victorh
-ms.openlocfilehash: 3e2b9ab4eaf794e5cf64861d7c641b82f18b64dc
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: f106ca51487e1c4c306d51161110062ad3582fcd
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201221"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129440103"
 ---
 | Ressource | Limite | Remarque |
 | --- | --- | --- |
@@ -18,8 +18,8 @@ ms.locfileid: "114201221"
 | Ports frontaux |100<sup>1</sup> | |
 | Pool d'adresses principales |100<sup>1</sup> | |
 | Serveurs principaux par pool |1,200 | |
-| Écouteurs HTTP |200<sup>1</sup> |Limité à 100 écouteurs actifs qui routent le trafic. Écouteurs actifs = nombre total d’écouteurs - écouteurs non actifs.<br>Si une configuration par défaut à l’intérieur d’une règle de routage est définie pour router le trafic (avec, par exemple, un écouteur, un pool de back-ends et des paramètres HTTP), elle est également considérée comme un écouteur.|
-| Règles d’équilibrage de charge HTTP |100<sup>1</sup> | |
+| Écouteurs HTTP |200<sup>1</sup> |Limité à 100 écouteurs actifs qui routent le trafic. Écouteurs actifs = nombre total d’écouteurs - écouteurs non actifs.<br>Si une configuration par défaut à l’intérieur d’une règle de routage est définie pour router le trafic (avec, par exemple, un écouteur, un pool de back-ends et des paramètres HTTP), elle est également considérée comme un écouteur. Consultez les [Questions fréquemment posées sur Application Gateway](../articles/application-gateway/application-gateway-faq.yml#what-is-considered-an-active-listener-versus-inactive-listener) pour plus de détails.|
+| Règles d’équilibrage de charge HTTP |400<sup>1</sup> | |
 | Paramètres HTTP du serveur principal |100<sup>1</sup> | |
 | Instances par passerelle |Référence SKU V1 - 32<br>Référence SKU V2 - 125 | |
 | Certificats SSL |100<sup>1</sup> |1 par écouteur HTTP |

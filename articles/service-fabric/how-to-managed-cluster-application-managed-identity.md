@@ -3,12 +3,12 @@ title: Configurer et utiliser des applications avec identité managée sur un cl
 description: Découvrez comment configurer et utiliser une application avec identité managée sur un cluster managé Azure Service Fabric déployé à partir d’un modèle Azure Resource Manager.
 ms.topic: how-to
 ms.date: 8/23/2021
-ms.openlocfilehash: 5007f17754572c03ff820ecda1bb09f6e8a8020e
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: e3fcae9a77a4fb559d8109dd2cdd1b2a9be77b73
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122864748"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615255"
 ---
 # <a name="deploy-an-application-with-managed-identity-to-a-service-fabric-managed-cluster"></a>Déployer une application avec identité managée sur un cluster managé Service Fabric
 
@@ -195,5 +195,5 @@ Cette propriété déclare, pour Azure Resource Manager, et l’identité manag�
     Il s’agit du mappage équivalent d’une identité à un service, comme décrit ci-dessus, mais du point de vue de la définition de service. L’identité est référencée ici par son nom convivial (`WebAdmin`), comme déclaré dans le manifeste de l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
+* [Accorder à l’identité managée d’une application Service Fabric l’accès à des ressources Azure sur un cluster managé Service Fabric](how-to-managed-cluster-grant-access-other-resources.md)
 * [Tirer parti de l’identité managée d’une application Service Fabric à partir du code de service](how-to-managed-identity-service-fabric-app-code.md)
-* [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](how-to-grant-access-other-resources.md)

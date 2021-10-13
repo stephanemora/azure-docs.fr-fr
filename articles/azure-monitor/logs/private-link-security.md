@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: e175439cacb75fc50574f172d9e1e34cba4cdbd7
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e0c9a1d640a4ac1596370cace9cd657e082aee48
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426397"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275750"
 ---
 # <a name="use-azure-private-link-to-connect-networks-to-azure-monitor"></a>Utiliser Azure Private Link pour connecter des réseaux à Azure Monitor
 
@@ -78,7 +78,7 @@ Par conséquent, les liaisons privées créés à partir de septembre 2021 ont 
 * Mode ouvert : utilise une liaison privée pour communiquer avec des ressources dans l’étendue de liaison privée Azure Monitor, mais autorise également la continuation du trafic vers d’autres ressources. Pour en savoir plus, consultez [Control how Private Links apply to your networks](./private-link-design.md#control-how-private-links-apply-to-your-networks) (Contrôler la façon dont les liaisons privées s’appliquent à vos réseaux).
 
 > [!NOTE]
-> L’ingestion Log Analytics utilise des points de terminaison spécifiques d’une ressource. Par conséquent, elle n’adhère pas aux modes d’accès AMPLS. L’ingestion dans des espaces de travail se trouvant dans AMPLS est envoyée via la liaison privée, tandis que l’ingestion dans des espaces de travail ne se trouvant pas dans AMPLS utilise les points de terminaison publics par défaut. Pour vous assurer que les demandes d’ingestion ne puissent pas accéder à des ressources extérieures à AMPLS, bloquez l’accès du réseau aux points de terminaison publics.
+> L’ingestion Log Analytics utilise des points de terminaison spécifiques d’une ressource. Par conséquent, elle n’adhère pas aux modes d’accès AMPLS. **Pour s'assurer que les requêtes d'ingestion de Log Analytics ne peuvent pas accéder aux espaces de travail hors de l'AMPLS, configurez le pare-feu du réseau pour bloquer le trafic vers les points de terminaison publics, indépendamment des modes d'accès de l'AMPLS**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Conception de votre configuration Private Link](private-link-design.md)

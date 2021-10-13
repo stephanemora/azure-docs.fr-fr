@@ -4,15 +4,15 @@ description: Comment définir des cibles de stockage pour qu’Azure HPC Cache p
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 09/22/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
-ms.openlocfilehash: 3ea51d88d65b8016e68673703ee823df19bcf608
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 016a62bc7713b389e8baf7d0a5b5aeefceb81f2b
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294950"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271957"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -401,7 +401,7 @@ Vous pouvez utiliser le portail Azure ou l’interface de ligne de commande Azur
 
 Cliquez sur le nom d’une cible de stockage pour ouvrir la page de détails correspondante.
 
-Pour en savoir plus, consultez [Modifier les cibles de stockage](hpc-cache-edit-storage.md) .
+Pour en savoir plus, consultez [Afficher et gérer les cibles de stockage](manage-storage-targets.md) et [Modifier les cibles de stockage](hpc-cache-edit-storage.md).
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

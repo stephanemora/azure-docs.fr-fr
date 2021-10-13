@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 5f6b5eb64de1e904805446f731158443205d6b68
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: cbfdc8c7e07a68335083c529e545143a513b1808
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110082425"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858269"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Mise à niveau à partir du SDK Application Insights pour Java 2.x
 
@@ -115,31 +115,6 @@ Les processeurs de télémétrie effectuent les actions suivantes (dans l’ordr
 }
 ```
 
-## <a name="dependency-names"></a>Noms des dépendances
-
-Le nom des dépendances a également été modifié dans Application Insights Java 3.x de manière à offrir une meilleure vue de synthèse dans le portail Application Insights.
-
-De même, si vous préférez la vue fournie par l’ancien nom des dépendances, vous pouvez utiliser les techniques similaires citées plus haut pour revenir au comportement précédent.
-
-## <a name="operation-name-on-dependencies"></a>Nom de l’opération dans les dépendances
-
-Précédemment, dans le SDK Application Insights Java 2.x, le nom d’opération des données de télémétrie de la requête était également défini sur les données de télémétrie des dépendances.
-Application Insights Java 3.x ne renseigne plus le nom de l’opération dans les données de télémétrie des dépendances.
-Si vous souhaitez afficher le nom de l’opération pour la requête parente des données de télémétrie des dépendances, vous pouvez écrire une requête Logs (Kusto) à joindre à la table des requêtes à partir de la table des dépendances, par exemple,
-
-```
-let start = datetime('...');
-let end = datetime('...');
-dependencies
-| where timestamp between (start .. end)
-| project timestamp, type, name, operation_Id
-| join (requests
-    | where timestamp between (start .. end)
-    | project operation_Name, operation_Id)
-    on $left.operation_Id == $right.operation_Id
-| summarize count() by operation_Name, type, name
-```
-
 ## <a name="2x-sdk-logging-appenders"></a>Appenders de journalisation SDK 2.x
 
 Application Insights Java 3.x [collecte automatiquement la journalisation](./java-standalone-config.md#auto-collected-logging) sans qu’il soit nécessaire de configurer des appenders de journalisation.
@@ -148,7 +123,7 @@ Si vous utilisez des appenders de journalisation SDK 2.x, vous pouvez les suppr
 ## <a name="2x-sdk-spring-boot-starter"></a>Spring boot starter SDK 2.x
 
 Il n’existe pas de Spring Boot Starter Application Insights Java 3.x.
-L’installation et la configuration de la version 3.x suivent les mêmes [étapes simples](./java-in-process-agent.md#quickstart), que vous utilisiez spring boot ou non.
+L’installation et la configuration de la version 3.x suivent les mêmes [étapes simples](./java-in-process-agent.md#get-started), que vous utilisiez spring boot ou non.
 
 Lorsque vous procédez à une mise à niveau à partir de spring boot starter SDK Application Insights Java 2.x, notez que le nom du rôle cloud n’aura plus la valeur par défaut `spring.application.name`.
 Consultez la [documentation sur la configuration 3.x](./java-standalone-config.md#cloud-role-name) pour définir le nom du rôle cloud dans 3.x via la configuration json ou la variable d’environnement.

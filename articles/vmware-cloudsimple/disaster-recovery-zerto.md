@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Utiliser le cloud privé comme site de reprise d’activité pour les charges de travail locales
 description: Explique comment configurer votre cloud privé CloudSimple en tant que site de reprise d’activité pour les charges de travail VMware locales.
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e7305557944e00121c54112704f67f861d2aa789
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: f9700b5d25a7d564c72bf959d48ad7cf1afce4e7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177779"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612386"
 ---
 # <a name="set-up-cloudsimple-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurer votre cloud privé CloudSimple comme site de reprise d’activité pour les charges de travail VMware locales
 
@@ -41,7 +41,7 @@ La figure suivante illustre l’architecture de la solution Zerto.
 
 Les sections suivantes expliquent comment déployer une solution de reprise d’activité à l’aide de Zerto Virtual Replication dans votre cloud privé.
 
-1. [Conditions préalables](#prerequisites)
+1. [Composants requis](#prerequisites)
 2. [Configuration facultative sur le cloud privé CloudSimple](#optional-configuration-on-your-private-cloud)
 3. [Configurer ZVM et VRA sur le cloud privé CloudSimple](#set-up-zvm-and-vra-on-your-private-cloud)
 4. [Configurer le groupe de protection virtuel Zerto](#set-up-zerto-virtual-protection-group)

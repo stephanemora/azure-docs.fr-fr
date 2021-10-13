@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier include
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 09/01/2021
+ms.date: 10/08/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bdfe962368cd2a4a32031e7c912a8b3185bd6baf
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 4c29a9c026e596cc2c5e533c9613716a05e8fc08
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123454335"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710625"
 ---
 ## <a name="create-a-queue-in-the-azure-portal"></a>Créer une file d’attente dans le portail Azure
 1. Dans la page **Espace de noms Service Bus**, sélectionnez **Files d’attente** dans le menu de navigation de gauche.

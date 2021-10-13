@@ -3,13 +3,13 @@ title: Création d’une demande de support Azure
 description: Les clients qui ont besoin d’aide peuvent utiliser le portail Azure pour trouver des solutions en libre-service et pour créer et gérer des demandes de support.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 09/01/2021
-ms.openlocfilehash: 768c778926024288b0d331b5cb6b60c8e9c16a57
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/30/2021
+ms.openlocfilehash: 4598cc16173100749ad3f1bdefd3165020554465
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429458"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358272"
 ---
 # <a name="create-an-azure-support-request"></a>Créer une demande de support Azure
 
@@ -18,9 +18,9 @@ Azure vous permet de créer et gérer les demandes de support, également appel�
 > [!NOTE]
 > L’URL du portail Azure est spécifique au cloud Azure sur lequel votre organisation est déployée.
 >
->* Portail Azure pour une utilisation commerciale : [https://portal.azure.com](https://portal.azure.com)
->* Portail Azure pour l’Allemagne : [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
->* Portail Azure pour le gouvernement des États-Unis : [https://portal.azure.us](https://portal.azure.us)
+>- Portail Azure pour une utilisation commerciale : [https://portal.azure.com](https://portal.azure.com)
+>- Portail Azure pour l’Allemagne : [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
+>- Portail Azure pour le gouvernement des États-Unis : [https://portal.azure.us](https://portal.azure.us)
 
 Azure offre une prise en charge illimitée de la gestion des abonnements, ce qui inclut la facturation, le réglage des quotas et les transferts de compte. Pour bénéficier du support, vous devez disposer d’un plan de support. Pour plus d’informations, consultez [Comparer les plans de support](https://azure.microsoft.com/support/plans).
 
@@ -78,7 +78,9 @@ Nous recueillons ensuite des détails supplémentaires sur le problème. En four
 
 1. Renseignez les **détails du problème** pour nous fournir plus d’informations sur votre problème. Si possible, indiquez-nous quand le problème a commencé et les étapes permettant de le reproduire. Vous pouvez charger un fichier, tel qu’un fichier journal ou le résultat d’un diagnostic. Pour plus d’informations sur les chargements de fichiers, consultez [Instructions de chargement de fichier](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. Dans la section **Partager les informations de diagnostic**, sélectionnez **Oui** ou **Non**. La sélection de **Oui** permet au support Azure de collecter des [informations de diagnostic](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) à partir de vos ressources Azure. Si vous préférez ne pas partager ces informations, sélectionnez **Non**. Dans certains cas, d’autres options sont disponibles, comme celle d’autoriser l’accès à la mémoire d’une machine virtuelle.
+1. Dans la section **Partager les informations de diagnostic**, sélectionnez **Oui** ou **Non**. La sélection de **Oui** permet au support Azure de collecter des [informations de diagnostic](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) à partir de vos ressources Azure. Si vous préférez ne pas partager ces informations, sélectionnez **Non**. Pour plus d’informations sur les types de fichiers que nous pouvons collecter, consultez la section [Journaux d’informations de diagnostic avancés](#advanced-diagnostic-information-logs).
+
+  Dans certains cas, il y aura des options supplémentaires à choisir. Par exemple, pour certains types de problèmes de machine virtuelle, vous pouvez choisir d’[autoriser ou non l’accès à la mémoire d’une machine virtuelle](#memory-dump-collection).
 
 1. Dans la section **Méthode de support**, sélectionnez la gravité de l’impact. Le niveau de gravité maximale dépend de votre [plan de support](https://azure.microsoft.com/support/plans).
 
@@ -93,6 +95,29 @@ Lorsque vous avez renseigné toutes les informations nécessaires, sélectionnez
 Avant de créer votre demande, passez en revue tous les détails que vous enverrez au support technique. Vous pouvez sélectionner **Précédent** pour revenir à n’importe quel onglet si vous devez apporter des modifications. Une fois que la demande de support est complète, sélectionnez **Créer**.
 
 Un ingénieur de support vous contactera en utilisant la méthode que vous avez indiquée. Pour plus d’informations sur le temps de réponse initial, consultez [Étendue du support et réactivité](https://azure.microsoft.com/support/plans/response/).
+
+### <a name="advanced-diagnostic-information-logs"></a>Journaux d’informations de diagnostic avancés
+
+Lorsque vous autorisez la collecte d’[informations de diagnostic avancées](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/), le support Microsoft peut collecter des informations qui peuvent vous aider à résoudre votre problème plus rapidement. Cette liste non exhaustive contient des exemples des fichiers les plus courants collectés sous les informations de diagnostic avancées pour différents services ou environnements.
+
+- [Microsoft Azure PaaS VM logs](/troubleshoot/azure/virtual-machines/sdp352ef8720-e3ee-4a12-a37e-cc3b0870f359-windows-vm)
+- [Microsoft Azure IaaS VM logs](https://github.com/azure/azure-diskinspect-service/blob/master/docs/manifest_by_file.md)
+- [Journaux Microsoft Azure Service Fabric](/troubleshoot/azure/general/fabric-logs)
+- [Packages de prise en charge et journaux d’appareil StorSimple](https://support.microsoft.com/topic/storsimple-support-packages-and-device-logs-cb0a1c7e-6125-a5a7-f212-51439781f646)
+- [SQL Server sur les journaux des machines virtuelles Azure](/troubleshoot/azure/general/sql-vm-logs)
+- [Journaux Azure Active Directory](/troubleshoot/azure/active-directory/support-data-collection-diagnostic-logs)
+- [Package de prise en charge et journaux des appareils Azure Stack Edge](/troubleshoot/azure/general/azure-stack-edge-support-package-device-logs)
+- [Journaux Azure Synapse Analytics](/troubleshoot/azure/general/synapse-analytics-apache-spark-pools-diagnostic-logs)
+
+### <a name="memory-dump-collection"></a>Collecte d’images mémoire
+
+Lorsque vous créez une demande de support pour certains types de problèmes de machine virtuelle, vous êtes invité à indiquer si vous autorisez la prise en charge de l’accès à la mémoire de votre machine virtuelle. Dans ce cas, nous pouvons collecter un vidage de la mémoire pour mieux diagnostiquer le problème.
+
+Une image mémoire complète est le fichier de vidage en mode noyau le plus volumineux. Ce fichier comprend l’ensemble de la mémoire physique utilisée par Windows. Par défaut, une image mémoire complète n’inclut pas la mémoire physique utilisée par le microprogramme de la plateforme.
+
+L’image mémoire est copiée du nœud de calcul (hôte Azure) sur un autre serveur pour le débogage au sein du même centre de débogage. Les données client sont protégées, car elles ne sortent pas de la limite sécurisée d’Azure.
+
+Le fichier d’image mémoire est créé en générant un état d’enregistrement Hyper-V de la machine virtuelle. La machine virtuelle est alors suspendue pendant 10 minutes, après quoi la machine virtuelle est reprise. La machine virtuelle n’est pas redémarrée dans le cadre de ce processus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

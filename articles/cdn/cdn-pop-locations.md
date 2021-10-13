@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2021
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: f51ca01988a090c4c61b821c16ec67f20d2c679f
-ms.sourcegitcommit: 5163ebd8257281e7e724c072f169d4165441c326
+ms.openlocfilehash: 6d24154c7cbe9e5e17a78b52e5e0117e27b8d026
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2021
-ms.locfileid: "112416998"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359690"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Couverture Azure CDN par Metro 
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "112416998"
 >
 
 
-Cet article répertorie les éléments métros actuels contenant des emplacements de points de présence (POP), triés par région, pour les produits du réseau de distribution de contenu (CDN) Azure. Chaque élément métro peut contenir plusieurs emplacements POP. Par exemple, l’élément Azure CDN de Microsoft comporte 116 emplacements POP sur 100 zones urbaines. 
+Cet article répertorie les éléments métros actuels contenant des emplacements de points de présence (POP), triés par région, pour les produits du réseau de distribution de contenu (CDN) Azure. Chaque élément métro peut contenir plusieurs emplacements POP. Par exemple, le service Azure CDN de Microsoft a 118 emplacements POP dans 100 zones urbaines. 
 
 > [!IMPORTANT]
 > Chaque produit du CDN Azure possède une méthode distincte de génération de son infrastructure de CDN, Microsoft déconseille donc l’utilisation des emplacements POP pour déterminer quel produit CDN Azure utiliser. Considérez plutôt les fonctionnalités du produit et les performances de l’utilisateur final. Testez les performances avec chaque produit du CDN Azure pour choisir celui qui vous semble le mieux adapté à vos utilisateurs. 
@@ -59,4 +59,4 @@ Cet article répertorie les éléments métros actuels contenant des emplacement
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir les dernières adresses IP à ajouter à la liste d’autorisation, consultez [API de nœuds de périphérie Azure CDN](/rest/api/cdn/cdn/edgenodes).
+* Pour obtenir les dernières adresses IP à ajouter à la liste d’autorisation, consultez [API de nœuds de périphérie Azure CDN](/rest/api/cdn/edge-nodes/list).

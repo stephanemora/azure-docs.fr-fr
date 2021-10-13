@@ -4,13 +4,13 @@ description: Décrit les fonctions à utiliser dans un fichier Bicep pour utilis
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: 8df0aec96001aa5b1a7cdd7342fe663f0bfa2da0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: b5230d9fd7f228981c3ac3ec899ae8b641cc74fb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124758481"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355320"
 ---
 # <a name="numeric-functions-for-bicep"></a>Fonctions numériques pour Bicep
 
@@ -23,6 +23,8 @@ Certaines des fonctions numériques JSON Azure Resource Manager sont remplacées
 `int(valueToConvert)`
 
 Convertit la valeur spécifiée en entier.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -55,6 +57,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `max (arg1)`
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -95,6 +99,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `min (arg1)`
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 

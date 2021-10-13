@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: f0cac775870345ae298672c2af5dad8277c592e6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 671fa1a8c9e0a9c29cfd5d2f93acd1aa7f3a8c4c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639783"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658953"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Présentation du déclencheur RabbitMQ pour Azure Functions
 
@@ -23,7 +23,7 @@ Utilisez le déclencheur RabbitMQ pour répondre aux messages d’une file d’a
 
 Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](functions-bindings-rabbitmq.md).
 
-## <a name="example"></a> Exemple
+## <a name="example"></a>Exemple
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -264,7 +264,7 @@ Les files d’attente de lettres mortes et les échanges ne peuvent pas être co
 
 ## <a name="hostjson-settings"></a>Paramètres host.json
 
-Cette section décrit les paramètres de configuration globaux disponibles pour cette liaison dans les versions 2.x et ultérieures. L’exemple de fichier *host.json* ci-dessous contient seulement les paramètres pour cette liaison. Pour plus d’informations sur les paramètres de configuration globale, consultez [Informations de référence sur le fichier host.json pour la version d’Azure Functions](functions-host-json.md).
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 
 ```json
 {

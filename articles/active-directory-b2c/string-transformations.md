@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 07/20/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a7041f343eec34f16f4cfd7b32ae56157963dd09
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f581d7f4400e4cff734e3094d5957fec6148488f
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114439357"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536321"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -923,8 +923,8 @@ Par exemple, la transformation de revendication suivante vérifie si la valeur d
     - **stringComparison** : ordinalIgnoreCase
     - **outputClaimIfMatched** :  B2C_V1_90001
 - Revendications de sortie :
-    - **isMinorResponseCode** : B2C_V1_90001
-    - **isMinor** : true
+    - **isMinorResponseCode** : true
+    - **isMinor** : B2C_V1_90001
 
 
 ## <a name="stringcontains"></a>StringContains

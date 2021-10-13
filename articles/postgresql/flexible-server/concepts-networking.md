@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2021
-ms.openlocfilehash: 768645614035afa852e5d9195666748df9116368
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3a0ce42cf32e218f3debaf6f3e84bb8f27a81c82
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577951"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129279029"
 ---
 # <a name="networking-overview-for-azure-database-for-postgresql---flexible-server-preview"></a>Vue d’ensemble de la mise en réseau d’Azure Database pour PostgreSQL – Serveur flexible (préversion)
 
@@ -74,7 +74,7 @@ Voici quelques concepts à connaître lorsque vous utilisez des réseaux virtuel
   À ce stade, Azure Database pour PostgreSQL – Serveur flexible ne prend pas en charge les groupes de sécurité réseau dans lesquels un groupe de sécurité d’application fait partie de la règle. Nous conseillons actuellement d’utiliser le [filtrage de la source ou de la destination basé sur l’adresse IP](../../virtual-network/network-security-groups-overview.md#security-rules) dans un groupe de sécurité réseau. 
 
   > [!IMPORTANT]
-  > Les fonctionnalités de haute disponibilité d’Azure Database pour PostgreSQL - Serveur flexible requièrent la possibilité d’envoyer/de recevoir du trafic d’envoi sur les ports de destination 5432, 6432 au sein d’un sous-réseau de réseau virtuel Azure où Azure Database pour PostgreSQL - Serveur flexible est déployé, ainsi que sur le stockage Azure pour l’archivage des journaux. Si vous créez des [Groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) pour refuser le trafic à destination ou en provenance de Azure Database pour PostgreSQL - Serveur flexible sur le sous-réseau sur lequel il est déployé, veillez à autoriser le trafic vers les ports de destination 5432 et 6432 au sein du sous-réseau, ainsi que vers le stockage Azure en utilisant l’[étiquette de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) Stockage Azure comme destination. 
+  > Les fonctionnalités de haute disponibilité d’Azure Database pour PostgreSQL - Serveur flexible requièrent la possibilité d’envoyer/de recevoir du trafic d’envoi sur les ports de destination 5432, 6432 au sein d’un sous-réseau de réseau virtuel Azure où Azure Database pour PostgreSQL - Serveur flexible est déployé, ainsi que sur le stockage Azure pour l’archivage des journaux. Si vous créez des [Groupes de sécurité réseau (NSG)](../../virtual-network/network-security-groups-overview.md) pour refuser le trafic à destination ou en provenance de Azure Database pour PostgreSQL - Serveur flexible sur le sous-réseau sur lequel il est déployé, veillez à autoriser le trafic vers les ports de destination 5432 et 6432 au sein du sous-réseau, ainsi que vers le stockage Azure en utilisant l’[étiquette de service](../../virtual-network/service-tags-overview.md) Stockage Azure comme destination.
 
 * **Intégration d’une zone DNS privée**. L’intégration de zones DNS privées Azure permet de résoudre le DNS privé au sein du réseau virtuel actuel ou de tout réseau virtuel appairé dans la région où la zone DNS privée est liée. 
 

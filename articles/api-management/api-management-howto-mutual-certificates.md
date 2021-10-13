@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 01/26/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 689dbc56eb5f587e124a645895723436a2a7ccd8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72b1680af5bb20d772d93d7743224170fde437fd
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569589"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740281"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Sécuriser les services principaux à l’aide d’une authentification par certificat client dans Gestion des API Azure
 
 Gestion des API permet de sécuriser l’accès au service principal d’une API en utilisant des certificats clients. Ce guide montre comment gérer des certificats dans une instance de service Gestion des API Azure à l’aide du portail Azure. Il explique également comment configurer une API pour utiliser un certificat pour accéder à un service principal.
 
-Vous pouvez également gérer des certificats Gestion des API à l’aide de l’[API REST Gestion des API](/rest/api/apimanagement/2020-06-01-preview/certificate).
+Vous pouvez également gérer des certificats Gestion des API à l’aide de l’[API REST Gestion des API](/rest/api/apimanagement/2020-12-01/certificate).
 
 ## <a name="certificate-options"></a>Options de certificat
 
