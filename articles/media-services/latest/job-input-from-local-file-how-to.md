@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 1f98c0d12ac0df6d824f7f6f5c5e19071b780612
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: fa8b26c2f26ed93bda0ba96b695e94951b72af6b
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110781970"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658212"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Créer une entrée de travail à partir d’un fichier local
 
@@ -33,7 +33,7 @@ Dans Media Services v3, lorsque vous soumettez des travaux pour traiter vos vid�
 Le code suivant montre comment créer une ressource d’entrée et l’utiliser comme entrée pour le travail. La fonction CreateInputAsset effectue les actions suivantes :
 
 * Elle crée la ressource
-* Elle récupère une [URL SAP](../../storage/common/storage-sas-overview.md) accessible en écriture vers le [conteneur de stockage](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) de la ressource
+* Elle récupère une [URL SAP](../../storage/common/storage-sas-overview.md) accessible en écriture vers le [conteneur de stockage](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-a-blob-to-a-container) de la ressource
 * Elle charge le fichier dans le conteneur de stockage à l’aide de l’URL SAP
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]

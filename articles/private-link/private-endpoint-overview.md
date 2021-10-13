@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: allensu
-ms.openlocfilehash: 0d613d7d207da8632fe7a2767d6440ee62378866
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 692bcd4900ae960928a66eaa63b02c6ddf12f2bf
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359411"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705271"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -88,6 +88,7 @@ Le tableau ci-dessous liste les ressources disponibles qui prennent en charge un
 | **Azure Event Grid** | Microsoft.EventGrid/domains | domaine |
 | **Azure Event Grid** | Microsoft.EventGrid/topics  | Rubrique Event Grid |
 | **Azure Event Hub** | Microsoft.EventHub/namespaces | espace de noms |
+| **Azure HDInsight** | Microsoft.HDInsight/clusters | cluster |
 | **Azure API pour FHIR** | Microsoft.HealthcareApis/services | service |
 | **HSM Azure Keyvault** | Microsoft.Keyvault/managedHSMs | HSM |
 | **Azure Key Vault** | Microsoft.KeyVault/vaults | coffre |

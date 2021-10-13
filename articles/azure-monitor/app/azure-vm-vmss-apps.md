@@ -4,12 +4,12 @@ description: Analyse des performances des applications pour les machines virtuel
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2fc5057826eda1856b5b3671b6a995e9e80468f5
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: d3f1d1a8a2e3262ba91339c7335fadda92d90cac
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720643"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856103"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Déployer Azure Monitor Application Insights Agent sur des machines virtuelles Azure et des groupes de machines virtuelles identiques Azure
 
@@ -57,7 +57,7 @@ Il existe deux manières d’activer la supervision des applications pour les ap
 
 #### <a name="java"></a>Java 
 
-Si vous avez besoin de données de télémétrie personnalisées supplémentaires pour les applications Java, consultez ce qui [est disponible](./java-in-process-agent.md#send-custom-telemetry-from-your-application), ajoutez des [dimensions personnalisées](./java-standalone-config.md#custom-dimensions) ou utilisez des [processeurs de télémétrie](./java-standalone-telemetry-processors.md). 
+Si vous avez besoin de données de télémétrie personnalisées supplémentaires pour les applications Java, consultez ce qui [est disponible](./java-in-process-agent.md#custom-telemetry), ajoutez des [dimensions personnalisées](./java-standalone-config.md#custom-dimensions) ou utilisez des [processeurs de télémétrie](./java-standalone-telemetry-processors.md). 
 
 #### <a name="nodejs"></a>Node.js
 

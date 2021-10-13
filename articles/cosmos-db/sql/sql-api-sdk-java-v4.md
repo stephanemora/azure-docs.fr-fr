@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 0157a01178c9efcefe03b839a968ba02b04e7ca2
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 48988392c1961d6878ccfc0d6c40d86dbe8fd237
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116047"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389131"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (SQL) : notes de publication et ressources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "123116047"
 > * [SDK .NET Change Feed v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.JS](sql-api-sdk-node.md)
 > * [Kit SDK Java v4](sql-api-sdk-java-v4.md)
-> * [SDK Java Async v2](sql-api-sdk-async-java.md)
+> * [Kit SDK Java asynchrone v2](sql-api-sdk-async-java.md)
 > * [SDK Java Sync v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
@@ -72,7 +72,8 @@ Le Kit de développement logiciel (SDK) Java Azure Cosmos DB v4 pour API Core (S
 > * Version 4.18.0 : il est fortement recommandé d’utiliser la version 4.18.0 et les versions ultérieures.
 > * La version 4.13.0 met à jour les versions majeures de `reactor-core` et `reactor-netty` pour le train de mise en production de `2020.0.4 (Europium)`.
 
-[!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos/CHANGELOG.md)]
+## <a name="release-history"></a>Historique des mises en production
+L’historique des versions est conservé dans le référentiel azure-sdk-for-java. Pour obtenir une liste détaillée des versions, consultez le [fichier d’historique des versions](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md).
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 [!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)] 

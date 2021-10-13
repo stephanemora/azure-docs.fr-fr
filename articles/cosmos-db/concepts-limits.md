@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2021
-ms.openlocfilehash: 80cc94941331a024a183e19c383ee20b900251ea
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: befd0daa9926f96411e1f870efb29ab68b0a8d15
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128707633"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387769"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -102,7 +102,7 @@ Vous pouvez [provisionner et gérer votre compte Azure Cosmos](how-to-manage-dat
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre maximal de comptes de base de données par abonnement | 50 par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](create-support-request-quota-increase.md).|
+| Nombre maximal de comptes de base de données par abonnement | 50 par défaut. Vous pouvez l’augmenter en [envoyant un ticket de support Azure](create-support-request-quota-increase.md) jusqu’à un maximum de 1000.|
 | Nombre maximal de basculements régionaux | 1/heure par défaut. Vous pouvez l’augmenter en [soumettant un ticket de support Azure](create-support-request-quota-increase.md).|
 
 > [!NOTE]

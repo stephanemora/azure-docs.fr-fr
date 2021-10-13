@@ -8,12 +8,12 @@ ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
 ms.date: 09/15/2021
-ms.openlocfilehash: 3bade2b547db3b76bde02731807d4e6ef3539711
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4c758dfdc40e23197128bc08cccc5748f08f7ed4
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649603"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534891"
 ---
 # <a name="troubleshoot-reservation-utilization"></a>Résoudre les problèmes d’utilisation de réservations
 
@@ -39,6 +39,14 @@ Lorsque les données d’utilisation arrivent, la valeur change jusqu’à attei
 ## <a name="solution"></a>Solution
 
 Si vous constatez que vos valeurs d’utilisation ne correspondent pas à vos attentes, passez en revue le graphique pour obtenir une vue d’ensemble de l’utilisation réelle. Toute valeur de point datant de plus de deux jours doit être exacte. Les moyennes à plus long terme, de sept à 30 jours, doivent être exactes.
+
+## <a name="other-common-scenarios"></a>Autres scénarios courants
+- Vous avez peut-être arrêté l’exécution de la ressource A et démarré la ressource B qui ne s’applique pas à la réservation que vous avez achetée. Pour résoudre ce risque, vous devrez peut-être échanger la réservation pour la faire correspondre à la ressource appropriée. 
+- Vous avez peut-être déplacé une ressource d’un abonnement à une autre ou d’un groupe de ressources à un autre, alors que l’étendue de la réservation est différente de celle de la destination vers laquelle la ressource est déplacée. Pour résoudre ce cas, vous devrez peut-être modifier l’étendue de la réservation.
+- Vous avez peut-être acheté une autre réservation qui a également appliqué un avantage à la même étendue et, par conséquent, moins d’une instance réservée existante a appliqué un avantage. Pour résoudre ce problème, vous devrez peut-être échanger/rembourser une des réservations.
+- Vous avez peut-être cessé d’exécuter une ressource particulière et, par conséquent, cette dernière a cessé d’émettre une utilisation et l’application de l’avantage a cessé. Pour résoudre ce risque, vous devrez peut-être échanger la réservation pour la faire correspondre à la ressource appropriée. 
+- Vous avez peut-être modifié l’étendue de la réservation et cela a entraîné l’arrêt de l’application d’un avantage aux ressources. Pour y remédier, vous devrez peut-être modifier à nouveau l’étendue de la réservation pour vous assurer que les ressources sont déployées dans la même étendue.
+- L’abonnement sur lequel la réservation a été étendue a été supprimé ou déplacé, de sorte que l’avantage n’est pas appliqué aux ressources. Pour rectifier cela, vous devrez peut-être modifier l’étendue de la réservation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

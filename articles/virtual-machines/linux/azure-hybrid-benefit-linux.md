@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 867d4b380266c5cbfbae68ca61d83ab3fd28aee3
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9b144af348a13ae3673ccf2a5f2f11810fd3e296
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216590"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728111"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Application d’Azure Hybrid Benefit aux machines virtuelles Linux
 
@@ -188,12 +188,13 @@ Pour plus d’informations sur la conformité des abonnements Red Hat, les mises
 
 ### <a name="suse"></a>SUSE
 
+Pour utiliser Azure Hybrid Benefit pour vos machines virtuelles SLES et pour plus d’informations sur le passage de SLES PAYG à BYOS ou sur le passage de SLES BYOS à PAYG, consultez [SUSE Linux Enterprise et Azure Hybrid Benefit](https://aka.ms/suse-ahb). 
+
 Les clients qui utilisent Azure Hybrid Benefit doivent déplacer l’infrastructure de mise à jour du cloud vers l’une des trois options qui fournissent des mises à jour logicielles et des correctifs pour ces machines virtuelles :
 - [Centre client SUSE](https://scc.suse.com)
 - Manager SUSE
 - Outil de mise en miroir de référentiel SUSE (RMT) 
 
-Pour utiliser Azure Hybrid Benefit pour vos machines virtuelles SLES et pour plus d’informations sur le passage de SLES PAYG à BYOS ou sur le passage de SLES BYOS à PAYG, consultez [SUSE Linux Enterprise et Azure Hybrid Benefit](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## <a name="azure-hybrid-benefit-on-reserved-instances"></a>Azure Hybrid Benefit sur des instances réservées 
 

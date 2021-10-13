@@ -1,7 +1,7 @@
 ---
 title: Acquérir un jeton pour appeler une API web en utilisant l’authentification Windows intégrée (appareil de bureau) | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez comment générer une application de bureau qui appelle des API web en vue d’acquérir un jeton pour l’application en utilisant l’authentification Windows intégrée.
+description: Découvrez comment générer une application de bureau qui appelle des API web en vue d’acquérir un jeton pour l’application en utilisant l’authentification Windows intégrée
 services: active-directory
 author: maliksahil
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/25/2021
 ms.author: sahmalik
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 182bed366dd59b99232608042bbe96aefaa6a8fa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 67b2c1ac6b9a73444639bb174eacfbf5d685ce92
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124838459"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234829"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token-using-integrated-windows-authentication"></a>Appareil de bureau qui appelle des API web : acquérir un jeton en utilisant l’authentification Windows intégrée
 
@@ -25,7 +25,7 @@ Pour connecter un utilisateur de domaine sur une machine jointe à Azure AD ou �
 
 ## <a name="constraints"></a>Contraintes
 
-- L’authentification Windows intégrée n’est utilisable que pour les utilisateurs *fédérés+* , c’est-à-dire les utilisateurs créés dans Active Directory et reposant sur Azure AD. Les utilisateurs créés directement dans Azure AD sans appui Active Directory, appelés utilisateurs *managés*, ne peuvent pas utiliser ce flux d’authentification. Cette restriction ne concerne pas le flux de nom d’utilisateur et de mot de passe.
+- L’authentification Windows intégrée n’est disponible que pour les utilisateurs *fédérés+* , c’est-à-dire les utilisateurs créés dans Active Directory et reposant sur Azure AD. Les utilisateurs créés directement dans Azure AD sans appui Active Directory, appelés utilisateurs *managés*, ne peuvent pas utiliser ce flux d’authentification. Cette restriction ne concerne pas le flux de nom d’utilisateur et de mot de passe.
 - L’authentification Windows n’ignore pas l’[authentification multifacteur (MFA)](../authentication/concept-mfa-howitworks.md). Si l’authentification MFA est configurée, IWA peut échouer en cas de demande MFA exigée, car MFA a besoin d’une interaction utilisateur.
 
     L’authentification IWA est non interactive, mais MFA nécessite l’interactivité avec l’utilisateur. Vous n’avez pas le contrôle lorsque le fournisseur d’identité demande l’exécution de MFA, l’administrateur de locataire, si. D’après ce que nous avons pu observer, l’authentification MFA est demandée lorsque vous vous connectez depuis un autre pays/région alors que vous n’êtes pas connecté à un réseau d’entreprise via un VPN, et parfois même lorsque vous êtes connecté via un VPN. Ne vous attendez pas à un ensemble déterministe de règles. Azure AD utilise l’intelligence artificielle pour apprendre en continu à déterminer si l’authentification MFA est exigée. Ayez recours à une invite utilisateur de secours, comme une authentification interactive ou un flux de code d’appareil, si l’IWA échoue.

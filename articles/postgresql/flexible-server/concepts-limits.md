@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: 54261049799cc02695d1162012cac9b7bff3558f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1966ce24919e2d98658afe2cec09d37e3b567c60
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559244"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387484"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -96,6 +96,7 @@ Une connexion PostgreSQL, même inactive, peut utiliser environ 10 Mo de mémoi
 - Postgres 10 et les versions antérieures ne sont pas prises en charge. Nous vous recommandons d’utiliser l’option [Serveur unique](../overview-single-server.md) si vous avez besoin d’anciennes versions de Postgres.
 - La prise en charge des extensions est actuellement limitée aux extensions `contrib` Postgres.
 - Le regroupement de connexions PgBouncer intégré n’est pas disponible actuellement pour les serveurs burstables.
+- L’authentification SCRAM n’est pas prise en charge avec la connectivité utilisant PgBouncer intégré.
 
 ### <a name="stopstart-operation"></a>Opération d’arrêt/démarrage
 

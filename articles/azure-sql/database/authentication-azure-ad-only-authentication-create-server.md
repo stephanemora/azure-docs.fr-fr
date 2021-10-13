@@ -8,13 +8,13 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
-ms.openlocfilehash: 1519573670b3c97e1c47404ed457bf68c488108e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/04/2021
+ms.openlocfilehash: 959175611f42c8c75da465044c7962c585d3728f
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643191"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458665"
 ---
 # <a name="create-server-with-azure-ad-only-authentication-enabled-in-azure-sql"></a>Créer un serveur avec l’authentification Azure AD uniquement activée dans Azure SQL
 
@@ -49,6 +49,46 @@ Pour modifier les propriétés existantes après la création du serveur ou de l
 > Si l’authentification Azure AD uniquement est définie sur false, ce qui est le cas par défaut, un administrateur de serveur et un mot de passe devront être inclus dans toutes les API lors de la création du serveur ou de l’instance gérée.
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+1. Accédez à la page [Sélectionner l’option de déploiement SQL](https://portal.azure.com/#create/Microsoft.AzureSQL) dans le portail Azure.
+
+1. Si vous n’êtes pas déjà connecté au portail Azure, connectez-vous lorsque vous y êtes invité.
+
+1. Sous **Bases de données SQL**, laissez **Type de ressource** défini sur **Base de données unique**, puis sélectionnez **Créer**.
+
+1. Sous l’onglet **De base** du formulaire **Créer une base de données SQL**, sous **Détails du projet**, sélectionnez l’**Abonnement** Azure souhaité.
+
+1. Pour **Groupe de ressources**, sélectionnez **Créer**, entrez un nom pour votre groupe de ressources, puis sélectionnez **OK**.
+
+1. Pour **Nom de base de données**, entrez un nom pour votre base de données.
+
+1. Pour **Serveur**, sélectionnez **Créer**, puis remplissez le formulaire de nouveau serveur avec les valeurs suivantes :
+
+   - **Nom du serveur** : Entrez un nom de serveur unique. Les noms de serveur doivent être uniques au niveau mondial pour tous les serveurs Azure, et pas seulement au sein d'un abonnement. Entrez une valeur et le portail Azure vous indiquera si elle est disponible ou non.
+   - **Emplacement** : sélectionnez un emplacement dans la liste déroulante
+   - **Méthode d’authentification** : sélectionnez **Utiliser uniquement l’authentification Azure Active Directory (Azure AD)** .
+   - Sélectionnez **Définir l’administrateur**, ce qui affiche un menu pour sélectionner un principal Azure AD comme administrateur Azure AD de serveur logique. Lorsque vous avez terminé, utilisez le bouton **Sélectionner** pour définir votre administrateur.
+
+   :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-portal-create-server.png" alt-text="Capture d’écran de la création d’un serveur avec l’authentification Azure AD uniquement activée":::
+    
+1. Sélectionnez **Suivant : Réseau** en bas de la page.
+
+1. Sous l’onglet **Réseau**, pour **Méthode de connectivité**, sélectionnez **Point de terminaison public**.
+
+1. Pour **Règles de pare-feu**, affectez la valeur **Oui** à **Ajouter l’adresse IP actuelle du client**. Laissez **Autoriser les services et les ressources Azure à accéder à ce serveur** avec la valeur **Non**. 
+
+1. Laissez la **Stratégie de connexion** et les paramètres de **Version minimale de TLS** aux valeurs par défaut.
+
+1. Sélectionnez **Suivant : Sécurité** en bas de la page. Configurez un des paramètres entre **Azure Defender pour SQL**, **Registre**, **Identité** et **Chiffrement transparent des données** pour votre environnement. Vous pouvez également ignorer ces paramètres.
+
+   > [!NOTE]
+   > L’utilisation d’une identité managée affectée par l'utilisateur (UMI) n’est pas prise en charge avec l’authentification Azure AD uniquement. Ne définissez pas l’identité du serveur dans la section **Identité** comme UMI.
+
+1. Au bas de la page, sélectionnez **Examiner et créer**.
+
+1. Dans la page **Vérifier + créer**, après vérification, sélectionnez **Créer**.
 
 # <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
 
@@ -255,6 +295,10 @@ Vous pouvez également utiliser le modèle suivant. Utilisez un [déploiement pe
 ---
 
 ## <a name="azure-sql-managed-instance"></a>Azure SQL Managed Instance
+
+# <a name="portal"></a>[Portail](#tab/azure-portal)
+
+La gestion ou le déploiement d’une instance managée avec l’authentification Azure AD uniquement à l’aide du portail Azure ne sont pas pris en charge actuellement. Vous pouvez déployer une instance managée avec l’authentification Azure AD uniquement à l’aide de l’API REST, d’Azure CLI, de PowerShell ou d’un modèle ARM.
 
 # <a name="the-azure-cli"></a>[L’interface de ligne de commande Microsoft Azure](#tab/azure-cli)
 
@@ -666,7 +710,7 @@ Une fois le déploiement terminé pour votre instance gérée, vous pouvez remar
 
 ## <a name="limitations"></a>Limites
 
-- La création d’un serveur ou d’une instance à l’aide du portail Azure avec l’authentification Azure AD uniquement activée pendant l’approvisionnement n’est pas prise en charge pour le moment.
+- La création d’une instance managée à l’aide du portail Azure avec l’authentification Azure AD uniquement activée pendant l’approvisionnement n’est pas prise en charge pour le moment.
 - Pour réinitialiser le mot de passe de l’administrateur du serveur, l’authentification Azure AD uniquement doit être désactivée.
 - Si l’authentification Azure AD uniquement est désactivée, vous devez créer un serveur avec un mot de passe et un administrateur de serveur lors de l’utilisation de toutes les API.
 
@@ -674,4 +718,4 @@ Une fois le déploiement terminé pour votre instance gérée, vous pouvez remar
 
 - Si vous disposez déjà d’un serveur SQL ou d’une instance gérée et que vous souhaitez simplement activer l’authentification Azure AD uniquement, consultez [Didacticiel : activer l’authentification Azure Active Directory uniquement avec Azure SQL](authentication-azure-ad-only-authentication-tutorial.md).
 - Pour plus d’informations sur la fonctionnalité d’authentification Azure AD uniquement, consultez [Authentification Azure ad uniquement avec Azure SQL](authentication-azure-ad-only-authentication.md).
-- Si vous souhaitez appliquer la création du serveur avec l’authentification Azure AD uniquement activée, consultez [Azure Policy pour l’authentification Azure Active Directory uniquement pour Azure SQL](authentication-azure-ad-only-authentication-policy.md).
+- Si vous souhaitez appliquer la création du serveur avec l’authentification Azure AD uniquement activée, consultez [Azure Policy pour l’authentification Azure Active Directory uniquement pour Azure SQL](authentication-azure-ad-only-authentication-policy.md)

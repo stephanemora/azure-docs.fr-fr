@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e46161812d122a1d5647e8589c58f9528578b878
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: ff1c5396ca2861250c5314ac785f8cbad42bf362
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107749831"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235475"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Recevoir des notifications concernant un coffre de clés et y répondre avec Azure Event Grid
 
@@ -29,7 +29,7 @@ Ce guide explique comment recevoir des notifications de Key Vault via Event Grid
 
 ## <a name="concepts"></a>Concepts
 
-Event Grid est un service de gestion d’événements dans le cloud. En suivant les étapes de ce guide, vous allez vous abonner à des événements pour Key Vault et les router vers Automation. Lorsque l’un des secrets du coffre de clés est sur le point d’expirer, Event Grid est averti de la modification de l’état et lance une requête HTTP POST sur le point de terminaison. Un Webhook déclenche ensuite une exécution Automation d’un script PowerShell.
+Event Grid est un service de gestion d’événements dans le cloud. En suivant les étapes de ce guide, vous allez vous abonner à des événements pour Key Vault et les router vers Automation. Lorsque l’un des secrets du coffre de clés est sur le point d’expirer (défini sur 30 jours avant la date d'expiration), Event Grid est averti de la modification de l’état et lance une requête HTTP POST sur le point de terminaison. Un Webhook déclenche ensuite une exécution Automation d’un script PowerShell.
 
 ![Organigramme HTTP POST](../media/event-grid-tutorial-1.png)
 

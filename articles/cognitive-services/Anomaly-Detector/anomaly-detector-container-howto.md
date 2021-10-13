@@ -12,12 +12,12 @@ ms.date: 09/28/2020
 ms.author: mbullwin
 ms.custom: cog-serv-seo-aug-2020
 keywords: local, Docker, conteneur, diffusion en continu, algorithmes
-ms.openlocfilehash: 70e5950f6577ce2cca2f28be070f3ba372d46a7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9a2481705ef1bed5a4b6d20bdfcbe68022c5f9e2
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97862300"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057376"
 ---
 # <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Installer et exécuter des conteneurs Docker pour l’API Détecteur d’anomalies 
 
@@ -124,7 +124,7 @@ Si vous envisagez d’exécuter plusieurs conteneurs avec les ports exposés, ve
 
 Remplacez `<container-registry>` et `<container-name>` par les valeurs des conteneurs que vous utilisez. Ils n’ont pas besoin d’être le même conteneur. Vous pouvez avoir le conteneur Détecteur d’anomalies et le conteneur LUIS qui s’exécutent ensemble sur l’HÔTE, ou plusieurs conteneurs Détecteur d’anomalies qui s’exécutent.
 
-Exécutez le premier conteneur sur le port 5000.
+Exécutez le premier conteneur sur le port hôte 5000.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -134,11 +134,11 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-Exécutez le deuxième conteneur sur le port 5001.
+Exécutez le deuxième conteneur sur le port hôte 5001.
 
 
 ```bash
-docker run --rm -it -p 5000:5001 --memory 4g --cpus 1 \
+docker run --rm -it -p 5001:5000 --memory 4g --cpus 1 \
 <container-registry>/microsoft/<container-name> \
 Eula=accept \
 Billing={ENDPOINT_URI} \

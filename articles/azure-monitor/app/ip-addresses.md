@@ -3,12 +3,12 @@ title: Adresses IP utilisées par Azure Monitor
 description: Exceptions de pare-feu de serveur requises par Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: e6f0eb2de43f3ee6a9be61089a22d57f8cfe8116
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7516cdc5fcb605415ef009e7b5f1d5da195ba1c9
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124815766"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858364"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Adresses IP utilisées par Azure Monitor
 
@@ -196,7 +196,7 @@ East US
 ```
 
 ### <a name="discovery-api"></a>API Discovery
-Vous pourriez vouloir [récupérer par programmation](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) la liste actuelle des balises de service ainsi que les informations relatives aux plages d’adresses IP.
+Vous pourriez vouloir [récupérer par programmation](../../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) la liste actuelle des balises de service ainsi que les informations relatives aux plages d’adresses IP.
 
 ## <a name="application-insights--log-analytics-apis"></a>API Log Analytics et Application Insights
 

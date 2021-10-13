@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 06/23/2021
-ms.openlocfilehash: 419feaf3102ba9db4335718131281481821fe6a9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 988e3249580408147b74409856bea1e45df4e966
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524007"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857110"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Étiquettes de service Azure HDInsight des groupes de sécurité réseau
 
@@ -18,7 +18,7 @@ Les étiquettes de service Azure HDInsight des groupes de sécurité réseau son
 
 Le service HDInsight gère ces étiquettes de service. Vous ne pouvez pas créer votre propre étiquette de service ou modifier une étiquette existante. Microsoft gère les préfixes d'adresse correspondant à l'étiquette de service, et met automatiquement à jour l'étiquette de service lorsque les adresses changent.
 
-Si vous souhaitez utiliser une région particulière et que l’étiquette de service n’est pas encore documentée dans cette page, vous pouvez utiliser l’[API Service Tag Discovery](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) pour rechercher votre étiquette de service. Vous pouvez également télécharger le [fichier JSON d’étiquette de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) et recherchez la région de votre choix.
+Si vous souhaitez utiliser une région particulière et que l’étiquette de service n’est pas encore documentée dans cette page, vous pouvez utiliser l’[API Service Tag Discovery](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) pour rechercher votre étiquette de service. Vous pouvez également télécharger le [fichier JSON d’étiquette de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) et recherchez la région de votre choix.
 
 ## <a name="get-started-with-service-tags"></a>Prise en main des étiquettes de service
 

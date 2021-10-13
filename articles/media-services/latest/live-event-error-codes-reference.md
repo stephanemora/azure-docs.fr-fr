@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: bd8a980d6f8cf7f71dbbfb5f099a12ca966be9ac
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 24428aeb07548556a96c292b6dc1be0f2014a479
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661637"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389833"
 ---
 # <a name="media-services-live-event-error-codes"></a>Codes d'erreur des événements en direct Media Services
 
@@ -60,7 +60,7 @@ Lorsque vous vous abonnez aux événements [Event Grid](../../event-grid/index.y
 >| Description|Les flux entrants avec taux de trames ingérés par l'encodeur ont dépassé le nombre maximal autorisé de 30 T/s pour l'encodage de canaux/événements en direct. |
 >| Solution suggérée|Vérifiez la préconfiguration de l'encodeur pour réduire la fréquence d'images à moins de 36 T/s. |
 >|**MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED** ||
->| Description|Les flux entrants ingérés par l’encodeur ont dépassé les résolutions autorisées suivantes : 1920 x 1088 pour l'encodage des canaux/événements en direct et 4096 x 2160 pour le transfert des canaux/événements en direct. |
+>| Description|Les flux entrants ingérés par l’encodeur ont dépassé les résolutions autorisées suivantes : 1920 x 1088 pour l'encodage des canaux/événements en direct et 4096 x 2160 pour le transfert des canaux/événements en direct de base et standard. |
 >| Solution suggérée|Vérifiez la préconfiguration de l'encodeur pour réduire la résolution vidéo afin qu'elle ne dépasse pas la limite. |
 >|**MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV** |
 >| Description|L’événement en direct a reçu une grande quantité de données audio à la fois, ou une grande quantité de données vidéo sans images clés. Nous avons déconnecté l'encodeur pour lui permettre de réessayer avec des données correctes. |

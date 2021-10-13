@@ -4,17 +4,17 @@ description: Découvrez comment diagnostiquer et corriger l’exception d’en-t
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 09/29/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d180e955fda4074fa2115b26f363b2c1350dab98
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: acd3393471e8a58247ad366dcc8b816965ba8045
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116280"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273492"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Diagnostiquer et résoudre le message « En-tête de demande trop volumineux » dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -37,7 +37,7 @@ Redémarrez votre application cliente pour réinitialiser tous les jetons de ses
 
 #### <a name="solution"></a>Solution :
 > [!IMPORTANT]
-> Effectuez une mise à niveau vers .NET [v3.20.1](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) ou [v2.15.0](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md) au minimum. Ces versions mineures contiennent des optimisations pour réduire la taille des jetons de session afin d’éviter que l’en-tête ne s’allonge et atteigne la limite de taille.
+> Effectuez une mise à niveau vers .NET [v3.20.1](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) ou [v2.16.1](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md) au minimum. Ces versions mineures contiennent des optimisations pour réduire la taille des jetons de session afin d’éviter que l’en-tête ne s’allonge et atteigne la limite de taille.
 1. Suivez les instructions des articles contenant des conseils en termes de performances [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) ou [.NET v2](performance-tips.md). Convertissez l’application pour qu’elle utilise le mode de connexion directe avec le protocole TCP (Transmission Control Protocol). Le mode de connexion directe avec le protocole TCP n’a pas de restriction de taille d’en-tête comme le protocole HTTP, ce qui évite ce problème. Veillez à utiliser la dernière version du Kit de développement logiciel (SDK), qui contient un correctif pour les opérations de requête lorsque l’interopérabilité du service n’est pas disponible.
 1. Si le mode de connexion directe avec le protocole TCP n’est pas une option pour votre charge de travail, atténuez le problème en modifiant le [niveau de cohérence du client](how-to-manage-consistency.md). Le jeton de session est utilisé uniquement pour la cohérence de session, ce qui est le niveau de cohérence par défaut pour Azure Cosmos DB. D’autres niveaux de cohérence n’utilisent pas le jeton de session.
 

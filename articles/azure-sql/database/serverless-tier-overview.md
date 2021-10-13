@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: mathoma, wiassaf
-ms.date: 7/29/2021
-ms.openlocfilehash: ac1241b28ae85f19aa4bfdbc1a92310b64d88462
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 9/28/2021
+ms.openlocfilehash: cc9c0f35be998e8ef3947946c84bc67a94f125cb
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532541"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235627"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,7 +50,7 @@ Serverless constitue un rapport prix/performance optimisé pour les bases de don
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Scénarios adaptés à l’informatique serverless
 
-- Les bases de données uniques avec des modèles d’utilisation intermittente et imprévisible entrecoupée de périodes d’inactivité, et une utilisation du calcul moyenne moins élevée dans le temps.
+- Les bases de données uniques avec des modèles d’utilisation intermittente et non prévisible, entrecoupée de périodes d’inactivité, et une utilisation moyenne moins élevée des fonctions de calcul dans le temps.
 - Les bases de données uniques dans le niveau de calcul provisionné qui sont souvent mises à l’échelle et les clients qui préfèrent déléguer la mise à l’échelle du calcul au service.
 - Les nouvelles bases de données uniques sans historique d’utilisation où la taille de calcul est difficile ou impossible à estimer avant le déploiement dans SQL Database.
 
@@ -161,7 +161,7 @@ Si le jeu de résultats n’est pas vide, cela signifie que des sessions empêch
 
 Si le jeu de résultats est vide, il est toujours possible que des sessions aient été ouvertes précédemment, peut-être durant une brève période, pendant le délai de pause automatique. Pour savoir si cela s’est produit, vous pouvez utiliser l’[audit Azure SQL](auditing-overview.md) et examiner les données d’audit sur la période concernée.
 
-La présence de sessions ouvertes, avec ou sans utilisation simultanée du processeur dans le pool de ressources utilisateur, est la raison la plus courante pour laquelle une base de données serverless n’est pas mise en pause automatique comme prévu. Notez que certaines [fonctionnalités](#auto-pausing) ne prennent pas en charge la mise en pause automatique, mais prennent en charge la mise à l’échelle automatique.
+La présence de sessions ouvertes, avec ou sans utilisation simultanée du processeur dans le pool de ressources utilisateur, est la raison la plus courante pour laquelle une base de données serverless n’est pas mise en pause automatique comme prévu.
 
 ### <a name="auto-resuming"></a>Reprise automatique
 
@@ -190,7 +190,7 @@ La reprise automatique est également déclenchée durant le déploiement de cer
 
 ### <a name="connectivity"></a>Connectivité
 
-Si une base de données serverless est mise en pause, la première connexion reprend la base de données et retourne une erreur indiquant que la base de données n’est pas disponible (code d’erreur 40613). Une fois que la base de données est reprise, la connexion doit être retentée pour établir la connectivité. Les clients de base de données avec une logique de nouvelle tentative de connexion n’ont normalement pas besoin d’être modifiés.
+Si une base de données serverless est mise en pause, la première connexion reprend la base de données et retourne une erreur indiquant que la base de données n’est pas disponible (code d’erreur 40613). Une fois que la base de données est reprise, la connexion doit être retentée pour établir la connectivité. Les clients de base de données avec une logique de nouvelle tentative de connexion n’ont normalement pas besoin d’être modifiés.  Pour les options de logique de nouvelle tentative de connexion intégrées au pilote SqlClient, consultez [Logique de nouvelle tentative configurable dans SqlClient](/sql/connect/ado-net/configurable-retry-logic).
 
 ### <a name="latency"></a>Latence
 
@@ -377,7 +377,7 @@ La [Calculatrice de prix Azure SQL Database](https://azure.microsoft.com/pricing
 
 ### <a name="example-scenario"></a>Exemple de scénario
 
-Prenons l’exemple d’une base de données serverless configurée avec 1 vCore min et 4 vCores max.  Cela représente environ 3 Go de mémoire min. et 12 Go de mémoire max.  Supposons que le délai de mise en pause automatique est défini à six heures et que la charge de travail de la base de données est active durant les deux premières heures d’une période de 24 heures, mais qu’elle reste inactive le reste du temps.    
+Prenons l’exemple d’une base de données serverless configurée avec 1 vCore min et 4 vCores max.  Cette configuration représente environ 3 Go de mémoire min. et 12 Go de mémoire max.  Supposons que le délai de mise en pause automatique est défini à six heures et que la charge de travail de la base de données est active durant les deux premières heures d’une période de 24 heures, mais qu’elle reste inactive le reste du temps.    
 
 Dans ce cas de figure, la base de données est facturée pour le calcul et le stockage pendant les huit premières heures.  Même si la base de données devient inactive après la deuxième heure, elle continue d’être facturée pour le calcul durant les six heures suivantes, selon le calcul minimal provisionné quand la base de données est en ligne.  Seul le stockage est facturé pendant le reste de la période de 24 heures où la base de données est mise en pause.
 

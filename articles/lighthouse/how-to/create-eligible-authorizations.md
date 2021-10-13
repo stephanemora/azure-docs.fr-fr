@@ -1,14 +1,14 @@
 ---
 title: Créer des autorisations éligibles
 description: Lorsque vous intégrez des clients à Azure Lighthouse, vous pouvez permettre aux utilisateurs de votre locataire de gestion d’élever leur rôle en flux tendu, selon leurs besoins.
-ms.date: 08/26/2021
+ms.date: 09/08/2021
 ms.topic: how-to
-ms.openlocfilehash: 1754a7d43f184e340badb7adb29de8caa3901372
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: b36c3a91c780c2d374ceafe14a671aaa135a2d3c
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038683"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124777827"
 ---
 # <a name="create-eligible-authorizations"></a>Créer des autorisations éligibles
 
@@ -62,7 +62,7 @@ Vous ne pouvez pas utiliser d’autorisations éligibles avec des principaux de 
 
 Chaque autorisation éligible doit inclure un [rôle intégré Azure](../../role-based-access-control/built-in-roles.md) que l’utilisateur peut utiliser en flux tendu.
 
-Le rôle peut être n’importe quel rôle Azure intégré pris en charge pour la gestion des ressources déléguées Azure, à l’exception du rôle Administrateur de l’accès utilisateur.
+Le [rôle](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse) peut être n’importe quel rôle Azure intégré pris en charge pour la gestion des ressources déléguées Azure, à l’exception du rôle Administrateur de l’accès utilisateur.
 
 > [!IMPORTANT]
 > Si vous incluez plusieurs autorisations éligibles qui utilisent le même rôle, chacune des autorisations éligibles doit avoir les mêmes paramètres de stratégie d’accès.

@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.openlocfilehash: 31ac845591387ec0c7061945e3324cd5249d7b23
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.date: 09/27/2021
+ms.openlocfilehash: 5ea3b24cbdbd4a4c9a1f11883e8a2231467a7ee3
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037795"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278570"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Guide pratique pour se connecter à Azure Data Factory et Azure Purview
 
@@ -44,9 +44,9 @@ Plusieurs fabriques de données Azure peuvent se connecter à un même catalogue
 >[!Note]
 >Pour ajouter ou supprimer des connexions Data Factory, vous devez avoir l’un des rôles suivants. L’héritage des rôles à partir du groupe d’administration n’est pas pris en charge.
 >- Pour un compte Purview créé **le 18 août 2021 ou après** : rôles d’**administrateurs de collection** sur la collection racine.
->- Pour un compte Purview créé **avant le 18 août 2021** : rôles de **Propriétaire** ou d’**Administrateur de l’accès utilisateur**. 
+>- Pour un compte Purview créé **avant le 18 août 2021** : rôles de **Propriétaire** ou d’**Administrateur de l’accès utilisateur**.
 >
-> De plus, les utilisateurs doivent être le « contributeur » ou le « propriétaire » de la fabrique de données. 
+> De plus, les utilisateurs doivent être le « contributeur » ou le « propriétaire » de la fabrique de données.
 
 Procédez comme suit pour connecter une fabrique de données existante à votre compte Purview. Vous pouvez également [connecter Data Factory au compte Purview depuis ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
@@ -62,18 +62,18 @@ Procédez comme suit pour connecter une fabrique de données existante à votre 
 
     Un message d’avertissement s’affiche si l’une des fabriques de données sélectionnées est déjà connectée à un autre compte Purview. Si vous sélectionnez OK, la connexion Data Factory à l’autre compte Purview sera déconnectée. Aucune confirmation supplémentaire n’est requise.
 
-    :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Capture d’écran montrant un avertissement pour déconnecter Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png":::
+    :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Capture d’écran montrant un avertissement pour déconnecter Azure Data Factory.":::
 
 >[!Note]
 >Nous prenons désormais en charge l’ajout de 10 fabriques de données maximum à la fois. Si vous souhaitez ajouter plus de 10 fabriques de données à la fois, veuillez créer un ticket de support.
 
 ### <a name="how-authentication-works"></a>Fonctionnement de l’authentification
 
-L’identité managée de la fabrique de données est utilisée pour authentifier les opérations push de traçabilité de la fabrique de données vers Purview. Lors de la connexion d’une fabrique de données à Purview sur l’interface utilisateur, l’attribution de rôle est automatiquement ajoutée. 
+L’identité managée de la fabrique de données est utilisée pour authentifier les opérations push de traçabilité de la fabrique de données vers Purview. Lors de la connexion d’une fabrique de données à Purview sur l’interface utilisateur, l’attribution de rôle est automatiquement ajoutée.
 
 - Pour un compte Purview créé **le 18 août 2021 ou après**, accordez le rôle **Curateur de données** à l’identité managée de la fabrique de données sur votre **collection racine** Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview](../purview/catalog-permissions.md) et comment [Ajouter des rôles et restreindre l’accès par le biais de regroupements](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-- Pour un compte Purview créé **avant le 18 août 2021**, accordez à l’identité managée de la fabrique de données le rôle Azure [**Curateur de données Purview**](../role-based-access-control/built-in-roles.md#purview-data-curator) intégré à votre compte Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview - Autorisations héritées](../purview/catalog-permissions.md#legacy-permission-guide).
+- Pour un compte Purview créé **avant le 18 août 2021**, accordez à l’identité managée de la fabrique de données le rôle Azure [**Curateur de données Purview**](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) (hérité) intégré à votre compte Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview - Autorisations héritées](../purview/catalog-permissions.md#legacy-permission-guide).
 
 ### <a name="remove-data-factory-connections"></a>Supprimer des connexions Data Factory
 
@@ -103,6 +103,10 @@ L’intégration entre Data Factory et Purview ne prend en charge qu’un sous-e
 
 Consultez les [magasins de données pris en charge](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
+## <a name="access-secured-azure-purview-account"></a>Accéder à un compte Azure Purview sécurisé
+      
+Si votre compte Purview est protégé par un pare-feu, découvrez comment autoriser Data Factory à [accéder à un compte Purview sécurisé](../data-factory/how-to-access-secured-purview-account.md) via des points de terminaison privés Purview.
+
 ## <a name="bring-data-factory-lineage-into-purview"></a>Transférer la traçabilité Data Factory dans Purview
 
 Pour une procédure pas à pas de bout en bout, reportez-vous au [Didacticiel : transmettre les données de traçabilité Data Factory à Azure Purview](../data-factory/turorial-push-lineage-to-purview.md).
@@ -129,7 +133,7 @@ Voici un exemple de ce modèle :
 - 1 récepteur/sortie : *Customer1.csv* (objet blob Azure)
 - 1 processus : *CopyCustomerInfo1\#Customer1.csv* (activité Copy Data Factory)
 
-:::image type="content" source="./media/how-to-link-azure-data-factory/adf-copy-lineage.png" alt-text="Capture d’écran montrant la traçabilité pour une opération de copie un-à-un Data Factory." lightbox="./media/how-to-link-azure-data-factory/adf-copy-lineage.png":::
+:::image type="content" source="./media/how-to-link-azure-data-factory/adf-copy-lineage.png" alt-text="Capture d’écran montrant la traçabilité pour une opération de copie un-à-un Data Factory.":::
 
 ### <a name="data-movement-with-11-lineage-and-wildcard-support"></a>Déplacement des données avec traçabilité 1:1 et prise en charge des caractères génériques
 

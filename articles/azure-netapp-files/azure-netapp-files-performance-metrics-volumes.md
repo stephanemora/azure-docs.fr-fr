@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-ms.date: 08/07/2019
-ms.openlocfilehash: f73091552a78760024189b173897913edca724bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/29/2021
+ms.openlocfilehash: e5d5104e0f2215e81b5539296ff18572375a8a28
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100593403"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362393"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recommandations sur les tests de performances pour Azure NetApp Files
 
@@ -21,6 +21,8 @@ Cet article fournit des informations sur les tests de référence pour les mesur
 ## <a name="overview"></a>Vue d’ensemble
 
 Pour comprendre les caractéristiques en matière de performances d’un volume Azure NetApp Files, vous pouvez utiliser l’outil open source [FIO](https://github.com/axboe/fio), qui exécute une série de tests pour simuler diverses charges de travail. L’outil FIO peut être installé sur des systèmes d’exploitation Windows et Linux.  Il s’agit d’un excellent outil, qui propose un aperçu rapide des IOPS et du débit d’un volume.
+
+Azure NetApp Files ne recommande *pas* l’utilisation de l’utilitaire `dd` comme outil d’évaluation de base. Vous devez utiliser une charge de travail d’application, une simulation de charge de travail et des outils d’évaluation et d’analyse (par exemple Oracle AWR avec Oracle, ou l’équivalent IBM pour DB2) afin d’établir et d’analyser les performances d’infrastructure optimales. Les outils tels que FIO, vdbench et iometer ont leur place dans la détermination des machines virtuelles par rapport aux limites de stockage, en faisant correspondre les paramètres du test aux mélanges réels de la charge de travail d’application pour les résultats les plus utiles. Toutefois, il est toujours préférable de tester avec l’application réelle.  
 
 ### <a name="vm-instance-sizing"></a>Dimensionnement de l’instance de machine virtuelle
 

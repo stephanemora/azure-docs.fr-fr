@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 11/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0b41880bea25c1b833ab2a996a50edcf557f37b8
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: f2392484c8ee7c72daa0da7c3ff9632a981a52ec
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161660"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619687"
 ---
 # <a name="configure-runbook-output-and-message-streams"></a>Configurer les flux de sortie et de messages d’un runbook
 
@@ -30,7 +30,7 @@ Le tableau suivant décrit brièvement chaque flux avec son comportement dans le
 
 ## <a name="use-the-output-stream"></a>Utiliser le flux de sortie
 
-Le flux de sortie est destiné à la sortie des objets créés par un script ou un workflow lorsqu’il s’exécute correctement. Azure Automation utilise principalement ce flux pour les objets destinés à être consommés par les Runbooks parents qui appellent le [Runbook actuel](automation-child-runbooks.md). Lorsqu’un parent [appelle un Runbook en ligne](automation-child-runbooks.md#invoke-a-child-runbook-using-inline-execution), l’enfant retourne les données au parent à partir du flux de sortie.
+Le flux de sortie est destiné à la sortie des objets créés par un script ou un workflow lorsqu’il s’exécute correctement. Azure Automation utilise principalement ce flux pour les objets destinés à être consommés par les Runbooks parents qui appellent le [Runbook actuel](automation-child-runbooks.md). Lorsqu’un parent [appelle un Runbook en ligne](automation-child-runbooks.md#call-a-child-runbook-by-using-inline-execution), l’enfant retourne les données au parent à partir du flux de sortie.
 
 Votre Runbook utilise le flux de sortie pour communiquer des informations générales à l’utilisateur uniquement si le Runbook n’est jamais appelé par un autre Runbook. Cependant, vos Runbooks devraient utiliser le [flux des commentaires](#write-output-to-verbose-stream) pour communiquer des informations générales à l’utilisateur.
 

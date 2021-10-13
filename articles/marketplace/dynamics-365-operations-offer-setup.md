@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 09/27/2021
-ms.openlocfilehash: 6efbd254a74d2432985d451adf67a33b74d2e2c4
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: eadbeee57960577f12f880b4582e820eddb63e3c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081912"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234373"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Créer une offre Dynamics 365 for Operations
 
@@ -104,13 +104,13 @@ Pour plus d’informations, consultez [Prospects de votre offre de marketplace c
 
 ## <a name="business-applications-isv-program"></a>Programme Business Applications ISV
 
-Votre offre est initialement inscrite au niveau Standard. Si votre solution répond aux critères d’éligibilité du programme, vous pouvez demander une mise à niveau vers le niveau Premium, qui offre des avantages de programme étendus. Dans ce cas, veillez à compléter le [module de co-vente](https://aka.ms/BizAppsISVProgram) avant de publier votre offre.
+Votre offre est initialement inscrite au niveau Standard.
 
-Cochez la case pour demander une mise à niveau vers le niveau Premium.
+Avant de publier votre offre, complétez le [module de covente](https://aka.ms/BizAppsISVProgram).
 
 Si vous effectuez des modifications, sélectionnez **Enregistrer le brouillon** avant de poursuivre vers le prochaine tabulation du menu de navigation gauche **Propriétés**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer les propriétés de l’offre](dynamics-365-operations-properties.md)
+- Configurer les [propriétés](dynamics-365-operations-properties.md) de l’offre
 - [Bonnes pratiques pour le référencement des offres](gtm-offer-listing-best-practices.md)

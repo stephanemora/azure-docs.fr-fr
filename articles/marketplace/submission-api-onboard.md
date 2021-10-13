@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 09/22/2021
-ms.openlocfilehash: 5c6431fef8c91b41f19d27d19b59efca14986b7f
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: e75b85ea7557e4eb6688e8a549e92820d580359b
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058749"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614742"
 ---
 # <a name="partner-center-submission-api-onboarding"></a>Intégration de l’API de soumission de l’Espace partenaires
 
@@ -64,7 +64,7 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-Pour la valeur tenant_id dans l’URI POST ainsi que pour les paramètres client_id et client_secret, spécifiez l’ID de locataire, l’ID client et la clé de l’application, que vous avez récupérés à partir de l’Espace partenaires au cours de la section précédente. Pour le paramètre resource, vous devez spécifier https://api.partner.microsoft.com.
+Pour la valeur tenant_id dans l’URI POST ainsi que pour les paramètres client_id et client_secret, spécifiez l’ID de locataire, l’ID client et la clé de l’application, que vous avez récupérés à partir de l’Espace partenaires au cours de la section précédente. Pour le paramètre resource, vous devez spécifier `https://api.partner.microsoft.com`.
 
 ### <a name="step-3-use-the-partner-center-submission-api"></a>Étape 3 : Utiliser l’API de soumission de l’Espace partenaires
 

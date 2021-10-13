@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 09/28/2021
 ms.author: tisande
-ms.openlocfilehash: dea28832bb607da722653c398cc234d54d2ffcc9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 251f534669333c17a4bb408a23b33f73c79c9e9f
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618625"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229702"
 ---
 # <a name="how-to-configure-the-azure-cosmos-db-integrated-cache-preview"></a>Comment configurer le cache intégré Azure Cosmos DB (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -66,7 +66,7 @@ Si vous utilisez le kit de développement logiciel (SDK) Java, vous devez égale
 
 ## <a name="adjust-request-consistency"></a>Ajuster la cohérence des demandes
 
-Vous devez ajuster la cohérence des demandes en optant pour une cohérence éventuelle. Si ce n’est pas le cas, la demande contourne toujours le cache intégré. Le moyen le plus simple de configurer une cohérence éventuelle pour toutes les opérations de lecture est de [la définir au niveau du compte](consistency-levels.md#configure-the-default-consistency-level). Vous pouvez également configurer la cohérence au [niveau de la demande](how-to-manage-consistency.md#override-the-default-consistency-level), ce qui est recommandé si vous souhaitez uniquement qu’un sous-ensemble de vos lectures utilise le cache intégré.
+Vous devez ajuster la cohérence des demandes en optant pour une cohérence de session ou éventuelle. Si ce n’est pas le cas, la demande contourne toujours le cache intégré. Le moyen le plus simple de configurer une cohérence spécifique pour toutes les opérations de lecture est de [la définir au niveau du compte](consistency-levels.md#configure-the-default-consistency-level). Vous pouvez également configurer la cohérence au [niveau de la demande](how-to-manage-consistency.md#override-the-default-consistency-level), ce qui est recommandé si vous souhaitez uniquement qu’un sous-ensemble de vos lectures utilise le cache intégré.
 
 > [!NOTE]
 > Si vous utilisez le Kit de développement logiciel (SDK) Python, vous **devez** définir explicitement le niveau de cohérence pour chaque demande. Le paramètre par défaut au niveau du compte ne s’applique pas automatiquement.

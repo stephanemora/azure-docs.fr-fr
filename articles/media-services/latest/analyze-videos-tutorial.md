@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 8f857ff3c1a17e0f17d396b8d97d9d0e27b4fa18
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1427e97ceb3cd592a105bc06174e2627e3bc53bd
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128646077"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659010"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutoriel : Analyser des vidéos avec Media Services v3
 
@@ -91,7 +91,7 @@ Dans Media Services v3, vous utilisez des API Stockage Azure pour charger des fi
 La fonction suivante effectue ces actions :
 
 * Crée une ressource.
-* Obtient une [URL SAS](../../storage/common/storage-sas-overview.md) accessible en écriture vers le [conteneur de stockage](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) de la ressource.
+* Obtient une [URL SAS](../../storage/common/storage-sas-overview.md) accessible en écriture vers le [conteneur de stockage](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-a-blob-to-a-container) de la ressource.
 
     Si vous utilisez la fonction [ListContainerSas](/rest/api/media/assets/listcontainersas) de l’actif pour obtenir des URL SAS, notez que la fonction retourne plusieurs URL SAS dans la mesure où chaque compte de stockage a deux clés. Les deux clés d’un compte de stockage permettent d’effectuer une rotation transparente des clés (vous pouvez par exemple changer une clé pendant que vous utilisez l’autre, puis utiliser la nouvelle clé et déclencher la rotation de l’autre). La première URL SAS représente la clé de stockage 1 et la deuxième la clé de stockage 2.
 * Charge le fichier dans le conteneur de stockage à l’aide de l’URL SAP.

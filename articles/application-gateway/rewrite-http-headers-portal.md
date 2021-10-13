@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 16479588b0e0ec64a17cb3ce0b7a46c49bd2244e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e077ac7c1cdae781b2a07cdcba0b89e001da87bb
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124769899"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712199"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Réécrire les en-têtes de requête et de réponse HTTP avec Azure Application Gateway - Azure portal
 
@@ -99,7 +99,7 @@ Dans cet exemple, nous allons modifier une URL de redirection en réécrivant l�
 
    - Dans la liste **Opérateur**, sélectionnez **Égal (=)** .
 
-   - Entrez un modèle d’expression régulière. Dans cet exemple, nous allons utiliser le modèle `(https?)://.*azurewebsites.net(.*)$`.
+   - Entrez un modèle d’expression régulière. Dans cet exemple, nous allons utiliser le modèle `(https?):\/\/.*azurewebsites.net(.*)$`.
 
    - Sélectionnez **OK**.
 

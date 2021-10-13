@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 36d36101cc7a7a4efff66e680f47431933ddf569
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 58509ca09bc17911d4a1a16955f97396c082e7de
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128630828"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273114"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Vue d’ensemble des objets blob de pages Azure
 
@@ -27,7 +27,7 @@ Les principales fonctionnalités des objets blob de pages Azure résident dans s
 
 ## <a name="restrictions"></a>Restrictions
 
-Les objets blob de pages ne peuvent utiliser que le niveau d’accès **chaud**, et ne peuvent donc pas utiliser les niveaux **froid** et **archive**. Pour plus d’informations sur les niveaux d’accès, consultez [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](storage-blob-storage-tiers.md).
+Les objets blob de pages ne peuvent utiliser que le niveau d’accès **chaud**, et ne peuvent donc pas utiliser les niveaux **froid** et **archive**. Pour plus d’informations sur les niveaux d’accès, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](access-tiers-overview.md).
 
 ## <a name="sample-use-cases"></a>Exemples de cas d’utilisation
 

@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 69d6cae5ccb26ef35fd121c32a9f111ff64b7a11
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: b131d20122ca2440698fed301768d1fe961ac286
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215279"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390346"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -362,7 +362,7 @@ Avant de déployer des modules sur des appareils IoT Edge en production, veillez
 
 Dans les tutoriels et autres documents, nous prescrivons d’utiliser les mêmes informations d’identification de registre de conteneur sur l’appareil IoT Edge que sur l’ordinateur de développement. Ces instructions, qui ne sont destinées qu’à aider à configurer plus facilement les environnements de test et de développement, ne doivent pas être suivies dans un scénario de production.
 
-Pour un accès plus sécurisé à votre Registre, vous avez le choix entre plusieurs [options d’authentification](../container-registry/container-registry-authentication.md). Une authentification populaire et recommandée consiste à utiliser un principal de service Active Directory adapté aux applications ou aux services pour extraire des images de conteneur de manière automatisée ou sans assistance (headless/sans périphérique de contrôle), comme le font les appareils IoT Edge.
+Pour un accès plus sécurisé à votre Registre, vous avez le choix entre plusieurs [options d’authentification](../container-registry/container-registry-authentication.md). Une authentification populaire et recommandée consiste à utiliser un principal de service Active Directory adapté aux applications ou aux services pour extraire des images de conteneur de manière automatisée ou sans assistance (headless/sans périphérique de contrôle), comme le font les appareils IoT Edge. Une autre option consiste à utiliser des jetons délimités par le référentiel, qui vous permettent de créer des identités longues ou courtes qui existent uniquement dans l’instance Azure Container Registry dans laquelle elles ont été créées et d’étendre l’accès au niveau du référentiel.
 
 Pour créer un principal de service, exécutez les deux scripts comme décrit dans [Créer un principal de service](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). Ces scripts effectuent les tâches suivantes :
 
@@ -375,6 +375,16 @@ Pour vous authentifier à l’aide d’un principal de service, fournissez l’I
 * Pour le nom d’utilisateur ou l’ID client, spécifiez l’ID du principal de service.
 
 * Pour le mot de passe ou la clé secrète client, spécifiez le mot de passe du principal de service.
+
+<br>
+
+Pour créer des jetons délimités par le référentiel, veuillez suivre [Création d’un jeton d’étendue de référentiel](../container-registry/container-registry-repository-scoped-permissions.md).
+
+Pour vous authentifier à l’aide de jetons d’étendue de référentiel, indiquez le nom et le mot de passe du jeton que vous avez obtenus après avoir créé votre jeton d’étendue de référentiel. Spécifiez ces informations d’identification dans le manifeste de déploiement.
+
+* Pour le nom d’utilisateur, spécifiez le nom d’utilisateur du jeton.
+
+* Pour le mot de passe, spécifiez l’un des mots de passe du jeton.
 
 > [!NOTE]
 > Après avoir implémenté une authentification de sécurité renforcée, désactivez le paramètre **Utilisateur administrateur** afin que l’accès par défaut avec le nom d’utilisateur/le mot de passe ne soit plus possible. Dans le Registre de conteneurs du portail Azure, dans le menu du volet gauche sous **Paramètres**, sélectionnez **Clés d’accès**.

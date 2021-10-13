@@ -1,34 +1,35 @@
 ---
 title: Gestion du niveau d’accès par défaut d’un compte de stockage Azure
-description: Découvrez comment changer le niveau d’accès par défaut d’un compte de stockage GPv2 ou de Stockage Blob.
+titleSuffix: Azure Storage
+description: Découvrez comment changer le niveau d’accès par défaut d’un compte de stockage à usage général v2 ou de Stockage Blob
 author: tamram
 ms.author: tamram
-ms.date: 01/11/2021
+ms.date: 09/23/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ee009c47188e104cfe1d5430be6e68a1c80132cb
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: a9cb4a119447188202036cca4ed4d8580329d0cc
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666738"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272563"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Gestion du niveau d’accès par défaut d’un compte de stockage Azure
 
 Chaque compte de stockage Azure dispose d’un niveau d’accès par défaut, chaud ou froid. attribué lors de la création du compte de stockage. Le niveau d’accès par défaut est chaud.
 
-Il est possible de modifier le niveau du compte par défaut en définissant l’attribut **Niveau d’accès** du compte de stockage. La modification s’applique à tous les objets stockés dans le compte pour lesquels aucun niveau explicite n’est défini. Passer du niveau de compte chaud au niveau froid implique des opérations d’écriture (par 10 000) pour tous les blobs sans niveau défini dans les comptes GPv2 uniquement, tandis que le passage du niveau froid au niveau chaud entraîne des frais d’opérations de lecture (par 10 000) et d’extraction de données (par Go) pour tous les blobs dans des comptes Stockage Blob et GPv2.
+Il est possible de modifier le niveau du compte par défaut en définissant l’attribut **Niveau d’accès** du compte de stockage. La modification s’applique à tous les objets stockés dans le compte pour lesquels aucun niveau explicite n’est défini. Passer du niveau de compte chaud au niveau froid implique des opérations d’écriture (par 10 000) pour tous les blobs sans niveau défini dans les comptes à usage général v2 uniquement, tandis que le passage du niveau froid au niveau chaud entraîne des frais d’opérations de lecture (par 10 000) et d’extraction de données (par Go) pour tous les blobs dans des comptes Stockage Blob et à usage général v2.
 
 Le niveau du compte ne s’applique pas aux objets blob dont le niveau est défini au niveau de l’objet. Le niveau de stockage archive peut être appliqué uniquement au niveau de l’objet. Il est à tout moment possible de passer d’un niveau d’accès à un autre.
 
 Pour modifier le niveau d’accès par défaut après avoir créé un compte de stockage, suivez la procédure ci-dessous.
 
-## <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’accès de compte par défaut d’un compte Stockage Blob ou GPv2
+## <a name="change-the-default-account-access-tier-of-a-general-purpose-v2-or-blob-storage-account"></a>Changer le niveau d’accès de compte par défaut d’un compte Stockage Blob ou à usage général v2
 
-Les scénarios suivants utilisent le Portail Azure ou PowerShell :
+Les scénarios suivants utilisent le portail Azure ou PowerShell :
 
 # <a name="portal"></a>[Portail](#tab/portal)
 
@@ -51,11 +52,11 @@ Les scénarios suivants utilisent le Portail Azure ou PowerShell :
 Le script PowerShell suivant permet de changer le niveau du compte. La variable `$rgName` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage.
 
 ```powershell
-#Initialize the following with your resource group and storage account names
+# Initialize the following with your resource group and storage account names
 $rgName = ""
 $accountName = ""
 
-#Change the storage account tier to hot
+# Change the storage account tier to hot
 Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
 ```
 

@@ -4,13 +4,13 @@ description: Utilisez des boucles et des tableaux dans un fichier Bicep pour dé
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/23/2021
-ms.openlocfilehash: adb05c5af042e0c9f54e925f82097a1721f40073
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/30/2021
+ms.openlocfilehash: fadd3cfac94889a187409e95331190b7d7b98b73
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662093"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362992"
 ---
 # <a name="resource-iteration-in-bicep"></a>Itération de ressource dans Bicep
 
@@ -194,6 +194,8 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
 ```
 
 Pour un déploiement purement séquentiel, définissez la taille du lot sur 1.
+
+L’élément décoratif `batchSize` se trouve dans l’[espace de noms sys](bicep-functions.md#namespaces-for-functions). Si vous devez différencier cet élément décoratif d'un autre élément portant le même nom, faites précéder l’élément décoratif de **sys**: `@sys.batchSize(2)`
 
 ## <a name="iteration-for-a-child-resource"></a>Itération d’une ressource enfant
 

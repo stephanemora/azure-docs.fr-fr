@@ -10,13 +10,13 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=2, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/22/2021
-ms.openlocfilehash: 256f8f6f792f9bf373af4be9b429a9485b17b7a8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/24/2021
+ms.openlocfilehash: c73546c23a619f1d38caf10383097b4ded638581
+ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524366"
+ms.lasthandoff: 09/26/2021
+ms.locfileid: "129057281"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Nouveautés d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -134,6 +134,7 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 
 |Problème  |Date de la détection  |Statut  |Date de la résolution  |
 |---------|---------|---------|---------|
+|[Message d’erreur trompeur sur le portail Azure suggérant de recréer le principal de service](#misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal)|Septembre 2021|||
 |[La modification du type de connexion n’affecte pas les connexions via le point de terminaison du groupe de basculement](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|Janvier 2021|Solution de contournement||
 |[La procédure sp_send_dbmail peut échouer de façon transitoire lorsque le paramètre @query est utilisé](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Janvier 2021|Solution de contournement||
 |[Les transactions distribuées peuvent être exécutées après la suppression de Managed Instance du groupe d'approbation de serveurs](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Octobre 2020|Solution de contournement||
@@ -167,6 +168,18 @@ Les fonctionnalités suivantes sont activées dans le modèle de déploiement SQ
 |La restauration intégrée de base de données à un point dans le temps du niveau Critique pour l’entreprise vers le niveau Usage général échoue si la base de données source contient des objets OLTP en mémoire.||Résolu|Octobre 2019|
 |Fonctionnalité Database Mail avec des serveurs de messagerie externes (non Azure) utilisant une connexion sécurisée||Résolu|Octobre 2019|
 |Bases de données autonomes non prises en charge dans SQL Managed Instance||Résolu|août 2019|
+
+### <a name="misleading-error-message-on-azure-portal-suggesting-recreation-of-the-service-principal"></a>Message d’erreur trompeur sur le portail Azure suggérant de recréer le principal de service
+
+Le _panneau d’administration Active Directory_ du portail Azure pour Azure SQL Managed Instance affiche peut-être le message d’erreur suivant même si le principal de service existe déjà :
+
+« L’instance gérée a besoin d'un principal de service pour accéder à Azure Active Directory. Cliquez ici pour créer un principal de service »
+
+Vous pouvez ignorer ce message d’erreur si le principal de service pour l’instance gérée existe déjà et si l’authentification AAD sur l’instance gérée fonctionne. 
+
+Pour vérifier si le principal de service existe, accédez à la page _Applications d’entreprise_ sur le portail Azure, choisissez _Identités gérées_ dans la liste déroulante _Type d’application_, cliquez sur _Appliquer_ et entrez le nom de l’instance gérée dans la zone de recherche. Si le nom d’instance s’affiche dans la liste de résultats, le principal de service existe déjà et aucune autre action n’est nécessaire.
+
+Si vous avez déjà suivi les instructions du message d’erreur et cliqué sur le lien du message d’erreur, le principal du service de l’instance gérée a été recréé. Dans ce cas, affectez les autorisations de lecture Azure AD au principal de service nouvellement créé afin que l’authentification Azure AD fonctionne correctement. Pour ce faire, vous pouvez utiliser Azure PowerShell en suivant les [instructions](./authentication-aad-configure.md?tabs=azure-powershell#powershell) ci-dessous.
 
 ### <a name="changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint"></a>La modification du type de connexion n’affecte pas les connexions via le point de terminaison du groupe de basculement
 

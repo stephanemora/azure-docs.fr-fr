@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: 6ec146a05df1b896f8ca594d29cf13341b70765a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e5e9caea0ff8514c633f20f7baa7c501f0ac379d
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96010960"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276337"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Guide pratique pour gérer les inscriptions d’appareils avec le portail Azure
 
@@ -67,7 +67,7 @@ Il existe deux façons de procéder à l’inscription de vos appareils auprès 
         | Champ | Description |
         | :--- | :--- |
         | **Mécanisme** | Sélectionnez **X.509**, **TPM** ou **Clé symétrique** pour le mécanisme d’attestation à utiliser en fonction de la méthode d’attestation utilisée par vos appareils. |
-        | Paramètres d’attestation | Pour obtenir des instructions pas à pas sur la création et l’utilisation d’inscriptions individuelles avec des clés symétriques ou des certificats X.509, consultez l’un des démarrages rapides [Provisionner un appareil symétrique](quick-create-simulated-device-symmetric-key-java.md#create-a-device-enrollment) ou [Provisionner un appareil avec certificat X.509](quick-create-simulated-device-x509-java.md#create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry).<br><br>Pour obtenir des instructions pas à pas sur la création et l’utilisation d’inscriptions individuelles à l’aide de l’attestation TPM, consultez l’un des exemples [Provisionner un appareil TPM simulé](quick-create-simulated-device-tpm-java.md#create-a-device-enrollment-entry).|
+        | Paramètres d’attestation | Pour obtenir des instructions pas à pas sur la création et l’utilisation d’inscriptions individuelles avec des clés symétriques ou des certificats X.509, consultez [Démarrage rapide : Provisionner un appareil symétrique](quick-create-simulated-device-symm-key.md#create-a-device-enrollment) ou [Démarrage rapide : Provisionner un appareil avec certificat X.509](quick-create-simulated-device-x509.md#create-a-device-enrollment).<br><br>Pour obtenir des instructions pas à pas sur la création et l’utilisation d’inscriptions individuelles à l’aide de l’attestation TPM, consultez l’un des exemples [Provisionner un appareil TPM simulé](quick-create-simulated-device-tpm.md#create-a-device-enrollment-entry).|
         | **ID de l’appareil IoT Hub** |  Cet ID représente votre appareil. Les utilisateurs doivent se conformer aux règles en vigueur concernant l’ID d’appareil. Pour plus d’informations, consultez la rubrique [Propriétés d’identité des appareils](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).<br><br>Lorsque vous utilisez des certificats X.509, ce texte doit être le nom de l’objet sur le certificat de l’appareil que vous chargez pour l’inscription. Ce nom d’objet doit être conforme aux règles applicables à l’ID d’un appareil.|
             
 

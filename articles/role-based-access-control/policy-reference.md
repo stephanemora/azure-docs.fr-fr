@@ -1,18 +1,18 @@
 ---
 title: Définitions de stratégie intégrées pour Azure RBAC
 description: Liste les définitions de stratégie intégrées d’Azure Policy pour Azure RBAC. Ces définitions de stratégie intégrées fournissent des approches courantes pour la gestion de vos ressources Azure.
-ms.date: 09/17/2021
+ms.date: 10/11/2021
 ms.topic: reference
 author: rolyon
 ms.author: rolyon
 ms.service: role-based-access-control
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 8675a4a1463a654174f66c511080f81db5864aeb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: abec88f6d17b1e09182da2ac9ead96dc7b0a983e
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128567341"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129812250"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-rbac"></a>Définitions intégrées d’Azure Policy pour Azure RBAC
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0916439ef75c73d59ada1f9a832b95e733520c9c
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 09bd0cf6a43934ea7a0e973b64c434b705d9ea36
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129401025"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129716033"
 ---
 # <a name="live-event-types-comparison"></a>Comparaison des types d’événements en direct
 
@@ -135,6 +135,7 @@ Par exemple, si vous envoyez un flux de contribution à 720p pour un événement
 ### <a name="bitrate-of-contribution-feed-and-output-layers"></a>Débit du flux de contribution et des couches de sortie
 
 L’encodeur live est configuré pour respecter les paramètres de débit de la présélection, peu importe le débit du flux de contribution. Par conséquent, le débit des couches de sortie peut dépasser celui du flux de contribution. Par exemple, si vous envoyez un flux de contribution d’une résolution de 720p à 1 Mbits/s, les couches de sortie restent identiques à ceux de la [table](live-event-types-comparison-reference.md#output-video-streams-for-default720p) ci-dessus.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

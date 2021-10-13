@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/15/2021
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 8b53f906eed0df4c6dddbaa64f460cb7a8898a5e
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: 34938a6d5e52912db8d82b39bed3fdbad9f4814c
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113492646"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859017"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Donner accès aux clés, certificats et secrets du coffre de clés avec un contrôle d’accès en fonction du rôle Azure
 
@@ -28,6 +28,21 @@ Le RBAC Azure permet aux utilisateurs de gérer les autorisations de clé, de se
 Le modèle de RBAC Azure offre la possibilité de définir des autorisations pour différents niveaux d’étendue : groupe d’administration, abonnement, groupe de ressources ou ressources individuelles.  Le RBAC Azure pour le coffre de clés offre également la possibilité d’avoir des autorisations distinctes sur des clés, des secrets et des certificats individuels.
 
 Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md)
+
+## <a name="best-practices-for-individual-keys-secrets-and-certificates"></a>Meilleures pratiques pour les clés, secrets et certificats individuels
+
+Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production).
+
+Vous ne devez utiliser des autorisations sur des clés, secrets et certificats individuels que pour des scénarios spécifiques :
+
+-   Applications multicouches qui doivent séparer le contrôle d’accès entre les couches
+
+-   Partage d’un secret individuel entre plusieurs applications
+
+Pour des instructions sur la gestion d’Azure Key Vault, consultez :
+
+- [Meilleurs pratiques relatives à Azure Key Vault](best-practices.md)
+- [Limites du service Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations"></a>Rôles intégrés Azure pour les opérations de plan de données d’Azure Key Vault
 

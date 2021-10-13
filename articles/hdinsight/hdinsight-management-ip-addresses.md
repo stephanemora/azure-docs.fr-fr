@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 617624fe3ae3ea5c0dc7bb3f34145f0aadf4ac4b
-ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
+ms.openlocfilehash: 65e2e90f82794fa36c7e33a9eb1859e260034f71
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113219210"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857517"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresses IP de gestion HDInsight
 
@@ -23,7 +23,7 @@ Cet article répertorie les adresses IP utilisées par les services d’intégri
 
 Si vous utilisez des groupes de sécurité réseau ou des routes définies par l’utilisateur pour contrôler le trafic vers votre cluster HDInsight, vérifiez que votre cluster peut communiquer avec les services de gestion et d’intégrité Azure.  Certaines adresses IP sont propres à une région, et d’autres s’appliquent à toutes les régions Azure. Vous devrez peut-être autoriser le trafic provenant du service Azure DNS si vous n’utilisez pas de DNS personnalisé.
 
-Si vous avez besoin d’adresses IP pour une région qui n’est pas mentionnée ici, vous pouvez utiliser l’[API Service Tag Discovery](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) pour rechercher des adresses IP pour votre région. Si vous ne parvenez pas à utiliser l’API, téléchargez le [fichier JSON de balises de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) et recherchez la région de votre choix.
+Si vous avez besoin d’adresses IP pour une région qui n’est pas mentionnée ici, vous pouvez utiliser l’[API Service Tag Discovery](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) pour rechercher des adresses IP pour votre région. Si vous ne parvenez pas à utiliser l’API, téléchargez le [fichier JSON de balises de service](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) et recherchez la région de votre choix.
 
 HDInsight effectue une validation pour ces règles avec la création et la mise à l’échelle du cluster afin d’éviter d’autres erreurs. Si la validation ne réussit pas, la création et la mise à l’échelle échouent.
 

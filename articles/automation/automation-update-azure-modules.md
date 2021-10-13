@@ -3,17 +3,17 @@ title: Mettre à jour des modules Azure PowerShell dans Azure Automation
 description: Cet article explique comment mettre à jour des modules Azure PowerShell courants fournis par défaut dans Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/16/2021
+ms.date: 09/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a2ff4799b335376f6f99004d45034ba6a4796059
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cfa2c8b029a8c8267249907d3f67582a2a38c139
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128654363"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272089"
 ---
-# <a name="update-azure-automation-powershell-modules"></a>Mettre à jour des modules PowerShell Azure Automation
+# <a name="update-azure-powershell-modules-in-automation"></a>Mettre à jour des modules Azure PowerShell dans Automation
 
 Les modules PowerShell les plus courants sont fournis par défaut dans chaque compte Automation. Voir [Modules par défaut](shared-resources/modules.md#default-modules). À mesure que l’équipe Azure met à jour les modules Azure, des modifications peuvent se produire avec les cmdlets incluses. Ces modifications, par exemple, en renommant un paramètre ou en déconseillant entièrement une cmdlet, peuvent avoir un impact négatif sur vos runbooks. 
 
@@ -30,6 +30,25 @@ Si vous développez vos scripts localement, il est recommandé de disposer local
 
 > [!NOTE]
 > Un nouveau compte Automation peut ne pas contenir les derniers modules.
+
+## <a name="update-az-modules"></a>Mettre à jour les modules Az
+
+Actuellement, la mise à jour des modules Az est disponible uniquement via le portail. Les mises à jour par le biais de PowerShell et du modèle ARM seront disponibles à l’avenir. Seuls les modules Az par défaut sont mis à jour lors de l’exécution des étapes suivantes :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre compte Automation.
+1. Sous  **Ressources partagées**, sélectionnez  **Modules PowerShell**.
+1. Sélectionnez  **Mettre à jour les modules Az**.
+1. Sélectionnez **Module à mettre à jour**. Par défaut, cela affiche le module Az.  
+1. Dans la liste déroulante, sélectionnez une **Version du module**.
+1. Sélectionnez **Mettre à jour** pour mettre à jour le module Az avec la version que vous avez sélectionnée.
+
+   :::image type="content" source="./media/automation-update-azure-modules/update-az-modules-portal.png" alt-text="Page Mettre à jour les modules Az avec les sélections.":::
+
+Si vous sélectionnez une version inférieure à la version existante du module Az importée dans le compte Automation, l’opération de mise à jour effectue une restauration vers la version inférieure sélectionnée.  
+
+Vous pouvez vérifier l’opération de mise à jour en activant la propriété Version et état du module dans la liste de **modules** sous **Modules PowerShell**. 
+
+L’équipe Azure met régulièrement à jour la version du module et fournit une option permettant de mettre à jour les modules Az **par défaut** en sélectionnant la version du module dans la liste déroulante.  
 
 ## <a name="obtain-a-runbook-to-use-for-updates"></a>Obtenir un runbook à utiliser pour les mises à jour
 

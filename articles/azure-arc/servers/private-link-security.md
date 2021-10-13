@@ -2,13 +2,13 @@
 title: Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Arc
 description: Apprenez à utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Arc.
 ms.topic: conceptual
-ms.date: 09/14/2021
-ms.openlocfilehash: 53bd9310c193d4fad1d550fbf33446754c30ecd6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: 10b306ef659903524c5a6a62c24ffe36e074666a
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631511"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399790"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-arc"></a>Utiliser Azure Private Link pour connecter en toute sécurité des réseaux à Azure Arc
 
@@ -44,10 +44,12 @@ L'Étendue de liaison privée (préversion) connecte des points de terminaison p
 
 :::image type="content" source="./media/private-link-security/private-link-topology.png" alt-text="Schéma de la topologie de base des ressources" border="true":::
 
-La connectivité aux autres ressources Azure à partir d'un serveur Azure Arc mentionné précédemment nécessite la configuration de Private Link pour chaque service. Pour plus d'informations, consultez les rubriques suivantes afin de configurer Private Link pour [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](../../azure-monitor/logs/private-link-security.md), [Azure Key Vault](../../key-vault/general/private-link-service.md) ou [Stockage Blob Azure](../../private-link/tutorial-private-endpoint-storage-portal.md).
+La connectivité à toute autre ressource Azure à partir d’un serveur Azure Arc requiert la configuration d’une liaison privée pour chaque service, ce qui est facultatif, mais recommandé. Le liaison privée Azure nécessite une configuration séparée par service.
+
+Pour plus d’informations sur la configuration d’une liaison privée pour les services Azure répertoriés précédemment, consultez les articles [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](../../azure-monitor/logs/private-link-security.md), [Azure Key Vault](../../key-vault/general/private-link-service.md) ou [Stockage Blob Azure](../../private-link/tutorial-private-endpoint-storage-portal.md).
 
 > [!IMPORTANT]
-> Azure Private Link est maintenant en disponibilité générale. Le point de terminaison privé et le service Private Link (service derrière l’équilibreur de charge standard) sont tous les deux en disponibilité générale. Différentes versions d’Azure PaaS seront intégrées à Azure Private Link à différentes échéances. Consultez [Disponibilité de Private Link](../../private-link/availability.md) pour obtenir l’état précis d’Azure PaaS sur Private Link. Pour en savoir plus sur les limitations connues, consultez [Point de terminaison privé](../../private-link/private-endpoint-overview.md#limitations) et [Service Liaison privée](../../private-link/private-link-service-overview.md#limitations).
+> Azure Private Link est maintenant en disponibilité générale. Le point de terminaison privé et le service Private Link (service derrière l’équilibreur de charge standard) sont tous les deux en disponibilité générale. Différentes versions d’Azure PaaS seront intégrées à Azure Private Link à différentes échéances. Consultez [Disponibilité de Private Link](../../private-link/availability.md) pour obtenir l’état à jour d’Azure PaaS sur Private Link. Pour en savoir plus sur les limitations connues, consultez [Point de terminaison privé](../../private-link/private-endpoint-overview.md#limitations) et [Service Liaison privée](../../private-link/private-link-service-overview.md#limitations).
 
 * Le point de terminaison privé de votre réseau virtuel lui permet d'atteindre les points de terminaison des serveurs Azure Arc par le biais d'adresses IP privées à partir du pool de votre réseau, au lieu d'utiliser les adresses IP publiques de ces points de terminaison. Cela vous permet de continuer à utiliser vos ressources de serveurs Azure Arc sans ouvrir votre réseau virtuel à un trafic sortant non requis.
 

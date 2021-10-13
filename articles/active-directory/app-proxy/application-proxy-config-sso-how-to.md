@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere, asteen
-ms.openlocfilehash: 8bf923e6793b55b4655c4c2133de1cda10216e18
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 33276b986f951a1ad343a25229b2ee23c33e05b8
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186558"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232391"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Comment configurer l’authentification unique pour une application de proxy d’application
 
@@ -32,15 +32,15 @@ Pour plus d’informations sur les méthodes de pré-authentification, reportez-
 ## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>Configuration des modes d’authentification unique pour les applications de proxy d’application
 Configurez le type d’authentification unique spécifique. Les méthodes d’authentification sont classées en fonction du type d’authentification utilisé par l’application principale. Les applications de proxy d’application prennent en charge trois types d’authentification :
 
--   **Authentification par mot de passe** : l’authentification par mot de passe peut être utilisée pour toutes les applications qui présentent des champs de nom d’utilisateur et de mot de passe pour l’authentification. Les étapes de configuration se trouvent dans [Configurer l’authentification unique par mot de passe pour une application de la galerie Azure AD](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md).
+-   **Authentification par mot de passe** : l’authentification par mot de passe peut être utilisée pour toute application présentant des champs de nom d’utilisateur et de mot de passe pour l’authentification. Les étapes de configuration se trouvent dans [Configurer l’authentification unique par mot de passe pour une application de la galerie Azure AD](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md).
 
--   **Authentification Windows intégrée** : pour les applications utilisant l’authentification Windows intégrée, l’authentification unique est activée par le biais de la délégation Kerberos contrainte. Cette méthode donne aux connecteurs de proxy d’application l’autorisation d’emprunter l’identité des utilisateurs dans Active Directory et d’envoyer et recevoir des jetons en leur nom. Vous trouverez plus d’informations sur la configuration de KCD dans la [documentation sur l’authentification unique avec KCD](application-proxy-configure-single-sign-on-with-kcd.md).
+-   **Authentification Windows intégrée** : pour les applications utilisant l’authentification Windows intégrée, l’authentification unique est activée par le biais de la délégation Kerberos contrainte (KCD, Kerberos Constrained Delegation). Cette méthode donne aux connecteurs de proxy d’application l’autorisation d’emprunter l’identité des utilisateurs dans Active Directory et d’envoyer et recevoir des jetons en leur nom. Vous trouverez plus d’informations sur la configuration de KCD dans la [documentation sur l’authentification unique avec KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
 -   **Authentification basée sur l’en-tête** : L’authentification basée sur l’en-tête est utilisée pour fournir des fonctionnalités d’authentification unique à l’aide d’en-têtes HTTP. Pour plus d’informations, consultez [Authentification unique basée sur l’en-tête](application-proxy-configure-single-sign-on-with-headers.md).
 
 -   **Authentification unique SAML** : Avec l’authentification unique SAML, Azure AD s’authentifie dans l’application en utilisant le compte Azure AD de l’utilisateur. Azure AD communique les informations d’authentification à l’application via un protocole de connexion. Avec l’authentification unique SAML, vous pouvez mapper les utilisateurs à des rôles d’application spécifiques en fonction de règles que vous définissez dans vos revendications SAML. Pour plus d’informations sur la configuration de l’authentification unique SAML, voir [SAML pour l’authentification unique avec le proxy d’application](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
-Chacune de ces options est accessible dans votre application sous « Applications d’entreprise » (ouvrez la page **Authentification unique** dans le menu de gauche). Notez que, si votre application a été créée dans l’ancien portail, vous ne verrez peut-être pas toutes ces options.
+Chacune de ces options est accessible dans votre application sous **Applications d’entreprise** (ouvrez la page **Authentification unique** dans le menu de gauche). Notez que, si votre application a été créée dans l’ancien portail, vous ne verrez peut-être pas toutes ces options.
 
 Cette page propose une autre option d’authentification : l’authentification liée. Cette option est également prise en charge par le proxy d’application. Toutefois, cette option n’ajoute pas l’authentification unique à l’application. Cela étant dit, il se peut que l’authentification unique soit déjà implémentée dans l’application par le biais d’un autre service tel qu’Active Directory Federation Services. 
 

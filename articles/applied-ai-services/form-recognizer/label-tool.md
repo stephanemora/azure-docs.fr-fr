@@ -11,12 +11,12 @@ ms.date: 05/11/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de documents
-ms.openlocfilehash: d463a45064a9f6b342a7cb735372a3c5098539c4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 43e7da4eea864bf0ac2767718ff8ed04ed58c54e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431745"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715180"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -24,7 +24,7 @@ ms.locfileid: "123431745"
 <!-- markdownlint-disable MD034 -->
 # <a name="train-a-custom-model-using-the-sample-labeling-tool"></a>Entraîner un modèle personnalisé à l’aide de l’exemple d’outil d’étiquetage
 
-Dans cet article, vous allez utiliser l’API REST Form Recognizer avec l’exemple d’outil d’étiquetage pour entraîner un modèle de traitement de documents personnalisé avec des données étiquetées manuellement. Pour en savoir plus sur l’apprentissage supervisé avec Form Recognizer, consultez la section [Effectuer l’apprentissage avec des étiquettes](overview.md#train-with-labels) de la vue d’ensemble.
+Dans cet article, vous allez utiliser l’API REST Form Recognizer avec l’exemple d’outil d’étiquetage pour entraîner un modèle de traitement de documents personnalisé avec des données étiquetées manuellement. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 

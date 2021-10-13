@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: 1a27bfac347480591a67bf2c164b9ff41fe3b18d
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 395b9d2670a488ab0743a987b1e8b857f6f2fb2f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426432"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708321"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
@@ -30,7 +30,7 @@ L’[API OCR (Read)](overview-ocr.md) de Vision par ordinateur étend les [langu
 * Améliorations du traitement des fichiers PDF numériques et du texte Machine Readable Zone (MRZ) dans les documents d’identité.
 * Améliorations de la qualité générale des performances et de l’intelligence artificielle
 
-Consultez le [Guide de procédures OCR](Vision-API-How-to-Topics/call-read-api.md) pour apprendre à utiliser les nouvelles fonctionnalités en préversion.
+Consultez le [Guide de procédures OCR](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) pour apprendre à utiliser les nouvelles fonctionnalités en préversion.
 
 > [!div class="nextstepaction"]
 > [Bien démarrer avec l’API Read](./quickstarts-sdk/client-library.md)

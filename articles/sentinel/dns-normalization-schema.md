@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/15/2021
 ms.author: bagol
-ms.openlocfilehash: 21775c8d6e9743b65a791abb946c571862b68156
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4bdb65fddfe7f72407c432fd03cce0558637ab39
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128617561"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129419009"
 ---
 # <a name="azure-sentinel-dns-normalization-schema-reference-public-preview"></a>Informations de référence de schéma de normalisation DNS Azure Sentinel (préversion publique)
 
@@ -60,7 +60,7 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 Pour utiliser les analyseurs indépendants de la source qui unifient tous les analyseurs intégrés, et vérifier que votre analyse s’exécute sur toutes les sources configurées, utilisez les fonctions KQL suivantes comme nom de table dans votre requête :
 
-| Nom | Description | Instructions d’utilisation |
+| Name | Description | Instructions d’utilisation |
 | --- | --- | --- |
 | **imDNS** | Analyseur d’agrégation qui utilise *union* pour inclure des événements normalisés de toutes les sources DNS. |– Mettez à jour cet analyseur si vous souhaitez ajouter ou supprimer des sources de l’analytique indépendante de la source. <br><br>– Utilisez cette fonction dans vos requêtes indépendantes de la source.|
 | **ASimDNS** | Similaire à la fonction `imDns`, mais sans prise en charge des paramètres et, par conséquent, ne force pas le sélecteur d’heure de page **Journaux** à utiliser la value `custom`. |– Mettez à jour cet analyseur si vous souhaitez ajouter ou supprimer des sources de l’analytique indépendante de la source.<br><br>- Utilisez cette fonction dans vos requêtes indépendantes de la source si vous n’envisagez pas d’utiliser de paramètres.|
@@ -70,7 +70,7 @@ Pour utiliser les analyseurs indépendants de la source qui unifient tous les an
 
 Les analyseurs peuvent être déployés à partir du [référentiel GitHub Azure Sentinel](https://aka.ms/azsentinelDNS).
 
-### <a name="built-in-source-specific-parsers"></a>Analyseurs spécifiques à la source intégrés
+### <a name="built-in-source-specific-parsers"></a>Analyseurs intégrés spécifiques de la source
 
 Azure Sentinel fournit les analyseurs DNS spécifiques aux produits et intégrés suivants :
 
@@ -93,7 +93,7 @@ Les analyseurs `im` et `vim*` prennent en charge les [paramètres de filtrage](n
 
 Les paramètres de filtrage suivants sont disponibles :
 
-| Nom     | Type      | Description |
+| Name     | Type      | Description |
 |----------|-----------|-------------|
 | **starttime** | DATETIME | Filtrez uniquement les requêtes DNS qui ont été exécutées à ce moment-là ou après. |
 | **endtime** | DATETIME | Filtrez uniquement les requêtes DNS dont l’exécution s’est terminée à ce moment-là ou avant. |
@@ -105,7 +105,18 @@ Les paramètres de filtrage suivants sont disponibles :
 | **eventtype**| string | Filtrez uniquement les requêtes DNS du type spécifié. Si aucune valeur n’est spécifiée, seules les requêtes de recherche sont retournées. |
 ||||
 
-Pour filtrer les résultats à l’aide d’un paramètre, vous devez spécifier le paramètre dans votre analyseur. 
+Par exemple, pour filtrer uniquement les requêtes DNS à partir du dernier jour qui n’a pas réussi à résoudre le nom de domaine, utilisez :
+
+```kql
+imDns (responsecodename = 'NXDOMAIN', starttime = ago(1d), endtime=now())
+```
+
+Pour filtrer uniquement les requêtes DNS pour une liste spécifiée de noms de domaine, utilisez :
+
+```kql
+let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
+imDns (domain_has_any = torProxies)
+```
 
 ## <a name="normalized-content"></a>Contenu normalisé
 
@@ -114,7 +125,7 @@ La prise en charge du schéma ASIM DNS comprend également celle des règles an
 Les règles d’analytique intégrées suivantes fonctionnent désormais avec les analyseurs DNS normalisés :
  - (Préversion) TI map Domain entity to Dns Event (DNS normalisé)
  - (Préversion) TI map IP entity to DnsEvents (DNS normalisé)
- - [DGA potentiel détecté (ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
+ - [DGA potentielle détecté (ASimDNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_HighNXDomainCount_detection.yaml)
  - [Trop de requêtes DNS NXDOMAIN (DNS normalisé)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
  - [Événements DNS liés aux pools d’exploration (DNS normalisé)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
  - [Événements DNS liés aux proxys ToR (DNS normalisé)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_TorProxies.yaml)
@@ -145,7 +156,7 @@ Les champs suivants sont générés par Log Analytics pour chaque enregistremen
 | --- | --- | --- |
 | <a name=timegenerated></a>**TimeGenerated** | Date/heure | Heure à laquelle l’événement a été généré par l’appareil de création de rapports. |
 | **\_ResourceId** | guid | ID de ressource Azure de l’appareil ou du service de création de rapports, ou l’ID de ressource de redirecteur de journal pour les événements transférés avec Syslog, CEF ou WEF. |
-| **Type** | String | Table d’origine à partir de laquelle l’enregistrement a été extrait. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, avec les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
+| **Type** | String | La table d’origine à partir de laquelle l’enregistrement a été récupéré. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, et ont les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
 | | | |
 
 > [!NOTE]
@@ -187,7 +198,7 @@ Les champs ci-dessous sont spécifiques aux événements DNS. Cela dit, beaucoup
 
 | **Champ** | **Classe** | **Type** | **Remarques** |
 | --- | --- | --- | --- |
-| **SrcIpAddr** | Obligatoire | Adresse IP | L’adresse IP du client qui envoie la requête DNS. Pour une requête DNS récursive, cette valeur correspond généralement à l’appareil de création de rapports et, dans la plupart des cas, à `127.0.0.1`.<br><br>Exemple : `192.168.12.1` |
+| **SrcIpAddr** | Recommandé | Adresse IP | L’adresse IP du client qui envoie la requête DNS. Pour une requête DNS récursive, cette valeur correspond généralement à l’appareil de création de rapports et, dans la plupart des cas, à `127.0.0.1`.<br><br>Exemple : `192.168.12.1` |
 | **SrcPortNumber** | Facultatif | Integer | Port source de la requête DNS.<br><br>Exemple : `54312` |
 | **DstIpAddr** | Facultatif | Adresse IP | Adresse IP du serveur qui reçoit la requête DNS. Pour une requête DNS régulière, cette valeur correspond généralement à l’appareil de création de rapports et, dans la plupart des cas, à `127.0.0.1`.<br><br>Exemple : `127.0.0.1` |
 | **DstPortNumber** | Facultatif | Integer  | Numéro du port de destination.<br><br>Exemple : `53` |
@@ -195,7 +206,7 @@ Les champs ci-dessous sont spécifiques aux événements DNS. Cela dit, beaucoup
 | <a name=query></a>**DnsQuery** | Obligatoire | FQDN | Le domaine qui doit être résolu. <br><br>**Remarque** : Certaines sources envoient cette requête dans des formats différents. Par exemple, dans le protocole DNS lui-même, la requête comprend un point ( **.** ) à la fin, qui doit être supprimé.<br><br>Bien que le protocole DNS autorise plusieurs requêtes dans une seule requête, ce scénario est rare, voire même inexistant. Si la requête comporte plusieurs requêtes, stockez la première dans ce champ, puis conservez éventuellement le reste dans le champ [AdditionalFields](#additionalfields).<br><br>Exemple : `www.malicious.com` |
 | **Domaine** | Alias | | Prendre l’alias [Requête](#query). |
 | **DnsQueryType** | Facultatif | Integer | Ce champ peut contenir des [codes de type d’enregistrement de ressource DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml)). <br><br>Exemple : `28`|
-| **DnsQueryTypeName** | Obligatoire | Énuméré | Ce champ peut contenir des noms de [type d’enregistrement de ressource DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Remarque** : IANA ne définit pas la casse des valeurs, donc Analytics doit normaliser la casse en fonction des besoins. Si la source fournit uniquement un code de type de requête numérique et non un nom de type de requête, l’analyseur doit inclure une table de recherche pour enrichir cette valeur.<br><br>Exemple : `AAAA`|
+| **DnsQueryTypeName** | Recommandé | Énuméré | Ce champ peut contenir des noms de [type d’enregistrement de ressource DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Remarque** : IANA ne définit pas la casse des valeurs, donc Analytics doit normaliser la casse en fonction des besoins. Si la source fournit uniquement un code de type de requête numérique et non un nom de type de requête, l’analyseur doit inclure une table de recherche pour enrichir cette valeur.<br><br>Exemple : `AAAA`|
 | <a name=responsename></a>**DnsResponseName** | Facultatif | Chaîne | Contenu de la réponse, tel qu’il est inclus dans l’enregistrement.<br> <br> Les données de réponse DNS sont incohérentes entre les appareils de création de rapports, sont complexes à analyser et ont moins de valeur pour l’analyse indépendante de la source. Par conséquent, le modèle d’information ne nécessite pas d’analyse ni de normalisation, et Azure Sentinel utilise une fonction auxiliaire pour fournir des informations de réponse. Pour plus d’informations, consultez [Gestion des réponses DNS](#handling-dns-response).|
 | <a name=responsecodename></a>**DnsResponseCodeName** |  Obligatoire | Énuméré | Le [code de réponse DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Remarque** : IANA ne définit pas la casse des valeurs, donc l’analyse doit normaliser la casse. Si la source fournit uniquement un code de réponse et non un nom de code de réponse, l’analyseur doit inclure une table de recherche pour enrichir cette valeur. <br><br> Si cet enregistrement représente une requête et non une réponse, affectez la valeur **NA**. <br><br>Exemple : `NXDOMAIN` |
 | **DnsResponseCode** | Facultatif | Integer | Le [code de réponse numérique DNS](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Exemple : `3`|

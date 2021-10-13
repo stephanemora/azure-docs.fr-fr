@@ -7,20 +7,16 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ced0213a155bee2926a77d0b8f4126b7b97232fb
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99980488"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618949"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Matrice de prise en charge pour le déplacement des machines virtuelles Azure entre différentes régions Azure
 
 Cet article résume la prise en charge et les conditions préalables au déplacement des machines virtuelles et des ressources réseau associées entre différentes régions Azure à l'aide de Resource Mover.
-
-> [!IMPORTANT]
-> Azure Resource Mover est actuellement en préversion.
-
 
 ## <a name="windows-vm-support"></a>Prise en charge des machines virtuelles Windows
 

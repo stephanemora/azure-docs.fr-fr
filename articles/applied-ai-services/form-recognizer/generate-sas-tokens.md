@@ -6,19 +6,19 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.date: 09/16/2021
+ms.date: 09/23/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 22fe82425285a27d224ea5375bfe209e7ac779da
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6e1b145c5efa9135a198cd6623c450f5965a6c2c
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700943"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387940"
 ---
 # <a name="generate-sas-tokens-for-storage-containers"></a>Créer des jetons SAS pour les conteneurs de stockage
 
- Dans cet article, vous allez apprendre à générer des jetons de signature d’accès partagé (SAS) de délégation d’utilisateur. Un jeton SAS de délégation d’utilisateur se connecte avec des informations d’identification du Répertoire actif Azure (Azure AD) au lieu de clés de stockage Azure. Il fournit un accès délégué et sécurisé aux ressources dans votre compte de stockage Azure.
+ Dans cet article, vous allez apprendre à générer des jetons de signature d’accès partagé (SAS) de délégation d’utilisateur pour les conteneurs Stockage Blob Azure. Un jeton SAS de délégation d’utilisateur se connecte avec des informations d’identification du Répertoire actif Azure (Azure AD) au lieu de clés de stockage Azure. Il fournit un accès délégué et sécurisé aux ressources dans votre compte de stockage Azure.
 À un niveau élevé, voici comment cela fonctionne : votre application fournit le jeton SAS au stockage Azure dans le cadre d’une requête. Si le service de stockage vérifie que la signature SAS est valide, la requête est autorisée. Si la signature SAS est jugée non valide, la requête est refusée avec le code d’erreur 403 (Interdit).
 
 Le stockage Blob Azure offre trois types de ressources :
@@ -68,7 +68,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Capture d’écran : fenêtre télécharger l’objet blob dans le portail Azure.":::
 
 > [!NOTE]
-> Par défaut, l’API REST utilisera uniquement les formulaires situés à la racine de votre conteneur. Cependant, vous pouvez utiliser des données organisées en sous dossiers si spécifié dans l’appel de l’API. *Consultez*[**Organiser vos données dans des sous-dossiers**](/azure/applied-ai-services/form-recognizer/build-training-data-set.md#organize-your-data-in-subfolders-optional)
+> Par défaut, l’API REST utilisera uniquement les formulaires situés à la racine de votre conteneur. Cependant, vous pouvez utiliser des données organisées en sous dossiers si spécifié dans l’appel de l’API. *Consultez*[**Organiser vos données dans des sous-dossiers**](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional)
 
 ## <a name="create-a-sas-with-the-azure-portal"></a>Créer une signature SAS avec le portail Azure
 
@@ -127,7 +127,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 1. Lorsque vous créez une signature SAS de délégation utilisateur avec une interface CLI Azure, l’intervalle maximal pendant lequel la clé de délégation d’utilisateur est valide est de sept jours à partir de la date de début. Par conséquent, vous devez spécifier un délai d’expiration pour la signature SAS dans les sept jours suivant l’heure de début. *Consultez*[**Créer une signature SAS de délégation d’utilisateur pour un conteneur ou un objet blob avec l’interface CLI Azure**](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas)
 
-### <a name="example"></a> Exemple
+### <a name="example"></a>Exemple
 
 Générer une signature SAS de délégation utilisateur.  Remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 

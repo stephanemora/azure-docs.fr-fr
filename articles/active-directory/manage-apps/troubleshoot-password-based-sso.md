@@ -1,6 +1,7 @@
 ---
-title: Résoudre les problèmes d’authentification unique par mot de passe dans Azure Active Directory
+title: Résoudre les problèmes d’authentification unique par mot de passe
 description: Résolvez les problèmes liés à une application Azure AD configurée pour l’authentification unique par mot de passe.
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -10,14 +11,14 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 0c3f95559b891cfff9e704883365ca6b7bc1630b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1b33398a9188b55eae3d0ec54fcfe1acc6b6a589
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658200"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613691"
 ---
-# <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Résoudre les problèmes d’authentification unique par mot de passe dans Azure AD
+# <a name="troubleshoot-password-based-single-sign-on-in-azure-active-directory"></a>Résoudre les problèmes d’authentification unique par mot de passe dans Azure Active Directory
 
 Pour utiliser l’authentification unique (SSO) par mot de passe dans Mes applications, l’extension de navigateur doit être installée. L’extension est téléchargée automatiquement lorsque vous sélectionnez une application configurée pour l’authentification unique (SSO) avec mot de passe. Pour en savoir plus sur l’utilisation de Mes applications du point de vue de l’utilisateur final, consultez l’[aide du portail Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 

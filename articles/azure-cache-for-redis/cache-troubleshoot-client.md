@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: a41329da9171014b0495498f8757007dbef008ef
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: bd0ca3b20cc37ecf2107e03eea5d6e4a62633f16
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537424"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807192"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Résoudre les problèmes côté client liés à Azure Cache pour Redis
 
@@ -21,7 +21,7 @@ Cette section traite de la résolution des problèmes qui se produisent à la su
 - [Augmentation de trafic](#traffic-burst)
 - [Utilisation importante du processeur du client](#high-client-cpu-usage)
 - [Limitation de la bande passante côté client](#client-side-bandwidth-limitation)
-- [Taille importante de la demande ou de la réponse](#large-request-or-response-size)
+<!-- [Large request or response size](#large-request-or-response-size) -->
 
 ## <a name="memory-pressure-on-redis-client"></a>Sollicitation de la mémoire sur le client Redis
 
@@ -78,11 +78,12 @@ Supervisez la façon dont votre utilisation de la bande passante évolue au fil 
 
 Réduisez l’utilisation de la bande passante réseau ou augmentez la taille de la machine virtuelle cliente pour bénéficier d’une plus grande capacité réseau.
 
-## <a name="large-request-or-response-size"></a>Taille importante de la demande ou de la réponse
+<!-- 
+## Large request or response Size
 
-Une demande/réponse volumineuse peut entraîner des délais d’expiration. Par exemple, supposons que la durée du délai d’expiration que vous avez configurée sur votre client soit de 1 seconde. Votre application demande deux clés (par exemple, « A » et « B ») en même temps (à l’aide de la même connexion réseau physique). La plupart des clients prennent en charge le traitement en pipeline des requêtes, de sorte que les deux requêtes A et B sont envoyées l’une après l’autre sans attendre les réponses. Le serveur renvoie les réponses dans le même ordre. Si la réponse A est volumineuse, elle peut consommer la majeure partie du délai d’expiration des requêtes suivantes.
+A large request/response can cause timeouts. As an example, suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support request "pipelining", where both requests 'A' and 'B' are sent one after the other without waiting for their responses. The server sends the responses back in the same order. If response 'A' is large, it can eat up most of the timeout for later requests.
 
-Dans l’exemple suivant, les requêtes A et B sont envoyées rapidement au serveur. Le serveur commence rapidement à envoyer les réponses A et B. En raison des temps de transfert de données, la réponse B doit attendre l’expiration de la réponse A, même si le serveur a répondu rapidement.
+In the following example, request 'A' and 'B' are sent quickly to the server. The server starts sending responses 'A' and 'B' quickly. Because of data transfer times, response 'B' must wait behind response 'A' times out even though the server responded quickly.
 
 ```console
 |-------- 1 Second Timeout (A)----------|
@@ -93,19 +94,20 @@ Dans l’exemple suivant, les requêtes A et B sont envoyées rapidement au se
                                        |- Read Response B-| (**TIMEOUT**)
 ```
 
-Cette demande/réponse est difficile à mesurer. Vous pouvez instrumenter votre code client pour suivre les requêtes et les réponses volumineuses.
+This request/response is a difficult one to measure. You could instrument your client code to track large requests and responses.
 
-Les solutions possibles pour la gestion des réponses volumineuses sont variées, et incluent notamment :
+Resolutions for large response sizes are varied but include:
 
-1. Optimiser votre application pour prendre en charge un grand nombre de petites valeurs plutôt qu’un petit nombre de grandes valeurs
-    - La meilleure solution consiste à diviser vos données en valeurs plus petites.
-    - Lisez le billet [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) pour savoir pourquoi il est recommandé d’utiliser des valeurs moins élevées.
-1. Augmenter la taille de votre machine virtuelle pour obtenir des capacités de bande passante plus élevées
-    - Une plus grande quantité de bande passante sur votre machine virtuelle cliente ou serveur peut réduire le temps de transfert des données pour les réponses volumineuses.
-    - Comparez l’utilisation actuelle du réseau par les deux ordinateurs aux limites associées à la taille de votre machine virtuelle. L’augmentation de la bande passante sur le serveur ou le client uniquement peut ne pas suffire.
-1. Augmenter le nombre d’objets de connexion qu’utilise votre application
-    - Utilisez un tourniquet (round-robin) pour envoyer des requêtes vers différents objets de connexion.
+1. Optimize your application for a large number of small values, rather than a few large values.
+    - The preferred solution is to break up your data into related smaller values.
+    - See the post [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) for details on why smaller values are recommended.
+1. Increase the size of your VM to get higher bandwidth capabilities
+    - More bandwidth on your client or server VM may reduce data transfer times for larger responses.
+    - Compare your current network usage on both machines to the limits of your current VM size. More bandwidth on only the server or only on the client may not be enough.
+1. Increase the number of connection objects your application uses.
+    - Use a round-robin approach to make requests over different connection objects.
 
+ -->
 ## <a name="additional-information"></a>Informations supplémentaires
 
 - [Résoudre les problèmes côté serveur liés à Azure Cache pour Redis](cache-troubleshoot-server.md)

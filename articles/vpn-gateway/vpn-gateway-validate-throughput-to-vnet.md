@@ -2,7 +2,6 @@
 title: Validez un débit VPN sur un réseau virtuel
 description: Découvrez comment valider le débit du réseau entre vos ressources locales et une machine virtuelle Azure.
 titleSuffix: Azure VPN Gateway
-services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
@@ -10,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: b5c3853ca2849590b0338c3f82b3e8606cd35d2d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 52d928762d64ce0612ed8e7063c1b2fb2028e870
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643666"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273379"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Comment valider un débit VPN sur un réseau virtuel
 
@@ -217,7 +216,7 @@ L'installation de Make est rapide
 
 > [!Note]
 > Assurez-vous qu’il n’existe aucun tronçon intermédiaire (appliance virtuelle, par exemple) pendant le test de débit entre la machine virtuelle et la passerelle.
-> Si les tests iPERF/NTTTCP ci-dessus génèrent de mauvais résultats (en termes de débit global), reportez-vous à l’article suivant pour comprendre les facteurs clés susceptibles d'être à l'origine du problème : https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
+> Si les tests iPERF/NTTTCP ci-dessus génèrent de mauvais résultats (en termes de débit global), reportez-vous à [cet article](../virtual-network/virtual-network-tcpip-performance-tuning.md) pour comprendre les facteurs clés susceptibles d'être à l'origine du problème : 
 
 L’analyse des suivis de captures paquets (Wireshark/Moniteur réseau) collectés en parallèle à partir du client et du serveur lors de ces tests vous aidera notamment à évaluer de mauvaises performances. Ces suivis peuvent inclure la perte de paquets, une latence élevée et la taille de la MTU. Fragmentation, fenêtre TCP 0, fragments en désordre, et ainsi de suite.
 

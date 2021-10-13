@@ -4,13 +4,13 @@ description: Utilisez Azure Functions pour planifier une tâche qui se connecte 
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/02/2019
-ms.openlocfilehash: 0b5e255d7d108eb063ece4e5489a8762261a0bed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/04/2021
+ms.openlocfilehash: d1e98f180579ec7dd070fcbb9adf2e7ede7b15fe
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88207253"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418813"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 
@@ -44,9 +44,15 @@ Une Function App héberge l’exécution de vos fonctions dans Azure. En guise d
 
 Vous devez avoir publié votre application sur Azure. Si ce n’est déjà fait, [publiez votre application de fonction sur Azure](functions-develop-vs.md#publish-to-azure).
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet d’application de fonction et choisissez **Publier** > **Modifier les paramètres d’Azure App Service**. Sélectionnez **Ajouter un paramètre**, dans **Nom du nouveau paramètre d’application**, tapez `sqldb_connection`, puis sélectionnez **OK**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet d’application de fonction, puis sélectionnez **Publier**.
 
-    ![Paramètres de l’application pour l’application de fonction.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
+1. Sur la page **Publier**, sélectionnez les points de suspension (`...`) dans la zone **Hébergement**, puis choisissez **Gérer les paramètres d’Azure zure App Service**. 
+
+    ![Gérez les paramètres d’App Service pour l’application de fonction.](./media/functions-scenario-database-table-cleanup/publish-new-resource.png)
+
+1. Dans **Paramètres d'application**, sélectionnez **Ajouter un paramètre**, dans **Nom du nouveau paramètre d’application**, tapez `sqldb_connection`, puis sélectionnez **OK**.
+
+    ![Ajoutez un paramètre d’application pour l’application de fonction.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
 1. Dans le nouveau paramètre **sqldb_connection**, collez la chaîne de connexion que vous avez copiée dans la section précédente dans le champ **Local** et remplacez les espaces réservés `{your_username}` et `{your_password}` par des valeurs réelles. Sélectionnez **Insérer une valeur locale** pour copier la valeur mise à jour dans le champ **À distance**, puis sélectionnez **OK**.
 

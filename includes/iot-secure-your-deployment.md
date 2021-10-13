@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 597bcf9d7654b88cb4a3f9b7df32ea1c7b770da2
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: f1256eb3be414679a84701c6ea96ac9a72d9caa2
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109508456"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236354"
 ---
 Cet article fournit davantage de détails sur la sécurisation de l’infrastructure Internet des objets (IoT) basée sur Azure IoT. Il est lié à la procédure au niveau de l’implémentation pour la configuration et le déploiement de chaque composant. Il fournit également des comparaisons et des choix entre les différentes méthodes.
 
@@ -29,7 +29,7 @@ La sécurisation du déploiement Azure IoT peut être divisée selon les trois z
 
 ## <a name="secure-device-provisioning-and-authentication"></a>Approvisionnement et authentification sécurisés des appareils
 
-Les accélérateurs de solution IoT sécurisent les appareils IoT de deux façons :
+Les solutions IoT sécurisent les appareils IoT de deux façons :
 
 * En fournissant une clé d’identité unique (jetons de sécurité) pour chaque appareil, qui peut être utilisée par l’appareil pour communiquer avec IoT Hub.
 

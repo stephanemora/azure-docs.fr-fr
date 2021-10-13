@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: 3b7316bf7d21a117c80eb49978a807b085db004b
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 39a89fbaf72a78bad1c9a0ebca4ce068f6c65cae
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432537"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272887"
 ---
 # <a name="design-your-private-link-setup"></a>Conception de votre configuration Private Link
 
@@ -70,7 +70,7 @@ Le choix du mode d’accès approprié a des effets néfastes sur le trafic rés
 Soyez prudent lorsque vous choisissez votre mode d’accès. L’utilisation du mode d’accès Privé uniquement a pour effet de bloquer le trafic vers les ressources ne se trouvant pas dans AMPLS sur tous les réseaux qui partagent le même DNS, quel que soit l’abonnement ou le locataire (à l’exception des demandes d’ingestion Log Analytics, comme expliqué ci-dessous). Si vous ne pouvez pas ajouter toutes les ressources Azure Monitor à AMPLS, commencez par ajouter des ressources sélectionnées en appliquant le mode d’accès Ouvert. Une fois que vous avez ajouté *toutes* les ressources Azure Monitor à votre AMPLS, basculez vers le mode « Privé uniquement » pour bénéficier d’une sécurité maximale.
 
 > [!NOTE]
-> L’ingestion Log Analytics utilise des points de terminaison spécifiques d’une ressource. Par conséquent, elle n’adhère pas aux modes d’accès AMPLS. L’ingestion dans des espaces de travail se trouvant dans AMPLS est envoyée via la liaison privée, tandis que l’ingestion dans des espaces de travail ne se trouvant pas dans AMPLS utilise les points de terminaison publics par défaut. Pour vous assurer que les demandes d’ingestion ne puissent pas accéder à des ressources extérieures à AMPLS, bloquez l’accès du réseau aux points de terminaison publics.
+> L’ingestion Log Analytics utilise des points de terminaison spécifiques d’une ressource. Par conséquent, elle n’adhère pas aux modes d’accès AMPLS. **Pour s'assurer que les requêtes d'ingestion de Log Analytics ne peuvent pas accéder aux espaces de travail hors de l'AMPLS, configurez le pare-feu du réseau pour bloquer le trafic vers les points de terminaison publics, indépendamment des modes d'accès de l'AMPLS**.
 
 ### <a name="setting-access-modes-for-specific-networks"></a>Définition des modes d’accès pour des réseaux spécifiques
 Les modes d’accès définis sur la ressource AMPLS affectent tous les réseaux. Vous pouvez toutefois remplacer ces paramètres pour des réseaux spécifiques.
@@ -165,7 +165,7 @@ Nous avons identifié les produits et les expériences suivants qui interrogent 
 > * Insights de machine virtuelle
 > * Container Insights
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 ### <a name="agents"></a>Agents
 Les versions les plus récentes des agents Windows et Linux doivent être utilisées pour permettre une ingestion sécurisée vers les espaces de travail Log Analytics. Les versions antérieures ne peuvent pas charger les données d’analyse via un réseau privé.
 

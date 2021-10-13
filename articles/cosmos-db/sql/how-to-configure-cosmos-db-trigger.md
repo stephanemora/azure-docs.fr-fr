@@ -4,14 +4,14 @@ description: Découvrez comment configurer la journalisation et la stratégie de
 author: ealsur
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 10/04/2021
 ms.author: maquaran
-ms.openlocfilehash: 44e738cc50feb66fc8806236be388b6baa18a17f
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 409cf65dc9b79707a7508590b370b63325101f67
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116190"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427378"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Comment configurer la journalisation et la connectivité avec le déclencheur Azure Functions pour Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -68,7 +68,7 @@ Il existe deux paramètres de configuration essentiels pour la stratégie de con
 }
 ```
 
-Où `connectionMode` doit avoir le mode de connexion souhaité (direct ou passerelle) et `protocol` le protocole de connexion souhaité (Tcp ou Https). 
+Où `connectionMode` doit avoir le mode de connexion souhaité (direct ou passerelle) et `protocol` le protocole de connexion souhaité (Tcp pour Mode direct ou Https pour le Mode passerelle).
 
 Si votre projet Azure Functions utilise le runtime Azure Functions V1, la configuration porte un nom légèrement différent. Vous devez utiliser `documentDB` au lieu de `cosmosDB` :
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.openlocfilehash: 3a9669b2c569947c76f4f2b92fa316f3b09ab517
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1968bb34d124fa37a51b296071ee24b3eae47772
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577901"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273720"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Utiliser l’autorisation basée sur les rôles dans Azure Recherche cognitive
 
@@ -49,7 +49,7 @@ Il n’existe aucune restriction régionale, de niveau ou de tarification pour l
 | [Propriétaire](../role-based-access-control/built-in-roles.md#owner) | Opérations de service (généralement disponibles) | Accès complet à la ressource de recherche, y compris la possibilité d’affecter des rôles Azure. Les administrateurs d’abonnements sont membres par défaut. |
 | [Contributeur](../role-based-access-control/built-in-roles.md#contributor) | Opérations de service (généralement disponibles) | Même niveau d’accès que le Propriétaire, moins la possibilité d’affecter des rôles ou de modifier les options d’autorisation. |
 | [Lecteur](../role-based-access-control/built-in-roles.md#reader) | Opérations de service (généralement disponibles) | Accès limité à des informations de service partielles. Sur le portail, le rôle Lecteur permet d'accéder aux informations de la page de présentation du service, de la section Éléments principaux et de l'onglet Surveillance. Tous les autres onglets et pages sont inaccessibles. </br></br>Ce rôle a accès aux informations de service : groupe de ressources, état du service, emplacement, nom et ID de l’abonnement, balises, URL, niveau tarifaire, réplicas, partitions et unités de recherche. </br></br>Ce rôle a aussi accès aux métriques de service : latence de recherche, pourcentage de demandes limitées, nombre moyen de requêtes par seconde. </br></br>Il n’y a pas d’accès aux clés API, aux attributions de rôles, au contenu (index ou cartes de synonymes) ou aux métriques de contenu (stockage consommé, nombre d’objets). |
-| [Contributeur du service de recherche](../role-based-access-control/built-in-roles.md#search-service-contributor) | Service OPS (généralement disponible), objets et contenu de niveau supérieur (préversion) | Ce rôle est une combinaison du Contributeur au niveau du service, mais avec un accès complet à toutes les actions sur les index, les cartes de synonymes, les indexeurs, les sources de données et les compétences dans [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch) au niveau du contenu. Ce rôle est destiné aux administrateurs de service de recherche qui ont besoin de gérer intégralement le service et son contenu. Pour la gestion de contenu, vous devez vous inscrire à la préversion. </br></br>Comme le Contributeur, les membres de ce rôle ne peuvent pas créer ou gérer des attributions de rôles, ni modifier les options d’autorisation. |
+| [Contributeur du service de recherche](../role-based-access-control/built-in-roles.md#search-service-contributor) | Service OPS (généralement disponible), objets de niveau supérieur (préversion) | Ce rôle est une combinaison du Contributeur au niveau du service, mais avec un accès complet à toutes les actions sur les index, les cartes de synonymes, les indexeurs, les sources de données et les compétences dans [`Microsoft.Search/searchServices/*`](/azure/role-based-access-control/resource-provider-operations#microsoftsearch). Ce rôle est destiné aux administrateurs de service de recherche qui ont besoin de gérer intégralement le service. </br></br>Comme le Contributeur, les membres de ce rôle ne peuvent pas créer ou gérer des attributions de rôles, ni modifier les options d’autorisation. |
 | [Contributeur de données d’index de la Recherche](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Collection de documents (préversion) | Fournit un accès complet au contenu de tous les index sur le service de recherche. Ce rôle est destiné aux développeurs ou aux propriétaires d’index qui ont besoin d’importer, d’actualiser ou d’interroger la collection de documents d’un index. |
 | [Lecteur de données d’index de la Recherche](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Collection de documents (préversion) | Fournit un accès en lecture seule aux index de recherche sur le service de recherche. Ce rôle est destiné aux applications et utilisateurs qui exécutent des requêtes. |
 
@@ -129,7 +129,7 @@ Si vous utilisez le billet ou un autre outil de test Web, consultez le Conseil c
 1. [Assignez des rôles](#assign-roles) sur le service et vérifiez qu’ils fonctionnent correctement dans le plan de données.
 
 > [!TIP]
-> Les appels de l’API REST de gestion sont authentifiés via le Répertoire actif Azure. Pour obtenir des conseils sur la configuration d’un principe de sécurité et d’une demande, consultez ce billet de blog [API REST Azure avec Billet (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). L’exemple précédent a été testé à l’aide des instructions et de la collection de Billets fournies dans le billet de blog.
+> Les appels de l’API REST de gestion sont authentifiés via le Répertoire actif Azure. Pour obtenir des conseils sur la configuration d’un principe de sécurité et d’une demande, consultez ce billet de blog [Azure REST API with poster (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). L’exemple précédent a été testé à l’aide des instructions et de la collection de publications fournies dans le billet de blog.
 
 ---
 
@@ -239,6 +239,8 @@ var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadS
 SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, tokenCredential);
 ```
 
+Des informations supplémentaires sur l’utilisation de l’[authentification AAD avec le kit de développement logiciel (SDK) Azure pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity) sont disponibles dans le référentiel GitHub du SDK.
+
 > [!NOTE]
 > Si vous recevez une erreur 403, vérifiez que votre service de recherche est inscrit dans le programme d’évaluation et que votre service est configuré pour afficher un aperçu des attributions de rôle.
 
@@ -291,4 +293,4 @@ Vous ne pouvez pas combiner les étapes 1 et 2. À l’étape 1, « disableLoca
 Pour réactiver l’authentification de la clé, réexécutez la dernière demande, en affectant la valeur false à « disableLocalAuth ». Le service de recherche recommencera à accepter automatiquement les clés API sur la requête (en supposant qu'elles soient spécifiées).
 
 > [!TIP]
-> Les appels de l’API REST de gestion sont authentifiés via le Répertoire actif Azure. Pour obtenir des conseils sur la configuration d’un principe de sécurité et d’une demande, consultez ce billet de blog [API REST Azure avec Billet (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). L’exemple précédent a été testé à l’aide des instructions et de la collection de Billets fournies dans le billet de blog.
+> Les appels de l’API REST de gestion sont authentifiés via le Répertoire actif Azure. Pour obtenir des conseils sur la configuration d’un principe de sécurité et d’une demande, consultez ce billet de blog [Azure REST API with poster (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). L’exemple précédent a été testé à l’aide des instructions et de la collection de publications fournies dans le billet de blog.

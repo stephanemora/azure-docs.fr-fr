@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 3baf44a4240b23b41ce2e80dc22dbda4c7d0672a
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 0c59db98f3f38a7e715c0dce77c397f0e2562343
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107363714"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356653"
 ---
 # <a name="assign-azure-roles-using-the-rest-api"></a>Attribuer des rôles Azure à l’aide de l’API REST
 
@@ -28,7 +28,7 @@ ms.locfileid: "107363714"
 
 ## <a name="assign-an-azure-role"></a>Affecter un rôle Azure
 
-Pour affecter un rôle, utilisez l’API REST [Créer des attributions de rôles](/rest/api/authorization/roleassignments/create) et spécifiez le principal de sécurité, la définition de rôle et l’étendue. Pour appeler cette API, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/write`. Parmi les rôles intégrés, seuls ceux du [propriétaire](built-in-roles.md#owner) et de [l’administrateur des accès utilisateur](built-in-roles.md#user-access-administrator) se voient accorder l’accès à cette opération.
+Pour affecter un rôle, utilisez l’API REST [Créer des attributions de rôles](/rest/api/authorization/roleassignments/create) et spécifiez le principal de sécurité, la définition de rôle et l’étendue. Pour appeler cette API, vous devez avoir accès à l’action `Microsoft.Authorization/roleAssignments/write`. Parmi les rôles intégrés, seuls ceux du [propriétaire](built-in-roles.md#owner) et de [l’administrateur des accès utilisateur](built-in-roles.md#user-access-administrator) se voient accorder l’accès à cette action.
 
 1. Utilisez l’API REST [Liste de définitions de rôles](/rest/api/authorization/roledefinitions/list) ou consultez [Rôles intégrés](built-in-roles.md) pour obtenir l’identificateur de la définition de rôle que vous souhaitez assigner.
 

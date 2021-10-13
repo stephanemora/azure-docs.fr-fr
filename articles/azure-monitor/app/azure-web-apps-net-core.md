@@ -4,12 +4,12 @@ description: Analyse de la performance d’application pour les services d’app
 ms.topic: conceptual
 ms.date: 08/05/2021
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: bf474ff535a9292fbadfd023830d15973bf39ad1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d31f8e59b297c16995482826414d07ab8cf5774f
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602678"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233217"
 ---
 # <a name="application-monitoring-for-azure-app-service-and-aspnet-core"></a>Surveillance des applications pour le Service App Azure et ASP.NET Core 
 
@@ -45,7 +45,7 @@ Pour commencer à configurer Application Insights avec votre ressource App Servi
 
 ### <a name="enable-monitoring"></a>Activer la supervision 
 
-1. **Sélectionnez Application Insights** dans le panneau de configuration Azure pour votre service app, puis sélectionnez **Activer**.
+1. **Sélectionnez Application Insights** dans le panneau de configuration Azure de votre service d’application, puis sélectionnez **Activer**.
 
     :::image type="content"source="./media/azure-web-apps/enable.png" alt-text="Capture d’écran de l’onglet Application Insights avec l’option activé sélectionnée."::: 
 
@@ -114,7 +114,7 @@ Pour connaître la version de votre extension, accédez à l’adresse `https://
 
 * [Mettre à niveau par le biais de PowerShell](#enable-through-powershell) :
 
-    1. Définissez les paramètres de l’application pour activer l’extension de site préinstallée ApplicationInsightsAgent. Voir [Activer via PowerShell](#enable-through-powershell).
+    1. Définissez les paramètres de l’application pour activer l’extension de site préinstallée ApplicationInsightsAgent. Consultez [Activer via PowerShell](#enable-through-powershell).
     2. Supprimez manuellement l’extension de site privée nommée extension Application Insights pour Azure App Service.
 
 Si vous réalisez la mise à niveau à partir d’une version antérieure à 2.5.1, vérifiez que les DLL ApplicationInsigths sont supprimées du dossier bin de l’application. Pour plus d’informations, [consultez les étapes de résolution des problèmes](#troubleshooting).
@@ -263,7 +263,7 @@ Pour obtenir les mises à jour et correctifs de bogues les plus récents, [consu
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Exécuter le profileur sur une application dynamique](./profiler.md).
-* [Surveillance d’Azure Functions avec Application Insights](monitor-functions.md).
+* [Surveiller Azure Functions avec Application Insights](monitor-functions.md).
 * [Autorisation de l’envoi de diagnostics Azure](../agents/diagnostics-extension-to-application-insights.md) vers Application Insights.
 * [Analyse des mesures d’intégrité du service](../data-platform.md) pour vous assurer que votre service est disponible et réactif.
 * [Réceptions de notifications d’alerte](../alerts/alerts-overview.md) lorsque des événements opérationnels se produisent ou que des mesures dépassent un seuil.

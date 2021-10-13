@@ -6,55 +6,58 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 09/10/2021
 ms.author: robb
-ms.openlocfilehash: c08644242bc811bfce8be2883bc2dec95f83f13d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 15e8ea8c1622ec846d9ab36452d8982c1a64a084
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616723"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458147"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
 > [!NOTE]
 > Cette liste est en grande partie générée automatiquement. Toute modification apportée à cette liste via GitHub peut être remplacée sans avertissement. Pour plus d’informations sur la façon d’effectuer des mises à jour permanentes, contactez l’auteur de cet article.
 
-Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. 
+Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail Azure, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface Azure CLI. 
 
-Cet article est une liste complète de toutes les métriques de plateforme (c’est-à-dire collectées automatiquement) actuellement disponibles avec le pipeline de métriques consolidées d’Azure Monitor. Les mesures modifiées ou ajoutées après la date figurant en haut de cet article peuvent ne pas encore s’afficher ci-dessous. Pour interroger cette liste de métriques et y accéder programmatiquement, veuillez utiliser [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). D’autres métriques ne figurant pas dans cette liste peuvent être disponibles dans le portail ou via les API héritées.
+Cet article est une liste complète de toutes les métriques de plateforme (c’est-à-dire collectées automatiquement) actuellement disponibles avec le pipeline de métriques consolidées d’Azure Monitor. Les mesures modifiées ou ajoutées après la date figurant en haut de cet article peuvent ne pas encore s’afficher dans la liste. Pour interroger cette liste de métriques et y accéder programmatiquement, utilisez [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). D’autres métriques ne figurant pas dans cette liste peuvent être disponibles dans le portail ou via les API héritées.
 
 Les métriques sont organisées par fournisseurs de ressources et par type de ressource. Pour obtenir la liste des services ainsi que des fournisseurs de ressources et types qui leur appartiennent, consultez [Fournisseurs de ressources pour les services Azure](../../azure-resource-manager/management/azure-services-resource-providers.md).  
 
 ## <a name="exporting-platform-metrics-to-other-locations"></a>Exportation des métriques de plateforme vers d’autres emplacements
 
-Vous pouvez exporter les métriques de plateforme à partir du pipeline Azure Monitor vers d’autres emplacements de l’une des deux façons suivantes.
-1. Utilisation de l’[API REST pour les métriques](/rest/api/monitor/metrics/list)
-2. Utilisez les [paramètres de diagnostic](../essentials/diagnostic-settings.md) pour acheminer les métriques de plateforme vers les emplacements suivants : 
-    - Stockage Azure
-    - Journaux Azure Monitor (et donc Log Analytics)
-    - Event Hubs, qui permet de les transmettre à des systèmes autres que Microsoft 
+Vous pouvez exporter les métriques de plateforme à partir du pipeline Azure Monitor vers d’autres emplacements de l’une des deux façons suivantes :
+
+- Utilisation de l’[API REST pour les métriques](/rest/api/monitor/metrics/list).
+- Utilisez les [paramètres de diagnostic](../essentials/diagnostic-settings.md) pour acheminer les métriques de plateforme vers les emplacements suivants : 
+    - Stockage Azure.
+    - Journaux Azure Monitor (et donc Log Analytics).
+    - Event Hubs, qui permet de les transmettre à des systèmes autres que Microsoft. 
 
 Si le recours aux paramètres de diagnostic constitue le moyen le plus simple d’acheminer les métriques, certaines limitations s’appliquent : 
 
-- **Métriques non exportables** : toutes les métriques sont exportables à l’aide de l’API REST, mais certaines ne peuvent pas être exportées à l’aide des paramètres de diagnostic en raison de subtilités dans le système backend Azure Monitor. La colonne *Exportable au moyen des paramètres de diagnostic* des tableaux ci-dessous indique quelles métriques peuvent être exportées de cette façon.  
+- **Exportabilité**. Toutes les métriques sont exportables via l’API REST, mais certaines ne peuvent pas être exportées par le biais des paramètres de diagnostic en raison de subtilités dans le back end Azure Monitor. La colonne « Exportable au moyen des paramètres de diagnostic des tableaux » dans les tables suivantes indique quelles métriques peuvent être exportées de cette façon.  
 
-- **Métriques multidimensionnelles** : il n’est pas possible à l’heure actuelle d’envoyer des métriques multidimensionnelles à d’autres emplacements par le biais des paramètres de diagnostic. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension. *Par exemple* : La métrique « Messages entrants » sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Toutefois, lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
+- **Métriques multidimensionnelles**. L’envoi de métriques multidimensionnels à d’autres emplacements au moyen des paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques à plusieurs dimensions sont exportées en tant que métriques dimensionnelles uniques aplaties, puis agrégées dans les valeurs de la dimension. 
+
+  Par exemple : la métrique *Messages entrants* sur un Event Hub peut être examinée et représentée sur un niveau par file d’attente. Mais lors de l’exportation via les paramètres de diagnostic, la métrique est représentée sous la forme de tous les messages entrants, dans toutes les files d’attente de l’Event Hub.
 
 ## <a name="guest-os-and-host-os-metrics"></a>Métriques du système d’exploitation invité et du système d’exploitation hôte
 
-> [!WARNING]
-> Les métriques du système d’exploitation invité (SE invité) qui s’exécutent dans les Machines virtuelles Azure, Service Fabric et les Services cloud ne sont **PAS** répertoriées ici. Les métriques du SE invité doivent être collectées au moyen du ou des agents qui s’exécutent sur ou dans le cadre du SE invité.  Parmi ces métriques, on peut citer les compteurs de performances qui effectuent le suivi du pourcentage de processeur invité et de l’utilisation de la mémoire, fréquemment utilisés pour la mise à l’échelle automatique et la génération d’alertes. 
->
-> **Les métriques du SE hôte SONT disponibles et répertoriées ci-dessous.** Ce ne sont pas les mêmes. Les métriques du SE hôte sont liées à la session Hyper-V qui héberge la session du SE invité. 
+Les métriques du système d’exploitation invité (SE invité) qui s’exécutent dans les Machines virtuelles Azure, Service Fabric et les Services cloud ne sont *pas* répertoriées ici. Les métriques du SE invité doivent être collectées au moyen du ou des agents qui s’exécutent sur ou dans le cadre du SE invité. Les métriques du système d’exploitation invité comprennent les compteurs de performances, qui effectuent le suivi du pourcentage de processeur et d’utilisation de mémoire du système invité, lesquels sont fréquemment utilisés pour la mise à l’échelle automatique et les alertes. 
+
+Les métriques du SE hôte *sont* disponibles et répertoriées dans les tables. Les métriques du SE hôte sont liées à la session Hyper-V qui héberge la session du SE invité. 
 
 > [!TIP]
-> Il est recommandé d’utiliser et de configurer l’agent Azure Monitor pour envoyer les métriques de performance du SE invité dans la base de données de métriques Azure Monitor où sont stockées les métriques de la plateforme. L’agent achemine les métriques du SE invité via l’API de [métriques personnalisées](../essentials/metrics-custom-overview.md). Vous pouvez alors représenter ces métriques (par exemple, les métriques de plateforme) sous forme graphique, générer des alertes, etc. En guise d’alternative ou en plus, vous pouvez envoyer les métriques du SE invité aux journaux d’activité d’Azure Monitor à l’aide du même agent. Vous pouvez alors interroger ces métriques en association avec d’autres types de données en utilisant Log Analytics. 
+> Il est recommandé d’utiliser et de configurer l’agent Azure Monitor pour envoyer les métriques de performance du SE invité dans la base de données de métriques Azure Monitor où sont stockées les métriques de la plateforme. L’agent achemine les métriques du SE invité via l’API de [métriques personnalisées](../essentials/metrics-custom-overview.md). Vous pouvez alors représenter ces métriques (par exemple, les métriques de plateforme) sous forme graphique, générer des alertes, etc. 
+>
+> En guise d’alternative ou en plus, vous pouvez envoyer les métriques du SE invité aux journaux d’activité d’Azure Monitor à l’aide du même agent. Vous pouvez alors interroger ces métriques en association avec d’autres types de données en utilisant Log Analytics. 
 
-L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent Log Analytics qui étaient précédemment utilisés pour ce routage. Pour obtenir des informations complémentaires importantes, consultez [Vue d’ensemble des agents de surveillance](../agents/agents-overview.md).
+L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent Log Analytics qui étaient précédemment utilisés pour ce routage de SE invité. Pour obtenir des informations complémentaires importantes, consultez [Vue d’ensemble des agents Azure Monitor](../agents/agents-overview.md).
 
 ## <a name="table-formatting"></a>Mise en forme des tableaux
 
-> [!IMPORTANT] 
-> Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les métriques ont par ailleurs été réorganisées par ordre alphabétique. En raison de ces informations complémentaires, une barre de défilement horizontale est susceptible d’apparaître en bas des tableaux ci-dessous, en fonction de la largeur de votre fenêtre de navigateur. Si vous pensez qu’il manque des informations, utilisez la barre de défilement pour afficher l’intégralité du tableau.
+Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les métriques ont par ailleurs été réorganisées par ordre alphabétique. En raison de ces informations complémentaires, une barre de défilement horizontale est susceptible d’apparaître en bas des tableaux, en fonction de la largeur de votre fenêtre de navigateur. Si vous pensez qu’il manque des informations, utilisez la barre de défilement pour afficher l’intégralité du tableau.
 
 
 ## <a name="microsoftaadiamazureadmetrics"></a>microsoft.aadiam/azureADMetrics
@@ -123,7 +126,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |---|---|---|---|---|---|---|
 |BackendDuration|Oui|Durées des demandes back-end|Millisecondes|Average|Durée des demandes back-end, en millisecondes|Emplacement, nom d’hôte|
 |Capacité|Oui|Capacité|Pourcentage|Average|Métrique d’utilisation pour le service ApiManagement. Remarque : Pour les SKU autres que Premium, l’agrégation « Max » affiche la valeur 0|Emplacement|
-|ConnectionAttempts|Oui|Tentatives de connexion WebSocket (préversion)|Nombre|Total|Nombre de tentatives de connexion WebSocket basées sur la source et la destination sélectionnées|Emplacement, Source, Destination, État|
+|ConnectionAttempts|Oui|Tentatives de connexion WebSocket (préversion)|Count|Total|Nombre de tentatives de connexion WebSocket basées sur la source et la destination sélectionnées|Emplacement, Source, Destination, État|
 |Duration|Oui|Durée globale des demandes de passerelle|Millisecondes|Average|Durée globale des demandes de passerelle en millisecondes|Emplacement, nom d’hôte|
 |EventHubDroppedEvents|Oui|Événements EventHub supprimés|Count|Total|Nombre d’événements ignorés car la limite de taille de la file d’attente a été atteinte|Emplacement|
 |EventHubRejectedEvents|Oui|Événements EventHub rejetés|Count|Total|Nombre d’événements EventHub rejetés (configuration incorrecte ou non autorisée)|Emplacement|
@@ -140,7 +143,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |SuccessfulRequests|Oui|Demandes de la passerelle ayant abouti (déprécié)|Count|Total|Nombre de demandes de la passerelle ayant abouti : utilisez une métrique de demande multi-dimension avec la dimension GatewayResponseCodeCategory à la place|Emplacement, nom d’hôte|
 |TotalRequests|Oui|Nombre total de demandes de la passerelle (déprécié)|Count|Total|Nombre de demandes de la passerelle : utilisez une métrique de demande multi-dimension avec la dimension GatewayResponseCodeCategory à la place|Emplacement, nom d’hôte|
 |UnauthorizedRequests|Oui|Demandes de la passerelle non autorisées (déprécié)|Count|Total|Nombre de demandes de la passerelle non autorisées : utilisez une métrique de demande multi-dimension avec la dimension GatewayResponseCodeCategory à la place|Emplacement, nom d’hôte|
-|WebSocketMessages|Oui|Messages WebSocket (préversion)|Nombre|Total|Nombre de messages WebSocket basés sur la source et la destination sélectionnées|Emplacement, Source, Destination|
+|WebSocketMessages|Oui|Messages WebSocket (préversion)|Count|Total|Nombre de messages WebSocket basés sur la source et la destination sélectionnées|Emplacement, Source, Destination|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
@@ -171,14 +174,14 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |gen-1-size|Oui|gen-1-size|Octets|Average|Taille du tas de génération 1|Deployment, AppName, Pod|
 |gen-2-gc-count|Oui|gen-2-gc-count|Count|Average|Nombre de nettoyages de la mémoire de génération 2|Deployment, AppName, Pod|
 |gen-2-size|Oui|gen-2-size|Octets|Average|Taille du tas de génération 2|Deployment, AppName, Pod|
-|IngressBytesReceived|Oui|Octets reçus|Octets|Average|Nombre d’octets reçus par Azure Spring Cloud en provenance des clients|Hostname, HttpStatus|
-|IngressBytesReceivedRate|Oui|Débit entrant (octets/s)|BytesPerSecond|Average|Octets reçus par seconde par Azure Spring Cloud en provenance des clients|Hostname, HttpStatus|
-|IngressBytesSent|Oui|Octets envoyés|Octets|Average|Nombre d’octets envoyés par Azure Spring Cloud aux clients|Hostname, HttpStatus|
-|IngressBytesSentRate|Oui|Débit sortant (octets/s)|BytesPerSecond|Average|Octets envoyés par seconde par Azure Spring Cloud aux clients|Hostname, HttpStatus|
-|IngressFailedRequests|Oui|Demandes ayant échoué|Count|Average|Nombre de requêtes en échec par Azure Spring Cloud émises par les clients|Hostname, HttpStatus|
-|IngressRequests|Oui|Demandes|Count|Average|Nombre de requêtes par Azure Spring Cloud émises par les clients|Hostname, HttpStatus|
-|IngressResponseStatus|Oui|État de la réponse|Count|Average|Statut de la réponse HTTP retourné par Azure Spring Cloud. La distribution du code d’état de la réponse peut être subdivisée afin d’afficher les réponses dans les catégories 2xx, 3xx, 4xx et 5xx|Hostname, HttpStatus|
-|IngressResponseTime|Oui|Temps de réponse|Secondes|Average|Temps de réponse HTTP retourné par Azure Spring Cloud|Hostname, HttpStatus|
+|IngressBytesReceived|Oui|Octets reçus|Octets|Average|Nombre d’octets reçus par Azure Spring Cloud à partir des clients|Hostname, HttpStatus|
+|IngressBytesReceivedRate|Oui|Débit en (octets/s)|BytesPerSecond|Average|Nombre d’octets reçus par Azure Spring Cloud à partir des clients|Hostname, HttpStatus|
+|IngressBytesSent|Oui|Octets envoyés|Octets|Average|Nombre d’octets envoyés par Azure Spring Cloud aux clients|Hostname, HttpStatus|
+|IngressBytesSentRate|Oui|Débit sortant (octets/s)|BytesPerSecond|Average|Octets envoyés par seconde par Azure Spring Cloud aux clients|Hostname, HttpStatus|
+|IngressFailedRequests|Oui|Demandes ayant échoué|Count|Average|Nombre de requêtes échouées par Azure Spring Cloud de la part des clients|Hostname, HttpStatus|
+|IngressRequests|Oui|Demandes|Count|Average|Compte des demandes des clients par Azure Spring Cloud.|Hostname, HttpStatus|
+|IngressResponseStatus|Oui|État de la réponse|Count|Average|Statut de la réponse HTTP renvoyée par Azure Spring Cloud. La distribution du code d’état de la réponse peut être subdivisée afin d’afficher les réponses dans les catégories 2xx, 3xx, 4xx et 5xx|Hostname, HttpStatus|
+|IngressResponseTime|Oui|Temps de réponse|Secondes|Average|Temps de réponse Http retourné par Azure Spring Cloud|Hostname, HttpStatus|
 |jvm.gc.live.data.size|Oui|jvm.gc.live.data.size|Octets|Average|Taille du pool de mémoire d’ancienne génération après un GC complet|Deployment, AppName, Pod|
 |jvm.gc.max.data.size|Oui|jvm.gc.max.data.size|Octets|Average|Taille maximale du pool de mémoire d’ancienne génération|Deployment, AppName, Pod|
 |jvm.gc.memory.allocated|Oui|jvm.gc.memory.allocated|Octets|Maximale|Incrémenté pour une augmentation de la taille du pool de mémoire de nouvelle génération après un GC avant le suivant|Deployment, AppName, Pod|
@@ -808,48 +811,48 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|AudioSecondsTranscribed|Oui|Secondes d’audio transcrites|Nombre|Total|Nombre de secondes transcrites|ApiName, FeatureName, UsageChannel, Region|
-|AudioSecondsTranslated|Oui|Secondes d’audio traduites|Nombre|Total|Nombre de secondes traduites|ApiName, FeatureName, UsageChannel, Region|
+|AudioSecondsTranscribed|Oui|Secondes d’audio transcrites|Count|Total|Nombre de secondes transcrites|ApiName, FeatureName, UsageChannel, Region|
+|AudioSecondsTranslated|Oui|Secondes d’audio traduites|Count|Total|Nombre de secondes traduites|ApiName, FeatureName, UsageChannel, Region|
 |BlockedCalls|Oui|Appels bloqués|Count|Total|Nombre d’appels ayant dépassé la limite de débit ou de quota.|ApiName, OperationName, Region|
-|CharactersTrained|Oui|Caractères entraînés (déprécié)|Nombre|Total|Nombre total de caractères formés.|ApiName, OperationName, Region|
-|CharactersTranslated|Oui|Caractères traduits (déprécié)|Nombre|Total|Nombre total de caractères dans la requête de texte entrante.|ApiName, OperationName, Region|
+|CharactersTrained|Oui|Caractères entraînés (déprécié)|Count|Total|Nombre total de caractères formés.|ApiName, OperationName, Region|
+|CharactersTranslated|Oui|Caractères traduits (déprécié)|Count|Total|Nombre total de caractères dans la requête de texte entrante.|ApiName, OperationName, Region|
 |ClientErrors|Oui|Erreurs de client|Count|Total|Nombre d’appels avec erreur côté client (code de réponse HTTP : 4xx).|ApiName, OperationName, Region|
-|ComputerVisionTransactions|Oui|Transactions Vision par ordinateur|Nombre|Total|Nombre de transactions Vision par ordinateur|ApiName, FeatureName, UsageChannel, Region|
+|ComputerVisionTransactions|Oui|Transactions Vision par ordinateur|Count|Total|Nombre de transactions Vision par ordinateur|ApiName, FeatureName, UsageChannel, Region|
 |CustomVisionTrainingTime|Oui|Durée d’entraînement de Custom Vision|Secondes|Total|Durée d’entraînement de Custom Vision|ApiName, FeatureName, UsageChannel, Region|
-|CustomVisionTransactions|Oui|Transactions Custom Vision|Nombre|Total|Nombre de transactions de prédiction Custom Vision|ApiName, FeatureName, UsageChannel, Region|
+|CustomVisionTransactions|Oui|Transactions Custom Vision|Count|Total|Nombre de transactions de prédiction Custom Vision|ApiName, FeatureName, UsageChannel, Region|
 |DataIn|Oui|Données entrantes|Octets|Total|Taille des données entrantes en octets.|ApiName, OperationName, Region|
 |DataOut|Oui|Données sortantes|Octets|Total|Taille des données sortantes en octets.|ApiName, OperationName, Region|
-|DocumentCharactersTranslated|Oui|Caractères de documentation traduits|Nombre|Total|Nombre de caractères dans la demande de traduction de documentation.|ApiName, FeatureName, UsageChannel, Region|
-|DocumentCustomCharactersTranslated|Oui|Caractères personnalisés de documentation traduits|Nombre|Total|Nombre de caractères dans la demande de traduction de documentation personnalisé.|ApiName, FeatureName, UsageChannel, Region|
-|FaceImagesTrained|Oui|Images de visage entraînées|Nombre|Total|Nombre d’images entraînées. 1 000 images entraînées par transaction.|ApiName, FeatureName, UsageChannel, Region|
-|FacesStored|Oui|Visages stockés|Nombre|Total|Nombre de visages stockés, calculé au prorata du taux journalier. Le nombre de visages stockés est indiqué quotidiennement.|ApiName, FeatureName, UsageChannel, Region|
-|FaceTransactions|Oui|Transactions du service Visage|Nombre|Total|Nombre d’appels d’API effectués au service Visage|ApiName, FeatureName, UsageChannel, Region|
-|ImagesStored|Oui|Images stockées|Nombre|Total|Nombre d’images Custom Vision stockées.|ApiName, FeatureName, UsageChannel, Region|
+|DocumentCharactersTranslated|Oui|Caractères de documentation traduits|Count|Total|Nombre de caractères dans la demande de traduction de documentation.|ApiName, FeatureName, UsageChannel, Region|
+|DocumentCustomCharactersTranslated|Oui|Caractères personnalisés de documentation traduits|Count|Total|Nombre de caractères dans la demande de traduction de documentation personnalisé.|ApiName, FeatureName, UsageChannel, Region|
+|FaceImagesTrained|Oui|Images de visage entraînées|Count|Total|Nombre d’images entraînées. 1 000 images entraînées par transaction.|ApiName, FeatureName, UsageChannel, Region|
+|FacesStored|Oui|Visages stockés|Count|Total|Nombre de visages stockés, calculé au prorata du taux journalier. Le nombre de visages stockés est indiqué quotidiennement.|ApiName, FeatureName, UsageChannel, Region|
+|FaceTransactions|Oui|Transactions du service Visage|Count|Total|Nombre d’appels d’API effectués au service Visage|ApiName, FeatureName, UsageChannel, Region|
+|ImagesStored|Oui|Images stockées|Count|Total|Nombre d’images Custom Vision stockées.|ApiName, FeatureName, UsageChannel, Region|
 |Latence|Oui|Latence|Millisecondes|Average|Latence en millisecondes.|ApiName, OperationName, Region|
 |LearnedEvents|Oui|Événements appris|Count|Total|Nombre d’événements appris.|IsMatchBaseline, Mode, RunId|
-|LUISSpeechRequests|Oui|Demandes de discours LUIS|Nombre|Total|Nombre de demandes de compréhension de conversion de sortie orale en intention LUIS|ApiName, FeatureName, UsageChannel, Region|
-|LUISTextRequests|Oui|Demandes de texte LUIS|Nombre|Total|Nombre de demandes de texte LUIS|ApiName, FeatureName, UsageChannel, Region|
+|LUISSpeechRequests|Oui|Demandes de discours LUIS|Count|Total|Nombre de demandes de compréhension de conversion de sortie orale en intention LUIS|ApiName, FeatureName, UsageChannel, Region|
+|LUISTextRequests|Oui|Demandes de texte LUIS|Count|Total|Nombre de demandes de texte LUIS|ApiName, FeatureName, UsageChannel, Region|
 |MatchedRewards|Oui|Récompenses en correspondance|Count|Total|Nombre de récompenses en correspondance.|Mode, RunId|
-|NumberofSpeakerProfiles|Oui|Nombre de profils d’orateur|Nombre|Total|Nombre de profils d’orateur inscrits. Au prorata horaire.|ApiName, FeatureName, UsageChannel, Region|
+|NumberofSpeakerProfiles|Oui|Nombre de profils d’orateur|Count|Total|Nombre de profils d’orateur inscrits. Au prorata horaire.|ApiName, FeatureName, UsageChannel, Region|
 |ObservedRewards|Oui|Récompenses observées|Count|Total|Nombre de récompenses observées.|Mode, RunId|
 |ProcessedCharacters|Oui|Caractères traités|Count|Total|Nombre de caractères traités par le Lecteur immersif.|ApiName, FeatureName, UsageChannel, Region|
-|ProcessedHealthTextRecords|Oui|Enregistrements texte d’intégrité traités|Nombre|Total|Nombre d’enregistrements texte d’intégrité traités|ApiName, FeatureName, UsageChannel, Region|
+|ProcessedHealthTextRecords|Oui|Enregistrements texte d’intégrité traités|Count|Total|Nombre d’enregistrements texte d’intégrité traités|ApiName, FeatureName, UsageChannel, Region|
 |ProcessedImages|Oui|Images traitées|Count|Total|Nombre d’images traitées|ApiName, FeatureName, UsageChannel, Region|
-|ProcessedPages|Oui|Pages traitées|Nombre|Total|Nombre de pages traitées|ApiName, FeatureName, UsageChannel, Region|
+|ProcessedPages|Oui|Pages traitées|Count|Total|Nombre de pages traitées|ApiName, FeatureName, UsageChannel, Region|
 |ProcessedTextRecords|Oui|Enregistrements texte traités|Count|Total|Nombre d’enregistrements texte.|ApiName, FeatureName, UsageChannel, Region|
 |ServerErrors|Oui|Erreurs de serveur|Count|Total|Nombre d’appels avec erreur interne du service (code de réponse HTTP : 5xx).|ApiName, OperationName, Region|
-|SpeakerRecognitionTransactions|Oui|Transactions de reconnaissance de l’orateur|Nombre|Total|Nombre de transactions de reconnaissance de l’orateur|ApiName, FeatureName, UsageChannel, Region|
-|SpeechModelHostingHours|Oui|Heures d’hébergement du modèle vocal|Nombre|Total|Nombre d’heures d’hébergement du modèle vocal|ApiName, FeatureName, UsageChannel, Region|
+|SpeakerRecognitionTransactions|Oui|Transactions de reconnaissance de l’orateur|Count|Total|Nombre de transactions de reconnaissance de l’orateur|ApiName, FeatureName, UsageChannel, Region|
+|SpeechModelHostingHours|Oui|Heures d’hébergement du modèle vocal|Count|Total|Nombre d’heures d’hébergement du modèle vocal|ApiName, FeatureName, UsageChannel, Region|
 |SpeechSessionDuration|Oui|Durée de la session vocale (déprécié)|Secondes|Total|Durée totale de la session vocale en secondes.|ApiName, OperationName, Region|
 |SuccessfulCalls|Oui|Appels réussis|Count|Total|Nombre d’appels réussis.|ApiName, OperationName, Region|
 |SynthesizedCharacters|Yes|Caractères synthétisés|Nombre|Total|Nombre de caractères.|ApiName, FeatureName, UsageChannel, Region|
-|TextCharactersTranslated|Oui|Caractères de texte traduits|Nombre|Total|Nombre de caractères dans la demande de traduction de texte entrante.|ApiName, FeatureName, UsageChannel, Region|
-|TextCustomCharactersTranslated|Oui|Caractères personnalisés de texte traduits|Nombre|Total|Nombre de caractères dans la demande de traduction de texte personnalisée entrante.|ApiName, FeatureName, UsageChannel, Region|
-|TextTrainedCharacters|Oui|Caractères de texte entraînés|Nombre|Total|Nombre de caractères entraînés à l’aide de la traduction de texte.|ApiName, FeatureName, UsageChannel, Region|
+|TextCharactersTranslated|Oui|Caractères de texte traduits|Count|Total|Nombre de caractères dans la demande de traduction de texte entrante.|ApiName, FeatureName, UsageChannel, Region|
+|TextCustomCharactersTranslated|Oui|Caractères personnalisés de texte traduits|Count|Total|Nombre de caractères dans la demande de traduction de texte personnalisée entrante.|ApiName, FeatureName, UsageChannel, Region|
+|TextTrainedCharacters|Oui|Caractères de texte entraînés|Count|Total|Nombre de caractères entraînés à l’aide de la traduction de texte.|ApiName, FeatureName, UsageChannel, Region|
 |TotalCalls|Oui|Nombre total d’appels|Count|Total|Nombre total d’appels.|ApiName, OperationName, Region|
 |TotalErrors|Oui|Nombre total d’erreurs|Count|Total|Nombre total d’appels avec réponse d’erreur (code de réponse HTTP : 4xx ou 5xx).|ApiName, OperationName, Region|
 |TotalTokenCalls|Oui|Total d’appels de jeton|Count|Total|Nombre total d’appels de jeton.|ApiName, OperationName, Region|
-|TotalTransactions|Oui|Nombre total de transactions (déprécié)|Nombre|Total|Nombre total de transactions.|Aucune dimension|
+|TotalTransactions|Oui|Nombre total de transactions (déprécié)|Count|Total|Nombre total de transactions.|Aucune dimension|
 |VoiceModelHostingHours|Yes|Heures d’hébergement du modèle vocal|Nombre|Total|Nombre d’heures.|ApiName, FeatureName, UsageChannel, Region|
 |VoiceModelTrainingMinutes|Yes|Minutes de formation du modèle vocal|Nombre|Total|Nombre de minutes.|ApiName, FeatureName, UsageChannel, Region|
 
@@ -1580,7 +1583,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |---|---|---|---|---|---|---|
 |AddRegion|Oui|Région ajoutée|Count|Count|Région ajoutée|Région|
 |AutoscaleMaxThroughput|Non|Débit maximal de mise à l’échelle automatique|Count|Maximale|Débit maximal de mise à l’échelle automatique|DatabaseName, CollectionName|
-|AvailableStorage|Non|(déconseillé) Stockage disponible|Octets|Total|« Stockage disponible » sera supprimé d’Azure Monitor à la fin du mois de septembre 2023. La taille de stockage de collection Cosmos DB est maintenant illimitée. La seule restriction est que la taille de stockage est de 20 Go par clé de partition logique. Vous pouvez activer PartitionKeyStatistics dans le journal de diagnostic pour connaître la consommation de stockage des principales clés de partition. Pour plus d’informations sur le quota de stockage Cosmos DB, consultez ce document : https://docs.microsoft.com/azure/cosmos-db/concepts-limits. À la date où la métrique sera déconseillée, les règles d’alerte qui seront encore définies dessus seront automatiquement désactivées.|CollectionName, DatabaseName, Region|
+|AvailableStorage|Non|(déconseillé) Stockage disponible|Octets|Total|« Stockage disponible » sera supprimé d’Azure Monitor à la fin du mois de septembre 2023. La taille de stockage de collection Cosmos DB est maintenant illimitée. La seule restriction est que la taille de stockage est de 20 Go par clé de partition logique. Vous pouvez activer PartitionKeyStatistics dans le journal de diagnostic pour connaître la consommation de stockage des principales clés de partition. Pour plus d'informations sur les quotas de stockage de Cosmos DB, veuillez consulter ce document : [Quotas du service Azure Cosmos DB](../../cosmos-db/concepts-limits.md). À la date où la métrique sera déconseillée, les règles d’alerte qui seront encore définies dessus seront automatiquement désactivées.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|Non|Fermetures de connexion Cassandra|Count|Total|Nombre de connexions de Cassandra fermées, signalées à une granularité d'une minute|APIType, Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|Non|Latence de réplication moyenne du connecteur Cassandra|Millisecondes|Average|Latence de réplication moyenne du connecteur Cassandra|Aucune dimension|
 |CassandraConnectorReplicationHealthStatus|Non|État d’intégrité de la réplication du connecteur Cassandra|Count|Count|État d’intégrité de la réplication du connecteur Cassandra|NotStarted, ReplicationInProgress, Error|
@@ -2231,7 +2234,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |SuccessE2ELatency|Oui|Latence de réussite de bout en bout|Millisecondes|Average|Latence moyenne des demandes réussies, en millisecondes.|OutputFormat|
 
 
-## <a name="microsoftmediavideoanalyzers"></a>Microsoft.Media/videoanalyzers
+## <a name="microsoftmediavideoanalyzers"></a>microsoft.media/videoanalyzers
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -3297,7 +3300,7 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |BigDataPoolAllocatedCores|Non|vCores alloués|Count|Maximale|VCores alloués pour un pool Apache Spark|SubmitterId|
 |BigDataPoolAllocatedMemory|Non|Mémoire allouée (Go)|Count|Maximale|Mémoire allouée au pool Apache Spark (Go)|SubmitterId|
 |BigDataPoolApplicationsActive|Non|Applications Apache Spark actives|Count|Maximale|Nombre d’applications actives du pool Apache Spark|JobState|
-|BigDataPoolApplicationsEnded|Non|Applications Apache Spark terminées|Nombre|Total|Nombre d’applications de pool Apache Spark terminées|JobType, JobResult|
+|BigDataPoolApplicationsEnded|Non|Applications Apache Spark terminées|Count|Total|Nombre d’applications de pool Apache Spark terminées|JobType, JobResult|
 
 
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft.Synapse/workspaces/sqlPools
@@ -3586,13 +3589,13 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |BytesPerSecond|Oui|Octets par seconde.|BytesPerSecond|Average|Vitesse de débit, en octets/seconde, utilisée pour un outil de migration.||
-|DirectoriesCreatedCount|Oui|Nombre de répertoires créés|Nombre|Total|Cela fournit une vue dynamique du nombre de répertoires qui ont été créés dans le cadre d’une migration.||
-|FileMigrationCount|Oui|Nombre de fichiers de migration|Nombre|Total|Cela fournit un total cumulé du nombre de fichiers ayant été migrés.||
+|DirectoriesCreatedCount|Oui|Nombre de répertoires créés|Count|Total|Cela fournit une vue dynamique du nombre de répertoires qui ont été créés dans le cadre d’une migration.||
+|FileMigrationCount|Oui|Nombre de fichiers de migration|Count|Total|Cela fournit un total cumulé du nombre de fichiers ayant été migrés.||
 |InitialScanDataMigratedInBytes|Oui|Données d’analyse initiales migrées, en octets|Octets|Total|Cela permet de voir le nombre total d’octets qui ont été transférés dans un nouvel outil de migration suite à l’analyse initiale du système de fichiers local. Toutes les données qui sont ajoutées à la migration après la migration de l’analyse initiale ne sont PAS incluses dans cette métrique.||
-|LiveDataMigratedInBytes|Oui|Données actives migrées, en octets|Nombre|Total|Fournit un total cumulé des données active qui ont été modifiées en raison de l’activité du client depuis le début de la migration.||
+|LiveDataMigratedInBytes|Oui|Données actives migrées, en octets|Count|Total|Fournit un total cumulé des données active qui ont été modifiées en raison de l’activité du client depuis le début de la migration.||
 |MigratorCPULoad|Oui|Charge processeur de l’outil de migration|Pourcentage|Average|Consommation du processeur par le processus de l’outil de migration.||
-|NumberOfExcludedPaths|Oui|Nombre de chemins exclus|Nombre|Total|Fournit le nombre cumulé des chemins qui ont été exclus de la migration en raison de règles d’exclusion.||
-|NumberOfFailedPaths|Oui|Nombre de chemins ayant échoué|Nombre|Total|Nombre de chemins dont la migration a échoué.||
+|NumberOfExcludedPaths|Oui|Nombre de chemins exclus|Count|Total|Fournit le nombre cumulé des chemins qui ont été exclus de la migration en raison de règles d’exclusion.||
+|NumberOfFailedPaths|Oui|Nombre de chemins ayant échoué|Count|Total|Nombre de chemins dont la migration a échoué.||
 |SystemCPULoad|Oui|Charge processeur du système|Pourcentage|Average|Consommation totale du processeur.||
 |TotalMigratedDataInBytes|Oui|Quantité totale de données migrées, en octets|Octets|Total|Cela fournit une vue des octets correctement migrés pour un outil de migration donné||
 |TotalTransactions|Oui|Nombre total de transactions|Count|Total|Cela fournit un total cumulé des transactions de données pour lesquelles l’utilisateur peut être facturé.||

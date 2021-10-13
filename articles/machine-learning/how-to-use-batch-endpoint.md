@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning
 description: Dans cet article, vous allez apprendre à créer un point de terminaison de traitement de lots pour effectuer un scoring par lots continu de données volumineuses.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
 ms.date: 8/11/2021
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: b68ba3f0221aa97307e746d192de65b2915d2e4b
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: e113fdebb7c6cf11b486bb958ab04af8e37a5e89
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122564016"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428043"
 ---
 # <a name="use-batch-endpoints-preview-for-batch-scoring"></a>Utiliser des points de terminaison de traitement de lots (préversion) pour le scoring par lots
 
-Dans cet article, vous allez apprendre à utiliser des points de terminaison de traitement de lots (préversion) pour effectuer un scoring par lots. Les points de terminaison de traitement de lots simplifient le processus d’hébergement de vos modèles pour le scoring par lots, ce qui vous permet de vous concentrer sur le machine learning, et non sur l’infrastructure. Après avoir créé un point de terminaison de traitement de lots, vous pouvez déclencher des tâches de scoring par lots avec Azure CLI ou à partir de n’importe quelle plateforme utilisant une bibliothèque HTTP et l’API REST. Pour plus d’informations, consultez [Que sont les points de terminaison Azure Machine Learning (préversion) ?](concept-endpoints.md).
+Dans cet article, vous allez apprendre à utiliser des points de terminaison de traitement de lots (préversion) pour effectuer un scoring par lots. Les points de terminaison de traitement de lots simplifient le processus d’hébergement de vos modèles pour le scoring par lots, ce qui vous permet de vous concentrer sur le machine learning, et non sur l’infrastructure. Après avoir créé un point de terminaison de traitement de lots, vous pouvez déclencher des tâches de scoring par lots avec Azure CLI ou à partir de n’importe quelle plateforme utilisant une bibliothèque HTTP et l’API REST. Pour plus d’informations, consultez [Que sont les points de terminaison Azure Machine Learning (préversion) ?](concept-endpoints.md)
 
 Cet article vous montre comment effectuer les tâches suivantes :
 

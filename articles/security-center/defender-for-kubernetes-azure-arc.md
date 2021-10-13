@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/14/2021
 ms.author: memildin
-ms.openlocfilehash: fa7076882370b404ea7b1e04cb5c364f22c35fae
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2fc8c04cbe86737d924a1e61e8a2b3808082b7c9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128648465"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351724"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>Défendre des clusters Kubernetes avec Azure Arc s’exécutant dans des environnements locaux et multicloud
 
@@ -49,6 +49,7 @@ Ce diagramme illustre l’interaction entre Azure Defender pour Kubernetes et le
 Avant de déployer l’extension, effectuez les opérations suivantes :
 - [Connectez le cluster Kubernetes à Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - Suivez les [prérequis indiqués dans la documentation sur les extensions de cluster génériques](../azure-arc/kubernetes/extensions.md#prerequisites).
+- Avoir [Helm 3](https://helm.sh/docs/intro/install) version 3.7.0 ou ultérieure
 - Configurez le **port 443** sur les points de terminaison suivants pour l’accès sortant :
     - Pour les clusters du cloud Azure Government :
         - *.ods.opinsights.azure.us

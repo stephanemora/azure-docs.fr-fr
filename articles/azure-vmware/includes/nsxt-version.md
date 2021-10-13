@@ -3,14 +3,14 @@ title: Version de NSX-T
 description: Version de NSX-T
 ms.topic: include
 ms.date: 08/09/2021
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
-ms.openlocfilehash: 37d0ad521e74a77777052c671cde4c6f7f2fcad0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ece99a7bce5bd9f704228596be631f468ee53db1
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122228942"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129638253"
 ---
 3.1.2

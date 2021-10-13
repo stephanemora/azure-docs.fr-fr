@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure dans le portail Azure
 description: Découvrir comment utiliser le portail Azure pour sauvegarder des partages de fichiers Azure sauvegardés dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 05/07/2021
-ms.openlocfilehash: e236980310889e84fe905861c5843f5a7b7039a2
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 807a173112d0bb85c008403028ab76000a3096db
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109516755"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427962"
 ---
 # <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
 
@@ -60,6 +60,9 @@ Les étapes suivantes expliquent comment configurer la sauvegarde de plusieurs p
 1. Dans la liste des comptes de stockage détectés, sélectionnez un compte, puis **OK**.
 
    ![Sélectionner parmi les comptes de stockage détectés](./media/backup-afs/select-discovered-storage-account.png)
+   
+   >[!NOTE]
+   > Si un compte de stockage est présent dans une région différente de celle du coffre, il ne figurera pas dans la liste des comptes de stockage détectés.
 
 1. L’étape suivante consiste à sélectionner les partages de fichiers que vous souhaitez sauvegarder. Sélectionnez le bouton **Ajouter** dans la section **Partages de fichiers à sauvegarder**.
 
@@ -100,8 +103,6 @@ Les étapes suivantes expliquent comment configurer la sauvegarde de plusieurs p
 
 Une fois que vous avez défini une stratégie de sauvegarde, un instantané des partages de fichiers est pris à l’heure planifiée. Le point de récupération est également conservé pendant la période choisie.
 
->[!NOTE]
->Sauvegarde Azure prend désormais en charge les stratégies de conservation quotidienne, hebdomadaire, mensuelle et annuelle pour la sauvegarde des fichiers partagés Azure.
 
 ## <a name="configure-backup-from-the-file-share-pane"></a>Configurer la sauvegarde à partir du volet de partage de fichiers
 
