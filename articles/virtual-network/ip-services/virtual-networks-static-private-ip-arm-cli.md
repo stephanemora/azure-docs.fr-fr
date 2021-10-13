@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 10/01/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 1129b4cf06a2de01438f2c83500eee84240183fc
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 900010fd454e356b43eb7cb5b2ee0379bdf90beb
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705268"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129368286"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-the-azure-cli"></a>Créer une machine virtuelle avec une adresse IP privée statique à l’aide d’Azure CLI
 
@@ -36,7 +36,7 @@ Avec la commande [az group create](/cli/azure/group#az_group_create), créez un 
     --location eastus2
 ```
 
-## <a name="create-a-virtual-machine"></a>Créer une machine virtuelle
+## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
 Créez une machine virtuelle avec [az vm create](/cli/azure/vm#az_vm_create). 
 
@@ -57,7 +57,7 @@ La commande suivante crée une machine virtuelle Windows Server 2016. Quand vou
 
 Dans cette section, vous allez faire passer l’adresse IP privée de **dynamique** à **statique** pour la machine virtuelle que vous avez créée précédemment. 
 
-Utilisez [az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update) pour mettre à jour la configuration de l’interface réseau.
+Utilisez [az network nic ip-config update](/cli/azure/network/nic/ipconfig#az_network_nic_ip_config_update) pour mettre à jour la configuration de l’interface réseau.
 
 La commande suivante remplace l’adresse IP privée de la machine virtuelle par une adresse statique :
 
