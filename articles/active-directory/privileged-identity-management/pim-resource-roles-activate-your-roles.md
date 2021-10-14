@@ -4,24 +4,23 @@ description: Découvrez comment activer des rôles de ressources Azure dans Azur
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 09/28/2021
 ms.author: curtand
-ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c87f4d4baff8b19ea7512ac387525a31339e7294
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: ee4bb5c8be060f78f557391e406a8008294f34be
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669052"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272216"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Activer mes rôles de ressources Azure dans Privileged Identity Management
 
