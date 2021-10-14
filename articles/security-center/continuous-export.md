@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 10/05/2021
 ms.author: memildin
-ms.openlocfilehash: 1d8feb49be378abed2a63030c6329e9e8a13d48a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e2b1b238e7f893df5eb56818f256eb324c5be6aa
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525271"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536039"
 ---
 # <a name="continuously-export-security-center-data"></a>Exporter en continu des données Security Center
 
@@ -146,11 +146,11 @@ Pour déployer vos configurations d’exportation continue à l’échelle de vo
     > [!TIP]
     > Vous pouvez également les trouver faisant une recherche dans Azure Policy :
     > 1. Ouvrez Azure Policy.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accès à la Stratégie Azure.":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accès à Azure Policy.":::
     > 2. Dans le menu Azure Policy, sélectionnez **Définitions** et recherchez-les par nom. 
 
 1. Dans la page Azure Policy appropriée, sélectionnez **Attribuer**.
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Attribution de la Stratégie Azure.":::
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Attribution d’Azure Policy.":::
 
 1. Ouvrez chaque onglet et définissez les paramètres comme vous le souhaitez :
     1. Sous l’onglet **Général**, définissez l’étendue de la stratégie. Pour utiliser la gestion centralisée, attribuez la stratégie au groupe d’administration contenant les abonnements qui utiliseront la configuration de l’exportation continue. 
@@ -209,6 +209,9 @@ Vous voyez maintenant de nouvelles alertes ou recommandations Azure Security Cen
 ## <a name="manual-one-time-export-of-alerts-and-recommendations"></a>Exportation ponctuelle et manuelle des alertes de sécurité
 
 Pour télécharger un rapport CSV pour les alertes ou les recommandations, ouvrez la page **Alertes de sécurité** ou **Recommandations**, puis sélectionnez le bouton **Télécharger le rapport CSV**.
+
+> [!TIP]
+> En raison des limitations d’Azure Resource Graph, les rapports sont limités à une taille de fichier de 13 000 lignes. Si vous constatez des erreurs liées à l’exportation d’un trop grand nombre de données, essayez de limiter la sortie en sélectionnant un plus petit ensemble d’abonnements à exporter.
 
 :::image type="content" source="./media/continuous-export/download-alerts-csv.png" alt-text="Télécharger les données d’alertes dans un fichier CSV." lightbox="./media/continuous-export/download-alerts-csv.png":::
 

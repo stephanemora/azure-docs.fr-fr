@@ -2,13 +2,13 @@
 title: Files d’attente et rubriques Service Bus en tant que gestionnaires d’événements pour des événements Azure Event Grid
 description: Décrit comment vous pouvez utiliser des files d’attente et rubriques Service Bus en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
-ms.date: 09/28/2021
-ms.openlocfilehash: 5ea44f33bffa0f7158c8e3d1ae4e1cf0776f294e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 09/30/2021
+ms.openlocfilehash: 676a9fcc6e260f2226e103ede26398b384e046ca
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129214956"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354386"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Service Bus des files d’attente et des rubriques comme gestionnaires d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements et **Azure Service Bus** est l’un d’eux. 
@@ -150,6 +150,29 @@ L’ID système interne du message est conservé lors de la nouvelle remise de l
     }
 }
 ```
+
+## <a name="delivery-properties"></a>Propriétés de remise
+Les abonnements aux événements vous permettent de définir des en-têtes HTTP qui sont inclus dans les événements remis. Cette fonctionnalité vous permet de définir des en-têtes personnalisés requis par une destination. vous pouvez définir des en-têtes personnalisés sur les événements qui sont remis aux files d’attente et rubriques Azure Service Bus.
+
+Azure Service Bus prend en charge l’utilisation des propriétés de message suivantes lors de l’envoi de messages uniques. 
+
+| Nom de l’en-tête | Type d’en-tête |
+| :-- | :-- |
+| `MessageId` | dynamique |  
+| `PartitionKey` | Statique ou dynamique |
+| `SessionId` | Statique ou dynamique |
+| `CorrelationId` | Statique ou dynamique |
+| `Label` | Statique ou dynamique |
+| `ReplyTo` | Statique ou dynamique | 
+| `ReplyToSessionId` | Statique ou dynamique |
+| `To` |Statique ou dynamique |
+| `ViaPartitionKey` | Statique ou dynamique |
+
+> [!NOTE]
+> - La valeur par défaut de `MessageId` est l’ID interne de l’événement Event Grid. Vous pouvez la remplacer. Par exemple : `data.field`.
+> - Vous pouvez définir uniquement `SessionId` ou `MessageId`. 
+
+Pour plus d'informations, consultez [Propriétés de remise personnalisées](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des gestionnaires d’événements pris en charge, consultez l’article [Gestionnaires d’événements](event-handlers.md). 

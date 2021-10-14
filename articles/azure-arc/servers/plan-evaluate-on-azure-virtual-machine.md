@@ -1,20 +1,23 @@
 ---
 title: Comment évaluer des serveurs compatibles avec Azure Arc avec une machine virtuelle Azure
 description: Découvrez comment évaluer des serveurs compatibles avec Azure Arc à l’aide d’une machine virtuelle Azure.
-ms.date: 09/20/2021
+ms.date: 10/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8f32fee62e98730a391c3f025a96259358b027d1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 54656e0701857fd3badbcec619b2185917935857
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645300"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389814"
 ---
 # <a name="evaluate-azure-arc-enabled-servers-on-an-azure-virtual-machine"></a>Évaluer des serveurs avec Azure Arc sur une machine virtuelle Azure
 
 Les serveurs compatibles avec Azure Arc sont conçus pour vous aider à connecter des serveurs qui s’exécutent localement ou dans d’autres clouds à Azure. Normalement, vous n’utilisez pas de serveurs compatibles avec Azure Arc sur une machine virtuelle Azure, car les mêmes fonctionnalités sont disponibles en mode natif pour ces machines virtuelles, y compris une représentation de la machine virtuelle dans Azure Resource Manager, des extensions de machine virtuelle, des identités managées et Azure Policy. Si vous tentez d’installer des serveurs compatibles avec Azure Arc sur une machine virtuelle Azure, vous recevrez un message d’erreur indiquant que cela n’est pas pris en charge et l’installation de l’agent sera annulée.
 
 Bien que vous ne soyez pas en mesure d’installer des serveurs compatibles avec Azure Arc sur une machine virtuelle Azure pour des scénarios de production, il est possible de configurer des serveurs compatibles avec Azure Arc pour qu’ils s’exécutent sur une machine virtuelle Azure *à des fins d’évaluation et de test uniquement*. Cet article vous aidera à configurer une machine virtuelle Azure avant de pouvoir activer des serveurs compatibles avec Azure Arc dessus.
+
+> [!NOTE]
+> Les étapes décrites dans cet article sont destinées aux machines virtuelles hébergées dans le cloud Azure. Les serveurs Azure Arc ne sont pas pris en charge sur les machines virtuelles s’exécutant sur Azure Stack Hub ou Azure Stack Edge.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -24,7 +27,7 @@ Bien que vous ne soyez pas en mesure d’installer des serveurs compatibles avec
 * Un compte avec des privilèges élevés (c’est-à-dire un administrateur ou root) sur la machine virtuelle, et un accès RDP ou SSH à la machine virtuelle.
 * Pour inscrire et gérer la machine virtuelle Azure avec des serveurs avec Azure Arc, vous devez être membre du rôle [Administrateur des ressources de la machine connectée à Azure](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) ou [Contributeur](../../role-based-access-control/built-in-roles.md#contributor) dans le groupe de ressources.
 
-## <a name="plan"></a>Plan
+## <a name="plan"></a>Planifier
 
 Pour commencer à gérer votre machine virtuelle Azure en tant que serveur avec Azure Arc, vous devez apporter les modifications suivantes à la machine virtuelle Azure avant de pouvoir y installer et configurer des serveurs avec Azure Arc.
 

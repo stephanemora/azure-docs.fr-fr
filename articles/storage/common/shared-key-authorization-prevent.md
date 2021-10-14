@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 10/01/2021
 ms.author: tamram
-ms.reviewer: dineshm
+ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5e38cfeae5ad8593e5ee69059f4bdb903b04aa42
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 566c538e0864f11dad0a642dd18f711c7cf00886
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533128"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532851"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account"></a>Empêcher l’autorisation avec clé partagée pour un compte de stockage Azure
 
@@ -122,7 +122,7 @@ Pour désactiver l’autorisation avec clé partagée pour un compte de stockage
 
 1. Accédez à votre compte de stockage dans le portail Azure.
 1. Localisez le paramètre **Configuration** sous **Paramètres**.
-1. Définissez **Autoriser l’accès avec clé partagée** sur **Désactivé**.
+1. Configurez **Activer l’accès de clé de compte de stockage** sur **Désactivé**.
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Capture d’écran montrant comment désactiver l’accès avec clé partagée pour un compte":::
 

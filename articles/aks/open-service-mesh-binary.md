@@ -7,12 +7,12 @@ ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 128d0371e65d06e413f503094b56522c67ea83c0
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 83eec8682291a74bc9b23bf4ff1326cee7134e7f
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123441006"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534947"
 ---
 # <a name="download-the-open-service-mesh-osm-client-library"></a>Télécharger la bibliothèque de client Open Service Mesh (OSM)
 Cet article explique la procédure de téléchargement de la bibliothèque de client OSM à utiliser pour faire fonctionner et configurer le module complémentaire OSM pour AKS.
@@ -39,3 +39,6 @@ Cet article explique la procédure de téléchargement de la bibliothèque de cl
 
 > [!WARNING]
 > N’essayez pas d’installer OSM à partir du fichier binaire avec `osm install`. Cela aboutira à une installation d’OSM qui n’est pas intégrée en tant que module complémentaire pour AKS.
+
+> [!NOTE]
+> Il est recommandé de configurer l’interface CLI OSM pour [personnaliser l’expérience du module complémentaire AKS OSM](/open-service-mesh-customize-addon-experience.md) après l’installation du fichier binaire, avant d’utiliser l’interface CLI OSM. 

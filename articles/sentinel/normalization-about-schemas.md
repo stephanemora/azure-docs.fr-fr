@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 828524e225f660cab2c11d23c5657ca82ae8781e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 091181388656dd02ee438d1e5ef77a19d489205a
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796511"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129419085"
 ---
 # <a name="azure-sentinel-information-model-asim-schemas-public-preview"></a>Schémas du modèle Azure Sentinel Information Model (ASIM) | Microsoft Docs (Préversion publique)
 
@@ -50,7 +50,7 @@ Les concepts suivants permettent de comprendre les documents de référence de s
 |**Types de champ**     |  Chaque champ de schéma a un type. L’espace de travail Log Analytics possède un ensemble limité de types de données. Par conséquent, Azure Sentinel utilise un type logique pour de nombreux champs de schéma, ce que Log Analytics n’impose pas, mais qui est requis pour la compatibilité des schémas. Les types de champs logiques garantissent que les valeurs et les noms de champs sont cohérents entre les sources.  <br><br>Pour plus d’informations, consultez [Types logiques](#logical-types).     |
 |**Classe des champs**     |Les champs peuvent avoir plusieurs classes, qui définissent le moment où les champs doivent être implémentés par un analyseur : <br><br>Les champs -    **obligatoires** doivent apparaître dans chaque analyseur. Si votre source ne fournit pas d’informations pour cette valeur, ou si les données ne peuvent pas être ajoutées par ailleurs, elle ne prend pas en charge la plupart des éléments de contenu qui font référence au schéma normalisé.<br>Les champs -  **recommandés** doivent être normalisés s’ils sont disponibles. Toutefois, ils peuvent ne pas être disponibles dans chaque source, et tout élément de contenu qui fait référence à ce schéma normalisé doit prendre en compte la disponibilité. <br>Les champs -  **facultatifs**, s’ils sont disponibles, peuvent être normalisés ou laissés dans leur forme d’origine. En règle générale, un analyseur minimal ne les normalise pas pour des raisons de performances.    |
 |**Entités**     | Les événements évoluent autour des entités, telles que les utilisateurs, les hôtes, les processus ou les fichiers, et chaque entité peut nécessiter plusieurs champs pour la décrire. Par exemple, un hôte peut avoir un nom et une adresse IP. <br><br>Un seul enregistrement peut inclure plusieurs entités du même type, comme un hôte source et un hôte de destination. <br><br>Le modèle ASIM définit la manière de décrire les entités de manière cohérente, et les entités permettent d’étendre les schémas. <br><br>Par exemple, si le schéma de session réseau n’inclut pas d’informations sur les processus, certaines sources d’événements fournissent des informations sur les processus qui peuvent être ajoutés. Pour plus d’informations, consultez [Entités](#entities). |
-|**Alias**     |  Dans certains cas, les différents utilisateurs s’attendent à ce qu’un champ ait des noms différents. Par exemple, dans la terminologie DNS, il s’agit d’un champ nommé `query`, alors que plus généralement, il contient un nom de domaine. Les alias résolvent ce problème d’ambiguïté en autorisant plusieurs noms pour une valeur spécifiée. La classe alias est la même que celle du champ qu’elle associe.       |
+|**Alias**     |  Dans certains cas, les différents utilisateurs s’attendent à ce qu’un champ ait des noms différents. Par exemple, dans la terminologie DNS, il s’agit d’un champ nommé `query`, alors que plus généralement, il contient un nom de domaine. Les alias résolvent ce problème d’ambiguïté en autorisant plusieurs noms pour une valeur spécifiée. La classe alias est la même que celle du champ qu’elle associe.<br><br>Notez que Log Analytics ne remplace pas l’alias. Pour implémenter des alias, les analyseurs créent une copie de la valeur d’origine à l’aide de l'opérateur `extend`.        |
 | | |
 
 ## <a name="logical-types"></a>Types logiques

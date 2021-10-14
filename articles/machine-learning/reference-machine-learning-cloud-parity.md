@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: eef2a1eb5f17864074ac346ac7a89a59d1d59778
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 8c05b77a77bbcbfc977dadb22151f0086001b859
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123037288"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359452"
 ---
 # <a name="azure-machine-learning-feature-availability-across-clouds-regions"></a>Disponibilité des fonctionnalités Azure Machine Learning dans les différentes régions cloud
 
@@ -80,7 +80,7 @@ Les informations contenues dans le reste de ce document fournissent des informat
 | [Intégration de Visual Studio Code](how-to-setup-vs-code.md)                                             | Version préliminaire publique       | Non                 | Non          |
 | [Intégration à Event Grid](how-to-use-event-grid.md)                                                     | Version préliminaire publique       | Non                 | Non          |
 | [Intégration d’Azure Stream Analytics à Azure Machine Learning](../stream-analytics/machine-learning-udf.md)               | Version préliminaire publique       | Non                 | Non          |
-| **[Étiquetage](how-to-create-labeling-projects.md)** |   | | |
+| **Étiquetage [des images](how-to-create-image-labeling-projects.md) et du [texte](how-to-create-text-labeling-projects.md)** |   | | |
 | Portail d’étiquetage de gestion de projet                                        | GA                   | YES                | YES         |
 | Portail d’étiquetage                                                            | GA                   | YES                | YES         |
 | Étiquetage à l’aide du personnel privé                                          | GA                   | YES                | YES         |

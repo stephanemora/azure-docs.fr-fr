@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Créez un espace de travail Azure Machine Learning et les services Azure requis au sein d’un réseau virtuel sécurisé.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
 ms.date: 09/15/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: f0b4f19e8c1e06aa8ab5657fd1c70a75814451ad
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ad81535a8287a4b89f978c4c2523b664375d23d6
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128612184"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428727"
 ---
 # <a name="how-to-create-a-secure-workspace"></a>Procédure de création d’un espace de travail sécurisé
 
@@ -37,8 +37,8 @@ Dans ce tutoriel, vous accomplissez les tâches suivantes :
 
 Si votre environnement remplit les conditions préalables et que vous avez l’habitude d’utiliser des modèles ARM, les cinq premières étapes de ce tutoriel peuvent également être réalisées en sélectionnant le bouton « Déployer sur Azure ». Vous pouvez poursuivre la lecture à partir de [Se connecter à l’espace de travail](#connect-to-the-workspace).
 
-[![Déployer sur Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
-[![Déployer sur Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
+[![Déployer sur Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-workspace-vnet%2Fazuredeploy.json)
+[![Déployer sur Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-workspace-vnet%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Configuration requise
 
@@ -176,6 +176,9 @@ Pour créer un réseau virtuel, procédez comme suit :
     :::image type="content" source="./media/tutorial-create-secure-workspace/storage-file-private-endpoint-config.png" alt-text="Interface utilisateur pour configurer le point de terminaison privé de fichier":::
 
 1. Sélectionnez __Vérifier + créer__. Vérifiez que les informations sont correctes, puis sélectionnez __Créer__.
+
+> [!TIP]
+> Si vous envisagez d’utiliser [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) dans votre pipeline, il est également nécessaire de configurer des points de terminaison privés avec des sous-ressources cibles de type **file d’attente** et **table**. ParallelRunStep utilise les options de file d’attente et de table en arrière-plan pour la planification et la distribution des tâches.
 
 ## <a name="create-a-key-vault"></a>Création d’un coffre de clés
 

@@ -4,23 +4,24 @@ description: Découvrez comment activer des rôles de ressources Azure dans Azur
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a6ddde80ca554aea25d24694aff76e61e47d928
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c87f4d4baff8b19ea7512ac387525a31339e7294
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97672455"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669052"
 ---
 # <a name="activate-my-azure-resource-roles-in-privileged-identity-management"></a>Activer mes rôles de ressources Azure dans Privileged Identity Management
 
@@ -77,6 +78,99 @@ Lorsque vous avez besoin d’endosser un rôle de ressources Azure, vous pouvez 
     Si [l’activation du rôle nécessite une approbation](pim-resource-roles-approval-workflow.md), une notification s’affiche dans le coin supérieur droit de votre navigateur pour vous informer que la demande est en attente d’approbation.
 
     ![La requête d’activation est en attente de la notification d’approbation](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+
+## <a name="activate-a-role-with-arm-api"></a>Activer un rôle avec l’API ARM
+
+Privileged Identity Management prend en charge les commandes de l’API Azure Resource Manager (ARM) pour gérer les rôles de ressources Azure, comme indiqué dans les informations de référence sur l’[API ARM PIM](/rest/api/authorization/roleeligibilityschedulerequests). Pour obtenir les autorisations requises pour utiliser l’API PIM, consultez [Comprendre les API de la Gestion de l’identité managée](pim-apis.md).
+
+Voici un exemple de requête HTTP pour activer une attribution éligible pour un rôle Azure.
+
+### <a name="request"></a>Requête
+
+````HTTP
+PUT https://management.azure.com/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleEligibilityScheduleRequests/64caffb6-55c0-4deb-a585-68e948ea1ad6?api-version=2020-10-01-preview
+````
+
+### <a name="request-body"></a>Corps de la demande
+
+````JSON
+{
+  "properties": {
+    "principalId": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+    "roleDefinitionId": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleDefinitions/c8d4ff99-41c3-41a8-9f60-21dfdad59608",
+    "requestType": "SelfActivate",
+    "linkedRoleEligibilityScheduleId": "b1477448-2cc6-4ceb-93b4-54a202a89413",
+    "scheduleInfo": {
+      "startDateTime": "2020-09-09T21:35:27.91Z",
+      "expiration": {
+        "type": "AfterDuration",
+        "endDateTime": null,
+        "duration": "PT8H"
+      }
+    },
+    "condition": "@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+    "conditionVersion": "1.0"
+  }
+}
+````
+
+### <a name="response"></a>response
+
+Code d’état : 201
+
+````HTTP
+{
+  "properties": {
+    "targetRoleAssignmentScheduleId": "c9e264ff-3133-4776-a81a-ebc7c33c8ec6",
+    "targetRoleAssignmentScheduleInstanceId": null,
+    "scope": "/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f",
+    "roleDefinitionId": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleDefinitions/c8d4ff99-41c3-41a8-9f60-21dfdad59608",
+    "principalId": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+    "principalType": "User",
+    "requestType": "SelfActivate",
+    "status": "Provisioned",
+    "approvalId": null,
+    "scheduleInfo": {
+      "startDateTime": "2020-09-09T21:35:27.91Z",
+      "expiration": {
+        "type": "AfterDuration",
+        "endDateTime": null,
+        "duration": "PT8H"
+      }
+    },
+    "ticketInfo": {
+      "ticketNumber": null,
+      "ticketSystem": null
+    },
+    "justification": null,
+    "requestorId": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+    "createdOn": "2020-09-09T21:35:27.91Z",
+    "condition": "@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+    "conditionVersion": "1.0",
+    "expandedProperties": {
+      "scope": {
+        "id": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f",
+        "displayName": "Pay-As-You-Go",
+        "type": "subscription"
+      },
+      "roleDefinition": {
+        "id": "/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/roleDefinitions/c8d4ff99-41c3-41a8-9f60-21dfdad59608",
+        "displayName": "Contributor",
+        "type": "BuiltInRole"
+      },
+      "principal": {
+        "id": "a3bb8764-cb92-4276-9d2a-ca1e895e55ea",
+        "displayName": "User Account",
+        "email": "user@my-tenant.com",
+        "type": "User"
+      }
+    }
+  },
+  "name": "fea7a502-9a96-4806-a26f-eee560e52045",
+  "id": "/providers/Microsoft.Subscription/subscriptions/dfa2a084-766f-4003-8ae1-c4aeb893a99f/providers/Microsoft.Authorization/RoleAssignmentScheduleRequests/fea7a502-9a96-4806-a26f-eee560e52045",
+  "type": "Microsoft.Authorization/RoleAssignmentScheduleRequests"
+}
+````
 
 ## <a name="view-the-status-of-your-requests"></a>Afficher l’état de vos demandes
 

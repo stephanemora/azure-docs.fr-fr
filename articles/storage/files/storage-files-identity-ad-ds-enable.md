@@ -5,15 +5,15 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 10/05/2021
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cb66ed6c1a00c049c2fff6d9fccb22acbcb9fbee
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 7a7082005cc2a8154670abfae120d94015b2135c
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462503"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545809"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Première partie : activer l’authentification AD DS pour vos partages de fichiers Azure 
 
@@ -36,7 +36,7 @@ Les applets de commande du module PowerShell AzFilesHybrid effectuent les modifi
 
 ### <a name="download-azfileshybrid-module"></a>Télécharger le module AzFilesHybrid
 
-- Si [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) n’est pas installé, installez-le maintenant. Il est requis pour que le module s’importe correctement.
+- Si [.NET Framework 4.7.2](https://dotnet.microsoft.com/download/dotnet-framework/net472) n’est pas installé, installez-le maintenant. Il est requis pour que le module s’importe correctement.
 - [Téléchargez et décompressez le module AzFilesHybrid (module GA : v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Notez que le chiffrement Kerberos 256 AES est pris en charge sur la v0.2.2 et les versions ultérieures. Si vous avez activé la fonctionnalité avec une version de AzFilesHybrid inférieure à la v0.2.2 et souhaitez la mettre à jour pour prendre en charge le chiffrement Kerberos 256 AES, consultez [cet article](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption).
 - Installez et exécutez le module dans un appareil dont le domaine est joint à AD DS en local avec des informations d’identification AD DS et qui dispose des autorisations nécessaires pour créer un compte d’ouverture de session du service ou un compte d’ordinateur dans l’instance AD cible.
 -  Exécutez le script à l’aide des informations d’identification AD DS en local synchronisées à votre Azure AD. Les informations d’identification AD DS locales doivent disposer du rôle Azure **Propriétaire** ou **Contributeur** sur le compte de stockage.
@@ -104,11 +104,11 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 Si vous avez déjà exécuté le script `Join-AzStorageAccountForAuth` ci-dessus, passez à la section [Confirmer que la fonctionnalité est activée](#confirm-the-feature-is-enabled). Vous n’avez pas besoin d’effectuer les étapes manuelles suivantes.
 
-### <a name="checking-environment"></a>Vérification de l’environnement
+### <a name="check-the-environment"></a>Vérifier l’environnement
 
 Vous devez d’abord vérifier l’état de votre environnement. En particulier, vous devez vérifier si [Active Directory PowerShell](/powershell/module/activedirectory/) est installé et si l’interpréteur de commandes est en cours d’exécution avec des privilèges d’administrateur. Vérifiez ensuite si le [module Az.Storage 2.0 (ou version plus récente)](https://www.powershellgallery.com/packages/Az.Storage/2.0.0) est installé, et installez-le si ce n’est pas le cas. Une fois ces vérifications terminées, vérifiez votre AD DS pour déterminer si un [compte d’ordinateur](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (par défaut) ou un [compte d’ouverture de session du service](/windows/win32/ad/about-service-logon-accounts) a déjà été créé avec SPN/UPN comme « cifs/votre-nom-de-compte-de-stockage-ici.file.core.windows.net ». Si le compte n’existe pas, créez-en un comme décrit dans la section suivante.
 
-### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Création manuelle d’une identité représentant le compte de stockage dans votre AD
+### <a name="create-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Créer manuellement une identité représentant le compte de stockage dans votre AD
 
 Pour créer ce compte manuellement, créez une clé Kerberos pour votre compte de stockage. Ensuite, utilisez cette clé Kerberos comme mot de passe pour votre compte avec les applets de commande PowerShell ci-dessous. Cette clé est utilisée uniquement lors de la configuration et ne peut pas être utilisée pour des opérations de contrôle ou de plan de données sur le compte de stockage. 
 
@@ -129,9 +129,37 @@ Si votre UO applique l’expiration du mot de passe, vous devez mettre à jour l
 
 Conservez l’ID de sécurité de l’identité nouvellement créée, car vous en aurez besoin pour l’étape suivante. L’identité que vous avez créée et qui représente le compte de stockage n’a pas besoin d’être synchronisée avec Azure AD.
 
+#### <a name="optional-enable-aes256-encryption"></a>(Facultatif) Activer le chiffrement AES256
+
+Si vous souhaitez activer le chiffrement AES 256, suivez les étapes de cette section. Si vous comptez utiliser RC4, vous pouvez ignorer cette section.
+
+L’objet de domaine qui représente votre compte de stockage doit remplir les conditions suivantes :
+- Le nom du compte de stockage ne peut pas dépasser 15 caractères.
+- L’objet de domaine doit être créé en tant qu’objet ordinateur dans le domaine AD local.
+- À l’exception du caractère « $ » final, le nom du compte de stockage doit être le même que le SamAccountName de l’objet de l’ordinateur.
+
+Si votre objet de domaine ne répond pas à ces exigences, supprimez-le et créez un nouvel objet de domaine.
+
+Remplacez `<domain-object-identity>` et `<domain-name>` par vos valeurs, puis utilisez la commande suivante pour configurer la prise en charge de AES256 : 
+
+```powershell
+Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
+```
+
+Après avoir exécuté cette commande, remplacez `<domain-object-identity>` dans le script suivant par votre valeur, puis exécutez le script pour actualiser le mot de passe de votre objet de domaine :
+
+```powershell
+$KeyName = "kerb1" # Could be either the first or second kerberos key, this script assumes we're refreshing the first
+$KerbKeys = New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName $KeyName
+$KerbKey = $KerbKeys | Where-Object {$_.KeyName -eq $KeyName} | Select-Object -ExpandProperty Value
+$NewPassword = Convert-ToSecureString -String $KerbKey -AsPlainText -Force
+
+Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
+```
+
 ### <a name="enable-the-feature-on-your-storage-account"></a>Activer la fonctionnalité sur votre compte de stockage
 
-Vous pouvez maintenant activer la fonctionnalité sur votre compte de stockage. Fournissez quelques détails de configuration pour les propriétés de domaine dans la commande suivante, puis exécutez-la. L’ID de sécurité du compte de stockage requis dans la commande suivante est l’ID de sécurité de l’identité que vous avez créée dans AD DS dans la [section précédente](#creating-an-identity-representing-the-storage-account-in-your-ad-manually).
+Vous pouvez maintenant activer la fonctionnalité sur votre compte de stockage. Fournissez quelques détails de configuration pour les propriétés de domaine dans la commande suivante, puis exécutez-la. L’ID de sécurité du compte de stockage requis dans la commande suivante est l’ID de sécurité de l’identité que vous avez créée dans AD DS dans la [section précédente](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
 
 ```PowerShell
 # Set the feature flag on the target storage account and provide the required AD domain information

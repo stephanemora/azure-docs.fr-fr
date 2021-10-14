@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: e6b1524f15f07bc1cb17842c5fca167016136ae0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: 8d052be49a545e34ce44dc53174a5dbca7c3d220
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124828427"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402963"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mode de débogage du mappage de flux de données
 
@@ -32,7 +32,7 @@ Quand vous activez le curseur, vous êtes invité à sélectionner la configurat
 
 :::image type="content" source="media/data-flow/debug-new-1.png" alt-text="Déboguer la sélection IR":::
 
-Lorsque le mode débogage est activé, vous allez générer de manière interactive votre flux de données avec un cluster Spark actif. La session se ferme dès que vous désactivez le débogage. Prenez connaissance des frais horaires engendrés par Azure Databricks pendant la durée d’activation de la session de débogage.
+Lorsque le mode débogage est activé, vous allez générer de manière interactive votre flux de données avec un cluster Spark actif. La session se ferme dès que vous désactivez le débogage. Prenez connaissance des frais horaires engendrés par Data Factory pendant la durée d’activation de la session de débogage.
 
 Dans la plupart des cas, nous vous recommandons de créer vos flux de données en mode débogage pour que vous puissiez valider votre logique métier et afficher vos transformations de données avant de publier votre travail. Utilisez le bouton « Débogage » sur le panneau du pipeline pour tester votre flux de données dans un pipeline.
 

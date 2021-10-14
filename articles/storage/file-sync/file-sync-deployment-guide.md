@@ -8,12 +8,12 @@ ms.date: 04/15/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 75e8b7482e9d810caf0afb0818d53df141908708
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cce87bbcd8a4a2db5d400b41948e9dcf4598b331
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609267"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390289"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 
@@ -234,7 +234,7 @@ L’agent Azure File Sync est un package téléchargeable qui permet à Windows 
 Vous pouvez télécharger l’agent à partir du [Centre de téléchargement Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). À la fin du téléchargement, double-cliquez sur le package MSI pour démarrer l’installation de l’agent Azure File Sync.
 
 > [!IMPORTANT]
-> Si vous comptez utiliser Azure File Sync avec un cluster de basculement, l’agent Azure File Sync doit être installé sur chaque nœud du cluster. Chaque nœud du cluster doit être inscrit pour fonctionner avec Azure File Sync.
+> Si vous comptez utiliser Azure File Sync avec un cluster de basculement, l’agent Azure File Sync doit être installé sur chaque nœud du cluster. Chaque nœud du cluster doit être inscrit pour fonctionner avec Azure File Sync. Le seul scénario pris en charge par Azure File Sync est le Cluster de basculement Windows Server avec des disques en cluster. Consultez [Clustering de basculement](file-sync-planning.md#failover-clustering) pour Azure File Sync.
 
 Nous vous recommandons de procéder comme suit :
 - Conservez le chemin d’installation par défaut (C:\Program Files\Azure\StorageSyncAgent), pour simplifier le dépannage et la maintenance du serveur.

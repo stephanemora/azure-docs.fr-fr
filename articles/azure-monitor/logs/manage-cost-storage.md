@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8cedd159c1c4c8a7d5309024d66ddc104c07506b
-ms.sourcegitcommit: 149815030568fb4d4dd2e2025a18dc64fc190d07
+ms.openlocfilehash: 0e894fc6c6e210249e591ed7f9b9b662ff5ae187
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129062095"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272924"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -229,7 +229,7 @@ Pour définir la durée de conservation d’un type de données particulier (dan
     }
 ```
 
-Les valeurs valides pour `retentionInDays` sont comprises entre 30 et 730.
+Les valeurs valides pour `retentionInDays` sont comprises entre 4 et 730.
 
 Les types de données `Usage` et `AzureActivity` ne peuvent pas être définis avec une durée de conservation personnalisée. Ils prennent la durée maximale de conservation de l’espace de travail par défaut ou 90 jours. 
 

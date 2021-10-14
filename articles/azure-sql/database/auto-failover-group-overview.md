@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: BustosMSFT
 ms.author: robustos
 ms.reviewer: mathoma
-ms.date: 09/14/2021
-ms.openlocfilehash: 71b2e494d8a570c38180f4dfc86bda87b23f4e95
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/04/2021
+ms.openlocfilehash: 403f3c82bbb5a387e7611a6d98ce808ded599146
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554582"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456287"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -79,7 +79,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
   
 - **Amorçage initial**
 
-  Lorsque vous ajoutez des bases de données, des pools élastiques ou des instances gérées à un groupe de basculement, il y a d’abord une phase d’amorçage initiale avant le démarrage de la réplication des données. La phase d’amorçage initiale est l’opération la plus longue et la plus coûteuse. Une fois l’amorçage initial terminé, les données sont synchronisées, puis seules les modifications de données ultérieures sont répliquées. Le temps nécessaire à la réalisation de l’amorçage initial dépend de la taille de vos données, du nombre de bases de données répliquées et de la vitesse de la liaison entre les entités dans le groupe de basculement. Dans des circonstances normales, la vitesse d’amorçage possible peut atteindre 500 Go par heure pour SQL Database, et 360 Go par heure pour SQL Managed Instance. L’amorçage est effectué pour toutes les bases de données en parallèle.
+  Lorsque vous ajoutez des bases de données, des pools élastiques ou des instances gérées à un groupe de basculement, il y a d’abord une phase d’amorçage initiale avant le démarrage de la réplication des données. La phase d’amorçage initiale est l’opération la plus longue et la plus coûteuse. Une fois l’amorçage initial terminé, les données sont synchronisées, puis seules les modifications de données ultérieures sont répliquées. Le temps nécessaire à la réalisation de l’amorçage initial dépend de la taille de vos données, du nombre de bases de données répliquées, de la charge sur les bases de données primaires et de la vitesse de la liaison entre les bases de données principales et secondaires. Dans des circonstances normales, la vitesse d’amorçage possible peut atteindre 500 Go par heure pour SQL Database, et 360 Go par heure pour SQL Managed Instance. L’amorçage est effectué pour toutes les bases de données en parallèle.
 
   Pour SQL Managed Instance, prenez en compte la vitesse de la liaison Express Route entre les deux instances lors de l’estimation de la durée de la phase d’amorçage initiale. Si la vitesse de la liaison entre les deux instances est plus lente que nécessaire, la durée de l’amorçage risque d’être sensiblement perturbée. Vous pouvez utiliser la vitesse d’amorçage indiquée, ainsi que le nombre de bases de données, la taille totale des données et la vitesse de liaison pour estimer la durée de la phase d’amorçage initiale avant le début de la réplication des données. Par exemple, pour une base de données individuelle de 100 Go, la phase d’amorçage initiale prendrait environ 1,2 heure si la liaison est en mesure d’envoyer (push) 84 Go par heure, et si aucune autre base de données n’est en cours d’amorçage. Si la liaison ne peut transférer que 10 Go par heure, l’amorçage d’une base de données de 100 Go prendra environ 10 heures. S’il faut répliquer plusieurs bases de données, l’amorçage est effectué en parallèle et, lorsqu’il est associé à une vitesse de liaison lente, la phase d’amorçage initiale peut prendre beaucoup plus de temps. Cela est particulièrement vrai si l’amorçage parallèle des données de toutes les bases de données est supérieur à la bande passante de liaison disponible. Si la bande passante réseau entre deux instances est limitée et que vous ajoutez plusieurs instances gérées à un groupe de basculement, ajoutez-les de manière successive, une par une. Étant donné une référence SKU de passerelle de taille appropriée entre les deux instances managées, si la bande passante du réseau d’entreprise le permet, il est possible d’atteindre des vitesses allant jusqu’à 360 Go par heure.  
 
@@ -100,21 +100,21 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Stratégie de basculement automatique**
 
-  Par défaut, un groupe de basculement est configuré avec une stratégie de basculement automatique. Azure déclenche le basculement dès que la défaillance est détectée et que la période de grâce est arrivée à expiration. Le système doit vérifier que la panne ne peut pas être atténuée par [l’infrastructure de haute disponibilité](high-availability-sla.md) intégrée en raison de l’échelle de l’impact. Si vous souhaitez contrôler le workflow de basculement à partir de l’application ou manuellement, vous pouvez désactiver le basculement automatique.
+  Par défaut, un groupe de basculement est configuré avec une stratégie de basculement automatique. Le système déclenche un basculement dès que la défaillance est détectée et que la période de grâce a expiré. Le système doit vérifier que la panne ne peut pas être atténuée par [l’infrastructure de haute disponibilité](high-availability-sla.md) intégrée en raison de l’échelle de l’impact. Si vous souhaitez contrôler le workflow de basculement à partir de l’application ou manuellement, vous pouvez désactiver le basculement automatique.
   
   > [!NOTE]
-  > Compte tenu du fait que la vérification de l’étendue de la panne et que la rapidité avec laquelle elle peut être atténuée impliquent des actions humaines de la part de l’équipe des opérations, la période de grâce ne peut pas être fixée en dessous d’une heure. Cette limitation s’applique à toutes les bases de données du groupe de basculement, quel que soit l’état de la synchronisation de leurs données.
+  > Compte tenu du fait que la vérification de l’étendue de la panne et que la rapidité avec laquelle elle peut être atténuée impliquent des actions humaines, la période de grâce ne peut pas être fixée en dessous d’une heure. Cette limitation s’applique à toutes les bases de données du groupe de basculement, quel que soit l’état de la synchronisation de leurs données.
 
 - **Stratégie de basculement en lecture seule**
 
   Par défaut, le basculement de l’écouteur en lecture seule est désactivé. Il garantit que les performances du serveur principal ne sont pas affectées lorsque le serveur secondaire est hors connexion. Toutefois, cela signifie également que les sessions en lecture seule ne seront pas en mesure de se connecter tant que le serveur secondaire n’aura pas été récupérée. Si vous ne pouvez pas tolérer des temps d’arrêt pour les sessions en lecture seule et que vous pouvez utiliser le serveur principal pour le trafic en lecture seule et en lecture-écriture au prix d’une dégradation potentielle des performances du serveur principal, vous pouvez activer le basculement pour l’écouteur en lecture seule en configurant la propriété `AllowReadOnlyFailoverToPrimary`. Dans ce cas, le trafic en lecture seule est automatiquement redirigé vers le serveur principal si le serveur secondaire est indisponible.
 
   > [!NOTE]
-  > La propriété `AllowReadOnlyFailoverToPrimary` n’a d’effet que si la stratégie de basculement automatique est activée et qu’un basculement automatique a été déclenché par Azure. Dans ce cas, si la propriété est définie sur True, le nouveau serveur principal servira les sessions en lecture-écriture et en lecture seule.
+  > La propriété `AllowReadOnlyFailoverToPrimary` n’a d’effet que si la stratégie de basculement automatique est activée et qu’un basculement automatique a été déclenché. Dans ce cas, si la propriété est définie sur True, le nouveau serveur principal servira les sessions en lecture-écriture et en lecture seule.
 
 - **Basculement planifié**
 
-   Le basculement planifié effectue une synchronisation complète entre les bases de données primaire et secondaire avant que la seconde ne bascule dans le rôle primaire. Cela empêche toute perte de données. Le basculement planifié des appareils est utilisé dans les scénarios suivants :
+   Le basculement planifié effectue une synchronisation des données complète entre les bases de données primaire et secondaire avant que la seconde ne bascule dans le rôle primaire. Cela empêche toute perte de données. Le basculement planifié des appareils est utilisé dans les scénarios suivants :
 
   - Simuler des récupérations d’urgence en production lorsque la perte de données n’est pas acceptable
   - Déplacer les bases de données vers une autre région
@@ -122,15 +122,15 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Basculement non planifié**
 
-   Un basculement non planifié ou forcé fait immédiatement basculer la base de données secondaire vers le rôle primaire sans synchronisation avec la base de données primaire. Cette opération entraîne une perte de données. Le basculement non planifié est utilisé comme méthode de récupération pendant les pannes, lorsque la base de données primaire n’est pas accessible. Lorsque la base de données primaire d’origine est de nouveau en ligne, elle se reconnecte sans synchronisation et devient une nouvelle base de données secondaire.
+   Le basculement non planifié ou forcé bascule immédiatement la base de données secondaire vers le rôle primaire sans attendre que les modifications récentes soient propagées à partir de la base de données primaire. Cette opération peut occasionner une perte de données. Le basculement non planifié est utilisé comme méthode de récupération pendant les pannes, lorsque la base de données primaire n’est pas accessible. Lorsque la panne est atténuée, l’ancienne base de données primaire se reconnecte automatiquement et devient une nouvelle base de données secondaire. Un basculement planifié peut être exécuté pour la restauration automatique, en retournant les réplicas à leurs rôles primaires et secondaires d’origine.
 
 - **Basculement manuel**
 
-  Vous pouvez lancer manuellement le basculement à tout moment, quelle que soit la configuration du basculement automatique. Si la stratégie de basculement automatique n’est pas configurée, un basculement manuel est nécessaire pour récupérer les bases de données dans le groupe de basculement vers le serveur secondaire. Vous pouvez lancer un basculement forcé ou convivial (avec synchronisation complète des données). Ce dernier peut être utilisé pour déplacer le serveur primaire dans la région secondaire. Une fois le basculement terminé, les enregistrements DNS sont automatiquement mis à jour pour garantir la connexion au nouveau serveur principal.
+  Vous pouvez lancer manuellement le basculement à tout moment, quelle que soit la configuration du basculement automatique. Pendant une panne qui a un impact sur le serveur principal, si la stratégie de basculement automatique n’est pas configuré, un basculement manuel est nécessaire pour que le rôle secondaire devienne primaire. Vous pouvez lancer un basculement forcé (non planifié) ou convivial (planifié). Un basculement convivial n’est possible que lorsque l’ancien rôle primaire est accessible et peut être utilisé pour déplacer la base de données primaire vers la région secondaire sans perte de données. Une fois le basculement terminé, les enregistrements DNS sont automatiquement mis à jour pour garantir la connexion au nouveau serveur principal.
 
 - **Période de grâce avec perte de données**
 
-  Comme les bases de données primaires et secondaires sont synchronisées avec la réplication asynchrone, le basculement peut entraîner une perte de données. Vous pouvez personnaliser la stratégie de basculement automatique en fonction de la tolérance de votre application aux pertes de données. En configurant `GracePeriodWithDataLossHours`, vous pouvez contrôler le délai observé par le système avant d’initialiser le basculement qui est susceptible d’entraîner une perte de données.
+  Comme les bases de données secondaires sont synchronisées avec la réplication asynchrone, un basculement automatique peut entraîner une perte de données. Vous pouvez personnaliser la stratégie de basculement automatique en fonction de la tolérance de votre application aux pertes de données. En configurant `GracePeriodWithDataLossHours`, vous pouvez contrôler le délai observé par le système avant d’initier un basculement qui est susceptible d’entraîner une perte de données.
 
 - **Plusieurs groupes de basculement**
 

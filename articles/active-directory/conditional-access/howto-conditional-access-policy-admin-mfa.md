@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ba7a7cc96790b2022692286bdfdac230c25984
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 7abf8738fd93cc84923abb3d9e5308599c4220da
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079539"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272488"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accès conditionnel : Exiger MFA pour les administrateurs
 
@@ -78,7 +78,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
       > [!WARNING]
       > Les stratégies d’accès conditionnel prennent en charge les rôles intégrés. Les stratégies d’accès conditionnel ne sont pas appliquées pour d’autres types de rôles, y compris les [rôles limités à une étendue d’unité administrative](../roles/admin-units-assign-roles.md) ou les [rôles personnalisés](../roles/custom-create.md).
 
-   1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
+   1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation.
    1. Sélectionnez **Terminé**.
 1. Sous **Applications ou actions cloud** > **Inclure**, sélectionnez **Toutes les applications cloud** et sélectionnez **Terminé**.
 1. Sous **Contrôles d’accès** > **Accorder**, sélectionnez **Accorder l'accès**, **Requérir l’authentification multifacteur**, et sélectionnez **Sélectionner**.

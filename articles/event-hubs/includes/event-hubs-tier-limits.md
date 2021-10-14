@@ -5,7 +5,7 @@ title: include file description: include file services: event-hubs author: spell
 
 Le tableau suivant indique les limites qui peuvent être différentes pour les niveaux de base, standard et dédié. Dans le tableau, UC signifie [unité de capacité](../event-hubs-dedicated-overview.md), UT [unité de traitement](../event-hubs-scalability.md#processing-units) et UD [unité de débit](../event-hubs-scalability.md#throughput-units). 
 
-| Limite | De base | standard | Premium |  Dédié |
+| Limite | De base | Standard | Premium |  Dédié |
 | ----- | ----- | -------- | -------- | --------- | 
 | Taille maximale d’une publication Event Hubs | 256 KB | 1 Mo | 1 Mo |  1 Mo |
 | Nombre de groupes de consommateurs par Event Hub | 1 | 20 | 100 | 1 000<br/>Aucune limite par UC  |

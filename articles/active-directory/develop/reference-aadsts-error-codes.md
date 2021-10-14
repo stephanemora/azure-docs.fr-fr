@@ -12,12 +12,12 @@ ms.date: 07/28/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3a530dae026ffe87efe06fb413966df43ce32314
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8492b35fae2d2c2d716330002d5f889ec693f8c5
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588288"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353369"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -88,6 +88,8 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS20001 | WsFedSignInResponseError : il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème. |
 | AADSTS20012 | WsFedMessageInvalid : il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème. |
 | AADSTS20033 | FedMetadataInvalidTenantName : il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème. |
+| AADSTS28002 | La valeur fournie pour l’étendue du paramètre d’entrée « {scope} » n’est pas valide lors de la demande d’un jeton d’accès. Spécifiez un quota valide. |
+| AADSTS28003 | La valeur fournie pour la portée du paramètre d’entrée ne peut pas être vide lors de la demande d’un jeton d’accès à l’aide du code d’autorisation fourni. Spécifiez un quota valide.|
 | AADSTS40008 | OAuth2IdPUnretryableServerError : il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème. |
 | AADSTS40009 | OAuth2IdPRefreshTokenRedemptionUserError : il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème. |
 | AADSTS40010 | OAuth2IdPRetryableServerError : il existe un problème avec votre fournisseur d’identité fédérée. Contactez votre IDP pour résoudre ce problème. |
@@ -163,6 +165,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword : Le mot de passe Active Directory de l’utilisateur est arrivé à expiration. Générez un nouveau mot de passe pour l’utilisateur ou demandez à l’utilisateur d’utiliser l’outil de réinitialisation en libre-service pour le réinitialiser. |
 | AADSTS50146 | MissingCustomSigningKey : cette application doit être configurée avec une clé de signature spécifique. Elle n’est configuré avec aucune clé, ou la clé a expiré ou n’est pas encore valide. |
 | AADSTS50147 | MissingCodeChallenge : la taille du paramètre de vérification du code n’est pas valide. |
+| AADSTS501481 | L’élément Code_Verifier ne correspond pas à l’élément code_challenge fourni dans la requête d’autorisation.|
 | AADSTS50155 | DeviceAuthenticationFailed : l’authentification de l’appareil a échoué pour cet utilisateur. |
 | AADSTS50158 | ExternalSecurityChallenge : la vérification de sécurité externe n’a pas abouti. |
 | AADSTS50161 | InvalidExternalSecurityChallengeConfiguration : les revendications envoyées par un fournisseur externe ne sont pas suffisantes, ou il manque une revendication demandée à un fournisseur externe. |
@@ -175,6 +178,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS50178 | SessionControlNotSupportedForPassthroughUsers : le contrôle de session n’est pas pris en charge pour les utilisateurs de PassThrough. |
 | AADSTS50180 | WindowsIntegratedAuthMissing : l’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente. |
 | AADSTS50187 | DeviceInformationNotProvided : le service n’a pas réussi à authentifier l’appareil. |
+| AADSTS50194 | L’application « {appId} » ({appName}) n’est pas configurée en tant qu’application mutualisée. L’utilisation du point de terminaison /common n’est pas prise en charge pour les applications créées après « {time} ». Utilisez un point de terminaison spécifique au locataire ou configurez l’application pour qu’elle soit mutualisée. |
 | AADSTS50196 | LoopDetected : une boucle client a été détectée. Vérifiez la logique de l’application pour vous assurer que la mise en cache des jetons est implémentée et que les conditions d’erreur sont gérées correctement.  L’application a effectué un trop grand nombre de requêtes sur une période trop brève, indiquant qu’elle est dans un état défectueux ou qu’elle demande trop de jetons. |
 | AADSTS50197 | ConflictingIdentities : impossible de trouver l’utilisateur. Réessayez de vous connecter. |
 | AADSTS50199 | CmsiInterrupt : pour des raisons de sécurité, une confirmation de l’utilisateur est requise pour cette demande.  Étant donné qu’il s’agit d’une erreur « interaction_required », le client doit effectuer une authentification interactive.  Cela est dû au fait qu’un affichage web système a été utilisé pour demander un jeton pour une application native : l’utilisateur doit être invité à préciser s’il s’agissait effectivement de l’application à laquelle il voulait se connecter. Pour éviter cette invite, l’URI de redirection doit faire partie de la liste approuvée suivante : <br />http://<br />https://<br />msauth://(iOS uniquement)<br />msauthv2://(iOS uniquement)<br />chrome-extension:// (navigateur Chrome appareil de bureau uniquement) |
@@ -191,16 +195,21 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS53004 | ProofUpBlockedDueToRisk : l’utilisateur doit terminer le processus d’inscription de l’authentification multifacteur pour accéder à ce contenu. L’utilisateur doit s’inscrire à l’authentification multifacteur. |
 | AADSTS53011 | Utilisateur bloqué en raison d’un risque sur le locataire de base. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
+| AADSTS54005 | Le code d’autorisation OAuth2 a déjà été utilisé, réessayez avec un nouveau code valide ou utilisez un jeton d’actualisation existant. |
 | AADSTS65001 | DelegationDoesNotExist : l’utilisateur ou l’administrateur n’a pas accepté d’utiliser l’application avec ID X. Envoyez une requête d’autorisation interactive pour cet utilisateur et cette ressource. |
+| AADSTS65002 | Le consentement entre l’application du premier tiers '{applicationId}' et la ressource de la première partie '{resourceId}'doit être configuré par le biais de la pré-autorisation. Les applications détenues et gérées par Microsoft doivent obtenir l’approbation du propriétaire de l’API avant toute demande de jetons pour cette API.  Un développeur de votre locataire peut tenter de réutiliser un ID d’application détenu par Microsoft. Cette erreur l’empêche d’usurper l’identité d’une application Microsoft pour appeler d’autres API. Ils doivent passer à une autre ID d’application qu’ils inscrivent dans https://portal.azure.com.|
 | AADSTS65004 | UserDeclinedConsent : l’utilisateur a refusé de donner son consentement pour accéder à l’application. Demandez à l’utilisateur de réessayer de se connecter et de donner son consentement à l’application.|
 | AADSTS65005 | MisconfiguredApplication : la liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Pour en savoir plus, consultez l’article sur la résolution des problèmes liés à l’erreur [AADSTS650056](/troubleshoot/azure/active-directory/error-code-aadsts650056-misconfigured-app). |
 | AADSTS650052 | L’application a besoin d’accéder à un service `(\"{name}\")` auquel votre organisation `\"{organization}\"` n’est pas abonnée ou qu’elle n’a pas activé. Contactez votre administrateur informatique pour examiner la configuration de vos abonnements de service. |
 | AADSTS650054 |  L’application a demandé des autorisations pour accéder à une ressource qui a été supprimée ou qui n’est plus disponible. Assurez-vous que toutes les ressources que l’application appelle sont présentes dans le locataire dans lequel vous travaillez. |
+| AADSTS650056 | Application mal configurée. La raison peut être l’une des suivantes : le client n’a listé aucune autorisation pour « {name} » parmi les autorisations demandées dans l’inscription d’application du client. Ou l’administrateur n’a pas donné son consentement dans le locataire. Vous pouvez aussi vérifier l’identificateur d’application dans la requête pour vous assurer qu’il correspond à l’identificateur d’application cliente configuré. Sinon, vérifiez le certificat dans la demande pour vous assurer qu’il est valide. Contactez votre administrateur pour corriger la configuration ou donner le consentement au nom du locataire. ID de l’application cliente : {id}. Contactez votre administrateur pour corriger la configuration ou donner le consentement au nom du locataire.|
+| AADSTS650057 | ressource non valide. Le client a demandé l’accès à une ressource qui n’est pas listée dans les autorisations demandées dans l’inscription d’application du client. ID d’application cliente : {appId} ({appName}). Valeur de la ressource à partir de la demande : {resource}. ID de l’application de la ressource : {resourceAppId}. Liste des ressources valides de l’inscription de l’application : {regList}. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant : échec d’authentification. Le jeton d’actualisation n'est pas valide. L’erreur peut être due à l’une des raisons suivantes :<ul><li>L’en-tête de liaison de jeton est vide</li><li>Le hachage de liaison de jeton ne correspond pas</li></ul> |
 | AADSTS70001 | UnauthorizedClient : l’application est désactivée. Pour en savoir plus, consultez l’article sur la résolution des problèmes liés à l’erreur [AADSTS70001](/troubleshoot/azure/active-directory/error-code-aadsts70001-app-not-found-in-directory). |
 | AADSTS70002 | InvalidClient : erreur de validation des informations d’identification. La clé secrète client (client_secret) spécifiée ne correspond pas à la valeur attendue pour ce client. Corrigez la clé secrète client, puis réessayez. Pour plus d’informations, consultez [Utiliser le code d’autorisation pour demander un jeton d’accès](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token). |
 | AADSTS70003 | UnsupportedGrantType : l’application a retourné un type d’autorisation non pris en charge. |
+| AADSTS700030 | Certificat non valide : le nom d’objet du certificat n’est pas autorisé. Les SubjectNames/SubjectAlternativeNames (jusqu’à 10) dans le certificat de jeton sont : {certificateSubjects}. |
 | AADSTS70004 | InvalidRedirectUri : l’application a retourné un URI de redirection non valide. L’adresse de redirection spécifiée par le client ne correspond à aucune adresse configurée ni à aucune adresse de la liste d’approbation OIDC. |
 | AADSTS70005 | UnsupportedResponseType : l’application a renvoyé un type de réponse non pris en charge pour les raisons suivantes :<ul><li>Le type de réponse « jeton » n’est pas activé pour l’application</li><li>Le type de réponse « id_token » requiert la portée « OpenID ». La réponse contient une valeur de paramètre OAuth non prise en charge dans l’élément wctx codé.</li></ul> |
 | AADSTS700054 | Response_type « id_token » n’est pas activé pour l’application.  L’application a demandé un jeton d’ID au point de terminaison d’autorisation, mais n’a pas activé l’octroi implicite de jeton d’ID.  Accédez à Portail Azure > Azure Active Directory > Inscriptions d’applications > Sélectionner votre application > Authentification > Sous « Octroi implicite et flux hybrides », assurez-vous que « Jetons d’ID » est sélectionné.|
@@ -212,6 +221,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS70016 | AuthorizationPending : erreur de flux d’appareil d’OAuth 2.0. Une autorisation est en attente. L’appareil va réessayer l’interrogation de la requête. |
 | AADSTS70018 | BadVerificationCode : le code de vérification n’est pas valide, car l’utilisateur a saisi un code utilisateur incorrect pour le flux de code d’appareil. L’autorisation n’est pas approuvée. |
 | AADSTS70019 | CodeExpired : le code de vérification a expiré. Demandez à l’utilisateur de réessayer de se connecter. |
+| AADSTS70043 | Le jeton d’actualisation a expiré ou n’est pas valide en raison des vérifications de la fréquence de connexion par l’accès conditionnel. Le jeton a été émis le {issueDate} et la durée de vie maximale autorisée pour cette demande est {time}. |
 | AADSTS75001 | BindingSerializationError : une erreur s’est produite lors de la liaison de message SAML. |
 | AADSTS75003 | UnsupportedBindingError : l’application a renvoyé une erreur relative à une liaison non prise en charge (impossible d’envoyer une réponse de protocole SAML via des liaisons autres que HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid : Azure AD ne prend pas en charge les requêtes SAML envoyées par l’application pour l’authentification unique. Pour en savoir plus, consultez l’article sur la résolution des problèmes liés à l’erreur [AADSTS75005](/troubleshoot/azure/active-directory/error-code-aadsts75005-not-a-valid-saml-request). |
@@ -243,20 +253,25 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS90008 | TokenForItselfRequiresGraphPermission : l’utilisateur ou l’administrateur n’a pas accepté d’utiliser l’application. Au minimum, l’application requiert l’accès à Azure AD en spécifiant l’autorisation de connexion et de lecture du profil utilisateur. |
 | AADSTS90009 | TokenForItselfMissingIdenticalAppIdentifier : l’application demande un jeton pour elle-même. Ce scénario est pris en charge uniquement si la ressource spécifiée utilise l’ID d’application basé sur GUID. |
 | AADSTS90010 | NotSupported : impossible de créer l’algorithme. |
+| AADSTS9001023 |Le type d’autorisation n’est pas pris en charge sur les points de terminaison /common ou /consumers. Utilisez le point de terminaison /organizations ou propre au locataire.|
 | AADSTS90012 | RequestTimeout : la demandé a expiré. |
 | AADSTS90013 | InvalidUserInput : l’entrée de l’utilisateur n’est pas valide. |
 | AADSTS90014 | MissingRequiredField : ce code d’erreur peut apparaître dans différents cas lorsqu’un champ attendu est absent des informations d’identification. |
+| AADSTS900144 | Le corps de la requête doit contenir le paramètre : '{name}'.  Erreur du développeur : l’application tente de se connecter sans les paramètres d’authentification nécessaires ou corrects.|
 | AADSTS90015 | QueryStringTooLong : la chaîne de la requête est trop longue. |
 | AADSTS90016 | MissingRequiredClaim : le jeton d’accès n’est pas valide. La revendication requise est manquante. |
 | AADSTS90019 | MissingTenantRealm : Azure AD n’a pas pu déterminer l’identificateur de locataire à partir de la requête. |
+| AADSTS90020 | L’assertion SAML 1.1 ne contient pas l’ImmutableID de l’utilisateur. Erreur du développeur : l’application tente de se connecter sans les paramètres d’authentification nécessaires ou corrects.|
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat : le format du nom du principal n’est pas valide ou ne répond pas au format `name[/host][@realm]` attendu. Le nom du principal est requis, l’hôte et le domaine sont facultatifs et peuvent être définis sur null. |
 | AADSTS90023 | InvalidRequest - La demande de service d’authentification n’est pas valide. |
 | AADSTS9002313 | InvalidRequest - La requête est non valide ou incorrecte. - Le problème ici est la conséquence d’une erreur survenue au niveau de la requête à un point de terminaison donné. La suggestion pour corriger ce problème consiste à obtenir une trace Fiddler de l’erreur qui se produit et à vérifier si la requête est correctement mise en forme ou non. |
 | AADSTS90024 | RequestBudgetExceededError : une erreur temporaire s’est produite. Réessayez. |
+| AADSTS90027 | Nous ne pouvons pas émettre de jetons à partir de cette version d’API sur le locataire MSA. Contactez le fournisseur de l’application, car il doit utiliser la version 2.0 du protocole pour la prendre en charge.|
 | AADSTS90033 | MsodsServiceUnavailable : Microsoft Online Directory Service (MSODS) n’est pas disponible. |
 | AADSTS90036 | MsodsServiceUnretryableFailure : une erreur inattendue et non renouvelable provenant du service WCF hébergé par MSODS s’est produite. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur. |
 | AADSTS90038 | NationalCloudTenantRedirection : le locataire spécifié « Y » appartient au Cloud National « X ». L’instance de cloud actuelle « Z » n’est pas fédérée avec X. Une erreur de redirection de cloud est retournée. |
 | AADSTS90043 | NationalCloudAuthCodeRedirection : la fonctionnalité est désactivée. |
+| AADSTS900432 | Le client confidentiel n’est pas pris en charge dans une requête intercloud.|
 | AADSTS90051 | InvalidNationalCloudId : l’identificateur de cloud national contient un identificateur de cloud non valide. |
 | AADSTS90055 | TenantThrottlingError : il y a un trop grand nombre de requêtes entrantes. Cette exception est levée pour les locataires bloqués. |
 | AADSTS90056 | BadResourceRequest : pour utiliser le code pour un jeton d’accès, l’application doit envoyer une requête POST au point de terminaison `/token`. En outre, avant cela, vous devez fournir un code d’autorisation et l’envoyer dans la requête POST au point de terminaison `/token`. Consultez cet article pour une vue d’ensemble du flux du code d’autorisation OAuth 2.0 : [../azuread-dev/v1-protocols-oauth-code.md](../azuread-dev/v1-protocols-oauth-code.md). Dirigez l’utilisateur vers le point de terminaison `/authorize`, qui retournera un code d’autorisation. En publiant une requête pour le point de terminaison `/token`, l’utilisateur obtient le jeton d’accès. Ouvrez une session dans le portail Azure et vérifiez **Inscriptions d'applications > Points de terminaison** pour confirmer que les deux points de terminaison ont été configurés correctement. |
@@ -273,6 +288,7 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS90093 | GraphUserUnauthorized : graphique retourné avec un code d’erreur interdit pour la demande. |
 | AADSTS90094 | AdminConsentRequired : le consentement de l’administrateur est requis. |
 | AADSTS900382 | Le client confidentiel n’est pas pris en charge dans une requête intercloud. |
+| AADSTS90095  | AdminConsentRequiredRequestAccess : dans le cadre du flux de travail du consentement de l’administrateur, une interruption s’affiche lorsque l’utilisateur est informé qu’il doit demander son consentement à l’administrateur.  |
 | AADSTS90099 | L’application « {appId} » ({appName}) n’a pas été autorisée dans le locataire « {tenant} ». Les applications doivent être autorisées à accéder au locataire du client pour pouvoir être utilisées par les administrateurs délégués partenaires. Fournissez un préconsentement ou exécutez l’API appropriée de l’Espace partenaires pour autoriser l’application. |
 | AADSTS900971| Aucune adresse de réponse n’est fournie.|
 | AADSTS90100 | InvalidRequestParameter : le paramètre est vide ou non valide. |
@@ -311,8 +327,10 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS130007 | NgcDeviceIsDisabled : l’appareil est désactivé. |
 | AADSTS130008 | NgcDeviceIsNotFound : l’appareil référencé par la clé NGC est introuvable. |
 | AADSTS135010 | KeyNotFound |
+| AADSTS135011 |  L’appareil utilisé pendant l’authentification est désactivé.|
 | AADSTS140000 | InvalidRequestNonce : aucune valeur à usage unique n’est fournie pour la demande. |
 | AADSTS140001 | InvalidSessionKey : la clé de session n’est pas valide.|
+| AADSTS165004 | Le contenu du message réel est spécifique au runtime. Consultez le message de l'exception renvoyé pour obtenir plus d'informations. |
 | AADSTS165900 | InvalidApiRequest : demande non valide. |
 | AADSTS220450 | UnsupportedAndroidWebViewVersion : la version de Chrome WebView n’est pas prise en charge. |
 | AADSTS220501 | InvalidCrlDownload |
@@ -329,6 +347,8 @@ Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectue
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant : le code d’autorisation fourni est destiné à être utilisé auprès d’un autre locataire et a donc été rejeté. Le code d’autorisation OAuth2 doit être échangé auprès du même locataire pour lequel il a été acquis (/common ou /{tenant-ID}, le cas échéant) |
 | AADSTS1000000 | UserNotBoundError : l’API Bind nécessite que l’utilisateur Azure AD s’authentifie également auprès d’un fournisseur d’identité externe, ce qui n’a pas encore été effectué. |
 | AADSTS1000002 | BindCompleteInterruptError : la liaison s’est terminée correctement, mais l’utilisateur doit être informé. |
+| AADSTS100007 | Les régions AAD prennent UNIQUEMENT en charge l’authentification pour les fichiers MSI ou pour les demandes de MSAL à l’aide de SN+I pour les applications 1P ou 3P dans les locataires de l’infrastructure Microsoft.|
+| AADSTS1000031 | L’application {appDisplayName} n’est pas accessible pour l’instant. Contactez votre administrateur. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled : l’application est désactivée. |
 | AADSTS7000114| L’application « appIdentifier » n’est pas autorisée à effectuer des appels au nom de l’application.|
 | AADSTS7500529 | La valeur « SAMLId-GUID » n’est pas un ID SAML valide - Azure AD utilise cet attribut pour remplir l’attribut InResponseTo de la réponse retournée. L’ID ne doit pas commencer par un nombre ; vous pouvez donc suivre la stratégie courante qui consiste à ajouter une chaîne de type « id » devant la représentation sous forme de chaîne d’un GUID. Par exemple, id6c1c178c166d486687be4aaf5e482730 est un ID valide. |

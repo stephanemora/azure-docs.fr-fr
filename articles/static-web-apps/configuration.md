@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 08/27/2021
 ms.author: cshoe
-ms.openlocfilehash: f2dacc8a0ed551fd92b916e25dfd87695e2576d3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 25358033e88fbfb1590289e6fbad8e4109e0dbbf
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570834"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399581"
 ---
 # <a name="configure-azure-static-web-apps"></a>Configurer Azure Static Web Apps
 
@@ -59,22 +59,22 @@ Le fichier par défaut pour le contenu statique est le fichier _index.html_.
 
 Chaque règle est composée d’un modèle d’itinéraire, ainsi que d’une ou plusieurs des propriétés facultatives de la règle. Les règles de routage sont définies dans le tableau `routes`. Pour obtenir des exemples d’utilisation, consultez l’[exemple de fichier config](#example-configuration-file).
 
-| Propriété de la règle                       | Obligatoire | Valeur par défaut                        | Commentaire                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------------- | -------- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `route`                             | Oui      | n/a                                  | Modèle d’itinéraire demandé par l’appelant.<ul><li>[Les caractères génériques](#wildcards) sont pris en charge à la fin des chemins d’accès d’itinéraire.<ul><li>Par exemple, l’itinéraire _admin/\*_ correspond à n’importe quel itinéraire sous le chemin d’accès _admin_.</ul></ul>                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `rewrite`                           | Non       | n/a                                  | Définit le fichier ou le chemin d’accès retourné par la demande.<ul><li>S’exclut réciproquement d’une règle `redirect`.<li>Les règles de réécriture ne modifient pas l’emplacement du navigateur.<li>Les valeurs doivent être relatives à la racine de l’application.</ul>                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `redirect`                          | Non       | n/a                                  | Définit la destination de redirection du fichier ou du chemin d’accès pour une requête.<ul><li>S’exclut réciproquement d’une règle `rewrite`.<li>Les règles de redirection modifient l’emplacement du navigateur.<li>Le code de réponse par défaut est un code [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (redirection temporaire), mais vous pouvez le remplacer par un code [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (redirection permanente).</ul>                                                                                                                                                                                                              |
-| `allowedRoles`                      | Non       | anonyme                            | Définit une liste de noms de rôles requis pour accéder à un itinéraire. <ul><li>Les caractères valides sont `a-z`, `A-Z`, `0-9` et `_`.<li>Le rôle intégré [`anonymous`](./authentication-authorization.md) s’applique à tous les utilisateurs non authentifiés.<li>Le rôle intégré [`authenticated`](./authentication-authorization.md) s’applique à tous les utilisateurs connectés.<li>Les utilisateurs doivent appartenir à au moins un rôle.<li>Les rôles sont mis en correspondance sur une base _OU_.<ul><li>Si un utilisateur se trouve dans l’un des rôles de la liste, l’accès est accordé.</ul><li>Les utilisateurs individuels sont associés à des rôles par le biais des [invitations](authentication-authorization.md).</ul> |
-| `headers`<a id="route-headers"></a> | Non       | n/a                                  | Ensemble d’[en-têtes HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers) ajoutés à la réponse. <ul><li>Les en-têtes spécifiques à l’itinéraire remplacent [`globalHeaders`](#global-headers) lorsque l’en-tête spécifique à l’itinéraire est le même que l’en-tête global dans la réponse.<li>Pour supprimer un en-tête, définissez la valeur sur une chaîne vide.</ul>                                                                                                                                                                                                                                                                                          |
-| `statusCode`                        | Non       | `200`, `301` ou `302` pour les redirections | [Code d’état HTTP](https://developer.mozilla.org/docs/Web/HTTP/Status) de la réponse.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| `methods`                           | Non       | Toutes les méthodes                          | Liste des méthodes de demande qui correspondent à un itinéraire. Les méthodes disponibles sont notamment : `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` et `PATCH`.                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Propriété de la règle | Obligatoire | Valeur par défaut | Commentaire |
+|--|--|--|--|
+| `route` | Oui | n/a | Modèle d’itinéraire demandé par l’appelant.<ul><li>[Les caractères génériques](#wildcards) sont pris en charge à la fin des chemins d’accès d’itinéraire.<ul><li>Par exemple, l’itinéraire _admin/\*_ correspond à n’importe quel itinéraire sous le chemin d’accès _admin_.</ul></ul> |
+| `rewrite` | Non | n/a | Définit le fichier ou le chemin d’accès retourné par la demande.<ul><li>S’exclut réciproquement d’une règle `redirect`.<li>Les règles de réécriture ne modifient pas l’emplacement du navigateur.<li>Les valeurs doivent être relatives à la racine de l’application.</ul> |
+| `redirect` | Non | n/a | Définit la destination de redirection du fichier ou du chemin d’accès pour une requête.<ul><li>S’exclut réciproquement d’une règle `rewrite`.<li>Les règles de redirection modifient l’emplacement du navigateur.<li>Le code de réponse par défaut est un code [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (redirection temporaire), mais vous pouvez le remplacer par un code [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (redirection permanente).</ul> |
+| `allowedRoles` | Non | anonyme | Définit une liste de noms de rôles requis pour accéder à un itinéraire. <ul><li>Les caractères valides sont `a-z`, `A-Z`, `0-9` et `_`.<li>Le rôle intégré [`anonymous`](./authentication-authorization.md) s’applique à tous les utilisateurs non authentifiés.<li>Le rôle intégré [`authenticated`](./authentication-authorization.md) s’applique à tous les utilisateurs connectés.<li>Les utilisateurs doivent appartenir à au moins un rôle.<li>Les rôles sont mis en correspondance sur une base _OU_.<ul><li>Si un utilisateur se trouve dans l’un des rôles de la liste, l’accès est accordé.</ul><li>Les utilisateurs individuels sont associés à des rôles par le biais des [invitations](authentication-authorization.md).</ul> |
+| `headers`<a id="route-headers"></a> | Non | n/a | Ensemble d’[en-têtes HTTP](https://developer.mozilla.org/docs/Web/HTTP/Headers) ajoutés à la réponse. <ul><li>Les en-têtes spécifiques à l’itinéraire remplacent [`globalHeaders`](#global-headers) lorsque l’en-tête spécifique à l’itinéraire est le même que l’en-tête global dans la réponse.<li>Pour supprimer un en-tête, définissez la valeur sur une chaîne vide.</ul> |
+| `statusCode` | Non | `200`, `301` ou `302` pour les redirections | [Code d’état HTTP](https://developer.mozilla.org/docs/Web/HTTP/Status) de la réponse. |
+| `methods` | Non | Toutes les méthodes | Liste des méthodes de demande qui correspondent à un itinéraire. Les méthodes disponibles sont notamment : `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE` et `PATCH`. |
 
 Chaque propriété a un objectif spécifique dans le pipeline de demande/réponse.
 
-| Objectif                                        | Propriétés                                                                                   |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Faire correspondre les itinéraires                                   | `route`, `methods`                                                                           |
-| Autoriser après la mise en correspondance d’un itinéraire             | `allowedRoles`                                                                               |
+| Objectif | Propriétés |
+|--|--|
+| Faire correspondre les itinéraires | `route`, `methods` |
+| Autoriser après la mise en correspondance d’un itinéraire | `allowedRoles` |
 | Traiter après la mise en correspondance et l’autorisation d’une règle | `rewrite` (modifie la demande) <br><br>`redirect`, `headers`, `statusCode` (modifie la réponse) |
 
 ## <a name="securing-routes-with-roles"></a>Sécurisation des itinéraires avec des rôles
@@ -187,15 +187,15 @@ Dans l’exemple de structure de fichiers ci-dessous, les résultats suivants so
 └── index.html
 ```
 
-| Demande...                                         | renvoie…                                                                                                    | avec l’état… |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ------------------ |
-| _/about/_                                              | Le fichier _/index.html_                                                                                        | `200`              |
-| _/images/logo.png_                                     | Le fichier image                                                                                                | `200`              |
-| _/images/icon.svg_                                     | Le fichier _/index.html_, puisque l’extension de fichier _svg_ n’est pas listée dans le filtre `/images/*.{png,jpg,gif}` | `200`              |
-| _/images/unknown.png_                                  | Erreur Fichier introuvable                                                                                          | `404`              |
-| _/css/unknown.css_                                     | Erreur Fichier introuvable                                                                                          | `404`              |
-| _/css/global.css_                                      | Le fichier de feuille de style                                                                                           | `200`              |
-| Tout autre fichier en dehors des dossiers _/images_ ou _/css_ | Le fichier _/index.html_                                                                                        | `200`              |
+| Demande... | renvoie… | avec l’état… |
+|--|--|--|
+| _/about/_ | Le fichier _/index.html_ | `200` |
+| _/images/logo.png_ | Le fichier image | `200` |
+| _/images/icon.svg_ | Le fichier _/index.html_, puisque l’extension de fichier _svg_ n’est pas listée dans le filtre `/images/*.{png,jpg,gif}` | `200` |
+| _/images/unknown.png_ | Erreur Fichier introuvable | `404` |
+| _/css/unknown.css_ | Erreur Fichier introuvable | `404` |
+| _/css/global.css_ | Le fichier de feuille de style | `200` |
+| Tout autre fichier en dehors des dossiers _/images_ ou _/css_ | Le fichier _/index.html_ | `200` |
 
 > [!IMPORTANT]
 > Si vous effectuez une migration à partir du fichier [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) déconseillé, n’incluez pas l’itinéraire de secours hérité (`"route": "/*"`) dans les [règles d’acheminement](#routes).
@@ -220,12 +220,12 @@ La section `responseOverrides` permet de définir une réponse personnalisée lo
 
 Les codes HTTP suivants peuvent être remplacés :
 
-| Code d’état                                                   | Signification      | Cause possible                                                                                                                                                                                                                                                                                     |
-| ------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Demande incorrecte  | Lien d’invitation non valide.                                                                                                                                                                                                                                                                            |
-| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Non autorisé | Demande de pages à accès restreint sans authentification.                                                                                                                                                                                                                                                  |
-| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Interdit    | <ul><li>L’utilisateur est connecté, mais ne dispose pas des rôles nécessaires pour afficher la page.<li>L’utilisateur est connecté, mais le runtime ne peut pas récupérer les détails de l’utilisateur à partir de ses revendications d’identité.<li>Trop d’utilisateurs sont connectés au site avec des rôles personnalisés. Le runtime ne peut donc pas connecter l’utilisateur.</ul> |
-| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Introuvable    | Fichier introuvable                                                                                                                                                                                                                                                                                     |
+| Code d’état | Signification | Cause possible |
+|--|--|--|
+| [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Demande incorrecte | Lien d’invitation non valide. |
+| [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Non autorisé | Demande de pages à accès restreint sans authentification. |
+| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Interdit | <ul><li>L’utilisateur est connecté, mais ne dispose pas des rôles nécessaires pour afficher la page.<li>L’utilisateur est connecté, mais le runtime ne peut pas récupérer les détails de l’utilisateur à partir de ses revendications d’identité.<li>Trop d’utilisateurs sont connectés au site avec des rôles personnalisés. Le runtime ne peut donc pas connecter l’utilisateur.</ul> |
+| [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Introuvable | Fichier introuvable |
 
 L’exemple de configuration suivant montre comment remplacer un code d’erreur.
 
@@ -272,10 +272,61 @@ Définissez chaque bloc d’adresses IPv4 dans la notation CIDR (Classless Inte
 
 Lorsqu’un ou plusieurs blocs d’adresses IP sont spécifiés, les demandes provenant d’adresses IP qui ne correspondent à aucune valeur dans `allowedIpRanges` se voient refuser l’accès.
 
-## <a name="authentication"></a>Authentification 
+En plus des blocs d’adresses IP, vous pouvez également spécifier des [étiquettes de service](../virtual-network/service-tags-overview.md) dans le tableau `allowedIpRanges` pour limiter le trafic vers certains services Azure.
+
+```json
+"networking": {
+  "allowedIpRanges": ["AzureFrontDoor.Backend"]
+}
+```
+
+## <a name="authentication"></a>Authentification
 
 * Les [fournisseurs d’authentification par défaut](authentication-authorization.md#login) ne nécessitent pas de paramètres dans le fichier de configuration. 
-* Les [fournisseurs d’authentification personnalisés](authentication-custom.md) utilisent la `authentication`propriété du fichier de paramètres. 
+* Les [fournisseurs d’authentification personnalisés](authentication-custom.md) utilisent la section `auth` du fichier de paramètres.
+
+## <a name="forwarding-gateway"></a>Passerelle de transfert
+
+La section `forwardingGateway` configure le mode d’accès à une application web statique à partir d’une passerelle de transfert, telle qu’un CDN ou une Azure Front Door.
+
+> [!NOTE]
+> La configuration de la passerelle de transfert est uniquement disponible dans le plan Standard d’Azure Static Web Apps.
+
+### <a name="allowed-forwarded-hosts"></a>Hôtes transférés autorisés
+  
+La liste `allowedForwardedHosts` spécifie les noms d’hôte à accepter dans l’en-tête [X-Forwarded-Host](https://developer.mozilla.org/docs/Web/HTTP/Headers/X-Forwarded-Host). Si un domaine correspondant figure dans la liste, Static Web Apps utilise la valeur `X-Forwarded-Host` lors de la construction des URL de redirection, par exemple après une connexion réussie.
+
+Pour que Static Web Apps fonctionne correctement derrière une passerelle de transfert, la demande de la passerelle doit inclure le nom d’hôte correct dans l'en-tête `X-Forwarded-Host` et le même nom d’hôte doit être indiqué dans `allowedForwardedHosts`.
+
+```json
+"forwardingGateway": {
+  "allowedForwardedHosts": [
+    "example.org",
+    "www.example.org",
+    "staging.example.org"
+  ]
+}
+```
+
+Si l'en-tête `X-Forwarded-Host` ne correspond pas à une valeur de la liste, les demandes sont toujours exécutées, mais l’en-tête n’est pas utilisé dans la réponse.
+
+### <a name="required-headers"></a>En-têtes obligatoires
+
+Les en-têtes requis sont des en-têtes HTTP qui doivent être envoyés avec chaque demande adressée à votre site. Une utilisation des en-têtes requis consiste à refuser l’accès à un site, sauf si tous les en-têtes requis sont présents dans chaque demande.
+
+Par exemple, la configuration suivante montre comment vous pouvez ajouter un identificateur unique pour [Azure Front Door](../frontdoor/front-door-overview.md) qui limite l’accès à votre site à partir d’une instance Azure Front Door. Pour plus d’informations, consultez le [didacticiel Configurer Azure Front Door ](front-door-manual.md).
+
+```json
+"forwardingGateway": {
+  "requiredHeaders": {
+    "X-Azure-FDID" : "692a448c-2b5d-4e4d-9fcc-2bc4a6e2335f"
+  }
+}
+```
+
+- Les paires clé/valeur peuvent être n’importe quel ensemble de chaînes arbitraires
+- Les clés sont insensibles à la casse
+- Les valeurs respectent la casse
 
 ## <a name="example-configuration-file"></a>Exemple de fichier de configuration
 
@@ -366,21 +417,21 @@ Lorsqu’un ou plusieurs blocs d’adresses IP sont spécifiés, les demandes p
 
 En fonction de la configuration ci-dessus, passez en revue les scénarios suivants.
 
-| Demande...                                                    | a pour résultat…                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| _/profile_                                                        | Les utilisateurs authentifiés reçoivent le fichier _/profile/index.html_. Les utilisateurs non authentifiés sont redirigés vers _/login_.                                                                                                                                                                                                                                                                                                                              |
-| _/admin/_                                                         | Les utilisateurs authentifiés ayant le rôle _administrator_ reçoivent le fichier _/admin/index.html_. Les utilisateurs authentifiés qui n’ont pas le rôle _administrator_ reçoivent une erreur `403`<sup>1</sup>. Les utilisateurs non authentifiés sont redirigés vers _/login_.                                                                                                                                                                                                          |
-| _/logo.png_                                                       | Délivre l’image avec une règle de cache personnalisée dont l’âge maximal est un peu plus de 182 jours (15 770 000 secondes).                                                                                                                                                                                                                                                                                                                                   |
-| _/api/admin_                                                      | Les demandes `GET` des utilisateurs authentifiés ayant le rôle _registeredusers_ sont envoyées à l’API. Les utilisateurs authentifiés qui n’ont pas le rôle _registeredusers_ et les utilisateurs non authentifiés reçoivent une erreur `401`.<br/><br/>Les demandes `POST`, `PUT`, `PATCH` et `DELETE` des utilisateurs authentifiés ayant le rôle _administrator_ sont envoyées à l’API. Les utilisateurs authentifiés qui n’ont pas le rôle _administrator_ et les utilisateurs non authentifiés reçoivent une erreur `401`. |
-| _/customers/contoso_                                              | Les utilisateurs authentifiés qui appartiennent aux rôles _administrator_ ou _customers_contoso_ reçoivent le fichier _/customers/contoso/index.html_. Les utilisateurs authentifiés qui n’ont pas le rôle _administrator_ ou _customers_contoso_ reçoivent une erreur `403` <sup>1</sup>. Les utilisateurs non authentifiés sont redirigés vers _/login_.                                                                                                                            |
-| _/login_                                                          | Les utilisateurs non authentifiés sont invités à s’authentifier auprès de GitHub.                                                                                                                                                                                                                                                                                                                                                                             |
-| _/.auth/login/twitter_                                            | Comme l’autorisation avec Twitter est désactivée par la règle d’acheminement, une erreur `404` est renvoyée, ce qui revient à remettre _/index.html_ avec un code d’état `200`.                                                                                                                                                                                                                                                                                     |
-| _/logout_                                                         | Les utilisateurs sont déconnectés de tous les fournisseurs d’authentification.                                                                                                                                                                                                                                                                                                                                                                                          |
-| _/calendar/2021/01_                                               | Le navigateur reçoit le fichier _/calendar.html_.                                                                                                                                                                                                                                                                                                                                                                                              |
-| _/specials_                                                       | Le navigateur est redirigé de façon permanente vers _/deals_.                                                                                                                                                                                                                                                                                                                                                                                            |
-| _/data.json_                                                      | Le fichier remis avec le type MIME `text/json`.                                                                                                                                                                                                                                                                                                                                                                                               |
-| _/about_, ou tout dossier qui correspond aux modèles de routage côté client | Le fichier _/index.html_ est remis avec un code d’état `200`.                                                                                                                                                                                                                                                                                                                                                                                    |
-| Un fichier inexistant dans le dossier _/images/_                     | Une erreur `404`.                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Demande... | a pour résultat… |
+|--|--|
+| _/profile_ | Les utilisateurs authentifiés reçoivent le fichier _/profile/index.html_. Les utilisateurs non authentifiés sont redirigés vers _/login_. |
+| _/admin/_ | Les utilisateurs authentifiés ayant le rôle _administrator_ reçoivent le fichier _/admin/index.html_. Les utilisateurs authentifiés qui n’ont pas le rôle _administrator_ reçoivent une erreur `403`<sup>1</sup>. Les utilisateurs non authentifiés sont redirigés vers _/login_. |
+| _/logo.png_ | Délivre l’image avec une règle de cache personnalisée dont l’âge maximal est un peu plus de 182 jours (15 770 000 secondes). |
+| _/api/admin_ | Les demandes `GET` des utilisateurs authentifiés ayant le rôle _registeredusers_ sont envoyées à l’API. Les utilisateurs authentifiés qui n’ont pas le rôle _registeredusers_ et les utilisateurs non authentifiés reçoivent une erreur `401`.<br/><br/>Les demandes `POST`, `PUT`, `PATCH` et `DELETE` des utilisateurs authentifiés ayant le rôle _administrator_ sont envoyées à l’API. Les utilisateurs authentifiés qui n’ont pas le rôle _administrator_ et les utilisateurs non authentifiés reçoivent une erreur `401`. |
+| _/customers/contoso_ | Les utilisateurs authentifiés qui appartiennent aux rôles _administrator_ ou _customers_contoso_ reçoivent le fichier _/customers/contoso/index.html_. Les utilisateurs authentifiés qui n’ont pas le rôle _administrator_ ou _customers_contoso_ reçoivent une erreur `403` <sup>1</sup>. Les utilisateurs non authentifiés sont redirigés vers _/login_. |
+| _/login_ | Les utilisateurs non authentifiés sont invités à s’authentifier auprès de GitHub. |
+| _/.auth/login/twitter_ | Comme l’autorisation avec Twitter est désactivée par la règle d’acheminement, une erreur `404` est renvoyée, ce qui revient à remettre _/index.html_ avec un code d’état `200`. |
+| _/logout_ | Les utilisateurs sont déconnectés de tous les fournisseurs d’authentification. |
+| _/calendar/2021/01_ | Le navigateur reçoit le fichier _/calendar.html_. |
+| _/specials_ | Le navigateur est redirigé de façon permanente vers _/deals_. |
+| _/data.json_ | Le fichier remis avec le type MIME `text/json`. |
+| _/about_, ou tout dossier qui correspond aux modèles de routage côté client | Le fichier _/index.html_ est remis avec un code d’état `200`. |
+| Un fichier inexistant dans le dossier _/images/_ | Une erreur `404`. |
 
 <sup>1</sup> Vous pouvez fournir une page d’erreur personnalisée en utilisant une [règle de remplacement de la réponse](#response-overrides).
 

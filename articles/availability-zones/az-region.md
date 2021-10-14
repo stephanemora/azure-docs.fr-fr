@@ -4,16 +4,16 @@ description: Pour créer des applications hautement disponibles et résilientes 
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/05/2021
 ms.author: prsandhu
 ms.reviewer: cnthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 26d4464d67634d5660796ce24dc9b9dc2505e0ef
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 22b6f4570736d891b7cbcb9c0d2c10d6847ee83f
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218239"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533652"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Services Azure prenant en charge les zones de disponibilité
 
@@ -49,13 +49,13 @@ Pour obtenir la continuité complète des activités sur Azure, générez votre 
 
 | Amérique           | Europe               | Afrique              | Asie-Pacifique   |
 |--------------------|----------------------|---------------------|----------------|
-| Brésil Sud       | France Centre       | Afrique du Sud Nord* | Australie Est |
+| Brésil Sud       | France Centre       | Afrique du Sud Nord  | Australie Est |
 | Centre du Canada     | Allemagne Centre-Ouest |                     | Inde Centre* |
 | USA Centre         | Europe Nord         |                     | Japon Est     |
-| USA Est            | Norvège Est          |                     | Corée Centre* |
+| USA Est            | Norvège Est          |                     | Centre de la Corée  |
 | USA Est 2          | Sud du Royaume-Uni             |                     | Asie Sud-Est |
 | États-Unis - partie centrale méridionale   | Europe Ouest          |                     |                |
-| Gouvernement américain - Virginie    |                      |                     |                |
+| Gouvernement américain - Virginie    | Suède*              |                     |                |
 | USA Ouest 2          |                      |                     |                |
 | USA Ouest 3          |                      |                     |                |
 
@@ -152,7 +152,7 @@ Pour obtenir la continuité complète des activités sur Azure, générez votre 
 |     [HDInsight](/azure/hdinsight/hdinsight-use-availability-zones)                                                                               | :large_blue_diamond:  |
 |     [Network Watcher](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                                     | :large_blue_diamond:  |
 |     Network Watcher : [Traffic Analytics](/azure/network-watcher/frequently-asked-questions#service-availability-and-redundancy)                  | :large_blue_diamond:  |
-|     [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)                                                      | :large_blue_diamond:  |
+|     [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)                                                      | :large_blue_diamond:  |
 |     [Stockage Blob Premium](../storage/blobs/storage-blob-performance-tiers.md)                                        | :large_blue_diamond:  |
 |     Stockage : [Azure Premium Files](../storage/files/storage-files-planning.md)                                | :large_blue_diamond:  |
 |     Machines virtuelles : [Azure Dedicated Host](../virtual-machines/windows/create-powershell-availability-zone.md)                     | :large_blue_diamond:  |

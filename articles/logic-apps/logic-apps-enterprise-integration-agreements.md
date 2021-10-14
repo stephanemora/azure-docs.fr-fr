@@ -1,6 +1,6 @@
 ---
 title: Définir les accords entre partenaires dans les flux de travail
-description: Ajoutez des accords à votre compte d’intégration pour les flux de travail dans Azure Logic Apps à l’aide de l’extension Enterprise Integration Pack.
+description: Ajoutez des accords entre des partenaires dans votre compte d’intégration pour les flux de travail dans Azure Logic Apps à l’aide de l’extension Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.openlocfilehash: 3a1b714be1f6eb70a4780c7abf58f13a45eb3f3f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7b634da15248513ee782967eb1c86092e940ec9b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584160"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361308"
 ---
-# <a name="add-agreements-between-partners-to-integration-accounts-for-workflows-in-azure-logic-apps"></a>Ajouter des accords entre partenaires à des comptes d’intégration pour les flux de travail dans Azure Logic Apps
+# <a name="add-agreements-between-partners-in-integration-accounts-for-workflows-in-azure-logic-apps"></a>Ajouter des accords entre partenaires à des comptes d’intégration pour les flux de travail dans Azure Logic Apps
 
 Après avoir ajouté des partenaires à votre compte d’intégration, spécifiez la manière dont les partenaires échangent des messages en définissant des [*accords*](logic-apps-enterprise-integration-agreements.md) dans votre compte d’intégration. Les accords aident les organisations à communiquer entre elles de manière transparente en définissant le protocole conforme aux normes du secteur d’activité spécifique à l’échange de messages et en offrant les avantages partagés suivants :
 
@@ -35,20 +35,20 @@ Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Lo
 
 * Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) dans laquelle vous définissez et stockez les artefacts, comme les parties, les contrats, les certificats, etc., à utiliser dans vos workflows d’intégration d’entreprise et B2B. Cette ressource doit remplir les conditions suivantes :
+* Une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) dans laquelle vous définissez et stockez les artefacts, comme les parties, les contrats, les certificats, etc., à utiliser dans vos flux de travail d’intégration d’entreprise et B2B. Cette ressource doit remplir les conditions suivantes :
 
   * Associé au même abonnement Azure que votre ressource d’application logique.
 
   * Existe dans le même emplacement ou la même région Azure que votre ressource d’application logique.
 
-  * Si vous utilisez le [type de ressource **Application logique (Consommation)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration requiert un [lien vers votre ressource d’application logique](logic-apps-enterprise-integration-create-integration-account.md#link-account) avant de pouvoir utiliser des artefacts dans votre workflow.
+  * Si vous utilisez le [type de ressource **Application logique (Consommation)**](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration requiert un [lien vers votre ressource d’application logique](logic-apps-enterprise-integration-create-integration-account.md#link-account) avant de pouvoir utiliser des artefacts dans votre workflow.
 
-  * Si vous utilisez le [type de ressource **Application logique (Standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration n’a pas besoin d’un lien vers votre ressource d’application logique, mais il est toujours nécessaire pour stocker d’autres artefacts, comme les partenaires, contrats et certificats, ainsi que pour utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](logic-apps-enterprise-integration-edifact.md). Votre compte d’intégration doit encore répondre à d’autres exigences, telles que l’utilisation du même abonnement Azure et le même emplacement que votre ressource d’application logique.
+  * Si vous utilisez le [type de ressource **Application logique (Standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration n’a pas besoin d’un lien vers votre ressource d’application logique, mais il est toujours nécessaire pour stocker d’autres artefacts, comme les partenaires, contrats et certificats, ainsi que pour utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](logic-apps-enterprise-integration-edifact.md). Votre compte d’intégration doit toujours répondre à d’autres exigences, comme l’utilisation du même abonnement Azure et la présence dans le même emplacement que votre ressource d’application logique.
 
   > [!NOTE]
   > Actuellement, seul le type de ressource **Application logique (Consommation)** prend en charge les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). Le type de ressource **Application logique (Standard)** n’inclut pas les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 
-* Au moins deux [parties](logic-apps-enterprise-integration-partners.md) dans votre compte d’intégration. Un accord requiert un partenaire hôte et un partenaire invité. En outre, un accord requiert que les deux partenaires utilisent le même qualificateur d’*identité d’entreprise* ou un qualificateur compatible et approprié pour un accord AS2, X12, EDIFACT ou RosettaNet.
+* Au moins deux [partenaires commerciaux](logic-apps-enterprise-integration-partners.md) dans votre compte d’intégration. Un accord requiert un partenaire hôte et un partenaire invité. En outre, un accord requiert que les deux partenaires utilisent le même qualificateur d’*identité d’entreprise* ou un qualificateur compatible et approprié pour un accord AS2, X12, EDIFACT ou RosettaNet.
 
 * Il peut aussi s’agir de la ressource d’application logique et du flux de travail dans lesquels vous souhaitez utiliser l’accord pour échanger des messages. Le workflow nécessite un déclencheur qui démarre le workflow de votre application logique.
 

@@ -8,12 +8,12 @@ ms.author: johndeu
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.service: media-services
-ms.openlocfilehash: a8b40206a73672b1d6bbb0ecded26b9f974be6b9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 553fb2b55a5b183b596016c2942106ead99e79c4
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277587"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387161"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Guide pratique pour vérifier votre encodeur de streaming en direct local
 
@@ -26,7 +26,7 @@ En tant que partenaire d’encodeur local d’Azure Media Services, Media Servic
 ## <a name="pass-through-live-event-verification"></a>Vérification d'un Événement en temps réel de type pass-through
 
 1. Accédez à votre compte Media Services et vérifiez que le **point de terminaison de streaming** est en cours d’exécution. 
-2. Créez et démarrez un Événement en temps réel de type **pass-through**. <br/> Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing-concept.md).
+2. Créez et démarrez un Événement en temps réel de type **pass-through**. (de base ou standard). <br/> Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing-concept.md).
 3. Récupérez les URL d’ingestion et configurez votre encodeur local de façon à ce qu’il utilise ces URL pour envoyer un flux temps réel multidébit à Media Services.
 4. Récupérez l’URL d’aperçu et utilisez-la pour vérifier que l’entrée de l’encodeur est bien reçue.
 5. Créez un objet **Asset**.

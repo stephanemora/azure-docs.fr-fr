@@ -1,23 +1,23 @@
 ---
 title: Paramètres des messages AS2
-description: Guide de référence des paramètres d'envoi et de réception AS2 d'Azure Logic Apps avec Enterprise Integration Pack
+description: Guide de référence pour les paramètres des messages AS2 dans les accords pour Azure Logic Apps avec Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: reference
 ms.date: 07/20/2021
-ms.openlocfilehash: af13306598db75e89064507b9a2fad80d8d33542
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2bec9c598c0f08e9e114fcf5a83bfb0d238dd2b1
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114453168"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400988"
 ---
-# <a name="reference-for-as2-message-settings-in-azure-logic-apps-with-enterprise-integration-pack"></a>Référence relative aux paramètres des messages AS2 dans Azure Logic Apps avec Enterprise Integration Pack
+# <a name="reference-for-as2-message-settings-in-agreements-for-azure-logic-apps"></a>Référence pour les paramètres de message AS2 dans les accords pour Azure Logic Apps
 
-Ce guide de référence décrit les propriétés que vous pouvez définir pour spécifier comment un accord AS2 doit gérer les messages envoyés et reçus entre partenaires commerciaux. Configurez ces propriétés selon l'accord conclu avec le partenaire qui échange des messages avec vous.
+Cette référence décrit les propriétés que vous pouvez définir dans un accord AS2 pour spécifier comment traiter les messages entre [partenaires commerciaux](logic-apps-enterprise-integration-partners.md). Configurez ces propriétés selon l'accord conclu avec le partenaire qui échange des messages avec vous.
 
 <a name="AS2-incoming-messages"></a>
 

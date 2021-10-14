@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 04/14/2021
 ms.author: rolyon
-ms.openlocfilehash: f0fc0611e48f25c8faec415b8702a420402280c5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 1f1b8f627a60a6e9f9b866ffb48324ecd146ffbe
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483836"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362069"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Procédure d’attribution d’un rôle Azure
 
@@ -50,7 +50,7 @@ Les autres rôles intégrés permettent de gérer des ressources Azure spécifiq
 
 1. Dans cet article, accédez à la catégorie de service (par exemple, calcul, stockage et bases de données) pour la ressource à laquelle vous souhaitez accorder des autorisations. Le moyen le plus simple de trouver ce que vous cherchez est généralement de rechercher dans la page un mot clé pertinent, comme « blob », « machine virtuelle », et ainsi de suite.
 
-1. Passez en revue les rôles répertoriés pour la catégorie de service et identifiez les opérations spécifiques dont vous avez besoin. Là encore, commencez toujours par le rôle le plus restrictif.
+1. Passez en revue les rôles répertoriés pour la catégorie de service et identifiez les actions spécifiques dont vous avez besoin. Là encore, commencez toujours par le rôle le plus restrictif.
 
     Par exemple, si un principal de sécurité doit lire des blobs dans un compte de stockage Azure, mais n’a pas besoin d’un accès en écriture, choisissez [Lecteur des données Blob du stockage](built-in-roles.md#storage-blob-data-reader) plutôt que [Contributeur aux données Blob du stockage](built-in-roles.md#storage-blob-data-contributor) (et absolument pas le rôle [Propriétaire des données Blob du stockage](built-in-roles.md#storage-blob-data-owner) de niveau administrateur). Vous pouvez toujours mettre à jour les attributions de rôles ultérieurement, le cas échéant.
 

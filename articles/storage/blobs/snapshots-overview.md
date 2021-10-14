@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 5eaefbe835d7660de8bd0712d55c75149cc588a8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 437211ae50404443dee30e5a9c8141ea09d69244
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591080"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278554"
 ---
 # <a name="blob-snapshots"></a>Instantanés d’objet blob
 
@@ -71,7 +71,7 @@ Les scénarios suivants illustrent l’accumulation des coûts pour un objet blo
 
 La création d’un instantané, c’est-à-dire d’une copie en lecture seule d’un objet blob, peut entraîner des frais de stockage de données supplémentaires pour votre compte. Lors de la conception de votre application, il est important de savoir comment ces frais peuvent s’accumuler pour pouvoir réduire les coûts.
 
-Les captures instantanées d’objets blob comme les versions d’objets blob sont facturées au même tarif que les données actives. La façon dont les captures instantanées sont facturées varie selon que vous avez défini explicitement le niveau pour l’objet blob de base ou pour l’une de ses captures instantanées (ou versions). Pour plus d’informations sur les niveaux d’accès, consultez [Stockage d’objets blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md).
+Les captures instantanées d’objets blob comme les versions d’objets blob sont facturées au même tarif que les données actives. La façon dont les captures instantanées sont facturées varie selon que vous avez défini explicitement le niveau pour l’objet blob de base ou pour l’une de ses captures instantanées (ou versions). Pour plus d’informations sur les niveaux des objets blob, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](access-tiers-overview.md).
 
 Si vous n’avez pas modifié le niveau d’un objet blob ou d’une capture instantanée, vous êtes facturé pour des blocs de données uniques sur cet objet blob, ses captures instantanées et ses éventuelles versions. Pour plus d’informations, consultez [Facturation quand le niveau d’objet blob n’a pas été défini explicitement](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
@@ -164,8 +164,8 @@ Ce tableau montre comment cette fonctionnalité est prise en charge dans votre c
 
 | Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)<sup>2</sup>              | ![Non](../media/icons/no-icon.png) |
-| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)<sup>2</sup>              | ![Non](../media/icons/no-icon.png) |
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Non](../media/icons/no-icon.png) |
 
 <sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 

@@ -3,15 +3,15 @@ title: Configurer les paramètres d’entrée de runbook dans Azure Automation
 description: Cet article explique comment configurer des paramètres d’entrée de runbook, qui permettent de transmettre des données à un runbook au démarrage.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/13/2021
+ms.date: 09/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61a5f24f66f9f7461b4993fcfba70f6be8bb9be1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2b5f7f694d5287f8af900848f0671d7828a95288
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644103"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354075"
 ---
 # <a name="configure-runbook-input-parameters-in-automation"></a>Configurer les paramètres d’entrée de runbook dans Automation
 
@@ -298,17 +298,26 @@ Param(
      [object]$json
 )
 
-# Connect to Azure with user-assigned managed identity
-Connect-AzAccount -Identity
-$identity = Get-AzUserAssignedIdentity -ResourceGroupName <ResourceGroupName> -Name <UserAssignedManagedIdentity>
-Connect-AzAccount -Identity -AccountId $identity.ClientId
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
 # Convert object to actual JSON
 $json = $json | ConvertFrom-Json
 
 # Use the values from the JSON object as the parameters for your command
-Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
+Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup -DefaultProfile $AzureContext
 ```
+
+Si vous souhaitez que le runbook s’exécute avec l’identité managée affectée par le système, laissez le code tel quel. Si vous préférez utiliser une identité managée affectée par l’utilisateur, procédez comme suit :
+1. À la ligne 10, supprimez `$AzureContext = (Connect-AzAccount -Identity).context`,
+1. Remplacez-la par `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context` et
+1. Entrez l'ID client.
 
 Enregistrez et publiez ce runbook dans votre compte Automation.
 

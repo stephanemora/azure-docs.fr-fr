@@ -15,12 +15,12 @@ ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 38427b0686e830939025075536ac79c95ebde4cd
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82733769"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362954"
 ---
 # <a name="understand-azure-deny-assignments"></a>Comprendre les affectations de refus Azure
 
@@ -58,11 +58,11 @@ Les affectations de refus suivent un modèle similaire à celui des affectations
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Oui | String | Nom d'affichage de l’attribution de refus. Les noms doivent être uniques pour une étendue donnée. |
 > | `Description` | Non  | String | Description de l’attribution de refus. |
-> | `Permissions.Actions` | Au moins un élément Actions ou DataActions | String[] | Tableau de chaînes qui spécifient les opérations de gestion auxquelles l’attribution de refus bloque l’accès. |
-> | `Permissions.NotActions` | Non  | String[] | Tableau de chaînes qui spécifient les opérations de gestion à exclure de l’attribution de refus. |
-> | `Permissions.DataActions` | Au moins un élément Actions ou DataActions | String[] | Tableau de chaînes qui spécifient les opérations de données auxquelles l’attribution de refus bloque l’accès. |
-> | `Permissions.NotDataActions` | Non  | String[] | Tableau de chaînes qui spécifient les opérations de données à exclure de l’attribution de refus. |
-> | `Scope` | Non  | String | Chaîne qui spécifie l’étendue à laquelle l’attribution de refus s’applique. |
+> | `Permissions.Actions` | Au moins un élément Actions ou DataActions | String[] | Tableau de chaînes qui spécifient les actions du plan de contrôle auxquelles l’attribution de refus bloque l’accès. |
+> | `Permissions.NotActions` | Non | String[] | Tableau de chaînes qui spécifient les actions du plan de contrôle à exclure de l’attribution de refus. |
+> | `Permissions.DataActions` | Au moins un élément Actions ou DataActions | String[] | Tableau de chaînes qui spécifient les actions du plan de contrôle auxquelles l’attribution de refus bloque l’accès. |
+> | `Permissions.NotDataActions` | Non | String[] | Tableau de chaînes qui spécifient les actions du plan de contrôle à exclure de l’attribution de refus. |
+> | `Scope` | Non | String | Chaîne qui spécifie l’étendue à laquelle l’attribution de refus s’applique. |
 > | `DoNotApplyToChildScopes` | Non  | Boolean | Spécifie si l’attribution de refus s’applique aux étendues enfants. La valeur par défaut est false. |
 > | `Principals[i].Id` | Oui | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels s’applique l’affectation de refus. Définie sur un GUID vide `00000000-0000-0000-0000-000000000000` pour représenter tous les principaux. |
 > | `Principals[i].Type` | Non  | String[] | Tableau de types d’objet représentés par Principals[i].Id. Définie sur `SystemDefined` pour représenter tous les principaux. |

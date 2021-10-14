@@ -7,21 +7,18 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 04/16/2021
-ms.openlocfilehash: e3f310fb7544ed92dcf096dcf0d6e276a01fa7de
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2af1e7f9e1b787e73247d9537b4a8876cc4f7220
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732989"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361229"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Fonctions de transformation dans Power Query pour le data wrangling
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Le data wrangling dans Azure Data Factory vous permet d’effectuer un rassemblement de données brutes à l’analyse et une préparation agile de données sans code à l’échelle du cloud en convertissant des scripts Power Query ```M``` en un script de flux de données. ADF s’intègre à [Power Query Online](/powerquery-m/power-query-m-reference) et rend les fonctions Power Query ```M``` disponibles pour le data wrangling via l’exécution Spark en utilisant l’infrastructure Spark du flux de données. 
-
-> [!NOTE]
-> Power Query dans ADF est actuellement disponible en préversion publique
 
 Actuellement, toutes les fonctions Power Query M ne sont pas prises en charge pour le rassemblement de données brutes à l’analyse, bien qu’elles soient disponibles pendant la création. Lors de la génération de vos compositions (« mash-up ») , le message d’erreur suivant s’affiche si une fonction n’est pas prise en charge :
 
@@ -104,19 +101,42 @@ Conserver et supprimer les premiers éléments, Conserver la plage (fonctions M 
 
 ## <a name="m-script-workarounds"></a>Solutions de contournement de script M
 
-### <a name="for-splitcolumn-there-is-an-alternate-for-split-by-length-and-by-position"></a>Pour ```SplitColumn```, il existe une alternative pour le fractionnement par longueur et par position
+### ```SplitColumn```
+
+Une alternative pour le fractionnement par longueur et par position est reprise ci-dessous
 
 * Table.AddColumn(Source, "First characters", each Text.Start([Email], 7), type text)
 * Table.AddColumn(#"Inserted first characters", "Text range", each Text.Middle([Email], 4, 9), type text)
 
 Cette option est accessible à partir de l’option Extraire du ruban
 
-:::image type="content" source="media/wrangling-data-flow/pq-split.png" alt-text="Power Query Ajouter une colonne":::
+:::image type="content" source="media/wrangling-data-flow/power-query-split.png" alt-text="Power Query Ajouter une colonne":::
 
-### <a name="for-tablecombinecolumns"></a>Pour ```Table.CombineColumns```
+### ```Table.CombineColumns```
 
 * Table.AddColumn(RemoveEmailColumn, "Name", each [FirstName] & " " & [LastName])
 
+### <a name="pivots"></a>Pivots
+
+* Sélectionnez la Transformation de tableau croisé dynamique dans l’éditeur PQ et sélectionnez la colonne de votre tableau croisé dynamique
+
+![Tableau croisé dynamique Power Query commun](media/wrangling-data-flow/power-query-pivot-1.png)
+
+* Ensuite, sélectionnez la colonne valeur et la fonction d’agrégation
+
+![Sélecteur de tableau croisé dynamique Power Query](media/wrangling-data-flow/power-query-pivot-2.png)
+
+* Lorsque vous cliquez sur OK, vous verrez les données dans l’éditeur mis à jour avec les valeurs croisées dynamiques
+* Vous verrez également un message d’avertissement indiquant que la transformation ne peut pas être prise en charge
+* Pour résoudre cet avertissement, développez la liste pivotée manuellement à l’aide de l’éditeur PQ
+* Sélectionner Éditeur avancé option depuis le ruban
+* Développer manuellement la liste des valeurs croisées dynamiques
+* Remplacez List.Distinct() par la liste de valeurs comme suit :
+```
+#"Pivoted column" = Table.Pivot(Table.TransformColumnTypes(#"Changed column type 1", {{"genres", type text}}), {"Drama", "Horror", "Comedy", "Musical", "Documentary"}, "genres", "Rating", List.Average)
+in
+  #"Pivoted column"
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

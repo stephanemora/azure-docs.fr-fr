@@ -1,31 +1,31 @@
 ---
-title: Services et catégories pris en charge des journaux de ressources Azure Monitor
-description: Référence d’Azure Monitor Comprendre les services et le schéma d’événement pris en charge pour les journaux de ressource Azure.
+title: Catégories prises en charge pour les journaux de ressources Azure Monitor
+description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure Monitor.
 ms.topic: reference
 ms.date: 09/10/2021
-ms.openlocfilehash: c92f20d4a757ef69d334345619bdc2d585648d5d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9c41c714d2913247a6b0d00e3b242da9c59e038e
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129211249"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457750"
 ---
-# <a name="supported-categories-for-azure-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure
+# <a name="supported-categories-for-azure-monitor-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure Monitor
 
 > [!NOTE]
 > Cette liste est en grande partie générée automatiquement. Toute modification apportée à cette liste via GitHub peut être remplacée sans avertissement. Pour plus d’informations sur la façon d’effectuer des mises à jour permanentes, contactez l’auteur de cet article.
 
-Les [journaux de ressource Azure Monitor](../essentials/platform-logs-overview.md) sont des journaux d’activité générés par les services Azure, qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de ressource disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
+Les [journaux de ressource Azure Monitor](../essentials/platform-logs-overview.md) sont des journaux d’activité générés par les services Azure, qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de ressources disponibles via Azure Monitor partagent un schéma de niveau supérieur commun. Chaque service a la possibilité d’émettre des propriétés uniques pour ses propres événements.
 
 Les journaux de ressource étaient auparavant appelés journaux de diagnostic. Le nom a été modifié en octobre 2019 parce que les types de journaux collectés par Azure Monitor ont évolué pour inclure plus que la seule ressource Azure.
 
-Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Il existe un schéma commun pour tous les journaux de ressources comportant des champs propres aux services ajoutés pour différentes catégories de journaux. Pour plus d’informations, consultez [Schémas commun et propres aux services pour les journaux de ressources Azure](/azure/azure-monitor/essentials/resource-logs-schema).
+Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et la catégorie identifie de manière unique un schéma. Il existe un schéma commun pour tous les journaux de ressources comportant des champs propres aux services ajoutés pour différentes catégories de journaux. Pour plus d’informations, consultez [Schémas commun et propres aux services pour les journaux de ressources Azure](/azure/azure-monitor/essentials/resource-logs-schema).
 
 ## <a name="costs"></a>Coûts
 
-[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), [Event hub](https://azure.microsoft.com/pricing/details/event-hubs/) ainsi que les partenaires directement intégrés à Azure Monitor ([par exemple Datadog](../../partner-solutions/datadog/overview.md)) ont des coûts associés à l’ingestion et au stockage des données. Consultez les liens précédents vers les pages de tarification de ces services pour comprendre ces coûts. Les journaux de ressources sont simplement un type de données que vous pouvez envoyer vers ces emplacements. 
+[Azure Monitor Log Analytics](https://azure.microsoft.com/pricing/details/monitor/), [Azure Storage](https://azure.microsoft.com/product-categories/storage/), [Azure Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/) ainsi que les partenaires directement intégrés à Azure Monitor ([par exemple Datadog](../../partner-solutions/datadog/overview.md)) ont des coûts associés à l’ingestion et au stockage des données. Consultez les pages de tarification liées dans la phrase précédente pour comprendre les coûts de ces services. Les journaux de ressources sont simplement un type de données que vous pouvez envoyer vers ces emplacements. 
 
-En outre, il peut y avoir des coûts pour exporter des catégories de journaux de ressources vers ces emplacements. Ces journaux contenant d’éventuels coûts d’exportation sont répertoriés dans le tableau ci-dessous. Pour plus d’informations sur la tarification d’exportation, consultez la section *Journaux de la plateforme* sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+En outre, il peut y avoir des coûts pour exporter des catégories de journaux de ressources vers ces emplacements. Les journaux contenant d’éventuels coûts d’exportation sont répertoriés dans la section suivante. Pour plus d’informations sur la tarification d’exportation, consultez la section **Journaux de la plateforme** sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## <a name="supported-log-categories-per-resource-type"></a>Catégories de journaux prises en charge par type de ressource
 
@@ -33,7 +33,7 @@ Voici la liste des types de journaux disponibles pour chaque type de ressource.
 
 Il est possible que certaines catégories soient prises en charge uniquement pour des types de ressources spécifiques. Si vous avez le sentiment qu’il vous manque une ressource, consultez la documentation spécifique de celle-ci. Par exemple, les catégories Microsoft.Sql/servers/databases ne sont pas disponibles pour tous les types de bases de données. Pour plus d’informations, consultez les [informations sur la journalisation des diagnostics SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
-Si vous estimez qu’il manque quelque chose, vous pouvez ouvrir un commentaire GitHub au bas de cet article.
+S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire GitHub au bas de cet article.
 
 
 ## <a name="microsoftaaddomainservices"></a>Microsoft.AAD/DomainServices

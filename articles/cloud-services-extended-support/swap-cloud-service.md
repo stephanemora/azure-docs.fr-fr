@@ -7,13 +7,12 @@ author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/01/2021
-ms.custom: ''
-ms.openlocfilehash: 3321152d5d7b753ddca23a8810f0d1ae1b3d4399
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: cd13a7f69d3085786407a405598df4bc7b8e0ef9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967019"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358448"
 ---
 # <a name="swap-or-switch-deployments-in-azure-cloud-services-extended-support"></a>Échanger ou basculer des déploiements dans Azure Cloud Services (support étendu)
 
@@ -31,7 +30,6 @@ Vous pouvez échanger les déploiements en utilisant un modèle Azure Resource M
 Lors du déploiement du deuxième service Cloud, les deux services Cloud ont leur propriété SwappableCloudService définie de sorte qu’ils pointent entre eux. Toute mise à jour ultérieure de ces services Cloud devra spécifier l’échec de cette propriété, indiquant qu’une erreur est renvoyée, indiquant que la propriété SwappableCloudService ne peut pas être supprimée ou mise à jour.
 
 Une fois définie, la propriété SwappableCloudService est traitée comme ReadOnly. Elle ne peut pas être supprimée ou remplacée par une autre valeur. La suppression de l’un des services Cloud (de la paire remplaçable) entraînera l’effacement de la propriété SwappableCloudService du service Cloud restant.
-
 
 ## <a name="arm-template"></a>Modèle ARM
 
@@ -65,7 +63,7 @@ Pour économiser des coûts de calcul, vous pouvez supprimer l’un des services
 
 ## <a name="rest-api"></a>API REST
 
-Pour utiliser l’[API REST](https://review.docs.microsoft.com/rest/api/compute/load-balancers/swap-public-ip-addresses?branch=net202102) pour échanger avec un nouveau déploiement de service cloud dans Azure Cloud Services (support étendu), utilisez la commande et la configuration JSON suivantes :
+Pour utiliser l’[API REST](/rest/api/compute/load-balancers/swap-public-ip-addresses) pour échanger avec un nouveau déploiement de service cloud dans Azure Cloud Services (support étendu), utilisez la commande et la configuration JSON suivantes :
 
 ```http
 POST https://management.azure.com/subscriptions/subid/providers/Microsoft.Network/locations/westus/setLoadBalancerFrontendPublicIpAddresses?api-version=2021-02-01

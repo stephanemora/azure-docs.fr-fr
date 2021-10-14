@@ -10,19 +10,19 @@ ms.author: magoedte
 ms.date: 08/17/2021
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c40a8b002605b8776ac04d2af0d920b824aaeab0
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 898fc7b2574040ef6095178eae9cd8e7ee747ef9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535062"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352905"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Vue d’ensemble d’Azure Automation State Configuration
 
 Azure Automation State Configuration est un service de gestion de la configuration Azure qui vous permet d’écrire, de gérer et de compiler des [configurations](/powershell/scripting/dsc/configurations/configurations) PowerShell Desired State Configuration (DSC) pour les nœuds d’un cloud ou d’un centre de données local. Le service importe également des [ressources DSC](/powershell/scripting/dsc/resources/resources) et attribue des configurations aux nœuds cibles, le tout dans le cloud. Vous pouvez accéder à Azure Automation State Configuration dans le portail Azure en sélectionnant **State configuration (DSC)** sous **Gestion de la configuration**.
 
 > [!NOTE]
-> Avant d’activer la configuration de l’état d’automatisation, nous aimerions connaître [Azure Policy configuration invitée](../governance/policy/concepts/guest-configuration.md), qui peut auditer ou configurer des paramètres à l’intérieur d’ordinateurs s’exécutant dans Azure ou sur des ordinateurs en dehors d’Azure connectés à des [serveurs arc](../azure-arc/servers/overview.md). La configuration invitée Azure Policy offre des fonctionnalités similaires et est conçue pour tirer parti de la technologie plus récente dans Azure.
+> Avant d’activer Automation State Configuration, nous aimerions que vous sachiez qu’une version plus récente de DSC est désormais disponible en version préliminaire, gérée par une fonctionnalité d’Azure Policy nommée [configuration invité](../governance/policy/concepts/guest-configuration.md). Le service de configuration invité combine les fonctionnalités d’Extension DSC, d’Azure Automation State Configuration, ainsi que les fonctionnalités les plus couramment demandées par les commentaires des clients. La configuration invité comprend également une prise en charge d’ordinateur hybride via des [serveurs avec Arc](../azure-arc/servers/overview.md).
 
 Vous pouvez utiliser Azure Automation State Configuration pour gérer une grande variété de machines :
 
@@ -105,7 +105,7 @@ Il est recommandé d’utiliser les adresses listées dans le tableau [Enregistr
 
 - Pour commencer, consultez [Bien démarrer avec Azure Automation State Configuration](automation-dsc-getting-started.md).
 - Pour savoir comment activer des nœuds, voir [Activer State Configuration](automation-dsc-onboarding.md).
-- Pour découvrir comment compiler des configurations DSC pour pouvoir les affecter à des nœuds cibles, voir [Compiler des configurations DSC dans Azure Automation State Configuration](automation-dsc-compile.md).
-- Pour voir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, consultez [Configurer un déploiement continu avec Chocolatey](automation-dsc-cd-chocolatey.md).
+- Pour découvrir comment compiler des configurations DSC pour pouvoir les affecter à des nœuds cibles, consultez [Compiler des configurations DSC dans Azure Automation State Configuration](automation-dsc-compile.md).
+- Pour obtenir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, voir [Configurer un déploiement continu avec Chocolatey](automation-dsc-cd-chocolatey.md).
 - Pour obtenir des informations sur les prix, consultez [Tarification d’Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
 - Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Az.Automation](/powershell/module/az.automation).

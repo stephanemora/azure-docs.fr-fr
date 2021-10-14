@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 5b70d59f83280eda416736e9fd02a2ff417dcc34
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9d3cc8cb8ed36179e2297da7c057851345e1c02e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128556343"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536921"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Importation de mises à jour dans Device Update pour IoT Hub – Schéma et autres informations
 Si vous souhaitez importer une mise à jour dans Device Update pour IoT Hub, veillez à consulter d’abord les [concepts](import-concepts.md) et le [guide pratique](import-update.md). Pour des détails sur le schéma utilisé lors de la construction d’un manifeste d’importation, ainsi que des informations sur les objets associés, voir ci-dessous.
@@ -41,7 +41,7 @@ Si vous souhaitez importer une mise à jour dans Device Update pour IoT Hub, vei
 | Nom | Type | Description | Restrictions |
 | --------- | --------- | --------- | --------- |
 | Nom de fichier | string | Nom du fichier | Ne doit pas dépasser 255 caractères. Doit être unique au sein d’une mise à jour |
-| SizeInBytes | Int64 | Taille du fichier en octets. | Maximum de 2 Go par fichier individuel ou 2 Go collectivement par mise à jour |
+| SizeInBytes | Int64 | Taille du fichier en octets. | Afficher les [Limites de mise à jour d’appareil](./device-update-limits.md) pour la taille maximale par fichier individuel et collectivement par mise à jour |
 | Codes de hachage | l'objet `Hashes` | Objet JSON contenant le ou les hachages du fichier |
 
 ## <a name="compatibilityinfo-object"></a>Objet CompatibilityInfo
@@ -93,7 +93,7 @@ URL d’autorisation : https://login.microsoftonline.com/common/oauth2/authoriz
 
 **Étendues**
 
-| Nom | Description |
+| Name | Description |
 | --- | --- |
 | `https://api.adu.microsoft.com/user_impersonation` | Emprunter l’identité de votre compte d’utilisateur |
 | `https://api.adu.microsoft.com/.default`  | Flux d’informations d’identification du client |
