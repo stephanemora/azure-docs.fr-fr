@@ -3,12 +3,12 @@ title: Authentification Azure AD pour Application Insights (préversion)
 description: Découvrez comment activer l'authentification Azure Active Directory (Azure AD) pour garantir que seule la télémétrie authentifiée est ingérée dans vos ressources Application Insights.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: b38e3498ae61c9639c71eb358a4089dc59243616
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 573a7807f6561dfb326bfa247b12ccafa0857152
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129857708"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359878"
 ---
 # <a name="azure-ad-authentication-for-application-insights-preview"></a>Authentification Azure AD pour Application Insights (préversion)
 Application Insights prend désormais en charge l'authentification Azure Active Directory (Azure AD). À l’aide d’Azure AD, vous pouvez désormais vous assurer que seules les données de télémétrie authentifiées sont ingérées dans les ressources de vos Insights d’Application. 
@@ -135,7 +135,7 @@ appInsights.defaultClient.aadTokenCredential = credential;
 > [!NOTE]
 > La prise en charge d’Azure AD dans l’agent Application Insights est incluse à partir de la version [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA). 
 
-1. [Configurez votre application avec l'agent Java.](java-in-process-agent.md#get-started)
+1. [Configurez votre application avec l'agent Java.](java-in-process-agent.md#quickstart)
 
     > [!IMPORTANT]
     > Utilisez la chaîne de connexion complète qui comprend « IngestionEndpoint » lors de la configuration de votre application avec l’agent Java. Par exemple, `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
@@ -397,7 +397,7 @@ Voici un exemple du modèle Azure Resource Manager que vous pouvez utiliser pour
 
 ```
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Cette section fournit des scénarios de résolution des problèmes distincts et des étapes que les utilisateurs peuvent entreprendre pour résoudre les problèmes avant qu’ils ne génèrent un ticket de support. 
 

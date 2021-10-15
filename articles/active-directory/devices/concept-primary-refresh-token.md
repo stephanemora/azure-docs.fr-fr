@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9927232ca01473d8c51ac034f6c0ed24b07a2b39
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 3875beb50cf0bf1a177889a2f49b730d2528e204
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707224"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387997"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -209,4 +209,4 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la résolution des problèmes liés aux PRT, consultez l’article [Résolution des problèmes des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory](troubleshoot-hybrid-join-windows-current.md#troubleshoot-post-join-authentication-issues).
+Pour plus d’informations sur la résolution des problèmes liés aux PRT, consultez l’article [Résolution des problèmes des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory](troubleshoot-hybrid-join-windows-current.md).

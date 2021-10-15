@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9292ad6e167e62b27fa3b646a1b60ba7176ff87
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 46a8e61f296d430713812007b93f1b34cea8588a
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368301"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811546"
 ---
 # <a name="conditional-access-resilience-defaults"></a>Accès conditionnel : Valeurs de résilience par défaut
 
@@ -32,15 +32,15 @@ Pendant une panne, toutes les conditions ne peuvent pas être évaluées en temp
 > [!IMPORTANT]
 > Les valeurs de résilience par défaut sont automatiquement activées pour toutes les stratégies nouvelles et existantes. Microsoft recommande vivement de les laisser activées pour atténuer l’impact d’une panne. Les administrateurs peuvent désactiver les valeurs de résilience par défaut pour les stratégies d’accès conditionnel individuelles. 
 
-## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+## <a name="how-does-it-work"></a>Comment fonctionne-t-il ?
 
 Pendant une panne, le service d’authentification de secours réémet automatiquement des jetons d’accès pour certaines sessions :
 
 | Description de la session | Accès accordé |
 | --- | --- |
-| Nouvelle session | Non |
-| Session existante : Aucune stratégie d’accès conditionnel n’est configurée | Oui |
-| Session existante : Des stratégies d’accès conditionnel configurées et les contrôles requis, comme l’authentification multifacteur, ont été effectués précédemment | Oui |
+| Nouvelle session | No |
+| Session existante : Aucune stratégie d’accès conditionnel n’est configurée | Yes |
+| Session existante : Des stratégies d’accès conditionnel configurées et les contrôles requis, comme l’authentification multifacteur, ont été effectués précédemment | Yes |
 | Session existante : Des stratégies d’accès conditionnel configurées et les contrôles requis, comme l’authentification multifacteur, n’ont pas été effectués précédemment | Déterminé par les valeurs de résilience par défaut |
 
 Lorsqu’une session existante expire pendant une panne d’Azure AD, la demande d’un nouveau jeton d’accès est acheminée vers le service d’authentification de secours et toutes les stratégies d’accès conditionnel sont réévaluées. S’il n’existe aucune stratégie d’accès conditionnel ou si tous les contrôles requis, tels que l’authentification multifacteur, ont déjà été effectués au début de la session, le service d’authentification de secours émet un nouveau jeton d’accès pour prolonger la session. 
@@ -86,7 +86,7 @@ Vous pouvez configurer les valeurs de résilience par défaut de l’accès cond
 
 ### <a name="ms-graph-apis"></a>API MS Graph
 
-Vous pouvez également gérer les valeurs de résilience par défaut pour vos stratégies d’accès conditionnel à l’aide de l’API MS Graph et de [Microsoft Graph Explorer](/graph/graph-explorer). 
+Vous pouvez également gérer les valeurs de résilience par défaut pour vos stratégies d’accès conditionnel à l’aide de l’API MS Graph et de [Microsoft Graph Explorer](/graph/graph-explorer/graph-explorer-overview). 
 
 Exemple d’URL de la demande : 
 

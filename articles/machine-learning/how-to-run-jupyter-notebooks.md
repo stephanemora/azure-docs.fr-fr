@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/22/2021
-ms.openlocfilehash: 447398acc918dc830769b6b5e227f2ea87eb33c4
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 1a4fbbb84eb296acabd383461e01e90cbf570d9d
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545375"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657375"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Exécuter des notebooks Jupyter dans votre espace de travail
 
@@ -311,7 +311,7 @@ Les raccourcis clavier suivants vous permettent de naviguer et d’exécuter du 
 
 ## <a name="troubleshooting"></a>Dépannage
 
-* Si vous ne pouvez pas vous connecter à un notebook, vérifiez que la communication avec le socket web n’est **pas** désactivée. Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, la communication avec le socket web doit être activée. Vérifiez que votre [réseau autorise les connexions WebSocket](https://docs.microsoft.com/azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress#microsoft-hosts) à *.instances.azureml.net et *.instances.azureml.ms. 
+* Si vous ne pouvez pas vous connecter à un notebook, vérifiez que la communication avec le socket web n’est **pas** désactivée. Pour que la fonctionnalité d’instance de calcul Jupyter fonctionne, la communication avec le socket web doit être activée. Vérifiez que votre [réseau autorise les connexions WebSocket](how-to-access-azureml-behind-firewall.md?tabs=ipaddress#microsoft-hosts) à *.instances.azureml.net et *.instances.azureml.ms. 
 
 * Quand une instance de calcul est déployée dans un espace de travail avec un point de terminaison privé, elle est uniquement [accessible à partir d’un réseau virtuel](./how-to-secure-training-vnet.md). Si vous utilisez un DNS ou un fichier d’hôtes personnalisé, ajoutez une entrée pour < nom-instance >.< région >.instances.azureml.ms avec l’adresse IP privée du point de terminaison privé de votre espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md?tabs=azure-cli).
 

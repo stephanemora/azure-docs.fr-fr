@@ -4,22 +4,23 @@ description: Découvrez comment configurer les paramètres des rôles Azure AD d
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/14/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b60735ee1da80674429a4359783cab832b8dc418
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 75624f84aa55c00bcdeab26505fa4f803d8a4f1f
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457028"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668501"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
@@ -78,7 +79,7 @@ Pour exiger une authentification multifacteur afin d’activer l’attribution d
 
 ### <a name="on-active-assignment"></a>Lors de l’attribution active
 
-Avec cette option, les administrateurs doivent effectuer une authentification multifacteur avant de créer une attribution de rôle actif (par opposition à éligible). La Gestion de l’identité privilégiée ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
+Avec cette option, les administrateurs doivent effectuer une authentification multifacteur avant de créer une attribution de rôle active (par opposition à éligible). La Gestion de l’identité privilégiée ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
 
 Pour exiger une authentification multifacteur lorsque l’attribution est active, sélectionnez l’option **Exiger l’Authentification multifacteur Azure lors de l’attribution active** sous l’onglet Attribution de l’option **Modifier le paramètre du rôle**.
 

@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: a90d9a82ff26c62423651d8d1b16173300147a1c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 939eb89de2e347aeec2d8946f456f5ba2aa6be29
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536771"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658573"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Répliquer des machines locales à l’aide de points de terminaison privés
 
@@ -41,7 +41,7 @@ Le schéma suivant montre le flux de travail de réplication pour la récupérat
 - Une adresse IP supplémentaire est nécessaire dans le réseau de contournement pour la connectivité des points de terminaison privés à un compte de stockage de cache. Vous pouvez utiliser n’importe quelle méthode de connectivité entre les sites locaux et le point de terminaison de votre compte de stockage. Par exemple, vous pouvez utiliser Internet ou Azure [ExpressRoute](../expressroute/index.yml). L’établissement d’une liaison privée est facultatif. Vous pouvez créer des points de terminaison privés pour le stockage uniquement sur les comptes v2 à usage général. Consultez la [tarification Azure Page Blobs](https://azure.microsoft.com/pricing/details/storage/page-blobs/) pour plus d’informations sur le transfert de données sur les comptes v2 à usage général.
 
 > [!NOTE]
-> Lorsque vous configurez des points de terminaison privés pour protéger les machines physiques et VMware, vous devez installer MySQL manuellement sur le serveur de configuration. Suivez les étapes indiquées [ici](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#configure-settings) pour effectuer l’installation manuelle. 
+> Lorsque vous configurez des points de terminaison privés pour protéger les machines physiques et VMware, vous devez installer MySQL manuellement sur le serveur de configuration. Suivez les étapes indiquées [ici](vmware-azure-deploy-configuration-server.md#configure-settings) pour effectuer l’installation manuelle. 
 
  ## <a name="create-and-use-private-endpoints-for-site-recovery"></a>Créer et utiliser des points de terminaison privés pour Site Recovery
 
