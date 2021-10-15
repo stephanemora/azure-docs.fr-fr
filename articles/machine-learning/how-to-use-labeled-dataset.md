@@ -5,16 +5,16 @@ description: Apprenez à exporter des étiquettes de données à partir de vos p
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: e46d088180666523c27d86a98d740fa49f5214f2
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 2af916866aa78a081f8769322a80f4d846c89d3e
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112460483"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424082"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Créer et explorer un jeu de données Azure Machine Learning avec des étiquettes
 
@@ -22,7 +22,7 @@ Cet article explique comment exporter les étiquettes de données d’un projet 
 
 ## <a name="what-are-datasets-with-labels"></a>Que sont les jeux de données avec étiquettes 
 
-Nous faisons référence aux jeux de données Azure Machine Learning avec des étiquettes sous la forme de jeux de données étiquetés. Ces types de jeux de données étiquetés spécifiques sont créés uniquement en tant que sortie de projets d’étiquetage de données Azure Machine Learning. Créez un projet d’étiquetage des données en suivant [ces étapes](how-to-create-labeling-projects.md). Machine Learning prend en charge les projets d’étiquetage de données pour la classification d’images (comprenant plusieurs étiquettes ou classes), ainsi que l’identification d’objets à l’aide de zones délimitées.
+Nous faisons référence aux jeux de données Azure Machine Learning avec des étiquettes sous la forme de jeux de données étiquetés. Ces types de jeux de données étiquetés spécifiques sont créés uniquement en tant que sortie de projets d’étiquetage de données Azure Machine Learning. Créez un projet d’étiquetage des données [pour l’étiquetage d’image](how-to-create-image-labeling-projects.md) ou [l’étiquetage de texte](how-to-create-text-labeling-projects.md). Machine Learning prend en charge les projets d’étiquetage de données pour la classification d’images (comprenant plusieurs étiquettes ou classes), ainsi que l’identification d’objets à l’aide de zones délimitées.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,7 +30,7 @@ Nous faisons référence aux jeux de données Azure Machine Learning avec des é
 * Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](/python/api/overview/azure/ml/intro) ou l’accès à [Azure Machine Learning studio](https://ml.azure.com/).
     * Installer le package [azure-contrib-dataset](/python/api/azureml-contrib-dataset/)
 * Un espace de travail Machine Learning. Consultez [Créer un espace de travail Microsoft Azure Machine Learning](how-to-manage-workspace.md).
-* Accédez à un projet d’étiquetage de données Azure Machine Learning. Si vous n’avez pas de projet d’étiquetage, créez-en un en suivant [ces étapes](how-to-create-labeling-projects.md).
+* Accédez à un projet d’étiquetage de données Azure Machine Learning. Si vous n’avez pas de projet d’étiquetage, commencez par en créer un pour l’[étiquetage d’image](how-to-create-image-labeling-projects.md) ou l’[étiquetage de texte](how-to-create-text-labeling-projects.md).
 
 ## <a name="export-data-labels"></a>Exporter des étiquettes de données 
 

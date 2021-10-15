@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 057afd588193a8fdfba020e25d086dc915bb9eaa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9df6e2c1bd937f275fb3b35db8cd6ac2e3909502
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128612830"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129532871"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Recherche sémantique dans la Recherche cognitive Azure
 
@@ -89,14 +89,14 @@ La recherche sémantique est disponible via [l’enregistrement d’inscription]
 
 | Fonctionnalité | Niveau | Région | Inscription | Tarifs |
 |---------|------|--------|---------------------|-------------------|
-| Recherche sémantique (légendes, surlignages, réponses) | Niveau Standard (S1, S2, S3) | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | [Page de tarification de la Recherche cognitive](https://azure.microsoft.com/pricing/details/search/)  |
-| Vérification orthographique | Quelconque | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | Aucun (gratuit) |
+| Recherche sémantique (classement, légendes, surlignages, réponses) | Niveau Standard (S1, S2, S3) | USA Centre Nord, USA Ouest, USA Ouest 2, USA Est 2, Europe Nord, Europe Ouest | Obligatoire | [Page de tarification de la Recherche cognitive](https://azure.microsoft.com/pricing/details/search/)  |
+| Vérification orthographique | De base et niveaux supérieurs | Tous | None | Aucun (gratuit) |
 
-Vous pouvez utiliser la vérification orthographique sans la recherche sémantique et ce, gratuitement. Des frais de recherche sémantique sont prélevés lorsque les demandes de requête incluent `queryType=semantic` et que la chaîne de recherche n’est pas vide (par exemple, `search=pet friendly hotels in new york`). La recherche vide (requêtes where `search=*`) n’est pas facturée, même si QueryType a la valeur `semantic`.
+Des frais de recherche sémantique sont prélevés lorsque les demandes de requête incluent « queryType=semantic » et que la chaîne de recherche n’est pas vide (par exemple, « search=hôtels acceptant les animaux à new york »). Si votre chaîne de recherche est vide (« search=* »), vous ne serez pas facturé, même si queryType est défini sur « semantic ».
 
 ## <a name="disable-semantic-search"></a>Désactiver la recherche sémantique
 
-Seul un service de recherche pour lequel la fonctionnalité est activée peut engendrer des frais. Toutefois, si vous souhaitez une protection complète contre toute utilisation accidentelle, définissez l' [option désactivé](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch).
+Pour bénéficier d’une protection complète contre l’utilisation accidentelle et les frais encourus, vous pouvez [désactiver la recherche sémantique](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) à l’aide de l’API de création ou de mise à jour de service sur votre service de recherche. Une fois la fonctionnalité désactivée, toutes les demandes qui incluent le type de requête sémantique sont rejetées.
 
 * L’API REST de gestion version 2021-04-01-Préversion fournit cette option
 

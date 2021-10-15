@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2079905f81b770039a9b71b2e8e4f21553da099f
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 49963f7c2625a0aa454d8a1bac5ff001cb4debe9
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114202987"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230909"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Activer la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory 
 
@@ -47,8 +47,8 @@ Les organisations doivent également présenter la configuration logicielle suiv
 - Vous devez disposer de la version 1.4.32.0 ou ultérieure d’[Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - Pour plus d’informations sur les options d’authentification hybride Azure AD disponibles, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](../hybrid/choose-ad-authn.md) et [Sélectionner le type d’installation à utiliser pour Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Les correctifs logiciels suivants doivent être installés sur vos contrôleurs de domaine Windows Server :
-    - Pour Windows Server 2016 : https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - Pour Windows Server 2019 : https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+    - Pour [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
+    - Pour [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
 
 ### <a name="supported-scenarios"></a>Scénarios pris en charge
 
@@ -201,7 +201,8 @@ Si vous effectuez une nouvelle installation de machine jointe à Azure AD Hybrid
 
 Assurez-vous qu’un nombre suffisant de contrôleurs de domaine sont corrigés pour répondre dans les temps afin de servir votre demande de ressource. Pour vérifier si vous pouvez voir un contrôleur de domaine exécutant la fonctionnalité, consultez la sortie de la commande `nltest /dsgetdc:contoso /keylist /kdc`.
 
-Remarque : Ce commutateur /Keylist dans la commande nltest est disponible dans le client Windows 10 v2004 et versions ultérieures.
+> [!NOTE]
+> Le commutateur `/keylist` dans la commande `nltest` est disponible dans le client Windows 10 v2004 et versions ultérieures.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

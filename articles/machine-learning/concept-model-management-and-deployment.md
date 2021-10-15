@@ -4,20 +4,20 @@ titleSuffix: Azure Machine Learning
 description: 'Apprenez-en plus sur la gestion des modèles avec Azure Machine Learning (MLOps). Déployez, gérez, suivez la traçabilité et surveillez vos modèles afin de les améliorer en permanence. '
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 author: jpe316
 ms.author: jordane
 ms.date: 07/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 0ef4715bb854905f8076ee116f672eee2d33a059
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: e58e820471bbde5d56996958b82c573c69d332b8
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532938"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129427169"
 ---
-# <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps : gestion des modèles, déploiement et surveillance avec Azure Machine Learning
+# <a name="mlops-model-management-deployment-lineage-and-monitoring-with-azure-machine-learning"></a>MLOps : gestion des modèles, déploiement, traçabilité et surveillance avec Azure Machine Learning
 
 Dans cet article, découvrez comment utiliser Azure Machine Learning pour gérer le cycle de vie de vos modèles. Azure Machine Learning utilise une approche d’Opérations de Machine Learning (MLOps). MLOps améliore la qualité et la cohérence de vos solutions de Machine Learning. 
 

@@ -1,6 +1,6 @@
 ---
-title: Alertes de Azure Key Vault
-description: Créez un tableau de bord pour surveiller l'intégrité de votre coffre de clés et configurer des alertes.
+title: Configurer des alertes Azure Key Vault
+description: Découvrez comment créer des alertes pour surveiller l’intégrité de votre coffre de clés.
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
@@ -9,153 +9,157 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 4c1f63bdc13822b7eb48dc5410a990dc75f3453e
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: d74cb93cd28f3dc02b37a6c29832d9e8412ef098
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060779"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458905"
 ---
-# <a name="alerting-for-azure-key-vault"></a>Génération d’alertes pour Azure Key Vault
+# <a name="configure-azure-key-vault-alerts"></a>Configurer des alertes Azure Key Vault
 
-## <a name="overview"></a>Vue d’ensemble
+Une fois que vous avez commencé à utiliser Azure Key Vault pour stocker vos secrets de production, vous devez impérativement surveiller l’intégrité de votre coffre de clés pour veiller au bon fonctionnement du service. 
 
-Lorsque vous commencez à utiliser un coffre de clés pour stocker vos secrets de production, vous devez impérativement surveiller son intégrité pour veiller au bon fonctionnement de votre service. Dès que vous entamerez la mise à l'échelle votre service, le nombre de requêtes envoyées à votre coffre de clés augmentera. Cela risque d'augmenter la latence de vos requêtes et, dans les cas les plus extrêmes, de les limiter, ce qui aura un impact sur les performances de votre service. Vous devez également être alerté si votre coffre de clés envoie un nombre inhabituel de codes d'erreur afin d'être rapidement informé de tout problème de stratégie d'accès ou de configuration du pare-feu. Ce document couvre les sujets suivants :
+Plus votre service se développera, plus le nombre de demandes envoyées à votre coffre de clés augmentera. Cette augmentation est susceptible d’accroître la latence de vos demandes. Dans les cas extrêmes, cela peut entraîner la limitation de vos demandes et avoir un impact sur les performances de votre service. Vous devez également savoir si votre coffre de clés envoie un nombre inhabituel de codes d’erreur, afin de pouvoir traiter rapidement tout problème à l’aide d’une stratégie d’accès ou d’une configuration de pare-feu. 
 
-+ Métriques Key Vault de base à surveiller
-+ Configurer les métriques et créer un tableau de bord
-+ Créer des alertes lorsque les seuils spécifiés sont atteints
+Cet article vous explique comment configurer des alertes à des seuils spécifiques afin de pouvoir alerter votre équipe de la nécessité de prendre des mesures immédiates si l’état de votre coffre de clés n’est pas sain. Vous pouvez configurer des alertes qui envoient un e-mail (de préférence à une liste de distribution de l’équipe), déclenchent une notification Azure Event Grid, appellent un numéro de téléphone ou lui envoient un SMS. 
 
-Azure Monitor pour Key Vault combine les journaux d’activité et les métriques pour fournir une solution de supervision globale. [Apprenez-en davantage sur Azure Monitor pour Key Vault ici](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights)
+Vous pouvez choisir entre les types d’alerte suivants :
 
-## <a name="how-to-configure-alerts-on-your-key-vault"></a>Configurer des alertes sur votre coffre de clés 
-
-Cette section vous explique comment configurer des alertes sur votre coffre de clés afin de pouvoir alerter votre équipe de la nécessité de prendre des mesures immédiates si l'état de votre coffre de clés n'est pas sain. Vous pouvez configurer des alertes qui envoient un e-mail, de préférence à un DL d'équipe, déclenchent une notification Event Grid, ou appellent ou envoient un SMS à un numéro de téléphone. Vous pouvez également choisir des alertes statiques basées sur une valeur fixe, ou une alerte dynamique qui vous alertera si une métrique surveillée dépasse la limite moyenne de votre coffre de clés un certain nombre de fois dans un intervalle de temps défini. 
+- Une alerte statique basée sur une valeur fixe
+- Une alerte dynamique qui vous avertit si une métrique surveillée dépasse la limite moyenne de votre coffre de clés un certain nombre de fois dans un intervalle de temps défini
 
 > [!IMPORTANT]
-> Veuillez noter qu'il peut s'écouler jusqu'à 10 minutes avant que les alertes nouvellement configurées ne commencent à envoyer des notifications. 
+> Il peut s’écouler jusqu’à dix minutes avant que les alertes nouvellement configurées commencent à envoyer des notifications. 
 
-### <a name="configure-an-action-group"></a>Configurer un groupe d'actions 
+Cet article porte sur les alertes pour Key Vault. Pour plus d’informations sur Key Vault Insights, qui combine les journaux et les métriques pour fournir une solution de surveillance globale, consultez [Superviser votre coffre de clés avec Key Vault Insights](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights).
 
-Un groupe d'actions est une liste configurable de notifications et de propriétés.
+## <a name="configure-an-action-group"></a>Configurer un groupe d'actions 
+
+Un groupe d'actions est une liste configurable de notifications et de propriétés. La première étape de la configuration des alertes consiste à créer un groupe d’actions et à choisir un type d’alerte :
 
 1. Connectez-vous au portail Azure.
 2. Recherchez **Alertes** dans la zone de recherche.
 3. Sélectionnez **Gérer les actions**.
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran mettant en évidence le bouton Gérer les actions.](../media/alert-6.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d'écran mettant en évidence le bouton Gérer les actions.](../media/alert-6.png)
 
-4. Sélectionnez **+ Ajouter un groupe d'actions**.
+4. Sélectionnez **+ Ajouter un groupe d’actions**.
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran mettant en évidence le bouton + Ajouter un groupe d'actions.](../media/alert-7.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran mettant en évidence le bouton permettant d’ajouter un groupe d’actions.](../media/alert-7.png)
 
-5. Choisissez le **Type d'action** à associer à votre groupe d'actions. Pour les besoins de cet exemple, nous allons créer une alerte par e-mail.
+5. Choisissez la valeur **Type d’action** à associer à votre groupe d’actions. Dans cet exemple, nous allons créer une alerte par e-mail et par SMS. Sélectionnez **E-mail/SMS/Push/Voix**.
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran mettant en évidence les champs nécessaires à l'ajout d'un groupe d'actions.](../media/alert-8.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran mettant en évidence les sélections pour ajouter un groupe d’actions.](../media/alert-8.png)
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran illustrant ce qui est nécessaire pour ajouter un message d'alerte par e-mail ou par SMS.](../media/alert-9.png)
+6. Dans la boîte de dialogue, entrez les informations relatives à l’e-mail et au SMS, puis sélectionnez **OK**.
 
-6. Cliquez sur **OK** au bas de la page. Vous venez de créer un groupe d'actions. 
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran mettant en évidence les sélections pour l’ajout d’une alerte par e-mail et par SMS.](../media/alert-9.png)
 
-Maintenant que vous avez configuré un groupe d'actions, vous allez configurer les seuils d'alerte du coffre de clés. 
+## <a name="configure-alert-thresholds"></a>Configurer les seuils d'alerte 
 
-### <a name="configure-alert-thresholds"></a>Configurer les seuils d'alerte 
+Ensuite, créez une règle et configurez les seuils qui déclencheront une alerte :
 
 1. Sélectionnez votre coffre de clés sur le portail Azure, puis choisissez **Alertes** sous **Surveillance**.
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran illustrant l'option de menu Alertes dans la section Surveillance.](../media/alert-10.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran illustrant l’option de menu Alertes dans la section Surveillance.](../media/alert-10.png)
 
-2. Sélectionnez **Nouvelle règle d'alerte**.
+2. Sélectionnez **Nouvelle règle d’alerte**.
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran illustrant le bouton + Nouvelle règle d'alerte.](../media/alert-11.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran montrant le bouton permettant d’ajouter une nouvelle règle d’alerte.](../media/alert-11.png)
 
 3. Sélectionnez l'étendue de votre règle d'alerte. Vous pouvez sélectionner un ou plusieurs coffres. 
 
-> [!IMPORTANT]
-> Veuillez noter que lorsque vous sélectionnez plusieurs coffres pour l'étendue de vos alertes, tous les coffres sélectionnés doivent se trouver dans la même région. Vous devez configurer des règles d'alerte distinctes pour les coffres situés dans des régions différentes. 
+   > [!IMPORTANT]
+   > Lorsque vous sélectionnez plusieurs coffres pour l’étendue de vos alertes, tous les coffres sélectionnés doivent se trouver dans la même région. Vous devez configurer des règles d’alerte distinctes pour les coffres situés dans des régions différentes. 
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran montrant comment sélectionner un coffre.](../media/alert-12.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d'écran montrant comment sélectionner un coffre.](../media/alert-12.png)
 
-4. Sélectionnez les conditions relatives à vos alertes. Vous pouvez choisir l'un des signaux suivants et définir votre logique d'alerte. L'équipe Key Vault recommande de configurer les seuils d'alerte suivants. 
+4. Sélectionnez les seuils qui définissent la logique de vos alertes, puis sélectionnez **Ajouter**. L’équipe de Key Vault recommande de configurer les seuils suivants : 
 
-    + La disponibilité du coffre de clés est inférieure à 100 % (seuil statique)
-    + La latence du coffre de clés est supérieure à 500 ms (seuil statique) 
+    + La disponibilité de Key Vault passe en dessous de 100 % (seuil statique)
+    + La latence de Key Vault est supérieure à 500 ms (seuil statique) 
     + La saturation globale du coffre est supérieure à 75 % (seuil statique) 
     + La saturation globale du coffre est supérieure à la moyenne (seuil dynamique)
-    + Le nombre total de codes d'erreur est supérieur à la moyenne (seuil dynamique) 
+    + Le nombre total de codes d’erreur est supérieur à la moyenne (seuil dynamique) 
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran montrant où sélectionner les conditions des alertes.](../media/alert-13.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d'écran montrant où sélectionner les conditions des alertes.](../media/alert-13.png)
 
-### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Exemple 1 : Configuration d'un seuil d'alerte statique pour la latence
+### <a name="example-configure-a-static-alert-threshold-for-latency"></a>Exemple : Configurer un seuil d’alerte statique pour la latence
 
-Sélectionnez **Latence globale de l'API de service** comme nom de signal.
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran du nom de signal Latence globale de l'API de service.](../media/alert-14.png)
+1. Sélectionnez **Latence globale de l’API de service** comme nom de signal.
 
-Veuillez consulter les paramètres de configuration suivants.
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran montrant la sélection d’un nom de signal.](../media/alert-14.png)
 
-+ Définissez le seuil sur **Statique**. 
-+ Définissez l'opérateur sur **Supérieur à**.
-+ Définissez le Type d'agrégation sur **Moyenne**.
-+ Définissez la Valeur de seuil sur **500**.
-+ Définissez la Période d'agrégation sur **5 minutes**.
-+ Définissez la Fréquence d'évaluation sur **1 minute**.
-+ Sélectionnez **Terminé**  
+1. Utilisez les paramètres de configuration suivants :
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran mettant en évidence la logique d'alerte configurée.](../media/alert-15.png)
+   + Définissez **Seuil** sur **Statique**. 
+   + Définissez **Opérateur** sur **Supérieur à**.
+   + Définissez **Type d’agrégation** sur **Moyenne**.
+   + Définissez **Valeur de seuil** sur **500**.
+   + Définissez **Précision d’agrégation (période)** sur **5 minutes**.
+   + Définissez **Fréquence d’évaluation** sur **Toutes les minutes**.
 
-### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>Exemple 2 : Configuration d'un seuil d'alerte dynamique pour la saturation du coffre 
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran montrant la logique configurée pour un seuil d’alerte statique.](../media/alert-15.png)
 
-Lorsque vous utilisez une alerte dynamique, vous pouvez consulter les données historiques du coffre de clés que vous avez sélectionné. La zone bleue représente l'utilisation moyenne de votre coffre de clés. La zone rouge indique les pics susceptibles de déclencher une alerte si d'autres critères de la configuration d'alerte sont remplis. Les points rouges indiquent les cas de violations dans lesquels les critères d'alerte ont été remplis pendant la fenêtre temporelle agrégée. Vous pouvez définir une alerte pour qu'elle se déclenche après un certain nombre de violations sur une période déterminée. Si vous ne souhaitez pas inclure de données passées, une option vous permet d'exclure les anciennes données ci-dessous dans les paramètres avancés. 
+1. Sélectionnez **Terminé**.  
+
+### <a name="example-configure-a-dynamic-alert-threshold-for-vault-saturation"></a>Exemple : Configurer un seuil d’alerte dynamique pour la saturation du coffre 
+
+Lorsque vous utilisez une alerte dynamique, vous pouvez consulter les données historiques du coffre de clés que vous avez sélectionné. La zone bleue représente l'utilisation moyenne de votre coffre de clés. La zone rouge indique les pics qui auraient déclenché une alerte si d’autres critères de la configuration de l’alerte avaient été respectés. Les points rouges indiquent les cas de violations dans lesquels les critères d’alerte ont été remplis pendant la fenêtre temporelle agrégée. 
 
 > [!div class="mx-imgBorder"]
 > ![Capture d'écran d'un graphique représentant la saturation globale du coffre.](../media/alert-16.png)
 
-Veuillez consulter les paramètres de configuration suivants.
+Vous pouvez définir une alerte pour qu'elle se déclenche après un certain nombre de violations sur une période déterminée. Si vous ne souhaitez pas inclure les données antérieures, une option vous permet de les exclure dans les paramètres avancés. 
 
-+ Définissez le seuil sur **Dynamique**. 
-+ Définissez l'opérateur sur **Supérieur à**.
-+ Définissez le Type d'agrégation sur **Moyenne**.
-+ Définissez la Sensibilité du seuil sur **Moyenne**.
-+ Définissez la Période d'agrégation sur **5 minutes**.
-+ Définissez la Fréquence d'évaluation sur **1 minute**.
-+ **Facultatif** Configurez les paramètres avancés. 
-+ Sélectionnez **Terminé**
+1. Utilisez les paramètres de configuration suivants :
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran du portail Azure](../media/alert-17.png)
+   + Définissez **Seuil** sur **Dynamique**. 
+   + Définissez **Opérateur** sur **Supérieur à**.
+   + Définissez **Type d’agrégation** sur **Moyenne**.
+   + Définissez **Sensibilité du seuil** sur **Moyenne**.
+   + Définissez **Précision d’agrégation (période)** sur **5 minutes**.
+   + Définissez **Fréquence d’évaluation** sur **Toutes les 5 minutes**.
+   + Configurez les **paramètres avancés** (facultatif). 
 
-5. Ajoutez le groupe d'actions que vous avez configuré.
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran montrant la logique configurée pour un seuil d’alerte dynamique.](../media/alert-17.png)
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran montrant comment ajouter un groupe d'actions.](../media/alert-18.png)
+1. Sélectionnez **Terminé**.
 
-6. Activez l'alerte et attribuez une gravité.
+1. Sélectionnez **Ajouter** pour ajouter le groupe d’actions que vous avez configuré.
 
-> [!div class="mx-imgBorder"]
-> ![Capture d'écran montrant où activer l'alerte et attribuer une gravité.](../media/alert-19.png)
+   > [!div class="mx-imgBorder"]
+   > ![Capture d’écran montrant le bouton permettant d’ajouter un groupe d’actions.](../media/alert-18.png)
 
-7. Créez l’alerte 
+1. Dans les détails de l’alerte, activez l’alerte et attribuez une gravité.
+
+   > [!div class="mx-imgBorder"]
+   > ![Capture d'écran montrant où activer l'alerte et attribuer une gravité.](../media/alert-19.png)
+
+1. Créez l’alerte. 
 
 ### <a name="example-email-alert"></a>Exemple d'alerte par e-mail 
+
+Si vous avez suivi toutes les étapes précédentes, vous recevrez des alertes par e-mail chaque fois que votre coffre de clés répondra aux critères d’alerte que vous avez configurés. L’alerte par e-mail suivante est un exemple. 
 
 > [!div class="mx-imgBorder"]
 > ![Capture d'écran mettant en évidence les informations nécessaires à la configuration d'une alerte par e-mail.](../media/alert-20.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Félicitations, vous avez créé un tableau de bord de surveillance et configuré des alertes pour votre coffre de clés !
-
-Lorsque vous aurez suivi toutes les étapes décrites ci-dessus, vous recevrez des alertes par e-mail chaque fois que votre coffre de clés répondra aux critères d'alerte que vous avez configurés. Voici un exemple. Utilisez les outils que vous avez configurés dans cet article pour surveiller activement l'intégrité de votre coffre de clés.
+Utilisez les outils que vous avez configurés dans cet article pour surveiller activement l’intégrité de votre coffre de clés :
 
 - [Superviser Key Vault](monitor-key-vault.md)
 - [Informations de référence sur la supervision des données Key Vault](monitor-key-vault-reference.md)

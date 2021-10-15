@@ -9,12 +9,12 @@ author: MikeRayMSFT
 ms.author: mikeray
 description: Décrit le programme de validation pour les distributions Kubernetes pour les services de données avec Azure Arc.
 keywords: Kubernetes, Arc, Azure, K8s, validation, data services, SQL Managed Instance
-ms.openlocfilehash: 1935648b2d3de48aecf9878865f377c41c8498cc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 90158be8a28aae08cbc377aa776947096597a601
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562787"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273834"
 ---
 # <a name="azure-arc-enabled-data-services-kubernetes-validation"></a>Validation Kubernetes des services de données avec Azure Arc
 
@@ -31,7 +31,7 @@ Pour plus d’informations sur la validation de tous les composants avec Azure 
 
 ### <a name="dell"></a>Dell
 
-|Solution et version | Version de Kubernetes | Version des services de données avec Azure Arc | Version du moteur SQL | Version de PostgreSQL Hyperscale
+|Solution et version | Version de Kubernetes | Version des services de données avec Azure Arc | Version SQL Server | Version de PostgreSQL Hyperscale
 |-----|-----|-----|-----|-----|
 | Dell EMC PowerFlex |1.19.7|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) | |
 | PowerFlex version 3.6 |1.19.7|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) | |

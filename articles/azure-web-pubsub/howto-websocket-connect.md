@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.openlocfilehash: 939bc5b6c4b272174d99787e89f04a7431a45d68
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 02e7afa9b8c454b3520db933d76149973b50c699
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827474"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275161"
 ---
 #  <a name="start-a-websocket-connection-to-azure-web-pubsub"></a>Démarrer une connexion WebSocket à Azure Web PubSub
 
@@ -31,7 +31,7 @@ Le portail fournit également un outil permettant de générer l’URL du client
 > Veillez à n’inclure que les rôles nécessaires lors de la génération du jeton.
 >
 
-Dans les sections suivantes, pour simplifier l’exemple de flux de travail, nous utilisons cette URL générée temporairement à partir du portail pour que le client se connecte. Nous utilisons `<Client_URL_From_Portal>` pour représenter la valeur. Le jeton généré expire par défaut dans un délai de 50 minutes. N’oubliez donc pas d’en régénérer un lorsque le jeton expire.
+Dans les sections suivantes, pour simplifier l’exemple de flux de travail, nous utilisons cette URL générée temporairement à partir du portail pour que le client se connecte. Nous utilisons `<Client_URL_From_Portal>` pour représenter la valeur. Le jeton généré expire par défaut dans un délai de 60 minutes. N’oubliez donc pas d’en régénérer un lorsque le jeton expire.
 
 Le service prend en charge deux types de clients WebSocket : l’un est le client WebSocket simple et l’autre est le client WebSocket PubSub. Nous montrons ici comment ces deux types de clients se connectent au service. Pour plus d’informations sur ces clients, consultez [Protocoles clients WebSocket pour Azure Web PubSub](./concept-client-protocols.md).
 

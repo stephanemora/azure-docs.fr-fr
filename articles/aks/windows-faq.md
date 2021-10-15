@@ -2,15 +2,14 @@
 title: FAQ sur les pools de nœuds Windows Server
 titleSuffix: Azure Kubernetes Service
 description: Consultez la foire aux questions lorsque vous exécutez des pools de nœuds Windows Server et des charges de travail d’application dans Azure Kubernetes service (AKS).
-services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: c11ca69e11ee3f9b429414c2caf5b71a947d6a31
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: dd83803069f83233915c0baae0656346008a3814
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128595291"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354634"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Foire aux questions relative aux pools de nœuds Windows Server dans AKS
 
@@ -68,7 +67,7 @@ Oui. Pour connaître les implications et les options disponibles, consultez [Nom
 
 Si vous avez créé votre cluster avant février 2020 et n’avez jamais effectué d’opérations de mise à niveau du cluster, le cluster utilise toujours une ancienne image Windows. Vous avez peut-être rencontré une erreur ressemblant à ceci :
 
-« La liste suivante d’images référencées à partir du modèle de déploiement est introuvable : Éditeur : MicrosoftWindowsServer, Offre : WindowsServer, référence (SKU) : 2019-datacenter-core-smalldisk-2004, Version : dernière. Pour obtenir des instructions sur la recherche d’images disponibles, consultez https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage. »
+« La liste suivante d’images référencées à partir du modèle de déploiement est introuvable : Éditeur : MicrosoftWindowsServer, Offre : WindowsServer, référence (SKU) : 2019-datacenter-core-smalldisk-2004, Version : dernière. Consultez [Rechercher et utiliser des images de machine virtuelle de la Place de marché Azure avec Azure PowerShell](../virtual-machines/windows/cli-ps-findimage.md) pour obtenir des instructions sur la recherche d’images disponibles.
 
 Pour résoudre ce problème :
 
@@ -197,7 +196,7 @@ Bien que cela soit pris en charge dans la version du système d'exploitation WS2
 1. Cluster AKS exécutant une version minimale de 1,20.
 1. Limitez votre pod à une seule instance par nœud Windows. Cela peut être réalisé en utilisant l'anti-affinité dans votre configuration de déploiement.
 1. Dans la configuration de votre service Kubernetes, définissez "externalTrafficPolicy=Local". Cela garantit que le service Kubernetes ne dirige le trafic que vers les pods du nœud local.
-1. Dans la configuration de votre service Kubernetes, définissez "sessionAffinity : ClientIP". Cela permet de s’assurer que la Azure Load Balancer est configurée avec l’affinité de session.
+1. Dans la configuration de votre service Kubernetes, définissez "sessionAffinity: ClientIP". Cela permet de s’assurer que la Azure Load Balancer est configurée avec l’affinité de session.
 
 ## <a name="what-if-i-need-a-feature-thats-not-supported"></a>Que se passe-t-il si j’ai besoin d’une fonctionnalité qui n’est pas prise en charge ?
 

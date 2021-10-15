@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2021
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: a37ce583e5392099c923e9bc0a7a3363fa7b97c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4fc34329ec7f318d79dd04e271db7b37b7e1cc59
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576850"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533627"
 ---
 # <a name="create-a-dual-protocol-volume-for-azure-netapp-files"></a>Créer un volume double protocole pour Azure NetApp Files
 
@@ -30,7 +30,7 @@ Pour créer des volumes NFS, voir [Créer un volume NFS](azure-netapp-files-crea
 ## <a name="before-you-begin"></a>Avant de commencer 
 
 * Vous devez déjà avoir créé un pool de capacités.  
-    Consultez [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md).   
+    Consultez [Créer un pool de capacités](azure-netapp-files-set-up-capacity-pool.md).   
 * Un sous-réseau doit être délégué à Azure NetApp Files.  
     Consultez [Déléguer un sous-réseau à Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
@@ -109,6 +109,9 @@ Pour créer des volumes NFS, voir [Créer un volume NFS](azure-netapp-files-crea
         ![Créer un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Créer un sous-réseau](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * **Fonctionnalités réseau**  
+        Dans les régions prises en charge, vous pouvez préciser si vous souhaitez utiliser les fonctionnalités réseau **De base** ou **Standard** pour le volume. Consultez [Configurer les fonctionnalités réseau d’un volume](configure-network-features.md) et [Consignes pour planifier un réseau Azure NetApp Files](azure-netapp-files-network-topologies.md) pour plus de détails.
 
     * Si vous souhaitez appliquer une stratégie d’instantané existante au volume, cliquez sur **Afficher la section avancée** pour la développer, indiquez si vous souhaitez masquer le chemin d'accès de l’instantané, puis sélectionnez une stratégie d’instantané dans le menu déroulant. 
 

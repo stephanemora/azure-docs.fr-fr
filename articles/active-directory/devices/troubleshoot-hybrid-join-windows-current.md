@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5a89c2dd574c1910d2c35c78aee4f5ee8b561dfc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2b7e51bc2837cdb068f0f9d6704e80d3f41c396e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592790"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129538866"
 ---
 # <a name="troubleshoot-hybrid-azure-ad-joined-devices"></a>Résoudre les problèmes liés aux appareils hybrides joints Azure AD
 
@@ -233,7 +233,7 @@ Ce contenu s’applique uniquement aux comptes de domaine fédérés.
 Causes de l’échec :
 
 - Impossible d’obtenir un jeton d’accès en mode silencieux pour la ressource DRS.
-   - Les appareils Windows &nbsp; 10 obtiennent le jeton d’authentification à partir du service FS (Federation Service) à l’aide de l’authentification Windows intégrée à un point de terminaison WS-Trust actif. Pour plus d’informations, consultez [Configuration du service FS (Federation Service)](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
+   - Les appareils Windows&nbsp;10 obtiennent le jeton d’authentification à partir du service FS (Federation Service) en utilisant Authentification Windows intégrée sur un point de terminaison WS-Trust actif. Pour plus d’informations, consultez [Configuration du service FS (Federation Service)](hybrid-azuread-join-manual.md#set-up-issuance-of-claims).
 
 **Codes d’erreur courants** :
 
@@ -443,7 +443,7 @@ Le champ « État de la tentative » sous le champ AzureAdPrt fournit l’éta
 
 Utilisez l’Observateur d’événements pour rechercher les entrées de journal qui sont journalisées par le plug-in CloudAP Azure AD lors de l’acquisition de PRT. 
 
-1. Dans l’Observateur d’événements, ouvrez les journaux des événements Azure AD. Ils sont stockés dans le **Journal des Applications et des Services** > **Microsoft** > **Windows** > **Inscription des appareils de l’utilisateur**. 
+1. Dans l’Observateur d’événements, ouvrez les journaux des événements Operational d’Azure AD. Ils sont stockés sous **Journal Applications et services** > **Microsoft** > **Windows** > **AAD**. 
 
    > [!NOTE]
    > Le plug-in CloudAP enregistre les événements d’erreur dans les journaux des opérations et enregistre les événements d’informations dans les journaux d’analyse. Les événements des journaux d’analyse et des opérations sont requis pour résoudre les problèmes. 

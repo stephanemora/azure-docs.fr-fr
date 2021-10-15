@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9fc7a8d5b27da251f13f2c9dfeffa03f7cdbd149
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f10c1f70026b905521193a0dd511ba1e65de6849
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114452556"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274023"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gérer les modules dans Azure Automation
 
@@ -30,9 +30,6 @@ Lorsque vous créez un compte Automation, Azure Automation importe certains modu
 
 Quand Automation exécute des travaux de runbook et de compilation DSC, le service charge les modules dans des bacs à sable où les runbooks peuvent s’exécuter et les configurations DSC compiler. Automation place automatiquement toutes les ressources DSC des modules sur le serveur Pull DSC. Les machines peuvent extraire les ressources lorsqu’elles appliquent les configurations DSC.
 
->[!NOTE]
->Veillez à importer uniquement les modules dont vos runbooks et configurations DSC ont réellement besoin. Nous vous déconseillons d’importer le module Az racine. Il comprend de nombreux autres modules dont vous n’avez peut-être pas besoin, ce qui peut entraîner des problèmes de performances. Importez des modules individuels, tels que Az.Compute, à la place.
-
 Le bac à sable cloud prend en charge un maximum de 48 appels système et restreint tous les autres appels pour des raisons de sécurité. D’autres fonctionnalités telles que la gestion des informations d’identification et certaines fonctionnalités de mise en réseau ne sont pas prises en charge dans le bac à sable cloud.
 
 En raison du nombre de modules et de cmdlets inclus, il est difficile de connaître au préalable les cmdlets qui ne sont pas prises en charge. En général, les problèmes concernent les cmdlets qui nécessitent un accès avec des privilèges élevés, qui requièrent des informations d’identification en tant que paramètres ou les cmdlets associées à la mise en réseau. Les cmdlets qui effectuent des opérations de réseau complètes ne sont pas prises en charge dans le bac à sable, notamment [Connect-AipService](/powershell/module/aipservice/connect-aipservice) du module PowerShell AIPService et [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) du module DNSClient.
@@ -44,19 +41,28 @@ Il s’agit de limitations connues du bac à sable. La solution de contournement
 
 ## <a name="default-modules"></a>Modules par défaut
 
-Le tableau suivant répertorie les modules qu’Azure Automation importe par défaut lorsque vous créez votre compte Automation. Automation peut importer des versions plus récentes de ces modules. Toutefois, vous ne pouvez pas supprimer la version originale de votre compte Automation, même si vous supprimez une version plus récente. Notez que ces modules par défaut incluent plusieurs modules AzureRM.
+Tous les nouveaux comptes Automation disposent de la dernière version du module PowerShell AZ importé par défaut. Le module AZ remplace AzureRM et son utilisation est recommandé avec Azure. Les **modules par défaut** du nouveau compte Automation incluent les 24 modules AzureRM existants et les plus de 60 modules AZ.
+
+Une option native permet à l’utilisateur de mettre à jour les modules vers le dernier module AZ pour les comptes Automation. L’opération gère toutes les dépendances de module sur le serveur principal, supprimant ainsi les tracas liés à la mise à jour [manuelle](../automation-update-azure-modules.md#update-az-modules) des modules ou à l’exécution du runbook pour [mettre à jour les modules Azure](../automation-update-azure-modules.md#obtain-a-runbook-to-use-for-updates).  
+
+Si le compte Automation existant ne contient que des modules AzureRM, l’option [Mettre à jour les modules AZ](../automation-update-azure-modules.md#update-az-modules) met à jour le compte Automation avec la version sélectionnée par l’utilisateur du module AZ.  
+
+Si le compte Automation existant contient AzureRM et certains modules AZ, l’option importe les modules AZ restants dans le compte Automation. Les modules AZ existants sont prioritaires et l’opération de mise à jour ne met pas à jour ces modules. Cela permet de s’assurer que l’opération de mise à jour du module n’entraîne pas d’échec d’exécution de runbook en mettant à jour par inadvertance un module utilisé par un runbook. La méthode recommandée pour ce scénario consiste à d’abord supprimer les modules AZ existants, puis à effectuer les opérations de mise à jour pour obtenir le dernier module AZ importé dans le compte Automation. Ces types de module, non importés par défaut, sont dits **personnalisés**.  Les modules **personnalisés** sont toujours préférés par rapport aux modules **par défaut**.  
+
+Exemple : Si vous avez déjà importé le module `Az.Aks` avec la version 2.3.0 qui est fournie par AZ module 6.3.0 et que vous essayez de mettre à jour le module AZ vers la dernière version 6.4.0. L’opération de mise à jour importe tous les modules AZ à partir du package 6.4.0, à l’exception de `Az.Aks`. Pour obtenir la dernière version de `Az.Aks`, supprimez d’abord le module existant, puis effectuez l’opération de mise à jour, ou vous pouvez également mettre à jour ce module séparément, comme décrit dans [Importer des modules AZ](#import-az-modules) pour importer une autre version d’un module spécifique.  
+
+Le tableau suivant répertorie les modules qu’Azure Automation importe par défaut lorsque vous créez votre compte Automation. Automation peut importer des versions plus récentes de ces modules. Toutefois, vous ne pouvez pas supprimer la version originale de votre compte Automation, même si vous supprimez une version plus récente.
 
 Les modules par défaut sont également appelés modules globaux. Dans le portail Azure, la propriété **Global module** est **true** lors de l’affichage d’un module qui a été importé à la création du compte.
 
 ![Capture d’écran de la propriété global module dans le portail Azure](../media/modules/automation-global-modules.png)
-
-Automation n’importe pas automatiquement le module Az racine dans les comptes Automation nouveaux ou existants. Pour plus d’informations sur l’utilisation de ces modules, consultez [Migration vers les modules Az](#migrate-to-az-modules).
 
 > [!NOTE]
 > Nous vous déconseillons de modifier les modules et runbooks dans des comptes Automation utilisés pour le déploiement de la fonctionnalité [Start/Stop VMs during off-hours](../automation-solution-vm-management.md).
 
 |Nom du module|Version|
 |---|---|
+|AZ.* | Consultez la liste complète sous **Détails du package** dans [PowerShell Gallery](https://www.powershellgallery.com/packages/Az)|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
 | Azure.Storage | 1.0.3 |
@@ -81,10 +87,6 @@ Automation n’importe pas automatiquement le module Az racine dans les comptes
 | xDSCDomainjoin | 1.1 |
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
-
-## <a name="az-modules"></a>Modules Az
-
-Pour Az.Automation, la majorité des cmdlets portent les mêmes noms que les modules AzureRM, à ceci près que le préfixe `AzureRM` a été remplacé par `Az`. Pour obtenir la liste des modules Az qui ne suivent pas cette convention de nommage, consultez la [liste des exceptions](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 ## <a name="internal-cmdlets"></a>Applets de commande internes
 
@@ -122,8 +124,8 @@ Cette section explique comment migrer vers les modules Az dans Automation. Pour 
 
 Nous déconseillons l’utilisation de modules Az et AzureRM dans le même compte Automation. Lorsque vous êtes sûr de vouloir migrer d’AzureRM vers Az, il est préférable d’effectuer une migration complète. Automation réutilise souvent des bacs à sable (sandbox) dans le compte Automation pour réaliser des économies au moment du démarrage. Si vous n’effectuez pas de migration de module complète, vous pouvez démarrer un travail utilisant uniquement des modules AzureRM, puis en démarrer un autre utilisant uniquement des modules Az. Le bac à sable (sandbox) se bloque rapidement et vous recevez une erreur indiquant que les modules ne sont pas compatibles. Cette situation entraîne des blocages aléatoires pour une configuration ou un runbook particuliers.
 
->[!NOTE]
->Lorsque vous créez un compte Automation, même après migration vers les modules Az, Automation installe les modules AzureRM par défaut. Vous pouvez toujours mettre à jour les runbooks tutoriels avec les applets de commande AzureRM. Cependant, vous ne devez pas exécuter ces runbooks.
+> [!NOTE]
+> Lorsque vous créez un compte Automation, même après migration vers les modules AZ, Automation installe les modules AzureRM par défaut.
 
 ### <a name="test-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>Tester vos runbooks et configurations DSC avant la migration de modules
 
@@ -148,7 +150,7 @@ Le fait d’importer un module Az dans votre compte Automation n’a pas pour ef
 * Quand un runbook importe le module explicitement avec l’instruction [using module](/powershell/module/microsoft.powershell.core/about/about_using#module-syntax). L’instruction using est prise en charge dans Windows PowerShell 5.0 et versions ultérieures. En outre, elle prend en charge les classes et l’importation de type enum.
 * Quand un runbook importe un autre module dépendant.
 
-Vous pouvez importer les modules Az dans le compte Automation à partir du portail Azure. N’oubliez pas d’importer uniquement les modules Az dont vous avez besoin, et non tous les modules Az disponibles. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) étant une dépendance pour les autres modules Az, veillez à importer ce module avant tout autre.
+Vous pouvez importer les modules Az dans le compte Automation à partir du portail Azure. [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) étant une dépendance pour les autres modules Az, veillez à importer ce module avant tout autre.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Recherchez et sélectionnez **Comptes Automation**.

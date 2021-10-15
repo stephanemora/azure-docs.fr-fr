@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e08823861e0b1a197313c8311cc13ac972d61a25
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 052e82f0bb1aa7c5b0b3dad7808bd46839fb95ad
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122603707"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387788"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurer et soumettre des exécutions d’entraînement
 
@@ -61,7 +61,7 @@ Vous pouvez également :
 
 ## <a name="create-an-experiment"></a>Créer une expérience
 
-Créez une expérience dans votre espace de travail.
+Créez une [expérience](concept-azure-machine-learning-architecture.md#experiments) dans votre espace de travail. Une expérience est un conteneur léger qui permet d’organiser des soumissions d’exécution et d’effectuer le suivi du code.
 
 ```python
 from azureml.core import Experiment

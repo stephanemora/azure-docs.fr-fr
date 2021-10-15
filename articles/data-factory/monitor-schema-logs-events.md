@@ -8,18 +8,19 @@ ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 6700ade1a7a3f3504dc149841ea918c739dc774f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4b64818b505863ad7f7e2878640eeb28224af2f1
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124838516"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400189"
 ---
 # <a name="schema-of-logs-and-events"></a>Schéma des journaux et des événements
 
 Cet article décrit le schéma utilisé par les journaux et événements Azure Data Factory pour la surveillance.
 
 ## <a name="monitor-schema"></a>Schéma Azure Monitor
+Les listes d’attributs suivantes sont utilisées pour la surveillance.
 
 ### <a name="activity-run-log-attributes"></a>Attributs du journal d’exécution d’activité
 
@@ -167,7 +168,7 @@ Cet article décrit le schéma utilisé par les journaux et événements Azure D
 
 ### <a name="ssis-integration-runtime-log-attributes"></a>Attributs du journal du runtime d’intégration SSIS
 
-Voici les attributs du journal des opérations de démarrage/arrêt/maintenance du runtime d’intégration de SSIS.
+Voici les attributs de journal des opérations de démarrage, d’arrêt et de maintenance du runtime d’intégration (IR) de SQL Server Integration Services (SSIS).
 
 ```json
 {
@@ -192,16 +193,16 @@ Voici les attributs du journal des opérations de démarrage/arrêt/maintenance 
 | **operationName**          | String | Nom de votre opération IR SSIS                            | `Start/Stop/Maintenance/Heartbeat` |
 | **category**               | String | Catégorie de journaux de diagnostic                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | String | ID unique pour le suivi d’une opération particulière             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
-| **dataFactoryName**        | String | Nom de votre ADF                                          | `MyADFv2` |
+| **dataFactoryName**        | String | Nom de votre fabrique de données                                          | `MyADFv2` |
 | **integrationRuntimeName** | String | Nom de votre IR SSIS                                      | `MySSISIR` |
 | **level**                  | String | Niveau des journaux de diagnostic                                  | `Informational` |
 | **resultType**             | String | Résultat de votre opération IR SSIS                          | `Started/InProgress/Succeeded/Failed/Healthy/Unhealthy` |
 | **message**                | String | Message de sortie de votre opération IR SSIS                  | `The stopping of your SSIS integration runtime has succeeded.` |
-| **resourceId**             | String | ID unique de la ressource ADF                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **resourceId**             | String | ID unique de votre ressource de fabrique de données                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ### <a name="ssis-event-message-context-log-attributes"></a>Attributs du journal de contexte des messages d’événements SSIS
 
-Voici les attributs de journal des conditions liées aux messages d’événement générés par des exécutions de package SSIS sur votre runtime d’intégration de SSIS. Ils transmettent des informations comme [la table ou la vue de contexte de message d’événement du catalogue SSIS (SSISDB)](/sql/integration-services/system-views/catalog-event-message-context) qui affiche des valeurs d’exécution de nombreuses propriétés du package SSIS. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Basic/Verbose` qui est utile pour la vérification de la conformité/du débogage.
+Voici les attributs de journal des conditions liées aux messages d’événement générés par des exécutions de package SSIS sur votre runtime d’intégration de SSIS. Ils transmettent des informations similaires à celles [d’une table ou d’une vue contextuelle de messages d’événements du catalogue SSIS (SSISDB)](/sql/integration-services/system-views/catalog-event-message-context) qui indiquent les valeurs d’exécution de nombreuses propriétés de packages SSIS. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Basic/Verbose` et sont utiles pour le débogage ou la vérification de la conformité.
 
 ```json
 {
@@ -229,25 +230,25 @@ Voici les attributs de journal des conditions liées aux messages d’événemen
 | Propriété                   | Type   | Description                                                          | Exemple                        |
 | -------------------------- | ------ | -------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | Heure de l’événement au format UTC :`YYYY-MM-DDTHH:MM:SS.00000Z`        | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | Ce paramètre est défini sur `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
+| **operationName**          | String | Paramètre à définir sur `YourSSISIRName-SSISPackageEventMessageContext`       | `mysqlmissisir-SSISPackageEventMessageContext` |
 | **category**               | String | Catégorie de journaux de diagnostic                                      | `SSISPackageEventMessageContext` |
 | **correlationId**          | String | ID unique pour le suivi d’une opération particulière                    | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String | Nom de votre ADF                                                 | `MyADFv2` |
+| **dataFactoryName**        | String | Nom de votre fabrique de données                                                 | `MyADFv2` |
 | **integrationRuntimeName** | String | Nom de votre IR SSIS                                             | `MySSISIR` |
 | **level**                  | String | Niveau des journaux de diagnostic                                         | `Informational` |
-| **operationId**            | String | ID unique pour le suivi d’une opération particulière dans SSISDB          | `1` (1 désigne les opérations liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
-| **contextDepth**           | String | Profondeur du contexte de votre message d’événement                              | `0` (0 désigne le contexte avant le démarrage de l’exécution du package, 1 signifie le contexte lorsqu’une erreur se produit et qu’elle augmente à mesure que le contexte est plus éloigné de l’erreur) |
+| **operationId**            | String | ID unique pour le suivi d’une opération particulière dans SSISDB          | `1` (1 désigne les opérations liées aux packages *non* stockées dans SSISDB/invoquées via T-SQL.) |
+| **contextDepth**           | String | Profondeur du contexte de votre message d’événement                              | `0` (0 désigne le contexte avant le démarrage de l’exécution du package, 1 désigne le contexte lorsqu’une erreur se produit et la valeur augmente à mesure que le contexte s’éloigne de l’erreur.) |
 | **packagePath**            | String | Chemin d’accès de l’objet du package en tant que source de contexte de message d’événement      | `\Package` |
-| **contextType**            | String | Type d’accès de l’objet du package en tant que source de contexte de message d’événement      | `60`(voir [plus de types de contexte](/sql/integration-services/system-views/catalog-event-message-context#remarks)) |
+| **contextType**            | String | Type d’accès de l’objet du package en tant que source de contexte de message d’événement      | `60`(Voir [plus de types de contexte](/sql/integration-services/system-views/catalog-event-message-context#remarks).) |
 | **contextSourceName**      | String | Nom d’accès de l’objet du package en tant que source de contexte de message d’événement      | `MyPackage` |
 | **contextSourceId**        | String | ID unique d’accès de l’objet du package en tant que source de contexte de message d’événement | `{E2CF27FB-EA48-41E9-AF6F-3FE938B4ADE1}` |
 | **propertyName**           | String | Nom de la propriété de l’objet du package en tant que source de contexte de message d’événement   | `DelayValidation` |
 | **propertyValue**          | String | Valeur de la propriété de l’objet du package en tant que source de contexte de message d’événement  | `False` |
-| **resourceId**             | String | ID unique de la ressource ADF                                   | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **resourceId**             | String | ID unique de votre ressource de fabrique de données                                   | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ### <a name="ssis-event-messages-log-attributes"></a>Attributs du journal des messages d’événements SSIS
 
-Voici les attributs de journal des messages d’événement générés par les exécutions de package SSIS sur votre runtime d’intégration SSIS. Ils transmettent des informations comme [la table ou la vue des messages d’événements SSISDB](/sql/integration-services/system-views/catalog-event-messages) qui affichent le texte ou les métadonnées détaillés des messages d’événement. Ils sont générés à n’importe quel niveau de journalisation, sauf `None`.
+Voici les attributs de journal des messages d’événement générés par les exécutions de package SSIS sur votre runtime d’intégration SSIS. Ils transmettent des informations similaires à celles [d’une table ou d’une vue de messages d’événements SSISDB](/sql/integration-services/system-views/catalog-event-messages) qui montrent le texte détaillé ou les métadonnées des messages d’événements. Ils sont générés à n’importe quel niveau de journalisation, sauf `None`.
 
 ```json
 {
@@ -279,16 +280,16 @@ Voici les attributs de journal des messages d’événement générés par les e
 | Propriété                   | Type   | Description                                                        | Exemple                        |
 | -------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                   | String | Heure de l’événement au format UTC :`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | Ce paramètre est défini sur `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
+| **operationName**          | String | Paramètre à définir sur `YourSSISIRName-SSISPackageEventMessages`           | `mysqlmissisir-SSISPackageEventMessages` |
 | **category**               | String | Catégorie de journaux de diagnostic                                    | `SSISPackageEventMessages` |
 | **correlationId**          | String | ID unique pour le suivi d’une opération particulière                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String | Nom de votre ADF                                               | `MyADFv2` |
+| **dataFactoryName**        | String | Nom de votre fabrique de données                                               | `MyADFv2` |
 | **integrationRuntimeName** | String | Nom de votre IR SSIS                                           | `MySSISIR` |
 | **level**                  | String | Niveau des journaux de diagnostic                                       | `Informational` |
-| **operationId**            | String | ID unique pour le suivi d’une opération particulière dans SSISDB        | `1` (1 désigne les opérations liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
+| **operationId**            | String | ID unique pour le suivi d’une opération particulière dans SSISDB        | `1` (1 désigne les opérations liées aux packages *non* stockées dans SSISDB/invoquées via T-SQL.) |
 | **messageTime**            | String | Heure de création du message d’événement au format UTC          | `2017-06-28T21:00:27.3534352Z` |
-| **messageType**            | String | Type du message d'événement                                     | `70`(voir [plus de types de messages](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)) |
-| **messageSourceType**      | String | Type de source du message d'événement                              | `20`(voir [plus de types de sources de messages](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks)) |
+| **messageType**            | String | Type du message d'événement                                     | `70`(Voir [plus de types de messages](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks).) |
+| **messageSourceType**      | String | Type de source du message d'événement                              | `20`(Voir [plus de types de sources de messages](/sql/integration-services/system-views/catalog-operation-messages-ssisdb-database#remarks).) |
 | **message**                | String | Texte du message d'événement                                     | `MyPackage:Validation has started.` |
 | **packageName**            | String | Nom de votre fichier de package exécuté                             | `MyPackage.dtsx` |
 | **eventName**              | String | Nom de l’événement au moment de l’exécution                                 | `OnPreValidate` |
@@ -296,12 +297,12 @@ Voici les attributs de journal des messages d’événement générés par les e
 | **messageSourceId**        | String | ID unique d’accès du composant du package en tant que source du message d’événement    | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
 | **subcomponentName**       | String | Nom d’accès du composant de flux de données en tant que source du message d’événement       | `SSIS.Pipeline` |
 | **packagePath**            | String | Chemin d’accès de l’objet du package en tant que source du message d’événement            | `\Package\Data Flow Task` |
-| **executionPath**          | String | Chemin d’accès complet du package parent au composant exécuté            | `\Transformation\Data Flow Task` (Ce chemin d'accès capture également les itérations d'un composant) |
+| **executionPath**          | String | Chemin d’accès complet du package parent au composant exécuté            | `\Transformation\Data Flow Task` (Ce chemin d’accès capture également les itérations d’un composant.) |
 | **threadId**               | String | ID unique du thread exécuté lorsque votre message d’événement est journalisé | `{1a45a5a4-3df9-4f02-b818-ebf583829ad2}    ` |
 
 ### <a name="ssis-executable-statistics-log-attributes"></a>Attributs du journal des statistiques exécutables SSIS
 
-Voici les attributs de journal des statistiques exécutables générées par les exécutions de package SSIS sur votre runtime d’intégration SSIS, où les exécutables sont des conteneurs ou des tâches dans les flux de contrôle des packages. Ils transmettent des informations comme [la table ou la vue des statistiques exécutables SSISDB](/sql/integration-services/system-views/catalog-executable-statistics) qui affiche une ligne pour chaque exécutable en cours d’exécution, y compris ses itérations. Ils sont générés à n’importe quel niveau de journalisation, sauf `None` et utiles pour identifier les goulots d’étranglement/défaillances au niveau des tâches.
+Voici les attributs de journal des statistiques exécutables générées par les exécutions de package SSIS sur votre runtime d’intégration SSIS, où les exécutables sont des conteneurs ou des tâches dans les flux de contrôle des packages. Ils transmettent des informations similaires à celles [d’une table ou d’une vue de statistiques sur les exécutables SSISDB](/sql/integration-services/system-views/catalog-executable-statistics) qui présentent une ligne pour chaque exécutable en cours d’exécution, y compris ses itérations. Ils sont générés à n’importe quel niveau de journalisation, sauf `None`, et sont utiles pour identifier les goulots d’étranglement ou les défaillances au niveau des tâches.
 
 ```json
 {
@@ -328,24 +329,24 @@ Voici les attributs de journal des statistiques exécutables générées par les
 | Propriété                   | Type   | Description                                                      | Exemple                        |
 | -------------------------- | ------ | ---------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | Heure de l’événement au format UTC :`YYYY-MM-DDTHH:MM:SS.00000Z`    | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | Ce paramètre est défini sur `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
+| **operationName**          | String | Paramètre à définir sur `YourSSISIRName-SSISPackageExecutableStatistics`  | `mysqlmissisir-SSISPackageExecutableStatistics` |
 | **category**               | String | Catégorie de journaux de diagnostic                                  | `SSISPackageExecutableStatistics` |
 | **correlationId**          | String | ID unique pour le suivi d’une opération particulière                | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String | Nom de votre ADF                                             | `MyADFv2` |
+| **dataFactoryName**        | String | Nom de votre fabrique de données                                             | `MyADFv2` |
 | **integrationRuntimeName** | String | Nom de votre IR SSIS                                         | `MySSISIR` |
 | **level**                  | String | Niveau des journaux de diagnostic                                     | `Informational` |
-| **executionId**            | String | ID unique pour le suivi d’une exécution particulière dans SSISDB      | `1` (1 désigne les exécutions liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
-| **executionPath**          | String | Chemin d’accès complet du package parent au composant exécuté          | `\Transformation\Data Flow Task` (Ce chemin d'accès capture également les itérations d'un composant) |
+| **executionId**            | String | ID unique pour le suivi d’une exécution particulière dans SSISDB      | `1` (1 désigne les exécutions liées aux packages *non* stockées dans SSISDB/invoquées via T-SQL.) |
+| **executionPath**          | String | Chemin d’accès complet du package parent au composant exécuté          | `\Transformation\Data Flow Task` (Ce chemin d’accès capture également les itérations d’un composant.) |
 | **startTime**              | String | Heure à laquelle le fichier exécutable entre dans la phase de pré-exécution au format UTC  | `2017-06-28T21:00:27.3534352Z` |
 | **endTime**                | String | Heure à laquelle le fichier exécutable entre dans la phase de post-exécution au format UTC | `2017-06-28T21:00:27.3534352Z` |
 | **executionDuration**      | String | Heure d’exécution de l’exécutable en millisecondes                   | `1,125` |
-| **executionResult**        | String | Résultat de l’exécution de l’exécutable                                 | `0` (0 signifie réussite, 1 signifie échec, 2 signifie fin et 3 signifie annulation) |
+| **executionResult**        | String | Résultat de l’exécution de l’exécutable                                 | `0` (0 désigne la réussite, 1 désigne l’échec, 2 désigne la fin et 3 désigne l’annulation.) |
 | **executionValue**         | String | Valeur définie par l’utilisateur retournée par l’exécutable en cours d’exécution            | `1` |
-| **resourceId**             | String | ID unique de la ressource ADF                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **resourceId**             | String | ID unique de votre ressource de fabrique de données                               | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ### <a name="ssis-execution-component-phases-log-attributes"></a>Attributs du journal des phases du composant d’exécution SSIS
 
-Voici les attributs de journal des statistiques de runtime pour les composants de flux de données générés par des exécutions de package SSIS sur votre runtime d’intégration SSIS. Ils transmettent des informations comme [la table ou la vue des phases du composant d’exécution SSISDB](/sql/integration-services/system-views/catalog-execution-component-phases) qui montrent le temps passé par les composants de flux de données dans toutes leurs phases d’exécution. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Performance/Verbose` qui est utile pour la capture des statistiques d’exécution du flux de données.
+Voici les attributs de journal des statistiques de runtime pour les composants de flux de données générés par des exécutions de package SSIS sur votre runtime d’intégration SSIS. Ils transmettent des informations similaires à celles [d’une table ou d’une vue des phases des composants d’exécution SSISDB](/sql/integration-services/system-views/catalog-execution-component-phases) qui indiquent le temps passé par les composants de flux de données dans toutes leurs phases d’exécution. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Performance/Verbose` qui est utile pour la capture des statistiques d’exécution du flux de données.
 
 ```json
 {
@@ -373,13 +374,13 @@ Voici les attributs de journal des statistiques de runtime pour les composants d
 | Propriété                   | Type   | Description                                                         | Exemple                        |
 | -------------------------- | ------ | ------------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | Heure de l’événement au format UTC :`YYYY-MM-DDTHH:MM:SS.00000Z`       | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | Ce paramètre est défini sur `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
+| **operationName**          | String | Paramètre à définir sur `YourSSISIRName-SSISPackageExecutionComponentPhases` | `mysqlmissisir-SSISPackageExecutionComponentPhases` |
 | **category**               | String | Catégorie de journaux de diagnostic                                     | `SSISPackageExecutionComponentPhases` |
 | **correlationId**          | String | ID unique pour le suivi d’une opération particulière                   | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**        | String | Nom de votre ADF                                                | `MyADFv2` |
+| **dataFactoryName**        | String | Nom de votre fabrique de données                                                | `MyADFv2` |
 | **integrationRuntimeName** | String | Nom de votre IR SSIS                                            | `MySSISIR` |
 | **level**                  | String | Niveau des journaux de diagnostic                                        | `Informational` |
-| **executionId**            | String | ID unique pour le suivi d’une exécution particulière dans SSISDB         | `1` (1 désigne les exécutions liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
+| **executionId**            | String | ID unique pour le suivi d’une exécution particulière dans SSISDB         | `1` (1 désigne les exécutions liées aux packages *non* stockées dans SSISDB/invoquées via T-SQL.) |
 | **packageName**            | String | Nom de votre fichier de package exécuté                              | `MyPackage.dtsx` |
 | **taskName**               | String | Nom de la tâche de flux de données exécutée                                 | `Data Flow Task` |
 | **subcomponentName**       | String | Nom du composant de flux de données                                     | `Derived Column` |
@@ -387,11 +388,11 @@ Voici les attributs de journal des statistiques de runtime pour les composants d
 | **startTime**              | String | Heure de début de la phase d’exécution au format UTC                  | `2017-06-28T21:00:27.3534352Z` |
 | **endTime**                | String | Heure de fin de la phase d’exécution au format UTC                    | `2017-06-28T21:00:27.3534352Z` |
 | **executionPath**          | String | Chemin d'exécution de la tâche de flux de données                            | `\Transformation\Data Flow Task` |
-| **resourceId**             | String | ID unique de la ressource ADF                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **resourceId**             | String | ID unique de votre ressource de fabrique de données                                  | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ### <a name="ssis-execution-data-statistics-log-attributes"></a>Attributs du journal des statistiques des données d’exécution SSIS
 
-Voici les attributs de journal des déplacements de données via chaque tronçon de pipelines de flux de données, de l’amont vers les composants en aval, générés par les exécutions de package SSIS sur votre IR SSIS. Ils transmettent des informations comme [la table ou la vue des statistiques de données d’exécution SSISDB](/sql/integration-services/system-views/catalog-execution-data-statistics) qui affiche le nombre de lignes de données déplacées via des tâches de flux de données. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Verbose` qui est utile pour calculer le débit du flux de données.
+Voici les attributs de journal des déplacements de données via chaque tronçon de pipelines de flux de données, de l’amont vers les composants en aval, générés par les exécutions de package SSIS sur votre IR SSIS. Ils transmettent des informations similaires à celles [d’une table ou d’une vue de statistiques sur les données d’exécution SSISDB](/sql/integration-services/system-views/catalog-execution-data-statistics) qui indiquent le nombre de lignes de données déplacées par les tâches de flux de données. Ils sont générés lorsque vous sélectionnez le niveau de journalisation `Verbose` qui est utile pour calculer le débit du flux de données.
 
 ```json
 {
@@ -421,13 +422,13 @@ Voici les attributs de journal des déplacements de données via chaque tronçon
 | Propriété                     | Type   | Description                                                        | Exemple                        |
 | ---------------------------- | ------ | ------------------------------------------------------------------ | ------------------------------ |
 | **time**                     | String | Heure de l’événement au format UTC :`YYYY-MM-DDTHH:MM:SS.00000Z`      | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**            | String | Ce paramètre est défini sur `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
+| **operationName**            | String | Paramètre à définir sur `YourSSISIRName-SSISPackageExecutionDataStatistics` | `mysqlmissisir-SSISPackageExecutionDataStatistics` |
 | **category**                 | String | Catégorie de journaux de diagnostic                                    | `SSISPackageExecutionDataStatistics` |
 | **correlationId**            | String | ID unique pour le suivi d’une opération particulière                  | `e55700df-4caf-4e7c-bfb8-78ac7d2f28a0` |
-| **dataFactoryName**          | String | Nom de votre ADF                                               | `MyADFv2` |
+| **dataFactoryName**          | String | Nom de votre fabrique de données                                               | `MyADFv2` |
 | **integrationRuntimeName**   | String | Nom de votre IR SSIS                                           | `MySSISIR` |
 | **level**                    | String | Niveau des journaux de diagnostic                                       | `Informational` |
-| **executionId**              | String | ID unique pour le suivi d’une exécution particulière dans SSISDB        | `1` (1 désigne les exécutions liées aux packages **non** stockées dans SSISDB/invoquées via T-SQL) |
+| **executionId**              | String | ID unique pour le suivi d’une exécution particulière dans SSISDB        | `1` (1 désigne les exécutions liées aux packages *non* stockées dans SSISDB/invoquées via T-SQL.) |
 | **packageName**              | String | Nom de votre fichier de package exécuté                             | `MyPackage.dtsx` |
 | **taskName**                 | String | Nom de la tâche de flux de données exécutée                                | `Data Flow Task` |
 | **dataflowPathIdString**     | String | ID unique du chemin d’accès du flux de données de suivi                          | `Paths[SQLDB Table3.ADO NET Source Output]` |
@@ -437,7 +438,7 @@ Voici les attributs de journal des déplacements de données via chaque tronçon
 | **rowsSent**                 | String | Nombre de lignes envoyées par composant source                        | `500` |
 | **createdTime**              | String | Heure à laquelle les valeurs de ligne sont obtenues au format UTC                | `2017-06-28T21:00:27.3534352Z` |
 | **executionPath**            | String | Chemin d'exécution de la tâche de flux de données                           | `\Transformation\Data Flow Task` |
-| **resourceId**               | String | ID unique de la ressource ADF                                 | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+| **resourceId**               | String | ID unique de votre ressource de fabrique de données                                 | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
 ## <a name="log-analytics-schema"></a>Schéma Log Analytics
 

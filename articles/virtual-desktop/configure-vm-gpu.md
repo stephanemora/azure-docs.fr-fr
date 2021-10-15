@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: e55564ab1534b145958e128f58d50911ae9c51fa
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 2ace40157681b250b56fcd595486260f07ec80c3
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111746282"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400702"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-azure-virtual-desktop"></a>Configurer l’accélération GPU pour Azure Virtual Desktop
 
@@ -23,10 +23,11 @@ Suivez les instructions de cet article pour créer une machine virtuelle Azure o
 
 ## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Sélectionner une taille de machine virtuelle Azure optimisée pour le GPU appropriée
 
-Sélectionnez l’une des tailles de machine virtuelle Azure de la [série NV](../virtual-machines/nv-series.md), [NVv3](../virtual-machines/nvv3-series.md) ou [NVv4](../virtual-machines/nvv4-series.md). Ces tailles sont adaptées à la virtualisation des applications et des appareils de bureau et permettent à la plupart des applications et à l’interface utilisateur Windows d’être accélérées par GPU. Le bon choix pour votre pool d’hôtes dépend de plusieurs facteurs, notamment vos charges de travail d’applications spécifiques, la qualité souhaitée de l’expérience utilisateur et le coût. En général, les GPU plus grands et plus efficaces offrent une meilleure expérience utilisateur à une densité d’utilisateurs donnée, tandis que les tailles de GPU plus petites et fractionnaires permettent un contrôle plus précis de la qualité et du coût.
+Sélectionnez l’une des tailles de machine virtuelle Azure de la [série NV](../virtual-machines/nv-series.md), [NVv3](../virtual-machines/nvv3-series.md) ou [NVv4](../virtual-machines/nvv4-series.md). Ces tailles sont adaptées à la virtualisation des applications et des appareils de bureau et permettent à la plupart des applications et à l’interface utilisateur Windows d’être accélérées par GPU. Le bon choix pour votre pool d’hôtes dépend de plusieurs facteurs, notamment vos charges de travail d’applications spécifiques, la qualité souhaitée de l’expérience utilisateur et le coût. En général, les GPU plus grands et plus efficaces offrent une meilleure expérience utilisateur à une densité d’utilisateurs donnée, tandis que les tailles de GPU plus petites et fractionnaires permettent un contrôle plus précis de la qualité et du coût. Tenez compte de la mise hors service des machines virtuelles de la série NV lors du choix de la machine virtuelle. Plus de détails sur [la mise hors service de la série NV](../virtual-machines/nv-series-retirement.md)
 
 >[!NOTE]
 >Les machines virtuelles de la série NC, NCv2, NCv3, ND et NDv2 d’Azure ne conviennent généralement pas aux hôtes de session Azure Virtual Desktop. Ces machines virtuelles sont adaptées à des outils de calcul ou de Machine Learning hautes performances spécialisés, comme ceux créés avec NVIDIA CUDA. Elles ne prennent pas en charge l’accélération par GPU pour la plupart des applications ni pour l’interface utilisateur Windows.
+
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Créer un pool d’hôtes, provisionner votre machine virtuelle et configurer un groupe d’applications
 
@@ -36,6 +37,9 @@ Azure Virtual Desktop prend en charge le rendu et le codage avec accélération 
 
 * Windows 10 version 1511 ou ultérieure
 * Windows Server 2016 ou version ultérieure
+
+>[!NOTE]
+>Le système d’exploitation multisession n’est pas spécifiquement répertorié ; cependant, la licence GRID des instances NV prend en charge 25 utilisateurs simultanés. Voir [Série NV](../virtual-machines/nv-series.md)
 
 Vous devez également configurer un groupe d’applications ou utilisez le groupe d’applications bureau par défaut (nommé « Groupe d’applications bureau ») qui est créé automatiquement lorsque vous créez un nouveau pool d’hôtes. Pour obtenir des instructions, consultez [Tutoriel : Gérer des groupes d’applications pour Azure Virtual Desktop](./manage-app-groups.md).
 

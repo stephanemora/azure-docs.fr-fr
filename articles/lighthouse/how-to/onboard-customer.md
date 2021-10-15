@@ -1,15 +1,15 @@
 ---
 title: Intégrer un client à Azure Lighthouse
 description: Apprenez à intégrer un client à Azure Lighthouse pour permettre l'accès à ses ressources et la gestion de celles-ci par les utilisateurs de votre locataire.
-ms.date: 08/26/2021
+ms.date: 09/30/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1d060a7e1a6f9b0ae17e90b1094ec0a5da744e5f
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 3dbd3eb285a0135ca1b86294c5d3a41ef88a8472
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123469677"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353302"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Intégrer un client à Azure Lighthouse
 
@@ -338,6 +338,7 @@ Si vous ne parvenez pas à intégrer votre client ou si vos utilisateurs ont des
 - Le fournisseur de ressources **Microsoft.ManagedServices** doit être inscrit pour l’abonnement délégué. Cela doit se produire automatiquement pendant le déploiement, mais si ce n’est pas le cas, vous pouvez [l’inscrire manuellement](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Les autorisations ne doivent pas inclure d’utilisateurs dotés du rôle intégré [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) ni d’aucun rôle intégré avec [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - Les groupes doivent être créés avec un [**type de groupe**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) défini sur **Sécurité** et non **Microsoft 365**.
+- Si l’accès a été accordé à un groupe, vérifiez que l’utilisateur est membre de ce groupe. Si ce n’est pas le cas, vous pouvez [l’ajouter au groupe à l’aide d’Azure AD](../../active-directory/fundamentals/active-directory-groups-members-azure-portal.md), sans avoir à effectuer un autre déploiement. Notez que les [propriétaires de groupes](../../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md) ne sont pas nécessairement membres des groupes qu’ils gèrent, et qu’il peut être nécessaire de les ajouter pour qu’ils y aient accès.
 - Il peut y avoir un délai supplémentaire avant l’activation de l’accès pour les [groupes imbriqués](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - Les [rôles intégrés Azure](../../role-based-access-control/built-in-roles.md) que vous incluez dans les autorisations ne doivent pas inclure de rôles déconseillés. Si un rôle intégré Azure est déconseillé, tous les utilisateurs qui étaient intégrés à ce rôle perdront l’accès et vous ne pourrez pas intégrer de délégations supplémentaires. Pour résoudre ce problème, mettez à jour votre modèle pour utiliser uniquement les rôles intégrés pris en charge, puis effectuez un nouveau déploiement.
 

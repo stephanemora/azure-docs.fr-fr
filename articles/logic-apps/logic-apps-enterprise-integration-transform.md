@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.openlocfilehash: 027c1f44d756494432a076ec32f06e627f916b99
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 84d0e0b509505e6d56e39294b3e2819e4b03e024
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128553729"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350009"
 ---
-# <a name="transform-xml-for-workflows-in-azure-logic-apps"></a>Transformer des données XML pour des workflows dans Azure Logic Apps
+# <a name="transform-xml-in-workflows-with-azure-logic-apps"></a>Transformer des données XML dans des flux de travail dans Azure Logic Apps
 
 Dans des scénarios d’intégration d’entreprise interentreprises (B2B), vous devrez peut-être convertir des données XML entre des formats. Votre flux de travail d’application logique peut transformer du code XML à l’aide de l’action **Transformer XML** et d’une [*carte*](logic-apps-enterprise-integration-maps.md)prédéfinie. Par exemple, imaginons que vous receviez régulièrement des commandes ou des factures B2B de la part d’un client qui utilise le format de date YearMonthDay (AAAAMMJJ). Votre organisation, quant à elle, utilise le format de date MonthDayYear (MMJJAAAA). Vous pouvez créer et utiliser un mappage qui transforme le format de date YearMonthDay au format MonthDayYear avant d’enregistrer les détails de la commande ou de la facture dans votre base de données d’activité clients.
 

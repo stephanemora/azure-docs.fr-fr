@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: pafarley
 ms.custom: references_regions
-ms.openlocfilehash: 8965a05f60ca8fd67d02f4095b8c82dee82e1e0d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7937ce57cc432143d449f398a0a433686a6671ed
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605123"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129547035"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Prise en charge des langues et de la voix pour le service Speech
 
@@ -87,6 +87,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Français (France)                    | `fr-FR` | Audio (20201015)<br>Texte<br>Prononcer|      Oui                     |                          |
 | Français (Suisse)               | `fr-CH` | Texte<br>Prononcer                  |                           |                          |
 | Allemand (Autriche)                   | `de-AT` | Texte<br>Prononcer                  |                           |                          |
+| Allemand (Suisse)               | `de-CH` | Texte<br>Prononcer                  |                           |                          |
 | Allemand (Allemagne)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Texte<br>Prononcer|  Oui                         |                          |
 | Grec (Grèce)                     | `el-GR` | Texte                                   |  Oui                         |                          |
 | Goudjrati (Inde)                  | `gu-IN` | Texte                                   |                           |                          |
@@ -216,7 +217,7 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 | Anglais (Afrique du Sud) | `en-ZA` | Male | `en-ZA-LukeNeural` <sup>Nouveau</sup> | Général |
 | Anglais (Royaume-Uni) | `en-GB` | Female | `en-GB-LibbyNeural` | Général |
 | Anglais (Royaume-Uni) | `en-GB` | Female | `en-GB-SoniaNeural` <sup>Nouveau</sup> | Général |
-| Anglais (Royaume-Uni) | `en-GB` | Female | `en-GB-MiaNeural` <sup>Mise hors service le 15 octobre, voir ci-dessous</sup> | Général |
+| Anglais (Royaume-Uni) | `en-GB` | Female | `en-GB-MiaNeural` <sup>Mise hors service le 30 octobre, voir ci-dessous</sup> | Général |
 | Anglais (Royaume-Uni) | `en-GB` | Male | `en-GB-RyanNeural` | Général |
 | Anglais (États-Unis) | `en-US` | Female | `en-US-AriaNeural` | Général, plusieurs styles de voix disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Anglais (États-Unis) | `en-US` | Female | `en-US-JennyNeural` | Général, plusieurs styles de voix disponibles [à l’aide de SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -339,6 +340,7 @@ Les voix neurales peuvent être utilisées pour rendre les interactions avec les
 
 > [!IMPORTANT]
 > La voix en anglais (Royaume-Uni) `en-GB-MiaNeural` sera mise hors service le **30 octobre 2021**. Toutes les demandes de service adressées à `en-GB-MiaNeural` seront automatiquement redirigées vers `en-GB-SoniaNeural` après le **30 octobre 2021**.
+> Si vous utilisez la synthèse vocale neuronale de conteneur, [téléchargez](speech-container-howto.md#get-the-container-image-with-docker-pull) et déployez la dernière version avant le **30 octobre 2021**. Après le **30 octobre 2021**, toutes les demandes avec des versions précédentes seront rejetées.
 
 #### <a name="neural-voices-in-preview"></a>Voix neuronales en préversion
 
@@ -502,83 +504,103 @@ Sélectionnez les paramètres régionaux qui correspondent aux données d’appr
 
 ## <a name="speech-translation"></a>Traduction vocale
 
-L’API **Traduction vocale** prend en charge différentes langues pour la traduction de parole en parole et de parole en texte. La langue source doit toujours provenir du tableau des langues de reconnaissance vocale. Les langues cibles disponibles dépendent selon que cible de la traduction est de la parole ou du texte. Vous pouvez traduire les conversations entrantes dans plus de [60 langues](https://www.microsoft.com/translator/business/languages/). Un sous-ensemble de langues est disponible pour la [synthèse vocale](language-support.md#text-languages).
+L’API **Traduction vocale** prend en charge différentes langues pour la traduction de parole en parole et de parole en texte. La langue source doit toujours provenir du tableau des langues de reconnaissance vocale. Les langues cibles disponibles dépendent selon que cible de la traduction est de la parole ou du texte. Vous pouvez traduire les conversations entrantes dans l’une des [langues prises en charge](https://www.microsoft.com/translator/business/languages/). Un sous-ensemble de langues est disponible pour la [synthèse vocale](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Langues de texte
 
 | Langue de texte           | Code langue |
 |:------------------------|:-------------:|
-| Afrikaans               | `af`          |
-| Arabe                  | `ar`          |
-| Bangla                  | `bn`          |
-| Bosniaque (latin)         | `bs`          |
-| Bulgare               | `bg`          |
-| Cantonais (traditionnel) | `yue`         |
-| Catalan                 | `ca`          |
-| Chinois (simplifié)      | `zh-Hans`     |
-| Chinois traditionnel     | `zh-Hant`     |
-| Croate                | `hr`          |
-| Tchèque                   | `cs`          |
-| Danois                  | `da`          |
-| Néerlandais                   | `nl`          |
-| Anglais                 | `en`          |
-| Estonien                | `et`          |
-| Fidjien                  | `fj`          |
-| Filipino                | `fil`         |
-| Finnois                 | `fi`          |
-| Français                  | `fr`          |
-| Allemand                  | `de`          |
-| Grec                   | `el`          |
-| Goudjrati                | `gu`          |
-| Créole haïtien          | `ht`          |
-| Hébreu                  | `he`          |
-| Hindi                   | `hi`          |
-| Hmong blanc               | `mww`         |
-| Hongrois               | `hu`          |
-| Indonésien              | `id`          |
-| Irlandais                   | `ga`          |
-| Italien                 | `it`          |
-| Japonais                | `ja`          |
-| Kannada                 | `kn`          |
-| Kiswahili               | `sw`          |
-| Klingon                 | `tlh-Latn`    |
-| Klingon (plqaD)         | `tlh-Piqd`    |
-| Coréen                  | `ko`          |
-| Letton                 | `lv`          |
-| Lituanien              | `lt`          |
-| Malgache                | `mg`          |
-| Malais                   | `ms`          |
-| Malayalam               | `ml`          |
-| Maltais                 | `mt`          |
-| Maori                   | `mi`          |
-| Marathi                 | `mr`          |
-| Norvégien               | `nb`          |
-| Persan                 | `fa`          |
-| Polonais                  | `pl`          |
-| Portugais (Brésil)     | `pt-br`       |
-| Portugais (Portugal)   | `pt-pt`       |
-| Pendjabi                 | `pa`          |
-| Queretaro Otomi         | `otq`         |
-| Roumain                | `ro`          |
-| Russe                 | `ru`          |
-| Samoan                  | `sm`          |
-| Serbe (cyrillique)      | `sr-Cyrl`     |
-| Serbe (latin)         | `sr-Latn`     |
-| Slovaque                  | `sk`          |
-| Slovène               | `sl`          |
-| Espagnol                 | `es`          |
-| Suédois                 | `sv`          |
-| Tahitien                | `ty`          |
-| Tamoul                   | `ta`          |
-| Télougou                  | `te`          |
-| Thaï                    | `th`          |
-| Tonga                  | `to`          |
-| Turc                 | `tr`          |
-| Ukrainien               | `uk`          |
-| Ourdou                    | `ur`          |
-| Vietnamien              | `vi`          |
-| Gallois                   | `cy`          |
-| Yucatec Maya            | `yua`         |
+| Afrikaans | `af` |
+| Albanais | `sq` |
+| Amharique | `am` |
+| Arabe | `ar` |
+| Arménien | `hy` |
+| Assamais | `as` |
+| Azéri | `az` |
+| Bangla | `bn` |
+| Bosniaque (latin) | `bs` |
+| Bulgare | `bg` |
+| Cantonais (traditionnel) | `yue` |
+| Catalan | `ca` |
+| Chinois (littéraire) | `lzh` |
+| Chinois (simplifié) | `zh-Hans` |
+| Chinois traditionnel | `zh-Hant` |
+| Croate | `hr` |
+| Tchèque | `cs` |
+| Danois | `da` |
+| Dari | `prs` |
+| Néerlandais | `nl` |
+| Anglais | `en` |
+| Estonien | `et` |
+| Fidjien | `fj` |
+| Filipino | `fil` |
+| Finnois | `fi` |
+| Français | `fr` |
+| Français (Canada) | `fr-ca` |
+| Allemand | `de` |
+| Grec | `el` |
+| Goudjrati | `gu` |
+| Créole haïtien | `ht` |
+| Hébreu | `he` |
+| Hindi | `hi` |
+| Hmong blanc | `mww` |
+| Hongrois | `hu` |
+| Islandais | `is` |
+| Indonésien | `id` |
+| Inuktitut | `iu` |
+| Irlandais | `ga` |
+| Italien | `it` |
+| Japonais | `ja` |
+| Kannada | `kn` |
+| Kazakh | `kk` |
+| Khmer | `km` |
+| Klingon | `tlh-Latn` |
+| Klingon (plqaD) | `tlh-Piqd` |
+| Coréen | `ko` |
+| Kurde (central) | `ku` |
+| Kurde (Nord) | `kmr` |
+| Lao | `lo` |
+| Letton | `lv` |
+| Lituanien | `lt` |
+| Malgache | `mg` |
+| Malais | `ms` |
+| Malayalam | `ml` |
+| Maltais | `mt` |
+| Maori | `mi` |
+| Marathi | `mr` |
+| Myanmar | `my` |
+| Népalais | `ne` |
+| Norvégien | `nb` |
+| Odia | `or` |
+| Pachto | `ps` |
+| Persan | `fa` |
+| Polonais | `pl` |
+| Portugais (Brésil) | `pt` |
+| Portugais (Portugal) | `pt-pt` |
+| Pendjabi | `pa` |
+| Queretaro Otomi | `otq` |
+| Roumain | `ro` |
+| Russe | `ru` |
+| Samoan | `sm` |
+| Serbe (cyrillique) | `sr-Cyrl` |
+| Serbe (latin) | `sr-Latn` |
+| Slovaque | `sk` |
+| Slovène | `sl` |
+| Espagnol | `es` |
+| Swahili | `sw` |
+| Suédois | `sv` |
+| Tahitien | `ty` |
+| Tamoul | `ta` |
+| Télougou | `te` |
+| Thaï | `th` |
+| Tigrigna | `ti` |
+| Tonga | `to` |
+| Turc | `tr` |
+| Ukrainien | `uk` |
+| Ourdou | `ur` |
+| Vietnamien | `vi` |
+| Gallois | `cy` |
+| Yucatec Maya | `yua` |
 
 ## <a name="speaker-recognition"></a>Reconnaissance de l’orateur
 
@@ -586,19 +608,19 @@ Consultez le tableau suivant qui répertorie les langues prises en charge pour l
 
 | Langage | Paramètres régionaux (BCP-47) | Vérification dépendante du texte | Vérification indépendante du texte | Identification indépendante du texte |
 |----|----|----|----|----|
-|Anglais (US)  |  en-US  |  Oui  |  oui  |  Oui |
-|Chinois (mandarin, simplifié) | zh-CN     |     n/a |     oui |     Oui|
-|Anglais (Australie)     | en-AU     | n/a     | oui     | Oui|
-|Anglais (Canada)     | en-CA     | n/a |     oui |     Oui|
-|Anglais (Royaume-Uni)     | en-GB     | n/a     | oui     | Oui|
-|Français (Canada)     | fr-CA     | n/a     | oui |     Oui|
-|Français (France)     | fr-FR     | n/a     | oui     | Oui|
-|Allemand (Allemagne)     | de-DE     | n/a     | oui     | Oui|
-|Italien | it-IT     |     n/a     | oui |     Oui|
-|Japonais     | ja-JP | n/a     | oui     | Oui|
-|Portugais (Brésil) | pt-br |     n/a |     oui |     Oui|
-|Espagnol (Mexique)     | es-MX     | n/a |     oui |     Oui|
-|Espagnol (Espagne)     | es-ES | n/a     | oui |     oui|
+|Anglais (US)  |  en-US  |  Oui  |  Oui  |  Oui |
+|Chinois (mandarin, simplifié) | zh-CN     |     n/a |     Oui |     Oui|
+|Anglais (Australie)     | en-AU     | n/a     | Oui     | Oui|
+|Anglais (Canada)     | en-CA     | n/a |     Oui |     Oui|
+|Anglais (Royaume-Uni)     | en-GB     | n/a     | Oui     | Oui|
+|Français (Canada)     | fr-CA     | n/a     | Oui |     Oui|
+|Français (France)     | fr-FR     | n/a     | Oui     | Oui|
+|Allemand (Allemagne)     | de-DE     | n/a     | Oui     | Oui|
+|Italien | it-IT     |     n/a     | Oui |     Oui|
+|Japonais     | ja-JP | n/a     | Oui     | Oui|
+|Portugais (Brésil) | pt-br |     n/a |     Oui |     Oui|
+|Espagnol (Mexique)     | es-MX     | n/a |     Oui |     Oui|
+|Espagnol (Espagne)     | es-ES | n/a     | Oui |     oui|
 
 ## <a name="custom-keyword-and-keyword-verification"></a>Vérification par mot clé et mot clé personnalisé
 

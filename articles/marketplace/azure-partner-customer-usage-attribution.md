@@ -4,14 +4,14 @@ description: Obtenez une vue d’ensemble du suivi de l’utilisation client pou
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 04/12/2021
+ms.date: 10/04/2021
 ms.custom: devx-track-terraform, devx-track-azurepowershell
-ms.openlocfilehash: 9536002cb5c3e30f32479b74e761d7128090af26
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4c6eaf47035d78a283b4e27bf86e1550ad7279d1
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524341"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457047"
 ---
 # <a name="azure-customer-usage-attribution"></a>Attribution de l’utilisation client Azure
 
@@ -263,7 +263,7 @@ Consultez des instructions pas à pas avec captures d’écran dans [Utilisation
 Vous serez contacté par un consultant technique partenaire Microsoft afin d’organiser un appel destiné à évaluer l’étendue de vos besoins.
 
 ## <a name="report"></a>Rapport
-La création de rapports sur le suivi de l’utilisation d’Azure par le biais de l’attribution de l’utilisation client n’est pas disponible aujourd’hui pour les partenaires ISV. L’ajout de rapports au programme du marketplace commercial dans Espace partenaires pour couvrir l’attribution de l’utilisation client est prévu pour le second semestre 2021.
+La création de rapports sur le suivi de l’utilisation d’Azure par le biais de l’attribution de l’utilisation client n’est pas disponible aujourd’hui pour les partenaires ISV. L’ajout de rapports au programme de la place de marché commerciale dans l’Espace partenaires pour couvrir l’attribution de l’utilisation client est prévu pour le second semestre 2022.
 
 ## <a name="faq"></a>Forum aux questions
 

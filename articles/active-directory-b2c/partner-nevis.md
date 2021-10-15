@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 42e244249ecb0539637918ae2439bdb4f5da4b38
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 0bbbe80a9f4c743fb658aa313641ab790e194509
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588477"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234335"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Tutoriel pour configurer Nevis avec Azure Active Directory B2C pour une authentification sans mot de passe
 
@@ -220,7 +220,7 @@ Vous allez recevoir deux e-mails :
 
 4. Sélectionnez **Exécuter maintenant**.
 
-5. Dans la fenêtre indépendante, sélectionnez **S’inscrire maintenant**.
+5. Dans la fenêtre contextuelle, sélectionnez **S’inscrire maintenant**.
 
 6. Ajoutez votre adresse e-mail.
 
@@ -252,7 +252,7 @@ Vous allez recevoir deux e-mails :
 
 2. Sélectionnez **Exécuter maintenant**.
 
-3. Dans la fenêtre indépendante, sélectionnez **Authentification sans mot de passe**.
+3. Dans la fenêtre contextuelle, sélectionnez **Authentification sans mot de passe**.
 
 4. Saisissez votre adresse de messagerie.
 

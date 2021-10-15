@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/19/2021
 ms.author: msangapu
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 3efac96949d701bbc0147abf8712d4995f781d47
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 37b876b177b7879c57255619d3f5e7e113a2a284
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771843"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278064"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Superviser des instances App Service à l’aide du contrôle d’intégrité
 
@@ -29,8 +29,8 @@ Cet article utilise le contrôle d’intégrité dans le portail Azure pour supe
 - De plus, dans le cadre d’un scale-up ou d’un scale-out, App Service effectue un test ping sur le chemin de contrôle d’intégrité pour vérifier que de nouvelles instances sont prêtes.
 
 > [!NOTE]
-> Le contrôle d’intégrité ne suit pas les redirections 302. Une instance au plus sera remplacée chaque heure, avec un maximum de trois instances par jour et par plan App Service.
->
+>- Le contrôle d’intégrité ne suit pas les redirections 302. Une instance au plus sera remplacée chaque heure, avec un maximum de trois instances par jour et par plan App Service.
+>- Remarque : Si votre contrôle d’intégrité attribue l’état `Waiting for health check response`, la vérification est susceptible d’échouer en raison d’un code d’état HTTP 307, ce qui peut se produire si vous avez activé la redirection HTTPS, mais avez désactivé `HTTPS Only`.
 
 ## <a name="enable-health-check"></a>Activer le contrôle d’intégrité
 

@@ -3,12 +3,12 @@ title: Rubriques avancées sur la mise à niveau d’application
 description: Cet article traite de sujets avancés se rapportant à la mise à niveau d’une application Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 6604300328f2d243077ba341a9028221438dce9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dca3ec669fde61be86f2424d9b314b4b26546c55
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98792046"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363313"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Mise à niveau des applications Service Fabric : Rubriques avancées
 
@@ -48,11 +48,11 @@ Il existe plusieurs façons de configurer le délai côté service.
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
     ```
 
- * **Lors de la création ou de la mise à jour d’un service existant par le biais du modèle ARM**, spécifiez la valeur `InstanceCloseDelayDuration` (version d’API minimale prise en charge : 2019-11-01-preview) :
+ * **Lors de la création ou de la mise à jour d’un service existant par le biais du modèle ARM**, spécifiez la valeur `InstanceCloseDelayDuration` (version d’API minimale prise en charge : 2020-03-01) :
 
     ```ARM template to define InstanceCloseDelayDuration of 30seconds
     {
-      "apiVersion": "2019-11-01-preview",
+      "apiVersion": "2020-03-01",
       "type": "Microsoft.ServiceFabric/clusters/applications/services",
       "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
       "location": "[variables('clusterLocation')]",

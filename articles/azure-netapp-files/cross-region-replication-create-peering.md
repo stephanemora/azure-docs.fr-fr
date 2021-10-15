@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 94528abaf90a94c59dd97c9a4ae0d15162914bc7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 84ccb06b6be84c26ce9adf5d0c8e25d45190fa2b
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532837"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407909"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Créer une réplication de volume pour Azure NetApp Files
 
@@ -50,7 +50,7 @@ Vous devez créer un volume de destination sur lequel vous souhaitez répliquer 
 1. Le compte de destination doit se trouver dans une région différente du volume source. Si nécessaire, créez un compte NetApp dans la région Azure à utiliser pour la réplication en effectuant les étapes décrites dans [Créer un compte NetApp](azure-netapp-files-create-netapp-account.md).   
 Vous pouvez également sélectionner un compte NetApp existant dans une autre région.  
 
-2. Si nécessaire, créez un pool de capacité dans le nouveau compte NetApp en effectuant les étapes décrites dans [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md).   
+2. Si nécessaire, créez un pool de capacité dans le nouveau compte NetApp en effectuant les étapes décrites dans [Créer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md).   
 
     Vous pouvez également sélectionner un pool de capacité existant pour héberger le volume de destination de réplication.  
 

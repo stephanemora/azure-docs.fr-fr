@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 2ccff72be66a88b9bf0a5e9eb9c29ade8397804b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 740f1e3bd8c08ae7d1684613d1920cffd1bba619
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96356191"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129237320"
 ---
 Les erreurs signalées dans Azure Functions peuvent avoir l’une des origines suivantes :
 
@@ -297,9 +297,9 @@ Voici la stratégie de nouvelles tentatives dans le fichier *function.json* :
 |---------|---------|---------| 
 |stratégie|Non applicable|Obligatoire. Stratégie de nouvelle tentative à utiliser. Les valeurs valides sont `fixedDelay` ou `exponentialBackoff`.|
 |maxRetryCount|Non applicable|Obligatoire. Nombre maximal de nouvelles tentatives autorisées par exécution de fonction. `-1` signifie qu’il faut effectuer ces nouvelles tentatives indéfiniment.|
-|delayInterval|Non applicable|Délai utilisé entre chaque nouvelle tentative lors de l’utilisation d’une stratégie `fixedDelay`.|
-|minimumInterval|Non applicable|Délai minimal de nouvelle tentative lors de l’utilisation de la stratégie `exponentialBackoff`.|
-|maximumInterval|Non applicable|Délai maximal de nouvelle tentative lors de l’utilisation de la stratégie `exponentialBackoff`.| 
+|delayInterval|Non applicable|Délai utilisé entre chaque nouvelle tentative lors de l’utilisation d’une stratégie `fixedDelay`. Spécifiez-le sous forme de chaîne au format `HH:mm:ss`.|
+|minimumInterval|Non applicable|Délai minimal de nouvelle tentative lors de l’utilisation d’une stratégie `exponentialBackoff`. Spécifiez-le sous forme de chaîne au format `HH:mm:ss`.|
+|maximumInterval|Non applicable|Délai maximal de nouvelle tentative lors de l’utilisation de la stratégie `exponentialBackoff`. Spécifiez-le sous forme de chaîne au format `HH:mm:ss`.| 
 
 ### <a name="retry-limitations-during-preview"></a>Limitations relatives aux nouvelles tentatives pendant la préversion
 

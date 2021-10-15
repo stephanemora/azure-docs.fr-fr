@@ -13,12 +13,12 @@ ms.date: 07/22/2021
 ms.author: shermanouko
 ms.custom: aaddev, has-adal-ref
 ms.reviewer: aiwang, marsma
-ms.openlocfilehash: 07f6c7f481e815e788b22782f01ad9369bd2c9f6
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 1f4a710beba53987ce555aad5526298f81d0a43c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123039694"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232296"
 ---
 # <a name="get-a-complete-list-of-apps-using-adal-in-your-tenant"></a>Obtenir une liste complète des applications qui utilisent ADAL dans votre locataire
 
@@ -28,9 +28,13 @@ La prise en charge de la Bibliothèque d’authentification Active Directory (AD
 
 Les classeurs sont un ensemble de requêtes qui collectent et permettent de visualiser des informations qui sont disponibles dans les journaux Azure Active Directory (Azure AD). [En savoir plus sur le schéma des journaux de connexion ici](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md). Le classeur des connexions dans le portail d’administration Azure AD dispose désormais d’un tableau pour vous aider à déterminer les applications qui utilisent ADAL et à quelle fréquence. Nous allons dans un premier temps expliquer comment accéder au classeur avant d’afficher la visualisation de la liste des applications.
 
-## <a name="step-1-integrate-audit-logs-with-azure-monitor"></a>Étape 1 : Intégrer les journaux d’audit à Azure Monitor
+## <a name="step-1-send-azure-ad-sign-in-events-to-azure-monitor"></a>Étape 1 : Envoyer des événements de connexion Azure AD à Azure Monitor
 
-Suivez cette procédure dans [Intégrer vos journaux d’audit et de connexion Azure AD à Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) avant d’accéder au classeur. Seuls les événements d’audit et de connexion créés après l’intégration d’Azure Monitor sont stockés.
+Azure AD n’envoie pas d’événements de connexion à Azure Monitor par défaut, ce que requiert le classeur Connexions dans Azure Monitor.
+
+Configurez AD de manière à envoyer des événements de connexion à Azure Monitor en suivant les étapes décrites dans [Intégrer vos journaux d’audit et de connexion Azure AD à Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). Dans l’étape de configuration des **paramètres de diagnostic** , cochez la case **SignInLogs**.
+
+Aucun événement de connexion survenu *avant* que vous ne configuriez Azure AD pour envoyer les événements à Azure Monitor n’apparaît dans le classeur Connexions.
 
 ## <a name="step-2-access-sign-ins-workbook-in-azure-portal"></a>Étape 2 : Accéder au classeur des connexions dans le Portail Azure
 

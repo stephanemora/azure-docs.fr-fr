@@ -2,13 +2,13 @@
 title: Déployez la récupération d’urgence avec un site VMware Recovery Manager
 description: Déployez la récupération d’urgence avec VMware Site Recovery Manager (SRM) dans votre cloud privé Azure VMware Solution.
 ms.topic: how-to
-ms.date: 08/18/2021
-ms.openlocfilehash: d9a224f0aba33420359d50441fe44e6602df7fb0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/04/2021
+ms.openlocfilehash: 2cefe85f71c770ce29a14fb4aad7a91efd91651c
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128668920"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129430095"
 ---
 # <a name="deploy-disaster-recovery-with-vmware-site-recovery-manager"></a>Déployez la récupération d’urgence avec un site VMware Recovery Manager
 
@@ -59,6 +59,8 @@ Le diagramme de flux de travail montre Azure VMware Solution principale au flux 
 :::image type="content" source="media/vmware-srm-vsphere-replication/site-recovery-manager-workflow.png" alt-text="Diagramme montrant le flux de travail de déploiement de VMware Site Recovery Manager sur Azure VMware Solution." border="false":::
 
 ## <a name="prerequisites"></a>Configuration requise
+
+Assurez-vous d’avoir explicitement fourni à l’utilisateur distant les rôles Administrateur VRM et SRM dans le vCenter distant.
 
 ### <a name="scenario-on-premises-to-azure-vmware-solution"></a>Scénario : Trafic local vers Azure VMware Solution 
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 3341f290a5a5bb169b6e70ea22459a2afafedbbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 487befb0e0d48a1ccf61a38af29c17c596fa70b8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103198959"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350093"
 ---
 # <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Résoudre les problèmes de verrouillage de compte avec un domaine managé Azure Active Directory Domain Services
 
@@ -97,9 +97,12 @@ Par exemple : si vous avez un serveur RADIUS, qui peut transférer l’authenti
 
 03/04 19:07:35 [LOGON] [10753] contoso : SamLogon : ouverture de session réseau transitive de contoso\Nagappan.Veerappan à partir de (via LOB11-RADIUS) retourne 0xC000006A
 
-Activez le protocole RDP sur vos contrôleurs de réseau dans NSG sur le backend pour configurer la capture de diagnostics (c.-à-d. netlogon) https://docs.microsoft.com/azure/active-directory-domain-services/alert-nsg#inbound-security-rules si vous avez déjà modifié le groupe de sécurité réseau par défaut, suivez PSlet pour activer https://docs.microsoft.com/azure/active-directory-domain-services/network-considerations#port-3389---management-using-remote-desktop
+Activez le protocole RDP sur vos contrôleurs de réseau dans NSG sur le backend pour configurer la capture de diagnostics (c.-à-d. netlogon).
+[Règles de sécurité entrantes](alert-nsg.md#inbound-security-rules)
 
-Pour activer le journal Netlogon sur n’importe quel serveur https://docs.microsoft.com/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service
+Si vous avez déjà modifié le groupe de sécurité réseau par défaut, procédez comme suit : [Port 3389 : gestion par bureau distant](network-considerations.md#port-3389---management-using-remote-desktop)
+
+Pour activer le journal Netlogon sur n’importe quel serveur, procédez comme suit : [Activation de la journalisation de débogage pour le service Netlogon](/troubleshoot/windows-client/windows-security/enable-debug-logging-netlogon-service)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,24 +2,24 @@
 title: Migration des zones privées Azure DNS héritées vers le nouveau modèle de ressource
 titleSuffix: Azure DNS
 description: Ce guide fournit des instructions pas à pas pour migrer des zones DNS privées héritées vers le dernier modèle de ressource.
-services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: cf39a2b5853368f529c524798c6ac6486f148d46
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 566608da26cafab0d491663300136ebc815eb3ff
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745070"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357088"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migration des zones privées Azure DNS héritées vers le nouveau modèle de ressource
 
 Pendant la préversion publique, des zones DNS privées ont été créées à l’aide de la ressource « dnszones » avec la propriété « zoneType » définie sur « Private ». Ces zones ne seront plus prises en charge après le 31 décembre 2019 et doivent être migrées vers le modèle de ressource GA qui utilise le type de ressource « privateDnsZones » au lieu de « dnszones ». Le processus de migration est simple et nous vous fournissons un script PowerShell pour automatiser ce processus. Ce guide fournit des instructions pas à pas pour migrer Azure DNS Private Zones vers le nouveau modèle de ressource.
 
 Pour connaître les ressources dnszones qui nécessitent une migration, exécutez la commande ci-dessous dans Azure CLI.
+
 ```azurecli
 az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
@@ -27,7 +27,7 @@ az network dns zone list --query "[?zoneType=='Private']"
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vérifiez que vous avez installé la version la plus récente d’Azure PowerShell. Pour plus d’informations sur Azure PowerShell (Az) et la manière de l’installer, visitez https://docs.microsoft.com/powershell/azure/new-azureps-module-az
+Vérifiez que vous avez installé la version la plus récente d’Azure PowerShell. Pour plus d’informations sur Azure PowerShell (Az) et la manière de l’installer, consultez [Présentation du module Az Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 Vérifiez que le module Az.PrivateDns pour Azure PowerShell est installé. Pour installer ce module, ouvrez une fenêtre PowerShell avec élévation de privilèges (mode administratif) et entrez la commande suivante :
 

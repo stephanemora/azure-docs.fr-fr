@@ -6,19 +6,19 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: v-erkel
-ms.openlocfilehash: e0100c9e184d1704d127e1ef5a33c2144e721a89
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.openlocfilehash: 151186d3d42ad799707f4a352e76cd154d3443bb
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113587087"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129276186"
 ---
 # <a name="edit-storage-targets"></a>Modifier les cibles de stockage
 
 Vous pouvez modifier les cibles de stockage avec le portail Azure ou Azure CLI. Par exemple, vous pouvez modifier les stratégies d’accès, les modèles d’utilisation et les chemins d’accès d’espace de noms pour une cible de stockage existante.
 
 > [!TIP]
-> Consultez [Gérer les cibles de stockage](manage-storage-targets.md) pour savoir comment supprimer ou suspendre des cibles de stockage, ou les faire écrire des données en mémoire cache dans le stockage principal.
+> Consultez [Afficher et gérer les cibles de stockage](manage-storage-targets.md) pour savoir comment supprimer ou suspendre des cibles de stockage, ou leur faire écrire des données en mémoire cache dans le stockage principal.
 
 Selon le type de stockage, vous pouvez modifier ces valeurs de cible de stockage :
 
@@ -73,7 +73,7 @@ Pour modifier l’espace de noms d’une cible de stockage blob avec Azure CLI, 
 
 Pour les cibles de stockage NFS, vous pouvez modifier ou ajouter des chemins d’accès d’espace de noms virtuels, modifier les valeurs d’exportation NFS ou de sous-répertoires vers lesquelles pointe un chemin d’accès et modifier le modèle d’utilisation.
 
-Les cibles de stockage dans les caches avec certains types de paramètres DNS personnalisés disposent également d’un contrôle pour actualiser leurs adresses IP. (Ce type de configuration est rare.) Découvrez comment actualiser les paramètres DNS dans [Gérer les cibles de stockage](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
+Les cibles de stockage dans les caches avec certains types de paramètres DNS personnalisés disposent également d’un contrôle pour actualiser leurs adresses IP. (Ce type de configuration est rare.) Découvrez comment actualiser les paramètres DNS dans [Afficher et gérer les cibles de stockage](manage-storage-targets.md#update-ip-address-custom-dns-configurations-only).
 
 La procédure est indiquée ci-dessous :
 
@@ -179,6 +179,6 @@ La configuration pour les modèles d’utilisation ADLS-NFS est identique à la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Lisez [Gérer les cibles de stockage](manage-storage-targets.md) pour obtenir des informations sur l’arrêt, la suppression et la purge de cibles de stockage spécifiques.
+* Lisez [Afficher et gérer les cibles de stockage](manage-storage-targets.md) pour obtenir des informations sur l’arrêt, la suppression et la purge de cibles de stockage spécifiques.
 * Pour en savoir plus sur les options de cible de stockage, voir [Ajouter des cibles de stockage](hpc-cache-add-storage.md).
 * Pour plus d’informations sur l’utilisation des chemins d’accès virtuels, voir [Planifier l’espace de noms agrégé](hpc-cache-namespace.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/20/2021
 ms.author: danlep
-ms.openlocfilehash: 769c67557b6e9d6947e8ffd0fffa71765cf397c4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 03ac79a70a1725fd6d1ceca6d79d4cdb325a8c51
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601821"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428461"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
@@ -90,7 +90,7 @@ Dans cet article, vous allez apprendre à :
 
     > [!NOTE]
     > Vous pouvez spécifier plusieurs domaines dans la section **Locataires autorisés**. Un administrateur général doit accorder à l’application l’accès aux données du répertoire avant que les utilisateurs puissent se connecter à partir d’un domaine différent du domaine d’inscription d’origine de l’application. Pour accorder l’autorisation, l’administrateur général doit :
-    > 1. Accédez à `https://<URL of your developer portal>/aadadminconsent` (par exemple, https://contoso.portal.azure-api.net/aadadminconsent).
+    > 1. Accédez à `https://<URL of your developer portal>/aadadminconsent` (par exemple, `https://contoso.portal.azure-api.net/aadadminconsent`).
     > 1. Entrer le nom de domaine du locataire Azure AD auquel il souhaite accorder l’accès.
     > 1. Sélectionnez **Envoyer**. 
 

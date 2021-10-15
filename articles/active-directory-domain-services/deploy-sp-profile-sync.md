@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 10/05/2021
 ms.author: justinha
-ms.openlocfilehash: 8fbde10ccf5a7f083f5fbddaadd6668d880a1fac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 955d37144220ec455f6f95bab2102123b54cd0c1
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619825"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536189"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Configurer Azure Active Directory Domain Services pour prendre en charge la synchronisation de profils utilisateur pour SharePoint Server
 
@@ -37,8 +37,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
     * Si nécessaire, suivez le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
-* Un compte de service SharePoint pour le service de synchronisation de profils utilisateur.
-    * Si nécessaire, consultez [Planifier des comptes d’administration et de service dans SharePoint Server][sharepoint-service-account].
+* Le nom du compte de service SharePoint pour le service de synchronisation de profils utilisateur. Pour plus d’informations sur le *compte de synchronisation des profils*, consultez [Planifier des comptes d’administration et de service dans SharePoint Server][sharepoint-service-account]. Pour obtenir le nom du *compte de synchronisation des profils* sur le site web SharePoint Central Administration, cliquez sur **Application Management (Gestion des applications)**  > **Manage service applications (Gérer les applications de service)**  > **User Profile service application (Application de service Profil utilisateur)** . Pour plus d’informations, consultez [Configurer la synchronisation de profil à l’aide de l’importation Active Directory SharePoint dans SharePoint Server](/SharePoint/administration/configure-profile-synchronization-by-using-sharepoint-active-directory-import).
 
 ## <a name="service-accounts-overview"></a>Vue d’ensemble des comptes de service
 
@@ -69,9 +68,6 @@ Le compte de service pour SharePoint Server a besoin des privilèges adéquats p
 
     ![Ajouter le compte de service SharePoint au groupe de sécurité AAD DC Service Accounts](./media/deploy-sp-profile-sync/add-member-to-aad-dc-service-accounts-group.png)
 
-## <a name="next-steps"></a>Étapes suivantes
-
-Pour plus d’informations, consultez [Gérer la synchronisation de profils utilisateur dans SharePoint Server](/SharePoint/administration/manage-profile-synchronization).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

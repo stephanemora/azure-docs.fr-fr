@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: fb80374976752961b5c199fc06a8acba572c4d89
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: c5684a3e3949ca2bf119a4c81d7096726a441da6
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129054468"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390137"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Événements en direct et sorties en direct dans Media Services
 
@@ -35,9 +35,10 @@ Les [événements en direct](/rest/api/media/liveevents) sont chargés de la ré
 
 ## <a name="live-event-types"></a>Types d’événements en direct
 
-Un [événement en direct](/rest/api/media/liveevents) peut être défini sur *Pass-through* (un encodeur live local envoie un flux à vitesse de transmission multiple) ou sur *Live Encoding* (un encodeur live local envoie un flux à vitesse de transmission unique). Durant la création, les types sont définis à l’aide de [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype) :
+Un [événement en direct](/rest/api/media/liveevents) peut être défini sur *Pass-through* de base ou standard (un encodeur live local envoie un flux à vitesse de transmission multiple) ou sur *Live Encoding* (un encodeur live local envoie un flux à vitesse de transmission unique). Durant la création, les types sont définis à l’aide de [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype) :
 
-* **LiveEventEncodingType.None** : Un encodeur live local envoie un flux à débit binaire multiple. Le flux reçu transite par l’événement en direct sans traitement supplémentaire. Également appelé le mode pass-through.
+* **LiveEventEncodingType.PassthroughBasic** - Un encodeur live local envoie un flux à débits multiples. Le Pass-through de base est limité à une entrée de pointe de 5 Mbits/s et à une fenêtre DVR de 8 heures, et la transcription en direct n’est pas prise en charge.
+* **LiveEventEncodingType.PassthroughStandard** - Un encodeur live local envoie un flux à débits multiples. Le Pass-through standard offre des limites d’ingestion supérieures, une fenêtre DVR de 25 heures et une prise en charge des transcriptions en direct.
 * **LiveEventEncodingType.Standard** : Un encodeur live local envoie un flux à débit unique à l’événement en direct, puis Media Services crée des flux à débits multiples. Si la résolution du flux de contribution est de 720p ou plus, la présélection **Default720p** encode un jeu de 6 paires résolution/débits.
 * **LiveEventEncodingType.Premium1080p** : Un encodeur live local envoie un flux à débit unique à l’événement en direct, puis Media Services crée des flux à débits multiples. La présélection Default1080p spécifie le jeu de sortie des paires résolution/débits.
 
@@ -45,7 +46,7 @@ Un [événement en direct](/rest/api/media/liveevents) peut être défini sur *P
 
 ![diagramme de l’exemple d’événement en direct avec Media Services](./media/live-streaming/pass-through.svg)
 
-Quand vous utilisez l’**événement en direct** de type pass-through, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et d’envoyer ce flux comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct est ensuite transmis dans les flux vidéo entrants sans traitement supplémentaire. Cet événement en direct de type pass-through est optimisé pour les événements en direct de longue durée ou le streaming en direct linéaire sans interruption (24 heures sur 24, 365 jours par an). Si vous créez ce type d’événement en direct, spécifiez le paramètre None (LiveEventEncodingType.None).
+Quand vous utilisez l’**événement en direct** Pass-through de base ou standard, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et de l’envoyer comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté). L’événement en direct est ensuite transmis dans les flux vidéo entrants sans traitement supplémentaire. Cet événement en direct de type pass-through est optimisé pour les événements en direct de longue durée ou le streaming en direct linéaire sans interruption (24 heures sur 24, 365 jours par an). Lors de la création de ce type d’événement en direct, spécifiez Pass-through « de base » ou « standard ». (LiveEventEncodingType.PassThroughStandard).
 
 Vous pouvez envoyer le flux de contribution à une résolution jusqu’à 4 K et à une fréquence de 60 images/seconde, avec des codecs vidéo H.264/AVC ou H.265/HEVC (ingestion régulière seulement) et des codecs audio AAC (AAC-LC, HE-AACv1 ou HE-AACv2). Pour plus d’informations, consultez [Comparaison des types d’événements en direct](live-event-types-comparison-reference.md).
 

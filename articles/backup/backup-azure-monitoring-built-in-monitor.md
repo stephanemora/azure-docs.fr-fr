@@ -4,12 +4,12 @@ description: Dans cet article, découvrez les fonctionnalités de surveillance e
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: ca99be06934c9eca8a762b4990e89d8818ac3f5c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f3d353f7d42baf1f9cc968cb37baac1077a35085
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128627232"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129231669"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
@@ -59,6 +59,8 @@ Les scénarios suivants sont définis par le service en tant que scénarios pouv
 - Échecs de sauvegarde/restauration
 - Sauvegarde réussie avec des avertissements pour l’agent MARS (Microsoft Azure Recovery Services)
 - Arrêt de la protection avec données conservées/Arrêt de la protection avec données supprimées
+- Fonctionnalité de suppression réversible désactivée pour le coffre
+- Type de sauvegarde non pris en charge pour les charges de travail de base de données
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Les alertes provenant des solutions Sauvegarde Azure suivantes sont indiquées ici
 
@@ -72,7 +74,7 @@ Les scénarios suivants sont définis par le service en tant que scénarios pouv
 
 ### <a name="consolidated-alerts"></a>Alertes consolidées
 
-Pour les solutions de sauvegarde de charge de travail Azure comme SQL et SAP HANA, les sauvegardes de fichier journal peuvent être générées très souvent (toutes les 15 minutes en fonction de la stratégie). Vous pouvez donc aussi avoir très souvent des échecs de sauvegarde de fichier journal (toutes les 15 minutes maximum). Dans ce scénario, l’utilisateur final est surchargé si une alerte est générée à chaque fois qu’il y a un échec. Par conséquent, une alerte est envoyée pour la première occurrence et, si les échecs suivants sont liés à la même cause racine, aucune autre alerte n’est générée. La première alerte est mise à jour avec le nombre d’échecs. Toutefois, si l’alerte est désactivée par l’utilisateur, l’occurrence suivante déclenche une autre alerte qui est traitée comme une première alerte pour cette occurrence. C’est de cette façon que la sauvegarde Azure effectue la consolidation des alertes pour les sauvegardes SQL et SAP HANA.
+Pour les solutions de sauvegarde de charge de travail Azure comme SQL et SAP HANA, les sauvegardes de fichier journal peuvent être générées très souvent (toutes les 15 minutes en fonction de la stratégie). Vous pouvez donc aussi avoir très souvent des échecs de sauvegarde de fichier journal (toutes les 15 minutes maximum). Dans ce scénario, l’utilisateur final est surchargé si une alerte est générée à chaque fois qu’il y a un échec. Par conséquent, une alerte est envoyée pour la première occurrence et, si les échecs suivants sont liés à la même cause racine, aucune autre alerte n’est générée. La première alerte est mise à jour avec le nombre d’échecs. Toutefois, si l’alerte est désactivée par l’utilisateur, l’occurrence suivante déclenche une autre alerte qui est traitée comme une première alerte pour cette occurrence. C’est de cette façon que la sauvegarde Azure effectue la consolidation des alertes pour les sauvegardes SQL et SAP HANA. Les travaux de sauvegarde à la demande ne sont pas consolidés.
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Cas exceptionnels dans lesquels une alerte n’est pas déclenchée
 

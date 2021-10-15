@@ -6,13 +6,13 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 09/15/2021
-ms.openlocfilehash: 52eb75c054ec9b930898b86f5a58f5334656523a
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 09/27/2021
+ms.openlocfilehash: 838730453f5d49efd756abce40faec74513d52b2
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207485"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390327"
 ---
 # <a name="azure-purview-collections-architectures-and-best-practices"></a>Architecture et meilleures pratiques des collections Purview  
 
@@ -53,7 +53,7 @@ Envisagez de déployer des regroupements dans Azure Purview pour répondre aux e
 
 - Les sources de données, les analyses et les ressources ne peuvent appartenir qu’à une seule collection. 
 
-- Une hiérarchie de collections dans Azure Purview peut prendre en charge jusqu’à 300 collections, avec un maximum de huit niveaux de profondeur. Cela n'inclut pas la collection racine. 
+- Une hiérarchie de collections dans Azure Purview peut prendre en charge jusqu’à 256 collections, avec un maximum de huit niveaux de profondeur. Cela n'inclut pas la collection racine. 
 
 - Par défaut, vous ne pouvez pas inscrire des sources de données plusieurs fois dans un seul compte Purview. Cette architecture permet d’éviter le risque d’affectation de différents niveaux de contrôle d’accès à une source de données unique. Si plusieurs équipes consomment les métadonnées d’une source de données unique, vous pouvez inscrire et gérer la source de données dans une collection parente. Vous pouvez ensuite créer des analyses correspondantes sous chaque sous-groupe afin que les ressources pertinentes apparaissent sous chaque regroupement enfant.
 
@@ -65,7 +65,9 @@ Envisagez de déployer des regroupements dans Azure Purview pour répondre aux e
 
 - Le déplacement de ressources entre les regroupements est autorisé si l’utilisateur se voit accorder le rôle de conservateur de données pour les regroupements source et de destination. 
 
-- Actuellement, certaines opérations, telles que la suppression, le déplacement et le changement de nom d’une collection, ne sont pas autorisées. 
+- Actuellement, certaines opérations, telles que le déplacement et le changement de nom d’une collection, ne sont pas autorisées. 
+
+- Vous pouvez supprimer une collection si elle n’a pas de ressources, d’analyses associées, de sources de données ou de collections enfants.
 
 - Les sources de données, les analyses et les éléments multimédias doivent appartenir à un regroupement s’ils existent dans le mappage de données Azure Purview.    
 
@@ -74,9 +76,6 @@ Envisagez de déployer des regroupements dans Azure Purview pour répondre aux e
 
 - Moving assets across collections is allowed if the user is granted the Data Curator role for the source and destination collections. 
 
-- Certain operations, like delete, move, and rename of a collection, aren't allowed via the Azure Purview Studio graphical interface. You can use the API to perform such operations directly in your Azure Purview data map. 
-
-- You can delete a collection if there are no assets or data sources associated with the collection. You can delete a collection that has a scan associated with it. 
 -->
 
 ### <a name="design-recommendations"></a>Recommandations de conception 

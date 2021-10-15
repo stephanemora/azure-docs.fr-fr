@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/15/2021
 ms.custom: seodec18
-ms.openlocfilehash: db2c4e50b4de7a680b114582baf1361ee4d75fb8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 017e1ce50c121860038594279a339a03f17bc180
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768813"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363061"
 ---
 # <a name="speech-service-release-notes"></a>Notes de publication du service Speech
 
@@ -40,7 +40,7 @@ ms.locfileid: "122768813"
 - **C++/C#/Java** : nous avons jouté une nouvelle API, `GetActivationPhrasesAsync()` à la classe `VoiceProfileClient` pour la réception d’une liste d’expressions d’activation valides dans la phase d’inscription de reconnaissance de l’orateur pour les scénarios de reconnaissance indépendante. 
     - **Important** : la fonctionnalité reconnaissance de l’orateur est en préversion. Tous les profils vocaux créés dans la préversion seront effacés 90 jours après le passage de la fonctionnalité Reconnaissance de l’orateur de la préversion à la disponibilité générale. À ce stade, les profils vocaux en préversion cessent de fonctionner.
 - **Python** : ajout de la [prise en charge de l’identification de langage continue (LID)](./how-to-automatic-language-detection.md?pivots=programming-language-python) sur les objets `SpeechRecognizer` et `TranslationRecognizer` existants. 
-- **Python** : ajout d’un [nouvel objet Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer?view=azure-python) appelé `SourceLanguageRecognizer` pour une identification de langage ponctuelle ou continue (sans reconnaissance ni traduction). 
+- **Python** : ajout d’un [nouvel objet Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer) appelé `SourceLanguageRecognizer` pour une identification de langage ponctuelle ou continue (sans reconnaissance ni traduction). 
 - **JavaScript** : API `getActivationPhrasesAsync` ajoutée à la classe `VoiceProfileClient` pour la réception d’une liste d’expressions d’activation valides dans la phase d’inscription de reconnaissance de l’orateur pour les scénarios de reconnaissance indépendante. 
 - L’API `enrollProfileAsync` de `VoiceProfileClient` dans **JavaScript** est maintenant asynchrone. Consultez [ce code d’identification indépendant](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/node/speaker-recognition/identification/independent-identification.js) pour voir un exemple d’usage.
 
@@ -602,7 +602,7 @@ Restez en bonne santé !
     | `es-MX` | 1,58 USD | un peso cincuenta y ocho centavos |
     | `es-ES` | 1,58 USD | un dólar cincuenta y ocho centavos |
 
-    * Prise en charge d’une devise négative (telle que « - 325 € ») dans les paramètres régionaux suivants : `en-US`, `en-GB`, `fr-FR`, `it-IT`, `en-AU`, `en-CA`.
+    * Prise en charge d’une devise négative (telle que « -325 &euro; ») dans les paramètres régionaux suivants : `en-US`, `en-GB`, `fr-FR`, `it-IT`, `en-AU`, `en-CA`.
 
 * Amélioration de la lecture des adresses dans `pt-PT`.
 * Correction des problèmes de prononciation de Natasha (`en-AU`) et Libby (`en-UK`) sur le mot « for » et « four ».

@@ -6,12 +6,12 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 3aafeacbd07e386a23b289db0452a7425e18f567
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a1236e1b68b90e9a1e48d61fa1b425ba26ead14b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632611"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351391"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Clusters dédiés pour les journaux Azure Monitor
 
@@ -30,9 +30,9 @@ Fonctionnalités nécessitant des clusters dédiés :
 
 ## <a name="management"></a>Gestion 
 
-Les clusters dédiés sont gérés avec une ressource Azure qui représente les clusters de journaux Azure Monitor. Les opérations sont effectuées par programme à l’aide de l'[interface CLI](/cli/azure/monitor/log-analytics/cluster?view=azure-cli-latest), de [PowerShell](/powershell/module/az.operationalinsights) ou de [REST](/rest/api/loganalytics/clusters).
+Les clusters dédiés sont gérés avec une ressource Azure qui représente les clusters de journaux Azure Monitor. Les opérations sont effectuées par programme à l’aide de l'[interface CLI](/cli/azure/monitor/log-analytics/cluster), de [PowerShell](/powershell/module/az.operationalinsights) ou de [REST](/rest/api/loganalytics/clusters).
 
-Une fois qu’un cluster est créé, les espaces de travail peuvent y être liés et de nouvelles données ingérées sont stockées sur le cluster. Les espaces de travail peuvent être dissociés d’un cluster à tout moment et les nouvelles données sont stockées dans des clusters Log Analytics partagés. L’opération d’association et de dissociation n’affecte pas vos requêtes et l’accès aux données avant et après l’opération avec l’objet de rétention dans les espaces de travail. Le cluster et les espaces de travail doivent se trouver dans la même région pour permettre la liaison.
+Une fois qu’un cluster est créé, les espaces de travail peuvent y être liés et de nouvelles données ingérées sont stockées sur le cluster. Les espaces de travail peuvent être dissociés d’un cluster à tout moment et les nouvelles données sont stockées dans des clusters Log Analytics partagés. L’opération d’association et de dissociation n’affecte pas vos requêtes ni l’accès aux données avant et après l’opération avec l’objet de rétention dans les espaces de travail. Le cluster et les espaces de travail doivent se trouver dans la même région pour permettre la liaison.
 
 Toutes les opérations au niveau du cluster requièrent l’autorisation de l’action `Microsoft.OperationalInsights/clusters/write` sur le cluster. Cette autorisation peut être accordée via le propriétaire ou le contributeur qui contient l’action `*/write` ou via le rôle Contributeur Log Analytics qui contient l’action `Microsoft.OperationalInsights/*`. Pour plus d’informations sur les autorisations de Log Analytics, consultez [Gérer l’accès aux données de journal et aux espaces de travail dans Azure Monitor](./manage-access.md). 
 
@@ -85,7 +85,7 @@ Vous pouvez disposer de 2 clusters actifs par abonnement et par région. Si le 
 
 > [!NOTE]
 > La création du cluster déclenche l’allocation et l’approvisionnement de la ressource. L’exécution de cette opération peut prendre quelques heures.
-> Le cluster dédié est facturé une fois configuré indépendamment de l’ingestion des données, et il est recommandé de préparer le déploiement pour envoyer le lien d’approvisionnement et d’espaces de travail vers le cluster. Vérifiez les éléments suivants :
+> Le cluster dédié est facturé une fois approvisionné indépendamment de l’ingestion des données, et il est recommandé de préparer le déploiement pour envoyer le lien d’approvisionnement et d’espaces de travail vers le cluster. Vérifiez les éléments suivants :
 > - Une liste d’espaces de travail initiaux à lier au cluster est identifiée
 > - Vous disposez des autorisations pour l’abonnement destiné au cluster et de tout espace de travail à lier
 
@@ -627,7 +627,7 @@ Authorization: Bearer <token>
 
 ## <a name="troubleshooting"></a>Dépannage
 
-- Si vous recevez une erreur de conflit lors de la création d’un cluster, il est possible que vous ayez supprimé votre cluster au cours des 14 derniers jours et qu’il se trouve dans un état de suppression réversible. Le nom du cluster reste réservé pendant la période de suppression réversible et vous ne pouvez pas l’utiliser pour un autre cluster. Le nom est libéré après la période de suppression réversible, lorsque le cluster est définitivement supprimé.
+- Si vous recevez une erreur de conflit lors de la création d’un cluster, il est possible que vous ayez supprimé votre cluster au cours des 14 derniers jours et qu’il se trouve dans un état de suppression réversible. Le nom du cluster reste réservé pendant la période de suppression réversible et vous ne pouvez pas l’utiliser pour un autre cluster. Le nom est libéré après la période de suppression réversible, lorsque le cluster est définitivement supprimé.
 
 - Si vous mettez à jour votre cluster alors que le cluster est en cours d’approvisionnement ou de mise à jour, la mise à jour échoue.
 

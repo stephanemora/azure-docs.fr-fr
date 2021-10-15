@@ -3,15 +3,15 @@ title: Types de Runbooks Azure Automation
 description: Cet article décrit les différents types de runbooks que vous pouvez utiliser dans Azure Automation, et énonce des considérations pour déterminer le type à utiliser.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/10/2021
+ms.date: 10/05/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44923cd63676a6eb2fa589c66726f1c14c76896c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 58bc105a088e2ed06fb710d9a2e38e406e375bd9
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124744813"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534331"
 ---
 # <a name="azure-automation-runbook-types"></a>Types de Runbooks Azure Automation
 
@@ -69,8 +69,8 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell. Vous modifiez direct
 * Vous devez être familiarisé avec les scripts PowerShell.
 * Les runbooks ne peuvent pas utiliser un [traitement en parallèle](automation-powershell-workflow.md#use-parallel-processing) pour effectuer plusieurs actions en parallèle.
 * Les runbooks ne peuvent pas utiliser de [points de contrôle](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) pour reprendre le runbook en cas d'erreur.
-* Vous pouvez inclure uniquement les runbooks de workflow PowerShell et les runbooks graphiques comme runbooks enfants à l'aide de l'applet de commande [Start-AzureAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook), ce qui crée un travail.
-* Les runbooks ne peuvent pas utiliser l’instruction PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires), elle n’est pas prise en charge dans le bac à sable Azure ou sur les runbooks Worker hybrides et entraînera l’échec de la tâche.
+* Vous pouvez uniquement inclure PowerShell, les runbooks de flux de travail PowerShell et les runbooks graphiques comme runbooks enfants à l’aide de la cmdlet [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook), ce qui crée un travail.
+* Les runbooks ne peuvent pas utiliser l’instruction PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires), car elle n’est pas prise en charge dans le bac à sable Azure ni sur les Runbooks Workers hybrides et peut entraîner l’échec de la tâche.
 
 ### <a name="known-issues"></a>Problèmes connus
 
@@ -124,6 +124,14 @@ Les runbooks Python 3 sont pris en charge par les infrastructures globales Azur
 * Pour utiliser des bibliothèques tierces, vous devez [importer les packages](python-packages.md) dans le compte Automation.
 * L’utilisation de l’applet de commande **Start-AutomationRunbook** dans PowerShell/PowerShell Workflow pour démarrer un runbook Python 3 (préversion) ne fonctionne pas. Vous pouvez utiliser l’applet de commande  **Start-AzAutomationRunbook** issue du module Az.Automation ou l’applet de commande  **Start-AzureRmAutomationRunbook** issue du module AzureRm.Automation pour contourner cette limitation.  
 * Azure Automation ne prend pas en charge  **sys.stderr**.
+
+### <a name="multiple-python-versions"></a>Plusieurs versions de Python
+
+Pour un Runbook Worker Windows, lors de l’exécution d’un Runbook Python 2, il recherche d’abord la variable d’environnement `PYTHON_2_PATH` et vérifie si elle pointe vers un fichier exécutable valide. Par exemple, si le dossier d’installation est `C:\Python2`, il vérifie si `C:\Python2\python.exe` correspond à un chemin d’accès valide. Si ce n’est pas le cas, il recherche la variable d’environnement `PATH` pour effectuer une vérification similaire.
+
+Pour Python 3, il recherche d'abord la variable d’environnement `PYTHON_3_PATH`, puis revient à la variable d’environnement `PATH`.
+
+Lorsque vous utilisez une seule version de Python, vous pouvez ajouter le chemin d’installation à la variable `PATH`. Si vous souhaitez utiliser les deux versions sur le Runbook Worker, définissez `PYTHON_2_PATH` et `PYTHON_3_PATH` sur l’emplacement du module correspondant à ces versions.
 
 ### <a name="known-issues"></a>Problèmes connus
 

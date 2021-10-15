@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 45b9fa1fb96f45b5b24d7a0b823b11f89a471bd4
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d17f370739acf5280850beb1eb14ad8cdc0268a6
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111752312"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424933"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Sauvegarde et restauration dans un pool SQL dédié Azure Synapse
 
@@ -74,7 +74,7 @@ Une géosauvegarde est créée une fois par jour dans un [centre de données ass
 Si vous n’avez pas besoin de géosauvegardes pour votre pool SQL dédié, vous pouvez les désactiver et économiser sur les coûts de stockage de la récupération d’urgence. Pour ce faire, reportez-vous à [Guide pratique : Désactiver les géosauvegardes pour un pool SQL dédié (anciennement SQL DW)](disable-geo-backup.md). Notez que si vous désactivez les géosauvegardes, vous ne pourrez pas récupérer votre pool SQL dédié dans votre région Azure associée si votre centre de données Azure principal n’est pas disponible. 
 
 > [!NOTE]
-> Si vous avez besoin d’un objectif de point de récupération (RPO) plus court pour les géosauvegardes, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse). Vous pouvez également créer un point de restauration défini par l’utilisateur et effectuer une restauration à partir du point de restauration nouvellement créé dans un nouvel entrepôt de données se trouvant dans une autre région. Une fois la restauration effectuée, vous retrouvez l’entrepôt de données en ligne que vous pouvez mettre en pause indéfiniment pour réduire les coûts de calcul. La base de données en pause entraîne des frais de stockage aux tarifs du Stockage Premium Azure. Si vous avez besoin d’une copie active de l’entrepôt de données, vous pouvez reprendre, ce qui ne doit prendre que quelques minutes.
+> Si vous avez besoin d’un objectif de point de récupération (RPO) plus court pour les géosauvegardes, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse). Vous pouvez également créer un point de restauration défini par l’utilisateur et effectuer une restauration à partir du point de restauration nouvellement créé dans un nouvel entrepôt de données se trouvant dans une autre région. Une fois la restauration effectuée, vous retrouvez l’entrepôt de données en ligne que vous pouvez mettre en pause indéfiniment pour réduire les coûts de calcul. La base de données en pause entraîne des frais de stockage aux tarifs du Stockage Premium Azure. Un autre modèle courant pour un point de récupération plus rapide consiste à ingérer des données dans des instances principales et secondaires d’un entrepôt de données en parallèle. Dans ce scénario, les données sont ingérées à partir d’une source (ou de sources) et sont conservées dans deux instances distinctes de l’entrepôt de données (primaire et secondaire). Pour réaliser des économies sur les coûts de calcul, vous pouvez suspendre l’instance secondaire de l’entrepôt. Si vous avez besoin d’une copie active de l’entrepôt de données, vous pouvez reprendre, ce qui ne doit prendre que quelques minutes.
 
 ## <a name="data-residency"></a>Résidence des données 
 

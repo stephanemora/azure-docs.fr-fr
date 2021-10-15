@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.openlocfilehash: d49b587262bfceb8072761cec6981ab908abb21e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 996b91040d16a3c2b966bb1b68e83f578d42f583
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732949"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354986"
 ---
 # <a name="what-is-data-wrangling"></a>Qu’est-ce que le data wrangling ?
 
@@ -23,9 +23,6 @@ Les organisations doivent avoir la possibilité d’explorer leurs données mét
 Data Factory vous permet d’effectuer une préparation de données sans code à l’échelle du cloud de manière itérative à l’aide de Power Query. Data Factory s’intègre à [Power Query Online](/power-query/) et rend les fonctions Power Query M disponibles en tant qu’activité de pipeline.
 
 Data Factory convertit le M généré par l’éditeur mashup Power Query Online en code Spark pour l’exécution à l’échelle du cloud en convertissant M en flux de données Azure Data Factory. Le data wrangling avec Power Query et les flux de données sont particulièrement utiles pour les ingénieurs de données ou les « intégrateurs de données citoyen ».
-
-> [!NOTE]
-> L’activité Power Query dans Azure Data Factory est actuellement disponible en version préliminaire publique
 
 ## <a name="use-cases"></a>Cas d'utilisation
 
@@ -47,11 +44,11 @@ Analysez visuellement vos données sans code pour supprimer les valeurs hors nor
 
 | Connecteur | Format de données | Type d'authentification |
 | -- | -- | --|
-| [Stockage Blob Azure](connector-azure-blob-storage.md) | CSV, Parquet | Clé du compte |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Principal de service |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Clé de compte, Principal de service |
-| [Azure SQL Database](connector-azure-sql-database.md) | - | Authentification SQL |
-| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Authentification SQL |
+| [Stockage Blob Azure](connector-azure-blob-storage.md) | CSV, Parquet, Excel | Clé de compte, principal de service, MSI |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV, Parquet, Excel | Principal du service, MSI |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet, Excel | Clé de compte, principal de service, MSI |
+| [Azure SQL Database](connector-azure-sql-database.md) | - | Authentification SQL, MSI, Principal de service |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Authentification SQL, MSI, Principal de service |
 
 ## <a name="the-mashup-editor"></a>Editeur de mashup
 

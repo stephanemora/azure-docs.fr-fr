@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ms.subservice: blobs
-ms.openlocfilehash: a1681640b97d6ee183eefd7f65edd9b2d944f0f2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3c0a5174a1fea451f5b4f502795a77f1c4ff8125
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633865"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275449"
 ---
 # <a name="rehydrate-an-archived-blob-to-an-online-tier"></a>Réalimenter un objet blob archivé dans un niveau en ligne
 
@@ -188,7 +188,7 @@ az storage blob show \
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md).
+- [Niveaux d’accès chaud, froid et archive pour les données blob](access-tiers-overview.md)
 - [Vue d’ensemble de la réactivation des objets blob à partir du niveau Archive](archive-rehydrate-overview.md)
 - [Exécuter une fonction Azure en réponse à un événement de réactivation d’objet blob](archive-rehydrate-handle-event.md)
 - [Réaction aux événements de stockage Blob](storage-blob-event-overview.md)

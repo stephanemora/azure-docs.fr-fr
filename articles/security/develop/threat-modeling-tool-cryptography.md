@@ -1,28 +1,22 @@
 ---
 title: Chiffrement - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
 description: En savoir plus sur l’atténuation des menaces exposées dans l’outil Threat Modeling Tool, possible grâce au chiffrement. Voir les informations sur l’atténuation et les exemples de code.
-services: security
-documentationcenter: na
 author: jegeib
 manager: jegeib
 editor: jegeib
-ms.assetid: na
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 6af4fba8ddf50b795d847a2c7b4e2fbc02fe593f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2072500fd1f10f05359d8310b18b531293bd1885
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97587177"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357381"
 ---
-# <a name="security-frame-cryptography--mitigations"></a>Infrastructure de sécurité : chiffrement | Atténuation des risques 
+# <a name="security-frame-cryptography--mitigation"></a>Infrastructure de sécurité : Chiffrement | Atténuation
 
 | Produit/Service | Article |
 | --------------- | ------- |
@@ -170,12 +164,12 @@ ms.locfileid: "97587177"
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Appareil IoT | 
+| **Composant**               | Appareil IoT |
 | **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Système d’exploitation d’appareil - Windows IoT Standard, connectivité des appareils - Azure IoT device SDK |
 | **Informations de référence**              | [TPM on Windows IoT Core](/windows/iot-core/secure-your-device/TPM) (Module de plateforme sécurisée sur Windows IoT Standard), [TPM on Windows IoT Core](/windows/iot-core/secure-your-device/setuptpm) (Module de plateforme sécurisée sur Windows IoT Standard), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) (Module de plateforme sécurisée Azure IoT Device SDK) |
-| **Étapes** | Clés privées de certificat ou symétriques dans un stockage matériel protégé tel qu’un module de plateforme sécurisée ou des cartes à puce. Windows 10 IoT Standard prend en charge l’utilisateur d’un module de plateforme sécurisée, dont plusieurs types compatibles peuvent être utilisés : https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. Il est recommandé d’utiliser un module de plateforme sécurisée de type discret ou micrologiciel. Un module de plateforme sécurisée de type logiciel doit uniquement être utilisé à des fins de développement et de test. Une fois qu’un module de plateforme sécurisée est disponible et que les clés sont approvisionnées dans celui-ci, le code qui génère le jeton doit être écrit sans coder en dur les informations sensibles qu’il contient. | 
+| **Étapes** | Clés privées de certificat ou symétriques dans un stockage matériel protégé tel qu’un module de plateforme sécurisée ou des cartes à puce. Windows 10 IoT Standard prend en charge l’utilisateur d’un TPM, dont plusieurs types compatibles peuvent être utilisés : [TPM discret (dTPM)](/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm). Il est recommandé d’utiliser un module de plateforme sécurisée de type discret ou micrologiciel. Un module de plateforme sécurisée de type logiciel doit uniquement être utilisé à des fins de développement et de test. Une fois qu’un module de plateforme sécurisée est disponible et que les clés sont approvisionnées dans celui-ci, le code qui génère le jeton doit être écrit sans coder en dur les informations sensibles qu’il contient. |
 
 ### <a name="example"></a>Exemple
 ```

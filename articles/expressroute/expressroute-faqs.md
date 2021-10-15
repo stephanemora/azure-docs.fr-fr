@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 108c7c30ad84c83e895cade79bc8a6ad30029199
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 08878f4fe13c270b6da3bfb74bed88c2476ad5de
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534919"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399619"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -110,7 +110,7 @@ Si votre circuit ExpressRoute est activé pour le peering Microsoft Azure, vous 
 
 ### <a name="public-peering"></a>Peering public
 
-Le peering public a été désactivé sur les nouveaux circuits ExpressRoute. Les services Azure sont désormais disponibles sur le peering Microsoft. Si vous avez un circuit qui a été créé avant la dépréciation du peering public, vous pouvez choisir d’utiliser le peering Microsoft ou le peering public, selon les services que vous voulez obtenir.
+Le peering public a été désactivé sur les nouveaux circuits ExpressRoute. Les services Azure sont désormais disponibles sur le peering Microsoft. Si vous avez un circuit qui a été créé avant la dépréciation du Peering public, vous pouvez choisir d’utiliser le Peering Microsoft ou le Peering public, selon les services que vous voulez obtenir.
 
 Pour plus d’informations et pour connaître les étapes de configuration du peering public, consultez [Peering public ExpressRoute](about-public-peering.md).
 

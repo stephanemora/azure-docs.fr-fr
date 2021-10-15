@@ -3,12 +3,12 @@ title: Créer une extension réseau HCX
 description: Découvrez comment étendre un réseau de votre environnement local vers Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/07/2021
-ms.openlocfilehash: fd58285ab7e2999c758e818020e39799a19f6c53
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 81e984975712e76033102c030093fc94abb2796f
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124838428"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456192"
 ---
 # <a name="create-a-hcx-network-extension"></a>Créer une extension réseau HCX
 
@@ -30,4 +30,8 @@ Cette étape facultative permet d’étendre un réseau de votre environnement l
 
    :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="Capture d’écran montrant l’état d’extension terminée.":::
 
+## <a name="next-steps"></a>Étapes suivantes
 
+Maintenant que vous avez configuré l’extension réseau HCX, vous pouvez également vous intéresser aux points suivants :
+
+- [Guide Mobility Optimized Networking (MON) pour VMware HCX](vmware-hcx-mon-guidance.md)

@@ -1,23 +1,23 @@
 ---
-title: Résoudre les problèmes de Runbook Worker hybride d’Azure Automation
-description: Cet article explique comment détecter et résoudre des problèmes liés aux Runbook Workers hybride d’Azure Automation.
+title: Résoudre les problèmes de Runbook Worker hybride basés sur un agent dans Azure Automation
+description: Cet article explique comment détecter et résoudre des problèmes liés aux Runbook Workers hybrides basés sur un agent d’Azure Automation.
 services: automation
 ms.subservice: ''
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/11/2021
+ms.date: 09/24/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9b06213416241f671dd0e6ef56a7660a3af5f6e8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 824925f4c3616b91f10fc3bae4bdaa1f5a0bb5ee
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123894"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129277154"
 ---
-# <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Résoudre les problèmes liés à la fonctionnalité Runbook Worker hybride
+# <a name="troubleshoot-agent-based-hybrid-runbook-worker-issues-in-automation"></a>Résoudre les problèmes de Runbook Worker hybride basés sur un agent dans Automation
 
-Cet article fournit des informations sur la détection et la résolution de problèmes liés aux Runbook Workers hybrides Azure Automation. Pour obtenir des informations générales, consultez [Vue d’ensemble des Runbook Worker hybrides](../automation-hybrid-runbook-worker.md).
+Cet article fournit des informations sur la détection et la résolution de problèmes liés aux Runbook Workers hybrides basés sur un agent d’Azure Automation. Pour la résolution des problèmes des Workers basés sur une extension, consultez [Résoudre les problèmes de Runbook Workers hybrides basés sur une extension dans Automation](./extension-based-hybrid-runbook-worker.md). Pour obtenir des informations générales, consultez [Vue d’ensemble des Runbook Worker hybrides](../automation-hybrid-runbook-worker.md).
 
 ## <a name="general"></a>Général
 
@@ -264,7 +264,7 @@ Les Workers hybrides envoient une [sortie et des messages de runbook](../automat
 
 Un script exécuté sur un Runbook Worker hybride Windows ne peut pas se connecter comme prévu à Microsoft 365 sur un bac à sable Orchestrator. Le script utilise [Connect-MsolService](/powershell/module/msonline/connect-msolservice) pour la connexion. 
 
-Le bac à sable ne se connecte toujours pas correctement si vous modifiez le fichier **Orchestrator.Sandbox.exe.config** de manière à définir le proxy et la liste de contournement. Un fichier **Powershell_ise.exe.config** comportant les mêmes paramètres de proxy et de liste de contournement semble fonctionner comme prévu. Les journaux SMA (Service Management Automation) et PowerShell ne fournissent aucune information concernant le proxy.
+Le bac à sable ne se connecte toujours pas correctement si vous modifiez le fichier **Orchestrator.Sandbox.exe.config** de manière à définir le proxy et la liste de contournement. Un fichier **Powershell_ise.exe.config** comportant les mêmes paramètres de proxy et de liste de contournement semble fonctionner comme prévu. Les journaux SMA (Service Management Automation) et PowerShell ne fournissent aucune information sur le proxy.
 
 #### <a name="cause"></a>Cause
 

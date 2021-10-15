@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: f45dcde6368cefe0d8eb869bd042e36f364589cf
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 609c5adaf6a368d6c5032b1051ded51b60030bae
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111963879"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232895"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Accès à distance aux applications locales par le bais du service Proxy d'application Azure AD
 
@@ -35,7 +35,7 @@ Le Proxy d’application est une fonctionnalité d’Azure AD qui permet aux uti
 
 Proxy d’application fonctionne avec les ressources suivantes :
 
-* Applications web qui utilisent [l’authentification Windows intégrée](./application-proxy-configure-single-sign-on-with-kcd.md) pour l’authentification
+* Applications web qui utilisent [Authentification Windows intégrée](./application-proxy-configure-single-sign-on-with-kcd.md) pour l’authentification
 * Applications web qui utilisent l’accès [basé sur un en-tête](./application-proxy-configure-single-sign-on-with-headers.md) ou sur un formulaire
 * API web que vous voulez exposer aux applications enrichies sur différents appareils
 * Applications hébergées derrière une [passerelle Bureau à distance](./application-proxy-integrate-with-remote-desktop-services.md)

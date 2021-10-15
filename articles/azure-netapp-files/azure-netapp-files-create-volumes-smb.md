@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: a3db25adec1ffb8d56134b6f7e651a4707d613a6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 546f3ad04a371277903f9b11f6d62bba50794051
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577066"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536240"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -29,7 +29,7 @@ Cet article explique comment créer un volume SMB3. Pour les volumes NFS, voir 
 
 ## <a name="before-you-begin"></a>Avant de commencer 
 
-* Vous devez déjà avoir configuré un pool de capacité. Consultez [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md).     
+* Vous devez déjà avoir configuré un pool de capacité. Consultez [Créer un pool de capacités](azure-netapp-files-set-up-capacity-pool.md).     
 * Un sous-réseau doit être délégué à Azure NetApp Files. Consultez [Déléguer un sous-réseau à Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="configure-active-directory-connections"></a>Configurer des connexions Azure Active Directory 
@@ -80,6 +80,9 @@ Avant de créer un volume SMB, vous devez créer une connexion Active Directory.
         ![Créer un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Créer un sous-réseau](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * **Fonctionnalités réseau**  
+        Dans les régions prises en charge, vous pouvez préciser si vous souhaitez utiliser les fonctionnalités réseau **De base** ou **Standard** pour le volume. Consultez [Configurer les fonctionnalités réseau d’un volume](configure-network-features.md) et [Consignes pour planifier un réseau Azure NetApp Files](azure-netapp-files-network-topologies.md) pour plus de détails.
 
     * Si vous souhaitez appliquer une stratégie d’instantané existante au volume, cliquez sur **Afficher la section avancée** pour la développer, indiquez si vous souhaitez masquer le chemin d'accès de l’instantané, puis sélectionnez une stratégie d’instantané dans le menu déroulant. 
 

@@ -1,30 +1,29 @@
 ---
 title: Étiquetage des images et des documents texte
 title.suffix: Azure Machine Learning
-description: Découvrez comment utiliser les outils d’étiquetage des données afin de préparer rapidement les données (texte et image) pour le Machine Learning dans le cadre d’un projet d’étiquetage des données.
+description: Utilisez des outils d’étiquetage des données pour étiqueter rapidement du texte ou des images pour Azure Machine Learning dans un projet d’étiquetage des données.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 09/24/2021
 ms.custom: data4ml
-ms.openlocfilehash: 491ee8134d17eac9e0abb54780f2aa39e1323e6c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d07a48267effa51a721d1b64c79bc0a6ba7d439f
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446252"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429639"
 ---
 # <a name="labeling-images-and-text-documents"></a>Étiquetage des images et des documents texte
 
-Une fois que votre administrateur de projet a [créé un projet d’étiquetage des données](./how-to-create-labeling-projects.md#create-a-data-labeling-project) dans Azure Machine Learning, vous pouvez utiliser l’outil d’étiquetage pour préparer rapidement les données d’un projet Machine Learning. Cet article aborde les points suivants :
+Une fois que votre administrateur de projet a créé un [projet d’étiquetage des données d’image](./how-to-create-image-labeling-projects.md) ou un [projet d’étiquetage des données de texte](./how-to-create-text-labeling-projects.md) dans Azure Machine Learning, vous pouvez utiliser l’outil d’étiquetage pour préparer rapidement les données d’un projet Machine Learning. Cet article aborde les points suivants :
 
 > [!div class="checklist"]
 > * Comment accéder à vos projets d’étiquetage
 > * Outils d’étiquetage
 > * Comment utiliser les outils pour des tâches d’étiquetage spécifiques
-
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -63,7 +62,7 @@ Des algorithmes de Machine Learning peuvent être déclenchés pendant l’étiq
 
 Au tout début d’un projet d’étiquetage, en particulier, un modèle Machine Learning peut n’être capable de préétiqueter correctement qu’un petit sous-ensemble d’images. Une fois ces images étiquetées, le projet d’étiquetage retourne à l’étiquetage manuel afin de collecter plus de données pour le prochain cycle d’entraînement du modèle. Au fil du temps, le modèle sera davantage fiable pour un plus grand nombre d’images, ce qui augmentera le nombre de tâches de préétiquettage plus tard dans le projet.
 
-## <a name="image-tasks"></a>Tâches liées aux images
+## <a name="image-tasks"></a><a name="image-tasks"></a> Tâches liées aux images
 
 Dans les tâches de classification d’images, vous pouvez choisir de voir plusieurs images simultanément. Utilisez les icônes au-dessus de la zone d’images pour sélectionner la disposition.
 
@@ -163,13 +162,13 @@ Pour supprimer *tous* les polygones de l’image active, sélectionnez l’outil
 
 Après avoir créé les polygones d’une image, sélectionnez **Envoyer** pour enregistrer votre travail. Sinon, ce dernier ne sera pas enregistré.
 
-## <a name="annotate-text-preview"></a>Annotation de texte (préversion)
+## <a name="label-text-preview"></a><a name="label-text"></a>Texte de l’étiquette (préversion)
 
 > [!IMPORTANT]
 > L’étiquetage de texte est en préversion publique.
 > La préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Lorsque vous annotez du texte, utilisez la barre d’outils pour effectuer les opérations suivantes :
+Lorsque vous étiquetez du texte, utilisez la barre d’outils pour effectuer les actions suivantes :
 
 * Augmenter ou diminuer la taille du texte
 * Modifier la police

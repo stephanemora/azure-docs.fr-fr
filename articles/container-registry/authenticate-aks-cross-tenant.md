@@ -4,17 +4,20 @@ description: Configurer le principal de service du cluster AKS avec les autorisa
 ms.topic: article
 author: dlepow
 ms.author: danlep
-ms.date: 05/21/2021
-ms.openlocfilehash: 154ef93ca89c6d117d23a80986fe30ef2e14a426
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.date: 09/13/2021
+ms.openlocfilehash: da7a03e1f46523b67666a4a0ab7ab53fba909720
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111442058"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545469"
 ---
 # <a name="pull-images-from-a-container-registry-to-an-aks-cluster-in-a-different-azure-ad-tenant"></a>Extraire des images d’un registre de conteneurs vers un cluster AKS dans un locataire Azure AD différent
 
 Dans certains cas, vous pouvez avoir votre cluster AKS Azure dans un locataire Azure Active Directory (Azure AD) et votre registre de conteneurs Azure dans un autre locataire. Cet article décrit les étapes à suivre pour activer l’authentification interlocataire à l’aide des informations d’identification du principal de service d’AKS à extraire du registre de conteneurs.
+
+> [!NOTE]
+> Vous ne pouvez pas attacher le registre et vous authentifier à l’aide d’une identité managée AKS lorsque le cluster et le registre de conteneurs se trouvent dans des locataires différents.
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 Hypothèses pour cet exemple :
@@ -79,5 +82,6 @@ La mise à jour du principal de service peut prendre plusieurs minutes.
 * En savoir plus sur l’[Authentification Azure Container Registry avec des principaux de service](container-registry-auth-service-principal.md)
 * Découvrez plus d’informations sur les secrets d’extraction d’image dans la [documentation Kubernetes](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod)
 - En savoir plus sur les [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
+- En savoir plus sur les [scénarios d’authentification avec Azure Container Registry](authenticate-kubernetes-options.md) à partir d’un cluster Kubernetes
 
 

@@ -13,15 +13,15 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/24/2021
+ms.date: 10/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ac0c2795f5af31cec40d03ec1889f333441ae25
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 9e875e71a3faaa7314322c170ca09e3b65f5f8ca
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129054810"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399543"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -80,6 +80,7 @@ Dans cette section, vous trouvez des informations sur la configuration de l’au
 Cette section contient des documents concernant l’intégration de Microsoft Power BI dans des sources de données SAP, ainsi que l’intégration d’Azure Data Factory dans SAP BW.
 
 ## <a name="change-log"></a>Journal des modifications
+- 1er octobre 2021 : Ajout d’un lien vers le nouveau document Architecture de Sauvegarde Azure pour la sauvegarde SAP HANA dans le sommaire. Ajout d’un lien vers le service Sauvegarde Azure pour SGBD Oracle dans [Déploiement SGBD Oracle de machines virtuelles Azure pour charge de travail SAP](./dbms_guide_oracle.md)
 - 24 septembre 2021 : Modifications apportées à [Réplication HSR de scale-out SAP HANA avec Pacemaker sur Machines virtuelles Azure sur SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [Mise en production de HA pour la mise à l’échelle de SAP HANA avec ANF sur RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) et [Réplication HSR de scale-out SAP HANA avec Pacemaker sur Machines virtuelles Azure sur RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) pour ajuster les instructions de création du fichier sudoers (pour HANA srHook)
 - 15 septembre 2021 : Présentation de la nouvelle configuration HADR pour SAP ASE dans [Déploiement SGBD de machines virtuelles SAP ASE Azure pour charge de travail SAP](./dbms_guide_sapase.md)
 - 8 septembre 2021 : Ajout d’un pool de capacité QoS manuel aux [Volumes NFS v4.1 sur Azure NetApp Files pour SAP HANA](./hana-vm-operations-netapp.md)

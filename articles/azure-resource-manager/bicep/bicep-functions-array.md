@@ -4,13 +4,13 @@ description: Décrit les fonctions à utiliser dans un fichier Bicep pour travai
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/10/2021
-ms.openlocfilehash: 69a937a68e2f73eaf911f2cb80cf09bab7d78eed
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 69e1e3c9574d6a32663186d46c1af3dceb422f4a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124794098"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357622"
 ---
 # <a name="array-functions-for-bicep"></a>Tableaux logiques pour Bicep
 
@@ -21,6 +21,8 @@ Cet article décrit les fonctions Bicep pour l’utilisation de tableaux.
 `array(convertToArray)`
 
 Convertit la valeur en tableau.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -62,6 +64,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `concat(arg1, arg2, arg3, ...)`
 
 Combine plusieurs tableaux et renvoie le tableau concaténé.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -106,6 +110,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `contains(container, itemToFind)`
 
 Vérifie si un tableau contient une valeur, un objet contient une clé ou une chaîne contient une sous-chaîne. La comparaison de chaînes est sensible à la casse. Cependant, quand vous testez si un objet contient une clé, la comparaison n’est pas sensible à la casse.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -160,6 +166,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Détermine si un tableau, un objet ou une chaîne est vide.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -198,6 +206,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Retourne le premier élément du tableau ou le premier caractère de la chaîne.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -235,6 +245,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `intersection(arg1, arg2, arg3, ...)`
 
 Retourne un tableau ou un objet unique avec les éléments communs à partir des paramètres.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -327,6 +339,8 @@ La sortie de l’exemple précédent est :
 
 Retourne le dernier élément du tableau ou le dernier caractère de la chaîne.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -364,6 +378,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `length(arg1)`
 
 Retourne le nombre d’éléments d’un tableau, les caractères d’une chaîne ou les propriétés au niveau de la racine d’un objet.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -415,6 +431,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -454,6 +472,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `min(arg1)`
 
 Retourne la valeur minimale à partir d’un tableau d’entiers ou une liste séparée par des virgules d’entiers.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -495,6 +515,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Crée un tableau d’entiers à partir d’un entier de départ et contenant le nombre d’éléments.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -528,6 +550,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `skip(originalValue, numberToSkip)`
 
 Retourne un tableau avec tous les éléments après le nombre spécifié dans le tableau, ou retourne une chaîne avec tous les caractères après le nombre spécifié dans la chaîne.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -571,6 +595,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Retourne un tableau avec le nombre spécifié d’éléments à partir du début du tableau, ou une chaîne avec le nombre spécifié de caractères à partir du début de la chaîne.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -612,6 +638,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `union(arg1, arg2, arg3, ...)`
 
 Retourne un tableau ou un objet unique avec tous les éléments communs à partir des paramètres. Les valeurs ou les clés en double sont uniquement incluses une seule fois.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 

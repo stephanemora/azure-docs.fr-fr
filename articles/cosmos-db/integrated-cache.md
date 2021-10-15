@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 09/28/2021
 ms.author: tisande
-ms.openlocfilehash: 39b385096fadb5d410520889c0aa8f1a07f1a67a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ebf9eb5e06b98bdd573d91f0a57daeb9d81b1f50
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616552"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230567"
 ---
 # <a name="azure-cosmos-db-integrated-cache---overview-preview"></a>Cache intégré Azure Cosmos DB - Vue d’ensemble (préversion)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -90,7 +90,7 @@ Le cache de requêtes met automatiquement en cache les jetons de continuation de
 
 Le cache intégré prend uniquement en charge la session et la [cohérence](consistency-levels.md) éventuelle. Si une lecture a constamment un préfixe, une session, une obsolescence limitée ou une cohérence forte, elle contourne toujours le cache intégré.
 
-Le moyen le plus simple de configurer une session ou une cohérence éventuelle pour toutes les lectures est de [le définir au niveau du compte](consistency-levels.md#configure-the-default-consistency-level). Toutefois, si vous souhaitez que certaines de vos lectures aient une cohérence finale, vous pouvez également configurer la cohérence au [niveau de la requête](how-to-manage-consistency.md#override-the-default-consistency-level).
+Le moyen le plus simple de configurer une session ou une cohérence éventuelle pour toutes les lectures est de [le définir au niveau du compte](consistency-levels.md#configure-the-default-consistency-level). Toutefois, si vous souhaitez que certaines de vos lectures aient une cohérence spécifique, vous pouvez également configurer la cohérence au [niveau de la requête](how-to-manage-consistency.md#override-the-default-consistency-level).
 
 ### <a name="session-consistency"></a>Cohérence de session
 
@@ -139,8 +139,8 @@ Lorsque vous utilisez le cache intégré, il est utile de surveiller quelques m�
 - `IntegratedCacheEvictedEntriesSize` - Quantité moyenne de données supprimées en raison du LRU du cache intégré sur les nœuds de passerelle dédiée. Cette valeur n’inclut pas les données qui ont expiré en raison du dépassement de la durée de `MaxIntegratedCacheStaleness`.
 - `IntegratedCacheItemExpirationCount` - Nombre d’éléments supprimés du cache intégré en raison des lectures de point mises en cache qui dépassent la durée de `MaxIntegratedCacheStaleness`. Cette valeur est une moyenne des instances du cache intégré sur tous les nœuds de passerelle dédiée.
 - `IntegratedCacheQueryExpirationCount` - Nombre de requêtes supprimées du cache intégré en raison des requêtes mises en cache qui dépassent la durée de `MaxIntegratedCacheStaleness`. Cette valeur est une moyenne des instances du cache intégré sur tous les nœuds de passerelle dédiée.
-- `IntegratedCacheItemHitRate` - Proportion de lectures de point qui ont utilisé le cache intégré (par rapport à toutes les lectures de point acheminées via la passerelle dédiée avec cohérence finale). Cette valeur est une moyenne des instances du cache intégré sur tous les nœuds de passerelle dédiée.
-- `IntegratedCacheQueryHitRate` - Proportion de requêtes qui ont utilisé le cache intégré (par rapport à toutes les requêtes acheminées via la passerelle dédiée avec cohérence finale). Cette valeur est une moyenne des instances du cache intégré sur tous les nœuds de passerelle dédiée.
+- `IntegratedCacheItemHitRate` - Proportion de lectures de point qui ont utilisé le cache intégré (par rapport à toutes les lectures de point acheminées via la passerelle dédiée avec session ou cohérence finale). Cette valeur est une moyenne des instances du cache intégré sur tous les nœuds de passerelle dédiée.
+- `IntegratedCacheQueryHitRate` - Proportion de requêtes qui ont utilisé le cache intégré (par rapport à toutes les requêtes acheminées via la passerelle dédiée avec session ou cohérence finale). Cette valeur est une moyenne des instances du cache intégré sur tous les nœuds de passerelle dédiée.
 
 Toutes les métriques existantes sont disponibles, par défaut, dans le panneau **Métriques** (pas les métriques classiques) :
 

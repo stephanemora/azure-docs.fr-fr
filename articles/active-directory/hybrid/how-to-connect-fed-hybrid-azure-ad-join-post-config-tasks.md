@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58924d8ea9aef9e5c5faa5771572acec99587cdd
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88612467"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234810"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tâches post-configuration concernant la jonction Azure AD Hybride
 
@@ -63,7 +63,7 @@ Si votre organisation utilise un service de fédération pour se connecter à Az
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Activer l’authentification unique (SSO) transparente Azure AD pour les appareils Windows de bas niveau
 
-Si votre organisation utilise la synchronisation de hachage du mot de passe ou l’authentification directe pour se connecter à Azure AD, activez l’authentification unique transparente Azure AD avec cette méthode de connexion afin d’authentifier les appareils Windows de bas niveau : https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso. 
+Si votre organisation utilise la synchronisation de hachage du mot de passe ou l’authentification directe pour se connecter à Azure AD, activez l’[authentification unique transparente Azure AD](/azure/active-directory/connect/active-directory-aadconnect-sso) avec cette méthode de connexion afin d’authentifier les appareils Windows de bas niveau.
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Définir la stratégie Azure AD pour les appareils Windows de bas niveau
 

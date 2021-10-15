@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: eb5766214fff67bf7e45998c9f89c640433bbe99
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 04662b734f86905f0064bad43ecbecd84bc48042
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652450"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401386"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -32,16 +32,45 @@ L’exportation des données d’espace de travail Log Analytics exporte en cont
 
 ## <a name="limitations"></a>Limites
 
-- Actuellement, la configuration peut être effectuée à l’aide d’une interface CLI ou de requêtes REST. Le Portail Azure ou PowerShell ne sont pas encore pris en charge.
+- La configuration peut actuellement être effectuée à l’aide d’une interface CLI ou de requêtes REST. Le Portail Azure ou PowerShell ne sont pas encore pris en charge.
 - L’option `--export-all-tables` dans l’interface CLI et REST n’est pas prise en charge et sera supprimée. Vous devez fournir explicitement la liste des tables dans les règles d’exportation.
-- Les tables prises en charge sont actuellement limitées à celles qui sont propres à la section [tables prises en charge](#supported-tables) ci-dessous. Par exemple, les tables de journal personnalisées ne sont actuellement pas prises en charge.
-- Si la règle d’exportation de données comprend une table non prise en charge, l’opération réussit, mais aucune donnée n’est exportée pour cette table tant qu’elle n’est pas prise en charge. 
+- Les tables prises en charge sont limitées à celles spécifiées dans la section [Tables prises en charge](#supported-tables) ci-dessous. 
+- Les tables existantes de journaux personnalisés ne seront pas prises en charge lors de l’exportation. Une nouvelle version du journal personnalisé disponible en mars 2022 sera prise en charge.
+- Si la règle d’exportation de données comprend une table non prise en charge, l’opération réussit, mais aucune donnée n’est exportée pour cette table jusqu’à ce que celle-ci soit prise en charge. 
 - Si la règle d’exportation de données comprend une table qui n’existe pas, elle échoue avec l’erreur `Table <tableName> does not exist in the workspace`.
-- L’exportation des données sera disponible dans toutes les régions, mais n’est actuellement pas disponible dans les régions suivantes : Suisse Nord, Suisse Ouest, Allemagne Centre-Ouest, Australie Centre 2, Émirats arabes unis Centre, Émirats arabes unis Nord, Japon Ouest, Brésil Sud-Est, Norvège Est, Norvège Ouest, France Sud, Inde Sud, Corée Sud, Inde Centre JIO, Inde Ouest JIO, Canada Est, USA Ouest 3, Suède Centre, Suède Sud, clouds gouvernementaux, Chine.
-- Vous pouvez définir l'activation d'un maximum de 10 règles dans votre espace de travail. Des règles supplémentaires sont autorisées mais à l'état désactivé. 
+- Vous pouvez définir l'activation d'un maximum de 10 règles dans votre espace de travail. Des règles supplémentaires sont autorisées lorsqu’elles sont désactivées. 
 - La destination doit être unique pour toutes les règles d’exportation de votre espace de travail.
-- Le compte de stockage de destination ou Event Hub doit se trouver dans la même région que l’espace de travail Log Analytics.
-- Les noms des tables à exporter ne peuvent pas dépasser 60 caractères pour un compte de stockage et 47 caractères pour un Event Hub. Les tables avec des noms plus longs ne seront pas exportées.
+- Les destinations doivent se trouver dans la même région que l’espace de travail Log Analytics.
+- Les noms de tables ne peuvent pas dépasser 60 caractères lors de l’exportation vers le compte de stockage et 47 caractères vers l’Event Hub. Les tables avec des noms plus longs ne seront pas exportées.
+- L’exportation des données sera disponible dans toutes les régions, mais elle est actuellement prises en charge dans les régions suivantes : 
+    - Centre de l’Australie
+    - Australie Est
+    - Australie Sud-Est
+    - Brésil Sud
+    - Centre du Canada
+    - Inde centrale
+    - USA Centre
+    - Asie Est
+    - USA Est
+    - USA Est 2
+    - France Centre
+    - Allemagne Centre-Ouest
+    - Japon Est
+    - Centre de la Corée
+    - Centre-Nord des États-Unis
+    - Europe Nord
+    - Afrique du Sud Nord
+    - États-Unis - partie centrale méridionale
+    - Asie Sud-Est
+    - Suisse Nord
+    - Suisse Ouest
+    - Émirats arabes unis Nord
+    - Sud du Royaume-Uni
+    - Ouest du Royaume-Uni
+    - Centre-USA Ouest
+    - Europe Ouest
+    - USA Ouest
+    - USA Ouest 2
 
 ## <a name="data-completeness"></a>Exhaustivité des données
 L’exportation de données continuera de réessayer d’envoyer des données pendant 30 minutes au cas où la destination est indisponible. Si elle n’est toujours pas disponible après 30 minutes, les données seront ignorées jusqu’à ce que la destination devienne disponible.

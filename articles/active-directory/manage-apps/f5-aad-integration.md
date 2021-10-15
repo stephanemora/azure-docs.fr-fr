@@ -1,5 +1,6 @@
 ---
-title: Accès hybride sécurisé à Azure AD avec F5 | Microsoft Docs
+title: Sécuriser l’accès hybride avec F5
+titleSuffix: Azure AD
 description: Intégration de F5 BIG-IP Access Policy Manager et Azure Active Directory pour l’accès hybride sécurisé
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 11/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
-ms.openlocfilehash: a5066eece8950d4e9dffabedb2e0cca4c527353f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e5f17826d4a578f0c82a5e1e58abf54d4abac252
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124822996"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620656"
 ---
-# <a name="f5-big-ip-access-policy-manager-and-azure-active-directory-integration-for-secure-hybrid-access"></a>Intégration de F5 BIG-IP Access Policy Manager et Azure Active Directory pour l’accès hybride sécurisé
+# <a name="integrate-f5-big-ip-with-azure-active-directory"></a>Intégrer F5 BIG-IP à Azure Active Directory
 
 La prolifération de la mobilité et l'évolution du paysage des menaces imposent une surveillance accrue de l'accès aux ressources et de la gouvernance, plaçant le concept de [confiance nulle](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) au centre de tous les programmes de modernisation.
 Chez Microsoft et F5, nous réalisons que cette transformation numérique représente généralement un parcours de plusieurs années pour une entreprise, laissant potentiellement des ressources critiques exposées jusqu'à leur modernisation. Les solutions F5 BIG-IP et Azure Active Directory Secure Hybrid Access (SHA) visent non seulement à améliorer l'accès à distance aux applications sur site, mais aussi à renforcer la posture de sécurité globale de ces services vulnérables.

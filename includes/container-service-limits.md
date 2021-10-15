@@ -1,19 +1,18 @@
 ---
-title: fichier descriptif
+title: Fichier include
 description: Fichier include
-services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: include
 ms.date: 04/06/2021
 ms.author: mlearned
 ms.custom: include file
-ms.openlocfilehash: 928c4669ec7b1a04874f760cc14234cfa874e99a
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 17a98a50f4c6e6d0723b62f1ea402c78f653bf4c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123437888"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129378088"
 ---
 | Ressource                                                                                                           | Limite                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,14 +24,14 @@ ms.locfileid: "123437888"
 | Pods maximum par nœud : [réseau avancé][advanced-networking] avec Azure Container Networking Interface        | Maximum : 250 <br /> Valeur par défaut : 30                                                      |
 | Module complémentaire AKS OSM (Open Service Mesh) AKS (préversion)                                                                          | Version du cluster Kubernetes : 1.19+<sup>1</sup><br />Contrôleurs OSM par cluster : 1<sup>1</sup><br />Nombre de pods par contrôleur OSM : 500<sup>1</sup><br />Comptes de service Kubernetes managés par OSM : 50<sup>1</sup> |
 
-<sup>1</sup> Le module complémentaire OSM pour AKS est en préversion et fera l’objet d’améliorations supplémentaires avant sa mise en disponibilité générale. Pendant la phase de préversion, nous vous recommandons de ne pas dépasser les limites indiquées.<br />
+<sup>1</sup> Le module complémentaire OSM pour AKS est en préversion et fera l’objet d’améliorations supplémentaires avant sa mise en disponibilité générale. Pendant la phase de préversion, nous vous recommandons de ne pas dépasser les limites indiquées.<br />
 
 <br />
 
-| Limites du plan de contrôle Kubernetes                                                                                                                                                                                                     |
-| ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Niveau payant                                                                                  | Mise à l’échelle automatique en fonction de la charge                                                                                                                                                                                                        |
-| Niveau gratuit                       | Ressources limitées avec une [limite des demandes en cours](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) fixée à 50 appels en mutation et 100 appels en lecture seule                                                                                                                                                                                                         |
+| Niveau de service du plan de contrôle Kubernetes | Limite |  
+| -------------- | :--------------------------------------------- |
+| Niveau payant      | Mise à l’échelle automatique en fonction de la charge     |
+| Niveau Gratuit      | Ressources limitées avec une [limite des demandes en cours](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) fixée à 50 appels en mutation et 100 appels en lecture seule   |
 
 <!-- LINKS - Internal -->
 

@@ -2,13 +2,13 @@
 title: Fonctions Bicep - fichiers
 description: Décrit les fonctions à utiliser dans un fichier Bicep pour charger le contenu à partir d’un fichier.
 ms.topic: conceptual
-ms.date: 09/13/2021
-ms.openlocfilehash: 10c4bb501945bdcd5b502797e8383dbea1d0f63c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/30/2021
+ms.openlocfilehash: 28b28086986eb4e871cc6ed8c315c3802e721840
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128552673"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359841"
 ---
 # <a name="file-functions-for-bicep"></a>Fonctions de fichier pour Bicep
 
@@ -18,7 +18,9 @@ Cet article décrit les fonctions Bicep pour le chargement de contenu à partir 
 
 `loadFileAsBase64(filePath)`
 
-Télécharge le fichier comme une chaîne base64. 
+Télécharge le fichier comme une chaîne base64.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -43,6 +45,8 @@ Le fichier est sous la forme d’une chaîne base64.
 `loadTextContent(filePath, [encoding])`
 
 Charge le contenu du fichier spécifié sous forme de chaîne. 
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 

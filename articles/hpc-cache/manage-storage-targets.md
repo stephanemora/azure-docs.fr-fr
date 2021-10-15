@@ -1,25 +1,34 @@
 ---
 title: Gérer les cibles de stockage Azure HPC Cache
-description: Comment suspendre, supprimer, forcer la suppression et vider les cibles de stockage Azure HPC Cache
+description: Procédures de suspension, de suppression, de suppression forcée et de vidage des cibles de stockage Azure HPC Cache, et compréhension de l’état de la cible de stockage
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 09/27/2021
 ms.author: v-erkel
-ms.openlocfilehash: 6c747c4a79cb0413d7a96ca7b0148912eef89f84
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 5b6127a43ebd93b89ea3a648533c2b739fc58691
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114296684"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274288"
 ---
-# <a name="manage-storage-targets"></a>Gérer les cibles de stockage
+# <a name="view-and-manage-storage-targets"></a>Afficher et gérer les cibles de stockage
+
+La page des paramètres des cibles de stockage affiche des informations sur chaque cible de stockage pour votre cache HPC et fournit des options pour gérer les cibles de stockage individuelles.
+
+> [!TIP]
+> Les instructions pour répertorier les cibles de stockage à l’aide de Azure CLI sont incluses dans l’article [Ajouter des cibles de stockage](hpc-cache-add-storage.md#view-storage-targets). Les autres actions répertoriées ici ne sont peut-être pas encore disponibles dans Azure CLI.
+
+![Capture d’écran de la page Paramètres > Cibles de stockage dans le portail Azure. La liste contient plusieurs cibles de stockage et les en-têtes de colonne affichent le nom, le type, l’état, l’état de provisionnement, l’adresse/le conteneur et le modèle d’utilisation pour chacune d’elles.](media/storage-targets-list-states.png)
+
+## <a name="manage-storage-targets"></a>Gérer les cibles de stockage
 
 Vous pouvez effectuer des actions de gestion sur des cibles de stockage individuelles. Ces actions complètent les options au niveau du cache décrites dans [Gérer votre cache](hpc-cache-manage.md).
 
 Ces contrôles peuvent vous aider à récupérer d’une situation inattendue (par exemple, une cible de stockage qui ne répond pas), ainsi que vous permettre de remplacer certaines actions automatiques du cache (comme la réécriture de fichiers modifiés dans le système de stockage à long terme).
 
-Ouvrez la page **Cibles de stockage** sur le portail Azure. Cliquez sur le **...** tout à fait à droite de la liste des cibles de stockage pour ouvrir la liste des tâches.
+Ouvrez la page **Cibles de stockage** sur le portail Azure. Cliquez sur l’image **...** tout à fait à droite de la liste des cibles de stockage pour ouvrir la liste des tâches.
 
 ![Capture d’écran de la page des cibles de stockage dans le portail Azure, avec le curseur positionné sur le menu affiché en cliquant sur le symbole des points de suspensions (...) tout à fait à droite de la ligne de la cible de stockage dans la liste.](media/storage-target-manage-options.png)
 
@@ -35,7 +44,7 @@ Certaines cibles de stockage disposent également d’une option d’**actualisa
 
 Pour plus d’informations sur ces options, lisez le reste de cet article.
 
-## <a name="write-cached-files-to-the-storage-target"></a>Écrire les fichiers mis en cache dans la cible de stockage
+### <a name="write-cached-files-to-the-storage-target"></a>Écrire les fichiers mis en cache dans la cible de stockage
 
 L’option **Vider** indique au cache de copier immédiatement les fichiers modifiés stockés dans le cache vers le système de stockage principal. Par exemple, si vos machines clientes mettent à jour un fichier particulier à plusieurs reprises, elles sont conservées dans le cache pour un accès plus rapide, et ne sont pas écrites dans le système de stockage à long terme pendant une période allant de quelques minutes à plus d’une heure.
 
@@ -47,15 +56,15 @@ Vous pouvez utiliser cette option pour vous assurer que le stockage principal es
 
 Cette option s’applique principalement aux modèles d’utilisation qui incluent une mise en cache d’écriture. Pour en savoir plus sur la mise en cache de lecture et d’écriture, consultez [Comprendre les modèles d’utilisation du cache](cache-usage-models.md).
 
-## <a name="suspend-a-storage-target"></a>Suspendre une cible de stockage
+### <a name="suspend-a-storage-target"></a>Suspendre une cible de stockage
 
 La fonctionnalité de suspension désactive l’accès client à une cible de stockage, mais ne supprime pas définitivement la cible de stockage de votre cache. Vous pouvez utiliser cette option si vous devez désactiver un système de stockage principal à des fins de maintenance, de réparation ou de remplacement.
 
-## <a name="put-a-suspended-storage-target-back-in-service"></a>Remettre en service une cible de stockage suspendue
+### <a name="put-a-suspended-storage-target-back-in-service"></a>Remettre en service une cible de stockage suspendue
 
 Utilisez l’option **Reprendre** pour annuler la suspension d’une cible de stockage.
 
-## <a name="force-remove-a-storage-target"></a>Forcer la suppression d’une cible de stockage
+### <a name="force-remove-a-storage-target"></a>Forcer la suppression d’une cible de stockage
 
 > [!NOTE]
 > Cette option peut entraîner une perte de données pour la cible de stockage affectée.
@@ -67,9 +76,8 @@ Cette action ignore l’étape qui synchronise les fichiers dans le cache avec l
 Il n’est pas non plus garanti que le système de stockage principal sera accessible après sa suppression du cache.
 
 En règle générale, la suppression forcée est utilisée uniquement quand une cible de stockage ne répond plus ou se trouve dans un état incorrect. Cette option vous permet de supprimer la cible de stockage incorrecte au lieu de devoir prendre des mesures plus drastiques.
-<!-- https://msazure.visualstudio.com/One/_workitems/edit/8267141 -->
 
-## <a name="delete-a-storage-target"></a>Supprimer une cible de stockage
+### <a name="delete-a-storage-target"></a>Supprimer une cible de stockage
 
 Vous pouvez utiliser le portail Azure ou Azure CLI pour supprimer une cible de stockage.
 
@@ -79,11 +87,11 @@ La suppression d’une cible de stockage a pour effet de supprimer l’associati
 
 Si le cache contient une grande quantité de données modifiées, la suppression d’une cible de stockage peut prendre plusieurs minutes. Attendez que l’action se termine pour vous assurer que les données sont stockées en toute sécurité dans votre système de stockage à long terme.
 
-### <a name="portal"></a>[Portail](#tab/azure-portal)
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour supprimer une cible de stockage, ouvrez la page **Cibles de stockage**. Cliquez sur « ... » en regard de la cible de stockage, puis choisissez **Supprimer** dans le menu.
 
-### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [Configurez Azure CLI pour Azure HPC Cache](./az-cli-prerequisites.md).
 
@@ -102,7 +110,7 @@ $ az hpc-cache storage-target remove --resource-group cache-rg --cache-name doc-
 
 ---
 
-## <a name="update-ip-address-custom-dns-configurations-only"></a>Mettre à jour l’adresse IP (configurations DNS personnalisées uniquement)
+### <a name="update-ip-address-custom-dns-configurations-only"></a>Mettre à jour l’adresse IP (configurations DNS personnalisées uniquement)
 
 Si votre cache utilise une configuration DNS non définie par défaut, il est possible que l’adresse IP de votre cible de stockage NFS soit modifiée en raison des modifications DNS principales. Si votre serveur DNS modifie l’adresse IP du système de stockage principal, HPC Azure Cache peut perdre l’accès au système de stockage.
 
@@ -110,9 +118,23 @@ Dans l’idéal, vous devez utiliser le gestionnaire du système DNS personnalis
 
 Si vous devez mettre à jour l’adresse IP fournie par le DNS d’une cible de stockage, utilisez la page **Cibles de stockage**. Cliquez sur le symbole **...** dans la colonne de droite pour ouvrir le menu contextuel. Cliquez sur **Actualiser le DNS** pour interroger le serveur DNS personnalisé afin d’obtenir une nouvelle adresse IP.
 
-![Capture d’écran de la liste Cibles de stockage. Pour une cible de stockage, le menu « ... » dans la colonne la plus à droite est ouvert et deux options s’affichent : Supprimer et Actualiser le DNS.](media/refresh-dns.png) <!-- update screenshot if possible -->
+![Capture d’écran de la liste Cibles de stockage. Pour une cible de stockage, le menu « ... » dans la colonne à l’extrême droite est ouvert et ces options s’affichent : Vider, Suspendre, Actualiser le DNS, Forcer la suppression, Reprendre (cette option est désactivée) et Supprimer.](media/refresh-dns.png)
 
 En cas de réussite, la mise à jour doit prendre moins de deux minutes. Vous ne pouvez actualiser qu’une cible de stockage à la fois. Attendez la fin de l’opération précédente avant d’en essayer une autre.
+
+## <a name="understand-storage-target-state"></a>Comprendre l’état de la cible de stockage
+
+La liste des cibles de stockage affiche deux types d’état : **État** et **État d'approvisionnement**.
+
+* **État** indique l’état opérationnel de la cible de stockage. Cette valeur est mise à jour régulièrement et vous aide à comprendre si la cible de stockage est disponible pour les requêtes des clients, ainsi que les options de gestion disponibles.
+* L'**État d’approvisionnement** vous indique si la dernière action d’ajout ou de modification de la cible de stockage a réussi. Cette valeur est mise à jour uniquement si vous modifiez la cible de stockage.
+
+La valeur **État** influence les options de gestion que vous pouvez utiliser. Voici une brève explication des valeurs et de leurs effets.
+
+* **Prêt** : la cible de stockage fonctionne normalement et est disponible pour les clients. Vous pouvez utiliser n’importe quelle option de gestion sur cette cible de stockage (à l’exception de **Reprendre**, qui est n’est valide que pour les cibles de stockage suspendues).
+* **Occupé** : la cible de stockage traite une autre opération. Vous pouvez supprimer ou forcer la suppression de la cible de stockage.
+* **Suspendu** : la cible de stockage a été mise hors connexion. Vous pouvez toujours vider, supprimer ou forcer la suppression de cette cible de stockage. Choisissez **Reprendre** pour remettre la cible en service.
+* **Vidage** : la cible de stockage écrit des données dans le stockage principal. La cible ne peut pas traiter les requêtes du client pendant le vidage, mais elle revient automatiquement à son état précédent une fois l’écriture des données terminée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

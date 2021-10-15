@@ -10,15 +10,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 9/20/2021
+ms.date: 9/30/2021
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 79785c82e06c9dc1621b3278ef886866ae9695ab
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 39262b40cc320152bcbf2e9e5c0947e52234a019
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590287"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400227"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel
 <a name="network-service-tags"></a>
@@ -68,6 +68,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureDatabricks** | Azure Databricks. | Les deux | Non | Non |
 | **AzureDataExplorerManagement** | Gestion d’Azure Data Explorer. | Trafic entrant | Non | Non |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Règle de trafic sortant | Non | Oui |
+| **AzureDeviceUpdate** | Device Update pour IoT Hub. | Les deux | Non | Oui |
 | **AzureDevSpaces** | Azure Dev Spaces. | Règle de trafic sortant | Non | Non |
 | **AzureDevOps** | Azure Dev Ops.<br/><br/>*Remarque : Cette étiquette n’est actuellement pas configurable sur le portail Azure*| Trafic entrant | Non | Oui |
 | **AzureDigitalTwins** | Azure Digital Twins.<br/><br/>*Remarque :* Cette étiquette et les adresses IP qu’elle couvre peuvent être utilisées pour restreindre l’accès aux points de terminaison configurés pour des routes d’événements. *Cette étiquette n’est actuellement pas configurable sur le Portail Azure.* | Trafic entrant | Non | Oui |

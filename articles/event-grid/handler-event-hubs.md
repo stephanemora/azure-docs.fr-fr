@@ -2,13 +2,13 @@
 title: Event Hub en tant que gestionnaire d’événements pour les événements Azure Event Grid
 description: Décrit comment utiliser des concentrateurs d’événements en tant que gestionnaires d’événements pour des événements Azure Event Grid.
 ms.topic: conceptual
-ms.date: 09/28/2021
-ms.openlocfilehash: 6ba4dec31a93b01804779cd9f614e64854fe6cce
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 09/30/2021
+ms.openlocfilehash: 590364d759fe6f628cfaa306d162d00f575c0622
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129215032"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354415"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Event Hub en tant que gestionnaire d’événements pour des événements Azure Event Grid
 Un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue une action pour traiter l’événement. Plusieurs services Azure sont automatiquement configurés pour gérer des événements, et **Azure Event Hubs** est l’un d’eux. 
@@ -72,6 +72,17 @@ Regardez les exemples suivants :
   }
 }
 ```
+
+## <a name="delivery-properties"></a>Propriétés de remise
+Les abonnements aux événements vous permettent de définir des en-têtes HTTP qui sont inclus dans les événements remis. Cette fonctionnalité vous permet de définir des en-têtes personnalisés requis par une destination. Vous pouvez définir des en-têtes personnalisés sur les événements remis à Azure Event Hubs.
+
+Si vous devez publier des événements dans une partition spécifique au sein d’un Event Hub, définissez une propriété `ParitionKey` sur votre abonnement aux événements pour spécifier la clé de partition qui identifie la partition Event Hub cible.
+
+| Nom de l’en-tête | Type d’en-tête |
+| :-- | :-- |
+|`PartitionKey` | statique |
+
+Pour plus d'informations, consultez [Propriétés de remise personnalisées](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des gestionnaires d’événements pris en charge, consultez l’article [Gestionnaires d’événements](event-handlers.md). 

@@ -1,22 +1,22 @@
 ---
-title: Vue d’ensemble de la réactivation des objets blob à partir du niveau archive
+title: Réactivation d’objets blob à partir du niveau archive
 description: Lorsqu’un objet blob se trouve dans le niveau d’accès archive, il est considéré comme hors connexion et ne peut être ni lu ni modifié. Pour pouvoir lire ou modifier des données dans un objet blob archivé, vous devez d’abord le réactiver dans un niveau en ligne, à savoir le niveau chaud ou froid.
 services: storage
 author: tamram
 ms.author: tamram
-ms.date: 08/31/2021
+ms.date: 09/29/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: 2c4eac524ecda8a2b90036748fd2a6f2a389a3cd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 195238c6ef4191266a0f4b5dd481fbf24b70528f
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823736"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271818"
 ---
-# <a name="overview-of-blob-rehydration-from-the-archive-tier"></a>Vue d’ensemble de la réactivation des objets blob à partir du niveau archive
+# <a name="blob-rehydration-from-the-archive-tier"></a>Réactivation d’objets blob à partir du niveau archive
 
 Lorsqu’un objet blob se trouve dans le niveau d’accès archive, il est considéré comme hors connexion et ne peut être ni lu ni modifié. Pour pouvoir lire ou modifier des données dans un objet blob archivé, vous devez d’abord le réactiver dans un niveau en ligne, à savoir le niveau chaud ou froid. Il existe deux options possibles pour réactiver un objet blob stocké au niveau archive :
 
@@ -28,7 +28,7 @@ La réactivation d’un objet blob à partir du niveau archive peut prendre plus
 
 Vous pouvez configurer [Azure Event Grid](../../event-grid/overview.md) de façon à déclencher un événement en cas de réactivation d’un objet blob du niveau archive vers un niveau en ligne et à envoyer cet événement à un gestionnaire d’événements. Pour plus d’informations, consultez [Gestion d’un événement déclenché lors de la réactivation d’objets blob](#handle-an-event-on-blob-rehydration).
 
-Pour plus d’informations sur les niveaux d’accès du Stockage Azure, consultez [Niveaux d’accès du Stockage Blob Azure : chaud, froid et archive](storage-blob-storage-tiers.md).
+Pour plus d’informations sur les niveaux d’accès du Stockage Azure, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](access-tiers-overview.md).
 
 ## <a name="rehydration-priority"></a>Priorité de réactivation
 
@@ -51,7 +51,7 @@ Vous devez copier l’objet blob archivé dans un nouvel objet blob sous un autr
 
 Microsoft recommande d’effectuer une opération de copie dans la plupart des scénarios impliquant de déplacer un objet blob du niveau archive vers un niveau en ligne, pour les raisons suivantes :
 
-- Une opération de copie évite les frais de suppression anticipée qui sont évalués si un objet blob passe du niveau archive à un autre niveau avant que la période de 180 jours ne soit écoulée. Pour plus d’informations, voir [Niveau d’accès archive](storage-blob-storage-tiers.md#archive-access-tier).
+- Une opération de copie évite les frais de suppression anticipée qui sont évalués si un objet blob passe du niveau archive à un autre niveau avant que la période de 180 jours ne soit écoulée. Pour plus d’informations, voir [Niveau d’accès archive](access-tiers-overview.md#archive-access-tier).
 - Si une stratégie de gestion du cycle de vie est en vigueur pour le compte de stockage, le fait de réactiver un objet blob avec [Définir le niveau de l’objet blob](/rest/api/storageservices/set-blob-tier) peut donner lieu à un scénario dans lequel la stratégie de cycle de vie déplace l’objet blob vers le niveau archive après la réactivation, car l’heure de dernière modification dépasse le seuil défini pour la stratégie. Une opération de copie laisse l’objet blob source dans le niveau archive et crée un nouvel objet blob avec un autre nom et une nouvelle heure de dernière modification. Il n’y a donc aucun risque que l’objet blob réactivé ne soit renvoyé au niveau archive par la stratégie de cycle de vie.
 
 La copie d’un blob à partir du niveau archive peut prendre plusieurs heures, en fonction de la priorité de réactivation sélectionnée. En arrière-plan, l’opération Copier l’objet blob lit l’objet blob source archivé pour créer un nouvel objet blob en ligne dans le niveau de destination sélectionné. Il peut arriver que le nouvel objet blob soit visible quand vous répertoriez les objets blob dans le conteneur parent avant la fin de l’opération de réactivation. Cependant, son niveau est défini sur archive. Les données ne sont pas disponibles tant que l’opération de lecture sur l’objet blob source du niveau archive n’est pas terminée et que le contenu de l’objet blob n’est pas écrit dans le nouvel objet blob de destination d’un niveau en ligne. Le nouvel objet blob étant une copie indépendante, ni sa modification ni sa suppression n’ont d’incidence sur l’objet blob source du niveau archive.
@@ -107,13 +107,13 @@ Une opération de réactivation effectuée avec [Définir le niveau de l’objet
 
 La copie d’un objet blob archivé sur un niveau en ligne avec [Copier l’objet blob](/rest/api/storageservices/copy-blob) ou [Copier l’objet à partir d’une URL](/rest/api/storageservices/copy-blob-from-url) est facturée selon les transactions de lecture de données et la taille de l’extraction de données. La création de l’objet blob de destination dans un niveau en ligne est facturée selon les transactions d’écriture de données. Aucun frais de suppression précoce n’est appliqué lorsque vous copiez vers un objet blob en ligne car l’objet blob source reste inchangé dans le niveau archive. Les frais d’extraction de priorité élevée s’appliquent si cette option est sélectionnée.
 
-Les objets blob dans le niveau Archive doivent être stockés pendant un minimum de 180 jours. La suppression et la modification du niveau d’un objet blob archivé avant l’expiration de la période de 180 jours entraînent des frais de suppression anticipée. Pour plus d’informations, voir [Niveau d’accès archive](storage-blob-storage-tiers.md#archive-access-tier).
+Les objets blob dans le niveau Archive doivent être stockés pendant un minimum de 180 jours. La suppression et la modification du niveau d’un objet blob archivé avant l’expiration de la période de 180 jours entraînent des frais de suppression anticipée. Pour plus d’informations, voir [Niveau d’accès archive](access-tiers-overview.md#archive-access-tier).
 
 Pour plus d’informations sur la tarification de la réalimentation des données et des objets blob de blocs, consultez [Présentation de la tarification Stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Pour plus d’informations sur les frais de transfert de données sortantes, consultez la page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md)
+- [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](access-tiers-overview.md).
 - [Réalimenter un objet blob archivé dans un niveau en ligne](archive-rehydrate-to-online-tier.md)
 - [Exécution d’une fonction Azure en réponse à un événement de réactivation d’objets blob](archive-rehydrate-handle-event.md)
 - [Réaction aux événements de stockage Blob](storage-blob-event-overview.md)

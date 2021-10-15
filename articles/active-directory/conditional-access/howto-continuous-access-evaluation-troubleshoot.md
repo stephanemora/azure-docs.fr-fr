@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: jlu, shreyamalik
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431124d79307c305ebb589a72a0608347de8a2c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 93d44065255dcb9f4977e93dd596eb3b80c1faa2
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602482"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533163"
 ---
-# <a name="monitor-and-troubleshoot-continuous-access-evaluation"></a>Surveiller et dépanner l’évaluation continue de l’accès
+# <a name="monitor-and-troubleshoot-continuous-access-evaluation"></a>Résoudre les problèmes rencontrés avec la fonctionnalité Évaluation continue de l’accès
 
 Les administrateurs peuvent surveiller et dépanner les événements de connexion où l’[évaluation continue de l’accès (CAE)](concept-continuous-access-evaluation.md) est appliquée de plusieurs manières.
 
@@ -42,7 +42,7 @@ Utilisez des filtres pour affiner votre recherche. Par exemple, si un utilisateu
 
 ## <a name="continuous-access-evaluation-workbooks"></a>Classeurs de l’évaluation continue de l’accès
 
-Le classeur des insights de l’évaluation continue de l’accès permet aux administrateurs de visualiser et de surveiller les insights de l’évaluation continue de l’accès relatifs à l’utilisation de leurs locataires. Le premier tableau affiche les tentatives d’authentification avec des incompatibilités d’adresses IP. Le deuxième tableau affiche l’état de prise en charge de l’évaluation continue de l’accès relatifs dans différentes applications. Ce classeur est accessible en tant que modèle sous la catégorie Accès conditionnel. 
+Le classeur des insights de l’évaluation continue de l’accès permet aux administrateurs de visualiser et de surveiller les insights de l’évaluation continue de l’accès relatifs à l’utilisation de leurs locataires. Le tableau affiche les tentatives d’authentification avec des incompatibilités d’adresses IP. Ce classeur est accessible en tant que modèle sous la catégorie Accès conditionnel. 
 
 ### <a name="accessing-the-cae-workbook-template"></a>Accès au modèle de classeur de l’évaluation continue de l’accès
 
@@ -54,7 +54,7 @@ L’intégration de Log Analytics doit être terminée avant l’affichage des c
 
 [![Rechercher le classeur des insights de l’évaluation continue de l’accès dans la galerie pour poursuivre la surveillance](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-workbooks-continuous-access-evaluation.png)](./media/howto-continuous-access-evaluation-troubleshoot/azure-ad-workbooks-continuous-access-evaluation.png#lightbox)
 
-Le classeur **Insights de l’évaluation continue de l’accès** contient deux tableaux :
+Le classeur **Insights de l’évaluation continue de l’accès** contient le tableaux suivant :
 
 ### <a name="potential-ip-address-mismatch-between-azure-ad-and-resource-provider"></a>Incompatibilité potentielle d’adresse IP entre Azure AD et le fournisseur de ressources  
 

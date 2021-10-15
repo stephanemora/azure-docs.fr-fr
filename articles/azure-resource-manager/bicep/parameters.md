@@ -4,13 +4,13 @@ description: Explique comment définir des paramètres dans un fichier Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/13/2021
-ms.openlocfilehash: b53402dfaa274c57d40ef7814b7920dc7eb0a8c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: b90fb108df58c41578bf9472390574b4bc174111
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619511"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363504"
 ---
 # <a name="parameters-in-bicep"></a>Paramètres dans Bicep
 
@@ -54,9 +54,32 @@ Vous pouvez utiliser une autre valeur de paramètre pour générer une valeur pa
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
 
-## <a name="secure-parameters"></a>Paramètres sécurisés
+## <a name="decorators"></a>Décorateurs
 
-Les paramètres utilisent des décorateurs pour les contraintes ou les métadonnées. Les décorateurs sont au format `@expression` et sont placés au-dessus de la déclaration du paramètre.
+Les paramètres utilisent des décorateurs pour les contraintes ou les métadonnées. Les décorateurs sont au format `@expression` et sont placés au-dessus de la déclaration du paramètre. Vous pouvez marquer un paramètre comme sécurisé, spécifier des valeurs autorisées, définir la longueur minimale et maximale d’une chaîne, définir la valeur minimale et maximale d’un entier et fournir une description du paramètre.
+
+L’exemple suivant montre deux utilisations courantes des éléments décoratifs.
+
+```bicep
+@secure()
+param demoPassword string
+
+@description('Must be at least Standard_A3 to support 2 NICs.')
+param virtualMachineSize string = 'Standard_DS1_v2'
+```
+
+Les éléments décoratifs se trouvent dans l’[espace de noms sys](bicep-functions.md#namespaces-for-functions). Si vous devez différencier un élément décoratif d'un autre élément portant le même nom, faites précéder l’élément décoratif de `sys`. Par exemple, si votre fichier Bicep contient un paramètre nommé `description`, vous devez ajouter l’espace de noms sys lors de l’utilisation de l’élément décoratif **description**.
+
+```bicep
+@sys.description('The name of the instance.')
+param name string
+@sys.description('The description of the instance to display.')
+param description string
+```
+
+Les éléments décoratifs disponibles sont décrits dans les sections suivantes.
+
+### <a name="secure-parameters"></a>Paramètres sécurisés
 
 Vous pouvez marquer les paramètres de chaîne ou d’objet comme sécurisés. La valeur d’un paramètre sécurisé n’est pas enregistrée dans l’historique de déploiement et n’est pas journalisée.
 
@@ -68,7 +91,7 @@ param demoPassword string
 param demoSecretObject object
 ```
 
-## <a name="allowed-values"></a>Valeurs autorisées
+### <a name="allowed-values"></a>Valeurs autorisées
 
 Vous pouvez définir des valeurs autorisées pour un paramètre. Vous fournissez les valeurs autorisées dans un tableau. Le déploiement échoue pendant la validation si une valeur transmise pour le paramètre n’est pas l’une des valeurs autorisées.
 
@@ -80,7 +103,7 @@ Vous pouvez définir des valeurs autorisées pour un paramètre. Vous fournissez
 param demoEnum string
 ```
 
-## <a name="length-constraints"></a>Contraintes de longueur
+### <a name="length-constraints"></a>Contraintes de longueur
 
 Vous pouvez spécifier des longueurs minimale et maximale pour les paramètres de chaîne et de tableau. Vous pouvez définir une contrainte ou les deux. Pour les chaînes, la longueur indique le nombre de caractères. Pour les tableaux, la longueur indique le nombre d’éléments dans le tableau.
 
@@ -96,7 +119,7 @@ param storageAccountName string
 param appNames array
 ```
 
-## <a name="integer-constraints"></a>Contraintes d’entier
+### <a name="integer-constraints"></a>Contraintes d’entier
 
 Vous pouvez définir des valeurs minimales et maximales pour les paramètres de type entier. Vous pouvez définir une contrainte ou les deux.
 
@@ -106,7 +129,7 @@ Vous pouvez définir des valeurs minimales et maximales pour les paramètres de 
 param month int
 ```
 
-## <a name="description"></a>Description
+### <a name="description"></a>Description
 
 Pour aider les utilisateurs à comprendre la valeur qu’ils doivent fournir, ajoutez une description au paramètre. Lorsque vous déployez le modèle par le biais du portail, le texte de la description est automatiquement utilisé comme une info-bulle pour ce paramètre. Ajoutez une description uniquement quand le texte fournit des informations en plus de celles qui peuvent être déduites du nom du paramètre.
 

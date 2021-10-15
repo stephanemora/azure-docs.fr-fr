@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 6/12/2017
 ms.author: lemai
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c31040ec13084f9e4b08bbc9a347e4ad44975bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73d51b68cafba5f2abab375dc5b1b90706a370db
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89021253"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361735"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Remplacement des API de démarrage et d’arrêt de nœud par l’API de transition de nœud
 
@@ -25,17 +25,16 @@ Comme indiqué précédemment, un nœud Service Fabric *arrêté* est un nœud q
 
 De plus, certaines erreurs renvoyées par ces API ne sont pas aussi descriptives qu’elles pourraient l’être.  Par exemple, si vous appelez l’API d’arrêt de nœud sur un nœud déjà *arrêté*, vous verrez l’erreur *InvalidAddress*.  Cette expérience pourrait être améliorée.
 
-La durée pendant laquelle un nœud est arrêté est « infinie » jusqu'à ce que l’API de démarrage de nœud soit appelée.  Nous avons découvert que cela pouvait provoquer des problèmes et des erreurs.  Par exemple, il est arrivé qu’un utilisateur appelle l’API d’arrêt de nœud sur un nœud, puis l’oublie.  Plus tard, il était difficile de savoir si le nœud était *en panne* ou *arrêté*.
+La durée pendant laquelle un nœud est arrêté est « infinie » jusqu’à ce que l’API de démarrage de nœud soit appelée.  Nous avons découvert que cela pouvait provoquer des problèmes et des erreurs.  Par exemple, il est arrivé qu’un utilisateur appelle l’API d’arrêt de nœud sur un nœud, puis l’oublie.  Plus tard, il était difficile de savoir si le nœud était *en panne* ou *arrêté*.
 
 
 ## <a name="introducing-the-node-transition-apis"></a>Présentation des API de transition de nœud
 
-Nous avons résolu les problèmes ci-dessus dans un nouvel ensemble d’API.  La nouvelle API Node Transition (managée : [StartNodeTransitionAsync()][snt]) peut être utilisée pour passer un nœud Service Fabric à l’état *arrêté* ou pour le faire passer de l’état *arrêté* à un état normal.  Veuillez noter que le mot « Start » dans le nom de l’API ne fait pas référence au démarrage d’un nœud.  Il fait référence au début d’une opération asynchrone que le système exécute pour faire passer le nœud à l’état *arrêté* ou à l’état démarré.
+Nous avons résolu les problèmes ci-dessus dans un nouvel ensemble d’API.  La nouvelle API Node Transition (managée : [StartNodeTransitionAsync()][snt]) peut être utilisée pour passer un nœud Service Fabric à l’état *arrêté* ou pour le faire passer de l’état *arrêté* à un état normal.  Veuillez noter que « Start » dans le nom de l’API ne fait pas référence au démarrage d’un nœud.  Il fait référence au début d’une opération asynchrone que le système exécute pour faire passer le nœud à l’état *arrêté* ou à l’état démarré.
 
 **Utilisation**
 
-Si l’API de transition de nœud ne renvoie pas d’exception lorsqu’elle est appelée, cela signifie que le système a accepté l’opération asynchrone et autorise son exécution.  Un appel réussi n’implique pas que l’opération est terminée.  Pour obtenir des informations sur l’état actuel de l’opération, appelez l’API Node Transition Progress (managée : [GetNodeTransitionProgressAsync()][gntp]) avec le GUID utilisé lors de l’appel de l’API de transition de nœud pour cette opération.  L’API de progression de transition de nœud renvoie un objet NodeTransitionProgress.  La propriété State de cet objet indique l’état actuel de l’opération.  Si l’état est « Running », cela signifie que l’opération est en cours d’exécution.  Si l’état est « Completed », l’opération s’est terminée sans erreur.  Si l’état est « Faulted », un problème est survenu pendant l’exécution de l’opération.  La propriété Exception de la propriété Result indique quel était le problème.  Pour plus d’informations sur la propriété State, consultez https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate. Pour obtenir des exemples de code, consultez la section « Exemple d’utilisation » ci-dessous.
-
+Si l’API de transition de nœud ne renvoie pas d’exception lorsqu’elle est appelée, cela signifie que le système a accepté l’opération asynchrone et autorise son exécution.  Un appel réussi n’implique pas que l’opération est terminée.  Pour obtenir des informations sur l’état actuel de l’opération, appelez l’API Node Transition Progress (managée : [GetNodeTransitionProgressAsync()][gntp]) avec le GUID utilisé lors de l’appel de l’API de transition de nœud pour cette opération.  L’API de progression de transition de nœud renvoie un objet NodeTransitionProgress.  La propriété State de cet objet indique l’état actuel de l’opération.  Si l’état est « Running », cela signifie que l’opération est en cours d’exécution.  Si l’état est « Completed », l’opération s’est terminée sans erreur.  Si l’état est « Faulted », un problème est survenu pendant l’exécution de l’opération.  La propriété Exception de la propriété Result indique quel était le problème.  Pour plus d’informations sur la propriété State, consultez [Enum TestCommandProgressState](/dotnet/api/system.fabric.testcommandprogressstate). Pour obtenir des exemples de code, consultez la section « Exemple d’utilisation » ci-dessous.
 
 **Distinction entre un nœud arrêté et un nœud en panne** Si un nœud est arrêté (*stopped*) à l’aide de l’API Node Transition, la sortie d’une requête de nœud (managée : [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) indiquera que ce nœud a une propriété *IsStopped* dont la valeur est true.  Cela est différent de la valeur de la propriété *NodeStatus*, qui indiquera *Down*.  Si la valeur de la propriété *NodeStatus* est *Down*, mais celle de *IsStopped* est false, cela signifie que le nœud n’a pas été arrêté à l’aide de l’API de transition de nœud et est *en panne* pour une autre raison.  Si la valeur de la propriété *IsStopped* est true et celle de la propriété *NodeStatus* est *Down*, cela signifie que le nœud a été arrêté à l’aide de l’API de transition de nœud.
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bbea74f635375785f325f48a2babb01af7c8228
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f990fb196311945642e918e9b38ec1a32a15fcc6
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463188"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129270464"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel
 
@@ -35,7 +35,7 @@ Cet article fournit des instructions pour créer et configurer une stratégie IP
 
 > [!IMPORTANT]
 > 1. Notez que la stratégie IPsec/IKE fonctionne uniquement sur les références (SKU) de passerelle suivantes :
->    * ***VpnGw1, VpnGw2, VpnGw3*** (basée sur le routage)
+>    * ***VpnGw1~5 et VpnGw1AZ~5AZ*** (basée sur le routage)
 >    * ***Standard** _ et _ *_HighPerformance_** (basée sur le routage)
 > 2. Vous pouvez uniquement spécifier ***une*** combinaison de stratégie pour une connexion donnée.
 > 3. Vous devez spécifier tous les algorithmes et paramètres pour IKE (mode principal) et IPsec (mode rapide). Vous n’êtes pas en droit de spécifier de stratégie partielle.

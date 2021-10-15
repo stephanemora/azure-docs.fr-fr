@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 426fe2bee411b5db40314ba6ff4087c37aad657c
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85202957"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544846"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -115,7 +115,7 @@ L’élément **OutputClaim** contient les attributs suivants :
 | ClaimTypeReferenceId | Oui | Référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie.
 | TransformationClaimType | Oui | Identificateur servant à référencer un type de transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
 
-Si la revendication d’entrée et la revendication de sortie sont du même type (chaîne ou booléen), vous pouvez utiliser la même revendication d’entrée que la revendication de sortie. Dans ce cas, la transformation de revendication change la revendication d’entrée avec la valeur de sortie.
+Les revendications d’entrée et de sortie utilisées dans la transformation de revendications doivent être distinctes. La même revendication d’entrée ne peut pas être utilisée comme revendication de sortie.
 
 ## <a name="example"></a>Exemple
 

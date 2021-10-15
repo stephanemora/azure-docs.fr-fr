@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: d044ddbde293721e26ed491e237aa5b89075f72a
-ms.sourcegitcommit: d01c2b2719e363178720003b67b968ac2a640204
+ms.openlocfilehash: c0502b880d23e9f0a63564f11473f48e1c01b096
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527981"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236552"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostics Azure Standard Load Balancer avec les métriques, les alertes et l’intégrité des ressources
 
@@ -74,7 +74,7 @@ Pour afficher les métriques de vos ressources de Load Balancer Standard :
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Récupérer les métriques multidimensionnelles par programme via des API
 
-Pour obtenir des instructions relatives à l’API permettant de récupérer les définitions et valeurs de métrique multidimensionnelle, consultez [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Ces métriques peuvent être écrites dans un compte de stockage en ajoutant un [paramètre de diagnostic](../azure-monitor/essentials/diagnostic-settings.md) pour la catégorie « Toutes les métriques ». 
+Pour obtenir des instructions relatives à l’API permettant de récupérer les définitions et valeurs de métrique multidimensionnelle, consultez [Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions). Ces métriques peuvent être écrites dans un compte de stockage en ajoutant un [paramètre de diagnostic](../azure-monitor/essentials/diagnostic-settings.md) pour la catégorie « Toutes les métriques ». 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Scénarios de diagnostic courants et vues recommandées
 
@@ -152,7 +152,7 @@ Si vos métriques indiquent un risque d'échec de [flux sortant](./load-balancer
 Pour afficher l’utilisation et l’allocation des ports SNAT :
 1. Définissez l’agrégation de temps du graphique sur une minute pour vous assurer que les données souhaitées s'affichent.
 1. Sélectionnez **Ports SNAT utilisés** et/ou **Ports SNAT alloués** comme type de métrique et **Moyenne** comme agrégation
-    * Par défaut, ces métriques représentent le nombre moyen de ports SNAT alloués ou utilisés par chaque VMSS ou machine virtuelle back-end, correspondant à toutes les adresses IP publiques front-end mappées à l’équilibreur de charge, agrégées sur TCP et UDP.
+    * Par défaut, ces métriques représentent le nombre moyen de ports SNAT alloués ou utilisés par chaque machine virtuelle back-end ou groupe de machines virtuelles identiques, correspondant à toutes les adresses IP publiques frontales mappées à l’équilibreur de charge, agrégées sur TCP et UDP.
     * Pour afficher le nombre total de ports SNAT utilisés ou alloués pour l’équilibreur de charge, utilisez l’agrégation de métriques **Sum**.
 1. Filtrez sur un **Type de protocole** spécifique, un ensemble d'**Adresses IP principales** et/ou des **Adresses IP frontales**.
 1. Pour surveiller l’intégrité par instance principale ou frontale, utilisez le fractionnement. 

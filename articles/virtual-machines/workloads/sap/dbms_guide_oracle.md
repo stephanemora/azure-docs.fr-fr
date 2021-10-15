@@ -12,15 +12,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2021
+ms.date: 10/01/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd4b8ccf3147e349b9625d5912e5d603415ec39a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3c04c2824b005adfc3e04d710b0e55c7f52c99b1
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112297500"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402988"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Déploiement SGBD Oracle de machines virtuelles Azure pour charge de travail SAP
 
@@ -415,6 +415,7 @@ Pour la fonctionnalité de sauvegarde/restauration, les outils SAP BR*Tools for 
 Vous pouvez aussi utiliser Sauvegarde Azure pour effectuer une sauvegarde de machine virtuelle cohérente du point de vue des applications. L’article [Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure](../../../backup/backup-azure-vms-introduction.md) explique comment Sauvegarde Azure utilise la fonctionnalité Windows VSS pour effectuer une sauvegarde cohérente du point de vue des applications. Les versions du SGBD Oracle prises en charge sur Azure par SAP peuvent tirer parti de la fonctionnalité VSS pour les sauvegardes. Pour plus d’informations, consultez la documentation Oracle [Basic Concepts of Database Backup and Recovery with VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
 
 
+
 ### <a name="high-availability"></a>Haute disponibilité
 Oracle Data Guard est pris en charge à des fins de haute disponibilité et de récupération d’urgence. Pour bénéficier d’un basculement automatique dans Data Guard, vous devez utiliser FSFA (Fast-Start Failover). L’Observateur (FSFA) déclenche le basculement. Si vous n’utilisez pas FSFA, vous pouvez seulement utiliser une configuration de basculement manuel.
 
@@ -517,6 +518,9 @@ Pour des machines virtuelles Azure de la série M, quand vous utilisez l’Accé
 Pour la fonctionnalité de sauvegarde/restauration, les outils SAP BR*Tools for Oracle sont pris en charge de la même façon que sur les systèmes nus et Hyper-V. Oracle Recovery Manager (RMAN) est également pris en charge pour les sauvegardes sur disque et les restaurations à partir du disque.
 
 Pour plus d’informations sur l’utilisation des services Sauvegarde Azure et Récupération Azure pour sauvegarder et récupérer des bases de données Oracle, consultez [Sauvegarder et récupérer une base de données de la base de données Oracle Database 12c sur une machine virtuelle Linux Azure](../oracle/oracle-overview.md).
+
+Le [service Sauvegarde Azure](../../../backup/backup-overview.md) prend également en charge les sauvegardes Oracle, comme décrit dans l’article [Sauvegarder et récupérer une base de données Oracle Database 19c sur une machine virtuelle Linux Azure à l’aide du service Sauvegarde Azure](../oracle/oracle-database-backup-azure-backup.md).
+
 
 ### <a name="high-availability"></a>Haute disponibilité
 Oracle Data Guard est pris en charge à des fins de haute disponibilité et de récupération d’urgence. Pour bénéficier d’un basculement automatique dans Data Guard, vous devez utiliser FSFA (Fast-Start Failover). La fonctionnalité d’Observateur (FSFA) déclenche le basculement. Si vous n’utilisez pas FSFA, vous pouvez seulement utiliser une configuration de basculement manuel. Pour plus d’informations, consultez [Implémenter Oracle Data Guard sur une machine virtuelle Azure Linux](../oracle/configure-oracle-dataguard.md).

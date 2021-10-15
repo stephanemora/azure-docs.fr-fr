@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 925c556ccc5657af604eb80d5d697ed6ebcb5260
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 9d92a1baddbd12f80084dbbdb9a9205edb3f56b1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210622"
+ms.locfileid: "129272848"
 ---
 # <a name="use-private-endpoints-for-your-azure-purview-account"></a>Utiliser des points de terminaison privés pour votre compte Azure Purview
 
@@ -87,7 +87,7 @@ Si vous avez créé un point de terminaison privé de _portail_ pour votre compt
 
         3. Entrez les informations de base.
 
-        4. Sous l’onglet **Ressource**, pour **Type de ressource**, sélectionnez **Microsoft.Purview/portal**.
+        4. Sous l’onglet **Ressource**, pour **Type de ressource**, sélectionnez **Microsoft.Purview/account**.
 
         5. Pour **Ressource**, sélectionnez le compte Azure Purview et pour **Sous-ressource cible**, sélectionnez **portail**.
 
@@ -119,7 +119,7 @@ Pour consulter les questions fréquentes relatives aux déploiements de points d
 ## <a name="troubleshooting-guide"></a>Guide de résolution des problèmes 
 Pour résoudre les problèmes de configuration de point de terminaison privé pour les comptes Purview, consultez [Résolution des problèmes de configuration de point de terminaison privé pour les comptes Purview](./catalog-private-link-troubleshoot.md).
 
-## <a name="known-limitations"></a>Limitations connues
+## <a name="known-limitations"></a>Limites connues
 Pour afficher la liste des limitations actuelles liées aux points de terminaison privés Azure Purview, consultez [Limitations connues des points de terminaison privés Azure Purview](./catalog-private-link-troubleshoot.md#known-limitations).
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,16 +8,16 @@ ms.author: psrivas
 ms.reviewer: estfan, divswa, azla
 ms.topic: reference
 ms.date: 07/25/2021
-ms.openlocfilehash: 056538b5a6b52fcae646f5f03c6e39c8fce6429f
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 8fe32a9ce7fc6d02e32c31a2e698df81857b541e
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122768075"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401367"
 ---
 # <a name="contrl-acknowledgments-and-error-codes-for-edifact-messages-in-azure-logic-apps"></a>Codes d’erreur et accusés de réception CONTRL pour les messages EDIFACT dans Azure Logic Apps
 
-Dans Azure Logic Apps, vous pouvez créer des workflows qui gèrent les messages EDIFACT pour la communication EDI (échange de données informatisé) lorsque vous utilisez des opérations **EDIFACT**. Dans la messagerie EDI, les accusés de réception fournissent l’état du traitement d’un échange EDI. Lors de la réception d’un échange, l’[**action** Décodage EDIFACT](logic-apps-enterprise-integration-edifact-decode.md) peut renvoyer un ou plusieurs types d’accusés de réception à l’expéditeur, en fonction des types d’accusés de réception activés et du niveau de validation spécifié.
+Dans Azure Logic Apps, vous pouvez créer des workflows qui gèrent les messages EDIFACT pour la communication EDI (échange de données informatisé) lorsque vous utilisez des opérations **EDIFACT**. Dans la messagerie EDI, les accusés de réception fournissent l’état du traitement d’un échange EDI. Lors de la réception d’un échange, l’[**action** Décodage EDIFACT](logic-apps-enterprise-integration-edifact.md) peut renvoyer un ou plusieurs types d’accusés de réception à l’expéditeur, en fonction des types d’accusés de réception activés et du niveau de validation spécifié.
 
 Cette rubrique fournit une petite vue d’ensemble de l’ACK CONTRL EDIFACT, les segments ACK CONTRL dans un échange et les codes d’erreur utilisés dans ces segments.
 
@@ -30,7 +30,7 @@ Pour les messages EDIFACT, l’accusé de réception (ACK) CONTRL sert d’accus
 >
 > Les erreurs rencontrées dans les messages CONTRL reçus doivent être signalées autrement que par l'intermédiaire d'un message CONTRL. Lorsqu’un échange contenant des messages de données comprend un ou plusieurs messages CONTRL, un message CONTRL généré en réponse à cet échange est créé comme si aucun message CONTRL n’avait été inclus dans l’échange reçu.
 
-En guise d’accusé de réception technique, le message CONTRL indique que le destinataire de l’échange a reçu l’échange d’objet, en plus des éléments suivants :
+En guise d’accusé de réception technique, le message CONTRL indique que le destinataire de l’échange a reçu l’échange en question et a les responsabilités suivantes :
 
 * Vérifie des parties de l’échange pour confirmer la précision syntaxique des éléments de données copiés dans le segment Réponse d’échange (UCI) de rapports.
 * Accepte la responsabilité d’informer l’expéditeur de l’acceptation ou du rejet des autres parties de l’échange.

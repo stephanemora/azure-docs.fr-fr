@@ -9,12 +9,12 @@ ms.date: 06/21/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 5c50cffb561076dd7d9c4af8e5b4654784cc3a01
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 51335fe48208423883706796fe4812ec0e0af5fe
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128555357"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275712"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planifier et gérer les coûts du Stockage Blob Azure
 
@@ -117,7 +117,7 @@ Pour en savoir plus, consultez [Optimiser les coûts de Stockage Blob avec une c
 
 Vous pouvez réduire les coûts en plaçant les données blob dans les niveaux d’accès les plus rentables. Choisissez parmi trois niveaux conçus pour optimiser vos coûts d’utilisation des données. Par exemple, le niveau d’accès *chaud* présente un coût de stockage plus élevé, mais un coût d’accès inférieur. Par conséquent, si vous envisagez d’accéder fréquemment aux données, le niveau d’accès chaud peut être le choix le plus rentable. Si vous prévoyez d’accéder moins fréquemment aux données, le niveau d’accès *froid* ou *archive* pourrait être le mieux adapté, car il augmente le coût d’accès aux données tout en réduisant le coût de stockage des données.
 
-Pour en savoir plus, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md?tabs=azure-portal).
+Pour en savoir plus, consultez [Niveaux d’accès chaud, froid et archive pour les données blob](../blobs/access-tiers-overview.md?tabs=azure-portal).
 
 #### <a name="automatically-move-data-between-access-tiers"></a>Déplacer automatiquement les données entre les niveaux d’accès
 

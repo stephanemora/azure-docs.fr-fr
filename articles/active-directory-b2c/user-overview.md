@@ -7,25 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 4b35cfeded13a50e5e27c240b0826f1d108ff7eb
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 4a21ba7191bab596818324f23235a9dc610ade1e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529442"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351338"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C
 
-Dans Azure Active Directory B2C (Azure AD B2C), plusieurs types de comptes peuvent être créés. Azure Active Directory, Active Directory B2B et Active Directory B2C partagent les types de comptes d’utilisateur utilisables.
+Dans Azure Active Directory B2C (Azure AD B2C), plusieurs types de comptes peuvent être créés. Azure Active Directory (Azure AD), Azure Active Directory B2B (Azure AD B2B) et Azure Active Directory B2C (Azure AD B2C) partagent les types de comptes d’utilisateur qui peuvent être utilisés.
 
 Les types de comptes suivants sont disponibles :
 
 - **Compte professionnel** – Un compte professionnel peut accéder aux ressources dans un locataire et, avec un rôle d’administrateur, peut gérer des locataires.
-- **Compte invité** – Un compte invité peut uniquement être un compte Microsoft ou un utilisateur Azure Active Directory qui peut être utilisé pour accéder à des applications ou gérer des locataires.
+- **Compte invité** – Un compte invité peut uniquement être un compte Microsoft ou un utilisateur Azure AD qui peut être utilisé pour accéder à des applications ou gérer des locataires.
 - **Compte de consommateur** – Un compte de consommateur est utilisé par un utilisateur des applications inscrites auprès d’Azure AD B2C. Il existe plusieurs moyens de créer des comptes de consommateur :
   - L’utilisateur suit un flux utilisateur d’inscription dans une application Azure AD B2C
   - Utilisation de l’API Microsoft Graph

@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 08/20/2021
 ms.author: danlep
-ms.openlocfilehash: 13c62c36eb532ab7073165e382f8b52772a99acc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 32fa405a612026fc16257447cb2cc858101c729c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669167"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536513"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -392,6 +392,9 @@ Dans l’exemple suivant, le quota est indexé par l’adresse IP de l’appelan
 | increment-condition | Expression booléenne spécifiant si la demande doit être comptée dans le quota (`true`).             | Non                                                               | N/A     |
 | renewal-period      | Période en secondes après laquelle le quota se réinitialise. Quand la valeur est définie sur `0`, la période est définie sur Infini.                                                   | Oui                                                              | N/A     |
 
+> [!NOTE]
+> La valeur de l’attribut `counter-key` doit être unique dans toutes les API de la Gestion des API si vous ne souhaitez pas partager le total entre les autres API.
+
 ### <a name="usage"></a>Usage
 
 Cette stratégie peut être utilisée dans les [sections](./api-management-howto-policies.md#sections) et [étendues](./api-management-howto-policies.md#scopes) de stratégie suivantes.
@@ -650,21 +653,21 @@ L’exemple suivant valide un certificat client pour qu’il corresponde aux rè
 ### <a name="attributes"></a>Attributs
 
 | Nom                            | Description      | Obligatoire |  Default    |
-| ------------------------------- |   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| ------------------------------- | -----------------| -------- | ----------- |
 | validate-revocation  | Propriété booléenne. Spécifie si le certificat est validé par rapport à la liste de révocation en ligne.  | non   | True  |
 | validate-trust | Propriété booléenne. Spécifie si la validation doit échouer si la chaîne de cas ne peut pas être générée correctement pour une autorité de certification approuvée. | non | True |
-| validate-not-before | Propriété booléenne. Valide la valeur par rapport à l’heure actuelle. | non | True | 
-| validate-not-after  | Propriété booléenne. Valide la valeur par rapport à l’heure actuelle. | non | True| 
-| ignore-error  | Propriété booléenne. Spécifie si la stratégie doit aller au gestionnaire suivant ou passer à l’erreur en cas d’échec de la validation. | num. | False |  
-| identité | Chaîne. Combinaison de valeurs de revendication de certificat qui rendent le certificat valide. | Oui | N/A | 
+| validate-not-before | Propriété booléenne. Valide la valeur par rapport à l’heure actuelle. | non | True |
+| validate-not-after  | Propriété booléenne. Valide la valeur par rapport à l’heure actuelle. | non | True|
+| ignore-error  | Propriété booléenne. Spécifie si la stratégie doit aller au gestionnaire suivant ou passer à l’erreur en cas d’échec de la validation. | non | False |
+| identité | Chaîne. Combinaison de valeurs de revendication de certificat qui rendent le certificat valide. | Oui | N/A |
 | thumbprint | Empreinte du certificat. | non | N/A |
 | serial-number | Numéro de série du certificat. | non | N/A |
 | common-name | Nom commun du certificat (partie de la chaîne d’objet). | non | N/A |
 | subject | Chaîne d’objet. Doit suivre le format du nom unique. | non | N/A |
-| dns-name | Valeur de l’entrée dnsName à l’intérieur de l’autre nom de la revendication. | non | N/A | 
-| issuer-subject | Objet de l’émetteur. Doit suivre le format du nom unique. | non | N/A | 
-| issuer-thumbprint | Empreinte de l’émetteur. | non | N/A | 
-| issuer-certificate-id | Identificateur de l’entité de certificat existante représentant la clé publique de l’émetteur. S’exclut mutuellement avec les autres attributs de l’émetteur.  | non | N/A | 
+| dns-name | Valeur de l’entrée dnsName à l’intérieur de l’autre nom de la revendication. | non | N/A |
+| issuer-subject | Objet de l’émetteur. Doit suivre le format du nom unique. | non | N/A |
+| issuer-thumbprint | Empreinte de l’émetteur. | non | N/A |
+| issuer-certificate-id | Identificateur de l’entité de certificat existante représentant la clé publique de l’émetteur. S’exclut mutuellement avec les autres attributs de l’émetteur.  | non | N/A |
 
 ### <a name="usage"></a>Usage
 

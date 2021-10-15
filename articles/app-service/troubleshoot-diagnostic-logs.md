@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 07/06/2021
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: b7bf1d7353917808fca222a7027dda74f89aff70
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ac47322f33ac8f2efd08e5b04e639f09959dee28
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532008"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352019"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -70,6 +70,10 @@ Sélectionnez le **niveau** ou le niveau de détails à consigner. Le tableau su
 
 Lorsque vous avez terminé, sélectionnez **Enregistrer**.
 
+> [!NOTE]
+> Si vous écrivez des journaux dans des objets Blob, la stratégie de rétention ne s’applique plus si vous supprimez l’application tout en conservant les journaux dans les objets Blob. Pour plus d’informations, consultez [Coûts qui peuvent s’additionner après la suppression des ressources](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion).
+>
+
 ## <a name="enable-application-logging-linuxcontainer"></a>Activer la journalisation des applications (Linux/Conteneur)
 
 Pour activer la journalisation des applications Linux et des applications de conteneur personnalisées dans le [portail Azure](https://portal.azure.com), accédez à votre application et sélectionnez **Journaux App Service**.
@@ -97,6 +101,10 @@ Dans **Période de conservation (jours)** , définissez le nombre de jours penda
 >
 
 Lorsque vous avez terminé, sélectionnez **Enregistrer**.
+
+> [!NOTE]
+> Si vous écrivez des journaux dans des objets Blob, la stratégie de rétention ne s’applique plus si vous supprimez l’application tout en conservant les journaux dans les objets Blob. Pour plus d’informations, consultez [Coûts qui peuvent s’additionner après la suppression des ressources](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion).
+>
 
 ## <a name="log-detailed-errors"></a>Consigner les erreurs détaillées
 

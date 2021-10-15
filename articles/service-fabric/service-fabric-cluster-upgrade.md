@@ -3,12 +3,12 @@ title: Mettre à niveau des clusters Azure Service Fabric
 description: En savoir plus sur les options de mise à jour de votre cluster Azure Service Fabric
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 9af6a9b4d515fcede5bc0444a93ae8118077e7dd
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7fad28e0357b26b0b8753496310c7788f6dbb0c8
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738749"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129401145"
 ---
 # <a name="upgrading-and-updating-azure-service-fabric-clusters"></a>Mettre à niveau et mettre à jour des clusters Azure Service Fabric
 
@@ -27,6 +27,9 @@ Vous pouvez définir votre cluster de façon à recevoir des mises à niveau aut
 Vous pouvez également définir le mode de mise à niveau du cluster et sélectionner une version du runtime [à l’aide d’un modèle Resource Manager](service-fabric-cluster-upgrade-version-azure.md#resource-manager-template).
 
 Les mises à niveau automatiques sont le mode de mise à niveau recommandé, car cette option garantit que votre cluster reste dans un état pris en charge et bénéficie des derniers correctifs et fonctionnalités tout en vous permettant de planifier les mises à jour de manière moins perturbatrice pour vos charges de travail à l’aide d’une stratégie de [déploiement Wave](#wave-deployment-for-automatic-upgrades).
+
+> [!NOTE]
+> Si vous faites passer un cluster existant en mode automatique, le cluster sera inscrit pour la prochaine période de mise à niveau commençant avec une nouvelle version. Les nouvelles versions sont annoncées sur le [blog de l’équipe Service Fabric](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). Par période de mise à niveau, le chemin de mise à niveau le plus élevé possible est choisi. Voir les [versions prises en charge](service-fabric-versions.md). Le mode de mise à niveau manuelle déclenche une mise à niveau immédiate. 
 
 ## <a name="wave-deployment-for-automatic-upgrades"></a>Déploiement Wave pour les mises à niveau automatiques
 

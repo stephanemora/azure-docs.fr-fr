@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1e644d81c2a47ec07833010ae93f4dbb0c57474b
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 1581139a2bd941f32afbcd4f0ecbefc60c068d80
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106077837"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353488"
 ---
 # <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Répertorier les affectations de refus à l’aide du portail Azure
 
@@ -92,14 +92,14 @@ Suivez ces étapes pour répertorier des détails supplémentaires sur une affec
 
     | Type d'action | Description |
     | --- | --- |
-    | **Actions**  | Opérations de gestion refusées. |
-    | **NotActions** | Opérations de gestion exclues de l’opération de gestion refusée. |
-    | **DataActions**  | Opérations refusées sur des données. |
-    | **NotDataActions** | Opérations sur des données, exclues de l’opération refusée sur des données. |
+    | **Actions**  | Actions refusées du plan de contrôle. |
+    | **NotActions** | Actions du plan de contrôle exclues des actions refusées du plan de contrôle. |
+    | **DataActions**  | Actions refusées du plan de données. |
+    | **NotDataActions** | Actions du plan de données exclues des actions refusées du plan de données. |
 
     Pour l’exemple illustré dans la capture d’écran précédente, les éléments suivants sont les autorisations effectives :
 
-    - Toutes les opérations de stockage sur le plan de données sont refusées à l’exception des opérations de calcul.
+    - Toutes les actions de stockage sur le plan de données sont refusées à l’exception des actions de calcul.
 
 1. Pour voir les propriétés d’une affectation de refus, cliquez sur **Propriétés**.
 

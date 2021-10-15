@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/14/2021
-ms.openlocfilehash: fa900b7df1db1efbc8fe28a96cd2048113d7390d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c140c8495b1179298d6ca0029f430896aab55f7f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128550261"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360838"
 ---
-# <a name="create-and-manage-integration-accounts-for-b2b-workflows-in-azure-logic-apps-using-the-enterprise-integration-pack"></a>Créer et gérer des comptes d’intégration pour des flux de travail B2B dans Azure Logic Apps à l’aide de l’Enterprise Integration Pack
+# <a name="create-and-manage-integration-accounts-for-b2b-workflows-in-azure-logic-apps-with-the-enterprise-integration-pack"></a>Créer et gérer des comptes d’intégration pour des flux de travail B2B dans Azure Logic Apps à l’aide d’Enterprise Integration Pack
 
 Avant de pouvoir générer des flux de travail d’intégration B2B et d’entreprise à l’aide d’Azure Logic Apps, vous devez créer une ressource *compte d’intégration*. Ce compte est un conteneur cloud évolutif dans Azure, qui simplifie le stockage et la gestion des artefacts B2B que vous définissez et utilisez dans vos flux de travail pour les scénarios B2B. Ces artefacts incluent des [partenaires commerciaux](logic-apps-enterprise-integration-partners.md), des [contrats](logic-apps-enterprise-integration-agreements.md), des [mappages](logic-apps-enterprise-integration-maps.md), des [schémas](logic-apps-enterprise-integration-schemas.md), des [certificats](logic-apps-enterprise-integration-certificates.md), etc. Vous devez également disposer d’un compte d’intégration pour échanger par voie électronique des messages B2B avec d’autres organisations. Lorsque d’autres organisations utilisent des protocoles et des formats de message différents de ceux de votre organisation, vous devez convertir ces formats de façon à ce que le système de votre organisation puisse traiter ces messages. Les protocoles standard pris en charge sont [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md) et [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).
 
@@ -26,7 +26,7 @@ Cet article explique comment accomplir les tâches suivantes :
 
 * Créer un compte d’intégration.
 * Lier un compte d’intégration à une ressource d’application logique.
-* Modifier le niveau tarifaire de votre compte d’intégration.
+* Modifiez le niveau tarifaire de votre compte d’intégration.
 * Dissocier un compte d’intégration d’une application logique.
 * Déplacer un compte d’intégration vers un autre groupe de ressources ou abonnement Azure.
 * Supprimer un compte d’intégration.

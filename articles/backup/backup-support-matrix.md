@@ -4,12 +4,12 @@ description: Fournit un résumé des limitations et des paramètres de prise en 
 ms.topic: conceptual
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7448b8c5fa4882f9579b60d7d723d88e98ca7683
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: eee136952f2830e8d204a2d5346c97101be2a7da
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658618"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363429"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -160,7 +160,7 @@ Une fonctionnalité de restauration inter-régions a été ajoutée au service S
 
 La vérification de l’intégrité des ressources fonctionne dans les conditions suivantes :
 
-|     |     |
+| Contrôle d’intégrité des ressources    | Détails    |
 | --- | --- |
 | **Ressources prises en charge** | Coffre Recovery Services |
 | **Régions prises en charge** | USA Est, USA Est 2, USA centre, USA Centre Sud, USA Centre Nord, USA Centre Ouest, USA Ouest, USA Ouest 2, USA Ouest 3, Canada Est, Canada Centre, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, France Centre, Suède Centre, Suède Sud, Asie Est, Asie Sud Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Australie Est, Australie Centre, Australie Centre 2, Australie Sud-Est, Afrique du Sud Nord, Afrique du Sud Ouest, EAU Nord, EAU Centre, Brésil Sud, Brésil Sud-Est, Brésil Sud, Suisse Nord, Suisse Ouest, Norvège Est, Norvège Ouest, Allemagne Nord, Allemagne Centre Ouest, Inde Ouest, Inde Centre, Inde Sud, Jio Inde Ouest, Jio Inde Centre. |

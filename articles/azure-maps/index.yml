@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentation sur Azure Maps
-summary: 'Microsoft Azure Maps fournit aux développeurs de tous les secteurs d’activité des fonctionnalités géospatiales puissantes. Ces fonctionnalités géospatiales s’accompagnent des données de mappage les plus récentes. Azure Maps est disponible pour les applications web et mobiles. Azure Maps est un ensemble d’API REST conforme à Azure One API. Les services suivants ne sont qu’une vue d’ensemble de ce que peut offrir Azure Maps : cartes, recherche, routage, trafic, mobilité, météo, fuseaux horaires, géolocalisation, geofencing, données cartographiques, créateur et opérations spatiales. Les kits SDK Web et Android rendent le développement simple, souple et portable sur plusieurs plateformes.'
+summary: 'Microsoft Azure Maps fournit aux développeurs de tous les secteurs d’activité des fonctionnalités géospatiales puissantes. Ces fonctionnalités géospatiales s’accompagnent des données de mappage les plus récentes. Azure Maps est disponible pour les applications web et mobiles. Azure Maps est un ensemble d’API REST conforme à Azure One API. Les services suivants ne sont qu’une vue d’ensemble de ce que peut offrir Azure Maps : cartes, recherche, routage, trafic, météo, fuseaux horaires, géolocalisation, geofencing, données cartographiques, créateur et opérations spatiales. Les kits SDK Web et Android rendent le développement simple, souple et portable sur plusieurs plateformes.'
 metadata:
   title: Documentation sur Azure Maps | Microsoft Docs
   description: Découvrez Azure Maps et comment l’utiliser pour fournir des services géospatiaux à votre application web ou mobile.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: anastasia-ms
-  ms.author: v-stharr
-  ms.date: 1/15/2020
-  ms.openlocfilehash: 0f2f5ff726fb723e6481d03e5d8019be45fb9100
-  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+  author: stevemunk
+  ms.author: v-munksteve
+  ms.date: 10/13/2021
+  ms.openlocfilehash: 21efc1c783be18875d17f72879d7251beec28641
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/06/2021
-  ms.locfileid: "113303955"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "130000477"
 landingContent:
 - title: À propos d’Azure Maps
   linkLists:
@@ -42,6 +42,8 @@ landingContent:
       url: quick-demo-map-app.md
     - text: Créer une application Android avec Azure Maps
       url: quick-android-map.md
+    - text: Créer une application iOS avec Azure Maps
+      url: quick-iOS-app.md
   - linkListType: concept
     links:
     - text: Choisir le bon niveau tarifaire pour un compte Maps
@@ -156,6 +158,16 @@ landingContent:
       url: clustering-point-data-android-sdk.md
     - text: Utiliser des expressions de style basées sur les données
       url: data-driven-style-expressions-android-sdk.md
+- title: Développement avec le kit SDK iOS
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer une application iOS avec Azure Maps
+      url: quick-iOS-app.md
+  - linkListType: how-to-guide
+    links:
+    - text: Bien démarrer avec le contrôle de carte iOS
+      url: how-to-use-ios-map-control-library.md
 - title: Développement avec Location-Based Services
   linkLists:
   - linkListType: concept
@@ -230,22 +242,6 @@ landingContent:
     links:
     - text: Composant de carte interactive
       url: /powerapps/maker/canvas-apps/geospatial-component-map
-- title: Développement avec les services Mobility
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Services de mobilité
-      url: mobility-service-data-structure.md
-  - linkListType: how-to-guide
-    links:
-    - text: Demander des routes de transit public
-      url: how-to-request-transit-data.md
-    - text: Demander des données de transit public en temps réel
-      url: how-to-request-real-time-data.md
-  - linkListType: reference
-    links:
-    - text: Services de mobilité
-      url: /rest/api/maps/mobility
 - title: Développement avec les services Météo
   linkLists:
   - linkListType: concept

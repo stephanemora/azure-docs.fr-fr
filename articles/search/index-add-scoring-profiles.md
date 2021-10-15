@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/16/2021
-ms.openlocfilehash: 186fa5fe490541ce465eca37cf21a6a63923e2ee
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: 986bc72d135cbbfceeb4b7e60556673a8dd8edbc
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112321855"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275845"
 ---
 # <a name="add-scoring-profiles-to-a-search-index"></a>Ajouter des profils de scoring à un index de recherche
 
@@ -27,7 +27,7 @@ Les concepts de pertinence ne vous sont pas familiers ? La vidéo suivante expl
 
 ## <a name="what-is-a-scoring-profile"></a>Qu’est-ce qu’un profil de scoring ?
 
-Un profil de score fait partie de la définition d'index, composée de champs, fonctions et paramètres pondérés. L’objectif d’un profil de scoring est de surévaluer ou d’amplifier les documents correspondants en fonction des critères que vous fournissez. 
+Un profil de scoring fait partie de la définition d’index et se compose de champs, de fonctions et de paramètres pondérés. L’objectif d’un profil de scoring est de surévaluer ou d’amplifier les documents correspondants en fonction des critères que vous fournissez. 
 
 La définition suivante montre un profil simple nommé « géo ». Celui-ci surévalue les résultats dont le champ hotelName contient le terme recherché. Il utilise également la fonction `distance` pour favoriser les résultats qui se trouvent dans un rayon de dix kilomètres de l’emplacement actuel. Si quelqu'un effectue une recherche sur le terme « inn » dans un rayon de 10 km par rapport à la position actuelle, les documents d'hôtels dont le nom contient cette chaîne de caractères apparaissent en tête des résultats de la recherche.  
 

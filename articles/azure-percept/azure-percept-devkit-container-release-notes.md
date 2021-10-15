@@ -6,12 +6,12 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: adfde8ee9ef73afdbbb175fd5ecbfc476e019a08
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5b4e67197e5d43e929ca01c8c81e297e134edf47
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700529"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271609"
 ---
 # <a name="azure-percept-dk-container-release-notes"></a>Notes de publication du Conteneur Azure Percept DK
 
@@ -21,7 +21,7 @@ Pour télécharger les mises à jour du conteneur, accédez à [Azure Percept St
 
 ## <a name="august-2108-release"></a>Version d’août (2108)
 
-- Azureyemodule
+- Azureyemodule (mcr.microsoft.com/azureedgedevices/azureeyemodule:2108-1)
     - Mise à jour vers la dernière version d’Intel (mai) du microprogramme de la caméra MyriadX. 
     - Activation de la caméra UVC (USB Video Class) comme source d’entrée. Consultez [Développement avancé sur GitHub](https://github.com/microsoft/azure-percept-advanced-development/tree/main/azureeyemodule#using-uvcusb-video-class-camera-as-input-source) pour savoir comment utiliser la caméra UVC comme source d’entrée. 
     - Correction du plantage de module lors de l’utilisation d’un flux RTSP brut H.264.

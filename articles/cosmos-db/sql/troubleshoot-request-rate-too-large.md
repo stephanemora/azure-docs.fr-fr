@@ -8,12 +8,12 @@ ms.date: 08/25/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 44ecb59508b93347ba57fb40a88c274adfedd320
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0c8ad195ce2e5288857595b042bb30cf6b5c8a6d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123434049"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618396"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-429-exceptions"></a>Diagnostiquer et résoudre des problèmes liés aux exceptions Taux de requêtes Azure Cosmos DB trop élevé (429)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: pafarley
-ms.openlocfilehash: cb39fc53e5753c2667fcc3d3bf78b075366dd3a8
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 0ffa432b6d5d94ad4e313a183d8e277ce44aae3d
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539055"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129584958"
 ---
 ## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
@@ -112,6 +112,9 @@ Cet exemple de code effectue les opérations suivantes :
 * Ajoute des participants à la conversation. Les chaînes `voiceSignatureStringUser1` et `voiceSignatureStringUser2` doivent être générées en sortie des étapes ci-dessus à partir de la fonction `GetVoiceSignatureString()`.
 * Joint la conversation et commence la transcription.
 
+> [!NOTE]
+> `AudioStreamReader` est une classe d’assistance que vous pouvez obtenir sur [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/AudioStreamReader.cs).
+
 Appelez la fonction `TranscribeConversationsAsync()` pour démarrer la transcription de la conversation.
 
 ```csharp
@@ -201,8 +204,9 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
                 Task.WaitAny(new[] { stopRecognition.Task });
                 await conversationTranscriber.StopTranscribingAsync().ConfigureAwait(false);
             }
-        }
-    }
-}
+         }
+      }
+   }
 }
 ```
+

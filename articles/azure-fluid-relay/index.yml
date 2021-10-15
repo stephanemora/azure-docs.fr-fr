@@ -9,12 +9,12 @@ metadata:
   author: hickeys
   ms.author: hickeys
   ms.date: 08/19/2021
-  ms.openlocfilehash: 86238a56af7d5d5e7f8e105bbe487994dffa207f
-  ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+  ms.openlocfilehash: d503930da03d2a86e141513ce1ff16ee06ffd950
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/07/2021
-  ms.locfileid: "129661464"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "129984323"
 landingContent:
 - title: À propos de Relais Azure Fluid
   linkLists:
@@ -24,11 +24,37 @@ landingContent:
       url: overview/overview.md
     - text: Architecture de Relais Azure Fluid
       url: concepts/architecture.md
-- title: Guides pratiques et démarrages rapides
-  linkLists:
+    - text: Compatibilité des versions avec les versions de l’infrastructure Fluid
+      url: concepts/version-compatibility.md
   - linkListType: get-started
     links:
     - text: Provisionner un service Relais Azure Fluid
       url: how-tos/provision-fluid-azure-portal.md
     - text: 'Démarrage rapide : Lanceur de dés'
       url: quickstarts/quickstart-dice-roll.md
+- title: Explorer plus en profondeur
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Authentification et autorisation dans votre application
+      url: concepts/authentication-authorization.md
+    - text: Chiffrement des données dans Relais Azure Fluid
+      url: concepts/data-encryption.md
+    - text: Structures de données distribuées (DDS)
+      url: concepts/data-structures.md
+    - text: Contrat de jeton Relais Azure Fluid
+      url: how-tos/fluid-json-web-token.md
+- title: Guide pratique pour utiliser Azure Fluid
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 'Guide pratique : Se connecter à un service Relais Azure Fluid'
+      url: how-tos/connect-fluid-azure-service.md
+    - text: 'Guide pratique : Écrire un TokenProvider avec une fonction Azure'
+      url: how-tos/azure-function-token-provider.md
+    - text: 'Guide pratique : Utiliser AzureClient pour les tests locaux'
+      url: how-tos/local-mode-with-azure-client.md
+    - text: Supprimer des conteneurs Fluid dans le serveur Relais Azure Fluid Microsoft
+      url: how-tos/container-deletion.md
+    - text: 'Guide pratique : Utiliser l’automatisation des tests avec Relais Azure Fluid'
+      url: how-tos/test-automation.md

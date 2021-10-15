@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 6f5b3cc109d3583defce78c3ae52848188fca900
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: d0b24d902c808f06e49f2c132629484d22921b4b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114284553"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351295"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Configuration requise pour ExpressRoute et liste de contrôle
 Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, vous devez vérifier que les conditions requises des sections suivantes sont remplies.
@@ -29,7 +29,7 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 * Si votre fournisseur n’est pas un partenaire de connectivité ExpressRoute, vous pouvez toujours vous connecter à Microsoft Cloud par le biais d’un [fournisseur de solutions d’interconnexion de clouds](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
-* **Redondance à chaque emplacement de peering** : Microsoft exige la configuration de sessions BGP redondantes entre ses routeurs et les routeurs de peering sur chaque circuit ExpressRoute, même quand vous ne disposez que d’[une seule connexion physique à une solution d’interconnexion de clouds](expressroute-faqs.md#onep2plink).
+* **Redondance à chaque emplacement de Peering** : Microsoft exige la configuration de sessions BGP redondantes entre ses routeurs et les routeurs de Peering sur chaque circuit ExpressRoute, même quand vous ne disposez que d’[une seule connexion physique à une solution d’interconnexion de clouds](expressroute-faqs.md#onep2plink).
 * **Redondance pour la reprise d’activité après sinistre** : Microsoft vous recommande vivement de configurer au moins deux circuits ExpressRoute à des emplacements de peering différents pour éviter d’avoir un point de défaillance unique.
 * **Routage** : selon la façon dont vous vous connectez à Microsoft Cloud, vous ou votre fournisseur pouvez avoir besoin de configurer et gérer les sessions BGP pour les [domaines de routage](expressroute-circuit-peerings.md). Certains fournisseurs de connectivité Ethernet ou fournisseurs d’échange cloud peuvent proposer la gestion BGP en tant que service à valeur ajoutée.
 * **Traduction d’adresses réseau (NAT)** : Microsoft accepte uniquement les adresses IP publiques par le biais du peering Microsoft. Si votre réseau local comporte des adresses IP privées, vous ou votre fournisseur devez traduire les adresses IP privées en adresses IP publiques [à l’aide de la traduction d’adresses réseau](expressroute-nat.md).
@@ -46,7 +46,7 @@ Si vous prévoyez d’activer Microsoft 365 sur ExpressRoute, consultez les doc
 * [Planification réseau et optimisation des performances pour Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
 * [Planification réseau et planification de la migration pour Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)
 * [Intégration de Microsoft 365 à des environnements locaux](/microsoft-365/enterprise/microsoft-365-integration)
-* [Être informé des changements apportés à l’adresse IP d’Office 365](/microsoft-365/enterprise/microsoft-365-ip-web-service?view=o365-worldwide)
+* [Être informé des changements apportés à l’adresse IP d’Office 365](/microsoft-365/enterprise/microsoft-365-ip-web-service)
 * [Vidéos de formation avancée à ExpressRoute sur Office 365](https://channel9.msdn.com/series/aer/)
 
 ## <a name="next-steps"></a>Étapes suivantes

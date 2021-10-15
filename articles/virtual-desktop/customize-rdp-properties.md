@@ -7,12 +7,12 @@ ms.date: 10/09/2020
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 481b81edb0ee5709e712f213036fa8df53aca7c4
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 282044d0ee3d07ae4eaa2c63d8d0bcebae0251aa
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287921"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544486"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personnaliser les propriétés de Remote Desktop Protocol (RDP) pour un pool d’hôtes
 
@@ -38,6 +38,7 @@ Les fichiers RDP ont les propriétés suivantes par défaut :
 >[!NOTE]
 >- Le mode multimoniteur ne s’applique qu’aux groupes d’applications de bureau. Il est ignoré pour les groupes d’applications RemoteApp.
 >- Toutes les propriétés de fichier RDP par défaut sont exposées dans le Portail Azure.
+>- Par défaut, le champ CustomRdpProperty est nul dans le portail Azure. Un champ CustomRdpProperty nul appliquera toutes les propriétés RDP par défaut à votre pool d’hôtes. Un champ CustomRdpProperty vide n’appliquera aucune propriété RDP par défaut à votre pool d’hôtes.
 
 ## <a name="prerequisites"></a>Prérequis
 

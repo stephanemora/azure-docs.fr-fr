@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 7a94d82c3ec2a47869c64520e20bed6cdf58ebdb
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 0cc474ba9566737cb0117cc3a0f2bfb079cdf3d9
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210519"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616509"
 ---
 # <a name="labeling-in-azure-purview"></a>Étiquetage dans Azure Purview
 
@@ -64,7 +64,7 @@ Les étiquettes de confidentialité sont prises en charge dans Azure Purview pou
 
 ## <a name="labeling-for-sql-databases"></a>Étiquetage des bases de données SQL
 
-Outre l’étiquetage Purview pour les colonnes de base de données, Microsoft prend également en charge l’étiquetage pour les colonnes de base de données SQL utilisant la classification des données SQL dans [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Alors que Purview utilise les [étiquettes de confidentialité MIP](/microsoft-365/compliance/sensitivity-labels) globales, SSMS utilise uniquement les étiquettes définies localement.
+Outre l’étiquetage Purview pour les colonnes de base de données, Microsoft prend également en charge l’étiquetage pour les colonnes de base de données SQL utilisant la classification des données SQL dans [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Alors que Purview utilise les [étiquettes de confidentialité](/microsoft-365/compliance/sensitivity-labels) globales, SSMS utilise uniquement les étiquettes définies localement.
 
 L’étiquetage dans Purview et l’étiquetage dans SSMS sont des processus distincts qui n’interagissent pas l’un avec l’autre actuellement. Par conséquent, **les étiquettes appliquées dans SSMS ne sont pas affichées dans Purview et inversement**. Nous recommandons Azure Purview pour l’étiquetage des bases de données SQL, car Purview utilise des étiquettes MIP globales qui peuvent être appliquées sur de nombreuses plateformes.
 

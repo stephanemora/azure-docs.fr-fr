@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 08/24/2021
 ms.author: cshoe
-ms.openlocfilehash: d7716c6d91ac0f7c8c699d14f265e00f5535a00d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 95e180d34577f94f96b3e35c1f2432d85eb946a9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124730397"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361411"
 ---
 # <a name="api-support-in-azure-static-web-apps-with-azure-functions"></a>Prise en charge des API dans Azure Static Web Apps avec Azure Functions
 
@@ -41,7 +41,7 @@ Le tableau suivant compare les différences entre l’utilisation de fonctions g
 | [Identité gérée](../app-service/overview-managed-identity.md) | ✕ | ✔ |
 | Gestion des jetons [d’authentification et d’autorisation Azure App Service](../app-service/configure-authentication-provider-aad.md) | ✕ | ✔ |
 | Fonctions d’API disponibles en dehors d’Azure Static Web Apps | ✕ | ✔ |
-| Paramètres d’application stockés dans Azure Key Vault | ✕ | ✔ |
+| [Références Key Vault](../app-service/app-service-key-vault-references.md) | ✕ | ✔ |
 
 ## <a name="configuration"></a>Configuration
 
@@ -49,7 +49,7 @@ Les points de terminaison d’API sont disponibles pour l’application web via 
 
 | Fonctions managées | Amener vos propres fonctions |
 | --- | --- |
-| Bien que l’itinéraire _api_ soit fixe, vous contrôlez l’emplacement du dossier de l’application de fonction managée. Vous pouvez modifier cet emplacement en [modifiant le fichier YAML de flux de travail](build-configuration.md) situé dans le dossier _. GitHub/workflows_ de votre référentiel. | Les requêtes adressées à l’itinéraire _api_ sont envoyées à votre application Azure Functions existante. |
+| Bien que l’itinéraire _api_ soit fixe, vous contrôlez l’emplacement du dossier du code source de l’application de fonction managée. Vous pouvez modifier cet emplacement en [modifiant le fichier YAML de flux de travail](build-configuration.md) situé dans le dossier _. GitHub/workflows_ de votre référentiel. | Les requêtes adressées à l’itinéraire _api_ sont envoyées à votre application Azure Functions existante. |
 
 ## <a name="troubleshooting-and-logs"></a>Résolution des problèmes et journaux
 

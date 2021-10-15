@@ -10,16 +10,16 @@ ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: a52460db452d519c51fb7a1b191766b21da67f88
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 908c313da4343798faedf614e8356e511ab0b4dd
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592277"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458640"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Utiliser des points de terminaison privés pour Stockage Azure
 
-Vous pouvez utiliser des [points de terminaison privés](../../private-link/private-endpoint-overview.md) pour vos comptes Stockage Azure afin de permettre aux clients d’un réseau virtuel (VNet) d’accéder en toute sécurité aux données via une liaison [Private Link](../../private-link/private-link-overview.md). Le point de terminaison privé utilise une adresse IP de l’espace d’adressage du réseau virtuel pour votre service de compte de stockage. Le trafic réseau entre les clients sur le réseau virtuel et le compte de stockage traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine l’exposition sur l’Internet public.
+Vous pouvez utiliser des [points de terminaison privés](../../private-link/private-endpoint-overview.md) pour vos comptes Stockage Azure afin de permettre aux clients d’un réseau virtuel (VNet) d’accéder en toute sécurité aux données via une liaison [Private Link](../../private-link/private-link-overview.md). Le point de terminaison privé utilise une adresse IP distincte de l’espace d’adressage du réseau virtuel pour chaque service de compte de stockage. Le trafic réseau entre les clients sur le réseau virtuel et le compte de stockage traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine l’exposition sur l’Internet public.
 
 L’utilisation de points de terminaison privés pour votre compte de stockage vous permet d’effectuer les opérations suivantes :
 

@@ -4,15 +4,15 @@ description: Apprenez à déployer un pool de disques Azure.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 09/29/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f0f648f7f8c04aeb6ed97a0c58fa157e743da5f1
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 72a25b6bc51732ac9b598cbcb6b45f9ac84fc21b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114436967"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351059"
 ---
 # <a name="deploy-an-azure-disk-pool-preview"></a>Déployer un pool de disques Azure (préversion)
 
@@ -35,7 +35,7 @@ Pour déployer correctement un pool de disques, vous devez disposer des élémen
 
 Si vous comptez utiliser le module Azure PowerShell, installez la [version 6.1.0 ou une version ultérieure](/powershell/module/az.diskpool/?view=azps-6.1.0&preserve-view=true).
 
-Si vous comptez utiliser Azure CLI, installez [la dernière version](/cli/azure/disk-pool?view=azure-cli-latest).
+Si vous comptez utiliser Azure CLI, installez [la dernière version](/cli/azure/disk-pool).
 
 ## <a name="register-your-subscription-for-the-preview"></a>Inscrire votre abonnement pour la préversion
 
@@ -71,7 +71,7 @@ Pour qu'un disque puisse être utilisé dans un pool de disques, il doit remplir
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Recherchez et sélectionnez le groupe de ressources qui contient les disques ou chaque disque proprement dit.
 1. Sélectionnez **Contrôle d’accès (IAM)** .
-1. Sélectionnez **Ajouter une attribution de rôle (préversion)** et choisissez **Contributeur de machine virtuelle** dans la liste des rôles.
+1. Sélectionnez **Ajouter une attribution de rôle (préversion)** et choisissez **Opérateur de pool de disques** dans la liste des rôles.
 
     Si vous préférez, vous pouvez créer votre propre rôle personnalisé à la place. Un rôle personnalisé associé à des pools de disques doit disposer des autorisations RBAC suivantes pour fonctionner : **Microsoft.Compute/disks/write** et **Microsoft.Compute/disks/read**.
 

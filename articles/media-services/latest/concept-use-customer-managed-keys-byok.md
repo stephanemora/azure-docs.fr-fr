@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 1ad358c428f80e2e8bebcecf73cc89ddd5c37bc7
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: ce91f89e8974517d56aa7f1de55d01b9353106e7
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454412"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129358567"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Utiliser des clés BYOK (clé gérées par le client) avec Media Services
 
@@ -21,7 +21,7 @@ Bring Your Own Key (BYOK) est une initiative à l’échelle d’Azure qui aide 
 
 ## <a name="keys-and-key-management"></a>Clés et gestion des clés
 
-Vous pouvez utiliser votre propre clé avec Media Services lorsque vous utilisez l’API Media Services 2020-05-01. Une clé de compte par défaut est créée pour tous les comptes chiffrés par une clé système appartenant à Media Services. Lorsque vous utilisez votre propre clé, la clé de compte est chiffrée avec votre clé. Les clés de contenu sont chiffrées par la clé de compte. Les URL JobInputHttp et les clés de validation de jeton symétriques sont également chiffrées.
+Vous pouvez utiliser votre propre clé avec Media Services lorsque vous utilisez l’API Media Services 2020-05-01 ou ultérieure. Une clé de compte par défaut est créée pour tous les comptes chiffrés par une clé système appartenant à Media Services. Lorsque vous utilisez votre propre clé, la clé de compte est chiffrée avec votre clé. Les clés de contenu sont chiffrées par la clé de compte. Les URL JobInputHttp et les clés de validation de jeton symétriques sont également chiffrées.
 
 :::image type="content" source="./media/customer-managed-key/customer-managed-key.svg" alt-text="Une clé gérée par le client remplace une clé gérée par le système":::
 

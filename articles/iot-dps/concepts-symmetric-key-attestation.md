@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ac4a35b5a73cb87e3e7962729fdccd89c5f82c57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2d7b5505092e2dfe32624545128be4ce4dbb3459
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562403"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278934"
 ---
 # <a name="symmetric-key-attestation"></a>Attestation de clé symétrique
 
@@ -58,7 +58,7 @@ Quand un appareil atteste avec une inscription individuelle, il utilise la clé 
 
 Pour obtenir des exemples de code qui créent un jeton SAP, consultez [Jetons de sécurité](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure).
 
-La création de jetons de sécurité pour l’attestation de clé symétrique est prise en charge par le SDK C d’Azure IoT. Pour obtenir un exemple utilisant le SDK C d’Azure IoT pour attester avec une inscription individuelle, consultez [Provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md).
+La création de jetons de sécurité pour l’attestation de clé symétrique est prise en charge par le SDK C d’Azure IoT. Pour obtenir un exemple utilisant le SDK C d’Azure IoT pour attester avec une inscription individuelle, consultez [Provisionner un appareil à clé symétrique simulé](quick-create-simulated-device-symm-key.md).
 
 
 ## <a name="group-enrollments"></a>Inscriptions de groupe
@@ -182,6 +182,6 @@ Si les clés d’appareil ne sont pas installés en usine, un [module de sécuri
 
 Maintenant que vous avez une meilleure compréhension de l’attestation de clé symétrique, consultez les articles suivants pour découvrir plus d’informations :
 
-* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
+* [Démarrage rapide : Provisionner un appareil à clé symétrique simulé](quick-create-simulated-device-symm-key.md)
 * [Découvrir plus d’informations sur les concepts du provisionnement](about-iot-dps.md#provisioning-process)
 * [Bien démarrer avec le provisionnement automatique](./quick-setup-auto-provision.md) 

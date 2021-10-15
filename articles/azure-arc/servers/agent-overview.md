@@ -1,15 +1,15 @@
 ---
 title: Présentation de l’agent Connected Machine
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 09/14/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e8d29e230819e6fa141df0f99460b67fe4a2eb0e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 36dc64a28cd0199e7fba3ab2b5f3f6765eef489d
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662283"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455604"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs avec Azure Arc
 
@@ -97,9 +97,8 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 
 > [!NOTE]
 > Alors que les serveurs avec Azure Arc prennent en charge Amazon Linux, les composants suivants ne prennent pas en charge cette distribution :
-> * Agents utilisés par Azure Monitor (à savoir, Log Analytics et Dependency Agent)
+> * L’agent de dépendances utilisé par Azure Monitor VM Insights
 > * Azure Automation Update Management
-> * Insights de machine virtuelle
 
 ### <a name="software-requirements"></a>Configuration logicielle requise
 
@@ -120,6 +119,34 @@ Avant de configurer vos machines avec des serveurs avec Azure Arc, examinez les
 
 Les serveurs avec Azure Arc prennent en charge jusqu’à 5 000 instances de machine dans un groupe de ressources.
 
+### <a name="register-azure-resource-providers"></a>Inscrire des fournisseurs de ressources Azure
+
+Pour utiliser ce service, les serveurs avec Azure Arc dépendent des fournisseurs de ressources Azure suivants de votre abonnement :
+
+* **Microsoft.HybridCompute**
+* **Microsoft.GuestConfiguration**
+
+S’ils ne sont pas inscrits, vous pouvez les inscrire à l’aide des commandes suivantes :
+
+Azure PowerShell :
+
+```azurepowershell-interactive
+Login-AzAccount
+Set-AzContext -SubscriptionId [subscription you want to onboard]
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+```
+
+Azure CLI :
+
+```azurecli-interactive
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
+```
+
+Vous pouvez également inscrire les fournisseurs de ressources dans le portail Azure en suivant les étapes décrites sous [Portail Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+
 ### <a name="transport-layer-security-12-protocol"></a>Protocole Transport Layer Security 1.2
 
 Pour garantir la sécurité des données en transit vers Azure, nous vous encourageons vivement à configurer la machine de manière à utiliser le protocole TLS (Transport Layer Security) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**.
@@ -129,12 +156,14 @@ Pour garantir la sécurité des données en transit vers Azure, nous vous encour
 |Linux | Les distributions de Linux s’appuient généralement sur [OpenSSL](https://www.openssl.org) pour la prise en charge de TLS 1.2. | Vérifiez [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) pour vous assurer que votre version d’OpenSSL est prise en charge.|
 | Windows Server 2012 R2 et versions ultérieures | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](/windows-server/security/tls/tls-registry-settings).|
 
-### <a name="networking-configuration"></a>Configuration de la mise en réseau
+## <a name="networking-configuration"></a>Configuration de la mise en réseau
 
 L’agent Connected Machine pour Linux et Windows communique en sortie de manière sécurisée vers Azure Arc sur le port TCP 443. Si la machine doit se connecter par l’intermédiaire d’un pare-feu ou d’un serveur proxy pour communiquer sur Internet, l’agent communique à sa place en utilisant le protocole HTTP. Les serveurs proxy ne sécurisent pas davantage l’agent Connected Machine, car le trafic est déjà chiffré.
 
+Pour sécuriser davantage votre connectivité réseau à Azure Arc, au lieu d’utiliser des réseaux publics et des serveurs proxy, vous pouvez implémenter une [étendue de liaison privée Azure Arc](private-link-security.md) (préversion).
+
 > [!NOTE]
-> Les serveurs avec Azure Arc ne prennent pas en charge l’utilisation d’une [passerelle Log Analytics](../../azure-monitor/agents/gateway.md) comme proxy pour l’agent Connected Machine.
+> Les serveurs avec Azure Arc ne prennent pas en charge l’utilisation d’une [passerelle Log Analytics](../../azure-monitor/agents/gateway.md) comme proxy pour l’agent Connected Machine.
 >
 
 Si la connectivité sortante est restreinte par votre pare-feu ou votre serveur proxy, vérifiez que les URL listées ci-dessous ne sont pas bloquées. Lorsque vous n’autorisez que les plages d’adresses IP ou les noms de domaine nécessaires pour que l’agent communique avec le service, vous devez également autoriser l’accès aux URL et étiquettes de service suivantes.
@@ -169,34 +198,6 @@ Les agents de préversion (version 0.11 et antérieure) nécessitent également
 Pour obtenir la liste d’adresses IP de chaque balise de service/région, consultez le fichier JSON - [Plages d’adresses IP Azure et balises de service – Cloud Public](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publie chaque semaine une mise à jour contenant chacun des services Azure et les plages d’adresses IP qu’il utilise. Ces informations dans le fichier JSON constituent la liste actuelle des plages d’adresses IP qui correspondent à chaque balise de service. Les adresses IP sont sujettes à modification. Si des plages d’adresses IP sont requises par la configuration de votre pare-feu, utilisez l’étiquette de service **AzureCloud** pour autoriser l’accès à tous les services Azure. Ne désactivez pas la supervision ou l’inspection de la sécurité de ces URL ; autorisez-les comme vous le feriez pour tout autre trafic Internet.
 
 Pour plus d’informations, consultez [Vue d’ensemble des étiquettes de service](../../virtual-network/service-tags-overview.md).
-
-### <a name="register-azure-resource-providers"></a>Inscrire des fournisseurs de ressources Azure
-
-Pour utiliser ce service, les serveurs avec Azure Arc dépendent des fournisseurs de ressources Azure suivants de votre abonnement :
-
-* **Microsoft.HybridCompute**
-* **Microsoft.GuestConfiguration**
-
-S’ils ne sont pas inscrits, vous pouvez les inscrire à l’aide des commandes suivantes :
-
-Azure PowerShell :
-
-```azurepowershell-interactive
-Login-AzAccount
-Set-AzContext -SubscriptionId [subscription you want to onboard]
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
-```
-
-Azure CLI :
-
-```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
-```
-
-Vous pouvez également inscrire les fournisseurs de ressources dans le portail Azure en suivant les étapes décrites sous [Portail Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## <a name="installation-and-configuration"></a>Installation et configuration
 

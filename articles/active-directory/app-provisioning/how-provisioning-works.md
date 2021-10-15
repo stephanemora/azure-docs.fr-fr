@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 415824041c8e721c96ad9a9d480d5e50436310e4
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.openlocfilehash: 957ee0b5a7301fa1959b3a88450dd047bfacaad5
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964767"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353662"
 ---
 # <a name="how-application-provisioning-works-in-azure-active-directory"></a>Fonctionnement de l’approvisionnement d’applications dans Azure Active Directory
 
@@ -81,7 +81,10 @@ Vous pouvez utiliser les filtres d’étendue pour définir les règles basées 
 
 Il est possible d’utiliser le service d’attribution d’utilisateurs Azure AD pour attribuer des utilisateurs B2B (ou invités) Azure AD dans des applications SaaS. Toutefois, pour permettre aux utilisateurs B2B de se connecter à l’application SaaS à l’aide d’Azure AD, vous devez configurer la fonctionnalité d’authentification unique basée sur SAML de l’application SaaS d’une manière particulière. Pour plus d’informations sur la configuration des applications SaaS afin d’autoriser les connexions d’utilisateurs B2B, consultez [Configurer des applications SaaS pour B2B Collaboration](../external-identities/configure-saas-apps.md).
 
-Notez que le paramètre userPrincipalName d’un utilisateur invité est souvent stocké en tant que « alias#EXT#@domain.com ». Lorsque userPrincipalName est inclus dans vos mappages d’attributs en tant qu’attribut source, la partie #EXT# est supprimée du userPrincipalName. Si vous avez besoin que la partie #EXT# soit présente, remplacez userPrincipalName par originalUserPrincipalName en tant qu’attribut source. 
+> [!NOTE]
+Le paramètre userPrincipalName d’un utilisateur invité est souvent affiché en tant que « alias#EXT#@domain.com ». Lorsque userPrincipalName est inclus dans vos mappages d’attributs en tant qu’attribut source, la partie #EXT# est supprimée du userPrincipalName. Si vous avez besoin que la partie #EXT# soit présente, remplacez userPrincipalName par originalUserPrincipalName en tant qu’attribut source. 
+
+userPrincipalName = alias@domain.com originalUserPrincipalName = alias#EXT#@domain.com
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Cycles de provisionnement : cycle initial et cycle incrémentiel
 

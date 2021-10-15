@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 309b900f6c5f2ffe8cc0fd9101e7aa0408cb2dd2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a78d3e68841e4463d4f66f24821b5e42c7650f44
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124838517"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400436"
 ---
-# <a name="setup-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Configurer les journaux de diagnostic via l’API REST Azure Monitor
+# <a name="set-up-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Configurer les journaux de diagnostic via l’API REST Azure Monitor
 
 Cet article décrit comment configurer des journaux de diagnostic pour Azure Data Factory à l’aide de l’API REST Azure Monitor.
 
@@ -27,10 +27,12 @@ Utilisez des paramètres de diagnostic pour configurer les journaux de diagnosti
 * Ils spécifient les catégories de journal qui sont envoyées.
 * Ils spécifient la durée pendant laquelle chaque catégorie de journal doit être conservée dans un compte de stockage.
 * Une durée de rétention de zéro jour signifie que les journaux d’activité sont conservés indéfiniment. Autrement, la valeur peut également être n’importe quel nombre de jours, compris entre 1 et 2 147 483 647.
-* Si des stratégies de rétention sont définies, mais que le stockage des journaux d’activité dans un compte de stockage est désactivé, les stratégies de rétention n’ont aucun effet. Par exemple, cette condition peut se produire lorsque seules les options Event Hubs ou journaux Azure Monitor sont sélectionnées.
+* Si des stratégies de rétention sont définies, mais que le stockage des journaux d’activité dans un compte de stockage est désactivé, les stratégies de rétention n’ont aucun effet. Par exemple, cette condition peut se produire lorsque seules les options Event Hubs ou Journaux d’activité Monitor sont sélectionnées.
 * Les stratégies de rétention sont appliquées par jour. La séparation entre les jours se produit à minuit en temps universel coordonné (UTC). À la fin de la journée, les journaux des jours qui dépassent la stratégie de rétention sont supprimés. Par exemple, si vous avez une stratégie de rétention d’une journée, au début de la journée les journaux antérieurs à la veille sont supprimés.
 
-## <a name="enable-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Activer les journaux de diagnostic via l’API REST Azure Monitor
+## <a name="enable-diagnostic-logs-via-the-monitor-rest-api"></a>Activer les journaux de diagnostic via l’API REST Monitor
+
+Utilisez l’API REST Monitor pour activer les journaux de diagnostic.
 
 ### <a name="create-or-update-a-diagnostics-setting-in-the-monitor-rest-api"></a>Créer ou mettre à jour un paramètre de diagnostic dans l’API REST Azure Monitor
 
@@ -44,7 +46,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 #### <a name="headers"></a>headers
 
 * Remplacez `{api-version}` par `2016-09-01`.
-* Remplacez `{resource-id}` par l’ID de la ressource dont vous voulez modifier les paramètres de diagnostic. Pour plus d'informations, consultez la rubrique [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
+* Remplacez `{resource-id}` par l’ID de la ressource dont vous voulez modifier les paramètres de diagnostic. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Attribuez à l’en-tête `Content-Type` la valeur `application/json`.
 * Définissez l’en-tête d’autorisation sur le jeton web JSON que vous avez obtenu d’Azure Active Directory (AAD). Pour plus d’informations, consultez [Authentification des demandes](../active-directory/develop/authentication-vs-authorization.md).
 
@@ -92,7 +94,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | Propriété | Type | Description |
 | --- | --- | --- |
 | **storageAccountId** |String | ID de ressource du compte de stockage auquel vous voulez envoyer les journaux de diagnostic. |
-| **serviceBusRuleId** |String | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que les Event Hubs soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle a le format `{service bus resource ID}/authorizationrules/{key name}`.|
+| **serviceBusRuleId** |String | ID de règle service-bus de l’espace de noms service-bus dans lequel vous voulez que les Event Hubs soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle a le format `{service bus resource ID}/authorizationrules/{key name}`.|
 | **workspaceId** | String | ID de l’espace de travail dans lequel les journaux seront enregistrés. |
 |**metrics**| Valeurs de paramètre de l’exécution de pipeline à passer au pipeline appelé| Objet JSON qui mappe des noms de paramètres à des valeurs d’arguments. |
 | **logs**| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, effectuez une opération d’obtention (GET) des paramètres de diagnostic. |
@@ -164,7 +166,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 #### <a name="headers"></a>headers
 
 * Remplacez `{api-version}` par `2016-09-01`.
-* Remplacez `{resource-id}` par l’ID de la ressource dont vous voulez modifier les paramètres de diagnostic. Pour plus d'informations, consultez la rubrique [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
+* Remplacez `{resource-id}` par l’ID de la ressource dont vous voulez modifier les paramètres de diagnostic. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Attribuez à l’en-tête `Content-Type` la valeur `application/json`.
 * Définissez l’en-tête d’autorisation sur un jeton web JSON que vous avez obtenu d’Azure Active Directory. Pour plus d’informations, consultez [Authentification des demandes](../active-directory/develop/authentication-vs-authorization.md).
 
@@ -217,7 +219,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Pour plus d’informations, voir [Paramètres de diagnostic](/rest/api/monitor/diagnosticsettings).
+Pour plus d’informations, consultez [Paramètres de diagnostic](/rest/api/monitor/diagnosticsettings).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

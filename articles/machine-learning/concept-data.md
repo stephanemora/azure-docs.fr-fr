@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Apprenez à vous connecter en toute sécurité à votre stockage de données sur Azure à l’aide de magasins de données et jeux de données Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 601be8409db22162a410d481e6609d378718a7b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b439f65f2807d2d076363938169631651b85d20
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102503587"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129430152"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Sécuriser l’accès aux données dans Azure Machine Learning
 
@@ -116,7 +116,7 @@ L’étiquetage des grandes quantités de données a souvent été un casse-têt
 
 Azure Machine Learning vous fournit un emplacement central pour créer, gérer et superviser les projets d’étiquetage. Les projets d’étiquetage aident à coordonner les données, les étiquettes et les membres de l’équipe, ce qui vous permet de gérer plus efficacement les tâches d’étiquetage. Les tâches actuellement prises en charge sont la classification d’images, à plusieurs étiquettes ou multiclasse, et l’identification des objets à l’aide de zones délimitées.
 
-Créez un [projet d’étiquetage des données](how-to-create-labeling-projects.md) et générez un jeu de données à utiliser dans des expériences Machine Learning.
+Créez un [projet d’étiquetage d’image](how-to-create-image-labeling-projects.md) ou un [projet d’étiquetage de texte](how-to-create-text-labeling-projects.md) et générez un jeu de données à utiliser dans des expériences Machine Learning.
 
 <a name="drift"></a>
 

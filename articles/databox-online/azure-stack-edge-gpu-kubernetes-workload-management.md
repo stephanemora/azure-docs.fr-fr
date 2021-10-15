@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 67110a2a2bd7f34c735edd126cfc655f45247fc2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a0b3a5d0cbbae9f25a845f79db35d1049f93f776
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105560231"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710176"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gestion des charges de travail Kubernetes sur votre appareil Azure Stack Edge Pro
 
@@ -57,7 +57,7 @@ Il existe trois façons principales de déployer vos charges de travail. Chacune
     
     Un Kubernetes activé par Azure Arc vous permet également d’utiliser Azure Monitor pour conteneurs afin d’afficher et de surveiller votre cluster. Pour plus d’informations, consultez [Qu’est-ce que Kubernetes activé par Azure Arc ?](../azure-arc/kubernetes/overview.md).
     
-    Depuis le mois de mars 2021, Kubernetes avec Azure Arc est généralement disponible pour les utilisateurs, et les frais d’utilisation standard s’appliquent. En tant que client de préversion apprécié, vous pouvez disposer de Kubernetes avec Azure Arc gratuitement pour des appareils Azure Stack Edge. Pour bénéficier de l’offre en préversion, créez une [Demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) :
+    À compter de mars 2021, Kubernetes avec Azure Arc sera mis à la disposition générale pour les utilisateurs, et des frais d’utilisation standard s’appliquent. En tant que client de préversion apprécié, vous pouvez disposer de Kubernetes avec Azure Arc gratuitement pour des appareils Azure Stack Edge. Pour bénéficier de l’offre en préversion, créez une [Demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) :
 
     1. Sous **Type de problème**, sélectionnez **Facturation**.
     2. Sous **Abonnement**, sélectionnez votre abonnement.

@@ -25,6 +25,8 @@
           href: container-registry-get-started-bicep.md
         - name: Envoyer des événements à Event Grid - CLI
           href: container-registry-event-grid-quickstart.md
+        - name: Gérer le contenu avec des bibliothèques de client
+          href: quickstart-client-libraries.md
         - name: Créer et envoyer (push) des images Java - CLI
           href: container-registry-java-quickstart.md
     - name: Tutoriels
@@ -192,7 +194,7 @@
 - name: Tâches
   expanded: true
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       expanded: false
       items:
         - name: À propos d’ACR Tasks

@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 2bffc15980013d91bfe24101499550d1dcfea6e2
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 8a979fa56a7a75785220747dc1ee43696e8897d4
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753230"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710509"
 ---
 # <a name="understanding-azure-virtual-desktop-network-connectivity"></a>Comprendre la connectivité du réseau Azure Virtual Desktop
 
@@ -21,7 +21,7 @@ Azure Virtual Desktop offre la possibilité d’héberger des sessions clientes 
 
 ## <a name="session-connectivity"></a>Connectivité des sessions
 
-Azure Virtual Desktop utilise RDP (Remote Desktop Protocol) pour fournir des fonctionnalités de saisie et d’affichage à distance sur les connexions réseau. Le protocole RDP a initialement été publié avec Windows NT 4.0 Terminal Server Edition et a continué d’évoluer avec chaque version de Microsoft Windows et de Windows Server. Depuis le début, RDP a été développé pour être indépendant de sa pile de transport sous-jacente. Il prend désormais en charge plusieurs types de transport.
+Azure Virtual Desktop utilise RDP (Remote Desktop Protocol) pour fournir des fonctionnalités de saisie et d’affichage à distance sur les connexions réseau. Le protocole RDP avait initialement été publié avec Windows NT 4.0 Terminal Server Edition et a continué d’évoluer avec chaque version de Microsoft Windows et de Windows Server. Depuis le début, RDP a été développé pour être indépendant de sa pile de transport sous-jacente. Il prend désormais en charge plusieurs types de transport.
 
 ## <a name="reverse-connect-transport"></a>Transport de connexion inverse
 

@@ -4,14 +4,14 @@ description: Comment connecter des clients à un service Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 09/27/2021
 ms.author: v-erkel
-ms.openlocfilehash: 4e3c2a336d58e90bc446c77b164148359f9588fd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ab66fc29a29461e6808686aa53b520144b39a1e1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128675899"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274194"
 ---
 # <a name="mount-the-azure-hpc-cache"></a>Monter le cache Azure HPC Cache
 
@@ -85,7 +85,7 @@ Procédez comme suit pour créer la commande de montage.
 
    Pour en savoir plus sur la fonctionnalité d’espace de noms agrégé d’Azure HPC Cache, lisez [Planifier l’espace de noms agrégé](hpc-cache-namespace.md).
 
-1. Le champ **Commande de montage** de l’étape 3 est automatiquement renseigné avec une commande de montage personnalisée qui utilise l’adresse de montage, le chemin d’espace de noms virtuel et le chemin d’accès client que vous avez définis dans les champs précédents.
+1. Le champ **Commande de montage** est automatiquement renseigné avec une commande de montage personnalisée qui utilise l’adresse de montage, le chemin d’espace de noms virtuel et le chemin d’accès client que vous avez définis dans les champs précédents.
 
    Cliquez sur le symbole de copie à droite du champ pour copier automatiquement le contenu de celui-ci dans le Presse-papiers.
 

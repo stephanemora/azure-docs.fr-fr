@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/21/2021
-ms.openlocfilehash: 9501c49bec8d2a632387ecb9b620dcbdc5a0ac1c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5505350cffbda3b84e800b34be7094818fdb125c
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563282"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230586"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Bien démarrer avec l’audit Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -238,9 +238,9 @@ Les journaux Azure Monitor vous donnent des insights opérationnels en temps ré
 Les principales différences entre l’audit des bases de données dans Azure SQL Managed Instance et des bases de données dans SQL Server sont les suivantes :
 
 - Avec Azure SQL Managed Instance, l’audit fonctionne au niveau du serveur et stocke les fichiers journaux `.xel` dans le compte Stockage Blob Azure.
-- Dans SQL Server, l’audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements du système de fichiers/Windows.
+- Dans SQL Server, l’audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements de Windows et du système de fichiers.
 
-L’audit XEvent dans les instances managées prend en charge les cibles Stockage Blob Azure. Les journaux d’activité de fichiers et de Windows ne sont **pas pris en charge**.
+L’audit XEvent dans les instances managées prend en charge les cibles Stockage Blob Azure. Les journaux du système de fichiers et de Windows ne sont **pas pris en charge**.
 
 Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockage Blob Azure sont :
 

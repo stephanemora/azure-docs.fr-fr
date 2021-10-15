@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: b01595353dd9857409c75ab95271452fb3cee7b0
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: dbe44535f535eb2f0deb5ef30515cc188d3d5b22
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228564"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235418"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Déployer le proxy d’application Azure AD pour un accès sécurisé aux applications internes dans un domaine managé Azure Active Directory Domain Services
 
@@ -86,7 +86,7 @@ Une fois qu’une machine virtuelle est prête à être utilisée en tant que co
 
 ## <a name="enable-resource-based-kerberos-constrained-delegation"></a>Activer la délégation Kerberos contrainte basée sur les ressources
 
-Si vous voulez utiliser l’authentification unique pour vos applications avec l’authentification Windows intégrée, octroyez aux connecteurs de Proxy d’application Azure AD l’autorisation d’emprunter l’identité des utilisateurs et d’envoyer et de recevoir des jetons en leur nom. Pour octroyer ces autorisations, configurez la délégation Kerberos contrainte (KCD) pour le connecteur afin d’accéder aux ressources sur le domaine managé. Comme vous n’avez pas de privilèges d’administrateur de domaine dans un domaine managé, les KCD de niveau de compte traditionnels ne peuvent pas être configurés sur un domaine managé. Utilisez à la place KCD basée sur des ressources.
+Si vous voulez utiliser l’authentification unique pour vos applications avec l’authentification Windows intégrée, octroyez aux connecteurs de Proxy d’application Azure AD l’autorisation d’emprunter l’identité des utilisateurs, et d’envoyer et de recevoir des jetons en leur nom. Pour octroyer ces autorisations, configurez la délégation Kerberos contrainte (KCD) pour le connecteur afin d’accéder aux ressources sur le domaine managé. Comme vous n’avez pas de privilèges d’administrateur de domaine dans un domaine managé, les KCD de niveau de compte traditionnels ne peuvent pas être configurés sur un domaine managé. Utilisez à la place KCD basée sur des ressources.
 
 Pour plus d’informations, consultez [Configurer la délégation Kerberos contrainte (KCD) dans Azure Active Directory Domain Services](deploy-kcd.md).
 

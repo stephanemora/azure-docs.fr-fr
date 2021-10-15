@@ -1,24 +1,22 @@
 ---
-title: Chiffrer des disques de système d’exploitation avec des clés gérées par le client
-description: Découvrez la procédure de chiffrement de disques de système d’exploitation avec des clés gérées par le client dans Azure DevTest Labs.
+title: Chiffrer des disques avec des clés gérées par le client
+description: Découvrez comment chiffrer des disques avec des clés gérées par le client dans Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 09/01/2020
-ms.openlocfilehash: 2da0e89c5a3f34d9ba967088ea3881f6a30bc1e2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/29/2021
+ms.openlocfilehash: f0b236a8857bb186cd3d4d09ae50379818c1c4ec
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632345"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534581"
 ---
-# <a name="encrypt-operating-system-os-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Chiffrer des disques de système d’exploitation avec des clés gérées par le client dans Azure DevTest Labs
+# <a name="encrypt-disks-using-customer-managed-keys-in-azure-devtest-labs"></a>Chiffrer des disques avec des clés gérées par le client dans Azure DevTest Labs
 Le chiffrement côté serveur protège vos données et vous aide à honorer les engagements de votre entreprise en matière de sécurité et de conformité. SSE chiffre automatiquement vos données stockées sur des disques managés dans Azure (système d’exploitation et disques de données) au repos par défaut lors de leur conservation dans le cloud. En savoir plus sur le [chiffrement de disque](../virtual-machines/disk-encryption.md) dans Azure. 
 
-Dans DevTest Labs, tous les disques de système d’exploitation et les disques de données créés dans le cadre d’un labo sont chiffrés à l’aide de clés gérées par la plateforme. Toutefois, en tant que propriétaire de labo, vous pouvez choisir de chiffrer des disques de système d’exploitation de machine virtuelle à l’aide de vos propres clés. Si vous choisissez de gérer le chiffrement avec vos propres clés, vous pouvez spécifier une **clé gérée par le client** à utiliser pour le chiffrement de données dans les disques de système d’exploitation du labo. Pour en savoir plus sur le chiffrement côté serveur (SSE) avec des clés gérées par le client et d’autres types de chiffrements de disque managés, consultez [Clés gérées par le client](../virtual-machines/disk-encryption.md#customer-managed-keys). Consultez également [Restrictions liées à l’utilisation de clés gérées par le client](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
+Dans DevTest Labs, tous les disques de système d’exploitation et les disques de données créés dans le cadre d’un labo sont chiffrés à l’aide de clés gérées par la plateforme. Toutefois, en tant que propriétaire de labo, vous pouvez choisir de chiffrer des disques de machine virtuelle à l’aide de vos propres clés. Si vous choisissez de gérer le chiffrement avec vos propres clés, vous pouvez spécifier une **clé gérée par le client** à utiliser pour le chiffrement de données dans les disques du labo. Pour en savoir plus sur le chiffrement côté serveur (SSE) avec des clés gérées par le client et d’autres types de chiffrements de disque managés, consultez [Clés gérées par le client](../virtual-machines/disk-encryption.md#customer-managed-keys). Consultez également [Restrictions liées à l’utilisation de clés gérées par le client](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
 
 > [!NOTE]
-> - Actuellement, le chiffrement de disque avec une clé gérée par le client n’est pris en charge que pour les disques de système d’exploitation dans DevTest Labs. 
-> 
-> - Le paramètre s’applique aux disques de système d’exploitation créés récemment dans le labo. Si vous choisissez de modifier le chiffrement de disque défini à un moment donné, les anciens disques du labo continueront à être chiffrés à l’aide de l’ensemble de chiffrement de disque précédent. 
+> - Le paramètre s’applique aux disques créés récemment dans le labo. Si vous choisissez de modifier le chiffrement de disque défini à un moment donné, les anciens disques du labo continueront à être chiffrés à l’aide de l’ensemble de chiffrement de disque précédent. 
 
 La section suivante explique comment le propriétaire d’un labo peut configurer le chiffrement à l’aide d’une clé gérée par le client.
 
@@ -27,12 +25,12 @@ La section suivante explique comment le propriétaire d’un labo peut configure
 1. Si vous n’avez pas défini de chiffrement de disque, suivez cet article pour [configurer un Key Vault et un ensemble de chiffrement de disque](../virtual-machines/disks-enable-customer-managed-keys-portal.md). Notez les conditions suivantes pour l’ensemble de chiffrement de disque : 
 
     - L’ensemble de chiffrement de disque doit être **dans la même région et le même abonnement que votre labo**. 
-    - Vérifiez que vous (propriétaire du labo) disposez au moins d’un **accès en lecture** à l’ensemble de chiffrement de disque qui sera utilisé pour chiffrer les disques du système d’exploitation du labo. 
+    - Vérifiez que vous (propriétaire du labo) disposez au moins d’un **accès en lecture** au jeu de chiffrement de disque qui sera utilisé pour chiffrer les disques du labo. 
 1. Pour les labos créés avant le 01/08/2020, le propriétaire du labo doit vérifier que l’identité affectée par le système du labo est activée. Pour ce faire, le propriétaire du labo peut accéder à son labo, cliquer sur **Configuration et stratégies**, cliquer sur le panneau **Identité (préversion)** , modifier l’**état** de l’identité affectée par le système en le définissant sur **Activé**, puis cliquer sur **Enregistrer**. Pour les nouveaux labos créés après le 01/08/2020, l’identité affectée par le système du labo sera activée par défaut. 
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png" alt-text="Clés gérées":::
-1. Pour que le labo gère le chiffrement de tous ses disques de système d’exploitation, le propriétaire du labo doit explicitement accorder à l’**identité affectée par le système** du labo le rôle de lecteur sur le chiffrement de disque défini, ainsi que le rôle de contributeur de machine virtuelle sur l’abonnement Azure sous-jacent. Le propriétaire du labo peut le faire en procédant comme suit :
+1. Pour que le labo gère le chiffrement de tous ses disques, le propriétaire du labo doit explicitement accorder à l’**identité affectée par le système** du labo le rôle de lecteur sur le jeu de chiffrement de disque, ainsi que le rôle de contributeur de machine virtuelle sur l’abonnement Azure sous-jacent. Le propriétaire du labo peut le faire en procédant comme suit :
 
    
     1. Assurez-vous d’être membre du [rôle Administrateur d’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) au niveau de l’abonnement Azure afin de pouvoir gérer l’accès des utilisateurs aux ressources Azure. 
@@ -72,7 +70,7 @@ La section suivante explique comment le propriétaire d’un labo peut configure
     :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Activer le chiffrement avec des clés gérées par le client":::
 1. Dans la zone de message comportant le texte suivant : *Ce paramètre s’applique aux machines créées récemment dans le labo. L’ancien disque du système d’exploitation reste chiffré avec l’ancien ensemble de chiffrement de disque*, sélectionnez **OK**. 
 
-    Une fois configurés, les disques du système d’exploitation du labo sont chiffrés avec la clé gérée par le client fournie lors de l’utilisation de l’ensemble de chiffrement de disque. 
+    Une fois configurés, les disques du labo sont chiffrés avec la clé gérée par le client fournie lors de l’utilisation du jeu de chiffrement de disque. 
    
 ## <a name="how-to-validate-if-disks-are-being-encrypted"></a>Comment vérifier si les disques sont en cours de chiffrement
 

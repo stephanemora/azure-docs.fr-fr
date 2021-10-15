@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a48a9f4ded6386b4b5a4ea2d02d796b8e5ed4f7
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: a1a6ff8a64ac82b27df6e49ef7f500af3fd65316
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213911"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352722"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Comment fonctionne la réécriture de la réinitialisation de mot de passe en libre-service dans Azure Active Directory ?
 
@@ -51,7 +51,7 @@ Pour bien démarrer avec la réécriture SSPR, suivez le tutoriel suivant :
 
 ## <a name="how-password-writeback-works"></a>Fonctionnement de la réécriture du mot de passe
 
-Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage de mot de passe réinitialise ou modifie son mot de passe dans le cloud, les événements suivants ont lieu :
+Lorsqu’un utilisateur fédéré, disposant de la synchronisation du hachage de mot de passe ou doté de l’authentification directe réinitialise ou modifie son mot de passe dans le cloud, les événements suivants ont lieu :
 
 1. Vérification du type de mot de passe de l’utilisateur. Si le mot de passe de l’utilisateur est géré localement :
    * Vérification du bon fonctionnement du service de réécriture. Dans le cas, l’utilisateur peut continuer.

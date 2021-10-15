@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: lvandenende
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 83a2c5bca5837919015125d6c421dccfef5bf58c
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: b88cb7baa3c8eb8d40bd23d8697f563406bd1fdb
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079444"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535017"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -58,7 +58,7 @@ Tous les utilisateurs de votre locataire doivent s’inscrire à l’authentific
 
 Les utilisateurs disposant d’un accès privilégié ont un accès plus large à votre environnement. En raison de l’importance de ces comptes, vous devez leur accorder une attention particulière. Une méthode courante pour améliorer la protection de comptes privilégiés consiste à demander une forme de vérification de compte plus stricte pour se connecter. Dans Azure AD, vous pouvez obtenir une vérification plus sévère des comptes en exigeant l’authentification multifacteur.
 
-Une fois l’inscription à Azure AD Multi-Factor Authentication terminée, les neuf rôles Administrateur Azure AD suivants sont nécessaires pour effectuer une authentification supplémentaire chaque fois qu’ils se connectent :
+Une fois l’inscription à Azure AD Multi-Factor Authentication terminée, les rôles Administrateur Azure AD suivants sont nécessaires pour effectuer une authentification supplémentaire chaque fois qu’ils se connectent :
 
 - Administrateur général
 - Administrateur d’application

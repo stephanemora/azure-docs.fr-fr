@@ -2,14 +2,14 @@
 title: Restaurer Azure Database pour PostgreSQL
 description: Découvrez comment restaurer les sauvegardes d’Azure Database pour PostgreSQL.
 ms.topic: how-to
-ms.date: 09/22/2021
+ms.date: 10/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0b4c2bd566be2ac19de5533006c5b9e5d206850c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a5de8e74fb05eea45e5cb730515b3280c4952951
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700652"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359503"
 ---
 # <a name="restore-azure-database-for-postgresql-backups-preview"></a>Restaurer les sauvegardes d’Azure Database pour PostgreSQL (préversion)
 
@@ -43,7 +43,7 @@ Vous pouvez restaurer une base de données sur n’importe quel serveur Azure Po
 
      1. Dans la liste déroulante **Sélectionner le coffre de clés et le secret**, sélectionnez un coffre qui stocke les informations de connexion au serveur cible.
 
-     1. Sélectionnez **Vérifier + restaurer** pour déclencher la validation afin de vérifier si le service dispose des [autorisations de restauration sur le serveur cible]backup-azure-database-postgresql(backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore). Ces autorisations doivent être [accordées manuellement](backup-azure-database-postgresql-overview.md#grant-access-on-the-azure-postgresql-server-and-key-vault-manually).
+     1. Sélectionnez **Vérifier + restaurer** pour déclencher la validation afin de vérifier si le service dispose des [autorisations de restauration sur le serveur cible](backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore). Ces autorisations doivent être [accordées manuellement](backup-azure-database-postgresql-overview.md#grant-access-on-the-azure-postgresql-server-and-key-vault-manually).
 
      :::image type="content" source="./media/restore-azure-database-postgresql/restore-as-database-inline.png" alt-text="Capture d’écran montrant le type de restauration sélectionné, Restaurer en tant que base de données." lightbox="./media/restore-azure-database-postgresql/restore-as-database-expanded.png":::
 
@@ -73,7 +73,7 @@ Attribuez à l’identité MSI du coffre de sauvegarde l’autorisation d’acc�
 
    :::image type="content" source="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-inline.png" alt-text="Capture d’écran montrant le processus d’octroi à l’identité MSI du coffre de sauvegarde l’autorisation d’accéder aux conteneurs du compte de stockage en utilisant le portail Azure." lightbox="./media/restore-azure-database-postgresql/assign-vault-msi-permission-to-access-storage-account-containers-azure-portal-expanded.png":::
 
-Vous pouvez aussi accorder des autorisations précises sur le conteneur spécifique vers lequel vous effectuez la restauration en utilisant la commande Azure CLI [az role assignment create](/cli/azure/role/assignment&preserve-view=true).
+Vous pouvez aussi accorder des autorisations précises sur le conteneur spécifique vers lequel vous effectuez la restauration en utilisant la commande Azure CLI [az role assignment create](/cli/azure/role/assignment).
 
 ```azurecli
 az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id

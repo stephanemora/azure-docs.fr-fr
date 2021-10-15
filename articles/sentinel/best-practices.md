@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: 4a47a13405402b381c1a1b3682f5d42038218959
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 8454a75936c84f012d05c8917cfffeec4a08dcdc
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689148"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278421"
 ---
 # <a name="best-practices-for-azure-sentinel"></a>Meilleures pratiques pour Azure Sentinel
 
@@ -23,6 +23,35 @@ Cette collection de meilleures pratiques fournit des conseils à utiliser lors d
 > Avant de déployer Azure Sentinel, examinez et suivez les [prérequis et les activités de prédéploiement](prerequisites.md).
 >
 
+
+## <a name="best-practice-references"></a>Références des meilleures pratiques
+
+La documentation d’Azure Sentinel contient une aide relative aux meilleures pratiques, disséminée dans nos articles. En plus du contenu fourni dans cet article, consultez les éléments suivants pour plus d’informations :
+
+- **Utilisateurs administrateurs** :
+
+    - [Activités de prédéploiement et prérequis pour le déploiement d’Azure Sentinel](prerequisites.md)
+    - [Meilleures pratiques pour l’architecture de l’espace de travail Azure Sentinel](best-practices-workspace-architecture.md)
+    - [Concevoir votre architecture d’espace de travail Azure Sentinel](design-your-workspace-architecture.md)
+    - [Exemples de conceptions d’espaces de travail Azure Sentinel](sample-workspace-designs.md)
+    - [Meilleures pratiques de collecte de données](best-practices-data.md)
+    - [Coûts et facturation d’Azure Sentinel](azure-sentinel-billing.md)
+    - [Autorisations dans Azure Sentinel](roles.md)
+    - [Protection de la propriété intellectuelle des MSSP dans Azure Sentinel](mssp-protect-intellectual-property.md)
+    - [Intégration des renseignements sur les menaces dans Azure Sentinel](threat-intelligence-integration.md)
+    - [Auditer les requêtes et les activités Azure Sentinel](audit-sentinel-data.md)
+
+- **Analystes** :
+
+    - [Playbooks recommandés](automate-responses-with-playbooks.md#recommended-playbooks)
+    - [Gérer les faux positifs dans Azure Sentinel](false-positives.md)
+    - [Repérer les menaces avec Azure Sentinel](hunting.md)
+    - [Classeurs Azure Sentinel courants](top-workbooks.md)
+    - [Détection des menaces prête à l’emploi](detect-threats-built-in.md)
+    - [Créer des règles d’analytique personnalisées pour détecter des menaces](detect-threats-custom.md)
+    - [Utiliser Jupyter Notebook pour rechercher des menaces de sécurité](notebooks.md)
+
+Pour plus d’informations, consultez également notre vidéo : [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI)
 
 ## <a name="regular-soc-activities-to-perform"></a>Activités normales du centre des opérations de sécurité à effectuer
 
@@ -131,36 +160,6 @@ Utilisez les indicateurs de compromission dans les règles d’analyse, lors de 
 Utilisez une liste de surveillance qui combine des données provenant de données ingérées et de sources externes, telles que des données d’enrichissement. Par exemple, créez des listes de plages d’adresses IP utilisées par votre organisation ou d’employés récemment licenciés. Utilisez des listes de surveillance avec des playbooks pour recueillir des données d’enrichissement, comme l’ajout d’adresses IP malveillantes aux listes de surveillance à utiliser pendant la détection, la chasse aux menaces et les enquêtes.
 
 Pendant un incident, utilisez les listes de surveillance pour contenir les données d’enquête, puis supprimez-les lorsque votre enquête est terminée afin de vous assurer que les données sensibles ne restent pas visibles.
-
-
-## <a name="additional-best-practice-references"></a>Références supplémentaires sur les meilleures pratiques
-
-La documentation d’Azure Sentinel contient davantage d’aide relative aux meilleures pratiques, disséminée dans nos articles. Par exemple, consultez les articles suivants pour plus d’informations :
-
-- **Utilisateurs administrateurs** :
-
-    - [Activités de prédéploiement et prérequis pour le déploiement d’Azure Sentinel](prerequisites.md)
-    - [Meilleures pratiques pour l’architecture de l’espace de travail Azure Sentinel](best-practices-workspace-architecture.md)
-    - [Concevoir votre architecture d’espace de travail Azure Sentinel](design-your-workspace-architecture.md)
-    - [Exemples de conceptions d’espaces de travail Azure Sentinel](sample-workspace-designs.md)
-    - [Meilleures pratiques de collecte de données](best-practices-data.md)
-    - [Coûts et facturation d’Azure Sentinel](azure-sentinel-billing.md)
-    - [Autorisations dans Azure Sentinel](roles.md)
-    - [Protection de la propriété intellectuelle des MSSP dans Azure Sentinel](mssp-protect-intellectual-property.md)
-    - [Intégration des renseignements sur les menaces dans Azure Sentinel](threat-intelligence-integration.md)
-    - [Auditer les requêtes et les activités Azure Sentinel](audit-sentinel-data.md)
-
-- **Analystes** :
-
-    - [Playbooks recommandés](automate-responses-with-playbooks.md#recommended-playbooks)
-    - [Gérer les faux positifs dans Azure Sentinel](false-positives.md)
-    - [Repérer les menaces avec Azure Sentinel](hunting.md)
-    - [Classeurs Azure Sentinel courants](top-workbooks.md)
-    - [Détection des menaces prête à l’emploi](detect-threats-built-in.md)
-    - [Créer des règles d’analytique personnalisées pour détecter des menaces](detect-threats-custom.md)
-    - [Utiliser Jupyter Notebook pour rechercher des menaces de sécurité](notebooks.md)
-
-Pour plus d’informations, consultez également notre vidéo : [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

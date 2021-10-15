@@ -12,20 +12,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 10/04/2021
 ms.author: ramakk
-ms.openlocfilehash: 6d82310eea944d91124025c3d894f543448f82e1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 09f09b5c50dd04f39f95405df9875d458a258b25
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218676"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545960"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Consignes pour planifier un réseau Azure NetApp Files
 
 La planification de l’architecture réseau est un élément clé dans la conception d’infrastructure d’application. Cet article vous aide à concevoir une architecture réseau efficace pour que vos charges de travail tirent parti des fonctionnalités enrichies d’Azure NetApp Files.
 
-Les volumes Azure NetApp Files sont conçus pour être contenus dans un sous-réseau à but précis appelé [sous-réseau délégué](../virtual-network/virtual-network-manage-subnet.md), au sein de votre réseau virtuel Azure. Par conséquent, vous pouvez accéder aux volumes directement depuis votre réseau virtuel, depuis des réseaux virtuels homologués dans la même région ou en local via une passerelle de réseau virtuel (ExpressRoute ou passerelle VPN) en fonction des besoins. Le sous-réseau est dédié à Azure NetApp Files et il n’y a aucune connectivité aux autres services Azure ni à internet.
+Les volumes Azure NetApp Files sont conçus pour être contenus dans un sous-réseau à but précis appelé [sous-réseau délégué](../virtual-network/virtual-network-manage-subnet.md), au sein de votre réseau virtuel Azure. Par conséquent, vous pouvez accéder aux volumes directement à partir d’Azure via un appairage de réseaux virtuels ou en local via une passerelle de réseau virtuel (ExpressRoute ou passerelle VPN) le cas échéant. Le sous-réseau est dédié à Azure NetApp Files et il n’y a aucune connectivité à Internet. 
+
+## <a name="configurable-network-features"></a>Fonctionnalités réseau configurables  
+
+ La configuration des [**fonctionnalités réseau Standard**](configure-network-features.md) pour Azure NetApp Files est disponible en préversion publique. Après vous être inscrit à cette fonctionnalité avec votre abonnement, vous pouvez créer de nouveaux volumes en choisissant des fonctionnalités réseau *Standard* ou *De base* dans les régions prises en charge. Dans les régions où les fonctionnalités réseau Standard ne sont pas prises en charge, le volume utilise par défaut les fonctionnalités réseau De base.  
+
+* ***Standard***  
+    La sélection de ce paramètre permet d’activer des limites d’adresse IP plus élevées et des fonctionnalités de réseau virtuel standard telles que des [groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md) et des [itinéraires définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md#user-defined) sur des sous-réseaux délégués, ainsi que des modèles de connectivité supplémentaires comme indiqué dans cet article.
+
+* ***De base***  
+    La sélection de ce paramètre permet des modèles de connectivité sélectifs et une échelle IP limitée, comme indiqué dans la section [Considérations](#considerations). Toutes les [contraintes](#constraints) s’appliquent dans ce paramètre. 
 
 ## <a name="considerations"></a>Considérations  
 
@@ -33,37 +43,38 @@ Vous devez comprendre quelques considérations lorsque vous prévoyez d’utilis
 
 ### <a name="constraints"></a>Contraintes
 
-Les fonctionnalités ci-dessous ne sont actuellement pas prises en charge pour Azure NetApp Files : 
+Le tableau suivant décrit les éléments pris en charge pour chaque configuration de fonctionnalités réseau :
 
-* Groupes de sécurité réseau (NSG) appliqués au sous-réseau délégué
-* Itinéraires définis par l’utilisateur (UDR) appliqués au sous-réseau délégué
-* Stratégies Azure personnalisées (par exemple, des stratégies d’affectation de noms personnalisés) sur l’interface Azure NetApp Files
-* Équilibreurs de charge pour le trafic d’Azure NetApp Files
-* WAN virtuel Azure 
-* Passerelles de réseau virtuel redondantes dans une zone (références SKU de passerelle avec AZ) 
-* Actives/Passerelles de réseau virtuel actives 
-* Réseau virtuel à double pile (IPv4 et IPv6)
-
-Les restrictions suivantes s’appliquent à Azure NetApp Files :
-
-* Le nombre d’adresses IP en cours d’utilisation dans un réseau virtuel avec Azure NetApp Files (y compris les réseaux virtuels homologués *immédiatement*) ne peut pas dépasser 1000. Nous travaillons à l’augmentation de cette limite pour répondre aux demandes de mise à l’échelle du client. 
-* Dans chaque réseau virtuel Azure, un seul sous-réseau peut être délégué à Azure NetApp Files.
-
+|      Fonctionnalités     |      Fonctionnalités réseau Standard     |      Fonctionnalités réseau De base     |
+|---|---|---|
+|     Nombre d’adresses IP utilisées dans un réseau virtuel avec Azure NetApp Files (y compris les réseaux virtuels appairés immédiatement)    |     [Limites standard en tant que machines virtuelles](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)    |     1 000    |
+|     Sous-réseaux délégués ANF par réseau virtuel    |     1    |     1    |
+|     [Groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md) (NSG) sur les sous-réseaux délégués Azure NetApp Files    |     Oui    |     Non    |
+|     [Itinéraires définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md#user-defined) (UDR) sur les sous-réseaux délégués Azure NetApp Files    |     Oui    |     Non    |
+|     Connectivité aux [points de terminaison privés](../private-link/private-endpoint-overview.md)    |     Non    |     Non    |
+|     Connectivité aux [points de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Non    |     Non    |
+|     Stratégies Azure (par exemple, des stratégies personnalisées d’affectation de noms) sur l’interface Azure NetApp Files    |     Non    |     Non    |
+|     Équilibreurs de charge pour le trafic d’Azure NetApp Files    |     Non    |     Non    |
+|     Réseau virtuel à double pile (IPv4 et IPv6)    |     Non <br> (IPv4 uniquement pris en charge)    |     Non <br> (IPv4 uniquement pris en charge)    |
 
 ### <a name="supported-network-topologies"></a>Topologies de réseau prises en charge
 
-Le tableau suivant décrit les topologies de réseau prises en charge par Azure NetApp Files.  Il décrit également les solutions de contournement pour les topologies non prises en charge. 
+Le tableau suivant décrit les topologies de réseau prises en charge par chaque configuration de fonctionnalités réseau d’Azure NetApp Files. 
 
-|    Topologies    |    est pris en charge    |     Solution de contournement    |
-|-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    Connectivité à un volume dans un réseau local virtuel    |    Oui    |         |
-|    Connectivité à un volume dans un réseau virtuel homologué (même région)    |    Oui    |         |
-|    Connectivité à un volume dans un réseau virtuel homologué (entre région ou peering mondial)    |    Non    |    None    |
-|    Connectivité à un volume via la passerelle ExpressRoute    |    Oui    |         |
-|    Connectivité locale à un volume dans un réseau virtuel spoke via la passerelle ExpressRoute et le peering du réseau avec transit de passerelle    |    Oui    |        |
-|    Connectivité locale à un volume dans un réseau virtuel spoke via la passerelle VPN    |    Oui    |         |
-|    Connectivité locale à un volume dans un réseau virtuel spoke via la passerelle VPN et le peering du réseau avec transit de passerelle    |    Oui    |         |
-
+|      Topologies     |      Fonctionnalités réseau Standard     |      Fonctionnalités réseau De base     |
+|---|---|---|
+|     Connectivité à un volume dans un réseau local virtuel    |     Oui    |     Oui    |
+|     Connectivité à un volume dans un réseau virtuel homologué (même région)    |     Oui    |     Oui    |
+|     Connectivité à un volume dans un réseau virtuel appairé (entre régions ou Peering mondial)    |     Non    |     Non    |
+|     Connectivité à un volume via la passerelle ExpressRoute    |     Oui    |     Oui    |
+|     ExpressRoute (ER) FastPath    |     Oui    |     Non    |
+|     Connectivité d’un environnement local à un volume dans un réseau virtuel spoke via la passerelle ExpressRoute et l’appairage de réseaux virtuels avec transit de passerelle    |     Oui    |     Oui    |
+|     Connectivité d’un environnement local à un volume dans un réseau virtuel spoke via la passerelle VPN    |     Oui    |     Oui    |
+|     Connectivité d’un environnement local à un volume dans un réseau virtuel spoke via la passerelle VPN et l’appairage de réseaux virtuels avec transit de passerelle    |     Oui    |     Oui    |
+|     Connectivité sur les passerelles VPN en mode actif/passif    |     Oui    |     Oui    |
+|     Connectivité sur les passerelles VPN en mode actif/actif    |     Oui    |     Non    |
+|     Connectivité sur les passerelles redondantes interzone en mode actif/actif    |     Non    |     Non    |
+|     Connectivité sur Virtual WAN (VWAN)    |     Non    |     Non    |
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Réseau virtuel pour les volumes Azure NetApp Files
 
@@ -85,10 +96,14 @@ Si le réseau virtuel est appairé à un autre réseau virtuel, vous ne pouvez p
 
 ### <a name="udrs-and-nsgs"></a>Itinéraires définis par l’utilisateur et groupes de sécurité réseau
 
-Les groupes de sécurité réseau (NSG) et les itinéraires définis par l’utilisateur (UDR) ne sont pas pris en charge sur les sous-réseaux délégués pour Azure NetApp Files. Toutefois, vous pouvez appliquer des itinéraires définis par l’utilisateur et des groupes de sécurité réseau à d’autres sous-réseaux, même au sein du même réseau virtuel que le sous-réseau délégué à Azure NetApp Files.
+Les itinéraires définis par l’utilisateur (UDR) et les groupes de sécurité réseau (NSG) sont uniquement pris en charge sur les sous-réseaux délégués Azure NetApp Files qui ont au moins un volume créé avec des fonctionnalités réseau Standard.  
 
-* Les itinéraires définis par l’utilisateur définissent ensuite les flux de trafic des autres sous-réseaux vers le sous-réseau délégué Azure NetApp Files. Cela permet de s’assurer qu’il est aligné sur le flux de trafic de Azure NetApp Files vers les autres sous-réseaux à l’aide des itinéraires système.  
-* Les groupes de sécurité réseau autorisent ou refusent le trafic vers et depuis le sous-réseau délégué Azure NetApp Files. 
+> [!NOTE]
+> L’association de NSG au niveau de l’interface réseau n’est pas prise en charge pour les interfaces réseau d’Azure NetApp Files. 
+
+Si le sous-réseau comporte une combinaison de volumes dotés des fonctionnalités réseau Standard et De base (ou pour les volumes existants non inscrits à la fonctionnalité d’évaluation), les UDR et les NSG appliqués aux sous-réseaux délégués ne s’appliqueront qu’aux volumes dotés des fonctionnalités réseau Standard.
+
+Les volumes dotés des fonctionnalités réseau De base ne prennent pas en charge la configuration d’itinéraires définis par l’utilisateur (UDR) sur les sous-réseaux de machines virtuelles sources avec le préfixe d’adresse du sous-réseau délégué et le tronçon suivant en tant qu’appliance virtuelle réseau. Ce paramètre entraîne des problèmes de connectivité.
 
 ## <a name="azure-native-environments"></a>Environnements natifs Azure
 
@@ -125,7 +140,7 @@ Selon la configuration, vous pouvez connecter des ressources locales à des ress
 Dans la topologie illustrée ci-dessus, le réseau local est connecté à un hub de réseau virtuel dans Azure et il y a 2 réseaux virtuels spoke dans la même région appairés au hub du réseau virtuel.  Dans ce scénario, les options de connectivité prises en charge pour les volumes Azure NetApp Files sont les suivantes :
 
 * Les ressources locales des machines virtuelles 1 et 2 peuvent se connecter au volume 1 dans le hub via un réseau privé virtuel de site à site ou un circuit Express Route. 
-* Les ressources locales des machines virtuelles 1 et 2 peuvent se connecter au volume 2 ou 3 via une passerelle VPN site à site et un peering du réseau virtuel régional.
+* Les ressources locales des machines virtuelles 1 et 2 peuvent se connecter au volume 2 ou 3 via une passerelle VPN site à site et un appairage régional de réseaux virtuels.
 * La machine virtuelle 3 dans le réseau virtuel du hub peut se connecter au volume 2 dans le réseau virtuel 1 du spoke et au volume 3 dans le réseau virtuel 2 du spoke.
 * La machine virtuelle 4 dans le réseau virtuel 1 du spoke et la machine virtuelle 5 dans le réseau virtuel 2 du spoke peuvent se connecter au volume 1 dans le réseau virtuel du hub.
 * La machine virtuelle 4 dans le réseau virtuel 1 du spoke ne peut pas se connecter au volume 3 du réseau virtuel 2 du spoke. Aussi, la machine virtuelle 5 dans le réseau virtuel 2 du spoke ne peut pas se connecter au volume 2 du réseau virtuel 1 du spoke. Il en est ainsi car les réseaux virtuels spoke ne sont pas appairés, et _le routage de transit n’est pas pris en charge via le peering de réseau virtuel_.
@@ -133,4 +148,5 @@ Dans la topologie illustrée ci-dessus, le réseau local est connecté à un hub
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déléguer un sous-réseau à Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+* [Déléguer un sous-réseau à Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+* [Configurer les fonctionnalités réseau d’un volume Azure NetApp Files](configure-network-features.md) 

@@ -3,13 +3,13 @@ title: Résoudre les problèmes courants liés à Azure Kubernetes Service
 description: Découvrir comment résoudre les problèmes courants liés à l’utilisation d’AKS (Azure Kubernetes Service)
 services: container-service
 ms.topic: troubleshooting
-ms.date: 06/20/2020
-ms.openlocfilehash: 6b115971104699775e9a58a7b25addefe4d12d1d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/24/2021
+ms.openlocfilehash: 28807736cf6f58334eb4e6cf674e2c514df9c427
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531751"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235266"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -22,7 +22,7 @@ Il existe également un [guide de résolution des problèmes](https://github.com
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>J’obtiens une erreur `quota exceeded` pendant une opération de création ou de mise à niveau. Que dois-je faire ? 
 
- [Demandez plus de cœurs](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+ [Demandez plus de cœurs](../azure-portal/supportability/regional-quota-requests.md).
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>J’obtiens un erreur `insufficientSubnetSize` quand je déploie un cluster AKS avec des fonctionnalités réseau avancées. Que dois-je faire ?
 
@@ -104,7 +104,7 @@ Cette erreur s’affiche peut-être parce que vous avez modifié les balises dan
 Cette erreur se produit quand des clusters basculent dans un état d’échec pour plusieurs raisons. Suivez les étapes ci-dessous pour résoudre l’état d’échec de votre cluster avant de tenter à nouveau l’opération qui a échoué précédemment :
 
 1. Tant que le cluster n’aura pas quitté l’état `failed`, les opérations `upgrade` et `scale` n’aboutiront pas. Voici quelques-unes des causes courantes à l’origine du problème ainsi que des solutions :
-    * Mise à l’échelle avec un **quota de calcul (CRP) insuffisant**. Pour résoudre ce problème, remettez votre cluster dans un état stable dans les limites du quota. Suivez ensuite ces [étapes pour demander une augmentation du quota de calcul](../azure-portal/supportability/resource-manager-core-quotas-request.md) avant de tenter à nouveau un scale-up au-delà des limites du quota initial.
+    * Mise à l’échelle avec un **quota de calcul (CRP) insuffisant**. Pour résoudre ce problème, remettez votre cluster dans un état stable dans les limites du quota. Suivez ensuite ces [étapes pour demander une augmentation du quota de calcul](../azure-portal/supportability/regional-quota-requests.md) avant de tenter à nouveau un scale-up au-delà des limites du quota initial.
     * Mise à jour d’un cluster avec des fonctionnalités réseau avancées et des **ressources (réseau) de sous-réseau insuffisantes**. Pour résoudre ce problème, remettez votre cluster dans un état stable dans les limites du quota. Suivez ensuite ces [étapes pour demander une augmentation du quota de ressources](../azure-resource-manager/templates/error-resource-quota.md#solution) avant de tenter à nouveau un scale-up au-delà des limites du quota initial.
 2. Une fois que la cause sous-jacente de l’échec de mise à niveau est résolue, votre cluster doit être dans un état de réussite. Une fois que l’état de réussite a été vérifié, tentez à nouveau l’opération d’origine.
 
@@ -264,39 +264,15 @@ initContainers:
     mountPath: /data
 ```
 
-### <a name="azure-disk-detach-failure-leading-to-potential-race-condition-issue-and-invalid-data-disk-list"></a>Échec du détachement de disque Azure menant à un problème potentiel de condition de concurrence et à une liste de disques de données non valides
-
-En cas d’échec de détachement d’un disque Azure, une nouvelle tentative de détachement de disque est effectuée jusqu’à six fois à l’aide de l’interruption exponentielle. Un verrou est également maintenu au niveau du nœud sur la liste des disques de données pendant environ 3 minutes. Si la liste de disques est mise à jour manuellement pendant cette période, la liste de disques détenue par le verrou au niveau du nœud devient obsolète et entraîne une instabilité sur le nœud.
-
-Ce problème a été résolu dans les versions suivantes de Kubernetes :
-
-| Version de Kubernetes | Version corrigée |
-|--|:--:|
-| 1.12 | 1.12.9 ou version ultérieure |
-| 1.13 | 1.13.6 ou version ultérieure |
-| 1.14 | 1.14.2 ou version ultérieure |
-| 1.15 et versions ultérieures | N/A |
-
-Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème et que votre nœud présente une liste de disques obsolète, vous pouvez atténuer le problème en détachant tous les disques non existants de la machine virtuelle à l’aide d’une opération en bloc. **Le détachement individuel de disques non existants peut échouer.**
-
 ### <a name="large-number-of-azure-disks-causes-slow-attachdetach"></a>Un nombre élevé de disques Azure ralentit la procédure d’attachement/détachement
 
-Lorsque le nombre d’opérations d’attachement ou de détachement de disques Azure ciblant une machine virtuelle à nœud unique est supérieur à 10, ou supérieur à 3 lorsqu’elles ciblent un pool de groupes de machines virtuelles identiques, elles peuvent être plus lentes que prévu, car elles sont effectuées de façon séquentielle. Ce problème est une limitation connue et il n’existe aucune solution de contournement pour l’instant. [Sondage UserVoice pour la prise en charge l’attachement ou le détachement parallèle au-delà du nombre.](https://feedback.azure.com/forums/216843-virtual-machines/suggestions/40444528-vmss-support-for-parallel-disk-attach-detach-for).
+Lorsque le nombre d’opérations d’attachement ou de détachement de disques Azure ciblant une machine virtuelle à nœud unique est supérieur à 10, ou supérieur à 3 lorsqu’elles ciblent un pool de groupes de machines virtuelles identiques, elles peuvent être plus lentes que prévu, car elles sont effectuées de façon séquentielle. Ce problème est une limitation connue du pilote de disque Azure dans l'arborescence. Le [pilote Azure Disk CSI](https://github.com/kubernetes-sigs/azuredisk-csi-driver) a résolu ce problème avec l'opération d'attachement/détachement de disque dans le traitement par lots.
 
 ### <a name="azure-disk-detach-failure-leading-to-potential-node-vm-in-failed-state"></a>Échec du détachement de disque Azure menant à un état d’échec potentiel pour la machine virtuelle de nœud
 
 Dans certains cas, le détachement d’un disque Azure peut échouer partiellement et laisser la machine virtuelle du nœud dans un état d’échec.
 
-Ce problème a été résolu dans les versions suivantes de Kubernetes :
-
-| Version de Kubernetes | Version corrigée |
-|--|:--:|
-| 1.12 | 1.12.10 ou version ultérieure |
-| 1.13 | 1.13.8 ou version ultérieure |
-| 1.14 | 1.14.4 ou version ultérieure |
-| 1.15 et versions ultérieures | N/A |
-
-Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pour ce problème et que votre nœud est en échec, vous pouvez l’atténuer en mettant à jour manuellement l’état de la machine virtuelle à l’aide de l’une des opérations ci-dessous :
+Si votre nœud est dans un état d'échec, vous pouvez résoudre cela en mettant manuellement à jour l'état de la machine virtuelle à l'aide d'une façon parmi les suivantes :
 
 * Pour un cluster à base de groupes à haute disponibilité :
     ```azurecli
@@ -310,21 +286,12 @@ Si vous utilisez une version de Kubernetes qui ne présente pas le correctif pou
 
 ## <a name="azure-files-and-aks-troubleshooting"></a>Résolution des problèmes Azure Files et AKS
 
-### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-files"></a>Quelles sont les versions stables recommandées de Kubernetes pour les fichiers Azure ?
- 
-| Version de Kubernetes | Version recommandée |
-|--|:--:|
-| 1.12 | 1.12.6 ou version ultérieure |
-| 1.13 | 1.13.4 ou version ultérieure |
-| 1.14 | 1.14.0 ou version ultérieure |
-
 ### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Quelles sont les mountOptions par défaut lors de l’utilisation d’Azure Files ?
 
 Paramètres recommandés :
 
 | Version de Kubernetes | Valeur de fileMode et dirMode|
 |--|:--:|
-| 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 et versions ultérieures | 0777 |
 
 Les options de montage peuvent être spécifiées sur l’objet de classe de stockage. L’exemple suivant définit *0777* :
@@ -387,24 +354,6 @@ Cette erreur est due au fait que le *persistentvolume-controller*  Kubernetes ne
 
 Vous pouvez atténuer le problème à l’aide de [l’approvisionnement statique avec Azure Files](azure-files-volume.md).
 
-### <a name="azure-files-fails-to-remount-in-windows-pod"></a>Le remontage d’Azure Files échoue dans le pod Windows
-
-Si un pod Windows avec un montage Azure Files est supprimé, puis planifié pour être recréé sur le même nœud, le montage échoue. Cet échec est dû à l’échec de la commande `New-SmbGlobalMapping`, car le montage d’Azure Files est déjà effectué sur le nœud.
-
-Par exemple, vous pouvez recevoir une erreur comme suit :
-
-```console
-E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"kubernetes.io/azure-file/42c0ea39-1af9-11e9-8941-000d3af95268-pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\" (\"42c0ea39-1af9-11e9-8941-000d3af95268\")" failed. No retries permitted until 2019-01-18 08:15:53.0410149 +0000 GMT m=+732.446642701 (durationBeforeRetry 1s). Error: "MountVolume.SetUp failed for volume \"pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\" (UniqueName: \"kubernetes.io/azure-file/42c0ea39-1af9-11e9-8941-000d3af95268-pvc-d7e1b5f9-1af3-11e9-8941-000d3af95268\") pod \"deployment-azurefile-697f98d559-6zrlf\" (UID: \"42c0ea39-1af9-11e9-8941-000d3af95268\") : azureMount: SmbGlobalMapping failed: exit status 1, only SMB mount is supported now, output: \"New-SmbGlobalMapping : Generic failure \\r\\nAt line:1 char:190\\r\\n+ ... ser, $PWord;New-SmbGlobalMapping -RemotePath $Env:smbremotepath -Cred ...\\r\\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\\r\\n    + CategoryInfo          : NotSpecified: (MSFT_SmbGlobalMapping:ROOT/Microsoft/...mbGlobalMapping) [New-SmbGlobalMa \\r\\n   pping], CimException\\r\\n    + FullyQualifiedErrorId : HRESULT 0x80041001,New-SmbGlobalMapping\\r\\n \\r\\n\""
-```
-
-Ce problème a été résolu dans les versions suivantes de Kubernetes :
-
-| Version de Kubernetes | Version corrigée |
-|--|:--:|
-| 1.12 | 1.12.6 ou version ultérieure |
-| 1.13 | 1.13.4 ou version ultérieure |
-| 1.14 et versions ultérieures | N/A |
-
 ### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Échec du montage d’Azure Files en raison de la modification de la clé du compte de stockage
 
 Si votre clé de compte de stockage a changé, vous pouvez voir des échecs de montage d’Azure Files.
@@ -435,10 +384,6 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 ```
 
 Cette erreur est due à une condition de concurrence du programme de mise à l’échelle automatique de cluster en amont. Dans ce cas, le programme de mise à l’échelle automatique de cluster se termine par une valeur différente de celle qui est réellement dans le cluster. Pour sortir de cet état, désactivez et réactivez le [programme de mise à l’échelle automatique de cluster][cluster-autoscaler].
-
-### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Attachement du disque lent : `GetAzureDiskLun` prend 10 à 15 minutes et une erreur s’affiche
-
-Dans les versions de Kubernetes **antérieures à 1.15.0**, vous pouvez recevoir une erreur telle que **Erreur WaitForAttach : le numéro d’unité logique du disque est introuvable**.  Pour contourner ce problème, attendez environ 15 minutes, puis réessayez.
 
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Pourquoi les mises à niveau vers Kubernetes 1.16 échouent lors de l’utilisation d’étiquettes de nœud avec un préfixe kubernetes.io ?

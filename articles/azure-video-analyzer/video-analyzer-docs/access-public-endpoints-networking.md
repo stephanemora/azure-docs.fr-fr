@@ -3,12 +3,12 @@ title: Points de terminaison publics et réseau
 description: Azure Video Analyzer expose un ensemble de points de terminaison réseau publics qui autorisent différents scénarios de produit, notamment la gestion, l’ingestion et la lecture. Cet article explique comment accéder aux points de terminaison publics et aux réseaux.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 4a15893e718f716f4d3858ad6823ab0c3aa0e46c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0debf9b00bc8c3d78810fb377aa6e065589e6f96
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700485"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389643"
 ---
 # <a name="public-endpoints-and-networking"></a>Points de terminaison publics et réseau
 
@@ -41,7 +41,7 @@ Cette section fournit la liste des points de terminaison Video Analyzer.
 * **Authentification et autorisation** : l’authentification initiale s’effectue par le biais d’un jeton de provisionnement de courte durée émis par les API de gestion Video Analyzer. Une fois la liaison initiale établie, le module et le service échangent un ensemble de clés d’autorisation à rotation automatique qui sont utilisées à compter de ce moment-là.
 * **Exigence** : l’accès à ce point de terminaison est requis pour le bon fonctionnement du module de périphérie Video Analyzer. Le module de périphérie cessera de fonctionner si ce point de terminaison est inaccessible au cours d’une période de 36 heures.
 
-## <a name="telemetry"></a>Télémétrie :
+## <a name="telemetry"></a>Télémétrie
 
 * **Objet** : soumission périodique facultative de données de télémétrie qui permet à Microsoft de mieux comprendre comment le module de périphérie Video Analyzer est utilisé, et identifie de manière proactive les futures améliorations qui peuvent être apportées en matière de compatibilité, de performances et à d’autres zones du produit.
 * **Authentification et autorisation** : l’autorisation est basée sur une clé préétablie.
@@ -51,6 +51,31 @@ Cette section fournit la liste des points de terminaison Video Analyzer.
 
 > [!NOTE]
 > La liste des points de terminaison décrits dans cet article n’est pas une liste exhaustive des points de terminaison de service associés. Il s’agit d’une liste informative des points de terminaison requis pour le fonctionnement normal de Video Analyzer. Pour obtenir la liste complète des points de terminaison exposés par chaque service respectif, reportez-vous à la documentation de chaque service Azure.
+
+## <a name="azure-storage"></a>Stockage Azure
+
+* **Objectif** : enregistrer des données audio, vidéo et d’inférence lorsque les pipelines(TODO: link) sont configurés pour stocker des vidéos sur le cloud via le nœud Video Sink (TODO: link to section in pipeline.md).
+* **Authentification et autorisation** : l’autorisation est effectuée par l’application standard de l’authentification et de l’autorisation du service Stockage Azure. Dans ce cas, l’accès au stockage se fait par le biais d’URL SAP spécifiques au conteneur.
+* **Exigence** : l’accès à ce point de terminaison est requis uniquement lorsqu’un pipeline périphérique Video Analyzer est configuré pour archiver la vidéo dans le cloud.
+
+## <a name="iot-hub"></a>IoT Hub
+
+* **Objectif** : plan de contrôle et de données pour Azure IoT Hub et les périphériques.
+* **Authentification et autorisation** : reportez-vous à la documentation d’Azure IoT Hub.
+* **Exigence** : un périphérique correctement configuré et fonctionnel avec le runtime Azure IoT Edge est requis pour garantir le bon fonctionnement du module périphérique Azure Video Analyzer.
+
+## <a name="114----tls-encryption"></a>1.1.4 Chiffrement TLS 
+
+* **Chiffrement et authentification du serveur** : tous les points de terminaison Video Analyzer sont exposés via des points de terminaison conformes à la norme TLS 1.2.
+
+## <a name="115----references"></a>1.1.5 Références 
+
+Public :
+
+* [Présentation d’Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+* [Présentation des points de terminaison Azure IoT Hub](../../iot-hub/iot-hub-devguide-endpoints.md)
+* [Qu’est-ce que Liaison privée Azure ?](../../private-link/private-link-overview.md)
+* [Vue d’ensemble des étiquettes de service Azure](../../virtual-network/service-tags-overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

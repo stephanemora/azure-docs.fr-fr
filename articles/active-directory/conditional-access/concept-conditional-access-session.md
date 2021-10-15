@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 09/21/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f97d2c7ac7026032344f7f08f80cb28bcb0d3d71
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a30dc564dced8d3306c4645ca48b6331e1f6959b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128618955"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355768"
 ---
 # <a name="conditional-access-session"></a>Accès conditionnel : session
 
@@ -26,7 +26,7 @@ Dans une stratégie d’accès conditionnel, un administrateur peut utiliser des
 
 ## <a name="application-enforced-restrictions"></a>Restrictions appliquées par l’application
 
-Les organisations peuvent utiliser ce contrôle pour demander à Azure AD de transmettre les informations d’appareil aux applications cloud sélectionnées. Les informations d’appareil permettent aux applications cloud de savoir si une connexion est établie à partir d’un appareil conforme ou joint au domaine. Ce contrôle prend uniquement en charge SharePoint Online et Exchange Online comme applications cloud sélectionnées. Lorsqu’elle est sélectionnée, l’application cloud utilise les informations d’appareil pour fournir aux utilisateurs une expérience limitée ou complète en fonction de l’état de l’appareil.
+Les organisations peuvent utiliser ce contrôle pour demander à Azure AD de transmettre les informations d’appareil aux applications cloud sélectionnées. Les informations d’appareil permettent aux applications cloud de savoir si une connexion est établie à partir d’un appareil conforme ou joint au domaine et après l’expérience de la session. Ce contrôle prend uniquement en charge SharePoint Online et Exchange Online comme applications cloud sélectionnées. Lorsque cette option est sélectionnée, l’application cloud utilise les informations de l’appareil pour fournir aux utilisateurs, en fonction de l’état de l’appareil, une expérience limitée (lorsque l’appareil n’est pas géré) ou complète (lorsque l’appareil est géré et conforme).
 
 Pour plus d’informations sur l’utilisation et la configuration de restrictions appliquées par l’application, consultez les articles suivants :
 

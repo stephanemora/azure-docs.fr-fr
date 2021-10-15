@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6d4d0f355d48532c43e9180f2c819e45d45737b4
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: dc516c9631eda2904ff311af6ca779872d9802f0
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572199"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537184"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurer un groupe de disponibilité SQL Server Always On dans différentes régions Azure
 
@@ -150,6 +150,8 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 
 1. Sur le nouveau SQL Server dans le Gestionnaire de configuration SQL Server, [activez les groupes de disponibilité AlwaysOn](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server).
 
+1. Sur le nouveau SQL Server, dans SQL Server Management Studio, [configurez les autorisations du compte système](availability-group-manually-configure-prerequisites-tutorial.md#configure-system-account-permissions).
+
 1. [Ouvrez les ports de pare-feu sur le nouveau SQL Server](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
    Les numéros de port que vous devez ouvrir varient selon votre environnement. Ouvrez les ports du point de terminaison de la mise en miroir et de la sonde d’intégrité d’Azure Load Balancer.
@@ -158,12 +160,13 @@ Pour créer un réplica dans un centre de données distant, procédez comme suit
 1. [Ajoutez un réplica au groupe de disponibilité sur le nouveau SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
 
    Pour un réplica dans une région Azure distante, configurez-le pour une réplication asynchrone avec basculement manuel.  
+   
 
 ## <a name="set-connection-for-multiple-subnets"></a>Configurer la connexion à plusieurs sous-réseaux
 
 Le réplica dans le centre de données distant fait partie du groupe de disponibilité, mais il se trouve dans un autre sous-réseau. Si ce réplica devient le réplica principal, la connexion d’application peut être perturbée. Ce comportement est identique à un groupe de disponibilité local dans un déploiement de plusieurs sous-réseaux. Pour autoriser les connexions des applications clientes, mettez à jour la connexion cliente ou configurez la mise en cache de la résolution du nom sur la ressource de nom de réseau de cluster.
 
-Idéalement, mettez à jour les chaînes de connexion au client pour qu’elles indiquent `MultiSubnetFailover=Yes`. Consultez [Connexion à MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
+De préférence, mettez à jour la configuration du cluster pour définir `RegisterAllProvidersIP=1` et les chaînes de connexion du client pour définir `MultiSubnetFailover=Yes`. Consultez [Connexion à MultiSubnetFailover](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#Anchor_0).
 
 Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer la mise en cache de la résolution des noms. Consultez [Erreur de délai d’attente et vous ne pouvez pas vous connecter à un écouteur de groupe de disponibilité AlwaysOn SQL Server 2012 dans un environnement à plusieurs sous-réseaux](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 

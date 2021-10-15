@@ -2,13 +2,13 @@
 title: Fonctions Bicep - étendues
 description: Décrit les fonctions à utiliser dans un fichier Bicep pour récupérer les valeurs relatives aux étendues de déploiement.
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: 4432aa528dbdd565128a15eb79d4b4c01572c924
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: ee7ea8efbb19048ff5aa6b6ead2bf9d2495ad23a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827444"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360234"
 ---
 # <a name="scope-functions-for-bicep"></a>Fonctions d’étendue pour Bicep
 
@@ -21,6 +21,8 @@ Cet article décrit les fonctions Bicep pour l’obtention des valeurs d’éten
 `managementGroup(name)`
 
 Retourne un objet utilisé pour définir l’étendue à un groupe d’administration.
+
+Espace de noms : [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>Remarques
 
@@ -64,6 +66,8 @@ Retourne un objet utilisé pour définir l’étendue à un groupe de ressources
 ou
 
 Renvoie un objet qui représente le groupe de ressources actuel.
+
+Espace de noms : [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>Remarques
 
@@ -156,6 +160,8 @@ ou
 
 Retourne des détails concernant l’abonnement pour le déploiement actuel.
 
+Espace de noms : [az](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="remarks"></a>Remarques
 
 La fonction subscription a deux utilisations distinctes. Une utilisation permet de définir l’étendue sur un type de ressource de [module](modules.md#configure-module-scopes) ou [d’extension](scope-extension-resources.md). L’autre utilisation consiste à obtenir des détails sur l’abonnement actuel. Le positionnement de la fonction détermine son utilisation. Lorsqu’elle est utilisée pour définir la propriété `scope`, elle retourne un objet d’étendue.
@@ -207,6 +213,8 @@ output subscriptionOutput object = subscription()
 `tenant()`
 
 Retourne un objet utilisé pour définir l’étendue au locataire.
+
+Espace de noms : [az](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>Remarques
 

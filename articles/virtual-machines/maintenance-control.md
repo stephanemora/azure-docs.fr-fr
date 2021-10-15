@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
-ms.openlocfilehash: 741a7a73fc7ac4ac468febfd9beec77c3a8c9946
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 47d99e87e788c833e5793a1e4e3b7d517d90909b
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216520"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534997"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Gestion des mises à jour de plateformes avec le contrôle de maintenance 
 
@@ -34,6 +34,7 @@ Avec le contrôle de maintenance, vous pouvez :
 - Les machines virtuelles doivent se trouver sur un [hôte dédié](./dedicated-hosts.md) ou être créées à l’aide d’une [taille de machine virtuelle isolée](isolation.md).
 - La durée de la fenêtre de maintenance peut varier d’un mois à l’autre et peut parfois prendre jusqu’à 2 heures pour appliquer les mises à jour en attente une fois qu’elles sont lancées par l’utilisateur.  
 - Après 35 jours, une mise à jour est automatiquement appliquée.
+- Les activités de maintenance au niveau des racks ne font pas encore partie de ce contrôle de maintenance.
 - L’utilisateur doit disposer d’un accès **Contributeur de ressource**.
 
 ## <a name="management-options"></a>Options de gestion

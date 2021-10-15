@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d87a09615df4882b132fd407417c046d174e9a0f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fc49dc992125e22205f50faa3f38283024559cba
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570446"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657565"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configuration d’un flux de réinitialisation de mot de passe dans Azure Active Directory B2C.
 
@@ -338,6 +338,9 @@ Pour tester le flux d’utilisateur :
 Les stratégies personnalisées sont un ensemble de fichiers XML que vous téléchargez vers votre locataire Azure AD B2C pour définir des parcours utilisateur. Nous fournissons des packs de démarrage avec plusieurs stratégies prédéfinies, par exemple l’inscription et la connexion, la réinitialisation du mot de passe et des stratégies de modification de profil. Pour plus d’informations, consultez [Démarrage avec les stratégies personnalisées dans Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
+
+## <a name="troubleshoot-azure-ad-b2c-user-flows-and-custom-policies"></a>Résolvez les problèmes des flux d’utilisateurs Azure AD B2C et à des stratégies personnalisées
+Votre application doit gérer certaines erreurs provenant du service Azure B2C. Découvrez [comment résoudre les problèmes liés aux flux d’utilisateurs et aux stratégies personnalisées Azure AD B2C](troubleshoot.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

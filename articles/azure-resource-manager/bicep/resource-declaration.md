@@ -4,13 +4,13 @@ description: Explique comment déclarer des ressources en vue de les déployer d
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/16/2021
-ms.openlocfilehash: a540a30cd93d9f1dc54f77355f2f6560444131c1
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.date: 10/07/2021
+ms.openlocfilehash: 4b3b355016057af00c361a118aed2728948768dd
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122563692"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659618"
 ---
 # <a name="resource-declaration-in-bicep"></a>Déclaration de ressources dans Bicep
 
@@ -28,7 +28,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-Vous définissez un nom symbolique pour la ressource. Dans l’exemple précédent, le nom symbolique est `stg` . Vous pouvez utiliser n’importe quelle valeur pour le nom symbolique, mais elle ne peut pas être celle d’une autre ressource, d’un paramètre ou d’une variable du fichier Bicep. Le nom symbolique n’est pas le même que le nom de la ressource. Vous utiliserez le nom symbolique pour référencer la ressource dans d’autres parties de votre fichier Bicep.
+Vous définissez un nom symbolique pour la ressource. Dans l’exemple précédent, le nom symbolique est `stg` .  Le nom symbolique n’est pas le même que le nom de la ressource. Vous utiliserez le nom symbolique pour référencer la ressource dans d’autres parties de votre fichier Bicep. Les noms symboliques respectent la casse.  Ils peuvent contenir des lettres, des chiffres et _ ; mais ils ne peuvent pas commencer par un chiffre.
 
 Bicep ne prend pas en charge `apiProfile`, qui est disponible dans le [JSON des modèles Azure Resource Manager (modèles ARM)](../templates/syntax.md).
 
@@ -106,7 +106,7 @@ Vous pouvez appliquer des étiquettes à une ressource pendant le déploiement. 
 
 ## <a name="set-managed-identities-for-azure-resources"></a>Définir des identités managées pour les ressources Azure
 
-Certaines ressources prennent en charge des [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Ces ressources ont un objet Identité au niveau racine de la déclaration de ressource. 
+Certaines ressources prennent en charge des [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Ces ressources ont un objet Identité au niveau racine de la déclaration de ressource.
 
 Vous pouvez utiliser des identités attribuées par le système ou attribuées par l’utilisateur.
 
@@ -204,7 +204,7 @@ Pour plus d’informations sur les ressources imbriquées, consultez [Définir l
 
 ### <a name="explicit-dependency"></a>Dépendance explicite
 
-Une dépendance explicite est déclarée avec la propriété `dependsOn`. La propriété accepte un tableau d’identificateurs de ressource, ce qui vous permet de spécifier plusieurs dépendances. 
+Une dépendance explicite est déclarée avec la propriété `dependsOn`. La propriété accepte un tableau d’identificateurs de ressource, ce qui vous permet de spécifier plusieurs dépendances.
 
 L’exemple suivant montre une zone DNS nommée `otherZone` qui dépend d’une zone DNS nommée `dnsZone` :
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2021
-ms.openlocfilehash: 8542f3e39669135295073f4f937c6edfdd5127cf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8a6a2b7acc4f627bb871520ee6a82be920d1135e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128566536"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215906"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Vue d’ensemble des agents Azure Monitor
 
@@ -129,6 +129,7 @@ Tenez compte des éléments suivants lors de l’utilisation de l’agent de dé
 
 - L’agent Log Analytics doit être installé sur la même machine que l’agent de dépendances.
 - Sur les ordinateurs Linux, l’agent Log Analytics doit être installé avant l’extension Diagnostics Azure.
+- Sur les versions Windows et Linux du Dependency Agent, la collecte de données s’effectue à l’aide d’un service d’espace utilisateur et d’un pilote de noyau. 
 
 ## <a name="virtual-machine-extensions"></a>Extensions de machine virtuelle
 
@@ -157,6 +158,7 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | Windows 10 Entreprise<br>(multisession inclus) et Pro<br>(Scénarios de serveur uniquement<sup>1</sup>)  | X | X | X | X |
 | Windows 8 Entreprise et Professionnel<br>(Scénarios de serveur uniquement<sup>1</sup>)  |   | X | X |   |
 | Windows 7 SP1<br>(Scénarios de serveur uniquement<sup>1</sup>)                 |   | X | X |   |
+| Azure Stack HCI                                          |   | X |   |   |
 
 <sup>1</sup> Exécuter le système d’exploitation sur le matériel du serveur, c’est-à-dire les machines toujours connectées, toujours sous tension et sans exécuter d’autres charges de travail (PC, bureau, navigateur, etc.)
 
@@ -165,6 +167,7 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | Système d’exploitation | Agent Azure Monitor<sup>1</sup> | Agent Log Analytics<sup>1</sup> | Agent de dépendances | Extension Diagnostics<sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                        |   | X |   |   |
+| Amazon Linux 2                                              |   | X |   |   |
 | CentOS Linux 8                                              | X<sup>3</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
@@ -189,7 +192,7 @@ Les tableaux suivants listent les systèmes d’exploitation pris en charge par 
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 20.04 LTS                                            | X | X | X |   |
+| Ubuntu 20.04 LTS                                            | X | X | X | X |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14.04 LTS                                            |   | X |   | X |

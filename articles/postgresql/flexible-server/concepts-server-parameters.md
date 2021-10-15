@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/04/2021
-ms.openlocfilehash: 662faef8b7a3afbf3d3d3b021c52754af3a3c0bc
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 10/01/2021
+ms.openlocfilehash: 526a06c1ffd110fa02fd3d412ab62882bd74f9fa
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111559911"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387370"
 ---
 # <a name="server-parameters-in-azure-database-for-postgresql---flexible-server"></a>Paramètres serveur dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -39,6 +39,7 @@ Voici la liste de certains des paramètres :
 | **shared_buffers**    | Le paramètre « shared_buffers » change en fonction de la référence SKU sélectionnée (la référence SKU détermine la mémoire disponible). Les serveurs à usage général ont des mémoires tampons partagées de 2 Go pour 2 vCores ; les serveurs à mémoire optimisée ont des mémoires tampons partagées de 4 Go pour 2 vCores. Le paramètre shared_buffers est mis à l’échelle de façon linéaire (approximativement) au fil de l’augmentation des vCores dans un niveau. | 
 | **shared_preload_libraries** | Ce paramètre est disponible pour la configuration avec un ensemble prédéfini d’extensions prises en charge. Notez que nous chargeons toujours l'extension `azure` (utilisée pour les tâches de maintenance), ainsi que l'extension `pg_stat_statements` (vous pouvez utiliser le paramètre pg_stat_statements.track pour contrôler si l’extension est active). |
 | **connection_throttling** | Vous pouvez activer ou désactiver la limitation de connexion temporaire par adresse IP à la suite d’un trop grand nombre de connexions infructueuses avec des mots de passe non valides. |
+| **require_secure_transport** | Si votre application ne prend pas en charge la connectivité SSL au serveur, vous pouvez éventuellement désactiver le transport sécurisé à partir de votre client en modifiant la valeur de ce paramètre sur `OFF`. |
  
 ## <a name="next-steps"></a>Étapes suivantes
 

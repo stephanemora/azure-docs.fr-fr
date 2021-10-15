@@ -3,13 +3,13 @@ title: Gérer une demande de support Azure
 description: Décrit les procédures d’affichage des demandes de support, d’envoi de messages, de modification du niveau de gravité de la demande, de partage des informations de diagnostic avec le support Azure, de réouverture d’une demande de support clôturée et de chargement de fichiers.
 tags: billing
 ms.topic: how-to
-ms.date: 09/01/2021
-ms.openlocfilehash: f1930402c0f458962c95f8f4fe0f1011f1dcca49
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 09/30/2021
+ms.openlocfilehash: 8e7b074883fe2dcfb79913e54cf7180e26f29c2a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426379"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353198"
 ---
 # <a name="manage-an-azure-support-request"></a>Gérer une demande de support Azure
 
@@ -52,7 +52,7 @@ Sur cette page, vous pouvez rechercher, filtrer et trier des demandes de support
 
 ## <a name="share-diagnostic-information-with-azure-support"></a>Partager des informations de diagnostic avec le support Azure
 
-Lors de la création d’une demande de support, vous pouvez sélectionner **Oui** ou **Non** dans la section **Partager les informations de diagnostic**. Cette option détermine si le support Azure peut collecter les [informations de diagnostic](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) à partir de vos ressources Azure, lesquelles peuvent éventuellement vous aider à résoudre votre problème.
+Lors de la création d’une demande de support, vous pouvez sélectionner **Oui** ou **Non** dans la section **Partager les informations de diagnostic**. Cette option détermine si le support Azure peut collecter des [informations de diagnostic](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) telles que les [fichiers journaux](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) à partir de vos ressources Azure qui peuvent éventuellement aider à résoudre votre problème.
 
 Pour modifier la sélection des **informations de diagnostic de partage** après la création de la requête :
 

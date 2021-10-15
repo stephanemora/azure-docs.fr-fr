@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 3e60815b2361f4ba14b6a40ded2734c748f8d4ae
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 95a09a19a4bf569680ba3c16214bc10c6be37cd9
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633694"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616414"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transférer des données avec AzCopy et le stockage de fichiers
 
@@ -423,7 +423,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt
 Vous pouvez synchroniser le contenu d’un système de fichiers local avec un partage de fichiers ou synchroniser le contenu d’un partage de fichiers avec un autre partage de fichiers. Vous pouvez également synchroniser le contenu d’un répertoire dans un partage de fichiers avec celui d’un répertoire situé dans un autre partage de fichiers. La synchronisation est unidirectionnelle. En d’autres termes, vous choisissez lequel de ces deux points de terminaison est la source et lequel est la destination. La synchronisation utilise également un serveur pour les API de serveur.
 
 > [!NOTE]
-> Actuellement, ce scénario est pris en charge uniquement pour les comptes qui ne disposent pas d’un espace de noms hiérarchique. La version actuelle d’AzCopy n’est pas synchronisée entre Azure Files et Stockage Blob.
+> Actuellement, ce scénario est pris en charge pour les comptes qui ont activé l’espace de noms hiérarchique via le point de terminaison d’objet BLOB.
 
 ### <a name="guidelines"></a>Consignes
 

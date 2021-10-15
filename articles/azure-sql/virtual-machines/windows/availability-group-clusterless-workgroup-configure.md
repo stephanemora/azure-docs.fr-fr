@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 2daf927ff9e0a99845ec6fb0283b550856ebfc47
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: 86714655c05968a32e16c83b714705929baf1ca7
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572418"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233670"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configurer un groupe de disponibilité pour un groupe de travail 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -74,7 +74,7 @@ Pour configurer le suffixe DNS, procédez comme suit :
 
 ## <a name="edit-a-host-file"></a>Modifier un fichier hôte
 
-En l'absence de répertoire actif, il n'y a aucun moyen d'authentifier les connexions Windows. Par conséquent, vous devez attribuer un niveau de confiance en modifiant le fichier hosts à l'aide d'un éditeur de texte. 
+En l’absence de répertoire actif, il n’y a aucun moyen d’authentifier les connexions Windows. Par conséquent, vous devez attribuer un niveau de confiance en modifiant le fichier hosts à l'aide d'un éditeur de texte. 
 
 Pour modifier le fichier hosts, procédez comme suit :
 

@@ -14,16 +14,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/27/2021
 ms.author: phjensen
-ms.openlocfilehash: fd8d4e1bfed60aa8f3eae4d4d3c033247ab1268d
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.openlocfilehash: a580a135d2158234c84f3378b024997679ad6017
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110579903"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124778321"
 ---
 # <a name="release-notes-for-azure-application-consistent-snapshot-tool"></a>Notes de publication pour l'outil Azure Application Consistent Snapshot
 
 Cette page répertorie les principales modifications apportées à AzAcSnap pour fournir de nouvelles fonctionnalités ou résoudre les défauts.
+
+## <a name="aug-2021"></a>Août 2021
+
+### <a name="azacsnap-v502-build_2021082719086---patch-update-to-v501"></a>AzAcSnap v5.0.2 (Build_20210827.19086) - Mise à jour corrective vers v5.0.1
+
+AzAcSnap v5.0.2 (Build_20210827.19086) est fourni en tant que mise à jour corrective de la branche v5.0 avec les correctifs et améliorations suivants :
+
+- Ignorez les codes de sortie 255 `ssh`.  Dans certains cas, la commande `ssh`, qui permet de communiquer avec le stockage sur une grande instance Azure, émet un code de sortie de 255 lorsqu’il n’y a pas d’erreurs ou d’échecs d’exécution (voir « État de sortie » `man ssh`). Par la suite, AzAcSnap intercepte cela comme un échec et abandonne.  Avec cette mise à jour, une vérification supplémentaire est effectuée pour valider l’exécution correcte, notamment la recherche d’erreurs dans STDOUT et STDERR `ssh`, en plus des contrôles de code de sortie traditionnels.
+- Corrigez la recherche du chemin source de la commande hdbuserstore du programme d’installation.  Le programme d’installation recherche l’existence d’un répertoire source incorrect pour la commande hdbuserstore pour l’utilisateur qui exécute l’installation. Ce problème est résolu par la recherche de `~/.hdb`.  Cela s’applique aux systèmes (par exemple, instance volumineuse Azure) où la commande hdbuserstore a été préconfigurée pour l'utilisateur `root` avant l’installation de `azacsnap`.
+- Le programme d’installation affiche maintenant la version qu’il installe/extrait (si le programme d’installation est exécuté sans argument).
+
+Téléchargez la [version la plus récente](https://aka.ms/azacsnapinstaller) du programme d’installation et consultez la [procédure de démarrage](azacsnap-get-started.md).
 
 ## <a name="may-2021"></a>Mai-2021
 
@@ -32,8 +44,6 @@ Cette page répertorie les principales modifications apportées à AzAcSnap pour
 AzAcSnap v 5.0.1 (Build : 20210524,14837) est fournie en tant que mise à jour corrective de la branche v5.0 avec les correctifs et améliorations suivants :
 
 - Amélioration de la gestion du code de sortie.  Dans certains cas, le code de sortie 0 (zéro) a été émis même en cas d’échec d’exécution alors qu’il aurait dû être différent de zéro.  Les codes de sortie doivent maintenant avoir uniquement la valeur zéro si l’exécution de `azacsnap` s’est terminée avec succès et une valeur différente de zéro en cas d’échec.  En outre, la gestion des erreurs internes de AzAcSnap a été étendue pour capturer et émettre le code de sortie des commandes externes (par exemple, hdbsql, ssh) exécuté par AzAcSnap, s’il s’agit de la cause de l’échec.
-
-Téléchargez la [version la plus récente](https://aka.ms/azacsnapdownload) du programme d’installation et consultez la [procédure de démarrage](azacsnap-get-started.md).
 
 ## <a name="april-2021"></a>Avril 2021
 
@@ -49,7 +59,7 @@ AzAcSnap v5.0 (Build : 20210421.6349) a été mis à la disposition générale.
 
 AzAcSnap v5.0 Preview (Build:20210318.30771) a été publié avec les améliorations et correctifs suivants :
 
-- Suppression de la nécessité d’ajouter l’utilisateur AZACSNAP dans les bases de données des locataires SAP HANA ; voir la section [Activer la communication avec SAP HANA](azacsnap-installation.md#enable-communication-with-sap-hana).
+- Suppression de la nécessité d’ajouter l’utilisateur AZACSNAP dans les bases de données des locataires SAP HANA ; voir la section [Activer la communication avec la base de données](azacsnap-installation.md#enable-communication-with-database).
 - Correctif pour autoriser une [restauration](azacsnap-cmd-ref-restore.md) avec des volumes configurés avec la QoS manuelle.
 - Ajout du contrôle mutex pour limiter les connexions SSH pour Azure Large Instance.
 - Correction du programme d’installation pour gérer les noms de chemin d’accès avec des espaces et d’autres problèmes connexes.

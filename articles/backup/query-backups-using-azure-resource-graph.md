@@ -3,12 +3,12 @@ title: Interroger vos sauvegardes à l’aide d’Azure Resource Graph (ARG)
 description: En savoir plus sur l’interrogation des informations sur la sauvegarde de vos ressources Azure à l’aide du Groupe de ressources Azure (ARG).
 ms.topic: conceptual
 ms.date: 05/21/2021
-ms.openlocfilehash: 252c921ce911777315ab043501359b5eb74cf176
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e9caa1d4d8de77efe9acb31c0cec3be5741b69c7
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562517"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236045"
 ---
 # <a name="query-your-backups-using-azure-resource-graph-arg"></a>Interroger vos sauvegardes à l’aide d’Azure Resource Graph (ARG)
 
@@ -109,6 +109,17 @@ RecoveryServicesResources
 | extend datasourceType = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', properties.backupManagementType,type == 'microsoft.dataprotection/backupVaults/backupPolicies',properties.datasourceTypes[0],'--')
 | project id,name,vaultName,resourceGroup,properties,datasourceType
 | where datasourceType == 'AzureIaasVM'
+```
+
+### <a name="list-all-vms-associated-with-a-given-backup-policy"></a>Répertorier toutes les machines virtuelles associées à une stratégie de sauvegarde donnée
+
+```kusto
+RecoveryServicesResources
+| where type == "microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems"
+| project propertiesJSON = parse_json(properties)
+| where propertiesJSON.backupManagementType == "AzureIaasVM"
+| project VMID=propertiesJSON.sourceResourceId, PolicyID=propertiesJSON.policyId
+| where PolicyID == "<ARM ID of the given policy>"
 ```
 
 ### <a name="list-all-backup-policies-used-for-azure-databases-for-postgresql-servers"></a>Répertorier toutes les stratégies de sauvegarde utilisées pour les serveurs Azure Database pour PostgreSQL

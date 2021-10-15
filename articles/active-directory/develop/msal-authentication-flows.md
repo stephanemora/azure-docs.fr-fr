@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: ff8a97afa39f4db6892402c334aacb903d2cb4c2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 67ac453bb70c6889e1a69e7c0c40a88f623813ff
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787241"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235114"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -167,7 +167,7 @@ Dans le diagramme ci-dessus, l’application :
 > [!WARNING]
 > Ce flux n’est pas recommandé. Il requiert un niveau élevé de confiance et expose considérablement les informations d'identification. Utilisez ce flux *uniquement* si aucun autre flux plus sécurisé ne peut être utilisé. Pour plus d’informations, consultez l’article sur [la solution aux problèmes croissants associés aux mots de passe](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
 
-Le flux par défaut pour l’acquisition d’un jeton silencieusement sur les ordinateurs Windows joints à un domaine est [l’authentification Windows intégrée](#integrated-windows-authentication). Dans d’autres cas, utilisez le [flux de code d’appareil](#device-code).
+Le flux par défaut pour l’acquisition d’un jeton silencieusement sur les machines Windows jointes à un domaine est [l’authentification Windows intégrée](#integrated-windows-authentication). Dans d’autres cas, utilisez le [flux de code d’appareil](#device-code).
 
 Même si le flux nom d'utilisateur/mot de passe peut parfois s’avérer utile dans certains scénarios comme DevOps, essayez de l’éviter si vous souhaitez utiliser le nom d'utilisateur/mot de passe dans des scénarios interactifs dans lesquels vous fournissez votre propre interface utilisateur.
 
@@ -178,7 +178,7 @@ Avec le flux de nom d’utilisateur/mot de passe :
 
 ### <a name="constraints"></a>Contraintes
 
-En dehors des [contraintes inhérentes à l’authentification Windows intégrée](#integrated-windows-authentication), les contraintes suivantes s’appliquent :
+En dehors des [contraintes inhérentes à l’authentification Windows intégrée](#integrated-windows-authentication), les contraintes suivantes s’appliquent :
 
 - Le flux de nom d’utilisateur/mot de passe n’est pas compatible avec l’accès conditionnel et l’authentification multifacteur. Par conséquent, si votre application s’exécute dans un locataire Azure AD pour lequel l’administrateur de locataires exige une authentification multifacteur, vous ne pouvez pas utiliser ce flux. De nombreuses organisations font cela.
 - ROPC fonctionne uniquement pour les comptes professionnels et scolaires. Vous ne pouvez pas l’utiliser pour les comptes Microsoft (MSA).
@@ -189,7 +189,7 @@ En dehors des [contraintes inhérentes à l’authentification Windows intégré
 
 MSAL prend en charge l’authentification Windows intégrée (IWA) pour les applications de bureau et mobiles qui s’exécutent sur un ordinateur Windows joint à un domaine ou à Azure AD. Avec l’authentification Windows intégrée, ces applications peuvent acquérir un jeton silencieusement sans interaction de l’utilisateur avec l’interface utilisateur.
 
-![Diagramme dl’authentification Windows intégrée](media/msal-authentication-flows/integrated-windows-authentication.png)
+![Diagramme d’authentification Windows intégrée](media/msal-authentication-flows/integrated-windows-authentication.png)
 
 Dans le diagramme ci-dessus, l’application :
 

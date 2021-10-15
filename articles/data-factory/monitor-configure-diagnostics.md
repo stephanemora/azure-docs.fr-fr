@@ -1,5 +1,5 @@
 ---
-title: Configurer les paramètres de diagnostic et l’espace de travail
+title: Configurer des paramètres de diagnostic et un espace de travail
 description: Découvrez comment configurer des paramètres de diagnostic et un espace de travail Log Analytics pour analyser Azure Data Factory.
 author: minhe-msft
 ms.author: hemin
@@ -8,33 +8,32 @@ ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 5673dd881d96dc14922e8a9f9bedc0501d2f5d18
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7c982c0cb94ed5cf4a473265b1b414edbe0295a0
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124838518"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400531"
 ---
-# <a name="configure-diagnostic-settings-and-workspace"></a>Configurer les paramètres de diagnostic et l’espace de travail
+# <a name="configure-diagnostic-settings-and-a-workspace"></a>Configurer des paramètres de diagnostic et un espace de travail
 
 Créez ou ajoutez des paramètres de diagnostic pour votre fabrique de données.
 
-1. Dans le portail, accédez à Monitor. Sélectionnez **Paramètres** > **Paramètres de diagnostic**.
+1. Dans le portail Azure, accédez à **Surveillance**. Sélectionnez **Paramètres** > **Paramètres de diagnostic**.
 
 1. Sélectionnez la fabrique de données pour laquelle vous souhaitez définir un paramètre de diagnostic.
 
 1. S’il n’existe aucun paramètre sur la fabrique de données sélectionnée, vous êtes invité à en créer un. Sélectionnez **Activer les diagnostics**.
 
-   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image1.png" alt-text="Créer un paramètre de diagnostic s’il n’en existe pas":::
+   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image1.png" alt-text="Capture d’écran montrant la création d’un paramètre de diagnostic si aucun paramètre n’existe.":::
 
    S’il existe des paramètres sur la fabrique de données, vous voyez une liste de paramètres déjà configurés sur cette fabrique de données. Sélectionnez **Ajouter le paramètre de diagnostic**.
 
-   :::image type="content" source="media/data-factory-monitor-oms/add-diagnostic-setting.png" alt-text="Ajouter un paramètre de diagnostic s’il existe des paramètres":::
+   :::image type="content" source="media/data-factory-monitor-oms/add-diagnostic-setting.png" alt-text="Capture d’écran montrant l’ajout d’un paramètre de diagnostic si des paramètres existent.":::
 
-1. Nommez votre paramètre, sélectionnez **Envoyer à log Analytics**, puis sélectionnez un espace de travail dans **Espace de travail Log Analytics**.
+1. Nommez votre paramètre, sélectionnez **Envoyer à Log Analytics**, puis sélectionnez un espace de travail dans **Espace de travail Log Analytics**.
 
     * En mode _Diagnostics Azure_, les journaux de diagnostic circulent dans la table _AzureDiagnostics_.
-
     * En mode _Spécifique à la ressource_, les journaux de diagnostic d’Azure Data Factory circulent dans les tables suivantes :
       - _ADFActivityRun_
       - _ADFPipelineRun_
@@ -46,14 +45,18 @@ Créez ou ajoutez des paramètres de diagnostic pour votre fabrique de données.
       - _ADFSSISPackageExecutionComponentPhases_
       - _ADFSSISPackageExecutionDataStatistics_
 
-      Vous pouvez sélectionner différents journaux pertinents pour vos charges de travail à envoyer vers les tableaux Log Analytics. Par exemple, si vous n’utilisez pas du tout SQL Server Integration Services (SSIS), vous n’avez pas besoin de sélectionner des journaux SSIS. Si vous souhaitez consigner les opérations de démarrage/arrêt et de maintenance du SSIS Integration Runtime (IR), vous pouvez sélectionner les journaux SSIS IR. Si vous appelez des exécutions de package SSIS via T-SQL sur SQL Server Management Studio (SSMS), SQL Server Agent ou d’autres outils désignés, vous pouvez sélectionner des journaux de packages SSIS. Si vous appelez des exécutions de package SSIS via des activités Exécuter le package SSIS dans des pipelines ADF, vous pouvez sélectionner tous les journaux.
+      Vous pouvez sélectionner différents journaux pertinents pour vos charges de travail à envoyer vers les tableaux Log Analytics. Par exemple : 
+        - Si vous n’utilisez pas du tout SQL Server Integration Services (SSIS), vous n’avez pas besoin de sélectionner des journaux SSIS. 
+        - Si vous souhaitez consigner les opérations de démarrage, d’arrêt ou de maintenance du runtime d’intégration SSIS, sélectionnez les journaux SSIS IR. 
+        - Si vous appelez des exécutions de package SSIS via T-SQL sur SQL Server Management Studio, SQL Server Agent ou d’autres outils désignés, sélectionnez des journaux de packages SSIS. 
+        - Si vous appelez des exécutions de package SSIS via des activités Exécuter le package SSIS dans des pipelines Data Factory, sélectionnez tous les journaux.
 
-    * Si vous sélectionnez _AllMetrics_, plusieurs métriques ADF sont mises à votre disposition pour surveiller ou déclencher des alertes, y compris les métriques pour l’activité ADF, le pipeline et les exécutions de déclencheur, ainsi que pour les opérations de runtime d’intégration de SSIS et les exécutions de packages SSIS.
+    * Si vous sélectionnez _AllMetrics_, plusieurs métriques Data Factory sont mises à votre disposition pour surveiller vos charges de travail ou déclencher des alertes. Ces métriques incluent celles des exécutions de déclencheur, de pipeline et d’activité Data Factory, ainsi que des opérations SSIS IR et des exécutions de package SSIS.
 
-   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image2.png" alt-text="Nommer vos paramètres et sélectionner un espace de travail Log Analytics":::
+   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image2.png" alt-text="Capture d’écran montrant l’attribution d’un nom à vos paramètres et la sélection d’un espace de travail Log Analytics.":::
 
     > [!NOTE]
-    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous **recommandons vivement** de sélectionner le _mode spécifique de la ressource_. Pour plus d’informations, consultez [Référence des journaux Diagnostics Azure](/azure/azure-monitor/reference/tables/azurediagnostics).
+    > Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous *recommandons vivement* de sélectionner le _mode spécifique aux ressources_. Pour plus d’informations, consultez [Référence des journaux diagnostics Azure](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Sélectionnez **Enregistrer**.
 

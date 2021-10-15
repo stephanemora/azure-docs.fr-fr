@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44ef48fe75d7070d3f471b06d548c06dc5d972b6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 21d59036677a9a62d366e03bcdedb3a2f5d44abe
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110479784"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351703"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health : Historique de publication des versions
 L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect Health avec de nouvelles fonctions et fonctionnalités. Cet article répertorie les versions et les fonctionnalités qui ont été publiées.  
@@ -31,6 +31,13 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 >
 
 Azure AD Connect Health pour la synchronisation est intégré à l’installation d’Azure AD Connect. Vous trouverez ici plus d’informations sur l’[historique des versions d’Azure AD Connect](./reference-connect-version-history.md). Pour nous donner un feedback sur les fonctionnalités, votez sur le [canal User Voice Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+
+## <a name="september-2021"></a>Septembre 2021
+**Mise à jour de l’agent**
+- Agent Azure AD Connect Health pour AD FS (version 3.1.113.0)
+  - Correctif pour extraire des informations sur l’appareil, telles que la conformité des appareils et l’état géré, le système d’exploitation de l’appareil et la version du système d’exploitation de l’appareil, à partir des audits d’AD FS dans certains scénarios d’authentification basée sur l’appareil
+  - Correctif pour remplir les informations d’application OAuth en cas d’échec et classer les échecs OAuth avec des codes d’erreur plus spécifiques
+  - Correctif pour les alertes sur les appels WMI interrompus sur l’ordinateur du client. À ce stade, le résultat/l’état est défini sur « non exécuté ».
 
 ## <a name="may-2021"></a>Mai 2021
 **Mise à jour de l’agent**

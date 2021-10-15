@@ -1,6 +1,6 @@
 - name: Azure Kubernetes Service (AKS)
   href: ./index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de AKS
       href: intro-kubernetes.md
@@ -190,6 +190,8 @@
               href: spot-node-pool.md
             - name: Utiliser des pools de nœuds système
               href: use-system-pools.md
+            - name: Utiliser des pools de nœuds WASI (WebAssembly System Interface)
+              href: use-wasi-node-pools.md
         - name: Déployer AKS avec Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
@@ -392,6 +394,8 @@
                   href: open-service-mesh-open-source-observability.md
                 - name: Personnaliser l’expérience de l’interface CLI OSM
                   href: open-service-mesh-customize-add-on-experience.md
+                - name: Exclusion de plages d’adresses IP et de ports
+                  href: open-service-mesh-ip-port-exclusion.md
             - name: Configurer Azure Monitor
               href: open-service-mesh-azure-monitor.md
             - name: Résoudre les problèmes OSM

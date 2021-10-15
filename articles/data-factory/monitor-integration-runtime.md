@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 author: minhe-msft
 ms.author: hemin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8633ee6f76319afcd9c62a3aa5d70db77113f235
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9e0136fe9ec7274a1788b11134527c8625c2cace
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124750593"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400455"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory
 
@@ -234,7 +234,7 @@ La vignette d’information **TAILLE DE NŒUD** affiche la référence SKU (sér
 
 La vignette d’information **NŒUD(S) EN COURS D’EXÉCUTION / DEMANDÉ(S)** compare le nombre de nœuds en cours d’exécution au nombre total de nœuds précédemment demandés pour votre Azure-SSIS IR.
 
-La vignette d’information **RÔLE/PAIRE DE SECOURS DOUBLE** indique le nom de votre paire IR Azure-SSIS de secours double qui fonctionne en synchronisation avec le groupe de basculement Azure SQL Database/Managed Instance pour la continuité d’activité et la reprise d’activité (BCDR) et le rôle principal/secondaire actuel de votre IR Azure-SSIS. En cas de basculement SSISDB, vos IR Azure-SSIS principal et secondaire échangent leurs rôles (consultez [Configuration de votre IR Azure-SSIS pour BCDR](./configure-bcdr-azure-ssis-integration-runtime.md)).
+La vignette d’information **RÔLE/PAIRE DE SECOURS DOUBLE** indique le nom de votre paire Azure-SSIS IR de secours double qui fonctionne en synchronisation avec le groupe de basculement d’instance géré Azure SQL Database pour la continuité d’activité et la reprise d’activité (BCDR) et le rôle principal/secondaire actuel de votre runtime d’intégration Azure-SSIS. En cas de basculement SSISDB, vos IR Azure-SSIS principal et secondaire échangent leurs rôles (consultez [Configuration de votre IR Azure-SSIS pour BCDR](./configure-bcdr-azure-ssis-integration-runtime.md)).
 
 Les vignettes fonctionnelles sont décrites plus en détail ci-dessous.
 
@@ -270,7 +270,7 @@ Sur la vignette **DIAGNOSTIQUER LA CONNECTIVITÉ** de la page de supervision de 
 
 #### <a name="static-public-ip-addresses-tile"></a>Vignette ADRESSES IP PUBLIQUES STATIQUES
 
-Si vous apportez vos propres adresses IP publiques statiques pour Azure-SSIS IR, la vignette **ADRESSES IP PUBLIQUES STATIQUES** apparaît sur votre page d’analyse de Azure-SSIS IR (voir [Intégration de vos propres adresses IP publiques statiques pour Azure-SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP)). Sur cette vignette, vous pouvez sélectionner des liens désignant vos premières/deuxième adresses IP publiques statiques pour Azure-SSIS IR pour afficher une fenêtre contextuelle, dans laquelle vous pouvez copier leur ID de ressource (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) à partir d’une zone de texte. Dans la fenêtre contextuelle, vous pouvez également sélectionner le lien **Afficher votre premier/deuxième paramètre d’adresse IP publique statique** pour gérer votre première/deuxième adresse IP publique statique dans le Portail Azure.
+Si vous apportez vos propres adresses IP publiques statiques pour Azure-SSIS IR, la vignette **ADRESSES IP PUBLIQUES STATIQUES** apparaît sur votre page d’analyse de Azure-SSIS IR (voir [Intégration de vos propres adresses IP publiques statiques pour Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP)). Sur cette vignette, vous pouvez sélectionner des liens désignant vos premières/deuxième adresses IP publiques statiques pour Azure-SSIS IR pour afficher une fenêtre contextuelle, dans laquelle vous pouvez copier leur ID de ressource (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) à partir d’une zone de texte. Dans la fenêtre contextuelle, vous pouvez également sélectionner le lien **Afficher votre premier/deuxième paramètre d’adresse IP publique statique** pour gérer votre première/deuxième adresse IP publique statique dans le Portail Azure.
 
 :::image type="content" source="media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png" alt-text="Supervision de votre IR Azure-SSIS – Vignette STATIQUE":::
 

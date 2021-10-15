@@ -6,13 +6,13 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/26/2021
-ms.openlocfilehash: 9ee782734baaf8947aa4e4f930cac874e32a5df6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/04/2021
+ms.openlocfilehash: 58ea7624b32b7730863fe3d29f6d9245c4199d25
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124788189"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535307"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Migration d’une application de façon à utiliser le SDK .NET Azure Cosmos DB v3
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -55,8 +55,7 @@ La majeure partie de la mise en réseau, de la logique de nouvelle tentative et 
 ## <a name="why-migrate-to-the-net-v3-sdk"></a>Pourquoi migrer vers le Kit de développement logiciel (SDK) .NET v3
 
 Outre les nombreuses améliorations en matière de convivialité et de performances, les nouvelles fonctionnalités investies dans le dernier Kit de développement logiciel (SDK) ne seront pas reportées sur les versions antérieures.
-
-Bien qu’il ne soit pas prévu dans l’immédiat de [mettre hors service le support des Kits de développement logiciel (SDK) 2.0](sql-api-sdk-dotnet.md), les Kits de développement logiciel seront remplacés par des versions plus récentes à l’avenir et le SDK passera en mode de maintenance. Pour une expérience de développement optimale, nous vous recommandons de toujours démarrer avec la version prise en charge la plus récente du Kit de développement logiciel (SDK).
+Le Kit de développement logiciel (SDK) v2 est actuellement en mode maintenance. Pour une expérience de développement optimale, nous vous recommandons de toujours démarrer avec la version prise en charge la plus récente du Kit de développement logiciel (SDK).
 
 ## <a name="major-name-changes-from-v2-sdk-to-v3-sdk"></a>Changements majeurs de nom du SDK v2 au SDK v3
 
@@ -196,7 +195,7 @@ Certains paramètres dans `ConnectionPolicy` ont été renommés ou remplacés 
 | SDK .NET v2 | SDK .NET v3 |
 |-------------|-------------|
 |`EnableEndpointRediscovery`|`LimitToEndpoint` – La valeur est désormais inversée. Si `EnableEndpointRediscovery` était défini sur `true`, `LimitToEndpoint` doit être défini sur `false`. Avant d’utiliser ce paramètre, vous devez comprendre [comment il affecte le client](troubleshoot-sdk-availability.md).|
-|`ConnectionProtocol`|Supprimé. Le protocole est lié au mode, qu’il s’agisse de la passerelle (HTTP) ou du mode direct (TCP).|
+|`ConnectionProtocol`|Supprimé. Le protocole est lié au mode, qu’il s’agisse de la passerelle (HTTP) ou du mode direct (TCP). Le mode direct avec le protocole HTTPS n’est plus pris en charge sur le Kit de développement logiciel (SDK) v3, et il est recommandé d’utiliser le protocole TCP. |
 |`MediaRequestTimeout`|Supprimé. Les pièces jointes ne sont plus prises en charge.|
 
 ### <a name="session-token"></a>Jeton de session

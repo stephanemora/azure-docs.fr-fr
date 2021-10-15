@@ -2,14 +2,14 @@
 title: Matrice de prise en charge pour la sauvegarde des objets blob Azure
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge lors de la sauvegarde des objets blob Azure.
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 10/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 0d9dbcb9bb4497de4c8355ca42597b8e9eecd0e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 921f08a80511766f55e179fccde38a061800061e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799241"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129533174"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Matrice de prise en charge pour la sauvegarde des objets blob Azure
 
@@ -17,7 +17,7 @@ Cet article résume la disponibilité régionale, les scénarios pris en charge 
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-La sauvegarde opérationnelle des blobs est actuellement disponible dans les régions suivantes : Australie Centre, Australie Centre 2, Australie Est, Australie Sud-Est, Brésil Sud, Brésil Sud-Est, Canada Centre, Canada Est, Inde Centre, États-Unis Centre, Asie de l'Est, États-Unis Est, États-Unis Est 2, France Centre, Allemagne Nord, Allemagne Centre-Ouest, Japon Est, Japon Ouest, Corée Centre, Corée Sud, États-Unis Centre Nord, Europe du Nord, Norvège Est, Norvège Ouest, Afrique du Sud Nord, États-Unis Centre-Est, Inde Sud, Suisse Nord, Suisse Ouest, EAU Centre, EAU Nord, Royaume-Uni Sud, Royaume-Uni Ouest, États-Unis Centre-Ouest, Europe Ouest, Inde Ouest, États-Unis Ouest, États-Unis Ouest 2.
+La sauvegarde opérationnelle des blobs est disponible dans toutes les régions du cloud public, à l’exception des régions France Sud et Afrique du Sud Ouest. Elle est également disponible dans les régions de cloud souverain, c’est-à-dire toutes les régions Azure Government et les régions de la Chine (sauf la région Chine Est).
 
 ## <a name="limitations"></a>Limites
 

@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 7f10654e1c96f1756e5864d20fa2a6817385e994
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a90d9a82ff26c62423651d8d1b16173300147a1c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98629791"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536771"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Répliquer des machines locales à l’aide de points de terminaison privés
 
@@ -39,6 +39,9 @@ Le schéma suivant montre le flux de travail de réplication pour la récupérat
   Le cas échéant, vous pouvez également utiliser l’étiquette de groupe de sécurité réseau « Azure Active Directory » et des étiquettes de Pare-feu Azure pour autoriser l’accès à Azure Active Directory.
 - Cinq adresses IP sont nécessaires dans le réseau de contournement où vous créez votre point de terminaison privé. Quand vous créez un point de terminaison privé pour le coffre, Site Recovery crée cinq liaisons privées pour accéder à ses microservices.
 - Une adresse IP supplémentaire est nécessaire dans le réseau de contournement pour la connectivité des points de terminaison privés à un compte de stockage de cache. Vous pouvez utiliser n’importe quelle méthode de connectivité entre les sites locaux et le point de terminaison de votre compte de stockage. Par exemple, vous pouvez utiliser Internet ou Azure [ExpressRoute](../expressroute/index.yml). L’établissement d’une liaison privée est facultatif. Vous pouvez créer des points de terminaison privés pour le stockage uniquement sur les comptes v2 à usage général. Consultez la [tarification Azure Page Blobs](https://azure.microsoft.com/pricing/details/storage/page-blobs/) pour plus d’informations sur le transfert de données sur les comptes v2 à usage général.
+
+> [!NOTE]
+> Lorsque vous configurez des points de terminaison privés pour protéger les machines physiques et VMware, vous devez installer MySQL manuellement sur le serveur de configuration. Suivez les étapes indiquées [ici](https://docs.microsoft.com/azure/site-recovery/vmware-azure-deploy-configuration-server#configure-settings) pour effectuer l’installation manuelle. 
 
  ## <a name="create-and-use-private-endpoints-for-site-recovery"></a>Créer et utiliser des points de terminaison privés pour Site Recovery
 

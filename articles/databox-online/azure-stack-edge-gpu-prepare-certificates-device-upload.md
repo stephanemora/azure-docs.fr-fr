@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/30/2021
+ms.date: 09/30/2021
 ms.author: alkohli
-ms.openlocfilehash: 2db11b9a1d159e292140901b50c2d7b659c88235
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: fa908a75a09beefe00babe0e710f43c4d74c3aaf
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113364055"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360555"
 ---
 # <a name="prepare-certificates-to-upload-on-your-azure-stack-edge-pro-gpu"></a>Préparer les certificats à charger sur votre appareil Azure Stack Edge Pro GPU
 
@@ -39,19 +39,19 @@ Si vous apportez vos propres certificats, les certificats que vous avez créés 
 
 1. Dans le magasin de certificats personnel, sélectionnez le certificat racine. Cliquez avec le bouton droit, puis sélectionnez **All Tasks (Toutes les tâches) -> Exporter...** .
 
-    ![Exporter le certificat DER 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
+    ![Exporter le certificat DER 1](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-1.png)
 
 2. L’assistant de certificat s’ouvre. Sélectionnez le format **X.509 binaire encodé DER (.cer)** . Sélectionnez **Suivant**.
 
-    ![Exporter le certificat DER 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
+    ![Exporter le certificat DER 2](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-2.png)
 
 3. Recherchez et sélectionnez l’emplacement où vous souhaitez exporter le fichier au format .cer.
 
-    ![Exporter le certificat DER 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
+    ![Exporter le certificat DER 3](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-3.png)
 
 4. Sélectionnez **Terminer**.
 
-    ![Exporter le certificat DER 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
+    ![Exporter le certificat DER 4](media/azure-stack-edge-gpu-manage-certificates/export-cert-cer-4.png)
 
 
 ## <a name="export-certificates-as-pfx-format-with-private-key"></a>Exporter les certificats au format .pfx avec une clé privée
@@ -65,42 +65,42 @@ Procédez comme suit pour exporter un certificat SSL avec une clé privée sur u
 
 1. Double-cliquez sur le dossier **Personnel**, puis sur **Certificats**.
 
-    ![Exporter le certificat 1](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-1.png)
+    ![Exporter le certificat 1](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-1.png)
  
 2. Cliquez avec le bouton droit sur le certificat que vous souhaitez sauvegarder, puis choisissez **Toutes les tâches > Exporter...**
 
-    ![Exporter le certificat 2](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-2.png)
+    ![Exporter le certificat 2](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-2.png)
 
 3. Suivez l’Assistant d’exportation de certificat pour sauvegarder votre certificat dans un fichier .pfx.
 
-    ![Exporter le certificat 3](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-3.png)
+    ![Exporter le certificat 3](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-3.png)
 
 4. Choisissez **Oui, exporter la clé privée**.
 
-    ![Exporter le certificat 4](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-4.png)
+    ![Exporter le certificat 4](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-4.png)
 
 5. Choisissez **Inclure tous les certificats dans le chemin d’accès du certificat si possible**, **Exporter toutes les propriétés étendues** et **Activer la confidentialité du certificat**. 
 
     > [!IMPORTANT]
     > NE sélectionnez PAS l’option **Supprimer la clé privée si l’exportation est réussie**.
 
-    ![Exporter le certificat 5](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-5.png)
+    ![Exporter le certificat 5](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-5.png)
 
 6. Entrez un mot de passe dont vous vous souviendrez. Confirmez le mot de passe. Le mot de passe protège la clé privée.
 
-    ![Exporter le certificat 6](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-6.png)
+    ![Exporter le certificat 6](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-6.png)
 
 7. Choisissez d’enregistrer le fichier à un emplacement défini.
 
-    ![Exporter le certificat 7](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-7.png)
+    ![Exporter le certificat 7](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-7.png)
   
 8. Sélectionnez **Terminer**.
 
-    ![Exporter le certificat 8](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-8.png)
+    ![Exporter le certificat 8](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-8.png)
 
 9. Vous recevez un message indiquant que l’exportation a réussi. Sélectionnez **OK**.
 
-    ![Exporter le certificat 9](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-9.png)
+    ![Exporter le certificat 9](media/azure-stack-edge-gpu-manage-certificates/export-cert-pfx-9.png)
 
 La sauvegarde du fichier .pfx est maintenant enregistrée à l’emplacement que vous avez sélectionné et est prête à être déplacée ou stockée pour une conservation sûre.
 

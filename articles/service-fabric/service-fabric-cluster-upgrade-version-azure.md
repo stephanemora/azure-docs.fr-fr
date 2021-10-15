@@ -3,12 +3,12 @@ title: Gérer les mises à niveau des clusters Service Fabric
 description: Gérer quand et comment le runtime de votre cluster Service Fabric est mis à jour
 ms.topic: how-to
 ms.date: 03/26/2021
-ms.openlocfilehash: 98c3300e5cc51c32d894397839879e25190d979b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 129bdae4dc131013bd7c13377b61575141c27ccd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731159"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714586"
 ---
 # <a name="manage-service-fabric-cluster-upgrades"></a>Gérer les mises à niveau des clusters Service Fabric
 
@@ -40,7 +40,7 @@ Une fois que vous avez corrigé les problèmes entraînant la restauration, vous
 
 ### <a name="resource-manager-template"></a>Modèle Resource Manager
 
-Pour modifier le mode de mise à niveau de votre cluster à l’aide d’un modèle Resource Manager, spécifiez *Automatic* (Automatique) ou *Manual* (Manuel) pour la propriété `upgradeMode` de la définition de ressource *Microsoft.ServiceFabric/clusters*. Si vous choisissez des mises à niveau manuelles, définissez également `clusterCodeVersion` sur une [version de Fabric actuellement prise en charge](#query-for-supported-cluster-versions).
+Pour modifier le mode de mise à niveau de votre cluster à l’aide d’un modèle Resource Manager, spécifiez *Automatic* (Automatique) ou *Manual* (Manuel) pour la propriété `upgradeMode` de la définition de ressource *Microsoft.ServiceFabric/clusters*. Si vous choisissez des mises à niveau manuelles, définissez également `clusterCodeVersion` sur une [version de Fabric actuellement prise en charge](#check-for-supported-cluster-versions).
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG" alt-text="Capture d’écran montrant un modèle, qui est mis en retrait en texte clair pour refléter la structure. Les propriétés « clusterCodeVersion » et « upgradeMode » sont mis en évidence.":::
 
@@ -126,11 +126,11 @@ Vous pouvez spécifier les stratégies d’intégrité personnalisées ou vérif
 
 :::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="Sélectionnez l’option de stratégie de mise à niveau « Personnalisée » dans la section « Mises à niveau de Fabric » de votre ressource de cluster dans Portail Azure afin de définir des stratégies d’intégrité personnalisées lors de la mise à niveau.":::
 
-## <a name="query-for-supported-cluster-versions"></a>Requête sur les versions de cluster prises en charge
+## <a name="check-for-supported-cluster-versions"></a>Recherche de versions de cluster prises en charge
 
-Vous pouvez utiliser l’[API REST Azure](/rest/api/azure/) pour répertorier toutes les versions du runtime Service Fabric ([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) disponibles pour l’emplacement spécifié et votre abonnement.
+Vous pouvez référencer des [versions de Service Fabric](service-fabric-versions.md) pour plus d’informations sur les versions et les systèmes d’exploitation pris en charge.
 
-Vous pouvez également référencer des [versions de Service Fabric](service-fabric-versions.md) pour plus d’informations sur les versions et les systèmes d’exploitation pris en charge.
+Vous pouvez également utiliser l’[API REST Azure](/rest/api/azure/) pour répertorier toutes les versions du runtime Service Fabric ([clusterVersions](/rest/api/servicefabric/sfrp-api-clusterversions_list)) disponibles pour l’emplacement spécifié et votre abonnement.
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2018-02-01
@@ -171,6 +171,40 @@ GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.Serv
 ```
 
 La propriété `supportExpiryUtc` dans la sortie indique quand une version donnée expire ou a expiré. Les version les plus récentes ne seront pas associées à une date valide, mais plutôt une valeur *9999-12-31T23:59:59.9999999*, qui signifie simplement que la date d’expiration n’est pas encore définie.
+
+
+## <a name="check-for-supported-upgrade-path"></a>Rechercher le chemin de mise à niveau pris en charge
+
+Vous pouvez référencer la documentation des [versions de Service Fabric](service-fabric-versions.md) pour les chemins de mise à niveau pris en charge et les informations sur les versions associées. 
+
+À l’aide des informations de la version cible prise en charge, vous pouvez suivre les étapes PowerShell suivantes pour valider le chemin de mise à niveau pris en charge.
+
+1) Connexion à Azure
+   ```PowerShell
+   Login-AzAccount
+   ```
+
+2) Sélection de l’abonnement
+   ```PowerShell
+   Set-AzContext -SubscriptionId <your-subscription>
+   ```
+
+3) Appeler l’API
+   ```PowerShell
+   $params = @{ "TargetVersion" = "<target version>"}
+   Invoke-AzResourceAction -ResourceId -ResourceId <cluster resource id> -Parameters $params -Action listUpgradableVersions -Force
+   ```
+
+   Exemple : 
+   ```PowerShell
+   $params = @{ "TargetVersion" = "8.1.335.9590"}
+   Invoke-AzResourceAction -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabric/clusters/myCluster -Parameters $params -Action listUpgradableVersions -Force
+
+   Output
+   supportedPath
+   -------------
+   {8.1.329.9590, 8.1.335.9590}
+   ```
 
 
 ## <a name="next-steps"></a>Étapes suivantes

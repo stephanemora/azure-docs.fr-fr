@@ -4,16 +4,16 @@ description: Azure Cosmos DB prend actuellement en charge une migration unidir
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/26/2021
+ms.date: 10/04/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
-ms.openlocfilehash: 270c0fd585c2232b86011673e460737173106b09
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: b6821435f2f6ce04f1b8ba4b3af8b8f47097c2fa
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123479073"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129545992"
 ---
 # <a name="migrate-an-azure-cosmos-db-account-from-periodic-to-continuous-backup-mode"></a>Migrer un compte Azure Cosmos DB du mode de sauvegarde périodique vers le mode de sauvegarde continue
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -78,6 +78,24 @@ Installez la [dernière version d’Azure PowerShell](/powershell/azure/install
      -Name "myAccount" `
      -BackupPolicyType Continuous
    ```
+
+### <a name="check-the-migration-status"></a>Vérifier l’état de la migration
+
+Exécutez la commande suivante et vérifiez les propriétés **status** et **targetType** de l’objet **backupPolicy**. L’état indique « en cours » après le démarrage de la migration :
+
+```azurepowershell-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-started-powershell.png" alt-text="Vérifier l’état de la migration à l’aide de la commande PowerShell":::
+
+Une fois la migration terminée, le type de sauvegarde passe à **Continue**. Exécutez à nouveau la même commande pour vérifier l’état :
+
+```azurepowershell-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-complete-powershell.png" alt-text="Le type de sauvegarde devient Continue une fois la migration terminée":::
 
 ## <a name="migrate-using-cli"></a><a id="cli"></a>Migrer en utilisant l’interface CLI
 

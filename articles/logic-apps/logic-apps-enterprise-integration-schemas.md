@@ -1,6 +1,6 @@
 ---
-title: Ajouter des schémas de validation XML dans des flux de travail
-description: Ajoutez des schémas pour valider les documents XML pour les flux de travail dans Azure Logic Apps à l’aide d’Enterprise Integration Pack.
+title: Ajouter des schémas pour valider du code XML dans des workflows
+description: Ajoutez des schémas pour valider les documents XML dans des workflows dans Azure Logic Apps et Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/14/2021
-ms.openlocfilehash: f80ed9c7fa9aa2d291e4f045b6cfc7da695cb22b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2c64deb35d89d6e1381fd3b296c7c73d82567ade
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611431"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363844"
 ---
-# <a name="add-schemas-to-validate-xml-documents-for-workflows-in-azure-logic-apps"></a>Ajouter des schémas pour valider les documents XML pour les flux de travail dans Azure Logic Apps
+# <a name="add-schemas-to-validate-xml-in-workflows-with-azure-logic-apps"></a>Ajouter des schémas pour valider des données XML dans des workflows à l’aide d’Azure Logic Apps
 
 Pour vérifier que les documents utilisent un XML valide et contiennent les données attendues dans le format prédéfini, le flux de travail de votre application logique peut utiliser des schémas XML avec l’action **Validation XML**. Un schéma XML décrit un document d’entreprise qui est représenté en XML à l’aide de la [définition de schéma XML (XSD)](https://www.w3.org/TR/xmlschema11-1/).
 
@@ -37,7 +37,7 @@ Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Lo
    > [!NOTE]
    > Sur les moniteurs à haute résolution, vous risquez de rencontrer un [problème d’affichage avec le concepteur de mappages](/visualstudio/designers/disable-dpi-awareness) dans Visual Studio. Pour résoudre ce problème d’affichage, [redémarrez Visual Studio en mode sans prise en charge DPI](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process) ou ajoutez la [valeur de Registre DPIUNAWARE](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
-* Une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) dans laquelle vous définissez et stockez les artefacts, comme les parties, les contrats, les certificats, etc., à utiliser dans vos workflows d’intégration d’entreprise et B2B. Cette ressource doit remplir les conditions suivantes :
+* Une [ressource de compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) dans laquelle vous définissez et stockez les artefacts, comme les parties, les contrats, les certificats, etc., à utiliser dans vos flux de travail d’intégration d’entreprise et B2B. Cette ressource doit remplir les conditions suivantes :
 
   * Associé au même abonnement Azure que votre ressource d’application logique.
 
@@ -49,7 +49,7 @@ Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Lo
 
   * Si vous utilisez le [type de ressource **Application logique (standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), vous avez besoin d’une ressource d’application logique existante, car vous ne stockez pas de schémas dans votre compte d’intégration. Au lieu de cela, vous pouvez directement ajouter des schémas à votre ressource d’application logique à l’aide du portail Azure ou de Visual Studio Code. Vous pouvez ensuite utiliser ces schémas sur plusieurs flux de travail au sein de la *même ressource d’application logique*.
 
-    Vous avez tout de même besoin d’un compte d’intégration pour stocker d’autres artefacts, tels que les partenaires, les contrats et les certificats, en plus d’utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](logic-apps-enterprise-integration-edifact.md). Toutefois, vous n’avez pas besoin de lier votre ressource d’application logique à votre compte d’intégration ; la fonctionnalité de liaison n’existe donc pas. Votre compte d’intégration doit encore répondre à d’autres exigences, telles que l’utilisation du même abonnement Azure et le même emplacement que votre ressource d’application logique.
+    Toutefois, vous avez toujours besoin de ce compte pour stocker les artefacts, tels que les partenaires, les contrats et les certificats, en plus d’utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) ou [EDIFACT](logic-apps-enterprise-integration-edifact.md). Toutefois, vous n’avez pas besoin de lier votre ressource d’application logique à votre compte d’intégration, donc la fonctionnalité de liaison n’existe pas. Votre compte d’intégration doit toujours répondre à d’autres exigences, comme l’utilisation du même abonnement Azure et la présence dans le même emplacement que votre ressource d’application logique.
 
     > [!NOTE]
     > Actuellement, seul le type de ressource **Application logique (Consommation)** prend en charge les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). Le type de ressource **Application logique (Standard)** n’inclut pas les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).

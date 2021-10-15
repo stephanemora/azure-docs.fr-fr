@@ -1,6 +1,6 @@
 ---
 title: Planifier une offre SaaS pour la place de marché commerciale Microsoft – Place de marché Azure
-description: Explique comment planifier une nouvelle offre de SaaS (Software as a service) pour référencement ou vente dans Microsoft AppSource, la Place de marché Azure, ou par le biais du programme de fournisseur de solutions cloud (CSP) à l’aide du programme de la place de marché commerciale Microsoft dans l’Espace partenaires Microsoft.
+description: Planifier une nouvelle offre de SaaS (Software as a service) pour référencement ou vente dans Microsoft AppSource, la Place de marché Azure, ou par le biais du programme de fournisseur de solutions cloud (CSP) à l’aide du programme de la place de marché commerciale Microsoft dans l’Espace partenaires Microsoft.
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/17/2021
-ms.openlocfilehash: e31fff677b6e1363d0afda420d521d31b2cf4247
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6f429bd55c3fbf93f88c91168021eed9f1d6505a
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657554"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730182"
 ---
-# <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
+# <a name="plan-a-saas-offer-for-the-commercial-marketplace"></a>Planifier une offre SaaS pour la place de marché commerciale
 
 Cet article explique les différentes options et exigences relatives à la publication d’offres SaaS sur le marketplace commercial de Microsoft. Les offres SaaS vous permettent de livrer et concéder sous licence des solutions logicielles à vos clients par le biais d’abonnements en ligne. En tant qu’éditeur SaaS, vous gérez et payez l’infrastructure requise pour prendre en charge l’utilisation de votre offre par vos clients. Cet article vous aidera à préparer votre offre en vue de sa publication sur la place de marché commerciale avec l’Espace partenaires.
 
@@ -72,7 +72,7 @@ Si vous créez une offre pouvant faire l’objet d’une transaction, vous devez
 
     La page d’arrivée que vous configurez ici doit être opérationnelle en permanence. C’est la seule façon pour vous d’être averti des nouveaux achats de vos offres SaaS effectués sur la place de marché commerciale, ou des demandes de configuration pour un abonnement actif à une offre.
 
-- **Webhook de connexion** : pour tous les événements asynchrones que Microsoft doit vous envoyer (par exemple, lors de l’annulation d’un abonnement SaaS), nous vous demandons de fournir une URL de webhook de connexion. Nous appellerons cette URL pour vous informer de l’événement.
+- **Webhook de connexion** : pour tous les événements asynchrones que Microsoft doit vous envoyer (par exemple, lors de l’annulation d’un abonnement SaaS), nous vous demandons de [fournir une URL de webhook de connexion](./partner-center-portal/pc-saas-fulfillment-api-v2.md#implementing-a-webhook-on-the-saas-service). Nous appellerons cette URL pour vous informer de l’événement.
 
   Le webhook que vous fournissez doit être opérationnel 24 heures sur 24, 7 jours sur 7. C’est la seule façon pour vous d’être informé des mises à jour concernant les abonnements SaaS de vos clients achetés via le marketplace commercial.
 
@@ -107,17 +107,17 @@ Lorsque vous publiez une offre SaaS, celle-ci est référencée dans Microsoft A
 Si votre offre Saas est *à la fois* une solution informatique (Place de marché Azure) et une solution commerciale (AppSource), sélectionnez une catégorie et une sous-catégorie applicable à chaque magasin en ligne. Les offres publiées sur les deux magasins en ligne doivent avoir une proposition de valeur à la fois en tant que solution informatique *et* solution d’entreprise.
 
 > [!IMPORTANT]
-> Les offres SaaS avec [facturation à l’usage](partner-center-portal/saas-metered-billing.md) sont disponibles sur Place de marché Azure et le portail Azure. Les offres SaaS avec des plans privés uniquement sont disponibles sur le portail Azure.
+> Les offres SaaS avec [facturation à l’usage](partner-center-portal/saas-metered-billing.md) sont disponibles sur Place de marché Azure et le portail Azure. Les offres SaaS avec des plans privés uniquement sont disponibles sur le portail Azure et AppSource.
 
 | Facturation à l’usage | Plan public | Plan privé | Disponible sur : |
 |---|---|---|---|
 | Oui             | Oui         | Non           | Place de marché Azure et Portail Azure |
 | Oui             | Oui         | Oui          | Place de marché Azure et Portail Azure* |
 | Oui             | Non          | Oui          | Portail Azure uniquement |
-| Non              | Non          | Oui          | Portail Azure uniquement |
+| Non              | Non          | Oui          | Portail Azure et AppSource |
 |||||
 
-&#42; Le plan privé de l’offre ne sera disponible que via le portail Azure.
+&#42; Le plan privé de l’offre ne sera disponible que via le portail Azure et AppSource.
 
 Par exemple, une offre avec facturation à l’usage et un plan privé uniquement (aucun plan public) est achetée par les clients du portail Azure. En savoir plus sur les [offres privées dans le marketplace commercial de Microsoft](private-offers.md).
 
@@ -132,7 +132,6 @@ Si vous choisissez d’utiliser le contrat standard, vous avez la possibilité d
 > [!NOTE]
 > Après avoir publié une offre à l’aide du contrat standard pour la place de marché commerciale, vous ne pouvez pas utiliser vos propres conditions générales personnalisées. Vous devez faire un choix entre les deux. Vous proposez votre solution avec le contrat standard ou vos propres conditions générales. Si vous souhaitez modifier les conditions du contrat standard, vous le pouvez par le biais d’avenants au contrat standard.
 
-
 ## <a name="microsoft-365-integration"></a>Intégration de Microsoft 365
 
 L’intégration avec Microsoft 365 permet à votre offre SaaS de fournir une expérience connectée sur plusieurs surfaces d’application Microsoft 365 par le biais de compléments gratuits associés, comme les applications Teams, les compléments Office et les solutions SharePoint Framework. Vous pouvez aider vos clients à découvrir facilement toutes les facettes de votre solution E2E (service web + compléments associés) et à les déployer dans un seul processus en fournissant les informations suivantes. 
@@ -140,7 +139,7 @@ L’intégration avec Microsoft 365 permet à votre offre SaaS de fournir une e
     
      Si vous choisissez de vendre votre offre par le biais de Microsoft, il s’agit du même ID d’application AAD que celui que vous avez enregistré pour une utilisation sur votre page d’accueil afin d’obtenir les informations utilisateur de base nécessaires à l’activation de l’abonnement client. Pour obtenir une aide détaillée, consultez [Créer la page d’accueil de votre offre SaaS avec transaction dans la place de marché commerciale](azure-ad-transactable-saas-landing-page.md). 
     
-   -    Fournissez une liste de compléments associés qui fonctionnent avec votre offre SaaS et que vous souhaitez lier. Les clients pourront découvrir votre solution E2E sur AppSource et les administrateurs peuvent déployer l’offre SaaS et tous les compléments associés que vous avez liés dans le même processus via le centre d’administration Microsoft 365.
+   -    Fournissez une liste de compléments associés qui fonctionnent avec votre offre SaaS et que vous souhaitez lier. Les clients pourront découvrir votre solution E2E sur Microsoft AppSource et les administrateurs peuvent déployer l’offre SaaS et tous les compléments associés que vous avez liés dans le même processus via le centre d’administration Microsoft 365.
     
         Pour lier des compléments associés, vous devez fournir le lien AppSource du complément, ce qui signifie que le complément doit d’abord être publié sur AppSource. Les types de compléments pris en charge que vous pouvez lier sont : applications Teams, compléments Office et solutions SharePoint Framework (SPFx). Chaque complément lié doit être unique pour une offre SaaS. 
 
@@ -214,9 +213,9 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
 
   Ces logos sont utilisés à différents emplacements dans les magasins en ligne :
 
-  - Le petit logo s’affiche dans les résultats de recherche de la Place de marché Azure, ainsi que dans la page principale de Microsoft AppSource et la page des résultats de recherche.
+  - Le petit logo s’affiche dans les résultats de recherche sur Place de marché Azure, ainsi que dans la page principale et celle des résultats de recherche de Microsoft AppSource.
   - Le logo moyen s’affiche lorsque vous créez une nouvelle ressource dans Microsoft Azure.
-  - Le grand logo s’affiche sur la page de référencement de votre offre dans la Place de marché Azure et Microsoft AppSource.
+  - Le grand logo apparaît sur la page de référencement de votre offre dans Place de marché Azure et AppSource.
 
 - **Média – Captures d’écran** : vous devez ajouter au moins une et cinq captures d’écran avec les exigences suivantes, qui illustrent le fonctionnement de votre offre :
   - 1280 x 720 pixels

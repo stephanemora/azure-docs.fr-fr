@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: fd160749fef327efa21094ba69daf2db88449918
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: 858234982aa4a148fe6af71ba8993923e80044dd
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357478"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230184"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Application monopage : Se connecter et se déconnecter
 
@@ -454,7 +454,7 @@ function App() {
 
 ---
 
-## <a name="sign-out-with-a-popup-window"></a>Se déconnecter avec une fenêtre contextuelle
+## <a name="sign-out-with-a-pop-up-window"></a>Se déconnecter avec une fenêtre contextuelle
 
 MSAL.js v2 fournit une méthode `logoutPopup` qui vide le cache dans le stockage du navigateur et ouvre une fenêtre contextuelle sur la page de déconnexion d'Azure Active Directory (Azure AD). Après la déconnexion, Azure AD redirige la fenêtre contextuelle vers votre application et MSAL.js ferme la fenêtre contextuelle.
 

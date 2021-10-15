@@ -13,12 +13,12 @@ ms.date: 06/08/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 72537e46d7d249190585552e0a8ee11c43e40340
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2148aa8deaa698c10918ee7a6b667c7d90286448
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128566555"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355085"
 ---
 # <a name="migrate-confidential-client-applications-from-adalnet-to-msalnet"></a>Migrer des applications clientes confidentielles de ADAL.NET vers MSAL.NET
 
@@ -38,7 +38,7 @@ Pour les inscriptions d’application :
    - Chaîne `resourceId`. Cette variable est l’URI ID d’application de l’API web que vous souhaitez appeler.
    - Instance de `IClientAssertionCertificate` ou `ClientAssertion`. Cette instance fournit les informations d’identification du client pour votre application afin de prouver l’identité de celle-ci.
 
-1. Une fois que vous avez identifié les applications qui utilisent ADAL.NET, installez le package MSAL.NET NuGet [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) et mettez à jour les références de votre bibliothèque de projet. Pour plus d’informations, consultez le document [Installation d’un package NuGet](https://www.bing.com/search?q=install+nuget+package). Si vous voulez utiliser des sérialiseurs de cache de jetons, installez également [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web).
+1. Une fois que vous avez identifié les applications qui utilisent ADAL.NET, installez le package MSAL.NET NuGet [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) et mettez à jour les références de votre bibliothèque de projet. Pour plus d’informations, consultez le document [Installation d’un package NuGet](https://www.bing.com/search?q=install+nuget+package). Si vous voulez utiliser des sérialiseurs de cache de jetons, installez également [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache).
 
 1. Mettez à jour le code en fonction du scénario client confidentiel. Certaines étapes sont communes et s’appliquent à tous les scénarios de clients confidentiels. D’autres étapes sont propres à chaque scénario. 
 

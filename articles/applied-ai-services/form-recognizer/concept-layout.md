@@ -7,69 +7,82 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/09/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 247400ea72567108fb9dc320bddd1b87d6ef6ced
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+recommendations: false
+ms.openlocfilehash: 425a5cb9ab332076ddd0d745bba7b914e5601917
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641671"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707163"
 ---
-# <a name="form-recognizer-layout-service"></a>Service Layout de Form Recognizer
+# <a name="form-recognizer-layout-model"></a>Modèle de disposition Form Recognizer
 
-L’API de disposition d’Azure Form Recognizer extrait du texte, des tableaux, des marques de sélection et des informations de structure à partir de documents (PDF, TIFF) et d’images (JPG, PNG, BMP). Elle permet aux clients de prendre des documents dans une multitude de formats et de retourner des représentations de données structurées des documents. Elle combine une version améliorée de nos puissantes capacités de [reconnaissance optique de caractères (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) avec des modèles de deep learning (apprentissage approfondi) pour extraire du texte, des tableaux, des marques de sélection et la structure du document.
+L’API de disposition d’Azure Form Recognizer extrait du texte, des tableaux, des marques de sélection et des informations de structure à partir de documents (PDF, TIFF) et d’images (JPG, PNG, BMP). Elle permet aux clients de prendre des documents dans différents formats et de retourner des représentations de données structurées des documents. Elle combine une version améliorée de nos puissantes capacités de [reconnaissance optique de caractères (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) avec des modèles de deep learning (apprentissage approfondi) pour extraire du texte, des tableaux, des marques de sélection et la structure du document.
 
-## <a name="what-does-the-layout-service-do"></a>Comment fonctionne le service Layout ?
+##### <a name="sample-form-processed-with-form-recognizer-sample-labeling-tool--layout-feature"></a>Exemple de formulaire traité avec la fonctionnalité de disposition [Outil d’étiquetage des exemples Form Recognizer](https://fott-2-1.azurewebsites.net/) :
 
-L’API de disposition extrait du texte, des tableaux avec leurs en-têtes inclus, des marques de sélection et les informations de structurelle des documents avec une précision exceptionnelle, et retourne une réponse JSON organisée et structurée. Les documents peuvent être dans divers formats et de diverses qualités. Il peut s’agir notamment d’images capturées par téléphone, de documents numérisés et de fichiers PDF numériques. L’API de disposition extrait avec précision la sortie structurée de tous ces documents.
+:::image type="content" source="media/layout-demo.gif" alt-text="{alt-text}":::
 
-![Exemple de disposition](./media/layout-demo.gif)
+**Fonctionnalités d’extraction des données**
 
-## <a name="try-it&quot;></a>Essayer
+| **Modèle de disposition**   | **Extraction de texte**   | **Marques de sélection**   | **Tables**  |
+| --- | --- | --- | --- |
+| Layout  | ✓  | ✓  | ✓  |
 
-Pour tester le service Layout de Form Recognizer, accédez à l’outil d’exemple d’interface utilisateur en ligne :
+## <a name="try-form-recognizer-studio-preview"></a>Essayer Form Recognizer Studio (préversion)
 
-> [!div class=&quot;nextstepaction&quot;]
-> [Essayer le modèle de disposition](https://aka.ms/fott-2.1-ga &quot;Commencez avec le modèle de disposition prédéfini pour extraire des données de vos formulaires.")
+* Form Recognizer Studio est disponible avec l’API (v 3.0) en préversion.
 
-Vous aurez besoin d’un abonnement Azure ([créez-en un gratuitement](https://azure.microsoft.com/free/cognitive-services)), ainsi que d’un point de terminaison et d’une clé de [ressource Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) pour tester l’API Layout de Form Recognizer.
+* Extrayez des tables, des cases à cocher et du texte à partir de formulaires et de documents à l’aide de notre fonctionnalité de disposition Form Recognizer Studio :
 
-![Capture d’écran de l’exemple d’interface utilisateur. Le texte, les tables et les marques de sélection d’un document sont analysés.](./media/analyze-layout.png)
+> [!div class="nextstepaction"]
+> [Essayer Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
+
+## <a name="try-form-recognizer-sample-labeling-tool"></a>Essayer l’outil d’étiquetage des exemples Form Recognizer
+
+Vous pouvez voir comment les données de disposition sont extraites en essayant notre outil d’étiquetage des exemples. Vous aurez besoin des éléments suivants :
+
+* Un abonnement Azure : [vous pouvez en créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+
+* Une [instance Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) dans le portail Azure. Vous pouvez utiliser le niveau tarifaire gratuit (`F0`) pour tester le service. Une fois votre ressource déployée, cliquez sur **Accéder à la ressource** pour accéder à la clé et au point de terminaison de votre API.
+
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Capture d’écran : clés et emplacement du point de terminaison dans le Portail Azure.":::
+
+* Un document de formulaire. Vous pouvez utiliser notre [exemple de document de formulaire](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf).
+
+> [!div class="nextstepaction"]
+  > [Essayer](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+
+  Dans l’interface utilisateur de Form Recognizer :
+
+  1. Sélectionnez **Utiliser le service Disposition pour obtenir du texte, des tables et des marques de sélection**.
+  1. Dans le menu déroulant, sélectionnez **fichier local** .
+  1. Téléchargez votre fichier et sélectionnez **Exécuter la disposition**
+
+  :::image type="content" source="media/try-layout.png" alt-text="Capture d’écran : capture d’écran : menu de sélection de fichier source de disposition du menu déroulant de l’outil d’étiquetage des exemples.":::
 
 ## <a name="input-requirements"></a>Critères des entrées
 
-[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
+* Pour de meilleurs résultats, fournissez une photo nette ou une copie de qualité par document.
+* Formats de fichier pris en charge : JPEG, PNG, BMP, TIFF et PDF (texte incorporé ou numérisé). Les PDF avec du texte incorporé sont préférables pour éviter tout risque d’erreur au niveau de l’extraction et de l’emplacement des caractères.
+* Pour PDF et TIFF, il est possible de traiter jusqu’à 2 000 pages (avec un abonnement gratuit, seules les deux premières pages sont traitées).
+* La taille du fichier doit être inférieure à 50 Mo.
+* Les dimensions des images doivent être comprises entre 50 x 50 et 10 000 x 10 000 pixels.
+* Les dimensions des PDF vont jusqu’à 17x17 pouces, ce qui correspond au format papier Legal, A3 ou plus petit.
+* La taille totale des données d’entraînement doit être de 500 pages maximum.
+* Si vos fichiers PDF sont verrouillés par mot de passe, vous devez supprimer le verrou avant leur envoi.
+* Pour l’apprentissage non supervisé (sans données étiquetées) :
+  * Les données doivent contenir des clés et des valeurs.
+  * Les clés doivent apparaître au-dessus ou à gauche des valeurs, pas en dessous ni à droite.
 
-## <a name="analyze-layout"></a>Analyser la disposition
+> [!NOTE]
+> L'[outil d’étiquetage des exemples](https://fott-2-1.azurewebsites.net/) ne prend pas en charge le format de fichier BMP. Il s’agit d’une limitation de l’outil et non du service Form Recognizer.
 
-Tout d’abord, appelez l’opération [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) (Analyser la disposition). Analyze Layout prend un document (fichier image, TIFF ou PDF) en entrée et en extrait le texte, les tableaux, les marques de sélection et la structure. L’appel retourne un champ d’en-tête de réponse appelé `Operation-Location`. La valeur `Operation-Location` est une URL qui contient l’ID de résultat à utiliser à l’étape suivante.
+## <a name="supported-languages-and-locales"></a>Langues et régions prises en charge
 
-|En-tête de réponse| URL de résultat |
-|:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/layout/analyzeResults/{resultId}' |
-
-## <a name="get-analyze-layout-result"></a>Obtenir le résultat de la disposition de l’analyse
-
-La seconde étape consiste à appeler l’opération d’[obtention du résultat de l’analyse de la disposition](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult). Cette opération prend en entrée l’ID de résultat créé par l’opération d’analyse de la disposition. Elle retourne une réponse JSON qui contient un champ **État** avec les possibles valeurs suivantes.
-
-|Champ| Type | Valeurs possibles |
-|:-----|:----:|:----|
-|status | string | `notStarted` : L’opération d’analyse n’a pas commencé.<br /><br />`running` : L’opération d’analyse est en cours.<br /><br />`failed` : L’opération d’analyse a échoué.<br /><br />`succeeded` : L’opération d’analyse a réussi.|
-
-Appelez cette opération de façon itérative jusqu’à ce qu’elle renvoie la valeur `succeeded`. Utilisez un intervalle de 3 à 5 secondes pour éviter de dépasser le taux de demandes par seconde (RPS).
-
-Quand le champ **status** a la valeur `succeeded`, la réponse JSON inclut la mise en page, le texte, les tableaux et les marques de sélection extraits. Les données extraites comprennent les lignes de texte et les mots extraits, les cadres englobants, l’aspect du texte avec indication manuscrite, les tableaux et les marques de sélection avec indication de sélection/non sélection.
-
-## <a name="sample-json-output"></a>Exemple de sortir JSON
-
-La réponse à l’opération *Get Analyze Layout Result* est une représentation structurée du document avec toutes les informations extraites.
-Reportez-vous à cet [exemple de fichier de document](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout.pdf) et cet [exemple de sortie de disposition](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout-output.json) structurée.
-
-La sortie JSON comporte deux parties :
-
-* Le nœud `readResults` contient tout le texte reconnu et toutes les marques de sélection. Le texte est organisé par page, puis par ligne, puis par mots individuels.
-* Le nœud `pageResults` contient les tables et les cellules extraites avec leurs cadres englobants, la confiance et une référence aux lignes et aux mots dans « readResults ».
+ La préversion de la version préliminaire de Form Recognizer introduit une prise en charge linguistique supplémentaire pour le modèle de disposition. Pour obtenir la liste complète des textes manuscrits et imprimés pris en charge, *consultez* [Prise en charge de la langue](language-support.md#layout-and-custom-model).
 
 ## <a name="features"></a>Fonctionnalités
 
@@ -109,12 +122,22 @@ Pour les documents volumineux comportant plusieurs pages, utilisez le paramètre
 
 :::image type="content" source="./media/layout-select-pages-for-text.png" alt-text="Disposition – Sortie des pages sélectionnées":::
 
+## <a name="form-recognizer-preview-v30"></a>Form Recognizer préversion v3.0
+
+ La version préliminaire de Form Recognizer introduit plusieurs nouvelles fonctionnalités.
+
+* Suivez le [**Guide de migration de Form Recognizer v3.0**](v3-migration-guide.md) pour apprendre à utiliser la version préliminaire dans vos applications et vos flux de travail.
+
+* Découvrez notre [**API REST (préversion)** ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) pour en savoir plus sur la préversion et les nouvelles fonctionnalités.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Testez l’extraction d’une mise en page à l’aide de l’[outil d’exemple d’interface utilisateur Form Recognizer](https://aka.ms/fott-2.1-ga).
-* Suivez un [démarrage rapide Form Recognizer](quickstarts/client-library.md#analyze-layout) pour commencer à extraire des layouts dans le langage de développement de votre choix.
+* Suivre un démarrage rapide Form Recognizer :
 
-## <a name="see-also"></a>Voir aussi
+  > [!div class="nextstepaction"]
+  > [Démarrage rapide Form Recognizer](quickstarts/try-sdk-rest-api.md)
 
-* [Qu’est-ce que Form Recognizer ?](./overview.md)
-* [Documentation de référence sur l’API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)
+* Découvrir notre API REST :
+
+    > [!div class="nextstepaction"]
+    > [API Form Recognizer v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)

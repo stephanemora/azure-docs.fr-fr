@@ -4,13 +4,13 @@ description: Décrit les fonctions à utiliser dans un fichier Bicep pour travai
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: d94f2b97a9ff78b715682052a647f02af6286af3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: e8691fd357b8f8cbde87309f4881fa7424f7f44e
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124794079"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389074"
 ---
 # <a name="string-functions-for-bicep"></a>Fonctions de chaîne pour Bicep
 
@@ -21,6 +21,8 @@ Cet article décrit les fonctions Bicep pour l’utilisation de chaînes.
 `base64(inputString)`
 
 Retourne la représentation en base 64 de la chaîne d'entrée.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -61,6 +63,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `base64tojson`
 
 Convertit une représentation en base64 en un objet JSON.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -103,6 +107,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Convertit une représentation en base64 en une chaîne.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -141,7 +147,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 ## <a name="concat"></a>concat
 
-Au lieu d’utiliser la fonction concat, utilisez une interpolation de chaîne. 
+Au lieu d’utiliser la fonction concat, utilisez une interpolation de chaîne.
 
 ```bicep
 param prefix string = 'prefix'
@@ -155,11 +161,15 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | ---- | ---- | ----- |
 | concatOutput | String | prefixAnd5yj4yjf5mbg72 |
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ## <a name="contains"></a>contains
 
 `contains (container, itemToFind)`
 
 Vérifie si un tableau contient une valeur, un objet contient une clé ou une chaîne contient une sous-chaîne. La comparaison de chaînes est sensible à la casse. Cependant, quand vous testez si un objet contient une clé, la comparaison n’est pas sensible à la casse.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -216,6 +226,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Convertit une valeur en un URI de données.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -251,6 +263,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Convertit une valeur formatée en URI de données en chaîne.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -285,6 +299,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `empty(itemToTest)`
 
 Détermine si un tableau, un objet ou une chaîne est vide.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -323,6 +339,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `endsWith(stringToSearch, stringToFind)`
 
 Détermine si une chaîne se termine par une valeur. La comparaison respecte la casse.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -365,6 +383,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Retourne le premier caractère de la chaîne ou le premier élément du tableau.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -403,6 +423,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Crée une chaîne mise en forme à partir des valeurs d’entrée.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -438,6 +460,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `guid(baseString, ...)`
 
 Crée une valeur sous la forme d’un identificateur global unique basé sur les valeurs fournies comme paramètres.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -492,6 +516,8 @@ output guidPerDeployment string = guid(resourceGroup().id, deployment().name)
 
 Retourne la première position d’une valeur dans une chaîne. La comparaison respecte la casse.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -533,11 +559,15 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Convertit une chaîne JSON valide en un type de données JSON. Pour plus d’informations, consultez la [fonction json](./bicep-functions-object.md#json).
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ## <a name="last"></a>last
 
 `last (arg1)`
 
 Retourne le dernier caractère de la chaîne ou le dernier élément du tableau.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -577,6 +607,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Retourne la dernière position d’une valeur dans une chaîne. La comparaison respecte la casse.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -615,6 +647,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `length(string)`
 
 Retourne le nombre d’éléments d’un tableau, les caractères d’une chaîne ou les propriétés au niveau de la racine d’un objet.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -665,6 +699,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `newGuid()`
 
 Retourne une valeur sous la forme d’un identificateur global unique. **Cette fonction peut uniquement être utilisée dans la valeur par défaut d’un paramètre.**
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="remarks"></a>Notes
 
@@ -734,6 +770,8 @@ La sortie de l’exemple précédent varie pour chaque déploiement, mais elle s
 
 Renvoie une chaîne alignée à droite en lui ajoutant des caractères sur la gauche jusqu’à ce que la longueur totale spécifiée ait été atteinte.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -770,6 +808,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Renvoie une nouvelle chaîne dans laquelle toutes les instances d’une chaîne ont été remplacées par une autre.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -805,6 +845,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `skip(originalValue, numberToSkip)`
 
 Retourne une chaîne avec tous les caractères après le nombre spécifié de caractères, ou un tableau avec tous les éléments après le nombre spécifié d’éléments.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -848,6 +890,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Renvoie un tableau de chaînes qui contient les sous-chaînes de la chaîne d’entrée séparées par les délimiteurs spécifiés.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -889,6 +933,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Détermine si une chaîne commence par une valeur. La comparaison respecte la casse.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -929,6 +975,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `string(valueToConvert)`
 
 Convertit la valeur spécifiée en chaîne.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -975,6 +1023,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Retourne une sous-chaîne qui commence à la position de caractère spécifiée et qui contient le nombre de caractères spécifié.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -1018,6 +1068,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Retourne une chaîne avec le nombre spécifié de caractères à partir du début de la chaîne, ou un tableau avec le nombre spécifié d’éléments à partir du début du tableau.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -1060,6 +1112,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Convertit la chaîne spécifiée en minuscules.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -1093,6 +1147,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `toUpper(stringToChange)`
 
 Convertit la chaîne spécifiée en majuscules.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -1128,6 +1184,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Supprime tous les espaces de début et de fin de la chaîne indiquée.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -1159,6 +1217,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `uniqueString (baseString, ...)`
 
 Crée une chaîne de hachage déterministe basée sur les valeurs fournies en tant que paramètres.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -1204,7 +1264,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
 }
 ```
 
-Si vous devez créer un nom unique chaque fois que vous déployez un fichier Bicep, et que vous n’envisagez pas de mettre à jour la ressource, utilisez la fonction [utcNow](./bicep-functions-date.md#utcnow) avec uniqueString. Vous pouvez utiliser cette approche dans un environnement de test. Pour obtenir un exemple, consultez [utcNow](./bicep-functions-date.md#utcnow).
+Si vous devez créer un nom unique chaque fois que vous déployez un fichier Bicep, et que vous n’envisagez pas de mettre à jour la ressource, utilisez la fonction [utcNow](./bicep-functions-date.md#utcnow) avec uniqueString. Vous pouvez utiliser cette approche dans un environnement de test. Pour obtenir un exemple, consultez [utcNow](./bicep-functions-date.md#utcnow). Notez que la fonction utcNow peut uniquement être utilisée dans une expression pour la valeur par défaut d’un paramètre.
 
 ### <a name="return-value"></a>Valeur retournée
 
@@ -1224,6 +1284,8 @@ output uniqueDeploy string = uniqueString(resourceGroup().id, deployment().name)
 `uri (baseUri, relativeUri)`
 
 Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -1282,6 +1344,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 Encode un URI.
 
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
 ### <a name="parameters"></a>Paramètres
 
 | Paramètre | Obligatoire | Type | Description |
@@ -1320,6 +1384,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 `uriComponentToString(uriEncodedString)`
 
 Retourne une chaîne de la valeur encodée de l’URI.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 

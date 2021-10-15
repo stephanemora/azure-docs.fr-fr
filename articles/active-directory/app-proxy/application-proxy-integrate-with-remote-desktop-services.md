@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/12/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: aa5c8ae942bb48c78526867eb44cc2084c056d48
-ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+ms.openlocfilehash: 1f35dfff5c9c29766abf97d32496ca3056ed7e40
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113649679"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456990"
 ---
 # <a name="publish-remote-desktop-with-azure-active-directory-application-proxy"></a>Publier le bureau à distance avec le proxy d’application Azure Active Directory
 
@@ -61,6 +61,7 @@ Après avoir configuré RDS et le proxy d’application Azure AD pour votre env
    - URL externe : Ce champ est automatiquement renseigné en fonction du nom de l’application, mais vous pouvez le modifier. Vos utilisateurs accéderont à cet URL en accédant à RDS.
    - Méthode de préauthentification : Azure Active Directory
    - Traduire l’URL dans les en-têtes : Non
+   - Utiliser un cookie HTTPOnly : Non
 2. Affectez des utilisateurs à l’application Bureau à distance publiée. Assurez-vous également qu’ils ont tous accès à RDS.
 3. Conservez la méthode d’authentification unique de l’application **Authentification unique Azure AD désactivée**.
 

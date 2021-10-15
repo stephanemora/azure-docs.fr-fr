@@ -4,12 +4,12 @@ description: Recherchez des réponses à certaines des questions les plus fréqu
 ms.topic: conceptual
 ms.date: 05/23/2021
 ms.custom: references_regions
-ms.openlocfilehash: 612493d55adddea82e3e8d1e3d169eee963bfda2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fdccee2795a4e1b2c967c53dc17d15a6520f4402
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531475"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546517"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -289,8 +289,7 @@ Les nœuds compatibles FIPS sont actuellement disponibles en préversion sur les
 
 ## <a name="can-i-configure-nsgs-with-aks"></a>Puis-je configurer les groupe de sécurité réseau avec AKS ?
 
-Si vous fournissez votre propre sous-réseau, vous devez gérer les groupes de sécurité réseau (NSG) associés à ce sous-réseau. AKS modifie uniquement les groupes de sécurité réseau au niveau de la carte réseau et ne modifie pas les groupes de sécurité réseau associés à ce sous-réseau. Si vous utilisez CNI, vous devez également vous assurer que les groupes de sécurité réseau autorisent le trafic entre les plages CIDR du nœud et du Pod. Si vous utilisez kubenet, vous devez également vous assurer que les groupes de sécurité réseau autorisent le trafic entre les plages CIDR du nœud et du pod.
-
+AKS n’applique pas les groupes de sécurité réseau à son sous-réseau et ne modifie pas les groupes associés à ce sous-réseau. AKS ne modifiera les groupes de sécurité réseau qu’au niveau des cartes réseau. Si vous utilisez CNI, vous devez également vous assurer que les groupes de sécurité réseau autorisent le trafic entre les plages CIDR du nœud et du Pod. Si vous utilisez kubenet, vous devez également vous assurer que les groupes de sécurité réseau autorisent le trafic entre les plages CIDR du nœud et du pod. Pour plus d’informations, consultez [Groupes de sécurité réseau](concepts-network.md#network-security-groups).
 
 <!-- LINKS - internal -->
 

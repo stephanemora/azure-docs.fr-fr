@@ -8,12 +8,12 @@ metadata:
   ms.date: 07/29/2021
   ms.author: govindk
   ms.reviewer: sngun
-  ms.openlocfilehash: 573a6c65de43a75ff3343a41cf64027a78663cda
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: 4d39bbdf519903a6aa368b2401fa150ac381aeb9
+  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "122562515"
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129546589"
 title: Forum aux questions sur la fonctionnalité Azure Cosmos DB de restauration à un instant dans le passé
 summary: >
   [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -24,23 +24,23 @@ sections:
 - name: Ignoré
   questions:
   - question: >
-      How much time does it takes to restore?
+      Combien de temps prend la restauration ?
     answer: >
-      The restore duration dependents on the size of your data.
+      La durée de la restauration dépend de la taille de vos données.
   - question: >
-      Can I submit the restore time in local time?
+      Puis-je envoyer l’heure de restauration en heure locale ?
     answer: >
-      The restore may not happen depending on whether the key resources like databases or containers existed at that time. You can verify by entering the time and looking at the selected database or container for a given time. If you see no resources exist to restore, then the restore process doesn't work.
+      La restauration peut ne pas se produire selon que les ressources clés comme les bases de données ou les conteneurs existaient à ce moment-là. Vous pouvez le vérifier en entrant l’heure et en examinant la base de données ou le conteneur sélectionné pour une période donnée. Si vous ne voyez aucune ressource à restaurer, le processus de restauration ne fonctionne pas.
   - question: >
-      How can I track if an account is being restored?
-    answer: "After you submit the restore command, and wait on the same page, after the operation is complete, the status bar shows successfully restored account message. You can also search for the restored account and [track the status of account being restored](restore-account-continuous-backup.md#track-restore-status). While restore is in progress, the status of the account will be *Creating*, after the restore operation completes, the account status will change to *Online*.\n\nSimilarly for PowerShell and CLI, you can track the progress of restore operation by executing `az cosmosdb show` command as follows:\n\n```azurecli-interactive\naz cosmosdb show --name \"accountName\" --resource-group \"resourceGroup\"\n```\n\nThe provisioningState shows *Succeeded* when the account is online.\n\n```json\n{\n\"virtualNetworkRules\": [],\n\"writeLocations\" : [\n{\n    \"documentEndpoint\": \"https://<accountname>.documents.azure.com:443/\", \n    \"failoverpriority\": 0,\n    \"id\": \"accountName\" ,\n    \"isZoneRedundant\" : false, \n    \"locationName\": \"West US 2\", \n    \"provisioningState\": \"Succeeded\"\n}\n]\n}\n```\n"
+      Comment puis-je savoir si un compte est en cours de restauration ?
+    answer: "Après que vous avez soumis la commande de restauration et attendu sur la même page, une fois l’opération terminée, la barre d’état affiche le message de compte restauré avec succès. Vous pouvez également rechercher le compte restauré et [suivre l’état du compte en cours de restauration](restore-account-continuous-backup.md#track-restore-status). Pendant que la restauration est en cours, l’état du compte est *En cours de création* ; une fois l’opération de restauration terminée, l’état du compte devient *En ligne*.\n\nDe même, pour PowerShell et CLI, vous pouvez suivre la progression de l’opération de restauration en exécutant la commande `az cosmosdb show` comme suit :\n\n```azurecli-interactive\naz cosmosdb show --name \"accountName\" --resource-group \"resourceGroup\"\n```\n\nLa propriété provisioningState affiche *Succeeded* quand le compte est en ligne.\n\n```json\n{\n\"virtualNetworkRules\": [],\n\"writeLocations\" : [\n{\n    \"documentEndpoint\": \"https://<accountname>.documents.azure.com:443/\", \n    \"failoverpriority\": 0,\n    \"id\": \"accountName\" ,\n    \"isZoneRedundant\" : false, \n    \"locationName\": \"West US 2\", \n    \"provisioningState\": \"Succeeded\"\n}\n]\n}\n```\n"
   - question: >
-      How can I find out whether an account was restored from another account?
+      Comment puis-je savoir si un compte a été restauré à partir d’un autre compte ?
     answer: >
-      Run the `az cosmosdb show` command, in the output, you can see that the value of `createMode` property. If the value is set to **Restore**. it indicates that the account was restored from another account. The `restoreParameters` property has further details such as `restoreSource`, which has the source account ID. The last GUID in the `restoreSource` parameter is the instanceId of the source account.
+      Exécutez la commande `az cosmosdb show`. Dans la sortie, vous pouvez voir la valeur de la propriété `createMode`. Si la valeur est définie sur **Restore**, cela indique que le compte a été restauré à partir d’un autre compte. La propriété `restoreParameters` contient des détails supplémentaires, tels que `restoreSource`, qui a l’ID de compte source. Le dernier GUID dans le paramètre `restoreSource` est l’instanceId du compte source.
 
 
-      For example, in the following output, the source account's instance ID is *7b4bb-f6a0-430e-ade1-638d781830cc*
+      Par exemple, dans la sortie suivante, l’ID d’instance du compte source est *7b4bb-f6a0-430e-ade1-638d781830cc*.
 
 
       ```json
@@ -54,16 +54,19 @@ sections:
 
       ```
   - question: >
-      What happens when I restore a shared throughput database or a container within a shared throughput database?
+      Que se passe-t-il lorsque je restaure une base de données à débit partagé ou un conteneur dans une base de données à débit partagé ?
     answer: >
-      The entire shared throughput database is restored. You cannot choose a subset of containers in a shared throughput database for restore.
+      L’intégralité de la base de données à débit partagé est restaurée. Vous ne pouvez pas choisir un sous-ensemble de conteneurs dans une base de données à débit partagé pour les restaurer.
   - question: >
-      What is the use of InstanceID in the account definition?
-    answer: "At any given point in time, Azure Cosmos DB account's `accountName` property is globally unique while it is alive. However, after the account is deleted, it is possible to create another account with the same name and hence the \"accountName\" is no longer enough to identify an instance of an account. \n\nID or the `instanceId` is a property of an instance of an account and it is used to disambiguate across multiple accounts (live and deleted) if they have same name for restore. You can get the instance ID by running the `Get-AzCosmosDBRestorableDatabaseAccount` or  `az cosmosdb restorable-database-account` commands. The name attribute value denotes the \"InstanceID\".\n"
+      Quelle est l’utilisation d’InstanceID dans la définition de compte ?
+    answer: "À tout moment, la propriété `accountName` du compte Azure Cosmos DB est unique au monde tant qu’il est actif. Toutefois, une fois le compte supprimé, il est possible de créer un autre compte portant le même nom. Par conséquent, la propriété « accountName » n’est plus suffisante pour identifier l’instance d’un compte. \n\nID ou `instanceId` est une propriété d’une instance de compte qui est utilisée pour lever l’ambiguïté entre plusieurs comptes (actifs et supprimés) s’ils portent le même nom pour la restauration. Vous pouvez récupérer l’ID d’instance en exécutant les commandes `Get-AzCosmosDBRestorableDatabaseAccount` ou `az cosmosdb restorable-database-account`. La valeur de l’attribut de nom désigne « InstanceID ».\n"
   - question: >
-      Is backup and restore supported for Azure Synapse Link enabled accounts?
-    answer: "\nYes. However, analytical store data isn't included in backups and restores. When Synapse Link is enabled on a database account, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at scheduled backup interval, as always.\n"
+      La sauvegarde continue avec limite de restauration dans le temps est-elle prise en charge pour les comptes avec Azure Synapse Link ?
+    answer: "\nNon. Actuellement, ces deux fonctionnalités, le mode de sauvegarde continue et Synapse Link, ne peuvent pas coexister dans le même compte de base de données.\n"
   - question: >
-      Is backup and restore supported for analytical store enabled containers?
-    answer: "\nYes, but only for the regular transactional data. Automatic backup and restore of your data in the analytical store is not supported at this time.\n"
-additionalContent: "\n## Next steps\n\n* What is [continuous backup](continuous-backup-restore-introduction.md) mode?\n* Provision an account with continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).\n* [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.\n* [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)"
+      Le mode de sauvegarde périodique est-il pris en charge pour les comptes avec Azure Synapse Link ?
+    answer: "\nOui. Cependant, les données du magasin analytique ne sont pas incluses dans les sauvegardes et les restaurations. Lorsque Synapse Link est activé sur un compte de base de données, Azure Cosmos DB continue à effectuer des sauvegardes automatiques de vos données dans le magasin transactionnel selon l’intervalle de sauvegarde planifié, comme toujours.\n"
+  - question: >
+      Le mode de sauvegarde périodique est-il pris en charge pour les conteneurs avec magasin analytique ?
+    answer: "\nOui, mais uniquement pour les données transactionnelles ordinaires. La sauvegarde et la restauration de vos données dans le magasin analytique ne sont pas prises en charge pour le moment.\n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\n* Qu’est-ce que le mode de [sauvegarde continue](continuous-backup-restore-introduction.md) ?\n* Approvisionnez un compte avec une sauvegarde continue à l’aide du [portail Azure](provision-account-continuous-backup.md#provision-portal), de [PowerShell](provision-account-continuous-backup.md#provision-powershell), de l’[interface CLI](provision-account-continuous-backup.md#provision-cli) ou d’[Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).\n* [Gérez les autorisations](continuous-backup-restore-permissions.md) requises pour restaurer les données en mode de sauvegarde continue.\n* [Modèle de ressource du mode de sauvegarde continue](continuous-backup-restore-resource-model.md).\n"

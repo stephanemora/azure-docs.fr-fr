@@ -8,16 +8,20 @@ ms.service: azure-sentinel
 ms.topic: reference
 ms.date: 08/12/2021
 ms.author: bagol
-ms.openlocfilehash: 8cbd8861e7dc01e8615225dd88960b581fd4c2f4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3886d26c571246f42c54bb9aab45bae32e05b750
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124755078"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362460"
 ---
 # <a name="find-your-azure-sentinel-data-connector"></a>Rechercher votre connecteur de données Azure Sentinel
 
 Cet article explique comment déployer des connecteurs de données dans Azure Sentinel, en répertoriant tous les connecteurs de données intégrés et pris en charge, ainsi que des liens vers des procédures de déploiement génériques et des étapes supplémentaires nécessaires pour des connecteurs spécifiques.
+
+> [!TIP]
+> Certains connecteurs de données ne sont déployés que via des solutions. Pour plus d’informations, consultez le [catalogue de solutions Azure Sentinel](sentinel-solutions-catalog.md). Vous trouverez également d’autres connecteurs de données créés par la communauté dans le [Référentiel GitHub Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
+>
 
 ## <a name="how-to-use-this-guide"></a>Comment utiliser ce guide
 

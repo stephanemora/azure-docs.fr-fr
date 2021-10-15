@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/31/2021
 author: palma21
-ms.openlocfilehash: 7fe0aa073cf1ecb959bc7999ba59a2486c65b7e1
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0f941b612c76811ba750a06036faf48c7359bedd
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429007"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429848"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks"></a>Activer des pilotes CSI (Container Storage interface) pour des disques Azure et Azure Files sur Azure Kubernetes Service (AKS)
 
@@ -66,14 +66,54 @@ $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocata
 8
 ```
 
+## <a name="migrating-custom-in-tree-storage-classes-to-csi"></a>Migration vers CSI de classes de stockage personnalisées dans l’arborescence
+Si vous avez créé des classes de stockage personnalisées basées sur des pilotes de stockage dans l’arborescence, vous devez migrer ceux-ci lorsque vous avez mis à niveau votre cluster vers 1.21.x.
+
+Alors que la migration explicite vers le fournisseur CSI n’est pas nécessaire pour que vos classes de stockage soient toujours valides, pour pouvoir utiliser les fonctionnalités CSI (capture d’instantanés, etc.), vous devrez effectuer la migration.
+
+La migration de ces classes de stockage implique de supprimer les classes de stockage existantes et de les réapprovisionner avec le provisionneur défini sur **disk.csi.azure.com** si vous utilisez des disques azure et **files.csi.azure.com** si vous utilisez Azure files.  Par exemple, pour les disques Azure :
+
+### <a name="original-in-tree-storage-class-definition"></a>Définition d’origine de la classe de stockage dans l’arborescence
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: managed-premium-retain
+provisioner: kubernetes.io/azure-disk
+reclaimPolicy: Retain
+parameters:
+  storageaccounttype: Premium_LRS
+  kind: Managed
+```
+
+### <a name="csi-storage-class-definition"></a>Définition de la classe de stockage CSI
+
+```yaml
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: managed-premium-retain
+provisioner: disk.csi.azure.com
+reclaimPolicy: Retain
+parameters:
+  storageaccounttype: Premium_LRS
+  kind: Managed
+```
+
+Le système de stockage CSI prend en charge les mêmes fonctionnalités que les pilotes dans l’arborescence, donc la seule modification nécessaire est le provisionneur.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour utiliser le lecteur CSI pour les disques Azure, consultez [Utiliser des disques Azure avec des pilotes CSI](azure-disk-csi.md).
 - Pour utiliser le lecteur CSI pour Azure Files, consultez [Utiliser Azure Files avec des pilotes CSI](azure-files-csi.md).
 - Pour plus d’informations sur les bonnes pratiques en matière de stockage, consultez [Meilleures pratiques relatives au stockage et aux sauvegardes dans Azure Kubernetes Service (AKS)][operator-best-practices-storage].
+- Pour plus d’informations sur la migration CSI, consultez [Migration de volume Kubernetes dans l’arborescence vers CSI][csi-migration-community].
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+[csi-migration-community]: https://kubernetes.io/blog/2019/12/09/kubernetes-1-17-feature-csi-migration-beta
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/

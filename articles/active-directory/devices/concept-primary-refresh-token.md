@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf76e5ffc7b3eabae7366805ed1a87d262854992
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9927232ca01473d8c51ac034f6c0ed24b07a2b39
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128630107"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707224"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -67,9 +67,12 @@ Dans les scénarios avec appareils inscrits dans Azure AD, le plug-in Azure AD W
 > [!NOTE]
 > Les fournisseurs d’identités tiers doivent prendre en charge le protocole WS-Trust pour autoriser l’émission d’un PRT sur les appareils Windows 10. Sans WS-Trust, le PRT ne peut pas être émis pour les utilisateurs sur les appareils faisant l’objet d’une jonction hybride Azure AD ou sur les appareils joints à Azure AD. Sur ADFS, seuls les points de terminaison usernamemixed sont nécessaires. adfs/services/trust/2005/windowstransport et adfs/services/trust/13/windowstransport doivent tous les deux être activés en tant que points de terminaison uniquement accessibles sur intranet. Ils **NE doivent PAS être exposés** en tant que points de terminaison accessibles sur extranet via le proxy d’application web
 
+> [!NOTE]
+> Les stratégies d’accès conditionnel d’Azure AD ne sont pas évaluées lors de l’émission des PRT.
+
 ## <a name="what-is-the-lifetime-of-a-prt"></a>Quelle est la durée de validité d’un PRT ?
 
-Une fois émis, un PRT est valide pendant 90 jours et est renouvelé continuellement tant que l’utilisateur utilise activement l’appareil.  
+Une fois émis, un PRT est valide pendant 14 jours et il est renouvelé en continu tant que l’utilisateur utilise activement l’appareil.  
 
 ## <a name="how-is-a-prt-used"></a>Comment un PRT est-il utilisé ?
 
@@ -90,6 +93,9 @@ Un PRT est renouvelé selon deux méthodes différentes :
 Dans un environnement ADFS, une ligne de vue directe sur le contrôleur de domaine n’est pas nécessaire pour renouveler le PRT. Le renouvellement du PRT requiert uniquement des points de terminaison /adfs/services/trust/2005/usernamemixed and /adfs/services/trust/13/usernamemixed activés sur le proxy à l’aide du protocole WS-Trust.
 
 Des points de terminaison de transport Windows sont requis pour l’authentification par mot de passe uniquement si un mot de passe est modifié, pas pour le renouvellement de PRT.
+
+> [!NOTE]
+> Les stratégies d’accès conditionnel d’Azure AD ne sont pas évaluées lors du renouvellement des PRT.
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 
@@ -118,7 +124,7 @@ Lorsqu’un utilisateur lance une interaction de navigateur, le navigateur (ou l
 Un PRT peut recevoir une revendication MFA (authentification multifacteur) dans des scénarios spécifiques. Lorsqu’un PRT basé sur l’authentification multifacteur est utilisé pour demander des jetons pour les applications, la revendication MFA est transférée à ces jetons d’application. Cette fonctionnalité offre une expérience transparente aux utilisateurs en empêchant les demandes d’authentification multifacteur pour chaque application qui en a besoin. Un PRT peut recevoir une revendication MFA dans les cas suivants :
 
 * **Connexion avec Windows Hello Entreprise** : Windows Hello Entreprise remplace les mots de passe et utilise des clés de chiffrement pour fournir une authentification à deux facteurs forte. Windows Hello Entreprise est propre à l’utilisateur de l’appareil, et lui-même exige une authentification multifacteur pour l’approvisionnement. Quand un utilisateur se connecte avec Windows Hello Entreprise, son PRT reçoit une revendication MFA. Ce scénario s’applique également aux utilisateurs se connectant à l’aide de cartes à puce, si l’authentification par carte à puce génère une revendication MFA de la part d’ADFS.
-   * Comme Windows Hello Entreprise est considéré comme authentification multifacteur, la revendication MFA est mise à jour lorsque le PRT lui-même est actualisé. Par conséquent, la durée de l’authentification multifacteur s’étend en continu lorsque les utilisateurs se connectent avec Windows Hello Entreprise.
+   * Comme Windows Hello Entreprise est considéré comme une authentification multifacteur, la revendication MFA est mise à jour lorsque le PRT lui-même est actualisé. Par conséquent, la durée de l’authentification multifacteur s’allonge continuellement lorsque les utilisateurs se connectent avec Windows Hello Entreprise.
 * **Authentification multifacteur pendant la connexion interactive WAM** : Pendant une demande de jeton via WAM, si un utilisateur doit avoir recours à l’authentification multifacteur pour accéder à l’application, le PRT renouvelé pendant cette interaction contient une revendication MFA.
    * Dans ce cas, la revendication MFA n’est pas actualisée en continu. Par conséquent, la durée de validité de l’authentification multifacteur est basée sur la durée de vie définie sur le répertoire.
    * Lorsqu’un PRT et un RT existants sont utilisés pour accéder à une application, le PRT et le RT sont considérés comme la première preuve d’authentification. Un nouveau AT sera requis avec une deuxième preuve et une revendication MFA imprimée. Cela génère également un nouveau PRT et RT.
@@ -203,4 +209,4 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la résolution des problèmes liés aux PRT, consultez l’article [Résolution des problèmes des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory](troubleshoot-hybrid-join-windows-current.md).
+Pour plus d’informations sur la résolution des problèmes liés aux PRT, consultez l’article [Résolution des problèmes des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory](troubleshoot-hybrid-join-windows-current.md#troubleshoot-post-join-authentication-issues).

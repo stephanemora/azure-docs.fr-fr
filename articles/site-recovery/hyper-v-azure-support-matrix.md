@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 7/14/2020
 author: Sharmistha-Rai
 ms.author: sharrai
-ms.openlocfilehash: 7c64aee5177adf7ee1d5f5d47ba80c5e25a53002
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: b8771e26f51dd54595ebefdb5ad5230c7257907a
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535245"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536668"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -146,7 +146,7 @@ Service d’importation/exportation | Non | Non
 Comptes Stockage Azure avec un pare-feu activé | Oui. Pour le stockage et le cache cibles. | Oui. Pour le stockage et le cache cibles.
 Modifier le compte de stockage | Non. Le compte Stockage Azure cible ne peut pas être modifié une fois la réplication activée. Pour le modifier, désactivez puis réactivez la récupération d’urgence. | Non
 Option de transfert sécurisé | Oui | Oui
-
+Démarrage sécurisé UEFI | Non | Non
 
 ## <a name="azure-compute-features"></a>Fonctionnalités de Calcul Azure
 

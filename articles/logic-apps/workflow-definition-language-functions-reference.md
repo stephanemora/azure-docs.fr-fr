@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 08/16/2021
-ms.openlocfilehash: 74bfdabbbd145e7409d070e9bb432ad4f62759d5
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 09/09/2021
+ms.openlocfilehash: 99d642a1cd534691e5089ac6956dc023d3a207d0
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866579"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388847"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate
 
@@ -1005,9 +1005,7 @@ Cet exemple illustre la conversion d’une chaîne « aGVsbG8= » encodée en Ba
 base64ToBinary('aGVsbG8=')
 ```
 
-Et retourne ce résultat :
-
-`"0110000101000111010101100111001101100010010001110011100000111101"`
+Par exemple, supposons que vous utilisez une action HTTP pour envoyer une demande. Vous pouvez utiliser `base64ToBinary()` pour convertir une chaîne encodée en base64 en données binaires et envoyer ces données en utilisant le type de contenu `application/octet-stream` dans la demande.
 
 <a name="base64ToString"></a>
 
@@ -1065,6 +1063,7 @@ binary('<value>')
 *Exemple*
 
 Par exemple, vous utilisez une action HTTP qui retourne un fichier image ou vidéo. Vous pouvez utiliser `binary()` pour convertir la valeur en modèle d’enveloppe de contenu encodé en Base64. Ensuite, vous pouvez réutiliser l’enveloppe de contenu dans d’autres actions, comme `Compose`.
+Vous pouvez utiliser cette expression de fonction pour envoyer les octets de la chaîne avec le type de contenu `application/octet-stream` dans la demande.
 
 <a name="body"></a>
 
@@ -1188,15 +1187,6 @@ Et retournent les résultats suivants :
 
 Combine au moins deux chaînes et retourne la chaîne combinée.
 
-> [!NOTE]
-> Azure Logic Apps effectue automatiquement ou implicitement l’encodage ou le décodage base64, de sorte que vous n’avez pas à effectuer manuellement ces conversions lorsque vous utilisez la fonction `concat()` nécessitant un encodage ou un décodage :
-> 
-> * `concat('data:;base64,',<value>)`
-> * `concat('data:,',encodeUriComponent(<value>))`
-> 
-> Toutefois, si vous utilisez quand même cette fonction dans le concepteur, vous pouvez rencontrer des comportements de rendu inattendus. Ces comportements affectent uniquement la visibilité de la fonction et non son effet, sauf si vous modifiez les valeurs des paramètres de la fonction, ce qui supprime la fonction et ses effets de votre code. 
-> Pour plus d’informations, consultez [Encodage et décodage base64](#base64-encoding-decoding).
-
 ```
 concat('<text1>', '<text2>', ...)
 ```
@@ -1208,8 +1198,16 @@ concat('<text1>', '<text2>', ...)
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*text1text2...* > | String | Chaîne créée à partir des chaînes d’entrée combinées |
+| <*text1text2...* > | String | Chaîne créée à partir des chaînes d'entrée combinées. <p><p>**Remarque** : La longueur du résultat ne doit pas dépasser 104 857 600 caractères. |
 ||||
+
+> [!NOTE]
+> Azure Logic Apps effectue automatiquement ou implicitement l’encodage ou le décodage base64, de sorte que vous n’avez pas à effectuer manuellement ces conversions lorsque vous utilisez la fonction `concat()` nécessitant un encodage ou un décodage :
+>
+> * `concat('data:;base64,',<value>)`
+> * `concat('data:,',encodeUriComponent(<value>))`
+>
+> Toutefois, si vous utilisez quand même cette fonction dans le concepteur, vous pouvez rencontrer des comportements de rendu inattendus. Ces comportements affectent uniquement la visibilité de la fonction et non son effet, sauf si vous modifiez les valeurs des paramètres de la fonction, ce qui supprime la fonction et ses effets de votre code. Pour plus d'informations, consultez [Encodage et décodage base64](#base64-encoding-decoding).
 
 *Exemple*
 
@@ -1220,9 +1218,6 @@ concat('Hello', 'World')
 ```
 
 Et retourne ce résultat : `"HelloWorld"`
-  
-> [!NOTE]
-> La longueur du résultat ne doit pas dépasser 104 857 600 caractères.
 
 <a name="contains"></a>
 
@@ -1281,7 +1276,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Oui | String | Chaîne qui contient l’horodatage |
-| <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseau horaire, consultez [Fuseaux horaires Microsoft Windows par défaut](/windows-hardware/manufacture/desktop/default-time-zones), mais vous devrez peut-être supprimer les signes de ponctuation du nom de fuseau horaire. |
+| <*destinationTimeZone*> | Oui | String | Nom du fuseau horaire cible. Pour les noms de fuseaux horaires, consultez : [Fuseaux horaires par défaut de Microsoft Windows](/windows-hardware/manufacture/desktop/default-time-zones). |
 | <*format*> | Non | String | [Spécificateur de format unique](/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjTHH:mm:ss.fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
@@ -1912,8 +1907,7 @@ Et retournent les résultats suivants :
 
 ### <a name="float"></a>float
 
-Convertit une version de type chaîne d’un nombre à virgule flottante en nombre réel à virgule flottante.
-Vous pouvez utiliser cette fonction uniquement lors de la transmission de paramètres personnalisés à une application, telle qu’une application logique ou un flux.
+Convertit une version de type chaîne d’un nombre à virgule flottante en nombre réel à virgule flottante. Vous pouvez utiliser cette fonction uniquement lors de la transmission de paramètres personnalisés à une application, telle qu’une application logique ou un flux.
 
 ```
 float('<value>')
@@ -1921,12 +1915,12 @@ float('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | String | Chaîne qui contient un nombre valide à virgule flottante à convertir |
+| <*value*> | Oui | String | Chaîne qui contient un nombre valide à virgule flottante à convertir Les valeurs minimales et maximales sont les mêmes que les limites du type de données float. |
 |||||
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*float-value*> | Float | Nombre à virgule flottante de la chaîne spécifiée |
+| <*float-value*> | Float | Nombre à virgule flottante de la chaîne spécifiée Les valeurs minimales et maximales sont les mêmes que les limites du type de données float. |
 ||||
 
 *Exemple*
@@ -2352,7 +2346,7 @@ Et retourne ce résultat : `6`
 
 ### <a name="int"></a>int
 
-Retourne la version de type entier d’une chaîne.
+Convertit la version de chaîne d'un entier en nombre entier réel.
 
 ```
 int('<value>')
@@ -2360,12 +2354,12 @@ int('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | String | Chaîne à convertir |
+| <*value*> | Oui | String | Version de chaîne de l'entier à convertir. Les valeurs minimales et maximales sont les mêmes que les limites du type de données d'entier. |
 |||||
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*integer-result*> | Integer | Version de type entier de la chaîne spécifiée |
+| <*integer-result*> | Integer | Version de type entier de la chaîne spécifiée Les valeurs minimales et maximales sont les mêmes que les limites du type de données d'entier. |
 ||||
 
 *Exemple*
@@ -2688,7 +2682,7 @@ join([<collection>], '<delimiter>')
 
 | Valeur retournée | Type | Description |
 | ------------ | ---- | ----------- |
-| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | Chaîne obtenue créée à partir de tous les éléments du tableau spécifié |
+| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | Chaîne obtenue créée à partir de tous les éléments du groupe spécifié <p><p>**Remarque** : La longueur du résultat ne doit pas dépasser 104 857 600 caractères. |
 ||||
 
 *Exemple*
@@ -2700,9 +2694,6 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 Et retourne ce résultat : `"a.b.c"`
-  
-> [!NOTE]
-> La longueur du résultat ne doit pas dépasser 104 857 600 caractères.
 
 <a name="last"></a>
 
@@ -3307,7 +3298,7 @@ range(<startIndex>, <count>)
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
 | <*startIndex*> | Oui | Integer | Une valeur entière qui constitue le premier élément du tableau |
-| <*count*> | Oui | Integer | Nombre d’entiers du tableau |
+| <*count*> | Oui | Integer | Nombre d’entiers dans le tableau. La valeur du paramètre `count` doit être un entier positif qui ne dépasse pas 100 000. <p><p>**Remarque** : La somme des valeurs `startIndex` et `count` ne doit pas dépasser 2 147 483 647. |
 |||||
 
 | Valeur retournée | Type | Description |
@@ -3324,9 +3315,6 @@ range(1, 4)
 ```
 
 Et retourne ce résultat : `[1, 2, 3, 4]`
-  
-> [!NOTE]
-> La valeur du paramètre `count` doit être un entier positif qui ne dépasse pas 100 000. La somme des valeurs `startIndex` et `count` ne doit pas dépasser 2 147 483 647.
 
 <a name="replace"></a>
 
@@ -3727,7 +3715,7 @@ split('<text>', '<delimiter>')
 | [<*substring1*>,<*substring2*>,...] | Array | Un tableau qui contient les sous-chaînes extraites de la chaîne d’origine, séparées par des virgules |
 ||||
 
-*Exemple*
+*Exemple 1*
 
 Cet exemple crée un tableau avec des sous-chaînes extraites de la chaîne spécifiée selon le caractère spécifié comme délimiteur :
 
@@ -3736,6 +3724,16 @@ split('a_b_c', '_')
 ```
 
 Et retourne ce tableau en tant que résultat : `["a","b","c"]`
+
+*Exemple 2*
+  
+Cet exemple crée un tableau avec un seul élément lorsqu’il n’existe aucun délimiteur dans la chaîne :
+
+```
+split('a_b_c', ' ')
+```
+
+Et retourne ce tableau en tant que résultat : `["a_b_c"]`
 
 <a name="startOfDay"></a>
 

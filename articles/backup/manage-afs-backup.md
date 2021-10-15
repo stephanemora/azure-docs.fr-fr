@@ -3,12 +3,12 @@ title: Gérer les sauvegardes de partage de fichiers Azure
 description: Cet article décrit les tâches courantes de gestion et de supervision des partages de fichiers Azure sauvegardés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 784b22f11b57fb025f6d9401e10d527c83751898
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 973c28b2c8caac4d2acda9e2cd976f9ceb8c387c
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88757623"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534031"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gérer les sauvegardes de partage de fichiers Azure
 
@@ -27,6 +27,10 @@ Pour ouvrir la page **Travaux de sauvegarde** :
 1. Après avoir sélectionné **OK**, le volet **Travaux de sauvegarde** répertorie l'état de tous les travaux. Sélectionnez le nom de la charge de travail correspondant au partage de fichiers à superviser.
 
    ![Nom de la charge de travail](./media/manage-afs-backup/workload-name.png)
+
+## <a name="monitor-using-azure-backup-reports"></a>Surveiller à l’aide des rapports de Sauvegarde Azure
+
+Sauvegarde Azure propose une solution de création de rapports qui utilise les [journaux d’activité Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) et les [classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). Ces ressources vous permettent d’obtenir des informations détaillées sur vos sauvegardes. Vous pouvez tirer parti de ces rapports pour obtenir une visibilité sur les éléments de sauvegarde Azure Files, les travaux au niveau de l’élément et les détails des stratégies actives. La fonctionnalité Rapport par e-mail disponible dans Rapports de sauvegarde vous permet de créer des tâches automatisées pour recevoir régulièrement des rapports par e-mail. [En savoir plus](/azure/backup/configure-reports#get-started) sur la configuration et l’affichage des rapports de Sauvegarde Azure.
 
 ## <a name="create-a-new-policy"></a>Créer une nouvelle stratégie
 

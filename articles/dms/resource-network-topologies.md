@@ -2,22 +2,20 @@
 title: Topologies réseau pour les migrations SQL Managed Instance
 titleSuffix: Azure Database Migration Service
 description: Découvrez les configurations sources et cibles pour les migrations Azure SQL Managed Instance à l’aide du service Azure Database Migration Service.
-services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: reference
 ms.date: 01/08/2020
-ms.openlocfilehash: 0799e8c76bc5d3969943d766aa83de40659a236a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a4cdce5ae20147bbf25a82401c9993a620320e5
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093322"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363029"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologies de réseau pour les migrations SQL Managed Instance l’aide d'Azure Database Migration Service
 
@@ -46,7 +44,7 @@ Utilisez cette topologie de réseau si votre environnement requiert un ou plusie
 
 **Configuration requise**
 
-- Le réseau virtuel utilisé par Azure Database Migration Service pour ce scénario doit également être connecté au réseau local à l’aide de https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou de [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+- Le réseau virtuel utilisé par Azure Database Migration Service pour ce scénario doit également être connecté au réseau local à l’aide d’[ExpressRoute](../expressroute/expressroute-introduction.md) ou d’un [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 - Configurez [le peering de réseau](../virtual-network/virtual-network-peering-overview.md) entre le réseau virtuel utilisé pour SQL Managed Instance et Azure Database Migration Service.
 
 ## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migrations de cloud à cloud : Réseau virtuel partagé

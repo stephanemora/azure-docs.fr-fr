@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/09/2021
 ms.author: b-juche
-ms.openlocfilehash: aa47a6b9caaba4b23202390b0cb45a2392b985ea
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ba34d9d1d85ae5845247133289001ffe58174213
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124764397"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407643"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Créer et gérer des connexions Active Directory pour Azure NetApp Files
 
@@ -27,7 +27,7 @@ Plusieurs fonctionnalités d’Azure NetApp Files requièrent une connexion Acti
 
 ## <a name="before-you-begin"></a>Avant de commencer  
 
-* Vous devez déjà avoir configuré un pool de capacité. Consultez [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md).   
+* Vous devez déjà avoir configuré un pool de capacité. Consultez [Créer un pool de capacités](azure-netapp-files-set-up-capacity-pool.md).   
 * Un sous-réseau doit être délégué à Azure NetApp Files. Consultez [Déléguer un sous-réseau à Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="requirements-and-considerations-for-active-directory-connections"></a><a name="requirements-for-active-directory-connections"></a>Exigences et considérations relatives aux connexions Active Directory

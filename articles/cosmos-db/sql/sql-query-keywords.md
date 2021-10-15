@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 10/05/2021
 ms.author: tisande
-ms.openlocfilehash: 680b383cee86ec4233579b9305c47e60ad4d5ff4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 78f2db0f13c1f4b73b926e14cca72645eb626223
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625338"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618759"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Mots clés dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -117,7 +117,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 |Kit de développement logiciel (SDK) Node.js|Non pris en charge|
 |Kit de développement logiciel (SDK) Python|Non pris en charge|
 
-Il existe certaines restrictions supplémentaires concernant les requêtes comportant une fonction système d’agrégation et une sous-requête avec `DISTINCT` :
+Il existe certaines restrictions supplémentaires concernant les requêtes comportant une fonction système d’agrégation et une sous-requête avec `DISTINCT`. Les requêtes ci-dessous ne sont pas prises en charge :
 
 |**Restriction**|**Exemple**|
 |-------|----------------------|

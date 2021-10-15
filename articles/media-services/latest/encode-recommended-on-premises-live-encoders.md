@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 8210efe9c17a6edcb18fe114b7f6165d8cbd8360
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 6b5bec7006fa7bea7c887286d9cdc1a7b51a3d5c
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106281294"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389852"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Encodeurs de streaming en direct locaux vérifiés
 
@@ -28,6 +28,7 @@ Dans Azure Media Services, un [Événement en temps réel](/rest/api/media/livee
 
   > [!TIP]
   > L’utilisation d’une méthode pass-through est le moyen le plus économique de diffuser une vidéo en flux continu.
+  > Le service prend en charge un mode Pass-through de base et standard, en fonction de vos exigences en matière d’ingestion. Le Pass-through de base est le plus économique, mais ses capacités sont limitées. 
  
 * Un encodeur live local envoie un flux à débit unique à l'Événement en temps réel activé pour effectuer un encodage en temps réel avec Media Services dans l'un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). L'Événement en temps réel procède ensuite à l'encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif).
 

@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: 192952747bcc327c87f94d001afe9faf1ed47978
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 5d711771bd8302fb6146376afd1fd7b31613dfe5
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122605338"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129236026"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>Quels services et technologies Azure pouvez-vous utiliser pour créer des solutions IoT ?
 
@@ -33,22 +33,9 @@ Choisissez des appareils dans le [catalogue d’appareils Azure Certified pour I
 
 Étant une plateforme d’applications complètement managée, IoT Central a un modèle tarifaire simple et prévisible.
 
-## <a name="azure-iot-solution-accelerators"></a>Accélérateurs de solution Azure IoT
-
-Les [accélérateurs de solution Azure IoT](https://www.azureiotsolutions.com) sont un ensemble de solutions d’entreprise personnalisables. Vous pouvez déployer en l’état les solutions fournies, ou créer une solution IoT personnalisée à l’aide du code source Java ou .NET open source.
-
-Les accélérateurs de solution Azure IoT offrent un niveau élevé de contrôle sur votre solution IoT. Les accélérateurs de solution incluent des solutions prédéfinies pour les scénarios d’IoT courants que vous pouvez déployer dans votre abonnement Azure en quelques minutes. Il s’agit entre autres des scénarios suivants :
-
-* Fabrique connectée
-* Simulation d’appareil
-
-La base de code open source de tous les accélérateurs de solution est disponible sur GitHub. Téléchargez le code pour personnaliser un accélérateur de solution selon vos besoins en IoT.
-
-Les accélérateurs de solution s’appuient sur des services Azure comme Azure IoT Hub et le Stockage Azure que vous devez gérer dans votre abonnement Azure.
-
 ## <a name="custom-solutions"></a>Solutions personnalisées
 
-Pour créer une solution IoT à partir de zéro ou étendre une solution créée à l’aide d’IoT Central ou d’un accélérateur de solution, utilisez une ou plusieurs des technologies et services Azure IoT suivants :
+Pour créer une solution IoT à partir de zéro ou étendre une solution créée à l’aide d’IoT Central, utilisez une ou plusieurs des technologies et services Azure IoT suivants :
 
 ### <a name="devices"></a>Appareils
 
@@ -56,7 +43,7 @@ Développez vos appareils IoT à l’aide de l’un des [starter kits Azure IoT]
 
 Vous pouvez simplifier encore davantage la création du code incorporé pour vos appareils en suivant les conventions [IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md). Avec IoT Plug-and-Play, les développeurs de solutions peuvent intégrer des appareils avec leurs solutions sans avoir à écrire du code incorporé. Au cœur d’IoT Plug-and-Play est un schéma de _modèle de capacité d’appareil_ qui décrit les capacités de l’appareil. Utilisez le modèle de capacité d’appareil pour générer votre code d’appareil incorporé et configurer une solution cloud telle qu’une application IoT Central.
 
-[Azure IoT Edge](../iot-edge/about-iot-edge.md) vous permet de décharger des parties de la charge de travail IoT de vos services cloud Azure vers vos appareils. IoT Edge contribue à réduire la latence dans votre solution et le volume de données échangées entre vos appareils, et il prend en charge les scénarios hors connexion. Vous pouvez gérer les appareils IoT Edge à partir d’IoT Central et de certains accélérateurs de solution.
+[Azure IoT Edge](../iot-edge/about-iot-edge.md) vous permet de décharger des parties de la charge de travail IoT de vos services cloud Azure vers vos appareils. IoT Edge contribue à réduire la latence dans votre solution et le volume de données échangées entre vos appareils, et il prend en charge les scénarios hors connexion. Vous pouvez gérer les appareils IoT Edge à partir d’IoT Central.
 
 [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) est une plateforme d’applications générales sécurisée qui présente des fonctionnalités de sécurité et de communication intégrées pour les appareils connectés à Internet. Elle comprend une unité de microcontrôleur, un système d'exploitation Linux personnalisé et un service de sécurité cloud qui garantit une sécurité continue et renouvelable.
 
@@ -64,7 +51,7 @@ Vous pouvez simplifier encore davantage la création du code incorporé pour vos
 
 Le service [Azure IoT Hub](../iot-hub/about-iot-hub.md) assure des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et une solution cloud. Le [service IoT Hub Device Provisioning](../iot-dps/about-iot-dps.md) est un service d’assistance pour IoT Hub. Il permet le provisionnement juste-à-temps des appareils sur le hub IoT approprié, sans aucune intervention humaine. Grâce à ces fonctionnalités, les clients peuvent provisionner des millions d’appareils de manière sécurisée et évolutive.
 
-IoT Hub est un composant essentiel des accélérateurs de solution qui vous aide à remplir certaines exigences de l’implémentation de solutions IoT :
+IoT Hub est un composant essentiel qui vous aide à remplir certaines exigences de l’implémentation de solutions IoT :
 
 * Connectivité et gestion de haut volume d’appareils.
 * Ingestion de télémétrie de haut volume.

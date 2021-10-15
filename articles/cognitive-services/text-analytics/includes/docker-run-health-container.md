@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/18/2021
+ms.date: 09/02/2021
 ms.author: aahi
-ms.openlocfilehash: 2bd9d1c6a76e8bf2726831859045363809458228
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 68f320a7af2d41bfb29f6d7f7f84ccdf718044d7
+ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123123540"
+ms.lasthandoff: 09/13/2021
+ms.locfileid: "124799076"
 ---
 ## <a name="install-the-container"></a>Installer le conteneur
 
@@ -50,6 +50,22 @@ Cette commande :
 - Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur
 - Accepte le contrat de licence utilisateur final (CLUF) et les conditions générales de l’IA responsable
 - Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
+
+### <a name="run-the-container-with-client-library-support"></a>Exécuter le conteneur avec prise en charge des bibliothèques de client
+
+À partir de la version `3.0.017010001-onprem-amd64` du conteneur (ou si vous utilisez le conteneur `latest`), vous pouvez exécuter le conteneur Analyse de texte pour l’intégrité pour qu’il collabore avec l’opération d’intégrité de la [bibliothèque de client](../quickstarts/client-libraries-rest-api.md) d’Analyse de texte. Pour ce faire, ajoutez le paramètre suivant à la commande `docker run` :
+
+`enablelro=true`
+
+Par la suite, lorsque vous authentifiez le client Analyse de texte, utilisez le point de terminaison sur lequel votre conteneur s’exécute :
+
+`http://localhost:5000`
+
+Par exemple, si vous utilisez C#, vous pouvez utiliser le code suivant :
+
+```csharp
+var client = new TextAnalyticsClient("http://localhost:5000", "your-text-analytics-key");
+```
 
 ### <a name="demo-ui-to-visualize-output"></a>Interface utilisateur de démonstration pour visualiser la sortie
 

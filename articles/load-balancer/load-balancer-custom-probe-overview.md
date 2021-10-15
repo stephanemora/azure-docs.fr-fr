@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 57be98a76621d04ec14af04166117a5f62a40227
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: bb7505fe23079b13e702dec70bc9cc362cd7b848
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061862"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388258"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -47,7 +47,6 @@ Les sondes d’intégrité prennent en charge plusieurs protocoles. La disponibi
 La configuration de la sonde d’intégrité se compose des éléments suivants :
 
 - Durée de l’intervalle entre chaque sonde
-- Nombre de réponses de sondes devant être observées avant que la sonde bascule dans un autre état
 - Protocole de la sonde
 - Port de la sonde
 - Chemin HTTP à utiliser pour HTTP GET lors de l’utilisation de sondes HTTP(S)
@@ -57,25 +56,20 @@ La configuration de la sonde d’intégrité se compose des éléments suivants�
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Description du signal d’application, de la détection du signal et de la réaction de la plateforme
 
-Le nombre de réponses de sondes s’applique à la fois :
+La valeur d’intervalle détermine la fréquence à laquelle la sonde d’intégrité doit détecter une réponse de vos instances de pool principal. En cas d’échec de la sonde d’intégrité, les instances de pool principal sont immédiatement signalées comme non saines. De même, lors de la prochaine exécution réussie de la sonde d’intégrité, la sonde d’intégrité marquera immédiatement vos instances de pool principal comme étant à nouveau saines.
 
-- Au nombre de sondes ayant réussi et qui permettent à une instance d’être étiquetée comme étant opérationnelle, et
-- le nombre de sondes ayant expiré et qui font qu’une instance est étiquetée comme étant hors service.
+Nous pouvons illustrer le comportement plus en détail avec un exemple, où l’intervalle de votre sonde d’intégrité est défini sur cinq secondes. Étant donné que l’heure à laquelle une sonde est envoyée n’est pas synchronisée avec le moment où votre application peut changer d’état, la durée totale nécessaire à votre sonde d’intégrité pour refléter l’état de votre application peut correspondre à l’un des deux scénarios suivants :
 
-Les valeurs de délai d’expiration et d’intervalle spécifiées déterminent si une instance sera marquée comme étant opérationnelle ou hors service.  La durée de l’intervalle multipliée par le nombre de réponses de sondes détermine la durée pendant laquelle les réponses de sondes doivent être détectées.  Et le service réagira une fois les sondes requises obtenues.
-
-Nous pouvons illustrer le comportement plus en détail avec un exemple. Si vous avez défini le nombre de réponses de sondes sur 2 et un intervalle de 5 secondes, cela signifie que 2 expirations de sondes doivent être observées dans un intervalle de 10 secondes.  Étant donné que l’heure à laquelle une sonde est envoyée n’est pas synchronisée quand votre application peut changer d’état, nous pouvons limiter le temps de détection à deux scénarios :
-
-1. Si votre application commence à produire une réponse de sonde expirée juste avant l’arrivée de la première sonde, la détection de ces événements prend 10 secondes (2 intervalles de 5 secondes), plus la durée entre le moment où l’application commence à signaler une expiration et le moment où la première sonde arrive.  Vous pouvez supposer que cette détection prend un peu plus de 10 secondes.
-2. Si votre application commence à renvoyer une réponse de sonde expirée juste après l’arrivée de la première sonde, la détection de ces événements ne commencera pas avant l’arrivée (et l’expiration) de la sonde suivante plus 10 secondes supplémentaires (2 intervalles de 5 secondes).  Vous pouvez supposer que cette détection prend un peu moins de 15 secondes.
+1. Si votre application commence à produire une réponse de sonde expirée juste avant l’arrivée de la sonde suivante, la détection de ces événements prendra cinq secondes plus la durée entre le moment où l’application commence à signaler une expiration et l’arrivée de la sonde.  Vous pouvez supposer que cette détection prend un peu plus de cinq secondes.
+2. Si votre application commence à renvoyer une réponse de sonde expirée juste après l’arrivée de la sonde suivante, la détection de ces événements ne commencera pas avant l’arrivée (et l’expiration) de la sonde plus cinq secondes supplémentaires.  Vous pouvez supposer que cette détection prend un peu moins de dix secondes.
 
 Pour cet exemple, une fois la détection effectuée, la plateforme prendra alors un peu de temps pour réagir à ce changement.  Cela signifie qu’en fonction des facteurs suivants : 
 
 1. Le moment où l’application commence à changer d’état
-2. Le moment où ce changement a été détecté et a répondu aux critères requis (nombre de sondes envoyées à l’intervalle spécifié)
+2. Le moment où ce changement est détecté (lors de l’envoi de la sonde d’intégrité suivante) et
 3. Le moment où la détection a été communiquée sur la plateforme 
 
-vous pouvez supposer que la réaction à une sonde d’expiration prendra entre un minimum d’un peu plus de 10 secondes et un maximum d’un peu plus de 15 secondes pour réagir à un changement de signal de l’application.  Cet exemple est fourni afin d’illustrer ce qui se produit, mais il n’est pas possible de prévoir une durée exacte au-delà des valeurs approximatives illustrées ci-dessus.
+vous pouvez supposer que la réaction à une sonde d’expiration prendra entre un minimum d’un peu plus de cinq secondes et un maximum d’un peu plus de dix secondes pour réagir à un changement de signal de l’application.  Cet exemple est fourni afin d’illustrer ce qui se produit, mais il n’est pas possible de prévoir une durée exacte au-delà des valeurs approximatives illustrées ci-dessus.
 
 >[!NOTE]
 >La sonde d’intégrité sondera toutes les instances en cours d’exécution dans le pool de back-ends. Si une instance est arrêtée, elle ne sera pas sondée tant qu’elle n’aura pas été redémarrée.
@@ -114,7 +108,7 @@ L’exemple suivant montre comment exprimer ce type de configuration de sonde da
         "protocol": "Tcp",
         "port": 1234,
         "intervalInSeconds": 5,
-        "numberOfProbes": 2
+        "numberOfProbes": 1
       },
 ```
 
@@ -147,7 +141,7 @@ L’exemple suivant montre comment exprimer ce type de configuration de sonde da
         "port": 80,
         "requestPath": "/",
         "intervalInSeconds": 5,
-        "numberOfProbes": 2
+        "numberOfProbes": 1
       },
 ```
 
@@ -159,7 +153,7 @@ L’exemple suivant montre comment exprimer ce type de configuration de sonde da
         "port": 443,
         "requestPath": "/",
         "intervalInSeconds": 5,
-        "numberOfProbes": 2
+        "numberOfProbes": 1
       },
 ```
 
@@ -183,7 +177,6 @@ Quand vous utilisez un rôle web, le code du site web s’exécute généralemen
 Les sondes d’intégrité TCP, HTTP et HTTPS sont considérées comme saines et annotent le point de terminaison back-end comme sain dans les cas suivants :
 
 * La sonde d’intégrité fonctionne correctement après le démarrage de la machine virtuelle.
-* Le nombre spécifié de sondes nécessaires pour marquer le point de terminaison back-end comme étant sain a été atteint.
 
 Tout point de terminaison back-end qui a atteint un état sain est éligible pour la réception de nouveaux flux.  
 

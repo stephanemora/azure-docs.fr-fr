@@ -12,12 +12,12 @@ ms.date: 05/06/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7f4404e3e9b09bcabfc97f0419c230e932a31815
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 5bcdfdd3a56807db967d6be1a8bde540b88c17ca
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122564002"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230947"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-active-directory-application-proxy"></a>Sécurisation de l’accès aux API locales avec le Proxy d’application Azure Active Directory
 
@@ -97,7 +97,7 @@ Vous avez publié votre API web via le proxy d’application Azure AD. Maintena
 1. De retour dans la page **Ajouter une affectation**, sélectionnez **Affecter**.
 
 > [!NOTE]
-> Les API qui utilisent l’authentification Windows intégrée peuvent nécessiter des [étapes supplémentaires](./application-proxy-configure-single-sign-on-with-kcd.md).
+> Les API qui utilisent Authentification Windows intégrée peuvent nécessiter des [étapes supplémentaires](./application-proxy-configure-single-sign-on-with-kcd.md).
 
 ## <a name="register-the-native-app-and-grant-access-to-the-api"></a>Inscrire l’application native et accorder l’accès à l’API
 

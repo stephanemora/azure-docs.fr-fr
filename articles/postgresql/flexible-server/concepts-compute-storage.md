@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2021
-ms.openlocfilehash: 3e17806a38cbf060ba40d24a7ebb861e7bf86d50
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/01/2021
+ms.openlocfilehash: e5c304c958c0939b34bd3df71978d818d30f3cd5
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128555923"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387674"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Options de calcul et de stockage dans le serveur flexible Azure Database pour PostgreSQL
 
@@ -21,7 +21,8 @@ Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois d
 
 | Ressource/Niveau | **Expansible** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|
-| vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
+| Série de la machine virtuelle | Série B  | Série Ddsv4, <br> Dsv3-series  | Série Edsv4, <br> Série Esv3 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 20(v4), 32, 48, 64 |
 | Mémoire par vCore | Variable | 4 Go | 6,75 à 8 Go |
 | Taille de stockage | 32 Go à 16 To | 32 Go à 16 To | 32 Go à 16 To |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
@@ -48,21 +49,22 @@ Les spécifications détaillées des types de serveurs disponibles sont les suiv
 | B1ms                 | 1      | 2 Gio       | 640                | 15 Mio/s                  |
 | B2s                  | 2      | 4 Gio       | 1 280               | 15 Mio/s                  |
 | **Usage général**  |        |             |                    |                             |
-| D2s_v3               | 2      | 8 Gio       | 3200               | 48 Mio/s                  |
-| D4s_v3               | 4      | 16 Gio      | 6 400               | 96 Mio/s                  |
-| D8s_v3               | 8      | 32 Gio      | 12800              | 192 Mio/s                 |
-| D16s_v3              | 16     | 64 Gio      | 18000              | 384 Mio/s                 |
-| D32s_v3              | 32     | 128 Go     | 18000              | 750 Mio/s                 |
-| D48s_v3              | 48     | 192 Gio     | 18000              | 750 Mio/s                 |
-| D64s_v3              | 64     | 256 Gio     | 18000              | 750 Mio/s                 |
+| D2s_v3/D2ds_v4       | 2      | 8 Gio       | 3200               | 48 Mio/s                  |
+| D4s_v3/D4ds_v4       | 4      | 16 Gio      | 6 400               | 96 Mio/s                  |
+| D8s_v3/D8ds_V4       | 8      | 32 Gio      | 12800              | 192 Mio/s                 |
+| D16s_v3/D16ds_v4     | 16     | 64 Gio      | 18000              | 384 Mio/s                 |
+| D32s_v3/D32ds_v4     | 32     | 128 Go     | 18000              | 750 Mio/s                 |
+| D48s_v3/D48ds_v4     | 48     | 192 Gio     | 18000              | 750 Mio/s                 |
+| D64s_v3/D64ds_v4     | 64     | 256 Gio     | 18000              | 750 Mio/s                 |
 | **Mémoire optimisée** |        |             |                    |                             |
-| E2s_v3               | 2      | 16 Gio      | 3200               | 48 Mio/s                  |
-| E4s_v3               | 4      | 32 Gio      | 6 400               | 96 Mio/s                  |
-| E8s_v3               | 8      | 64 Gio      | 12800              | 192 Mio/s                 |
-| E16s_v3              | 16     | 128 Go     | 18000              | 384 Mio/s                 |
-| E32s_v3              | 32     | 256 Gio     | 18000              | 750 Mio/s                 |
-| E48s_v3              | 48     | 384 Gio     | 18000              | 750 Mio/s                 |
-| E64s_v3              | 64     | 432 Gio     | 18000              | 750 Mio/s                 |
+| E2s_v3/E2ds_v4       | 2      | 16 Gio      | 3200               | 48 Mio/s                  |
+| E4s_v3/E4ds_v4       | 4      | 32 Gio      | 6 400               | 96 Mio/s                  |
+| E8s_v3/E8ds_v4       | 8      | 64 Gio      | 12800              | 192 Mio/s                 |
+| E16s_v3/E16ds_v4     | 16     | 128 Go     | 18000              | 384 Mio/s                 |
+| E20ds_v4             | 20     | 160 Gio     | 18000              | 480 Mio/s                 |
+| E32s_v3/E32ds_v4     | 32     | 256 Gio     | 18000              | 750 Mio/s                 |
+| E48s_v3/E48ds_v4     | 48     | 384 Gio     | 18000              | 750 Mio/s                 |
+| E64s_v3/E64ds_v4     | 64     | 432 Gio     | 18000              | 750 Mio/s                 |
 
 ## <a name="storage"></a>Stockage
 
@@ -101,21 +103,22 @@ Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l�
 |B1ms                |640 E/S par seconde                                  |120|240|500 |640*|640* |640* |640* |640* |640*  |640*  |
 |B2s                 |1280 E/S par seconde                                 |120|240|500 |1100|1280*|1280*|1280*|1280*|1280* |1280* |
 |**Usage général** |                                          |   |   |    |    |     |     |     |     |      |      |
-|D2s_v3              |3 200 E/S par seconde                                 |120|240|500 |1100|2300 |3200*|3200*|3200*|3200* |3200* |
-|D4s_v3              |6 400 E/S par seconde                                |120|240|500 |1100|2300 |5 000 |6 400*|6 400*|6 400* |6 400* |
-|D8s_v3              |12 800 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |12 800*|12 800*|
-|D16s_v3             |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
-|D32s_v3             |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
-|D48s_v3             |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
-|D64s_v3             |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
+|D2s_v3/D2ds_v4           |3 200 E/S par seconde                                 |120|240|500 |1100|2300 |3200*|3200*|3200*|3200* |3200* |
+|D4s_v3/D4ds_v4           |6 400 E/S par seconde                                |120|240|500 |1100|2300 |5 000 |6 400*|6 400*|6 400* |6 400* |
+|D8s_v3/D8ds_v4           |12 800 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |12 800*|12 800*|
+|D16s_v3/D16ds_v4          |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
+|D32s_v3/D32ds_v4          |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
+|D48s_v3/D48ds_v4          |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
+|D64s_v3/D64ds_v4          |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
 |**Mémoire optimisée**|                                          |   |   |    |    |     |     |     |     |      |      |
-|E2s_v3              |3 200 E/S par seconde                                 |120|240|500 |1100|2300 |3200*|3200*|3200*|3200* |3200* |
-|E4s_v3              |6 400 E/S par seconde                                |120|240|500 |1100|2300 |5 000 |6 400*|6 400*|6 400* |6 400* |
-|E8s_v3              |12 800 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |12 800*|12 800*|
-|E16s_v3             |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
-|E32s_v3             |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
-|E48s_v3             |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
-|E64s_v3             |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
+|E2s_v3/E2ds_v4           |3 200 E/S par seconde                                 |120|240|500 |1100|2300 |3200*|3200*|3200*|3200* |3200* |
+|E4s_v3/E4ds_v4           |6 400 E/S par seconde                                |120|240|500 |1100|2300 |5 000 |6 400*|6 400*|6 400* |6 400* |
+|E8s_v3/E8ds_v4           |12 800 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |12 800*|12 800*|
+|E16s_v3/E16ds_v4          |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
+|E20ds_v4             |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
+|E32s_v3/E32ds_v4          |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
+|E48s_v3/E48ds_v4          |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
+|E64s_v3/E64ds_v4          |18 000 E/S par seconde                               |120|240|500 |1100|2300 |5 000 |7500 |7500 |16000 |18000 |
 
 Lorsqu’elles sont marquées d’un \*, les E/S par seconde sont limitées par le type de machine virtuelle que vous avez sélectionné. Sinon, les E/S par seconde sont limitées par la taille de stockage sélectionnée.
 
@@ -131,21 +134,22 @@ Lorsqu’elles sont marquées d’un \*, les E/S par seconde sont limitées par 
 |B1ms                |10 Mio/s                                    |10*|10*|10* |10* |10*  |10*  |10*  |10*  |10*   |10*   |
 |B2s                 |15 Mio/s                                    |15*|15*|15* |15* |15*  |15*  |15*  |15*  |15*   |15*   |
 |**Usage général** |                                              |   |   |    |    |     |     |     |     |      |      |
-|D2s_v3              |48 Mio/s                                    |25 |48*|48* |48* |48*  |48*  |48*  |48*  |48*   |48*   |
-|D4s_v3              |96 Mio/s                                    |25 |50 |96* |96* |96*  |96*  |96*  |96*  |96*   |96*   |
-|D8s_v3              |192 Mio/s                                   |25 |50 |100 |125 |150  |192* |192* |192* |192*  |192*  |
-|D16s_v3             |384 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |384*  |384*  |
-|D32s_v3             |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
-|D48s_v3             |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
-|D64s_v3             |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
+|D2s_v3/D2ds_v4              |48 Mio/s                                    |25 |48*|48* |48* |48*  |48*  |48*  |48*  |48*   |48*   |
+|D4s_v3/D4ds_v4              |96 Mio/s                                    |25 |50 |96* |96* |96*  |96*  |96*  |96*  |96*   |96*   |
+|D8s_v3/D8ds_v4              |192 Mio/s                                   |25 |50 |100 |125 |150  |192* |192* |192* |192*  |192*  |
+|D16s_v3/D16ds_v4             |384 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |384*  |384*  |
+|D32s_v3/D32ds_v4             |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
+|D48s_v3/D48ds_v4             |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
+|D64s_v3/Dd64ds_v4             |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
 |**Mémoire optimisée**|                                              |   |   |    |    |     |     |     |     |      |      |
-|E2s_v3              |48 Mio/s                                    |25 |48*|48* |48* |48*  |48*  |48*  |48*  |48*   |48*   |
-|E4s_v3              |96 Mio/s                                    |25 |50 |96* |96* |96*  |96*  |96*  |96*  |96*   |96*   |
-|E8s_v3              |192 Mio/s                                   |25 |50 |100 |125 |150  |192* |192* |192* |192*  |192*  |
-|E16s_v3             |384 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |384*  |384*  |
-|E32s_v3             |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
-|E48s_v3             |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
-|E64s_v3             |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
+|E2s_v3/E2ds_v4              |48 Mio/s                                    |25 |48*|48* |48* |48*  |48*  |48*  |48*  |48*   |48*   |
+|E4s_v3/E4ds_v4             |96 Mio/s                                    |25 |50 |96* |96* |96*  |96*  |96*  |96*  |96*   |96*   |
+|E8s_v3/E8ds_v4             |192 Mio/s                                   |25 |50 |100 |125 |150  |192* |192* |192* |192*  |192*  |
+|E16s_v3/E16ds_v4            |384 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |384*  |384*  |
+|E20ds_v4               |480 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |480*  |480*  |
+|E32s_v3/E32ds_v4            |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
+|E48s_v3/E48ds_v4            |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
+|E64s_v3/E64ds_v4            |750 Mio/s                                   |25 |50 |100 |125 |150  |200  |250  |250  |500   |750   |
 
 Lorsqu’elles sont marquées d’un \*, la bande passante d’E/S est limitée par le type de machine virtuelle que vous avez sélectionné. Sinon, la bande passante d’E/S est limitée par la taille de stockage sélectionnée.
 
@@ -179,7 +183,7 @@ La modification de la période de rétention des sauvegardes s’effectue en lig
 
 ## <a name="pricing"></a>Tarifs
 
-Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/PostgreSQL/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) affiche le coût mensuel dans l’onglet **Niveau tarifaire** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments**, développez la catégorie **Bases de données**, puis choisissez **Azure Database pour PostgreSQL**.
+Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/postgresql/flexible-server/). Pour voir le coût de la configuration souhaitée, le [Portail Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) affiche le coût mensuel dans l’onglet **Niveau tarifaire** selon les options que vous avez sélectionnées. Si vous n’avez pas d’abonnement Azure, vous pouvez utiliser la calculatrice de prix Azure pour obtenir une estimation. Pour personnaliser les options, sur le site web [Calculatrice de prix d’Azure](https://azure.microsoft.com/pricing/calculator/), sélectionnez **Ajouter des éléments**, développez la catégorie **Bases de données**, puis choisissez **Azure Database pour PostgreSQL**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

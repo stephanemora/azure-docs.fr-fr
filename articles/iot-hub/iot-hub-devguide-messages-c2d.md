@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: cc681d843d1fc68b3da6918724c7ad3e3ca5e37e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3901f624f5df8770a235c6cd184aca4a3409c26b
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524236"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129547130"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Envoyer des messages cloud-à-appareil à partir d’IoT Hub
 
@@ -96,12 +96,12 @@ Le corps est un tableau sérialisé JSON des enregistrements, chacun disposant d
 
 | Propriété           | Description |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | Horodatage qui indique quand le résultat du message s’est produit (par exemple, le hub a reçu le message de commentaire, ou le message d’origine est arrivé à expiration) |
-| OriginalMessageId  | Valeur *MessageId* du message cloud-à-appareil auquel se rapportent ces informations de commentaire. |
-| StatusCode         | Chaîne obligatoire, utilisée dans les messages de commentaire générés par IoT Hub : <br/> *Success* <br/> *Expired* <br/> *DeliveryCountExceeded* <br/> *Rejeté* <br/> *Purged* |
-| Description        | Valeurs de chaîne pour *StatusCode*. |
+| enqueuedTimeUtc    | Horodatage qui indique quand le résultat du message s’est produit (par exemple, le hub a reçu le message de commentaire, ou le message d’origine est arrivé à expiration) |
+| originalMessageId  | Valeur *MessageId* du message cloud-à-appareil auquel se rapportent ces informations de commentaire. |
+| statusCode         | Chaîne obligatoire, utilisée dans les messages de commentaire générés par IoT Hub : <br/> *Success* <br/> *Expired* <br/> *DeliveryCountExceeded* <br/> *Rejeté* <br/> *Purged* |
+| description        | Valeurs de chaîne pour *StatusCode*. |
 | deviceId           | Valeur *DeviceId* de l’appareil cible du message cloud-à-appareil auquel se rapporte ce commentaire. |
-| DeviceGenerationId | Valeur *DeviceGenerationId* de l’appareil cible du message cloud-à-appareil auquel se rapporte ce commentaire. |
+| deviceGenerationId | Valeur *DeviceGenerationId* de l’appareil cible du message cloud-à-appareil auquel se rapporte ce commentaire. |
 
 Le service doit spécifier une valeur *MessageId* pour le message cloud-à-appareil afin de pouvoir mettre en corrélation ses commentaires avec le message d’origine.
 
@@ -110,12 +110,12 @@ Le code suivant montre le corps d’un message de commentaire :
 ```json
 [
   {
-    "OriginalMessageId": "0987654321",
-    "EnqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
-    "StatusCode": 0,
-    "Description": "Success",
-    "DeviceId": "123",
-    "DeviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
+    "originalMessageId": "0987654321",
+    "enqueuedTimeUtc": "2015-07-28T16:24:48.789Z",
+    "statusCode": "Success",
+    "description": "Success",
+    "deviceId": "123",
+    "deviceGenerationId": "abcdefghijklmnopqrstuvwxyz"
   },
   {
     ...

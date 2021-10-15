@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Découvrez comment créer des jeux de données Azure Machine Learning pour accéder à vos données pour des exécutions d’expérience de machine learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/06/2021
-ms.openlocfilehash: 5443386a8e62d6576d73161519546e368f41ad82
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: f640165420f06a85633d4db30d6338f4bfa205c4
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532945"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428366"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -223,7 +223,7 @@ file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
 file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
 ```
 
-Les **jeux de données étiquetés** créés à partir de [projets d’étiquetage des données](how-to-create-labeling-projects.md) sont un cas particulier. Ces jeux de données sont un type de TabularDataset constitué de fichiers image. Pour ces types de jeux de données, vous pouvez utiliser [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) pour filtrer les images par métadonnées et par valeurs de colonne, par exemple `label` et `image_details`.
+Les **jeux de données étiquetés** créés à partir de [projets d’étiquetage d’images](how-to-create-image-labeling-projects.md) sont un cas particulier. Ces jeux de données sont un type de TabularDataset constitué de fichiers image. Pour ces types de jeux de données, vous pouvez utiliser [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) pour filtrer les images par métadonnées et par valeurs de colonne, par exemple `label` et `image_details`.
 
 ```python
 # Dataset that only contains records where the label column value is dog

@@ -10,15 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 04/06/2021
+ms.date: 10/01/2021
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b364e74df7e6069407b0bcc3a6cfccd2ead09eae
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3273285aeee7497c43fc4002b2bdabe0b6ef13de
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110690849"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390061"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Résoudre les problèmes liés à Azure RBAC
 
@@ -26,7 +26,7 @@ Cet article répond à certaines questions fréquentes sur le contrôle d’acc�
 
 ## <a name="azure-role-assignments-limit"></a>Limite des attributions de rôle Azure
 
-Azure prend en charge jusqu’à **2 000** attributions de rôle par abonnement. Cette limite comprend les attributions de rôles au niveau de l’abonnement, du groupe de ressources et des étendues de ressources. Si vous obtenez le message d’erreur « Plus aucune attribution de rôle ne peut être créée (code : RoleAssignmentLimitExceeded) » lorsque vous tentez d’attribuer un rôle, essayez de réduire le nombre d’attributions de rôle dans l’abonnement.
+Azure prend en charge jusqu’à **2 000** attributions de rôle par abonnement. Cette limite comprend les attributions de rôle au niveau de l’abonnement, du groupe de ressources et des étendues de ressources, mais pas au niveau du groupe d’administration. Si vous obtenez le message d’erreur « Plus aucune attribution de rôle ne peut être créée (code : RoleAssignmentLimitExceeded) » lorsque vous tentez d’attribuer un rôle, essayez de réduire le nombre d’attributions de rôle dans l’abonnement.
 
 > [!NOTE]
 > Cette limite d’attribution de rôle de **2 000** par abonnement est fixe et ne peut pas être augmentée.
@@ -46,6 +46,13 @@ $scope = "/subscriptions/<subscriptionId>"
 $ras = Get-AzRoleAssignment -Scope $scope | Where-Object {$_.scope.StartsWith($scope)}
 $ras.Count
 ```
+
+## <a name="azure-role-assignments-limit-for-management-groups"></a>Limite d’attributions de rôle Azure pour les groupes d’administration
+
+Azure prend en charge jusqu’à **500** attributions de rôle par groupe d’administration. Cette limite est différente de la limite d’attributions de rôle par abonnement.
+
+> [!NOTE]
+> Cette limite de **500** attributions de rôle par groupe d’administration est fixe et ne peut pas être augmentée.
 
 ## <a name="problems-with-azure-role-assignments"></a>Problèmes liés aux attributions de rôle Azure
 

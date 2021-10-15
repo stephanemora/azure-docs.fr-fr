@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 18333b7c9fded73d330cacd6322b0869bf65f9d9
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: dd92472ff810a46743ffa08b1ea2fdd8f9e01da7
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071080"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407586"
 ---
 # <a name="manage-a-manual-qos-capacity-pool"></a>Gérer un pool de capacités de QoS manuel
 
@@ -31,7 +31,7 @@ Pour comprendre les considérations relatives aux types de QoS, consultez [Hiér
 
 Pour créer un pool de capacités qui utilise le type QoS manuelle :
 
-1. Suivez les étapes décrites dans [Configurer un pool de capacités](azure-netapp-files-set-up-capacity-pool.md).  
+1. Suivez les étapes décrites dans [Créer un pool de capacités](azure-netapp-files-set-up-capacity-pool.md).  
 
 2. Dans la fenêtre Nouveau pool de capacités, sélectionnez le type **QoS manuelle**.  
 
@@ -68,7 +68,7 @@ Si un volume est contenu dans un pool de capacités avec QoS manuelle, vous pouv
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-* [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md)
+* [Créer un pool de capacités](azure-netapp-files-set-up-capacity-pool.md)
 * [Métriques pour Azure NetApp Files](azure-netapp-files-metrics.md)
 * [Considérations sur les performances pour Azure NetApp Files](azure-netapp-files-performance-considerations.md)
 * [Résoudre les problèmes de pools de capacités](troubleshoot-capacity-pools.md)

@@ -6,13 +6,13 @@ author: markheff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/02/2021
-ms.openlocfilehash: 7dd06e48d6d610b99f6c52affcd1d6101e04c9ba
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.date: 10/01/2021
+ms.openlocfilehash: 139fa020459804571129d63819a0e82e3f1737e2
+ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122563646"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129418648"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurer une connexion à un compte Stockage Azure à l’aide d’une identité managée
 
@@ -20,7 +20,8 @@ Cette page explique comment configurer une connexion d’indexeur à un compte S
 
 Vous pouvez utiliser une identité managée affectée par le système ou une identité managée affectée par l’utilisateur (préversion).
 
-Avant d’en apprendre plus sur cette fonctionnalité, il est recommandé de comprendre ce qu’est un indexeur et savoir comment configurer un indexeur pour votre source de données. Pour plus d’informations, consultez les liens suivants :
+Cet article suppose que vous connaissez les concepts et la configuration des indexeurs. Si vous ne connaissez pas les indexeurs, commencez par les liens suivants :
+
 * [Présentation de l’indexeur](search-indexer-overview.md)
 * [Indexeur de blobs Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indexeur Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
@@ -28,9 +29,11 @@ Avant d’en apprendre plus sur cette fonctionnalité, il est recommandé de com
 
 ## <a name="1---set-up-a-managed-identity"></a>1 - Configurer une identité managée
 
-Configurez l’[identité managée](../active-directory/managed-identities-azure-resources/overview.md) à l’aide de l’une des options suivantes.
+Configurez l’[identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour un service Recherche cognitive Azure à l’aide de l’une des options suivantes. 
 
-### <a name="option-1---turn-on-system-assigned-managed-identity"></a>Option 1 - Activer l’identité managée affectée par le système
+Le service de recherche doit être de niveau De base ou supérieur.
+
+### <a name="option-1---turn-on-system-assigned-managed-identity"></a>Option 1 – Activer l’identité managée affectée par le système
 
 Quand une identité managée affectée par le système est activée, Azure crée une identité pour votre service de recherche qui peut être utilisée pour vous authentifier auprès d’autres services Azure au sein du même locataire et du même abonnement. Vous pouvez ensuite utiliser cette identité dans les attributions de contrôle d’accès en fonction du rôle Azure (Azure RBAC) qui autorisent l’accès aux données pendant l’indexation.
 
@@ -39,26 +42,32 @@ Quand une identité managée affectée par le système est activée, Azure crée
 Après avoir sélectionné **Enregistrer**, vous verrez un ID d’objet qui a été attribué à votre service de recherche.
 
 ![ID d’objet](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de l'objet")
- 
-### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>Option 2 - Affecter une identité managée affectée par l’utilisateur au service de recherche (préversion)
+
+### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>Option 2 – Affecter une identité managée affectée par l’utilisateur au service de recherche (préversion)
 
 Si vous n’avez pas encore créé d’identité managée affectée par l’utilisateur, vous devez en créer une. Une identité managée affectée par l’utilisateur est une ressource Azure.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+
 1. Sélectionnez **+ Créer une ressource**.
+
 1. Dans la barre de recherche « Rechercher dans les services et la Place de marché », recherchez « Identité managée affectée par l’utilisateur », puis sélectionnez **Créer**.
+
 1. Donnez à l’identité un nom descriptif.
 
 Affectez ensuite l’identité managée affectée par l’utilisateur au service de recherche. Pour ce faire, vous pouvez utiliser l’[API de gestion en préversion du 01/04/2021](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
 La propriété d’identité accepte un type et une ou plusieurs identités complètes affectées par l’utilisateur :
 
-* **type** représente le type de l’identité. Les valeurs valides sont « SystemAssigned » ou « UserAssigned », ou « SystemAssigned, UserAssigned » si vous souhaitez utiliser les deux. La valeur « None » permet d’effacer du service de recherche toutes les identités affectées.
-* **userAssignedIdentities** comprend les détails de l’identité managée affectée par l’utilisateur.
-    * Format de l’identité managée affectée par l’utilisateur : 
-        * /subscriptions/**ID d’abonnement**/resourcegroups/**nom du groupe de ressources**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**nom de l’identité managée**
+* **type** représente le type de l’identité. Les valeurs valides sont « SystemAssigned », « UserAssigned » ou « SystemAssigned, UserAssigned » pour les deux. La valeur « None » permet d’effacer du service de recherche toutes les identités affectées.
 
-Exemple d’affectation d’une identité managée affectée par l’utilisateur à un service de recherche :
+* **userAssignedIdentities** comprend les détails de l’identité managée affectée par l’utilisateur. Le format est le suivant :
+
+  ```bash
+    /subscriptions/<your-subscription-ID>/resourcegroups/<your-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<your-managed-identity-name>
+  ```
+
+Exemple d’attribution d’identité managée affectée par l’utilisateur :
 
 ```http
 PUT https://management.azure.com/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
@@ -88,17 +97,22 @@ Content-Type: application/json
 Au cours de cette étape, vous allez autoriser votre service Recherche cognitive Azure ou votre identité managée affectée par l’utilisateur à lire les données du compte de stockage.
 
 1. Dans le portail Azure, accédez au compte de stockage qui contient les données que vous souhaitez indexer.
+
 2. Sélectionnez **Contrôle d’accès (IAM)**
+
 3. Sélectionnez **Ajouter**, puis **Ajouter une attribution de rôle**.
 
     ![Ajouter une attribution de rôle](./media/search-managed-identities/add-role-assignment-storage.png "Ajouter une attribution de rôle")
 
 4. Sélectionnez les rôles appropriés en fonction du type de compte de stockage que vous souhaitez indexer :
-    1. Stockage Blob Azure implique que vous ajoutiez votre service de recherche au rôle **Lecteur des données blob du stockage**.
-    1. Azure Data Lake Storage Gen2 nécessite que vous ajoutiez votre service de recherche au rôle **Lecteur des données blob du stockage**.
-    1. Stockage Table Azure implique que vous ajoutiez votre service de recherche au rôle **Lecteur et accès aux données**.
-5.  Laissez **Attribuer l’accès à** sur **Utilisateur, groupe ou principal de service Azure AD**.
-6.  Si vous utilisez une identité managée affectée par le système, recherchez votre service de recherche, puis sélectionnez-le. Si vous utilisez une identité managée affectée par l’utilisateur, recherchez le nom de l’identité managée affectée par l’utilisateur, puis sélectionnez-la. Sélectionnez **Enregistrer**.
+
+    * Stockage Blob Azure implique que vous ajoutiez votre service de recherche au rôle **Lecteur des données blob du stockage**.
+    * Azure Data Lake Storage Gen2 nécessite que vous ajoutiez votre service de recherche au rôle **Lecteur des données blob du stockage**.
+    * Stockage Table Azure implique que vous ajoutiez votre service de recherche au rôle **Lecteur et accès aux données**.
+
+5. Laissez **Attribuer l’accès à** sur **Utilisateur, groupe ou principal de service Azure AD**.
+
+6. Si vous utilisez une identité managée affectée par le système, recherchez votre service de recherche, puis sélectionnez-le. Si vous utilisez une identité managée affectée par l’utilisateur, recherchez le nom de l’identité managée affectée par l’utilisateur, puis sélectionnez-la. Sélectionnez **Enregistrer**.
 
     Exemple pour Stockage Blob Azure et Azure Data Lake Storage Gen2 avec une identité managée affectée par le système :
 
@@ -108,11 +122,13 @@ Au cours de cette étape, vous allez autoriser votre service Recherche cognitive
 
     ![Add reader and data access role assignment](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Ajouter une attribution de rôle Lecteur et accès aux données")
 
+Pour obtenir des exemples de code en C#, consultez [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) (Indexer Data Lake Gen2 à l’aide d’Azure AD) sur GitHub.
+
 ## <a name="3---create-the-data-source"></a>3 – Créer la source de données
 
 Créez la source de données et indiquez une identité managée affectée par le système ou une identité managée affectée par l’utilisateur (préversion). Notez que vous n’utilisez plus l’API REST de gestion dans les étapes ci-dessous.
 
-### <a name="option-1---create-the-data-source-with-a-system-assigned-managed-identity"></a>Option 1 - Créer la source de données avec une identité managée affectée par le système
+### <a name="option-1---create-the-data-source-with-a-system-assigned-managed-identity"></a>Option 1 : Créer la source de données avec une identité managée affectée par le système
 
 L’[API REST](/rest/api/searchservice/create-data-source), le portail Azure et le [kit SDK .NET](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) prennent en charge l’utilisation d’une identité managée affectée par le système. Voici un exemple de création d’une source de données pour indexer des données à partir d’un compte de stockage à l’aide de l’[API REST](/rest/api/searchservice/create-data-source) et d’une chaîne de connexion d’identité gérée. Le format de chaîne de connexion d’identité managée est le même pour l’API REST, le kit de développement logiciel (SDK) .NET et le portail Azure.
 
@@ -241,14 +257,13 @@ Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un 
 
 Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour la Recherche cognitive Azure](search-howto-schedule-indexers.md).
 
-## <a name="accessing-secure-data-in-storage-accounts"></a>Accès aux données sécurisées dans les comptes de stockage
+## <a name="accessing-network-secured-data-in-storage-accounts"></a>Accès aux données sécurisées du réseau dans les comptes de stockage
 
 Les comptes de stockage Azure peuvent être sécurisés davantage à l’aide de pare-feu et de réseaux virtuels. Si vous souhaitez indexer le contenu d’un compte de stockage Blob ou d’un compte de stockage Data Lake Gen2 qui est sécurisé par un pare-feu ou un réseau virtuel, suivez les instructions fournies dans [Accès aux données dans les comptes de stockage de manière sécurisée via une exception de service approuvé](search-indexer-howto-access-trusted-service-exception.md).
 
 ## <a name="see-also"></a>Voir aussi
 
-En savoir plus sur les indexeurs de Stockage Azure :
-
 * [Indexeur de blobs Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indexeur Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 * [Indexeur de tables Azure](search-howto-indexing-azure-tables.md)
+* [Exemple C# : Indexer Data Lake Gen2 à l’aide d’Azure AD (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md)

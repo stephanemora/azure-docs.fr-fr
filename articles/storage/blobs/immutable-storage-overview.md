@@ -10,12 +10,12 @@ ms.date: 08/31/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: ca0ec185721b0e35c15dfe99e361ff024cf01a78
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c923af2d4260afba8ed8347c6723119278ab1c62
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584205"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278630"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Stocker des données blob critiques pour l’entreprise avec un stockage immuable
 
@@ -122,7 +122,7 @@ Les stratégies d’immuabilité sont prises en charge pour les comptes de stock
 
 ### <a name="access-tiers"></a>Niveaux d’accès
 
-Tous les niveaux d’accès des objets blob prennent en charge le stockage immuable. Vous pouvez modifier le niveau d’accès d’un objet blob à l’aide de l’opération Set Blob Tier. Pour plus d’informations, consultez [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](storage-blob-storage-tiers.md).
+Tous les niveaux d’accès des objets blob prennent en charge le stockage immuable. Vous pouvez modifier le niveau d’accès d’un objet blob à l’aide de l’opération Set Blob Tier. Pour plus d’informations, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](access-tiers-overview.md).
 
 ### <a name="redundancy-configurations"></a>Configurations de redondance
 
@@ -169,8 +169,8 @@ Ce tableau montre comment cette fonctionnalité est prise en charge dans votre c
 
 | Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)<sup>2</sup>              | ![Oui](../media/icons/yes-icon.png)<sup>2</sup> |
-| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)<sup>2</sup> | ![Oui](../media/icons/yes-icon.png)<sup>2</sup> |
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Objets blob de blocs Premium          | ![Oui](../media/icons/yes-icon.png) |![Oui](../media/icons/yes-icon.png)  <sup>2</sup> | ![Oui](../media/icons/yes-icon.png)  <sup>2</sup> |
 
 <sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 

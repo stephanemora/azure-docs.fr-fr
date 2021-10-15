@@ -2,7 +2,6 @@
 title: Personnaliser les revendications d’application de locataire Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
 description: Découvrez comment personnaliser des revendications émises dans des jetons pour une application au sein d’un locataire Azure Active Directory spécifique.
-services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -13,12 +12,12 @@ ms.topic: how-to
 ms.date: 06/16/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 302ab2b6f3060213a79b88ce6358cd842f74a425
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 71677a085627f46a995530c522a3a480be188042
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425551"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351000"
 ---
 # <a name="customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant"></a>Personnaliser des revendications émises dans des jetons pour une application spécifique au sein d’un locataire
 
@@ -47,7 +46,7 @@ Lorsque vous créez une stratégie de mappage de revendications, vous pouvez ég
 Pour commencer, suivez les étapes ci-dessous :
 
 1. Téléchargez la dernière [préversion publique du module Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Exécutez la commande [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0-preview) pour vous connecter à votre compte administrateur Azure AD. Exécutez cette commande chaque fois que vous démarrez une nouvelle session.
+1. Exécutez la commande [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0-preview&preserve-view=true) pour vous connecter à votre compte administrateur Azure AD. Exécutez cette commande chaque fois que vous démarrez une nouvelle session.
 
    ``` powershell
    Connect-AzureAD -Confirm

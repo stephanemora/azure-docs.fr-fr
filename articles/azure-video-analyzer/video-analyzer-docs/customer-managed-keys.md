@@ -5,12 +5,12 @@ author: anilmur
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: d24ddd090f9acffc3dd19643d4004dbb58fc344d
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: e86d2eb8883efb887a598f93d191ae9070ef2b67
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114603841"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402989"
 ---
 # <a name="customer-managed-keys-with-azure-video-analyzer"></a>Clés gérées par le client avec Azure Video Analyzer
 
@@ -20,7 +20,7 @@ Bring Your Own Key (BYOK) est une initiative à l’échelle d’Azure qui aide 
 
 Une clé de compte est créée pour tous les comptes Video Analyzer. Par défaut, cette clé de compte est chiffrée par une clé système appartenant à Video Analyzer (c’est-à-dire une clé gérée par le système). À la place, vous pouvez utiliser votre propre clé avec Azure Video Analyzer. Dans ce cas, votre clé de compte est chiffrée avec votre clé. Les stratégies d’accès et les métadonnées de ressource vidéo sont chiffrées à l’aide de la clé de compte.
 
-Video Analyzer utilise une identité managée affectée par l’utilisateur pour lire votre clé à partir d’un coffre de clés qui vous appartient. Vous devez fournir l’identité managée affectée par l’utilisateur quand vous créez ou mettez à jour le compte Video Analyzer, et attribuer le [contrôle d’accès en fonction du rôle Azure] approprié../../role-based-access-control/overview.md) sur le coffre de clés. Pour Video Analyzer, le coffre de clés doit être dans la même région que le compte, et doit avoir la suppression réversible et la protection contre la suppression définitive activées.
+Video Analyzer utilise une identité managée affectée par l’utilisateur pour lire votre clé à partir d’un coffre de clés qui vous appartient. Vous devez fournir l’identité managée affectée par l’utilisateur quand vous créez ou mettez à jour le compte Video Analyzer et attribuer le [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md) approprié au coffre de clés. Pour Video Analyzer, le coffre de clés doit être dans la même région que le compte, et doit avoir la suppression réversible et la protection contre la suppression définitive activées.
 
 Votre clé peut être une clé RSA 2048, 3072 ou 4096, et les clés HSM et logicielles sont toutes deux prises en charge.
 

@@ -4,13 +4,13 @@ description: Utilisez des boucles et des tableaux dans un fichier Bicep pour dé
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 08/27/2021
-ms.openlocfilehash: f8893fa6716d1b106e54f7eb76002622ce5a4bc3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 8c679eda4de1a3e29719a1518166e214b57b37c3
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793433"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357820"
 ---
 # <a name="module-iteration-in-bicep"></a>Itération de module dans Bicep
 
@@ -149,6 +149,8 @@ module stgModule './storageAccount.bicep' = [for i in range(0, 4): {
 ```
 
 Pour un déploiement purement séquentiel, définissez la taille du lot sur 1.
+
+L’élément décoratif `batchSize` se trouve dans l’[espace de noms sys](bicep-functions.md#namespaces-for-functions). Si vous devez différencier cet élément décoratif d’un autre élément portant le même nom, faites précéder l’élément décoratif de **sys**: `@sys.batchSize(2)`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7c3197a8eb9f6734cdd04d609ea0f59465ffa86d
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 31dd0096140544db9c1265999b8c0c709def9cda
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110535508"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350076"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Connexion sur page unique en utilisant un flux implicite OAuth 2.0 dans Azure Active Directory B2C
 
-De nombreuses applications modernes disposent d’un front-end d’application monopage écrit principalement en JavaScript. Souvent, l’application est écrite à l’aide d’un framework comme React, Angular ou Vue.js. Les applications à page unique et d’autres applications JavaScript qui s’exécutent principalement dans un navigateur présentent certaines problématiques supplémentaires pour l’authentification :
+De nombreuses applications modernes disposent d’un serveur frontal d’application monopage (SPA) écrit principalement en JavaScript. Souvent, l’application est écrite à l’aide d’un framework comme React, Angular ou Vue.js. Les SPA et d’autres applications JavaScript qui s’exécutent principalement dans un navigateur présentent certaines problématiques supplémentaires pour l’authentification :
 
 - Les caractéristiques de sécurité de ces applications sont différentes de celles des applications web traditionnelles basées sur serveur.
 - Beaucoup de serveurs d’autorisation et de fournisseurs d’identité ne prennent pas en charge les demandes de partage des ressources cross-origin (CORS).
 - Chacune des redirections à partir de l’application du navigateur plein écran peut perturber l’expérience utilisateur.
 
-La méthode recommandée pour la prise en charge d’applications monopages est [le Flux de code d’autorisation OAuth 2.0 (avec PKCE)](./authorization-code-flow.md).
+La méthode recommandée pour prendre en charge les applications monopages est le [flux de code d’autorisation OAuth 2.0 (avec PKCE)](./authorization-code-flow.md).
 
 Certaines infrastructures, telles que [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), ne prennent en charge que le flux d’octroi implicite. Dans ces cas, Azure Active Directory B2C (Azure AD B2C) prend en charge le flux d’octroi implicite de l’autorisation OAuth 2.0. Le flux est décrit dans la [section 4.2 de la spécification OAuth 2.0](https://tools.ietf.org/html/rfc6749). Dans un flux implicite, l’application reçoit des jetons directement du point de terminaison d’autorisation Azure AD, sans aucun échange de serveur à serveur. L’intégralité de la logique d’authentification et de la gestion des sessions est effectuée sur le client JavaScript, à l’aide d’une redirection de page ou d’une fenêtre contextuelle.
 
@@ -68,7 +68,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 À ce stade, il est demandé à l’utilisateur d’effectuer le flux de travail de la stratégie. L’utilisateur peut avoir à entrer son nom d’utilisateur et son mot de passe, à se connecter avec une identité sociale, à s’inscrire à l’annuaire ou à suivre n’importe quelle autre étape. Les actions de l’utilisateur dépendent de la façon dont le flux d’utilisateur est défini.
 
-Une fois que l’utilisateur a terminé le flux d’utilisateur, Azure AD retourne une réponse à votre application avec la valeur que vous avez utilisée pour `redirect_uri`. Il utilise la méthode spécifiée dans le paramètre `response_mode`. La réponse est exactement la même pour chacun des scénarios d’actions utilisateur, indépendamment du flux d’utilisateur exécuté.
+Une fois que l’utilisateur a terminé le flux d’utilisateur, Azure AD B2C renvoie une réponse à votre application avec la valeur que vous avez utilisée pour `redirect_uri`. Il utilise la méthode spécifiée dans le paramètre `response_mode`. La réponse est exactement la même pour chacun des scénarios d’actions utilisateur, indépendamment du flux d’utilisateur exécuté.
 
 ### <a name="successful-response"></a>Réponse correcte
 Une réponse correcte qui utilise `response_mode=fragment` et `response_type=id_token+token` est semblable à ceci (des sauts de ligne ont été insérés pour une meilleure lisibilité) :
@@ -126,7 +126,9 @@ Une des propriétés de ce document de configuration est `jwks_uri`. La valeur d
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/b2c_1_sign_in/discovery/v2.0/keys
 ```
 
-Pour déterminer le flux d’utilisateur utilisé pour signer un jeton d’ID (et l’emplacement d’où extraire les métadonnées), deux options sont possibles. D’abord, le nom du flux d’utilisateur est inclus dans la revendication `acr` de `id_token`. Pour plus d’informations sur la façon d’analyser les revendications à partir d’un jeton d’ID, consultez [Informations de référence sur les jetons Azure AD B2C](tokens-overview.md). L’autre option consiste à coder le flux d’utilisateur dans la valeur du paramètre `state` lors de l’émission de la demande, puis de décoder le paramètre `state` pour déterminer quel flux d’utilisateur a été utilisé. Les 2 méthodes sont valides.
+Pour déterminer le flux d’utilisateur utilisé pour signer un jeton d’ID (et l’emplacement d’où extraire les métadonnées), deux options sont possibles :
+-  Le nom du flux d’utilisateur est inclus dans la revendication `acr` de `id_token`. Pour plus d’informations sur la façon d’analyser les revendications à partir d’un jeton d’ID, consultez [Informations de référence sur les jetons Azure AD B2C](tokens-overview.md). 
+- Encodez le flux d’utilisateur dans la valeur du paramètre `state` lorsque vous émettez la demande, puis de décoder le paramètre `state` pour déterminer quel flux d’utilisateur a été utilisé. Les 2 méthodes sont valides.
 
 Après avoir acquis le document de métadonnées auprès du point de terminaison de métadonnées OpenID Connect, vous pouvez utiliser les clés publiques RSA 256 (qui se trouvent sur ce point de terminaison) pour valider la signature du jeton d’ID. Il peut y avoir plusieurs clés répertoriées sur ce point de terminaison, chacune étant identifiée par un `kid`. L’en-tête de `id_token` contient également une revendication de `kid`. Il indique laquelle de ces clés a été utilisée pour signer le jeton d’ID. Pour plus d’informations, notamment sur la [validation des jetons](tokens-overview.md), consultez les [informations de référence sur les jetons d’Azure AD B2C](tokens-overview.md).
 <!--TODO: Improve the information on this-->
@@ -150,7 +152,7 @@ Une fois que vous avez validé le jeton d’ID, vous pouvez démarrer une sessio
 ## <a name="get-access-tokens"></a>Obtenir des jetons d’accès
 Si la seule chose que doit faire votre application web est exécuter des flux d’utilisateur, vous pouvez ignorer les quelques sections suivantes. Les informations des sections suivantes s’appliquent uniquement aux applications web qui doivent effectuer des appels authentifiés à une API web et qui sont protégées par Azure AD B2C.
 
-Maintenant que vous avez connecté l’utilisateur à votre application à page unique, vous pouvez obtenir des jetons d’accès pour appeler des API web sécurisées par Azure AD. Même si vous avez déjà reçu un jeton en utilisant le type de réponse `token`, vous pouvez utiliser cette méthode pour acquérir des jetons pour des ressources supplémentaires sans avoir à demander à l’utilisateur de se reconnecter.
+Maintenant que vous avez connecté l’utilisateur à votre SPA, vous pouvez obtenir des jetons d’accès pour appeler des API web sécurisées par Azure AD. Même si vous avez déjà reçu un jeton en utilisant le type de réponse `token`, vous pouvez utiliser cette méthode pour acquérir des jetons pour des ressources supplémentaires sans avoir à demander à l’utilisateur de se reconnecter.
 
 Dans le flux d’une application web standard, vous effectuez une demande au point de terminaison `/token`. Cependant, le point de terminaison ne prend pas en charge les requêtes CORS : il n’est donc pas possible d’effectuer des appels AJAX pour obtenir un jeton d’actualisation. Au lieu de cela, vous pouvez utiliser le flux implicite d’un élément IFrame HTML masqué pour obtenir de nouveaux jetons pour d’autres API web. Voici un exemple, avec des sauts de ligne pour une meilleure lisibilité :
 
@@ -245,4 +247,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’exemple de code : [Se connecter avec Azure AD B2C dans une application monopage JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c).
+Consultez l’exemple de code : [Se connecter avec Azure AD B2C dans une SPA JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-core-samples/VanillaJSTestApp/app/b2c).

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2021
-ms.openlocfilehash: bb7baa20b5bc7e47e231e3e15937dde941ac0e03
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 5e1d4675e7e99410471951c21d7e8112cf6839c5
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122608257"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275009"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?
 
@@ -93,10 +93,13 @@ Pour en savoir plus sur les séries prises en charge et les restrictions, consul
 | [EAv4](../virtual-machines/eav4-easv4-series.md) | Aucun. | Mémoire optimisée | Clusters et instance de calcul |
 | [Ev3](../virtual-machines/ev3-esv3-series.md) | Aucun. | Mémoire optimisée | Clusters et instance de calcul |
 | [FSv2](../virtual-machines/fsv2-series.md) | Aucun. | Optimisé pour le calcul | Clusters et instance de calcul |
+| [FX](../virtual-machines/fx-series.md) | Nécessite une approbation. | Optimisé pour le calcul | Clusters de calcul |
 | [H](../virtual-machines/h-series.md) | Aucun. | Calcul haute performance | Clusters et instance de calcul |
 | [HB](../virtual-machines/hb-series.md) | Nécessite une approbation. | Calcul haute performance | Clusters et instance de calcul |
 | [HBv2](../virtual-machines/hbv2-series.md) | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
+| [HBv3](../virtual-machines/hbv3-series.md) | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
 | [HC](../virtual-machines/hc-series.md) | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
+| [LSv2](../virtual-machines/lsv2-series.md) | Aucun. |  Stockage optimisé | Clusters et instance de calcul |
 | [M](../virtual-machines/m-series.md) | Nécessite une approbation. | Mémoire optimisée | Clusters et instance de calcul |
 | [NC](../virtual-machines/nc-series.md) | Aucun. |  GPU | Clusters et instance de calcul |
 | [NC Promo](../virtual-machines/nc-series.md) | Aucun. | GPU | Clusters et instance de calcul |

@@ -1,7 +1,7 @@
 ---
 title: Utiliser des packages Python privés
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser en toute sécurité aux packages Python privés à partir de vos environnements Azure Machine Learning.
+description: Découvrez comment utiliser en toute sécurité des packages Python privés à partir de vos environnements Azure Machine Learning.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 2ca004902a6d574348846ba2ee4829a099db8b39
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: f9767fd35241804c511c3e3fa19051b04ad7c098
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094649"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428746"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Utiliser des packages Python privés avec Azure Machine Learning
 

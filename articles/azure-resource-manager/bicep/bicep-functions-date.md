@@ -4,13 +4,13 @@ description: Décrit les fonctions à utiliser dans un fichier Bicep pour travai
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: 45e0180a11209b39b4c37f16f9940686c042ee89
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 0eb995db6584dd056fa0b1563aec8c117fddeb66
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124794117"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357257"
 ---
 # <a name="date-functions-for-bicep"></a>Fonctions de date pour Bicep
 
@@ -21,6 +21,8 @@ Cet article décrit les fonctions Bicep pour l’utilisation de dates.
 `dateTimeAdd(base, duration, [format])`
 
 Ajoute une durée à une valeur de base. Le format ISO 8601 est attendu.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 
@@ -85,6 +87,8 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
 `utcNow(format)`
 
 Retourne la valeur de date/heure (UTC) actuelle au format spécifié. Si aucun format n’est indiqué, le format utilisé est ISO 8601 (`yyyyMMddTHHmmssZ`). **Cette fonction peut uniquement être utilisée dans la valeur par défaut d’un paramètre.**
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
 
 ### <a name="parameters"></a>Paramètres
 

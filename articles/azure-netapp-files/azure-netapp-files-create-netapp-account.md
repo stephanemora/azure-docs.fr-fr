@@ -12,22 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/28/2018
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: e5e0c43aa8c4fbf0db89065e0fab93ee174a4ede
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 994af6291f55e9f1dd44f2f522f9273639531257
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96006591"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407054"
 ---
 # <a name="create-a-netapp-account"></a>Créer un compte NetApp
 La création d’un compte NetApp vous permet de configurer un pool de capacité et par la suite de créer un volume. Le panneau Azure NetApp Files permet de créer un nouveau compte NetApp.
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Vous devez avoir reçu un e-mail de l’équipe Azure NetApp Files confirmant que vous avez désormais accès au service. Consultez [soumettre une demande de liste d’attente pour l’accès au service](azure-netapp-files-register.md#waitlist).
 
-Vous devez également avoir inscrit votre abonnement pour l’utilisation du fournisseur de ressources NetApp. Consultez [Inscrire le fournisseur de ressources NetApp](azure-netapp-files-register.md#resource-provider).
+Vous devez avoir inscrit votre abonnement pour l’utilisation du fournisseur de ressources NetApp. Consultez [Inscrire le fournisseur de ressources NetApp](azure-netapp-files-register.md).
 
 ## <a name="steps"></a>Étapes 
 
@@ -64,5 +63,5 @@ Vous devez également avoir inscrit votre abonnement pour l’utilisation du fou
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-[Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md)
+[Créer un pool de capacités](azure-netapp-files-set-up-capacity-pool.md)
 

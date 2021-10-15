@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/26/2021
 ms.author: yushwang
-ms.openlocfilehash: 0551cf435b732b621ad5493914251afd67f18882
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: b3619ba68338e40773cdd962298b01806bde5b2b
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707146"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660625"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -185,6 +185,10 @@ Il s’agit du comportement attendu pour les passerelles VPN basées sur une str
 Nous prenons en charge les serveurs de routage et d’accès distant (RRAS) Windows Server 2012 pour la configuration site à site entre différents locaux.
 
 D’autres solutions VPN logicielles fonctionnent avec notre passerelle tant qu'elles sont conformes aux implémentations IPsec standard. Contactez le fournisseur du logiciel pour obtenir des instructions de configuration et de prise en charge.
+
+### <a name="can-i-connect-to-azure-gateway-via-point-to-site-when-located-at-a-site-that-has-an-active-site-to-site-connection"></a>Puis-je me connecter à la passerelle Azure via une connexion de point à site sur un site disposant d’une connexion de site à site active ?
+
+Oui, mais les adresses IP publiques du client point à site doivent être différentes de celles utilisées par le périphérique VPN de site à site. Dans le cas contraire, la connexion de point à site ne fonctionnera pas. Les connexions de point à site avec IKEv2 ne peuvent pas être lancées à partir des mêmes adresses IP publiques où une connexion VPN de site à site est configurée sur la même passerelle VPN Azure. 
 
 ## <a name="point-to-site---certificate-authentication"></a><a name="P2S"></a>Point à site : authentification par certificat
 

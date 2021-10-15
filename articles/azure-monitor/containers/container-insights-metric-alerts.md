@@ -3,12 +3,12 @@ title: Alertes métriques de Container Insights
 description: Cet article passe en revue les alertes métriques recommandées disponibles dans Container Insights en préversion publique.
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 8280b567adb36511c4eb58d7ec72b775d36feb6a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7036bc7a0f161044312687d6b22171df99821e6a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531942"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714419"
 ---
 # <a name="recommended-metric-alerts-preview-from-container-insights"></a>Alertes métriques recommandées (préversion) de Container Insights
 
@@ -17,6 +17,9 @@ Pour alerter concernant des problèmes de ressources système quand les conteneu
 Cet article passe en revue l’expérience et fournit des conseils sur la configuration et la gestion de ces règles d’alerte.
 
 Avant de commencer, si vous n’êtes pas familiarisé avec les alertes d’Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../alerts/alerts-overview.md). Pour en savoir plus sur les alertes métriques, consultez [Alertes métriques dans Azure Monitor](../alerts/alerts-metric-overview.md).
+
+> [!NOTE]
+> À compter du 8 octobre 2021, trois alertes ont été mises à jour pour calculer correctement la condition d’alerte : **% du processeur du conteneur**, **% de la mémoire de la plage de travail du conteneur** et **% d’utilisation du volume persistant**. Ces nouvelles alertes ont les mêmes noms que les alertes correspondantes précédemment disponibles, mais elles utilisent de nouvelles métriques mises à jour. Nous vous recommandons de désactiver les alertes qui utilisent les métriques « Old », décrites dans cet article, et d’activer les métriques « New ». Les métriques « Old » ne sont plus disponibles dans les alertes recommandées une fois qu’elles sont désactivées, mais vous pouvez les réactiver manuellement.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,13 +42,13 @@ Avant de commencer, vérifiez les éléments suivants :
 
 Pour alerter sur ce qui est important, Container Insights inclut les alertes métriques suivantes pour vos clusters AKS et Kubernetes avec Azure Arc :
 
-|Nom| Description |Seuil par défaut |
+|Name| Description |Seuil par défaut |
 |----|-------------|------------------|
-|Pourcentage moyen d’UC du conteneur |Calcule l’utilisation moyenne de l’UC par conteneur.|Lorsque l’utilisation moyenne de l’UC par conteneur est supérieure à 95 %.| 
-|Pourcentage moyen de mémoire de la plage de travail du conteneur |Calcule la mémoire moyenne de la plage de travail utilisée par conteneur.|Lorsque l’utilisation moyenne de la mémoire de la plage de travail par conteneur est supérieure à 95 %. |
+|**(New)Pourcentage moyen d’UC du conteneur** |Calcule l’utilisation moyenne de l’UC par conteneur.|Lorsque l’utilisation moyenne de l’UC par conteneur est supérieure à 95 %.| 
+|**(New)Pourcentage moyen de mémoire de la plage de travail du conteneur** |Calcule la mémoire moyenne de la plage de travail utilisée par conteneur.|Lorsque l’utilisation moyenne de la mémoire de la plage de travail par conteneur est supérieure à 95 %. |
 |% moyen du processeur |Calcule l’utilisation moyenne de l’UC par nœud. |Lorsque l’utilisation moyenne de l’UC par nœud est supérieure à 80 % |
 |Pourcentage moyen d’utilisation de l’UC |Calcule l’utilisation moyenne du disque pour un nœud.|Lorsque l’utilisation du disque pour un nœud est supérieure à 80 %. |
-|Pourcentage moyen d’utilisation du volume persistant |Calcule l’utilisation moyenne du volume persistant par pod. |Lorsque l’utilisation moyenne du volume persistant par pod est supérieure à 80 %.|
+|**(Nouveau)Pourcentage moyen d’utilisation du volume persistant** |Calcule l’utilisation moyenne du volume persistant par pod. |Lorsque l’utilisation moyenne du volume persistant par pod est supérieure à 80 %.|
 |Pourcentage moyen de mémoire de la plage de travail |Calcule la mémoire moyenne de la plage de travail pour un nœud. |Lorsque la mémoire moyenne de la plage de travail pour un nœud est supérieure à 80 %. |
 |Nombre de conteneurs en cours de redémarrage |Calcule le nombre de conteneurs en cours de redémarrage. | Lorsque le conteneur redémarre, le nombre est supérieur à 0. |
 |Nombre de pods défaillants |Calcule si un pod est en état défaillant.|Quand un nombre de pods en état défaillant est supérieur à 0. |
@@ -80,7 +83,7 @@ Les métriques suivantes basées sur les alertes présentent des caractéristiqu
 
 ## <a name="metrics-collected"></a>Métriques collectées
 
-Dans le cadre de cette fonctionnalité, sauf spécification contraire, les métriques suivantes sont activées et collectées :
+Dans le cadre de cette fonctionnalité, sauf spécification contraire, les métriques suivantes sont activées et collectées. Les métriques en **gras** avec l’étiquette « Old » sont celles remplacées par des métriques « New » collectées pour l’évaluation correcte des alertes.
 
 |Espace de noms de la métrique |Métrique |Description |
 |---------|----|------------|
@@ -97,10 +100,14 @@ Dans le cadre de cette fonctionnalité, sauf spécification contraire, les métr
 |Insights.container/pods |restartingContainerCount |Nombre de redémarrages de conteneur par contrôleur, espace de noms Kubernetes.|
 |Insights.container/pods |oomKilledContainerCount |Nombre de conteneurs OOMkilled par contrôleur, espace de noms Kubernetes.|
 |Insights.container/pods |podReadyPercentage |Pourcentage de pods dans l’état prêt par contrôleur, espace de noms Kubernetes.|
-|Insights.container/containers |cpuExceededPercentage |Pourcentage d’utilisation de l’UC pour les conteneurs dépassant le seuil configurable par l’utilisateur (95,0 par défaut) par nom de conteneur, nom de contrôleur, espace de noms Kubernetes, nom de pod.<br> Collecté  |
-|Insights.container/containers |memoryRssExceededPercentage |Pourcentage de mémoire RSS pour les conteneurs dépassant le seuil configurable par l’utilisateur (95,0 par défaut) par nom de conteneur, nom de contrôleur, espace de noms Kubernetes, nom de pod.|
-|Insights.container/containers |memoryWorkingSetExceededPercentage |Pourcentage de plage de travail de mémoire pour les conteneurs dépassant le seuil configurable par l’utilisateur (95,0 par défaut) par nom de conteneur, nom de contrôleur, espace de noms Kubernetes, nom de pod.|
-|Insights.container/persistentvolumes |pvUsageExceededPercentage |Pourcentage d’utilisation du volume persistant pour les volumes persistants dépassant le seuil configurable par l’utilisateur (60 par défaut) par nom de revendication, espace de noms Kubernetes, nom de volume, nom de pod ou nom de nœud.
+|Insights.container/containers |**(Old)cpuExceededPercentage** |Pourcentage d’utilisation de l’UC pour les conteneurs dépassant le seuil configurable par l’utilisateur (95,0 par défaut) par nom de conteneur, nom de contrôleur, espace de noms Kubernetes, nom de pod.<br> Collecté  |
+|Insights.container/containers |**(New)cpuThresholdViolated** |Métrique déclenchée lorsque le pourcentage d’utilisation de l’UC pour les conteneurs dépassant le seuil configurable par l’utilisateur (95,0 par défaut) par nom de conteneur, nom de contrôleur, espace de noms Kubernetes, nom de pod.<br> Collecté  |
+|Insights.container/containers |**(Old)memoryRssExceededPercentage** |Pourcentage de mémoire RSS pour les conteneurs dépassant le seuil configurable par l’utilisateur (95,0 par défaut) par nom de conteneur, nom de contrôleur, espace de noms Kubernetes, nom de pod.|
+|Insights.container/containers |**(New)memoryRssThresholdViolated** |Métrique déclenchée lorsque le pourcentage de mémoire RSS pour les conteneurs dépassant le seuil configurable par l’utilisateur (95,0 par défaut) par nom de conteneur, nom de contrôleur, espace de noms Kubernetes, nom de pod.|
+|Insights.container/containers |**(Old)memoryWorkingSetExceededPercentage** |Pourcentage de plage de travail de mémoire pour les conteneurs dépassant le seuil configurable par l’utilisateur (95,0 par défaut) par nom de conteneur, nom de contrôleur, espace de noms Kubernetes, nom de pod.|
+|Insights.container/containers |**(New)memoryWorkingSetThresholdViolated** |Métrique déclenchée lorsque le pourcentage de mémoire de Plage de travail pour les conteneurs dépassant le seuil configurable par l’utilisateur (95,0 par défaut) par nom de conteneur, nom de contrôleur, espace de noms Kubernetes, nom de pod.|
+|Insights. Container/persistentvolumes |**(Old)pvUsageExceededPercentage** |Pourcentage d’utilisation du volume persistant pour les volumes persistants dépassant le seuil configurable par l’utilisateur (60 par défaut) par nom de revendication, espace de noms Kubernetes, nom de volume, nom de pod ou nom de nœud.|
+|Insights. Container/persistentvolumes |**(New)pvUsageThresholdViolated** |Métrique déclenchée lorsque le pourcentage d’utilisation du volume persistant pour les volumes persistants dépassant le seuil configurable par l’utilisateur (60 par défaut) par nom de revendication, espace de noms Kubernetes, nom de volume, nom de pod ou nom de nœud.
 
 ## <a name="enable-alert-rules"></a>Activer des règles d’alerte
 

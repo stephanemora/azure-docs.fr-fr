@@ -9,12 +9,12 @@ ms.date: 07/31/2020
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 8327a1855de21c274a54f1bfa3750eab9aea8a8c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 05af03c7ac60e2f98471ace4d57a296a54cf8ce6
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649339"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707356"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Procédure d’empaquetage d’un modèle inscrit avec Docker
 
@@ -27,7 +27,7 @@ Cet article suppose que vous avez déjà formé et inscrit un modèle dans votre
 
 ## <a name="package-models"></a>Modèles de package
 
-Dans certains cas, vous pouvez être amené à créer une image Docker sans déployer le modèle (par exemple, si vous envisagez un [déploiement sur Azure App Service](how-to-deploy-app-service.md)). Vous pouvez également télécharger l’image et l’exécuter sur une installation locale de Docker. Vous pouvez même télécharger les fichiers utilisés pour générer l’image, les inspecter, les modifier, puis générer l’image manuellement.
+Dans certains cas, vous pouvez créer une image Docker sans déployer le modèle. Vous pouvez également télécharger l’image et l’exécuter sur une installation locale de Docker. Vous pouvez même télécharger les fichiers utilisés pour générer l’image, les inspecter, les modifier, puis générer l’image manuellement.
 
 L’empaquetage de modèle vous permet d’effectuer ces deux opérations. Il empaquette toutes les ressources nécessaires pour héberger un modèle en tant que service web, et vous permet de télécharger une image Docker entièrement générée ou les fichiers nécessaires pour en générer une. Vous pouvez utiliser l’empaquetage de modèle de deux façons :
 

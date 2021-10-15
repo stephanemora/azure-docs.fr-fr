@@ -13,12 +13,12 @@ ms.date: 08/31/2021
 ms.author: sahmalik
 ms.reviewer: saeeda, shermanouko, jmprieur
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 153ac3b3ae141815246326d42b3959ae4d981081
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 1ccd2acaaec8c49de761511ebd3d4a5ad86f4095
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124838466"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233651"
 ---
 # <a name="migrate-public-client-applications-from-adalnet-to-msalnet"></a>Migrer des applications clientes publiques d’ADAL.NET vers MSAL.NET
 
@@ -40,8 +40,8 @@ Cet article décrit comment migrer une application cliente publique de la Biblio
    Les scénarios de clients publics sont les suivants :
 
    - [Gestionnaire d’authentification web](scenario-desktop-acquire-token-wam.md), l’authentification préférée basée sur un répartiteur sur Windows.
-   - [Authentification interactive](scenario-desktop-acquire-token-interactive.md) où l’utilisateur voit d’afficher une interface web pour terminer le processus de connexion.
-   - [authentification Windows intégrée](scenario-desktop-acquire-token-integrated-windows-authentication.md) où un utilisateur se connecte à l’aide de l’identité qu’il a utilisée pour se connecter au domaine Windows (pour les machines jointes à un domaine ou à AAD).
+   - [Authentification interactive](scenario-desktop-acquire-token-interactive.md) où l’utilisateur voit s’afficher une interface web pour terminer le processus de connexion.
+   - [Authentification Windows intégrée](scenario-desktop-acquire-token-integrated-windows-authentication.md) où un utilisateur se connecte à l’aide de l’identité qu’il a utilisée pour se connecter à un domaine Windows (pour les machines jointes à un domaine ou à Azure AD).
    - [Nom d’utilisateur/mot de passe](scenario-desktop-acquire-token-username-password.md) où la connexion s’établit en fournissant des informations d’identification de nom d’utilisateur/mot de passe.
    - [Flux de code d’appareil](scenario-desktop-acquire-token-device-code-flow.md) où un appareil offrant une expérience utilisateur limitée affiche un code d’appareil pour terminer le processus d’authentification sur un autre appareil.
 
@@ -124,23 +124,23 @@ Le code MSAL ci-dessus utilise un gestionnaire d’authentification web (WAM), c
 
 ## <a name="integrated-windows-authentication"></a>[Authentification Windows intégrée](#tab/iwa)
 
-Avec l’authentification Windows intégrée, votre application cliente publique se connecte à l’aide de l’identité qu’elle a utilisée pour se connecter au domaine Windows (pour les machines jointes à un domaine ou à AAD).
+Authentification Windows intégrée permet à votre application cliente publique de se connecter à l’aide de l’identité qu’elle a utilisée pour se connecter à un domaine Windows (pour les machines jointes à un domaine ou à Azure AD).
 
-#### <a name="find-out-if-your-code-uses-integrated-windows-authentication"></a>Déterminer si votre code utilise l’authentification Windows intégrée
+#### <a name="find-out-if-your-code-uses-integrated-windows-authentication"></a>Déterminer si votre code utilise Authentification Windows intégrée
 
-Le code ADAL pour votre application utilise des scénarios d’authentification Windows intégrés s’il contient un appel à `AcquireTokenAsync` disponible en tant que méthode d’extension de la classe `AuthenticationContextIntegratedAuthExtensions`, avec les paramètres suivants :
+Le code ADAL pour votre application utilise des scénarios Authentification Windows intégrée s’il contient un appel à `AcquireTokenAsync` disponible en tant que méthode d’extension de la classe `AuthenticationContextIntegratedAuthExtensions`, avec les paramètres suivants :
 
 - `resource` indiquant la ressource pour laquelle vous demandez le jeton
 - `clientId` qui est un GUID représentant l’inscription de votre application
 - Objet `UserCredential` qui représente l’utilisateur pour lequel vous tentez de demander le jeton.
 
-#### <a name="update-the-code-for-integrated-windows-auth-scenarios"></a>Mettre à jour le code pour les scénarios d’authentification Windows intégrés
+#### <a name="update-the-code-for-integrated-windows-authentication-scenarios"></a>Mettre à jour le code pour les scénarios Authentification Windows intégrée
 
  [!INCLUDE [Common steps](includes/msal-net-adoption-steps-public-clients.md)]
 
 Dans le constructeur, remplacez l’appel à `AuthenticationContext.AcquireTokenAsync` par un appel à `IPublicClientApplication.AcquireTokenByIntegratedWindowsAuth`.
 
-Voici une comparaison des codes ADAL.NET et MSAL.NET pour les scénarios d’authentification Windows intégrés :
+Voici une comparaison des codes ADAL.NET et MSAL.NET pour les scénarios Authentification Windows intégrée :
 
 :::row:::
 :::column span="":::

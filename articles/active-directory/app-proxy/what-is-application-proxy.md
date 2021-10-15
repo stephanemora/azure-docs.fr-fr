@@ -12,12 +12,12 @@ ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9a21ae719a6e89819cb6841f69ff48e17cc0bec6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cb6241443f4ec7aa9d60501aab50ca21ed1d147d
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779518"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129235855"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants
 
@@ -92,7 +92,7 @@ Il existe plusieurs façons de configurer une application pour l’authentificat
 
 Le proxy d’application fonctionne avec les applications qui utilisent le protocole d’authentification natif suivant :
 
-* **[Authentification Windows intégrée (IWA)](./application-proxy-configure-single-sign-on-with-kcd.md).** Pour IWA, les connecteurs de proxy d’application utilisent la délégation Kerberos contrainte (KCD) pour authentifier les utilisateurs dans l’application.
+* [**Authentification Windows intégrée (IWA)** ](./application-proxy-configure-single-sign-on-with-kcd.md). Pour IWA, les connecteurs de proxy d’application utilisent la délégation Kerberos contrainte (KCD) pour authentifier les utilisateurs dans l’application.
 
 Le proxy d’application prend également en charge les protocoles d’authentification suivants avec l’intégration de tiers ou dans des scénarios de configuration spécifiques :
 

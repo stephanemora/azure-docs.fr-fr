@@ -6,14 +6,14 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 10/05/2021
 ms.author: banders
-ms.openlocfilehash: 0c278256c952fce12833a8f4c5fe55e18c3b40b0
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 797aff6fed0cf2eda46bcf5371e57e18df466f00
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123099896"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546959"
 ---
 # <a name="permissions-to-view-and-manage-azure-reservations"></a>Autorisations pour afficher et gérer les réservations Azure
 
@@ -31,6 +31,8 @@ Par défaut, les utilisateurs suivants peuvent voir et gérer des réservations�
 - Un administrateur de réservation pour les réservations dans le locataire (répertoire) Azure Active Directory (Azure AD)
 - Un lecteur de réservation dispose d’un accès en lecture seule aux réservations dans son locataire Azure Active Directory (répertoire)
 
+Actuellement, les rôles Administrateur de réservation et Lecteur de réservation ne sont disponibles pour attribution qu’à l’aide de PowerShell. Ils ne peuvent pas être affichés ou attribués dans le portail Azure. Pour plus d’informations, consultez [Accorder l’accès avec PowerShell](#grant-access-with-powershell).
+
 Le cycle de vie des réservations étant indépendant d’un abonnement Azure, la réservation n’est pas une ressource dans le cadre de l’abonnement Azure. Il s’agit plutôt d’une ressource au niveau du locataire avec sa propre autorisation Azure RBAC distincte des abonnements. Les réservations n’héritent pas des autorisations des abonnements après achat.
 
 ## <a name="view-and-manage-reservations"></a>Afficher et gérer les réservations
@@ -42,7 +44,7 @@ Si vous êtes administrateur de facturation, suivez les étapes ci-dessous pour 
     - Si vous êtes propriétaire d’un profil de facturation Contrat client Microsoft, dans le menu de gauche, sélectionnez **Profils de facturation**. Dans la liste des profils de facturation, sélectionnez-en un.
 1. Dans le menu de gauche, sélectionnez **Produits + services** > **Réservations**.
 1. La liste complète des réservations pour votre profil d’inscription ou de facturation d’administrateur d’entreprise s’affiche.
-1. Les administrateurs de facturation peuvent prendre possession d’une réservation en la sélectionnant, puis en sélectionnant **Accorder l’accès** dans la fenêtre qui s’affiche.
+1. Les administrateurs de facturation peuvent prendre possession d’une ou de plusieurs réservations en les sélectionnant, puis en sélectionnant **Accorder l’accès** dans la fenêtre qui s’affiche.
 
 ### <a name="add-billing-administrators"></a>Ajouter des administrateurs de facturation
 

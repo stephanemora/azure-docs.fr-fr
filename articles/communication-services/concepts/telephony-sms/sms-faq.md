@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.openlocfilehash: 7b10040aa8aabd16d84326c73bd422f9b66ef04e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 658e13aa888e448de723a97bf9cc89c162a774b5
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635980"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129356317"
 ---
 # <a name="sms-faq"></a>FAQ relative aux SMS
 
@@ -46,6 +46,9 @@ Les désinscriptions des numéros gratuits aux États-Unis sont régies et appli
 
 Les clients d’Azure Communication Services peuvent utiliser Azure Event Grid pour recevoir des messages entrants. Suivez ce [démarrage rapide](../../quickstarts/telephony-sms/handle-sms-events.md) pour configurer votre grille d’événements et recevoir des messages.
 
+## <a name="what-is-the-sms-character-limit"></a>Quelle est la limite de caractères pour les SMS ?
+La limite de caractères pour un seul SMS est de 160 caractères. Lors de l’envoi de messages, tous les messages de plus de 160 caractères sont divisés en segments et livrés individuellement, qui sont ensuite concaténés par l’appareil du destinataire. De même, pour la réception de longs messages, plusieurs segments d’un long message sont automatiquement concaténés et livrés en un seul message sur le point de terminaison spécifié dans Azure Event Grid. 
+
 ## <a name="can-i-sendreceive-long-messages-2048-chars"></a>Puis-je envoyer ou recevoir des messages longs (plus de 2048 caractères) ?
 
 Azure Communication Services prend en charge l’envoi et la réception de messages longs par SMS. Toutefois, certains opérateurs ou appareils sans fil peuvent agir différemment lors de la réception de messages longs.
@@ -55,7 +58,6 @@ Azure Communication Services prend en charge l’envoi et la réception de messa
 Aux États-Unis, Azure Communication Services ne vérifie pas les numéros de téléphone fixe et tente de les envoyer aux opérateurs pour les livrer. Les clients seront facturés pour les messages envoyés à des numéros de téléphone fixe. 
 
 ## <a name="can-i-send-messages-to-multiple-recipients"></a>Puis-je envoyer des messages à plusieurs destinataires ?
-
 
 Oui, vous pouvez faire une demande avec plusieurs destinataires. Suivez ce [démarrage rapide](../../quickstarts/telephony-sms/send.md?pivots=programming-language-csharp) pour envoyer des messages à plusieurs destinataires.
 

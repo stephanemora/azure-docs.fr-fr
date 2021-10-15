@@ -2,18 +2,17 @@
 title: Erreurs de coffre de clés courantes dans Application Gateway
 titleSuffix: Azure Application Gateway
 description: Cet article identifie les problèmes liés aux coffres de clés et vous aide à les résoudre pour le bon fonctionnement d’Application Gateway.
-services: application-gateway
 author: jaesoni
 ms.service: application-gateway
 ms.topic: reference
 ms.date: 07/12/2021
 ms.author: jaysoni
-ms.openlocfilehash: 4f873e6fb751f3b368d86413c201b70634d9c7ce
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cfcacf84b5a35862c3ef1423ed58ff4d5d7f3142
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644084"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272317"
 ---
 # <a name="common-key-vault-errors-in-azure-application-gateway"></a>Erreurs de coffre de clés courantes dans Azure Application Gateway
 
@@ -24,7 +23,7 @@ Cet article vous aide à comprendre les détails des codes d’erreur de coffre 
 
 ## <a name="list-of-error-codes-and-their-details"></a>Liste des codes d’erreur et de leurs détails
 
-Les sections suivantes couvrent les différentes erreurs que vous pouvez rencontrer. Vous en trouverez les détails dans Azure Advisor et vous pouvez utiliser cet article de résoudre des problèmes pour corriger les problèmes. Pour plus d’informations, consultez [Créer des alertes Azure Advisor lors de nouvelles recommandations à l’aide du portail Azure](https://docs.microsoft.com/azure/advisor/advisor-alerts-portal).
+Les sections suivantes couvrent les différentes erreurs que vous pouvez rencontrer. Vous en trouverez les détails dans Azure Advisor et vous pouvez utiliser cet article de résoudre des problèmes pour corriger les problèmes. Pour plus d’informations, consultez [Créer des alertes Azure Advisor lors de nouvelles recommandations à l’aide du portail Azure](../advisor/advisor-alerts-portal.md).
 
 > [!NOTE]
 > Azure Application Gateway génère des journaux pour les diagnostics de coffre de clés toutes les quatre heures. Si le diagnostic continue à afficher l’erreur une fois la configuration corrigée, vous devrez peut-être attendre que les journaux soient actualisés.
@@ -36,7 +35,7 @@ Les sections suivantes couvrent les différentes erreurs que vous pouvez rencont
 
 **Résolution :** Configurez la stratégie d’accès de Key Vault pour accorder cette autorisation à l’identité managée affectée par l’utilisateur associée sur des secrets. 
 1. Accédez au coffre de clés lié dans le portail Azure.
-1. Ouvrez le volet **Stratégies d’accès**.
+1. Ouvrez le volet **Stratégies d’accès**.
 1. Pour le **Modèle d’autorisation**, sélectionnez **Stratégie d’accès au coffre**.
 1. Sous **Opérations de gestion des secrets**, sélectionnez l’autorisation **Get**.
 1. Sélectionnez **Enregistrer**.
@@ -120,5 +119,5 @@ Sélectionnez **Gérer les coffres supprimés**. À partir de là, vous pouvez t
 
 Ces articles de résolution des problèmes peuvent être utiles si vous continuez à utiliser Application Gateway :
 
-- [Vue d’ensemble du contrôle d’intégrité des ressources pour Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/resource-health-overview)
-- [Résoudre des problèmes d’affinité de session dans Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/how-to-troubleshoot-application-gateway-session-affinity-issues)
+- [Vue d’ensemble du contrôle d’intégrité des ressources pour Azure Application Gateway](resource-health-overview.md)
+- [Résoudre des problèmes d’affinité de session dans Azure Application Gateway](how-to-troubleshoot-application-gateway-session-affinity-issues.md)

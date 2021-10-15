@@ -1,6 +1,6 @@
 ---
 title: Renforcer la résilience de votre infrastructure IAM avec Azure Active Directory
-description: Guide destiné aux architectes et aux administrateurs informatiques qui ne renforcent pas la résilience aux perturbations de leur infrastructure IAM.
+description: Guide destiné aux architectes et aux administrateurs informatiques sur le renforcement de la résilience face aux perturbations de leur infrastructure IAM.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64fe4b8c217ec46cbb6dd046339c3ac65eebb121
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3fc12433a187f030a0349247680c731c04a76274
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724675"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402808"
 ---
 # <a name="build-resilience-in-your-identity-and-access-management-infrastructure"></a>Renforcer la résilience de votre infrastructure de gestion des identités et des accès
 

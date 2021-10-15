@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: f17c2fcd5793412716c72f02c7cfbe670360fa33
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 961c563a12a3edf4df5c898f0c8ee8f1a5b2daf0
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106123115"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129390118"
 ---
 # <a name="live-event-states-and-billing"></a>États et facturation des événements en direct
 
@@ -29,7 +29,7 @@ Dans Azure Media Services, la facturation d’un événement en direct commence 
 Lorsque la valeur **LiveEventEncodingType** de votre [événement en direct](/rest/api/media/liveevents) est définie sur Standard ou Premium1080p, Media Services met automatiquement fin aux événements en direct **En cours d’exécution** 12 heures après la perte du flux d’entrée et l’absence de **sorties en direct** en cours d’exécution. Toutefois, vous serez toujours facturé pour la durée pendant laquelle l’événement en direct était dans l’état **En cours d’exécution**.
 
 > [!NOTE]
-> Les événements en direct de transfert ne sont pas arrêtés automatiquement mais doivent être arrêtés de façon explicite via l’API pour éviter une facturation excessive.
+> Les événements en direct Pass-through (de base ou standard) ne sont PAS arrêtés automatiquement, mais doivent être arrêtés de façon explicite via l’API pour éviter une facturation excessive.
 
 ## <a name="states"></a>États
 

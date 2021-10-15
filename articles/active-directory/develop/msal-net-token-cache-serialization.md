@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/28/2021
+ms.date: 09/30/2021
 ms.author: jmprieur
 ms.reviewer: mmacy
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 216fd3f132464b9866bc1f3b1b61b143de117019
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 5452f6bd6adc4693b74a20d174b6efe42346226d
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083464"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351833"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Sérialisation du cache de jetons dans MSAL.NET
 
@@ -27,15 +27,15 @@ Après [avoir acquis un jeton](msal-acquire-cache-tokens.md), la Bibliothèque d
 ## <a name="quick-summary"></a>Résumé
 
 Nous vous recommandons :
-- Dans les applications web et les API web, utilisez [des sérialiseurs de cache de jeton à partir de « Microsoft.Identity.Web »](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization). Ils fournissent même une base de données distribuée ou un système de cache pour stocker les jetons.
-  - Dans les [applications web](scenario-web-app-call-api-overview.md) et l’[API web](scenario-web-api-call-api-overview.md) ASP.NET Core, utilisez Microsoft.Identity.Web comme API de niveau supérieur dans ASP.NET Core.
-  - Dans ASP.NET classic, .NET Core, l’infrastructure .NET, utilisez MSAL.NET directement avec les [adaptateurs de sérialisation du cache de jetons pour MSAL]() fournis dans Microsoft.identity.Web. 
+- Dans les applications web et les API web, utilisez [des sérialiseurs de cache de jeton à partir de « Microsoft.Identity.Web.TokenCache »](https://github.com/AzureAD/microsoft-identity-web/wiki/token-cache-serialization). Ils fournissent même une base de données distribuée ou un système de cache pour stocker les jetons.
+  - Dans les [applications web](scenario-web-app-call-api-overview.md) et l’[API web](scenario-web-api-call-api-overview.md) ASP.NET Core, utilisez [Microsoft.Identity.Web](microsoft-identity-web.md) comme API de niveau supérieur dans ASP.NET Core.
+  - Dans ASP.NET classic, .NET Core, .NET Framework, utilisez MSAL.NET directement avec les [adaptateurs de sérialisation du cache de jetons pour MSAL](msal-net-token-cache-serialization.md?tabs=aspnet) fournis dans le package NuGet Microsoft.identity.Web.TokenCache. 
 - Dans les applications de bureau (qui peuvent utiliser le système de fichiers pour stocker des jetons), utilisez [Microsoft.Identity.Client.Extensions.MSAL](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/wiki/Cross-platform-Token-Cache) avec MSAL.Net.
 - Dans les applications mobiles (Xamarin.iOS, Xamarin.Android, plateforme Windows universelle), ne faites rien car MSAL.NET gère le cache pour vous : ces plateformes disposent d’un stockage sécurisé.
 
 ## <a name="aspnet-core-web-apps-and-web-apis"></a>[Applications web et API web ASP.NET Core](#tab/aspnetcore)
 
-La bibliothèque [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) fournit un package NuGet [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) contenant la sérialisation du cache de jetons :
+La bibliothèque [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) fournit un package NuGet [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) contenant la sérialisation du cache de jetons :
 
 | Méthode d’extension | Description  |
 | ---------------- | ------------ |
@@ -119,11 +119,11 @@ Leur utilisation est présentée dans le tutoriel [Application web ASP.NET Core]
 
 ## <a name="non-aspnet-core-web-apps-and-web-apis"></a>[Applications web et API web non ASP.NET Core](#tab/aspnet)
 
-Même quand vous utilisez MSAL.NET, vous pouvez tirer parti des sérialiseurs de cache de jeton intégrés à Microsoft.Identity.Web. 
+Même quand vous utilisez MSAL.NET, vous pouvez tirer parti des sérialiseurs de cache de jeton intégrés à Microsoft.Identity.Web.TokenCache 
 
 ### <a name="referencing-the-nuget-package"></a>Référencement du package NuGet
 
-Ajoutez le package NuGet [Microsoft.Identity.Web.](https://www.nuget.org/packages/Microsoft.Identity.Web) à votre projet en plus de MSAL.NET.
+Ajoutez le package NuGet [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) à votre projet en plus de MSAL.NET
 
 ### <a name="configuring-the-token-cache"></a>Configuration du cache de jeton
 
@@ -148,7 +148,7 @@ public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X5
        .Build();
 
      // Add a static in-memory token cache. Other options available: see below
-     app.AddInMemoryTokenCache();  // Microsoft.Identity.Web 1.16+
+     app.AddInMemoryTokenCache();  // Microsoft.Identity.Web.TokenCache 1.17+
    
      // Make the call to get a token for client_credentials flow (app to app scenario) 
      return await app.AcquireTokenForClient(scopes).ExecuteAsync();
@@ -282,18 +282,6 @@ var app = ConfidentialClientApplicationBuilder
     .WithCacheSynchronization(false)
     .Build();
 ```
-
-### <a name="monitor-cache-hit-ratios-and-cache-performance"></a>Surveiller les taux d’accès au cache et les performances de celui-ci
-
-MSAL expose des métriques importantes dans l’objet [AuthenticationResult. AuthenticationResultMetadata](/dotnet/api/microsoft.identity.client.authenticationresultmetadata) : 
-
-| Métrique       | Signification     | Quand déclencher une alarme ?    |
-| :-------------: | :----------: | :-----------: |
-|  `DurationTotalInMs` | Temps total passé dans MSAL, appels réseau et cache inclus   | Alarme sur une latence élevée globale (> 1 s). La valeur dépend de la source du jeton. À partir du cache : un accès au cache. À partir d’AAD : deux accès au cache + un appel HTTP. Le premier appel (par processus) prend plus de temps en raison d’un appel HTTP supplémentaire. |
-|  `DurationInCacheInMs` | Temps passé à charger ou enregistrer le cache de jeton qui est personnalisé par le développeur de l’application (par exemple, enregistrer dans Redis).| Alarme lors de pics. |
-|  `DurationInHttpInMs`| Temps passé à effectuer des appels HTTP à AAD.  | Alarme lors de pics.|
-|  `TokenSource` | Indique la source du jeton. Les jetons sont récupérés à partir du cache beaucoup plus rapidement (par exemple, ~100 ms au lieu de ~700 ms). Peut être utilisé pour surveiller le taux d’accès au cache et générer des alarmes par rapport à celui-ci. | Utiliser avec `DurationTotalInMs` |
-
 ### <a name="samples"></a>Exemples
 
 - L’utilisation des sérialiseurs de cache de jeton dans une infrastructure .NET Framework et des applications .NET Core est illustrée dans cet exemple [ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache) 
@@ -340,6 +328,23 @@ var cacheHelper = await MsalCacheHelper.CreateAsync(storageProperties );
 cacheHelper.RegisterCache(pca.UserTokenCache);
          
 ```
+
+
+##### <a name="plain-text-fallback-mode"></a>Mode de secours en texte brut
+
+Le cache de jeton multiplateforme vous permet de stocker des jetons non chiffrés en texte clair. Elle est destinée à être utilisée dans les environnements de développement à des fins de débogage uniquement. Vous pouvez utiliser le mode de secours en texte brut à l’aide du modèle de code suivant.
+
+```csharp
+storageProperties =
+    new StorageCreationPropertiesBuilder(
+        Config.CacheFileName + ".plaintext",
+        Config.CacheDir)
+    .WithUnprotectedFile()
+    .Build();
+
+var cacheHelper = await MsalCacheHelper.CreateAsync(storageProperties).ConfigureAwait(false);
+```
+
 
 ## <a name="mobile-apps"></a>[Applications mobiles](#tab/mobile)
 
@@ -594,20 +599,17 @@ namespace CommonCacheMsalV3
 
 ---
 
-## <a name="plain-text-fallback-mode"></a>Mode de secours en texte brut
+## <a name="monitor-cache-hit-ratios-and-cache-performance"></a>Surveiller les taux d’accès au cache et les performances de celui-ci
 
-MSAL vous permet de stocker des jetons non chiffrés en texte clair. Elle est destinée à être utilisée dans les environnements de développement à des fins de débogage uniquement. Vous pouvez utiliser le mode de secours en texte brut à l’aide du modèle de code suivant.
+MSAL expose des métriques importantes dans l’objet [AuthenticationResult. AuthenticationResultMetadata](/dotnet/api/microsoft.identity.client.authenticationresultmetadata). Vous pouvez consigner ces métriques pour évaluer l’intégrité de votre application.
 
-```csharp
-storageProperties =
-    new StorageCreationPropertiesBuilder(
-        Config.CacheFileName + ".plaintext",
-        Config.CacheDir)
-    .WithUnprotectedFile()
-    .Build();
+| Métrique       | Signification     | Quand déclencher une alarme ?    |
+| :-------------: | :----------: | :-----------: |
+|  `DurationTotalInMs` | Temps total passé dans MSAL, appels réseau et cache inclus   | Alarme sur une latence élevée globale (> 1 s). La valeur dépend de la source du jeton. À partir du cache : un accès au cache. À partir d’AAD : deux accès au cache + un appel HTTP. Le premier appel (par processus) prend plus de temps en raison d’un appel HTTP supplémentaire. |
+|  `DurationInCacheInMs` | Temps passé à charger ou enregistrer le cache de jeton qui est personnalisé par le développeur de l’application (par exemple, enregistrer dans Redis).| Alarme lors de pics. |
+|  `DurationInHttpInMs`| Temps passé à effectuer des appels HTTP à AAD.  | Alarme lors de pics.|
+|  `TokenSource` | Indique la source du jeton. Les jetons sont récupérés à partir du cache beaucoup plus rapidement (par exemple, ~100 ms au lieu de ~700 ms). Peut être utilisé pour surveiller le taux d’accès au cache et générer des alarmes par rapport à celui-ci. | Utiliser avec `DurationTotalInMs` |
 
-var cacheHelper = await MsalCacheHelper.CreateAsync(storageProperties).ConfigureAwait(false);
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

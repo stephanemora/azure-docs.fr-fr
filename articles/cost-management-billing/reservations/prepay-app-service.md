@@ -1,24 +1,24 @@
 ---
 title: Réduire les coûts d’Azure App Service avec une capacité réservée
-description: Découvrez comment économiser les coûts des instances réservées Azure App Service Premium v3 et Premium v2, ainsi que des Frais de timbre isolé.
+description: Découvrez comment réduire les coûts des instances réservées Azure App Service Premium v3 et Isolé v2 et des frais de timbre Isolé.
 author: bandersmsft
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/04/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 305849e104c3d8fb48b5d661d3d21f589fd69516
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f3c45799d88601bb8ef9a2d652bb07d7d54aceb9
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664425"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456610"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Réaliser des économies avec les instances réservées Azure App Service
 
-Cet article explique comment réaliser des économies avec des instances réservées Azure App Service Premium v3 et Premium v2, ainsi que des Frais de timbre isolé.
+Cet article explique comment réaliser des économies avec des instances réservées Azure App Service Premium v3 et Isolé v2, ainsi que des frais de timbre Isolé.
 
 ## <a name="save-with-premium-v3-reserved-instances"></a>Réaliser des économies avec les instances réservées Premium v3
 

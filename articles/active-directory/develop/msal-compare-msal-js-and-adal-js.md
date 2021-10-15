@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/06/2021
 ms.author: v-doeris
 ms.custom: has-adal-ref
-ms.openlocfilehash: a67f493666c458637a2cd48b7e0d78e0bcf59862
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 541200501fd9bd3cc1883283bc308445d0e4115e
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527811"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232240"
 ---
 # <a name="how-to-migrate-a-javascript-app-from-adaljs-to-msaljs"></a>Comment migrer une application JavaScript d'ADAL.js vers MSAL.js
 
@@ -98,7 +98,7 @@ Dans ADAL.js et MSAL.js, l’URI d’autorité est défini par défaut sur `http
 
 Certaines [options de configuration dans ADAL.js](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context) utilisées lors de l’initialisation du [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) sont dépréciées dans MSAL.js, bien que de nouvelles y soient introduites. Consultez la [liste complète des options disponibles](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md). Surtout, la plupart de ces options, à l’exception de `clientId`, peuvent être remplacées lors de l’acquisition de jetons, ce qui vous permet de les définir en fonction de la *demande*. Par exemple, vous pouvez utiliser une **URI d’autorité** ou **URI de redirection** différente de celle que vous avez définie à l’initialisation lors de l’acquisition de jetons.
 
-En outre, vous n’avez plus besoin de spécifier l’expérience de connexion (par exemple, si vous utilisez des fenêtres contextuelles ou si vous redirigez la page) via les options de configuration. A la place, MSAL.js expose les méthodes `loginPopup` et `loginRedirect` dans l’instance `PublicClientApplication`.
+En outre, vous n’avez plus besoin de spécifier l’expérience de connexion (par exemple, si vous utilisez des fenêtres contextuelles ou si vous redirigez la page) via les options de configuration. A la place, `MSAL.js` expose les méthodes `loginPopup` et `loginRedirect` dans l’instance `PublicClientApplication`.
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 

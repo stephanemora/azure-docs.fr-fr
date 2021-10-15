@@ -4,12 +4,12 @@ description: Découvrez comment configurer un fournisseur OpenID Connect en tant
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: befedca9fa872575d990ceea786a09d60a5773ca
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 84a8ce0017b9aac6e2a1c1eb75ef78dff89721a9
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113092926"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355248"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configurer votre application App Service ou Azure Functions pour la connexion à l’aide d’un fournisseur OpenID Connect (préversion)
 
@@ -61,7 +61,7 @@ Cette section vous guide tout au long de la mise à jour de la configuration pou
        "registration" : {},
        "login": {
              "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-             "scope": [],
+             "scopes": [],
              "loginParameterNames": [],
        }
     }
@@ -117,7 +117,7 @@ Un exemple de configuration peut ressembler à ce qui suit (exemple utilisé : 
                 },
                 "login": {
                     "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-                    "scope": [],
+                    "scopes": [],
                     "loginParameterNames": []
                 }
             }

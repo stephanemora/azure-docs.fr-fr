@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 332866c49470ed47f3c3de65b03ffd07003f6d13
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: c2ad9c6eae22db2d940942c0ec15c6b1116a54cd
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122525958"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353020"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -38,9 +38,9 @@ Vous devez également disposer d’Azure PowerShell 5.0.0 ou version ultérieur
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Lorsque vous créez un cluster AKS dans le portail Azure ou à l’aide de la commande [az aks create][az-aks-create], Azure peut générer automatiquement un principal de service.
+Lorsque vous créez un cluster AKS dans le portail Azure ou à l’aide de la commande [az aks create][az-aks-create], Azure crée une identité managée.
 
-Dans l’exemple d’Azure CLI suivant, un principal de service n’est pas spécifié. Dans ce scénario, Azure CLI crée un principal de service pour le cluster AKS. Pour effectuer cette opération, votre compte Azure doit disposer des droits nécessaires pour la création d’un principal de service.
+Dans l’exemple d’Azure CLI suivant, un principal de service n’est pas spécifié. Dans ce scénario, Azure CLI crée une identité managée pour le cluster AKS. 
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup
@@ -48,9 +48,9 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-Lorsque vous créez un cluster AKS dans le portail Azure ou à l’aide de la commande [New-AzAksCluster][new-azakscluster], Azure peut générer automatiquement un principal de service.
+Lorsque vous créez un cluster AKS dans le portail Azure ou à l’aide de la commande [New-AzAksCluster][new-azakscluster], Azure peut générer une nouvelle identité managée.
 
-Dans l’exemple Azure PowerShell suivant, un principal de service n’est pas spécifié. Dans ce scénario, Azure PowerShell crée un principal de service pour le cluster AKS. Pour effectuer cette opération, votre compte Azure doit disposer des droits nécessaires pour la création d’un principal de service.
+Dans l’exemple Azure PowerShell suivant, un principal de service n’est pas spécifié. Dans ce scénario, Azure PowerShell crée une identité managée pour le cluster AKS. 
 
 ```azurepowershell-interactive
 New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup

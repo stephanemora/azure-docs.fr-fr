@@ -8,12 +8,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/22/2021
-ms.openlocfilehash: 06bdd49df0f8a4d79ffece298fee2ea2691b0796
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 24e6157ce585914229a3b65a20feba4640ca272a
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219208"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458810"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -102,6 +102,7 @@ Le volet de configuration affiche les paramètres du dépôt de code Azure Repos
 | **Nom du projet** | Nom de votre projet Azure Repos. Vous trouverez le nom de votre projet Azure Repos sur `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | Nom de votre dépôt de code Azure Repos. Les projets Azure Repos contiennent des dépôts Git pour gérer votre code source à mesure que votre projet se développe. Vous pouvez créer un nouveau référentiel ou utiliser un référentiel existant déjà présent dans le projet. | `<your Azure Repos code repository name>` |
 | **Branche de collaboration** | Votre branche de collaboration Azure Repos utilisée pour la publication. Par défaut, il s’agit de `main`. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche. | `<your collaboration branch name>` |
+| **Branche Publier** | La branche Publier est la branche de votre référentiel dans laquelle les modèles ARM associés à la publication sont stockés et mis à jour. Par défaut, il s’agit de `adf_publish`. | `<your publish branch name>` |
 | **Dossier racine** | Votre dossier racine de votre branche de collaboration Azure Repos. | `<your root folder name>` |
 | **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Indique s’il convient d’importer des ressources de fabrique de données existantes à partir du **canevas de création** de l’expérience utilisateur dans un dépôt Azure Repos Git. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
 | **Branche sur laquelle importer la ressource** | Indique dans quelle branche les ressources de la fabrique de données (pipelines, ensembles de données, services liés, etc.) sont importées. Vous pouvez importer des ressources dans l’une des branches suivantes : a. Collaboration b. Créer c. Utiliser l’existant |  |
@@ -296,6 +297,12 @@ Elle importe le code du mode réel dans la branche de collaboration. Elle consid
 1. Créez une demande de tirage pour fusionner les modifications apportées à la branche de collaboration 
 
 Choisissez l’une ou l’autre des méthodes en fonction des besoins. 
+
+### <a name="all-resources-showing-as-new-on-publish"></a>Toutes les ressources apparaissant comme nouvelles à la publication
+
+Lors de la publication, toutes les ressources peuvent apparaître comme nouvelles, même si elles ont déjà été publiées. Cela peut se produire si la propriété *lastCommitId* est réinitialisée sur la propriété *repoConfiguration* de la fabrique, soit en redéployant un modèle ARM de fabrique, soit en mettant à jour la propriété *repoConfiguration* de la fabrique via PowerShell ou l’API REST. La poursuite de la publication des ressources résoudra le problème, mais, pour éviter qu’il se reproduise, évitez de mettre à jour la propriété *repoConfiguration* de la fabrique. 
+
+
 
 ## <a name="switch-to-a-different-git-repository"></a>Passer à un autre dépôt Git
 

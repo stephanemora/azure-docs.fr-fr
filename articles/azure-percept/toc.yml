@@ -97,7 +97,20 @@
         - name: "Configurer des paramètres réseau avancés sur l’appareil Azure\_Percept\_DK"
           href: how-to-set-up-advanced-network-settings.md
         - name: "Établir une connexion\_5G ou\_LTE avec Azure\_Percept\_DK"
-          href: connect-over-cellular.md
+          items:
+            - name: "Établir une connexion\_5G ou\_LTE avec Azure\_Percept\_DK"
+              href: connect-over-cellular.md
+              items:
+                - name: Établir une connexion avec un modem USB
+                  href: connect-over-cellular-usb.md
+                - name: Établir une connexion avec une passerelle mobile
+                  href: connect-over-cellular-gateway.md
+                - name: Établir une connexion avec Vodafone Connect 4G ou un modem USB
+                  href: connect-over-cellular-usb-vodafone.md
+                - name: Établir une connexion avec un modem USB Multitech
+                  href: connect-over-cellular-usb-multitech.md
+                - name: Établir une connexion avec Quectel 5G Developer Kit
+                  href: connect-over-cellular-usb-quectel.md
         - name: "Établir une connexion\_SSH avec Azure\_Percept\_DK"
           href: how-to-ssh-into-percept-dk.md
         - name: "Établir une connexion série avec Azure\_Percept\_DK"

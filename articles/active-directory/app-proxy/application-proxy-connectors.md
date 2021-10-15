@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: ae7da354b16dbea3e84f8d75fbf97e805387c4b0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 066690f69922ba8df7e7df8739d4c4bf521eb5c3
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952103"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129230928"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -33,7 +33,7 @@ Pour déployer le proxy d’application avec succès, vous devez disposer d’au
 ### <a name="windows-server"></a>Windows Server
 Vous avez besoin d’un serveur exécutant Windows Server 2012 R2 ou ultérieur, sur lequel vous pouvez installer le connecteur de proxy d’application. Le serveur doit se connecter aux services Proxy d’application dans Azure et aux applications locales que vous publiez.
 
-TLS 1.2 doit être activé sur le serveur Windows Server avant l’installation du connecteur de proxy d’application. Pour activer TLS 1.2 sur le serveur :
+TLS 1.2 doit être activé sur le serveur avant l’installation du connecteur Proxy d’application. Pour activer TLS 1.2 sur le serveur :
 
 1. Définissez les clés de Registre suivantes :
 
@@ -133,7 +133,7 @@ Pour plus d’informations sur l’optimisation de votre réseau, consultez [Con
 
 ## <a name="domain-joining"></a>Jonction de domaine
 
-Les connecteurs peuvent s’exécuter sur une machine qui n’est pas jointe à un domaine. Toutefois, si vous souhaitez utiliser l’authentification unique (SSO) pour les applications qui utilisent l’authentification Windows intégrée (IWA), vous avez besoin d’un ordinateur joint à un domaine. Dans ce cas, les ordinateurs du connecteur doivent être joints à un domaine qui peut effectuer la délégation [Kerberos](https://web.mit.edu/kerberos) contrainte pour le compte des utilisateurs pour les applications publiées.
+Les connecteurs peuvent s’exécuter sur une machine qui n’est pas jointe à un domaine. Toutefois, si vous souhaitez utiliser l’authentification unique (SSO) pour les applications qui utilisent Authentification Windows intégrée (IWA), vous avez besoin d’un ordinateur joint à un domaine. Dans ce cas, les ordinateurs du connecteur doivent être joints à un domaine qui peut effectuer la délégation [Kerberos](https://web.mit.edu/kerberos) contrainte pour le compte des utilisateurs pour les applications publiées.
 
 Les connecteurs peuvent également être joints à des domaines ou forêts qui disposent d’une approbation partielle, ou à des contrôleurs de domaine en lecture seule.
 

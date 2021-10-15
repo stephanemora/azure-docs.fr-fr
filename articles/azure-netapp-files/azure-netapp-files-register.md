@@ -1,6 +1,6 @@
 ---
-title: S’inscrire à Azure NetApp Files | Microsoft Docs
-description: Découvrez comment s’inscrire à Azure NetApp Files en soumettant une demande de mise en liste d’attente et en inscrivant le fournisseur de ressources Azure pour Azure NetApp Files.
+title: Inscrire le fournisseur de ressources NetApp à utiliser avec Azure NetApp Files | Microsoft Docs
+description: Découvrez comment inscrire le fournisseur de ressources NetApp pour Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,40 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: e37b0a2657c3e3f388ad94eb7da864c1b03023bb
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: b8b70a06a6bda9757f9019a6f753af226235a985
+ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790016"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129407738"
 ---
-# <a name="register-for-azure-netapp-files"></a>S’inscrire à Azure NetApp Files
+# <a name="register-for-netapp-resource-provider"></a>S’inscrire au fournisseur de ressources NetApp
 
-> [!IMPORTANT] 
-> Avant d'inscrire le fournisseur de ressources Azure NetApp Files, vous devez avoir reçu un e-mail de l’équipe Azure NetApp Files confirmant que vous avez désormais accès au service. 
-
-Dans cet article, vous allez découvrir comment vous inscrire à Azure NetApp Files pour utiliser le service.
-
-## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Soumettre une requête de liste d’attente pour l’accès au service
-
-1. Accédez à la page suivante et envoyez une demande de liste d’attente pour accéder au service Azure NetApp Files :  
-    [**Page de soumission de liste d’attente Azure NetApp Files**](https://aka.ms/azurenetappfiles) 
-
-    Une inscription sur la liste d’attente ne garantit pas un accès immédiat au service. 
-
-2. Attendre un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant d'effectuer d'autres tâches. 
-
-## <a name="register-the-netapp-resource-provider"></a><a name="resource-provider"></a>Inscrire le fournisseur de ressources NetApp
-
-Pour utiliser le service, vous devez inscrire le fournisseur de ressources Azure pour Azure NetApp Files.
-
-> [!NOTE] 
-> Vous pouvez vous inscrire au fournisseur de ressources NetApp même sans accès au service. Cela étant, sans autorisation d’accès, toute requête sur le portail Azure ou l'API visant à créer un compte NetApp ou toute autre ressource Azure NetApp Files sera rejetée avec l’erreur suivante :  
->
-> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
-
+Pour utiliser le service Azure NetApp Files, vous devez inscrire le fournisseur de ressources NetApp.
 
 1. Dans le portail Azure, cliquez sur l’icône d’Azure Cloud Shell située dans le coin supérieur droit :
 
@@ -72,7 +50,7 @@ Pour utiliser le service, vous devez inscrire le fournisseur de ressources Azure
        
    `<SubID>` est votre ID d’abonnement.
 
-    Si le nom de la fonctionnalité `Microsoft.NetApp/ANFGA`ne s'affiche pas, cela signifie que vous n'avez pas accès au service. Arrêtez-vous à cette étape. Suivez les instructions contenues dans [Soumettre une requête de liste d’attente pour l’accès au service](#waitlist) afin de demander un accès au service avant de continuer. 
+
 
 4. Dans la console Azure Cloud Shell, entrez la commande suivante pour inscrire le fournisseur de ressources Azure : 
     
@@ -109,4 +87,5 @@ Pour utiliser le service, vous devez inscrire le fournisseur de ressources Azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer un compte NetApp](azure-netapp-files-create-netapp-account.md)
+* [Créer un compte NetApp](azure-netapp-files-create-netapp-account.md)
+* [Créer une demande de support Azure](../azure-portal/supportability/how-to-create-azure-support-request.md)

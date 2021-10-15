@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: ce9fd7bd2b123877f73978caaabafca8c767c2be
-ms.sourcegitcommit: 98e126b0948e6971bd1d0ace1b31c3a4d6e71703
+ms.openlocfilehash: ceb57d364cca4b05d170ad6e42e8894f9a1ce86e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114674328"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710247"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-configure-monitoring"></a>Surveiller les machines virtuelles avec Azure Monitor-configurer l’analyse
 Cet article fait partie du scénario [Surveiller les machines virtuelles et leurs charges de travail dans Azure Monitor](monitor-virtual-machine.md). Il décrit comment configurer la surveillance de vos machines virtuelles Azure et hybrides dans Azure Monitor.
@@ -79,8 +79,8 @@ Une machine hybride est une machine qui n’est pas en cours d’exécution dans
 
 Il n’existe aucun coût supplémentaire pour les serveurs Azure Arc, mais il peut y avoir un coût pour les différentes options que vous activez. Pour plus d’informations, consultez [Tarification d’Azure Arc](https://azure.microsoft.com/pricing/details/azure-arc/). Il y a un coût pour les données collectées dans l’espace de travail une fois que les machines hybrides sont activées pour la machine virtuelle Insights.
 
-### <a name="machines-that-cant-use-azure-arcenabled-servers"></a>Machines qui ne peuvent pas utiliser de serveurs Azure Arc
-Si vous avez des machines hybrides qui correspondent aux critères suivants, ils ne peuvent pas utiliser les serveurs Azure Arc : 
+### <a name="machines-that-cant-use-azure-arc-enabled-servers"></a>Machines qui ne peuvent pas utiliser de serveurs Azure Arc
+Si vous avez des machines hybrides qui correspondent aux critères suivants, ils ne peuvent pas utiliser les serveurs Azure Arc :
 
 - Le système d’exploitation de la machine n’est pas pris en charge par les agents de serveur activés par Azure Arc. Pour plus d’informations, consultez [Systèmes d’exploitation pris en charge](../../azure-arc/servers/agent-overview.md#prerequisites).
 - Votre stratégie de sécurité ne permet pas aux machines de se connecter directement à Azure. L'agent Log Analytics peut utiliser la [passerelle Log Analytics](../agents/gateway.md), que des serveurs Azure Arc soient installés ou non. Les agents de serveur activés par Azure Arc doivent se connecter directement à Azure.
@@ -118,4 +118,4 @@ Pour créer un DCR et déployer l’agent Azure Monitor sur un ou plusieurs agen
 
 * [Analyser les données d’analyse collectées pour les machines virtuelles](monitor-virtual-machine-analyze.md)
 * [Créer des alertes à partir de données collectées](monitor-virtual-machine-alerts.md)
-* [Surveiller les charges de travail en cours d’exécution sur des machines virtuelles](monitor-virtual-machine-workloads.md)
+* [Superviser les charges de travail en cours d’exécution sur des machines virtuelles](monitor-virtual-machine-workloads.md)

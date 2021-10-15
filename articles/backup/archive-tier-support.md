@@ -2,14 +2,14 @@
 title: Prise en charge du niveau de stockage archive
 description: En savoir plus sur la prise en charge du niveau Archive pour le service Sauvegarde Azure
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/29/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0468e463caa6d589b22596d2fe845014e96e10b8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bc3ea68353f7e6cc3bb16a11e8a7868df2b02310
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128632459"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534928"
 ---
 # <a name="archive-tier-support"></a>Prise en charge du niveau de stockage archive
 
@@ -232,8 +232,8 @@ L’option Arrêter la protection et supprimer les données supprime tous les po
 
 | Charges de travail | Préversion | Mise à la disposition générale |
 | --- | --- | --- |
-| SQL Server dans les machines virtuelles Azure | USA Centre Sud, USA Centre Nord, Europe Ouest | Australie Est, Inde Centre, Europe Nord, Asie Sud-Est, Asie Est, Australie Sud-Est, Canada Centre, Brésil Sud, Canada Est, France Centre, France Sud, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Inde Sud, Royaume-Uni Ouest, Royaume-Uni Sud, USA Centre, USA Est 2, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Est |
-| Machines virtuelles Azure | USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Centre Nord, Brésil Sud, Canada Est, Canada Centre, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Est, Japon Est, Inde Sud, Asie Sud-Est, Australie Est, Inde Centre, Europe Nord, Australie Sud-Est, France Centre, France Sud, Japon Ouest, Corée Centre, Corée Sud | Aucun |
+| SQL Server dans les machines virtuelles Azure | None | Australie Est, Inde Centre, Europe Nord, Asie Sud-Est, Asie Est, Australie Sud-Est, Canada Centre, Brésil Sud, Canada Est, France Centre, France Sud, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Inde Sud, Royaume-Uni Ouest, Royaume-Uni Sud, USA Centre, USA Est 2, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Est, USA Centre Sud, USA Centre Nord, Europe Ouest, US Gov Virginie, US Gov Texas, US Gov Arizona. |
+| Machines virtuelles Azure | USA Est, USA Est 2, USA Centre, USA Centre Sud, USA Ouest, USA Ouest 2, USA Centre-Ouest, USA Centre Nord, Brésil Sud, Canada Est, Canada Centre, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest, Asie Est, Japon Est, Inde Sud, Asie Sud-Est, Australie Est, Inde Centre, Europe Nord, Australie Sud-Est, France Centre, France Sud, Japon Ouest, Corée Centre, Corée Sud. | Aucun |
 
 ## <a name="error-codes-and-troubleshooting-steps"></a>Codes d’erreur et étapes de résolution des problèmes
 

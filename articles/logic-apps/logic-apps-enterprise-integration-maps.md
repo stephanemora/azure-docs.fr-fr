@@ -1,6 +1,6 @@
 ---
-title: Ajouter des mappages XSLT pour les transformations XML dans des flux de travail
-description: Créez et ajoutez des mappages XSLT afin de transformer du code XML pour des flux de données dans Azure Logic Apps avec l’Enterprise Integration Pack.
+title: Ajouter des mappages XSLT pour transformer des données XML dans des flux de travail
+description: Ajoutez des mappages XSLT pour transformer des données XML dans des flux de travail à l’aide d’Azure Logic Apps et Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/14/2021
-ms.openlocfilehash: 71083bf7eaddb04f322245ca5e33971ff2d79c53
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 55c6d6c20b98415fa09725d4101317ae6c43e23f
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128549868"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359495"
 ---
-# <a name="add-xslt-maps-for-xml-transformation-in-azure-logic-apps"></a>Ajouter des mappages XSLT pour la transformation XML dans Azure Logic Apps
+# <a name="add-xslt-maps-to-transform-xml-in-workflows-with-azure-logic-apps"></a>Ajouter des mappages XSLT pour transformer des données XML dans des flux de travail dans Azure Logic Apps
 
 Pour convertir du code XML d’un format à un autre, votre flux de travail d’application logique peut utiliser des mappages avec l’action **transformer du XML**. Un mappage est un document XML qui utilise le langage XSLT (Extensible Stylesheet Language Transformation) pour décrire la manière de convertir des données XML dans un autre format. Le mappage se compose d’un schéma XML source en entrée et d’un schéma XML cible en sortie. Vous pouvez définir une transformation de base, par exemple, la copie d’un nom et de l’adresse d’un document vers un autre. Vous pouvez aussi créer des transformations plus complexes à l'aide des opérations de mappage prêtes à l'emploi. Vous pouvez manipuler ou contrôler des données à l’aide de différentes fonctions intégrées, telles que des manipulations de chaînes, des affectations conditionnelles, des expressions arithmétiques, des formateurs d’heure et de date, voire des constructions de boucle.
 
@@ -59,7 +59,7 @@ Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Lo
 
     Pour l’instant, vous n’avez pas besoin d’une ressource d’application logique pour créer et ajouter des mappages à utiliser dans les flux de travail **Application logique (consommation)** . Toutefois, lorsque vous êtes prêt à utiliser ces mappages dans vos workflows, votre ressource d’application logique requiert un compte d’intégration lié pour les stocker.
 
-  * Si vous utilisez le [type de ressource **Application logique (standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), vous avez besoin d’une ressource d’application logique existante, car vous ne stockez pas de mappages dans votre compte d’intégration. Au lieu de cela, vous pouvez ajouter directement des mappages à votre ressource d’application logique en utilisant le portail Azure ou Visual Studio Code. Seul XSLT 1.0 est actuellement pris en charge. Vous pouvez ensuite utiliser ces mappages sur plusieurs workflows au sein de la *même ressource d’application logique*.
+  * Si vous utilisez le [type de ressource **Application logique (standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), vous avez besoin d’une ressource d’application logique existante, car vous ne stockez pas de mappages dans votre compte d’intégration. Au lieu de cela, vous pouvez ajouter directement des cartes à votre ressource d'application logique en utilisant soit le portail Azure, soit Visual Studio Code. Seul XSLT 1.0 est actuellement pris en charge. Vous pouvez ensuite utiliser ces mappages sur plusieurs workflows au sein de la *même ressource d’application logique*.
 
     Toutefois, vous avez toujours besoin de ce compte pour stocker les artefacts, tels que les partenaires, les contrats et les certificats, en plus d’utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) ou [EDIFACT](logic-apps-enterprise-integration-edifact.md). Toutefois, vous n’avez pas besoin de lier votre ressource d’application logique à votre compte d’intégration, donc la fonctionnalité de liaison n’existe pas. Votre compte d’intégration doit toujours répondre à d’autres exigences, comme l’utilisation du même abonnement Azure et la présence dans le même emplacement que votre ressource d’application logique.
 

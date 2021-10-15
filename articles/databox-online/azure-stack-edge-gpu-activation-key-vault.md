@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.author: alkohli
-ms.openlocfilehash: a2aa8d3cecab71b354df2ff258bfa47ee77c97f9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 67cddd1839e666d4908706a1bbdaccbbd3565704
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619587"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351429"
 ---
 # <a name="manage-azure-stack-edge-secrets-using-azure-key-vault"></a>Gérer les secrets d’Azure Stack Edge à l’aide d’Azure Key Vault 
 

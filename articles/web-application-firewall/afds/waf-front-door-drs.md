@@ -1,18 +1,17 @@
 ---
 title: Règles et groupes de règles DRS Azure Web Application Firewall sur Azure Front Door
 description: Cet article fournit des informations sur les règles et groupes de règles DRS de Web Application Firewall.
-services: web-application-firewall
-author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/29/2021
+author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 401a6bd003e592d1b53aa91ac24f062688da7a3b
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 07/29/2021
+ms.openlocfilehash: 95839937f2356f74d29499bb45e7cd0e1159b02c
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435741"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546346"
 ---
 # <a name="web-application-firewall-drs-rule-groups-and-rules"></a>Règles et groupes de règles DRS de Web Application Firewall
 
@@ -62,6 +61,9 @@ En mode de scoring d’anomalie, le trafic correspondant à une règle n’est p
 |Avis       |2|
 
 Le score d’anomalie doit atteindre le seuil de 5 pour que le trafic soit bloqué. Ainsi, une seule correspondance de règle *Critique* suffit pour que le pare-feu d’applications web bloque une requête, même en mode de prévention. Mais une correspondance de règle *Avertissement* augmente considérablement selon le score d’anomalie de 3, ce qui est insuffisant en soi pour bloquer le trafic.
+
+> [!NOTE]
+> L’inspection du corps est disponible uniquement sur Data Replication Service 2.0
 
 ### <a name="drs-20"></a>DRS 2.0
 
@@ -288,6 +290,9 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |941370|Variable globale JavaScript détectée|
 |941380|Injection de modèle côté client AngularJS détectée|
 
+>[!NOTE]
+> Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
+
 
 ### <a name="sqli---sql-injection"></a><a name="drs942-20"></a> SQLI - Injection de code SQL
 |ID de la règle|Description|
@@ -409,7 +414,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |931120|Attaque possible par inclusion de fichier distant : charge utile URL utilisée avec caractère point d’interrogation de fin (?)|
 |931130|Attaque possible par inclusion de fichier distant : Référence/Lien hors domaine|
 
-### <a name="rce---remote-command-execution"></a><a name="drs932-11"></a>Exécution de commande à distance (RCE, Remote Command Execution)
+### <a name="rce---remote-command-execution"></a><a name="drs932-11"></a> Exécution de commande à distance (RCE, Remote Command Execution)
 |ID de la règle|Description|
 |---|---|
 |932100|Exécution de commande à distance : Injection de commande Unix|
@@ -439,7 +444,7 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |933170|Attaque par injection de code PHP : Injection d’objet sérialisé|
 |933180|Attaque par injection de code PHP : appel de fonction variable détecté|
 
-### <a name="xss---cross-site-scripting"></a><a name="drs941-11"></a>XSS - Scripts intersites
+### <a name="xss---cross-site-scripting"></a><a name="drs941-11"></a> XSS - Scripts intersites
 |ID de la règle|Description|
 |---|---|
 |941100|Attaque XSS détectée via libinjection|
@@ -469,6 +474,9 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |941330|Filtre XSS IE - Attaque détectée.|
 |941340|Filtre XSS IE - Attaque détectée.|
 |941350|XSS IE d’encodage UTF-7 - Attaque détectée.|
+
+>[!NOTE]
+> Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ### <a name="sqli---sql-injection"></a><a name="drs942-11"></a> SQLI - Injection de code SQL
 |ID de la règle|Description|
@@ -647,6 +655,9 @@ Les règles et groupes de règles suivants sont disponibles durant l’utilisati
 |941330|Filtre XSS IE - Attaque détectée.|
 |941340|Filtre XSS IE - Attaque détectée.|
 |941350|XSS IE d’encodage UTF-7 - Attaque détectée.|
+
+>[!NOTE]
+> Cet article contient des références au terme *liste rouge*, un terme que Microsoft n’utilise plus. Lorsque le terme sera supprimé du logiciel, nous le supprimerons de cet article.
 
 ### <a name="sqli---sql-injection"></a><a name="drs942-10"></a> SQLI - Injection de code SQL
 |ID de la règle|Description|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: ca8e0f2303ed31660e92f084c0f6760a60f40c22
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c2a08059de275efcfb3e65c6a316566a6a081830
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659473"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357955"
 ---
 # <a name="step-3---set-up-to-migrate-to-the-v3-rest-api-or-client-sdk"></a>Étape 3 : configurer la migration vers l’API REST v3 ou le Kit de développement logiciel (SDK) client
 
@@ -39,7 +39,7 @@ Auparavant, les développeurs utilisaient un ID client et une clé secrète clie
 
 L’API v3 est basée sur Azure Resource Manager (ARM). Elle utilise des ID et clés de principal de service Azure Active Directory (Azure AD) pour se connecter à l’API. Les développeurs devront créer des principaux de service ou des identités managées pour se connecter à l’API. L’API V3 utilise des points de terminaison ARM standard, ainsi qu’un modèle similaire et cohérent pour tous les autres services Azure.
 
-Les clients qui utilisaient précédemment la version 2015-10-01 de l’API de gestion ARM pour gérer leurs comptes v2 doivent utiliser la version 2020-05-01 de l’API de gestion ARM prise en charge pour l’accès à l’API V3.
+Les clients qui utilisaient précédemment la version 2015-10-01 de l’API de gestion ARM pour gérer leurs comptes v2 doivent utiliser la version 2020-05-01 (ou ultérieure) de l’API de gestion ARM prise en charge pour l’accès à l’API v3.
 
 ## <a name="create-a-new-media-services-account-for-testing"></a>Créer un compte Media Services à des fins de test
 
@@ -69,7 +69,7 @@ Suivez les étapes de démarrage rapide pour la [configuration de votre environn
 Utilisez [Postman](./setup-postman-rest-how-to.md) pour les appels d’API REST Media Services v3.
 Lisez les [pages de référence de l’API REST](/rest/api/media/).
 
-Vous devez utiliser la chaîne de version 2020-05-01 dans la collection Postman.
+Vous devez utiliser la chaîne de version 2020-05-01 (ou ultérieure) dans la collection Postman.
 
 ## <a name="net"></a>[.NET](#tab/net)
 

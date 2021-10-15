@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: Azure Lighthouse autorise et améliore les expériences interlocataires dans de nombreux services Azure.
-ms.date: 07/20/2021
+ms.date: 09/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: c57afabe5f3aaf49ef1f1868c04c60af4298381d
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: a6ad75df4e22f56c8bcb0f28586c736fc6b04a49
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440907"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129349790"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -101,7 +101,7 @@ La plupart des tâches et des services peuvent être exécutés sur des ressourc
 - [Log Analytics](../../azure-monitor/logs/service-providers.md) : Interroger des données à partir d’espaces de travail distants dans plusieurs locataires (notez que les comptes Automation utilisés pour accéder aux données à partir d’espaces de travail de locataires clients doivent être créés dans le même locataire)
 - Créer, afficher et gérer des [alertes de métrique](../../azure-monitor/alerts/alerts-metric.md), des [alertes de journal](../../azure-monitor/alerts/alerts-log.md) et des [alertes de journal d’activité](../../azure-monitor/alerts/alerts-activity-log.md) dans des locataires clients
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure Functions, dans le locataire gérant par le biais de webhooks
-- Créer des [paramètres de diagnostic](../..//azure-monitor/essentials/diagnostic-settings.md) dans les locataires clients pour envoyer les journaux de ressources à des espaces de travail dans le locataire responsable
+- Créer des [paramètres de diagnostic](../..//azure-monitor/essentials/diagnostic-settings.md) dans les espaces de travail créés dans les locataires clients, afin d’envoyer les journaux de ressources aux espaces de travail du locataire gérant
 - Pour les charges de travail SAP, [surveiller les métriques des solutions SAP avec une vue agrégée sur les locataires clients](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure Networking](../../networking/fundamentals/networking-overview.md) :

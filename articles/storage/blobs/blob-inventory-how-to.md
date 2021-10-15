@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
-ms.openlocfilehash: 67bd943028ba321aa4fa3a5acca30e80cfc36a32
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ace430aa1e48d7e769f82d7258da241a0716a16d
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128615564"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129455642"
 ---
 # <a name="enable-azure-storage-blob-inventory-reports"></a>Activer les rapports d’inventaire des objets blob du Stockage Azure
 
@@ -63,7 +63,7 @@ Activez les rapports d’inventaire des objets blob en ajoutant une stratégie c
 
 <a id="powershell"></a>
 
-Vous pouvez activer l’hébergement de site web statique à l’aide du module Azure PowerShell.
+Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du module Azure PowerShell.
 
 1. Ouvrez une fenêtre Commande Windows PowerShell.
 
@@ -75,7 +75,7 @@ Vous pouvez activer l’hébergement de site web statique à l’aide du module 
    Connect-AzAccount
    ```
 
-4. Si votre identité est associée à plusieurs abonnements, définissez comme abonnement actif l’abonnement du compte de stockage qui doit héberger votre site web statique.
+4. Si votre identité est associée à plusieurs abonnements, définissez votre abonnement actif.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -123,11 +123,11 @@ Vous pouvez activer l’hébergement de site web statique à l’aide du module 
 
 <a id="cli"></a>
 
-Vous pouvez activer l’hébergement de site web statique à l’aide de l’[interface de ligne de commande Azure](/cli/azure/) (Azure CLI).
+Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide de l’[interface de ligne de commande Azure (CLI)](/cli/azure/).
 
 1. Commencez par ouvrir [Azure Cloud Shell](../../cloud-shell/overview.md) ou, si vous avez [installé](/cli/azure/install-azure-cli) Azure CLI localement, ouvrez une application console de commandes telle que Windows PowerShell.
 
-2. Si votre identité est associée à plusieurs abonnements, définissez comme abonnement actif l’abonnement du compte de stockage qui doit héberger votre site web statique.
+2. Si votre identité est associée à plusieurs abonnements, définissez votre abonnement actif.
 
    ```azurecli
       az account set --subscription <subscription-id>

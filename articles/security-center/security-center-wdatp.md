@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: memildin
-ms.openlocfilehash: 529a88c2af5c47cb329006b58f2439ab95f40ba2
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: a57a94b8ee0bb91deb0b15a3da0265af15dbc3a3
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122534744"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129536303"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -37,7 +37,7 @@ Microsoft Defender for Endpoint est une solution holistique de sécurité des po
 |----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | État de sortie :                               | • Intégration à Defender pour point de terminaison pour Windows - Disponibilité générale<br> • Intégration à Defender pour point de terminaison pour Linux - Préversion                                                                                                                                     |
 | Prix :                                     | Nécessite [Azure Defender pour les serveurs](defender-for-servers-introduction.md)                                                                                                                                                                                                           |
-| Environnements pris en charge :                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Machines Azure Arc exécutant Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Machines virtuelles Azure exécutant Linux ([versions prises en charge](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Machines virtuelles Azure exécutant Windows Server 2019, 2016, 2012 R2, 2008 R2 SP1, [ Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) et [Windows 10 Entreprise multisession](../virtual-desktop/windows-10-multisession-faq.yml) (anciennement Entreprise pour bureaux virtuels (EVD)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Machines virtuelles Azure exécutant Windows 10 (autres que EVD ou WVD)           |
+| Environnements pris en charge :                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Machines Azure Arc exécutant Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Machines virtuelles Azure exécutant Linux ([versions prises en charge](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Machines virtuelles Azure exécutant Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [ Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) et [Windows 10 Entreprise multisession](../virtual-desktop/windows-10-multisession-faq.yml) (anciennement Entreprise pour bureaux virtuels [EVD])<br>:::image type="icon" source="./media/icons/no-icon.png"::: Machines virtuelles Azure exécutant Windows 10 (autres que EVD ou WVD)           |
 | Rôles et autorisations obligatoires :              | • Pour activer/désactiver l’intégration : **Administrateur de sécurité** ou **Propriétaire**<br>• Pour voir les alertes Defender pour point de terminaison dans Security Center : **Lecteur de sécurité**, **Lecteur**, **Contributeur du groupe de ressources**, **Propriétaire du groupe de ressources**, **Administrateur de la sécurité**, **Propriétaire de l’abonnement** ou **Contributeur de l’abonnement** |
 | Clouds :                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Clouds commerciaux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure Government<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China 21Vianet                                                         |
 |                                              |                                                                                                                                                                                                                                                                                       |
@@ -258,14 +258,14 @@ Pour les points de terminaison exécutant Linux :
 
 ### <a name="whats-this-mdewindows--mdelinux-extension-running-on-my-machine"></a>Qu’est-ce que l’extension « MDE.Windows »/« MDE.Linux » qui s’exécute sur ma machine ?
 
-Auparavant, Microsoft Defender pour point de terminaison était approvisionné par l’agent Log Analytics. Lorsque [nous avons étendu la prise en charge de manière à inclure Windows Server 2019](release-notes.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga) et Linux, nous avons également ajouté une extension pour effectuer l’intégration automatique. 
+Auparavant, Microsoft Defender pour point de terminaison était approvisionné par l’agent Log Analytics. Lorsque [nous avons étendu la prise en charge de manière à inclure Windows Server 2019](release-notes-archive.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga) et Linux, nous avons également ajouté une extension pour effectuer l’intégration automatique. 
 
 Security Center déploie automatiquement l’extension sur les machines exécutant :
 
 - Windows Server 2019.
 - Windows 10 Virtual Desktop (WVD).
 - D’autres versions de Windows Server si Security Center ne reconnaît pas la version du système d’exploitation (par exemple, lorsqu’une image de machine virtuelle personnalisée est utilisée). Dans ce cas, Microsoft Defender pour point de terminaison continue d’être approvisionné par l’agent Log Analytics.
-- Linux
+- Linux.
 
 > [!IMPORTANT]
 > Si vous supprimez l’extension MDE.Windows, elle ne supprime pas Microsoft Defender pour point de terminaison. Pour plus d’informations, consultez [Retirer des serveurs Windows](/microsoft-365/security/defender-endpoint/configure-server-endpoints).

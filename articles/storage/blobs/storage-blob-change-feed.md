@@ -1,20 +1,21 @@
 ---
-title: Flux de modification dans Stockage Blob Azure | Microsoft Docs
+title: Flux de modification dans Stockage Blob
+titleSuffix: Azure Storage
 description: En savoir plus sur les journaux de flux de modification dans Stockage Blob Azure et leur utilisation.
 author: tamram
 ms.author: tamram
-ms.date: 05/17/2021
+ms.date: 10/01/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 67ecaac43885b76071a6bc71268edb811db7cbbd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bed39bd544ac1b586dcefefb890927fe1ce472b2
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680278"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129402148"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Prise en charge du flux de modification dans Stockage Blob Azure
 
@@ -55,7 +56,7 @@ Voici quelques éléments à prendre en compte lorsque vous activez le flux de m
 
 - Le flux de modification capture *toutes* les modifications pour tous les événements disponibles qui se produisent sur le compte. Les applications clientes peuvent filtrer les types d’événements selon les besoins. (Voir les [conditions](#conditions) de la version actuelle).
 
-- Seuls des comptes de stockage Blob et de type v2 universel peuvent activer le flux de modification. Les comptes d’objet blob de blocs Premium et les comptes avec espace de noms hiérarchiques ne sont actuellement pas pris en charge. Les comptes de stockage de type v1 universel ne sont pas pris en charge, mais peuvent être mis à niveau vers le type v2 universel sans temps d’arrêt. Pour plus d’informations, consultez [Mettre à niveau vers un compte de stockage GPv2](../common/storage-account-upgrade.md).
+- Seuls des comptes de stockage Blob, d’objets blob de blocs Premium et de type v2 universel Standard peuvent activer le flux de modification. Les comptes ayant un espace de noms hiérarchique ne sont pas pris en charge actuellement. Les comptes de stockage de type v1 universel ne sont pas pris en charge, mais peuvent être mis à niveau vers le type v2 universel sans temps d’arrêt. Pour plus d’informations, consultez [Mettre à niveau vers un compte de stockage GPv2](../common/storage-account-upgrade.md).
 
 ### <a name="portal"></a>[Portail](#tab/azure-portal)
 
@@ -302,12 +303,12 @@ Cette section décrit les problèmes connus et les conditions de la version actu
 
 Ce tableau montre comment cette fonctionnalité est prise en charge dans votre compte ainsi que l’impact sur la prise en charge lorsque vous activez certaines fonctionnalités.
 
-| Type de compte de stockage                | Stockage Blob (prise en charge par défaut)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) |![Non](../media/icons/no-icon.png)              | ![Non](../media/icons/no-icon.png) |
-| Objets blob de blocs Premium          | ![Non](../media/icons/no-icon.png)|![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Type de compte de stockage | Stockage Blob (prise en charge par défaut) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
+|--|--|--|--|
+| Usage général v2 Standard | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
+| Objets blob de blocs Premium | ![Oui](../media/icons/yes-icon.png) | ![Non](../media/icons/no-icon.png) | ![Non](../media/icons/no-icon.png) |
 
-<sup>1</sup>    Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
+<sup>1</sup> Data Lake Storage Gen2 et le protocole NFS (Network File System) 3.0 requièrent tous deux un compte de stockage avec un espace de noms hiérarchique activé.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 

@@ -5,14 +5,14 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 10/01/2021
 ms.author: duau
-ms.openlocfilehash: aa109544ce890c4a8fae4775010a722791fbe5a7
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 61a712fa747252b07a513cfa6e18e3f3b4a67e6c
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426073"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400721"
 ---
 # <a name="about-azure-route-server-support-for-expressroute-and-azure-vpn"></a>À propos de la prise en charge d’ExpressRoute et de VPN Azure par le Serveur de routes Azure
 
@@ -34,7 +34,7 @@ Par exemple, dans le diagramme ci-dessous :
 Vous pouvez également remplacer l’appliance SDWAN par la passerelle VPN Azure. Du fait que la passerelle VPN Azure et ExpressRoute sont complètement managés, il vous suffit d’activer l’échange de routage pour que les deux réseaux locaux communiquent entre eux.
 
 > [!IMPORTANT] 
-> La passerelle VPN Azure doit être configurée en mode [**actif/actif**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md).
+> La passerelle VPN Azure doit être configurée en mode [**actif/actif**](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md) et son ASN doit être défini sur 65515.
 >
 
 ![Diagramme montrant ExpressRoute et la passerelle VPN configurés avec Route Server.](./media/expressroute-vpn-support/expressroute-and-vpn-with-route-server.png)

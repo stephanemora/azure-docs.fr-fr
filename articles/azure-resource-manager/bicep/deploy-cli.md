@@ -4,22 +4,29 @@ description: Utilisez Azure Resource Manager et Azure CLI pour déployer des res
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/17/2021
+ms.date: 10/01/2021
 ms.custom: devx-track-azurecli, seo-azure-cli
-ms.openlocfilehash: 0c474a7bf1d74b44b85f108b6a7fa28bcdc48902
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ab371ec2f4cb59b602e953be0043f4dbe49dfb9e
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625617"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129389055"
 ---
 # <a name="how-to-deploy-resources-with-bicep-and-azure-cli"></a>Déploiement de ressources avec Bicep et Azure CLI
 
 Cet article explique comment utiliser Azure CLI avec les fichiers Bicep pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble de Bicep](./overview.md).
 
-Pour déployer des fichiers Bicep, vous devez disposer d’[Azure CLI version 2.20.0 ou ultérieure](/cli/azure/install-azure-cli).
+## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+Vous avez besoin d’un fichier Bicep à déployer. Le fichier doit être local.
+
+Vous avez besoin d'Azure CLI et devez être connecté à Azure :
+
+- **Installez les commandes Azure CLI sur votre ordinateur local.** Pour déployer des fichiers Bicep, vous devez disposer d’[Azure CLI](/cli/azure/install-azure-cli) version **2.20.0 ou ultérieure**.
+- **Connectez-vous à Azure à l’aide de la commande [az login](/cli/azure/reference-index#az_login)** . Si vous disposez de plusieurs abonnements Azure, vous devrez peut-être également exécuter [az account set](/cli/azure/account#az_account_set).
+
+Des exemples pour l’interface CLI sont écrits pour l’interpréteur de commandes `bash`. Pour exécuter cet exemple dans Windows PowerShell ou à une invite de commandes, vous devrez peut-être modifier certains éléments du script.
 
 Si Azure CLI n’est pas installé, vous pouvez utiliser Azure Cloud Shell. Pour plus d’informations, consultez [Déployer des fichiers Bicep à partir d’Azure Cloud Shell](./deploy-cloud-shell.md).
 
@@ -183,11 +190,11 @@ Avant de déployer votre fichier Bicep, vous pouvez obtenir un aperçu des chan
 
 ## <a name="deploy-template-specs"></a>Déployer des specs de modèle
 
-Actuellement, Azure CLI ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer un spec de modèle. L’[exemple de création de spec de modèle](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) montre comment créer un spec de modèle dans un fichier Bicep. Vous pouvez également générer votre fichier Bicep dans le JSON d’un modèle ARM à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
+Actuellement, Azure CLI ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer un spec de modèle. L’[exemple de création de spec de modèle](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) montre comment créer un spec de modèle dans un fichier Bicep. Vous pouvez également générer votre fichier Bicep en JSON à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
 
 ## <a name="deployment-name"></a>Nom du déploiement
 
-Lorsque vous déployez un fichier Bicep, vous pouvez attribuer un nom au déploiement. Ce nom peut vous aider à récupérer le déploiement à partir de l’historique de déploiement. Si vous n’attribuez pas de nom au déploiement, le nom du fichier Bicep sera utilisé. Par exemple, si vous déployez un fichier Bicep nommé `azuredeploy.bicep` sans spécifier de nom pour le déploiement, le déploiement sera nommé `azuredeploy`.
+Lorsque vous déployez un fichier Bicep, vous pouvez attribuer un nom au déploiement. Ce nom peut vous aider à récupérer le déploiement à partir de l’historique de déploiement. Si vous n’attribuez pas de nom au déploiement, le nom du fichier Bicep sera utilisé. Par exemple, si vous déployez un fichier Bicep nommé `main.bicep` sans spécifier de nom pour le déploiement, le déploiement sera nommé `main`.
 
 Chaque fois que vous exécutez un déploiement, une entrée est ajoutée à l’historique de déploiement du groupe de ressources avec le nom du déploiement. Si vous exécutez un autre déploiement et que vous lui attribuez le même nom, l’entrée précédente est remplacée par le déploiement actuel. Si vous souhaitez conserver des entrées uniques dans l’historique de déploiement, attribuez un nom unique à chaque déploiement.
 
@@ -213,6 +220,4 @@ Pour éviter les conflits lors de déploiements simultanés et faire en sorte qu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour restaurer un déploiement réussi lorsque vous obtenez une erreur, consultez [Restaurer en cas d’erreur vers un déploiement réussi](../templates/rollback-on-error.md).
-- Pour comprendre comment définir des paramètres dans votre fichier, consultez [Comprendre la structure et la syntaxe des fichiers Bicep](file.md).
-* Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](../templates/common-deployment-errors.md).
+* Pour comprendre comment définir des paramètres dans votre fichier, consultez [Comprendre la structure et la syntaxe des fichiers Bicep](file.md).

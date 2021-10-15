@@ -10,12 +10,12 @@ ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5b561e233deb5478be89f965bb059e68cfb7134f
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 47445520e92f6c7f4a8e5eb78c404b6875dbe017
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534897"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274061"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modifier la manière dont un compte de stockage est répliqué
 
@@ -151,7 +151,7 @@ Pour demander une migration dynamique, procédez comme suit :
 > [!NOTE]
 > Les partages de fichiers Premium sont disponibles uniquement pour les stockages LRS et ZRS.
 >
-> Les comptes de stockage GZRS ne prennent pas en charge le niveau archive pour le moment. Pour plus d’informations, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
+> Les comptes de stockage GZRS ne prennent pas en charge le niveau archive pour le moment. Consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](../blobs/access-tiers-overview.md) pour plus de détails.
 >
 > Les disques managés sont disponibles uniquement pour LRS, et ne peuvent pas être migrés vers un stockage redondant interzone (ZRS). Vous pouvez stocker des images et des instantanés de disques managés SSD Standard sur le stockage HDD Standard et [choisir entre les options LRS et ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). Pour plus d’informations sur l’intégration avec des groupes à haute disponibilité, consultez [Introduction aux disques managés Azure](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).
 

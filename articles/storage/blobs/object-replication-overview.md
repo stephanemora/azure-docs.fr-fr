@@ -10,12 +10,12 @@ ms.date: 09/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8ba9a24e050307b029e4026a7e8e519a1b4043dc
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6808160b97d6d1d46917f2e1733b7b1badb4c5f4
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128607042"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534366"
 ---
 # <a name="object-replication-for-block-blobs"></a>Réplication d'objets blob de blocs
 
@@ -57,7 +57,7 @@ La réplication d’objets copie de façon asynchrone les objets blob de blocs d
 
 La réplication d’objets implique que le contrôle de version des objets blob soit activé sur les comptes source et de destination. Lorsqu’un objet blob répliqué dans le compte source est modifié, une nouvelle version de l’objet blob est créée dans le compte source et reflète l’état précédent de l’objet blob, avant modification. La version actuelle du compte source reflète les mises à jour les plus récentes. La version actuelle ainsi que toutes les versions précédentes sont répliquées vers le compte de destination. Pour plus d’informations sur la façon dont les opérations d’écriture affectent les versions d’objets blob, consultez [Contrôle de version sur les opérations d’écriture](versioning-overview.md#versioning-on-write-operations).
 
-Lorsqu’un objet blob du compte source est supprimé, la version actuelle de l’objet blob devient une version antérieure, et il n’y a plus de version précédente. Toutes les versions antérieures du blob sont conservées. Cet état est répliqué dans le compte de destination. Pour plus d’informations sur la façon dont les opérations de suppression affectent les versions d’objets blob, consultez [Contrôle de version sur les opérations de suppression](versioning-overview.md#versioning-on-delete-operations).
+Lorsqu’un blob du compte source est supprimé, la version actuelle du blob devient une version antérieure, et il n’y a plus de version actuelle. Toutes les versions antérieures du blob sont conservées. Cet état est répliqué dans le compte de destination. Pour plus d’informations sur la façon dont les opérations de suppression affectent les versions d’objets blob, consultez [Contrôle de version sur les opérations de suppression](versioning-overview.md#versioning-on-delete-operations).
 
 ### <a name="snapshots"></a>Instantanés
 
@@ -65,7 +65,7 @@ La réplication d’objets ne prend pas en charge les instantanés d’objet blo
 
 ### <a name="blob-tiering"></a>Hiérarchisation des objets blob
 
-La réplication d’objets est prise en charge lorsque les comptes source et de destination se trouvent au niveau chaud ou froid. Les comptes source et de destination peuvent se trouver dans des niveaux différents. Toutefois, la réplication d’objets échoue si un objet blob du compte source ou de destination a été déplacé vers le niveau archive. Pour plus d’informations sur les niveaux des objets blob, consultez [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](storage-blob-storage-tiers.md).
+La réplication d’objets est prise en charge lorsque les comptes source et de destination se trouvent au niveau chaud ou froid. Les comptes source et de destination peuvent se trouver dans des niveaux différents. Toutefois, la réplication d’objets échoue si un objet blob du compte source ou de destination a été déplacé vers le niveau archive. Pour plus d’informations sur les niveaux des blobs, consultez [Niveaux d’accès chaud, froid et archive pour les données blob](access-tiers-overview.md).
 
 ### <a name="immutable-blobs"></a>Objets blob immuables
 
@@ -99,7 +99,7 @@ Vous pouvez aussi spécifier un ou plusieurs filtres dans le cadre d’une règl
 
 Les conteneurs source et de destination doivent tous les deux exister pour que vous puissiez les spécifier dans une règle. Une fois que vous avez créé la stratégie de réplication, les opérations d’écriture vers le conteneur de destination ne sont pas autorisées. Toute tentative d’écriture dans le conteneur de destination échoue avec le code d’erreur 409 (Conflit). Pour écrire dans un conteneur de destination pour lequel une règle de réplication est configurée, vous devez soit supprimer la règle configurée pour ce conteneur, soit supprimer la stratégie de réplication. Les opérations de lecture et de suppression sur le conteneur de destination sont autorisées lorsque la stratégie de réplication est active.
 
-Vous pouvez appeler l’opération [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) sur un blob dans le conteneur de destination pour le déplacer vers le niveau archive. Pour plus d’informations sur le niveau d’archive, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md#archive-access-tier).
+Vous pouvez appeler l’opération [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) sur un blob dans le conteneur de destination pour le déplacer vers le niveau archive. Pour plus d’informations sur le niveau archive, consultez [Niveaux d’accès chaud, froid et archive pour les données blob](access-tiers-overview.md#archive-access-tier).
 
 ## <a name="policy-definition-file"></a>Fichier de définition de la stratégie
 

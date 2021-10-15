@@ -1,14 +1,14 @@
 ---
 title: Déployer une stratégie pouvant être corrigée
 description: Pour déployer des stratégies qui utilisent une tâche de correction via Azure Lighthouse, vous devez créer une identité managée dans le locataire client.
-ms.date: 09/13/2021
+ms.date: 09/30/2021
 ms.topic: how-to
-ms.openlocfilehash: 2270644a2d3e841a40046743bd6092a3ba44105d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5783d753fabb7246914056139fb9a081b7684b9c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611450"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362274"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Déployer une stratégie pouvant être corrigée dans un abonnement délégué
 
@@ -24,6 +24,9 @@ Quand vous intégrez un client à Azure Lighthouse, vous utilisez un [modèle Az
 Pour permettre à un **principalId** de créer une identité managée dans le locataire du client, vous devez définir son **roleDefinitionId** sur **Administrateur de l’accès utilisateur**. Bien que ce rôle ne soit généralement pas pris en charge, il peut être utilisé dans ce scénario spécifique, permettant à des comptes d’utilisateur disposant de cette autorisation d’affecter un ou plusieurs rôles intégrés spécifiques à des identités managées. Ces rôles sont définis dans la propriété **delegatedRoleDefinitionIds** et peuvent inclure [n’importe quel rôle intégré](../concepts/tenants-users-roles.md#role-support-for-azure-lighthouse), sauf Administrateur de l’accès utilisateur ou Propriétaire.
 
 Une fois le client intégré, le **principalId** créé dans cette autorisation pourra affecter ces rôles intégrés à des identités managées dans le locataire du client. Toutefois, il n’aura aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur.
+
+> [!NOTE]
+> Les [attributions de rôles](../../role-based-access-control/role-assignments-steps.md#step-5-assign-role) entre les locataires doivent être effectuées actuellement par le biais d’API, et non dans le portail Azure.
 
 L’exemple ci-dessous montre un **principalId** qui aura le rôle Administrateur de l’accès utilisateur. Cet utilisateur pourra attribuer deux rôles intégrés à des identités managées dans le locataire du client : Contributeur et Contributeur Log Analytics.
 
@@ -45,7 +48,7 @@ Une fois que vous avez créé l’utilisateur avec les autorisations nécessaire
 
 Par exemple, supposons que vous vouliez activer les diagnostics sur des ressources Azure Key Vault dans le locataire du client, comme illustré dans cet [exemple](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). Un utilisateur du client gestionnaire disposant des autorisations appropriées (comme décrit ci-dessus) déploierait un [modèle Azure Resource Manager](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) pour activer ce scénario.
 
-Notez que la création de l’attribution de stratégie à utiliser avec un abonnement délégué doit être effectuée par le biais d’API, et non dans le portail Azure. Dans ce cas, l’**apiVersion** doit être définie sur **2019-04-01-Preview**, qui comprend la nouvelle propriété **delegatedManagedIdentityResourceId**. Cette propriété vous permet d’inclure une identité managée qui réside dans le locataire du client (dans un abonnement ou un groupe de ressources qui a été intégré à Azure Lighthouse).
+Notez que la création de l’attribution de stratégie à utiliser avec un abonnement délégué doit être effectuée par le biais d’API, et non dans le portail Azure. Dans ce cas, l’**apiVersion** doit être définie sur **2020-10-01-Preview**, qui comprend la nouvelle propriété **delegatedManagedIdentityResourceId**. Cette propriété vous permet d’inclure une identité managée qui réside dans le locataire du client (dans un abonnement ou un groupe de ressources qui a été intégré à Azure Lighthouse).
 
 L’exemple suivant montre une attribution de rôle avec un **delegatedManagedIdentityResourceId**.
 

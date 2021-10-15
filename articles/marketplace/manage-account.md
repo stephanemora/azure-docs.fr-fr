@@ -1,27 +1,27 @@
 ---
-title: Procédure de gestion d’un compte Place de marché commerciale dans l’Espace partenaires Microsoft - Place de marché Azure
-description: Découvrez comment gérer un compte Place de marché commerciale dans l’Espace partenaires Microsoft.
+title: Gérer un compte de marketplace commercial dans Espace partenaires
+description: Gérez un compte de marketplace commercial dans Espace partenaires.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 09/27/2021
-ms.openlocfilehash: 9e30cc845fbc4ec2aefc062780f53e3bb0f02161
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: f6730ad58491fb24dbc025eaa44fbc7d7bdade58
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082573"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359812"
 ---
-# <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gérer votre compte Place de marché commerciale dans l’Espace partenaires
+# <a name="manage-a-commercial-marketplace-account-in-partner-center"></a>Gérer un compte de marketplace commercial dans Espace partenaires
 
 **Rôles appropriés**
 
 - Propriétaire
 - Manager
 
-Une fois que vous avez [créé un compte Espace partenaires](./create-account.md), vous pouvez utiliser le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour gérer votre compte et les offres.
+Une fois que vous avez [créé un compte Espace partenaires](./create-account.md), utilisez le [tableau de bord du marketplace commercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) pour gérer votre compte et vos offres.
 
 ## <a name="access-your-account-settings"></a>Accéder à vos paramètres de compte
 
@@ -33,11 +33,11 @@ Si ce n’est déjà fait, vous (ou l’administrateur de votre organisation) de
 
 1. Connectez-vous au [tableau de bord de la place de marché commerciale](https://partner.microsoft.com/dashboard/home) dans l’Espace partenaires à l’aide du compte auquel vous souhaitez accéder. Si vous êtes membre de plusieurs comptes et que vous vous êtes connecté avec un autre compte, vous pouvez [changer de compte](switch-accounts.md).
 
-1. En haut à droite, sélectionnez **Paramètres** (icône d’engrenage), puis **Paramètres du compte**.
+1. En haut à droite, sélectionnez **Paramètres** (icône en forme d’engrenage), puis **Paramètres du compte**.
 
     [ ![Capture d’écran du menu Paramètres du compte dans l’Espace partenaires.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
-1. Sous **Paramètres du compte**, sélectionnez **Légal**. Sélectionnez ensuite l’onglet **Développeur** pour afficher les détails relatifs à votre compte Place de marché commerciale.
+1. Sous **Paramètres du compte**, sélectionnez **Informations juridiques**, puis l’onglet **Développeur** pour afficher les détails relatifs à votre compte de marketplace commercial.
 
     [ ![Capture d’écran de l’onglet Développeur sur la page Légal dans Paramètres du compte.](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
 
@@ -50,7 +50,7 @@ Si ce n’est déjà fait, vous (ou l’administrateur de votre organisation) de
 
    :::image type="content" source="media/manage-accounts/settings-account.png" alt-text="Capture d’écran montrant l’option Paramètres du compte dans l’Espace partenaires.":::
 
-1. Sous **Paramètres du compte**, sélectionnez **Légal**. Sélectionnez ensuite l’onglet **Développeur** pour afficher les détails relatifs à votre compte Place de marché commerciale.
+1. Sous **Paramètres du compte**, sélectionnez **Informations juridiques**, puis l’onglet **Développeur** pour afficher les détails relatifs à votre compte de marketplace commercial.
 
    :::image type="content" source="media/manage-accounts/developer-tab.png" alt-text="Capture d’écran montrant l’onglet Développeur." lightbox="media/manage-accounts/developer-tab.png":::
 
@@ -137,6 +137,8 @@ Pour accéder à la page Contrats :
 Les **actions nécessaires** peuvent apparaître en haut de cette page s’il existe des mises à jour de contrat qui nécessitent votre attention. Pour accepter un contrat modifié, commencez par lire la version du contrat liée, puis sélectionnez **Accepter le contrat**.
 
 ## <a name="set-up-a-payout-profile"></a>Paramétrer un profil de paiement
+
+Pour avoir une offre négociable sur Place de marché Azure, un profil fiscal et un profil de paiement doivent être soumis et validés dans Espace partenaires.  Vous devez d’abord soumettre un profil fiscal avant de pouvoir créer un profil de paiement. La validation d’un profil fiscal peut prendre jusqu’à 48 heures.
 
 Un profil de paiement est le compte bancaire auquel les recettes sont envoyées en fonction de vos ventes. Ce compte bancaire doit se trouver dans le même pays/la même région que celui/celle où vous avez enregistré votre compte Espace partenaires. Pour en savoir plus sur les profils de paiement, consultez [Configurer votre compte de paiement et vos déclarations de taxe](/partner-center/set-up-your-payout-account).
 

@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour appliquer des remises de réservation Azure Synapse Analytics | Microsoft Docs
+title: Guide pratique pour appliquer des remises de réservation Azure Synapse Analytics (Entrepôt de données uniquement) | Microsoft Docs
 description: Découvrez comment les remises de réservation Azure Synapse Analytics peuvent vous permettre de faire des économies.
 author: yashesvi
 ms.reviewer: yashar
@@ -8,14 +8,14 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: 1d1ac2d61b8ef70b63f174431168a169868a989b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4d8560484e085f44553c717b10c18920725be212
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625199"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710229"
 ---
-# <a name="how-reservation-discounts-apply-to-azure-synapse-analytics"></a>Guide pratique pour appliquer des remises de réservation Azure Synapse Analytics
+# <a name="how-reservation-discounts-apply-to-azure-synapse-analytics-data-warehousing-only"></a>Guide pratique pour appliquer des remises de réservation Azure Synapse Analytics (Entrepôt de données uniquement)
 
 Une fois que vous avez acheté une capacité de réserve Azure Synapse Analytics, la remise de réservation est automatiquement appliquée à vos instances provisionnées qui se trouvent dans la région concernée. La remise de réservation s’applique à l’utilisation émise par le compteur de cDWU Azure Synapse Analytics. Les opérations liées au stockage et au réseau sont facturées au tarif de paiement à l’utilisation.
 

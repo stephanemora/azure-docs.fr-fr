@@ -1,6 +1,6 @@
 ---
-title: Configuration du plan de reprise d’activité d’Azure Virtual Desktop – Azure
-description: Guide pratique pour configurer un plan de continuité d’activité et reprise d’activité dans un déploiement Azure Virtual Desktop.
+title: Plan de récupération d’urgence d’Azure Virtual Desktop
+description: Élaborez un plan de récupération d’urgence pour votre déploiement d’Azure Virtual Desktop afin de protéger vos données.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 10/09/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 91795dbe4e648f12e9a088a5aeffb68bffb46a65
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 54202b49e2881d1d128136b876cbf88c2bc87400
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111757892"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359759"
 ---
-# <a name="set-up-a-business-continuity-and-disaster-recovery-plan"></a>Configurer un plan de continuité d’activité et la reprise d’activité (BCDR)
+# <a name="azure-virtual-desktop-disaster-recovery"></a>Récupération d’urgence d’Azure Virtual Desktop
 
 Pour garantir la sécurité des données de votre organisation, vous devrez peut-être adopter une stratégie de continuité d'activité et reprise d'activité (BCDR). Une stratégie BCDR solide permet aux applications et à la charge de travail de fonctionner pendant les interruptions de service planifiées et non planifiées.
 

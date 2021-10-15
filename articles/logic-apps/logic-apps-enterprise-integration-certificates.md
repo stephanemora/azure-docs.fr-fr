@@ -1,6 +1,6 @@
 ---
 title: Ajouter des certificats pour sécuriser les messages B2B dans les workflows
-description: Ajouter des certificats pour sécuriser les messages B2B pour les workflows dans Azure Logic Apps à l’aide du pack Enterprise Integration Pack.
+description: Ajoutez des certificats à votre compte d’intégration pour sécuriser les messages B2B dans les workflows avec Azure Logic Apps et Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/23/2021
-ms.openlocfilehash: e2d2bc58c5a523667eef62b21791e953701f7bc1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b68bc9f1f77c6ad5b60cd5b2ea9c4b644acb4c5b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128550091"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361047"
 ---
-# <a name="secure-messages-using-certificates-for-workflows-in-azure-logic-apps"></a>Sécuriser les messages à l’aide de certificats pour les flux de travail dans Azure Logic Apps
+# <a name="add-certificates-to-integration-accounts-for-securing-messages-in-workflows-with-azure-logic-apps"></a>Ajouter des certificats aux comptes d’intégration pour sécuriser les messages dans les workflows avec Azure Logic Apps
 
 Lorsque vous devez échanger des messages confidentiels dans un workflow B2B (Business-to-Business) d’application logique, vous pouvez augmenter la sécurité de cette communication à l’aide de certificats. Un certificat est un document numérique qui permet de sécuriser la communication à l’aide des manières suivantes :
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser les types de certificat suivants dans vos flux de travail 
 
 * Certificats privés ou [*certificats auto-signés*](https://en.wikipedia.org/wiki/Self-signed_certificate), que vous créez et émettez vous-même. Toutefois, ces certificats requièrent des clés privées.
 
-Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Logic Apps](logic-apps-overview.md) ? Pour plus d’informations sur l’intégration d’entreprise B2B, consultez [Solutions d’intégration d’entreprise B2B avec Azure Logic Apps et Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Logic Apps](logic-apps-overview.md) ? Pour plus d’informations sur l’intégration d’entreprise B2B, consultez [Workflows d’intégration d’entreprise B2B avec Azure Logic Apps et Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -47,7 +47,7 @@ Si vous débutez avec les applications logiques, voir [Qu’est-ce qu’Azure Lo
 
     Pour l’instant, vous n’avez pas besoin d’une ressource d’application logique pour créer et ajouter des certificats à utiliser dans les workflows **d’application logique (Consommation)** . Toutefois, lorsque vous êtes prêt à utiliser ces certificats dans vos workflows, votre ressource d’application logique requiert un compte d’intégration lié pour les stocker.
 
-  * Si vous utilisez le [type de ressource **Application logique (Standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration n’a pas besoin d’un lien vers votre ressource d’application logique, mais il est toujours nécessaire pour stocker d’autres artefacts, comme les partenaires, contrats et certificats, ainsi que pour utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](logic-apps-enterprise-integration-edifact.md). Votre compte d’intégration doit encore répondre à d’autres exigences, telles que l’utilisation du même abonnement Azure et le même emplacement que votre ressource d’application logique.
+  * Si vous utilisez le [type de ressource **Application logique (Standard)** ](logic-apps-overview.md#resource-type-and-host-environment-differences), votre compte d’intégration n’a pas besoin d’un lien vers votre ressource d’application logique, mais il est toujours nécessaire pour stocker d’autres artefacts, comme les partenaires, contrats et certificats, ainsi que pour utiliser les opérations [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](logic-apps-enterprise-integration-edifact.md). Votre compte d’intégration doit toujours répondre à d’autres exigences, comme l’utilisation du même abonnement Azure et la présence dans le même emplacement que votre ressource d’application logique.
 
     > [!NOTE]
     > Actuellement, seul le type de ressource **Application logique (Consommation)** prend en charge les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md). Le type de ressource **Application logique (Standard)** n’inclut pas les opérations [RosettaNet](logic-apps-enterprise-integration-rosettanet.md).

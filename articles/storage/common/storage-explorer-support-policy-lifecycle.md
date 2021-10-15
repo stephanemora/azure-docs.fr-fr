@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: marayerm
-ms.openlocfilehash: 37486f22aba1be1ac987238d38e69b95553a8629
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c43f0873cd2b233df08438fdf796f4e389886972
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638213"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458791"
 ---
 # <a name="azure-storage-explorer-support-lifecycle-and-policy"></a>Politique et cycle de vie de support de l’Explorateur Stockage Azure
 
@@ -33,14 +33,17 @@ L’Explorateur Stockage est régie par la [Politique de cycle de vie moderne](h
 
 À partir de la version 1.14.1, toute version de l’Explorateur Stockage datant de plus de 12 mois sera considérée comme non prise en charge. Toutes les versions antérieures à 1.14.1 seront considérées comme non prises en charge à compter du 14 juillet 2021. Il n’est pas garanti que les versions qui ne sont plus prises en charge soient entièrement fonctionnelles comme prévu et attendu. Pour obtenir la liste de toutes les versions, leur date de publication et leur date de fin de prise en charge, consultez [Versions](#releases).
 
-À compter de la version 1.13.0, une alerte dans l’application s’affiche lorsque qu’une version est à environ un mois de sa date de fin de prise en charge. L’alerte encourage les utilisateurs à effectuer une mise à jour vers la dernière version de l’Explorateur Stockage. Une fois qu’une version n’est plus prise en charge, l’alerte dans l’application s’affiche à chaque démarrage.
+À compter de la version 1.13.0, une alerte dans l’application peut s’afficher lorsque qu’une version est à environ un mois de sa date de fin de support. L’alerte encourage les utilisateurs à effectuer une mise à jour vers la dernière version de l’Explorateur Stockage. Lorsque le support n’est plus assuré pour une version, l’alerte dans l’application peut s’afficher à chaque démarrage.
 
 ## <a name="releases"></a>Versions
 
 Ce tableau décrit la date de publication et la date de fin de prise en charge pour chaque version de l’Explorateur Stockage Azure.
 
-| Version de l’Explorateur Stockage Azure  | Date de publication         | Date de fin de prise en charge |
+| Version de l’Explorateur Stockage Azure  | Date de publication       | Date de fin de prise en charge |
 |:-------------------------:|:------------------:|:-------------------:|
+| v1.21.2                   | 28 septembre 2021 | 28 septembre 2022  |
+| v1.21.1                   | 22 septembre 2021 | 22 septembre 2022  |
+| v1.21.0                   | 8 septembre 2021  | 8 septembre 2022   |
 | v1.20.1                   | 23 juillet 2021      | 23 juillet 2022       |
 | v1.20.0                   | 25 juin 2021      | 25 juin 2022       |
 | v1.19.1                   | 29 avril 2021     | 29 avril 2022      |
@@ -56,7 +59,7 @@ Ce tableau décrit la date de publication et la date de fin de prise en charge p
 | v1.14.0                   | 24 juin 2020      | 14 juillet 2021       |
 | v1.13.1                   | 18 mai 2020       | 14 juillet 2021       |
 | v1.13.0                   | 1 mai 2020        | 14 juillet 2021       |
-| v1.12.0                   | 16 janvier 2020     | 14 juillet 2021       |
+| v1.12.0                   | 16 janvier 2020   | 14 juillet 2021       |
 | v1.11.2                   | 17 décembre 2019  | 14 juillet 2021       |
 | v1.11.1                   | 20 novembre 2019  | 14 juillet 2021       |
 | v1.11.0                   | 4 novembre 2019   | 14 juillet 2021       |
@@ -69,7 +72,7 @@ Ce tableau décrit la date de publication et la date de fin de prise en charge p
 | v1.6.2                    | 8 janvier 2019    | 14 juillet 2021       |
 | v1.6.1                    | 18 décembre 2018  | 14 juillet 2021       |
 | v1.6.0                    | 4 décembre 2018   | 14 juillet 2021       |
-| v1.5.0                    | 29 octobre 2018     | 14 juillet 2021       |
+| v1.5.0                    | 29 octobre 2018   | 14 juillet 2021       |
 | v1.4.4                    | 15 octobre 2018   | 14 juillet 2021       |
 | v1.4.2                    | 24 septembre 2018 | 14 juillet 2021       |
 | v1.4.1                    | 28 Août 2018    | 14 juillet 2021       |

@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 4cb943230c0211c67caf5d7a074d21077358c143
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d6256fdb15fd4e1e5674ab9aa24002027ed712d9
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605446"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273530"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -358,7 +358,7 @@ Chaîne **--include-regex** Inclut uniquement le chemin d’accès relatif des f
 
 **--s2s-handle-invalid-metadata** string   Spécifie la manière dont les clés de métadonnées non valides sont gérées. Options disponibles : ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid (par défaut `ExcludeIfInvalid`).
 
-**--s2s-preserve-access-tier** Conserver le niveau d’accès lors d’une copie de service à service Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut `true`).
+**--s2s-preserve-access-tier** Conserver le niveau d’accès lors d’une copie de service à service Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](../blobs/access-tiers-overview.md). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut `true`).
 
 **--s2s-preserve-blob-tags** Préserve les balises d’index pendant le transfert service à service d’un stockage blob à un autre.
 

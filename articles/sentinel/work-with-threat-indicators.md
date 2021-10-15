@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 0ce6c7ced310fa467adbdc707d25bb5efc0f02bc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 05aa211d5a96b712862fbb8c81e10ba313ef3b74
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763307"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278787"
 ---
 # <a name="work-with-threat-indicators-in-azure-sentinel"></a>Utiliser des indicateurs de menace dans Azure Sentinel
 
@@ -32,11 +32,7 @@ Vous pouvez intégrer le renseignement sur les menaces à Azure Sentinel par le 
 
 - **Détectez les menaces** et générez des alertes et des incidents de sécurité à l’aide des modèles de règle d’**analytique** intégrés basés sur le renseignement sur les menaces importé.
 
-- **Visualisez les informations essentielles** concernant le renseignement sur les menaces importé dans Azure Sentinel à l’aide du **classeur Threat Intelligence**.
-
-> [!IMPORTANT]
-> Les fonctionnalités indiquées sont disponibles en préversion. Les [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluent des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore disponibles dans la version en disponibilité générale.
->
+- **Visualisez les informations essentielles** concernant le renseignement sur les menaces importé dans Azure Sentinel à l’aide du **workbook Threat Intelligence**.
 
 ## <a name="view-your-threat-indicators-in-azure-sentinel"></a>Consulter vos indicateurs de menace dans Azure Sentinel
 
@@ -139,6 +135,10 @@ Selon les paramètres par défaut, chaque fois que la règle s’exécute selon 
 Dans Azure Sentinel, les alertes générées à partir des règles d’analytique génèrent également des incidents de sécurité qui se trouvent dans **Incidents** sous **Gestion des menaces**  dans le menu Azure Sentinel. Les incidents sont ce que vos équipes chargées des opérations de sécurité trient et examinent pour déterminer les actions de réponse appropriées. Vous trouverez des informations détaillées dans ce [Tutoriel : Examiner les incidents avec Azure Sentinel](./investigate-cases.md).
 
 ## <a name="detect-threats-using-matching-analytics-public-preview"></a>Détecter les menaces à l’aide de l’analyse de correspondance (préversion)
+
+> [!IMPORTANT]
+> L’analyse de correspondance est actuellement en PRÉVERSION. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+>
 
 [Créez une règle](detect-threats-built-in.md#use-built-in-analytics-rules) à l’aide du modèle de règle analytique **Analyse de correspondance Microsoft Threat Intelligence** intégré pour demander à Azure Sentinel de mettre en correspondance les données du renseignement sur les menaces générées par Microsoft avec les journaux que vous avez ingérés dans Azure Sentinel.
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
 ms.date: 09/27/2021
-ms.openlocfilehash: 5d5b1ed8a20bc459370a9bb7e437e1f5c977714d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 6ec86ff575e4848f79dfe8c6e444e47ed6d1f8f1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/29/2021
-ms.locfileid: "129217978"
+ms.locfileid: "129277894"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Connecter Data Factory à Azure Purview (préversion)
 
@@ -76,7 +76,7 @@ L’identité managée de la fabrique de données est utilisée pour authentifie
 
     Lors de la connexion de la fabrique de données à Purview sur l’interface utilisateur de création, ADF tente d’ajouter automatiquement une telle attribution de rôle. Si vous détenez le rôle **Administrateur de collection** sur la collection racine Purview et que vous avez accès au compte Purview à partir de votre réseau, cette opération s’effectue avec succès.
 
-- Pour un compte Purview créé **avant le 18 août 2021**, accordez à l’identité managée de la fabrique de données le rôle Azure [**Curateur de données Purview**](../role-based-access-control/built-in-roles.md#purview-data-curator) intégré à votre compte Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview - Autorisations héritées](../purview/catalog-permissions.md#legacy-permission-guide).
+- Pour un compte Purview créé **avant le 18 août 2021**, accordez à l’identité managée de la fabrique de données le rôle Azure [**Curateur de données Purview**](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) (hérité) intégré à votre compte Purview. En savoir plus sur le [Contrôle d’accès dans Azure Purview - Autorisations héritées](../purview/catalog-permissions.md#legacy-permission-guide).
 
     Lors de la connexion de la fabrique de données à Purview sur l’interface utilisateur de création, ADF tente d’ajouter automatiquement une telle attribution de rôle. Si vous avez le rôle intégré Azure **Propriétaire** ou **Administrateur de l’accès utilisateur** sur le compte Purview, cette opération est effectuée avec succès.
 

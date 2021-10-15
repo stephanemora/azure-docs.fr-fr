@@ -3,12 +3,12 @@ title: Déployer Azure Video Analyzer sur Azure Stack Edge
 description: Cet article indique les étapes à suivre pour déployer Azure Video Analyzer sur Azure Stack Edge.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 1cfcd7956cd14d0c687c8619732523a5d7bba4c0
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: da14368846cd87d5d4e231933cec0068a4e558f9
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605209"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129546612"
 ---
 # <a name="deploy-azure-video-analyzer-on-azure-stack-edge"></a>Déployer Azure Video Analyzer sur Azure Stack Edge
 
@@ -175,6 +175,40 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
     "allowUnsecuredEndpoints": true,
     "telemetryOptOut": false
     ```
+1. Sélectionnez **Ajouter**  
+
+Ajouter le module Edge Simulateur RTSP
+
+1. Dans la section **Modules IoT Edge** de la page, cliquez sur la liste déroulante **Ajouter**, puis sélectionnez **Module IoT Edge** pour afficher la page **Ajouter un module IoT Edge**.
+1. Sous l’onglet **Paramètres du module**, fournissez un nom pour le module, puis spécifiez l’URI de l’image conteneur :   
+    Exemples :
+    
+    * **Nom du module IoT Edge** : rtspsim
+    * **URI d’image** : mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2  
+
+
+1. Ouvrez l’onglet **Options de création de conteneur**.
+ 
+    Copier et coller le code JSON suivant dans la zone
+    
+    ```
+    {
+        "HostConfig": {
+            "Binds": [
+               "/home/localedgeuser/samples/input/:/live/mediaServer/media/"
+            ],
+            "PortBindings": {
+                    "554/tcp": [
+                        {
+                        "HostPort": "554"
+                        }
+                    ]
+            }
+        }
+    }
+    ```
+1. Sélectionnez **Ajouter**  
+
 1. Sélectionnez **Suivant : Itinéraires** pour passer à la section Itinéraires. Spécifiez des itinéraires.
 
     Sous NOM, entrez **AVAToHub**, puis sous VALEUR, entrez **FROM /messages/modules/avaedge/outputs/ INTO $upstream**
@@ -193,6 +227,8 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/deploy-on-stack-edge/copy-provisioning-token.png" alt-text="Copier le jeton":::
+
+
 
 #### <a name="optional-setup-docker-volume-mounts"></a>(Facultatif) Configurer les montages de volume Docker
 
@@ -268,7 +304,7 @@ Ces étapes décrivent la création d’un utilisateur de passerelle et la confi
                     "Mounts": 
                     [
                         {
-                            "Target": "/var/media",
+                            "Target": "/live/mediaServer/media",
                             "Source": "media",
                             "Type": "volume"
                         }

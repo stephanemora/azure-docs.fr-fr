@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 91ef36a5dbbfb7e0edb7fe1d75d77d2f2dc4870b
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+ms.openlocfilehash: ef1cce7905e07c1fa407c0194d585bb196ecdfd6
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357604"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129232201"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problèmes connus sur les navigateurs Internet Explorer et Microsoft Edge (MSAL.js)
 
@@ -36,7 +36,7 @@ La cause de la plupart de ces problèmes est la suivante. Le stockage de session
 
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
-- **La fenêtre contextuelle ne se ferme pas ou est bloquée lors de l’utilisation de la connexion via la fenêtre contextuelle pour l’authentification**. Lors de l’authentification via une fenêtre contextuelle dans Microsoft Edge ou IE (InPrivate), une fois la saisie des informations d’identification et la connexion effectuées, si plusieurs domaines dans les zones de sécurité sont impliqués dans la navigation, la fenêtre contextuelle ne se ferme pas parce que MSAL.js perd le descripteur de la fenêtre contextuelle.
+- **La fenêtre contextuelle ne se ferme pas ou est bloquée lors de l’utilisation de la connexion via la fenêtre contextuelle pour l’authentification**. Lors de l’authentification via une fenêtre contextuelle dans Microsoft Edge ou IE (InPrivate), une fois la saisie des informations d’identification et la connexion effectuées, si plusieurs domaines dans les zones de sécurité sont impliqués dans la navigation, la fenêtre contextuelle ne se ferme pas parce que `MSAL.js` perd le descripteur de la fenêtre contextuelle.
 
 ### <a name="update-fix-available-in-msaljs-023"></a>Mise à jour : Correctif disponible dans MSAL.js 0.2.3
 Des correctifs pour les problèmes de boucle de redirection d’authentification ont été publiés dans [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Activez l’indicateur `storeAuthStateInCookie` dans la configuration MSAL.js pour tirer parti de ce correctif. Par défaut, cet indicateur est défini sur false.
@@ -44,7 +44,7 @@ Des correctifs pour les problèmes de boucle de redirection d’authentification
 Lorsque l’indicateur `storeAuthStateInCookie` est activé, MSAL.js utilise les cookies du navigateur pour stocker l’état de demande requis pour la validation des flux d’autorisations.
 
 > [!NOTE]
-> Ce correctif n’est pas encore disponible pour les wrappers msal-angular et msal-angularjs. Ce correctif ne règle pas le problème lié aux fenêtres contextuelles.
+> Ce correctif n’est pas encore disponible pour les wrappers `msal-angular` et `msal-angularjs`. Ce correctif ne règle pas le problème lié aux fenêtres contextuelles.
 
 Utilisez les solutions de contournement ci-dessous.
 

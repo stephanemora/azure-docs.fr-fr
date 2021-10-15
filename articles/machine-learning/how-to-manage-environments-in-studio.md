@@ -1,5 +1,5 @@
 ---
-title: Gérer des environnements dans ML Studio (préversion)
+title: Gérer des environnements dans le studio
 titleSuffix: Azure Machine Learning
 description: Apprenez à créer et gérer des environnements dans Azure Machine Learning Studio.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: sagopal
 ms.date: 5/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: 8015152a7888df86128aaff31d4b8c6dd9179cf2
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: afa72add9b4fe6014b03331e8ee520669edb29b1
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112460591"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129426053"
 ---
-# <a name="manage-software-environments-in-azure-machine-learning-studio-preview"></a>Gérer des environnements logiciels dans Azure Machine Learning Studio (préversion)
+# <a name="manage-software-environments-in-azure-machine-learning-studio"></a>Gérer des environnements logiciels dans Azure Machine Learning studio
 
 Cet article explique comment créer et gérer des [environnements](/python/api/azureml-core/azureml.core.environment.environment) Azure Machine Learning dans Azure Machine Learning Studio. Utilisez les environnements pour assurer le suivi et la reproduction des dépendances logicielles de vos projets au fil de leur évolution.
 
@@ -37,7 +37,7 @@ Pour une vue d’ensemble du fonctionnement des environnements dans Azure Machin
 
 ## <a name="browse-curated-environments"></a>Parcourir des environnements organisés
 
-Les environnements organisés contiennent des collections de packages Python et sont disponibles dans votre espace de travail par défaut. Ces environnements s’appuient sur des images Docker mises en cache, ce qui réduit le coût de préparation de l’exécution. 
+Les environnements organisés contiennent des collections de packages Python et sont disponibles dans votre espace de travail par défaut. Ces environnements s’appuient sur des images Docker mises en cache, ce qui réduit le coût de préparation de l’exécution et permet de prendre en charge des scénarios de formation et d’inférence. 
 
 Cliquez sur un environnement pour afficher des informations détaillées sur son contenu. Pour plus d’informations, consultez [Environnements organisés Azure Machine Learning](resource-curated-environments.md). 
 

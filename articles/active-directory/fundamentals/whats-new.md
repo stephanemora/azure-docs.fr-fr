@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59597fefe4d3cb0032f8c9ccfbf317c593fd34a9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7eb9dc44cb84a432b78ebe1740c7cee35c978fbe
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748525"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272291"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -68,7 +68,7 @@ Nous prenons désormais en charge l’authentification unique (SSO) native et l�
 **Fonctionnalité de produit :** Gouvernance des identités
  
 
-Nous avons publié une version bêta de l’API Graph MS pour les révisions d’accès Azure AD. L’API dispose de méthodes pour retourner une liste de noms de réviseurs contactés en plus du type de réviseur. [Plus d’informations](/graph/api/resources/accessreviewinstance?view=graph-rest-beta)
+Nous avons publié une version bêta de l’API Graph MS pour les révisions d’accès Azure AD. L’API dispose de méthodes pour retourner une liste de noms de réviseurs contactés en plus du type de réviseur. [Plus d’informations](/graph/api/resources/accessreviewinstance?view=graph-rest-beta&preserve-view=true)
  
 ---
 
@@ -186,7 +186,7 @@ Les utilisateurs qui se sont vu attribuer le rôle d’administrateur d’utilis
 **Catégorie de service :** Microsoft Identity Manager  
 **Fonctionnalité de produit :** Gestion du cycle de vie des identités
  
-Le connecteur Windows Azure AD pour FIM est dans l’état feature freeze et il est déconseillé de l’utiliser. La solution de remplacement de FIM et du connecteur Azure AD a été annoncée. Les déploiements existants doivent migrer vers [Azure AD Connect](../hybrid/whatis-hybrid-identity.md), Azure AD Connect Sync ou le [connecteur Microsoft Graph](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph), car les interfaces internes utilisées par le connecteur Azure AD pour FIM sont retirées d’Azure AD. [Plus d’informations](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-deprecated-features)
+Le connecteur Windows Azure AD pour FIM est dans l’état feature freeze et il est déconseillé de l’utiliser. La solution de remplacement de FIM et du connecteur Azure AD a été annoncée. Les déploiements existants doivent migrer vers [Azure AD Connect](../hybrid/whatis-hybrid-identity.md), Azure AD Connect Sync ou le [connecteur Microsoft Graph](/microsoft-identity-manager/microsoft-identity-manager-2016-connector-graph), car les interfaces internes utilisées par le connecteur Azure AD pour FIM sont retirées d’Azure AD. [Plus d’informations](/microsoft-identity-manager/microsoft-identity-manager-2016-deprecated-features)
 
 ---
 
@@ -212,7 +212,7 @@ Consultez [Azure Active Directory Connect V2.0](../hybrid/whatis-azure-ad-connec
  
 Le déploiement de MIM Sync, Service, Portal ou CM sur Windows Server 2008 R2 ou l’utilisation de SQL Server 2008 R2 comme base de données sous-jacente est déconseillé, car ces plateformes ne sont plus en support standard. L’installation de MIM Sync et d’autres composants sur Windows Server 2016 ou version ultérieure, et sur SQL Server 2016 ou version ultérieure, est recommandée.
 
-Le déploiement de MIM pour Privileged Access Management avec un contrôleur de domaine Windows Server 2012 R2 dans la forêt PRIV est déconseillé. Utilisez Windows Server 2016 ou une version ultérieure d’Active Directory, avec Windows Server 2016 niveau fonctionnel, pour votre domaine de forêt PRIV. Le niveau fonctionnel de Windows Server 2012 R2 est toujours autorisé pour le domaine d’une forêt CORP. [Plus d’informations](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-supported-platforms)
+Le déploiement de MIM pour Privileged Access Management avec un contrôleur de domaine Windows Server 2012 R2 dans la forêt PRIV est déconseillé. Utilisez Windows Server 2016 ou une version ultérieure d’Active Directory, avec Windows Server 2016 niveau fonctionnel, pour votre domaine de forêt PRIV. Le niveau fonctionnel de Windows Server 2012 R2 est toujours autorisé pour le domaine d’une forêt CORP. [Plus d’informations](/microsoft-identity-manager/microsoft-identity-manager-2016-supported-platforms)
 
 ---
 
@@ -229,7 +229,7 @@ Nous avons annoncé précédemment que [l’exception concernant les vues web in
 
 Le 7 juillet 2021, nous avons appris de Google que certaines de ces restrictions s’appliqueront à partir du **12 juillet 2021**. Les clients Azure AD B2B et B2C qui configurent une nouvelle connexion Google ID dans leurs applications métier ou personnalisées pour inviter des utilisateurs externes ou activer l’inscription en libre-service verront les restrictions appliquées immédiatement. Par conséquent, les utilisateurs finaux verront apparaître un écran d’erreur qui bloquera leur connexion Gmail si l’authentification n’est pas déplacée vers une vue web du système. Pour plus d’informations, consultez la documentation dont le lien figure ci-dessous. 
 
-La plupart des applications utilisent la vue web du système par défaut, et ne seront pas concernées par ce changement Cela ne concerne que les clients qui utilisent des vues web incorporées (le paramètre no défini par défaut). Nous conseillons aux clients de déplacer l’authentification de leur application vers les navigateurs système, avant de créer de nouvelles intégrations Google. Pour savoir comment passer aux navigateurs système pour les authentifications Gmail, veuillez lire la section Interface utilisateur web incorporée ou système dans la documentation [Utilisation de navigateurs web (MSAL.NET)](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui). Tous les kits SDK MSAL utilisent la vue web système par défaut. [Plus d’informations](../external-identities/google-federation.md#deprecation-of-web-view-sign-in-support)
+La plupart des applications utilisent la vue web du système par défaut, et ne seront pas concernées par ce changement Cela ne concerne que les clients qui utilisent des vues web incorporées (le paramètre non défini par défaut). Nous conseillons aux clients de déplacer l’authentification de leur application vers les navigateurs système avant de créer de nouvelles intégrations Google. Pour savoir comment passer aux navigateurs système pour les authentifications Gmail, veuillez lire la section Interface utilisateur web incorporée ou système dans la documentation [Utilisation de navigateurs web (MSAL.NET)](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui). Tous les kits SDK MSAL utilisent la vue web système par défaut. [Plus d’informations](../external-identities/google-federation.md#deprecation-of-web-view-sign-in-support)
 
 ---
 
@@ -273,7 +273,7 @@ Pour plus d’informations sur Mes applications, lisez [Se connecter et démarre
 **Catégorie de service :** MS Graph  
 **Fonctionnalité de produit :** Expérience de développement
  
-Des stratégies de méthode d’authentification des applications dans MS Graph qui permettent aux administrateurs informatiques d’appliquer une durée de vie sur les informations d’identification, les secrets et les mots de passe des applications ou de bloquer complètement l’utilisation des secrets. Les stratégies peuvent être appliquées à l’ensemble d’un locataire en tant que configuration par défaut et elles peuvent être étendues à des applications ou des principaux de service spécifiques. [Plus d’informations](/graph/api/resources/policy-overview?view=graph-rest-beta)
+Des stratégies de méthode d’authentification des applications dans MS Graph qui permettent aux administrateurs informatiques d’appliquer une durée de vie sur les informations d’identification, les secrets et les mots de passe des applications ou de bloquer complètement l’utilisation des secrets. Les stratégies peuvent être appliquées à l’ensemble d’un locataire en tant que configuration par défaut et elles peuvent être étendues à des applications ou des principaux de service spécifiques. [Plus d’informations](/graph/api/resources/policy-overview?view=graph-rest-beta&preserve-view=true)
  
 ---
 
@@ -315,7 +315,7 @@ Vous pouvez désormais envoyer les journaux des utilisateurs à risque et des d�
 **Catégorie de service :** Proxy d’application  
 **Fonctionnalité de produit :** Contrôle d’accès
  
-Le type de ressource onPremisesPublishing comprend désormais la propriété « isBackendCertificateValidationEnabled » qui indique si la validation des certificat SSL en back-end est activée pour l’application. Pour toutes les nouvelles applications Proxy d’application, la propriété est définie sur true par défaut. Pour toutes les applications existantes, la propriété est définie sur false. Pour plus d’informations, lisez l’API du [type de ressource onPremisesPublishing](/graph/api/resources/onpremisespublishing?view=graph-rest-beta).
+Le type de ressource onPremisesPublishing comprend désormais la propriété « isBackendCertificateValidationEnabled » qui indique si la validation des certificat SSL en back-end est activée pour l’application. Pour toutes les nouvelles applications Proxy d’application, la propriété est définie sur true par défaut. Pour toutes les applications existantes, la propriété est définie sur false. Pour plus d’informations, lisez l’API du [type de ressource onPremisesPublishing](/graph/api/resources/onpremisespublishing?view=graph-rest-beta&preserve-view=true).
  
 ---
 
@@ -474,7 +474,7 @@ Lorsque les administrateurs créent des révisions d’accès des attributions d
 **Catégorie de service :** Autres  
 **Fonctionnalité de produit :** Gestion du cycle de vie des appareils
  
-La prise en charge de Microsoft Graph pour la configuration de la mobilité (MDM/MAM) dans Azure AD est en préversion publique. Les administrateurs peuvent configurer l’étendue de l’utilisateur et les URL des applications MDM comme Intune à l’aide de Microsoft Graph v1.0. Pour plus d’informations, consultez [Type de ressource mobilityManagementPolicy](/graph/api/resources/mobilitymanagementpolicy?view=graph-rest-beta).
+La prise en charge de Microsoft Graph pour la configuration de la mobilité (MDM/MAM) dans Azure AD est en préversion publique. Les administrateurs peuvent configurer l’étendue de l’utilisateur et les URL des applications MDM comme Intune à l’aide de Microsoft Graph v1.0. Pour plus d’informations, consultez [Type de ressource mobilityManagementPolicy](/graph/api/resources/mobilitymanagementpolicy?view=graph-rest-beta&preserve-view=true).
 
 ---
 
@@ -548,7 +548,7 @@ Désormais, avec la mise à jour Windows 10 21H1, Windows Hello prend en charge 
 **Catégorie de service :** Révisions d’accès  
 **Fonctionnalité de produit :** Gouvernance des identités
  
-Les API MS Graph de révision d’accès Azure Active Directory sont désormais en v1.0 et prennent en charge des fonctionnalités de révision d’accès entièrement configurables. [Plus d’informations](/graph/api/resources/accessreviewsv2-root?view=graph-rest-1.0)
+Les API MS Graph de révision d’accès Azure Active Directory sont désormais en v1.0 et prennent en charge des fonctionnalités de révision d’accès entièrement configurables. [Plus d’informations](/graph/api/resources/accessreviewsv2-root?view=graph-rest-1.0&preserve-view=true)
  
 ---
 
@@ -667,7 +667,7 @@ Les clients d’Azure AD peuvent désormais concevoir et émettre facilement des
  
 Pour améliorer la sécurité, le [flux de code d’appareil](../develop/v2-oauth2-device-code.md) a été mis à jour afin d’ajouter une autre invite destinée à confirmer que l’utilisateur se connecte bien à l’application prévue. Le lancement doit commencer en juin et se terminer pour le 30 juin.
 
-Pour empêcher les attaques par hameçonnage lorsqu’un attaquant tente de se connecter à une application malveillante, l’invite suivante est ajoutée : « Essayez-vous de vous connecter à [nom d’affichage de l’application] ? ». Ce message s’affiche pour tous les utilisateurs qui se connectent à l’aide du flux de code d’appareil. Pour plus de sécurité, il ne peut être ni supprimé ni contourné. [Plus d’informations](../develop/reference-breaking-changes.md#the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt)
+Afin d’empêcher les attaques par hameçonnage au cours desquelles l’attaquant incite l’utilisateur à se connecter à une application malveillante, l’invite suivante a été ajoutée : « Essayez-vous de vous connecter à [nom d’affichage de l’application] ? » Ce message s’affiche pour tous les utilisateurs qui se connectent à l’aide du flux de code d’appareil. Pour plus de sécurité, il ne peut être ni supprimé ni contourné. [Plus d’informations](../develop/reference-breaking-changes.md#the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt)
 
 ---
 
@@ -840,7 +840,7 @@ Pour référencer votre application dans la galerie d’applications Azure AD, l
 Nous avons mis à jour la formulation sur l’écran d’accès conditionnel présenté aux utilisateurs qui ne peuvent pas accéder aux ressources de l’entreprise. Ils seront bloqués jusqu’à ce qu’ils inscrivent leur appareil auprès de la gestion des périphériques mobiles. Ces améliorations s’appliquent aux plateformes Android et iOS/iPadOS. Les modifications sont les suivantes :
 
 - « Aidez-nous à protéger votre appareil » a été remplacé par « Configurez votre appareil pour obtenir l’accès »
-- « Votre connexion a réussi mais votre administrateur que votre appareil soit géré par Microsoft pour accéder à cette ressource. » a été remplacé par « [Nom de l’organisation] requiert que vous sécurisiez cet appareil pour accéder à la messagerie, aux fichiers et aux données de [Nom de l’organisation]. » 
+- « Votre connexion a réussi, mais votre administrateur exige que votre appareil soit géré par Microsoft pour accéder à cette ressource. » a été remplacé par « [Nom de l’organisation] requiert que vous sécurisiez cet appareil pour accéder à la messagerie, aux fichiers et aux données de [Nom de l’organisation]. » 
 - « Inscrivez-vous maintenant » a été remplacé par « Continuer »
 
 Les informations présentes dans [Inscrivez votre appareil d’entreprise Android](https://support.microsoft.com/topic/enroll-your-android-enterprise-device-d661c82d-fa28-5dfd-b711-6dff41ae83bb) sont obsolètes.
@@ -1087,7 +1087,7 @@ Actuellement, cette action utilisateur vous permet uniquement d’activer MFA en
 **Catégorie de service :** Proxy d’application  
 **Fonctionnalité de produit :** Contrôle d’accès
  
-Avec cette nouvelle fonctionnalité, les groupes de connecteurs peuvent être affectés au service de proxy d’application régional le plus proche dans lequel une application est hébergée. Cela peut améliorer les performances des applications dans les scénarios où elles sont hébergées dans des régions autres que la région du locataire d’accueil. [Plus d’informations](../app-proxy/application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview) 
+Avec cette nouvelle fonctionnalité, les groupes de connecteurs peuvent être affectés au service de proxy d’application régional le plus proche dans lequel une application est hébergée. Cela peut améliorer les performances des applications dans les scénarios où elles sont hébergées dans des régions différentes de celle du locataire d’origine. [Plus d’informations](../app-proxy/application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview) 
  
 ---
 

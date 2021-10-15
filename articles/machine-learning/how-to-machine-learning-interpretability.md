@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Apprenez à comprendre et à expliquer la façon dont votre modèle Machine Learning effectue des prédictions lors de la formation et de l’inférence à l’aide du Kit de développement logiciel (SDK) Python Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 02/25/2021
-ms.openlocfilehash: 2adbeb66229f180963eb7d2e235db5e7bebb3ef9
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: e4298daf41d63ee9d0f90c171c29502806681070
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889013"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534786"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interprétabilité des modèles dans le service Azure Machine Learning (version préliminaire)
 

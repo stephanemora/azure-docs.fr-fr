@@ -14,16 +14,16 @@ ms.date: 09/14/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31d58536b1af26d037b3c53f04bcae5c9359ff47
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b60735ee1da80674429a4359783cab832b8dc418
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606700"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129457028"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
-Un administrateur de rôle privilégié peut personnaliser Privileged Identity Management (PIM) dans son organisation Azure Active Directory (Azure AD), notamment modifier l’expérience d’un utilisateur qui active une attribution de rôle admissible.
+Un administrateur de rôle privilégié peut personnaliser Privileged Identity Management (PIM) dans son organisation Azure Active Directory (Azure AD), notamment modifier l’expérience d’un utilisateur qui active une attribution de rôle admissible. Pour plus d’informations sur les événements PIM qui déclenchent des notifications et sur les administrateurs qui les reçoivent, consultez [Notifications par e-mail dans Privileged Identity Management](pim-email-notifications.md#notifications-for-azure-ad-roles)
 
 ## <a name="open-role-settings"></a>Ouvrir les paramètres de rôle
 

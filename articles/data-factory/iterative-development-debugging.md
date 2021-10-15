@@ -1,8 +1,8 @@
 ---
-title: Développement et débogage itératifs dans Azure Data Factory
+title: Développement et débogage itératifs
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Apprenez à développer et à déboguer des pipelines Data Factory de façon itérative dans l’expérience utilisateur ADF
-ms.date: 04/21/2021
+description: Découvrez comment développer et déboguer des pipelines Data Factory et Synapse Analytics de manière itérative avec l’interface utilisateur du service.
+ms.date: 09/09/2021
 ms.topic: conceptual
 ms.service: data-factory
 ms.subservice: authoring
@@ -12,17 +12,17 @@ documentationcenter: ''
 ms.workload: data-services
 author: kromerm
 ms.author: makromer
-ms.openlocfilehash: 39cce38b9b00201ae6fc3e24eff9d5816b69ed69
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 343cdb521f3a984d7d80022940a75afbb7032b6e
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641244"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129208063"
 ---
-# <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Développement et débogage itératifs dans Azure Data Factory
+# <a name="iterative-development-and-debugging-with-azure-data-factory-and-synapse-analytics-pipelines"></a>Développement et débogage itératifs avec des pipelines Azure Data Factory et Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Azure Data Factory vous permet de développer et de déboguer de manière itérative des pipelines Data Factory au fur et à mesure que vous développez vos solutions d’intégration de données. Ces fonctionnalités vous permettent de tester vos modifications avant de créer une demande de tirage (pull request) ou de les publier sur le service de la fabrique de données. 
+Azure Data Factory et Synapse Analytics prennent en charge le développement et le débogage itératifs des pipelines. Ces fonctionnalités vous permettent de tester vos modifications avant de créer une demande de tirage (pull request) ou de les publier sur le service. 
 
 Pour une présentation de huit minutes et la démonstration de cette fonctionnalité, regardez la vidéo suivante :
 
@@ -30,15 +30,15 @@ Pour une présentation de huit minutes et la démonstration de cette fonctionnal
 
 ## <a name="debugging-a-pipeline"></a>Débogage d’un pipeline
 
-Lorsque vous créez à l’aide du canevas du pipeline, vous pouvez tester vos activités à l’aide de la capacité **Déboguer**. Lorsque vous effectuez des séries de tests, vous n’êtes pas obligé de publier vos modifications sur la fabrique de données avant de sélectionner **Déboguer**. Cette fonctionnalité est utile dans les scénarios où vous souhaitez vous assurer que les modifications fonctionnent comme prévu avant de mettre à jour le flux de travail de la fabrique de données.
+Lorsque vous créez à l’aide du canevas du pipeline, vous pouvez tester vos activités à l’aide de la capacité **Déboguer**. Lorsque vous effectuez des séries de tests, vous n’êtes pas obligé de publier vos modifications du service avant de sélectionner **Déboguer**. Cette fonctionnalité est utile dans les scénarios où vous souhaitez vous assurer que les modifications fonctionnent comme prévu avant de mettre à jour le flux de travail.
 
-![Fonctionnalité Déboguer sur le canevas du pipeline](media/iterative-development-debugging/iterative-development-1.png)
+:::image type="content" source="media/iterative-development-debugging/iterative-development-1.png" alt-text="Fonctionnalité Déboguer sur le canevas du pipeline":::
 
 Lorsque le pipeline est en cours d’exécution, vous pouvez voir les résultats de chaque activité dans l’onglet **Sortie** du canevas du pipeline.
 
 Affichez les résultats de vos séries de tests dans la fenêtre **Sortie** du canevas du pipeline.
 
-![Fenêtre Sortie du canevas du pipeline](media/iterative-development-debugging/iterative-development-2.png)
+:::image type="content" source="media/iterative-development-debugging/iterative-development-2.png" alt-text="Fenêtre Sortie du canevas du pipeline":::
 
 Après la réussite d’une série de tests, ajoutez d’autres activités à votre pipeline et continuez le débogage de façon itérative. Vous pouvez également **Annuler** une série de tests alors qu’elle est en cours d’exécution.
 
@@ -47,38 +47,44 @@ Après la réussite d’une série de tests, ajoutez d’autres activités à vo
 
 ### <a name="setting-breakpoints"></a>Définition de points d’arrêt
 
-Azure Data Factory vous permet de déboguer un pipeline jusqu’à ce que vous atteigniez une activité précise dans le canevas du pipeline. Placez un point d’arrêt sur l’activité jusqu’à laquelle vous souhaitez tester, puis sélectionnez **Déboguer**. Data Factory garantit que le test s’exécute uniquement jusqu’à l’activité de point d’arrêt sur le canevas du pipeline. Cette fonctionnalité *Déboguer jusqu’à* est utile lorsque vous ne souhaitez pas tester le pipeline en entier, mais uniquement un sous-ensemble des activités à l’intérieur du pipeline.
+Le service vous permet de déboguer un pipeline jusqu’à ce que vous atteigniez une activité précise dans le canevas du pipeline. Placez un point d’arrêt sur l’activité jusqu’à laquelle vous souhaitez tester, puis sélectionnez **Déboguer**. Le service garantit que le test s’exécute uniquement jusqu’à l’activité de point d’arrêt sur le canevas du pipeline. Cette fonctionnalité *Déboguer jusqu’à* est utile lorsque vous ne souhaitez pas tester le pipeline en entier, mais uniquement un sous-ensemble des activités à l’intérieur du pipeline.
 
-![Points d’arrêt sur le canevas du pipeline](media/iterative-development-debugging/iterative-development-3.png)
+:::image type="content" source="media/iterative-development-debugging/iterative-development-3.png" alt-text="Points d’arrêt sur le canevas du pipeline":::
 
 Pour définir un point d’arrêt, sélectionnez un élément du canevas du pipeline. Une option *Déboguer jusqu’à* apparaît sous la forme d’un cercle rouge vide dans le coin supérieur droit de l’élément.
 
-![Avant de définir un point d’arrêt sur l’élément sélectionné](media/iterative-development-debugging/iterative-development-4.png)
+:::image type="content" source="media/iterative-development-debugging/iterative-development-4.png" alt-text="Avant de définir un point d’arrêt sur l’élément sélectionné":::
 
 Après que vous avez sélectionné l’option *Déboguer jusqu’à*, elle se transforme en un cercle rouge plein pour indiquer que le point d’arrêt est activé.
 
-![Après avoir défini un point d’arrêt sur l’élément sélectionné](media/iterative-development-debugging/iterative-development-5.png)
+:::image type="content" source="media/iterative-development-debugging/iterative-development-5.png" alt-text="Après avoir défini un point d’arrêt sur l’élément sélectionné":::
 
 ## <a name="monitoring-debug-runs"></a>Supervision des exécutions de débogage
 
 Lorsque vous exécutez un débogage de pipeline, les résultats s’affichent dans la fenêtre **Sortie** du canevas du pipeline. L’onglet Sortie ne contiendra que l’exécution la plus récente qui a eu lieu pendant la session de navigation en cours. 
 
-![Fenêtre Sortie du canevas du pipeline](media/iterative-development-debugging/iterative-development-2.png)
+:::image type="content" source="media/iterative-development-debugging/iterative-development-2.png" alt-text="Fenêtre Sortie du canevas du pipeline":::
 
 Pour afficher l’historique des exécutions de débogage ou afficher une liste de toutes les exécutions de débogage actives, vous pouvez accéder à l’expérience **Superviser**. 
 
-![Sélectionner l’icône View active debug runs (Afficher les exécutions de débogage actives)](media/iterative-development-debugging/view-debug-runs.png)
+# <a name="azure-data-factory"></a>[Azure Data Factory](#tab/data-factory).
+:::image type="content" source="media/iterative-development-debugging/view-debug-runs.png" alt-text="Sélectionner l’icône View active debug runs (Afficher les exécutions de débogage actives)":::
+
+# <a name="synapse-analytics"></a>[Synapse Analytics](#tab/synapse-analytics)
+:::image type="content" source="media/iterative-development-debugging/view-debug-runs-synapse.png" alt-text="Sélectionner l’icône View active debug runs (Afficher les exécutions de débogage actives)":::
+
+---
 
 > [!NOTE]
-> Le service Azure Data Factory conserve uniquement l’historique des exécutions de débogage pendant 15 jours. 
+> Le service conserve uniquement l’historique des exécutions de débogage pendant 15 jours. 
 
 ## <a name="debugging-mapping-data-flows"></a>Débogage de flux de données de mappage
 
 Les flux de données de mappage vous permettent de créer une logique de transformation des données sans code qui s’exécute à grande échelle. Lors de la génération de votre logique, vous pouvez activer une session de débogage pour travailler de manière interactive avec vos données à l’aide d’un cluster Spark en direct. Pour plus d’informations, consultez [Mode de débogage du flux de données de mappage](concepts-data-flow-debug-mode.md).
 
-Vous pouvez superviser les sessions de débogage du flux de données qui sont actives dans une fabrique dans l’expérience **Superviser**.
+Vous pouvez superviser les sessions de débogage du flux de données qui sont actives dans l’expérience **Superviser**.
 
-![Afficher les sessions de débogage du flux de données](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+:::image type="content" source="media/iterative-development-debugging/view-dataflow-debug-sessions.png" alt-text="Afficher les sessions de débogage du flux de données":::
 
 L’aperçu des données dans le concepteur de flux de données et le débogage du pipeline des flux de données sont conçus pour fonctionner de façon optimale avec de petits échantillons de données. Toutefois, si vous devez tester votre logique dans un pipeline ou un flux de données sur de grandes quantités de données, augmentez la taille de l’instance Azure Integration Runtime utilisée dans la session de débogage avec davantage de cœurs et au minimum un calcul à usage général.
  
@@ -91,10 +97,10 @@ L’utilisation d’une session de débogage existante réduira considérablemen
 L’utilisation de l’exécution d’activité permettra de créer un nouveau cluster en utilisant les paramètres spécifiés dans le runtime d’intégration de chaque activité de flux de données. Cela permet d’isoler chaque travail ; cette méthode doit être utilisée pour des charges de travail complexes ou des tests de performance. Vous pouvez également contrôler le temps jusqu’au dernier octet dans Azure IR, afin que les ressources de cluster utilisées pour le débogage restent disponibles pendant cette période pour traiter des demandes de travaux supplémentaires.
 
 > [!NOTE]
-> Si, dans votre pipeline, des flux de données s’exécutent en parallèle ou doivent être testés avec de grands jeux de données, choisissez « Utiliser le runtime d’activité » pour que Data Factory puisse utiliser le Runtime d’intégration que vous avez sélectionné dans votre activité de flux de données. Les flux de données pourront ainsi s’exécuter sur plusieurs clusters et prendre en charge vos exécutions de flux de données parallèles.
+> Si, dans votre pipeline, des flux de données s’exécutent en parallèle ou doivent être testés avec de grands jeux de données, choisissez « Utiliser le runtime d’activité » pour que le service puisse utiliser le Runtime d’intégration que vous avez sélectionné dans votre activité de flux de données. Les flux de données pourront ainsi s’exécuter sur plusieurs clusters et prendre en charge vos exécutions de flux de données parallèles.
 
-![Exécution d’un pipeline avec un flux de données](media/iterative-development-debugging/iterative-development-dataflow.png)
+:::image type="content" source="media/iterative-development-debugging/iterative-development-dataflow.png" alt-text="Exécution d’un pipeline avec un flux de données":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir testé vos modifications, promouvez-les dans des environnements plus élevés à l’aide de [l’intégration et le déploiement continus dans Azure Data Factory](continuous-integration-deployment.md).
+Après avoir testé vos modifications, promouvez-les dans des environnements plus élevés à l’aide de [l’intégration et du déploiement continus](continuous-integration-delivery.md).

@@ -1,5 +1,5 @@
 ---
-title: Entraînement et déploiement d’un modèle d’apprentissage par renforcement (préversion)
+title: Effectuer l’apprentissage d’un modèle d’apprentissage par renforcement (préversion) et le déployer
 titleSuffix: Azure Machine Learning
 description: Apprenez à utiliser l’apprentissage par renforcement Azure Machine Learning (préversion) pour entraîner un agent d’apprentissage par renforcement à jouer à Pong.
 services: machine-learning
@@ -10,19 +10,19 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 84fbea3d7d38e16a2069c40a459d5f86e7412a09
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: ca8f0349692b8a72d8a8b5953723249934a6f672
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739040"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428613"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprentissage par renforcement (préversion) avec Azure Machine Learning
 
 
 
 > [!NOTE]
-> L’apprentissage par renforcement Azure Machine Learning est actuellement une fonctionnalité en préversion. Seules les infrastructures Ray et RLlib sont prises en charge pour l’instant.
+> L’apprentissage par renforcement Azure Machine Learning est actuellement une fonctionnalité d’évaluation. Seules les infrastructures Ray et RLlib sont prises en charge pour l’instant.
 
 Cet article explique comment former un agent d’apprentissage par renforcement pour jouer au jeu vidéo Pong. Vous allez utiliser la bibliothèque Python open source [Ray RLlib](https://ray.readthedocs.io/en/master/rllib.html) avec Azure Machine Learning pour gérer la complexité de l’apprentissage par renforcement distribué.
 
@@ -214,6 +214,7 @@ else:
 ```
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Créer un estimateur d’apprentissage par renforcement
+
 Utilisez le [ReinforcementLearningEstimator](/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator) pour soumettre un travail de formation à Azure Machine Learning.
 
 Azure Machine Learning utilise des classes d’estimateur pour encapsuler les informations de configuration de l’exécution. Cela vous permet de spécifier comment configurer l’exécution d’un script. 

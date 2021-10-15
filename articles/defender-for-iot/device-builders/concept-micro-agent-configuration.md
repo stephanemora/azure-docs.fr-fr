@@ -1,14 +1,14 @@
 ---
 title: Configurations du micro-agent (préversion)
 description: Le collecteur envoie toutes les données actuelles immédiatement après une modification de la configuration. Les modifications sont alors appliquées.
-ms.date: 08/18/2021
+ms.date: 10/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 432cf82f436e0a70b52d33d77c9002b549f96398
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 43a26a73f97c9d424998a4ff35d1304c0baf6fc0
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535101"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129428442"
 ---
 # <a name="micro-agent-configurations-preview"></a>Configurations du micro-agent (préversion)
 
@@ -19,7 +19,7 @@ Le comportement du micro-agent est configuré par un ensemble de propriétés du
 Après toute modification de la configuration, le collecteur envoie immédiatement toutes les données d’événement non envoyées. Une fois les données envoyées, les modifications sont appliquées et tous les collecteurs redémarrent.
 
 > [!Note]
-> Le mode d’agrégation, la taille du cache et les paramètres de fréquence sont pris en charge, mais ne sont pas configurables.
+> Les paramètres du mode Agrégation sont pris en charge, mais ils ne sont pas configurables.
 
 ## <a name="event-based-collectors-configurations"></a>Configurations des collecteurs basées sur les événements
 

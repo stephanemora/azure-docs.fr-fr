@@ -1,7 +1,7 @@
 ---
 title: Nouveautés en matière de proxy d’application Azure Active Directory
 description: Proxy d’application Azure Active Directory - Nouvelle documentation et documentation mise à jour.
-ms.date: 09/08/2021
+ms.date: 10/05/2021
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: reference
@@ -9,16 +9,22 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: mtillman
-ms.openlocfilehash: 289cb5e77f94cbe60b71d642f99d21a41ecf042c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9e6d184b98e8b7eea22d231514fc2e419983442b
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779464"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129534013"
 ---
 # <a name="azure-active-directory-application-proxy-whats-new"></a>Nouveautés en matière de proxy d’application Azure Active Directory
 
 Nouveautés de la documentation relative à au proxy d’application Azure Active Directory. Cet article répertorie les nouveaux documents qui ont été ajoutés et ceux qui ont subi des mises à jour significatives au cours des trois derniers mois. Pour découvrir les nouveautés du service, consultez [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="september-2021"></a>Septembre 2021
+
+### <a name="updated-articles"></a>Articles mis à jour
+
+- [Nouveautés dans la documentation](whats-new-docs.md)
 
 ## <a name="august-2021"></a>Août 2021
 

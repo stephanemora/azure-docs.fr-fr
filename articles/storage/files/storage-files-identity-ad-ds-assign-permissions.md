@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/13/2021
 ms.author: rogarana
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
-ms.openlocfilehash: 4c69a8bcd3acb559de3674dd7012220f4c7868e4
-ms.sourcegitcommit: 6f4378f2afa31eddab91d84f7b33a58e3e7e78c1
+ms.openlocfilehash: cf2d9c2921599680781695631eae9c5276ff53c2
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113687152"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129400641"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Deuxième partie : affecter des autorisations au niveau du partage à une identité
 
@@ -55,11 +55,14 @@ Le tableau suivant présente les autorisations au niveau du partage et la maniè
 
 ## <a name="share-level-permissions-for-specific-azure-ad-users-or-groups"></a>Autorisations au niveau du partage pour des utilisateurs ou groupes d’utilisateurs Azure AD spécifiques
 
-Si vous envisagez de vous servir d’un utilisateur ou d’un groupe d’utilisateurs Azure AD spécifiques pour accéder aux ressources de partage de fichiers Azure, cette identité doit être une identité hybride existant tant dans l’AD DS local que dans Azure AD. Par exemple, imaginons que vous avez dans votre AD un utilisateur user1@onprem.contoso.com que vous avez synchronisé sur Azure AD en tant que user1@contoso.com à l’aide d’une synchronisation Azure AD Connect. Pour que cet utilisateur puisse accéder à Azure Files, vous devez attribuer les autorisations au niveau du partage à user1@contoso.com. Le même concept s’applique aux groupes ou principaux de service. Pour cette raison, vous devez synchroniser les utilisateurs et les groupes de votre AD sur Azure AD à l’aide d’une synchronisation Azure AD Connect. 
+Si vous envisagez de vous servir d’un utilisateur ou d’un groupe d’utilisateurs Azure AD spécifiques pour accéder aux ressources de partage de fichiers Azure, cette identité doit être une **identité hybride existant tant dans AD DS local que dans Azure AD**. Par exemple, imaginons que vous avez dans votre AD un utilisateur user1@onprem.contoso.com que vous avez synchronisé sur Azure AD en tant que user1@contoso.com à l’aide d’une synchronisation Azure AD Connect. Pour que cet utilisateur puisse accéder à Azure Files, vous devez attribuer les autorisations au niveau du partage à user1@contoso.com. Le même concept s’applique aux groupes ou principaux de service. Pour cette raison, vous devez synchroniser les utilisateurs et les groupes de votre AD sur Azure AD à l’aide d’une synchronisation Azure AD Connect. 
 
 Les autorisations au niveau du partage doivent être affectées à l’identité Azure AD représentant le même utilisateur ou groupe dans votre AD DS pour prendre en charge l’authentification AD DS auprès de votre partage de fichiers Azure. L’authentification et l’autorisation sur des identités qui existent uniquement dans Azure AD, notamment les identités managées Azure (MSI), ne sont pas prises en charge avec l’authentification AD DS.
 
 Vous pouvez utiliser le portail Azure, le module Azure PowerShell ou Azure CLI pour attribuer les rôles intégrés à l’identité Azure AD d’un utilisateur afin d’accorder des autorisations au niveau du partage.
+
+> [!IMPORTANT]
+> Les autorisations au niveau du partage prendront jusqu’à trois heures pour prendre effet une fois l’opération terminée. Veuillez patienter pendant la synchronisation des autorisations avant de vous connecter à votre partage de fichiers à l’aide de vos informations d’identification   
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 

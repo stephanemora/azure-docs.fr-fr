@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e45101caec9127c39837d015d6a5117c7e2ae775
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: cdd7eb4acf93270ece6215492d79dd12e5d6d0dc
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114472040"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272336"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
@@ -33,6 +33,9 @@ Pour plus d’informations sur la façon d’empêcher les utilisateurs non-admi
 Les paramètres des groupes Microsoft 365 sont configurés à l’aide d’un objet Settings et d’un objet SettingsTemplate. Au départ, vous ne voyez aucun objet Paramètres dans votre répertoire, car votre répertoire est configuré avec les paramètres par défaut. Pour changer les paramètres par défaut, vous devez créer un objet de paramètres en utilisant un modèle de paramètres. Les modèles de paramètres sont définis par Microsoft. Il existe différents modèles de paramètres. Pour configurer les paramètres du groupe Microsoft 365 pour votre répertoire, vous utilisez le modèle nommé « Group.Unified ». Pour configurer les paramètres du groupe Microsoft 365 sur un seul groupe, utilisez le modèle nommé « Group.Unified.Guest ». Ce modèle est utilisé pour gérer l’accès invité à un groupe Microsoft 365. 
 
 Les applets de commande font partie du module Azure Active Directory PowerShell V2. Pour obtenir des instructions sur le téléchargement et l’installation du module sur votre ordinateur, reportez-vous à l’article [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/overview). Vous pouvez installer la version 2 du module depuis [la galerie PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
+
+>[!Note]
+>Une fois les paramètres en place pour limiter l’ajout d’invités aux groupes Microsoft 365, les administrateurs pourront toujours ajouter des utilisateurs invités aux groupes Microsoft 365. Ce paramètre empêchera les utilisateurs non administrateurs d’ajouter des utilisateurs invités aux groupes Microsoft 365.
 
 ## <a name="install-powershell-cmdlets"></a>Installer les applets de commande PowerShell
 

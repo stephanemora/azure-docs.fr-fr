@@ -6,12 +6,12 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: be1d54007017ce9b5abb774e75ddfd799f83c612
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: d47de5dd9af7b6d769c31d4909103616293a5a60
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113287291"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361663"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Utiliser Java et Gradle pour créer et publier une fonction sur Azure
 
@@ -27,7 +27,7 @@ Pour développer des fonctions avec Java, les éléments suivants doivent être 
 - [Java Developer Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure), version 8
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 ou ultérieure
-- [Gradle](https://gradle.org/), version 4.10 ou ultérieure
+- [Gradle](https://gradle.org/), version 6.8 ou ultérieure
 
 Vous avez également besoin d’un abonnement Azure actif. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -126,7 +126,7 @@ Cela crée les ressources suivantes dans Azure, en fonction des valeurs du fichi
 
 + Groupe de ressources. Nommé avec le _resourceGroup_ que vous avez fourni.
 + Compte de stockage. Requis par les fonctions. Le nom est généré de façon aléatoire en fonction des exigences du nom de compte de stockage.
-+ Plan App Service. Hébergement de Plan de consommation serverless pour votre application de fonction dans l’_appRegion_ spécifiée. Le nom est généré de façon aléatoire.
++ Plan App Service. Hébergement de Plan de consommation serverless pour votre application de fonction dans la _région_ spécifiée. Le nom est généré de façon aléatoire.
 + Application de fonction. Une application de fonction est l’unité de déploiement et d’exécution de vos fonctions. Le nom est l’_appName_, auquel est ajouté un numéro généré de façon aléatoire. 
 
 Le déploiement empaquette également les fichiers projet et les déploie dans la nouvelle application de fonction à l’aide de [zip deployment](functions-deployment-technologies.md#zip-deploy), en activant le mode d’exécution à partir du package.
@@ -142,7 +142,7 @@ Vous pouvez obtenir l’URL requise pour déclencher votre fonction, avec la cl�
 
 1. Accédez au [Azure portal], connectez-vous, tapez l’_appName_ de votre application de fonction dans **Rechercher** en haut de la page, puis appuyez sur Entrée.
  
-1. Dans votre application de fonction, sélectionnez **Fonctions**, choisissez votre fonction, puis cliquez sur **</> Obtenir l'URL de fonction** en haut à droite. 
+1. Dans votre application de fonction, sélectionnez **Fonctions**, choisissez votre fonction, puis cliquez sur **Obtenir l’URL de fonction** en haut à droite. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Copier l'URL de fonction à partir du portail Azure":::
 

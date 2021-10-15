@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 197b04a659ff2635742907339ba9b48e00668cff
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e3fd54dba324ddd8e7340e47d6b7f63ee6b2ea5b
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124732731"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233363"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -115,7 +115,7 @@ Microsoft vous recommande également de contacter les propriétaires d’applica
 
 ### <a name="on-premises-authentication"></a>Authentification locale
 
-L’authentification fédérée avec l’authentification Windows intégrée ou l’authentification unique (SSO) fluide avec la synchronisation de hachage de mot de passe ou l’authentification directe est la meilleure expérience utilisateur au sein du réseau d’entreprise avec une visibilité sur les contrôleurs de domaine locaux. Elle réduit le nombre de demandes d’informations d’identification et le risque des utilisateurs victimes d’attaques par hameçonnage. Si vous utilisez déjà l’authentification managée par le cloud avec la synchronisation de hachage de mot de passe ou l’authentification directe, mais que les utilisateurs doivent néanmoins toujours de taper leur mot de passe lors de l’authentification locale, vous devez immédiatement [déployer l’authentification unique fluide](../hybrid/how-to-connect-sso.md). D’autre part, si vous êtes actuellement fédéré avec des plans de migration vers l’authentification managée par le cloud, vous devez implémenter l’authentification unique fluide dans le cadre du projet de migration.
+L’authentification fédérée avec Authentification Windows intégrée (IWA) ou l’authentification unique (SSO) transparente managée avec synchronisation de hachage de mot de passe ou authentification directe est la meilleure expérience utilisateur au sein du réseau d’entreprise avec une visibilité sur les contrôleurs de domaine locaux. Elle réduit le nombre de demandes d’informations d’identification et le risque des utilisateurs victimes d’attaques par hameçonnage. Si vous utilisez déjà l’authentification managée par le cloud avec la synchronisation de hachage de mot de passe ou l’authentification directe, mais que les utilisateurs doivent néanmoins toujours de taper leur mot de passe lors de l’authentification locale, vous devez immédiatement [déployer l’authentification unique fluide](../hybrid/how-to-connect-sso.md). D’autre part, si vous êtes actuellement fédéré avec des plans de migration vers l’authentification managée par le cloud, vous devez implémenter l’authentification unique fluide dans le cadre du projet de migration.
 
 ### <a name="device-trust-access-policies"></a>Stratégies d’accès approuvé aux appareils
 

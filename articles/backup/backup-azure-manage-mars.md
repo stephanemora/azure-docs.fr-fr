@@ -3,13 +3,13 @@ title: Gérer et surveiller les sauvegardes de l’agent MARS
 description: Découvrez comment gérer et surveiller les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 06/08/2021
-ms.openlocfilehash: c7a696c4059ebc7cc28a34a299060039ac1c0c62
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.date: 10/05/2021
+ms.openlocfilehash: 525bdff82c224b02b941354983276747b483ae56
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111902939"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535116"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
@@ -167,6 +167,62 @@ Une phrase secrète est utilisée pour chiffrer et déchiffrer les données lors
 
     ![Coller le code PIN de sécurité](./media/backup-azure-manage-mars/passphrase2.png)
 1. Assurez-vous que la phrase secrète est enregistrée en toute sécurité à un autre emplacement (autre que la machine source), de préférence dans Azure Key Vault. Suivez toutes les phrases secrètes si vous avez plusieurs machines sauvegardées avec les agents MARS.
+
+## <a name="validate-passphrase"></a>Valider la phrase secrète
+
+À partir de l’agent MARS version 2.0.9190.0 et versions ultérieures, vous devez valider votre phrase secrète pour vous assurer qu’elle répond aux [exigences mises à jour](/azure/backup/backup-azure-file-folder-backup-faq#what-characters-are-allowed-for-the-passphrase-).
+
+Pour valider votre phrase secrète, procédez comme suit :
+
+1. Ouvrez la console MARS.
+
+   Un message s’affiche en haut, vous demandant de valider la phrase secrète. 
+
+1. Cliquez sur **Valider**.
+
+   :::image type="content" source="./media/backup-azure-manage-mars/validate-passphrase-prompt-inline.png" alt-text="Capture d’écran montrant l’invite de validation de la phrase secrète." lightbox="./media/backup-azure-manage-mars/validate-passphrase-prompt-expanded.png":::
+
+   Le validateur de phrase secrète s’ouvre et vous invite à entrer la phrase secrète actuelle. Si la phrase secrète ne répond pas aux exigences mises à jour, une option pour régénérer la phrase secrète s’affiche.
+
+1. Générez la phrase secrète avec les détails suivants :
+
+   - Nouvelle phrase secrète qui répond aux exigences.
+   - Un code PIN de sécurité (voir [les étapes pour le générer](#generate-security-pin)).
+   - Un emplacement sécurisé sur le serveur pour enregistrer la phrase secrète qui vient d’être générée.
+
+   :::image type="content" source="./media/backup-azure-manage-mars/generate-passphrase.png" alt-text="Capture d’écran montrant le processus de génération de phrase secrète avec les détails requis.":::
+
+### <a name="validate-passphrase-for-dpmmabs-agent"></a>Valider la phrase secrète pour l’agent DPM/MABS
+
+Pour DPM/MABS, exécutez l’outil de validation de phrase secrète à partir d’une invite de commandes avec élévation de privilèges.
+   
+Vous pouvez trouver cet outil dans l’un des emplacements suivants :
+
+- **System Center Data Protection Manager**
+     
+  %ProgramFiles%\Microsoft Azure Recovery Services Agent\bin\PassphraseValidator.exe
+
+- **Microsoft Azure Backup Server**
+      
+  %ProgramFiles%\Microsoft Azure Backup Server\DPM\MARS\Microsoft Azure Recovery Services Agent\bin\PassphraseValidator.exe
+
+Le validateur de phrase secrète s’ouvre et vous invite à entrer la phrase secrète actuelle. Si la phrase secrète ne répond pas aux exigences mises à jour, régénérez-la.
+   
+:::image type="content" source="./media/backup-azure-manage-mars/passphrase-validator-prompts-for-current-passphrase.png" alt-text="Capture d’écran montrant les invites de validation de phrase secrète pour la phrase secrète actuelle.":::
+
+Utiliser les étapes suivantes :
+
+1. À partir de la console de gestion, accédez à l’onglet **Gestion**, puis sélectionnez **En ligne** -> **Configurer**.
+1. Suivez les étapes de l’**Assistant Configurer les paramètres d’abonnement** et, à l’étape **Paramètre de chiffrement**, fournissez la phrase secrète mise à jour.
+
+:::image type="content" source="./media/backup-azure-manage-mars/configure-subscription-settings-wizard.png" alt-text="Capture d’écran montrant le processus de saisie de la phrase secrète à l’aide de l’Assistant Configurer les paramètres d’abonnement.":::
+
+## <a name="generate-security-pin"></a>Générer un code PIN de sécurité
+
+1. Accédez à **Coffre Recovery Services** -> **Paramètres** -> **Propriétés**.
+1. Sous **Code PIN de sécurité**, sélectionnez **Générer**.
+ 
+Copiez le code PIN. Il n’est valide que pendant cinq minutes.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Gestion des données de sauvegarde pour les machines non disponibles
 

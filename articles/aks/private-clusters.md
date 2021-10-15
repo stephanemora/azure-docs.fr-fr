@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 8/30/2021
-ms.openlocfilehash: dcf969745fcc3c98b5bd0a9ba3681be602b73eb1
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: fd91a848a2da7ca503f74def67c0fab268d253c7
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210209"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387978"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service privé
 
@@ -155,7 +155,7 @@ Effectuer une installation Helm et passer le manifeste des valeurs spécifiques
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
 ```
 > [!NOTE]
-> Sécurisez l’accès à la Run Command AKS en créant un rôle personnalisé avec les autorisations « Microsoft.ContainerService/managedClusters/runcommand/action » et attribuez-les à des utilisateurs et/ou des groupes spécifiques avec un accès juste-à-temps ou des stratégies d’accès conditionnel. 
+> Sécurisez l’accès à Run Command AKS en créant un rôle personnalisé avec les autorisations « Microsoft.ContainerService/managedClusters/runcommand/action » et « Microsoft.ContainerService/managedclusters/commandResults/read » et attribuez-le à des utilisateurs ou des groupes spécifiques avec un accès juste-à-temps ou des stratégies d’accès conditionnel. 
 
 ## <a name="virtual-network-peering"></a>Peering de réseau virtuel
 

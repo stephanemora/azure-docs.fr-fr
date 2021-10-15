@@ -1,14 +1,14 @@
 ---
 title: Superviser les ressources déléguées à grande échelle
 description: Azure Lighthouse vous permet d’utiliser les journaux Azure Monitor de manière évolutive sur les locataires clients.
-ms.date: 08/12/2021
+ms.date: 09/30/2021
 ms.topic: how-to
-ms.openlocfilehash: d261fd41c300f317e34ff7cacafa53911b7bbc12
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7ae54918ffad64e6b9790c4458717807cacd09ad
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736611"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363238"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Superviser les ressources déléguées à grande échelle
 
@@ -23,7 +23,7 @@ Cette rubrique vous montre comment utiliser les [Journaux Azure Monitor](../../a
 
 Pour collecter des données, vous devez créer des espaces de travail Log Analytics. Ces espaces de travail Log Analytics sont des environnements uniques pour les données collectées par Azure Monitor. Chaque espace de travail dispose d’un référentiel de données et d’une configuration propres. Les sources de données et les solutions sont configurées de façon à stocker leurs données dans un espace de travail particulier.
 
-Nous vous recommandons de créer ces espaces de travail directement dans les locataires des clients. Ainsi, leurs données restent dans leurs locataires au lieu d’être exportées vers les vôtres. Cela permet également d’effectuer une supervision centralisée de l’ensemble des ressources ou services pris en charge par Log Analytics. Ainsi, vous disposez d’une plus grande flexibilité par rapport aux types de données que vous supervisez.
+Nous vous recommandons de créer ces espaces de travail directement dans les locataires des clients. Ainsi, leurs données restent dans leurs locataires au lieu d’être exportées vers les vôtres. La création des espaces de travail dans les locataires clients permet d’effectuer une supervision centralisée de l’ensemble des ressources ou services pris en charge par Log Analytics. Ainsi, vous disposez d’une plus grande flexibilité par rapport aux types de données que vous supervisez. Les espaces de travail créés dans les locataires clients sont nécessaires pour collecter les informations des [paramètres de diagnostic](../..//azure-monitor/essentials/diagnostic-settings.md).
 
 > [!TIP]
 > Tout compte Automation utilisé pour accéder aux données d’un espace de travail Log Analytics doit être créé dans le même locataire que l’espace de travail.

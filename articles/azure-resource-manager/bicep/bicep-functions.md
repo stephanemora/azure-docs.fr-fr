@@ -2,13 +2,13 @@
 title: Fonctions Bicep
 description: Décrit les fonctions à utiliser dans un fichier Bicep pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, ainsi que récupérer des informations relatives au déploiement.
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: bd697d6c1a1eaac7877341ffbbc10b1027882dd6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 09/30/2021
+ms.openlocfilehash: 6fabd0bdbe6341382344c0e63ca711519275a3f4
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124794023"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129351687"
 ---
 # <a name="bicep-functions"></a>Fonctions Bicep
 
@@ -16,13 +16,28 @@ Cet article décrit toutes les fonctions que vous pouvez utiliser dans un fichie
 
 La plupart des fonctions opèrent de la même façon quand elles sont déployées sur un groupe de ressources, un abonnement, un groupe d’administration ou un locataire. Certaines fonctions ne peuvent pas être utilisées dans toutes les étendues. Elles sont indiquées dans les listes ci-dessous.
 
+## <a name="namespaces-for-functions"></a>Espaces de noms pour les fonctions
+
+Toutes les fonctions Bicep sont contenues dans deux espaces de noms : `az` et `sys`. En règle générale, vous ne devez pas spécifier l’espace de noms lorsque vous utilisez la fonction. Vous ne spécifiez l’espace de noms que lorsque le nom de la fonction est le même qu’un autre élément que vous avez défini dans le fichier Bicep. Par exemple, si vous créez un paramètre nommé `range`, vous devez différencier la fonction `range` en ajoutant l'espace de noms `sys`.
+
+```bicep
+// Parameter contains the same name as a function
+param range int
+
+// Must use sys namespace to call the function. 
+// The second use of range refers to the parameter.
+output result array = sys.range(1, range)
+```
+
+L'espace de noms `az` contient des fonctions spécifiques à un déploiement Azure. L'espace de noms `sys` contient des fonctions utilisées pour construire des valeurs. L'espace de noms `sys` comprend également des éléments décoratifs pour les paramètres et les boucles de ressources. Les espaces de noms sont notés dans cet article.
+
 ## <a name="any-function"></a>Toutes les fonctions
 
-La [fonction any](./bicep-functions-any.md) est disponible dans bicep pour aider à résoudre les problèmes concernant les avertissements de type de données.
+La [fonction any](./bicep-functions-any.md) est disponible dans bicep pour aider à résoudre les problèmes concernant les avertissements de type de données. Cette fonction est définie dans l'espace de noms `sys`.
 
 ## <a name="array-functions"></a>Fonctions Tableau
 
-Les fonctions suivantes sont disponibles pour l’utilisation de tableaux.
+Les fonctions suivantes sont disponibles pour l’utilisation de tableaux. Toutes ces fonctions se trouvent dans l’espace de noms `sys`.
 
 * [array](./bicep-functions-array.md#array)
 * [concat](./bicep-functions-array.md#concat)
@@ -41,34 +56,34 @@ Les fonctions suivantes sont disponibles pour l’utilisation de tableaux.
 
 ## <a name="date-functions"></a>Fonctions de date
 
-Les fonctions suivantes sont disponibles pour l’utilisation de dates.
+Les fonctions suivantes sont disponibles pour l’utilisation de dates. Toutes ces fonctions se trouvent dans l’espace de noms `sys`.
 
 * [dateTimeAdd](./bicep-functions-date.md#datetimeadd)
 * [utcNow](./bicep-functions-date.md#utcnow)
 
 ## <a name="deployment-value-functions"></a>Fonctions de valeur de déploiement
 
-Les fonctions suivantes sont disponibles pour l’obtention de valeurs associées au déploiement :
+Les fonctions suivantes sont disponibles pour l’obtention de valeurs associées au déploiement. Toutes ces fonctions se trouvent dans l’espace de noms `az`.
 
 * [deployment](./bicep-functions-deployment.md#deployment)
 * [environment](./bicep-functions-deployment.md#environment)
 
 ## <a name="file-functions"></a>Fonctions de fichier
 
-Les fonctions suivantes sont disponibles pour le chargement du contenu à partir de fichiers externes dans votre fichier Bicep.
+Les fonctions suivantes sont disponibles pour le chargement du contenu à partir de fichiers externes dans votre fichier Bicep. Toutes ces fonctions se trouvent dans l’espace de noms `sys`.
 
 * [loadFileAsBase64](bicep-functions-files.md#loadfileasbase64)
 * [loadTextContent](bicep-functions-files.md#loadtextcontent)
 
 ## <a name="logical-functions"></a>Fonctions logiques
 
-La fonction suivante est disponible pour l’utilisation de conditions logiques :
+La fonction suivante est disponible pour l’utilisation de conditions logiques. Cette fonction est définie dans l'espace de noms `sys`.
 
 * [bool](./bicep-functions-logical.md#bool)
 
 ## <a name="numeric-functions"></a>Fonctions Numériques
 
-Les fonctions suivantes sont disponibles pour l’utilisation d’entiers :
+Les fonctions suivantes sont disponibles pour l’utilisation d’entiers. Toutes ces fonctions se trouvent dans l’espace de noms `sys`.
 
 * [int](./bicep-functions-numeric.md#int)
 * [min](./bicep-functions-numeric.md#min)
@@ -76,7 +91,7 @@ Les fonctions suivantes sont disponibles pour l’utilisation d’entiers :
 
 ## <a name="object-functions"></a>Fonctions d’objet
 
-Les fonctions suivantes sont disponibles pour l’utilisation d’objets.
+Les fonctions suivantes sont disponibles pour l’utilisation d’objets. Toutes ces fonctions se trouvent dans l’espace de noms `sys`.
 
 * [contains](./bicep-functions-object.md#contains)
 * [empty](./bicep-functions-object.md#empty)
@@ -87,7 +102,7 @@ Les fonctions suivantes sont disponibles pour l’utilisation d’objets.
 
 ## <a name="resource-functions"></a>Fonctions de ressource
 
-Les fonctions suivantes sont disponibles pour l’obtention de valeurs de l’étendue :
+Les fonctions suivantes sont disponibles pour l’obtention de valeurs de ressource. La plupart de ces fonctions se trouvent dans l’espace de noms `az`. Les fonctions de liste et la fonction getSecret sont appelées directement sur le type de ressource, de sorte qu’elles n’ont pas de qualificateur d’espace de noms.
 
 * [extensionResourceId](./bicep-functions-resource.md#extensionresourceid)
 * [getSecret](./bicep-functions-resource.md#getsecret)
@@ -104,7 +119,7 @@ Les fonctions suivantes sont disponibles pour l’obtention de valeurs de l’é
 
 ## <a name="scope-functions"></a>Fonctions de limitation
 
-Les fonctions suivantes sont disponibles pour l’obtention de valeurs d’étendue.
+Les fonctions suivantes sont disponibles pour l’obtention de valeurs d’étendue. Toutes ces fonctions se trouvent dans l’espace de noms `az`.
 
 * [managementGroup](./bicep-functions-scope.md#managementgroup)
 * [resourceGroup](./bicep-functions-scope.md#resourcegroup) - peut être utilisée uniquement dans les déploiements sur un groupe de ressources.
@@ -113,7 +128,7 @@ Les fonctions suivantes sont disponibles pour l’obtention de valeurs d’éten
 
 ## <a name="string-functions"></a>Fonctions de chaînes
 
-Bicep fournit les fonctions suivantes pour travailler avec des chaînes :
+Bicep fournit les fonctions suivantes pour travailler avec des chaînes. Toutes ces fonctions se trouvent dans l’espace de noms `sys`.
 
 * [base64](./bicep-functions-string.md#base64)
 * [base64ToJson](./bicep-functions-string.md#base64tojson)

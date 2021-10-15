@@ -4,23 +4,23 @@ titleSuffix: Azure Machine Learning
 description: Utilisez un point de terminaison privé pour accéder en toute sécurité à votre espace de travail Azure Machine Learning à partir d’un réseau virtuel.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/07/2021
-ms.openlocfilehash: df1f492824503c6ab8c63091c93e3d048107cb48
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 9bb40b02df8de4bbd5fc7e59f55c7f31052b3480
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129052136"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129429886"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Configurer un point de terminaison privé pour un espace de travail Azure Machine Learning
 
-Dans ce document, vous allez apprendre à configurer un point de terminaison privé pour votre espace de travail Azure Machine Learning. Pour plus d’informations sur la création d’un réseau virtuel pour Azure Machine Learning, consultez [Vue d’ensemble de l’isolement et la confidentialité des réseaux virtuels](how-to-network-security-overview.md)
+Dans ce document, vous allez apprendre à configurer un point de terminaison privé pour votre espace de travail Azure Machine Learning. Pour plus d’informations sur la création d’un réseau virtuel pour Azure Machine Learning, consultez [Vue d’ensemble de l’isolement et de la confidentialité des réseaux virtuels](how-to-network-security-overview.md).
 
 Azure Private Link vous permet de vous connecter à votre espace de travail à l’aide d’un point de terminaison privé. Le point de terminaison privé est un ensemble d’adresses IP privées au sein de votre réseau virtuel. Vous pouvez alors limiter l’accès à votre espace de travail pour qu’il ne se fasse que sur les adresses IP privées. Un point de terminaison privé permet de réduire le risque d’exfiltration de données. Pour plus d’informations sur les points de terminaison privés, consultez l’article [Azure Private Link](../private-link/private-link-overview.md).
 

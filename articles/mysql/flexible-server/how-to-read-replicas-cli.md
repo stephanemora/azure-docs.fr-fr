@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 06/17/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adffb4edf7f689002cab7eae86388ff18ac04027
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 77e9d66af8a03f9d1a55a59d9a355499a3019f29
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122641166"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129233898"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-flexible-server-using-the-azure-cli"></a>Comment créer et gérer des réplicas en lecture dans Azure Database pour MySQL – Serveur flexible à l’aide d’Azure CLI
 
@@ -26,6 +26,7 @@ Dans cet article, vous allez apprendre à créer et à gérer des réplicas en l
 > [!Note]
 >
 > * Le réplica n’est pas pris en charge sur les serveurs à une haute disponibilité. 
+>* La fonctionnalité de réplica en lecture est disponible uniquement pour les serveurs flexibles Azure Database pour MySQL dans les niveaux tarifaires Usage général ou Mémoire optimisée. Vérifiez que le serveur source se trouve dans l’un de ces niveaux tarifaires.
 >
 > * Si le GTID est activé sur un serveur primaire (`gtid_mode` = ON), il sera également activé sur les réplicas nouvellement créés, et ceux-ci utiliseront la réplication basée sur GTID. Pour en savoir plus, reportez-vous à [Identificateur de transaction global (GTID ](concepts-read-replicas.md#global-transaction-identifier-gtid)
 

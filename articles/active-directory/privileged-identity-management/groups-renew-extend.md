@@ -1,27 +1,27 @@
 ---
-title: Renouveler un propriétaire de groupe expiré d’affectations de membres dans Privileged Identity Management – Azure AD | Microsoft Docs
+title: Renouveler un propriétaire de groupe expiré ou des affectations de membres dans Privileged Identity Management – Azure AD | Microsoft Docs
 description: Découvrez comment étendre ou renouveler des affectations de groupes affectables à un rôle dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
-editor: markwahl-msft
+manager: KarenH444
+ms.reviewer: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 06/30/2020
+ms.date: 10/07/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfbb0be22dee4550050d6af10314f3a3bb1f583
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 791da880607de6e2e3c7ad9a9e94e41c50e5a4be
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87505617"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667665"
 ---
 # <a name="extend-or-renew-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Étendre ou renouveler des affectations de groupe d’accès privilégié (préversion) dans Privileged Identity Management
 

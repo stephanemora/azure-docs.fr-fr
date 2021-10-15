@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d3d05ba65e0d3918f1651c36cd17700ebf74de76
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0a090f7a4ba00c9a7d55f06acc74556b604d6b7e
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778334"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363335"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Créer ou mettre à jour des rôles personnalisés Azure à l’aide d’Azure CLI
 
@@ -146,7 +146,7 @@ Pour créer un rôle personnalisé, utilisez [az role definition create](/cli/az
 az role definition create --role-definition {roleDefinition}
 ```
 
-L’exemple suivant crée un rôle personnalisé appelé *Virtual Machine Operator*. Ce rôle personnalisé attribue l’accès à toutes les opérations de lecture (« read ») des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network* et attribue l’accès pour démarrer (« start »), redémarrer (« restart ») et surveiller (« monitor ») les machines virtuelles. Ce rôle personnalisé peut être utilisé dans deux abonnements. Cet exemple utilise un fichier JSON en tant qu’entrée.
+L’exemple suivant crée un rôle personnalisé appelé *Virtual Machine Operator*. Ce rôle personnalisé attribue l’accès à toutes les actions de lecture des fournisseurs de ressources *Microsoft.Compute*, *Microsoft.Storage* et *Microsoft.Network* et attribue l’accès pour démarrer, redémarrer et surveiller des machines virtuelles. Ce rôle personnalisé peut être utilisé dans deux abonnements. Cet exemple utilise un fichier JSON en tant qu’entrée.
 
 vmoperator.json
 
@@ -189,7 +189,7 @@ Pour mettre à jour un rôle personnalisé, utilisez d’abord [az role definiti
 az role definition update --role-definition {roleDefinition}
 ```
 
-L’exemple suivant ajoute l’opération *Microsoft.Insights/diagnosticSettings/* à `Actions` et ajoute un groupe d’administration à `AssignableScopes` pour le rôle personnalisé *Opérateur de machine virtuelle*. L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion.
+L’exemple suivant ajoute l’action *Microsoft.Insights/diagnosticSettings/* à `Actions` et ajoute un groupe d’administration à `AssignableScopes` pour le rôle personnalisé *Opérateur de machine virtuelle*. L’ajout d’un groupe d’administration à `AssignableScopes` est actuellement en préversion.
 
 vmoperator.json
 

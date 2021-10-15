@@ -4,27 +4,25 @@ description: Utilisez Azure Resource Manager et Azure PowerShell pour déployer 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 3058265fee62143f88bbd87e69c58dd4ff597920
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/01/2021
+ms.openlocfilehash: cc6c8e05f5e6f37a8ac832ac5ee8fae386a627f1
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793794"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129387712"
 ---
 # <a name="deploy-resources-with-bicep-and-azure-powershell"></a>Déployer des ressources avec Bicep et Azure PowerShell
 
 Cet article explique comment utiliser Azure PowerShell avec les fichiers Bicep pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble de Bicep](overview.md).
 
-Pour déployer des fichiers Bicep, vous devez disposer d’[Azure PowerShell version 5.6.0 ou ultérieure](/powershell/azure/install-az-ps).
-
 ## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin d’un fichier Bicep à déployer. Le nom de fichier local utilisé dans cet article est _C:\MyTemplates\azuredeploy.bicep_.
+Vous avez besoin d’un fichier Bicep à déployer. Le fichier doit être local.
 
-Vous devez installer Azure PowerShell et vous connecter à Azure :
+Vous avez besoin d’Azure PowerShell et devez être connecté à Azure :
 
-- **Installez les cmdlets Azure PowerShell sur votre ordinateur local.** Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps).
+- **Installez les cmdlets Azure PowerShell sur votre ordinateur local.** Pour déployer des fichiers Bicep, vous avez besoin d’[Azure PowerShell](/powershell/azure/install-az-ps) version **5.6.0 ou ultérieure**. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Connectez-vous à Azure à l'aide de [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)** . Si vous disposez de plusieurs abonnements Azure, vous devrez peut-être également exécuter [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Pour plus d'informations, consultez [Utiliser plusieurs abonnements Azure](/powershell/azure/manage-subscriptions-azureps).
 
 Si vous n’avez pas installé PowerShell, vous pouvez utiliser Azure Cloud Shell. Pour plus d’informations, consultez [Déployer des fichiers Bicep à partir d’Azure Cloud Shell](./deploy-cloud-shell.md).
@@ -139,15 +137,15 @@ Pour transmettre un fichier de paramètres local, utilisez le paramètre `Templa
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile <path-to-bicep> `
-  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+  -TemplateFile c:\BicepFiles\storage.bicep `
+  -TemplateParameterFile c:\BicepFiles\storage.parameters.json
 ```
 
 Pour transmettre un fichier de paramètres externe, utilisez le paramètre `TemplateParameterUri` :
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
-  -TemplateFile <path-to-bicep> `
+  -TemplateFile c:\BicepFiles\storage.bicep `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.parameters.json
 ```
 
@@ -157,11 +155,11 @@ Avant de déployer votre fichier Bicep, vous pouvez obtenir un aperçu des chan
 
 ## <a name="deploy-template-specs"></a>Déployer des specs de modèle
 
-Actuellement, Azure PowerShell ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer un spec de modèle. L’[exemple de création de spec de modèle](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) montre comment créer un spec de modèle dans un fichier Bicep. Vous pouvez également générer votre fichier Bicep dans le JSON d’un modèle ARM à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
+Actuellement, Azure PowerShell ne prend pas en charge la création de spécifications de modèle en fournissant des fichiers Bicep. Toutefois, vous pouvez créer un fichier Bicep avec la ressource [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) pour déployer un spec de modèle. L’[exemple de création de spec de modèle](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/create-template-spec/azuredeploy.bicep) montre comment créer un spec de modèle dans un fichier Bicep. Vous pouvez également générer votre fichier Bicep en JSON à l’aide de l’interface CLI Bicep, puis créer un spec de modèle avec le modèle JSON.
 
 ## <a name="deployment-name"></a>Nom du déploiement
 
-Lorsque vous déployez un fichier Bicep, vous pouvez attribuer un nom au déploiement. Ce nom peut vous aider à récupérer le déploiement à partir de l’historique de déploiement. Si vous n’attribuez pas de nom au déploiement, le nom du fichier Bicep sera utilisé. Par exemple, si vous déployez un fichier Bicep nommé `azuredeploy.bicep` sans spécifier de nom pour le déploiement, le déploiement sera nommé `azuredeploy`.
+Lorsque vous déployez un fichier Bicep, vous pouvez attribuer un nom au déploiement. Ce nom peut vous aider à récupérer le déploiement à partir de l’historique de déploiement. Si vous n’attribuez pas de nom au déploiement, le nom du fichier Bicep sera utilisé. Par exemple, si vous déployez un fichier Bicep nommé `main.bicep` sans spécifier de nom pour le déploiement, le déploiement sera nommé `main`.
 
 Chaque fois que vous exécutez un déploiement, une entrée est ajoutée à l’historique de déploiement du groupe de ressources avec le nom du déploiement. Si vous exécutez un autre déploiement et que vous lui attribuez le même nom, l’entrée précédente est remplacée par le déploiement actuel. Si vous souhaitez conserver des entrées uniques dans l’historique de déploiement, attribuez un nom unique à chaque déploiement.
 
@@ -189,6 +187,4 @@ Pour éviter les conflits lors de déploiements simultanés et faire en sorte qu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour restaurer un déploiement réussi lorsque vous obtenez une erreur, consultez [Restaurer en cas d’erreur vers un déploiement réussi](../templates/rollback-on-error.md).
 - Pour comprendre comment définir des paramètres dans votre fichier, consultez [Comprendre la structure et la syntaxe des fichiers Bicep](file.md).
-- Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déployer un modèle ARM privé avec un jeton SAP](../templates/secure-template-with-sas-token.md).

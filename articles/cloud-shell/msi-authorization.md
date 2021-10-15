@@ -1,6 +1,6 @@
 ---
-title: Utiliser des identités managées pour les ressources dans Azure Cloud Shell
-description: Authentifier du code avec MSI dans Azure Cloud Shell
+title: Acquisition d’un jeton d’utilisateur dans Azure Cloud Shell
+description: Comment acquérir un jeton pour l’utilisateur authentifié dans Azure Cloud Shell
 services: azure
 author: maertendMSFT
 ms.author: damaerte
@@ -9,42 +9,47 @@ ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 04/14/2018
-ms.openlocfilehash: 0fb19524079f84e92e1ddbc98a61917026492663
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 09/29/2021
+ms.openlocfilehash: 117fa3672c78de29cd88797add83fa6e3bf2bf79
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89469896"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129362730"
 ---
-# <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Utiliser des identités managées pour les ressources Azure dans Azure Cloud Shell
+# <a name="acquire-a-token-in-azure-cloud-shell"></a>Acquérir un jeton dans Azure Cloud Shell
 
-Azure Cloud Shell prend en charge l’autorisation avec des identités managées pour les ressources Azure. Utilisez cette option pour récupérer des jetons d’accès afin de communiquer en toute sécurité avec les services Azure.
+Azure Cloud Shell fournit un point de terminaison qui authentifie automatiquement l’utilisateur connecté au portail Azure. Utilisez ce point de terminaison pour obtenir des jetons d’accès afin d’interagir avec les services Azure.
 
-## <a name="about-managed-identities-for-azure-resources"></a>À propos des identités gérées pour les ressources Azure
-La gestion sécurisée des informations d’identification qui doivent se trouver dans votre code pour s’authentifier auprès des services cloud constitue un défi courant lors de la génération d’applications cloud. Dans Cloud Shell, vous devrez peut-être authentifier la récupération à partir de Key Vault pour une information d’identification qui peut-être nécessaire à un script.
+## <a name="authenticating-in-the-cloud-shell"></a>Authentification dans Cloud Shell
+Azure Cloud Shell a son propre point de terminaison qui interagit avec votre navigateur pour vous connecter automatiquement. Lorsque ce point de terminaison reçoit une demande, il renvoie la demande à votre navigateur, qui le transfère au cadre parent du portail. La fenêtre du portail envoie une demande à Azure Active Directory, et le jeton résultant est renvoyé.
 
-Les identités managées pour les ressources Azure simplifient la résolution de ce problème en fournissant aux services Azure une identité managée automatiquement dans Azure AD (Azure Active Directory). Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, y compris Key Vault, sans avoir d’informations d’identification dans votre code.
+Si vous souhaitez vous authentifier avec d’autres informations d’identification, vous pouvez le faire à l’aide des commandes `az login` ou `Connect-AzAccount`.
 
-## <a name="acquire-access-token-in-cloud-shell"></a>Acquérir un jeton d’accès dans Cloud Shell
+## <a name="acquire-and-use-access-token-in-cloud-shell"></a>Acquérir et utiliser un jeton d’accès dans Cloud Shell
 
-Exécutez les commandes suivantes pour définir votre jeton d’accès MSI en tant que variable d’environnement, `access_token`.
+### <a name="acquire-token"></a>Acquérir un jeton
+
+Exécutez les commandes suivantes pour définir votre jeton d’accès d’utilisateur en tant que variable d’environnement, `access_token`.
 ```
 response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
-echo The MSI access token is $access_token
+echo The access token is $access_token
+```
+
+### <a name="use-token"></a>Utiliser un jeton
+
+Exécutez la commande suivante pour obtenir la liste de toutes les machines virtuelles de votre compte, en utilisant le jeton acquis à l’étape précédente.
+
+```
+curl https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Compute/virtualMachines?api-version=2021-07-01 -H "Authorization: Bearer $access_token" -H "x-ms-version: 2019-02-02"
 ```
 
 ## <a name="handling-token-expiration"></a>Gestion de l’expiration du jeton
 
-Le sous-système MSI local met en cache des jetons. Par conséquent, vous pouvez l’appeler autant de fois que vous le souhaitez et un appel réseau vers Azure AD survient uniquement si :
-- une absence dans le cache se produit du fait d’une absence de jeton dans le cache
-- le jeton a expiré
+Le point de terminaison d’authentification local met en cache les jetons. Vous pouvez l’appeler aussi souvent que vous le souhaitez, et un appel d’authentification à Azure Active Directory se produira uniquement s’il n’y a aucun jeton stocké dans le cache ou si le jeton a expiré.
 
-Si vous mettez le jeton en cache dans votre code, vous devez être prêt à gérer les scénarios dans lesquels la ressource indique que le jeton a expiré.
-
-Pour gérer les erreurs de jeton, visitez la [page MSI sur le curling des jetons d’accès MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#error-handling).
-
-## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus sur MSI](../active-directory/managed-identities-azure-resources/overview.md)  
-[Acquisition de jetons d’accès à partir de machines virtuelles MSI](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
+## <a name="limitations"></a>Limites
+- Il existe une liste d’autorisation des ressources pour lesquelles les jetons Cloud Shell peuvent être fournis. Si vous exécutez une commande et recevez un message semblable à `"error":{"code":"AudienceNotSupported","message":"Audience https://newservice.azure.com/ is not a supported MSI token audience...."}`, vous êtes face à cette limitation. Vous pouvez ouvrir un cas sur [GitHub](https://github.com/Azure/CloudShell/issues) pour demander que ce service soit ajouté à la liste d’autorisation.
+- Si vous vous connectez explicitement à l’aide de la commande `az login`, toute règle d’accès conditionnel que votre entreprise peut avoir en place sera évaluée en fonction du conteneur Cloud Shell plutôt que de la machine sur laquelle s’exécute votre navigateur. Le conteneur Cloud Shell n’est pas considéré comme un appareil géré pour ces stratégies, si bien que les droits peuvent être limités par la stratégie.
+- Les identités managées Azure ne sont pas disponibles dans Azure Cloud Shell. [En savoir plus sur les identités managées Azure](../active-directory/managed-identities-azure-resources/overview.md).

@@ -10,17 +10,14 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/21/2021
-ms.openlocfilehash: 7714adf00a40953301cf3f13eb8d6e403cd8c7a3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c0220070d6b377212099a67c4328bc080afc1648
+ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524620"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129544618"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Utiliser un modèle Azure Resource Manager pour créer un espace de travail pour Azure Machine Learning
-
-
-<br>
 
 Vous trouverez dans cet article différentes façons de créer un espace de travail Azure Machine Learning à l’aide de modèles Azure Resource Manager. Un modèle Resource Manager permet de créer des ressources sous la forme d’une seule opération coordonnée. Un modèle est un document JSON qui définit les ressources nécessaires à un déploiement. Il peut également spécifier des paramètres de déploiement. Les paramètres permettent de fournir des valeurs d’entrée lorsque vous utilisez le modèle.
 
@@ -38,7 +35,7 @@ Pour plus d’informations, consultez la page [Déploiement d’une application 
 
 ## <a name="workspace-resource-manager-template"></a>Modèle Resource Manager de l’espace de travail
 
-Le modèle Azure Resource Manager utilisé tout au long de ce document est disponible dans le répertoire [machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced/azuredeploy.json) du dépôt GitHub de modèles de démarrage rapide Azure.
+Le modèle Azure Resource Manager utilisé tout au long de ce document est disponible dans le répertoire [microsoft.machineleaerningservices/machine-learning-workspace-vnet](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-vnet/azuredeploy.json) du référentiel GitHub de modèles de démarrage rapide Azure.
 
 Ce modèle crée les services Azure suivants :
 
@@ -276,9 +273,6 @@ En définissant la valeur du paramètre `vnetOption` sur `new` ou `existing`, vo
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Déployer l’espace de travail uniquement derrière un point de terminaison privé
 
 Si vos ressources associées ne sont pas derrière un réseau virtuel, vous pouvez définir le paramètre **privateEndpointType** sur `AutoAproval` ou `ManualApproval` pour déployer l’espace de travail derrière un point de terminaison privé. Vous pouvez le faire aussi bien pour les espaces de travail existants que nouveaux. Lors de la mise à jour d’un espace de travail existant, renseignez les paramètres du modèle avec les informations concernant cet espace.
-
-> [!IMPORTANT]
-> L’utilisation d’un espace de travail Azure Machine Learning avec point de terminaison privé n’est pas disponible dans les régions Azure Government.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

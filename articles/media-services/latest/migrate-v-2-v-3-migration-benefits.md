@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9dd3525f4efec3c49950839306ee5419c7850c69
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 1a733492a46b51d471a0efb0c5f316b0a47c8598
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275411"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129353156"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Étape 1 : Comprendre les avantages de la migration vers l’API Media Services v3
 
@@ -26,7 +26,7 @@ ms.locfileid: "106275411"
 
 ## <a name="use-the-latest-api"></a>Utiliser l'API le plus récent
 
-Nous vous encourageons à commencer dès maintenant à utiliser la version 2020-05-01 de l’API Azure Media Services v3 pour bénéficier des avantages suivants : nouvelles fonctionnalités, optimisations du fonctionnement et des performances uniquement disponibles dans la version 3 de l’API actuelle.
+Nous vous encourageons à commencer dès maintenant à utiliser la version 2020-05-01 (ou ultérieure) de l’API Azure Media Services v3 pour bénéficier des avantages suivants : nouvelles fonctionnalités, optimisations du fonctionnement et des performances uniquement disponibles dans l’API v3 actuelle.
 
 Vous pouvez changer la version de l’API dans le portail, les derniers kits SDK, la dernière interface CLI et l’API REST en indiquant la bonne chaîne de version.
 

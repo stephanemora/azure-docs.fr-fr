@@ -4,13 +4,13 @@ description: Cet article explique comment utiliser Update Management pour gérer
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 08/25/2021
+ms.openlocfilehash: 932f5d93c5fa67de486ddb9cabaafd68384f0db8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98915980"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357465"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles
 
@@ -49,6 +49,22 @@ Pour savoir comment afficher les résultats de compatibilité, consultez [Survei
 Après examen des résultats de conformité, la phase de déploiement de mises à jour de logiciel consiste à déployer ces dernières. Pour installer les mises à jour, planifiez un déploiement qui s’aligne avec votre fenêtre de planification et de maintenance des versions. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
 
 Pour savoir comment planifier un déploiement de mises à jour, consultez [Déployer des mises à jour de logiciel](deploy-updates.md).
+
+## <a name="exclude-updates"></a>Exclure des mises à jour
+
+Sur certaines variantes Linux, comme Red Hat Enterprise Linux, les mises à niveau du système d’exploitation peuvent se produire par le biais de packages. Celles-ci peuvent alors entraîner des exécutions Update Management dans lesquelles le numéro de version du système d’exploitation change. Étant donné que la solution Update Management utilise les mêmes méthodes pour mettre à jour des packages qu’un administrateur sur une machine Linux locale, ce comportement est volontaire.
+
+Pour éviter de mettre à jour la version du système d’exploitation par le biais de déploiements Update Management, utilisez la fonctionnalité **Exclusion**.
+
+Dans Red Hat Enterprise Linux, le nom du package à exclure est `redhat-release-server.x86_64`.
+
+## <a name="linux-update-classifications"></a>Classifications des mises à jour de Linux
+
+Lorsque vous déployez des mises à jour sur un ordinateur Linux, vous pouvez sélectionner des classifications. Cette option filtre les mises à jour qui remplissent les critères de classification spécifiés. Ce filtre est appliqué localement sur l’ordinateur lorsque la mise à jour est déployée.
+
+Comme Update Management enrichit les mises à jour dans le cloud, vous pouvez signaler certaines mises à jour dans Update Management comme ayant un impact sur la sécurité quand bien même l’ordinateur local n’a pas ces informations. Si vous appliquez des mises à jour critiques à un ordinateur Linux, certaines mises à jour, non signalées comme ayant un impact sur la sécurité pour cet ordinateur, peuvent ne pas être appliquées. Toutefois, Update Management peut quand même signaler cet ordinateur comme étant non conforme, car il contient des informations supplémentaires sur la mise à jour concernée.
+
+Le déploiement de mises à jour par classification ne fonctionne pas sur les versions RTM de CentOS. Pour déployer correctement les mises à jour pour CentOS, sélectionnez toutes les classifications pour garantir que les mises à jour sont appliquées. Pour SUSE, le fait de sélectionner UNIQUEMENT **Autres mises à jour** en tant que classification peut installer d’autres mises à jour de sécurité si elles sont associées à zypper (gestionnaire de package) ou à ses dépendances doivent être d’abord installées. Il s’agit d’une limitation de zypper. Dans certains cas, vous aurez peut-être à réexécuter le déploiement des mises à jour, puis à vérifier le déploiement via le journal des mises à jour.
 
 ## <a name="review-update-deployments"></a>Examiner les déploiements de mises à jour
 

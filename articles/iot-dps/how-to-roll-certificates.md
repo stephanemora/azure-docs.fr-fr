@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b03564c293a5c12dca2a52f3afd5f3347b6c8186
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94951126"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129278195"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Renouvellement des certificats d’appareil X.509
 
@@ -45,7 +45,7 @@ Si vous gérez vos propres certificats d’appareil, vous devrez créer votre pi
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Renouveler le certificat dans le IoT Hub
 
-Le certificat d’appareil peut être ajouté manuellement à un IoT Hub. Ce certificat peut également être automatisé à l’aide d’une instance du service de provisionnement des appareils. Dans cet article, nous allons supposer que le provisionnement automatique est assuré par une instance du service de provisionnement des appareils.
+Le certificat d’appareil peut être ajouté manuellement à un IoT Hub. Ce certificat peut également être automatisé à l’aide d’une instance du service Device Provisioning. Dans cet article, nous allons supposer que l’approvisionnement automatique est assuré par une instance de Service Device Provisioning.
 
 Lorsqu’un appareil est initialement provisionné par le biais du provisionnement automatique, il démarre et contacte le service de provisionnement. Le service de provisionnement répond en effectuant une vérification d’identité avant de créer une identité d’appareil dans un IoT Hub en utilisant le certificat feuille de l’appareil comme information d’identification. Ensuite, le service de provisionnement indique à l’appareil l’IoT Hub auquel il est assigné, et l’appareil utilise alors son certificat feuille pour s’authentifier et se connecter à l’IoT Hub. 
 
@@ -106,7 +106,7 @@ Pour mettre à jour une inscription de groupe suite à une violation de la sécu
 
 #### <a name="update-compromised-root-ca-certificates"></a>Mettre à jour les certificats d’autorité de certification racine compromis
 
-1. Cliquez sur l’onglet **Certificats** pour votre instance de service de provisionnement des appareils.
+1. Cliquez sur l’onglet **Certificats** pour votre instance de Service Device Provisioning.
 
 2. Cliquez sur le certificat compromis dans la liste, puis cliquez sur le bouton **Supprimer**. Confirmez la suppression en entrant le nom du certificat, puis cliquez sur **OK**. Répétez ce processus pour tous les certificats compromis.
 
@@ -114,7 +114,7 @@ Pour mettre à jour une inscription de groupe suite à une violation de la sécu
 
 3. Exécutez la procédure [Configurer des certificats d’autorité de certification vérifiés](how-to-verify-certificates.md) pour ajouter et vérifier de nouveaux certificats d’autorité de certification racine.
 
-4. Cliquez sur l’onglet **Gérer les inscriptions** pour votre instance de service de provisionnement des appareils, puis cliquez sur la liste **Groupes d’inscription**. Cliquez sur le nom de votre groupe d’inscription dans la liste.
+4. Cliquez sur l’onglet **Gérer les inscriptions** pour votre instance de Service Device Provisioning, puis cliquez sur la liste **Groupes d’inscription**. Cliquez sur le nom de votre groupe d’inscription dans la liste.
 
 5. Cliquez sur **Certificat d’autorité de certification**, puis sélectionnez votre nouveau certificat d’autorité de certification racine. Ensuite, cliquez sur **Enregistrer**. 
 
@@ -160,13 +160,13 @@ Par la suite, lorsque le certificat secondaire approchera également de sa date 
 
 1. Exécutez la procédure [Configurer des certificats d’autorité de certification vérifiés](how-to-verify-certificates.md) pour ajouter et vérifier de nouveaux certificats d’autorité de certification racine.
 
-2. Cliquez sur l’onglet **Gérer les inscriptions** pour votre instance de service de provisionnement des appareils, puis cliquez sur la liste **Groupes d’inscription**. Cliquez sur le nom de votre groupe d’inscription dans la liste.
+2. Cliquez sur l’onglet **Gérer les inscriptions** pour votre instance de Service Device Provisioning, puis cliquez sur la liste **Groupes d’inscription**. Cliquez sur le nom de votre groupe d’inscription dans la liste.
 
 3. Cliquez sur **Certificat d’autorité de certification**, puis sélectionnez votre nouveau certificat d’autorité de certification racine sous la configuration **Certificat secondaire**. Ensuite, cliquez sur **Enregistrer**. 
 
     ![Sélectionner le nouveau certificat d’autorité de certification racine pour l’expiration](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Par la suite, lorsque le certificat principal arrivera à expiration, cliquez sur l’onglet **Certificats** pour votre instance de service de provisionnement des appareils. Cliquez sur le certificat expiré dans la liste, puis cliquez sur le bouton **Supprimer**. Confirmez la suppression en entrant le nom du certificat, puis cliquez sur **OK**.
+4. Par la suite, lorsque le certificat principal arrivera à expiration, cliquez sur l’onglet **Certificats** pour votre instance de Service Device Provisioning. Cliquez sur le certificat expiré dans la liste, puis cliquez sur le bouton **Supprimer**. Confirmez la suppression en entrant le nom du certificat, puis cliquez sur **OK**.
 
     ![Suppression du certificat d’autorité de certification racine](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -188,7 +188,7 @@ Par la suite, lorsque le certificat secondaire approchera également de sa date 
 
 ## <a name="reprovision-the-device"></a>Reprovisionner l’appareil
 
-Une fois que le certificat a été renouvelé à la fois sur l’appareil et dans le service Device Provisioning, l’appareil peut se reprovisionner lui-même en contactant le service de provisionnement des appareils. 
+Une fois que le certificat a été renouvelé à la fois sur l’appareil et dans le Service Device Provisioning, l’appareil peut se réapprovisionner lui-même en contactant le Service Device Provisioning. 
 
 Une méthode simple de configuration du reprovisionnement des appareils consiste à programmer ces derniers pour qu’ils contactent le service de provisionnement en vue de cheminer par le flux de provisionnement si l’appareil reçoit une erreur de type « non autorisé » lors d’une tentative de connexion à l’IoT Hub.
 

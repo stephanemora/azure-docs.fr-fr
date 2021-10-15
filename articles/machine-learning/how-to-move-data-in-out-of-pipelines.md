@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Découvrez la façon dont les pipelines Azure Machine Learning ingèrent les données et apprenez à gérer et à déplacer les données entre les étapes du pipeline.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 86bdbd1588c14ad03cca6544e341599a446c35e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cfbb7d9d5144c0e91b9bf68e332300317dc2f76f
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124767258"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129425939"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Déplacement de données au sein d’un pipeline ML et vers un autre pipeline ML (Python)
 

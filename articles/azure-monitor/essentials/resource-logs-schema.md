@@ -1,95 +1,97 @@
 ---
-title: Services et schémas pris en charge pour les journaux de ressource Azure
-description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure.
+title: Services et schémas pris en charge pour les journaux de ressources Azure
+description: Découvrez les services pris en charge et les schémas d’événement pour les journaux de ressources Azure.
 ms.topic: reference
 ms.date: 05/10/2021
-ms.openlocfilehash: 621c606313fa68de24100e8c6214b56ee42b2f03
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 99746b8f392d8afc5df9aa14ac7e1c7f19069151
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562933"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129454978"
 ---
-# <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
+# <a name="common-and-service-specific-schemas-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
 > [!NOTE]
-> Les journaux de ressource étaient auparavant appelés journaux de diagnostic. Le nom a été modifié en octobre 2019 parce que les types de journaux collectés par Azure Monitor ont évolué pour inclure plus que la seule ressource Azure. En outre, la liste des catégories de journaux de ressources que vous pouvez collecter était répertoriée dans cet article. Elles se trouvent à présent dans les [catégories de journal des ressources](resource-logs-categories.md). 
+> Les journaux de ressource étaient auparavant appelés journaux de diagnostic. Le nom a été modifié en octobre 2019 parce que les types de journaux collectés par Azure Monitor ont évolué pour inclure plus que la seule ressource Azure. 
+>
+> Cet article répertoriait les catégories de journaux de ressources que vous pouvez collecter. Cette liste se trouve à présent dans les [Catégories de journaux de ressources](resource-logs-categories.md). 
 
-Les [journaux de ressource Azure Monitor](../essentials/platform-logs-overview.md) sont des journaux d’activité générés par les services Azure, qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de ressource disponibles via Azure Monitor partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.
+Les [journaux de ressource Azure Monitor](../essentials/platform-logs-overview.md) sont des journaux d’activité générés par les services Azure, qui décrivent le fonctionnement de ces services ou ressources. Tous les journaux de ressources disponibles via Azure Monitor partagent un schéma de niveau supérieur commun. Chaque service a la possibilité d’émettre des propriétés uniques pour ses propres événements.
 
-Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et du `category` permet d’identifier de manière unique un schéma. Cet article décrit le schéma de niveau supérieur pour les journaux de ressource et les liens vers les schémas pour chaque service.
+Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et la catégorie identifient de manière unique un schéma. Cet article décrit les schémas de niveau supérieur pour les journaux de ressources et les liens vers les schémas pour chaque service.
 
 
 ## <a name="top-level-common-schema"></a>Schéma commun de niveau supérieur
 
 | Nom | Obligatoire ou facultatif | Description |
 |---|---|---|
-| time | Obligatoire | Horodatage (heure UTC) de l’événement. |
-| resourceId | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme /tenants/tenant-id/providers/provider-name. |
-| tenantId | Obligatoire pour les journaux d’activité de l’abonné | ID d’abonné de l’abonné Active Directory auquel cet événement est lié. Cette propriété est utilisée uniquement pour les journaux d’activité de niveau abonné ; elle n’apparaît pas dans les journaux d’activité de niveau ressource. |
-| operationName | Obligatoire | Nom de l’opération représentée par cet événement. Si l’événement représente une opération Azure RBAC, il s’agit du nom de l’opération Azure RBAC (par exemple, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Généralement modélisée sous la forme d’une opération du Gestionnaire de ressources, même s’il ne s’agit pas d’opérations réelles documentées du Gestionnaire des ressources (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | Facultatif | Version d’api associée à l’opération, si operationName a été effectuée à l’aide d’une API (par exemple `http://myservice.windowsazure.net/object?api-version=2016-06-01`). S’il n’existe aucune API qui corresponde à cette opération, la version représente la version de cette opération si les propriétés associées à l’opération viennent à changer. |
-| catégorie | Obligatoire | Catégorie de journal de l’événement. La catégorie est la granularité selon laquelle vous pouvez activer ou désactiver des journaux d’activité sur une ressource particulière. Les propriétés qui apparaissent dans l’objet blob de propriétés d’un événement sont les mêmes au sein d’un type de ressource et d’une catégorie de journal spécifique. Ls catégories de journaux classiques sont « Audit », « Opérationnel », « Exécution » et « Demande ». |
-| resultType | Facultatif | État de l’événement. Les valeurs courantes sont : Started, In Progress, Succeeded, Failed, Active et Resolved. |
-| resultSignature | Facultatif | Sous-état de l’événement. Si cette opération correspond à un appel d’API REST, ce champ est le code d’état HTTP de l’appel REST correspondant. |
-| resultDescription | Facultatif | Description textuelle statique de cette opération, par exemple « Obtenir le fichier de stockage ». |
-| durationMS | Facultatif | Durée de l’opération en millisecondes. |
-| callerIpAddress | Facultatif | Adresse IP de l’appelant, si l’opération correspond à un appel d’API qui provient d’une entité avec une adresse IP disponible publiquement. |
-| correlationId | Facultatif | GUID utilisé pour regrouper un ensemble d’événements associés. En règle générale, si deux événements ont le même operationName, mais deux états différents (par exemple « Started » et « Succeeded »), ils partagent le même ID de corrélation. Cela peut également représenter d’autres relations entre les événements. |
-| identité | Facultatif | Objet blob JSON qui décrit l’identité de l’utilisateur ou d’une application qui a effectué l’opération. En général, ce champ inclut l’autorisation et les revendications/Jeton JWT issus d’active directory. |
-| Level | Facultatif | Niveau de gravité de l’événement. Doit être Information, Avertissement, Erreur, ou Critique. |
-| location | Facultatif | Région de la ressource émettant l’événement, par exemple « USA Est » ou « France Sud » |
-| properties | Facultatif | Toutes les propriétés étendues associées à cette catégorie particulière d’événements spécifiques. Toutes les propriétés personnalisées/uniques doivent être placées à l’intérieur de cette « Partie B » du schéma. |
+| `time` | Obligatoire | Horodatage (heure UTC) de l’événement. |
+| `resourceId` | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme */tenants/tenant-id/providers/provider-name*. |
+| `tenantId` | Obligatoire pour les journaux d’activité de l’abonné | ID d’abonné de l’abonné Active Directory auquel cet événement est lié. Cette propriété est utilisée uniquement pour les journaux au niveau du locataire. Elle n’apparaît pas dans les journaux au niveau de la ressource. |
+| `operationName` | Obligatoire | Nom de l’opération représentée par cet événement. Si l’événement représente une opération de contrôle d’accès en fonction du rôle (RBAC) Azure, il s’agit du nom de l’opération Azure RBAC (par exemple, `Microsoft.Storage/storageAccounts/blobServices/blobs/Read`). Ce nom est généralement modélisé sous la forme d’une opération d’Azure Resource Manager, même s’il ne s’agit pas d’une opération réelle documentée de Resource Manager : (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
+| `operationVersion` | Facultatif | Version d’API associée à l’opération, si `operationName` a été effectué à l’aide d’une API (par exemple `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Si aucune API ne correspond à cette opération, la version représente la version de cette opération si les propriétés associées à l’opération viennent à changer. |
+| `category` | Obligatoire | Catégorie de journal de l’événement. La catégorie est la granularité selon laquelle vous pouvez activer ou désactiver des journaux d’activité sur une ressource particulière. Les propriétés qui apparaissent dans l’objet blob de propriétés d’un événement sont les mêmes au sein d’un type de ressource et d’une catégorie de journal spécifique. Les catégories de journal standard sont `Audit`, `Operational`, `Execution` et `Request`. |
+| `resultType` | Facultatif | État de l’événement. Les valeurs standard sont `Started`, `In Progress`, `Succeeded`, `Failed`, `Active` et `Resolved`. |
+| `resultSignature` | Facultatif | Sous-état de l’événement. Si cette opération correspond à un appel d’API REST, ce champ est le code d’état HTTP de l’appel REST correspondant. |
+| `resultDescription `| Facultatif | Description textuelle statique de cette opération, par ex. `Get storage file`. |
+| `durationMs` | Facultatif | Durée de l’opération en millisecondes. |
+| `callerIpAddress` | Facultatif | Adresse IP de l’appelant, si l’opération correspond à un appel d’API qui provient d’une entité avec une adresse IP disponible publiquement. |
+| `correlationId` | Facultatif | GUID utilisé pour regrouper un ensemble d’événements associés. En règle générale, si deux événements ont le même `operationName`, mais deux états différents (par exemple `Started` et `Succeeded`), ils partagent la même valeur `correlationID`. Cela peut également représenter d’autres relations entre les événements. |
+| `identity` | Facultatif | Objet blob JSON qui décrit l’identité de l’utilisateur ou d’une application qui a effectué l’opération. En général, ce champ inclut l’autorisation et les revendications ou Jeton JWT issus d’Active Directory. |
+| `Level` | Facultatif | Niveau de gravité de l’événement. Doit être `Informational`, `Warning`, `Error` ou `Critical`. |
+| `location` | Facultatif | Région de la ressource générant l’événement, par ex. `East US` ou `France South`. |
+| `properties` | Facultatif | Toutes les propriétés étendues associées à cette catégorie d’événements. Toutes les propriétés personnalisées ou uniques doivent être placées à l’intérieur de cette « Partie B » du schéma. |
 
 ## <a name="service-specific-schemas"></a>Schémas par service
 
-Le schéma des journaux des ressources varie en fonction de la ressource et de la catégorie de journal d’activité. Cette liste répertorie les services qui mettent des journaux de ressource et des liens à disposition du service et un schéma spécifique de la catégorie lorsqu’il est disponible. Cette liste change en permanence à mesure que de nouveaux services sont ajoutés. Par conséquent, si vous ne voyez pas ce dont vous avez besoin ci-dessous, utilisez un moteur de recherche pour découvrir plus de documentation. N’hésitez pas à ouvrir un problème GitHub à propos de cet article afin que nous le mettions à jour.
+Le schéma des journaux des ressources varie en fonction de la ressource et de la catégorie de journal d’activité. La liste suivante répertorie les services Azure qui mettent des journaux de ressources et des liens à disposition du service et des schémas spécifiques à la catégorie (lorsqu’ils sont disponibles). La liste change au fur et à mesure de l’ajout de services. Si vous ne voyez pas ce dont vous avez besoin, n’hésitez pas à ouvrir un problème GitHub dans cet article afin de pouvoir le mettre à jour.
 
-| Service | Schéma et documentation |
+| Service ou fonctionnalité | Schéma et documentation |
 | --- | --- |
-| Azure Active Directory | [Vue d’ensemble](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Schéma des journaux d’audit](../../active-directory/reports-monitoring/overview-reports.md) et [Schéma des connexions](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | [Azure Analysis Services - Configurer la journalisation des diagnostics](../../analysis-services/analysis-services-logging.md) |
-| Gestion des API | [Journaux de ressource de Gestion des API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
-| App Service | [Journaux App Service](../../app-service/troubleshoot-diagnostic-logs.md)
-| Passerelles d’application |[Journalisation pour Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
+| Azure Active Directory | [Vue d’ensemble](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Schéma des journaux d’audit](../../active-directory/reports-monitoring/overview-reports.md), [Schéma des connexions](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Analysis Services | [Azure Analysis Services : Configurer la journalisation des diagnostics](../../analysis-services/analysis-services-logging.md) |
+| Gestion des API Azure | [Journaux de ressources de Gestion des API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
+| Azure App Service | [Journaux App Service](../../app-service/troubleshoot-diagnostic-logs.md)
+| Azure Application Gateway |[Journalisation pour Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics pour Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Journalisation d’Azure Batch](../../batch/batch-diagnostics.md) |
-| Cognitive Services | [Journalisation pour Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
-| Container Instances | [Journalisation pour Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
-| Container Registry | [Journalisation pour Azure Container Registry](../../container-registry/monitor-service.md) |
-| Réseau de distribution de contenu | [Journaux Azure pour CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
-| CosmosDB | [Journalisation Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |
-| Data Factory | [Surveiller les fabriques de données à l’aide d’Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
-| Data Lake Analytics |[Accès aux journaux d’Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Data Lake Store |[Accès aux journaux d’Azure Data Lake Storage](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Azure Cognitive Services | [Journalisation pour Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
+| Azure Container Instances | [Journalisation pour Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
+| Azure Container Registry | [Journalisation pour Azure Container Registry](../../container-registry/monitor-service.md) |
+| Azure Content Delivery Network | [Journaux de diagnostic pour Azure Content Delivery Network](../../cdn/cdn-azure-diagnostic-logs.md) |
+| Azure Cosmos DB | [Journalisation Azure Cosmos DB](../../cosmos-db/monitor-cosmos-db.md) |
 | Explorateur de données Azure | [Journaux d’Azure Data Explorer](/azure/data-explorer/using-diagnostic-logs) |
+| Azure Data Factory | [Surveiller Data Factory à l’aide d’Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
+| Service Analytique Azure Data Lake |[Accès aux journaux d’Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Azure Data Lake Storage |[Accès aux journaux d’Azure Data Lake Storage](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Azure Database pour MySQL | [Journaux de diagnostic Azure Database pour MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database pour PostgreSQL | [Journaux d’Azure Database pour PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Journalisation des diagnostics dans Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
-| Azure Machine Learning | [Journalisation de diagnostic dans Azure Machine Learning](../../machine-learning/monitor-resource-reference.md) |
-| Protection DDOS | [Journalisation pour Azure DDoS Protection Standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
+| Protection DDoS dans Azure | [Journalisation pour Azure DDoS Protection Standard](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Azure Digital Twins | [Configurer les diagnostics Azure Digital Twins](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
-| Event Hubs |[Journaux d’Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
-| ExpressRoute | Schéma non disponible. |
+| Hubs d'événements Azure |[Journaux d’Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
+| Azure ExpressRoute | Schéma non disponible |
 | Pare-feu Azure | [Journalisation pour le Pare-feu Azure](../../firewall/logs-and-metrics.md#diagnostic-logs) |
-| Front Door | [Journalisation pour Front Door](../../frontdoor/front-door-diagnostics.md) |
-| IoT Hub | [Opérations IoT Hub](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
-| Key Vault |[Journalisation d’Azure Key Vault](../../key-vault/general/logging.md) |
-| Kubernetes Service |[Journalisation d’Azure Kubernetes](../../aks/monitor-aks-reference.md#resource-logs) |
-| Load Balancer |[Analyse des journaux de l'équilibreur de charge Azure](../../load-balancer/monitor-load-balancer.md) |
-| Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
-| Media Services | [Schémas de surveillance Media Services](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
-| Network Security Group |[Analytique des journaux pour les groupes de sécurité réseau (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| Power BI dédiées | [Journalisation pour Power BI Embedded dans Azure](/power-bi/developer/azure-pbie-diag-logs) |
-| Recovery Services | [Modèle de données pour la sauvegarde Azure](../../backup/backup-azure-reports-data-model.md)|
-| Recherche |[Activation et utilisation de la fonctionnalité Rechercher l’analyse du trafic](../../search/search-traffic-analytics.md) |
-| Service Bus |[Journaux d’Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Journalisation d’Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
-| Stream Analytics |[Journaux de tâches](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Stockage | [Objets Blob](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Fichiers](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Files d’attente](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview), [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
-| Traffic Manager | [Schéma des journaux de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
-| Virtual Network | Schéma non disponible. |
-| Passerelles de réseau virtuel | Schéma non disponible. |
+| Azure Front Door | [Journalisation pour Azure Front Door](../../frontdoor/front-door-diagnostics.md) |
+| Azure IoT Hub | [Opérations IoT Hub](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
+| Azure Key Vault |[Journalisation d’Azure Key Vault](../../key-vault/general/logging.md) |
+| Azure Kubernetes Service |[Journalisation Azure Kubernetes Service](../../aks/monitor-aks-reference.md#resource-logs) |
+| Azure Load Balancer |[Analytique des journaux d'activité pour Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
+| Azure Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Azure Machine Learning | [Journalisation de diagnostic dans Azure Machine Learning](../../machine-learning/monitor-resource-reference.md) |
+| Azure Media Services | [Schémas de surveillance Media Services](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
+| Groupes de sécurité réseau |[Analytique des journaux d'activité pour les groupes de sécurité réseau (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
+| Azure Power BI Embedded | [Journalisation pour Power BI Embedded dans Azure](/power-bi/developer/azure-pbie-diag-logs) |
+| Recovery Services | [Modèle de données pour Sauvegarde Azure](../../backup/backup-azure-reports-data-model.md)|
+| Rechercher l’analyse du trafic |[Activation et utilisation de la recherche d’analyse du trafic](../../search/search-traffic-analytics.md) |
+| Azure Service Bus |[Journaux d’Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
+| Azure SQL Database | [Journalisation d’Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
+| Stockage Azure | [Objets Blob](../../storage/blobs/monitor-blob-storage-reference.md#resource-logs-preview), [Fichiers](../../storage/files/storage-files-monitoring-reference.md#resource-logs-preview), [Files d’attente](../../storage/queues/monitor-queue-storage-reference.md#resource-logs-preview), [Tables](../../storage/tables/monitor-table-storage-reference.md#resource-logs-preview) |
+| Azure Stream Analytics |[Journaux de tâches](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Azure Traffic Manager | [Schéma des journaux de Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
+| Réseau virtuel Azure | Schéma non disponible |
+| Passerelles de réseau virtuel | Schéma non disponible |
 
 
 
@@ -97,6 +99,6 @@ Le schéma des journaux des ressources varie en fonction de la ressource et de l
 
 * [Voir les catégories de journaux de ressources que vous pouvez collecter](resource-logs-categories.md)
 * [En savoir plus sur les journaux de ressources](../essentials/platform-logs-overview.md)
-* [Diffuser en continu les journaux de ressource vers **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
-* [Modifier les paramètres de diagnostic de journal de ressource à l’aide de l’API REST Azure Monitor](/rest/api/monitor/diagnosticsettings)
-* [Analyser les journaux d’activité du stockage Azure avec Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+* [Diffuser en continu les journaux de ressource vers Event Hubs](./resource-logs.md#send-to-azure-event-hubs)
+* [Modifier les paramètres de diagnostic de journal de ressources à l’aide de l’API REST Azure Monitor](/rest/api/monitor/diagnosticsettings)
+* [Analyser les journaux d’activité de Stockage Azure avec Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)

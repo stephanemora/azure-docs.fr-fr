@@ -4,12 +4,12 @@ description: Comment authentifier des demandes et utiliser l’API REST d’Azur
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref, devx-track-azurepowershell
-ms.openlocfilehash: 2b7033c86c412e2bebb320952bb8ac94d33cfb69
-ms.sourcegitcommit: 7b6ceae1f3eab4cf5429e5d32df597640c55ba13
+ms.openlocfilehash: c15e985cd46c283856fd0ac2f9a374e31753c5fc
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123272166"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129234107"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Procédure pas à pas d’utilisation de l’API REST d’Azure Monitor
 
@@ -17,7 +17,7 @@ ms.locfileid: "123272166"
 
 Cet article vous montre comment effectuer l’authentification afin que votre code puisse utiliser la [Référence de l’API REST Microsoft Azure Monitor](/rest/api/monitor/).
 
-L’API Azure Monitor permet de retrouver par programme les définitions des métriques, la granularité et les valeurs des métriques par défaut disponibles. Les données peuvent être enregistrées dans un magasin de données distinct comme Azure SQL Database, Azure Cosmos DB ou Azure Data Lake. De là, une analyse supplémentaire peut être effectuée en fonction des besoins.
+L’API Azure Monitor permet de retrouver par programme les définitions des métriques, les valeurs de dimension et les valeurs des métriques par défaut disponibles. Les données peuvent être enregistrées dans un magasin de données distinct comme Azure SQL Database, Azure Cosmos DB ou Azure Data Lake. De là, une analyse supplémentaire peut être effectuée en fonction des besoins.
 
 En plus de fonctionner avec divers points de données de métriques, l’API Monitor permet également de répertorier les règles d’alerte, d’afficher les journaux d’activité et plus encore. Pour obtenir la liste complète des opérations disponibles, consultez la [Référence de l’API REST Microsoft Azure Monitor](/rest/api/monitor/).
 
@@ -88,7 +88,7 @@ Après l’authentification, les demandes peuvent ensuite être exécutées sur 
 >
 >
 
-## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Récupérer les définitions des métriques (API multidimensionnelle)
+## <a name="retrieve-metric-definitions"></a>Récupérer les définitions des mesures
 
 Utilisez [l’API REST de définitions de mesures Azure Monitor](/rest/api/monitor/metricdefinitions) pour accéder à la liste des mesures disponibles pour un service.
 
@@ -110,7 +110,7 @@ Invoke-RestMethod -Uri $request `
 ```
 
 > [!NOTE]
-> Pour récupérer les définitions des métriques à l’aide de l’API REST des métriques Azure Monitor multidimensionnelles, utilisez « 2018-01-01 » en tant que version de l’API.
+> Les versions antérieures de l’API de définitionss de métrique ne prenaient pas en charge les dimensions. Nous vous recommandons d’utiliser la version d’API « 2018-01-01 » ou une version ultérieure.
 >
 >
 
@@ -225,14 +225,14 @@ Le corps de réponse JSON résultant doit ressembler à l’exemple suivant : (
 }
 ```
 
-## <a name="retrieve-dimension-values-multi-dimensional-api"></a>Récupérer les valeurs de dimension (API multidimensionnelle)
+## <a name="retrieve-dimension-values"></a>Récupérer des valeurs de dimension
 
-Une fois que les définitions des métriques disponibles sont connues, certaines métriques peuvent contenir des dimensions. Avant d’interroger la métrique, vous souhaiterez peut-être découvrir la plage de valeurs d’une dimension. En fonction de ces valeurs de dimension, vous pouvez ensuite choisir de filtrer ou de segmenter les métriques en fonction des valeurs de dimension lors de l’interrogation des métriques.  Utilisez [l’API REST des métriques Azure Monitor](/rest/api/monitor/metrics) pour y parvenir.
+Une fois que les définitions des métriques disponibles sont connues, certaines métriques peuvent contenir des dimensions. Avant d’interroger la métrique, vous souhaiterez peut-être découvrir la plage de valeurs d’une dimension. En fonction de ces valeurs de dimension, vous pouvez ensuite choisir de filtrer ou de segmenter les métriques en fonction des valeurs de dimension lors de l’interrogation des métriques.  L'[API REST de métriques Azure Monitor](/rest/api/monitor/metrics) permet de rechercher toutes les valeurs possibles pour une dimension de métrique donnée.
 
-Utilisez le nom « valeur » de la métrique (et non « localizedValue ») pour toutes les requêtes de filtrage. Si aucun filtre n’est spécifié, la mesure par défaut est renvoyée. L’utilisation de cette API permet à une seule dimension d’avoir un filtre de caractère générique.
+Utilisez la valeur « value » du nom de la métrique (et non « localizedValue ») pour toutes les demandes de filtrage. Si aucun filtre n’est spécifié, la mesure par défaut est renvoyée. L’utilisation de cette API permet à une seule dimension d’avoir un filtre de caractère générique. La principale différence entre une demande de valeurs de dimension et une demande de données de métrique est la spécification du paramètre de requête « resultType=metadata ».
 
 > [!NOTE]
-> Pour récupérer les valeurs de dimension à l’aide de l’API REST d’Azure Monitor, utilisez « 2018-01-01 » en tant que version de l’API.
+> Pour récupérer les valeurs de dimension à l’aide de l’API REST Azure Monitor, utilisez la version d’API « 2019-07-01 » ou une version ultérieure.
 >
 >
 
@@ -240,11 +240,11 @@ Utilisez le nom « valeur » de la métrique (et non « localizedValue ») pour 
 
 **URI de demande** : https\://management.azure.com/subscriptions/ *{subscription-id}* /resourceGroups/ *{resource-group-name}* /providers/ *{resource-provider-namespace}* / *{resource-type}* / *{resource-name}* /providers/microsoft.insights/metrics?metricnames= *{metric}* &timespan= *{starttime/endtime}* &$filter= *{filter}* &resultType=metadata&api-version= *{apiVersion}*
 
-Par exemple, pour récupérer la liste des valeurs de dimension qui ont été émises pour la « dimension du nom de l’API » pour la métrique « Transactions », où la dimension GeoType = « Primary » pendant l’intervalle de temps spécifié, la requête se présente comme suit :
+Par exemple, pour récupérer la liste des valeurs de dimension qui ont été émises pour la dimension « Nom de l’API » pour la métrique « Transactions », où la dimension GeoType = « Primary » pendant l’intervalle de temps spécifié, la requête se présente comme suit :
 
 ```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&`$filter=${filter}&api-version=2018-01-01"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T00:00:00Z/2018-03-02T00:00:00Z&resultType=metadata&`$filter=GeoType eq 'Primary' and ApiName eq '*'&api-version=2019-07-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -298,14 +298,14 @@ Le corps de réponse JSON résultant doit ressembler à l’exemple suivant :
 }
 ```
 
-## <a name="retrieve-metric-values-multi-dimensional-api"></a>Récupérer les valeurs des métriques (API multidimensionnelle)
+## <a name="retrieve-metric-values"></a>Récupérer des valeurs de mesure
 
 Une fois les définitions des métriques disponibles et les valeurs de dimension possibles connues, il est possible de récupérer les valeurs des métriques liées.  Utilisez [l’API REST des métriques Azure Monitor](/rest/api/monitor/metrics) pour y parvenir.
 
-Utilisez la valeur « value » du nom de la métrique (et non « localizedValue ») pour toutes les demandes de filtrage. Si aucun filtre de dimension n’est spécifié, la métrique agrégée regroupée est retournée. Si une requête métrique retourne plusieurs timeseries, vous pouvez utiliser les paramètres de requête « Top » et « OrderBy » pour renvoyer une liste ordonnée limitée de timeseries.
+Utilisez la valeur « value » du nom de la métrique (et non « localizedValue ») pour toutes les demandes de filtrage. Si aucun filtre de dimension n’est spécifié, la métrique agrégée regroupée est retournée. Pour extraire plusieurs séries chronologiques avec des valeurs de dimension spécifiques, spécifiez un paramètre de requête de filtre qui spécifie les valeurs de dimension, telles que « &$filter=ApiName eq 'ListContainers » ou ApiName EQ « GetBlobServiceProperties ». Pour retourner une série chronologique pour chaque valeur d’une dimension donnée, utilisez un filtre «   *» comme « &$filter=ApiName eq '* ’ ». Les paramètres de requête « Top » et « OrderBy » peuvent être utilisés pour limiter et commander le nombre de séries chronologiques retournées.
 
 > [!NOTE]
-> Pour récupérer les valeurs métriques multidimensionnelles à l’aide de l’API REST d’Azure Monitor, utilisez « 2018-01-01 » en tant que version de l’API.
+> Pour récupérer les valeurs métriques multidimensionnelles à l’aide de l’API REST Azure Monitor, utilisez l’API version « 2019-07-01 » ou une version ultérieure.
 >
 >
 
@@ -317,7 +317,7 @@ Par exemple, pour récupérer les 3 premières API, dans l’ordre décroissant 
 
 ```powershell
 $filter = "APIName eq '*' and GeoType eq 'Primary'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&`$filter=${filter}&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2018-01-01"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metrics?metricnames=Transactions&timespan=2018-03-01T02:00:00Z/2018-03-01T02:05:00Z&`$filter=apiname eq 'GetBlobProperties'&interval=PT1M&aggregation=Total&top=3&orderby=Total desc&api-version=2019-07-01"
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
@@ -381,198 +381,6 @@ Le corps de réponse JSON résultant doit ressembler à l’exemple suivant :
   ],
   "namespace": "Microsoft.Storage/storageAccounts",
   "resourceregion": "eastus"
-}
-```
-
-## <a name="retrieve-metric-definitions"></a>Récupérer les définitions des métriques
-
-Utilisez [l’API REST de définitions de mesures Azure Monitor](/rest/api/monitor/metricdefinitions) pour accéder à la liste des mesures disponibles pour un service.
-
-**Méthode** : GET
-
-**URI de demande** : https:\/\/management.azure.com/subscriptions/ *{subscriptionId}* /resourceGroups/ *{resourceGroupName}* /providers/ *{resourceProviderNamespace}* / *{resourceType}* / *{resourceName}* /providers/microsoft.insights/metricDefinitions?api-version= *{apiVersion}*
-
-Par exemple, pour récupérer les définitions des métriques pour une application logique Azure, la demande ressemble à ce qui suit :
-
-```powershell
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01"
-
-Invoke-RestMethod -Uri $request `
-                  -Headers $authHeader `
-                  -Method Get `
-                  -OutFile ".\contosotweets-metricdef-results.json" `
-                  -Verbose
-```
-
-> [!NOTE]
-> Pour récupérer les définitions des mesures à l’aide de l’API REST d’Azure Monitor, utilisez « 2016-03-01 » en tant que la version de l’API.
->
->
-
-Le corps de réponse JSON résultant doit ressembler à l’exemple suivant :
-
-```json
-{
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
-  "value": [
-    {
-      "name": {
-        "value": "RunsStarted",
-        "localizedValue": "Runs Started"
-      },
-      "category": "AllMetrics",
-      "startTime": "0001-01-01T00:00:00Z",
-      "endTime": "0001-01-01T00:00:00Z",
-      "unit": "Count",
-      "primaryAggregationType": "Total",
-      "resourceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets",
-      "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets",
-      "metricAvailabilities": [
-        {
-          "timeGrain": "PT1M",
-          "retention": "P30D",
-          "location": null,
-          "blobLocation": null
-        },
-        {
-          "timeGrain": "PT1H",
-          "retention": "P30D",
-          "location": null,
-          "blobLocation": null
-        }
-      ],
-      "properties": null,
-      "dimensions": null,
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions/RunsStarted",
-      "supportedAggregationTypes": [ "None", "Average", "Minimum", "Maximum", "Total", "Count" ]
-    }
-  ]
-}
-```
-
-Pour plus d’informations, consultez la documentation [Liste de définitions de mesure pour une ressource dans l’API REST d’Azure Monitor](/rest/api/monitor/metricdefinitions) .
-
-## <a name="retrieve-metric-values"></a>Récupération des valeurs des métriques
-
-Une fois les définitions de mesures disponibles connues, il est possible de récupérer les valeurs de mesure liées. Utilisez le nom 'value' (et non ' localizedValue') de la mesure pour toutes les demandes de filtrages (par exemple, pour récupérer les points de données de mesure « CpuTime » et « Requests »). Si aucun filtre n’est spécifié, la mesure par défaut est renvoyée.
-
-> [!NOTE]
-> Pour récupérer les valeurs des métriques à l’aide de l’API REST d’Azure Monitor, utilisez « 2016-09-01 » en tant que version de l’API.
->
->
-
-**Méthode** : `GET`
-
-**URI de demande** : `https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?$filter={filter}&api-version={apiVersion}`
-
-Par exemple, pour retrouver les points de données de mesure RunsSucceeded pour la plage de temps spécifiée et avec un fragment de temps de 1 heure, la requête est la suivante :
-
-```powershell
-$filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2017-08-18T19:00:00 and endTime eq 2017-08-18T23:00:00 and timeGrain eq duration'PT1H'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=2016-09-01"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -OutFile ".\contosotweets-metrics-results.json" `
-    -Verbose
-```
-
-Le corps de réponse JSON résultant doit ressembler à l’exemple suivant :
-
-```json
-{
-  "value": [
-    {
-      "data": [
-        {
-          "timeStamp": "2017-08-18T19:00:00Z",
-          "total": 0.0
-        },
-        {
-          "timeStamp": "2017-08-18T20:00:00Z",
-          "total": 159.0
-        },
-        {
-          "timeStamp": "2017-08-18T21:00:00Z",
-          "total": 174.0
-        },
-        {
-          "timeStamp": "2017-08-18T22:00:00Z",
-          "total": 97.0
-        }
-      ],
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/Microsoft.Insights/metrics/RunsSucceeded",
-      "name": {
-        "value": "RunsSucceeded",
-        "localizedValue": "Runs Succeeded"
-      },
-      "type": "Microsoft.Insights/metrics",
-      "unit": "Count"
-    }
-  ]
-}
-```
-
-Pour récupérer plusieurs points de données ou d’agrégation, ajoutez les noms de définition de mesure et les types d’agrégation au filtre, comme illustré dans l’exemple suivant :
-
-```powershell
-$filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2017-08-18T21:00:00 and endTime eq 2017-08-18T21:30:00 and timeGrain eq duration'PT1M'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=2016-09-01"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -OutFile ".\contosotweets-metrics-multiple-results.json" `
-    -Verbose
-```
-
-Le corps de réponse JSON résultant doit ressembler à l’exemple suivant :
-
-```json
-{
-  "value": [
-    {
-      "data": [
-        {
-          "timeStamp": "2017-08-18T21:03:00Z",
-          "total": 5.0,
-          "average": 1.0
-        },
-        {
-          "timeStamp": "2017-08-18T21:04:00Z",
-          "total": 7.0,
-          "average": 1.0
-        }
-      ],
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/Microsoft.Insights/metrics/ActionsCompleted",
-      "name": {
-        "value": "ActionsCompleted",
-        "localizedValue": "Actions Completed "
-      },
-      "type": "Microsoft.Insights/metrics",
-      "unit": "Count"
-    },
-    {
-      "data": [
-        {
-          "timeStamp": "2017-08-18T21:03:00Z",
-          "total": 5.0,
-          "average": 1.0
-        },
-        {
-          "timeStamp": "2017-08-18T21:04:00Z",
-          "total": 7.0,
-          "average": 1.0
-        }
-      ],
-      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/Microsoft.Insights/metrics/RunsSucceeded",
-      "name": {
-        "value": "RunsSucceeded",
-        "localizedValue": "Runs Succeeded"
-      },
-      "type": "Microsoft.Insights/metrics",
-      "unit": "Count"
-    }
-  ]
 }
 ```
 
@@ -704,7 +512,7 @@ Le résultat doit être similaire à l’exemple suivant :
 
 ## <a name="retrieve-activity-log-data"></a>Récupérer les données du journal d’activité
 
-Outre les définitions des métriques et les valeurs associées, il est également possible d’utiliser l’API REST d’Azure Monitor pour récupérer des insights supplémentaires intéressants relatifs aux ressources Azure. Par exemple, il est possible d’obtenir les données du [journal d’activité](/rest/api/monitor/activitylogs) par requête. Les exemples de demandes suivants utilisent l’API REST Azure Monitor pour interroger le journal d’activité.
+Outre les définitions des métriques et les valeurs associées, il est également possible d’utiliser l’API REST Azure Monitor pour récupérer d’autres insights intéressants relatifs aux ressources Azure. Par exemple, il est possible d’obtenir les données du [journal d’activité](/rest/api/monitor/activitylogs) par requête. Les exemples de demandes suivants utilisent l’API REST Azure Monitor pour interroger le journal d’activité.
 
 Obtenir les journaux d’activité avec filter :
 

@@ -4,16 +4,20 @@ description: Cet article explique comment publier un événement dans une rubriq
 ms.topic: conceptual
 ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3c3be5c11341ddd7bb381134a0d0b50ba8745709
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 489ad5ab07a411612bdbce1a2dc71dc1a3441f3c
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122528034"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129361512"
 ---
-# <a name="post-to-azure-event-grid-custom-topics-using-access-keys"></a>Publier des rubriques personnalisées dans Azure Event Grid à l’aide des clés d’accès
+# <a name="publish-events-to-azure-event-grid-custom-topics-using-access-keys"></a>Publier des événements dans des rubriques personnalisées Azure Event Grid à l’aide de clés d’accès
 
 Cet article explique comment publier un événement dans une rubrique personnalisée à l’aide d’une clé d’accès. Il montre le format des données de publication et d’événement. Le [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) s’applique uniquement aux publications qui correspondent au format attendu.
+
+
+> [!NOTE]
+> L’authentification Azure AD fournit une prise en charge d’authentification supérieure à celle proposée par l’authentification par jeton de signature d’accès partagé ou par clé d’accès. Avec l’authentification Azure AD, l’identité est validée par rapport au fournisseur d’identité Azure AD. En tant que développeur, vous n’aurez pas à gérer les clés dans votre code si vous utilisez l’authentification Azure AD. Vous bénéficierez également de toutes les fonctionnalités de sécurité intégrées à la plateforme Microsoft Identity, telles que l’accès conditionnel, qui peuvent vous aider à renforcer la posture de sécurité de votre application. Pour plus d’informations, consultez [Authentifier les clients de publication avec Azure Active Directory](authenticate-with-active-directory.md).
 
 ## <a name="endpoint"></a>Point de terminaison
 

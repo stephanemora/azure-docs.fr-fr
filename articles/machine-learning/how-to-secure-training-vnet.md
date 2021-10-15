@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Utilisez un réseau virtuel Azure isolé pour sécuriser votre environnement d’entraînement Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 1bb8066af887005848f711437d33257ae2118e46
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 4fe1a4f9966e5342ee4f8a12d2b24b3a449efbae
+ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129093475"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129424328"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -231,7 +231,7 @@ Lorsque vous **n’activez aucune adresse IP publique**, votre instance de calcu
 
 Pour que les **connexions sortantes** fonctionnent, vous devez configurer un pare-feu de sortie tel que le pare-feu Azure avec des itinéraires définis par l’utilisateur. Par exemple, vous pouvez utiliser un pare-feu configuré avec la [configuration entrante/sortante](how-to-access-azureml-behind-firewall.md) et acheminer le trafic ici en définissant une table de routage sur le sous-réseau dans lequel l’instance de calcul est déployée. L’entrée de table de routage peut définir le tronçon suivant de l’adresse IP privée du pare-feu avec le préfixe d’adresse 0.0.0.0/0.
 
-Une instance de calcul pour laquelle **aucune adresse IP publique** n’est activée n’a **aucune exigence de communication entrante** provenant d’Internet public par rapport à celles de l’instance de calcul IP publique. Plus précisément, aucune règle de groupe de sécurité réseau entrante (`BatchNodeManagement`, `AzureMachineLearning`) n’est requise.
+Une instance de calcul pour laquelle **aucune adresse IP publique** n’est activée n’a **aucune exigence de communication entrante** provenant d’Internet public par rapport à celles de l’instance de calcul IP publique. Plus précisément, aucune règle de groupe de sécurité réseau entrante (`BatchNodeManagement`, `AzureMachineLearning`) n’est requise. Vous devez toujours autoriser le trafic provenant de **VirtualNetwork** et de tout port source ainsi que le trafic à destination de **VirtualNetwork** et des ports de destination **29876, 29877, 44224**.
 
 Une instance de calcul sans **adresse IP publique** vous oblige également à désactiver les stratégies réseau de point de terminaison privé et les stratégies réseau de service de liaison privée. Ces exigences proviennent du service Azure Private Link et des points de terminaison privés et ne sont pas spécifiques à Azure Machine Learning. Suivez les instructions de la [désactivation des stratégies réseau pour l’adresse IP source du service Private Link](../private-link/disable-private-link-service-network-policy.md) pour définir les paramètres `disable-private-endpoint-network-policies` et `disable-private-link-service-network-policies` sur le sous-réseau du réseau virtuel.
 

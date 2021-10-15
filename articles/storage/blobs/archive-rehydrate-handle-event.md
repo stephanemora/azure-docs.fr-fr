@@ -10,12 +10,12 @@ ms.date: 08/11/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3ce2f92f88e24eb634222db5ffab45acaf1a5820
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 06239708293be94f13c62cab7004c7a57d00eea1
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128577989"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275503"
 ---
 # <a name="run-an-azure-function-in-response-to-a-blob-rehydration-event"></a>Exécuter une fonction Azure en réponse à un événement de réactivation d’objet blob
 
@@ -303,7 +303,7 @@ Pour plus d’informations sur le filtrage des événements dans Event Grid, con
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](storage-blob-storage-tiers.md)
+- [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](access-tiers-overview.md)
 - [Vue d’ensemble de la réactivation des objets blob à partir du niveau Archive](archive-rehydrate-overview.md)
 - [Réalimenter un objet blob archivé dans un niveau en ligne](archive-rehydrate-to-online-tier.md)
 - [Réaction aux événements de stockage Blob](storage-blob-event-overview.md)

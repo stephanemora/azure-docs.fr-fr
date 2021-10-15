@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 09/28/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05ea462d08c50e6483aeb0968b00b6b18d0e7397
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: b3285c18394c8c59d17e41b3a3eb3fd43428cd61
+ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092673"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129229579"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Attribuer des étiquettes de sensibilité aux groupes Microsoft 365 dans Azure Active Directory
 
@@ -117,7 +117,7 @@ L’option Étiquette de sensibilité s’affiche uniquement pour les groupes lo
 
 1. Les étiquettes sont publiées dans le centre de conformité Microsoft 365 pour cette organisation Azure AD.
 1. La fonctionnalité est activée, EnableMIPLabels est défini sur True dans le module PowerShell Azure AD.
-1. Les étiquettes sont synchronisées avec Azure AD avec l’applet de commande Execute-AzureAdLabelSync dans le module PowerShell Security & Compliance.
+1. Les étiquettes sont synchronisées avec Azure AD avec la cmdlet Execute-AzureAdLabelSync dans le module PowerShell Security & Compliance.
 1. Le groupe est un groupe Microsoft 365.
 1. L’organisation dispose d’une licence active Azure Active Directory Premium P1.
 1. L’utilisateur actuellement connecté dispose de privilèges suffisants pour attribuer des étiquettes. L’utilisateur doit être un administrateur général, un administrateur de groupe ou le propriétaire du groupe.

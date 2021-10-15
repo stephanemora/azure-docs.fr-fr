@@ -7,16 +7,16 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0b88923ff6447785a4ef5a7c80e1ff44d1a2b9cb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: e1c8734b6adcf478216aa8d5d123e95e369d5b58
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777319"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274720"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Comment provisionner des appareils multilocataires 
 
-Cet article explique comment approvisionner de façon sécurisée plusieurs appareils avec des clés symétriques sur un groupe de hubs IoT à l’aide d’une [stratégie d’allocation](concepts-service.md#allocation-policy). Les stratégies d’allocation définies par le service Device Provisioning permettent de gérer divers scénarios d’allocation. Voici deux scénarios courants :
+Cet article explique comment approvisionner de façon sécurisée plusieurs appareils simulés dotés de clés symétriques sur un groupe de hubs IoT à l’aide d’une [stratégie d’allocation](concepts-service.md#allocation-policy). Les stratégies d’allocation définies par le service Device Provisioning permettent de gérer divers scénarios d’allocation. Voici deux scénarios courants :
 
 * **Géolocalisation et géolatence** : quand un appareil change souvent d’emplacement, il doit être provisionné dans le hub IoT le plus proche de son emplacement pour améliorer la latence du réseau. Dans ce scénario, un groupe de hubs IoT couvrant plusieurs régions sont sélectionnés pour les inscriptions. La stratégie d’allocation **Latence la plus faible** est sélectionnée pour ces inscriptions. Avec cette stratégie, le service Device Provisioning évalue la latence des appareils et détermine quel hub IoT dans le groupe de hubs IoT est le plus proche. 
 
@@ -298,9 +298,9 @@ Dans cette section, vous allez mettre à jour un exemple de provisionnement du S
 
 L’exemple de code simule une séquence de démarrage d’un appareil qui envoie la demande de provisionnement à votre instance du service Device Provisioning. La séquence de démarrage entraîne la reconnaissance de l’appareil et son assignation au hub IoT le plus proche en fonction de la latence.
 
-1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_**.
+1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez la valeur **_Étendue de l’ID_**.
 
-    ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
 
 1. Ouvrez **~/azure-iot-sdk-c/provisioning\_client/samples/prov\_dev\_client\_sample/prov\_dev\_client\_sample.c** sur les deux machines virtuelles à modifier.
 
@@ -425,4 +425,4 @@ Pour supprimer le groupe de ressources par nom :
 
 * Pour en savoir plus sur la suppression des privilèges d'accès, consultez
 > [!div class="nextstepaction"]
-> [Guide pratique pour déprovisionner des appareils auparavant provisionnés automatiquement](how-to-unprovision-devices.md)
+> [Guide pratique pour déprovisionner des appareils auparavant approvisionnés automatiquement](how-to-unprovision-devices.md)

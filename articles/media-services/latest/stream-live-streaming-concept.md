@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: 08108de86c5c64d50e86e3a83faa58db4fd607e2
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 9f62afe8a8f1c5c9f05a335ae049b3f2a39763d4
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060571"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388619"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -57,7 +57,7 @@ Les [événements en direct](/rest/api/media/liveevents) sont chargés de la ré
 
 ![Diagramme montrant comment les flux vidéo et audio d’un événement en direct Pass-through sont ingérés et traités.](./media/live-streaming/pass-through.svg)
 
-Quand vous utilisez l’**événement en direct** de type pass-through, vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et d’envoyer ce flux comme flux de contribution à l’événement en direct (à l’aide du protocole RTMP ou MP4 fragmenté d’entrée). L’événement en direct envoie ensuite les flux vidéo entrants au packager dynamique (point de terminaison de streaming) sans transcodage supplémentaire. Une transmission LiveEvent est optimisée pour les événements en direct de longue durée ou le streaming en direct linéaire sans interruption (24 heures sur 24, 365 jours par an). 
+Quand vous utilisez l’**événement en direct** Pass-through (de base ou standard), vous chargez l’encodeur live local de générer un flux vidéo à vitesse de transmission multiple et de l’envoyer comme flux de contribution à l’événement en direct (à l’aide du protocole d’entrée RTMP ou MP4 fragmenté). L’événement en direct envoie ensuite les flux vidéo entrants au packager dynamique (point de terminaison de streaming) sans transcodage supplémentaire. Une transmission LiveEvent est optimisée pour les événements en direct de longue durée ou le streaming en direct linéaire sans interruption (24 heures sur 24, 365 jours par an). 
 
 ### <a name="live-encoding"></a>Encodage en direct  
 

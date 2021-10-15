@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/17/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6bb24f33d93e58768af34359f4d803ca68cf4ac4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 14f8cc665ef1d7335116a2e5b68ea3f58424063a
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645775"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274441"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimiser les coûts de stockage d’objets blob avec une capacité réservée
 
@@ -44,7 +44,7 @@ Une réservation de stockage Azure couvre uniquement la quantité de données st
 
 La capacité de réserve Stockage Azure est disponible pour les ressources dans les comptes de stockage standard, notamment les comptes v2 universels (GPv2) et ceux de stockage d’objets blob.
 
-Tous les niveaux d’accès (chaud, froid et archive) sont pris en charge pour les réservations. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md).
+Tous les niveaux d’accès (chaud, froid et archive) sont pris en charge pour les réservations. Pour plus d’informations sur les niveaux d’accès, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](access-tiers-overview.md).
 
 Tous les types de redondance sont pris en charge pour les réservations. Pour plus d’informations sur les options de redondance, consultez [Redondance du stockage Azure](../common/storage-redundancy.md).
 
@@ -84,7 +84,7 @@ Pour acheter une capacité de réserve, procédez comme suit :
    |**Portée**   |  Indique le nombre d’abonnements pouvant bénéficier de l’avantage de facturation associé à la réservation. Elle contrôle également la manière dont la réservation est appliquée à des abonnements spécifiques. <br/><br/> Si vous sélectionnez **Partagé**, la remise de réservation est appliquée à la capacité Stockage Azure dans tous les abonnements de votre contexte de facturation. Le contexte de facturation est basé sur la façon dont vous vous êtes inscrit dans Azure. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients avec paiement à l’utilisation, l’étendue partagée comprend tous les abonnements individuels avec des tarifs de paiement à l’utilisation créés par l’administrateur de compte.  <br/><br/>  Si vous sélectionnez **Abonnement unique**, la remise de réservation est appliquée à la capacité Stockage Azure de l’abonnement sélectionné. <br/><br/> Si vous sélectionnez **Groupe de ressources unique**, la remise de réservation est appliquée à la capacité Stockage Azure de l’abonnement sélectionné et du groupe de ressources sélectionné dans cet abonnement. <br/><br/> Vous pouvez changer l’étendue de la réservation après l’achat de la réservation.  |
    |**Abonnement**  | Abonnement utilisé pour payer la réservation de stockage Azure. Les coûts sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. L’abonnement doit être de l’un des types suivants : <br/><br/>  Contrat Entreprise (références de l’offre : MS-AZR-0017P ou MS-AZR-0148P) : Pour une souscription entreprise, les frais sont déduits du solde de Paiement anticipé Azure (précédemment appelé « engagement financier ») de l’inscription ou facturés comme dépassement. <br/><br/> Abonnement individuel avec tarifs de paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P) : Pour un abonnement individuel avec tarifs de paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.    |
    | **Région** | Région dans laquelle la réservation est en vigueur. |
-   | **Niveau d’accès** | Niveau d’accès pour lequel la réservation est en vigueur. Les options incluent *Chaud*, *Froid* ou *Archive*. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage d’objets blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md). |
+   | **Niveau d’accès** | Niveau d’accès pour lequel la réservation est en vigueur. Les options incluent *Chaud*, *Froid* ou *Archive*. Pour plus d’informations sur les niveaux d’accès, consultez [Niveaux d’accès chaud, froid et archive pour les données blob](access-tiers-overview.md). |
    | **Redondance** | Option de redondance pour la réservation. Les options incluent *LRS*, *ZRS*, *GRS*, *GZRS*, *RA-GRS* et *RA-GZRS*. Pour plus d’informations sur les options de redondance, consultez [Redondance du stockage Azure](../common/storage-redundancy.md). |
    | **Périodicité de facturation** | Indique la fréquence à laquelle le compte est facturé pour la réservation. Les options incluent *Mensuel* ou *Comptant*. |
    | **Taille** | Quantité de capacité à réserver. |

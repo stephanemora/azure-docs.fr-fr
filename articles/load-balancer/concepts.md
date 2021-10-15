@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 3f8c288f950f34e1764c50e8eb74a8a73b39b3d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 946741c8aa70040dd0186deceab0fb090cf38c11
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94698527"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129271742"
 ---
 # <a name="azure-load-balancer-algorithm"></a>Algorithme Azure Load Balancer
 
@@ -24,7 +24,7 @@ L’équilibreur de charge offre plusieurs fonctionnalités pour les application
 
 ## <a name="load-balancing-algorithm"></a>Algorithme d’équilibrage de charge
 
-Vous pouvez créer une règle d’équilibrage de charge pour répartir le trafic entre le front-end et un pool de back-ends. Azure Load Balancer utilise un algorithme de hachage pour la distribution des flux entrants (pas d’octets). L’équilibreur de charge réécrit les en-têtes des flux dans les instances du pool de back-ends. Un serveur est disponible pour recevoir les nouveaux flux quand une sonde d’intégrité indique un point de terminaison de serveur principal sain.
+En créant une règle d’équilibrage de la charge, vous pouvez distribuer des flux de trafic entrant à partir du serveur frontal d’un équilibreur de charge vers ses pools principaux. Azure Load Balancer utilise un algorithme de hachage à cinq tuples pour la distribution des flux entrants (pas d’octets).  L’équilibreur de charge réécrit les en-têtes des flux d’en-têtes TCP/UDP en dirigeant le trafic vers les instances du pool principal (l’équilibreur de charge ne réécrit pas les en-têtes HTTP/HTTPS). Lorsque la sonde d’intégrité de l’équilibreur de charge indique un point de terminaison principal sain, les instances principales sont disponibles pour recevoir de nouveaux flux de trafic.
 
 Par défaut, l’équilibreur de charge utilise un hachage à cinq tuples.
 
@@ -36,10 +36,11 @@ Le hachage comprend les éléments suivants :
 - **Port de destination**
 - **Un numéro de protocole IP pour mapper des flux sur les serveurs disponibles**
 
-L’affinité avec une adresse IP source est créée à l’aide d’un hachage à deux ou trois tuples. Les paquets d’un même flux arrivent sur la même instance derrière le front-end soumis à l’équilibrage de charge.
+## <a name="session-persistence"></a>Persistance de session
 
-Le port source change quand un client démarre un nouveau flux à partir de la même adresse IP source. Ainsi, le hachage à cinq tuples peut provoquer l’acheminement du trafic vers un autre point de terminaison back-end.
-Pour plus d’informations, consultez [Configuration du mode de distribution pour Azure Load Balancer](./load-balancer-distribution-mode.md).
+Les paquets du même flux arrivent sur la même instance de pool principale. Toutefois, lorsqu’un client démarre un nouveau flux à partir de la même adresse IP source, le port source change. Ainsi, le hachage à cinq tuples peut provoquer l’acheminement du trafic vers un autre point de terminaison back-end. 
+
+La persistance de la session sur une adresse IP source est créée à l’aide d’un hachage à deux ou trois tuples. Lorsque la persistance de la session est activée, les requêtes successives provenant de la même adresse IP du client seront gérées par la même machine virtuelle. Pour plus d’informations sur les modes de distribution de l’équilibreur de charge, consultez [Configurer le mode de distribution pour Azure Load Balancer](./load-balancer-distribution-mode.md).
 
 L’image suivante montre la distribution basée sur le hachage :
 
@@ -49,11 +50,18 @@ L’image suivante montre la distribution basée sur le hachage :
 
 ## <a name="application-independence-and-transparency"></a>Indépendance d’application et transparence
 
-L’équilibreur de charge n’interagit pas directement avec TCP, UDP ou la couche Application. Tous les scénarios d’application TCP ou UDP peuvent être pris en charge. L’équilibreur de charge ne ferme pas de flux, n’en démarre pas ou n’interagit pas avec la charge utile du flux. L’équilibreur de charge ne fournit pas de fonctionnalité de passerelle de couche Application. Les liaisons de protocole se produisent toujours directement entre le client et l’instance de pool principal. La réponse à un flux entrant provient toujours d’une machine virtuelle. Lorsque le flux arrive sur la machine virtuelle, l’adresse IP source d’origine est également conservée.
+L’équilibreur de charge prend en charge tout scénario d’application TCP/UDP et ne ferme pas ou n’initie pas de flux. L’équilibreur de charge n’interagit pas non plus avec la charge utile d’un flux. 
+
+- Les charges utiles d’application sont transparentes pour l’équilibreur de charge. Toutes les applications UDP ou TCP peuvent être prises en charge.
+
+L’équilibreur de charge fonctionne sur la couche 4 et n’offre pas de fonctionnalité de passerelle de couche application. Les liaisons de protocole se produisent toujours directement entre le client et l’instance de pool principal. 
+
+- Étant donné que l’équilibreur de charge n’interagit pas avec la charge utile TCP et ne fournit pas le déchargement TLS, vous pouvez générer des scénarios chiffrés complets. L’utilisation de l’équilibreur de charge permet d’obtenir de vastes systèmes de scale-out pour les applications TLS en mettant fin à la connexion TLS sur la machine virtuelle. Par exemple, la capacité de création de clés pour votre session TLS est uniquement limitée par le type et le nombre de machines virtuelles que vous ajoutez au pool du serveur principal.
+
+La réponse à un flux entrant provient toujours d’une machine virtuelle. Lorsque le flux arrive sur la machine virtuelle, l’adresse IP source d’origine est également conservée.
 
 - Chaque point de terminaison obtient une réponse d’une machine virtuelle. Par exemple, l’établissement d’une liaison TCP se fait entre le client et la machine virtuelle du back-end sélectionnée. La réponse à une demande d’un serveur frontal est une réponse générée par la machine virtuelle du serveur principal. Quand vous validez correctement la connectivité à un front-end, vous validez la connectivité de bout en bout jusqu’à au moins une machine virtuelle du back-end.
-- Les charges utiles d’application sont transparentes pour l’équilibreur de charge. Toutes les applications UDP ou TCP peuvent être prises en charge.
-- Étant donné que l’équilibreur de charge n’interagit pas avec la charge utile TCP et fournit le déchargement TLS, vous pouvez générer des scénarios chiffrés complets. L’utilisation de l’équilibreur de charge permet d’obtenir de vastes systèmes de scale-out pour les applications TLS en mettant fin à la connexion TLS sur la machine virtuelle. Par exemple, la capacité de création de clés pour votre session TLS est uniquement limitée par le type et le nombre de machines virtuelles que vous ajoutez au pool du serveur principal.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

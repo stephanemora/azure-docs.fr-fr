@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bd83367ae073e03f03188cdf62cb60faaad7ac97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ae4a7d070419aae974742802ec5b6b3ae958c87
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105026451"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129355514"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés
 Si vous avez activé Débogueur de capture instantanée Application Insights pour votre application, mais que vous ne voyez pas de captures instantanées pour les exceptions, vous pouvez utiliser ces instructions pour résoudre les problèmes.
@@ -92,7 +92,7 @@ Pour vérifier le paramètre, ouvrez votre fichier web.config et recherchez la s
    ```
 
 > [!NOTE]
-> La modification de la valeur httpRuntime targetFramework modifie les quirks du runtime appliquées à votre application et peut entraîner d’autres changements de comportement subtils. Veillez à tester soigneusement votre application après avoir apporté cette modification. Pour obtenir la liste complète des modifications de compatibilité, consultez https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+> La modification de la valeur httpRuntime targetFramework modifie les quirks du runtime appliquées à votre application et peut entraîner d’autres changements de comportement subtils. Veillez à tester soigneusement votre application après avoir apporté cette modification. Pour obtenir la liste complète des modifications de compatibilité, consultez [Reciblage des modifications](/dotnet/framework/migration-guide/application-compatibility#retargeting-changes).
 
 > [!NOTE]
 > Si le targetFramework est 4.7 ou une version ultérieure, Windows détermine les protocoles disponibles. Dans Azure App Service, TLS 1.2 est disponible. Toutefois, si vous utilisez votre propre machine virtuelle, vous devrez peut-être activer TLS 1.2 dans le système d’exploitation.

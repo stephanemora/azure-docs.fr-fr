@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 757a10473c2f6776ef3a84310b42209ddd12ed45
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1ad8f9496bd781d6ed33927b4056073a50e0b5a2
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643647"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129535055"
 ---
 # <a name="set-up-dependency-visualization"></a>Configurer la visualisation des dépendances
 
@@ -65,9 +65,13 @@ Sur chaque serveur à analyser, installez les agents.
 > Pour les serveurs surveillés par System Center Operations Manager 2012 R2 ou version ultérieure, il n’est pas nécessaire d’installer l’agent MMA. Service Map s’intègre à Operations Manager. [Suivez](../azure-monitor/vm/service-map-scom.md#prerequisites) l’aide à l’intégration.
 
 1. Dans **Azure Migrate : découverte et évaluation**, cliquez sur **Serveurs découverts**.
-2. Pour chaque serveur à analyser à l’aide de la visualisation des dépendances, dans la colonne **Dépendances**, cliquez sur **Installation de l’agent requise**.
-3. Dans la page **Dépendances**, téléchargez l’agent MMA et Dependency Agent pour Windows ou Linux.
-4. Sous **Configurer l'agent MMA**, copiez l'ID et la clé de l'espace de travail. Ces éléments sont nécessaires lorsque vous installez l’agent MMA.
+1. Cliquez sur **Colonnes** pour sélectionner **Dépendances (basées sur un agent)** pour voir la colonne sur la page Serveurs découverts.
+
+    :::image type="content" source="./media/how-to-create-group-machine-dependencies/columns-inline.png" alt-text="Capture d’écran montrant le résultat après un clic sur Colonnes." lightbox="./media/how-to-create-group-machine-dependencies/columns-expanded.png":::
+
+1. Pour chaque serveur à analyser à l’aide de la visualisation des dépendances, dans la colonne **Dépendances**, cliquez sur **Installation de l’agent requise**.
+1. Dans la page **Dépendances**, téléchargez l’agent MMA et Dependency Agent pour Windows ou Linux.
+1. Sous **Configurer l'agent MMA**, copiez l'ID et la clé de l'espace de travail. Ces éléments sont nécessaires lorsque vous installez l’agent MMA.
 
     ![Installer les agents](./media/how-to-create-group-machine-dependencies/dependencies-install.png)
 

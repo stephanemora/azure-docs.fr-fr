@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: 754db21fa8e14045696f1af2bcfe375fb1161d94
-ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.openlocfilehash: c2330203ce2617bf7cc42b8c7549d11a73185f12
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2021
-ms.locfileid: "107930566"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129458242"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Comment approvisionner des appareils à l’aide de groupes d’inscription avec des clés symétriques
 
-Cet article explique comment approvisionner de façon sécurisée plusieurs appareils avec des clés symétriques sur un seul IoT Hub à l’aide d’un groupe d’inscription.
+Cet article explique comment approvisionner de façon sécurisée plusieurs appareils à clé symétrique simulé sur un seul IoT Hub à l’aide d’un groupe d’inscription.
 
 Certains appareils peuvent ne pas avoir de certificat, de module de plateforme sécurisée (TPM) ou d’autre fonctionnalité de sécurité utilisable pour identifier l’appareil de façon sécurisée. Le service Device Provisioning inclut l’[attestation de clé symétrique](concepts-symmetric-key-attestation.md). L’attestation de clé symétrique peut être utilisée pour identifier un appareil sur la base d’informations uniques comme l’adresse MAC ou un numéro de série.
 
@@ -28,7 +28,7 @@ Cet article suppose également que la mise à jour de l’appareil a lieu dans u
 Cet article traite d’une station de travail Windows. Toutefois, vous pouvez effectuer les procédures sur Linux. Pour obtenir un exemple sur Linux, consultez [Guide pratique du provisionnement pour la multilocation](how-to-provision-multitenant.md).
 
 > [!NOTE]
-> L’exemple utilisé dans cet article est écrit en C. Un [exemple de clé symétrique d’approvisionnement d’appareil en C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) est également disponible. Pour utiliser cet exemple, téléchargez ou clonez le référentiel [azure-iot-samples-csharp ](https://github.com/Azure-Samples/azure-iot-samples-csharp) et suivez les instructions en ligne de l’exemple de code. Vous pouvez suivre les instructions de cet article pour créer un groupe d’inscription de clé symétrique à l’aide du portail et pour rechercher l’étendue de l’ID et les clés primaires et secondaires du groupe d’inscription nécessaires à l’exécution de l’exemple. Vous pouvez également créer des inscriptions individuelles à l’aide de l’exemple.
+> L’exemple utilisé dans cet article est écrit en C. Un [exemple de clé symétrique d’approvisionnement d’appareil en C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/device/SymmetricKeySample) est également disponible. Pour utiliser cet exemple, téléchargez ou clonez le référentiel [azure-iot-samples-csharp ](https://github.com/Azure-Samples/azure-iot-samples-csharp) et suivez les instructions en ligne de l’exemple de code. Vous pouvez suivre les instructions de cet article pour créer un groupe d’inscription de clé symétrique à l’aide du portail et pour rechercher l’étendue de l’ID et les clés primaires et secondaires du groupe d’inscription nécessaires à l’exécution de l’exemple. Vous pouvez également créer des inscriptions individuelles à l’aide de l’exemple.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,7 +46,7 @@ Un ID d’inscription unique est défini pour chaque appareil en fonction des in
 
 Un groupe d’inscription qui utilise [l’attestation de clé symétrique](concepts-symmetric-key-attestation.md) est créé avec le service Device Provisioning. Le groupe d’inscription inclut une clé de groupe principale. Cette clé principale est utilisée pour hacher chaque ID d’inscription unique de façon à produire une clé d’appareil unique pour chaque appareil. L’appareil utilise cette clé d’appareil dérivée avec son ID d’inscription unique pour attester avec le service Device Provisioning et être affecté à un hub IoT.
 
-Le code de l’appareil montré dans cet article suit le même modèle que le [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md). Le code simule un appareil en utilisant un exemple provenant du [SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c). Comme illustré dans le guide de démarrage rapide, l’appareil simulé atteste avec un groupe d’inscription au lieu d’une inscription individuelle.
+Le code de l’appareil montré dans cet article suit le même modèle que le [Démarrage rapide : provisionner un appareil à clé symétrique simulé](quick-create-simulated-device-symm-key.md). Le code simule un appareil en utilisant un exemple provenant du [SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c). Comme illustré dans le guide de démarrage rapide, l’appareil simulé atteste avec un groupe d’inscription au lieu d’une inscription individuelle.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -222,9 +222,9 @@ Dans cette section, vous allez mettre à jour un exemple de provisionnement nomm
 
 Cet exemple de code simule une séquence de démarrage d’un appareil qui envoie la demande de provisionnement à votre instance du service Device Provisioning. La séquence de démarrage entraîne la reconnaissance de l’appareil et son affectation au hub IoT que vous avez configuré sur le groupe d’inscription. Cette opération est effectuée pour chaque appareil provisionné à l’aide du groupe d’inscription.
 
-1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez les valeurs de **_Étendue de l’ID_** .
+1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et notez la valeur **_Étendue de l’ID_**.
 
-    ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
 
 2. Dans Visual Studio, ouvrez le fichier solution **azure_iot_sdks.sln** généré précédemment en exécutant CMake. Le fichier solution doit être à l’emplacement suivant :
 
@@ -305,7 +305,7 @@ Notez que cette opération laisse la clé d’appareil dérivée incluse dans l�
 > [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md)
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
+> [Démarrage rapide : Provisionner un appareil à clé symétrique simulé](quick-create-simulated-device-symm-key.md)
 
 * Pour en savoir plus sur la suppression des privilèges d’accès, consultez :
 

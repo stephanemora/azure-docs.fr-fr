@@ -3,17 +3,17 @@ title: Authentification Azure AD pour Application Insights (préversion)
 description: Découvrez comment activer l'authentification Azure Active Directory (Azure AD) pour garantir que seule la télémétrie authentifiée est ingérée dans vos ressources Application Insights.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: 9d93da1a8567a7c50dac43c29e3a962652ceee33
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: b38e3498ae61c9639c71eb358a4089dc59243616
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123111466"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857708"
 ---
 # <a name="azure-ad-authentication-for-application-insights-preview"></a>Authentification Azure AD pour Application Insights (préversion)
 Application Insights prend désormais en charge l'authentification Azure Active Directory (Azure AD). À l’aide d’Azure AD, vous pouvez désormais vous assurer que seules les données de télémétrie authentifiées sont ingérées dans les ressources de vos Insights d’Application. 
 
-En règle générale, l’utilisation de différents systèmes d’authentification peut être lourde et poser un risque, car il est difficile de gérer les informations d’identification à grande échelle. Vous pouvez maintenant choisir de ne pas utiliser l'authentification locale et vous assurer que seule la télémétrie qui est exclusivement authentifiée en utilisant [Managed Identities ](../../active-directory/managed-identities-azure-resources/overview.md) et [Azure Active Directory est ](../../active-directory/fundamentals/active-directory-whatis.md) ingérée dans votre ressource Application Insights. Cette fonctionnalité est une étape permettant d’améliorer la sécurité et la fiabilité des données de télémétrie utilisées pour rendre les opérations critiques (alertes/mise à l’échelle automatique, etc.) et les décisions commerciales.
+En règle générale, l’utilisation de différents systèmes d’authentification peut être fastidieuse et présenter un risque, car il est difficile de gérer des informations d’identification à grande échelle. Vous pouvez maintenant choisir de ne pas utiliser l'authentification locale et vous assurer que seule la télémétrie qui est exclusivement authentifiée en utilisant [Managed Identities ](../../active-directory/managed-identities-azure-resources/overview.md) et [Azure Active Directory est ](../../active-directory/fundamentals/active-directory-whatis.md) ingérée dans votre ressource Application Insights. Cette fonctionnalité est une étape permettant d’améliorer la sécurité et la fiabilité des données de télémétrie utilisées pour rendre les opérations critiques (alertes/mise à l’échelle automatique, etc.) et les décisions commerciales.
 
 > [!IMPORTANT]
 > L'authentification Azure AD est actuellement en PRÉVERSION.
@@ -135,7 +135,7 @@ appInsights.defaultClient.aadTokenCredential = credential;
 > [!NOTE]
 > La prise en charge d’Azure AD dans l’agent Application Insights est incluse à partir de la version [Java 3.2.0-BETA](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0-BETA). 
 
-1. [Configurez votre application avec l'agent Java.](java-in-process-agent.md#quickstart)
+1. [Configurez votre application avec l'agent Java.](java-in-process-agent.md#get-started)
 
     > [!IMPORTANT]
     > Utilisez la chaîne de connexion complète qui comprend « IngestionEndpoint » lors de la configuration de votre application avec l’agent Java. Par exemple, `InstrumentationKey=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX;IngestionEndpoint=https://XXXX.applicationinsights.azure.com/`.
@@ -174,7 +174,7 @@ Vous trouverez ci-dessous un exemple de configuration de l’agent Java pour uti
       "type": "UAMI", 
       "clientId":"<USER-ASSIGNED MANAGED IDENTITY CLIENT ID>" 
     } 
-  }  
+  }     
 } 
 ```
 :::image type="content" source="media/azure-ad-authentication/user-assigned-managed-identity.png" alt-text="Capture d’écran de l’identité attribuée à l’utilisateur." lightbox="media/azure-ad-authentication/user-assigned-managed-identity.png":::
@@ -188,11 +188,11 @@ Voici un exemple de configuration de l’agent Java pour utiliser le principal d
   "connectionString": "App Insights Connection String with IngestionEndpoint",
    "preview": { 
         "authentication": { 
-        "enabled": true, 
-        "type": "CLIENTSECRET", 
-        "clientId":"<YOUR CLIENT ID>", 
-        "clientSecret":"<YOUR CLIENT SECRET>", 
-        "tenantId":"<YOUR TENANT ID>" 
+          "enabled": true, 
+          "type": "CLIENTSECRET", 
+          "clientId":"<YOUR CLIENT ID>", 
+          "clientSecret":"<YOUR CLIENT SECRET>", 
+          "tenantId":"<YOUR TENANT ID>" 
     } 
   } 
 } 
@@ -206,11 +206,9 @@ Voici un exemple de configuration de l’agent Java pour utiliser le principal d
 > [!NOTE]
 > L’authentification Azure AD est disponible uniquement pour Python v 2.7, v 3.6 et v 3.7. La prise en charge de Azure AD dans le kit de développement logiciel (SDK) Opencensus Application Insights Python est incluse à partir de la version bêta [Opencensus-ext-Azure 1.1 b0](https://pypi.org/project/opencensus-ext-azure/1.1b0/).
 
-
-Construisez les [informations d'identification](/python/api/overview/azure/identity-readme?view=azure-python#credentials) appropriées et passez-les dans le constructeur de l'exportateur Azure Monitor. Assurez-vous que votre chaîne de connexion est configurée avec la clé d’instrumentation et le point de terminaison d’ingestion de votre ressource.
+Construisez les [informations d'identification](/python/api/overview/azure/identity-readme#credentials) appropriées et passez-les dans le constructeur de l'exportateur Azure Monitor. Assurez-vous que votre chaîne de connexion est configurée avec la clé d’instrumentation et le point de terminaison d’ingestion de votre ressource.
 
 Voici les types d’authentification pris en charge par les exportateurs Opencensus Azure Monitor. Il est recommandé d’utiliser des identités gérées dans des environnements de production.
-
 
 #### <a name="system-assigned-managed-identity"></a>Identité managée affectée par le système
 
@@ -278,23 +276,23 @@ Vous pouvez désactiver l’authentification locale à l’aide du Portail Azure
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1.  À partir de votre ressource Application Insights, sélectionnez **Propriétés** sous le titre *Configurer* dans la barre de menus de gauche. Sélectionnez ensuite **Activé (cliquez pour modifier)** si l'authentification locale est activée. 
+1. À partir de votre ressource Application Insights, sélectionnez **Propriétés** sous le titre *Configurer* dans la barre de menus de gauche. Sélectionnez ensuite **Activé (cliquez pour modifier)** si l'authentification locale est activée. 
 
-    :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Capture d’écran des propriétés sous le bouton * configurer * sélectionné et activé (Cliquer pour modifier) authentification locale.":::
+   :::image type="content" source="./media/azure-ad-authentication/enabled.png" alt-text="Capture d’écran des propriétés sous le bouton * configurer * sélectionné et activé (Cliquer pour modifier) authentification locale.":::
 
-1. Sélectionnez **Désactivé** et appliquez les modifications. 
+1. Sélectionnez **Désactivé** et appliquez les modifications.
 
-    :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Capture d’écran de l’authentification locale avec le bouton activé/désactivé mis en surbrillance.":::
+   :::image type="content" source="./media/azure-ad-authentication/disable.png" alt-text="Capture d’écran de l’authentification locale avec le bouton activé/désactivé mis en surbrillance.":::
 
 1. Une fois que votre ressource a désactivé l'authentification locale, vous verrez l'information correspondante dans le volet **Aperçu**.
 
-    :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Capture d’écran de l’onglet vue d’ensemble avec l’onglet désactivé (Cliquer pour modifier) mis en surbrillance.":::
+   :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Capture d’écran de l’onglet vue d’ensemble avec l’onglet désactivé (Cliquer pour modifier) mis en surbrillance.":::
 
 ### <a name="azure-policy"></a>Azure Policy 
 
-Azure Policy pour « DisableLocalAuth » refusera aux utilisateurs de créer une ressource d’Application Insights sans affecter la valeur « true » à ce paramètre de propriété. Le nom de la stratégie est « Application Insights composants doivent bloquer l’ingestion de l’authentification non AAD ».
+Azure Policy pour « DisableLocalAuth » refusera aux utilisateurs de créer une ressource Application Insights sans définir ce paramètre de propriété sur « true ». Le nom de la stratégie est « Les composants Application Insights doivent bloquer l’ingestion d’authentification non AAD ».
 
-Pour appliquer cette définition de stratégie à votre abonnement, [créez une attribution de stratégie et attribuez-lui la stratégie](../../governance/policy/assign-policy-portal.md).
+Pour appliquer cette définition de stratégie à votre abonnement, [créez une nouvelle affectation de stratégie, puis affectez la stratégie](../../governance/policy/assign-policy-portal.md).
 
 Voici la définition du modèle de stratégie :
 ```JSON
@@ -399,7 +397,7 @@ Voici un exemple du modèle Azure Resource Manager que vous pouvez utiliser pour
 
 ```
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 Cette section fournit des scénarios de résolution des problèmes distincts et des étapes que les utilisateurs peuvent entreprendre pour résoudre les problèmes avant qu’ils ne génèrent un ticket de support. 
 
@@ -436,7 +434,7 @@ Les étapes suivantes consistent à examiner le contrôle d'accès de la ressour
 
 L’Application Insights SDK .net émet des journaux d’erreurs à l’aide de la source d’événements. Pour en savoir plus sur la collecte des journaux des sources d’événements, consultez la [section Dépannage des journaux de collecte de données avec PerfView](asp-net-troubleshoot-no-data.md#PerfView).
 
-Si le kit de développement logiciel (SDK) ne parvient pas à obtenir un jeton, le message d’exception est enregistré sous la forme : «Échec de l’extraction du jeton AAD. Message d’erreur : ”
+Si le Kit de développement logiciel (SDK) ne parvient pas à obtenir un jeton, le message d’exception est enregistré sous la forme : « L’obtention du jeton AAD a échoué. Message d’erreur : »
 
 ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
@@ -499,13 +497,13 @@ Si l’exception suivante est visible dans le fichier journal `com.microsoft.aad
 
 #### <a name="invalid-clientid"></a>ClientId non valide
 
-Si l'exception suivante apparaît dans le fichier journal `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier <CLIENT_ID> was not found in the directory`, cela signifie que l'agent n'a pas réussi à acquérir le jeton d'accès et la raison probable est que vous avez fourni un "clientId" invalide ou erroné dans votre configuration du secret du client.
+Si l’exception suivante apparaît dans le fichier journal `com.microsoft.aad.msal4j.MsalServiceException: Application with identifier <CLIENT_ID> was not found in the directory`, cela signifie que l’agent n’a pas réussi à acquérir le jeton d’accès, et la raison probable est que vous avez fourni un « clientId » incorrect ou erroné dans votre configuration du secret du client.
 
  Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.
 
 ### <a name="python"></a>[Python](#tab/python)
 
-#### <a name="error-starts-with-credential-error-with-no-status-code"></a>L'erreur commence par "credential error" (sans code d'état)
+#### <a name="error-starts-with-credential-error-with-no-status-code"></a>L’erreur commence par « erreur d’informations d’identification » (sans code d’état)
 
 Un problème se pose sur les informations d’identification que vous utilisez et le client n’est pas en mesure d’obtenir un jeton pour l’autorisation. Cela est généralement dû à l’absence des données requises pour l’état. Un exemple peut passer un ManagedIdentityCredential système, mais la ressource n’est pas configurée pour utiliser l’identité gérée par le système.
 
@@ -513,11 +511,11 @@ Un problème se pose sur les informations d’identification que vous utilisez e
 
 Le client n’a pas pu s’authentifier avec les informations d’identification fournies. Se produit généralement lorsque les informations d’identification utilisées n’ont pas d’attributions de rôles correctes.
 
-#### <a name="im-getting-a-status-code-400-in-my-error-logs"></a>J’obtiens un code d’état 400 dans mes journaux des erreurs
+#### <a name="im-getting-a-status-code-400-in-my-error-logs"></a>J’obtiens un code d’état 400 dans mes journaux des erreurs
 
 Vous n’avez probablement pas d’informations d’identification ou vos informations d’identification ont la valeur `None` , mais votre Application Insights ressource est configurée avec `DisableLocalAuth: true`. Assurez-vous que vous passez des informations d’identification valides et qu’il est autorisé à accéder à votre ressource d’Application Insights.
 
-#### <a name="im-getting-a-status-code-403-in-my-error-logs"></a>J’obtiens un code d’état 403 dans mes journaux des erreurs
+#### <a name="im-getting-a-status-code-403-in-my-error-logs"></a>J’obtiens un code d’état 403 dans mes journaux des erreurs
 
 Se produit généralement lorsque les informations d’identification fournies n’accordent pas l’accès à la télémétrie de réception pour la ressource Application Insights. Vérifiez que votre ressource d’IA a les attributions de rôle appropriées.
 

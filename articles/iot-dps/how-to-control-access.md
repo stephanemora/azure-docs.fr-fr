@@ -5,15 +5,15 @@ author: anastasia-ms
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 09/22/2021
 ms.author: v-stharr
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: cf2934c57441176034d28a7b60e33c639977e62d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: dc33bf659785419619afe4f393a8a1ed09142452
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779594"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129272526"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Contrôler l’accès au service de provisionnement d’appareils Azure IoT Hub
 
@@ -122,13 +122,9 @@ Si vous utilisez un groupe d’inscription basé sur une clé symétrique, vous 
 
 Si vous avez configuré un groupe d’inscription ou d’inscription individuel pour l’authentification basée sur un certificat X.509, l’appareil doit utiliser son certificat X.509 émis pour attester de l’API de messagerie des appareils. Reportez-vous aux articles suivants sur la configuration de l’inscription et la génération du certificat de l’appareil.
 
-* Démarrage rapide – [Provisionner un appareil X.509 simulé auprès d’Azure IoT Hub à l’aide de Python](quick-create-simulated-device-x509-python.md?tabs=linux)
+* Démarrage rapide : [Approvisionner un appareil X.509 simulé auprès d’Azure IoT Hub](quick-create-simulated-device-x509.md)
 
-* Démarrage rapide – [Provisionner un appareil X.509 simulé auprès d’Azure IoT Hub à l’aide de Node.js](quick-create-simulated-device-x509-node.md)
-
-* Démarrage rapide – [Inscrire des appareils X.509 auprès du service Azure Device Provisioning à l’aide de Python](quick-enroll-device-x509-python.md)
-
-* Démarrage rapide – [Inscrire des appareils X.509 auprès du service Azure Device Provisioning à l’aide de Node.js](quick-enroll-device-x509-node.md)
+* Démarrage rapide : [Inscrire des appareils X.509 auprès de Service Azure Device Provisioning](quick-enroll-device-x509.md)
 
 Une fois l’inscription configurée et le certificat de l’appareil émis, l’exemple suivant montre comment s’authentifier auprès de l’API de messagerie des appareils avec le certificat X.509 de l’appareil.
 
@@ -268,7 +264,7 @@ Par exemple, un service généré à l’aide d’une stratégie d’accès part
 * nom de la stratégie : `enrollmentread`,
 * n’importe quel délai d’expiration time.backn
 
-![Créer une stratégie d’accès partagé pour votre instance de service de provisionnement des appareils sur le portail][img-add-shared-access-policy]
+![Créer une stratégie d’accès partagé pour votre instance de Service Device Provisioning sur le portail][img-add-shared-access-policy]
 
 ```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";

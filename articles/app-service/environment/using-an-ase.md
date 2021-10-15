@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 8/5/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: da32a2bbd4824e589a6673b043551dce67c32e70
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 6d32e0f19ca37243fa0dbaca9bc04369bfd974b2
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122566110"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129354122"
 ---
 # <a name="use-an-app-service-environment"></a>Utiliser un environnement App Service
 > [!NOTE]
@@ -174,10 +174,10 @@ Vous pouvez intégrer votre ASE avec Azure Monitor pour envoyer des journaux sur
 
 | Situation | Message |
 |---------|----------|
-| L’ASE est non sain | L’ASE spécifié n’est pas sain en raison d’une configuration de réseau virtuel non valide. L’ASE est suspendu si l’état non sain perdure. Vérifiez que les instructions définies ici sont respectées : https://docs.microsoft.com/azure/app-service/environment/network-info. |
+| L’ASE est non sain | L’ASE spécifié n’est pas sain en raison d’une configuration de réseau virtuel non valide. L’ASE est suspendu si l’état non sain perdure. Vérifiez que les instructions définies ici sont respectées : [Considérations relatives à la mise en réseau pour App Service Environment](network-info.md). |
 | Le sous-réseau de l’ASE n’a presque plus d’espace disponible | L’ASE spécifié se trouve dans un sous-réseau qui n’a presque plus d’espace disponible. Il y a {0} adresses restantes. Une fois ces adresses épuisées, l’ASE ne peut pas adapter son échelle.  |
 | L’ASE approche la limite d’instance totale | L’ASE spécifié approche la limite d’instance totale de l’ASE. Il contient actuellement {0} instances du plan App Service pour un maximum de 201 instances. |
-| L’ASE ne peut pas atteindre une dépendance | L’ASE spécifié ne parvient pas à atteindre {0}.  Vérifiez que les instructions définies ici sont respectées : https://docs.microsoft.com/azure/app-service/environment/network-info. |
+| L’ASE ne peut pas atteindre une dépendance | L’ASE spécifié ne parvient pas à atteindre {0}.  Vérifiez que les instructions définies ici sont respectées : [Considérations relatives à la mise en réseau pour App Service Environment](network-info.md). |
 | L’ASE est suspendu | L’ASE spécifié est suspendu. La suspension de l’ASE peut être due à un manque de compte ou à une configuration de réseau virtuel non valide. Résolvez la cause racine et reprenez l’ASE pour continuer à traiter le trafic. |
 | Une mise à niveau de l’ASE a commencé | Une mise à niveau de plateforme vers l’ASE spécifié a commencé. Attendez-vous à des retards dans les opérations de mise à l’échelle. |
 | Une mise à niveau de l’ASE est terminée | Une mise à niveau de plateforme pour l’ASE spécifié s’est terminée. |

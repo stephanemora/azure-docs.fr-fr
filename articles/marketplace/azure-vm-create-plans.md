@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 07/26/2021
-ms.openlocfilehash: eb94adfa104b68f515374090cfd07f300896a163
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 9994e37d747419bd42820bd4c3c4c5ed1e147708
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708811"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129360171"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Créer des plans pour une offre de machine virtuelle
 
@@ -159,7 +159,17 @@ Fournissez les images et autres propriétés techniques associées à ce plan.
 
 ### <a name="reuse-technical-configuration"></a>Réutiliser la configuration technique
 
-Si vous avez plusieurs plans du même type et que les packages qu’ils utilisent sont identiques, sélectionnez l’option **Ce plan réutilise la configuration technique d’un autre plan**. Cette option vous permet de sélectionner l’un des autres plans du même type pour cette offre et de réutiliser sa configuration technique.
+Cette option vous permet d’utiliser les mêmes paramètres de configuration technique pour tous les plans d’une même offre et donc de tirer parti du même ensemble d’images. Si vous activez l’option de réutilisation de la configuration technique, votre plan héritera des mêmes paramètres de configuration technique que le plan de base que vous sélectionnez.  Lorsque vous modifiez le plan de base, les modifications sont répercutées sur le plan réutilisant la configuration.
+
+Voici quelques raisons courantes de réutiliser les paramètres de configuration technique d’un autre plan :
+
+1. Les mêmes images sont disponibles pour *Paiement à l’utilisation* et *BYOL*.
+2. Pour réutiliser la configuration technique d’un plan public pour un plan privé avec un prix différent. 
+3. Votre solution se comporte différemment selon le plan que l’utilisateur choisit de déployer. Par exemple, le logiciel est le même, mais les fonctionnalités varient selon le plan.
+
+Tirez parti d’[Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service) (IMDS) pour identifier le plan dans lequel votre solution est déployée afin de valider la licence ou l’activation des fonctionnalités appropriées.
+
+Si vous décidez ultérieurement de publier des modifications différentes entre vos plans, vous pouvez les détacher. Pour détacher le plan qui réutilise la configuration technique, désélectionnez cette option pour le plan en question. Une fois détaché, votre plan aura les mêmes paramètres de configuration technique à la place de votre dernier paramètre, et la configuration de vos plans pourra varier. Un plan qui a été publié indépendamment par le passé ne peut pas réutiliser une configuration technique par la suite. 
 
 ### <a name="operating-system"></a>Système d'exploitation
 

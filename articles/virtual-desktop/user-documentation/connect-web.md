@@ -3,15 +3,15 @@ title: Se connecter à Azure Virtual Desktop avec le client web - Azure
 description: Guide pratique pour se connecter à Azure Virtual Desktop à l’aide du client web.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 09/30/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0c6e616b63587f46d9dfe73066147de428d0ee0c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 3804714a1a21a482166fbf7d592f5ee094ce6a06
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469186"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129359719"
 ---
 # <a name="connect-to-azure-virtual-desktop-with-the-web-client"></a>Se connecter à Azure Virtual Desktop avec le client web
 
@@ -24,15 +24,15 @@ Le client web vous permet d’accéder à vos ressources Azure Virtual Desktop �
 >Le client web ne prend pas en charge les systèmes d’exploitation mobiles.
 
 ## <a name="supported-operating-systems-and-browsers"></a>Systèmes d’exploitation et navigateurs pris en charge
+
 >[!IMPORTANT]
->Le 30 septembre 2021, le client web Azure Virtual Desktop ne prendra plus en charge Internet Explorer 11. Nous vous recommandons de passer à l’utilisation du navigateur Microsoft Edge au lieu d’Internet Explorer 11. Pour plus d’informations, consultez notre [billet de blog](https://aka.ms/WVDSupportIE11) de la communauté technique.
+>Depuis le 30 septembre 2021, le client web d’Azure Virtual Desktop ne prend plus en charge Internet Explorer. Nous vous recommandons d’utiliser Microsoft Edge pour vous connecter au client web. Pour plus d’informations, consultez notre [billet de blog](https://aka.ms/WVDSupportIE11).
 
 Tous les navigateurs HTML5 doivent fonctionner, et nous prenons officiellement en charge les systèmes d’exploitation et les navigateurs suivants.
 
 | Browser           | Systèmes d’exploitation pris en charge                     | Notes               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
-| Internet Explorer | Windows                          | Version 11 ou ultérieure |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Version 55 ou ultérieure |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |

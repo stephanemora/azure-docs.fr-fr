@@ -1,19 +1,19 @@
 ---
 title: Échanger des messages AS2 dans les flux de travail B2B
-description: Échangez des messages AS2 entre les transactions en créant des flux de travail à l’aide d’Azure Logic Apps et Enterprise Integration Pack.
+description: Échanger des messages AS2 entre partenaires en créant des flux de travail avec Azure Logic Apps et Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 8b42987055ca2e2b6533ae2f9d45b4bb62fbe016
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 8023073aecae3a1f97c82a16a5be952df7425186
+ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082352"
+ms.lasthandoff: 10/03/2021
+ms.locfileid: "129399644"
 ---
 # <a name="exchange-as2-messages-using-workflows-in-azure-logic-apps"></a>Échangez des messages AS2 à l’aide de flux de travail dans Azure Logic Apps
 
@@ -23,7 +23,9 @@ Pour envoyer et recevoir des messages AS2 dans les flux de travail que vous cré
 
   À l’exception du suivi, le connecteur **AS2 (v2)** offre de meilleures performances, les mêmes capacités que la version d’origine. Il est natif du runtime Azure Logic Apps et apporte d’importantes améliorations des performances en ce qui concerne le débit, la taille et la latence des messages. De plus, le connecteur v2 ne nécessite pas la création d’une connexion à votre compte d’intégration. Comme indiqué dans les prérequis, assurez-vous plutôt de lier votre compte d’intégration à la ressource d’application logique dans laquelle vous envisagez d’utiliser le connecteur.
 
-* Si vous utilisez le type de ressource **Application logique (standard)** , seul le connecteur **AS2** d’origine est actuellement disponible. Pour plus d’informations sur cette version, consultez la [page de référence du connecteur](/connectors/as2/), qui décrit les déclencheurs, les actions et les limites comme indiqué par le fichier Swagger du connecteur.
+* Si vous utilisez le type de ressource **Application logique (standard)** , seul le connecteur **AS2** d’origine est actuellement disponible.
+
+  Pour plus d’informations techniques sur la version originale du connecteur **AS2**, consultez la [page de référence du connecteur](/connectors/as2/), qui décrit les déclencheurs, les actions et les limites tels que documentés par le fichier Swagger du connecteur.
 
 ### <a name="consumption"></a>[Consommation](#tab/consumption)
 
@@ -82,7 +84,7 @@ Pour plus d’informations sur les limites du connecteur AS2 pour les flux de tr
 
 * Au moins deux [parties](logic-apps-enterprise-integration-partners.md) dans votre compte d’intégration. Les définitions des deux partenaires doivent utiliser le même qualificateur d’*identité d’entreprise*, qui est **AS2Identity**, pour ce scénario.
 
-* Un [contrat AS2](logic-apps-enterprise-integration-agreements.md) dans votre compte d’intégration entre les parties qui participent à votre flux de travail. Chaque contrat requiert un partenaire hôte et un partenaire invité.
+* Un [contrat AS2](logic-apps-enterprise-integration-agreements.md) dans votre compte d’intégration entre les parties qui participent à votre flux de travail. Chaque contrat requiert un partenaire hôte et un partenaire invité. Le contenu des messages entre vous et l’autre partenaire doit correspondre au type de contrat.
 
 * La ressource d’application logique et le flux de travail dans lesquels vous souhaitez utiliser les opérations AS2.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 08/31/2021
 ms.author: alkohli
-ms.openlocfilehash: 6b50169586ef29e579d52985ee8b7822a63560d0
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 30e46f9425f4015893c08b94382e87cfa93c8be8
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982427"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129363154"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Utiliser le tableau de bord Kubernetes pour superviser votre appareil Azure Stack Edge Pro avec GPU
 
@@ -44,15 +44,31 @@ Sur votre appareil Azure Stack Edge Pro, vous pouvez utiliser le tableau de bord
 Le tableau de bord Kubernetes est en *lecture seule* et s’exécute sur le nœud principal Kubernetes sur le port 31000. Pour accéder au tableau de bord, procédez comme suit : 
 
 1. Dans l’interface utilisateur locale de votre appareil, accédez à **Appareil**, puis accédez à **Points de terminaison d’appareil**. 
-1. Sélectionnez **Télécharger la configuration** pour télécharger un fichier `kubeconfig` qui vous permettra d’accéder au tableau de bord. Enregistrez le fichier `config.json` sur votre système local.
-1. Sélectionnez l’URL du tableau de bord Kubernetes pour ouvrir le tableau de bord dans un navigateur.
+1. Copiez le point de terminaison du **tableau de bord Kubernetes**. Créez une entrée DNS dans le fichier `C:\Windows\System32\Drivers\etc\hosts` de votre client pour vous connecter au tableau de bord Kubernetes. 
 
-    ![URL du tableau de bord Kubernetes dans la page Appareil dans l’interface utilisateur locale](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-url-local-ui-1.png)
+    `<IP address of the Kubernetes dashboard>    <Kubernetes dashboard endpoint suffix>` 
+        
+    ![Ajouter une entrée DNS pour le point de terminaison de tableau de bord Kubernetes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/add-domain-name-service-entry-hosts-1.png) 
 
-1. Dans la page **Connexion au tableau de bord Kubernetes** :
+1. Dans la ligne du point de terminaison du **tableau de bord Kubernetes**, sélectionnez **Télécharger la configuration**. Cette action télécharge un `kubeconfig` qui vous permet d’accéder au tableau de bord. Enregistrez le fichier `config.json` sur votre système local.   
+
+1. Téléchargez le certificat du tableau de bord Kubernetes à partir de l’interface utilisateur locale. 
+    1. Dans l’interface utilisateur locale de votre appareil, accédez à **Certificats**.
+    1. Recherchez l’entrée pour **Certificat du point de terminaison de tableau de bord Kubernetes**. À droite de cette entrée, sélectionnez **Télécharger** pour télécharger le certificat sur le système client que vous utiliserez pour accéder au tableau de bord. 
+
+    ![Télécharger le certificat du point de terminaison de tableau de bord Kubernetes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/download-kubernetes-dashboard-endpoint-certificate-1.png)  
+
+1. Installez le certificat téléchargé sur le client. Si vous utilisez un client Windows, procédez comme suit : 
+    1. Sélectionnez le certificat, puis dans l’Assistant **Importation de certificat**, sélectionnez l’emplacement de magasin **Ordinateur local**. 
+
+        ![Installer le certificat sur le client 1](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-1.png) 
+    
+    1. Installez le certificat sur votre ordinateur local dans le magasin racine approuvé. 
+
+        ![Installer le certificat sur le client 2](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-2.png) 
+1. Copiez et utilisez l’URL du tableau de bord Kubernetes pour ouvrir le tableau de bord dans un navigateur. Dans la page **Connexion au tableau de bord Kubernetes** :
     
     1. Sélectionnez **kubeconfig**. 
-        ![Sélectionner l’option kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
     1. Sélectionnez les points de suspension ( **...** ). Recherchez et pointez sur le fichier `kubeconfig` que vous avez téléchargée précédemment sur votre système local. Sélectionnez **Se connecter**.
         ![Accéder au fichier kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 

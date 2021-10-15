@@ -1,15 +1,15 @@
 ---
 title: Utiliser de grands jeux de données
 description: Découvrez comment obtenir, mettre en forme, paginer et ignorer des enregistrements dans des jeux de données volumineux quand vous utilisez Azure Resource Graph.
-ms.date: 08/17/2021
+ms.date: 09/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b306b52c02a251abf1d781ccce586e4b94c8264b
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 142effe9a4d4d46f04b1a9a018fc366fba69428c
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563877"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274839"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -38,10 +38,7 @@ Dans l’[API REST](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resou
 
 Le contrôle _le plus restrictif_ l’emporte. Par exemple, si votre requête utilise les opérateurs **top** ou **limit** et aurait pour effet de retourner plus d’enregistrements qu’avec l’opérateur **First**, le nombre maximal d’enregistrements retournés est égal à celui obtenu avec l’opérateur **First**. De même, si les opérateurs **top** ou **limit** ont pour effet de retourner un nombre d’enregistrements inférieur à celui que retournerait l’opérateur **First**, le jeu d’enregistrements retourné est celui comprenant le plus petit nombre d’enregistrements retournés par les opérateurs **top** ou **limit**.
 
-L’opérateur **First** a actuellement une valeur maximale autorisée de _5000_, qu’il obtient en [paginant les résultats](#paging-results), à raison de _1000_ enregistrements à la fois.
-
-> [!IMPORTANT]
-> Lorsque l’opérateur **First** est configuré sur une valeur supérieure à _1000_ enregistrements, la requête doit **projeter** le champ **id** pour que la pagination fonctionne. Si ce champ ne figure pas dans la requête, la réponse n’est pas [paginée](#paging-results) et les résultats sont limités à _1000_ enregistrements.
+La valeur maximale autorisée de l’opérateur **First** est _1000_.
 
 ## <a name="skipping-records"></a>Omission d’enregistrements
 

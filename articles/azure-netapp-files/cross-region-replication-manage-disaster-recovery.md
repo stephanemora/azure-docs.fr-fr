@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 09/29/2021
 ms.author: b-juche
-ms.openlocfilehash: 5b1c1a5216b7a1ad5b23167e776f2b0bbb0a578f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4f1f766fbec4c9e09d1ebd5e982254cdcbd85403
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104590991"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273322"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Gérer la reprise d’activité à l’aide de la réplication inter-région 
 
@@ -59,7 +59,12 @@ Lorsque vous devez activer le volume de destination (par exemple lorsque vous so
 Après la reprise d’activité, vous pouvez réactiver le volume source en effectuant une opération de resynchronisation.  L’opération de resynchronisation inverse le processus de réplication et synchronise les données du volume de destination vers le volume source.  
 
 > [!IMPORTANT] 
-> L’opération de resynchronisation remplace les données du volume source par celles du volume de destination.  L’interface utilisateur vous avertit du risque de perte de données. Vous êtes invité à confirmer l’action de resynchronisation avant le démarrage de l’opération.
+> L’opération de resynchronisation synchronise les volumes source et de destination en mettant à jour de façon incrémentielle le volume source avec les dernières mises à jour à partir du volume de destination, en fonction des dernières captures instantanées courantes disponibles. Cette opération évite de devoir synchroniser l’ensemble du volume dans la plupart des cas, car seules les modifications apportées au volume de destination *après* la capture instantanée commune la plus récente vont devoir être répliquées sur le volume source.  
+> 
+> L’opération de resynchronisation remplace toutes les données plus récentes (par rapport à la capture instantanée commune la plus courante) du volume source par les données du volume de destination mises à jour. L’interface utilisateur vous avertit du risque de perte de données. Vous êtes invité à confirmer l’action de resynchronisation avant le démarrage de l’opération.  
+> 
+> Si le volume source n’a pas survécu à l’incident et qu’il n’existe donc aucune capture instantanée commune, toutes les données de la destination sont resynchronisées avec un volume source nouvellement créé.
+
 
 1. Pour resynchroniser la réplication, sélectionnez le volume *source*. Cliquez sur **Réplication** sous Service de stockage. Cliquez ensuite sur **Resynchroniser**.  
 

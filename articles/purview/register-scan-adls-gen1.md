@@ -4,15 +4,15 @@ description: Ce tutoriel explique comment analyser des données d’Azure Data L
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
-ms.openlocfilehash: 1c4801814e77efdb681f32ea35d4dfb68618900b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 09/27/2021
+ms.openlocfilehash: 093375e30fa9f9a3d6a558c5e230a8bc81a701ad
+ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532017"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129215773"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen1"></a>Inscrire et analyser Azure Data Lake Storage Gen1
 
@@ -62,16 +62,16 @@ Vous pouvez ajouter le MSI de Data Catalog au niveau de l’abonnement, du group
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez l’abonnement, le groupe de ressources ou la ressource (par exemple, un compte de stockage Azure Data Lake Storage Gen1) que le catalogue doit être autorisé à analyser.
 
-2. Cliquez sur **Vue d’ensemble** et sélectionnez **Explorateur de données**
+2. Sélectionnez **Vue d’ensemble**, puis **Explorateur de données**
 
    :::image type="content" source="./media/register-scan-adls-gen1/access-control.png" alt-text="Choisir le contrôle d’accès":::
 
-3. Cliquez sur **Accès** dans la barre de navigation supérieure
+3. Sélectionnez **Accès** dans la barre de navigation supérieure
 
-   :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Cliquez sur Accès":::
+   :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Sélectionnez Accès":::
 
-4. Cliquez sur **Ajouter**. Ajoutez **Purview Catalog** dans Sélectionner un utilisateur ou un groupe. Sélectionnez les autorisations **Lire** et **Exécuter**. Veillez à choisir **Ce dossier et tous ses enfants** et **Une entrée d’autorisation d’accès et une entrée d’autorisation par défaut** dans l’option Ajouter à, comme indiqué dans la capture d’écran ci-dessous. Cliquez sur **OK**
-   :::image type="content" source="./media/register-scan-adls-gen1/gen1-managed-service-identity-authentication.png" alt-text="Détails de l’authentification du MSI":::
+4. Sélectionnez **Ajouter**. Ajoutez **Purview Catalog** dans Sélectionner un utilisateur ou un groupe. Sélectionnez les autorisations **Lire** et **Exécuter**. Veillez à choisir **Ce dossier et tous ses enfants** et **Une entrée d’autorisation d’accès et une entrée d’autorisation par défaut** dans l’option Ajouter à, comme indiqué dans la capture d’écran ci-dessous. Sélectionnez **OK**
+   :::image type="content" source="./media/register-scan-adls-gen1/gen1-managed-service-identity-authentication.png" alt-text="Détails de l’authentification MSI":::
    
 > [!Tip]
 > Une **entrée d’autorisation d’accès** est une entrée d’autorisation sur les fichiers et les dossiers *actuels*.
@@ -118,16 +118,16 @@ Pour utiliser un principal de service, vous devez d’abord en créer un en proc
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez l’abonnement, le groupe de ressources ou la ressource (par exemple, un compte de stockage Azure Data Lake Storage Gen1) que le catalogue doit être autorisé à analyser.
 
-2. Cliquez sur **Vue d’ensemble** et sélectionnez **Explorateur de données**
+2. Sélectionnez **Vue d’ensemble**, puis **Explorateur de données**
 
    :::image type="content" source="./media/register-scan-adls-gen1/access-control.png" alt-text="Choisir le contrôle d’accès":::
 
-3. Cliquez sur **Accès** dans la barre de navigation supérieure
+3. Sélectionnez **Accès** dans la barre de navigation supérieure
 
-   :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Cliquez sur Accès":::
+   :::image type="content" source="./media/register-scan-adls-gen1/access.png" alt-text="Sélectionnez Accès":::
 
-4. Cliquez sur **Ajouter**. Ajoutez **Application du principal de service** dans Sélectionner un utilisateur ou un groupe. Sélectionnez les autorisations **Lire** et **Exécuter**. Veillez à choisir **Ce dossier et tous ses enfants** et **Une entrée d’autorisation d’accès et une entrée d’autorisation par défaut** dans l’option Ajouter à, comme indiqué dans la capture d’écran ci-dessous. Cliquez sur **OK**
-   :::image type="content" source="./media/register-scan-adls-gen1/gen1-service-principal-permissions.png" alt-text="détails de l’authentification du principal de service":::
+4. Sélectionnez **Ajouter**. Ajoutez **Application du principal de service** dans Sélectionner un utilisateur ou un groupe. Sélectionnez les autorisations **Lire** et **Exécuter**. Veillez à choisir **Ce dossier et tous ses enfants** et **Une entrée d’autorisation d’accès et une entrée d’autorisation par défaut** dans l’option Ajouter à, comme indiqué dans la capture d’écran ci-dessous. Sélectionnez **OK**
+   :::image type="content" source="./media/register-scan-adls-gen1/gen1-service-principal-permissions.png" alt-text="Détails de l’authentification du principal de service":::
 
 > [!Tip]
 > Une **entrée d’autorisation d’accès** est une entrée d’autorisation sur les fichiers et les dossiers *actuels*.
@@ -167,7 +167,7 @@ Dans l’écran Inscrire des sources (Azure Data Lake Storage Gen1), procédez c
 
 Pour créer une analyse et l’exécuter, procédez comme suit :
 
-1. Sélectionnez l’onglet **Data Map** dans le volet gauche de Purview Studio.
+1. Sélectionnez l’onglet **Data Map** dans le volet gauche de [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Sélectionnez la source Azure Data Lake Storage Gen1 que vous avez inscrite.
 

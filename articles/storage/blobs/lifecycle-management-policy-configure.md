@@ -10,12 +10,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 507077913a672da6f9572a283367c5713a9d5e39
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e940db4a16963b236fa5230893373da935532761
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128603502"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129273210"
 ---
 # <a name="configure-a-lifecycle-management-policy"></a>Configurer une stratégie de gestion de cycle de vie
 
@@ -220,4 +220,4 @@ Une stratégie de gestion de cycle de vie doit être lue ou écrite dans son int
 ## <a name="see-also"></a>Voir aussi
 
 - [Optimiser les coûts en gérant automatiquement le cycle de vie des données](lifecycle-management-overview.md)
-- [Niveaux d’accès pour Stockage Blob Azure : chaud, froid et archive](storage-blob-storage-tiers.md)
+- [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](access-tiers-overview.md)

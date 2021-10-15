@@ -1,14 +1,14 @@
 ---
 title: Installation de Defender pour IoT
 description: Découvrez comment installer un capteur et la console de gestion locale pour Azure Defender pour IoT.
-ms.date: 09/23/2021
+ms.date: 10/05/2021
 ms.topic: how-to
-ms.openlocfilehash: 88c8b75d7ba466a96559d265a16ddd8959b00a42
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a5b4beff2d01896082974bf761cb7544d439af9e
+ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128628707"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129537302"
 ---
 # <a name="defender-for-iot-installation"></a>Installation de Defender pour IoT
 
@@ -1363,7 +1363,7 @@ Pour tout autre problème, contactez [Support Microsoft](https://support.microso
 
 Un commutateur virtuel ne dispose pas de capacités de mise en miroir, mais vous pouvez utiliser une solution de contournement pour implémenter un port SPAN. Vous pouvez implémenter la solution de contournement avec ESXi ou Hyper-V.
 
-:::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="Capture d’écran de l’endroit où le capteur doit être placé dans votre architecture.":::
+:::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="Capture d’écran de l’emplacement du capteur dans votre architecture.":::
 
 ### <a name="configure-a-span-port-with-esxi"></a>Configurer un port SPAN avec ESXi
 
@@ -1397,7 +1397,7 @@ Un commutateur virtuel ne dispose pas de capacités de mise en miroir, mais vous
 
 Avant de commencer, vous devez :
 
-- Vérifier qu’aucune instance de ClearPass VA n’est en cours d’exécution.
+- Vérifier qu’aucune instance d’appliance virtuelle n’est en cours d’exécution.
 
 - Activer SPAN sur le port de données, et non sur le port de gestion.
 
@@ -1421,11 +1421,11 @@ Avant de commencer, vous devez :
 
 1. Sélectionnez **OK**.
 
-#### <a name="attach-a-clearpass-span-virtual-interface-to-the-virtual-switch"></a>Attacher une interface virtuelle ClearPass SPAN au commutateur virtuel
+#### <a name="attach-a-span-virtual-interface-to-the-virtual-switch"></a>Attacher une interface virtuelle SPAN au commutateur virtuel
 
-Vous pouvez attacher une interface virtuelle ClearPass SPAN au commutateur virtuel avec Windows PowerShell ou le gestionnaire Hyper-V.
+Vous pouvez attacher une interface virtuelle SPAN au commutateur virtuel via Windows PowerShell ou via le gestionnaire Hyper-V.
 
-**Pour attacher une interface virtuelle ClearPass SPAN au commutateur virtuel avec PowerShell** :
+**Pour attacher une interface virtuelle SPAN au commutateur virtuel avec PowerShell** :
 
 1. Sélectionnez le commutateur virtuel SPAN qui vient d’être ajouté, puis ajoutez une nouvelle carte réseau avec la commande suivante :
 
@@ -1449,7 +1449,7 @@ Vous pouvez attacher une interface virtuelle ClearPass SPAN au commutateur virtu
 
 Ces commandes définissent l’adaptateur qui vient d’être ajouté avec le nom `Monitor`. Si vous utilisez le gestionnaire Hyper-V, le matériel de l’adaptateur récemment ajouté est défini avec le nom `Network Adapter`.
 
-**Pour attacher une interface virtuelle ClearPass SPAN au commutateur virtuel avec le gestionnaire Hyper-V** :
+**Pour attacher une interface virtuelle SPAN au commutateur virtuel avec le gestionnaire Hyper-V** :
 
 1. Sous la liste du matériel, sélectionnez **Carte réseau**.
 

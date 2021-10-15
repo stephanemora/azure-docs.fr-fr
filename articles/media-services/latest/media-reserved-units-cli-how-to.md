@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b8dc092104f3371263719adbec16305afb87113c
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 2525417516691fa4ffb6d681fc23b394f4588649
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867380"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129364097"
 ---
 # <a name="how-to-scale-media-reserved-units-legacy"></a>Mise à l'échelle des unités réservées Multimédia (hérité)
 
@@ -22,7 +22,7 @@ ms.locfileid: "122867380"
 Cet article explique comment procéder à la mise à l'échelle des unités réservées Multimédia (MRU) afin d'accélérer l'encodage.
 
 > [!WARNING]
-> Cette commande ne fonctionne plus pour les comptes Media Services créés avec la version 2020-05-01 ou ultérieure de l’API. Pour ces comptes, les unités réservées Multimédia ne sont plus nécessaires, car le système effectue automatiquement un scale-up ou un scale-down en fonction de la charge. Si vous ne voyez pas l’option permettant de gérer les unités réservées Multimédia dans le portail Azure, cela signifie que vous utilisez un compte créé avec l’API 2020-05-01 ou une version ultérieure.
+> Cette commande ne fonctionne plus pour les comptes Media Services créés avec la version 2020-05-01 (ou ultérieure) de l’API. Pour ces comptes, les unités réservées Multimédia ne sont plus nécessaires, car le système effectue automatiquement un scale-up ou un scale-down en fonction de la charge. Si vous ne voyez pas l’option permettant de gérer les unités réservées Multimédia dans le portail Azure, cela signifie que vous utilisez un compte créé avec l’API 2020-05-01 ou une version ultérieure.
 > L’objectif de cet article est de documenter le processus hérité d’utilisation des MRU
 
 ## <a name="prerequisites"></a>Prérequis

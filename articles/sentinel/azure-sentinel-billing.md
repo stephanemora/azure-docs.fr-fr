@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.custom: subject-cost-optimization
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.openlocfilehash: 3e814541ecf43d8f9d12c028e8bebc8ac31fe411
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bd3ff870952701901f432660ec0069afa5151916
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433473"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129275351"
 ---
 # <a name="plan-and-manage-costs-for-azure-sentinel"></a>Planifier et gérer les coûts pour Azure Sentinel
 
@@ -321,7 +321,7 @@ Lors de la chasse ou de l’investigation des menaces dans Azure Sentinel, vous
 
 ### <a name="optimize-log-analytics-costs-with-dedicated-clusters"></a>Optimiser les coûts de Log Analytics à l’aide de clusters dédiés
 
-Si vous ingérez au moins 1 To/jour dans votre espace de travail Azure Sentinel ou dans des espaces de travail de la même région, envisagez de passer à un cluster dédié Log Analytics pour réduire les coûts. Un niveau d’engagement pour cluster dédié Log Analytics agrège les volumes de données des espaces de travail qui ingèrent collectivement un total de 1 To/jour ou plus.
+Si vous ingérez au moins 500 Go/jour dans votre espace de travail Azure Sentinel ou dans des espaces de travail de la même région, envisagez de passer à un cluster dédié Log Analytics pour réduire les coûts. Un niveau d’engagement pour cluster dédié Log Analytics agrège les volumes de données des espaces de travail qui ingèrent collectivement un total de 500 Go/jour ou plus.
 
 Les clusters dédiés Log Analytics ne s’appliquent pas aux niveaux d’engagement d’Azure Sentinel. Les coûts d’Azure Sentinel s’appliquent toujours par espace de travail dans le cluster dédié.
 
@@ -329,7 +329,7 @@ Vous pouvez ajouter plusieurs espaces de travail Azure Sentinel à un cluster d
 
 - Les requêtes interespaces de travail s’exécutent plus rapidement si tous les espaces de travail impliqués dans la requête se trouvent dans le cluster dédié. Il est toujours préférable d’avoir le moins d’espaces de travail possible dans votre environnement, et un cluster dédié conserve toujours la [limite de 100 espaces de travail](../azure-monitor/logs/cross-workspace-query.md) à inclure dans une seule requête interespace de travail.
 
-- Tous les espaces de travail du cluster dédié peuvent partager le niveau d’engagement Log Analytics défini sur le cluster. Le fait de ne pas avoir à s’engager sur des niveaux d’engagement Log Analytics distincts pour chaque espace de travail peut permettre de réaliser des économies et des gains d’efficacité. En activant un cluster dédié, vous vous engagez à un niveau d’engagement Log Analytics minimum de 1 To d’ingestion par jour.
+- Tous les espaces de travail du cluster dédié peuvent partager le niveau d’engagement Log Analytics défini sur le cluster. Le fait de ne pas avoir à s’engager sur des niveaux d’engagement Log Analytics distincts pour chaque espace de travail peut permettre de réaliser des économies et des gains d’efficacité. En activant un cluster dédié, vous vous engagez à un niveau d’engagement Log Analytics minimum de 500 Go d’ingestion par jour.
 
 Voici d’autres considérations à prendre en compte pour passer à un cluster dédié afin d’optimiser les coûts :
 

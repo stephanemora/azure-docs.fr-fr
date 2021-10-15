@@ -10,12 +10,12 @@ ms.date: 05/10/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1feb78c381a189ae2db1d2aa658f8d0782769f99
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2fa724f139881f7647468684f5ad97d80a80baf2
+ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664786"
+ms.lasthandoff: 09/29/2021
+ms.locfileid: "129274422"
 ---
 # <a name="blob-versioning"></a>Contrôle de version des objets blob
 
@@ -109,7 +109,7 @@ L’écriture de nouvelles données dans le blob crée une nouvelle version actu
 
 ### <a name="access-tiers"></a>Niveaux d’accès
 
-Vous pouvez déplacer n’importe quelle version d’un objet blob de blocs, y compris la version actuelle, vers un autre niveau d’accès en appelant l’opération [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Vous pouvez tirer parti d’une tarification de capacité inférieure en déplaçant les anciennes versions d’un objet blob vers le niveau de stockage froid ou le niveau de stockage archive. Pour plus d’informations, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md).
+Vous pouvez déplacer n’importe quelle version d’un objet blob de blocs, y compris la version actuelle, vers un autre niveau d’accès en appelant l’opération [Set Blob Tier](/rest/api/storageservices/set-blob-tier). Vous pouvez tirer parti d’une tarification de capacité inférieure en déplaçant les anciennes versions d’un objet blob vers le niveau de stockage froid ou le niveau de stockage archive. Pour plus d’informations, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](access-tiers-overview.md).
 
 Pour automatiser le processus de déplacement d’objets blob de blocs vers le niveau approprié, utilisez la gestion du cycle de vie des objets blob. Pour plus d’informations sur la gestion du cycle de vie, consultez [Gérer le cycle de vie du stockage d’objets blob Azure](./lifecycle-management-overview.md).
 
@@ -209,7 +209,7 @@ Le tableau suivant présente l’autorisation requise sur une SAP pour supprimer
 
 L’activation du contrôle de version des objets blob peut entraîner des frais de stockage de données supplémentaires pour votre compte. Lors de la conception de votre application, il est important de savoir comment ces frais peuvent s’accumuler pour pouvoir réduire les coûts.
 
-Les versions d’objets blob, comme celles des instantanés d’objets blob, sont facturées au même tarif que les données actives. La façon dont les versions sont facturées varie selon que vous avez défini explicitement le niveau pour l’objet blob de base ou pour l’une de ses versions (ou captures instantanées). Pour plus d’informations sur les niveaux d’accès, consultez [Stockage d’objets blob Azure : niveaux d’accès chaud, froid et archive](storage-blob-storage-tiers.md).
+Les versions d’objets blob, comme celles des instantanés d’objets blob, sont facturées au même tarif que les données actives. La façon dont les versions sont facturées varie selon que vous avez défini explicitement le niveau pour l’objet blob de base ou pour l’une de ses versions (ou captures instantanées). Pour plus d’informations sur les niveaux des objets blob, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](access-tiers-overview.md).
 
 Si vous n’avez pas modifié le niveau d’un objet blob ou d’une version, vous êtes facturé pour des blocs de données uniques sur cet objet blob, ses versions et ses éventuelles captures instantanées. Pour plus d’informations, consultez [Facturation quand le niveau d’objet blob n’a pas été défini explicitement](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 

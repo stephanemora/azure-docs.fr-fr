@@ -2,13 +2,13 @@
 title: Types de données dans Bicep
 description: Décrit les types de données disponibles dans Bicep
 ms.topic: conceptual
-ms.date: 09/22/2021
-ms.openlocfilehash: 936f17273a95ceb77030497b27f7f73defc37896
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/30/2021
+ms.openlocfilehash: e2dffac58c3fec1b6c29d2c5e1542c9fec7ec0e4
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624395"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129357937"
 ---
 # <a name="data-types-in-bicep"></a>Types de données dans Bicep
 
@@ -83,9 +83,7 @@ Les formats à virgule flottante, décimal et binaire ne sont pas pris en charge
 
 ## <a name="objects"></a>Objets
 
-Les objets commencent par une accolade ouvrante (`{`) et se terminent par une accolade fermante (`}`). Dans Bicep, un objet doit être déclaré dans plusieurs lignes. Chaque propriété d’un objet se compose d’une clé et d’une valeur. La clé et la valeur sont séparées par un signe deux-points (`:`). Un objet accepte toute propriété de n’importe quel type.
-
-Dans Bicep, la clé n’est pas entourée de guillemets. N’utilisez pas de virgules entre les propriétés.
+Les objets commencent par une accolade ouvrante (`{`) et se terminent par une accolade fermante (`}`). Dans Bicep, un objet doit être déclaré dans plusieurs lignes. Chaque propriété d’un objet se compose d’une clé et d’une valeur. La clé et la valeur sont séparées par un signe deux-points (`:`). Un objet accepte toute propriété de n’importe quel type. N’utilisez pas de virgules entre les propriétés.
 
 ```bicep
 param exampleObject object = {
@@ -93,6 +91,23 @@ param exampleObject object = {
   id: '123-abc'
   isCurrent: true
   tier: 1
+}
+```
+
+Dans Bicep, les guillemets sont autorisés de manière facultative sur les clés de propriété de l’objet :
+
+```bicep
+var test = {
+  'my - special. key': 'value'
+}
+```
+
+Dans l’exemple précédent, les guillemets sont utilisés lorsque les clés de propriété de l’objet contiennent des caractères spéciaux.  Par exemple, une espace, « - » ou « . ». L’exemple suivant montre comment utiliser l’interpolation dans les clés de propriété de l’objet.
+
+```bicep
+var stringVar = 'example value'
+var objectVar = {
+  '${stringVar}': 'this value'
 }
 ```
 

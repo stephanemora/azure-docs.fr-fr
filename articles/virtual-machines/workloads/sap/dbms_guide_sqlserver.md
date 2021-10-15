@@ -2,10 +2,8 @@
 title: Déploiement SGBD de machines virtuelles SQL Server Azure pour charge de travail SAP | Microsoft Docs
 description: Déploiement SGBD de machines virtuelles SQL Server Azure pour charge de travail SAP
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: msjuergent
 manager: bburns
-editor: ''
 tags: azure-resource-manager
 keywords: Azure, SQL Server, SAP, AlwaysOn
 ms.service: virtual-machines-sap
@@ -15,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 06/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66426b6e48c15882f884657fbf8e75f44e500eb8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: b9d44e718329c836b1e4fc63861f52cc37458a79
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467636"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352420"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -320,7 +318,7 @@ Ce document décrit les différents domaines à prendre en compte lors du déplo
 
 En général, vous devez penser à utiliser les versions de SQL Server les plus récentes pour exécuter une charge de travail SAP dans Azure IaaS. Les dernières versions de SQL Server offrent une meilleure intégration à certains des services et fonctionnalités Azure. Et elles comportent des modifications qui optimisent les opérations dans une infrastructure Azure IaaS.
 
-Avant de continuer, nous vous recommandons de consulter l’article [Qu’est-ce que SQL Server sur les machines virtuelles Azure (Windows) ?][https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview ]
+Avant de continuer, nous vous recommandons de consulter l’article [Qu’est-ce que SQL Server sur les machines virtuelles Azure (Windows) ?](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 Dans les sections suivantes, des parties de la documentation à laquelle le lien ci-dessus renvoie sont regroupées et mentionnées. Les particularités concernant SAP sont également indiquées et certains concepts décrits plus en détail. Cependant, nous vous recommandons vivement d’examiner la documentation ci-dessus avant de lire la documentation propre à SQL Server.
 
@@ -488,9 +486,9 @@ La mise en miroir de bases de données prise en charge par SAP (voir Note de SAP
 
 Pour les déploiements sur cloud uniquement, la méthode la plus simple consiste à configurer un autre domaine dans Azure, afin que les machines virtuelles SGBD (système de gestion de base de données), ainsi que les machines virtuelles SAP dédiées, dans l’idéal, se trouvent au sein d’un même domaine.
 
-Si cela n’est pas possible, vous pouvez recourir aux certificats associés aux points de terminaison de la mise en miroir de bases de données, comme indiqué ici : <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+Si vous ne pouvez pas utiliser de domaine, vous pouvez utiliser des certificats pour les points de terminaison de mise en miroir de bases de données, comme décrit ici : [Utiliser des certificats pour un point de terminaison de mise en miroir de bases de données (Transact-SQL)](/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql).
 
-Un tutoriel permettant de configurer la mise en miroir de bases de données dans Azure est disponible ici : <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
+Un tutoriel permettant de configurer la mise en miroir de bases de données dans Azure est disponible ici : [Mise en miroir de bases de données (SQL Server)](/sql/database-engine/database-mirroring/database-mirroring-sql-server).
 
 ### <a name="sql-server-always-on"></a>SQL Server AlwaysOn
 Étant donné que la fonction Always On est prise en charge pour les systèmes SAP locaux (voir la note SAP [1772688]), sa prise en charge est assurée avec SAP dans Azure. Certains éléments doivent être pris en compte pour le déploiement de l’écouteur de groupe de disponibilité SQL Server (à ne pas confondre avec le groupe à haute disponibilité Azure), car à ce stade Azure ne permet pas de créer un objet AD/DNS (il le permet toutefois localement). Par conséquent, certaines étapes d’installation différentes sont nécessaires pour surmonter le comportement spécifique d’Azure.

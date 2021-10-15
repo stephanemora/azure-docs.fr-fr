@@ -5,21 +5,25 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/02/2019
+ms.date: 10/04/2021
 ms.author: sngun
-ms.openlocfilehash: 91c433edd48c560f2938b50540d9a654e3eee2e7
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 6e9a03869fadf5dd6616755a44c12cefe40a5556
+ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123115905"
+ms.lasthandoff: 10/05/2021
+ms.locfileid: "129456021"
 ---
-# <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
+# <a name="connect-to-azure-cosmos-db-using-analytics-bi-and-data-integration-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse, de veille décisionnelle et d’intégration de données avec le pilote ODBC
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Le pilote ODBC Azure Cosmos DB vous permet de vous connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle comme SQL Server Integration Services, Power BI Desktop et Tableau, pour analyser et créer une représentation visuelle de vos données Azure Cosmos DB dans ces solutions.
+Le pilote ODBC Azure Cosmos DB vous permet de vous connecter à Azure Cosmos DB à l’aide d’outils tels que SQL Server Integration Services et Tableau pour analyser, déplacer, transformer et créer des visualisations de vos données Azure Cosmos DB dans ces solutions.
 
 Le pilote ODBC Azure Cosmos DB est conforme à ODBC 3.8 et prend en charge la syntaxe ANSI SQL-92. Le pilote offre de puissantes fonctionnalités pour vous aider à renormaliser les données dans Azure Cosmos DB. Grâce à ce pilote, vous pouvez représenter les données dans Azure Cosmos DB sous forme de tables et de vues. Il vous permet d’effectuer des opérations SQL dans des tables et des vues, notamment des regroupements par requêtes, des insertions, des mises à jour et des suppressions.
+
+> [!NOTE]
+> Si vous utilisez Power BI, consultez notre [documentation](powerbi-visualize.md) sur le connecteur natif.
+
 
 > [!NOTE]
 > La connexion à Azure Cosmos DB avec le pilote ODBC est actuellement prise en charge uniquement pour les comptes de l’API SQL Azure Cosmos DB.

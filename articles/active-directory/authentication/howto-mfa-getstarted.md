@@ -1,7 +1,6 @@
 ---
 title: Considérations relatives au déploiement d'Azure AD Multi-Factor Authentication
 description: Familiarisez-vous avec les considérations et la stratégie de déploiement pour une implémentation réussie d'Azure AD Multi-Factor Authentication
-services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
@@ -11,12 +10,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01044f9d03b911bfb6939023dfb4fd5d3b0a3cd3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 42ce13335c3bab4a853de5001760eca0d85fdf7b
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124773794"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129352635"
 ---
 # <a name="plan-an-azure-active-directory-multi-factor-authentication-deployment"></a>Planifier un déploiement de l’authentification multifacteur Azure Active Directory 
 
@@ -58,19 +57,19 @@ Pour en savoir plus sur la force et la sécurité de ces méthodes ainsi que sur
 - [Quelles sont les méthodes d’authentification et de vérification disponibles dans Azure Active Directory ?](concept-authentication-methods.md)
 - [Vidéo : Choisir les méthodes d’authentification appropriées pour garantir la sécurité de l’organisation](https://youtu.be/LB2yj4HSptc)
 
-Vous pouvez utiliser ce [script PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) pour analyser les configurations MFA des utilisateurs, et suggérer la méthode d’authentification MFA appropriée. 
+Vous pouvez utiliser ce [script PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) pour analyser les configurations d’authentification multifacteur des utilisateurs et suggérer la méthode d’authentification multifacteur appropriée. 
 
 Pour une flexibilité et une facilité d’utilisation optimales, utilisez l’application Microsoft Authenticator. Cette méthode d’authentification offre une expérience utilisateur optimale, ainsi que plusieurs modes (authentification sans mot de passe, notifications push MFA et codes OATH, notamment). L’application Microsoft Authenticator répond également aux [impératifs de l’Authenticator Assurance Level 2](../standards/nist-authenticator-assurance-level-2.md) du National Institute of Standards and Technology (NIST).
 
 Vous pouvez contrôler les méthodes d’authentification disponibles dans votre locataire. Ainsi, vous pouvez bloquer certaines méthodes moins sécurisées, par exemple l’envoi de SMS.
 
-| Méthode d'authentification | Gérer à partir de | Scoping |
+| Méthode d'authentification    | Gérer à partir de | Scoping |
 |-----------------------|-------------|---------|
 | Microsoft Authenticator (notification Push et connexion par téléphone sans mot de passe)    | Paramètres MFA ou
 Stratégie des méthodes d’authentification | La connexion par téléphone sans mot de passe à Authenticator peut être limitée à l’étendue des utilisateurs et des groupes |
 | Clé de sécurité FIDO2 | Stratégie des méthodes d’authentification | Peut être limitée à l’étendue des utilisateurs et des groupes |
 | Jetons OATH logiciels ou matériels | Paramètres d’authentification multifacteur |     |
-| Vérification par SMS | Paramètres d’authentification multifacteur | Gestion de la connexion par SMS pour l’authentification principale dans la stratégie d’authentification. La connexion par SMS peut être limitée à l’étendue des utilisateurs et des groupes. |
+| Vérification par SMS | Paramètres d’authentification multifacteur | Gestion de la connexion par SMS pour l’authentification principale dans la stratégie d’authentification.    La connexion par SMS peut être limitée à l’étendue des utilisateurs et des groupes. |
 | Les appels vocaux | Stratégie des méthodes d’authentification |       |
 
 
@@ -117,7 +116,7 @@ Les stratégies basées sur les risques comprennent les contrôles suivants :
 
 Si vos utilisateurs ont été activés à l'aide d'une authentification Azure AD MFA appliquée par Azure ou reposant sur l'utilisateur, la commande PowerShell suivante peut vous aider à passer à une authentification Azure AD MFA basée sur l'accès conditionnel.
 
-Exécutez ce script PowerShell dans une fenêtre ISE ou enregistrez-le en tant que fichier `.PS1` à exécuter localement. L’opération peut uniquement être effectuée à l’aide du [module MSOnline](/powershell/module/msonline/?view=azureadps-1.0#msonline). 
+Exécutez ce script PowerShell dans une fenêtre ISE ou enregistrez-le en tant que fichier `.PS1` à exécuter localement. L’opération peut uniquement être effectuée à l’aide du [module MSOnline](/powershell/module/msonline#msonline). 
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -151,7 +150,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## <a name="plan-user-session-lifetime"></a>Planifier la durée de vie des sessions utilisateur
 
-Durant la planification de votre déploiement de MFA, il est important de réfléchir à la fréquence à laquelle vous souhaitez solliciter l’authentification des utilisateurs. Demander aux utilisateurs d’entrer des informations d’identification semble souvent être une chose à faire, mais cela peut avoir l’effet inverse. Si les utilisateurs sont formés pour entrer leurs informations d’identification sans les penser, ils peuvent les fournir involontairement à une invite d’informations d’identification malveillante.
+Lorsque vous planifiez votre déploiement d’authentification multifacteur, il est important de réfléchir à la fréquence à laquelle vous souhaitez solliciter l’authentification des utilisateurs. Demander aux utilisateurs d’entrer des informations d’identification semble souvent être une chose à faire, mais cela peut avoir l’effet inverse. Si les utilisateurs sont formés pour entrer leurs informations d’identification sans les penser, ils peuvent les fournir involontairement à une invite d’informations d’identification malveillante.
 Azure AD a plusieurs paramètres qui déterminent la fréquence à laquelle vous devez vous réauthentifier. Déterminez les besoins de votre entreprise et de vos utilisateurs, puis configurez les paramètres qui offrent le meilleur compromis pour votre environnement.
 
 Nous recommandons l’utilisation d’appareils avec des jetons d’actualisation PRT (Primary Refresh Tokens) permettant d’améliorer l’expérience de l’utilisateur final et de réduire la durée de vie de la session avec une stratégie de fréquence de connexion, uniquement pour les cas d’usage métier spécifiques.
@@ -170,7 +169,7 @@ Azure AD Identity Protection fournit à la fois une stratégie d’inscription 
 Si vous utilisez Azure AD Identity Protection, [configurez la stratégie d’inscription Azure AD MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md) pour inviter les utilisateurs à s’inscrire la prochaine fois qu’ils se connecteront de manière interactive.
 
 ### <a name="registration-without-identity-protection"></a>Inscription sans Identity Protection
-Si vous ne disposez pas de licences permettant d’activer Azure AD Identity Protection, les utilisateurs sont invités à s’inscrire la prochaine fois que l’authentification MFA est nécessaire au moment de la connexion. Pour imposer l’authentification MFA aux utilisateurs, vous pouvez utiliser des stratégies d’accès conditionnel et cibler les applications fréquemment utilisées, par exemple les systèmes de gestion RH. Si le mot de passe d’un utilisateur est compromis, il peut servir à s’inscrire à l’authentification MFA pour prendre le contrôle de son compte. Nous vous recommandons donc de [sécuriser le processus d’inscription avec des stratégies d’accès conditionnel](../conditional-access/howto-conditional-access-policy-registration.md) nécessitant des appareils et des emplacements approuvés. Vous pouvez renforcer la sécurisation du processus en imposant également un [passe d’accès temporaire](howto-authentication-temporary-access-pass.md). Il s’agit d’un code secret à durée limitée émis par un administrateur, qui répond aux impératifs de l’authentification forte et qui peut être utilisé pour intégrer d’autres méthodes d’authentification, notamment les méthodes d’authentification sans mot de passe.
+Si vous ne disposez pas de licences permettant d’activer Azure AD Identity Protection, les utilisateurs sont invités à s’inscrire la prochaine fois que l’authentification multifacteur est requise au moment de la connexion. Pour imposer l’authentification MFA aux utilisateurs, vous pouvez utiliser des stratégies d’accès conditionnel et cibler les applications fréquemment utilisées, par exemple les systèmes de gestion RH. Si le mot de passe d’un utilisateur est compromis, une personne peut s’en servir pour s’inscrire à l’authentification multifacteur et prendre le contrôle du compte. Nous vous recommandons donc de [sécuriser le processus d’inscription avec des stratégies d’accès conditionnel](../conditional-access/howto-conditional-access-policy-registration.md) nécessitant des appareils et des emplacements approuvés. Vous pouvez renforcer la sécurisation du processus en imposant également un [passe d’accès temporaire](howto-authentication-temporary-access-pass.md). Il s’agit d’un code secret à durée limitée émis par un administrateur, qui répond aux impératifs de l’authentification forte et qui peut être utilisé pour intégrer d’autres méthodes d’authentification, notamment les méthodes d’authentification sans mot de passe.
 
 ### <a name="increase-the-security-of-registered-users"></a>Augmenter la sécurité des utilisateurs inscrits
 Si des utilisateurs sont inscrits à l’authentification MFA basée sur des SMS ou des appels vocaux, vous pouvez les déplacer vers des méthodes plus sécurisées, par exemple l’application Microsoft Authenticator. Microsoft propose désormais une préversion publique des fonctionnalités qui vous permettent d’inviter les utilisateurs à configurer l’application Microsoft Authenticator durant la connexion. Vous pouvez définir ces invites par groupe, en contrôlant les personnes invitées, et en activant des campagnes ciblées pour déplacer les utilisateurs vers la méthode la plus sécurisée. 

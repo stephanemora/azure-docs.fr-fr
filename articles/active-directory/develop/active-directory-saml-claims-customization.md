@@ -13,12 +13,12 @@ ms.date: 07/20/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f7d3b52f5f2cac470c8833a22a67f2324f7be705
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 77d564cb54910391b0a0eb9f2492bfa74a044512
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033859"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619025"
 ---
 # <a name="customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -58,8 +58,9 @@ Dans le menu déroulant **Choisir le format du nom de l’identificateur**, vous
 |---------------|-------------|
 | **Par défaut** | Plateforme d’identités Microsoft utilise le format source par défaut. |
 | **Persistent** | Plateforme d’identités Microsoft utilise Persistent comme format de NameID. |
-| **EmailAddress** | Plateforme d’identités Microsoft utilise EmailAddress comme format de NameID. |
+| **Adresse e-mail** | Plateforme d’identités Microsoft utilise EmailAddress comme format de NameID. |
 | **Unspecified** | Plateforme d’identités Microsoft utilise Unspecified comme format de NameID. |
+|**Nom de domaine complet Windows**| Plateforme d’identités Microsoft utilise le format WindowsDomainQualifiedName.|
 
 Un élément NameID temporaire est également pris en charge, mais il n’est pas disponible dans la liste déroulante et ne peut pas être configuré côté Azure. Pour en savoir plus sur l’attribut NameIDPolicy, consultez [Protocole SAML d’authentification unique](single-sign-on-saml-protocol.md).
 

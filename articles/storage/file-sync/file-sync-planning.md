@@ -8,12 +8,12 @@ ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 741f20a19c4bfe842ed2c14cee51c1ae19c1d9da
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: c4429e0410fb9511d511ce5841876d5fbca173f5
+ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123258475"
+ms.lasthandoff: 10/02/2021
+ms.locfileid: "129388093"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 
@@ -209,7 +209,9 @@ Nous allons utiliser un exemple pour illustrer comment estimer la quantité d’
 Dans ce cas, Azure File Sync aura besoin d’environ 209,5 millions de Kio (209,5 Gio) d’espace pour cet espace de noms. Ajoutez cette valeur à tout espace libre supplémentaire souhaité pour déterminer la quantité d’espace libre nécessaire pour ce disque.
 
 ### <a name="failover-clustering"></a>Clustering de basculement
-Le clustering de basculement Windows Server est pris en charge par Azure File Sync pour l’option de déploiement « Serveur de fichiers pour une utilisation générale ». Le clustering de basculement n’est pas pris en charge sur le « serveur de fichiers avec montée en puissance parallèle pour les données d’application » (SOFS) ou sur les volumes partagés de cluster (CSV).
+1. Le clustering de basculement Windows Server est pris en charge par Azure File Sync pour l’option de déploiement « Serveur de fichiers pour une utilisation générale ». 
+2. Le seul scénario pris en charge par Azure File Sync est le scénario Cluster de basculement Windows Server avec disques en cluster
+3. Le clustering de basculement n’est pas pris en charge sur « Serveur de fichiers avec montée en puissance parallèle pour les données d’application » (SOFS), sur les volumes partagés de cluster (CSV) ni sur les disques locaux.
 
 > [!Note]  
 > L’agent Azure File Sync doit être installé sur chaque nœud d’un cluster de basculement pour que la synchronisation fonctionne correctement.

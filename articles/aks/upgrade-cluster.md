@@ -4,12 +4,12 @@ description: Découvrez comment mettre à niveau un cluster Azure Kubernetes ser
 services: container-service
 ms.topic: article
 ms.date: 12/17/2020
-ms.openlocfilehash: 9dcbe21ccddb13037cbd7633127880320da9ff2b
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 0f4e364cd3de9093b84e3ae02c4337361985959a
+ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532941"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129350979"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Pour en savoir plus sur les clusters AKS utilisant plusieurs pools de nœuds ou 
 Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.65 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 > [!WARNING]
-> Une mise à niveau de cluster AKS déclenche une isolation et un drainage de vos nœuds. Si vous n’avez qu’un quota de calcul faible, la mise à niveau peut échouer. Pour plus d’informations, consultez [Augmenter les quotas](../azure-portal/supportability/resource-manager-core-quotas-request.md).
+> Une mise à niveau de cluster AKS déclenche une isolation et un drainage de vos nœuds. Si vous n’avez qu’un quota de calcul faible, la mise à niveau peut échouer. Pour plus d’informations, consultez [Augmenter les quotas](../azure-portal/supportability/regional-quota-requests.md).
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Recherchez les mises à niveau du cluster AKS disponibles
 
@@ -149,7 +149,7 @@ Inscrivez l’indicateur de fonctionnalité `AutoUpgradePreview` à l’aide de 
 az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
 ```
 
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vérifiez l’état de l’inscription à l’aide de la commande [az feature list][az-feature-list] :
+Quelques minutes peuvent être nécessaires pour que l'état affiche *Inscrit*. Attendez que l'inscription se termine. Vérifiez l’état de l’inscription à l’aide de la commande [az feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
@@ -176,6 +176,13 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 ## <a name="using-cluster-auto-upgrade-with-planned-maintenance"></a>Utilisation de la mise à niveau automatique de cluster avec la maintenance planifiée
 
 Si vous utilisez la maintenance planifiée et la mise à niveau automatique, votre mise à niveau démarre pendant la fenêtre de maintenance spécifiée. Pour plus d’informations sur la maintenance planifiée, consultez [Utiliser la maintenance planifiée pour planifier les fenêtres de maintenance de votre cluster Azure Kubernetes service (AKS) (préversion)][planned-maintenance].
+
+## <a name="special-considerations-for-node-pools-that-span-multiple-availability-zones"></a>Considérations spéciales pour les pools de nœuds qui s’étendent sur plusieurs zones de disponibilité
+
+AKS utilise l’équilibrage de zone best-effort dans les groupes de nœuds. Pendant une surtension de mise à niveau, les zones des nœuds de surtension dans VMSS sont inconnues à l’avance. Cela peut entraîner temporairement une configuration de zone déséquilibrée pendant une mise à niveau. Toutefois, AKS supprime les nœuds de surtension une fois la mise à niveau terminée et préserve l’équilibre d’origine des zones. Si vous souhaitez que vos zones restent équilibrées pendant la mise à niveau, augmentez le nombre de nœuds à un multiple de 3. VMSS équilibrera ensuite vos nœuds entre les zones de disponibilité avec un équilibrage de zone best-effort.
+
+Si des PVC sont soutenues par des disques LRS Azure, elles seront liées à une zone particulière et risquent de ne pas être récupérées immédiatement si le nœud de surtension ne correspond pas à la zone de la PVC. Cela peut entraîner un temps d’arrêt sur votre application lorsque l’opération de mise à niveau continue à drainer les nœuds, mais que les PV sont liés à une zone. Pour gérer ce cas et maintenir la haute disponibilité, configurez un [budget de perturbation des pods](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) sur votre application. Cela permet à Kubernetes de respecter vos exigences en matière de disponibilité pendant l’opération de drainage de la mise à niveau. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
