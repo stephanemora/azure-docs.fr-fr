@@ -74,6 +74,10 @@
       href: concept-service-internals.md
     - name: Vue d’ensemble du protocole client
       href: concept-client-protocols.md
+    - name: Haute disponibilité
+      items:
+        - name: Résilience et reprise d’activité après sinistre
+          href: concept-disaster-recovery.md
     - name: Considérations relatives aux performances
       href: concept-performance.md
     - name: Modèle de facturation

@@ -1,8 +1,9 @@
 ### YamlMime:Landing
-title: Documentation Azure Cost Management + Facturation
+title: Documentation Cost Management + Billing
 summary: Cost Management + Billing vous aide à comprendre votre facture Azure, à gérer vos abonnements et votre compte de facturation, à surveiller et à maîtriser les dépenses Azure et à optimiser l’utilisation des ressources. Découvrez comment analyser les coûts, créer et gérer des budgets, exporter des données et consulter des recommandations et agir en fonction.
 metadata:
   title: Cost Management + facturation
+  titleSuffix: Azure Cost Management + Billing documentation
   description: Cost Management + Billing vous aide à comprendre votre facture Azure, à gérer vos abonnements et votre compte de facturation, à surveiller et à maîtriser les dépenses Azure et à optimiser l’utilisation des ressources. Découvrez comment analyser les coûts, créer et gérer des budgets, exporter des données et consulter des recommandations et agir en fonction.
   ms.service: cost-management-billing
   ms.subservice: common
@@ -10,13 +11,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 10/07/2021
-  ms.openlocfilehash: 4dab44a6129c2e6bb6d810ec820cfb459ddb89df
-  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.date: 10/13/2021
+  ms.openlocfilehash: 50e8782d70e2c8d783c8079e7bd3fb48fcf9bb94
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/09/2021
-  ms.locfileid: "129711262"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "130000382"
 landingContent:
 - title: Analyser vos coûts
   linkLists:

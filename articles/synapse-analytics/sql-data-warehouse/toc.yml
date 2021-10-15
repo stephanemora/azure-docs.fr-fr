@@ -106,7 +106,7 @@
               href: ../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
         - name: Authentification
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sql-data-warehouse-authentication.md
             - name: Azure Active Directory
               href: ../../azure-sql/database/authentication-aad-overview.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json
@@ -140,7 +140,7 @@
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
     - name: Développement
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-data-warehouse-overview-develop.md
         - name: Meilleures pratiques
           href: ../sql/best-practices-dedicated-sql-pool.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
@@ -344,6 +344,8 @@
           href: sql-data-warehouse-how-to-configure-workload-importance.md
         - name: Convertir les classes de ressources en groupes de charges de travail
           href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
+        - name: Résolution des problèmes d’une classification manquée
+          href: sql-data-warehouse-how-to-troubleshoot-missed-classification.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
     - name: Gestion et surveillance
       items:
         - name: Mettre à niveau vers la 2e génération
@@ -429,7 +431,7 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-sqldw/'
     - name: Support
       href: sql-data-warehouse-get-started-create-support-ticket.md
-    - name: Videos
+    - name: Vidéos
       href: sql-data-warehouse-videos.md
     - name: Partenaires
       items:

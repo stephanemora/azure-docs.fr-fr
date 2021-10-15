@@ -205,8 +205,6 @@
         - name: Stratégie d’informations d’identification de mot de passe du propriétaire de ressource
           href: add-ropc-policy.md
           displayName: ROPC
-        - name: Configurer une stratégie de réinitialisation de mot de passe en libre-service (déprécié)
-          href: user-flow-self-service-password-reset.md
         - name: Inscription et connexion par téléphone
           href: phone-authentication-user-flows.md
     - name: Fournisseurs d’identité

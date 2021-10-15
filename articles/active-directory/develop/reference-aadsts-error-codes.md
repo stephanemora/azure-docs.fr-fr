@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/28/2021
+ms.date: 10/11/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8492b35fae2d2c2d716330002d5f889ec693f8c5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 55a640be9eacf2feaf3852cf14f3181b924373b6
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129353369"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856695"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -27,6 +27,11 @@ Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le 
 > Ces informations sont provisoires et peuvent être modifiées. Vous avez une question ou vous ne trouvez pas ce que vous recherchez ? Créez un problème GitHub ou consultez [Options d’aide et de support pour les développeurs](./developer-support-help-options.md) pour en savoir plus sur les autres méthodes vous permettant d’obtenir de l’aide et un support.
 >
 > Cette documentation fournit des conseils aux développeurs et aux administrateurs ; elle ne doit jamais être utilisée par le client lui-même. Les codes d’erreur sont susceptibles d’être modifié à tout moment afin de fournir des messages d’erreur plus granulaires destinés à aider les développeurs lors de la création de leur application. Les applications qui dépendent des numéros de code d’erreur ou de texte seront endommagées au fil du temps.
+
+## <a name="lookup-current-error-code-information"></a>Rechercher les informations actuelles sur les codes d’erreur
+Les codes d’erreur et les messages sont susceptibles d’être modifiés.  Pour obtenir les informations les plus récentes, consultez la page [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) pour trouver les descriptions des erreurs AADSTS, des correctifs et des solutions suggérées.  
+
+Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectuez une recherche dans [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) sur « 50058 ».  Vous pouvez également établir un lien direct à une erreur spécifique en ajoutant le numéro de code d’erreur à l’URL : [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058).
 
 ## <a name="handling-error-codes-in-your-application"></a>Gestion des codes d’erreur dans votre application
 
@@ -70,11 +75,6 @@ Le champ `error` a plusieurs valeurs possibles : consultez les liens de documen
 | `invalid_resource` | La ressource cible n’est pas valide car elle n’existe pas, Azure AD ne la trouve pas ou elle n’est pas configurée correctement. | Cela indique que la ressource, si elle existe, n’a pas été configurée dans le client. L’application peut proposer à l’utilisateur des instructions pour installer l’application et l’ajouter à Azure AD.  Dans le cadre du développement, cela indique généralement qu’un locataire de test est mal configuré ou que le nom de l’étendue demandée contient une faute de frappe. |
 | `interaction_required` | La demande nécessite une interaction utilisateur. Par exemple, une étape d’authentification supplémentaire est nécessaire. | Relancez la demande avec la même ressource, mais de manière interactive, afin que l’utilisateur puisse effectuer les vérifications demandées.  |
 | `temporarily_unavailable` | Le serveur est temporairement trop occupé pour traiter la demande. | Relancez la requête. L’application cliente peut expliquer à l’utilisateur que sa réponse est reportée en raison d’une condition temporaire. |
-
-## <a name="lookup-current-error-code-information"></a>Rechercher les informations actuelles sur les codes d’erreur
-Les codes d’erreur et les messages sont susceptibles d’être modifiés.  Pour obtenir les informations les plus récentes, consultez la page [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) pour trouver les descriptions des erreurs AADSTS, des correctifs et des solutions suggérées.  
-
-Par exemple, si vous avez reçu le code d’erreur « AADSTS50058 », effectuez une recherche dans [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) sur « 50058 ».  Vous pouvez également établir un lien direct à une erreur spécifique en ajoutant le numéro de code d’erreur à l’URL : [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058).
 
 ## <a name="aadsts-error-codes"></a>Codes d’erreur AADSTS
 

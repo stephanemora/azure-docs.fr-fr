@@ -143,7 +143,7 @@
           href: app/data-retention-privacy.md
     - name: Alertes
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: alerts/alerts-overview.md
         - name: Alertes de métrique
           href: alerts/alerts-metric-overview.md
@@ -387,7 +387,7 @@
               href: app/automate-with-logic-apps.md
     - name: Agents
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: agents/agents-overview.md
         - name: Questions fréquentes (FAQ)
           href: /azure/azure-monitor/faq#agents
@@ -413,7 +413,7 @@
               href: /azure/azure-monitor/faq#azure-monitor-agent
         - name: Agent Log Analytics
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: agents/log-analytics-agent.md
             - name: Agents Windows
               href: agents/agent-windows.md
@@ -703,7 +703,7 @@
               href: app/nodejs.md
             - name: Python
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   displayname: 'python, Python, OpenCenus, OpenTelemetry, py'
                   href: app/opencensus-python.md
                 - name: Les dépendances
@@ -902,7 +902,7 @@
               href: app/profiler-troubleshooting.md
         - name: Débogueur de capture instantanée
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               displayname: 'snapshot, debug, debugger, snapshot debugger, snapshotdebugger'
               href: app/snapshot-debugger.md
             - name: Activer le débogueur de capture instantanée pour App Service
@@ -1061,7 +1061,7 @@
           href: vm/vminsights-configure-workspace.md
         - name: Installer des agents
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: vm/vminsights-enable-overview.md
             - name: Portail Azure
               href: vm/vminsights-enable-portal.md
@@ -1202,7 +1202,7 @@
             - name: Vue d’ensemble
               href: insights/sql-insights-overview.md
             - name: Questions fréquentes (FAQ)
-              href: /azure/azure-monitor/faq#sql-insights-preview
+              href: /azure/azure-monitor/faq#sql-insights-(preview)
             - name: Activer
               href: insights/sql-insights-enable.md
             - name: Alertes
@@ -1273,7 +1273,7 @@
                   href: insights/alert-management-solution.md
     - name: Workbooks
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           displayname: Workbooks
           href: visualize/workbooks-overview.md
         - name: Visualisations
