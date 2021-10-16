@@ -211,9 +211,9 @@
             - name: Magasin des requêtes
               href: concepts-query-store.md
               displayName: 'performance, query store'
-            - name: Analyse des performances des requêtes
+            - name: Query Performance Insight
               href: concepts-query-performance-insight.md
-              displayName: query performance insights
+              displayName: Query Performance Insight
             - name: Recommandations en matière de performances
               href: concepts-performance-recommendations.md
               displayName: recommendation
@@ -478,7 +478,7 @@
               href: flexible-server/concepts-slow-query-logs.md
             - name: Journaux d’audit
               href: flexible-server/concepts-audit-logs.md
-            - name: Classeurs
+            - name: Workbooks
               href: flexible-server/concepts-workbooks.md
         - name: Réplication
           items:

@@ -987,7 +987,7 @@
     - name: Vue d’ensemble
       displayName: 'managed disks, introduction to managed disks'
       href: managed-disks-overview.md
-    - name: Sélectionner un type de disque pour les machines virtuelles IaaS
+    - name: Types de disque
       href: disks-types.md
     - name: Options de redondance de disque
       href: disks-redundancy.md

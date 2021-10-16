@@ -132,8 +132,8 @@ items:
             items:
               - name: Vue d’ensemble
                 href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-              - name: Niveaux de performances
-                href: storage-blob-performance-tiers.md
+              - name: Niveau de performance Premium
+                href: storage-blob-block-blob-premium.md
           - name: Autorisation
             items:
               - name: Autorisation des opérations de données

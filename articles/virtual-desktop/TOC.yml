@@ -220,8 +220,6 @@
   items:
     - name: 'Vue d’ensemble du dépannage, commentaires et support'
       href: troubleshoot-set-up-overview.md
-    - name: Identifier et diagnostiquer les problèmes
-      href: diagnostics-role-service.md
     - name: Fonctionnalité de démarrage
       href: troubleshoot-getting-started.md
     - name: Création d’un pool d’hôtes

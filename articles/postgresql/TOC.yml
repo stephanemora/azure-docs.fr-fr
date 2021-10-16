@@ -630,12 +630,17 @@
           items:
             - name: Partitionner des données sur des nœuds worker
               href: tutorial-hyperscale-shard.md
-        - name: Concevoir une base de données multilocataire
-          href: tutorial-design-database-hyperscale-multi-tenant.md
-          displayName: 'hyperscale, tutorial, multi-tenant'
-        - name: Concevoir un tableau de bord en temps réel
-          href: tutorial-design-database-hyperscale-realtime.md
-          displayName: 'hyperscale, tutorial, real-time'
+            - name: Concevoir une base de données multilocataire
+              href: tutorial-design-database-hyperscale-multi-tenant.md
+              displayName: 'hyperscale, tutorial, multi-tenant'
+            - name: Concevoir un tableau de bord en temps réel
+              href: tutorial-design-database-hyperscale-realtime.md
+              displayName: 'hyperscale, tutorial, real-time'
+        - name: Administrer
+          items:
+            - name: Accès privé
+              href: tutorial-hyperscale-private-access.md
+              displayName: 'hyperscale, tutorial, private'
     - name: Concepts
       items:
         - name: Niveau de base
@@ -651,11 +656,16 @@
               href: concepts-hyperscale-choose-distribution-column.md
             - name: Colocalisation de table
               href: concepts-hyperscale-colocation.md
-        - name: Sécurité
+        - name: Accès aux données et sécurité
           items:
-            - name: Règles de pare-feu
+            - name: Vue d’ensemble
+              href: concepts-hyperscale-security-overview.md
+            - name: Accès public
               href: concepts-hyperscale-firewall-rules.md
               displayName: 'firewall, rules, hyperscale'
+            - name: Accès privé
+              href: concepts-hyperscale-private-access.md
+              displayName: 'private, link, hyperscale'
             - name: Configuration du chiffrement SSL
               href: concepts-hyperscale-ssl-connection-security.md
               displayName: 'hyperscale, ssl'
@@ -702,11 +712,18 @@
               href: howto-hyperscale-scale-grow.md
             - name: Rééquilibrer des partitions
               href: howto-hyperscale-scale-rebalance.md
-        - name: Règles de pare-feu
+        - name: Accès aux données et sécurité
           items:
-            - name: Portail Azure
-              href: howto-hyperscale-manage-firewall-using-portal.md
-              displayName: 'firewall rule, hyperscale'
+            - name: Accès public
+              items:
+                - name: Portail Azure
+                  href: howto-hyperscale-manage-firewall-using-portal.md
+                  displayName: 'firewall rule, hyperscale'
+            - name: Accès privé
+              items:
+                - name: Portail Azure
+                  href: howto-hyperscale-private-access.md
+                  displayName: 'network, private link'
         - name: Créer des utilisateurs
           href: howto-hyperscale-create-users.md
         - name: Données distribuées
