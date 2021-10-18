@@ -10,12 +10,12 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf0a84d97a291850b6e89164befce8e4da2308b3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a9a7c822d6a88d9108a3d933ac3b8321eb856f05
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477669"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855400"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Créer et gérer un instantané blob dans .NET
 
@@ -32,7 +32,7 @@ Pour créer un instantané d’un objet blob de blocs à l’aide de la version�
 - [CreateSnapshot](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshot)
 - [CreateSnapshotAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.createsnapshotasync)
 
-L’exemple de code suivant montre comment créer un instantané avec la version 12.x. Incluez une référence à la bibliothèque [Azure.Identity](https://www.nuget.org/packages/azure.identity) pour utiliser vos informations d’identification Azure AD pour autoriser les requêtes au service.
+L’exemple de code suivant montre comment créer un instantané avec la version 12.x. Incluez une référence à la bibliothèque [Azure.Identity](https://www.nuget.org/packages/azure.identity) pour utiliser vos informations d’identification Azure AD pour autoriser les requêtes au service. Pour plus d’informations sur l’utilisation de la classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) pour autoriser une identité managée à accéder au Stockage Azure, consultez [Bibliothèque de client d’identité Azure pour .NET](/dotnet/api/overview/azure/identity-readme).
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(string accountName, string containerName, string blobName, Stream data)

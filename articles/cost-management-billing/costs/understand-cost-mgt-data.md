@@ -1,24 +1,24 @@
 ---
 title: Présentation des données d’Azure Cost Management
-description: Cet article vous aide à mieux comprendre les données incluses dans Azure Cost Management et la fréquence à laquelle elles sont traitées, collectées, affichées et fermées.
+description: Cet article vous aide à mieux comprendre les données ajoutées dans Azure Cost Management, et la fréquence à laquelle elles sont traitées, collectées, affichées et fermées.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/24/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 025208685d45658824956b5625993a5dfdbf5e6a
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0e67812e07229ee8dc13bcd79fc6d546a2618009
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110467530"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711318"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
-Cet article vise à détailler les informations sur l’utilisation et les coûts incluses dans Azure Cost Management. Il indique la fréquence à laquelle les données sont traitées, collectées, affichées et fermées. L’utilisation d’Azure vous est facturée tous les mois. Bien que les cycles de facturation soient mensuels, les dates de début et de fin d’un cycle varient selon le type d’abonnement. La fréquence à laquelle Cost Management reçoit les données d’utilisation varie selon différents facteurs. Ces facteurs comprennent le temps nécessaire pour traiter les données et la fréquence à laquelle les services Azure envoient les données d’utilisation au système de facturation.
+Cet article vous aide à mieux comprendre les données d’utilisation et de coût Azure ajoutées dans Azure Cost Management. Il indique la fréquence à laquelle les données sont traitées, collectées, affichées et fermées. L’utilisation d’Azure vous est facturée tous les mois. Bien que les cycles de facturation soient mensuels, les dates de début et de fin d’un cycle varient selon le type d’abonnement. La fréquence à laquelle Cost Management reçoit les données d’utilisation varie selon différents facteurs. Ces facteurs comprennent le temps nécessaire pour traiter les données et la fréquence à laquelle les services Azure envoient les données d’utilisation au système de facturation.
 
 Azure Cost Management inclut toutes les informations sur les activités et achats, y compris les réservations et les offres tierces associées aux comptes des Contrats entreprise. Les comptes des Contrats client Microsoft et les abonnements individuels avec des taux de paiement à l’utilisation portent uniquement sur l’utilisation des services de Place de marché et Azure. Les coûts du support et les autres coûts ne sont pas inclus. Les coûts font l’objet d’une estimation tant qu’aucune facture n’a été générée et ne tiennent pas compte des crédits.
 
@@ -26,7 +26,7 @@ Si vous disposez d’un nouvel abonnement, vous ne pouvez pas utiliser les fonct
 
 ## <a name="supported-microsoft-azure-offers"></a>Offres Microsoft Azure prises en charge
 
-Les informations suivantes présentent les [offres Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) actuellement prises en charge dans Azure Cost Management. Une offre Azure correspond au type d’abonnement Azure que vous avez. Les données sont disponibles dans Cost Management à compter de la date indiquée dans **Données disponibles à partir de/du**. Si les offres d’un abonnement changent, les coûts avant la date de modification de l’offre ne sont pas disponibles.
+Les informations suivantes présentent les [offres Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) actuellement prises en charge dans Cost Management. Une offre Azure correspond au type d’abonnement Azure que vous avez. Les données sont disponibles dans Cost Management à compter de la date indiquée dans **Données disponibles à partir de/du**. Si les offres d’un abonnement changent, les coûts avant la date de modification de l’offre ne sont pas disponibles.
 
 | **Catégorie**  | **Nom de l’offre** | **ID du quota** | **Numéro de l’offre** | **Données disponibles à partir de/du** |
 | --- | --- | --- | --- | --- |
@@ -105,7 +105,7 @@ _<sup>**6**</sup> Les achats de réservation sont uniquement disponibles pour le
 
 ## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Utilisation des étiquettes dans les données de coût et d’utilisation
 
-Azure Cost Management reçoit des étiquettes dans le cadre de chaque enregistrement d’utilisation soumis par les services individuels. Les contraintes suivantes s’appliquent à ces étiquettes :
+Cost Management reçoit des étiquettes dans le cadre de chaque enregistrement d’utilisation envoyé par les services individuels. Les contraintes suivantes s’appliquent à ces étiquettes :
 
 - Les étiquettes doivent être appliquées directement aux ressources et ne sont pas héritées implicitement du groupe de ressources parent.
 - Les étiquettes de ressource sont prises en charge seulement pour les ressources déployées sur des groupes de ressources.

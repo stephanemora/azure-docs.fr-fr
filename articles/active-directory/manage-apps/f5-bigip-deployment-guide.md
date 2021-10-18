@@ -1,5 +1,6 @@
 ---
-title: Guide de déploiement d’un accès hybride sécurisé à Azure AD avec F5 | Microsoft Docs
+title: Sécuriser l’accès hybride avec le guide de déploiement F5
+titleSuffix: Azure AD
 description: Tutoriel pour déployer une machine virtuelle F5 BIG-IP Virtual Edition (VE) dans Azure IaaS pour un accès hybride sécurisé
 services: active-directory
 author: davidmu1
@@ -13,14 +14,14 @@ ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.reviewer: miccohen
-ms.openlocfilehash: f33e9a8207e3b8e6986999b7ea19aedbcb19b4da
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2bc309ed4d4fcfcc205ff3b464d23769d1e2182c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532720"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611854"
 ---
-# <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutoriel pour déployer une machine virtuelle F5 BIG-IP Virtual Edition dans Azure IaaS pour un accès hybride sécurisé
+# <a name="deploy-an-f5-big-ip-virtual-edition-vm-to-azure-active-directory"></a>Déployer une machine virtuelle F5 BIG-IP Virtual Edition sur Azure Active Directory
 
 Ce tutoriel vous guide tout au long du processus de déploiement de BIG-IP Virtual Edition (VE) dans Azure IaaS. À la fin de ce tutoriel, vous disposerez des éléments suivants :
 
@@ -250,7 +251,7 @@ Par défaut, les réseaux virtuels Azure et les sous-réseaux associés sont des
  |Adresses IP de destination|Liste séparée par des virgules de toutes les adresses IP privées secondaires de la machine virtuelle BIG-IP|
  |Ports de destination| 80,443|
  |Protocole| TCP |
- |Action| Allow|
+ |Action| Autoriser|
  |Priority|Valeur disponible la plus basse entre 100 et 4096|
  |Nom | Nom descriptif, par exemple : `BIG-IP-VM_Web_Services_80_443`|
 

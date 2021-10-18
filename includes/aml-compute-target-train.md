@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier include
 services: machine-learning
 author: sdgilley
@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 06/18/2021
-ms.openlocfilehash: 7f9d9d854513427fd02b47beb084edbcb70ea527
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 2e44972188b318e4c2f0d61b1ccd9222e7b2fce9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524879"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713415"
 ---
 **Les cibles de calcul peuvent être réutilisées d’un travail de formation à l’autre**. Par exemple, une fois que vous avez joint une machine virtuelle distante à votre espace de travail, vous pouvez la réutiliser pour plusieurs travaux. Pour les pipelines de Machine Learning, utilisez l’[étape de pipeline](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) appropriée pour chaque cible de calcul.
 
@@ -32,7 +32,7 @@ Vous pouvez utiliser n’importe laquelle des ressources suivantes pour une cibl
 |[Azure HDInsight](../articles/machine-learning/how-to-attach-compute-targets.md#hdinsight) | &nbsp; | Oui | &nbsp; |
 |[Azure Batch](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Oui | &nbsp; |
 |[Azure Kubernetes Service](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes) (préversion) | Oui | Oui | Oui |
-|[Kubernetes avec Azure Arc activé](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes) (préversion) | Oui | Oui | Oui |
+|[Kubernetes avec Azure Arc](../articles/machine-learning/how-to-attach-compute-targets.md#kubernetes) (préversion) | Oui | Oui | Oui |
 
 > [!TIP]
 > L’instance de calcul a un disque de système d’exploitation de 120 Go. Si vous ne disposez pas de suffisamment d’espace disque, [utilisez le terminal](../articles/machine-learning/how-to-access-terminal.md) pour effacer au moins 1-2 Go avant d’[arrêter ou redémarrer](../articles/machine-learning/how-to-create-manage-compute-instance.md#manage) l’instance de calcul.

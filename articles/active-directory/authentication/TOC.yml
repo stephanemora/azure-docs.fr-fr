@@ -60,6 +60,8 @@
           href: multi-factor-authentication-faq.yml
     - name: Protection par mot de passe
       items:
+        - name: Vérification combinée de stratégie de mot de passe
+          href: concept-password-ban-bad-combined-policy.md
         - name: Éliminer les mots de passe faibles dans le cloud
           href: concept-password-ban-bad.md
         - name: Éliminer les mots de passe faibles en local

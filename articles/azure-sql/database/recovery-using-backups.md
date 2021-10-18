@@ -12,12 +12,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: e1a6887efc2b0220ae92b372c2c9fd2ff91cc8fa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d313f521a13ae49f8701614d1b1331d34960ae77
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562134"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619478"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Récupération à l’aide de sauvegardes de bases de données automatisées - Azure SQL Database et SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,6 +69,9 @@ Pour restaurer une base de données autonome, mise en pool ou d’instance à un
 Une fois terminée, la restauration crée une base de données sur le même serveur que la base de données d’origine. La base de données restaurée est facturée aux tarifs habituels, en fonction du niveau de service et de la taille de calcul. Aucun frais ne vous sera facturé jusqu’à ce que la restauration de la base de données soit terminée.
 
 En règle générale, vous restaurez une base de données à un point antérieur à des fins de récupération. Il est possible d’utiliser la base de données restaurée pour remplacer la base de données d’origine ou comme source de données afin de mettre à jour la base de données d’origine.
+
+> [!IMPORTANT]
+> Vous pouvez uniquement exécuter la restauration sur le même serveur, la restauration entre serveurs n’est pas prise en charge par la restauration à un instant dans le passé.
 
 - **Remplacement de la base de données**
 

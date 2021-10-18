@@ -3,12 +3,12 @@ title: App Service sur Azure Arc
 description: Introduction à l’intégration d’App Service avec Azure arc pour opérateurs Azure.
 ms.topic: article
 ms.date: 08/17/2021
-ms.openlocfilehash: bd5e257d48ec009ccb79696f4c299fd93568f1c9
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: cec1e7bb9dac43e33e85b6036910220a1fa287c2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527774"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711657"
 ---
 # <a name="app-service-functions-and-logic-apps-on-azure-arc-preview"></a>App Service, Functions et Logic Apps sur Azure Arc (préversion)
 
@@ -42,7 +42,7 @@ Les limitations de préversion publique suivantes s’appliquent aux environneme
 
 ## <a name="pods-created-by-the-app-service-extension"></a>Pod créés par l’extension App Service
 
-Quand l’extension App Service est installée sur le cluster Kubernetes avec Arc, vous voyez plusieurs pod créés dans l’espace de noms de la version qui a été spécifié. Ces pods permettent à votre cluster Kubernetes d’être une extension du fournisseur de ressources `Microsoft.Web` dans Azure et de prendre en charge la gestion et l’exploitation de vos applications. Si vous le souhaitez, vous pouvez choisir que l’extension installe [KEDA](https://keda.sh/) pour la mise à l’échelle pilotée par des événements.
+Quand l’extension App Service est installée sur le cluster Kubernetes avec Azure Arc, vous voyez plusieurs pods créés dans l’espace de noms de version qui a été spécifié. Ces pods permettent à votre cluster Kubernetes d’être une extension du fournisseur de ressources `Microsoft.Web` dans Azure et de prendre en charge la gestion et l’exploitation de vos applications. Si vous le souhaitez, vous pouvez choisir que l’extension installe [KEDA](https://keda.sh/) pour la mise à l’échelle pilotée par des événements.
  <!-- You can only have one installation of KEDA on the cluster. If you have one already, you must disable this behavior during installation of the cluster extension `TODO`. -->
 
 Le tableau suivant décrit le rôle de chaque pod créé par défaut :

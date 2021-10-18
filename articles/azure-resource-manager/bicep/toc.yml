@@ -49,8 +49,12 @@
           href: outputs.md
           displayName: 'dynamic number of outputs,modules'
         - name: Modules
-          href: modules.md
-          displayName: 'scopes,consume'
+          items:
+            - name: Définition de modules
+              href: modules.md
+              displayName: 'scopes,consume'
+            - name: Créer un registre privé
+              href: private-module-registry.md
         - name: Boucles
           items:
             - name: Ressources
@@ -148,11 +152,13 @@
     - name: Structure des fichiers Bicep
       displayName: 'parameters,variables,resources,outputs,condition'
       href: file.md
-    - name: Informations de référence sur les ressources Bicep
+    - name: Informations de référence sur les ressources
       href: /azure/templates/
     - name: Types de données
       href: data-types.md
-      displayName: 'supported types,arrays,booleans,integers,objects,strings,secure,'
+      displayName: 'supported types,arrays,booleans,integers,objects,strings,secure'
+    - name: Fichier de configuration Bicep
+      href: bicep-config.md
     - name: Fonctions
       items:
         - name: Toutes les fonctions

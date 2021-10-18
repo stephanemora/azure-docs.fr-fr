@@ -8,12 +8,12 @@ author: sudivate
 ms.author: sudivate
 description: 'Cet article fournit une vue d’ensemble conceptuelle de l’expérience du développeur de boucles internes pour les équipes adoptant GitOps '
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, conteneurs, intégration continue, livraison continue, Azure DevOps, Inner loop, Dev Experience
-ms.openlocfilehash: 3c0e8041a31c506c926315381741afd75bb8a806
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 3bd60c3236bb187f14b924f4246d8e6fcfed4ed3
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598588"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706415"
 ---
 # <a name="inner-loop-developer-experience-for-teams-adopting-gitops"></a>Expérience développeur de boucles internes pour les équipes adoptant GitOps
 
@@ -90,6 +90,6 @@ Supposons qu’Alice souhaite mettre à jour, exécuter et déboguer l’applica
 > [!NOTE]
 > Vous trouverez l’exemple de code pour le workflow ci-dessus sur ce [référentiel GitHub](https://github.com/Azure/arc-cicd-demo-src)
 
-
 ## <a name="next-steps"></a>Étapes suivantes
-Apprenez-en davantage sur la création de connexions entre votre cluster et un dépôt Git en guise de [ressource de configuration intégrant Kubernetes avec Azure Arc](./conceptual-configurations.md).
+
+Découvrez comment créer des connexions entre votre cluster et un dépôt Git en guise de [ressource de configuration intégrant Kubernetes avec Azure Arc](./conceptual-configurations.md)

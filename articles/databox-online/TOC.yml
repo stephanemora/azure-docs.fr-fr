@@ -374,13 +374,15 @@
               href: azure-stack-edge-gpu-recover-device-failure.md
         - name: Superviser
           items:
-            - name: Utilisation de graphiques de métriques
-              href: azure-stack-edge-monitor.md
-            - name: Gérer les alertes d’événement d’appareil
+            - name: Consulter les alertes
+              href: azure-stack-edge-alerts.md
+            - name: Utiliser des règles pour les notifications d’alerte
               href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md
-            - name: Utilisation du tableau de bord Kubernetes
+            - name: Utiliser des graphiques de métriques
+              href: azure-stack-edge-monitor.md
+            - name: Utiliser le tableau de bord Kubernetes
               href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md
-            - name: Utilisation d’Azure Monitor
+            - name: "Utiliser Azure\_Monitor"
               href: azure-stack-edge-gpu-enable-azure-monitor.md
         - name: Dépanner
           items:

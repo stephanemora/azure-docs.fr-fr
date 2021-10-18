@@ -14,14 +14,14 @@ ms.author: davidmu
 ms.reviewer: saumadan
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c44d2a346dcd77352715b63937e5bad5274f2d1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b3d1ccac8fa8ac0deddb8a581c583779b1fb2386
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532147"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611797"
 ---
-# <a name="advanced-certificate-signing-options-in-a-saml-token"></a>Options avancées de signature de certificat dans un jeton SAML
+# <a name="advanced-certificate-signing-options-in-a-saml-token-in-azure-active-directory"></a>Options avancées de signature de certificat dans un jeton SAML dans Azure Active Directory
 
 Aujourd’hui Azure Active Directory (Azure AD) prend en charge des milliers d’applications pré-intégrées dans la galerie d’applications Azure Active Directory. Plus de 500 applications prennent en charge l’authentification unique à l’aide du protocole [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) (SAML) 2.0, comme l’application [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite). Lorsqu’un client s’authentifie auprès d’une application par l’intermédiaire d’Azure AD en utilisant SAML, Azure AD envoie un jeton à l’application (via HTTP POST). L’application valide et utilise ce jeton pour connecter le client, au lieu de lui demander un nom d’utilisateur et un mot de passe. Ces jetons SAML sont signés avec le certificat unique qui est généré dans Azure AD et par des algorithmes standard spécifiques.
 

@@ -12,12 +12,12 @@ author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp
 ms.date: 09/28/2021
-ms.openlocfilehash: 7fba2ede931375d310b64bf7800b2adf43b2a24e
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 86b823ca368223c2d789ff651fe831b76bbd5c58
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212776"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613374"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -37,7 +37,7 @@ SQL Managed Instance a des caractéristiques et des limites de ressources qui d�
 | **Nombre de vCore** | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | **Mémoire maximale (ratio mémoire/cœur)** | 7 Go par vCore<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | 5,1 Go par vCore<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
 | **Mémoire OLTP maximale en mémoire** | Limite de l’instance : 1 à 1,5 Go par vCore| Limite de l’instance : 0,8 à 1,65 Go par vCore |
-| **Stockage réservé d’instances maximal** |  Usage général : 8 To<br/>Critique pour l’entreprise : 1 To | Usage général : 8 To<br/> Critique pour l’entreprise 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
+| **Stockage réservé d’instances maximal** |  Usage général : 8 To <br/>Critique pour l’entreprise : 1 To | Usage général : 8 To, 16 To (préversion) en fonction du nombre de cœurs<br/> Critique pour l’entreprise 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
 
 > [!IMPORTANT]
 > - Le matériel Gen4 est en cours de retrait et n’est plus disponible pour les nouveaux déploiements. Toutes les nouvelles instances de SQL Managed Instance doivent être déployées sur le matériel Gen5.
@@ -69,12 +69,12 @@ SQL Managed Instance a deux niveaux de service : [Usage général](../database/
 | --- | --- | --- |
 | Nombre de vCores\* | Gen4 : 8, 16, 24<br/>Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 | Gen4 : 8, 16, 24 <br/> Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Le même nombre de vCores est dédié pour les requêtes en lecture seule. |
 | Mémoire maximale | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 20,4-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 20,4 Go-408 Go (5,1 Go/vCore) pour les requêtes en lecture-écriture<br/>+ 20,4 Go-408 Go (5,1 Go/vCore) supplémentaires pour les requêtes en lecture seule.<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
-| Taille de stockage maximale d’instance (réservée) | - 2 To pour les 4 vCores (Gen5 uniquement)<br/>- 8 To pour les autres tailles | Gen4 : 1 To <br/> Gen5 : <br/>- 1 To pour 4, 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
-| Taille de base de données maximale | Jusqu’à la taille d’instance actuellement disponible (maximum 2-8 To en fonction du nombre de vCores). | Jusqu’à la taille d’instance actuellement disponible (maximum 1-4 To en fonction du nombre de vCores). |
+| Taille de stockage maximale d’instance (réservée) | - 2 To pour les 4 vCores (Gen5 uniquement)<br/>- 8 To pour les autres tailles <br/>- 16 To (préversion) pour 16 vCores (Gen5 uniquement) | Gen4 : 1 To <br/> Gen5 : <br/>- 1 To pour 4, 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
+| Taille de base de données maximale | Jusqu’à la taille d’instance actuellement disponible (maximum 2 To - 8 To, 16 To (préversion) en fonction du nombre de vCores). | Jusqu’à la taille d’instance actuellement disponible (maximum 1-4 To en fonction du nombre de vCores). |
 | Taille maximale de tempDB | Limitée à 24 Go/vCore (96-1920 Go) et à la taille de stockage d’instance actuellement disponible.<br/>Ajoutez plus de vCores pour obtenir davantage d’espace TempDB.<br/> La taille du fichier journal est limitée à 120 Go.| Jusqu’à la taille de stockage d’instance actuellement disponible. |
 | Nombre maximal de bases de données par instance | 100 bases de données utilisateur, sauf si la limite de taille de stockage d’instance a été atteinte. | 100 bases de données utilisateur, sauf si la limite de taille de stockage d’instance a été atteinte. |
 | Nombre maximal de fichiers de base de données par instance | Jusqu’à 280, sauf si la limite de taille de stockage d’instance ou d’[espace d’allocation de stockage sur disque Premium Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) a été atteinte. | 32 767 fichiers par base de données, sauf si la limite de taille de stockage d’instance a été atteinte. |
-| Taille maximale du fichier de données | Limitée à la taille de stockage d’instance actuellement disponible (maximum 2-8 To) et à l’[espace d’allocation de stockage sur disque Premium Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Limitée à la taille de stockage d’instances actuellement disponible (jusqu’à 1-4 To). |
+| Taille maximale du fichier de données | Limitée à la taille de stockage d’instance actuellement disponible (maximum 2-8 To) et à l’[espace d’allocation de stockage sur disque Premium Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). Utilisez au moins deux fichiers de données pour les bases de données de plus de 8 To. | Limitée à la taille de stockage d’instances actuellement disponible (jusqu’à 1-4 To). |
 | Taille maximale du fichier journal | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. |
 | IOPS de données/journal (approximatives) | Jusqu’à 30-40 K IOPS par instance*, 500-7500 par fichier<br/>\*[Augmentez la taille de fichier pour obtenir davantage d’IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 000 à 320 000 (4 000 IOPS/vCore)<br/>Ajoutez plus de vCores pour obtenir de meilleures performances d’E/S. |
 | Limite du débit d’écriture du journal (par instance) | 3 Mo/s par vCore<br/>120 Mo/s max. par instance<br/>22 à 65 Mo/s par base de données<br/>\*[Augmentez la taille de fichier pour obtenir de meilleures performances d’E/S](#file-io-characteristics-in-general-purpose-tier) | 4 Mo/s par vCore<br/>96 Mo/s max. |

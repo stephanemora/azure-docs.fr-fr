@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6c0e01349c56744590f35659edae66d963aeb302
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 17445b90c3923fa6c3772b40024eec5657cae89e
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110697959"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858592"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -227,7 +227,7 @@ Bien que vous contrôliez ce qui est incorporé dans votre page web, nous vous d
 
 ### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>Est-ce que d’autres utilisateurs peuvent voir la clé que j’utilise avec la fonctionnalité Mesures des utilisateurs réels ?
 
-Quand vous incorporez le script de mesure à une page web, d’autres utilisateurs peuvent voir le script et votre clé Mesures des utilisateurs réels. Mais il est important de savoir que cette clé est différente de votre ID d’abonnement et qu’elle est générée par Traffic Manager uniquement dans ce but. La sécurité de votre compte Azure n’est pas compromise si quelqu’un a connaissance de votre clé Mesures utilisateur réelles.
+Quand vous incorporez le script de mesure à une page web, d’autres utilisateurs peuvent voir le script et votre clé Mesures des utilisateurs réels. Toutefois, vous devez savoir que cette clé est différente de votre ID d’abonnement et qu’elle est générée par Traffic Manager uniquement dans ce but. La sécurité de votre compte Azure n’est pas compromise si quelqu’un a connaissance de votre clé Mesures utilisateur réelles.
 
 ### <a name="can-others-abuse-my-rum-key"></a>Ma clé Mesures des utilisateurs réels peut-elle faire l’objet d’une utilisation malveillante ?
 
@@ -448,7 +448,7 @@ Si aucun paramètre d’en-tête hôte personnalisé n’est fourni, l’en-têt
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quelles sont les adresses IP à l’origine des contrôles d’intégrité ?
 
-Cliquez [ici](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) pour découvrir comment récupérer la liste des adresses IP à partir desquelles peuvent provenir les contrôles d’intégrité de Traffic Manager. Vous pouvez utiliser l’API REST, Azure CLI ou Azure PowerShell pour récupérer la liste la plus récente. Examinez les adresses IP listées pour vérifier que les connexions entrantes à partir de ces adresses IP sont autorisées aux points de terminaison pour vérifier leur état d’intégrité.
+Consultez [cet article](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) pour découvrir comment récupérer la liste des adresses IP d’où peuvent provenir les vérifications d’intégrité de Traffic Manager. Vous pouvez utiliser l’API REST, Azure CLI ou Azure PowerShell pour récupérer la liste la plus récente. Examinez les adresses IP listées pour vérifier que les connexions entrantes à partir de ces adresses IP sont autorisées aux points de terminaison pour vérifier leur état d’intégrité.
 
 Exemple d’utilisation d’Azure PowerShell :
 

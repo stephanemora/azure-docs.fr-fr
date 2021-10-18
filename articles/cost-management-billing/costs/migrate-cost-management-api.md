@@ -3,21 +3,21 @@ title: Migrer un Contrat Entreprise vers des API Contrat client Microsoft – Az
 description: Cet article vous aide à comprendre les conséquences de la migration d’un Contrat Entreprise Microsoft vers un Contrat Client Microsoft.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 2d3bae2f6282a4e505e2d5aa9ce2cf3f52b80006
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: fbccab537575720aa92c00f74afcdb82c773423e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113762263"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711370"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer depuis des API Enterprise Agreement vers des API Microsoft Customer Agreement
 
-Cet article vous aide à comprendre la structure de données, l’API et les autres différences d’intégration de système entre les comptes de Contrat Entreprise Microsoft (ou EA pour Enterprise Agreement) et de Contrat Client Microsoft (ou MCA, pour Microsoft Customer Agreement). Azure Cost Management prend en charge les API pour ces deux types de compte. Avant de continuer, veuillez lire l’article [Découvrez comment configurer votre compte de facturation associé à un Contrat Client Microsoft](../manage/mca-setup-account.md).
+Cet article vous aide à comprendre la structure de données, l’API et les autres différences d’intégration de système entre les comptes de Contrat Entreprise Microsoft (ou EA pour Enterprise Agreement) et de Contrat Client Microsoft (ou MCA, pour Microsoft Customer Agreement). Cost Management prend en charge les API des deux types de compte. Avant de continuer, veuillez lire l’article [Découvrez comment configurer votre compte de facturation associé à un Contrat Client Microsoft](../manage/mca-setup-account.md).
 
 Nous recommandons aux organisations ayant déjà un compte EA de lire attentivement cet article lors de la phase de configuration de leur compte MCA. Auparavant, le renouvellement d’un compte EA nécessitait un minimum de travail pour passer d’une ancienne inscription vers une nouvelle. Quant à la migration vers un compte MCA, elle nécessitait encore plus d’efforts. Ces efforts supplémentaires étaient dus aux modifications du sous-système de facturation sous-jacent, impactant toutes les API liées et les offres de service liés aux coûts.
 
@@ -28,7 +28,7 @@ La nouvelle intégration et les API MCA vous permettent de :
 - Disposer d’une disponibilité complète via des API Azure natives.
 - Configurer plusieurs factures dans un seul compte de facturation.
 - Pouvoir accéder à une API combinée avec l’utilisation des services Azure, ainsi qu’avec l’utilisation et les achats d’une place de marché tierce.
-- Pouvoir afficher les coûts sur des profils de facturation (tout comme pour les inscriptions) à l’aide d’Azure Cost Management.
+- Voir les coûts des différents profils de facturation (tout comme pour les inscriptions) à l’aide de Cost Management.
 - Pouvoir accéder aux nouvelles API pour afficher les coûts, être averti lorsque les coûts dépassent des seuils prédéfinis, et exporter des données brutes automatiquement.
 
 ## <a name="migration-checklist"></a>Liste des éléments à vérifier pour la migration
@@ -517,7 +517,7 @@ Pour obtenir des résumés des réservations avec l’API Reservation Summaries�
 
 ## <a name="power-bi-integration"></a>Intégration Power BI
 
-Vous pouvez également utiliser Power BI pour la création de rapports de coûts. Le [connecteur Azure Cost Management](/power-bi/desktop-connect-azure-cost-management) pour Power BI Desktop permet de créer des rapports puissants et personnalisés qui vous aideront à mieux comprendre vos dépenses Azure. Le connecteur Azure Cost Management prend actuellement en charge les clients disposant d’un Contrat client Microsoft ou d’un Contrat Entreprise.
+Vous pouvez également utiliser Power BI pour la création de rapports de coûts. Le [connecteur Cost Management](/power-bi/desktop-connect-azure-cost-management) pour Power BI Desktop permet de créer des rapports puissants et personnalisés pour mieux comprendre vos dépenses Azure. Le connecteur Cost Management prend actuellement en charge les clients avec un contrat client Microsoft ou un Contrat Entreprise.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

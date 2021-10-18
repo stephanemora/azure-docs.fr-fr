@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: af4356a4f432572920bd07fd8d7ea8c7e5f6663e
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 769f178a65ac096446cd98015050ad1a35b3ef09
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122641174"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612443"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Suivre l’activité de la base de données avec les journaux d’audit dans le serveur flexible Azure Database pour MySQL
 
@@ -52,7 +52,7 @@ Les autres paramètres que vous pouvez ajuster pour contrôler le comportement d
 
 ## <a name="access-audit-logs"></a>Accéder aux journaux d’audit
 
-Les journaux d’audit sont intégrés aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux d’audit sur votre serveur flexible MySQL, vous pouvez les transmettre aux journaux Azure Monitor, à Event Hubs ou au stockage Azure. Pour en savoir plus sur les paramètres de diagnostic, consultez la [Documentation des journaux de diagnostic](../../azure-monitor/essentials/platform-logs-overview.md). Pour en savoir plus sur l’activation des paramètres de diagnostic dans le portail Azure, consultez l’[article sur le portail des journaux d’audit](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
+Les journaux d’audit sont intégrés aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux d’audit sur votre serveur flexible MySQL, vous pouvez les transmettre aux journaux Azure Monitor, à Event Hubs ou au stockage Azure. Pour en savoir plus sur les paramètres de diagnostic, consultez la [Documentation des journaux de diagnostic](../../azure-monitor/essentials/platform-logs-overview.md). Pour en savoir plus sur l’activation des paramètres de diagnostic dans le portail Azure, consultez l’[article sur le portail des journaux d’audit](tutorial-configure-audit.md#set-up-diagnostics).
 
 Les sections suivantes décrivent la sortie des journaux d’audit MySQL en fonction du type d’événement. En fonction de la méthode de sortie, les champs inclus et l’ordre dans lequel ils apparaissent peuvent varier.
 
@@ -199,5 +199,5 @@ Une fois vos journaux d’audit dirigés vers les journaux Azure Monitor par le 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [journaux des requêtes lentes](concepts-slow-query-logs.md)
-- Configurer les journaux des requêtes d’audit à partir du [portail Azure](how-to-configure-audit-logs-portal.md)
+- Configurer l’[audit](tutorial-query-performance-insights.md)
 <!-- - [How to configure audit logs in the Azure portal](howto-configure-audit-logs-portal.md)-->

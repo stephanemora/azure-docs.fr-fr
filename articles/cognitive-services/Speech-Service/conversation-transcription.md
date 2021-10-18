@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: pafarley
-ms.openlocfilehash: 0c7fb175d80a35d30649d2e4ce491fe39ac19c70
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: abef7e44ad2e15bda230d28e8dae74a3fd949f88
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539134"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706326"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>Qu’est-ce que la transcription de conversation (préversion) ?
 
@@ -55,10 +55,13 @@ Il s’agit d’une vue d’ensemble détaillée du fonctionnement de la transcr
 ## <a name="expected-inputs"></a>Entrées attendues
 
 - **Flux audio multicanal** - Pour obtenir des détails sur les spécifications et la conception, consultez [Microphones pour le SDK Microsoft Speech Devices](./speech-devices-sdk-microphone.md). Pour obtenir des informations complémentaires ou pour acheter un kit de développement, consultez [Obtenir le SDK Microsoft Speech Devices](./get-speech-devices-sdk.md).
-- **Exemples de voix utilisateur** : la transcription de conversation a besoin de profils utilisateur avant la conversation. Vous devrez collecter des enregistrements audio de chaque utilisateur puis envoyer les enregistrements au [service de génération de signatures](https://aka.ms/cts/signaturegenservice) pour valider le contenu audio et générer des profils utilisateur.
+- **Exemples de voix d’utilisateur** : la transcription de conversation a besoin de profils utilisateur avant la conversation pour pouvoir identifier les orateurs. Vous devrez collecter des enregistrements audio de chaque utilisateur puis envoyer les enregistrements au [service de génération de signatures](https://aka.ms/cts/signaturegenservice) pour valider le contenu audio et générer des profils utilisateur.
 
 > [!NOTE]
-> Les échantillons vocaux de l’utilisateur sont facultatifs. Sans cette entrée, la transcription affiche des intervenants différents, mais sous la forme « Speaker1 », « Speaker2 », etc. au lieu de reconnaître les noms de conférenciers spécifiques préinscrits.
+> Les exemples de voix d’utilisateur pour les signatures vocales sont obligatoires pour identifier les orateurs. Les orateurs qui n’ont pas d’échantillons vocaux sont reconnus comme « Non identifiés ». Les orateurs non identifiés peuvent toujours être différenciés quand la propriété `DifferentiateGuestSpeakers` est activée (voir l’exemple ci-dessous). La sortie de transcription affiche alors les orateurs « Guest_0 », « Guest_1 », etc. au lieu de les reconnaître avec des noms d’orateur spécifiques préinscrits.
+> ```csharp
+> config.SetProperty("DifferentiateGuestSpeakers", "true");
+> ```
 
 
 ## <a name="real-time-vs-asynchronous"></a>Comparaison entre temps réel et asynchrone

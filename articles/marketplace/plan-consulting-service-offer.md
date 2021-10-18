@@ -1,6 +1,6 @@
 ---
-title: Comment planifier une offre de services de conseil pour le marketplace commercial de Microsoft
-description: Comment planifier une nouvelle offre de service de conseil pour Microsoft AppSource ou Place de marché Azure à l’aide du programme de marketplace commercial dans Espace partenaires Microsoft.
+title: Planifier une offre de services de conseil pour la place de marché commerciale
+description: Planifiez une nouvelle offre de services de conseil pour Microsoft AppSource ou la Place de marché Azure en utilisant l’Espace partenaires.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: 3ffca17efa59a0544e06bb3bd4fbae1d812f2823
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7350fe9dfcadce2d454ab5ee9e78ad80b996bafe
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124819204"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667247"
 ---
-# <a name="how-to-plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Comment planifier une offre de services de conseil dans le marketplace commercial
+# <a name="plan-a-consulting-service-offer-in-the-commercial-marketplace"></a>Planifier une offre de services de conseil dans la place de marché commerciale
 
 Cet article présente les différentes options et exigences relatives à la publication d’une offre de services de conseil sur le marketplace commercial de Microsoft. Lisez cet article pour préparer votre offre en vue de sa publication par le biais d’Espace partenaires.
 

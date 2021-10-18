@@ -3,12 +3,12 @@ title: Surveiller et protéger les machines virtuelles avec les services Azure n
 description: Découvrez comment intégrer et déployer les outils natifs Microsoft Azure pour surveiller et gérer vos charges de travail Azure VMware Solution.
 ms.topic: how-to
 ms.date: 08/15/2021
-ms.openlocfilehash: 19453eeb652a0303e0447a80e37b63613aa92255
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: fa3a30ce3908494e1fdf0470781f4057279fe001
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799317"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714954"
 ---
 # <a name="monitor-and-protect-vms-with-azure-native-services"></a>Surveiller et protéger les machines virtuelles avec les services Azure natifs
 
@@ -92,7 +92,6 @@ Le service [Azure Update Management](../automation/update-management/overview.md
  
 1. Une fois Update Management activé, vous pouvez [déployer des mises à jour sur des machines virtuelles et examiner les résultats](../automation/update-management/deploy-updates.md). 
 
-
 ## <a name="enable-azure-security-center"></a>Activation d’Azure Security Center
 
 Évaluez la vulnérabilité des machines virtuelles du service Azure VMware Solution, et déclenchez des alertes en fonction des besoins. Ces alertes de sécurité peuvent être transférées à Azure Monitor à des fins de résolution. Pour plus d’informations, consultez [Fonctionnalités prises en charge pour les machines virtuelles](../security-center/security-center-services.md).
@@ -124,8 +123,7 @@ Pour plus d’informations, consultez [Intégrer Azure Security Center à Azure 
 
 
 
-## <a name="onboard-hybrid-kubernetes-clusters-with-arc-enabled-kubernetes"></a>Intégrer des clusters Kubernetes hybrides avec les Kubernetes Arc
-
+## <a name="onboard-hybrid-kubernetes-clusters-with-azure-arc-enabled-kubernetes"></a>Intégrer des clusters Kubernetes hybrides à Kubernetes avec Azure Arc
 
 Attachez un cluster Kubernetes hébergé dans votre environnement Azure VMware Solution à l’aide de Kubernetes avec Azure Arc. Pour plus d’informations, consultez [Créer un principal de service d’intégration compatible avec Azure Arc](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
@@ -134,7 +132,7 @@ Attachez un cluster Kubernetes hébergé dans votre environnement Azure VMware S
 
 Surveillez les machines virtuelles Azure VMware Solution via l’agent Log Analytics. Les machines connectées à des espaces de travail Log Analytics utilisent l’[agent Log Analytics](../azure-monitor/agents/log-analytics-agent.md) pour collecter des données sur les modifications apportées aux logiciels installés, aux services Microsoft, au registre et aux fichiers Windows, ainsi qu’aux démons Linux sur les serveurs analysés. Lorsque des données sont disponibles, l’agent les envoie aux journaux Azure Monitor pour traitement. Les journaux Azure Monitor appliquent une logique aux données reçues, les enregistrent et les rendent disponibles pour analyse.
 
-Déployez l’agent Log Analytics à l’aide des [serveurs Azure Arc prenant en charge l’extension de machine virtuelle](../azure-arc/servers/manage-vm-extensions.md).
+Déployez l’agent Log Analytics en utilisant la [prise en charge de l’extension VM des serveurs avec Azure Arc](../azure-arc/servers/manage-vm-extensions.md).
 
 
 

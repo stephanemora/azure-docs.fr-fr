@@ -11,12 +11,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: bf35868d67dab2cb48aee5c85b964f86abd912e3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 74dea2337bb40469e4d4e94117df080960faca53
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128653775"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858769"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Se connecter à Azure IoT Central
 
@@ -75,7 +75,7 @@ Pour plus d’informations, consultez [Connecter des appareils avec des certific
 
 Pour connecter un appareil à votre application à l’aide d’une clé SAP :
 
-1. Créez un *groupe d’inscription* utilisant le type d’attestation **Signature d’accès partagé (SAP)** .
+1. Créez un *groupe d’inscription* utilisant le type d’attestation **Signature d’accès partagé (SAP)** . 
 1. Copiez la clé primaire ou secondaire du groupe à partir du groupe d’inscription.
 1. Utilisez Azure CLI pour générer une clé d’appareil à partir de la clé de groupe :
 
@@ -84,6 +84,9 @@ Pour connecter un appareil à votre application à l’aide d’une clé SAP :
     ```
 
 1. Utilisez la clé d’appareil générée lorsque l’appareil se connecte à votre application IoT Central.
+
+> [!NOTE]
+> Pour utiliser des clés SAS existantes dans vos groupes d’inscription, désactivez le bouton bascule **Générer automatiquement les clés** et tapez les clés SAS.
 
 ## <a name="individual-enrollment"></a>Inscription individuelle
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: a02b7d6fa5ef8369578f89a452df95a50ca34204
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 13de7b055820ac680e8b513198224bcfd6421e11
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425173"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708876"
 ---
 # <a name="troubleshoot-vm-insights-guest-health-preview"></a>Résoudre des problèmes d’intégrité de l’invité VM Insights (préversion)
 Cet article décrit les étapes de dépannage que vous pouvez suivre lorsque vous rencontrez des problèmes d’intégrité sur VM Insights.
@@ -62,7 +62,7 @@ C’est probablement parce que l’Agent invité de la machine virtuelle n’a p
 
 ### <a name="upgrade-available-message-is-still-displayed-after-upgrading-guest-health"></a>Le message « Mise à niveau disponible » s’affiche toujours après la mise à niveau de l’intégrité de l’invité 
 
-- Vérifiez que la machine virtuelle fonctionne dans Global Azure. Les serveurs Arc ne sont pas encore pris en charge.
+- Vérifiez que la machine virtuelle fonctionne dans Global Azure. Les serveurs avec Azure Arc ne sont pas encore pris en charge.
 - Vérifiez que la région et la version du système d’exploitation de la machine virtuelle sont prises en charge, comme décrit dans [Activer l’intégrité des invités d’Azure Monitor pour machines virtuelles (préversion)](vminsights-health-enable.md).
 - Vérifiez que l’extension d’intégrité de l’invité a été installée avec le code de sortie 0.
 - Vérifiez que l’extension de l’agent Azure Monitor est bien installée.

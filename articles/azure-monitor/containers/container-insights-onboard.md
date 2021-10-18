@@ -3,19 +3,19 @@ title: Activer Container Insights | Microsoft Docs
 description: Cet article explique comment activer et configurer Container Insights afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 04bc88034c3537431c4c1972611d0c4d93e4cda4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: de7475ddb5a8057ef1b58d4ed21c55a1d10a4dd8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631397"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708946"
 ---
 # <a name="enable-container-insights"></a>Activer Container Insights
 
 Cet article offre un aperçu des options disponibles pour configurer Container Insights en vue de surveiller les performances des charges de travail qui sont déployées dans un environnement Kubernetes et hébergées sur :
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
-- [Cluster Kubernetes avec Arc](../../azure-arc/kubernetes/overview.md)
+- [Cluster Kubernetes avec Azure Arc](../../azure-arc/kubernetes/overview.md)
    - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) ou localement
    - [Moteur AKS](https://github.com/Azure/aks-engine)
    - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x  

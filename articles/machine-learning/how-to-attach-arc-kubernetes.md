@@ -1,6 +1,6 @@
 ---
 title: Machine Learning avec Azure Arc (préversion)
-description: Configurez un cluster Kubernetes avec Azure Arc pour effectuer l’apprentissage des modèles Machine Learning dans Azure Machine Learning.
+description: Configurer un cluster Kubernetes avec Azure Arc pour entraîner des modèles Machine Learning dans Azure Machine Learning
 titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
@@ -8,24 +8,24 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.date: 06/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 9ce41f22fd90acd8ef7e41ec07bce1d7758ab452
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: c3aea87e32aef24bfc17637720e81d30da0d30eb
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427701"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713275"
 ---
-# <a name="configure-azure-arc-enabled-machine-learning-preview"></a>Configuration du Machine Learning avec Azure Arc (préversion)
+# <a name="configure-azure-arc-enabled-machine-learning-preview"></a>Configurer le machine learning avec Azure Arc (préversion)
 
-Découvrez comment configurer le Machine Learning avec Azure Arc pour l’apprentissage.
+Découvrez comment configurer le machine learning avec Azure Arc pour l’entraînement.
 
-## <a name="what-is-azure-arc-enabled-machine-learning"></a>Présentation du Machine Learning avec Azure Arc
+## <a name="what-is-azure-arc-enabled-machine-learning"></a>Qu’est-ce que le machine learning avec Azure Arc ?
 
 Azure Arc permet d’exécuter des services Azure dans n’importe quel environnement Kubernetes, qu’il soit local, multicloud ou situé à la périphérie.
 
-Le Machine Learning avec Azure Arc vous permet de configurer et d’utiliser des clusters Kubernetes avec Azure Arc pour effectuer l’apprentissage des modèles Machine Learning et les gérer dans Azure Machine Learning.
+Le machine learning avec Azure Arc vous permet de configurer et d’utiliser des clusters Kubernetes avec Azure Arc pour entraîner et gérer des modèles Machine Learning dans Azure Machine Learning.
 
-Le Machine Learning avec Azure Arc prend en charge les scénarios d’apprentissage suivants :
+Le machine learning avec Azure Arc prend en charge les scénarios d’entraînement suivants :
 
 * Entraîner des modèles avec CLI (v2)
   * Entraînement distribué
@@ -39,8 +39,8 @@ Le Machine Learning avec Azure Arc prend en charge les scénarios d’apprentiss
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’en possédez pas, [créez un compte gratuit](https://azure.microsoft.com/free) avant de commencer.
-* Un cluster Kubernetes avec Azure Arc. Pour plus d’informations, consultez [Guide de démarrage de la connexion d’un cluster Kubernetes existant à Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
-* Respectez les [Prérequis des extensions de cluster Kubernetes avec Azure Arc](../azure-arc/kubernetes/extensions.md#prerequisites).
+* Cluster Kubernetes avec Azure Arc. Pour plus d’informations, consultez [Guide de démarrage de la connexion d’un cluster Kubernetes existant à Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
+* Exécutez les [Prérequis des extensions de cluster Kubernetes avec Azure Arc](../azure-arc/kubernetes/extensions.md#prerequisites).
   * Azure CLI version 2.24.0 ou ultérieure
   * Extension k8s-extension d’Azure CLI version 0.4.3 ou ultérieure
 * Un espace de travail Azure Machine Learning. [Créez un espace de travail](how-to-manage-workspace.md?tabs=python) avant de commencer si vous n’en possédez pas.
@@ -48,7 +48,7 @@ Le Machine Learning avec Azure Arc prend en charge les scénarios d’apprentiss
 
 ## <a name="deploy-azure-machine-learning-extension"></a>Déploiement de l’extension Azure Machine Learning
 
-Kubernetes avec Azure Arc comprend une fonctionnalité d’extension de cluster permettant d’installer divers agents, notamment les définitions Azure Policy, le monitoring et le Machine Learning. Azure Machine Learning impose d’utiliser l’extension de cluster *Microsoft.AzureML.Kubernetes* pour déployer l’agent Azure Machine Learning sur le cluster Kubernetes. Une fois l’extension Azure Machine Learning installée, vous pouvez attacher le cluster à un espace de travail Azure Machine Learning et l’utiliser pour l’apprentissage.
+Kubernetes avec Azure Arc a une fonctionnalité d’extension de cluster permettant d’installer divers agents, notamment des définitions Azure Policy, la supervision, le machine learning, etc. Azure Machine Learning impose d’utiliser l’extension de cluster *Microsoft.AzureML.Kubernetes* pour déployer l’agent Azure Machine Learning sur le cluster Kubernetes. Une fois l’extension Azure Machine Learning installée, vous pouvez attacher le cluster à un espace de travail Azure Machine Learning et l’utiliser pour l’apprentissage.
 
 Utilisez l’extension Azure CLI `k8s-extension` pour déployer l’extension Azure Machine Learning sur votre cluster Kubernetes avec Azure Arc.
 
@@ -98,7 +98,7 @@ Utilisez l’extension Azure CLI `k8s-extension` pour déployer l’extension Az
 
 ## <a name="attach-arc-cluster-studio"></a>Attachement d’un cluster Arc (studio)
 
-Le fait d’attacher un cluster Kubernetes avec Azure Arc permet de le rendre accessible à l’espace de travail pour l’apprentissage.
+En attachant un cluster Kubernetes avec Azure Arc vous le rendez disponible dans votre espace de travail pour l’entraînement.
 
 1. Accédez à [Azure Machine Learning Studio](https://ml.azure.com).
 1. Sous **Gérer**, sélectionnez **Calcul**.
@@ -214,7 +214,7 @@ Voici les propriétés de cible de calcul personnalisées qui peuvent être conf
 
 ## <a name="attach-arc-cluster-python-sdk"></a>Attachement d’un cluster Arc (kit SDK Python)
 
-Le code Python suivant montre comment attacher un cluster Kubernetes avec Azure Arc et l’utiliser comme cible de calcul pour l’apprentissage :
+Le code Python suivant montre comment attacher un cluster Kubernetes avec Azure Arc et l’utiliser comme cible de calcul pour l’entraînement :
 
 ```python
 from azureml.core.compute import KubernetesCompute

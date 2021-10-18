@@ -9,12 +9,12 @@ ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-js
-ms.openlocfilehash: 388b84dc831984cf03b91ff16e4cfb8962b88c73
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ab3fe82252ee416aa47ff32a244fb9bf6de23f2b
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662720"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668425"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 
@@ -46,7 +46,7 @@ Vous pouvez utiliser un de ces outils pour charger du contenu sur le conteneur *
 > - [AZCopy](../common/storage-use-azcopy-v10.md)
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> - [Extension Visual Studio Code](- https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
+> - [Extension Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) et la [démonstration vidéo de Channel 9](https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
 ## <a name="viewing-content"></a>Affichage du contenu
 

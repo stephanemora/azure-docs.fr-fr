@@ -4,12 +4,12 @@ description: Configurez les outils d’analytique des performances, de la dispon
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: a60419e6c3ff8c4dd030e5e800edbae62a7f7787
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a0a262564306448fd587a699b24982595506df50
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562525"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740699"
 ---
 # <a name="configure-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -29,7 +29,7 @@ Pour Application Insights à votre site web ASP.NET, vous devez :
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser des [chaînes de connexion](./sdk-connection-string.md?tabs=net) plutôt que des clés d’instrumentation. Les nouvelles régions Azure *exigent* l’utilisation de chaînes de connexion au lieu de clés d’instrumentation.
 >
-> Les chaînes de connexion identifient la ressource à laquelle vous voulez associer les données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
+> Une chaîne de connexion identifie la ressource que vous voulez associer à vos données de télémétrie. Elle vous permet également de modifier les points de terminaison que votre ressource utilisera comme destination pour votre télémétrie. Vous devrez copier la chaîne de connexion et l’ajouter au code de votre application ou à une variable d’environnement.
 
 
 ## <a name="create-a-basic-aspnet-web-app"></a>Créer une application web ASP.NET basique
@@ -44,7 +44,7 @@ Pour Application Insights à votre site web ASP.NET, vous devez :
 
 Cette section vous guide tout au long de l’ajout automatique d’Application Insights à une application web ASP.NET basée sur un modèle. À partir de votre projet d’application web ASP.NET dans Visual Studio :
 
-1. Sélectionnez **Ajouter Application Insights Telemetry** > **SDK Application Insights (local)**  > **Suivant** > **Terminer** > **Fermer**.
+1. Sélectionnez **Projet** > **Ajouter Application Insights Telemetry** > **SDK Application Insights (local)**  > **Suivant** > **Terminer** > **Fermer**.
 2. Ouvrez le fichier *ApplicationInsights.config*. 
 3. Avant la balise `</ApplicationInsights>` fermante, ajoutez une ligne contenant la clé d’instrumentation pour votre ressource Application Insights.  Vous pouvez retrouver votre clé d’instrumentation dans le volet Vue d’ensemble de la ressource Application Insights que vous venez de créer dans le cadre de la configuration requise pour cet article.
 

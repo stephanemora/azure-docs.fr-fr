@@ -10,12 +10,12 @@ ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 862c576ae86cd7d91a1bd73243caa0a68e3689c1
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: bcf8d828bb20296a27b9288a2ba604bce1b7aef9
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900536"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855438"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Exécuter des commandes PowerShell avec des informations d’identification Azure AD pour accéder aux données en file d’attente
 
@@ -86,4 +86,4 @@ L’exemple suivant montre comment créer une file d’attente dans un nouveau c
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Attribuer un rôle Azure pour l’accès aux données de file d’attente](assign-azure-role-data-access.md)
-- [Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure](../common/storage-auth-aad-msi.md)
+- [Autoriser l’accès aux données blob avec des identités managées pour les ressources Azure](../blobs/authorize-managed-identity.md)

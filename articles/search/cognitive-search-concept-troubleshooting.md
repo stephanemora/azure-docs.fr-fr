@@ -7,18 +7,18 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/16/2021
-ms.openlocfilehash: 2c8cbc3496b0a7b12f8df114ed2aa993ee5cb1a7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 054abdaeb184a37a995f14ab6196c378abbb470b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128610861"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707669"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Conseils sur l’enrichissement par IA dans Recherche cognitive Azure
 
 Cet article contient une liste de conseils et astuces destinés à vous permettre d’aller de l’avant lorsque vous commencez à utiliser les fonctionnalités d’enrichissement de l’IA dans la Recherche cognitive Azure. 
 
-Si ce n’est déjà fait, suivez le [Tutoriel : Appeler des API d’enrichissement de l’IA](cognitive-search-quickstart-blob.md) pour apprendre à appliquer des enrichissements de l’IA à une source de données Blob.
+Si vous ne l’avez pas déjà fait, parcourez les guides de démarrage rapide [Ensemble de compétences pour créer une traduction de texte et une entité](cognitive-search-quickstart-blob.md) ou [Ensemble de compétences pour créer une image OCR](cognitive-search-quickstart-ocr.md) afin d’avoir une présentation de l’enrichissement des données blob.
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>Conseil 1 : commencez avec un petit jeu de données
 La meilleure façon de détecter rapidement des problèmes consiste à augmenter la vitesse à laquelle vous pouvez résoudre ceux-ci. La meilleure façon de réduire le temps d’indexation consiste à diminuer le nombre de documents à indexer. 

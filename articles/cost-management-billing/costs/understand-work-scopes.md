@@ -3,18 +3,18 @@ title: Comprendre et utiliser les étendues d’Azure Cost Management
 description: Cet article vous explique les étendues de facturation et de gestion des ressources disponibles dans Azure, et comment les utiliser dans Cost Management et les API.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/05/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 67d8ef5bf6960ca03d8d2d36efbe4461e1124190
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 55c2d19ee2e80915cc1c4393aa5a25326a5e9d0e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695246"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711267"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -68,7 +68,7 @@ Cost Management prend en charge les rôles intégrés indiqués ci-dessous pour 
 
 Le rôle recommandé avec le niveau de privilège minimum est celui de Contributeur Cost Management. Le rôle permet aux utilisateurs de créer et de gérer les budgets et les exportations pour une surveillance et une création de rapports plus efficaces sur les coûts. Les Contributeurs Cost Management peuvent également avoir besoin de rôles supplémentaires pour prendre en charge les scénarios complexes de gestion des coûts. Examinez les scénarios suivants :
 
-- **Création de rapports sur l'utilisation des ressources** : Azure Cost Management affiche le coût sur le portail Azure. Il comprend l'utilisation telle qu'elle se rapporte au coût dans les modèles d'utilisation complets. Ce rapport peut également afficher les frais relatifs aux API et aux téléchargements, mais vous pouvez aussi explorer les métriques d’utilisation détaillées dans Azure Monitor pour une compréhension approfondie. Envisagez d'accorder l'autorisation [Lecteur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-reader) à toute étendue pour laquelle vous devez également signaler des métriques d'utilisation détaillées.
+- **Création de rapports sur l’utilisation des ressources** : Cost Management affiche le coût dans le portail Azure. Il comprend l'utilisation telle qu'elle se rapporte au coût dans les modèles d'utilisation complets. Ce rapport peut également afficher les frais relatifs aux API et aux téléchargements, mais vous pouvez aussi explorer les métriques d’utilisation détaillées dans Azure Monitor pour une compréhension approfondie. Envisagez d'accorder l'autorisation [Lecteur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-reader) à toute étendue pour laquelle vous devez également signaler des métriques d'utilisation détaillées.
 - **Agir de cas de dépassement des budgets** : les Contributeurs Cost Management ont également besoin d'un accès pour créer et gérer des groupes d'actions permettant de réagir automatiquement aux dépassements. Envisagez d’accorder le rôle [Contributeur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-contributor) à un groupe de ressources contenant le groupe d’actions à utiliser en cas de dépassement des seuils budgétaires. L’automatisation d’actions données nécessite des rôles supplémentaires pour les services spécifiques utilisés, comme Automation et Azure Functions.
 - **Planifier l’exportation des données de coût** : les Contributeurs Cost Management ont également besoin d’un accès à la gestion des comptes de stockage afin de planifier une exportation pour copier les données dans un compte de stockage. Envisagez d’accorder le rôle [Collaborateur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor) à un groupe de ressources contenant le compte de stockage vers lequel les données de coût de coûts seront exportées.
 - **Affichage des recommandations pour réaliser des économies** : les Lecteurs Cost Management et les Contributeurs Cost Management peuvent *afficher* les recommandations en matière de coûts par défaut. Toutefois, la possibilité de suivre ces recommandations requiert l’accès aux ressources individuelles. Envisagez d’accorder un [rôle propre au service](../../role-based-access-control/built-in-roles.md#all) si vous souhaitez suivre une recommandation en matière de coûts.
@@ -267,7 +267,7 @@ Les étendues suivantes sont prises en charge pour les CSP ayant des clients sou
 
 Seuls les utilisateurs ayant les rôles *Administrateur général* et *Agent d’administration* peuvent gérer et voir les coûts pour les comptes de facturation, les profils de facturation et les clients directement dans le locataire Azure du partenaire. Pour plus d’informations sur les rôles de l’espace Partenaires, consultez [Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 
-Azure Cost Management prend en charge uniquement les clients partenaires CSP si ces clients disposent d’un Contrat client Microsoft. Pour les clients pris en charge par un CSP qui ne sont pas encore sous Contrat client Microsoft, consultez l'[Espace partenaires](/azure/cloud-solution-provider/overview/partner-center-overview).
+Cost Management prend en charge uniquement les clients partenaires CSP qui ont un contrat client Microsoft. Pour les clients pris en charge par un CSP qui ne sont pas encore sous Contrat client Microsoft, consultez l'[Espace partenaires](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Les groupes d'administration des étendues CSP ne sont pas pris en charge par Cost Management. Si vous disposez d'un abonnement CSP et que vous définissez l'étendue sur un groupe d'administration dans l'analyse des coûts, une erreur semblable à la suivante s'affiche :
 

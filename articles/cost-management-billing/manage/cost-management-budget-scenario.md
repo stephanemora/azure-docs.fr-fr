@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 2f2d88a48b7dca0b2ab3ad512e6b723ab68931c8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c3ed338341ffb73f59a5b20fea55e8d83f4a375f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128650246"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711289"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gérer les coûts avec Azure Budgets
 
-La maîtrise des coûts représente un composant essentiel dans l’optimisation de la valeur de votre investissement dans le cloud. Il existe plusieurs scénarios où la visibilité des coûts, le reporting et l’orchestration basée sur les coûts sont cruciaux pour la continuité de l’activité commerciale. Les [API de gestion des coûts Azure](/rest/api/consumption/) proposent un ensemble d’API permettant de prendre en charge chacun de ces scénarios. Ces API fournissent des détails précis sur l’utilisation, ce qui vous permet de voir les coûts affinés au niveau des instances.
+La maîtrise des coûts représente un composant essentiel dans l’optimisation de la valeur de votre investissement dans le cloud. Il existe plusieurs scénarios où la visibilité des coûts, le reporting et l’orchestration basée sur les coûts sont cruciaux pour la continuité de l’activité commerciale. Les [API Cost Management](/rest/api/consumption/) sont un ensemble d’API permettant de prendre en charge chacun de ces scénarios. Ces API fournissent des détails précis sur l’utilisation, ce qui vous permet de voir les coûts affinés au niveau des instances.
 
 Les budgets font souvent partie intégrante du contrôle des coûts. Les budgets peuvent être délimités dans Azure. Par exemple, vous pouvez réduire votre prévision budgétaire en fonction de l’abonnement, des groupes de ressources ou d’une collection de ressources. En plus de l’utilisation des API de budgets qui vous informent par e-mail qu’un seuil de budget est atteint, vous pouvez utiliser des [groupes d’actions Azure Monitor](../../azure-monitor/alerts/action-groups.md) pour déclencher un ensemble d’actions orchestré résultant d’un événement de budget.
 

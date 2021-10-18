@@ -10,12 +10,12 @@ ms.date: 08/17/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 23307fbfccdce2faa1b6c5808095f0f97c7a0e66
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 23b75ff29e32bafdce320d334d9236902cbe4b2c
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635885"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667608"
 ---
 # <a name="call-diagnostics"></a>Diagnostics d’appel
 
@@ -41,7 +41,7 @@ Les diagnostics présentés aux utilisateurs suivants sont disponibles :
 | ------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
 | noNetwork                 | Aucun réseau disponible.                                  | -Défini sur `True` lorsqu’un appel ne peut pas démarrer, car aucun réseau n’est disponible. <br/> - Défini sur `False` en cas de présence de candidats ICE.                                                                                                  | L’appareil n’est pas connecté à un réseau.               |
 | networkRelaysNotReachable | Problèmes avec un réseau.                                        | - Défini sur `True` lorsque le réseau comporte une contrainte qui ne vous permet pas d’atteindre les relais ACS. <br/> - Défini sur `False` lors de la réalisation d’un nouvel appel.                                                                                                | Pendant un appel lorsque le signal WiFi s’active et se désactive. |
-| networkReconnect          | La connexion a été perdue et nous nous reconnectons au réseau. | - Défini sur `Poor` lorsque la connectivité de transport médiatique est interrompue <br/> - Défini sur `Bad` lorsque le réseau est déconnecté <br/> - Défini sur `Good` lorsqu’une nouvelle session est connectée.                                                                       | Faible bande passante, pas d’Internet                          |
+| networkReconnect          | La connexion a été perdue et nous nous reconnectons au réseau. | - Défini sur `Bad` lorsque le réseau est déconnecté <br/> - Défini sur `Poor` quand la connectivité de transport de média est interrompue <br/> - Défini sur `Good` lorsqu’une nouvelle session est connectée.                                                                       | Faible bande passante, pas d’Internet                          |
 | networkReceiveQuality     | Indicateur concernant la qualité du flux entrant.                 | - Défini sur `Bad` en cas de problème grave de réception du flux. qualité <br/> - Défini sur `Poor` en cas de problème modéré de réception du flux. qualité <br/> - Défini sur `Good` lorsqu’il n’y a pas de problème de réception du flux. | Bande passante faible                                       |
 
 ### <a name="audio-values"></a>Valeurs concernant l’audio

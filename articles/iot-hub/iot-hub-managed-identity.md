@@ -7,27 +7,25 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: miag
-ms.openlocfilehash: e230f06c91e775de87b42fcc2112fc699f9ecafc
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 15cde0a434df9ac06e69bf0c589cdcab8a03d2dc
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123449228"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712399"
 ---
 # <a name="iot-hub-support-for-managed-identities"></a>Prise en charge des identités managées par IoT Hub 
 
 Les identités managées fournissent aux services Azure une identité managée automatiquement dans Azure AD, de manière sécurisée. Ainsi, les développeurs n’ont plus à gérer les informations d’identification en fournissant une identité. Il existe deux types d’identités managées : celles affectées par le système et celles affectées par l’utilisateur. IoT Hub prend en charge les deux. 
 
-Dans IoT Hub, les identités managées peuvent être utilisées pour la connectivité de sortie de IoT Hub à d’autres services Azure pour des fonctionnalités telles que le [routage des messages](iot-hub-devguide-messages-d2c.md), le [chargement de fichiers](iot-hub-devguide-file-upload.md) et l’[importation/exportation d’appareils en bloc](iot-hub-bulk-identity-mgmt.md). Dans cet article, vous allez apprendre à utiliser des identités managées affectées par le système et affectées par l’utilisateur dans votre hub IoT pour différentes fonctionnalités. 
-
+Dans IoT Hub, les identités managées peuvent être utilisées pour la connectivité de sortie de IoT Hub à d’autres services Azure pour des fonctionnalités telles que le [routage des messages](iot-hub-devguide-messages-d2c.md), le [chargement de fichiers](iot-hub-devguide-file-upload.md) et l’[importation/exportation d’appareils en bloc](iot-hub-bulk-identity-mgmt.md). Dans cet article, vous allez apprendre à utiliser des identités managées affectées par le système et affectées par l’utilisateur dans votre hub IoT pour différentes fonctionnalités.
 
 ## <a name="prerequisites"></a>Prérequis
 - Lisez la documentation des [identités managées pour les ressources Azure](./../active-directory/managed-identities-azure-resources/overview.md) pour comprendre les différences entre les identités managées affectées par le système et celles affectées par l’utilisateur.
 
 - Si vous n’avez pas de hub IoT, [créez-en un](iot-hub-create-through-portal.md) avant de continuer.
 
-
-## <a name="system-assigned-managed-identity"></a>Identité managée affectée par le système 
+## <a name="system-assigned-managed-identity"></a>Identité managée affectée par le système
 
 ### <a name="add-and-remove-a-system-assigned-managed-identity-in-azure-portal"></a>Ajouter et supprimer une identité managée affectée par le système dans Portail Azure
 1.  Connectez-vous au portail Azure et accédez au hub IoT de votre choix.
@@ -128,8 +126,8 @@ Dans cette section, vous allez découvrir comment ajouter une identité managée
 
     :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="Capture d’écran montrant comment ajouter une identité managée affectée par l’utilisateur pour un hub IoT":::        
 
-
 ### <a name="enable-user-assigned-managed-identity-at-hub-creation-time-using-arm-template"></a>Activer l’identité managée affectée par l'utilisateur au moment de la création du hub en utilisant un modèle ARM
+
 L’exemple de modèle suivant peut être utilisé pour créer un hub avec une identité managée affectée par l'utilisateur. Ce modèle crée une identité affectée par l’utilisateur portant le nom *[iothub-name-provided]-identity* et destinée au hub IoT créé. Si besoin, vous pouvez modifier ce modèle afin d’ajouter plusieurs identités affectées par l’utilisateur.
  
 ```json
@@ -212,6 +210,7 @@ L’exemple de modèle suivant peut être utilisé pour créer un hub avec une i
   ]
 }
 ```
+
 ```azurecli-interactive
 az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json> --parameters iotHubName=<valid-iothub-name> skuName=<sku-name> skuTier=<sku-tier> location=<any-of-supported-regions>
 ```
@@ -221,34 +220,41 @@ Une fois la ressource créée, vous pouvez récupérer l'identité managée affe
 ```azurecli-interactive
 az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
 ```
+
 ## <a name="egress-connectivity-from-iot-hub-to-other-azure-resources"></a>Connectivité entrante d’IoT Hub vers d'autres ressources Azure
-Les identités managées peuvent être utilisées pour la connectivité de sortie de IoT Hub à d’autres services Azure pour le [routage des messages](iot-hub-devguide-messages-d2c.md), le [chargement de fichiers](iot-hub-devguide-file-upload.md) et l’[importation/exportation d’appareils en bloc](iot-hub-bulk-identity-mgmt.md). Vous pouvez choisir l’identité managée à utiliser pour chaque connectivité de sortie d’IoT Hub aux points de terminaison appartenant au client, y compris les comptes de stockage, les Event Hubs et les points de terminaison Service Bus. 
+
+Les identités managées peuvent être utilisées pour la connectivité de sortie de IoT Hub à d’autres services Azure pour le [routage des messages](iot-hub-devguide-messages-d2c.md), le [chargement de fichiers](iot-hub-devguide-file-upload.md) et l’[importation/exportation d’appareils en bloc](iot-hub-bulk-identity-mgmt.md). Vous pouvez choisir l’identité managée à utiliser pour chaque connectivité de sortie d’IoT Hub aux points de terminaison appartenant au client, y compris les comptes de stockage, les Event Hubs et les points de terminaison Service Bus.
+
+> [!NOTE]
+> Utilisez une identité managée affectée par le système pour accéder aux ressources privées.
 
 ## <a name="configure-message-routing-with-managed-identities"></a>Configurer le routage des messages avec des identités managées
+
 Dans cette section, nous utilisons le [routage des messages](iot-hub-devguide-messages-d2c.md) vers un point de terminaison personnalisé de l’Event Hub en guise d’exemple. L’exemple s’applique à d’autres points de terminaison personnalisés de routage. 
 
-1.  Tout d’abord, nous devons accéder à votre Event Hub dans Portail Azure pour attribuer l’accès approprié à l’identité managée. Dans votre Event Hub, accédez à l’onglet **Contrôle d’accès (IAM)** et cliquez sur **Ajouter**, puis sur **Ajouter une attribution de rôle**. Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
+1. Tout d’abord, nous devons accéder à votre Event Hub dans Portail Azure pour attribuer l’accès approprié à l’identité managée. Dans votre Event Hub, accédez à l’onglet **Contrôle d’accès (IAM)** et cliquez sur **Ajouter**, puis sur **Ajouter une attribution de rôle**. Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
 
-2.  Sélectionnez **Expéditeur de données Event Hubs en tant que rôle**.
+2. Sélectionnez **Expéditeur de données Event Hubs en tant que rôle**.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Pour le compte de stockage, sélectionnez **Contributeur aux données Blob du stockage** ([et *non* Contributeur ou Contributeur de compte de stockage](../storage/blobs/assign-azure-role-data-access.md)) en tant que **rôle**. Pour Service Bus, sélectionnez **Expéditeur de données Service Bus** en tant que **rôle**.
 
-3.  Pour l’identité affectée par l’utilisateur, choisissez **Identité managée affectée par l’utilisateur** sous **Attribuer l’accès à**. Sélectionnez votre abonnement et votre identité managée affectée par l’utilisateur dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
+3. Pour l’identité affectée par l’utilisateur, choisissez **Identité managée affectée par l’utilisateur** sous **Attribuer l’accès à**. Sélectionnez votre abonnement et votre identité managée affectée par l’utilisateur dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
 
     :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-user-assigned.png" alt-text="Routage des messages IoT Hub avec une identité affectée par l’utilisateur":::
 
-4.  Pour l’identité affectée par le système, sous **Attribuer l’accès à**, choisissez **Utilisateur, groupe ou principal de service**, puis sélectionnez le nom de ressource de votre hub IoT dans la liste déroulante. Cliquez sur **Enregistrer**.
+4. Pour l’identité affectée par le système, sous **Attribuer l’accès à**, choisissez **Utilisateur, groupe ou principal de service**, puis sélectionnez le nom de ressource de votre hub IoT dans la liste déroulante. Cliquez sur **Enregistrer**.
 
     :::image type="content" source="./media/iot-hub-managed-identity/eventhub-iam-system-assigned.png" alt-text="Routage des messages IoT Hub avec une identité affectée par le système":::
 
     Si vous devez restreindre la connectivité à votre point de terminaison personnalisé par le biais d’un réseau virtuel, vous devez activer l’exception des premiers tiers Microsoft approuvés pour permettre à votre hub IoT d’accéder au point de terminaison spécifique. Par exemple, si vous ajoutez un point de terminaison personnalisé d’Event Hub, accédez à l’onglet **Pare-feux et réseaux virtuels** dans votre Event Hub et activez l’option **Autoriser l’accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions**, cochez la case **Autoriser les services Microsoft approuvés à accéder aux hubs d’événements**. Cliquez sur le bouton **Enregistrer** . Cela s’applique également au compte de stockage et à Service Bus. En savoir plus sur la [prise en charge des réseaux virtuels par IoT Hub](./virtual-network-support.md).
 
     > [!NOTE]
-    > Vous devez effectuer les étapes ci-dessus pour attribuer le bon accès à l’identité managée avant d’ajouter l’Event Hub comme point de terminaison personnalisé dans IoT Hub. Patientez quelques minutes pour que l’attribution de rôle se propage. 
+    > Vous devez effectuer les étapes ci-dessus pour attribuer le bon accès à l’identité managée avant d’ajouter l’Event Hub comme point de terminaison personnalisé dans IoT Hub. Patientez quelques minutes pour que l’attribution de rôle se propage.
 
 5. Ensuite, accédez à votre hub IoT. Dans votre hub, accédez à **Routage des messages**, puis cliquez sur **Points de terminaison personnalisés**. Cliquez sur **Ajouter** et choisissez le type de point de terminaison que vous souhaitez utiliser. Dans cette section, nous utilisons Event Hub comme exemple.
-6.  En bas de la page, choisissez votre **type d’authentification** par défaut. Dans cette section, nous utilisons l’identité **Affectée par l’utilisateur** comme exemple. Dans la liste déroulante, sélectionnez l’identité managée affectée par l’utilisateur par défaut, puis cliquez sur **Créer**.
+
+6. En bas de la page, choisissez votre **type d’authentification** par défaut. Dans cette section, nous utilisons l’identité **Affectée par l’utilisateur** comme exemple. Dans la liste déroulante, sélectionnez l’identité managée affectée par l’utilisateur par défaut, puis cliquez sur **Créer**.
 
     :::image type="content" source="./media/iot-hub-managed-identity/eventhub-routing-endpoint.png" alt-text="Event Hub IoT Hub avec une identité affectée par l’utilisateur":::
 
@@ -260,6 +266,7 @@ Dans cette section, nous utilisons le [routage des messages](iot-hub-devguide-me
 9. Choisissez le nouveau type d’authentification à mettre à jour pour ce point de terminaison, puis cliquez sur **Enregistrer**.
 
 ## <a name="configure-file-upload-with-managed-identities"></a>Configurer le chargement de fichiers avec des identités managées
+
 La fonctionnalité de [chargement de fichiers](iot-hub-devguide-file-upload.md) d’IoT Hub permet aux appareils de charger des fichiers sur un compte de stockage appartenant au client. Pour que le chargement de fichiers puisse fonctionner, IoT Hub doit être connecté au compte de stockage. À l’instar du routage des messages, vous pouvez choisir le type d’authentification et l’identité managée de votre choix pour la connectivité de sortie d’IoT Hub à votre compte de stockage Azure. 
 
 1. Dans le portail Azure, accédez à l'onglet **Contrôle d'accès (IAM)** de votre compte de stockage, puis cliquez sur **Ajouter** dans la section **Ajouter une attribution de rôle**.
@@ -269,10 +276,8 @@ La fonctionnalité de [chargement de fichiers](iot-hub-devguide-file-upload.md) 
 
     Si vous devez restreindre la connectivité à votre compte de stockage par le biais d’un réseau virtuel, vous devez activer l’exception des premiers tiers Microsoft approuvés pour permettre à votre hub IoT d’accéder au compte de stockage. Sur la page des ressources de votre compte de stockage, accédez à l’onglet **Pare-feux et réseaux virtuels** et activez l’option **Autoriser l’accès à partir des réseaux sélectionnés**. Sous la liste **Exceptions**, cochez la case **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage**. Cliquez sur le bouton **Enregistrer** . En savoir plus sur la [prise en charge des réseaux virtuels par IoT Hub](./virtual-network-support.md). 
 
-
     > [!NOTE]
-    > Vous devez effectuer les étapes ci-dessus pour attribuer à l’identité managée le bon accès avant d’enregistrer le compte de stockage dans IoT Hub pour le chargement de fichiers à l’aide de l’identité managée. Patientez quelques minutes pour que l’attribution de rôle se propage. 
- 
+    > Vous devez effectuer les étapes ci-dessus pour attribuer à l’identité managée le bon accès avant d’enregistrer le compte de stockage dans IoT Hub pour le chargement de fichiers à l’aide de l’identité managée. Patientez quelques minutes pour que l’attribution de rôle se propage.
 5. Sur la page des ressources de votre hub IoT, accédez à l’onglet **Chargement de fichiers**.
 6. Sur la page qui s’affiche, sélectionnez le conteneur que vous comptez utiliser dans votre stockage blob, puis configurez les **paramètres de notification de fichier, la durée de vie SAP, la durée de vie par défaut et le nombre maximal de distributions** comme vous le souhaitez. Choisissez le type d’authentification de votre choix, puis cliquez sur **Enregistrer**. Si vous recevez une erreur à cette étape, configurez temporairement votre compte de stockage afin d’autoriser l’accès à partir de **tous les réseaux**, puis réessayez. Vous pouvez configurer le pare-feu sur le compte de stockage une fois la configuration du chargement de fichiers terminée.
 
@@ -290,7 +295,6 @@ IoT Hub prend en charge la fonctionnalité permettant d’[importer/exporter](io
 3. Pour l’identité affectée par l’utilisateur, choisissez **Identité managée affectée par l’utilisateur** sous Attribuer l’accès à. Sélectionnez votre abonnement et votre identité managée affectée par l’utilisateur dans la liste déroulante. Cliquez sur le bouton **Enregistrer** .
 4. Pour l’identité affectée par le système, sous **Attribuer l’accès à**, choisissez **Utilisateur, groupe ou principal de service**, puis sélectionnez le nom de ressource de votre hub IoT dans la liste déroulante. Cliquez sur **Enregistrer**.
 
-
 ### <a name="using-rest-api-or-sdk-for-import-and-export-jobs"></a>Utilisation de l’API REST ou du Kit de développement logiciel (SDK) pour les travaux d’importation et d’exportation
 
 Vous pouvez désormais utiliser les API REST d’Azure IoT pour créer des travaux d’importation et d’exportation. Vous devrez fournir les propriétés suivantes dans le corps de la demande :
@@ -299,7 +303,6 @@ Vous pouvez désormais utiliser les API REST d’Azure IoT pour créer des trava
 - **inputBlobContainerUri** : Définissez cette propriété uniquement dans le travail d’importation.
 - **outputBlobContainerUri** : Définissez cette propriété pour les travaux d’importation et d’exportation.
 - **identity** : Définissez la valeur sur l’identité managée à utiliser.
-
 
 Les kits SDK IoT Hub Azure prennent également en charge cette fonctionnalité dans le gestionnaire de registre du client du service. L’extrait de code suivant indique comment créer une tâche d’importation ou d’exportation en utilisant le SDK C#.
 

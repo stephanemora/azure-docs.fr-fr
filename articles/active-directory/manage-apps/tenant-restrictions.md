@@ -1,6 +1,7 @@
 ---
-title: Utiliser des restrictions liées aux abonnés pour gérer l’accès aux applications SaaS - Azure AD
+title: Utiliser des restrictions de locataire pour gérer l’accès aux applications SaaS
 description: Comment utiliser des restrictions liées au locataire pour gérer les utilisateurs qui peuvent accéder aux applications en fonction de leur client Azure AD.
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -11,14 +12,14 @@ ms.date: 7/30/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19f3017aafdf15905d4418213fd1020545e57880
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 029328313ac58a5177f5a5e3c75b86fdc3587b43
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644293"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613735"
 ---
-# <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
+# <a name="restrict-access-to-a-tenant-in-azure-active-directory"></a>Restreindre l’accès à un locataire dans Azure Active Directory
 
 Les organisations de grande taille qui se préoccupent de la sécurité souhaitent adopter des services cloud, comme Microsoft 365, tout en s’assurant que leurs utilisateurs ne pourront accéder qu’à des ressources approuvées. En général, pour gérer l’accès, les entreprises limitent les noms de domaine ou les adresses IP. Cette approche échoue dans un monde où les applications software as a service (ou SaaS) sont hébergées dans un cloud public et s’exécutent sur des noms de domaine partagés comme [outlook.office.com](https://outlook.office.com/) et [login.microsoftonline.com](https://login.microsoftonline.com/). Le fait de bloquer ces adresses empêche les utilisateurs d’accéder à Outlook sur le web entièrement, au lieu de restreindre simplement leur accès à des identités et des ressources approuvées.
 

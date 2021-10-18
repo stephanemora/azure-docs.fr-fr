@@ -4,12 +4,12 @@ description: Cet article décrit comment arrêter la surveillance de votre clust
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bd13c3e3c3a1aca3253bc43377a15324db2cc4fb
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: b8f548b8e9440804ae6a7ff293c35e7107cfc4c8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319932"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708928"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Arrêter la surveillance de votre cluster hybride
 
@@ -57,7 +57,7 @@ Les étapes suivantes s’appliquent à ces environnements :
 
 Le changement de configuration peut prendre quelques minutes. Étant donné que Helm suit vos versions même après les avoir supprimées, vous pouvez auditer l’historique d’un cluster et même annuler la suppression d’une version grâce à `helm rollback`.
 
-## <a name="how-to-stop-monitoring-on-arc-enabled-kubernetes"></a>Comment arrêter l’analyse sur les Kubernetes avec Arc activé
+## <a name="how-to-stop-monitoring-on-azure-arc-enabled-kubernetes"></a>Comment arrêter la supervision sur Kubernetes avec Azure Arc
 
 ### <a name="using-powershell"></a>Utilisation de PowerShell
 
@@ -89,7 +89,7 @@ Le changement de configuration peut prendre quelques minutes. Étant donné que 
 Le script *disable-monitoring.ps1* utilise la connexion interactive de l’appareil. Si vous préférez une connexion non interactive, vous pouvez utiliser un principal de service existant ou en créer un nouveau qui possède les autorisations requises, comme décrit dans [Prérequis](container-insights-enable-arc-enabled-clusters.md#prerequisites). Pour utiliser le principal du service, vous devez transmettre les paramètres $servicePrincipalClientId, $servicePrincipalClientSecret et $tenantId parameters avec les valeurs du principal de service que vous avez prévu d’utiliser pour le script enable-monitoring.ps1.
 
 ```powershell
-$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$subscriptionId = "<subscription Id of the Azure Arc-connected cluster resource>"
 $servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
 
 $servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
@@ -142,7 +142,7 @@ Par exemple :
 Le script bash *disable-monitoring.sh* utilise la connexion interactive de l’appareil. Si vous préférez une connexion non interactive, vous pouvez utiliser un principal de service existant ou en créer un nouveau qui possède les autorisations requises, comme décrit dans [Prérequis](container-insights-enable-arc-enabled-clusters.md#prerequisites). Pour utiliser le principal du service, vous devez transmettre les valeur --client-id, --client-secret et --tenant-id du principal de service que vous avez prévu d’utiliser pour le script bash *enable-monitoring.sh*.
 
 ```bash
-subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+subscriptionId="<subscription Id of the Azure Arc-connected cluster resource>"
 servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
 servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
 

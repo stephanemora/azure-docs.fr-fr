@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.author: memildin
-ms.openlocfilehash: 3d7bed3847465c48914453a3fd167384e1c180b6
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 66f2ca97ce20dc0aeb6b1fcecf691861b645284b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113435814"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706705"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -30,7 +30,7 @@ Les solutions de sécurité intégrées incluent actuellement l’évaluation de
 > [!NOTE]
 > Security Center n’installe pas l’agent Log Analytics sur les appliances virtuelles de partenaire, car la plupart des fournisseurs de sécurité n’autorisent pas l’exécution d’agents externes sur leurs appliances.
 
-Pour en savoir plus sur l’intégration des outils d’analyse des vulnérabilités de Qualys, y compris un analyseur intégré disponible pour les clients Azure Defender, consultez [Évaluation des vulnérabilités de vos machines virtuelles Azure](deploy-vulnerability-assessment-vm.md).
+Pour en savoir plus sur l’intégration des outils d’analyse des vulnérabilités de Qualys, y compris un analyseur intégré disponible pour les clients Azure Defender, consultez [Analyseur de vulnérabilités Qualys intégré à Azure Defender pour les machines hybrides et Azure](deploy-vulnerability-assessment-vm.md).
 
 Security Center offre également une analyse des vulnérabilités pour les éléments suivants :
 

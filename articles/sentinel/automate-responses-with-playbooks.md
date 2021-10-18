@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 10/11/2021
 ms.author: yelevin
-ms.openlocfilehash: bddd27b29a1546f0c985f7a5b3aa15027be75d46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d6afd8e1d4c70d818257007993aedfe3a48ce4f4
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524211"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129752110"
 ---
 # <a name="automate-threat-response-with-playbooks-in-azure-sentinel"></a>Automatiser la réponse aux menaces à l’aide de playbooks dans Azure Sentinel
 
@@ -36,7 +36,29 @@ Un playbook est un ensemble de ces actions de correction qui peuvent être exéc
 
 Par exemple, si un compte et un ordinateur sont compromis, un playbook peut isoler l’ordinateur du réseau et bloquer le compte au moment où l’équipe SOC est informée de l’incident.
 
-Les playbooks sont créés et appliqués au niveau de l’abonnement, mais l’onglet **Playbooks** (dans le nouveau panneau **Automatisation**) affiche tous les playbooks disponibles dans les abonnements sélectionnés.
+Vous pouvez utiliser des playbooks dans l’abonnement auquel ils appartiennent, mais l’onglet **Playbooks** (dans le panneau **Automatisation**) affiche tous les playbooks disponibles dans tous les abonnements sélectionnés.
+
+### <a name="playbook-templates"></a>Modèles de playbook
+
+> [!IMPORTANT]
+>
+> Les **modèles de playbook** sont actuellement en **PRÉVERSION**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+
+Un modèle de playbook est un workflow prédéfini, testé et prêt à l’emploi qui peut être personnalisé pour répondre à vos besoins. Les modèles peuvent également servir de référence dans les bonnes pratiques pour le développement de règles à partir de zéro ou d’inspiration pour les nouveaux scénarios d’automatisation.
+
+Les modèles de playbook ne sont pas des playbooks actifs, mais ils vous permettent d’en créer un (une copie modifiable du modèle).
+
+Vous pouvez obtenir des modèles de playbook à partir des sources suivantes :
+
+- L’onglet **Modèles de playbook** (sous **Automatisation**) présente les principaux scénarios fournis par la communauté Azure Sentinel. Vous pouvez créer plusieurs playbooks actifs à partir du même modèle.
+
+    Quand une nouvelle version du modèle est publiée, les playbooks actifs créés à partir de ce modèle (sous l’onglet **Playbooks**) sont étiquetés avec une notification indiquant qu’une mise à jour est disponible.
+
+- Les modèles de playbook peuvent également être obtenus dans le cadre d’une [**solution Azure Sentinel**](sentinel-solutions.md) pour un produit spécifique. Le déploiement de la solution produit des playbooks actifs.
+
+- Le [**dépôt GitHub Azure Sentinel**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contient de nombreux modèles de playbook. Vous pouvez les déployer dans un abonnement Azure en sélectionnant le bouton **Déployer sur Azure**. 
+
+Techniquement, un modèle de playbook est un [modèle ARM](../azure-resource-manager/templates/index.yml) composé de plusieurs ressources : un workflow Azure Logic Apps et des connexions d’API pour chaque connexion impliquée. 
 
 ### <a name="azure-logic-apps-basic-concepts"></a>Concepts de base d’Azure Logic Apps
 
@@ -62,7 +84,7 @@ Azure Logic Apps communique avec d’autres systèmes et services à l’aide de
 
     > [!IMPORTANT]
     >
-    > - La fonctionnalité de **déclenchement d’incident** pour les playbooks est actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
+    > La fonctionnalité de **déclenchement d’incident** pour les playbooks est actuellement en **préversion**. Consultez l’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) pour connaître les conditions juridiques supplémentaires s’appliquant aux fonctionnalités Azure sont en version bêta, en préversion ou non encore en disponibilité générale.
 
 - **Actions :** les actions sont toutes les étapes qui se produisent après le déclencheur. Elles peuvent être réorganisées de façon séquentielle, en parallèle ou dans une matrice de conditions complexes.
 

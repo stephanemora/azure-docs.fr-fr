@@ -1,24 +1,24 @@
 ---
-title: Créez et déployez des workflows sur Logic Apps avec Azure Arc
+title: Créer et déployer des workflows en utilisant Logic Apps avec Azure Arc
 description: Créez et déployez des workflows d’application logique monolocataires qui s’exécutent partout où Kubernetes peut s’exécuter.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
 ms.topic: how-to
 ms.date: 06/03/2021
-ms.openlocfilehash: a3ccea075dd4ce4bce06b31fdbe6dc2a55812ebc
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 17c9eb020d62207910008fb032872bd609df553f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754076"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712298"
 ---
-# <a name="create-and-deploy-single-tenant-based-logic-app-workflows-with-azure-arc-enabled-logic-apps-preview"></a>Créez et déployez des workflows d’application logique monolocataire avec Logic Apps avec Azure Arc (préversion)
+# <a name="create-and-deploy-single-tenant-based-logic-app-workflows-with-azure-arc-enabled-logic-apps-preview"></a>Créer et déployer des workflows d’application logique monolocataire en utilisant Logic Apps avec Azure Arc (préversion)
 
 > [!NOTE]
 > Cette fonctionnalité est en préversion et est soumise aux [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) des préversions de Microsoft Azure.
 
-Avec Logic Apps avec Azure Arc et le portail Azure, vous pouvez créer et déployer des workflows d’application logique monolocataire dans une infrastructure Kubernetes que vous exploitez et gérez. Vos applications logiques s’exécutent dans un *emplacement personnalisé* qui est mappé à un cluster Kubernetes avec Azure Arc sur lequel vous avez installé et activé le groupe d’extensions de plateforme Azure App Service.
+Logic Apps avec Azure Arc et le portail Azure vous permettent de créer et déployer des workflows d’application logique monolocataire sur une infrastructure Kubernetes que vous utilisez et gérez. Vos applications logiques s’exécutent dans un *emplacement personnalisé* qui est mappé à un cluster Kubernetes avec Azure Arc sur lequel vous avez installé et activé le bundle d’extensions de la plateforme Azure App Service.
 
 Par exemple, ce cluster peut être un service Azure Kubernetes, un Kubernetes nu ou une autre configuration. Le pack d’extensions vous permet d’exécuter des services de plateforme tels qu’Azure Logic Apps, Azure App Service et Azure Functions sur votre cluster Kubernetes. 
 
@@ -31,7 +31,7 @@ Pour plus d’informations, consultez la documentation suivante :
 - [Qu’est-ce que Kubernetes avec Azure Arc ?](../azure-arc/kubernetes/overview.md)
 - [Emplacements personnalisés sur Kubernetes avec Azure Arc](../azure-arc/kubernetes/conceptual-custom-locations.md)
 - [App Service, Functions et Logic Apps sur Azure Arc (préversion)](../app-service/overview-arc-integration.md)
-- [Configurer un cluster Kubernetes avec Azure Arc pour exécuter App Service, Functions et Logic Apps (préversion)](../app-service/manage-create-arc-environment.md)
+- [Configurer un cluster Kubernetes activé pour Azure Arc pour exécuter App Service, Functions et Logic Apps (préversion)](../app-service/manage-create-arc-environment.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,7 +39,7 @@ Cette section décrit les conditions préalables courantes pour toutes les appro
 
 - Compte Azure avec un abonnement actif. Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Un environnement Kubernetes avec un cluster Kubernetes avec Azure Arc et un *emplacement personnalisé* où vous pouvez héberger et exécuter Azure Logic Apps, Azure App Service et Azure Functions.
+- Un environnement Kubernetes équipé d’un cluster Kubernetes avec Azure Arc et un *emplacement personnalisé* où vous pouvez héberger et exécuter Azure Logic Apps, Azure App Service et Azure Functions.
 
   > [!IMPORTANT]
   > Veillez à utiliser le même emplacement de ressource pour votre environnement Kubernetes, l’emplacement personnalisé et l’application logique.
@@ -52,12 +52,12 @@ Cette section décrit les conditions préalables courantes pour toutes les appro
 
   - [App Service, Functions et Logic Apps sur Azure Arc (préversion)](../app-service/overview-arc-integration.md)
   - [Extensions de cluster sur Kubernetes avec Azure Arc](../azure-arc/kubernetes/conceptual-extensions.md)
-  - [Configurer un cluster Kubernetes avec Azure Arc pour exécuter App Service, Functions et Logic Apps (préversion)](../app-service/manage-create-arc-environment.md)
+  - [Configurer un cluster Kubernetes activé pour Azure Arc pour exécuter App Service, Functions et Logic Apps (préversion)](../app-service/manage-create-arc-environment.md)
   - [Modifier le comportement de mise à l’échelle par défaut](#change-scaling)
 
 - Votre propre identité Azure Active Directory (Azure AD)
 
-  Si vos workflows doivent utiliser des connexions hébergées sur Azure, comme Office 365 Outlook ou Stockage Azure, votre application logique doit utiliser une identité Azure AD pour l’authentification. Logic Apps avec Azure Arc peut s’exécuter sur n’importe quelle infrastructure, mais nécessite une identité qui a l’autorisation d’utiliser des connexions hébergées sur Azure. Pour configurer cette identité, créez une inscription d’application dans Azure AD que votre application logique utilise comme identité requise.
+  Si vos workflows doivent utiliser des connexions hébergées sur Azure, comme Office 365 Outlook ou Stockage Azure, votre application logique doit utiliser une identité Azure AD pour l’authentification. Logic Apps avec Azure Arc peut s’exécuter sur n’importe quelle infrastructure, mais elle a besoin d’une identité qui a l’autorisation d’utiliser des connexions hébergées sur Azure. Pour configurer cette identité, créez une inscription d’application dans Azure AD que votre application logique utilise comme identité requise.
 
   > [!NOTE]
   > La prise en charge des identités managées n’est pas disponible actuellement pour Logic Apps avec Azure Arc.
@@ -88,9 +88,9 @@ Selon que vous souhaitez utiliser Azure CLI, Visual Studio Code ou le portail Az
 
 Avant de commencer, vous devez disposer des éléments suivants :
 
-- Extension Azure CLI la plus récente installée sur votre ordinateur local.
+- Extension Azure CLI la plus récente installée sur votre ordinateur local.
 
-  - Si vous n’avez pas cette extension, consultez le [Guide d’installation de votre système d’exploitation ou de votre plateforme](/cli/azure/install-azure-cli).
+  - Si vous n’êtes pas équipé de cette extension, consultez le [guide d’installation de votre système d’exploitation ou de votre plateforme](/cli/azure/install-azure-cli).
 
   - Si vous n’êtes pas sûr d’utiliser la version la plus récente, suivez les [étapes pour vérifier votre environnement et votre version de l’interface CLI](#check-environment-cli-version).
 
@@ -140,7 +140,7 @@ az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any
 
 #### <a name="create-resource-group"></a>Créer un groupe de ressources
 
-Si ne disposez pas encore d’un groupe de ressources pour votre application logique, créez-en un en exécutant la commande `az group create`. À moins d’avoir déjà défini un abonnement par défaut pour votre compte Azure, veillez à utiliser le paramètre `--subscription` avec le nom ou l’identificateur de votre abonnement. Sinon, vous n’êtes pas obligé d’utiliser le paramètre `--subscription`.
+Si ne disposez pas encore d’un groupe de ressources pour votre application logique, créez-en un en exécutant la commande `az group create`. À moins d’avoir déjà défini un abonnement par défaut pour votre compte Azure, veillez à utiliser le paramètre `--subscription` avec le nom ou l’identificateur de votre abonnement. Sinon, vous n’avez pas besoin d’utiliser le paramètre `--subscription`.
 
 > [!TIP]
 > Pour définir un abonnement par défaut, exécutez la commande suivante et remplacez `MySubscription` par le nom ou l’identificateur de votre abonnement.
@@ -205,10 +205,10 @@ az logicapp show --name MyLogicAppName
 
 #### <a name="deploy-logic-app"></a>Déployer l’application logique
 
-Pour déployer votre application logique avec Azure Arc à l’aide du [déploiement du fichier zip Kudu d’Azure App Service](../app-service/resources-kudu.md), exécutez la commande `az logicapp deployment source config-zip` avec les paramètres nécessaires suivants :
+Pour déployer votre application logique avec Azure Arc en utilisant le [déploiement du fichier zip Kudu d’Azure App Service](../app-service/resources-kudu.md), exécutez la commande `az logicapp deployment source config-zip` avec les paramètres nécessaires suivants :
 
 > [!IMPORTANT]
-> Assurez-vous que votre fichier zip contient les artefacts de votre projet à la racine. Ces artefacts comprennent tous les dossiers de workflow, les fichiers de configuration, tels que host.json, connections.json et tout autre fichier associé. N’ajoutez pas de dossier supplémentaire et ne placez aucun artefact dans des dossiers qui n’existent pas déjà dans la structure de votre projet. Par exemple, cette liste montre un exemple de structure de fichier MyBuildArtifacts.zip :
+> Assurez-vous que votre fichier zip contient les artefacts de votre projet à la racine. Ces artefacts comprennent tous les dossiers de flux de travail, les fichiers config tels que host.json, connections.json et tout autre fichier associé. N’ajoutez pas de dossiers supplémentaires ni ne placez d’artefacts dans des dossiers qui n’existent pas déjà dans la structure de votre projet. Par exemple, cette liste montre un exemple de structure de fichier MyBuildArtifacts.zip :
 >
 > ```output
 > MyStatefulWorkflow1-Folder
@@ -261,7 +261,7 @@ az logicapp delete --name MyLogicAppName
 
 ### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Vous pouvez créer, déployer et surveiller vos workflows d’application logique de bout en bout dans Visual Studio Code. Il n’y a aucune modification ou différence dans l’expérience du concepteur entre le développement de workflows d’application logique qui s’exécutent dans Azure Logic Apps monolocataire par rapport à Logic Apps avec Azure Arc.
+Vous pouvez créer, déployer et surveiller vos workflows d’application logique de bout en bout dans Visual Studio Code. L’expérience du concepteur ne change ni ne diffère, que vous développiez des workflows d’application logique s’exécutant dans une instance Azure Logic Apps monolocataire ou une instance Logic Apps avec Azure Arc.
 
 1. Pour créer un projet d’application logique, suivez les conditions préalables et les étapes de la documentation [Créer des workflows d’intégration dans Azure Logic Apps monolocataire avec Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
 
@@ -271,11 +271,11 @@ Vous pouvez créer, déployer et surveiller vos workflows d’application logiqu
 
    1. Sélectionnez l’abonnement Azure associé à votre emplacement personnalisé.
 
-   1. Pour créer une ressource Logic Apps avec Azure Arc, sélectionnez **Créer une nouvelle application logique dans Azure (avancé)** . Ou vous pouvez sélectionner une ressource d’application logique existante dans la liste et ignorer les étapes suivantes.
+   1. Pour créer une ressource Logic Apps avec Azure Arc, sélectionnez **Créer une application logique dans Azure (avancé)** . Ou vous pouvez sélectionner une ressource d’application logique existante dans la liste et ignorer les étapes suivantes.
 
    1. Fournissez un nom globalement unique pour votre application logique.
 
-   1. Sélectionnez l’emplacement personnalisé de l’environnement Kubernetes avec Azure Arc avec lequel vous souhaitez effectuer le déploiement. Si vous sélectionnez une région Azure générique à la place, vous créez une ressource d’application logique non Azure Arc qui s’exécute dans Azure Logic Apps monolocataire.
+   1. Sélectionnez l’emplacement personnalisé de l’environnement Kubernetes avec Azure Arc sur lequel vous voulez effectuer le déploiement. Si vous sélectionnez une région Azure générique à la place, vous créez une ressource d’application logique non-Azure Arc qui s’exécute dans une instance Azure Logic Apps monolocataire.
 
    1. Sélectionnez ou créez un nouveau groupe de ressources à l’emplacement où vous souhaitez déployer l’application logique.
 
@@ -290,15 +290,15 @@ Vous pouvez créer, déployer et surveiller vos workflows d’application logiqu
       > [!NOTE]
       > Vous ne devez effectuer cette étape qu’une seule fois. Visual Studio Code met à jour les stratégies d’accès du fichier connections.json de votre projet et vos connexions d’API gérées pour vous.
 
-1. Lorsque vous avez terminé, votre application logique est en ligne et s’exécute dans votre cluster Kubernetes avec Azure Arc, prête à être testée.
+1. Une fois que vous avez terminé, votre application logique est en ligne et s’exécute dans votre cluster Kubernetes avec Azure Arc, prête pour les tests.
 
 ### <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 La fonctionnalité de modification du concepteur basée sur le portail est en cours de développement pour Logic Apps avec Azure Arc. Vous pouvez créer, déployer et afficher vos applications logiques à l’aide du concepteur basé sur le portail, mais vous ne pouvez pas les modifier dans le portail après le déploiement. Pour le moment, vous pouvez créer et modifier un projet d’application logique localement dans Visual Studio Code, puis déployer à l’aide de Visual Studio Code, d’Azure CLI ou de déploiements automatisés.
 
-1. Dans le portail Azure, [créez une ressource **Logic App (Standard)** ](create-single-tenant-workflows-azure-portal.md). Toutefois, pour la destination **Publier**, sélectionnez **Conteneur Docker**. Pour **Région**, sélectionnez votre endroit personnalisé précédemment créé comme endroit de votre application.
+1. Dans le portail Azure, [créez une ressource **Logic App (Standard)**](create-single-tenant-workflows-azure-portal.md). Toutefois, pour la destination **Publier**, sélectionnez **Conteneur Docker**. Pour **Région**, sélectionnez votre endroit personnalisé précédemment créé comme endroit de votre application.
 
-   Par défaut, la ressource **Application logique (Standard)** s’exécute dans Azure Logic Apps monolocataire. Toutefois, pour Logic Apps avec Azure Arc, votre ressource d’application logique s’exécute à l’emplacement personnalisé que vous avez créé pour votre environnement Kubernetes. De plus, vous n’avez pas besoin de créer de plan App Service, il est créé pour vous.
+   Par défaut, la ressource **Application logique (Standard)** s’exécute dans Azure Logic Apps monolocataire. Toutefois, pour Logic Apps avec Azure Arc, votre ressource d’application logique s’exécute dans l’emplacement personnalisé que vous avez créé pour votre environnement Kubernetes. De plus, vous n’avez pas besoin de créer de plan App Service, il est créé pour vous.
 
    > [!IMPORTANT]
    > Les emplacements de ressources doivent tous être identiques pour votre application logique, votre emplacement personnalisé et votre environnement Kubernetes.
@@ -313,7 +313,7 @@ La fonctionnalité de modification du concepteur basée sur le portail est en co
 
 ## <a name="set-up-connection-authentication"></a>Configurer l’authentification de connexion
 
-Actuellement, les clusters Kubernetes avec Azure Arc ne prennent pas en charge l’utilisation de l’identité managée d’une application logique pour authentifier les connexions d’API gérées. Vous créez ces connexions gérées et hébergées par Azure quand vous utilisez des connecteurs managés dans vos workflows.
+Actuellement, les clusters Kubernetes avec Azure Arc ne prennent pas en charge l’utilisation de l’identité managée de l’application logique pour authentifier les connexions d’API managées. Vous créez ces connexions gérées et hébergées par Azure quand vous utilisez des connecteurs managés dans vos workflows.
 
 Au lieu de cela, vous devez créer votre propre inscription d’application dans Azure Active Directory (Azure AD). Vous pouvez ensuite utiliser cette inscription d’application comme identité pour les applications logiques déployées et exécutées dans Logic Apps avec Azure Arc. Pour plus d’informations, consultez les [prérequis de haut niveau](#prerequisites).
 
@@ -414,7 +414,7 @@ Pour générer et déployer vos applications logiques avec Azure Arc, vous pouve
 
 ### <a name="standard-deployment-non-container"></a>Déploiement standard (non conteneur)
 
-Si vous utilisez zip deploy pour le déploiement d’applications logiques, vous n’avez pas besoin de configurer un registre Docker pour héberger des images de conteneur. Bien que Logic Apps sur Kubernetes s’exécute techniquement sur des conteneurs, Logic Apps avec Azure Arc gère ces conteneurs pour vous. Pour ce scénario, effectuez les tâches suivantes lors de la configuration de votre infrastructure :
+Si vous utilisez zip deploy pour le déploiement d’applications logiques, vous n’avez pas besoin de configurer un registre Docker pour héberger des images de conteneur. Bien que les applications logiques sur Kubernetes s’exécutent techniquement sur des conteneurs, Logic Apps avec Azure Arc gère ces conteneurs pour vous. Pour ce scénario, effectuez les tâches suivantes lors de la configuration de votre infrastructure :
 
 - Informez le fournisseur de ressources que vous créez une application logique sur Kubernetes.
 - Incluez un plan App Service avec votre déploiement. Pour plus d’informations, consultez [Inclure un plan App Service avec le déploiement](#include-app-service-plan).
@@ -485,7 +485,7 @@ L’exemple suivant décrit un exemple de définition de ressource Logic Apps av
 
 ### <a name="container-deployment"></a>Déploiement de conteneur
 
-Si vous préférez utiliser les outils de conteneur et les processus de déploiement, vous pouvez mettre en conteneur vos applications logiques et les déployer sur Logic Apps avec Azure Arc. Pour ce scénario, effectuez les tâches de haut niveau suivantes lors de la configuration de votre infrastructure :
+Si vous préférez utiliser des outils de conteneur et des processus de déploiement, vous pouvez conteneuriser vos applications logiques et les déployer sur Logic Apps avec Azure Arc. Pour ce scénario, effectuez les tâches de haut niveau suivantes lors de la configuration de votre infrastructure :
 
 - Configurez un registre Docker pour héberger vos images de conteneur.
 - Informez le fournisseur de ressources que vous créez une application logique sur Kubernetes.
@@ -630,7 +630,7 @@ L’exemple suivant décrit une définition de ressource de plan App Service que
 
 ## <a name="change-default-scaling-behavior"></a>Modifier le comportement de mise à l’échelle par défaut
 
-Logic Apps avec Azure Arc gère automatiquement la mise à l’échelle de vos applications logiques en fonction du nombre de *travaux* dans la file d’attente du stockage principal. Toutefois, vous pouvez modifier le comportement de mise à l’échelle par défaut.
+Logic Apps avec Azure Arc gère automatiquement la mise à l’échelle de vos applications logiques en fonction du nombre de *travaux* dans la file d’attente du back-end. Toutefois, vous pouvez modifier le comportement de mise à l’échelle par défaut.
 
 Dans une application logique, la définition de workflow spécifie la séquence d’actions à exécuter. Chaque fois qu’une exécution de workflow est déclenchée, le runtime Azure Logic Apps crée un *travail* pour chaque type d’action dans la définition de workflow. Le runtime organise ensuite ces travaux dans un *séquenceur de travaux*. Ce séquenceur orchestre l’exécution des tâches pour la définition de workflow, mais le moteur d’orchestration de travail Azure Logic Apps sous-jacent exécute chaque travail.
 
@@ -640,11 +640,11 @@ Pour modifier le comportement de mise à l’échelle par défaut, vous spécifi
 
 ### <a name="prerequisites-to-change-scaling"></a>Conditions préalables à la modification de la mise à l’échelle
 
-Sur votre cluster Kubernetes avec Arc, votre extension de pack App Service créée précédemment doit avoir la propriété `keda.enabled` définie sur `true`. Pour plus d’informations, consultez les [prérequis de haut niveau](#prerequisites).
+Sur votre cluster Kubernetes avec Azure Arc, l’extension de bundle App Service que vous avez précédemment créée doit avoir la propriété `keda.enabled` définie sur `true`. Pour plus d’informations, consultez les [prérequis de haut niveau](#prerequisites).
 
 ### <a name="change-scaling-threshold"></a>Modifier le seuil de mise à l’échelle
 
-Dans Logic Apps avec Azure Arc, la longueur de la file d’attente de travaux déclenche un événement de mise à l’échelle et définit un seuil pour la fréquence des mises à l’échelle pour votre application logique. Vous pouvez modifier la longueur de la file d’attente, avec la valeur par défaut définie sur `20` travaux. Pour une mise à l’échelle moins fréquente, augmentez la longueur de la file d’attente. Pour une mise à l’échelle plus fréquente, diminuez la longueur de la file d’attente. Ce processus peut nécessiter des expérimentations de votre part.
+Dans Logic Apps avec Azure Arc, la longueur de la file d’attente de travaux déclenche un événement de mise à l’échelle et définit un seuil pour la fréquence des mises à l’échelle de votre application logique. Vous pouvez modifier la longueur de la file d’attente, avec la valeur par défaut définie sur `20` travaux. Pour une mise à l’échelle moins fréquente, augmentez la longueur de la file d’attente. Pour une mise à l’échelle plus fréquente, diminuez la longueur de la file d’attente. Ce processus peut nécessiter des expérimentations de votre part.
 
 Pour modifier la longueur de la file d’attente, dans le fichier **host.json** au niveau de la racine du projet d’application logique, définissez la propriété `Runtime.ScaleMonitor.KEDA.TargetQueueLength`, par exemple :
 

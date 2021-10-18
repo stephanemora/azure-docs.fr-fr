@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 10/07/2021
 ms.author: b-juche
-ms.openlocfilehash: b94374d8eaa0efac50989a388686f96d9bae0622
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 6e711f3101426f59aead80b84b88350af86bbd6b
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111537135"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669185"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Configuration requise et considérations pour la réplication inter-région 
 
@@ -33,7 +33,7 @@ Notez la configuration requise et les considérations suivantes relatives à l�
 * Le compte de destination doit se trouver dans une région différente du volume source. Vous pouvez également sélectionner un compte NetApp existant dans une autre région.  
 * Le volume de destination de réplication est en lecture seule jusqu’à ce que vous [basculiez vers la région de destination](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) pour activer le volume de destination en lecture et en écriture. 
 * La réplication Azure NetApp Files ne prend actuellement pas en charge plusieurs abonnements. Toutes les réplications doivent être effectuées sous un même abonnement.
-* Vous pouvez configurer un maximum de cinq volumes pour la réplication au sein d’un même abonnement par région. Vous pouvez ouvrir un ticket de support pour demander une augmentation du quota par défaut de cinq volumes de destination de réplication (par abonnement dans une région). 
+* Consultez les [limites de ressources](azure-netapp-files-resource-limits.md) pour connaître le nombre maximal de volumes de destination de réplication entre les régions. Vous pouvez ouvrir un ticket de support pour [demander une augmentation du quota](azure-netapp-files-resource-limits.md#request-limit-increase) par défaut des volumes de destination de réplication (par abonnement dans une région).
 * Il peut y avoir un délai maximal de cinq minutes avant que l’interface reflète un nouvel instantané ajouté sur le volume source.  
 * Les topologies en cascade et de type fan-in/out ne sont pas prises en charge.
 * La configuration de la réplication de volume pour les volumes sources créés à partir d’un instantané n’est pas prise en charge pour l’instant.

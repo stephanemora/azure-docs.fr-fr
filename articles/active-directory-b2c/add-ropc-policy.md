@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fd50253b5fc77ec1042aada9351e85ee64035ec2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8a64c0e4a2c6ee080288bd0a700defc4adf598d2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740288"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708620"
 ---
 # <a name="set-up-a-resource-owner-password-credentials-flow-in-azure-active-directory-b2c"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C
 
@@ -54,15 +54,18 @@ Lors de l'utilisation du flux ROPC, tenez compte de ce qui suit :
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Créer un flux d’utilisateur de propriétaire de ressource
 
-1. Connectez-vous au portail Azure en tant qu’administrateur général de votre locataire Azure AD B2C.
-2. Pour basculer vers votre locataire Azure AD B2C, sélectionnez le répertoire B2C dans le coin supérieur droit du portail.
-3. Sélectionnez **Flux d’utilisateur**, puis sélectionnez **Nouveau flux d’utilisateur**.
-4. Sélectionnez **Se connecter à l’aide des informations d’identification de mot de passe du propriétaire de la ressource (ROPC)** .
-5. Sous **Version**, assurez-vous que **Préversion** est sélectionné, puis sélectionnez **Créer**.
-7. Indiquez un nom pour le flux d’utilisateur, par exemple *ROPC_Auth*.
-8. Sous **Revendications d’application**, cliquez sur **Afficher plus**.
-9. Sélectionnez les revendications de l’application dont vous avez besoin pour votre application, comme Nom d’affichage, Adresse e-mail et Fournisseur d’identité.
-10. Sélectionnez **OK**, puis **Créer**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) comme **administrateur général** de votre locataire Azure AD B2C.
+2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C :
+    1. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+    1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Flux d’utilisateur**, puis sélectionnez **Nouveau flux d’utilisateur**.
+1. Sélectionnez **Se connecter à l’aide des informations d’identification de mot de passe du propriétaire de la ressource (ROPC)** .
+1. Sous **Version**, assurez-vous que **Préversion** est sélectionné, puis sélectionnez **Créer**.
+1. Indiquez un nom pour le flux d’utilisateur, par exemple *ROPC_Auth*.
+1. Sous **Revendications d’application**, cliquez sur **Afficher plus**.
+1. Sélectionnez les revendications de l’application dont vous avez besoin pour votre application, comme Nom d’affichage, Adresse e-mail et Fournisseur d’identité.
+1. Sélectionnez **OK**, puis **Créer**.
 
 ::: zone-end
 

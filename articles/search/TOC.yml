@@ -198,6 +198,8 @@
           items:
             - name: Authentification basée sur une clé
               href: search-security-api-keys.md
+            - name: Authentification Azure AD
+              href: search-howto-aad.md
             - name: Autorisation basée sur des rôles
               href: search-security-rbac.md
             - name: Configurer un pare-feu IP
@@ -400,6 +402,8 @@
               href: knowledge-store-projection-shape.md
             - name: Définir des projections
               href: knowledge-store-projections-examples.md
+            - name: Exemple de projection
+              href: knowledge-store-projection-example-long.md
             - name: Voir avec l’Explorateur Stockage
               href: knowledge-store-view-storage-explorer.md
             - name: Se connecter avec Power BI

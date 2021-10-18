@@ -309,7 +309,7 @@
           href: consume-private-endpoints.md
         - name: Configurer le pare-feu IP
           href: configure-firewall.md
-        - name: Sécuriser un webhook avec Azure Active Directory
+        - name: Délivrer des événements sur des points de terminaison protégés par Azure Active Directory
           href: secure-webhook-delivery.md
     - name: Dépanner
       items:

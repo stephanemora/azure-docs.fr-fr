@@ -2,18 +2,18 @@
 title: Utiliser des profils Wi-Fi avec des appareils Azure Stack Edge Mini R
 description: Décrit comment créer des profils Wi-Fi pour les appareils Azure Stack Edge Mini R sur des réseaux personnels et des réseaux d’entreprise à haute sécurité.
 services: databox
-author: v-dalc@microsoft.com
+author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/24/2021
+ms.date: 10/07/2021
 ms.author: alkohli
-ms.openlocfilehash: 90c7c238cef104eae78618e51fa4b284adcc8f42
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 34fe33f3c1d5be747e96ae71567424026c7c7a2a
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105050299"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669204"
 ---
 # <a name="use-wi-fi-profiles-with-azure-stack-edge-mini-r-devices"></a>Utiliser des profils Wi-Fi avec des appareils Azure Stack Edge Mini R
 
@@ -97,6 +97,8 @@ Dans un environnement d’entreprise à haute sécurité, vous pouvez utiliser u
 
 Pour exporter un profil pour l’interface Wi-Fi sur votre ordinateur, procédez comme suit :
 
+1. Vérifiez que l’ordinateur que vous utilisez pour exporter le profil sans fil peut se connecter au réseau Wi-Fi que votre appareil doit utiliser.
+
 1. Pour afficher les profils sans fil sur votre ordinateur, dans le menu **Démarrer**, ouvrez l'**Invite de commandes** (cmd.exe), puis entrez la commande suivante :
 
    `netsh wlan show profiles`
@@ -120,14 +122,14 @@ Pour exporter un profil pour l’interface Wi-Fi sur votre ordinateur, procédez
        All User Profile     : Boat
    ```
 
-2. Pour exporter un profil, entrez la commande suivante :
+1. Pour exporter un profil, entrez la commande suivante :
 
-   `netsh wlan export profile name=”<profileName>” folder=”<path>\<profileName>"`
+   `netsh wlan export profile name=”<profileName>” folder=”<path>\<profileName>" key=clear`
 
    Par exemple, la commande suivante enregistre le profil ContosoFTINET au format XML dans le dossier Téléchargements pour l’utilisateur nommé `gusp`.
 
    ```dos
-   C:\Users\gusp>netsh wlan export profile name="ContosoFTINET" folder=c:Downloads
+   C:\Users\gusp>netsh wlan export profile name="ContosoFTINET" folder=c:Downloads key=clear
 
    Interface profile "ContosoFTINET" is saved in file "c:Downloads\ContosoFTINET.xml" successfully.
    ```

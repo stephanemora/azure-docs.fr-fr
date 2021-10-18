@@ -1,6 +1,7 @@
 ---
-title: Utiliser le rapport d’activité pour déplacer des applications AD FS vers Azure Active Directory | Microsoft Docs
+title: Utiliser le rapport d’activité pour déplacer des applications AD FS vers Azure Active Directory
 description: Le rapport d’activité d’applications AD FS (Active Directory Federation Services) permet de migrer rapidement des applications d’AD FS vers Azure Active Directory (Azure AD). Cet outil de migration pour AD FS identifie la compatibilité avec Azure AD et fournit des instructions de migration.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 01/14/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: alamaral
-ms.openlocfilehash: 6b60479d1205acdd0d18311791adfc4924913c4e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 00bc79bf0ab078e3a95c958b8c539f453a633e1c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524712"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614723"
 ---
-# <a name="use-the-ad-fs-application-activity-report-to-migrate-applications-to-azure-ad"></a>Utiliser le rapport d’activité des applications AD FS pour migrer des applications vers Azure AD
+# <a name="review-the-application-activity-report-in-azure-active-directory"></a>Consulter le rapport d’activité de l’application dans Azure Active Directory
 
 De nombreuses organisations utilisent les services de fédération Active Directory (AD FS) pour fournir une authentification unique aux applications clou. Il est avantageux de transférer vos applications AD FS vers Azure AD pour l’authentification, notamment en termes de gestion des coûts, de gestion des risques, de productivité, de conformité et de gouvernance. Toutefois, comprendre quelles applications sont compatibles avec Azure AD et identifier des étapes de migration spécifiques peut prendre beaucoup de temps.
 

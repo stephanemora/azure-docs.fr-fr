@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 10/06/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 40b40d25e47e3951293ebe5a5d58673535b6615e
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: 1fbd0c7a3c2a6edc2ffb0f6a5a4124979fc27225
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123470613"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612405"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Services Azure qui prennent en charge Azure Data Lake Storage Gen2
 
@@ -46,9 +46,13 @@ Ce tableau répertorie les services Azure que vous pouvez utiliser avec Azure Da
 |Azure Content Delivery Network|Pas encore pris en charge|Non applicable|Non applicable|[Indexer et parcourir des documents Azure Data Lake Storage Gen2 (préversion)](../../cdn/cdn-overview.md)|
 |Azure SQL Database|Pas encore pris en charge|Non applicable|Non applicable|[Qu’est-ce qu’Azure SQL Database ?](../../azure-sql/database/sql-database-paas-overview.md)|
 
+> [!TIP]
+> Pour voir comment les services sont organisés en catégories, par exemple, ingestion, téléchargement, traitement et visualisation, consultez [Ingestion, traitement et analyse](data-lake-storage-data-scenarios.md#ingest-process-and-analyze).
+
 ## <a name="see-also"></a>Voir aussi
 
 - [Problèmes connus avec Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Prise en charge des fonctionnalités de Stockage Blob dans les comptes de stockage Azure](storage-feature-support-in-storage-accounts.md)
 - [Plateformes open source prenant en charge Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
 - [Accès multiprotocole pour Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
+- [Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)

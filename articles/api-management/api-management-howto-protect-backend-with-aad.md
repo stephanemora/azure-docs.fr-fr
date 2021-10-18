@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/17/2021
 ms.author: danlep
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 6a6a83ef0e810880ff14ddc8125235229db75787
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7739411364b187e437e9dda4c72dff85de26d741
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676166"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129669565"
 ---
 # <a name="protect-a-web-api-backend-in-azure-api-management-using-oauth-20-authorization-with-azure-active-directory"></a>Protéger un back-end d’API web dans Gestion des API Azure en utilisant l’autorisation OAuth 2.0 avec Azure Active Directory 
 
@@ -137,7 +137,7 @@ Maintenant que vous avez inscrit deux applications pour représenter l’API et 
 
 Dans cet exemple, vous activez l’autorisation utilisateur OAuth 2.0 dans la console de développement (l’application cliente).
 
-1. Dans le portail Azure, recherchez l’**URL du point de terminaison d’autorisation** et l’**URL du point de terminaison de jeton**, puis enregistrez-les pour une utilisation ultérieure. 
+1. Dans le portail Azure, recherchez l’**URL du point de terminaison d’autorisation** et l’**URL du point de terminaison de jeton**, puis enregistrez-les pour plus tard. 
     1. Ouvrez la page **Inscriptions d’applications**. 
     1. Sélectionnez **Points de terminaison**.
     1. Copiez le **Point de terminaison d’autorisation OAuth 2.0** et le **Point de terminaison de jeton OAuth 2.0**. 

@@ -1,6 +1,6 @@
 - name: Azure Kubernetes Service (AKS)
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de AKS
       href: intro-kubernetes.md
@@ -215,7 +215,7 @@
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
-        - name: Utiliser des disques Azure Ultra (préversion)
+        - name: Utiliser des disques Ultra Azure
           href: use-ultra-disks.md
         - name: Pilotes de stockage CSI
           items:

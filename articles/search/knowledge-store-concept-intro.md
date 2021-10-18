@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 07a4d0b7b932b92307b77420df1a21027df1efb0
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 1463c4e879b364f8242d55aa58b424a8cc6f9cf9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538054"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706798"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Base de connaissances dans Recherche cognitive Azure
 
-La base de connaissances est une fonctionnalité de la Recherche cognitive d’Azure qui envoie la sortie d’un [pipeline d’enrichissement AI](cognitive-search-concept-intro.md) aux tables et objets blob dans le Stockage Azure pour une analyse indépendante ou un traitement en aval.
+La base de connaissances est un récepteur de données créé par un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) de la Recherche cognitive qui stocke du contenu enrichi dans des tables et des conteneurs de blobs dans le Stockage Azure. Cette opération permet d’effectuer des analyses indépendantes ou un traitement en aval dans des scénarios autres que la recherche, comme l’exploration de connaissances.
 
 Si vous avez utilisé des compétences cognitives dans le passé, vous savez déjà que l’*ensemble de compétences* déplace un document à travers une séquence d’enrichissements qui appellent des transformations atomiques, telles que la reconnaissance d’entités ou la traduction de texte. Le résultat peut être un index de recherche ou des projections dans une base de connaissances. Les deux sorties, index de recherche et base de connaissances, sont des produits du même pipeline. Elles sont dérivées des mêmes entrées mais elles ont pour résultat une sortie structurée, stockée et utilisée dans des applications distinctes.
 

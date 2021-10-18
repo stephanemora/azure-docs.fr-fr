@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 480798177797ad83ec01f33297d5fc559c7c3e3d
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: c03b482a22f24cf4e8ef325c71a39eab65d2fdb4
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111900464"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858535"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-with-azure-cli"></a>Choisir comment autoriser l’accès à des données de file d’attente avec Azure CLI
 
@@ -112,4 +112,4 @@ Vous pouvez spécifier des paramètres d’autorisation dans des variables d’e
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Attribuer un rôle Azure pour l’accès aux données de file d’attente](assign-azure-role-data-access.md)
-- [Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure](../common/storage-auth-aad-msi.md)
+- [Autoriser l’accès aux données de file d’attente avec des identités managées pour les ressources Azure](authorize-managed-identity.md)

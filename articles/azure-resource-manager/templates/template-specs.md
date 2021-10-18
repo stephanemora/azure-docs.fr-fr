@@ -2,16 +2,16 @@
 title: Créer et déployer des spécifications de modèle
 description: Décrit comment créer des specs de modèle et les partager avec d’autres utilisateurs de votre organisation.
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 10/05/2021
 ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
 author: tfitzmac
-ms.openlocfilehash: bf417b6ca70012a3cf4bce17640aa4bc9ab9fd08
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8d8b582cdae8b387774402869eccf903a1b394b2
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128611203"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129613431"
 ---
 # <a name="azure-resource-manager-template-specs"></a>Spec de modèle Azure Resource Manager
 
@@ -23,6 +23,8 @@ Pour déployer la spec de modèle, vous utilisez des outils Azure standard tels 
 
 > [!NOTE]
 > Pour utiliser la spec de modèle avec Azure PowerShell, vous devez installer la [version 5.0.0 ou ultérieure](/powershell/azure/install-az-ps). Pour l’utiliser avec l’interface de ligne de commande Azure CLI, utilisez la [version 2.14.2 ou ultérieure](/cli/azure/install-azure-cli).
+
+Quand vous concevez votre déploiement, tenez toujours compte du cycle de vie des ressources et regroupez dans un seul spec de modèle celles qui partagent un cycle de vie similaire. Par exemple, vos déploiements comprennent plusieurs instances de Cosmos DB et chaque instance contient ses propres bases de données et conteneurs. Comme les bases de données et les conteneurs ne changent pas beaucoup, vous voulez créer un spec de modèle pour une instance Cosmos DB et ses bases de données et conteneurs sous-jacents. Vous pouvez ensuite utiliser des instructions conditionnelles dans vos modèles ainsi que des boucles de copie pour créer plusieurs instances de ces ressources.
 
 ### <a name="microsoft-learn"></a>Microsoft Learn
 

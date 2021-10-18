@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 46c3aca1c2f983d857be59d2d69b0cadfb433303
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8eb9a6ad285bea2a5ac6e69ebb5ebef48b135899
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655977"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713125"
 ---
 # <a name="azure-monitor-agent-overview"></a>Vue d’ensemble de l’agent Azure Monitor
 L’agent Azure Monitor (AMA) collecte des données de supervision auprès du système d’exploitation invité des machines virtuelles Azure et les délivre à Azure Monitor. Cet article fournit une vue d’ensemble de l’agent Azure Monitor et inclut des informations sur la façon de l’installer et de configurer la collecte des données.
@@ -64,7 +64,7 @@ L’agent Azure Monitor remplace les [agents hérités pour Azure Monitor](agent
   Une date de dépréciation sera publiée pour les agents Log Analytics en août 2021. Les agents actuels seront pris en charge pendant plusieurs années après le début de la dépréciation.
 
 ## <a name="supported-resource-types"></a>Types de ressources pris en charge
-Les machines virtuelles Azure, les groupes de machines virtuelles identiques et les serveurs Azure Arc activés sont actuellement pris en charge. Azure Kubernetes Service et d’autres types de ressources de calcul ne sont pas pris en charge actuellement.
+Les machines virtuelles Azure, les groupes de machines virtuelles identiques et les serveurs avec Azure Arc sont actuellement pris en charge. Azure Kubernetes Service et d’autres types de ressources de calcul ne sont pas pris en charge actuellement.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 L’agent Azure Monitor est disponible dans toutes les régions publiques qui prennent en charge Log Analytics, ainsi que dans les clouds Azure Government et Chine. Les clouds en air gap ne sont pas encore pris en charge.

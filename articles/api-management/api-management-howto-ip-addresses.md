@@ -7,13 +7,14 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 04/13/2021
-ms.author: danlep
-ms.openlocfilehash: d0fe9c305b9592aad7b08437d6e9d14150748ed6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: apimpm
+ms.custom: fasttrack-edit
+ms.openlocfilehash: fe5f282150aae2103d20963416f390bf159c48ea
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680734"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856882"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Adresses IP du service Gestion des API Azure
 
@@ -57,7 +58,7 @@ Dans les [déploiements multirégionaux](api-management-howto-deploy-multi-regio
 
 Si votre service Gestion des API se trouve dans un réseau virtuel, il dispose de deux types d'adresses IP : publiques et privées.
 
-Les adresses IP publiques sont utilisées pour les communications internes sur le port `3443` - afin de gérer la configuration (par exemple, via Azure Resource Manager). Dans la configuration de réseau virtuel externe, elles sont également utilisées pour le trafic des API runtime. Quand une requête est envoyée du service Gestion des API vers un back-end public (Internet), une adresse IP publique est présentée comme origine de la requête.
+Les adresses IP publiques sont utilisées pour les communications internes sur le port `3443` - afin de gérer la configuration (par exemple, via Azure Resource Manager). Dans la configuration de réseau virtuel externe, elles sont également utilisées pour le trafic des API runtime. 
 
 Les adresses IP virtuelles privées, disponibles **uniquement** dans le [mode réseau virtuel interne](api-management-using-with-internal-vnet.md), sont utilisées pour se connecter aux points de terminaison (passerelles, portail des développeurs et plan de gestion pour un accès direct à l’API) du service Gestion des API depuis le réseau. Vous pouvez les utiliser pour configurer des enregistrements DNS au sein du réseau.
 
@@ -85,7 +86,11 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 }
 ```
 
-La gestion des API utilise une adresse IP publique pour les connexions extérieures au réseau virtuel et une adresse IP privée pour les connexions au sein du réseau virtuel.
+La gestion des API utilise une adresse IP publique pour les connexions extérieures au réseau virtuel et une adresse IP privée pour les connexions au sein du réseau virtuel. 
+
+Quand la gestion des API est déployée dans la [configuration VNet interne](api-management-using-with-internal-vnet.md) et qu’elle se connecte à des back-ends privés (sur l’intranet), les adresses IP internes du sous-réseau sont utilisées pour le trafic d’API du runtime. Quand une demande est envoyée par la gestion des API à un back-end privé, une adresse IP publique est montrée comme origine de la demande. Par conséquent, dans cette configuration, s’il y a une exigence concernant la limitation du trafic entre la gestion des API et un back-end interne, il vaut mieux utiliser l’ensemble des préfixes de sous-réseau de gestion des API avec une règle IP et pas uniquement l’adresse IP privée associée à la ressource de gestion des API. 
+
+Quand une demande est envoyée par la gestion des API à un back-end public (sur Internet), une adresse IP publique est toujours montrée comme origine de la demande.
 
 ## <a name="ip-addresses-of-consumption-tier-api-management-service"></a>Adresses IP d'un service Gestion des API de niveau Consommation
 

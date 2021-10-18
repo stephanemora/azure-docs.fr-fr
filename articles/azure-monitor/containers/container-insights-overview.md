@@ -3,12 +3,12 @@ title: Vue d’ensemble de Container Insights | Microsoft Docs
 description: Cet article décrit Container Insights qui surveille la solution AKS Container Insights et la valeur qu’elle offre en surveillant l’intégrité de vos clusters AKS et de Container Instances dans Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 56222eb90534537df237ec2c5d29a5969f150e60
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b1e7b3e6d3c72dbc65169c48f1d12de6ca712a45
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562778"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708898"
 ---
 # <a name="container-insights-overview"></a>Vue d’ensemble de Container Insights
 
@@ -19,7 +19,7 @@ Container Insights est une fonctionnalité conçue pour surveiller les performan
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - des clusters Kubernetes automanagés hébergés sur [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) ou localement
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
-- [Kubernetes avec Azure Arc activé](../../azure-arc/kubernetes/overview.md) (préversion)
+- [Kubernetes avec Azure Arc](../../azure-arc/kubernetes/overview.md) (préversion)
 
 Container Insights prend en charge les clusters exécutant le système d’exploitation Linux et Windows Server 2019. Les runtimes de conteneur qu’il prend en charge sont Docker, Moby et tout runtime compatible CRI, tel que élément CRI-O et ContainerD.
 
@@ -47,7 +47,7 @@ Container Insights offre une expérience de surveillance complète à l’aide d
     >La prise en charge d’Azure Red Hat OpenShift est actuellement une fonctionnalité en préversion publique.
     >
 
-* Surveiller les charges de travail de conteneur [déployées sur Kubernetes avec Azure Arc activé (préversion)](../../azure-arc/kubernetes/overview.md).
+* Superviser les charges de travail de conteneur [déployées sur Kubernetes avec Azure Arc (préversion)](../../azure-arc/kubernetes/overview.md).
 
 Les principales différences entre la supervision d’un cluster Windows Server et celle d’un cluster Linux sont les suivantes :
 

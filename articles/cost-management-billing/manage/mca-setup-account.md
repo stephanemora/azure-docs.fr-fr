@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 9b586d453f9ac49dd7bd2894c0003fef521167da
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 982bb3719de66d880f635dbb7c95e9ae2c4590c2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122566142"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711156"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Découvrez comment configurer votre compte de facturation associé à un contrat client Microsoft
 
@@ -27,7 +27,7 @@ Ce renouvellement comprend les étapes suivantes :
 Pour configurer le compte de facturation, vous devez transférer la facturation des abonnements Azure de votre inscription à un Contrat Entreprise vers le nouveau compte de facturation. Le processus de configuration n’a aucun impact sur les services Azure qui s’exécutent dans vos abonnements. Toutefois, il modifie la façon dont vous allez gérer la facturation pour vos abonnements.
 
 - Plutôt que d’utiliser le [portail EA](https://ea.azure.com) pour gérer vos services Azure et la facturation, vous allez vous servir du [portail Azure](https://portal.azure.com).
-- Vous obtiendrez une facture mensuelle et numérique répertoriant tous vos frais. Vous pouvez afficher et analyser la facture sur la page de gestion des coûts + facturation Azure.
+- Vous obtiendrez une facture mensuelle et numérique répertoriant tous vos frais. Vous pouvez voir et analyser la facture dans la page Cost Management + Billing.
 - Plutôt que des départements et un compte dans votre inscription à un Accord Entreprise, vous allez utiliser les étendues et la structure de facturation du nouveau compte pour gérer et organiser votre facturation.
 
 Avant de commencer l’installation, nous vous recommandons d’effectuer les actions suivantes :
@@ -331,7 +331,5 @@ Si vous avez toujours besoin d’aide, [contactez le support technique](https://
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Get started with your billing account for a Microsoft Customer Agreement](../understand/mca-overview.md) (Bien démarrer avec votre compte de facturation pour un contrat client Microsoft)
-
 - [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md) (Effectuer des tâches Contrat Entreprise dans votre compte de facturation pour un contrat client Microsoft)
-
 - [Understand Microsoft Customer Agreement administrative roles in Azure](understand-mca-roles.md) (Comprendre les rôles administratifs de contrat client Microsoft dans Azure)

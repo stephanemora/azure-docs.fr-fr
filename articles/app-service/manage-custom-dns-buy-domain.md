@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: c15c4e2f269791dfce80d89edf22d5041be636b9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 03dd990fdc6d5e2d274a0ea858d1d91feb5a0b07
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531947"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659884"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
@@ -97,6 +97,11 @@ Pour obtenir des informations de tarification sur les domaines App Service, rend
     ![Domaine App Service créé. Accéder à la ressource](./media/app-service-web-tutorial-custom-domain/deployment-complete.png)
 
 Vous êtes maintenant prêt à affecter une application App Service à ce domaine personnalisé.
+
+> [!NOTE]
+> Selon le type d’abonnement, vous pouvez avoir besoin d’un historique de paiement suffisant pour créer un domaine App Service. 
+> 
+> Si vous avez effectué des paiements et que vous rencontrez toujours cette erreur, vous pouvez contacter le support et fournir une preuve de paiement.
 
 ## <a name="prepare-the-app"></a>Préparer l’application
 

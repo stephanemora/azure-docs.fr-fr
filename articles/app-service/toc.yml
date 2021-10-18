@@ -74,7 +74,7 @@
           href: tutorial-multi-container-app.md
     - name: Accéder à la base de données SQL en toute sécurité
       href: app-service-web-tutorial-connect-msi.md
-    - name: Héberger des API RESTful
+    - name: Héberger une API RESTful
       href: app-service-web-tutorial-rest-api.md
     - name: Mapper un domaine personnalisé
       href: app-service-web-tutorial-custom-domain.md
@@ -366,7 +366,7 @@
       href: app-service-best-practices.md
     - name: Exemples
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
-    - name: Videos
+    - name: Vidéos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=app-service'
     - name: Livres de recettes
       items:

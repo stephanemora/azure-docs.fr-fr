@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: b1dc3b61c73894d7792835000f0e13e0bc8b412b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: bbfd426c67d09ca8632c3ab665b1242d27c6ad58
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524281"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711690"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Activer Azure Defender pour serveurs SQL Server sur des machines 
 
@@ -110,7 +110,7 @@ Les alertes Azure Defender pour SQL sont disponibles sur la page des alertes de 
 
 ### <a name="if-i-enable-this-azure-defender-plan-on-my-subscription-are-all-sql-servers-on-the-subscription-protected"></a>Si j’active ce plan Azure Defender sur mon abonnement, tous les serveurs SQL de l’abonnement sont-ils protégés ? 
 
-Non. Pour défendre un déploiement de SQL Server sur une machine virtuelle Azure ou un serveur SQL s’exécutant sur une machine avec Azure Arc, Azure Defender requiert les deux éléments suivants :
+Non. Pour défendre un déploiement de SQL Server sur une machine virtuelle Azure ou un serveur SQL s’exécutant sur une machine avec Azure Arc, Azure Defender nécessite les deux éléments suivants :
 
 - un agent Log Analytics sur la machine ; 
 - l’espace de travail Log Analytics concerné pour lequel la solution Azure Defender pour SQL est activée. 

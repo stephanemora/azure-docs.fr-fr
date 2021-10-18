@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 410d5daf67d590d84801a23627b5ce46e26367f5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: bd9224537be7559a325b30a71fb72eab07a71bd0
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357571"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855362"
 ---
 # <a name="authorize-access-to-queues-using-azure-active-directory"></a>Autoriser l’accès aux files d’attente avec Azure Active Directory
 
@@ -28,7 +28,7 @@ L’autorisation avec Azure AD est disponible pour tous les comptes de stockage
 
 Quand un principal de sécurité (utilisateur, groupe ou application) tente d’accéder à une ressource de file d’attente, la requête doit être autorisée. Avec Azure AD, l’accès à une ressource est un processus en deux étapes. Pour commencer, l’identité du principal de sécurité est authentifiée, et un jeton OAuth 2.0 est renvoyé. Ensuite, ce jeton est transmis dans le cadre d’une requête adressée au service de File d’attente et utilisé par le service pour autoriser l’accès à la ressource spécifiée.
 
-L’étape d’authentification nécessite qu’une application demande un jeton d’accès OAuth 2.0 au moment de l’exécution. Si une application s’exécute à partir d’une entité Azure telle qu’une machine virtuelle Azure, un groupe de machines virtuelles identiques ou une application Azure Functions, elle peut utiliser une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) pour accéder aux files d’attente. Pour savoir comment autoriser des requêtes adressées par une identité managée, consultez [Autoriser l’accès aux files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure](../common/storage-auth-aad-msi.md).
+L’étape d’authentification nécessite qu’une application demande un jeton d’accès OAuth 2.0 au moment de l’exécution. Si une application s’exécute à partir d’une entité Azure telle qu’une machine virtuelle Azure, un groupe de machines virtuelles identiques ou une application Azure Functions, elle peut utiliser une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) pour accéder aux files d’attente. Pour savoir comment autoriser les demandes d’une identité managée, consultez [Autoriser l’accès aux données de la file d’attente avec des identités managées pour les ressources Azure](authorize-managed-identity.md).
 
 L’étape d’autorisation exige qu’un ou plusieurs rôles Azure soient attribués au principal de sécurité. Le Stockage Azure fournit des rôles Azure qui englobent des ensembles communs d’autorisations pour les données de file d’attente. Les rôles qui sont attribués à un principal de sécurité déterminent les autorisations dont disposera le principal. Pour en savoir plus sur l’attribution de rôles Azure pour l’accès aux files d’attente, consultez [Attribuer un rôle Azure pour l’accès aux données de file d’attente](../queues/assign-azure-role-data-access.md).
 

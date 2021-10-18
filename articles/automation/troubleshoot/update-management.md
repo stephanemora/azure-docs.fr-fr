@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 06/10/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 735677886493bace8bb831eae1c974bb0483b0c1
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: bf9804b0881e02b1a4f58e5923c33840d06e37e2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771834"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706483"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Résoudre les problèmes liés à Update Management
 
@@ -340,7 +340,7 @@ Bien que les machines apparaissent bien dans les résultats de la requête Azure
 
 5. Si la machine n’est pas configurée en tant que Runbook Worker hybride système, passez en revue les moyens permettant d’utiliser l’une des méthodes suivantes :
 
-   - À partir de votre [compte Automation](../update-management/enable-from-automation-account.md) pour une ou plusieurs machines Azure et non-Azure, notamment des serveurs compatibles avec Arc.
+   - À partir de votre [compte Automation](../update-management/enable-from-automation-account.md) pour une ou plusieurs machines Azure et non-Azure, notamment des serveurs avec Azure Arc.
 
    - En utilisant le [runbook](../update-management/enable-from-runbook.md) **Enable-AutomationSolution** pour automatiser l’intégration des machines virtuelles Azure.
 

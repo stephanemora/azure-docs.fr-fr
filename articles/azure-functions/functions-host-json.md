@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: b646c4d263896e1bf4d63bdaf965209c005b8228
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8844e76c7f01bf33bc81ef2fec733b9e538e34cc
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532372"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660511"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -16,12 +16,15 @@ ms.locfileid: "122532372"
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2+](functions-host-json.md)
 
-Le fichier de métadonnées *host.json* contient les options de configuration globale qui affectent l’ensemble des fonctions d’une application de fonction. Cet article liste les paramètres disponibles à compter de la version 2.x du runtime Azure Functions.  
+Le fichier de métadonnées host.json contient des options de configuration qui affectent l’ensemble des fonctions d’une instance d’application de fonction. Cet article liste les paramètres disponibles à compter de la version 2.x du runtime Azure Functions.  
 
 > [!NOTE]
 > Cet article concerne Azure Functions versions 2.x et ultérieures.  Pour obtenir une référence de host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md).
 
-D’autres options de configuration d’application de fonction sont gérées dans vos [paramètres d’application](functions-app-settings.md) (pour les applications déployées) ou dans votre fichier [local.settings.json](functions-develop-local.md#local-settings-file) (pour un développement local).
+D’autres options de configuration d’application de fonction sont gérées en fonction de l’emplacement où s’exécute l’application de fonction :
+
++ **Déployée sur Azure** : dans vos [paramètres d’application](functions-app-settings.md) 
++ **Sur votre ordinateur local** : dans le fichier [local.settings.json](functions-develop-local.md#local-settings-file).
 
 Les configurations dans host.json relatives aux liaisons sont appliquées de façon égale à chaque fonction de l’application de fonction. 
 
@@ -240,7 +243,7 @@ Ce paramètre est un enfant de la [journalisation](#logging). Il contrôle la jo
 
 |Propriété  |Default | Description |
 |---------|---------|---------| 
-|DisableColors|false| Supprime la mise en forme du journal dans les journaux de conteneurs sur Linux. Affectez la valeur true si vous voyez des caractères de contrôle ANSI indésirables dans les journaux de conteneurs lors de l’exécution sur Linux. |
+|DisableColors|false| Supprime la mise en forme des journaux de conteneur sur Linux. Affectez la valeur true si vous voyez des caractères de contrôle ANSI indésirables dans les journaux de conteneurs lors de l’exécution sur Linux. |
 |isEnabled|false|Active ou désactive la journalisation de la console.| 
 
 ## <a name="cosmosdb"></a>cosmosDb

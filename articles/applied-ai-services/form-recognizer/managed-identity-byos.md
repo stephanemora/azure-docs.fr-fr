@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 43220ce85bf02919a0ccf069bc9646a16c3a0a26
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 448b13d1406587c36b729b3258d8ca375a0914ae
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155350"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706579"
 ---
 # <a name="create-and-use-managed-identity-for-your-form-recognizer-resource"></a>Créer et utiliser une identité managée pour votre ressource Form Recognizer
 
@@ -35,7 +35,7 @@ L’identité managée prend en charge les comptes de stockage Blob Azure access
 >
 > * Si vous envisagez d’analyser vos données de stockage à l’aide de l’[**outil d’étiquetage des exemples Form Recognizer (FOTT)**](https://fott-2-1.azurewebsites.net/), vous devez déployer l’outil derrière votre réseau virtuel ou votre pare-feu.
 >
-> * Les API [**Analyser le reçu**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Analyser la carte de visite**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Analyser  la facture**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**Analyser le document d’identité**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) et [**Analyser le formulaire personnalisé**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) peuvent extraire les données d’un document unique en publiant les demandes en tant que contenu binaire brut. Dans ces scénarios, aucune information d’identification d’identité managée n’est requise.
+> * Les API [**Analyser le reçu**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Analyser la carte de visite**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Analyser la facture**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**Analyser le document d’identité**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) et [**Analyser le formulaire personnalisé**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) peuvent extraire les données d’un seul document en publiant les demandes sous forme de contenu binaire brut. Dans ces scénarios, aucune information d’identification d’identité managée n’est requise.
 
 ## <a name="prerequisites"></a>Prérequis
 
