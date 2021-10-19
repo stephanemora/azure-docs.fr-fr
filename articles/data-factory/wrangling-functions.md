@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 04/16/2021
-ms.openlocfilehash: 2af1e7f9e1b787e73247d9537b4a8876cc4f7220
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/06/2021
+ms.openlocfilehash: c0a646624054aca3bc043f4ee573dac274f2aa77
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129361229"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129809907"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Fonctions de transformation dans Power Query pour le data wrangling
 
@@ -137,6 +137,26 @@ Cette option est accessible à partir de l’option Extraire du ruban
 in
   #"Pivoted column"
 ```
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNbBf]
+
+### <a name="formatting-datetime-columns"></a>Mise en forme des colonnes de date/heure
+
+Pour définir le format de date/heure lors de l’utilisation d’ADF Power Query, suivez ces jeux.
+
+![Type de modification de Power Query](media/data-flow/power-query-date-2.png)
+
+1. Sélectionnez la colonne dans l’interface utilisateur Power Query, puis choisissez Modifier le type > Date/Heure.
+2. Un message d’avertissement s’affiche.
+3. Ouvrez Éditeur avancé et remplacez ```TransformColumnTypes``` par ```TransformColumns```. Spécifiez le format et la culture en fonction des données d’entrée.
+
+![Éditeur Power Query](media/data-flow/power-query-date-3.png)
+
+```
+#"Changed column type 1" = Table.TransformColumns(#"Duplicated column", {{"start - Copy", each DateTime.FromText(_, [Format = "yyyy-MM-dd HH:mm:ss", Culture = "en-us"]), type datetime}})
+```
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNdQg]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

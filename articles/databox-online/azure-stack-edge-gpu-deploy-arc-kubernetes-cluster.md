@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 44716cea30df107d3e966ce39e941bcbe385ebb8
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: a43b3945a214f0825f1b580610dd364be446eeba
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535670"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713081"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Activer Azure Arc sur un cluster Kubernetes sur votre appareil avec GPU Azure Stack Edge Pro
 
@@ -74,7 +74,7 @@ Avant d’activer Azure Arc sur le cluster Kubernetes, vous devez activer et ins
     
     ![Inscrire des fournisseurs de ressources Kubernetes 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-Vous pouvez également inscrire des fournisseurs de ressources via `az cli`. Pour plus d'informations, consultez [Inscrire les deux fournisseurs pour Kubernetes avec Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md#1-register-providers-for-azure-arc-enabled-kubernetes).
+Vous pouvez également inscrire des fournisseurs de ressources via `az cli`. Pour plus d’informations, consultez [Inscrire les deux fournisseurs pour Kubernetes avec Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md#1-register-providers-for-azure-arc-enabled-kubernetes).
 
 ## <a name="create-service-principal-assign-role"></a>Créer un principal du service, attribuer un rôle
 
@@ -142,7 +142,7 @@ Pour configurer le cluster Kubernetes pour la gestion d’Azure Arc, procédez c
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>"` 
     
-    Lorsque cette commande est exécutée, une invite de suivi s’affiche pour entrer le `ClientSecret`. `ClientSecret` est une chaîne sécurisée.
+    Lorsque cette commande est exécutée, une invite de suivi s’affiche pour entrer le `ClientSecret`. Fournissez le mot de passe du principal de service.
 
     Ajoutez le paramètre `CloudEnvironment` si vous utilisez un cloud autre qu’Azure public. Vous pouvez définir ce paramètre sur `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD` et `AZUREUSGOVERNMENTCLOUD`.
 
@@ -154,7 +154,17 @@ Pour configurer le cluster Kubernetes pour la gestion d’Azure Arc, procédez c
     Voici un exemple :
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;72f988bf-86f1-41af-91ab-2d7cd011db47&quot; -ClientId &quot;aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b"
+    [10.100.10.10]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed&quot; -ResourceGroupName &quot;myaserg1&quot; -ResourceName &quot;myasetestresarc&quot; -Location &quot;westeurope&quot; -TenantId &quot;72f988bf-86f1-41af-91ab-2d7cd011db47&quot; -ClientId &quot;aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b"
+    
+    WARNING: A script or application on the remote computer 10.126.76.0 is sending a prompt request. When you are prompted,
+    enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the
+    application or script that is requesting the data.
+
+    cmdlet Set-HcsKubernetesAzureArcAgent at command pipeline position 1
+
+    Supply values for the following parameters:
+    ClientSecret: **********************************
+    [10.100.10.10]: PS>
     ```
     
     Dans le portail Azure, une ressource doit être créée avec le nom que vous avez fourni dans la commande précédente.
@@ -207,14 +217,14 @@ Pour configurer le cluster Kubernetes pour la gestion d’Azure Arc, procédez c
     ```
 
 
-Comme le montre la sortie précédente, un Kubernetes à extension Azure Arc se compose de quelques agents (opérateurs) qui s’exécutent dans votre cluster déployé dans l’espace de noms `azure-arc`.
+Comme le montre la sortie précédente, Kubernetes avec Azure Arc se compose de quelques agents (opérateurs) qui s’exécutent dans votre cluster déployé dans l’espace de noms `azure-arc`.
 
 - `config-agent` : surveille le cluster connecté pour les ressources de configuration de contrôle de code source appliquées au cluster, et met à jour l’état de conformité.
 - `controller-manager` : opérateur d’opérateurs orchestrant les interactions entre les composants Azure Arc.
 - `metrics-agent` : collecte les métriques d’autres agents Arc pour s’assurer que ces agents offrent des performances optimales.
 - `cluster-metadata-operator` : collecte des métadonnées de cluster : version du cluster, nombre de nœuds et version de l’agent Azure Arc
 - `resource-sync-agent` : synchronise les métadonnées de cluster précitées dans Azure.
-- `clusteridentityoperator`: Kubernetes avec Azure Arc prend actuellement en charge l’identité attribuée par le système. clusteridentityoperator gère le certificat d’identité de service managé (MSI) utilisé par d’autres agents pour la communication avec Azure.
+- `clusteridentityoperator` : Kubernetes avec Azure Arc prend actuellement en charge l’identité affectée par le système. clusteridentityoperator gère le certificat d’identité de service managé (MSI) utilisé par d’autres agents pour la communication avec Azure.
 - `flux-logs-agent` : collecte des journaux des opérateurs de flux déployés dans le cadre de la configuration du contrôle de code source.
 - `connect-agent` : communique avec la ressource Azure Arc.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 0473c75678631fee158cfabd33406b863971bf97
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 329213fc37edae93d3871c1a52b6d5b73f8f76ed
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455735"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659561"
 ---
 # <a name="search-the-azure-purview-data-catalog"></a>Effectuer une recherche dans Data Catalog Azure Purview
 
@@ -63,7 +63,9 @@ Si la recherche est intéressante si vous savez ce que vous recherchez, il arriv
 
 ## <a name="search-query-syntax"></a>Syntaxe des requêtes de recherche
 
-Toutes les requêtes de recherche se composent de mots clés et d’opérateurs. Un mot clé est un élément qui fera partie des propriétés d’une ressource. Les mots clés potentiels peuvent être une classification, un terme du glossaire, une description de ressource ou un nom de ressource. Un mot clé peut être juste une partie de la propriété que vous cherchez à faire correspondre. Utilisez les mots clés et les opérateurs listés ci-dessous pour vous assurer qu’Azure Purview renvoie les ressources que vous recherchez. 
+Toutes les requêtes de recherche se composent de mots clés et d’opérateurs. Un mot clé est un élément qui fera partie des propriétés d’une ressource. Les mots clés potentiels peuvent être une classification, un terme du glossaire, une description de ressource ou un nom de ressource. Un mot clé peut être juste une partie de la propriété que vous cherchez à faire correspondre. Utilisez les mots clés et les opérateurs listés ci-dessous pour vous assurer qu’Azure Purview renvoie les ressources que vous recherchez.
+
+Certains caractères, à savoir les espaces, les tirets et les virgules, sont interprétés comme des délimiteurs. La recherche d’une chaîne comme `hive-database` est identique à la recherche de deux mots clés `hive database`. 
 
 Voici les opérateurs qui peuvent être utilisés pour composer une requête de recherche. Les opérateurs peuvent être combinés autant de fois que nécessaire dans une seule requête.
 

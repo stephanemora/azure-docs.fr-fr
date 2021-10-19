@@ -190,7 +190,7 @@
     - name: Versions de Linux approuvées
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
-    - name: Modes d’orchestration (préversion)
+    - name: Modes d’orchestration
       items:
         - name: Vue d’ensemble
           href: virtual-machine-scale-sets-orchestration-modes.md

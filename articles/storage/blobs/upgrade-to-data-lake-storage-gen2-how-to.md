@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 10/04/2021
 ms.author: normesta
-ms.openlocfilehash: b1f612ee189d47529033fdd9e6c7e7df0f523df9
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 025aa395fa6d2fd3a8fe98f4781a6b554e2b506d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129459065"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710541"
 ---
 #  <a name="upgrade-azure-blob-storage-with-azure-data-lake-storage-gen2-capabilities"></a>Mettre à niveau le Stockage Blob Azure avec les fonctionnalités de Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ Pour plus d’informations sur ces fonctionnalités et pour évaluer l’impact 
 
 6. Développez la section **Étape 2 : valider le compte avant la mise à niveau**, puis cliquez sur **Démarrer la validation**.
 
-   Si la validation échoue, sélectionnez le lien **Afficher les erreurs**
+   Si la validation échoue, une erreur s’affiche dans la page. Dans certains cas, un lien **Afficher les erreurs** apparaît. Si ce lien apparaît, sélectionnez-le. 
 
    > [!div class="mx-imgBorder"]
    > ![Lien Afficher les erreurs](./media/upgrade-to-data-lake-storage-gen2-how-to/validation-errors.png)

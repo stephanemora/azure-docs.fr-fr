@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e894fc6c6e210249e591ed7f9b9b662ff5ae187
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: febbfc5a1a3381affac50a75a29cb502c7872d69
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272924"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657216"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -150,6 +150,8 @@ Le niveau tarifaire par nœud est facturé par machine virtuelle (nœud) surveil
 > Si votre espace de travail a accès au niveau tarifaire **Par nœud**, mais que vous vous demandez si ce serait moins cher dans un niveau Paiement à l’utilisation, vous pouvez [utiliser la requête ci-dessous](#evaluating-the-legacy-per-node-pricing-tier) pour obtenir facilement une suggestion. 
 
 Les espaces de travail créés avant avril 2016 peuvent continuer à accéder aux niveaux tarifaires **Standard** et **Premium** d’origine qui ont une durée fixe de conservation des données de 30 jours et 365 jours, respectivement. Il n’est pas possible de créer des espaces de travail avec les niveaux tarifaires **Standard** ou **Premium**. De plus, si un espace de travail est retiré de ces niveaux tarifaires, il ne peut pas y être inclus de nouveau. Les compteurs d’ingestion de données sur votre facture Azure pour ces niveaux hérités sont appelés « Données analysées ».
+
+### <a name="legacy-pricing-tiers-and-azure-defender-security-center"></a>Niveaux tarifaires hérités et Azure Defender (Security Center)
 
 Il existe également des comportements entre l’utilisation de niveaux Log Analytics hérités et la façon dont l’utilisation est facturée pour [Azure Defender (Security Center)](../../security-center/index.yml). 
 

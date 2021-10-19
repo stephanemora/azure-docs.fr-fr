@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: 091181388656dd02ee438d1e5ef77a19d489205a
-ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.openlocfilehash: dabb12e5c0e6bd95ebe1a8025b431ec57e42745b
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129419085"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615369"
 ---
 # <a name="azure-sentinel-information-model-asim-schemas-public-preview"></a>Schémas du modèle Azure Sentinel Information Model (ASIM) | Microsoft Docs (Préversion publique)
 
@@ -30,6 +30,7 @@ Les références de schéma présentent les champs qui composent chaque schéma.
 
  - [Session réseau](normalization-schema.md)
  - [Activité DNS](dns-normalization-schema.md)
+ - [Activité DHCP](dhcp-normalization-schema.md)
  - [Événement de processus](process-events-normalization-schema.md)
  - [Événement d’authentification](authentication-normalization-schema.md)
  - [Événement du Registre](registry-event-normalization-schema.md)
