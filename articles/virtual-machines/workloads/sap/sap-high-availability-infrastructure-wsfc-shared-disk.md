@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2f95823dcea6488b8255a049cab1ea4dbaefc8b
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: cdf8798839eb71f652ae7b8a45ac317882887b9e
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112296784"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754593"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
 
@@ -161,18 +161,12 @@ ms.locfileid: "112296784"
 
 > ![Système d’exploitation Windows][Logo_Windows] Windows
 
-
-Cet article décrit les étapes à suivre pour préparer l’infrastructure Azure à l’installation et à la configuration d’une instance SAP ASCS/SCS haute disponibilité sur un cluster de basculement Windows en utilisant un *disque partagé de cluster* en tant qu’option pour le clustering d’une instance SAP ASCS.
-Deux alternatives au *disque partagé de cluster* sont présentées dans la documentation :
+Cet article décrit les étapes à suivre pour préparer l’infrastructure Azure à l’installation et à la configuration d’une instance SAP ASCS/SCS haute disponibilité sur un cluster de basculement Windows en utilisant un *disque partagé de cluster* en tant qu’option pour le clustering d’une instance SAP ASCS. Deux alternatives au *disque partagé de cluster* sont présentées dans la documentation :
 
 - [disques partagés Azure](../../disks-shared.md) ;
 - utilisation de [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) pour créer un stockage en miroir qui simule un disque partagé en cluster. 
 
-La configuration présentée repose sur des [groupes de placement de proximité (PPG)](./sap-proximity-placement-scenarios.md) pour atteindre une latence réseau optimale pour les charges de travail SAP. La documentation ne couvre pas la couche de base de données.  
-
-> [!NOTE]
-> Les groupes de placement de proximité Azure sont une condition préalable à l’utilisation de disques partagés Azure.
- 
+La documentation ne couvre pas la couche de base de données.  
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -182,20 +176,37 @@ Avant de commencer l’installation, consultez cet article :
 
 ## <a name="create-the-ascs-vms"></a>Créer les machines virtuelles ASCS
 
-Pour le cluster SAP ASCS/SCS, déployez deux machines virtuelles dans un groupe à haute disponibilité Azure. Déployez les machines virtuelles dans le même groupe de placement de proximité. Une fois les machines virtuelles déployées :  
-- Créez un équilibreur de charge interne Azure Internal pour l’instance SAP ASCS/SCS. 
+Pour le cluster SAP ASCS/SCS, déployez deux machines virtuelles dans un groupe à haute disponibilité Azure ou des zones de disponibilité Azure en fonction du type de votre déploiement. Si vous utilisez des [groupes de placement de proximité (PPG) Azure](./sap-proximity-placement-scenarios.md), assurez-vous que toutes les machines virtuelles qui se partagent un disque font partie du même groupe de placement de proximité. Une fois les machines virtuelles déployées :
+
+- Créez un Azure Load Balancer interne pour l’instance SAP ASCS/SCS.
 - Ajoutez des machines virtuelles Windows au domaine AD.
 
-Les noms d’hôte et les adresses IP pour le scénario présenté sont les suivants :
+En fonction de votre type de déploiement, les noms d’hôte et les adresses IP du scénario sont les suivants :
 
-| Rôle du nom d’hôte | Nom de l’hôte | Adresse IP statique | Groupe à haute disponibilité | Groupe de placement de proximité |
-| --- | --- | --- |---| ---|
-| 1er nœud de cluster du cluster ASCS/SCS |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
-| 2e nœud de cluster du cluster ASCS/SCS |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
-| Nom réseau du cluster | pr1clust |10.0.0.42 (**uniquement** pour le cluster Win 2016) | n/a | n/a |
-| Nom réseau du cluster ASCS | pr1-ascscl |10.0.0.43 | n/a | n/a |
-| Nom réseau du cluster ERS (**uniquement** pour ERS2) | pr1-erscl |10.0.0.44 | n/a | n/a |
+**Déploiement SAP dans un groupe à haute disponibilité Azure**
 
+| Rôle du nom d'hôte                               | Nom de l’hôte   | Adresse IP statique                        | Groupe à haute disponibilité | SkuName de disque |
+| -------------------------------------------- | ----------- | ---------------------------------------- | ---------------- | ------------ |
+| 1er nœud de cluster du cluster ASCS/SCS            | pr1-ascs-10 | 10.0.0.4                                 | pr1-ascs-avset   | Premium_LRS  |
+| 2e nœud de cluster du cluster ASCS/SCS            | pr1-ascs-11 | 10.0.0.5                                 | pr1-ascs-avset   |              |
+| Nom réseau du cluster                         | pr1clust    | 10.0.0.42 (**uniquement** pour le cluster Win 2016) | n/a              |              |
+| Nom réseau du cluster ASCS                    | pr1-ascscl  | 10.0.0.43                                | n/a              |              |
+| Nom réseau du cluster ERS (**uniquement** pour ERS2) | pr1-erscl   | 10.0.0.44                                | n/a              |              |
+
+**Déploiement SAP dans des zones de disponibilité Azure**
+
+| Rôle du nom d'hôte                               | Nom de l’hôte   | Adresse IP statique                        | Zone de disponibilité | SkuName de disque |
+| -------------------------------------------- | ----------- | ---------------------------------------- | ----------------- | ------------ |
+| 1er nœud de cluster du cluster ASCS/SCS            | pr1-ascs-10 | 10.0.0.4                                 | AZ01              | Premium_ZRS  |
+| 2e nœud de cluster du cluster ASCS/SCS            | pr1-ascs-11 | 10.0.0.5                                 | AZ02              |              |
+| Nom réseau du cluster                         | pr1clust    | 10.0.0.42 (**uniquement** pour le cluster Win 2016) | n/a               |              |
+| Nom réseau du cluster ASCS                    | pr1-ascscl  | 10.0.0.43                                | n/a               |              |
+| Nom réseau du cluster ERS (**uniquement** pour ERS2) | pr1-erscl   | 10.0.0.44                                | n/a               |              |
+
+Les étapes mentionnées dans le document restent identiques pour les deux types de déploiement. Toutefois, si votre cluster s’exécute dans un groupe à haute disponibilité, vous devez déployer LRS pour le disque partagé Azure Premium (Premium_LRS) et si le cluster s’exécute dans la zone de disponibilité, déployez ZRS pour le disque partagé Azure Premium (Premium_ZRS).
+
+> [!Note]
+> Lorsque des [groupes de placement de proximité Azure](../../windows/proximity-placement-groups.md) sont utilisés pour le système SAP, toutes les machines virtuelles qui se partagent un disque doivent faire partie du même groupe de placement de proximité.
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Créer un équilibreur de charge interne Azure
 
@@ -203,7 +214,6 @@ SAP ASCS, SAP SCS et le nouveau SAP ERS2 utilisent un nom d’hôte virtuel et d
 
 > [!IMPORTANT]
 > Une adresse IP flottante n’est pas prise en charge sur une configuration IP secondaire de carte réseau pour des scénarios d’équilibrage de charge. Pour plus d’informations, consultez [Limitations d’équilibreur de charge Azure](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Si vous avez besoin d’une adresse IP supplémentaire pour la machine virtuelle, déployez une deuxième carte réseau.    
-
 
 La liste suivante présente la configuration de l’équilibreur de charge d’(A)SCS/ERS. La configuration de SAP ASCS et ERS2 est effectuée dans le même équilibreur de charge Azure.  
 
@@ -281,16 +291,16 @@ Après avoir affecté les adresses IP statiques aux machines virtuelles, ajoutez
 
 Exécutez la commande suivante sur l’un des nœuds du cluster :
 
-   ```powershell
-    # Hostnames of the Win cluster for SAP ASCS/SCS
-    $SAPSID = "PR1"
-    $ClusterNodes = ("pr1-ascs-10","pr1-ascs-11")
-    $ClusterName = $SAPSID.ToLower() + "clust"
-    
-    # Install Windows features.
-    # After the feature installs, manually reboot both nodes
-    Invoke-Command $ClusterNodes {Install-WindowsFeature Failover-Clustering, FS-FileServer -IncludeAllSubFeature -IncludeManagementTools }
-   ```
+```powershell
+# Hostnames of the Win cluster for SAP ASCS/SCS
+$SAPSID = "PR1"
+$ClusterNodes = ("pr1-ascs-10","pr1-ascs-11")
+$ClusterName = $SAPSID.ToLower() + "clust"
+
+# Install Windows features.
+# After the feature installs, manually reboot both nodes
+Invoke-Command $ClusterNodes {Install-WindowsFeature Failover-Clustering, FS-FileServer -IncludeAllSubFeature -IncludeManagementTools }
+```
 
 Une fois l’installation de la fonctionnalité terminée, redémarrez les deux nœuds de cluster.  
 
@@ -300,42 +310,42 @@ Sur Windows 2019, le cluster reconnaît automatiquement qu’il s’exécute dan
 
 Pour plus d’informations, consultez la page consacrée aux [nouvelles fonctionnalités de clustering de basculement Windows Server 2019](https://techcommunity.microsoft.com/t5/failover-clustering/windows-server-2019-failover-clustering-new-features/ba-p/544029). Exécutez la commande suivante sur l’un des nœuds de cluster :
 
-   ```powershell
-    # Hostnames of the Win cluster for SAP ASCS/SCS
-    $SAPSID = "PR1"
-    $ClusterNodes = ("pr1-ascs-10","pr1-ascs-11")
-    $ClusterName = $SAPSID.ToLower() + "clust"
-    
-    # IP adress for cluster network name is needed ONLY on Windows Server 2016 cluster
-    $ClusterStaticIPAddress = "10.0.0.42"
-        
-    # Test cluster
-    Test-Cluster –Node $ClusterNodes -Verbose
-    
-    $ComputerInfo = Get-ComputerInfo
-    
-    $WindowsVersion = $ComputerInfo.WindowsProductName
-    
-    if($WindowsVersion -eq "Windows Server 2019 Datacenter"){
-        write-host "Configuring Windows Failover Cluster on Windows Server 2019 Datacenter..."
-        New-Cluster –Name $ClusterName –Node  $ClusterNodes -Verbose
-    }elseif($WindowsVersion -eq "Windows Server 2016 Datacenter"){
-        write-host "Configuring Windows Failover Cluster on Windows Server 2016 Datacenter..."
-        New-Cluster –Name $ClusterName –Node  $ClusterNodes –StaticAddress $ClusterStaticIPAddress -Verbose 
-    }else{
-        Write-Error "Not supported Windows version!"
-    }
-   ```
+```powershell
+# Hostnames of the Win cluster for SAP ASCS/SCS
+$SAPSID = "PR1"
+$ClusterNodes = ("pr1-ascs-10","pr1-ascs-11")
+$ClusterName = $SAPSID.ToLower() + "clust"
+
+# IP adress for cluster network name is needed ONLY on Windows Server 2016 cluster
+$ClusterStaticIPAddress = "10.0.0.42"
+
+# Test cluster
+Test-Cluster –Node $ClusterNodes -Verbose
+
+$ComputerInfo = Get-ComputerInfo
+
+$WindowsVersion = $ComputerInfo.WindowsProductName
+
+if($WindowsVersion -eq "Windows Server 2019 Datacenter"){
+    write-host "Configuring Windows Failover Cluster on Windows Server 2019 Datacenter..."
+    New-Cluster –Name $ClusterName –Node  $ClusterNodes -Verbose
+}elseif($WindowsVersion -eq "Windows Server 2016 Datacenter"){
+    write-host "Configuring Windows Failover Cluster on Windows Server 2016 Datacenter..."
+    New-Cluster –Name $ClusterName –Node  $ClusterNodes –StaticAddress $ClusterStaticIPAddress -Verbose 
+}else{
+    Write-Error "Not supported Windows version!"
+}
+```
 
 ### <a name="configure-cluster-cloud-quorum"></a>Configurer un quorum cloud de cluster
 Lorsque vous utilisez Windows Server 2016 ou 2019, nous vous recommandons de configurer un [témoin cloud Azure](/windows-server/failover-clustering/deploy-cloud-witness), en tant que quorum de cluster.
 
 Exécutez la commande suivante sur l’un des nœuds du cluster :
 
-   ```powershell
-    $AzureStorageAccountName = "cloudquorumwitness"
-    Set-ClusterQuorum –CloudWitness –AccountName $AzureStorageAccountName -AccessKey <YourAzureStorageAccessKey> -Verbose
-   ```
+```powershell
+$AzureStorageAccountName = "cloudquorumwitness"
+Set-ClusterQuorum –CloudWitness –AccountName $AzureStorageAccountName -AccessKey <YourAzureStorageAccessKey> -Verbose
+```
 
 ### <a name="tuning-the-windows-failover-cluster-thresholds"></a>Réglage des seuils du cluster de basculement Windows
  
@@ -347,48 +357,53 @@ Une fois que vous avez correctement installé le cluster de basculement Windows,
 Ces paramètres ont été testés avec des clients et offrent un bon compromis. Ils sont suffisamment résilients, mais assurent également un basculement assez rapide dans des conditions d’erreur réelles de charges de travail SAP ou de défaillance de machine virtuelle.  
 
 ## <a name="configure-azure-shared-disk"></a>Configurer un disque partagé Azure
-Cette section s’applique uniquement si vous utilisez un disque partagé Azure. 
+Cette section s’applique uniquement si vous utilisez un disque partagé Azure.
 
 ### <a name="create-and-attach-azure-shared-disk-with-powershell"></a>Créer et attacher un disque partagé Azure avec PowerShell
 Exécutez la commande suivante sur l’un des nœuds du cluster. Vous devez ajuster les valeurs de votre groupe de ressources, de votre région Azure, du SID SAP, etc.  
 
-   ```powershell
-    #############################
-    # Create Azure Shared Disk
-    #############################
-    
-    $ResourceGroupName = "MyResourceGroup"
-    $location = "MyAzureRegion"
-    $SAPSID = "PR1"
-    
-    $DiskSizeInGB = 512
-    $DiskName = "$($SAPSID)ASCSSharedDisk"
-    
-    # With parameter '-MaxSharesCount', we define the maximum number of cluster nodes to attach the shared disk
-    $NumberOfWindowsClusterNodes = 2
+```powershell
+#############################
+# Create Azure Shared Disk
+#############################
+
+$ResourceGroupName = "MyResourceGroup"
+$location = "MyAzureRegion"
+$SAPSID = "PR1"
+
+$DiskSizeInGB = 512
+$DiskName = "$($SAPSID)ASCSSharedDisk"
+
+# With parameter '-MaxSharesCount', we define the maximum number of cluster nodes to attach the shared disk
+$NumberOfWindowsClusterNodes = 2
+
+# For SAP deployment in availability set, use below storage SkuName
+$SkuName = "Premium_LRS"
+# For SAP deployment in availability zone, use below storage SkuName
+$SkuName = "Premium_ZRS"
             
-    $diskConfig = New-AzDiskConfig -Location $location -SkuName Premium_LRS  -CreateOption Empty  -DiskSizeGB $DiskSizeInGB -MaxSharesCount $NumberOfWindowsClusterNodes
-    $dataDisk = New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $diskConfig
-    
-    ##################################
-    ## Attach the disk to cluster VMs
-    ##################################
-    # ASCS Cluster VM1
-    $ASCSClusterVM1 = "$SAPSID-ascs-10"
-    
-    # ASCS Cluster VM2
-    $ASCSClusterVM2 = "$SAPSID-ascs-11"
-    
-    # Add the Azure Shared Disk to Cluster Node 1
-    $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM1 
-    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 0
-    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
-    
-    # Add the Azure Shared Disk to Cluster Node 2
-    $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM2
-    $vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 0
-    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
-   ```
+$diskConfig = New-AzDiskConfig -Location $location -SkuName $SkuName  -CreateOption Empty  -DiskSizeGB $DiskSizeInGB -MaxSharesCount $NumberOfWindowsClusterNodes
+$dataDisk = New-AzDisk -ResourceGroupName $ResourceGroupName -DiskName $DiskName -Disk $diskConfig
+
+##################################
+## Attach the disk to cluster VMs
+##################################
+# ASCS Cluster VM1
+$ASCSClusterVM1 = "$SAPSID-ascs-10"
+
+# ASCS Cluster VM2
+$ASCSClusterVM2 = "$SAPSID-ascs-11"
+
+# Add the Azure Shared Disk to Cluster Node 1
+$vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM1 
+$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 0
+Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
+
+# Add the Azure Shared Disk to Cluster Node 2
+$vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $ASCSClusterVM2
+$vm = Add-AzVMDataDisk -VM $vm -Name $DiskName -CreateOption Attach -ManagedDiskId $dataDisk.Id -Lun 0
+Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
+```
 
 ### <a name="format-the-shared-disk-with-powershell"></a>Formater le disque partagé avec PowerShell
 1. Procurez-vous le numéro du disque. Exécutez les commandes PowerShell suivantes sur l’un des nœuds du cluster :
@@ -417,7 +432,7 @@ Exécutez la commande suivante sur l’un des nœuds du cluster. Vous devez ajus
     # S           PR1SAP          ReFS       Fixed     Healthy      OK                    504.98 GB 511.81 GB
    ```
 
-3. Vérifiez que le disque est maintenant visible en tant que disque de cluster.  
+3. Vérifiez que le disque est maintenant visible en tant que disque de cluster.
    ```powershell
     # List all disks
     Get-ClusterAvailableDisk -All
@@ -445,7 +460,7 @@ Cette section s’applique uniquement si vous utilisez le logiciel tiers SIOS Da
 Vous disposez maintenant d’une configuration fonctionnelle de clustering de basculement Windows Server dans Azure. Pour installer une instance SAP ASCS/SCS, vous avez besoin d’une ressource de disque partagé. L’une des options consister à utiliser SIOS DataKeeper Cluster Edition, une solution tierce que vous pouvez utiliser pour créer des ressources de disque partagé.  
 
 L’installation de SIOS DataKeeper Cluster Edition pour le disque de partage en cluster SAP ASCS/SCS implique les tâches suivantes :
-- Ajouter Microsoft .NET Framework si nécessaire. Consultez la [documentation de la version SIÔS] (https://us.sios.com/products/datakeeper-cluster/) pour connaître les exigences de .NET Framework les plus récentes. 
+- Ajouter Microsoft .NET Framework si nécessaire. Consultez la [documentation SIOS](https://us.sios.com/products/datakeeper-cluster/) pour connaître les exigences de .NET Framework les plus récentes 
 - Installer SIOS DataKeeper.
 - Configurer SIOS DataKeeper.
 

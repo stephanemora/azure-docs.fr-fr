@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 10/10/2021
 ms.author: memildin
-ms.openlocfilehash: e6d1c8cf55687a8e4d7612ca432a314ae38256bc
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 6a98a5dfbdf47ad9e2b74415786c240b32b3b499
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534423"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754688"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Changements importants à venir sur Azure Security Center
 
@@ -30,8 +30,10 @@ Si vous recherchez les notes de publication les plus récentes, vous les trouver
 |----------------------|---------------------------|
 | [Dépréciation d’une alerte de préversion : ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | Octobre 2021|
 | [L’implémentation héritée de la norme ISO 27001 est remplacée par la nouvelle norme ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| Octobre 2021|
-| [Modifications apportées aux suggestions pour la gestion des solutions de protection des points de terminaison](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Octobre 2021    |
-| [Améliorations apportées à la recommandation pour classer les données sensibles dans les bases de données SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | PREMIER TRIMESTRE 2022    |
+| [Modifications apportées aux suggestions pour la gestion des solutions de protection des points de terminaison](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Novembre 2021| 
+| [L’affichage de l’inventaire des machines locales utilise un autre modèle pour le nom de ressource](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | Novembre 2021    |
+| [Changements multiples apportés aux recommandations sur l’identité](#multiple-changes-to-identity-recommendations)                                                                                          | Novembre 2021    |
+| [Améliorations apportées à la recommandation pour classer les données sensibles dans les bases de données SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | PREMIER TRIMESTRE 2022    |
 |||
 
 ### <a name="deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses"></a>Dépréciation d’une alerte de préversion : ARM.MCAS_ActivityFromAnonymousIPAddresses
@@ -45,7 +47,7 @@ Nous allons déprécier l’alerte de préversion suivante :
 |**PRÉVERSION – Activité à partir d’une adresse IP à risque**<br>(ARM.MCAS_ActivityFromAnonymousIPAddresses)|Une activité utilisateur depuis une adresse IP qui a été identifiée comme adresse IP de proxy anonyme a été détectée.<br>Ces proxys sont utilisés par des individus souhaitant masquer l’adresse IP de leur appareil et peuvent être utilisés dans un but malveillant. Cette détection utilise un algorithme Machine Learning qui réduit les faux positifs, tels que les adresses IP mal étiquetées qui sont largement utilisées par d’autres utilisateurs de l’organisation.<br>Requiert une licence active de Microsoft Cloud App Security.|
 |||
 
-Nous avons mis au point de nouvelles alertes qui fournissent ces informations et qui les complètent. De plus, l’alerte plus récente (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) ne nécessite pas de licence pour Microsoft Cloud App Security.
+Nous avons mis au point de nouvelles alertes qui fournissent ces informations et qui les complètent. De plus, les alertes plus récentes (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) ne demandent pas de licence pour Microsoft Cloud App Security.
 
 ### <a name="legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013"></a>L’implémentation héritée de la norme ISO 27001 est remplacée par la nouvelle norme ISO 27001:2013
 
@@ -57,7 +59,7 @@ L’implémentation héritée de la norme ISO 27001 sera supprimée du tableau 
 
 ### <a name="changes-to-recommendations-for-managing-endpoint-protection-solutions"></a>Modifications apportées aux suggestions pour la gestion des solutions de protection des points de terminaison
 
-**Date estimée de la modification :** octobre 2021
+**Date estimée du changement :** novembre 2021
 
 En août 2021, nous avons ajouté deux suggestions **en préversion** pour déployer et conserver les solutions de protection des points de terminaison sur vos machines. Pour plus d’informations, consultez [la note de publication](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
@@ -74,6 +76,68 @@ Lorsque les suggestions sont publiées en disponibilité générale, elles rempl
 En savoir plus :
 - [Solutions de protection des points de terminaison prises en charge par Security Center](security-center-services.md#endpoint-supported)
 - [Comment ces suggestions évaluent l’état de vos solutions déployées](security-center-endpoint-protection.md)
+
+
+
+### <a name="inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name"></a>L’affichage de l’inventaire des machines locales utilise un autre modèle pour le nom de ressource
+
+**Date estimée du changement :** novembre 2021
+
+Pour améliorer la présentation des ressources dans l’[inventaire des ressources](asset-inventory.md), nous allons supprimer l’élément « source-computer-IP » du modèle de nommage des machines locales.
+
+- **Format actuel :** ``machine-name_source-computer-id_VMUUID``
+- **À partir de la mise à jour :** ``machine-name_VMUUID``
+
+
+### <a name="multiple-changes-to-identity-recommendations"></a>Changements multiples apportés aux recommandations sur l’identité
+
+**Date estimée du changement :** novembre 2021
+
+Security Center inclut plusieurs recommandations pour améliorer la gestion des utilisateurs et des comptes. En novembre, nous allons effectuer les changements décrits ci-dessous.
+
+- **Intervalle d’actualisation amélioré** - Pour le moment, les recommandations sur l’identité ont un intervalle d’actualisation de 24 heures. Cette mise à jour va réduire l’intervalle à 12 heures.
+
+- **Fonctionnalité d’exemption de compte** - Security Center dispose de nombreuses fonctionnalités qui permettent de personnaliser l’expérience utilisateur et de vérifier que le niveau de sécurité reflète les priorités de sécurité de votre organisation. L’option d’exemption des recommandations de sécurité est l’une de ces fonctionnalités. Pour obtenir une vue d’ensemble complète et des instructions, consultez [Exemption de ressources et de recommandations dans votre niveau de sécurité](exempt-resource.md). Avec cette mise à jour, vous pouvez exempter d’évaluation des comptes spécifiques en fonction des huit recommandations listées dans le tableau suivant.
+
+    En règle générale, vous exemptez les comptes « de secours » d’urgence des recommandations relatives à l’authentification MFA, car ces comptes sont souvent délibérément exclus des obligations d’authentification MFA d’une organisation. Vous pouvez également disposer de comptes externes auxquels vous souhaitez autoriser l’accès, mais pour lesquels l’authentification MFA n’est pas activée.
+
+    > [!TIP]
+    > Quand vous exemptez un compte, il n’est pas affiché comme étant non sain. Il n’indique pas non plus qu’un abonnement n’est pas sain.
+
+    |Recommandation| Clé d’évaluation|
+    |-|-|
+    |[L’authentification multifacteur (MFA) doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/94290b00-4d0c-d7b4-7cea-064a9554e681)|94290b00-4d0c-d7b4-7cea-064a9554e681|
+    |[L’authentification multifacteur (MFA) doit être activée sur les comptes disposant d’autorisations de lecture sur votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/151e82c5-5341-a74b-1eb0-bc38d2c84bb5)|151e82c5-5341-a74b-1eb0-bc38d2c84bb5|
+    |[L’authentification multifacteur (MFA) doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/57e98606-6b1e-6193-0e3d-fe621387c16b)|57e98606-6b1e-6193-0e3d-fe621387c16b|
+    |[Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/c3b6ae71-f1f0-31b4-e6c1-d5951285d03d)|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
+    |[Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b)|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
+    |[Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/04e7147b-0deb-9796-2e5c-0336343ceb3d)|04e7147b-0deb-9796-2e5c-0336343ceb3d|
+    |[Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)|e52064aa-6853-e252-a11e-dffc675689c2|
+    |[Les comptes déconseillés doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|00c6d40b-e990-6acf-d4f3-471e747a27c4|
+    |||
+ 
+- **Renommage des recommandations** - À partir de cette mise à jour, nous renommons deux recommandations. Nous révisons également leurs descriptions. Les clés d’évaluation restent inchangées. 
+
+
+    |Propriété  |Valeur actuelle  | À partir de la mise à jour|
+    |---------|---------|---------|
+    |Clé d’évaluation     | e52064aa-6853-e252-a11e-dffc675689c2        | Inchangé|
+    |Name     |[Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Les comptes bloqués dans Active Directory et qui disposent d’autorisations de propriétaire doivent être supprimés définitivement dans les abonnements        |
+    |Description     |Les comptes d’utilisateur qui ne peuvent plus se connecter doivent être supprimés de vos abonnements.<br>Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.|Les comptes d’utilisateur dont la connexion à Active Directory a été bloquée doivent être supprimés de vos abonnements. Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.<br>Découvrez plus en détail la sécurisation du périmètre d’identité dans [Bonnes pratiques pour la sécurité du contrôle d’accès et la gestion des identités Azure](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Stratégie associée     |[Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Les comptes bloqués dans Active Directory et qui disposent d’autorisations de propriétaire doivent être supprimés définitivement dans les abonnements |
+    |||
+
+    |Propriété  |Valeur actuelle  | À partir de la mise à jour|
+    |---------|---------|---------|
+    |Clé d’évaluation     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | Inchangé|
+    |Name     |[Les comptes déconseillés doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Les comptes bloqués dans Active Directory et qui disposent d’autorisations en lecture et en écriture doivent être supprimés définitivement dans les abonnements|
+    |Description     |Les comptes d’utilisateur qui ne peuvent plus se connecter doivent être supprimés de vos abonnements.<br>Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.|Les comptes d’utilisateur dont la connexion à Active Directory a été bloquée doivent être supprimés de vos abonnements. Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.<br>Découvrez plus en détail la sécurisation du périmètre d’identité dans [Bonnes pratiques pour la sécurité du contrôle d’accès et la gestion des identités Azure](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Stratégie associée     |[Les comptes déconseillés doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Les comptes bloqués dans Active Directory et qui disposent d’autorisations en lecture et en écriture doivent être supprimés définitivement dans les abonnements|
+    |||
+ 
+
+
+
 
 ### <a name="enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases"></a>Améliorations apportées à la recommandation pour classer les données sensibles dans les bases de données SQL
 

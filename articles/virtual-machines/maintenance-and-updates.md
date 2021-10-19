@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 10/06/2021
 ms.author: shants
-ms.openlocfilehash: 0f1d65c7caa9073fa66fe3920b2b39bc9c5a5d11
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: cb1a4cc1e0c1539ab56b986a35084fa761d85438
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687704"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657527"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Maintenance des machines virtuelles dans Azure
 
@@ -35,7 +35,7 @@ Dans une machine virtuelle, vous pouvez recevoir une notification concernant une
 
 La plupart des mises à jour de la plateforme n’affectent pas les machines virtuelles clientes. Lorsqu’une mise à jour sans impact n’est pas possible, Azure choisit alors le mécanisme ayant le moins d’impact pour les machines virtuelles clientes. 
 
-La plupart des maintenances ayant un impact mettent la machine virtuelle en pause pendant moins de 10 secondes. Dans certains cas, Azure utilise des mécanismes de maintenance avec préservation de la mémoire. Ces mécanismes interrompent la machine virtuelle pendant 30 secondes au maximum et conservent la mémoire dans la RAM. Une fois la machine virtuelle redémarrée, son horloge est synchronisée automatiquement. 
+La plupart des maintenances ayant un impact mettent la machine virtuelle en pause pendant moins de 10 secondes. Dans certains cas, Azure utilise des mécanismes de maintenance avec préservation de la mémoire. Ces mécanismes interrompent la machine virtuelle généralement pendant 30 secondes et préservent la mémoire de la RAM. Une fois la machine virtuelle redémarrée, son horloge est synchronisée automatiquement. 
 
 La maintenance avec préservation de la mémoire fonctionne avec plus de 90 % des machines virtuelles Azure. Elle ne fonctionne pas pour les modèles de série G, M, N et H. Azure utilise de plus en plus les technologies de migration dynamique et améliore les mécanismes de maintenance avec préservation de la mémoire pour réduire la durée de la mise en pause.  
 

@@ -4,12 +4,12 @@ description: Surveillez votre application web en temps réel avec des métriques
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e19d424f8aa56f37b12ab776c9ff85ca78f6738
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98679464"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614951"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -244,8 +244,8 @@ Toutefois, si vous connaissez et faites confiance à tous les serveurs connecté
 | .NET Framework                   | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures)  |
 | .NET Core (cible=. NET Framework)| Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures)  |
 | .NET Core (cible=. NET Core)     | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge*          | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | **Non pris en charge**    |
-| Azure Functions v2               | Prise en charge           | Prise en charge           | Prise en charge           | Prise en charge           | **Non pris en charge**    |
-| Java                             | Pris en charge (V2.0.0 et versions ultérieures) | Pris en charge (V2.0.0 et versions ultérieures) | **Non pris en charge**   | **Non pris en charge**   | **Non pris en charge**    |
+| Azure Functions v2               | Prise en charge           | Pris en charge           | Pris en charge           | Prise en charge           | **Non pris en charge**    |
+| Java                             | Pris en charge (V2.0.0 et versions ultérieures) | Pris en charge (V2.0.0 et versions ultérieures) | **Non pris en charge**   | Pris en charge (V3.2.0+) | **Non pris en charge**    |
 | Node.js                          | Pris en charge (V1.3.0 et versions ultérieures) | Pris en charge (V1.3.0 et versions ultérieures) | **Non pris en charge**   | Pris en charge (V1.3.0 et versions ultérieures) | **Non pris en charge**    |
 
 Les métriques de base incluent les requêtes, les dépendances et le taux d’exceptions. Les métriques du niveau de performance (compteurs de performances) incluent la mémoire et l’UC. L’exemple de télémétrie montre un flux d’informations détaillées pour les demandes et les dépendances ayant échoué, les exceptions, les événements et les traces.

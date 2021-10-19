@@ -10,12 +10,12 @@ ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 9cf53cdf35435030b9aa16b8336d80d887e6efbd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6962688a574d7f7c11f8cbfc71ccdb29ac3b6445
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128584200"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619385"
 ---
 # <a name="azure-storage-blob-inventory"></a>Inventaire des objets blob du Stockage Azure
 
@@ -254,7 +254,7 @@ Chaque règle d’inventaire génère un ensemble de fichiers dans le conteneur 
 
 Chaque exécution d’inventaire pour une règle génère les fichiers suivants :
 
-- **Fichier d’inventaire :** L’exécution d’un inventaire pour une règle génère un ou plusieurs fichiers au format CSV ou Apache Parquet. Si le nombre d’objets mis en correspondance est important, plusieurs fichiers sont générés au lieu d’un seul. Chacun de ces fichiers contient les objets mis en correspondance et leurs métadonnées. Pour un fichier au format CS, la première ligne est toujours celle du schéma. Voici un fichier CSV d’inventaire ouvert dans Microsoft Excel.
+- **Fichier d’inventaire :** L’exécution d’un inventaire pour une règle génère un ou plusieurs fichiers au format CSV ou Apache Parquet. Si le nombre d’objets mis en correspondance est important, plusieurs fichiers sont générés au lieu d’un seul. Chacun de ces fichiers contient les objets mis en correspondance et leurs métadonnées. Pour un fichier au format CSV, la première ligne est toujours celle du schéma. Voici un fichier CSV d’inventaire ouvert dans Microsoft Excel.
 
   :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Capture d’écran d’un fichier CSV d’inventaire ouvert dans Microsoft Excel":::
 

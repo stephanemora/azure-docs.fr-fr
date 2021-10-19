@@ -14,14 +14,14 @@ ms.author: davidmu
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.reviewer: hirsin
-ms.openlocfilehash: 56a4c06759841e5e011deb5fde50f1e9fe2cbea7
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: a266e60ef3079ecb12b227b047519abad5d26bf1
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061824"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619725"
 ---
-# <a name="configure-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
+# <a name="configure-sign-in-behavior-in-azure-active-directory"></a>Configurer le comportement de connexion dans Azure Active Directory
 
 Cet article est une introduction à la configuration du comportement d’authentification Azure Active Directory (Azure AD) pour les utilisateurs fédérés à l’aide de la stratégie de découverte du domaine d’accueil.  Il aborde l’utilisation de l’accélération automatique pour ignorer l’écran d’entrée du nom d’utilisateur et transférer automatiquement les utilisateurs vers les points de terminaison de connexion fédérés.  Microsoft déconseille la configuration de l’accélération automatique, car cela peut empêcher l’utilisation de méthodes d’authentification plus fortes telles que FIDO (First Identity Online) et entrave la collaboration.
 

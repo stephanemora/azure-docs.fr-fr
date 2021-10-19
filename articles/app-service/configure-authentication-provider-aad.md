@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 2404d8af682f119b68c78d6dc5cacc3d30201c17
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.openlocfilehash: 61253ab7360253e1c6902b6a7b38c9fb53faa3eb
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122563947"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611745"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Azure AD
 
@@ -26,7 +26,7 @@ La fonctionnalité d’authentification App Service peut créer automatiquement 
 > [!NOTE]
 > L’option permettant de créer une nouvelle inscription n’est pas disponible pour les clouds gouvernementaux. Au lieu de cela, [définissez une inscription séparément](#advanced).
 
-## <a name="create-a-new-app-registration-automatically"></a><a name="express"> </a>Créer une inscription d’application automatiquement
+## <a name="option-1-create-a-new-app-registration-automatically"></a><a name="express"> </a>Option 1 : Créer une inscription d’application automatiquement
 
 Cette option est conçue pour simplifier l’authentification et ne nécessite que quelques clics.
 
@@ -47,7 +47,7 @@ Vous êtes maintenant prêt à utiliser la plateforme d’identités Microsoft p
 
 Pour obtenir un exemple de configuration d’une connexion Azure AD pour une application web qui accède à Stockage Azure et à Microsoft Graph, consultez [ce tutoriel](scenario-secure-app-authentication-app-service.md).
 
-## <a name="use-an-existing-registration-created-separately"></a><a name="advanced"> </a>Utiliser une inscription existante créée séparément
+## <a name="option-2-use-an-existing-registration-created-separately"></a><a name="advanced"> </a>Option 2 : Utiliser une inscription existante créée séparément
 
 Vous pouvez également inscrire manuellement votre application pour la plateforme d’identités Microsoft, en personnalisant l’inscription et en configurant l’authentification App Service avec les détails de l’inscription. Cette option est utile, par exemple, si vous souhaitez utiliser une inscription d’application provenant d’un locataire Azure AD différent de celui où se trouve votre application.
 

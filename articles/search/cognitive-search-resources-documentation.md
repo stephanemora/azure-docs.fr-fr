@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/16/2021
-ms.openlocfilehash: 9bc027f269355a76d43fe02e4ca90a0e9f65024d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 26338164ca073ff5d9b331d36a5a9d935a3f3468
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656604"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707606"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Ressources de documentation pour l’enrichissement de l’IA dans la recherche cognitive Azure
 
@@ -34,7 +34,8 @@ Vous trouverez ci-dessous une liste consolidée de la documentation sur l’enri
 
 ## <a name="hands-on-walkthroughs"></a>Procédures pratiques
 
-+ [Démarrage rapide : Créer un ensemble de compétences cognitives dans le Portail Azure](cognitive-search-quickstart-blob.md)
++ [Démarrage rapide : créer une traduction de texte et un ensemble de compétences d’entité](cognitive-search-quickstart-blob.md)
++ [Démarrage rapide : créer un ensemble de compétences d’image d’OCR](cognitive-search-quickstart-ocr.md)
 + [Tutoriel : Indexation enrichie avec l’IA](cognitive-search-tutorial-blob.md)
 + [Tutoriel : Diagnostiquer, réparer et valider les changements apportés à votre ensemble de compétences avec des sessions de débogage ](cognitive-search-tutorial-debug-sessions.md)
 

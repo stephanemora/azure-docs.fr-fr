@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/22/2021
-ms.openlocfilehash: 033bd5a96c75a1097438e01390ba800089d89d1d
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 9e35609a6e6d450b2938dfbb4feab319f5a3c9c2
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426922"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660231"
 ---
 # <a name="network-traffic-flow-when-using-a-secured-workspace"></a>Flux de trafic réseau lors de l’utilisation d’un espace de travail sécurisé
 
@@ -92,7 +92,7 @@ le profilage des données dépend de la capacité du service géré Azure Machin
 > [!TIP]
 > Vous pouvez fournir un principal de service lors de la création de l’espace de travail. Si vous ne le faites pas, un principal est créé pour vous et porte le même nom que votre espace de travail.
 
-Pour autoriser l’accès au compte de stockage, configurez le compte de stockage pour __Autoriser les services Azure de la liste des services approuvés à accéder à ce compte de stockage__. Ce paramètre permet au service géré d’accéder au stockage via le réseau du centre de données Azure. 
+Pour autoriser l’accès au compte de stockage, configurez-le pour autoriser une __instance de ressource__ pour votre espace de travail, ou sélectionnez __Autoriser les services Azure de la liste des services approuvés à accéder à ce compte de stockage__. Ce paramètre permet au service géré d’accéder au stockage via le réseau du centre de données Azure. 
 
 Ensuite, ajoutez le principal de service de l’espace de travail au rôle __Lecteur__ sur le point de terminaison privé du compte de stockage. Ce rôle est utilisé pour vérifier les informations de sous-réseau de stockage et d’espace de travail. Si les valeurs sont identiques, l’accès est autorisé. Enfin, le principal du service exige également l’accès au compte de stockage pour les __Contributeurs de données d’objet blob__.
 

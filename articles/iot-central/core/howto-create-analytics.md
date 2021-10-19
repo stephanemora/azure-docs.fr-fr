@@ -7,12 +7,12 @@ ms.date: 08/16/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ad16a831b22097e98bd02b606e3a6596cf4e48f5
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f8f399ec557bbddd031b386d69436f3376ee42b1
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810954"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808506"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>Guide pratique pour utiliser une analytique permettant d’analyser les données des appareils
 
@@ -52,6 +52,8 @@ Choisissez un **groupe d’appareils** pour commencer, puis les données de tél
 ## <a name="interact-with-your-data"></a>Interagissez avec vos données
 
 Une fois que vous avez interrogé vos données, vous pouvez les visualiser sur le graphique en courbes. Vous pouvez afficher ou masquer les données de télémétrie, modifier la durée ou afficher les données dans une grille.
+
+Sélectionnez **Enregistrer** pour enregistrer une requête Analytics. Plus tard, vous pouvez récupérer les requêtes que vous aurez enregistrées.
 
 - **Panneau de l’éditeur de temps :** par défaut, vous voyez les données du dernier jour. Vous pouvez faire glisser l’une des extrémités du curseur pour modifier l’intervalle de temps. Vous pouvez également utiliser le contrôle de calendrier pour sélectionner un des intervalles de temps prédéfinis ou sélectionner un intervalle de temps personnalisé. Le contrôle de temps présente également un curseur **Taille d’intervalle** qui contrôle la taille d’intervalle utilisée pour agréger les données.
 

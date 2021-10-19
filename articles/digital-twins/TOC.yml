@@ -1,6 +1,6 @@
 - name: Documentation Azure Digital Twins
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "À propos d’Azure\_Digital\_Twins"
       href: overview.md
@@ -133,25 +133,25 @@
           href: how-to-integrate-time-series-insights.md
     - name: Superviser et dépanner
       items:
-        - name: Afficher des métriques dans Azure Monitor
+        - name: Mesures
           href: troubleshoot-metrics.md
-        - name: Utiliser des journaux de diagnostic.
+        - name: Journaux de diagnostics
           href: troubleshoot-diagnostics.md
-        - name: Activer les alertes
+        - name: Alertes
           href: troubleshoot-alerts.md
-        - name: Résoudre les problèmes de performances
+        - name: Performances
           href: troubleshoot-performance.md
-        - name: Comprendre l’intégrité de vos ressources
+        - name: Intégrité des ressources
           href: troubleshoot-resource-health.md
         - name: Problèmes connus
           href: troubleshoot-known-issues.md
         - name: Résolution des problèmes
           items:
-            - name: 403 (Interdit)
+            - name: "Erreur\_403 (Interdit)"
               href: troubleshoot-error-403.md
-            - name: 404 Sous-domaine introuvable
+            - name: "Erreur\_404 (Sous-domaine introuvable)"
               href: troubleshoot-error-404.md
-            - name: Authentification Azure Digital Twins Explorer
+            - name: Erreur de l’authentification Azure Digital Twins Explorer
               href: troubleshoot-error-azure-digital-twins-explorer-authentication.md
 - name: Informations de référence
   items:

@@ -875,7 +875,7 @@
               href: essentials/app-insights-metrics.md
             - name: Métriques standard
               href: app/standard-metrics.md
-        - name: Recherche
+        - name: Recherche de transactions
           href: app/diagnostic-search.md
         - name: Profileur
           items:
@@ -1410,6 +1410,8 @@
           href: app/custom-endpoints.md
         - name: Azure Functions
           href: app/azure-functions-supported-features.md
+        - name: Statsbeat
+          href: app/statsbeat.md
         - name: Notes de publication
           items:
             - name: Kits SDK de supervision basée sur le code

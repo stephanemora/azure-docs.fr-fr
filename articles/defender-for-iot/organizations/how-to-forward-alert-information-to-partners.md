@@ -3,12 +3,12 @@ title: Transférer les informations d’alerte
 description: Vous pouvez envoyer des informations d’alerte à des systèmes partenaires en utilisant des règles de transfert.
 ms.date: 08/29/2021
 ms.topic: how-to
-ms.openlocfilehash: 2136a58a383bb623edca69cb03c1c9c5530a107f
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: eb902036a286be50dc1f29ccca894f3d422cc59c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432358"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612202"
 ---
 # <a name="forward-alert-information"></a>Transférer les informations d’alerte
 
@@ -98,6 +98,8 @@ Envoyez un e-mail qui contient les informations d’alerte. Vous pouvez entrer u
 Pour définir l’e-mail pour la règle de transfert :
 
 1. Entrez une seule adresse e-mail. Si vous devez ajouter plusieurs e-mails, vous devez créer une autre action pour chaque adresse e-mail.
+
+    :::image type="content" source="media/how-to-forward-alert-information-to-partners/forward-email.png" alt-text="Capture d’écran de l’alerte de transfert pour transférer les alertes à une adresse de e-mail.":::
 
 1. Entrez le fuseau horaire de l’horodatage pour la détection d’alerte sur les SIEM.
 

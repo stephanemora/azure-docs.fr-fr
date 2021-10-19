@@ -1,6 +1,7 @@
 ---
-title: Chiffrement des jetons SAML dans Azure Active Directory
+title: Chiffrement des jetons SAML.
 description: Découvrez comment configurer le chiffrement des jetons SAML Azure Active Directory.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 03/13/2020
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dc7169055f006ca12c2f291d20683022a27d7a2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d15e4425b7506ada2ac1dcaf9f83bb4112a21639
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563191"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617641"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Guide pratique : configurer le chiffrement de jeton SAML Azure AD
+# <a name="configure-azure-active-directory-saml-token-encryption"></a>Configurer le chiffrement des jetons SAML Azure Active Directory
 
 > [!NOTE]
 > Le chiffrement des jetons est une fonctionnalité Azure Active Directory (Azure AD) Premium. Pour en savoir plus sur les éditions, les fonctionnalités et les tarifs d’Azure AD, consultez [Tarification Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).

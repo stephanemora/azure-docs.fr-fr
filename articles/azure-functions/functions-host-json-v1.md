@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 8466827402a5a5f785b65ea70887cc868f8667af
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5893bf8edc60e6a86aacccff6a798bc63ee655d8
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524912"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660606"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informations de référence sur le fichier host.json pour Azure Functions 1.x
 
@@ -16,7 +16,7 @@ ms.locfileid: "122524912"
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
-Le fichier de métadonnées *host.json* contient les options de configuration globale qui affectent l’ensemble des fonctions d’une application de fonction. Cet article répertorie les paramètres qui sont disponibles pour le runtime v1. Le schéma JSON est sur http://json.schemastore.org/host.
+Le fichier de métadonnées *host.json* contient des options de configuration qui affectent l’ensemble des fonctions d’une instance d’application de fonction. Cet article répertorie les paramètres disponibles pour le runtime version 1.x. Le schéma JSON est sur http://json.schemastore.org/host.
 
 > [!NOTE]
 > Cet article concerne Azure Functions 1.x.  Pour obtenir des informations de référence sur le fichier host.json dans Functions 2.x et versions ultérieures, consultez [Informations de référence sur le fichier host.json pour Azure Functions 2.x](functions-host-json.md).
@@ -376,4 +376,4 @@ Ensemble de [répertoires de code partagé](functions-reference-csharp.md#watche
 > [Découvrez comment mettre à jour le fichier host.json](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [Consultez les paramètres globaux des variables d’environnement](functions-app-settings.md)
+> [Conserver les paramètres dans des variables d’environnement](functions-app-settings.md)

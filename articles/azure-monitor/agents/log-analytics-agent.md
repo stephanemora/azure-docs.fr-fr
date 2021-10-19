@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 442400754d4c103a4f26724ff2ca731c8ae5250f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 0781d627052eaef14583739bba612d6c56aca56c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525610"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715796"
 ---
 # <a name="log-analytics-agent-overview"></a>Présentation de l’agent Log Analytics
 
@@ -83,14 +83,14 @@ En fonction de vos besoins, il existe plusieurs méthodes pour installer l’age
 
 ### <a name="windows-virtual-machine-on-premises-or-in-another-cloud"></a>Machine virtuelle Windows locale ou dans un autre cloud
 
-- Utilisez des [serveurs compatibles avec Azure Arc](../../azure-arc/servers/overview.md) pour déployer et gérer l’extension de machine virtuelle Log Analytics.
+- Utilisez des [serveurs avec Azure Arc](../../azure-arc/servers/overview.md) pour déployer et gérer l’extension de machine virtuelle Log Analytics.
 - [Installez manuellement](../agents/agent-windows.md) l’agent à partir de la ligne de commande.
 - Automatisez l’installation à l’aide d’[Azure Automation DSC](../agents/agent-windows.md#install-agent-using-dsc-in-azure-automation).
 - Utilisez un [Modèle Resource Manager avec Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win).
 
 ### <a name="linux-virtual-machine-on-premises-or-in-another-cloud"></a>Machine virtuelle Linux locale ou dans un autre cloud
 
-- Utilisez des [serveurs compatibles avec Azure Arc](../../azure-arc/servers/overview.md) pour déployer et gérer l’extension de machine virtuelle Log Analytics.
+- Utilisez des [serveurs avec Azure Arc](../../azure-arc/servers/overview.md) pour déployer et gérer l’extension de machine virtuelle Log Analytics.
 - [Installez manuellement](../vm/monitor-virtual-machine.md) l’agent qui appelle un script wrapper hébergé sur GitHub.
 - Intégrez [System Center Operations Manager](./om-agents.md) avec Azure Monitor pour transférer les données collectées à partir d’ordinateurs Windows rendant compte à un groupe d’administration.
 

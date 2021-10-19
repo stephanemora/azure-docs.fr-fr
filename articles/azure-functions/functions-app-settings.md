@@ -3,20 +3,20 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 07/27/2021
-ms.openlocfilehash: 6b860e40acd118bc708ab00001707755272525b6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ada3429d32ea08f8185ba19937b963a30400c7b0
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128663608"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659656"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
-Les paramètres d’une application de fonction contiennent les options de configuration globale qui affectent l’ensemble des fonctions de cette application de fonction. Lors d’une exécution locale, ces paramètres sont accessibles en tant que [variables d’environnement](functions-develop-local.md#local-settings-file) locales. Cet article répertorie les paramètres d’application qui sont disponibles dans les applications de fonction.
+Les paramètres d’une application de fonction contiennent les options de configuration qui affectent l’ensemble des fonctions de cette application de fonction. Lors d’une exécution locale, ces paramètres sont accessibles en tant que [variables d’environnement](functions-develop-local.md#local-settings-file) locales. Cet article répertorie les paramètres d’application qui sont disponibles dans les applications de fonction.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-Les fichiers [host.json](functions-host-json.md) et [local.settings.json](functions-develop-local.md#local-settings-file) contiennent d’autres options de configuration globale.
+Les fichiers [host.json](functions-host-json.md) et [local.settings.json](functions-develop-local.md#local-settings-file) contiennent d’autres options de configuration d’application de fonction.
 Les exemples de valeurs de chaîne de connexion sont tronqués pour des raisons de lisibilité.
 
 > [!NOTE]
@@ -402,6 +402,6 @@ Indique si tout le trafic sortant de l’application est routé via le réseau v
 
 [Découvrez comment mettre à jour les paramètres d’application](functions-how-to-use-azure-function-app-settings.md#settings)
 
-[Consultez les paramètres globaux dans le fichier host.json](functions-host-json.md)
+[Consultez les paramètres de configuration dans le fichier host.json](functions-host-json.md)
 
 [Consultez les autres paramètres des applications App Service](https://github.com/projectkudu/kudu/wiki/Configurable-settings)

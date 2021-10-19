@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/24/2021
+ms.date: 10/05/2021
 ms.author: tisande
-ms.openlocfilehash: b9eea7016da1e96e51e17d513ccbc3ca240c6e3d
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 13d667327fde6f55072f40dd6d1f9b7eb07d1214
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129236938"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615198"
 ---
 # <a name="indexing-metrics-in-azure-cosmos-db"></a>Métriques d'indexation dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -93,6 +93,9 @@ Considérez la liste des chemins indexés utilisés comme preuve qu’une requê
 Les index uniques potentiels et les index composites utilisés représentent respectivement les chemins inclus et les index composites qui, s’ils sont ajoutés, peuvent être utilisés par la requête. Si vous voyez des chemins indexés potentiels, vous devez envisager de les ajouter à votre stratégie d’indexation et observer s’ils améliorent les performances des requêtes.
 
 Considérez la liste des chemins indexés potentiels comme des recommandations plutôt que des preuves concluantes qu’une requête utilisera un chemin indexé spécifique. Les chemins indexés potentiels ne sont pas une liste exhaustive des chemins indexés qu’une requête peut utiliser. En outre, il est possible que certains chemins indexés potentiels n’aient aucun impact sur les performances des requêtes. [Ajoutez les chemins indexés recommandés](how-to-manage-indexing-policy.md) et confirmez qu’ils améliorent les performances des requêtes.
+
+> [!NOTE]
+> Avez-vous des commentaires sur les métriques d’indexation ? Nous attendons vos remarques ! N’hésitez pas à partager vos commentaires directement avec l’équipe d’ingénierie Azure Cosmos DB :cosmosdbindexing@microsoft.com
 
 ## <a name="index-impact-score"></a>Score d’impact de l’index
 

@@ -1,5 +1,6 @@
 ---
-title: Forum aux questions sur les certificats de gestion d’application Azure Active Directory
+title: Forum aux questions sur les certificats de gestion d’application
+titleSuffix: Azure AD
 description: Découvrez les réponses du forum aux questions (FAQ) sur la gestion des certificats pour les applications en utilisant Azure Active Directory en tant que fournisseur d’identité (IdP).
 services: active-directory
 author: davidmu1
@@ -11,14 +12,14 @@ ms.topic: reference
 ms.date: 03/19/2021
 ms.author: davidmu
 ms.reviewer: sureshja, saumadan
-ms.openlocfilehash: 497cc5b00db313c8bccbb31130ea7656634d051d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3f94c7eae439303f2954b8ab62f499b789902e79
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531411"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619934"
 ---
-# <a name="azure-active-directory-azure-ad-application-management-certificates-frequently-asked-questions"></a>Forum aux questions sur les certificats de gestion d’application Azure Active Directory (Azure AD)
+# <a name="azure-active-directory-application-management-certificates-frequently-asked-questions"></a>Forum aux questions sur les certificats de gestion d’application Azure Active Directory
 
 Cette page contient les réponses du forum aux questions sur la gestion des certificats pour les applications en utilisant Azure Active Directory (Azure AD) en tant que fournisseur d’identité (IdP).
 

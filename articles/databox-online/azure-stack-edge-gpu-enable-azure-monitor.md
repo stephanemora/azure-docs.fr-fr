@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/03/2021
 ms.author: alkohli
-ms.openlocfilehash: bbb4ce6442cc38e2554c6c1f745223a193ca793d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 86ddddbffd0a909a22acba6f780632690700eda2
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111950756"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715857"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Activer Azure Monitor sur votre appareil Azure Stack Edge Pro avec GPU
 

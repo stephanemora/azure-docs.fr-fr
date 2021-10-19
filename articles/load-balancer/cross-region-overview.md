@@ -13,18 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: f873bec75d0454aed2c6569a8f8dfaa7eaab9868
-ms.sourcegitcommit: 86ca8301fdd00ff300e87f04126b636bae62ca8a
+ms.openlocfilehash: cf094664fab07e9a75c890899dff9cd0118d12fc
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122534720"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614400"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Équilibreur de charge inter-région (préversion)
 
-Azure Load Balancer distribue le trafic entrant qui arrive sur le serveur frontal de l'équilibreur de charge vers les instances du pool principal.
-
-Azure Standard Load Balancer prend en charge l'équilibrage de charge inter-région, ce qui ouvre notamment la voie aux scénarios de haute disponibilité géoredondants suivants :
+Azure Standard Load Balancer prend en charge l'équilibrage de charge inter-région, ce qui ouvre notamment la voie aux scénarios de haute disponibilité géo-redondants suivants :
 
 * Trafic entrant en provenance de plusieurs régions.
 * [Basculement global instantané](#regional-redundancy) vers le prochain déploiement régional optimal.
@@ -37,8 +35,6 @@ Azure Standard Load Balancer prend en charge l'équilibrage de charge inter-rég
 > [!IMPORTANT]
 > L’équilibreur de charge entre les régions est actuellement en préversion.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-L'équilibrage de charge inter-région offre les mêmes avantages que l'équilibreur de charge standard régional en termes de hautes performances et de faible latence. 
 
 La configuration IP frontale de votre équilibreur de charge inter-région est statique et publiée dans [la plupart des régions Azure](#participating-regions).
 
@@ -108,7 +104,7 @@ La **région d’accueil** est celle où est déployé l’équilibreur de charg
 > [!NOTE]
 > Vous ne pouvez déployer votre équilibreur de charge inter-région que dans l'une des 7 régions ci-dessus.
 
-Une **région participante** est celle où l'adresse IP publique globale de l'équilibreur de charge est disponible. 
+Une **région participante** est celle où l'adresse IP publique globale de l'équilibreur de charge est annoncée.
 
 Le trafic initié par l'utilisateur sera acheminé vers la région participante la plus proche via le réseau Microsoft principal. 
 

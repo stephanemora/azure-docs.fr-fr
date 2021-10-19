@@ -7,12 +7,12 @@ ms.reviewer: mbullwin
 ms.custom: devx-track-python
 author: lzchen
 ms.author: lechen
-ms.openlocfilehash: 988f32cae16a026ddef0294815ffd21ba0d81760
-ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
+ms.openlocfilehash: 98af913787ede9a0c9f543315043540b7994729f
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112991736"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754232"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurer Azure Monitor pour votre application Python
 
@@ -27,7 +27,7 @@ Vous avez peut-être remarqué que OpenCensus converge vers [OpenTelemetry](http
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-- Installation de Python. Si cet article s’appuie sur [Python 3.7.0](https://www.python.org/downloads/release/python-370/), il est toutefois possible d’utiliser d’autres versions moyennant quelques modifications mineures. Le kit SDK Opencensus Python prend uniquement en charge Python v2.7 et v3.4-v3.7.
+- Installation de Python. Si cet article s’appuie sur [Python 3.7.0](https://www.python.org/downloads/release/python-370/), il est toutefois possible d’utiliser d’autres versions moyennant quelques modifications mineures. Le kit SDK Opencensus Python prend uniquement en charge Python v2.7 et v3.4+.
 - Créez une [ressource](./create-new-resource.md) Application Insights. Vous recevrez votre propre clé d’instrumentation (ikey) pour votre ressource.
 
 ## <a name="introducing-opencensus-python-sdk"></a>Présentation du kit de développement logiciel (SDK) Opencensus Python
@@ -349,47 +349,47 @@ Le kit SDK Python Opencensus permet d’ajouter des dimensions personnalisées �
 
 1. Insérez les étiquettes que vous souhaitez utiliser dans la carte des étiquettes. Cette carte agit comme une sorte de « pool » de toutes les étiquettes que vous pouvez utiliser.
 
-```python
-...
-tmap = tag_map_module.TagMap()
-tmap.insert("url", "http://example.com")
-...
-```
+    ```python
+    ...
+    tmap = tag_map_module.TagMap()
+    tmap.insert("url", "http://example.com")
+    ...
+    ```
 
 1. Pour un objet `View` spécifique, spécifiez les étiquettes que vous souhaitez utiliser lors de l’enregistrement des métriques avec cette vue par le biais de la clé d’étiquette.
 
-```python
-...
-prompt_view = view_module.View("prompt view",
-                               "number of prompts",
-                               ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
-                               prompt_measure,
-                               aggregation_module.CountAggregation())
-...
-```
+    ```python
+    ...
+    prompt_view = view_module.View("prompt view",
+                                "number of prompts",
+                                ["url"], # <-- A sequence of tag keys used to specify which tag key/value to use from the tag map
+                                prompt_measure,
+                                aggregation_module.CountAggregation())
+    ...
+    ```
 
 1. Veillez à utiliser la carte des étiquettes lors de l’enregistrement dans la carte de mesure. Les clés d’étiquettes spécifiées dans l’objet `View` doivent se trouver dans la carte des étiquettes utilisée pour l’enregistrement.
 
-```python
-...
-mmap = stats_recorder.new_measurement_map()
-mmap.measure_int_put(prompt_measure, 1)
-mmap.record(tmap) # <-- pass the tag map in here
-...
-```
+    ```python
+    ...
+    mmap = stats_recorder.new_measurement_map()
+    mmap.measure_int_put(prompt_measure, 1)
+    mmap.record(tmap) # <-- pass the tag map in here
+    ...
+    ```
 
 1. Sous la table `customMetrics`, tous les enregistrements de métriques émis à l’aide de l’objet `prompt_view` auront des dimensions personnalisées `{"url":"http://example.com"}`.
 
 1. Pour produire des étiquettes avec des valeurs différentes à l’aide des mêmes clés, créez de nouvelles cartes d’étiquettes pour elles.
 
-```python
-...
-tmap = tag_map_module.TagMap()
-tmap2 = tag_map_module.TagMap()
-tmap.insert("url", "http://example.com")
-tmap2.insert("url", "https://www.wikipedia.org/wiki/")
-...
-```
+    ```python
+    ...
+    tmap = tag_map_module.TagMap()
+    tmap2 = tag_map_module.TagMap()
+    tmap.insert("url", "http://example.com")
+    tmap2.insert("url", "https://www.wikipedia.org/wiki/")
+    ...
+    ```
 
 #### <a name="performance-counters"></a>Compteurs de performance
 

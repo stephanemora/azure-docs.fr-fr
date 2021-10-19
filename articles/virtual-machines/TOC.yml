@@ -911,20 +911,6 @@
     - name: Vue d’ensemble
       displayName: 'availability and scale, availability, scale, autoscale'
       href: availability.md
-    - name: Groupes à haute disponibilité
-      items:
-        - name: Vue d’ensemble
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: availability-set-overview.md
-        - name: Interface de ligne de commande
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: ./linux/tutorial-availability-sets.md
-        - name: PowerShell
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: ./windows/tutorial-availability-sets.md
-        - name: Changer un groupe à haute disponibilité
-          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
-          href: ./windows/change-availability-set.md
     - name: Zones de disponibilité
       items:
         - name: Vue d’ensemble
@@ -955,33 +941,47 @@
           href: ./windows/proximity-placement-groups-portal.md
     - name: Groupes identiques de machines virtuelles
       items:
-        - name: Vue d’ensemble des groupes de machines virtuelles identiques flexibles (préversion)
+        - name: Vue d’ensemble
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets.md
-        - name: Portail (préversion)
+        - name: Portail
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-portal.md
-        - name: "Interface CLI\_(préversion)"
+        - name: Interface de ligne de commande
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-cli.md
-        - name: PowerShell (préversion)
+        - name: PowerShell
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-powershell.md
-        - name: Modèle ARM (préversion)
+        - name: Modèle ARM
           displayName: Flexible orchestration mode for virtual machine scale sets
           href: flexible-virtual-machine-scale-sets-rest-api.md
         - name: Mise à l’échelle automatique
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-        - name: Modes d’orchestration (préversion)
-          displayName: 'VMSS, flex, scale set, scale, virtual machine sacle set'
+        - name: Modes d’orchestration
+          displayName: 'VMSS, flex, scale set, scale, virtual machine scale set'
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-        - name: Vue d’ensemble des groupes de machines virtuelles identiques uniformes
-          displayName: 'virtual machine scale sets, VMSS, VM scale set, scale set'
-          href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+        - name: Migration et considérations
+          displayName: 'VMSS, flex, scale set, scale, virtual machine scale set'
+          href: flexible-virtual-machine-scale-sets-migration-resources.md
     - name: Comprendre les redémarrages de machine virtuelle
       href: understand-vm-reboots.md
     - name: Régions Azure
       href: regions.md
+    - name: Groupes à haute disponibilité
+      items:
+        - name: Vue d’ensemble
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: availability-set-overview.md
+        - name: Interface de ligne de commande
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: ./linux/tutorial-availability-sets.md
+        - name: PowerShell
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: ./windows/tutorial-availability-sets.md
+        - name: Changer un groupe à haute disponibilité
+          displayName: 'availability and scale, availability, scale, autoscale, availability sets, AV sets'
+          href: ./windows/change-availability-set.md
 - name: Disques
   items:
     - name: Vue d’ensemble
