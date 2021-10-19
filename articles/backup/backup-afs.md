@@ -2,13 +2,13 @@
 title: Sauvegarder des partages de fichiers Azure dans le portail Azure
 description: Découvrir comment utiliser le portail Azure pour sauvegarder des partages de fichiers Azure sauvegardés dans le coffre Recovery Services
 ms.topic: conceptual
-ms.date: 05/07/2021
-ms.openlocfilehash: 807a173112d0bb85c008403028ab76000a3096db
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/08/2021
+ms.openlocfilehash: 8e50cee7e177375fae41ef6fb3a27f871427342c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427962"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714405"
 ---
 # <a name="back-up-azure-file-shares"></a>Sauvegarder des partages de fichiers Azure
 
@@ -85,9 +85,9 @@ Les étapes suivantes expliquent comment configurer la sauvegarde de plusieurs p
 
          ![Créez une stratégie.](./media/backup-afs/create-new-policy.png)
 
-      1. Le volet contextuel **Stratégie de sauvegarde** s’ouvre à droite. Spécifiez un nom de stratégie dans la zone de texte et choisissez la période de rétention en fonction de vos besoins. Seule l’option de rétention quotidienne est activée par défaut. Si vous souhaitez une rétention hebdomadaire, mensuelle ou annuelle, activez la case à cocher correspondante et indiquez la valeur de rétention souhaitée.
+      1. Effectuez les étapes 3-7 de la section [Créer une stratégie](manage-afs-backup.md#create-a-new-policy).
 
-      1. Après avoir spécifié les valeurs de conservation et un nom de stratégie valide, sélectionnez **OK**.<br>
+      1. Après avoir défini tous les attributs de la stratégie, cliquez sur **OK**.
 
          ![Fournir les valeurs de noms de stratégie et de rétention](./media/backup-afs/policy-name.png)
 
@@ -147,9 +147,9 @@ Les étapes suivantes expliquent comment configurer la sauvegarde de partages de
 
          1. Sélectionnez le texte du lien **Créer une stratégie**.
 
-         2. Le volet contextuel **Stratégie de sauvegarde** s’ouvre à droite. Spécifiez un nom de stratégie dans la zone de texte et choisissez la période de rétention en fonction de vos besoins. Seule l’option de rétention quotidienne est activée par défaut. Si vous souhaitez une rétention hebdomadaire, mensuelle ou annuelle, activez la case à cocher correspondante et indiquez la valeur de rétention souhaitée.
+         2. Effectuez les étapes 3-7 de la section [Créer une stratégie](manage-afs-backup.md#create-a-new-policy).
 
-         3. Après avoir spécifié les valeurs de conservation et un nom de stratégie valide, sélectionnez **OK**.
+         3. Après avoir défini tous les attributs de la stratégie, cliquez sur **OK**.
 
             ![Créer une stratégie de sauvegarde](./media/backup-afs/create-new-backup-policy.png)
 

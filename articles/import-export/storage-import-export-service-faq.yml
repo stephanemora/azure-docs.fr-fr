@@ -6,15 +6,15 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 09/07/2021
+  ms.date: 10/04/2021
   ms.author: alkohli
   ms.subservice: common
-  ms.openlocfilehash: 7a4344ed0aa7346d3c87d36d96e4772c08080327
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 7217f10d9d54931d0f37ec0400c8df3132076f87
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124763554"
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129709458"
 title: 'Service Azure Import/Export : Questions fréquentes (FAQ)'
 summary: >
   Vous trouverez ci-dessous des questions et réponses relatives à l’utilisation du service Azure Import/Export pour le transfert de données vers le Stockage Azure.
@@ -22,9 +22,9 @@ sections:
 - name: À propos du service Import/Export
   questions:
   - question: >
-      Puis-je copier des données vers Stockage Fichier Azure à l’aide du service Azure Import/Export ?
+      Est-ce que je peux copier des données vers le Stockage Fichier Azure à l’aide du service Azure Import/Export ?
     answer: >
-      Oui. Le service Azure Import/Export prend en charge l’importation de données dans Stockage Fichier Azure. L’exportation de fichiers Azure n’est pas prise en charge pour l’instant.
+      Oui. Le service Azure Import/Export prend en charge l’importation de données dans le Stockage Fichier Azure. L’exportation depuis le Stockage Fichier Azure n’est pas prise en charge pour l’instant.
   - question: >
       Le service Azure Import/Export est-il disponible pour les abonnements aux fournisseurs de solutions Cloud ?
     answer: >
@@ -56,7 +56,7 @@ sections:
   - question: >
       Puis-je annuler ma tâche ?
     answer: >
-      Oui. Vous pouvez annuler une tâche dont l’état est **Création** ou **Expédition**. Au-delà de ces étapes, la tâche ne peut être annulée. Elle se poursuit jusqu’à l’étape finale.
+      Oui. Vous pouvez annuler un travail quand celui-ci a l’état **En cours de création**. Toutefois, une fois que vous avez entré les informations de suivi, l’état d’un travail devient **Expédition** et celui-ci ne peut plus être annulé.
   - question: >
       Pendant combien de temps puis-je voir l’état des tâches effectuées dans le Portail Azure ?
     answer: >
@@ -68,9 +68,13 @@ sections:
 
       Pour plus d’informations et pour obtenir de l’aide quand la capacité de données s’étend sur plusieurs tâches d’importation de disques, contactez l’assistance Microsoft.
   - question: >
+      J’ai trouvé des problèmes dans les journaux de copie des données pour un travail d’importation/exportation. Est-ce que je peux réparer le travail ?
+    answer: >
+      Non. Les versions actuelles de l’outil Azure ImportExport (version 1.5.0.300 pour les objets blob et version 2.2.0.300 pour les fichiers) ne prennent pas en charge la réparation des travaux. Après avoir résolu les problèmes, vous devez créer un travail Import/Export. Consultez [Créer un travail d’importation pour les objets blob](storage-import-export-data-to-blobs.md#step-2-create-an-import-job) ou [Créer un travail d’importation pour les fichiers](storage-import-export-data-to-files.md#step-2-create-an-import-job).
+  - question: >
       L’objet blob chargé affiche l’état « Bail expiré ». Que dois-je faire ?
     answer: >
-      Vous pouvez ignorer le champ « Bail expiré ». Import/Export prend le bail sur l’objet blob lors du chargement afin de s’assurer qu’aucun autre processus ne peut mettre à jour l’objet blob en parallèle. Bail expiré signifie qu’Import/export ne charge plus sur cet objet et que vous pouvez l’utiliser.
+      Vous pouvez ignorer le champ **Bail expiré**. Import/Export prend le bail sur l’objet blob lors du chargement afin de s’assurer qu’aucun autre processus ne peut mettre à jour l’objet blob en parallèle. **Bail expiré** signifie que l’importation ou l’exportation ne charge plus sur l’objet blob et que vous pouvez utiliser celui-ci.
 - name: Expédition des disques
   questions:
   - question: >
@@ -92,7 +96,7 @@ sections:
   - question: >
       Existe-t-il des restrictions concernant l’expédition et le retour de mon disque à l’étranger ?
     answer: >
-      Notez que le support physique que vous expédiez devra peut-être franchir des frontières. Vous êtes responsable de l'application des lois applicables lorsque vous importez et/ou exportez vos données et supports physiques. Avant d'expédier le support physique, demandez à vos conseillers juridiques de vérifier que vos supports multimédias et données peuvent être envoyés légalement vers le centre de données identifié. Cela vous assurera d'atteindre Microsoft dans les délais.
+      Notez que le support physique que vous expédiez devra peut-être franchir des frontières. Vous êtes responsable de l'application des lois applicables lorsque vous importez et/ou exportez vos données et supports physiques. Avant d'expédier le support physique, demandez à vos conseillers juridiques de vérifier que vos supports multimédias et données peuvent être envoyés légalement vers le centre de données identifié. Le fait de procéder à une vérification à l’avance vous assurera d’atteindre Microsoft dans les délais.
 
 
       Une fois le téléchargement terminé, le processus de renvoi d’un ou plusieurs lecteurs à une adresse internationale peut prendre plus de temps que les 2-3 jours nécessaires à une livraison locale. Au cours de la phase indiquée dans le portail Azure par Packaging, l’équipe Data Box vérifie que la documentation appropriée est fournie pour s'assurer que l'expédition est conforme aux différentes exigences internationales en matière d’importation et d’exportation.
@@ -112,7 +116,7 @@ sections:
   - question: >
       Au moment d’expédier mon disque, le transporteur me demande l’adresse de contact et le numéro de téléphone du centre de données. Que dois-je indiquer ?
     answer: >
-      Le numéro de téléphone et l’adresse du centre de données sont fournis dans le cadre de la création de la tâche.
+      Le numéro de téléphone et l’adresse du centre de données sont fournis dans le cadre de la création du travail.
   - question: >
       Pourquoi ma commande est-elle encore à l’état Expédition alors que j’ai déjà reçu mon appareil ?
     answer: >
@@ -137,7 +141,13 @@ sections:
   - question: >
       Si un disque contient des fichiers qui existent déjà dans mon compte de stockage, le service remplace-t-il les objets blob ou les fichiers existants ?
     answer: >
-      Cela dépend. Lors de la préparation du disque, vous pouvez indiquer si les fichiers cibles doivent être remplacés ou ignorés à l’aide du champ Disposition:< rename|no-overwrite|overwrite> du fichier CSV du jeu de données. Par défaut, le service renomme les nouveaux fichiers au lieu de remplacer les objets blob ou les fichiers existants.
+      Oui. Les versions les plus récentes de l’outil Azure ImportExport, à savoir les version 1.5.0.300 (pour les objets blob) et 2.2.0.300 (pour les fichiers), remplacent automatiquement les objets blob ou les fichiers qui existent déjà dans votre stockage si une importation comprend un fichier ou un objet blob portant le même nom. Par défaut, les versions antérieures de l’outil renommaient un fichier entrant si un objet blob ou un fichier existant portait le même nom. Un champ Disposition dans le fichier CSV du jeu de données vous permet de spécifier s’il faut renommer, ne pas remplacer ou remplacer le fichier ou l’objet blob de destination. Le champ Disposition a le format suivant : `Disposition:<rename|no-overwrite|overwrite>`.
+  - question: >
+      Je crée un travail. Est-ce que je peux toujours utiliser l’ancien outil Azure Import/Export ?
+    answer: >
+      Vous pouvez toujours utiliser l’ancien outil Azure Import/Export avec vos travaux existants. Toutefois, nous vous suggérons vivement de passer à la version actuelle de l’outil pour les nouveaux travaux d’importation/exportation, car l’ancien outil est en cours de suppression progressive. Vous recevrez une notification dans le portail Azure quand l’ancien outil ne sera plus pris en charge.
+
+      Voici où trouver les versions actuelles de l’outil. [Téléchargez WAImportExport version 1.5.0.300](https://www.microsoft.com/download/details.aspx?id=42659) pour les objets blob. [Téléchargez WAImportExport version 2.2.0.300](https://aka.ms/waiev2) pour les fichiers.
   - question: >
       L’outil WAImportExport est-il compatible avec les systèmes d’exploitation 32 bits ?
     answer: >
@@ -145,7 +155,7 @@ sections:
   - question: >
       Quelle est la taille maximale des objets blob de blocs et des objets blob de pages prise en charge par Azure Import/Export ?
     answer: >
-      - La taille maximale des objets blob de blocs est d’environ 4,768 To ou 5 000 000 Mo.
+      - La taille maximale des objets blob de blocs est d’environ 4,768 To ou 5 000 000 Mo.
 
       - La taille maximale des objets blob de pages est de 8 To.
   - question: >

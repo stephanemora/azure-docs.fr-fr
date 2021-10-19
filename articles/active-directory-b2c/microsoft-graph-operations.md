@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 10/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 216123a60a69fc696423ac9d129201201cac8fbc
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b4706d8bc9224920afb8e17abca88409d4aff7ab
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124739922"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617375"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gérer Azure AD B2C avec Microsoft Graph
 
@@ -139,6 +139,7 @@ La ressource de niveau supérieur pour les clés de stratégies dans l’API Mic
 ## <a name="application-extension-properties"></a>Propriétés d’extension d’application
 
 - [Répertorier des propriétés d’extension](/graph/api/application-list-extensionproperty)
+- [Supprimer la propriété d’extension](/graph/api/application-delete-extensionproperty)
 
 Azure AD B2C fournit un annuaire pouvant contenir 100 attributs personnalisés par utilisateur. Pour des flux d’utilisateurs, ces propriétés d’extension sont [gérées à l’aide du portail Azure](user-flow-custom-attributes.md). Pour des stratégies personnalisées, Azure AD B2C crée la propriété pour vous la première fois que la stratégie écrit une valeur dans la propriété d’extension.
 

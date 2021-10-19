@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
 ms.custom: devx-track-js
-ms.openlocfilehash: 18111fcce10b5c139105d19edd3eda68c5dff33c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 880f27665b191df2459cbdc15b6a8afa47fd3f8c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652566"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715498"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -87,7 +87,7 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 
 * Reconnaître les champs et le contenu de formulaires à l’aide de modèles personnalisés entraînés pour analyser vos formulaires personnalisés. Ces valeurs sont retournées dans une collection d’objets `RecognizedForm`.
 * Reconnaître le contenu des formulaires, notamment les tableaux, les lignes et les mots, sans avoir à entraîner un modèle. Le contenu des formulaires est retourné dans une collection d’objets `FormPage`.
-* Reconnaître les champs courants des tickets de caisse, cartes de visite, factures et documents d’identité émis aux États-Unis à l’aide d’un modèle préentraîné dans le service Form Recognizer.
+* Reconnaître les champs courants des reçus, cartes de visite, factures et documents d’identité émis aux États-Unis à l’aide d’un modèle préentraîné dans le service Form Recognizer.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -190,7 +190,7 @@ Pour analyser des factures à partir d’une URL, utilisez la méthode `beginRec
 > [!TIP]
 > Vous pouvez également analyser les images de tickets de caisse locales avec des méthodes [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) comme **beginRecognizeInvoices**. 
 
-## <a name="analyze-identity-documents"></a>Analyser les documents d’identité
+## <a name="analyze-id-documents"></a>Analyser des documents d’identité
 
 Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle d’identification prédéfini](../../concept-identification-cards.md).
 

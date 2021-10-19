@@ -1,18 +1,18 @@
 ---
 title: Installation de Defender pour IoT
 description: Découvrez comment installer un capteur et la console de gestion locale pour Azure Defender pour IoT.
-ms.date: 10/05/2021
+ms.date: 10/09/2021
 ms.topic: how-to
-ms.openlocfilehash: a5b4beff2d01896082974bf761cb7544d439af9e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: f23c5fe84959045ba0446ad03c9a990a7bbb2014
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537302"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754536"
 ---
 # <a name="defender-for-iot-installation"></a>Installation de Defender pour IoT
 
-Cet article explique comment installer les éléments suivants d’Azure Defender pour IoT :
+Cet article explique comment installer les composants suivants d’Azure Defender pour IoT :
 
 - **Capteur** : Les capteurs Defender pour IoT collectent le trafic de partage de connexion Internet (ICS) à l’aide de la surveillance passive (sans agent). Passifs et non intrusifs, les capteurs n’ont aucun impact sur les réseaux et appareils OT et IoT. Le capteur se connecte à un port SPAN ou à un TAP réseau et commence immédiatement à surveiller votre réseau. Les détections s’affichent dans la console du capteur. Dans cette console, vous pouvez les visualiser, les examiner et les analyser dans une carte du réseau, un inventaire des appareils et un large éventail de rapports. Les exemples incluent des rapports d’évaluation des risques, des requêtes d’exploration de données et des vecteurs d’attaque. Pour plus d’informations sur les capacités des capteurs, consultez le [guide de l’utilisateur relatif aux capteurs Defender pour IoT (téléchargement direct)](./getting-started.md).
 
@@ -43,7 +43,7 @@ Les appliances de montage en rack suivantes sont disponibles :
 | **Modèle** | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | **Ports de surveillance** | jusqu’à 15 RJ45 ou 8 OPT | jusqu’à 8 RJ45 ou 6 OPT | jusqu’à 4 RJ45 | jusqu’à 5 RJ45 |
 | **Bande passante maximale\*** | 3 Go/s | 1 Go/s | 200 Mo/s | 100 Mo/s |
-| **Nombre maximal d’appareils protégés** | 30,000 | 15,000 | 1 000 | 800 |
+| **Nombre maximal d’appareils protégés** | 10 000 | 10 000 | 1 000 | 800 |
 
 *La capacité maximale de la bande passante peut varier en fonction de la distribution du protocole.
 
@@ -55,7 +55,7 @@ Les appliances virtuelles suivantes sont disponibles :
 |--|--|--|--|
 | **Description** | Appliance virtuelle pour les déploiements institutionnels | Appliance virtuelle pour les déploiements d’entreprise | Appliance virtuelle pour les déploiements SMB |
 | **Bande passante maximale\*** | 2,5 Go/s | 800 Mo/s | 160 Mo/s |
-| **Nombre maximal d’appareils protégés** | 30,000 | 10 000 | 800 |
+| **Nombre maximal d’appareils protégés** | 10 000 | 10 000 | 800 |
 | **Type de déploiement** | Entreprise | Enterprise | SMB |
 
 *La capacité maximale de la bande passante peut varier en fonction de la distribution du protocole.
@@ -1361,7 +1361,7 @@ Pour tout autre problème, contactez [Support Microsoft](https://support.microso
 
 ## <a name="configure-a-span-port"></a>Configurer un port SPAN
 
-Un commutateur virtuel ne dispose pas de capacités de mise en miroir, mais vous pouvez utiliser une solution de contournement pour implémenter un port SPAN. Vous pouvez implémenter la solution de contournement avec ESXi ou Hyper-V.
+Un commutateur virtuel n’a pas de fonctionnalités de mise en miroir. Toutefois, vous pouvez utiliser le mode de proximité dans un environnement de commutateur virtuel. Le mode de proximité est un mode de fonctionnement, ainsi qu’une technique de sécurité, de supervision et d’administration, défini au niveau du commutateur virtuel, ou des ports. Par défaut, le mode de proximité est désactivé. Lorsque le mode de proximité est activé, les interfaces réseau de la machine virtuelle qui se trouvent dans le même groupe de ports utilisent le mode de proximité pour afficher tout le trafic réseau qui traverse ce commutateur virtuel. Vous pouvez implémenter une solution de contournement avec ESXi ou Hyper-V.
 
 :::image type="content" source="media/tutorial-install-components/purdue-model.png" alt-text="Capture d’écran de l’emplacement du capteur dans votre architecture.":::
 

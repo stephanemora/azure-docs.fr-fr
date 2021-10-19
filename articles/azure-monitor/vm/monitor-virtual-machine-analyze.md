@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2021
-ms.openlocfilehash: cca95effdbbda099dd3e082e950b92f26e96f80f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 06a37bc77d5eda453740881af9ca45ad4b8746e8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114459467"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715170"
 ---
 # <a name="monitor-virtual-machines-with-azure-monitor-analyze-monitoring-data"></a>Superviser les machines virtuelles avec Azure Monitor : Analyser les données de supervision
 Cet article fait partie du scénario [Superviser les machines virtuelles et leurs charges de travail dans Azure Monitor](monitor-virtual-machine.md). Il décrit comment analyser les données de supervision de vos machines virtuelles une fois la configuration terminée.

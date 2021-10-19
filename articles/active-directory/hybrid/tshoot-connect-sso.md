@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 546a7bfbda3f037f3ad40ca9c5d59353cc1de0eb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 8b1947d9b78ef77644dd5df8aabe4298de90f9e8
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349600"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754270"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
 
@@ -39,6 +39,7 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 - L’ajout de l’URL du service Azure AD (`https://autologon.microsoftazuread-sso.com`) à la zone Sites de confiance, plutôt qu’à la zone Intranet local, *empêche les utilisateurs de se connecter*.
 - L’authentification unique transparente prend en charge les types de chiffrement AES256_HMAC_SHA1, AES128_HMAC_SHA1 et RC4_HMAC_MD5 pour Kerberos. Il est recommandé de définir le type de chiffrement du compte AzureADSSOAcc$ sur AES256_HMAC_SHA1 ou l’un des types AES plutôt que sur RC4 pour plus de sécurité. Le type de chiffrement est stocké dans l’attribut msDS-SupportedEncryptionTypes du compte de votre annuaire Active Directory.  Si le type de chiffrement du compte AzureADSSOAcc$ a la valeur RC4_HMAC_MD5 et que vous voulez le remplacer par l’un des types de chiffrement AES, veillez d’abord à remplacer la clé de déchiffrement Kerberos du compte AzureADSSOAcc$, comme expliqué dans les [questions fréquentes (FAQ)](how-to-connect-sso-faq.yml), sous la question concernée, sans quoi l’authentification unique transparente ne se produira pas.
 -  Si vous avez plusieurs forêts dotées d’une approbation de forêt, l’activation de l’authentification unique (SSO) dans l’une de ces forêts active l’authentification unique dans toutes les forêts approuvées. Si vous activez l’authentification unique (SSO) dans une forêt où l’authentification unique est déjà activée, vous obtenez une erreur indiquant que l’authentification unique est déjà activée dans la forêt.
+-  La stratégie qui active l’authentification unique fluide a une limite de 25 600 caractères. Cette limite concerne tout ce qui est inclus dans la stratégie, notamment les noms de forêt sur lesquels vous souhaitez activer l’authentification unique fluide. Vous pouvez atteindre la limite de caractères si vous disposez d’un grand nombre de forêts dans votre environnement. Si vos forêts ont une relation de confiance entre elles, il suffit d’activer l’authentification unique fluide sur l’une des forêts. Imaginons par exemple contoso.com et fabrikam.com qui ont une relation de confiance. Vous pouvez activer l’authentification unique fluide uniquement sur contoso.com et elle est appliquée également sur fabrikam.com. De cette façon, vous pouvez réduire le nombre de forêts activées dans la stratégie et éviter d’atteindre la limite de caractères de la stratégie.
 
 ## <a name="check-status-of-feature"></a>Vérifier l’état de la fonctionnalité
 

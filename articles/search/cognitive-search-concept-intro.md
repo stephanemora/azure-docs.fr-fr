@@ -9,18 +9,20 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: b1c7a8f29c08f00cc69dbd304c8215180f5ace92
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7d3f76777b717051b7524585abf593f57fedc47d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796606"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707922"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enrichissement de l’IA dans Recherche cognitive Azure
 
 Dans Recherche cognitive Azure, l’enrichissement par IA fait référence aux compétences cognitives intégrées et aux compétences personnalisées qui ajoutent la transformation et la génération de contenu pendant l’indexation. Les enrichissements créent de nouvelles informations là où aucune n’existait précédemment : extraction d’informations à partir d’images, détection de sentiments, d’expressions clés et d’entités à partir de texte, pour n’en nommer que quelques-uns. Les enrichissements ajoutent également une structure à du texte non différencié. Tous ces processus produisent des documents qui rendent la recherche en texte intégral plus efficace. Dans de nombreux cas, les documents enrichis sont utiles pour des scénarios autres que la recherche, pour l’exploration de connaissances par exemple.
 
 L’enrichissement est défini par un [ensemble de compétences](cognitive-search-working-with-skillsets.md) qui est attaché à un [indexeur](search-indexer-overview.md). L’indexeur extrait et configure le contenu, tandis que l’ensemble de compétences identifie, analyse et crée de nouvelles informations et structures à partir d’images, de blobs et d’autres sources de données non structurées. La sortie d’un pipeline d’enrichissement est soit un [index de recherche](search-what-is-an-index.md), soit une [base de connaissances](knowledge-store-concept-intro.md).
+
+![Diagramme de pipeline d’enrichissement](./media/cognitive-search-intro/cogsearch-architecture.png "vue d’ensemble du pipeline d’enrichissement")
 
 Un ensemble de compétences peut contenir des compétences intégrées de Recherche cognitive ou incorporer un traitement externe que vous fournissez dans une [*compétence personnalisée*](cognitive-search-create-custom-skill-example.md). Un module d’entité ou un classifieur de documents ciblant un domaine spécifique comme la finance, les publications scientifiques ou la médecine sont des exemples de compétence personnalisée.
 
@@ -29,8 +31,6 @@ Les compétences intégrées se répartissent en fonction des catégories suivan
 + Les compétences de **traitement du langage naturel** incluent la [reconnaissance d’entité](cognitive-search-skill-entity-recognition-v3.md), la [détection de la langue](cognitive-search-skill-language-detection.md), l’[extraction de phrases clés](cognitive-search-skill-keyphrases.md), la manipulation de texte, la [détection de sentiments (y compris l’exploration des opinions)](cognitive-search-skill-sentiment-v3.md) et la [détection d’informations d’identification personnelle](cognitive-search-skill-pii-detection.md). Grâce à ces compétences, un texte non structuré est mappé sous la forme de champs pouvant être interrogés et filtrés dans un index.
 
 + Les compétences de **traitement d’image** incluent la [reconnaissance optique de caractères (OCR)](cognitive-search-skill-ocr.md) et l’identification des [caractéristiques visuelles](cognitive-search-skill-image-analysis.md), comme la détection des visages, l’interprétation des images, la reconnaissance des images (monuments et personnes célèbres) ou des attributs tels que l’orientation des images. Ces compétences créent des représentations textuelles du contenu des images, ce qui rend les recherches possibles grâce aux capacités d’interrogation de Recherche cognitive Azure.
-
-![Diagramme de pipeline d’enrichissement](./media/cognitive-search-intro/cogsearch-architecture.png "vue d’ensemble du pipeline d’enrichissement")
 
 Les compétences intégrées de la Recherche cognitive Azure sont basées sur les modèles Machine Learning préentraînés des API Cognitive Services : [Vision par ordinateur](../cognitive-services/computer-vision/index.yml) et [Analyse de texte](../cognitive-services/text-analytics/overview.md). Vous pouvez attacher une ressource Cognitive Services si vous souhaitez tirer parti de ces ressources lors du traitement du contenu.
 
@@ -109,11 +109,11 @@ Le contenu enrichi est généré pendant l’exécution de l’ensemble de comp�
 
 Dans Recherche cognitive Azure, l’indexeur enregistre la sortie qu’il crée.
 
-Un [index avec recherche possible](search-what-is-an-index.md) est l’une des sorties qui est toujours créée par un indexeur. La spécification d’un index est une exigence de l’indexeur, et lorsque vous attachez un ensemble de compétences, la sortie de l’ensemble de compétences, plus tous les champs importés directement de la source, sont utilisés pour alimenter l’index. En règle générale, les sorties de compétences spécifiques, comme les expressions clés ou les scores de sentiment, sont ingérées dans l’index d’un champ créé à cet effet.
+Un [index avec recherche possible](search-what-is-an-index.md) est l’une des sorties qui est toujours créée par un indexeur. La spécification d’un index est une exigence de l’indexeur, et lorsque vous attachez un ensemble de compétences, la sortie de l’ensemble de compétences, plus tous les champs mappés directement de la source, sont utilisés pour alimenter l’index. En règle générale, les sorties de compétences spécifiques, comme les expressions clés ou les scores de sentiment, sont ingérées dans l’index d’un champ créé à cet effet.
 
 Une [base de connaissances](knowledge-store-concept-intro.md) est une sortie facultative, utilisée pour des applications en aval comme l’exploration des connaissances. Une base de connaissances est définie dans un ensemble de compétences. Sa définition détermine si vos documents enrichis sont projetés sous forme de tables ou d’objets (fichiers ou blobs). Les projections tabulaires sont bien adaptées à l’analyse interactive dans des outils tels que Power BI, tandis que les fichiers et les blobs sont généralement utilisés en science des données ou dans des processus similaires.
 
-Enfin, un indexeur peut [mettre en cache les documents enrichis](cognitive-search-incremental-indexing-conceptual.md) dans Stockage Blob Azure pour une réutilisation potentielle dans des exécutions ultérieures d’ensembles de compétences. Les enrichissements mis en cache sont consommables par le même ensemble de compétences que vous réexécutez à une date ultérieure. La mise en cache est utile si votre ensemble de compétences inclut l’analyse d’images ou la reconnaissance optique de caractères, et si vous voulez éviter de consacrer du temps et de l’argent au retraitement des fichiers d’image.
+Enfin, un indexeur peut [mettre en cache les documents enrichis](cognitive-search-incremental-indexing-conceptual.md) dans Stockage Blob Azure pour une réutilisation potentielle dans des exécutions ultérieures d’ensembles de compétences. Le cache est réservé à un usage interne. Les enrichissements mis en cache sont consommables par le même ensemble de compétences que vous réexécutez à une date ultérieure. La mise en cache est utile si votre ensemble de compétences inclut l’analyse d’images ou la reconnaissance optique de caractères, et si vous voulez éviter de consacrer du temps et de l’argent au retraitement des fichiers d’image.
 
 Les index et les bases de connaissances sont totalement indépendants les uns des autres. Bien que vous deviez joindre un index pour satisfaire aux exigences de l’indexeur, si votre seul objectif est une base de connaissances, vous pouvez ignorer l’index une fois qu’il est rempli. Évitez toutefois de le supprimer. Si vous souhaitez réexécuter l’indexeur et l’ensemble de compétences, vous aurez besoin de l’index pour que l’indexeur puisse fonctionner.
 
@@ -141,7 +141,8 @@ Pour itérer sur les étapes ci-dessus, [réinitialisez l’indexeur](search-how
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ [Démarrage rapide : Procédure pas à pas d’enrichissement par IA à partir du portail](cognitive-search-quickstart-blob.md)
++ [Démarrage rapide : créer une traduction de texte et un ensemble de compétences d’entité](cognitive-search-quickstart-blob.md)
++ [Démarrage rapide : créer un ensemble de compétences d’image d’OCR](cognitive-search-quickstart-ocr.md)
 + [Tutoriel : En savoir plus sur les API REST d’enrichissement par IA](cognitive-search-tutorial-blob.md)
 + [Concepts des ensembles de compétences](cognitive-search-working-with-skillsets.md)
 + [Concepts de base de connaissances](knowledge-store-concept-intro.md)

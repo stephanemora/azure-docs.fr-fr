@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3285c18394c8c59d17e41b3a3eb3fd43428cd61
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7cda4fe1af43b0bf7f091f34ae03a021c2ac4d20
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229579"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667532"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Attribuer des étiquettes de sensibilité aux groupes Microsoft 365 dans Azure Active Directory
 
@@ -141,9 +141,9 @@ Les étiquettes peuvent être échangées à tout moment à l’aide des mêmes 
 1. Dans la page du groupe sélectionné, sélectionnez **Propriétés** et sélectionnez une nouvelle étiquette de sensibilité dans la liste.
 1. Sélectionnez **Enregistrer**.
 
-### <a name="group-setting-changes-to-published-labels-are-not-updated-on-the-groups"></a>Les modifications apportées aux paramètres de groupe sur les étiquettes publiées ne sont pas mises à jour sur les groupes
+### <a name="group-setting-changes-to-published-labels-arent-updated-on-the-groups"></a>Les modifications apportées aux paramètres de groupe sur les étiquettes publiées ne sont pas mises à jour sur les groupes
 
-Il est recommandé de ne pas modifier les paramètres de groupe pour une étiquette une fois l’étiquette appliquée aux groupes. Lorsque vous apportez des modifications aux paramètres de groupe associés aux étiquettes publiées dans le [Centre de conformité Microsoft 365](https://sip.protection.office.com/homepage), ces modifications de stratégie ne sont pas appliquées automatiquement sur les groupes concernés.
+Lorsque vous apportez des modifications aux paramètres de groupe pour une étiquette publiée dans le [Centre de conformité Microsoft 365](https://sip.protection.office.com/homepage), ces modifications de stratégie ne sont pas appliquées automatiquement sur les groupes étiquetés. Une fois l’étiquette de confidentialité publiée et appliquée aux groupes, Microsoft vous recommande de ne pas modifier les paramètres de groupe pour l’étiquette dans le Centre de conformité Microsoft 365.
 
 Si vous devez apporter une modification, utilisez un [script PowerShell Azure AD](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) pour appliquer manuellement les mises à jour aux groupes concernés. Cette méthode garantit que tous les groupes existants appliquent le nouveau paramètre.
 

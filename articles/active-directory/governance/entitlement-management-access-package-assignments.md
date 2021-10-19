@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 04/12/2021
+ms.date: 10/05/2021
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ed289789576df7c81368b2b98001968c358c0e0
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f944caecae6d35e680f5c5beb1a6e23fc422e698
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114440198"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618084"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Afficher, ajouter et supprimer des affectations pour un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory
 
@@ -72,7 +72,7 @@ $assignments = Get-MgEntitlementManagementAccessPackageAssignment -AccessPackage
 $assignments | ft Id,AssignmentState,TargetId,{$_.Target.DisplayName}
 ```
 
-## <a name="directly-assign-a-user"></a>Affecter directement un utilisateur
+## <a name="directly-assign-a-user"></a>Affecter directement un utilisateur 
 
 Dans certains cas, vous pouvez affecter directement des utilisateurs spécifiques à un package d'accès pour leur éviter d’avoir à passer par le processus de demande du package d'accès. Pour affecter directement des utilisateurs, le package d'accès doit avoir une stratégie qui autorise les affectations directes par l'administrateur.
 
@@ -108,6 +108,38 @@ Dans certains cas, vous pouvez affecter directement des utilisateurs spécifique
 1. Cliquez sur **Ajouter** pour affecter directement les utilisateurs sélectionnés au package d'accès.
 
     Après quelques instants, cliquez sur **Actualiser** pour voir les utilisateurs dans la liste des affectations.
+    
+> [!NOTE]
+> Lorsque vous affectez des utilisateurs à un package d’accès, les administrateurs doivent vérifier que les utilisateurs sont éligibles à ce package d’accès en fonction des exigences de stratégie existantes. Dans le cas contraire, les utilisateurs ne seront pas affectés au package d’accès. Si le package d’accès contient une stratégie qui exige que les demandes de l’utilisateur soient approuvées, les utilisateurs ne peuvent pas être directement attribués au package sans l’approbation nécessaire des approbateurs désignés.
+
+## <a name="directly-assign-any-user-preview"></a>Attribuer directement à n’importe quel utilisateur (préversion)
+La gestion des droits d’utilisation Azure AD vous permet également d’attribuer directement un package d’accès à des utilisateurs externes pour faciliter la collaboration avec les partenaires. Pour ce faire, le package d’accès doit disposer d’une stratégie qui permet aux utilisateurs qui ne sont pas encore dans votre annuaire de demander l’accès.
+
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs, gestionnaire de package d'accès ou gestionnaire d’affectation de package d’accès
+
+1.  Dans le portail Azure, sélectionnez **Azure Active Directory**, puis **Identity Governance**.
+
+1.  Dans le menu de gauche, cliquez sur **Packages d’accès**, puis ouvrez le package d’accès auquel vous souhaitez ajouter un utilisateur.
+
+1.  Dans le menu gauche, cliquez sur **Affectations**.
+
+1.  Sélectionnez **Nouvelle affectation** pour ouvrir **Ajouter un utilisateur au package d’accès**.
+
+1.  Dans la liste **Sélectionner une stratégie**, sélectionnez une stratégie qui autorise l’option **Pour les utilisateurs qui ne sont pas dans votre répertoire**
+
+1. Sélectionnez **Tous les utilisateurs**. Vous pouvez spécifier les utilisateurs auxquels vous souhaitez attribuer ce package d’accès.
+    ![Affectations – Ajouter un utilisateur au package d’accès](./media/entitlement-management-access-package-assignments/assignments-add-any-user.png)
+
+1. Entrez le **Nom** de l’utilisateur (facultatif) et **l’adresse e-mail** de l’utilisateur (obligatoire).
+
+    > [!NOTE]
+    > - L’utilisateur que vous souhaitez ajouter doit se trouver dans l’étendue de la stratégie. Par exemple, si votre stratégie est définie sur **Organisations connectées spécifiques**, l’adresse e-mail de l’utilisateur doit être comprise dans le ou les domaines de l’organisation (ou des organisations) sélectionnée. Si vous essayez d’ajouter une utilisatrice ayant l’adresse e-mail jen@*foo.com*, alors que le domaine de l’organisation sélectionnée est *bar.com*, il n’est pas possible d’ajouter cette utilisatrice au package d’accès.
+    > - De même, si vous définissez votre stratégie de manière à inclure **Toutes les organisations connectées configurées**, l’adresse e-mail de l’utilisateur doit correspondre à l’une des organisations connectées configurées. Dans le cas contraire, l’utilisateur n’est pas ajouté au package d’accès.
+    > - Si vous souhaitez ajouter un utilisateur au package d’accès, vous devez vous assurer de sélectionner **Tous les utilisateurs (toutes les organisations connectées + tous les utilisateurs externes)** lors de la configuration de votre stratégie.
+
+1.  Définissez la date et l'heure de début et de fin de l'affectation des utilisateurs sélectionnés. Si aucune date de fin n’est fournie, les paramètres du cycle de vie de la stratégie seront utilisés.
+1.  Cliquez sur **Ajouter** pour affecter directement les utilisateurs sélectionnés au package d'accès.
+1.  Après quelques instants, cliquez sur **Actualiser** pour voir les utilisateurs dans la liste des affectations.
 
 ## <a name="directly-assigning-users-programmatically"></a>Affectation d’utilisateurs directement par programmation
 ### <a name="assign-a-user-to-an-access-package-with-microsoft-graph"></a>Affecter un utilisateur à un package d’accès avec Microsoft Graph

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: a6e5f1ecb5686145718d83febf3faf5c520db6fe
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 103ced05c6b88c5f7f60de398f78f89cc460daf9
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609514"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667304"
 ---
 # <a name="calling-recording-overview"></a>Vue d’ensemble de l’enregistrement d’appel
 
@@ -30,11 +30,12 @@ L’enregistrement d’appel fournit un ensemble d’API permettant de démarrer
 ![Diagramme du concept d’enregistrement d’appel](../media/call-recording-concept.png)
 
 ## <a name="media-output-types"></a>Types de sorties multimédias
-L’enregistrement d’appel prend actuellement en charge le format de sortie MP4 audio mixte+vidéo. Les données multimédias de sortie correspondent aux enregistrements de réunion produits par le biais de l’enregistrement Microsoft Teams.
+L’enregistrement des appels prend actuellement en charge les formats de sortie MP4 audio+vidéo mixte et MP3/WAV audio seul mixte. Le média de sortie audio+vidéo mixte correspond aux enregistrements des réunions produits par le biais de l’enregistrement Microsoft Teams.
 
 | Type de canal | Format du contenu | Vidéo | Audio |
 | :----------- | :------------- | :---- | :--------------------------- |
 | audioVideo | mp4 | vidéo 1920x1080 8 FPS de tous les participants dans la disposition des vignettes par défaut | audio mixte mp4a 16kHz de tous les participants |
+| audioOnly| mp3/wav | N/A | audio mixte mp3/wav 16kHz de tous les participants |
 
 
 ## <a name="run-time-control-apis"></a>API de contrôle à l’exécution

@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 6c768f18aa8e58ee82519a1b42c078685db25b0e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 48d8747883bfb3d47368d96cc2d4e52d07c599d9
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652546"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715473"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -38,7 +38,7 @@ ms.locfileid: "128652546"
 * L’URL d’une **image de ticket de caisse**. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg).
 * L’URL d’une **image de carte de visite**. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg).
 * L’URL d’une **image de facture**. Vous pouvez utiliser un [exemple de document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) pour ce guide de démarrage rapide.
-* L’URL d’une **image de pièce d’identité**. Vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg).
+* L’URL d’une **image de document d’identité**. Vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg).
 
 ## <a name="analyze-layout"></a>Analyser la disposition
 
@@ -970,7 +970,7 @@ Ce contenu JSON a été raccourci pour une meilleure lisibilité. Consultez l’
 
 ## <a name="analyze-identity-id-documents"></a>Analyse de pièces d’identité
 
-Pour commencer l’analyse d’un document d’identification, utilisez la commande cURL ci-dessous. Pour plus d’informations sur l’analyse des documents d’identité, consultez le [Guide conceptuel des documents d’identité](../../concept-identification-cards.md). Pour commencer l’analyse d’une pièce d’identité, appelez l’API **[Analyze ID Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** avec la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
+Pour commencer l’analyse d’un document d’identification, utilisez la commande cURL ci-dessous. Pour plus d’informations sur l’analyse des documents d’identité, consultez le [Guide conceptuel des documents d’identité](../../concept-identification-cards.md). Pour commencer l’analyse d’un document d’identité, appelez l’API **[Analyser un document d’identité](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** avec la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{your ID document URL}` par l’adresse URL d’une image de ticket de caisse.
@@ -979,7 +979,7 @@ Pour commencer l’analyse d’un document d’identification, utilisez la comma
 #### <a name="request"></a>Requête
 
 ```bash
-curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your identity document URL}'}"
+curl -i -X POST "https://{endpoint}/formrecognizer/v2.1/prebuilt/idDocument/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{ 'source': '{your ID document URL}'}"
 ```
 
 #### <a name="operation-location"></a>Operation-Location
@@ -1572,7 +1572,7 @@ Vous recevrez une réponse de réussite `204`, indiquant que votre modèle est m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé l’API REST Form Recognizer pour entraîner des modèles et analyser des formulaires de différentes manières. Explorez à présent la documentation de référence pour découvrir plus en détail l’API Form Recognizer.
+Dans ce guide de démarrage rapide, vous avez utilisé l’API REST Form Recognizer pour analyser des formulaires de différentes manières. Explorez à présent la documentation de référence pour découvrir plus en détail l’API Form Recognizer.
 
 > [!div class="nextstepaction"]
 > [Documentation de référence sur l’API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)

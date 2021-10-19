@@ -2,14 +2,14 @@
 title: Matrice de prise en charge pour la sauvegarde des objets blob Azure
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge lors de la sauvegarde des objets blob Azure.
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 921f08a80511766f55e179fccde38a061800061e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: d0b524ba2865aa72f6fce88e326fffde435f71c3
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533174"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714156"
 ---
 # <a name="support-matrix-for-azure-blobs-backup"></a>Matrice de prise en charge pour la sauvegarde des objets blob Azure
 
@@ -23,7 +23,7 @@ La sauvegarde opérationnelle des blobs est disponible dans toutes les régions 
 
 La sauvegarde opérationnelle des objets blob utilise la restauration à un instant dans le passé des objets blob, le contrôle de version des objets blob, la suppression réversible des objets blob, le flux de modification pour les objets blob et le verrou de suppression pour fournir une solution de sauvegarde locale. Les limitations qui s’appliquent à ces fonctionnalités s’appliquent également à la sauvegarde opérationnelle.
 
-**Scénarios pris en charge :** la sauvegarde opérationnelle prend en charge les objets blob de blocs dans les comptes de stockage standard à usage général v2 uniquement. Les comptes ADLS Gen2 ne sont donc pas pris en charge. En outre, les objets blob de pages, les objets blob d’ajout et les objets blob Premium dans votre compte de stockage ne sont pas restaurés et seuls les objets blob de blocs sont restaurés.
+**Scénarios pris en charge :** la sauvegarde opérationnelle prend en charge les objets blob de blocs dans les comptes de stockage standard à usage général v2 uniquement. Les comptes de stockage avec un espace de noms hiérarchique activé (c’est-à-dire, les comptes ADLS Gen2) ne sont pas pris en charge.   <br><br>   En outre, les objets blob de pages, les objets blob d’ajout et les objets blob Premium dans votre compte de stockage ne sont pas restaurés et seuls les objets blob de blocs sont restaurés.
 
 **Autres limitations :**
 

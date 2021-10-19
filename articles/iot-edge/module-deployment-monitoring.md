@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0461fffa62f46491d5bbb3c2c9f66670b3bd9cba
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 601015658b2d2de6c855ac285b4dfbec6cb15ca8
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562481"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129670230"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Comprendre les déploiements automatiques IoT Edge pour un seul ou de nombreux appareils
 
@@ -79,6 +79,7 @@ Prenez en compte les contraintes suivantes lorsque vous créez une condition cib
 * Les guillemets doubles ne sont autorisés nulle part dans la condition cible. Utilisez des guillemets simples.
 * Les guillemets simples représentent les valeurs de la condition cible. Par conséquent, vous devez échapper le guillemet simple avec un autre guillemet simple s’il fait partie du nom de l’appareil. Par exemple, pour cibler un appareil nommé `operator'sDevice`, écrivez `deviceId='operator''sDevice'`.
 * Les nombres, les lettres et les caractères suivants sont autorisés dans les valeurs de la condition cible : `-:.+%_#*?!(),=@;$`.
+* Les caractères suivants ne sont pas autorisés dans les clés de condition cible : `/;`.
 
 ### <a name="priority"></a>Priority
 

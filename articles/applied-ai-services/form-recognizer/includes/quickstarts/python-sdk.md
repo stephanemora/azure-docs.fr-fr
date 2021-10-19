@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 050a587ba5fb91ce6c9483d31cccd90f1943e567
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1bf3f8e082a54e7f48fa43040e40cb54001b1d19
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652530"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715414"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
@@ -190,16 +190,16 @@ Pour analyser des factures à partir d’une URL, utilisez la méthode `begin_re
 > [!TIP]
 > Vous pouvez également analyser des images locales de factures avec les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient), par exemple `begin_recognize_invoices`. 
 
-## <a name="analyze-identity-documents"></a>Analyser les documents d’identité
+## <a name="analyze-id-documents"></a>Analyser des documents d’identité
 
-Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle de document d’identification prédéfini](../../concept-identification-cards.md).
+Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle d’identification prédéfini](../../concept-identification-cards.md).
 
 Pour analyser des documents d’identité à partir d’une URL, utilisez la méthode `begin_recognize_id_documents_from_url`.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_id)]
 
 > [!TIP]
- > Vous pouvez également analyser des images locales de pièces d’identité avec les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true#methods), par exemple `begin_recognize_identity_documents`. 
+ > Vous pouvez également analyser des images locales de documents d’identité avec les méthodes [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true#methods), par exemple `begin_recognize_identity_documents`. 
 
 ## <a name="train-a-custom-model"></a>Entraîner un modèle personnalisé
 

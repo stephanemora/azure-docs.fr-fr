@@ -1,5 +1,6 @@
 ---
-title: Scénarios courants de gestion des applications pour Azure Active Directory | Microsoft Docs
+title: Scénarios courants de la gestion des applications
+titleSuffix: Azure AD
 description: Centralisation de la gestion des applications avec Azure AD
 author: davidmu1
 manager: CelesteDG
@@ -11,14 +12,14 @@ ms.date: 03/02/2019
 ms.author: davidmu
 ms.reviewer: napuri
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa4856b95de671cf74905db9c5503def1c36b360
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 3f307cf9e25b3e6e0a3cc00279f9e43f4bca39b4
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122824292"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619820"
 ---
-# <a name="centralize-application-management-with-azure-ad"></a>Centralisation de la gestion des applications avec Azure AD
+# <a name="centralize-application-management-with-azure-active-directory"></a>Centraliser la gestion des applications avec Azure Active Directory
 
 Partout dans le monde, la gestion des mots de passe constitue un véritable cauchemar, tant pour le service informatique que pour les employés. C’est pour cette raison que de plus en plus d’entreprises se tournent vers Azure Active Directory, la solution de gestion des identités et des accès de Microsoft pour le cloud et toutes vos autres ressources. Passez d’une application à l’autre sans avoir à saisir un mot de passe pour chacune d’elles. Passez d’Outlook à Workday ou à ADP aussi vite que vous ouvrez ces applications, et en toute sécurité. Collaborez ensuite avec vos partenaires voire d’autres personnes extérieures à votre organisation, sans avoir à contacter le service informatique. Azure AD vous permet également de gérer les risques en sécurisant vos en utilisant l’authentification multifacteur pour vérifier votre identité, en utilisant une méthode Machine Learning adaptative en continu ainsi que la veille de sécurité pour détecter les connexions suspectes et sécuriser l’accès aux applications dont vous avez besoin, où que vous soyez. C’est la solution idéale non seulement pour les utilisateurs, mais également pour le service informatique. Grâce à des vérifications d’accès juste-à-temps et à une suite de gouvernance à l’échelle complète, Azure AD vous aide à rester en conformité et à appliquer des stratégies. Et vous pouvez même automatiser l’approvisionnement des comptes d’utilisateur, pour une gestion des accès encore plus efficace. Découvrez quelques-uns des scénarios courants utilisés par le client pour exploiter les fonctionnalités de gestion des applications Azure Active Directory.
 

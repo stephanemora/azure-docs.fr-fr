@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0aad268f8721d2f4747c4e3dec3860e52dd7112a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 8f5cbcefa37df245f025895f421df4c4c7907ff4
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352794"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709988"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Vue d’ensemble technique et fonctionnelle d’Azure Active Directory B2C
 
@@ -299,6 +299,12 @@ Azure AD B2C vous permet de savoir à quel moment les personnes s’inscrivent 
 En intégrant Azure Application Insights dans les stratégies personnalisées Azure AD B2C, vous pouvez obtenir des informations sur la façon dont les utilisateurs s’inscrivent, se connectent, réinitialisent leur mot de passe ou modifient leur profil. Grâce à de telles informations, vous pouvez prendre des décisions fondées sur des données pour les cycles de développement à venir.
 
 Pour plus d’informations, consultez [Suivre le comportement des utilisateurs dans Azure Active Directory B2C à l’aide d’Application Insights](analytics-with-application-insights.md).
+
+## <a name="automation-using-microsoft-graph-api"></a>Automatisation à l’aide de l’API Microsoft Graph
+
+Utilisez l’API Microsoft Graph pour gérer votre annuaire Azure AD B2C. Vous pouvez également créer l’annuaire Azure AD B2C lui-même. Vous pouvez gérer les utilisateurs, les fournisseurs d’identité, les flux d’utilisateurs, les stratégies personnalisées et bien plus encore. 
+
+Apprenez-en davantage sur la façon de [gérer Azure AD B2C avec Microsoft Graph](microsoft-graph-operations.md). 
 
 ## <a name="azure-ad-b2c-service-limits-and-restrictions"></a>Restrictions et limites du service Azure AD B2C
 En savoir plus sur les [Restrictions et limites du service Azure AD B2C](service-limits.md)

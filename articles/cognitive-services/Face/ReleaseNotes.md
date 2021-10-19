@@ -11,16 +11,24 @@ ms.topic: overview
 ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: contperf-fy21q3, contperf-fy22q1
-ms.openlocfilehash: f727846a13566832d8549b5fa76ae5011a1be2ee
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 77e3eb54f344039130f5971f87ccdca1e6461afd
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351854"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808321"
 ---
 # <a name="whats-new-in-azure-face-service"></a>Nouveautés du service Visage Azure
 
 Le service Visage Azure est mis à jour régulièrement. Lisez cet article pour vous tenir informé des nouvelles fonctionnalités, améliorations, correctifs, ainsi que des mises à jour de la documentation.
+
+## <a name="july-2021"></a>Juillet 2021
+
+### <a name="new-headpose-and-landmarks-improvements-for-detection_03"></a>Nouvelles améliorations apportées à HeadPose et Landmarks pour Detection_03
+
+* Le modèle Detection_03 a été mis à jour pour prendre en charge les points de repère du visage.
+* La fonctionnalité des points de repère de Detection_03 est beaucoup plus précise, en particulier les points de repère relatifs aux globes oculaires qui sont essentiels pour le suivi du regard.
+
 
 ## <a name="april-2021"></a>Avril 2021
 

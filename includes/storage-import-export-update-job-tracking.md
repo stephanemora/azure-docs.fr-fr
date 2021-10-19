@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: include
-ms.date: 07/17/2018
+ms.date: 09/28/2021
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 8ed57cd39580474925e781f3ec8fb05a2299a937
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5aca82d0a3ee290ec7e0f6ad3a32396b51b2aa59
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98701642"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709610"
 ---
 Après avoir expédié les disques, revenez à la page **Import/Export** sur le portail Azure. 
 
@@ -27,3 +27,7 @@ Pour mettre à jour le numéro de suivi, effectuez les étapes suivantes :
 3. Activez la case à cocher en regard de **Marquer comme expédié**.
 4. Indiquez le **Transporteur** et le **Numéro de suivi**.
 5. Vous pouvez suivre l’état d’avancement de votre travail sur le tableau de bord du portail. Pour obtenir une description de chaque état du travail, consultez [Afficher l’état de votre travail](../articles/import-export/storage-import-export-view-drive-status.md).
+
+> [!NOTE] 
+> Vous pouvez uniquement annuler un travail quand celui-ci a l’état En cours de création. Une fois que vous avez fourni les détails du suivi, l’état du travail passe à Expédition et le travail ne peut pas être annulé.
+

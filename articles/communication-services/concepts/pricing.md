@@ -3,18 +3,16 @@ title: Scénarios de tarifs pour les appels (vocaux/vidéo) et la conversation
 titleSuffix: An Azure Communication Services concept document
 description: Découvrez le modèle tarifaire de Communication Services.
 author: nmurav
-manager: nmurav
-services: azure-communication-services
 ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: d2ea2c510aa9e6225de215da128670514f1dba3b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 5d08f964899faf9fe438a0df68c6fe4401fd01c7
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360453"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859377"
 ---
 # <a name="pricing-scenarios"></a>Scénarios de tarifs
 
@@ -119,6 +117,35 @@ Alice est un médecin en réunion avec son patient, Bob. Alice va se joindre à 
 - Utilisateur participant à l’aide du SDK JavaScript Communication Services : 0,004 USD + 0,116 USD + 0,0024 USD = 0,1224 USD
 - Utilisateur se joignant à l’application Teams Desktop : 0 USD (couvert par une licence Teams)
 
+
+## <a name="call-recording"></a>Enregistrement d’appel
+
+Azure Communication Services permet d’enregistrer les appels PSTN, WebRTC, Conference et SIP Interface. Actuellement, l’enregistrement d’appel prend en charge les formats de sortie MP4 audio+vidéo mixte et MP3/WAV audio seul mixte. Les kits SDK d’enregistrement d’appel sont disponibles pour Java et C#. Reportez-vous à [cette page pour en savoir plus](../quickstarts/voice-video-calling/call-recording-sample.md).
+
+### <a name="price"></a>Price
+
+Vous êtes facturé 0,01 USD/min pour le format audio+vidéo mixte et 0,002 USD/min pour le format audio seul mixte.
+
+### <a name="pricing-example-record-a-call-in-a-mixed-audiovideo-format"></a>Exemple de tarif : Enregistrer un appel dans un format audio+vidéo mixte
+
+Alice a effectué un appel de groupe avec ses collègues, Bob et Charlie. 
+
+- L’appel a duré un total de 60 minutes. Et l’enregistrement était actif pendant 60 minutes.
+- Bob est resté 30 minutes, tandis qu’Alice et Charlie sont restés 60 minutes.
+
+**Calculs des coûts**
+- Vous êtes facturé pour la durée de la réunion. (La durée de la réunion est le temps écoulé entre le moment où l’utilisateur démarre un enregistrement et le moment où il l’arrête explicitement ou il n’y a plus personne à la réunion).
+- 60 minutes x 0,01 USD par enregistrement par minute = 0,6 USD
+
+### <a name="pricing-example-record-a-call-in-a-mixed-audioonly-format"></a>Exemple de tarif : Enregistrer un appel dans un format audio seul mixte
+
+Alice démarre un appel avec Jane. 
+
+- L’appel a duré un total de 60 minutes. L’enregistrement a duré 45 minutes.
+
+**Calculs des coûts**
+- Vous êtes facturé pour la durée de l’enregistrement. 
+- 45 minutes x 0,002 USD par enregistrement par minute = 0,09 USD
 
 ## <a name="chat"></a>Conversation
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Field iD | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Field iD'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Field iD.
 services: active-directory
 author: jeevansd
@@ -9,24 +9,22 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2020
+ms.date: 10/07/2021
 ms.author: jeedes
-ms.openlocfilehash: d06770489ee4c8a97e5c2e6b50d3b1c345ca03af
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ac235f95bfb88b8bab0733b1dbbc6c0f3e09af90
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124835160"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808808"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-field-id"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Field iD
+# <a name="tutorial-azure-ad-sso-integration-with-field-id"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Field iD
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Field iD à Azure AD (Azure Active Directory). Quand vous intégrez Field iD à Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à Field iD.
 * Permettre à vos utilisateurs de se connecter automatiquement à Field iD avec leur compte Azure AD.
 * gérer vos comptes à un emplacement central : le portail Azure.
-
-Pour en savoir plus sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,37 +38,36 @@ Pour commencer, vous avez besoin des éléments suivants :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Field iD prend en charge l’authentification unique lancée par le fournisseur d’identité.
-* Après avoir configuré Field iD, vous pouvez appliquer le contrôle de session. Cela offre une protection contre l’exfiltration et l’infiltration de données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-field-id-from-the-gallery"></a>Ajouter Field iD à partir de la galerie
 
 Pour configurer l’intégration de Field iD à Azure AD, vous devez ajouter Field iD, disponible dans la galerie, à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
 1. Dans le volet de navigation de gauche, sélectionnez **Azure Active Directory**.
 1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 1. Pour ajouter la nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Field iD** dans la zone de recherche.
 1. Sélectionnez **Field iD** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-field-id"></a>Configurer et tester l’authentification unique Azure AD pour Field iD
+## <a name="configure-and-test-azure-ad-sso-for-field-id"></a>Configurer et tester l’authentification unique Azure AD pour Field iD
 
 Configurez et testez l’authentification unique Azure AD avec Field iD à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Field iD associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Field iD, effectuez les étapes suivantes :
 
 1. [Configurer l’authentification unique Azure AD](#configure-azure-ad-sso) pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    1. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec B.Simon.
-    1. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à B.Simon d’utiliser l’authentification unique Azure AD.
+   1. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec B.Simon.
+   1. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à B.Simon d’utiliser l’authentification unique Azure AD.
 1. [Configurer l’authentification unique Field iD](#configure-field-id-sso) pour configurer les paramètres d’authentification unique côté application.
-    1. [Créer un utilisateur de test Field iD](#create-a-field-id-test-user) pour avoir un équivalent de B.Simon dans Field iD lié à la représentation Azure AD associée.
+   1. [Créer un utilisateur de test Field iD](#create-a-field-id-test-user) pour avoir un équivalent de B.Simon dans Field iD lié à la représentation Azure AD associée.
 1. [Tester l’authentification unique](#test-sso) pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Field iD**, puis recherchez la section **Gérer**. Ensuite, sélectionnez **Authentification unique**.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Field iD** et recherchez la section **Gérer**. Ensuite, sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, sélectionnez l’icône de crayon pour **Configuration SAML de base** afin de modifier les paramètres.
 
@@ -108,13 +105,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **Field iD**.
 1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
-
-   ![Capture d’écran de la section Gérer, avec Utilisateurs et groupes mis en évidence](common/users-groups-blade.png)
-
 1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Capture d’écran de l’élément Add user](common/add-assign-user.png)
-
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B.Simon** dans la liste **Utilisateurs**, puis choisissez **Sélectionner** en bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste. Choisissez **Sélectionner** au bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Affecter**.
@@ -129,20 +120,12 @@ Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans F
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-Quand vous sélectionnez la vignette Field iD dans le volet d’accès, vous devez être connecté automatiquement à l’application Field iD pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations, consultez [Se connecter et démarrer des applications à partir du portail Mes applications](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* Cliquez sur Tester cette application dans le portail Azure, ce qui devrait vous connecter automatiquement à l’application Field iD pour laquelle vous avez configuré l’authentification unique.
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Field iD dans Mes applications, vous devriez être connecté automatiquement à l’application Field iD pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Essayer Field iD avec Azure AD](https://aad.portal.azure.com/)
-
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Field iD avec une visibilité et des contrôles avancés](/cloud-app-security/proxy-intro-aad)
+Après avoir configuré Field iD, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

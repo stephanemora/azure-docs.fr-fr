@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 4fe1a4f9966e5342ee4f8a12d2b24b3a449efbae
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 38347644557b2e2e3bf76dc4412381ab52396de2
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424328"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658554"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -111,7 +111,7 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
     * Si vous prévoyez d’utiliser le __SDK__, le compte de stockage peut se trouver dans un autre sous-réseau.
 
     > [!NOTE]
-    > Le fait de cocher la case « Autoriser les services Microsoft approuvés à accéder à ce compte » ne suffit pas à autoriser la communication depuis le calcul.
+    > Le fait d’ajouter une instance de ressource pour votre espace de travail ou de cocher la case « Autoriser les services Microsoft approuvés à accéder à ce compte » ne suffit pas à autoriser la communication depuis le calcul.
 
 * Lorsque votre espace de travail utilise un point de terminaison privé, l’instance de calcul est accessible uniquement depuis le réseau virtuel. Si vous utilisez un fichier DNS ou hosts personnalisé, ajoutez une entrée pour `<instance-name>.<region>.instances.azureml.ms`. Mappez cette entrée à l’adresse IP privée du point de terminaison privé de l’espace de travail. Pour plus d’informations, consultez l’article [DNS personnalisé](./how-to-custom-dns.md).
 * Les stratégies de point de terminaison de service de réseau virtuel ne fonctionnent pas pour les comptes de stockage système de l’instance/du cluster de calcul.

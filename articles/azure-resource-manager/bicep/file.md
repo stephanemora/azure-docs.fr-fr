@@ -2,13 +2,13 @@
 title: Structure et syntaxe des fichiers Bicep
 description: Décrit la structure et les propriétés d’un fichier Bicep en utilisant une syntaxe déclarative.
 ms.topic: conceptual
-ms.date: 10/01/2021
-ms.openlocfilehash: e627821f80f76ff536859fd643bd01c55d50ab7e
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/07/2021
+ms.openlocfilehash: 8251c490b61f3bbb739fd9519c10b1b124f9064c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350404"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129661119"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Comprendre la structure et la syntaxe des fichiers Bicep
 
@@ -202,7 +202,7 @@ Pour plus d’informations, consultez [Variables dans Bicep](./variables.md).
 
 ## <a name="resource"></a>Ressource
 
-Utilisez le mot clé `resource` pour définir une ressource à déployer. Votre déclaration de ressource comprend un nom symbolique pour la ressource. Vous utiliserez ce nom symbolique dans d’autres parties du fichier Bicep si vous devez obtenir une valeur de la ressource. Le nom symbolique peut contenir a-z, A-Z, 0-9 et « _ » ; le nom ne peut pas commencer par un chiffre.
+Utilisez le mot clé `resource` pour définir une ressource à déployer. Votre déclaration de ressource comprend un nom symbolique pour la ressource. Vous utiliserez ce nom symbolique dans d’autres parties du fichier Bicep si vous devez obtenir une valeur de la ressource. Les noms symboliques respectent la casse. Ils peuvent contenir des lettres, des chiffres et _ ; mais ils ne peuvent pas commencer par un chiffre.
 
 La déclaration de ressource comprend également le type de ressource et la version de l’API.
 

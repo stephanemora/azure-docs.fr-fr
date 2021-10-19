@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un blob avec Azure CLI'
+title: 'Démarrage rapide : Charger, télécharger et lister des objets blob - Azure CLI'
 titleSuffix: Azure Storage
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Azure CLI pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob d’un conteneur.
 services: storage
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 68797d8b158e7ff56d609f0d59c174b72277e98b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8f4726088a49bfe5da7fdea088df76da3356162e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674582"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616547"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI
 

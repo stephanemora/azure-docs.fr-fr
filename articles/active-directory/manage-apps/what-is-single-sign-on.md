@@ -13,12 +13,12 @@ ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c3b2cc9f3fa6656cf4d5e493f725c17b64f4d7d8
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: bb4a38d46a241c902d0718104d9a4030bf84607f
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233575"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858750"
 ---
 # <a name="what-is-single-sign-on-in-azure-active-directory"></a>Qu’est-ce que l’authentification unique dans Azure Active Directory ?
 
@@ -32,7 +32,7 @@ Le choix d’une méthode d’authentification unique dépend de la façon dont 
 
 - **Fédération** - Quand vous configurez l’authentification unique pour qu’elle fonctionne entre plusieurs fournisseurs d’identités, cela s’appelle une fédération. Une implémentation SSO basée sur les protocoles de fédération améliore la sécurité, la fiabilité, les expériences utilisateur et l’implémentation elle-même. 
 
-    Avec l’authentification unique fédérée, Azure AD authentifie l’utilisateur dans l’application en se servant de son compte Azure AD. Cette méthode est prise en charge pour les applications [SAML 2.0](../develop/single-sign-on-saml-protocol.md), WS-Federation ou [OpenID Connect](../develop/active-directory-v2-protocols.md). L’authentification unique fédérée est le mode d’authentification unique le plus riche. Utilisez l’authentification unique fédérée avec Azure AD quand une application la prend en charge, au lieu d’une authentification unique basée sur mot de passe et les services de fédération Active Directory (AD FS).
+    Avec l’authentification unique fédérée, Azure AD authentifie l’utilisateur dans l’application en se servant de son compte Azure AD. Cette méthode est prise en charge pour les applications SAML 2.0, WS-Federation ou OpenID Connect. L’authentification unique fédérée est le mode d’authentification unique le plus riche. Utilisez l’authentification unique fédérée avec Azure AD quand une application la prend en charge, au lieu d’une authentification unique basée sur mot de passe et les services de fédération Active Directory (AD FS).
 
     Dans certains cas, l’option SSO n’est pas présente pour une application d’entreprise. Si l’application a été inscrite en utilisant **Inscriptions d’applications** dans le portail, la fonctionnalité d’authentification unique est configurée pour utiliser OpenID Connect et OAuth par défaut. Dans ce cas, l’option d’authentification unique n’apparaît pas dans le volet de navigation sous Applications d’entreprise.
 
@@ -40,7 +40,7 @@ Le choix d’une méthode d’authentification unique dépend de la façon dont 
 
     > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
-- **Mot de passe** - Pour l’authentification unique, les applications locales peuvent utiliser les méthodes suivantes : basée sur mot de passe, authentification Windows intégrée, basée sur en-tête, basée sur lien. Les choix pour les applications locales fonctionnent quand les applications sont configurées pour le [Proxy d’application](../app-proxy/what-is-application-proxy.md).
+- **Mot de passe** - Pour l’authentification unique, les applications locales peuvent utiliser les méthodes suivantes : basée sur mot de passe, authentification Windows intégrée, basée sur en-tête, basée sur lien. Les choix pour les applications locales fonctionnent quand les applications sont configurées pour le proxy d’application.
 
     Avec l’authentification par mot de passe, les utilisateurs se connectent à l’application avec un nom d’utilisateur et un mot de passe la première fois qu’ils y accèdent. Après la première authentification, Azure AD fournit le nom d’utilisateur et le mot de passe à l’application. L’authentification unique par mot de passe permet de sécuriser le stockage et la lecture des mots de passe des applications avec une extension de navigateur web ou une application mobile. Cette option utilise le processus de connexion existant fourni par l’application, permet à l’administrateur de gérer les mots de passe et n’a pas besoin que l’utilisateur connaisse le mot de passe.
 
@@ -64,12 +64,12 @@ Les applications web sont hébergées par différentes entreprises et mises à d
 
 La façon d’implémenter l’authentification unique dépend de là où l’application est hébergée. L’hébergement est important en raison de la façon dont le trafic réseau est routé pour accéder à l’application. Les utilisateurs n’ont pas besoin d’utiliser Internet pour accéder aux applications locales (hébergées sur un réseau local). Si l’application est hébergée dans le cloud, les utilisateurs ont besoin d’Internet pour l’utiliser. Les applications hébergées dans le cloud sont également appelées applications SaaS (Software as a Service).
 
-Pour les applications cloud, les protocoles de fédération sont utilisés. Vous pouvez également utiliser l’authentification unique pour les applications locales. Vous pouvez utiliser le Proxy d’application afin de configurer l’accès pour votre application locale. Pour plus d’informations, consultez [Accès à distance aux applications locales via le service Proxy d’application Azure AD](../app-proxy/application-proxy.md).
+Pour les applications cloud, les protocoles de fédération sont utilisés. Vous pouvez également utiliser l’authentification unique pour les applications locales. Vous pouvez utiliser le Proxy d’application afin de configurer l’accès pour votre application locale. Pour plus d’informations, consultez Accès à distance aux applications locales via le service Proxy d’application Azure AD.
 
 ## <a name="my-apps"></a>Mes applications
 
-Si vous utilisez une application, vous ne vous souciez probablement pas beaucoup des détails de l’authentification unique. Vous voulez juste utiliser les applications qui vous rendent productif sans avoir à taper constamment votre mot de passe. Vous pouvez rechercher et gérer vos applications dans le [portail Mes applications](https://myapps.microsoft.com). 
+Si vous utilisez une application, vous ne vous souciez probablement pas beaucoup des détails de l’authentification unique. Vous voulez juste utiliser les applications qui vous rendent productif sans avoir à taper constamment votre mot de passe. Vous pouvez rechercher et gérer vos applications dans le portail Mes applications. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Planifier un déploiement de l’authentification unique dans Azure Active Directory](plan-sso-deployment.md)
+- [Activer l’authentification unique](add-application-portal-setup-sso.md)

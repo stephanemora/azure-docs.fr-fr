@@ -7,12 +7,12 @@ ms.date: 07/20/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 53c5ef179a3df860d97cbe31287f2defcec2411b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 265f8646de1208a88b00dcaaccc992e09d44b29a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121750707"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711760"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Présentation d’Azure Defender pour Kubernetes
 
@@ -22,7 +22,7 @@ Nous pouvons défendre les clusters dans :
 
 - **Azure Kubernetes Service (AKS)** , service managé de Microsoft conçu pour le développement, le déploiement et la gestion d’applications conteneurisées
 
-- **Les environnements locaux et multiclouds**, à l’aide d’une [extension pour Kubernetes avec Arc](defender-for-kubernetes-azure-arc.md)
+- **Environnements locaux et multicloud** - Utilisation d’une [extension pour Kubernetes avec Azure Arc](defender-for-kubernetes-azure-arc.md)
 
 Azure Security Center et AKS constituent une offre de sécurité Kubernetes native Cloud, avec le durcissement des environnements, une protection de charge de travail et une protection à l’exécution, comme indiqué dans [Sécurité des conteneurs dans Security Center](container-security.md).
 

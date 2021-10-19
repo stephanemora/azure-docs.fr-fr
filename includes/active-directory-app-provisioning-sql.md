@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 991306a115fdfe88f9646d1c65059bfe2699cb8d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fe61b971dbe1a3a82a085228ff8723f3cf47df20
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128613390"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129638443"
 ---
 Ce document décrit les étapes à effectuer pour attribuer et désattribuer automatiquement des utilisateurs d’Azure Active Directory (Azure AD) dans une base de données SQL.  Il explique comment configurer et utiliser le connecteur SQL générique avec l’hôte de connecteur ECMA Azure AD. 
  
@@ -32,6 +32,8 @@ Selon les options que vous sélectionnez, certains écrans de l’Assistant peuv
 * Oracle 10 et 11g
 * Oracle 12c et 18c
 * MySQL 5.x
+
+Remarque : Le connecteur SQL générique demande que les noms de colonnes ne soient pas sensibles à la casse. MySQL est sensible à la casse sur Linux et Postgres est sensible à la casse sur les plateformes. Par conséquent, ils ne sont pas pris en charge actuellement. 
 
 ### <a name="cloud-requirements"></a>Conditions préalables requises du cloud
 

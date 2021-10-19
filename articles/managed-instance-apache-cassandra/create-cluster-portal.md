@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 09/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 468f5141d7e28d387719df6bddbf30f5810c5955
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 276ac87c4d1f0c31d75c4dd653aaa5c67f96d6c0
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557240"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754517"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Démarrage rapide : créer un cluster Azure Managed Instance pour Apache Cassandra à partir du portail Azure (préversion)
 
@@ -53,7 +53,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
    * **Confirmer le mot de passe d’administrateur Cassandra** : entrez à nouveau votre mot de passe.
 
    > [!NOTE]
-   > Durant la préversion publique, vous pouvez créer le cluster Managed Instance dans les régions suivantes : *USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, Europe Nord, Europe Ouest, Asie Sud-Est et Australie Est*.
+   > Durant la préversion publique, vous pouvez créer le cluster Managed Instance dans les régions suivantes : *USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, Europe Nord, Europe Ouest, Asie Sud-Est, Inde Centre et Australie Est*.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Remplissez le formulaire de création du cluster." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 

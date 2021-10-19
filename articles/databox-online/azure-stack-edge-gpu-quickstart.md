@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: quickstart
 ms.date: 06/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 0dd8b103f81ea911a079aee6590287a939819b52
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: fa68d0c14c8a540b4e32fc4d4075df6e7529ad03
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982373"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710136"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Démarrage rapide : Bien démarrer avec Azure Stack Edge Pro avec GPU 
 
@@ -72,7 +72,7 @@ Avant de procéder au déploiement, vérifiez que les prérequis suivants sont e
 
 12. **Configuration du calcul** : dans le portail Azure, accédez à **Vue d’ensemble > Appareil**. Vérifiez que l’appareil est **En ligne**. Dans le volet gauche, accédez à **Computing en périphérie > Bien démarrer > Configurer le computing en périphérie > Calcul**. Fournissez un service IoT Hub existant ou nouveau et attendez environ 20 minutes que le calcul soit configuré. Pour plus d’informations, consultez [Tutoriel : Configurer le calcul sur un appareil Azure Stack Edge Pro avec GPU](azure-stack-edge-gpu-deploy-configure-compute.md).
 
-Vous êtes prêt à déployer des charges de travail de calcul sur votre appareil [via IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md) [via `kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) ou [via Kubernetes Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md) ! Si vous rencontrez des problèmes lors de l’installation, consultez les instructions de résolution des problèmes liés aux [appareils GPU Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md), aux [certificats](azure-stack-edge-gpu-certificate-troubleshooting.md) ou à [IOT Edge](azure-stack-edge-gpu-troubleshoot-iot-edge.md). 
+Vous êtes prêt à déployer des charges de travail de calcul sur votre appareil [via IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md) [via `kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) ou [via Kubernetes Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md) ! Si vous rencontrez des problèmes lors de l’installation, consultez les instructions de résolution des problèmes liés aux [appareils GPU Azure Stack Edge Pro](azure-stack-edge-gpu-troubleshoot.md), aux [certificats](azure-stack-edge-gpu-certificate-troubleshooting.md) ou à [IOT Edge](azure-stack-edge-gpu-troubleshoot-iot-edge.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

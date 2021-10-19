@@ -9,22 +9,22 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 0461228678762adbc4db936c35849f16a482c1a9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 616376d034fd32fae23d24a3a6e12f329604d376
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605503"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858959"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Meilleures pratiques pour utiliser Key Vault
 
 ## <a name="use-separate-key-vaults"></a>Utiliser des coffres de clés distincts
 
-Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production). Cela vous aide à éviter le partage de secrets entre environnements et réduit la menace en cas de violation.
+Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production), par région. Cela vous aide à éviter le partage de secrets entre divers environnements et régions. Cela réduit également la menace en cas de violation.
 
 ### <a name="why-we-recommend-separate-key-vaults"></a>Pourquoi nous recommandons des coffres de clés distincts
 
-Les stratégies d’accès sont un concept de « tout ou rien » dans Azure Key Vault. Si une identité a une autorisation spécifique (**Get**, par exemple), l’identité peut obtenir *n’importe quels* secrets, clés ou certificats dans le coffre. Cela signifie que le regroupement de données sensibles dans un même coffre augmente le *rayon d’impact* d’un événement de sécurité, car les attaques pourraient être en mesure d’accéder aux informations sensibles des différentes préoccupations. Pour atténuer ce risque, réfléchissez aux informations sensibles auxquelles une application spécifique *doit* avoir accès, puis séparez vos coffres de clés en fonction de cette délimitation. La séparation des coffres de clés par application est la limite la plus courante.
+L’instance Key Vault définit la limite de sécurité pour les secrets stockés. Regrouper les secrets dans un même coffre augmente le *rayon d’impact* d’un événement de sécurité, car des attaquants pourraient être en mesure d’accéder aux secrets de différents domaines. Pour atténuer ce risque, réfléchissez aux secrets auxquelles une application spécifique *doit* avoir accès, puis séparez vos coffres de clés en fonction de cette délimitation. La séparation des coffres de clés par application est la limite la plus courante, mais la limite de sécurité peut être plus granulaire pour les applications volumineuses, par exemple par groupe de services connexes.
 
 ## <a name="control-access-to-your-vault"></a>Contrôler l’accès à votre coffre
 

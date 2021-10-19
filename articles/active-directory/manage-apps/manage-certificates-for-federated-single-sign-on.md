@@ -1,6 +1,7 @@
 ---
-title: Gestion des certificats de fédération dans Azure AD | Microsoft Docs
+title: Gérer les certificats de fédération
 description: Apprenez à personnaliser la date d’expiration pour vos certificats de fédération, mais aussi à renouveler les certificats arrivant à expiration.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 04/04/2019
 ms.author: davidmu
 ms.reviewer: saumadan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da004c30de9cf1bc9f0d5aec7c9e766003dba45
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: 886defd9362d1001a32d3076623ffd87ce718fe3
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545319"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617584"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gérer des certificats pour l’authentification unique fédérée sur Azure Active Directory
 
@@ -30,8 +31,6 @@ Cet article concerne uniquement les applications configurées pour utiliser l’
 Lorsque vous ajoutez une nouvelle application à partir de la galerie et configurez une authentification SAML (en sélectionnant **Authentification unique** > **SAML** dans la page de présentation de l’application), Azure AD génère un certificat d’une validité de trois ans pour l’application. Pour télécharger le certificat actif en tant que fichier de certificat de sécurité (**.cer**), retournez à cette page (**Authentification basée sur SAML**) et sélectionnez un lien de téléchargement dans l’en-tête **Certificat de signature SAML**. Vous pouvez choisir entre le certificat brut (binaire) ou le certificat Base64 (texte codé en base 64). Pour les applications de la galerie, cette section peut également afficher un lien permettant de télécharger le certificat en tant qu’élément XML de métadonnées de fédération (un fichier **.xml**), selon la configuration de l’application.
 
 ![Options de téléchargement du certificat de signature SAML actif](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
-
-Les certificats de signature SAML générés par Azure lors de la création de l’application sont propres à l’application ; chaque certificat est donc unique à l’instance d’application. L’utilisation du même certificat SAML pour toutes les instances d’application n’est pas prise en charge. Si vous souhaitez utiliser le même certificat SAML pour toutes les instances d’application, vous devez générer votre propre certificat SAML avec une clé privée et le charger sur toutes les instances d’application. Les certificats de signature SAML générés par Azure n’auront pas de clé privée (même en cas d’exportation du certificat brut). 
 
 Vous pouvez également télécharger un certificat actif ou inactif en sélectionnant l'icône **Modifier****Certificat de signature SAML** de l'en-tête (un crayon), qui affiche la page **Certificat de signature SAML**. Sélectionnez les points de suspension (**...**) en regard du certificat que vous voulez télécharger, puis choisissez un format de certificat. Vous avez aussi la possibilité de télécharger le certificat au format PEM (Privacy Enhanced Mail). Ce format est identique à Base64 mais avec une extension de nom de fichier **.pem**, qui n'est pas reconnue dans Windows comme un format de certificat.
 

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/30/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
-ms.openlocfilehash: 5b1b4658199d624f2ebb8e1ed3dc08d64489f11b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9b8f854a2bf5753f9e2ac047cff9f4c7fcef68da
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652510"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715479"
 ---
 <!-- markdownlint-disable MD024 -->
 
@@ -97,7 +97,7 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 
 * Reconnaître les champs et le contenu de formulaires, à l’aide de modèles personnalisés entraînés pour analyser vos formulaires personnalisés.  Ces valeurs sont retournées dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Analyser les formulaires personnalisés](#analyze-forms-with-a-custom-model).
 * Reconnaître le contenu des formulaires, notamment les tableaux, les lignes et les mots, sans avoir à entraîner un modèle.  Le contenu des formulaires est retourné dans une collection d’objets `FormPage`. Consultez l’exemple [Analyser la disposition](#analyze-layout).
-* Reconnaître les champs courants des tickets de caisse, cartes de visite, factures et documents d’identité émis aux États-Unis à l’aide d’un modèle préentraîné dans le service Form Recognizer.
+* Reconnaître les champs courants des reçus, cartes de visite, factures et documents d’identité émis aux États-Unis à l’aide d’un modèle préentraîné dans le service Form Recognizer.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -279,9 +279,9 @@ Le code suivant traite la facture à l’URI donné et affiche les champs princi
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
 
-## <a name="analyze-identity-documents"></a>Analyser les documents d’identité
+## <a name="analyze-id-documents"></a>Analyser des documents d’identité
 
-Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle de document d’identification prédéfini](../../concept-identification-cards.md).
+Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle d’identification prédéfini](../../concept-identification-cards.md).
 
 Pour analyser des documents d’identité à partir d’un URI, utilisez la méthode `StartRecognizeIdentityDocumentsFromUriAsync`.
 
@@ -290,7 +290,7 @@ Pour analyser des documents d’identité à partir d’un URI, utilisez la mét
 > [!TIP]
 > Vous pouvez également analyser les images de documents d’identité locaux. Examinez les méthodes de [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) comme **StartRecognizeIdentityDocumentsAsync**. ou consultez l’exemple de code sur [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md) pour les scénarios impliquant des images locales.
 
-Le code suivant traite le document d’identité à l’URI donné et affiche les champs principaux et leurs valeurs sur la console.
+Le code suivant traite le document d’identité sur l’URI donné et imprime les champs principaux et leurs valeurs dans la console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_id_print)]
 

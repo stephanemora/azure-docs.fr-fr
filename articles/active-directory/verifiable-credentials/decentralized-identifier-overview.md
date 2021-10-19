@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 1203562d088efeafd20a0b6c58698fcfe10b79e6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ffa5aae5e45583385d7849637665a053ef0b9a2f
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124816193"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729574"
 ---
 # <a name="introduction-to-azure-active-directory-verifiable-credentials-preview"></a>Présentation des justificatifs vérifiables Azure Active Directory (préversion)
 
@@ -81,7 +81,7 @@ Pour y parvenir, il nous faut nous appuyer sur une base technique composée de s
 
 **4. Microsoft Resolver** : API qui se connecte à notre nœud ION pour rechercher et résoudre les DID à l’aide de la méthode ```did:ion``` et renvoyer le DDO (DID Document Object). Le DDO comprend les métadonnées DPKI associées au DID telles que les clés publiques et les points de terminaison de service. 
 
-**5. Service de justificatifs vérifiés Azure Active Directory** : API d’émission et de vérification et kit de développement logiciel (SDK) open source pour les [justificatifs vérifiables W3C](https://www.w3.org/TR/vc-data-model/) signés avec la méthode ```did:ion```. Ils permettent aux propriétaires d’identité de générer, présenter et vérifier les revendications. Ils constituent la base de confiance entre les utilisateurs des systèmes.
+**5. Service de justificatifs vérifiés Azure Active Directory** Service d’émission et de vérification dans Azure et API REST pour [justificatifs vérifiables W3C](https://www.w3.org/TR/vc-data-model/) signés avec la méthode ```did:ion```. Ils permettent aux propriétaires d’identité de générer, présenter et vérifier les revendications. Ils constituent la base de confiance entre les utilisateurs des systèmes.
 
 ## <a name="a-sample-scenario"></a>Exemple de scénario
 

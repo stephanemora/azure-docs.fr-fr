@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 3adffbac5641c2791c5ef683b5c4d687331a1c3b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 401c9d08efd6be33d4444d34ba7a2a6c89723a6b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350154"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715084"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -22,21 +22,59 @@ ms.locfileid: "129350154"
 
 Le service Form Recognizer est régulièrement mis à jour. Ajoutez cette page aux favoris pour rester informé des mises à jour des notes de publication, des améliorations apportées aux fonctionnalités et des mises à jour de la documentation.
 
+## <a name="october-2021"></a>Octobre 2021
+
+### <a name="form-recognizer-new-preview-release"></a>Nouvelle préversion de Form Recognizer
+
+ La nouvelle préversion de Form Recognizer introduit plusieurs nouvelles fonctionnalités :
+
+* Le modèle [**Document général**](concept-general-document.md) est une nouvelle API qui utilise un modèle pré-formé pour extraire du texte, des tables, une structure, des paires clé-valeur et des entités nommées à partir de formulaires et de documents.
+* Ajout du modèle [**Reçu d’hôtel**](concept-receipt.md) au traitement des reçus prédéfini.
+* Le modèle [**Champs étendus pour document d’identité**](concept-id-document.md) prend en charge l’extraction des approbations, des restrictions et des classifications de véhicules à partir de permis de conduire américains.
+* Le [**champ de signature**](concept-custom.md) est un nouveau type de champ dans les formulaires personnalisés pour détecter la présence d’une signature dans un champ de formulaire.
+
+* [**Expansion de langue**](language-support.md) Prise en charge de 122 langues (impression) et de 7 langues (entrées manuscrites). Avec la préversion la plus récente, Form Recognizer Layout et Custom Form étendent les [langues prises en charge](language-support.md) qui sont à présent au nombre de 122. Cela inclut l’extraction de texte pour le texte imprimé dans 49 nouvelles langues, dont le russe, le bulgare et d’autres langues cyrilliques et latines. En outre, l’extraction de texte manuscrit prend à présent en charge 7 langues, notamment l’anglais, et de nouvelles préversions pour le chinois simplifié, le français, l’allemand, l’italien, le portugais et l’espagnol.
+
+* La disposition **Améliorations des tables et de l’extraction de texte** prend à présent en charge l’extraction de tables à une seule ligne également appelées tables clé-valeur. Les améliorations apportées à l’extraction de texte incluent un meilleur traitement des fichiers PDF numériques et MRZ (Machine Readable Zone) dans les documents d’identité, ainsi que les performances générales.
+
+* [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) Pour simplifier l’utilisation du service, vous pouvez maintenant accéder au formulaire Recognizer Studio pour tester les différents modèles prédéfinis ou étiqueter et entraîner un modèle personnalisé
+
+Commencez par la nouvelle [API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), le SDK [Python](quickstarts/try-v3-python-sdk.md) ou [.NET](quickstarts/try-v3-csharp-sdk.md) pour l’API v3.0 en préversion.
+
+ #### <a name="form-recognizer-model-data-extraction"></a>Extraction des données de modèle Form Recognizer
+
+  | **Modèle**   | **Extraction de texte** |**Paires clé-valeur** |**Marques de sélection**   | **Tables**   |**Entités** |
+  | --- | :---: |:---:| :---: | :---: |:---: |
+  |🆕Document général  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  | Layout  | ✓  |   | ✓  | ✓  |   |
+  | Facture  | ✓ | ✓  | ✓  | ✓ ||
+  |Réception  | ✓  |   ✓ |   |  ||
+  | Document d’identité | ✓  |   ✓  |   |   ||
+  | Carte de visite    | ✓  |   ✓ |   |   ||
+  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
+
 ## <a name="september-2021"></a>Septembre 2021
 
-Les [fonctionnalités avancées de l’explorateur de métriques Azure](/azure/azure-monitor/essentials/metrics-charts) sont disponibles sur la page de présentation des ressources Form Recognizer dans le portail Azure.
+* Les [fonctionnalités avancées de l’explorateur de métriques Azure](/azure/azure-monitor/essentials/metrics-charts) sont disponibles sur la page de présentation des ressources Form Recognizer dans le portail Azure.
 
-### <a name="monitoring-menu"></a>Menu Supervision
+    ### <a name="monitoring-menu"></a>Menu Supervision
 
-:::image type="content" source="media/portal-metrics.png" alt-text="Capture d’écran montrant le menu Supervision sur le portail Azure":::
+    :::image type="content" source="media/portal-metrics.png" alt-text="Capture d’écran montrant le menu Supervision sur le portail Azure":::
 
-### <a name="charts"></a>Graphiques
+    ### <a name="charts"></a>Graphiques
 
-:::image type="content" source="media/portal-metrics-charts.png" alt-text="Capture d’écran montrant un exemple de graphique de métriques dans le portail Azure.":::
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Capture d’écran montrant un exemple de graphique de métriques dans le portail Azure.":::
+
+*  Mise à jour du modèle **Document d’identité** : les noms donnés incluant un suffixe, avec ou sans point (point final), sont traités correctement :
+
+    |Texte d'entrée | Résultat avec mise à jour |
+    |------------|-------------------------------------------|
+    | William Isaac Kirby Jr. |**FirstName** : William Isaac</br></br>**LastName** : Kirby Jr. |
+    | Henry Caleb Ross Sr | **FirstName** : Henry Caleb </br></br> **LastName** : Ross Sr |
 
 ## <a name="july-2021"></a>Juillet 2021
 
-### <a name="system-assigned-managed-identity-support"></a>Prise en charge des identités managées affectées par le système 
+### <a name="system-assigned-managed-identity-support"></a>Prise en charge des identités managées affectées par le système
 
  Vous pouvez maintenant activer une identité managée affectée par le système pour accorder à Form Recognizer un accès limité aux comptes de stockage privés, y compris à ceux protégés par un réseau virtuel ou un pare-feu, ou activer la fonctionnalité Apporter votre propre stockage (BYOS, Bring-Your-Own-Storage). *Consultez* [Créer et utiliser une identité managée pour votre ressource Form Recognizer](managed-identity-byos.md) pour plus d’informations.
 
@@ -90,9 +128,9 @@ Le correctif traite les factures qui n’ont pas de champs d’éléments de sou
 * [Documents d’identité](concept-identification-cards.md)
 * [Formulaires personnalisés](concept-custom.md)
 
-#### <a name="get-started"></a>Bien démarrer 
+#### <a name="get-started"></a>Bien démarrer
 
-Accédez à l’[exemple d’outil Form Recognizer](https://fott-2-1.azurewebsites.net/) et suivez le [guide de démarrage rapide](quickstarts/get-started-with-form-recognizer.md). 
+Accédez à l’[exemple d’outil Form Recognizer](https://fott-2-1.azurewebsites.net/) et suivez le [guide de démarrage rapide](quickstarts/get-started-with-form-recognizer.md).
 
 ### <a name="layout-adds-table-headers"></a>Ajout d’en-têtes de table dans Layout
 
@@ -375,9 +413,9 @@ Package pip version 3.1.0b4
 
    :::image type="content" source="./media/id-canada-passport-example.png" alt-text="exemple de passeport" lightbox="./media/id-canada-passport-example.png":::
 
-* **Extraction d’éléments de ligne pour le modèle de facture prédéfini** : Le modèle de facture prédéfini prend désormais en charge l’extraction d’éléments de ligne. Il extrait maintenant les éléments complets et leurs parties (description, montant, quantité, ID produit, date, etc.). Un simple appel à l’API/au SDK vous permet d’extraire des données utiles de vos factures (texte, tableau, paires clé-valeur et éléments de ligne).
+* **Extraction d’éléments de ligne pour le modèle de facture** : le modèle de facture prédéfini prend à présent en charge l’extraction d’éléments de ligne. Il extrait maintenant les éléments complets et leurs parties (description, montant, quantité, ID produit, date, etc.). Un simple appel à l’API/au SDK vous permet d’extraire des données utiles de vos factures (texte, tableau, paires clé-valeur et éléments de ligne).
 
-   [En savoir plus sur le modèle de facture prédéfini](concept-invoices.md)
+   [En savoir plus sur le modèle de facture](concept-invoices.md)
 
 * **Étiquetage et formation supervisés de tableaux, étiquetage de valeurs vides** : En plus des [capacités de pointe d’extraction automatique de tableaux par Deep Learning](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011) de Form Recognizer, il permet désormais aux clients d’étiqueter des tableaux et d’utiliser ces derniers pour la formation. Cette nouvelle version comprend la possibilité d’étiqueter des éléments de ligne/tableaux (dynamiques et fixes), de les utiliser pour la formation et d’effectuer l’apprentissage d’un modèle personnalisé pour extraire des paires clé-valeur et des éléments de ligne. Une fois qu’un modèle est formé, le modèle extrait les éléments de ligne dans le cadre de la sortie JSON dans la section documentResults.
 

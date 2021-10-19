@@ -3,16 +3,16 @@ title: Vue d’ensemble d’Azure Defender et des plans disponibles
 description: Découvrez les plans, les protections et les alertes d’Azure Defender. Activez ensuite Azure Defender sur vos abonnements pour profiter d’une sécurité avancée.
 author: memildin
 ms.author: memildin
-ms.date: 9/30/2020
+ms.date: 10/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cfbb8badd4a0d9a8b9776d810d33f77a051b3a39
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 34d450535b25b8d3ba1bcc69b54a27d6aab73115
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112238959"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715393"
 ---
 # <a name="introduction-to-azure-defender"></a>Présentation d’Azure Defender
 
@@ -57,7 +57,7 @@ En plus de protéger votre environnement Azure, vous pouvez ajouter des fonction
 
 Vous bénéficierez de renseignements personnalisés sur les menaces et d’alertes hiérarchisées en fonction de votre environnement pour pouvoir vous concentrer sur le plus important.
 
-Déployez [Azure Arc](https://azure.microsoft.com/services/azure-arc/) et activez Azure Defender pour étendre la protection aux machines virtuelles et aux bases de données SQL basées sur d’autres cloud ou en local. Azure Arc pour serveurs est un service gratuit, mais les services utilisés sur des serveurs équipés d’Arc (par exemple, Azure Defender) sont facturés sur la base des tarifs de ces services. En savoir plus dans [Ajouter des machines non-Azure avec Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
+Déployez [Azure Arc](https://azure.microsoft.com/services/azure-arc/) et activez Azure Defender pour étendre la protection aux machines virtuelles et aux bases de données SQL basées sur d’autres cloud ou en local. Azure Arc pour serveurs est un service gratuit. Toutefois, les services utilisés sur les serveurs avec Azure Arc, par exemple Azure Defender, sont facturés selon le tarif de ce service. En savoir plus dans [Ajouter des machines non-Azure avec Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
 > [!TIP]
 > Le connecteur natif pour AWS gère en toute transparence le déploiement d’Azure Arc pour vous. Apprenez-en davantage dans [Connecter vos comptes AWS à Azure Security Center](quickstart-onboard-aws.md).
@@ -84,13 +84,18 @@ Utilisez les vignettes de protection avancée du tableau de bord Azure Defender 
 
 ## <a name="vulnerability-assessment-and-management"></a>Gestion et évaluation des vulnérabilités
 
-Azure Defender comprend l’analyse des vulnérabilités des machines virtuelles et des registres de conteneurs sans coût supplémentaire. Même si les scanners sont fournis par Qualys, aucune licence Qualys ni même aucun compte Qualys n’est nécessaire : tout est traité en arrière-plan dans Security Center. 
+Azure Defender inclut une évaluation des vulnérabilités des machines virtuelles et des registres de conteneurs sans frais supplémentaires. Certains analyseurs fonctionnent avec la technologie Qualys, mais vous n’avez pas besoin de licence Qualys ni même de compte Qualys. Tout est géré de manière transparente dans Security Center. 
+
+Si vous avez activé l’[intégration à Microsoft Defender pour point de terminaison](security-center-wdatp.md), vous avez accès aux résultats des recherches de vulnérabilités à partir de la fonctionnalité **Gestion des menaces et des vulnérabilités Microsoft**. Découvrez davantage d’informations dans [Investiguer les faiblesses avec la gestion des menaces et des vulnérabilités de Microsoft Defender pour point de terminaison](deploy-vulnerability-assessment-tvm.md).
 
 Passez en revue les résultats de ces scanners de vulnérabilité et répondez-y au sein de Security Center. Security Center se rapproche ainsi un peu plus d’une interface unique centralisant toutes les activités de sécurité dans le cloud.
 
+> [!IMPORTANT]
+> L’intégration de Security Center à Microsoft Defender pour point de terminaison est activée par défaut. Ainsi, quand vous activez Azure Defender, vous consentez à ce qu’Azure Defender pour les serveurs accède aux données Microsoft Defender pour point de terminaison liées aux vulnérabilités, aux logiciels installés et aux alertes de vos points de terminaison.
+
 Pour plus d’informations, consultez les pages suivantes :
 
-- [Solution intégrée d’évaluation des vulnérabilités de Security Center pour les machines virtuelles Azure](deploy-vulnerability-assessment-vm.md)
+- [Analyseur Qualys intégré d’Azure Defender pour les machines Azure et hybrides](deploy-vulnerability-assessment-vm.md)
 - [Identification des vulnérabilités dans les images des registres de conteneurs Azure Container Registry](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 

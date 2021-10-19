@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce qu’Azure Form Recognizer?
+title: Qu’est-ce qu’Azure Form Recognizer? (mise à jour)
 titleSuffix: Azure Applied AI Services
 description: Le service Azure Form Recognizer vous permet d’identifier et d’extraire des paires clé/valeur et des données de table de vos formulaires, ainsi que d’extraire des informations importantes des tickets de caisse et des cartes de visite.
 author: laujan
@@ -7,133 +7,112 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020
+recommendations: false
 keywords: traitement de données automatisé, traitement de documents, entrée de données automatisée, traitement des formulaires
-ms.openlocfilehash: 2231832f87b2caf085f5d5278a2b291cda25b606
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 272104444ca3389f69c639fba0984552b93c5893
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122326915"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712102"
 ---
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD024 -->
 # <a name="what-is-azure-form-recognizer"></a>Qu’est-ce qu’Azure Form Recognizer?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+Azure Form Recognizer est un service [Azure Applied AI Services](../../applied-ai-services/index.yml) qui vous permet de générer des logiciels de traitement de données automatisés à l’aide de la technologie du machine learning. Form Recognizer analyse vos formulaires et documents, extrait le texte et les données, mappe les relations entre les champs en tant que paires clé-valeur et retourne une sortie JSON structurée. Vous pouvez rapidement obtenir des résultats justes et adaptés à votre contenu en particulier, sans avoir besoin d’une intervention manuelle excessive ou de compétences approfondies en science des données. Utilisez Form Recognizer pour automatiser le traitement des données dans les applications et les workflows, pour améliorer les stratégies pilotées par les données et pour enrichir les fonctionnalités de recherche de documents.
 
-Azure Form Recognizer fait partie d’[Azure Applied AI Services](../../applied-ai-services/index.yml) qui vous permet de créer des logiciels de traitement de données automatisé à l’aide des technologies du Machine Learning. Identifiez et extrayez du texte, des paires clé/valeur, des marques de sélection, des tableaux et une structure de vos documents : le service produit des données structurées qui incluent les relations dans le fichier d’origine, des rectangles englobants, la confiance, etc. Vous pouvez obtenir des résultats rapidement, avec précision et en adéquation avec votre contenu particulier, sans la nécessité d’une intervention manuelle lourde ou de compétences approfondies en science des données. Utilisez Form Recognizer pour automatiser l’entrée de données dans vos applications et enrichir les fonctionnalités de recherche de vos documents.
+Form Recognizer identifie, extrait et analyse facilement les données de document suivantes :
 
-Form Recognizer est constitué de modèles de traitement de documents personnalisés, de modèles prédéfinis pour les factures, reçus, ID et cartes de visite, et du modèle de disposition. Vous pouvez appeler les modèles Form Recognizer au moyen d’une API REST ou de SDK de bibliothèque de client, afin d’en réduire la complexité et de l’intégrer à votre workflow ou application.
+* Structure et contenu des tableaux.
+* Éléments et valeurs de champ des formulaires.
+* Texte alphanumérique tapé à la machine et manuscrit.
+* Relations entre les éléments.
+* Paires clé-valeur.
+* Emplacement des éléments avec les coordonnées de cadre englobant.
 
 Cette documentation contient les types d’articles suivants :
 
 * Les [**Concepts**](concept-layout.md) fournissent des explications approfondies sur les fonctions et fonctionnalités du service.
-* Les [**Démarrages rapides**](quickstarts/client-library.md) sont des instructions de prise en main qui vous guident dans la formulation de vos requêtes au service.
+* Les [**Démarrages rapides**](quickstarts/try-sdk-rest-api.md) sont des instructions de prise en main qui vous guident dans la formulation de vos requêtes au service.
 * Les [**Guides pratiques**](build-training-data-set.md) contiennent des instructions sur l’utilisation du service de manière plus spécifique ou personnalisée.
 * Les [**Tutoriels**](tutorial-ai-builder.md) sont des guides plus longs qui montrent comment utiliser le service en tant que composant dans des solutions métier élargies.
 
-## <a name="form-recognizer-features"></a>Fonctionnalités de Form Recognizer
+## <a name="form-recognizer-features-and-development-options"></a>Fonctionnalités Form Recognizer et options de développement
 
-Avec Form Recognizer, vous pouvez facilement extraire et analyser des données de documents grâce aux fonctionnalités suivantes :
+### <a name="form-recognizer-ga-v21"></a>[Form Recognizer en disponibilité générale (v2.1)](#tab/v2-1)
 
-### <a name="layout"></a>[Disposition](concept-layout.md)
+Les fonctionnalités suivantes sont prises en charge par le service Form Recognizer v 2.1. Suivez les liens figurant dans ce tableau pour en savoir plus sur chaque fonctionnalité et parcourez les documents de référence sur les API.
 
-Extrayez du texte, des marques de sélection et des structures de tableaux ainsi que les coordonnées de leurs rectangles englobants dans des documents.
+| Fonctionnalité | Description | Options de développement |
+|----------|--------------|-------------------------|
+|[**API de disposition**](concept-layout.md) | Extraction et analyse de texte, de marques de sélection et de structures de tableaux, ainsi que de leurs coordonnées de cadre englobant, à partir de formulaires et de documents. | <ul><li>[**Outil d’étiquetage Form Recognizer**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**API REST**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Kit SDK Bibliothèque de client**](quickstarts/try-sdk-rest-api.md)</li><li>[**Conteneur Docker de Form Recognizer**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|[**Modèle de carte de visite**](concept-business-card.md) | Traitement automatisé des données et extraction d’informations clés à partir de cartes de visite.| <ul><li>[**Outil d’étiquetage Form Recognizer**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**API REST**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Kit SDK Bibliothèque de client**](quickstarts/try-sdk-rest-api.md)</li><li>[**Conteneur Docker de Form Recognizer**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|[**Modèle de pièce d’identité**](concept-id-document.md) | Traitement automatisé des données et extraction des informations clés des passeports internationaux et des permis de conduire émis aux États-Unis.| <ul><li>[**Outil d’étiquetage Form Recognizer**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**API REST**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-identity-id-documents)</li><li>[**Kit SDK Bibliothèque de client**](quickstarts/try-sdk-rest-api.md)</li><li>[**Conteneur Docker de Form Recognizer**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|[**Modèle de facture**](concept-invoice.md) | Traitement automatisé des données et extraction des informations clés des factures de vente. | <ul><li>[**Outil d’étiquetage Form Recognizer**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**API REST**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-invoices)</li><li>[**Kit SDK Bibliothèque de client**](quickstarts/try-sdk-rest-api.md)</li><li>[**Conteneur Docker de Form Recognizer**](containers/form-recognizer-container-install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|[**Modèle de reçu**](concept-receipt.md) | Traitement automatisé des données et extraction des informations clés des reçus.| <ul><li>[**Outil d’étiquetage Form Recognizer**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**API REST**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-receipts)</li><li>[**Kit SDK Bibliothèque de client**](quickstarts/try-sdk-rest-api.md)</li><li>[**Conteneur Docker de Form Recognizer**](containers/form-recognizer-container-install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+|[**Modèle personnalisé**](concept-business-card.md) | Extraction et analyse des données des formulaires et documents spécifiques à des données métier et à des cas d’usage distincts.| <ul><li>[**Outil d’étiquetage Form Recognizer**](https://fott-2-1.azurewebsites.net)</li><li>[**API REST**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[**Kit SDK Bibliothèque de client**](quickstarts/try-sdk-rest-api.md)</li><li>[**Conteneur Docker de Form Recognizer**](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-Form Recognizer peut extraire de documents du texte, des marques de sélection et la structure des tableaux (les numéros de ligne et de colonne associés au texte) en utilisant la reconnaissance optique de caractères (OCR) haute définition et un modèle de deep learning amélioré.
+### <a name="form-recognizer-preview-v30"></a>[Form Recognizer en préversion (v3.0)](#tab/v3-0)
 
-:::image type="content" source="./media/tables-example.jpg" alt-text="exemples de tables" lightbox="./media/tables-example.jpg":::
+>[!NOTE]
+> Form Recognizer Studio est actuellement en préversion publique. Certaines fonctionnalités risquent de ne pas être prises en charge ou d’avoir des capacités limitées.
 
-### <a name="custom-models"></a>[Modèles personnalisés](concept-custom.md)
+Les fonctionnalités et options de développement suivantes sont prises en charge par le service Form Recognizer v3.0. Suivez les liens figurant dans ce tableau pour en savoir plus sur chaque fonctionnalité et parcourez les documents de référence sur les API.
 
-Extrayez du texte, des paires clé-valeur, des marques de sélection et les données de tableaux dans vos formulaires. Ces modèles étant entraînés avec vos propres données, ils sont adaptés à vos formulaires.
+| Fonctionnalité | Description | Options de développement |
+|----------|--------------|-------------------------|
+|[🆕 **Modèle de document général**](concept-general-document.md)|Extrayez le texte, les tableaux, la structure, les paires clé-valeur et les entités nommées.|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**Kit de développement logiciel (SDK) C#**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Kit de développement logiciel (SDK) Python**](quickstarts/try-v3-python-sdk.md)</li></ul> |
+|[**Modèle de disposition**](concept-layout.md) | Extrayez le texte, les marques de sélection et les structures de tableaux ainsi que les coordonnées de leurs rectangles englobants, à partir de formulaires et de documents.</br></br> L’API Disposition a été mise à jour vers un modèle prédéfini. | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**Kit de développement logiciel (SDK) C#**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Kit de développement logiciel (SDK) Python**](quickstarts/try-v3-python-sdk.md)</li></ul>|
+|[**Modèle personnalisé (mise à jour)** ](concept-custom.md) | Extraction et analyse des données des formulaires et documents spécifiques à des données métier et à des cas d’usage distincts.</br></br>L’API Modèle personnalisé v 3.0 prend en charge la **détection de signatures pour les formulaires personnalisés**.</li></ul>| <ul><li>[**Form Recognizer Studio**](https://fott-2-1.azurewebsites.net)</li><li>[**API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**Kit de développement logiciel (SDK) C#**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Kit de développement logiciel (SDK) Python**](quickstarts/try-v3-python-sdk.md)</li></ul>|
+|[**Modèle de reçu (mise à jour)** ](concept-receipt.md) | Traitement automatisé des données et extraction des informations clés des reçus.</br></br>Le modèle de reçu v3.0 prend en charge le traitement des **reçus d’hôtel d’une seule page**.| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**Kit de développement logiciel (SDK) C#**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Kit de développement logiciel (SDK) Python**](quickstarts/try-v3-python-sdk.md)</li></ul>|
+|[**Modèle de document d’identité (mise à jour)** ](concept-id-document.md) |Traitement automatisé des données et extraction des informations clés des passeports internationaux et des permis de conduire émis aux États-Unis.</br></br>L’API de document d’identité prédéfini prend en charge l’**extraction des approbations, des restrictions et des classifications de véhicules des permis de conduire émis aux États-Unis**. |<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**Kit de développement logiciel (SDK) C#**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Kit de développement logiciel (SDK) Python**](quickstarts/try-v3-python-sdk.md)</li></ul>|
+|[**Modèle de facture**](concept-invoice.md) | Traitement automatisé des données et extraction des informations clés des factures de vente. | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**Kit de développement logiciel (SDK) C#**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Kit de développement logiciel (SDK) Python**](quickstarts/try-v3-python-sdk.md)</li></ul>|
+|[**Modèle de carte de visite**](concept-business-card.md) |Traitement automatisé des données et extraction d’informations clés à partir de cartes de visite.| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**Kit de développement logiciel (SDK) C#**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Kit de développement logiciel (SDK) Python**](quickstarts/try-v3-python-sdk.md)</li></ul>|
 
-Les modèles personnalisés Form Recognizer effectuent l’entraînement avec vos propres données, et il vous suffit de cinq exemples de formulaires d’entrée pour démarrer. Un modèle de traitement de documents entraîné peut restituer des données structurées qui incluent les relations du document de formulaire d’origine. Une fois que le modèle est entraîné, vous pouvez le tester, le réentraîner et l’utiliser ensuite pour extraire de manière fiable des données d’autres formulaires, en fonction de vos besoins.
+---
 
-Quand vous entraînez des modèles personnalisés, vous disposez des options suivantes : entraînement avec des données étiquetées et sans données étiquetées.
+## <a name="prerequisites"></a>Prérequis
 
-#### <a name="train-without-labels"></a>Effectuer l’entraînement sans étiquettes
+* Un abonnement Azure – [**Créez-en un gratuitement**](https://azure.microsoft.com/free/cognitive-services).
 
-Form Recognizer utilise l’apprentissage non supervisé pour comprendre la disposition et les relations entre les champs et les entrées de vos formulaires. Quand vous soumettez vos formulaires d’entrée, l’algorithme groupe les formulaires par types, découvre les clés et les tableaux présents, et associe les valeurs aux clés et les entrées aux tableaux. L’entraînement sans étiquette ne nécessitant pas d’étiquetage manuel des données ni de programmation et de maintenance intensives, nous vous recommandons d’essayer cette méthode en premier.
+* Une fois que vous avez votre abonnement, créez une [**ressource Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) dans le portail Azure. Vous pouvez utiliser le niveau tarifaire Gratuit (F0) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 
-Consultez [Créer un jeu de données d’entraînement](./build-training-data-set.md) pour obtenir des conseils sur la collecte de vos documents d’entraînement.
+* Enfin, vous devez récupérer l’**URL du point de terminaison** de votre ressource et la **clé d’API** à partir du portail Azure pour tester le service Form Recognizer :
 
-#### <a name="train-with-labels"></a>Effectuer l’entraînement avec des étiquettes
+  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Capture d’écran :fenêtre des clés et du point de terminaison dans le portail Azure":::
 
-Quand vous effectuez l’entraînement avec des données étiquetées, le modèle utilise l’apprentissage supervisé afin d’extraire les valeurs dignes d’intérêt, à l’aide des formulaires étiquetés que vous fournissez. Des données étiquetées aboutissent à des modèles plus performants et peuvent engendrer des modèles qui fonctionnent avec des formulaires complexes ou des formulaires contenant des valeurs sans clés.
+ ## <a name="form-recognizer-workflows"></a>Workflows de Form Recognizer
 
-Form Recognizer utilise l’API [Layout](#layout) pour connaître les tailles et les positions attendues des éléments de texte imprimés et manuscrits et pour extraire des tables. Ensuite, il utilise des étiquettes spécifiées par l’utilisateur pour connaître les associations clé/valeur et les tables dans les documents. Nous vous recommandons d’utiliser cinq formulaires étiquetés manuellement du même type (même structure) pour commencer l’entraînement d’un nouveau modèle et d’ajouter des données étiquetées en fonction des besoins afin d’améliorer la justesse du modèle. Form Recognizer permet d’effectuer l’entraînement d’un modèle pour extraire des paires clé-valeur et des tables à l’aide de fonctionnalités d’apprentissage supervisé.
-
-[Bien démarrer avec l’entraînement avec des étiquettes](label-tool.md)
-
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
-
-
-### <a name="prebuilt-models"></a>Modèles prédéfinis
-
- Form Recognizer comprend aussi des modèles prédéfinis pour le traitement automatisé des données des reçus, cartes de visite, factures et documents d’identité.
-
-### <a name="receipts"></a>[Reçus](concept-receipts.md)
-
-Le modèle Prebuilt Receipt (Ticket de caisse prédéfini) permet de lire les tickets de caisse en anglais émis en Australie, au Canada, en Grande-Bretagne, en Inde et aux États-Unis&mdash;du type utilisé dans les restaurants, les stations-service, les commerces, etc. Ce modèle extrait des informations clés telles que la date et l’heure de la transaction, les détails du commerçant, le montant des taxes, les articles, les totaux, etc. En outre, le modèle de reçu préconstruit est entraîné pour analyser et retourner tout le texte d’un reçu.
-
-:::image type="content" source="./media/overview-receipt.jpg" alt-text="exemple de ticket de caisse" lightbox="./media/overview-receipt.jpg":::
-
-### <a name="business-cards"></a>[Cartes de visite](concept-business-cards.md)
-
-Le modèle Business Cards (Cartes de visite) vous permet d’extraire des informations d’une carte de visite rédigée en anglais telles que le nom, la fonction, l’adresse postale, l’adresse e-mail, la société et les numéros de téléphone de la personne.
-
-:::image type="content" source="./media/overview-business-card.jpg" alt-text="exemple de carte de visite" lightbox="./media/overview-business-card.jpg":::
-
-### <a name="invoices"></a>[Factures](concept-invoices.md)
-
-Le modèle de facture prédéfini extrait les données des factures dans différents formats, et retourne des données structurées. Ce modèle extrait des informations clés, comme l’ID de facture, les détails du client, les détails du fournisseur, le destinataire de l’envoi, le destinataire de la facture, le total, les taxes, le sous-total, les éléments de ligne, et ainsi de suite. De plus, le modèle de facture prédéfini est entraîné pour analyser et retourner tout le texte et tous les tableaux de la facture.
-
-:::image type="content" source="./media/overview-invoices.jpg" alt-text="Exemple de facture" lightbox="./media/overview-invoices.jpg":::
-
-### <a name="identity-documents"></a>[Documents d’identité](concept-identification-cards.md)
-
-Le modèle Documents d’identité (ID) vous permet d’extraire les informations clés de passeports du monde entier et de permis de conduire des États-Unis. Il extrait des données telles que l’ID de document, la date de naissance, la date d’expiration, le nom, le pays, la région, la zone lisible par machine et plus encore.
-
-:::image type="content" source="./media/id-example-drivers-license.jpg" alt-text="exemple de carte d’identité" lightbox="./media/overview-id.jpg":::
-
-## <a name="get-started"></a>Bien démarrer
-
-Utilisez l’exemple d’outil Form Recognizer qui permet de tester Disposition, les Modèles prédéfinis, et d’effectuer l’entraînement d’un modèle personnalisé pour vos documents. Vous aurez besoin d’un abonnement Azure ([**créez-en un gratuitement**](https://azure.microsoft.com/free/cognitive-services)) ainsi que d’une clé et d’un point de terminaison de [**ressource Form Recognizer**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) pour tester le service Form Recognizer.
-
->
-> [!div class="nextstepaction"]
-> [Essayer Form Recognizer](https://aka.ms/fott-2.1-ga/)
->
-
-Suivez le [guide de démarrage rapide de la bibliothèque de client/API REST](./quickstarts/client-library.md) pour commencer à extraire des données de vos documents. Nous vous recommandons d’utiliser le service gratuit pendant que vous apprenez la technologie. N’oubliez pas que le nombre de pages gratuites est limité à 500 par mois.
-
-Explorez la [documentation de référence sur l’API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) pour en savoir plus. Si vous êtes familiarisé avec une version précédente de l’API, consultez l’article [Nouveautés](./whats-new.md) pour en savoir plus sur les modifications récentes.
-
-## <a name="input-requirements"></a>Critères des entrées
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
-
-## <a name="service-availability-and-redundancy"></a>Disponibilité et redondance du service
-
-### <a name="is-form-recognizer-service-zone-resilient"></a>Le service Form Recognizer est-il résilient aux zones ?
-
-Oui. Le service Form Recognizer est résilient aux zones par défaut.
-
-### <a name="how-do-i-configure-the-form-recognizer-service-to-be-zone-resilient"></a>Comment configurer le service Form Recognizer pour le rendre résilient aux zones ?
-
-Aucune configuration client n’est nécessaire pour activer la résilience des zones. La résilience aux zones pour les ressources Form Recognizer est disponible par défaut et gérée par le service lui-même.
+| Type du document | Considérations | Solution |
+| -----------------|-------------------| ----------|
+|<ul><li>**Facture**</li><li>**Réception**</li><li>**Carte de visite**</li></ul>| Votre facture, votre reçu ou votre carte de visite sont-ils composés de texte en anglais ? | <ul><li>Oui → modèle [**Facture**](concept-invoice.md), [**Reçu**](concept-receipt.md) ou [**Carte de visite**](concept-business-card.md)</li><li>Non → modèle [**Disposition**](concept-layout.md) ou [**Document général (préversion)** ](concept-general-document.md)</li></ul>|
+|<ul><li>**Document d’identité**</li></ul>| Votre document d’identité est-il un passeport international ou un permis de conduire émis aux États-Unis ?| <ul><li>Oui → modèle [**Document d’identité**](concept-id-document.md)</li><li>Non → modèle [**Disposition**](concept-layout.md) ou [**Document général (préversion)** ](concept-general-document.md)</li></ul>|
+|<ul><li>**Formulaire** ou **Document**</li></ul>| Votre formulaire ou document correspond-il à un format standard couramment utilisé dans votre entreprise ou votre secteur d’activité ?| <ul><li>Oui → modèle [**Disposition**](concept-id-document.md) ou [**Document général (préversion)** ](concept-general-document.md)</li><li>Non → [**Créer et entraîner un modèle personnalisé**](concept-layout.md) 
 
 ## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
 
-* Comme c’est le cas pour tous les services Cognitive Services, les développeurs utilisant le service Form Recognizer doivent connaître les politiques de Microsoft relatives aux données client. Pour en savoir plus, consultez la [page Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) dans le Centre de gestion de la confidentialité Microsoft.
-
-* Form Recognizer ne stocke pas ou ne traite pas les données client situées en dehors de la région dans laquelle le client déploie l’instance de service.
+ Comme c’est le cas pour tous les services Cognitive Services, les développeurs utilisant le service Form Recognizer doivent connaître les politiques de Microsoft relatives aux données client. Consultez notre page [Données, confidentialité et sécurité pour Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez notre outil en ligne et notre guide de démarrage rapide pour en savoir plus sur le service Form Recognizer.
+### <a name="form-recognizer-v21"></a>[Form Recognizer v2.1](#tab/v2-1)
 
-* [**Outil Form Recognizer**](https://aka.ms/fott-2.1-ga)
-* [**Démarrage rapide de la bibliothèque de client et de l’API REST**](quickstarts/client-library.md)
+> [!div class="checklist"]
+>
+> * Essayez notre [**outil en ligne d’étiquetage des exemples**](https://aka.ms/fott-2.1-ga/)
+> * Suivez notre [**guide de démarrage rapide de la bibliothèque de client/API REST**](./quickstarts/try-sdk-rest-api.md) pour commencer à extraire des données de vos documents. Nous vous recommandons d’utiliser le service gratuit pendant que vous apprenez la technologie. N’oubliez pas que le nombre de pages gratuites est limité à 500 par mois.
+> * Explorez la [**documentation de référence sur l’API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) pour en savoir plus. 
+> * Si vous êtes familiarisé avec une version précédente de l’API, consultez l’article [**Nouveautés**](./whats-new.md) pour en savoir plus sur les modifications récentes.
+
+### <a name="form-recognizer-v30"></a>[Form Recognizer v3.0](#tab/v3-0)
+
+> [!div class="checklist"]
+>
+> * Essayez [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)
+> * Explorez la [**documentation de référence sur l’API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) pour en savoir plus. 
+> * Si vous êtes familiarisé avec une version précédente de l’API, consultez l’article [**Nouveautés**](./whats-new.md) pour en savoir plus sur les modifications récentes.
+
+---

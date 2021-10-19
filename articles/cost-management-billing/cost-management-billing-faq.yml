@@ -10,13 +10,13 @@ metadata:
   ms.topic: conceptual
   ms.date: 09/16/2021
   ms.author: banders
-  ms.openlocfilehash: d23c07386fe0245f3acd7bc1e716a053cdfa2019
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 7edae913ea733002aa3ad0736cf744f969003cdb
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128607289"
-title: Questions fréquentes (FAQ) sur Azure Cost Management + Billing
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129706212"
+title: Questions fréquentes (FAQ) sur Cost Management + Billing
 summary: ''
 sections:
 - name: Questions générales sur la facturation
@@ -55,7 +55,7 @@ sections:
       Consultez [Affecter une autorisation d’accès aux données Cost Management](costs/assign-access-acm-data.md).
   - question: Quelles sont les offres partenaires prises en charge par Cost Management ?
     answer: >
-      Cost Management est disponible pour les partenaires dont les clients disposent d’un plan Azure. En activant un paramètre de stratégie, les partenaires peuvent autoriser leurs clients à afficher des informations sur les coûts. Pour plus d’informations, consultez [Prise en main d’Azure Cost Management pour les partenaires](costs/get-started-partners.md). Le CSP classique n’est pas pris en charge par Cost Management.
+      Cost Management est disponible pour les partenaires dont les clients disposent d’un plan Azure. En activant un paramètre de stratégie, les partenaires peuvent autoriser leurs clients à afficher des informations sur les coûts. Pour plus d’informations, consultez [Bien démarrer avec Cost Management pour les partenaires](costs/get-started-partners.md). Le CSP classique n’est pas pris en charge par Cost Management.
   - question: Comment voir les coûts prévus ?
     answer: >
       Sur le portail Azure, accédez à **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse des coûts**. Dans la vue par défaut, le graphique du haut affiche les sections Coût réel/amorti et Coût prévu. La couleur unie du graphique affiche votre coût réel/amorti. La couleur ombrée indique le coût prévu.
@@ -87,7 +87,7 @@ sections:
     answer: >
       Consultez l’article [Exporter des données de coût avec une clé SAS de compte de stockage Azure](costs/export-cost-data-storage-account-sas-key.md).
   - question: En tant que partenaire CSP, Cost Management est-il pris en charge sur une offre CSP classique dans un plan Azure ?
-    answer: "Conformément aux plans de transition des clients sur un CSP classique vers un plan Azure dans le cadre de la [nouvelle expérience de commerce](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp), Azure Cost Management sera disponible uniquement pour les partenaires directs et les fournisseurs indirects des clients qui disposent d’un plan Azure. \n"
+    answer: "Conformément aux plans de transition des clients d’un CSP classique vers un plan Azure dans le cadre de la [nouvelle expérience de commerce](https://www.microsoft.com/licensing/news/new-azure-experience-in-csp), Cost Management + Billing sera disponible uniquement pour les partenaires directs et les fournisseurs indirects des clients qui disposent d’un plan Azure. \n"
   - question: En tant que partenaire CSP (administrateur général), comment activer la stratégie de visibilité des coûts au niveau de l’étendue de l’abonnement pour mes clients finaux et revendeurs relevant du plan Azure ?
     answer: >
       Consultez [Activer la gestion des coûts pour les abonnements des locataires des clients](costs/get-started-partners.md#enable-cost-management-for-customer-tenant-subscriptions) pour activer la stratégie de visibilité des coûts pour les services consommés Azure au tarif de vente au détail défini pour les utilisateurs Azure RBAC de l’abonnement. En tant qu’administrateur général d’un partenaire direct ou d’un fournisseur indirect, vous pouvez voir les coûts dans le locataire du client, quelle que soit la stratégie.
@@ -100,10 +100,10 @@ sections:
   - question: Quels sont les types d’offres pris en charge dans Cost Management ?
     answer: >
       Consultez [Offres Microsoft Azure prises en charge](./costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
-  - question: Quand pourrai-je voir mes données d’utilisation et de coût dans Azure Cost Management ?
+  - question: Quand pourrai-je voir mes données d’utilisation et de coût dans Cost Management ?
     answer: >
       Consultez [Mises à jour et conservation des données de coût et d’utilisation](./costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
-  - question: Puis-je trouver toutes mes informations sur les coûts dans Azure Cost Management ?
+  - question: Puis-je trouver toutes mes informations sur les coûts dans Cost Management ?
     answer: >
       Consultez [Coûts inclus dans Cost Management](costs/understand-cost-mgt-data.md#costs-included-in-cost-management).
   - question: Les coûts alloués sont-ils pris en compte par les budgets et les prévisions ?
@@ -144,7 +144,7 @@ sections:
     answer: >
       Il existe deux façons d’afficher vos économies.
 
-      -  Si vous êtes client EA, vous pouvez utiliser l’application Power BI Azure Cost Management pour EA pour consulter le [rapport d’économie RI](./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md#reports-available-with-the-app).
+      -  Si vous êtes client EA, vous pouvez utiliser l’application Power BI Cost Management pour EA afin de consulter le [rapport d’économie RI](./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md#reports-available-with-the-app).
 
       -  Utilisez le fichier de données Utilisation + frais pour [déterminer](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings) manuellement les économies liées aux réservations.
   - question: Comment identifier une sous-utilisation d’une réservation ?
@@ -340,7 +340,7 @@ sections:
       > Vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations Azure Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (tel que via le portail Azure classique), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.
   - question: Puis-je effectuer des analyses à l’aide de Power BI ?
     answer: >
-      Oui, vous pouvez utiliser le [connecteur Azure Cost Management pour Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) pour créer des visualisations et des rapports puissants et personnalisés qui vous aideront à mieux comprendre vos dépenses Azure. Si vous êtes sur un Contrat Entreprise (EA), vous pouvez également utiliser l’[application modèle Azure Cost Management](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md). L’application modèle Azure Cost Management est fournie avec des rapports prédéfinis pour vous aider à superviser les coûts et les tendances d’utilisation des services, ainsi qu’à identifier les options d’optimisation des coûts pour réduire vos dépenses.               La création de rapport de Power BI est disponible pour les clients Azure EA directs, les partenaires et les clients indirects qui sont en mesure d’afficher les informations de facturation.
+      Oui, vous pouvez utiliser le [connecteur Cost Management pour Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) afin de créer des visualisations et des rapports puissants et personnalisés qui vous aideront à mieux comprendre vos dépenses Azure. Si vous disposez d’un Contrat Entreprise (EA), vous pouvez également utiliser l’[application modèle Cost Management](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md). L’application modèle Cost Management est fournie avec des rapports prédéfinis pour vous aider à superviser les coûts et les tendances d’utilisation des services, ainsi qu’à identifier les options d’optimisation des coûts pour réduire vos dépenses.               La création de rapport de Power BI est disponible pour les clients Azure EA directs, les partenaires et les clients indirects qui sont en mesure d’afficher les informations de facturation.
   - question: Puis-je associer mon compte Azure existant à l’inscription Azure EA ?
     answer: >
       Oui. Tous les abonnements Azure pour lesquels vous êtes propriétaire du compte seront convertis en Accord Entreprise. Les abonnements qui utilisent le crédit mensuel, tels que Visual Studio, AzurePass, MPN et BizSpark, entre autres, sont inclus. Vous perdrez le crédit mensuel lors de la conversion de ce type d’abonnements.

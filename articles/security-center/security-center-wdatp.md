@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 10/08/2021
 ms.author: memildin
-ms.openlocfilehash: a57a94b8ee0bb91deb0b15a3da0265af15dbc3a3
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 174540ecdfe54073c30cdc7b71952c0621a66ba8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536303"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710723"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint
 
@@ -48,6 +48,10 @@ Microsoft Defender for Endpoint fournit les éléments suivants :
 
 - **Capteurs de détection des violations avancés**. Les capteurs de Defender pour point de terminaison collectent un large éventail de signaux comportementaux sur vos machines.
 
+- **Évaluation des vulnérabilités de la solution Microsoft Gestion des menaces et des vulnérabilités**. Avec Microsoft Defender pour le point de terminaison activé, Security Center peut afficher les vulnérabilités découvertes par le module Gestion des menaces et des vulnérabilités et proposer ce module comme solution d’évaluation des vulnérabilités prise en charge. Pour en savoir plus, consultez [Investiguer les faiblesses avec la gestion des menaces et des vulnérabilités de Microsoft Defender pour point de terminaison](deploy-vulnerability-assessment-tvm.md).
+
+    Ce module apporte également les fonctionnalités d’inventaire logiciel décrites dans [Accéder à un inventaire logiciel](asset-inventory.md#access-a-software-inventory) et peut être automatiquement activé pour les ordinateurs pris en charge avec [les paramètres de déploiement automatique](auto-deploy-vulnerability-assessment.md).
+
 - **Détection des violations basée sur des analyses dans le cloud**. Defender for Endpoint s’adapte rapidement aux menaces changeantes. Elle utilise l’analytique avancée et le Big Data. Il est amplifié par la puissance d’Intelligent Security Graph avec des signaux à travers Windows, Azure et Office pour détecter les menaces inconnues. Il fournit des alertes actionnables et vous permet de réagir rapidement.
 
 - **Informations sur les menaces**. Defender for Endpoint génère des alertes quand il identifie les outils, les techniques et les procédures de l’attaquant. Il utilise les données générées par les chasseurs de menaces de Microsoft et les équipes de sécurité, complétées par les renseignements fournis par les partenaires.
@@ -81,6 +85,9 @@ Vérifiez que votre machine est conforme aux conditions requises pour Defender p
     - **Machines locales** : connectez vos machines cibles à Azure Arc comme expliqué dans [Connecter des machines hybrides à des serveurs avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 1. Activez **Azure Defender pour les serveurs**. Consultez [Démarrage rapide : Activer Azure Defender](enable-azure-defender.md).
+
+    > [!IMPORTANT]
+    > L’intégration de Security Center à Microsoft Defender pour point de terminaison est activée par défaut. Ainsi, quand vous activez Azure Defender, vous consentez à ce qu’Azure Defender pour les serveurs accède aux données Microsoft Defender pour point de terminaison liées aux vulnérabilités, aux logiciels installés et aux alertes de vos points de terminaison.
 
 1. Si vous avez déplacé votre abonnement entre locataires Azure, certaines étapes préparatoires manuelles sont également requises. Pour plus d’informations, [contactez le support technique Microsoft](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

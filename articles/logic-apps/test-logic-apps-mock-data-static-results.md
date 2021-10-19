@@ -1,49 +1,54 @@
 ---
-title: Tester des applications logiques avec des données fictives
-description: Configurer les résultats statiques pour le test d’applications logiques avec des données fictives sans affecter les environnements de production
+title: Flux de travail de test fictifs
+description: Configurez des données fictives pour tester des flux de travail dans Azure Logic Apps sans affecter les environnements de production.
 services: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam
-ms.reviewer: estfan, logicappspm
-ms.topic: article
-ms.date: 05/13/2019
-ms.openlocfilehash: 711d753203aeaeba50cea692053a37fcab2e9c7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 10/08/2021
+ms.openlocfilehash: 4167dcffe0a1b4db50f6d1580ad6284f2cf9321d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93027701"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712423"
 ---
-# <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Tester des applications logiques avec des données fictives en configurant des résultats statiques
+# <a name="test-workflows-with-mock-data-in-azure-logic-apps-preview"></a>Flux de travail de test avec données fictives dans Azure Logic Apps (préversion)
 
-Lorsque vous testez vos applications logiques, vous n’êtes peut-être pas prêt à appeler des applications, services et systèmes ou à y accéder pour diverses raisons. Généralement, dans ces scénarios, vous devez exécuter différents chemins d’accès de condition, forcer des erreurs, fournir des corps de réponse de message spécifiques ou même tenter d’ignorer certaines étapes. En configurant des résultats statiques pour une action dans votre application logique, vous pouvez simuler des données de sortie pour cette action. L’activation des résultats statiques sur une action n’exécute pas l’action, mais renvoie des données fictives.
+> [!NOTE]
+> Cette fonctionnalité est en préversion et est soumise aux [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) des préversions de Microsoft Azure.
 
-Par exemple, si vous avez configuré des résultats statiques pour l’action d’envoi d’e-mails d’Outlook 365, le moteur Logic Apps renvoie juste les données fictives que vous avez spécifiées en tant que résultats statiques, au lieu d’appeler Outlook et d’envoyer un e-mail.
+Pour tester vos flux de travail sans appeler des applications, des données, des services ou des systèmes dynamiques, ni y accéder, vous pouvez configurer et retourner des valeurs fictives à partir d’actions. Par exemple, vous souhaitez peut-être tester différents chemins d’action en fonction de différentes conditions, forcer des erreurs, fournir des corps de réponse de message spécifiques ou même essayer d’ignorer certaines étapes. La configuration de données fictives sur une action n’entraîne pas l’exécution de l’action, mais renvoie les données fictives.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+Par exemple, si vous configurez des données fictives pour l’action d’envoi d’un e-mail d’Outlook 365, Azure Logic Apps retourne simplement les données fictives que vous avez fournies, au lieu d’appeler Outlook et d’envoyer un e-mail.
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+Cet article explique comment configurer des données fictives sur une action dans un flux de travail pour le type de ressource [**application logique (Consommation)** et **application logique (Standard)** ](logic-apps-overview.md#resource-environment-differences). Vous pouvez rechercher les précédentes exécutions du flux de travail qui utilisent ces données fictives et réutiliser des sorties d’action existantes en tant que données fictives.
 
-* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+## <a name="prerequisites"></a>Prérequis
 
-* L’application logique dans laquelle vous souhaitez configurer des résultats statiques
+* Un compte et un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez <a href="https://azure.microsoft.com/free/?WT.mc_id=A261C142F" target="_blank">vous inscrire pour obtenir un compte Azure gratuitement</a>.
 
-<a name="set-up-static-results"></a>
+* La ressource d’application logique et le flux de travail dans lesquels vous souhaitez utiliser des données fictives. Cet article utilise un déclencheur de **périodicité** et une action **HTTP** comme exemple de flux de travail.
 
-## <a name="set-up-static-results"></a>Configurer des résultats statiques
+  Si vous n’êtes pas familiarisé avec les applications logiques, consultez les sections [Présentation d’Azure Logic Apps](logic-apps-overview.md) et [Démarrage rapide : créer votre premier flux de travail d’application logique](quickstart-create-first-logic-app-workflow.md).
 
-1. Si ce n’est pas déjà fait, dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur Logic Apps.
+<a name="enable-mock-data"></a>
 
-1. Procédez comme suit pour l’action pour laquelle vous souhaitez configurer des résultats statiques : 
+## <a name="enable-mock-data-output"></a>Activer la sortie des données fictives
 
-   1. En haut à droite de l’action, choisissez le bouton représentant des points de suspension ( *...* ), puis sélectionnez **Résultat statique**, par exemple :
+### <a name="consumption"></a>[Consommation](#tab/consumption)
 
-      ![Sélectionner « Résultat statique » > « Activer le résultat statique »](./media/test-logic-apps-mock-data-static-results/select-static-result.png)
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez le flux de travail de votre application logique dans le concepteur.
 
-   1. Choisissez **Activer le résultat statique**. Pour les propriétés requises (*), spécifiez les valeurs de sortie fictives que vous souhaitez en réponse à l’action.
+1. Procédez comme suit pour l’action pour laquelle vous souhaitez retourner des données fictives :
 
-      Par exemple, voici les propriétés requises pour l’action HTTP :
+   1. En haut à droite de l’action, sélectionnez le bouton représentant des points de suspension( *...* ), puis **Test**, par exemple :
+
+      ![Capture d’écran montrant le portail Azure, le concepteur de flux de travail, le menu contextuel action et « Test » sélectionné.](./media/test-logic-apps-mock-data-static-results/select-testing.png)
+
+   1. Dans le volet **Test**, sélectionnez **Activer le résultat statique (préversion)** . Quand les propriétés requises (*) de l’action s’affichent, spécifiez les valeurs de sortie fictive que vous souhaitez retourner comme réponse de l’action.
+
+      Les propriétés varient en fonction du type d’action sélectionné. Par exemple, l’action HTTP a les propriétés obligatoires suivantes :
 
       | Propriété | Description |
       |----------|-------------|
@@ -52,94 +57,219 @@ Par exemple, si vous avez configuré des résultats statiques pour l’action d�
       | **En-têtes** | Contenu d’en-tête à renvoyer |
       |||
 
-      ![Sélectionnez « Activer le résultat statique »](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
+      ![Capture d’écran montrant le volet « Test » après avoir sélectionné « Activer le résultat statique ».](./media/test-logic-apps-mock-data-static-results/enable-static-result.png)
 
-      Pour entrer des données fictives au format JavaScript Objet Notation (JSON), choisissez **Basculer en mode JSON** (![choisissez « Basculer en mode JSON »](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
+      > [!TIP]
+      > Pour entrer les données au format JavaScript Objet Notation (JSON), choisissez **Basculer en mode JSON** (![icône « Basculer en mode JSON »](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
 
    1. Pour les propriétés facultatives, ouvrez la liste **Sélectionner des champs facultatifs**, puis sélectionnez les propriétés que vous souhaitez simuler.
 
-      ![Sélectionner des propriétés facultatives](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
+      ![Capture d’écran montrant le volet « Test » avec la liste « Sélectionner les champs facultatifs » ouverte.](./media/test-logic-apps-mock-data-static-results/optional-properties.png)
 
-1. Quand vous êtes prêt à enregistrer votre travail, choisissez **Terminé**.
+1. Quand vous êtes prêt, sélectionnez **Terminé**.
 
-   En haut à droite de l’action, la barre de titre affiche maintenant une icône de bécher test (![Icône pour résultats statiques](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), ce qui indique que vous avez activé les résultats statiques.
+   En haut à droite de l’action, la barre de titre affiche maintenant une icône de bécher de laboratoire (![icône du résultat statique](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)) qui indique que vous avez activé les résultats statiques.
 
-   ![Icône montrant l’activation des résultats statiques](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
+   ![Capture d’écran montrant une action avec l’icône de résultat statique.](./media/test-logic-apps-mock-data-static-results/static-result-enabled.png)
 
-   Pour rechercher les exécutions précédentes qui utilisent des données fictives, consultez la section [Rechercher les exécutions qui utilisent des résultats statiques](#find-runs-mock-data), plus loin dans cette rubrique.
+   Pour rechercher les exécutions du flux de travail qui utilisent des données fictives, consultez [Rechercher les exécutions qui utilisent des résultats statiques](#find-runs-mock-data) plus loin dans cette rubrique.
 
-<a name="reuse-sample-outputs"></a>
+### <a name="standard"></a>[Standard](#tab/standard)
 
-## <a name="reuse-previous-outputs"></a>Réutiliser des sorties précédentes
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez le flux de travail de votre application logique dans le concepteur.
 
-Si votre application logique a une exécution précédente avec des sorties, vous pouvez les réutiliser en tant que sorties fictives en copiant et collant les sorties de cette exécution.
+1. Dans le concepteur, sélectionnez l’action pour laquelle vous souhaitez retourner les données fictives afin que le volet Détails de l’action s’affiche.
 
-1. Si ce n’est pas déjà fait, dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur Logic Apps.
+1. Une fois que le volet Détails de l’action s’ouvre sur le côté droit, sélectionnez **Test**.
 
-1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**.
+   ![Capture d’écran montrant le portail Azure, le concepteur de flux de travail, le volet Détails de l’action et « Test » sélectionné.](./media/test-logic-apps-mock-data-static-results/select-testing-standard.png)
 
-1. Dans la section **Historique des exécutions**, sélectionnez l’application logique souhaitée.
+1. Dans l’onglet **Test**, sélectionnez **Activer le résultat statique (préversion)** . Quand les propriétés requises (*) de l’action s’affichent, spécifiez les valeurs de sortie fictive que vous souhaitez retourner comme réponse de l’action.
 
-1. Dans le flux de travail de votre application logique, recherchez et développez l’action qui a les sorties souhaitées.
+   Les propriétés varient en fonction du type d’action sélectionné. Par exemple, l’action HTTP a les propriétés obligatoires suivantes :
 
-1. Choisissez le lien **Afficher les sorties brutes**.
+   | Propriété | Description |
+   |----------|-------------|
+   | **État** | État de l’action à renvoyer |
+   | **Code d’état** | Code d’état spécifique à renvoyer |
+   | **En-têtes** | Contenu d’en-tête à renvoyer |
+   |||
 
-1. Copiez l’objet JavaScript Objet Notation (JSON) complet ou la sous-section spécifique que vous souhaitez utiliser, par exemple, la section des sorties ou même simplement la section des en-têtes.
+   ![Capture d’écran montrant l’onglet « Test » après avoir sélectionné « Activer le résultat statique ».](./media/test-logic-apps-mock-data-static-results/enable-static-result-standard.png)
 
-1. Suivez les étapes pour ouvrir la section **Résultat statique** de votre action dans [Configurer des résultats statiques](#set-up-static-results).
+   > [!TIP]
+   > Pour entrer les données au format JavaScript Objet Notation (JSON), choisissez **Basculer en mode JSON** (![icône « Basculer en mode JSON »](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)).
 
-1. Une fois la section **Résultat statique** ouverte, choisissez de procéder à l’une des opérations suivantes :
+1. Pour les propriétés facultatives, ouvrez la liste **Sélectionner des champs facultatifs**, puis sélectionnez les propriétés que vous souhaitez simuler.
 
-   * Pour coller un objet JSON complet, choisissez **Basculer en mode JSON** (![choisissez « Basculer en mode JSON »](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)) :
+   ![Capture d’écran montrant le volet « Test » avec la liste « Sélectionner les champs facultatifs » ouverte.](./media/test-logic-apps-mock-data-static-results/optional-properties-standard.png)
 
-     ![Choisir « Basculer en mode JSON » pour l’objet complet](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
+1. Quand vous êtes prêt, sélectionnez **Terminé**.
 
-   * Pour coller uniquement une section JSON, en regard de l’étiquette de cette section, sélectionnez **Basculer en mode JSON** pour cette section, par exemple :
+   En bas à droite de l’action s’affiche désormais une icône de bécher de laboratoire (![icône du résultat statique](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)) qui indique que vous avez activé les résultats statiques.
 
-     ![Choisir « Basculer en mode JSON » pour les sorties](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-outputs.png)
+   ![Capture d’écran montrant une action avec l’icône de résultat statique sur le concepteur.](./media/test-logic-apps-mock-data-static-results/static-result-enabled-standard.png)
 
-1. Dans l’éditeur JSON, collez votre élément JSON copié précédemment.
+   Pour rechercher les exécutions du flux de travail qui utilisent des données fictives, consultez [Rechercher les exécutions qui utilisent des résultats statiques](#find-runs-mock-data) plus loin dans cette rubrique.
 
-   ![Mode JSON](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
-
-1. Quand vous avez fini, choisissez **Terminé**. Ou, pour revenir au concepteur, choisissez **Basculer en mode Éditeur** (![choisissez « Basculer en mode Éditeur »](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+---
 
 <a name="find-runs-mock-data"></a>
 
-## <a name="find-runs-that-use-static-results"></a>Rechercher les exécutions qui utilisent des résultats statiques
+## <a name="find-runs-that-use-mock-data"></a>Rechercher les exécutions qui utilisent des données fictives
 
-L’historique des exécutions de votre application logique identifie les exécutions où les actions utilisent des résultats statiques. Pour rechercher ces exécutions, procédez comme suit :
+### <a name="consumption"></a>[Consommation](#tab/consumption)
 
-1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. 
+Pour rechercher les exécutions du flux de travail antérieures dans lesquelles des actions utilisent des données fictives, passez en revue l’historique des exécutions du flux de travail.
 
-1. Dans le volet droit, sous **Historique des exécutions**, recherchez la colonne **Résultats statiques**. 
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez le flux de travail de votre application logique dans le concepteur.
 
-   Toute exécution qui inclut des actions avec des résultats a la colonne **Résultats statiques** définie sur **Activée**, par exemple :
+1. Dans le menu de ressources de votre application logique, sélectionnez **Vue d’ensemble**.
 
-   ![Historique des exécutions - colonne de résultats statiques](./media/test-logic-apps-mock-data-static-results/run-history.png)
+1. Dans la section **Essentials**, sélectionnez **Historique des exécutions** s’il n’est pas déjà sélectionné.
 
-1. Pour afficher les actions qui utilisent des résultats statiques, sélectionnez l’exécution pour laquelle vous souhaitez que la colonne **Résultats statiques** soit définie sur **Activée**.
+1. Dans le tableau **Historique des exécutions**, recherchez la colonne **Résultats statiques**.
 
-   Les actions qui utilisent les résultats statiques affichent un bécher test (![Icône pour résultats statiques](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)), par exemple :
+   Toute exécution qui inclut des actions avec des données fictives à la colonne **Résultats statiques** définie sur **Activée**, par exemple :
 
-   ![Historique des exécutions - actions qui utilisent les résultats statiques](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
+   ![Capture d’écran montrant l’historique des exécutions du flux de travail avec la colonne « Résultats statiques ».](./media/test-logic-apps-mock-data-static-results/run-history.png)
 
-## <a name="disable-static-results"></a>Désactiver les résultats statiques
+1. Pour afficher les actions qui utilisent des données fictives, sélectionnez l’exécution que vous souhaitez avec la colonne **Résultats statiques** définie sur **Activée**.
 
-La désactivation des résultats statiques ne supprime pas les valeurs de votre dernière configuration. Par conséquent, la prochaine fois que vous activerez les résultats statiques, vous retrouverez vos valeurs précédentes.
+   Les actions qui utilisent les résultats statiques affichent le bécher de laboratoire (![icône du résultat statique](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), par exemple :
 
-1. Recherchez l’action pour laquelle vous souhaitez désactiver les sorties statiques. En haut à droite de l’action, cliquez sur l’icône de bécher test (![Icône pour résultats statiques](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)).
+   ![Capture d’écran montrant l’historique des exécutions du flux de travail avec des actions utilisant un résultat statique.](./media/test-logic-apps-mock-data-static-results/static-result-enabled-run-details.png)
 
-   ![Capture d’écran montrant une action HTTP dans laquelle vous pouvez sélectionner l’icône en forme de bécher de laboratoire.](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
+### <a name="standard"></a>[Standard](#tab/standard)
 
-1. Choisissez **Désactiver le résultat statique** > **Terminé**.
+Pour rechercher d’autres exécutions du flux de travail où les actions utilisent des données fictives, vous devez vérifier chaque exécution.
 
-   ![Capture d’écran montrant l’option Désactiver le résultat statique que vous pouvez sélectionner.](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez le flux de travail de votre application logique dans le concepteur.
+
+1. Dans le menu du flux de travail, sélectionnez **Vue d’ensemble**.
+
+1. Dans la section **Essentials**, sélectionnez **Historique des exécutions** s’il n’est pas déjà sélectionné.
+
+1. Dans le tableau **Historique des exécutions**, sélectionnez l’exécution que vous souhaitez passer en revue.
+
+   ![Capture d’écran montrant l’historique des exécutions du flux de travail.](./media/test-logic-apps-mock-data-static-results/select-run-standard.png)
+
+1. Dans le volet Détails de l’exécution, vérifiez si des actions affichent le bécher de laboratoire (![icône du résultat statique](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)), par exemple :
+
+   ![Capture d’écran montrant l’historique des exécutions du flux de travail avec des actions utilisant un résultat statique.](./media/test-logic-apps-mock-data-static-results/run-history-static-result-standard.png)
+
+---
+
+<a name="reuse-sample-outputs"></a>
+
+## <a name="reuse-previous-outputs-as-mock-data"></a>Réutiliser les sorties précédentes en tant que données fictives
+
+Si vous avez une précédente exécution du flux de travail avec des sorties, vous pouvez réutiliser ces sorties en tant que données fictives en effectuant un copier-coller de ces sorties à partir de cette exécution.
+
+### <a name="consumption"></a>[Consommation](#tab/consumption)
+
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez le flux de travail de votre application logique dans le concepteur.
+
+1. Dans le menu de ressources de votre application logique, sélectionnez **Vue d’ensemble**.
+
+1. Dans la section **Essentials**, sélectionnez **Historique des exécutions** s’il n’est pas déjà sélectionné. Dans la liste qui apparaît, sélectionnez l’exécution du flux de travail souhaité.
+
+   ![Capture d’écran montrant l’historique des exécutions du flux de travail.](./media/test-logic-apps-mock-data-static-results/select-run.png)
+
+1. Une fois le volet Détails de l’exécution ouvert, développez l’action qui contient les sorties souhaitées.
+
+1. Dans la section **Sorties**, sélectionnez **Afficher les sorties brutes**.
+
+1. Dans le volet **Sorties**, copiez soit l’objet JSON (JavaScript Objet Notation) complet, soit la sous-section spécifique que vous souhaitez utiliser, par exemple, la section des sorties ou tout simplement la section des en-têtes.
+
+1. Consultez la section précédente expliquant comment [configurer des données fictives](#enable-mock-data) pour une action et suivez les instructions pour ouvrir le volet **Test** de l’action.
+
+1. Une fois le volet **Test** ouvert, choisissez l’une des options suivantes :
+
+   * Pour coller un objet JSON complet, à côté de l’étiquette **Test**, sélectionnez **Basculer en mode JSON** (![icône « Basculer en mode JSON » ](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)) :
+
+     ![Capture d’écran montrant l’icône « Basculer en mode JSON » sélectionnée pour coller l’objet JSON complet.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete.png)
+
+   * Pour coller uniquement une section JSON, à côté de l’étiquette de cette section, par exemple **Sorties** ou **En-têtes**, sélectionnez **Basculer en mode JSON**, par exemple :
+
+     ![Capture d’écran montrant l’icône « Basculer en mode JSON » sélectionnée pour coller une section à partir d’un objet JSON.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-output.png)
+
+1. Dans l’éditeur JSON, collez votre élément JSON copié précédemment.
+
+   ![Capture d’écran montrant la section JSON collée dans l’éditeur.](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
+
+1. Quand vous avez terminé, cliquez sur **Terminé**. Ou bien sélectionnez **Basculer en mode Éditeur** (![Icône pour « Basculer en mode Éditeur »](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)) pour revenir au concepteur.
+
+### <a name="standard"></a>[Standard](#tab/standard)
+
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez le flux de travail de votre application logique dans le concepteur.
+
+1. Dans le menu du flux de travail, sélectionnez **Vue d’ensemble**.
+
+1. Dans la section **Essentials**, sélectionnez **Historique des exécutions** s’il n’est pas déjà sélectionné.
+
+1. Dans le tableau **Historique des exécutions**, sélectionnez l’exécution que vous souhaitez passer en revue.
+
+   ![Capture d’écran montrant l’historique des exécutions du flux de travail.](./media/test-logic-apps-mock-data-static-results/select-run-standard.png)
+
+1. Une fois le volet Détails de l’exécution ouvert, sélectionnez l’action qui contient les sorties souhaitées.
+
+1. Dans la section **Sorties**, sélectionnez **Afficher les sorties brutes**.
+
+1. Dans le volet **Sorties**, copiez soit l’objet JSON (JavaScript Objet Notation) complet, soit la sous-section spécifique que vous souhaitez utiliser, par exemple, la section des sorties ou tout simplement la section des en-têtes.
+
+1. Consultez la section précédente expliquant comment [configurer des données fictives](#enable-mock-data) pour une action et suivez les instructions pour ouvrir l’onglet **Test** de l’action.
+
+1. Une fois l’onglet **Test** ouvert, choisissez l’une des options suivantes :
+
+   * Pour coller un objet JSON complet, à côté de l’étiquette **Test**, sélectionnez **Basculer en mode JSON** (![icône « Basculer en mode JSON » ](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button.png)) :
+
+     ![Capture d’écran montrant l’icône « Basculer en mode JSON » sélectionnée pour coller l’objet JSON complet.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-complete-standard.png)
+
+   * Pour coller uniquement une section JSON, à côté de l’étiquette de cette section, par exemple **Sorties** ou **En-têtes**, sélectionnez **Basculer en mode JSON**, par exemple :
+
+     ![Capture d’écran montrant l’icône « Basculer en mode JSON » sélectionnée pour coller une section à partir d’un objet JSON.](./media/test-logic-apps-mock-data-static-results/switch-to-json-mode-button-output-standard.png)
+
+1. Dans l’éditeur JSON, collez votre élément JSON copié précédemment.
+
+   ![Capture d’écran montrant la section JSON collée dans l’éditeur.](./media/test-logic-apps-mock-data-static-results/json-editing-mode-standard.png)
+
+1. Quand vous avez terminé, cliquez sur **Terminé**. Ou bien sélectionnez **Basculer en mode Éditeur** (![Icône pour « Basculer en mode Éditeur »](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)) pour revenir au concepteur.
+
+---
+
+## <a name="disable-mock-data"></a>Désactiver les données fictives
+
+La désactivation des résultats statiques sur une action ne supprime pas les valeurs de votre dernière installation. Par conséquent, si vous réactivez le résultat statique sur la même action, vous pouvez continuer à utiliser les valeurs précédentes.
+
+### <a name="consumption"></a>[Consommation](#tab/consumption)
+
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez le flux de travail de votre application logique dans le concepteur. Recherchez l’action pour laquelle vous souhaitez désactiver les données fictives.
+
+1. En haut à droite de l’action, sélectionnez l’icône de bécher de laboratoire (![icône du résultat statique](./media/test-logic-apps-mock-data-static-results/static-result-test-beaker-icon.png)).
+
+   ![Capture d’écran montrant l’action et l’icône du bécher de laboratoire sélectionnée.](./media/test-logic-apps-mock-data-static-results/disable-static-result.png)
+
+1. Sélectionnez **Désactiver le résultat statique** > **Terminé**.
+
+   ![Capture d’écran montrant l’option « Désactiver les résultats statiques » sélectionnée.](./media/test-logic-apps-mock-data-static-results/disable-static-result-button.png)
+
+### <a name="standard"></a>[Standard](#tab/standard)
+
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez le flux de travail de votre application logique dans le concepteur. Sélectionnez l’action pour laquelle vous souhaitez désactiver les données fictives.
+
+1. Dans le volet Détails de l’action, sélectionnez l’onglet **Test**.
+
+1. Sélectionnez **Désactiver le résultat statique** > **Terminé**.
+
+   ![Capture d’écran montrant l’option « Désactiver les résultats statiques » sélectionnée pour Standard.](./media/test-logic-apps-mock-data-static-results/disable-static-result-button-standard.png)
+
+---
 
 ## <a name="reference"></a>Informations de référence
 
-Pour plus d’informations sur ce paramètre dans vos définitions de flux de travail sous-jacent, consultez [Schema reference for Workflow Definition Language in Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#static-results) (Référence de schéma du langage de définition de flux de travail dans Azure Logic Apps) et [runtimeConfiguration.staticResult - Runtime configuration settings](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings) (runtimeConfiguration.staticResult - paramètres de configuration du runtime)
+Pour plus d’informations sur ce paramètre dans vos définitions de flux de travail sous-jacent, consultez [Schema reference for Workflow Definition Language in Azure Logic Apps](logic-apps-workflow-definition-language.md#static-results) (Référence de schéma du langage de définition de flux de travail dans Azure Logic Apps) et [runtimeConfiguration.staticResult - Runtime configuration settings](logic-apps-workflow-actions-triggers.md#runtime-configuration-settings) (runtimeConfiguration.staticResult - paramètres de configuration du runtime)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+* En savoir plus sur [Azure Logic Apps](logic-apps-overview.md)

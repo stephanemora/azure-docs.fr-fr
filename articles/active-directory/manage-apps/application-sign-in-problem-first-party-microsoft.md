@@ -1,5 +1,6 @@
 ---
-title: Problèmes de connexion à une application Microsoft | Microsoft Docs
+title: Problèmes de connexion à une application Microsoft
+titleSuffix: Azure AD
 description: Résoudre les problèmes courants liés à la connexion aux applications internes Microsoft (comme Microsoft 365) à l’aide d’Azure AD.
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52cd2062745bd3506f687492dff240d15bbcc1b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 345d5e014631ef4f4a5dc0897face90a6267d032
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562801"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619082"
 ---
-# <a name="problems-signing-in-to-a-microsoft-application"></a>Problèmes de connexion à une application Microsoft
+# <a name="problems-signing-in-to-a-microsoft-application-in-azure-active-directory"></a>Problèmes de connexion à une application Microsoft dans Azure Active Directory
 
 Les applications Microsoft (comme Exchange, SharePoint, Yammer, etc.) sont affectées et gérées un peu différemment des applications SaaS tierces et des autres applications que vous intégrez à Azure AD pour l’authentification unique.
 

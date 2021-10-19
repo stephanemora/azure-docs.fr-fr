@@ -3,21 +3,21 @@ title: Considérations relatives à l’application des correctifs pour BareMeta
 description: En savoir plus sur les considérations relatives à l’application des correctifs pour le système d’exploitation/noyau pour BareMetal Infrastructure pour Oracle.
 ms.topic: reference
 ms.subservice: baremetal-oracle
-ms.date: 04/14/2021
-ms.openlocfilehash: 1c7a4a4f9e2395bbe29ab8bf27b18afb21f98917
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 10/06/2021
+ms.openlocfilehash: c842ad56e6777817e5db84e51a4d1302aebf5a63
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578565"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657489"
 ---
 # <a name="patching-considerations-for-baremetal-for-oracle"></a>Considérations relatives à l’application des correctifs pour BareMetal pour Oracle
 
 Dans cet article, nous allons examiner les considérations importantes relatives aux correctifs du système d’exploitation/noyau pour BareMetal Infrastructure pour Oracle.
 
-Pour des performances réseau et une stabilité du système appropriées, installez la version spécifique au système d’exploitation des pilotes eNIC et fNIC comme indiqué dans le tableau de compatibilité suivant. 
+Pour des performances réseau et une stabilité du système appropriées, installez la version spécifique au système d’exploitation des pilotes eNIC et fNIC. Consultez le tableau de compatibilité suivant. 
 
-Les serveurs sont fournis aux clients avec des versions compatibles. Toutefois, lors de la mise à jour corrective du système d’exploitation/noyau, les pilotes peuvent être restaurés vers les versions de pilote par défaut. Veillez donc à confirmer que la version appropriée du pilote exécute les opérations de mise à jour corrective du système d’exploitation/noyau suivantes.
+Les serveurs sont fournis aux clients avec des versions compatibles. Toutefois, la mise à jour corrective du système d’exploitation et/ou du noyau peut entraîner la restauration de la version par défaut des pilotes. Veillez donc à confirmer que la version correcte du pilote est exécutée après la mise à jour corrective du système d’exploitation/noyau.
 
 | Fournisseur du système d’exploitation | Version du package du système d’exploitation | Version du microprogramme | Pilote eNIC | Pilote fNIC |
 | --- | --- | --- | --- | --- |

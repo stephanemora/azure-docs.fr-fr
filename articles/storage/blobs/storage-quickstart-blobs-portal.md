@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un blob avec le portail Azure'
+title: 'Démarrage rapide : Charger, télécharger et lister des objets blob - Portail Azure'
 titleSuffix: Azure Storage
 description: Dans ce Démarrage rapide, vous utilisez le portail Azure dans un stockage d’objets (blob). Ensuite, vous utilisez le portail Azure pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob dans un conteneur.
 services: storage
@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 04/29/2021
 ms.author: tamram
-ms.openlocfilehash: 2e181394a67cb6762965e600ada46ab48c753fbc
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: e5dcd34491c2b8b06b7739eae606ba8618dbdef6
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317453"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619044"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Démarrage rapide : Charger, télécharger et lister les objets blob avec le portail Azure
 

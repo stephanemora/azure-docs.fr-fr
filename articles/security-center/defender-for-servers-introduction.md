@@ -3,16 +3,16 @@ title: 'Azure Defender pour les serveurs : avantages et fonctionnalités'
 description: Découvrez les avantages et les fonctionnalités d’Azure Defender pour les serveurs.
 author: memildin
 ms.author: memildin
-ms.date: 08/09/2021
+ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5ffa11472227375867be215ed73ee0b7fc203b9c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1a7b5d1e7ed3c4c1de2c535fb126b67f3ffadecd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121743095"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711714"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Présentation d’Azure Defender pour les serveurs
 
@@ -32,13 +32,15 @@ Les fonctionnalités de détection et de protection des menaces fournies avec Az
     Quand Microsoft Defender pour point de terminaison détecte une menace, il déclenche une alerte. L’alerte s’affiche dans Security Center. À partir de Security Center, vous pouvez également accéder à la console Microsoft Defender pour point de terminaison et effectuer un examen détaillé pour découvrir l’étendue de l’attaque. Découvrez-en plus sur Microsoft Defender pour point de terminaison.
 
     > [!IMPORTANT]
-    > Le capteur **Microsoft Defender pour point de terminaison** est automatiquement activé sur les machines Windows qui utilisent Security Center.
+    > L’intégration de Security Center à Microsoft Defender pour point de terminaison est activée par défaut. Ainsi, quand vous activez Azure Defender, vous consentez à ce qu’Azure Defender pour les serveurs accède aux données Microsoft Defender pour point de terminaison liées aux vulnérabilités, aux logiciels installés et aux alertes de vos points de terminaison.
     >
-    > Nous proposons actuellement le capteur pour les machines Linux en préversion. En savoir plus dans [Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint](security-center-wdatp.md). 
+    > Nous proposons actuellement le capteur pour les machines Linux en préversion. En savoir plus dans [Protéger vos points de terminaison avec la solution EDR intégrée de Security Center : Microsoft Defender for Endpoint](security-center-wdatp.md).
 
-- **Analyse d’évaluation des vulnérabilités pour les machines virtuelles** : Azure Defender pour les serveurs comprend un scanner de vulnérabilité reposant sur Qualys.
+- **Outils d’évaluation des vulnérabilités pour les machines** - Azure Defender pour les serveurs comprend un choix d’outils de découverte et de gestion des vulnérabilités pour vos machines. Dans les pages de paramètres de Security Center, vous pouvez sélectionner les outils à déployer sur vos machines. Les vulnérabilités découvertes s’affichent alors au sein d’une recommandation de sécurité.
 
-    L’analyseur de Qualys est l’un des outils de référence pour identifier en temps réel les vulnérabilités de vos machines virtuelles Azure et hybrides. Vous n’avez pas besoin d’une licence Qualys ni même de compte Qualys : tout est traité de manière fluide dans Security Center. Pour plus d’informations, consultez [Solution intégrée d’évaluation des vulnérabilités d’Azure Defender pour les machines Azure et hybrides](deploy-vulnerability-assessment-vm.md).
+    - **Gestion des menaces et des vulnérabilités Microsoft** - Découvrez les vulnérabilités et les erreurs de configuration en temps réel avec Microsoft Defender pour point de terminaison, sans avoir besoin d’agents supplémentaires ou d’analyses périodiques. La fonctionnalité [Gestion des menaces et des vulnérabilités](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt) hiérarchise les vulnérabilités en fonction du paysage des menaces, des détections effectuées dans votre organisation, des informations sensibles sur les appareils vulnérables et du contexte métier. Découvrez davantage d’informations dans [Investiguer les faiblesses avec la gestion des menaces et des vulnérabilités de Microsoft Defender pour point de terminaison](deploy-vulnerability-assessment-tvm.md)
+
+    - **Analyseur de vulnérabilité avec Qualys** - L’analyseur de Qualys est l’un des principaux outils d’identification en temps réel des vulnérabilités de vos machines virtuelles Azure et hybrides. Vous n’avez pas besoin d’une licence Qualys ni même de compte Qualys : tout est traité de manière fluide dans Security Center. Découvrez davantage d’informations dans [Analyseur Qualys intégré d’Azure Defender pour les machines Azure et hybrides](deploy-vulnerability-assessment-vm.md).
 
 - **Accès juste-à-temps (JAT) des machines virtuelles** : les acteurs des menaces repèrent activement les machines accessibles avec des ports de gestion ouverts, par exemple RDP ou SSH. Toutes vos machines virtuelles sont des cibles potentielles pour une attaque. Lorsqu’une machine virtuelle est compromise, elle est utilisée comme point d’entrée pour attaquer d’autres ressources au sein de votre environnement.
 
@@ -55,6 +57,7 @@ Les fonctionnalités de détection et de protection des menaces fournies avec Az
 - **Sécurisation adaptative du réseau (ANH)**  : l’application de groupes de sécurité réseau (NSG) pour filtrer le trafic vers et depuis des ressources améliore votre posture de sécurité réseau. Il peut toutefois rester des cas dans lesquels le trafic réel qui transite via le groupe de sécurité réseau est un sous-ensemble des règles NSG définies. Dans ces cas, une amélioration supplémentaire de la posture de sécurité est possible en renforçant les règles NSG en fonction des modèles de trafic réel.
 
     Le renforcement du réseau adaptatif fournit des suggestions visant à renforcer encore les règles NSG. Il utilise un algorithme de Machine Learning factorisé dans le trafic réel, appelé une configuration approuvée, l’intelligence des menaces et d’autres indicateurs de compromis, puis fournit des suggestions pour autoriser uniquement le trafic provenant de tuples IP/port spécifiques. Pour plus d’informations, consultez [Améliorer votre posture de sécurité réseau avec le renforcement du réseau adaptatif](security-center-adaptive-network-hardening.md).
+
 
 - **Sécurisation de l’hôte Docker** : Azure Security Center identifie les conteneurs non managés qui sont hébergés sur des machines virtuelles IaaS Linux, ou d’autres machines Linux exécutant des conteneurs Docker. Security Center évalue en continu les configurations de ces conteneurs. Il les compare ensuite au document de référence Center for Internet Security (CIS) Docker Benchmark. Security Center inclut la totalité des règles définies dans le CIS Docker Benchmark et vous envoie une alerte si vos conteneurs ne satisfont pas à tous les contrôles. Pour plus d’informations, consultez [Renforcer vos hôtes Docker](harden-docker-hosts.md).
 

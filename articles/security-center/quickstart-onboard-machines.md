@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: fc844a3f0f13db3520f0a8302a98392301030d19
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 73384ff81ddbcc987bb07cd6e516921c32a4c296
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122228738"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712885"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>Connecter vos machines non-Azure à Security Center
 
@@ -46,7 +46,7 @@ Découvrez-en plus sur les [serveurs avec Azure Arc](../azure-arc/servers/overvi
 
 **Pour déployer Azure Arc :**
 
-- Pour une machine, suivez les instructions fournies dans [Démarrage rapide : Connecter des machines hybrides à l’aide de serveurs avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+- Pour une seule machine, suivez les instructions fournies dans [Démarrage rapide : Connecter des machines hybrides à l’aide de serveurs avec Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - Pour connecter à grande échelle plusieurs machines à des serveurs avec Azure Arc, consultez [Connecter des machines hybrides à Azure à grande échelle](../azure-arc/servers/onboard-service-principal.md)
 
 > [!TIP]

@@ -4,52 +4,115 @@ description: Fichier include
 author: timlt
 ms.service: iot-develop
 ms.topic: include
-ms.date: 08/03/2021
+ms.date: 10/07/2021
 ms.author: timlt
 ms.custom: include file
-ms.openlocfilehash: 086370583f77ddadeae156fe0fa3d5babf80d815
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: a0082eb488c05d71409606e1048b0a94fd6155a4
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129516630"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855030"
 ---
 [![Parcourir le code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples)
 
 Dans ce guide de démarrage rapide, vous allez découvrir un workflow simple de développement d’application Azure IoT. Vous utilisez l’interface Azure CLI pour créer un hub Azure IoT et un appareil. Ensuite, vous utilisez un exemple Azure IoT device SDK pour exécuter un contrôleur de température simulé, le connecter en toute sécurité au hub et envoyer des données de télémétrie.
 
 ## <a name="prerequisites"></a>Prérequis
+
+Ce guide de démarrage rapide s’exécute sur Windows, Linux et Raspberry Pi. Il a été testé sur les versions de système d’exploitation et d’appareil suivantes :
+
+- Windows 10
+- Ubuntu 20.04 LTS exécuté sur le sous-système Windows pour Linux (WSL)
+- Système d’exploitation Raspberry Pi version 10 (Raspian) exécuté sur un Raspberry Pi 3 modèle B+
+
+Installez les prérequis suivants sur votre ordinateur de développement, sauf mention prévue pour Raspberry Pi :
+
 - Si vous n’avez pas d’abonnement Azure, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-- [Visual Studio (Community, Professional ou Enterprise) 2019](https://visualstudio.microsoft.com/downloads/).
-- Une copie locale du dépôt GitHub [Microsoft Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp). Téléchargez une copie du dépôt et extrayez-la : [Télécharger le fichier .zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip).
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) : utilitaire multiplateforme basé sur l’interface graphique utilisateur permettant de surveiller et gérer Azure IoT. 
+- [Git](https://git-scm.com/downloads).
+- Kit SDK .NET Core 3.1. Veillez à installer le kit SDK .NET, et pas seulement le runtime. Pour vérifier la version du kit SDK .NET et du runtime installés sur votre machine, exécutez `dotnet --info`.
+
+  - Pour Windows et Linux (à l’exception de Raspberry Pi), suivez les instructions permettant d’[installer le kit SDK .NET Core 3.1](/dotnet/core/install/) sur votre plateforme.
+  - Pour Raspberry Pi, vous devez suivre les instructions permettant d’[installer manuellement le kit SDK](/dotnet/core/install/linux-scripted-manual#manual-install). En effet, sur Debian, les installations du gestionnaire de package du kit SDK .NET sont prises en charge uniquement pour l’architecture x64.
+
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) : utilitaire multiplateforme basé sur l’interface graphique utilisateur permettant de surveiller et gérer Azure IoT. Si vous utilisez Raspberry Pi comme plateforme de développement, nous vous recommandons d’installer IoT Explorer sur un autre ordinateur. Si vous ne souhaitez pas installer IoT Explorer, vous pouvez utiliser l’interface Azure CLI pour effectuer la même procédure. 
 - Azure CLI. Vous avez le choix entre deux options pour exécuter les commandes Azure CLI dans ce guide de démarrage rapide :
     - Utilisez Azure Cloud Shell, un interpréteur de commandes interactif qui exécute des commandes CLI dans votre navigateur. Cette option est recommandée, car vous n’avez pas besoin d’installer quoi que ce soit. Si vous utilisez Cloud Shell pour la première fois, connectez-vous au [portail Azure](https://portal.azure.com). Suivez les étapes décrites dans [Démarrage rapide de Cloud Shell](../articles/cloud-shell/quickstart.md) pour **démarrer Cloud Shell** et **sélectionner l’environnement Bash**.
-    - Si vous le souhaitez, exécutez Azure CLI sur votre ordinateur local. Si l’interface de ligne de commande Azure est déjà installée, exécutez `az upgrade` pour la mettre à niveau, ainsi que les extensions, vers la version actuelle. Pour installer l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure]( /cli/azure/install-azure-cli).
+    - Si vous le souhaitez, exécutez Azure CLI sur votre ordinateur local. Si l’interface de ligne de commande Azure est déjà installée, exécutez `az upgrade` pour la mettre à niveau, ainsi que les extensions, vers la version actuelle. Pour installer l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure]( /cli/azure/install-azure-cli). Si vous utilisez Raspberry Pi comme plateforme de développement, nous vous recommandons d’utiliser Azure Cloud Shell ou d’installer Azure CLI sur un autre ordinateur.
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## <a name="run-a-simulated-device"></a>Exécuter un appareil simulé
+
 Dans cette section, vous allez utiliser le kit SDK C# pour envoyer des messages d’un appareil simulé à votre hub IoT. Vous allez exécuter un exemple qui implémente un contrôleur de température avec deux capteurs de thermostat.
 
-Pour exécuter l’exemple d’application dans Visual Studio :
+1. Ouvrez une nouvelle console telle que Windows CMD, PowerShell ou Bash. Dans la procédure suivante, vous allez utiliser cette console pour installer le kit SDK Node.js et travailler avec un exemple de code Node.js.
 
-1. Dans le dossier où vous avez décompressé les exemples Azure IoT pour C#, ouvrez le fichier de solution *azure-iot-samples-csharp-main\iot-hub\Samples\device\IoTHubDeviceSamples.sln"* dans Visual Studio. 
+    > [!NOTE]
+    > Si vous utilisez une installation locale d’Azure CLI, vous avez peut-être maintenant deux fenêtres de console ouvertes. Veillez à entrer les commandes de cette section dans la console que vous venez d’ouvrir et non dans celle que vous avez utilisée pour l’interface CLI.
 
-1. Dans **Explorateur de solutions**, sélectionnez le fichier de projet **PnpDeviceSamples > TemperatureController**, cliquez dessus avec le bouton droit et sélectionnez **Définir comme projet de démarrage**.
+1. Clonez les [exemples Microsoft Azure IoT pour C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) sur votre machine locale :
 
-1. Cliquez avec le bouton droit sur le projet **TemperatureController**, sélectionnez **Propriétés**, sélectionnez l’onglet **Déboguer**, puis ajoutez les variables d’environnement suivantes au projet :
+    ```console
+    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+    ```
 
-    | Nom | Valeur |
-    | ---- | ----- |
-    | IOTHUB_DEVICE_SECURITY_TYPE | *connectionString* |
-    | IOTHUB_DEVICE_CONNECTION_STRING | Chaîne de connexion enregistrée précédemment. |
+1. Accédez au répertoire des exemples :
 
-1. Enregistrez le fichier de projet **TemperatureController** mis à jour.
+    **Windows**
+    ```console
+    cd azure-iot-samples-csharp\iot-hub\Samples\device\PnpDeviceSamples\TemperatureController
+    ```
 
-1. Dans Visual Studio, appuyez sur Ctrl+F5 pour exécuter l’exemple.
+    **Système d’exploitation Linux ou Raspberry Pi**
+    ```console
+    cd azure-iot-samples-csharp/iot-hub/Samples/device/PnpDeviceSamples/TemperatureController
+    ```
 
-Une fenêtre de console s'ouvre. L’échantillon se connecte en toute sécurité à votre hub IoT en tant qu’appareil que vous avez inscrit et commence à envoyer des messages de télémétrie. L’exemple de sortie s’affiche dans la console.
+1. Installez le kit SDK Azure IoT pour C# et les dépendances nécessaires :
+
+    ```console
+    dotnet restore
+    ```
+
+    Cette commande installe les dépendances appropriées, comme indiqué dans le fichier *TemperatureController.csproj*.
+
+1. Définissez les deux variables d’environnement suivantes pour permettre à votre appareil simulé de se connecter à Azure IoT.
+    * Définissez une variable d’environnement appelée `IOTHUB_DEVICE_CONNECTION_STRING`. Pour la valeur de la variable, utilisez la chaîne de connexion de l’appareil que vous avez enregistrée dans la section précédente.
+    * Définissez une variable d’environnement appelée `IOTHUB_DEVICE_SECURITY_TYPE`. Pour la variable, utilisez la valeur de chaîne littérale `connectionString`.
+
+    **CMD (Windows)**
+
+    ```console
+    set IOTHUB_DEVICE_CONNECTION_STRING=<your connection string here>
+    set IOTHUB_DEVICE_SECURITY_TYPE=connectionString
+    ```
+
+    > [!NOTE]
+    > Pour Windows CMD, il n’y a pas de guillemets avant et après les valeurs de chaîne pour chaque variable.
+
+    **PowerShell**
+
+    ```azurepowershell
+    $env:IOTHUB_DEVICE_CONNECTION_STRING='<your connection string here>'
+    $env:IOTHUB_DEVICE_SECURITY_TYPE='connectionString'
+    ```
+
+    **Bash**
+
+    ```bash
+    export IOTHUB_DEVICE_CONNECTION_STRING="<your connection string here>"
+    export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
+    ```
+1. Exécutez l’exemple de code :
+
+    ```console
+    dotnet run
+    ```
+    > [!NOTE]
+    > Cet exemple de code utilise Azure IoT Plug-and-Play, qui vous permet d’intégrer des appareils intelligents dans vos solutions sans aucune configuration manuelle.  Par défaut, la plupart des exemples de cette documentation utilisent IoT Plug-and-Play. Pour en savoir plus sur les avantages et les cas d’utilisation d’IoT PnP, consultez [Qu’est ce qu’IoT Plug-and-Play ?](../articles/iot-develop/overview-iot-plug-and-play.md).
+
+L’échantillon se connecte en toute sécurité à votre hub IoT en tant qu’appareil que vous avez inscrit et commence à envoyer des messages de télémétrie. L’exemple de sortie s’affiche dans votre console.
 
 ## <a name="view-telemetry"></a>Afficher les données de télémétrie
 

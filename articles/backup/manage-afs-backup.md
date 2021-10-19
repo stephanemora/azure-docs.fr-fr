@@ -2,13 +2,13 @@
 title: Gérer les sauvegardes de partage de fichiers Azure
 description: Cet article décrit les tâches courantes de gestion et de supervision des partages de fichiers Azure sauvegardés par le service Sauvegarde Azure.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 973c28b2c8caac4d2acda9e2cd976f9ceb8c387c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.date: 10/08/2021
+ms.openlocfilehash: e955ed1cf01c055ea72218076799d7da31d096b7
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534031"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714315"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gérer les sauvegardes de partage de fichiers Azure
 
@@ -30,31 +30,65 @@ Pour ouvrir la page **Travaux de sauvegarde** :
 
 ## <a name="monitor-using-azure-backup-reports"></a>Surveiller à l’aide des rapports de Sauvegarde Azure
 
-Sauvegarde Azure propose une solution de création de rapports qui utilise les [journaux d’activité Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) et les [classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). Ces ressources vous permettent d’obtenir des informations détaillées sur vos sauvegardes. Vous pouvez tirer parti de ces rapports pour obtenir une visibilité sur les éléments de sauvegarde Azure Files, les travaux au niveau de l’élément et les détails des stratégies actives. La fonctionnalité Rapport par e-mail disponible dans Rapports de sauvegarde vous permet de créer des tâches automatisées pour recevoir régulièrement des rapports par e-mail. [En savoir plus](/azure/backup/configure-reports#get-started) sur la configuration et l’affichage des rapports de Sauvegarde Azure.
+La Sauvegarde Azure offre une solution de création de rapports qui utilise les [journaux Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) et les [classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). Ces ressources vous aident à obtenir des insights enrichis dans vos sauvegardes. Vous pouvez tirer parti de ces rapports pour obtenir une visibilité sur les éléments de sauvegarde Azure Files, les travaux au niveau de l’élément et les détails des stratégies actives. La fonctionnalité Rapport par e-mail disponible dans Rapports de sauvegarde vous permet de créer des tâches automatisées pour recevoir régulièrement des rapports par e-mail. [En savoir plus](/azure/backup/configure-reports#get-started) sur la configuration et l’affichage des rapports de Sauvegarde Azure.
 
 ## <a name="create-a-new-policy"></a>Créer une nouvelle stratégie
 
 Vous pouvez créer une nouvelle stratégie de sauvegarde des partages de fichiers Azure à partir de la section **Stratégies de sauvegarde** du coffre Recovery Services. Toutes les stratégies créées lors de la configuration de la sauvegarde des partages de fichiers sont définies sur le **Type de stratégie** **Partage de fichiers Azure**.
 
+Pour créer une stratégie de sauvegarde, procédez comme suit :
+
+1. Dans le volet **Stratégies de sauvegarde** du coffre Recovery Services, sélectionnez **+ Ajouter**.
+
+   :::image type="content" source="./media/manage-afs-backup/new-backup-policy.png" alt-text="Capture d’écran montrant l’option permettant de démarrer la création d’une stratégie de sauvegarde.":::
+
+1. Dans le volet **Ajouter**, sélectionnez **Partage de fichiers Azure** comme **Type de stratégie**.
+
+   :::image type="content" source="./media/manage-afs-backup/define-policy-type.png" alt-text="Capture d’écran montrant comment sélectionner le partage de fichiers Azure comme type de stratégie.":::
+
+1. Lorsque le volet **Stratégie de sauvegarde** du **Partage de fichiers Azure** s’ouvre, spécifiez le nom de stratégie.
+
+1. Dans **Planification de sauvegarde**, sélectionnez une fréquence appropriée pour les sauvegardes : **Quotidienne** ou **Horaire**.
+
+   :::image type="content" source="./media/manage-afs-backup/backup-frequency-types.png" alt-text="Capture d’écran montrant les types de fréquence pour les sauvegardes.":::
+
+   - **Quotidienne** : déclenche une sauvegarde par jour. Pour la fréquence quotidienne, sélectionnez les valeurs appropriées pour :
+
+     - **Heure** : timestamp indiquant à quel moment le travail de sauvegarde doit être déclenché.
+     - **Fuseau horaire** : fuseau horaire correspondant au travail de sauvegarde.
+
+   - **Toutes les heures** : déclenche plusieurs sauvegardes par jour. Pour la fréquence horaire, sélectionnez les valeurs appropriées pour :
+   
+     - **Planification** : intervalle de temps (en heures) entre les sauvegardes consécutives.
+     - **Heure de début** : heure à laquelle le premier travail de sauvegarde du jour doit être déclenché.
+     - **Durée** : représente la fenêtre de sauvegarde (en heures), c’est-à-dire l’intervalle de temps pendant lequel les travaux de sauvegarde doivent être déclenchés conformément à la planification sélectionnée.
+     - **Fuseau horaire** : fuseau horaire correspondant au travail de sauvegarde.
+     
+     Par exemple, vous avez besoin d’un RPO (objectif de point de récupération) de 4 heures et vos heures de travail sont de 9 h 00 à 21 h 00. Pour répondre à ces exigences, la configuration de la planification de sauvegarde est la suivante :
+    
+     - Planification : Toutes les 4 heures
+     - Heure de début : 9 h 
+     - Durée : 12 heures 
+     
+     :::image type="content" source="./media/manage-afs-backup/hourly-backup-frequency-values-scenario.png" alt-text="Capture d’écran montrant un exemple de valeurs de fréquence de sauvegarde toutes les heures.":::
+
+     En fonction de votre sélection, les détails du travail de sauvegarde (horodatage de déclenchement du travail de sauvegarde) s’affichent dans le panneau Stratégie de sauvegarde.
+
+1. Dans **Durée de rétention**, spécifiez les valeurs de rétention appropriées pour les sauvegardes (quotidienne, hebdomadaire, mensuelle ou annuelle).
+
+1. Après avoir défini tous les attributs de la stratégie, cliquez sur **Créer**.
+  
+### <a name="view-policy"></a>Afficher la stratégie
+
 Pour afficher les stratégies de sauvegarde existantes :
 
 1. Ouvrez le coffre Recovery Services que vous avez utilisé pour configurer la sauvegarde du partage de fichiers. Dans le menu du coffre Recovery Services, accédez à la section **Gestion** et sélectionnez **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde configurées dans le coffre apparaissent.
 
-   ![Toutes les stratégies de sauvegarde](./media/manage-afs-backup/all-backup-policies.png)
+   :::image type="content" source="./media/manage-afs-backup/all-backup-policies.png" alt-text="Capture d’écran montrant toutes les stratégies de sauvegarde.":::
 
 1. Pour afficher les stratégies spécifiques au **Partage de fichiers Azure**, sélectionnez **Partage de fichiers Azure** dans la liste déroulante située en haut à droite.
 
-   ![Sélectionner Partage de fichiers Azure](./media/manage-afs-backup/azure-file-share.png)
-
-Pour créer une nouvelle stratégie de sauvegarde :
-
-1. Dans le volet **Stratégies de sauvegarde**, sélectionnez **+ Ajouter**.
-
-   ![Nouvelle stratégie de sauvegarde](./media/manage-afs-backup/new-backup-policy.png)
-
-1. Dans le volet **Ajouter**, sélectionnez **Partage de fichiers Azure** comme **Type de stratégie**. Le volet **Stratégie de sauvegarde** du **Partage de fichiers Azure** s'ouvre. Spécifiez le nom de la stratégie, la fréquence de sauvegarde et la durée de rétention des points de récupération. Une fois la stratégie définie, sélectionnez **OK**.
-
-   ![Définir la stratégie de sauvegarde](./media/manage-afs-backup/define-backup-policy.png)
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share.png" alt-text="Capture d’écran montrant le processus de sélection d’un partage de fichiers Azure.":::
 
 ## <a name="modify-policy"></a>Modifier la stratégie
 

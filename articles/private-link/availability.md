@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 3/15/2021
 ms.custom: template-concept,references_regions
-ms.openlocfilehash: aaa013a25e9131ec55f002db089de0d353f13f7c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 175b940995ed4e68e1358989e8c9b09c201f3ce4
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128585763"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711805"
 ---
 # <a name="azure-private-link-availability"></a>Disponibilité d’Azure Private Link
 
@@ -39,6 +39,7 @@ Les tableaux suivants listent les services Private Link et les régions où ils 
 |Azure Event Hub | Toutes les régions publiques<br/>Toutes les régions administratives      |   | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Event Hub.](../event-hubs/private-link-service.md)  |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Toutes les régions publiques      |  | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Monitor.](../azure-monitor/logs/private-link-security.md)   |
 |Azure Data Factory | Toutes les régions publiques<br/> Toutes les régions administratives<br/>Toutes les régions de Chine    | Les informations d’identification doivent être stockées dans un coffre de clés Azure| GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
+|Azure HDInsight | Toutes les régions publiques<br/>Toutes les régions administratives      |   | GA   <br/> [Découvrez comment créer un point de terminaison privé pour Azure HDInsight.](../hdinsight/hdinsight-private-link.md)  |
 
 ### <a name="compute"></a>Compute
 

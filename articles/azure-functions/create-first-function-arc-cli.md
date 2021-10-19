@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Créer une application de fonction sur Azure Arc'
 description: Démarrez avec Azure Functions sur Azure Arc en déployant votre première application de fonction.
 ms.topic: quickstart
 ms.date: 05/10/2021
-ms.openlocfilehash: 3a9c92e500e79b68688ec526baa2a77b8df2ccef
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4fd5a7a2792e6e90748c60336d92d5ed80388267
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121723014"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706993"
 ---
 # <a name="create-your-first-function-on-azure-arc-preview"></a>Créer votre première fonction sur Azure Arc (préversion)
 
@@ -164,7 +164,7 @@ func azure functionapp list-functions
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que votre application de fonction s’exécute dans un conteneur dans un environnement App Service Kubernetes avec Arc, vous pouvez la connecter au service Stockage Azure en ajoutant une liaison de sortie Stockage File d’attente.
+Maintenant que votre application de fonction s’exécute dans un conteneur dans un environnement App Service Kubernetes avec Azure Arc, vous pouvez la connecter au Stockage Azure en ajoutant une liaison de sortie Stockage File d’attente.
 
 # <a name="c"></a>[C\#](#tab/csharp)  
 

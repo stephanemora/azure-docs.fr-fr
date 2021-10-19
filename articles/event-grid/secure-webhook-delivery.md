@@ -2,13 +2,13 @@
 title: Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Event Grid
 description: Décrit comment livrer des événements aux points de terminaison HTTPS protégés par Azure Active Directory à l’aide d’Azure Event Grid
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.openlocfilehash: 6a0f9059e17d96d497b425abc9749e69c5ab4d41
-ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
+ms.date: 09/29/2021
+ms.openlocfilehash: ef5bbb33f738a102277870c6227813f6ce8ad257
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107575545"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616844"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publier des événements sur des points de terminaison protégés par Azure Active Directory
 Cet article explique comment utiliser Azure Active Directory (Azure AD) pour sécuriser la connexion entre votre **abonnement aux événements** et votre **point de terminaison webhook**. Pour obtenir une vue d’ensemble des applications et des principaux de service Azure AD, consultez [Présentation de la plateforme d’identités Microsoft (v2.0)](../active-directory/develop/v2-overview.md).
@@ -18,166 +18,158 @@ Cet article utilise le Portail Azure à des fins de démonstration, mais la fonc
 > [!IMPORTANT]
 > Une vérification d’accès supplémentaire a été introduite dans le cadre de la création ou de la mise à jour de l’abonnement aux événements le 30 mars 2021 afin de résoudre une faille de sécurité. Le principal de service du client abonné doit être soit propriétaire, soit avoir un rôle attribué sur le principal de service de l’application de destination. Reconfigurez votre application AAD en suivant les nouvelles instructions ci-dessous.
 
+## <a name="single-tenant-events-with-azure-ad-and-webhooks"></a>Événements à un seul locataire avec Azure AD et webhooks
 
-## <a name="create-an-azure-ad-application"></a>Créer une application Azure AD
-Inscrivez votre webhook auprès d’Azure AD en créant une application Azure AD pour votre point de terminaison protégé. Consultez [Scénario : API web protégée](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview). Configurez votre API protégée pour qu’elle soit appelée par une application démon.
+![Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Event Grid](./media/secure-webhook-delivery/single-tenant-diagram.png)
+
+Sur la base du diagramme ci-dessus, procédez comme suit pour configurer le locataire.
+
+### <a name="configure-the-event-subscription-by-using-azure-ad-user"></a>Configurer l’abonnement aux événements à l’aide d’un utilisateur Azure AD
+
+1. Créez une application Azure AD pour le webhook configuré pour fonctionner avec l’annuaire Microsoft (monolocataire).
+
+2. Ouvrez [Azure Shell](https://portal.azure.com/#cloudshell/) dans le locataire, puis sélectionnez l’environnement PowerShell.
+
+3. Modifiez la valeur de **$webhookAadTenantId** pour vous connecter au locataire.
+
+    - Variables:
+        - **$webhookAadTenantId** : ID de locataire Azure
+
+    ```Shell
+    PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
+    PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
+    ```
+
+4. Ouvrez le [script suivant](scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-user.md) et mettez à jour les valeurs de **$webhookAppObjectId** et **$eventSubscriptionWriterUserPrincipalName** avec vos identificateurs, puis poursuivez l’exécution du script.
+
+    - Variables:
+        - **$webhookAppObjectId** : ID d’application Azure AD créé pour le webhook
+        - **$eventSubscriptionWriterUserPrincipalName** : nom d’utilisateur principal Azure de l’utilisateur qui va créer l’abonnement aux événements
+
+    > [!NOTE]
+    > Vous n’avez pas besoin de modifier la valeur de **$eventGridAppId**, pour ce script. Nous définissons **AzureEventGridSecureWebhookSubscriber** comme valeur de **$eventGridRoleName**. N’oubliez pas que, pour exécuter ce script, vous devez être membre du [rôle Administrateur d’application Azure AD](../active-directory/roles/permissions-reference.md#all-roles).
+
+5. Dans le portail, lorsque vous créez un abonnement aux événements, procédez comme suit :
+
+    1. Sélectionnez le type de point de terminaison **Webhook**.
+    2. Spécifiez l’**URI** du point de terminaison.
     
-## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Activer Event Grid pour utiliser votre application Azure AD
-Cette section explique comment activer Event Grid pour utiliser votre application Azure AD. 
-
-> [!NOTE]
-> Pour exécuter ce script, vous devez être membre du [rôle d’administrateur de l’application Azure AD](../active-directory/roles/permissions-reference.md#all-roles).
-
-### <a name="connect-to-your-azure-tenant"></a>Se connecter au locataire Azure
-Tout d’abord, connectez-vous à votre locataire Azure à l’aide de la commande `Connect-AzureAD`. 
-
-```PowerShell
-$myWebhookAadTenantId = "<Your Webhook's Azure AD tenant id>"
-
-Connect-AzureAD -TenantId $myWebhookAadTenantId
-```
-
-### <a name="create-microsofteventgrid-service-principal"></a>Créer un principal du service Microsoft.EventGrid
-Exécutez le script suivant pour créer le principal de service pour **Microsoft.EventGrid** s’il n’existe pas déjà. 
-
-```PowerShell
-# This is the "Azure Event Grid" Azure Active Directory (AAD) AppId
-$eventGridAppId = "4962773b-9cdb-44cf-a8bf-237846a00ab7"
-
-# Create the "Azure Event Grid" AAD Application service principal if it doesn't exist
-$eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
-if ($eventGridSP -match "Microsoft.EventGrid")
-{
-    Write-Host "The Service principal is already defined.`n"
-} else {
-    # Create a service principal for the "Azure Event Grid" AAD Application and add it to the role
-    Write-Host "Creating the Azure Event Grid service principal"
-    $eventGridSP = New-AzureADServicePrincipal -AppId $eventGridAppId
-}
-```
-
-### <a name="create-a-role-for-your-application"></a>Créer un rôle pour votre application   
-Exécutez le script suivant pour créer un rôle pour votre application Azure AD. Dans cet exemple, le nom du rôle est : **AzureEventGridSecureWebhookSubscriber**. Modifiez le `$myTenantId` du script PowerShell pour utiliser votre ID de locataire Azure AD et `$myAzureADApplicationObjectId` avec l’ID d’objet de votre application Azure AD
-
-```PowerShell
-# This is your Webhook's Azure AD Application's ObjectId. 
-$myWebhookAadApplicationObjectId = "<Your webhook's aad application object id>"
-
-# This is the name of the new role we will add to your Azure AD Application
-$eventGridRoleName = "AzureEventGridSecureWebhookSubscriber"
-       
-# Create an application role of given name and description
-Function CreateAppRole([string] $Name, [string] $Description)
-{
-    $appRole = New-Object Microsoft.Open.AzureAD.Model.AppRole
-    $appRole.AllowedMemberTypes = New-Object System.Collections.Generic.List[string]
-    $appRole.AllowedMemberTypes.Add("Application");
-    $appRole.AllowedMemberTypes.Add("User");
-    $appRole.DisplayName = $Name
-    $appRole.Id = New-Guid
-    $appRole.IsEnabled = $true
-    $appRole.Description = $Description
-    $appRole.Value = $Name;
-    return $appRole
-}
-       
-# Get my Azure AD Application, it's roles and service principal
-$myApp = Get-AzureADApplication -ObjectId $myWebhookAadApplicationObjectId
-$myAppRoles = $myApp.AppRoles
-
-Write-Host "App Roles before addition of new role.."
-Write-Host $myAppRoles
-       
-# Create the role if it doesn't exist
-if ($myAppRoles -match $eventGridRoleName)
-{
-    Write-Host "The Azure Event Grid role is already defined.`n"
-} else {      
-    # Add our new role to the Azure AD Application
-    Write-Host "Creating the Azure Event Grid role in Azure Ad Application: " $myWebhookAadApplicationObjectId
-    $newRole = CreateAppRole -Name $eventGridRoleName -Description "Azure Event Grid Role"
-    $myAppRoles.Add($newRole)
-    Set-AzureADApplication -ObjectId $myApp.ObjectId -AppRoles $myAppRoles
-}
-
-# print application's roles
-Write-Host "My Azure AD Application's Roles: "
-Write-Host $myAppRoles
-
-```
-
-### <a name="create-role-assignment-for-the-client-creating-event-subscription"></a>Créer une attribution de rôle pour le client créant un abonnement aux événements
-L’attribution de rôle doit être créée dans l’Azure AD App webhook pour l’application ou l’utilisateur AAD qui crée l’abonnement aux événements. Utilisez l’un des scripts ci-dessous selon qu’une application ou un utilisateur AAD crée l’abonnement aux événements.
-
-> [!IMPORTANT]
-> Une vérification d’accès supplémentaire a été introduite dans le cadre de la création ou de la mise à jour de l’abonnement aux événements le 30 mars 2021 afin de résoudre une faille de sécurité. Le principal de service du client abonné doit être soit propriétaire, soit avoir un rôle attribué sur le principal de service de l’application de destination. Reconfigurez votre application AAD en suivant les nouvelles instructions ci-dessous.
-
-#### <a name="create-role-assignment-for-an-event-subscription-aad-app"></a>Créer une attribution de rôle pour une application AAD d’abonnement aux événements 
-
-```powershell
-# This is the app id of the application which will create event subscription. Set to $null if you are not assigning the role to app.
-$eventSubscriptionWriterAppId = "<the app id of the application which will create event subscription>"
-
-$myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
-
-$eventSubscriptionWriterSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventSubscriptionWriterAppId + "'")
-if ($eventSubscriptionWriterSP -eq $null)
-{
-        $eventSubscriptionWriterSP = New-AzureADServicePrincipal -AppId $eventSubscriptionWriterAppId
-}
-
-Write-Host "Creating the Azure Ad App Role assignment for application: " $eventSubscriptionWriterAppId
-$eventGridAppRole = $myApp.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterSP.ObjectId -PrincipalId $eventSubscriptionWriterSP.ObjectId
-```
-
-#### <a name="create-role-assignment-for-an-event-subscription-aad-user"></a>Créer une attribution de rôle pour un utilisateur AAD d’abonnement aux événements 
-
-```powershell
-# This is the user principal name of the user who will create event subscription. Set to $null if you are not assigning the role to user.
-$eventSubscriptionWriterUserPrincipalName = "<the user principal name of the user who will create event subscription>"
-
-$myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
+        ![Sélectionner un webhook de type de point de terminaison](./media/secure-webhook-delivery/select-webhook.png)
+    3. Sélectionnez l’onglet **Fonctionnalités supplémentaires** en haut de la page **Créer des abonnements aux événements**.
+    4. Sous l’onglet **Fonctionnalités supplémentaires**, procédez comme suit :
+        1. Sélectionnez **Utiliser l’authentification AAD**, puis configurez l’ID de locataire et l’ID d’application :
+        2. Copiez l’ID de locataire Azure AD à partir de la sortie du script, puis entrez-le dans le champ **ID de locataire AAD**.
+        3. Copiez l’ID d’application Azure AD à partir de la sortie du script, puis entrez-le dans le champ **ID d’application AAD**. Vous pouvez également utiliser l’URI de l’ID d’application AAD. Pour plus d’informations sur l’URI de l’ID d’application, consultez [cet article](../app-service/configure-authentication-provider-aad.md).
     
-Write-Host "Creating the Azure Ad App Role assignment for user: " $eventSubscriptionWriterUserPrincipalName
-$eventSubscriptionWriterUser = Get-AzureAdUser -ObjectId $eventSubscriptionWriterUserPrincipalName
-$eventGridAppRole = $myApp.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-New-AzureADUserAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventSubscriptionWriterUser.ObjectId -PrincipalId $eventSubscriptionWriterUser.ObjectId
-```
+            ![Action de webhook sécurisé](./media/secure-webhook-delivery/aad-configuration.png)
 
-### <a name="create-role-assignment-for-event-grid-service-principal"></a>Créer une attribution de rôle pour un principal de service Event Grid
-Exécutez la commande New-AzureADServiceAppRoleAssignment pour attribuer le principal du service Event Grid au rôle que vous avez créé à l’étape précédente.
+### <a name="configure-the-event-subscription-by-using-azure-ad-application"></a>Configurer l’abonnement aux événements à l’aide d’une application Azure AD
 
-```powershell
-$eventGridAppRole = $myApp.AppRoles | Where-Object -Property "DisplayName" -eq -Value $eventGridRoleName
-New-AzureADServiceAppRoleAssignment -Id $eventGridAppRole.Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
-```
+1. Créez une application Azure AD pour le rédacteur de l’abonnement Event Grid configuré pour fonctionner avec l’annuaire Microsoft (monolocataire).
 
-Exécutez les commandes suivantes pour générer des informations que vous utiliserez ultérieurement.
+2. Créez un secret pour l’application Azure AD créée précédemment, puis enregistrez la valeur (vous en aurez besoin plus tard).
 
-```powershell
-Write-Host "My Webhook's Azure AD Tenant Id:  $myWebhookAadTenantId"
-Write-Host "My Webhook's Azure AD Application Id: $($myApp.AppId)"
-Write-Host "My Webhook's Azure AD Application ObjectId Id$($myApp.ObjectId)"
-```
+3. Accédez au contrôle d’accès (IAM) dans la rubrique Event Grid et ajoutez l’attribution de rôle du rédacteur de l’abonnement Event Grid en tant que contributeur Event Grid. Cette étape nous permettra d’accéder à la ressource Event Grid lorsque nous nous connectons à Azure avec l’application Azure AD à l’aide d’Azure CLI.
 
-    
-## <a name="configure-the-event-subscription"></a>Configurer l’abonnement aux événements
-Lorsque vous créez un abonnement aux événements, procédez comme suit :
+4. Créez une application Azure AD pour le webhook configuré pour fonctionner avec l’annuaire Microsoft (monolocataire).
 
-1. Sélectionnez le type de point de terminaison **Webhook**. 
-1. Spécifiez l’**URI** du point de terminaison.
+5. Ouvrez [Azure Shell](https://portal.azure.com/#cloudshell/) dans le locataire, puis sélectionnez l’environnement PowerShell.
 
-    ![Sélectionner un webhook de type de point de terminaison](./media/secure-webhook-delivery/select-webhook.png)
-1. Sélectionnez l’onglet **Fonctionnalités supplémentaires** en haut de la page **Créer des abonnements aux événements**.
-1. Sous l’onglet **Fonctionnalités supplémentaires**, procédez comme suit :
-    1. Sélectionnez **Utiliser l’authentification AAD**, puis configurez l’ID de locataire et l’ID d’application :
-    1. Copiez l’ID de locataire Azure AD à partir de la sortie du script, puis entrez-le dans le champ **ID de locataire AAD**.
-    1. Copiez l’ID d’application Azure AD à partir de la sortie du script, puis entrez-le dans le champ **ID d’application AAD**. Vous pouvez également utiliser l’URI de l’ID d’application AAD. Pour plus d’informations sur l’URI de l’ID d’application, consultez [cet article](../app-service/configure-authentication-provider-aad.md).
+6. Modifiez la valeur de **$webhookAadTenantId** pour vous connecter au locataire.
 
-        ![Action de webhook sécurisé](./media/secure-webhook-delivery/aad-configuration.png)
+    - Variables:
+        - **$webhookAadTenantId** : ID de locataire Azure
 
+    ```Shell
+    PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
+    PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
+    ```
 
+7. Ouvrez le [script suivant](scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md) et mettez à jour les valeurs de **$webhookAppObjectId** et **$eventSubscriptionWriterAppId** avec vos identificateurs, puis poursuivez l’exécution du script.
+
+    - Variables:
+        - **$webhookAppObjectId** : ID d’application Azure AD créé pour le webhook
+        - **$eventSubscriptionWriterAppId** : ID d’application Azure AD pour le rédacteur de l’abonnement Event Grid
+
+    > [!NOTE]
+    > Vous n’avez pas besoin de modifier la valeur de **```$eventGridAppId```** , pour ce script. Nous définissons **AzureEventGridSecureWebhookSubscriber** comme valeur de **```$eventGridRoleName```** . N’oubliez pas que, pour exécuter ce script, vous devez être membre du [rôle Administrateur d’application Azure AD](../active-directory/roles/permissions-reference.md#all-roles).
+
+8. Connectez-vous en tant qu’application Azure AD de rédacteur de l’abonnement Event Grid en exécutant la commande.
+
+    ```Shell
+    PS /home/user>az login --service-principal -u [REPLACE_WITH_EVENT_GRID_SUBSCRIPTION_WRITER_APP_ID] -p [REPLACE_WITH_EVENT_GRID_SUBSCRIPTION_WRITER_APP_SECRET_VALUE] --tenant [REPLACE_WITH_TENANT_ID]
+    ```
+
+9. Créez votre abonnement en exécutant la commande.
+
+    ```Shell
+    PS /home/user>az eventgrid system-topic event-subscription create --name [REPLACE_WITH_SUBSCRIPTION_NAME] -g [REPLACE_WITH_RESOURCE_GROUP] --system-topic-name [REPLACE_WITH_SYSTEM_TOPIC] --endpoint [REPLACE_WITH_WEBHOOK_ENDPOINT] --event-delivery-schema [REPLACE_WITH_WEBHOOK_EVENT_SCHEMA] --azure-active-directory-tenant-id [REPLACE_WITH_TENANT_ID] --azure-active-directory-application-id-or-uri [REPLACE_WITH_APPLICATION_ID_FROM_SCRIPT] --endpoint-type webhook
+    ```
+
+    > [!NOTE]
+    > Dans ce scénario, nous utilisons une rubrique système Event Grid. Consultez [cette page](/cli/azure/eventgrid) si vous souhaitez créer un abonnement pour des rubriques personnalisées ou des domaines Event Grid à l’aide d’Azure CLI.
+
+10. Si tout a été correctement configuré, vous pourrez créer l’abonnement webhook dans votre rubrique Event Grid.
+
+    > [!NOTE]
+    > À ce stade, Event Grid transmet maintenant le jeton du porteur Azure AD au client webhook dans chaque message. Vous devrez valider le jeton d’autorisation dans votre webhook.
+
+## <a name="multitenant-events-with-azure-ad-and-webhooks"></a>Événements multi-locataire avec Azure AD et webhooks
+
+Pour activer un abonnement webhook sécurisé sur plusieurs locataires, vous devrez effectuer cette tâche à l’aide d’une application Azure AD. Ce processus n’est pas actuellement disponible en utilisant l’utilisateur Azure AD à partir du portail.
+
+![Événements multi-locataire avec Azure AD et webhooks](./media/secure-webhook-delivery/multitenant-diagram.png)
+
+Sur la base du diagramme ci-dessus, procédez comme suit pour configurer les locataires.
+
+1. Créez une application Azure AD pour le rédacteur de l’abonnement Event Grid configuré pour fonctionner avec n’importe quel annuaire Azure AD (monolocataire) dans le **locataire A**.
+
+2. Créez un secret pour l’application Azure AD créée précédemment dans le **locataire A**, puis enregistrez la valeur (vous en aurez besoin plus tard).
+
+3. Dans le **locataire A**, accédez au contrôle d’accès (IAM) dans la rubrique Event Grid et ajoutez l’attribution de rôle de l’application Azure AD du rédacteur de l’abonnement Event Grid en tant que contributeur Event Grid. Cette étape nous permettra d’accéder à la ressource Event Grid lorsque nous nous connectons à Azure avec l’application Azure AD à l’aide d’Azure CLI.
+
+4. Créez une application Azure AD pour le webhook configuré pour fonctionner avec l’annuaire Microsoft (monolocataire) dans le **locataire B**.
+
+5. Ouvrez [Azure Shell](https://portal.azure.com/#cloudshell/) dans le **locataire B**, puis sélectionnez l’environnement PowerShell.
+
+6. Modifiez la valeur **$webhookAadTenantId** pour vous connecter au **locataire B**.
+
+    - Variables:
+        - **$webhookAadTenantId** : ID de locataire Azure pour le **locataire B**
+
+    ```Shell
+    PS /home/user>$webhookAadTenantId = "[REPLACE_WITH_YOUR_TENANT_ID]"
+    PS /home/user>Connect-AzureAD -TenantId $webhookAadTenantId
+    ```
+
+7. Ouvrez le [script suivant](scripts/event-grid-powershell-webhook-secure-delivery-azure-ad-app.md) et mettez à jour les valeurs de **$webhookAppObjectId** et **$eventSubscriptionWriterAppId** avec vos identificateurs, puis poursuivez l’exécution du script.
+
+    - Variables:
+        - **$webhookAppObjectId** : ID d’application Azure AD créé pour le webhook
+        - **$eventSubscriptionWriterAppId** : ID d’application Azure AD pour le rédacteur de l’abonnement Event Grid
+
+    > [!NOTE]
+    > Vous n’avez pas besoin de modifier la valeur de **```$eventGridAppId```** , pour ce script. Nous définissons **AzureEventGridSecureWebhookSubscriber** comme valeur de **```$eventGridRoleName```** . N’oubliez pas que, pour exécuter ce script, vous devez être membre du [rôle Administrateur d’application Azure AD](../active-directory/roles/permissions-reference.md#all-roles).
+
+8. Ouvrez [Azure Shell](https://portal.azure.com/#cloudshell/) dans le **locataire A**, puis connectez-vous en tant qu’application Azure AD du rédacteur de l’abonnement Event Grid en exécutant la commande.
+
+    ```Shell
+    PS /home/user>az login --service-principal -u [REPLACE_WITH_APP_ID] -p [REPLACE_WITH_SECRET_VALUE] --tenant [REPLACE_WITH_TENANT_ID]
+    ```
+
+9. Créez votre abonnement en exécutant la commande.
+
+    ```Shell
+    PS /home/user>az eventgrid system-topic event-subscription create --name [REPLACE_WITH_SUBSCRIPTION_NAME] -g [REPLACE_WITH_RESOURCE_GROUP] --system-topic-name [REPLACE_WITH_SYSTEM_TOPIC] --endpoint [REPLACE_WITH_WEBHOOK_ENDPOINT] --event-delivery-schema [REPLACE_WITH_WEBHOOK_EVENT_SCHEMA] --azure-active-directory-tenant-id [REPLACE_WITH_TENANT_B_ID] --azure-active-directory-application-id-or-uri [REPLACE_WITH_APPLICATION_ID_FROM_SCRIPT] --endpoint-type webhook
+    ```
+
+    > [!NOTE]
+    > Dans ce scénario, nous utilisons une rubrique système Event Grid. Consultez [cette page](/cli/azure/eventgrid) si vous souhaitez créer un abonnement pour des rubriques personnalisées ou des domaines Event Grid à l’aide d’Azure CLI.
+
+10. Si tout a été correctement configuré, vous pourrez créer l’abonnement webhook dans votre rubrique Event Grid.
+
+    > [!NOTE]
+    > À ce stade, Event Grid transmet maintenant le jeton du porteur Azure AD au client webhook dans chaque message. Vous devrez valider le jeton d’autorisation dans votre webhook.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

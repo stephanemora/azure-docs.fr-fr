@@ -1,6 +1,7 @@
 ---
-title: Gestion du consentement pour les applications et évaluation des demandes de consentement dans Azure Active Directory
+title: Gérer le consentement pour les applications et évaluer les demandes de consentement
 description: Apprenez à gérer les demandes de consentement lorsque le consentement de l’utilisateur est désactivé ou limité, puis à évaluer une demande de consentement de l’administrateur au niveau du locataire pour une application dans Azure Active Directory.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -11,14 +12,14 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: davidmu
 ms.reviewer: phsignor
-ms.openlocfilehash: a6bf1ec1616d45edd08b943b55f2859d7942c908
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 5de11c8f853d471ad616ff0a9df4d01acb896c3f
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123425827"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129619801"
 ---
-# <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestion du consentement pour les applications et évaluation des demandes de consentement
+# <a name="manage-consent-to-applications-and-evaluate-consent-requests-in-azure-active-directory"></a>Gérer le consentement pour les applications et évaluer les demandes de consentement dans Azure Active Directory
 
 Microsoft recommande de [limiter le consentement de l’utilisateur](../../active-directory/manage-apps/configure-user-consent.md) afin que les utilisateurs ne puissent consentir qu’aux applications provenant d’éditeurs vérifiés et uniquement pour les autorisations que vous sélectionnez. Pour les applications qui ne respectent pas cette stratégie, le processus décisionnel sera centralisé auprès de l’équipe d’administrateurs de la sécurité et des identités de votre organisation.
 

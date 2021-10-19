@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 08/01/2021
-ms.openlocfilehash: 39a89fbaf72a78bad1c9a0ebca4ce068f6c65cae
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: b42b3c9146b99ee6e65dc83968ba8e97c8f209fb
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272887"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129730486"
 ---
 # <a name="design-your-private-link-setup"></a>Conception de votre configuration Private Link
 
@@ -66,8 +66,9 @@ Le choix du mode d’accès approprié a des effets néfastes sur le trafic rés
 * Ouvert : autorise le réseau virtuel à atteindre les ressources de liaison privée et les ressources qui ne se trouvent pas dans l’étendue AMPLS (s’ils [acceptent le trafic provenant de réseaux publics](./private-link-design.md#control-network-access-to-your-resources)). Bien que le mode d’accès Ouvert n’empêche pas l’exfiltration de données, il présente quand même les autres avantages des liaisons privées. Le trafic vers les ressources de liaison privée est transmis via des points de terminaison privés, validé et envoyé via le réseau principal de Microsoft. Le mode Ouvert est utile dans le cadre d’un mode de travail mixte (qui accède à certaines ressources publiquement et à d’autres via une liaison privée), ou d’un processus d’intégration progressif.
 ![Diagramme représentant le mode d’accès Ouvert dans l’étendue AMPLS](./media/private-link-security/ampls-open-access-mode.png) Les modes d’accès sont définis séparément pour l’ingestion et les requêtes. Par exemple, vous pouvez définir le mode Privé uniquement pour l’ingestion et le mode Ouvert pour les requêtes.
 
-
 Soyez prudent lorsque vous choisissez votre mode d’accès. L’utilisation du mode d’accès Privé uniquement a pour effet de bloquer le trafic vers les ressources ne se trouvant pas dans AMPLS sur tous les réseaux qui partagent le même DNS, quel que soit l’abonnement ou le locataire (à l’exception des demandes d’ingestion Log Analytics, comme expliqué ci-dessous). Si vous ne pouvez pas ajouter toutes les ressources Azure Monitor à AMPLS, commencez par ajouter des ressources sélectionnées en appliquant le mode d’accès Ouvert. Une fois que vous avez ajouté *toutes* les ressources Azure Monitor à votre AMPLS, basculez vers le mode « Privé uniquement » pour bénéficier d’une sécurité maximale.
+
+Pour plus d’informations sur la configuration et des exemples, consultez [Utiliser des API et une ligne de commande](./private-link-configure.md#use-apis-and-command-line).
 
 > [!NOTE]
 > L’ingestion Log Analytics utilise des points de terminaison spécifiques d’une ressource. Par conséquent, elle n’adhère pas aux modes d’accès AMPLS. **Pour s'assurer que les requêtes d'ingestion de Log Analytics ne peuvent pas accéder aux espaces de travail hors de l'AMPLS, configurez le pare-feu du réseau pour bloquer le trafic vers les points de terminaison publics, indépendamment des modes d'accès de l'AMPLS**.
@@ -103,6 +104,8 @@ Vos espaces de travail Log Analytics ou composants Application Insights peuvent 
 Cette précision vous permet de définir l’accès en fonction de vos besoins, par espace de travail. Par exemple, vous pouvez accepter l’ingestion uniquement via des réseaux connectés par liaison privée (c’est-à-dire des réseaux virtuels spécifiques), tout en choisissant d’accepter les requêtes de tous les réseaux, publics et privés. 
 
 Le blocage des requêtes provenant des réseaux publics signifie que les clients (machines, kits SDK, etc.) situés hors des étendues AMPLS connectées ne peuvent pas interroger les données de la ressource. Ces données incluent les journaux, les métriques et les flux de métriques temps réel. Le blocage des requêtes provenant de réseaux publics affecte toutes les expériences qui exécutent ces requêtes telles que les workbooks, tableaux de bord et insights dans le portail Azure, ainsi que les requêtes exécutées en dehors du portail Azure.
+
+Pour plus d’informations sur la configuration, consultez [Définir les indicateurs d’accès aux ressources](./private-link-configure.md#set-resource-access-flags).
 
 ### <a name="exceptions"></a>Exceptions
 
@@ -165,7 +168,12 @@ Nous avons identifié les produits et les expériences suivants qui interrogent 
 > * Insights de machine virtuelle
 > * Container Insights
 
-## <a name="requirements"></a>Spécifications
+## <a name="requirements"></a>Configuration requise
+
+### <a name="network-subnet-size"></a>Taille de sous-réseau du réseau
+Le plus petit sous-réseau IPv4 pris en charge est /27 (à l’aide des définitions de sous-réseaux CIDR). Alors que la taille des réseaux virtuels Azure [peut commencer à /29](../../virtual-network/virtual-networks-faq.md#how-small-and-how-large-can-vnets-and-subnets-be), Azure [réserve 5 adresses IP](../../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) et la configuration de la liaison privée Azure Monitor nécessite au moins 11 adresses IP supplémentaires, même si vous vous connectez à un seul espace de travail. [Passez en revue les paramètres DNS de votre point de terminaison](./private-link-configure.md#reviewing-your-endpoints-dns-settings) pour obtenir la liste détaillée des points de terminaison de liaison privé Azure Monitor.
+
+
 ### <a name="agents"></a>Agents
 Les versions les plus récentes des agents Windows et Linux doivent être utilisées pour permettre une ingestion sécurisée vers les espaces de travail Log Analytics. Les versions antérieures ne peuvent pas charger les données d’analyse via un réseau privé.
 

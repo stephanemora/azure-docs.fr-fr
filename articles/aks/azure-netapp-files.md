@@ -3,24 +3,24 @@ title: Intégrer Azure NetApp Files à Azure Kubernetes Service | Microsoft Docs
 description: Découvrez comment approvisionner Azure NetApp Files avec Azure Kubernetes Service.
 services: container-service
 ms.topic: article
-ms.date: 10/04/2021
-ms.openlocfilehash: 177526fa98ada37341fadc90e183f224e1aa0830
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.date: 10/07/2021
+ms.openlocfilehash: f4b9c8316ff9cd77017fc49dbe6846ed840f5afb
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129544789"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658972"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Intégrer Azure NetApp Files à Azure Kubernetes Service
 
-Un volume persistant représente un élément de stockage provisionné pour une utilisation dans des pods Kubernetes. Un volume persistant peut être utilisé par un ou plusieurs pods, et être provisionné de façon statique ou dynamique. Cet article explique comment créer des volumes [Azure NetApp Files][anf] qui seront utilisés par des pods dans un cluster Azure Kubernetes Service (AKS).
+Un volume persistant représente un élément de stockage provisionné pour une utilisation dans des pods Kubernetes. Un volume persistant peut être utilisé par un ou plusieurs pods et être provisionné de façon statique ou dynamique. Cet article explique comment créer des volumes [Azure NetApp Files][anf] qui seront utilisés par des pods dans un cluster Azure Kubernetes Service (AKS).
 
 [Azure NetApp Files][anf] est un service de stockage de fichiers limité, hautes performances et de classe entreprise s’exécutant sur Azure. Les utilisateurs de Kubernetes ont deux options lorsqu’il s’agit d’utiliser des volumes Azure NetApp Files pour les charges de travail Kubernetes :
 
-* Créer des volumes Azure NetApp Files **de manière statique** : Dans ce scénario, la création des volumes est réalisée en dehors d’AKS ; les volumes sont créés en utilisant `az` ou l’interface utilisateur Azure et sont ensuite exposés à Kubernetes par la création d’un `PersistentVolume`.
-* Créer des volumes Azure NetApp Files **à la demande**, en les orchestrant via Kubernetes : Cette méthode est le mode de fonctionnement **privilégié** pour créer plusieurs volumes directement via Kubernetes et est réalisée à l’aide d’[Astra Trident](https://netapp-trident.readthedocs.io/).
+* Créer des volumes Azure NetApp Files **de manière statique** : Dans ce scénario, la création des volumes est réalisée en dehors d’AKS ; les volumes sont créés en utilisant `az` ou l’interface utilisateur Azure et sont ensuite exposés à Kubernetes par la création d’un `PersistentVolume`. Les volumes ANF créés de manière statique présentent de nombreuses limitations (par exemple, l’impossibilité de les développer, le besoin d’être surapprovisionnés, etc.) et ne sont pas recommandés dans la plupart des cas d’usage.
+* Créer des volumes Azure NetApp Files **à la demande**, en les orchestrant via Kubernetes : cette méthode est le mode de fonctionnement **privilégié** pour créer plusieurs volumes directement via Kubernetes et est réalisée à l’aide d’[Astra Trident](https://docs.netapp.com/us-en/trident/index.html). Astra Trident est un orchestrateur de stockage dynamique conforme à CSI qui permet de provisionner des volumes en mode natif via Kubernetes.
 
-Il est **fortement recommandé** de disposer d’un pilote CSI prêt à l’emploi permettant aux utilisateurs de Kubernetes de consommer directement les volumes Azure NetApp Files via AKS. Cette condition est remplie par Astra Trident, un orchestrateur de stockage dynamique open source pour Kubernetes. Il s’agit d’un orchestrateur de stockage destiné aux entreprises conçu spécialement pour Kubernetes et entièrement pris en charge par NetApp. Il simplifie l’accès au stockage dans les environnements Kubernetes en automatisant l’approvisionnement en stockage. Les consommateurs peuvent tirer parti du pilote CSI d’Astra Trident pour Azure NetApp Files afin de faire abstraction des détails sous-jacents et de créer, d’étendre ou de capturer des volumes à la demande.
+L’utilisation d’un pilote CSI pour consommer directement des volumes Azure NetApp Files à partir de charges de travail AKS est **fortement recommandée** pour la plupart des cas d’usage. Cette condition est remplie par Astra Trident, un orchestrateur de stockage dynamique open source pour Kubernetes. Astra Trident est un orchestrateur de stockage destiné aux entreprises, conçu spécialement pour Kubernetes et entièrement pris en charge par NetApp. Il simplifie l’accès au stockage dans les environnements Kubernetes en automatisant l’approvisionnement en stockage. Les consommateurs peuvent tirer parti du pilote CSI d’Astra Trident pour Azure NetApp Files afin de faire abstraction des détails sous-jacents et de créer, d’étendre ou de capturer des volumes à la demande.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -37,7 +37,7 @@ Les considérations suivantes s’appliquent lorsque vous utilisez Azure NetApp 
 
 * Azure NetApp Files est uniquement disponible [dans les régions Azure sélectionnées][anf-regions].
 * Après le déploiement initial d’un cluster AKS, vous pouvez choisir d’approvisionner les volumes Azure NetApp Files de manière statique ou dynamique.
-* Pour utiliser l’approvisionnement dynamique avec Azure NetApp Files, installez et configurez [Astra Trident](https://netapp-trident.readthedocs.io/) version 19.07 ou ultérieure.
+* Pour utiliser l’approvisionnement dynamique avec Azure NetApp Files, installez et configurez [Astra Trident](https://docs.netapp.com/us-en/trident/index.html) version 19.07 ou ultérieure.
 
 ## <a name="configure-azure-netapp-files"></a>Configurer Azure NetApp Files
 
@@ -273,11 +273,11 @@ Filesystem             Size  Used Avail Use% Mounted on
 
 Pour approvisionner des volumes de manière dynamique, vous devez installer Astra Trident. Astra Trident est l’approvisionneur de stockage dynamique de NetApp spécialement conçu pour Kubernetes. Simplifiez la consommation de stockage pour les applications Kubernetes en utilisant les pilotes [Container Storage Interface (CSI)](https://kubernetes-csi.github.io/docs/) d’Astra Trident, conformes aux normes du secteur d’activité. Astra Trident se déploie dans les clusters Kubernetes sous forme de pods et fournit des services d’orchestration de stockage dynamique pour vos charges de travail Kubernetes.
 
-Vous pouvez en savoir plus en consultant la [documentation](https://netapp-trident.readthedocs.io/en/latest/index.html).
+Vous pouvez en savoir plus en consultant la [documentation]https://docs.netapp.com/us-en/trident/index.html).
 
 Avant de passer à l’étape suivante, vous devez :
 
-1. **Installer Astra Trident**. Trident peut être installé en utilisant l’opérateur, le chart Helm ou `tridentctl`. Les instructions fournies ci-dessous expliquent comment installer Astra Trident à l’aide de l’opérateur. Pour connaître le fonctionnement des autres méthodes d’installation, consultez le [guide d’installation](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html).
+1. **Installer Astra Trident**. Trident peut être installé en utilisant l’opérateur, le chart Helm ou `tridentctl`. Les instructions fournies ci-dessous expliquent comment installer Astra Trident à l’aide de l’opérateur. Pour connaître le fonctionnement des autres méthodes d’installation, consultez le [guide d’installation](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html).
 
 2. **Créer un serveur principal.** Pour indiquer à Astra Trident l’abonnement Azure NetApp Files et l’emplacement où il doit créer des volumes, un serveur principal est créé. Cette étape nécessite des détails concernant le compte créé à l’étape précédente.
 
@@ -285,10 +285,10 @@ Avant de passer à l’étape suivante, vous devez :
 
 Cette section vous guide tout au long de l’installation d’Astra Trident à l’aide de l’opérateur. Vous pouvez également choisir d’utiliser l’une de ses autres méthodes d’installation :
 
-* [Chart Helm](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/operator-deploy.html#deploy-trident-operator-by-using-helm).
-* [tridentctl](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/tridentctl-deploy.html).
+* [Chart Helm](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html).
+* [tridentctl](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html).
 
-Consultez la page de [déploiement de Trident](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html) pour comprendre le fonctionnement de chaque option et identifier celle qui vous convient le mieux.
+Consultez la page de [déploiement de Trident](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html) pour comprendre le fonctionnement de chaque option et identifier celle qui vous convient le mieux.
 
 Téléchargez Astra Trident à partir de son [référentiel GitHub](https://github.com/NetApp/trident/releases). Choisissez la version souhaitée et téléchargez le pack d’installation.
 
@@ -322,7 +322,7 @@ $ kubectl apply -f trident-installer/deploy/crds/tridentorchestrator_cr.yaml
 tridentorchestrator.trident.netapp.io/trident created 
 ```
 
-L’opérateur effectue l’installation en utilisant les paramètres fournis dans la spec de `TridentOrchestrator`. Vous pouvez vous renseigner sur les paramètres de configuration et les exemples de serveurs principaux dans les [guides d’installation](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html) et [de serveurs principaux](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/backends/index.html).
+L’opérateur effectue l’installation en utilisant les paramètres fournis dans la spec de `TridentOrchestrator`. Vous pouvez vous renseigner sur les paramètres de configuration et les exemples de serveurs principaux dans les [guides d’installation](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html) et [de serveurs principaux](https://docs.netapp.com/us-en/trident/trident-use/backends.html).
 
 Confirmez l’installation d’Astra Trident. 
 
@@ -511,9 +511,9 @@ Events:
 
 Astra Trident prend en charge de nombreuses fonctionnalités avec Azure NetApp Files, telles que :
 
-* [Expansion des volumes](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/volumes/vol-expansion.html)
-* [Instantanés de volume à la demande](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/volumes/snapshots.html)
-* [Importation de volumes](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/volumes/import.html)
+* [Expansion des volumes](https://docs.netapp.com/us-en/trident/trident-use/vol-expansion.html)
+* [Instantanés de volume à la demande](https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html)
+* [Importation de volumes](https://docs.netapp.com/us-en/trident/trident-use/vol-import.html)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,28 +1,28 @@
 ---
 title: Vue d’ensemble d’Azure Cost Management + Facturation
-description: Vous utilisez les fonctionnalités d’Azure Cost Management + Facturation pour effectuer des tâches de facturation et gérer l’accès de la facturation aux coûts. Vous utilisez également les fonctionnalités pour superviser et contrôler les dépenses Azure, ainsi que pour optimiser l’utilisation des ressources Azure.
+description: Vous utilisez les fonctionnalités de Cost Management + Billing pour effectuer des tâches de facturation et gérer l’accès de la facturation aux coûts. Vous utilisez également les fonctionnalités pour superviser et contrôler les dépenses Azure, ainsi que pour optimiser l’utilisation des ressources Azure.
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2021
+ms.date: 10/07/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 8eb040183f1a207410c5e093009878845a61f261
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 51b33d90a1dda0878f3c0fa39ed35c7d63d905dd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113768488"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706234"
 ---
-# <a name="what-is-azure-cost-management--billing"></a>Présentation d’Azure Cost Management + Facturation
+# <a name="what-is-cost-management--billing"></a>Qu’est-ce que Cost Management + Facturation ?
 
-En utilisant le cloud Microsoft, vous pouvez améliorer considérablement les performances techniques des charges de travail de votre entreprise. Il peut également réduire vos coûts et la surcharge requise pour gérer les ressources organisationnelles. Toutefois, l’opportunité professionnelle crée un risque en raison de la possibilité de gaspillage et de manque d’efficacité introduits dans vos déploiements cloud. Azure Cost Management + Facturation est une suite d’outils fournis par Microsoft qui vous aident à analyser, gérer et optimiser les coûts de vos charges de travail. L’utilisation de la suite permet de garantir que votre organisation tire parti des avantages offerts par le cloud.
+En utilisant le cloud Microsoft, vous pouvez améliorer considérablement les performances techniques des charges de travail de votre entreprise. Il peut également réduire vos coûts et la surcharge requise pour gérer les ressources organisationnelles. Toutefois, l’opportunité professionnelle crée un risque en raison de la possibilité de gaspillage et de manque d’efficacité introduits dans vos déploiements cloud. Cost Management + Billing est une suite d’outils fournis par Microsoft qui vous aident à analyser, gérer et optimiser les coûts de vos charges de travail. L’utilisation de la suite permet de garantir que votre organisation tire parti des avantages offerts par le cloud.
 
-Vous pouvez considérer vos charges de travail Azure comme les lumières de votre foyer. Quand vous sortez pour la journée, les laissez-vous allumées ? Pourriez-vous utiliser des ampoules différentes qui sont plus efficaces pour réduire votre facture d’énergie mensuelle ? Avez-vous plus d’éclairages que nécessaire dans une pièce ? Vous pouvez utiliser Azure Cost Management + Facturation pour appliquer un processus de pensée semblable aux charges de travail utilisées par votre organisation.
+Vous pouvez considérer vos charges de travail Azure comme les lumières de votre foyer. Quand vous sortez pour la journée, les laissez-vous allumées ? Pourriez-vous utiliser des ampoules différentes qui sont plus efficaces pour réduire votre facture d’énergie mensuelle ? Avez-vous plus d’éclairages que nécessaire dans une pièce ? Vous pouvez utiliser Cost Management + Billing pour appliquer un processus de pensée semblable aux charges de travail utilisées par votre organisation.
 
-Avec les produits et services Azure, vous payez uniquement ce que vous utilisez. Lorsque vous créez et utilisez des ressources Azure, celles-ci vous sont facturées. En raison de la facilité de déploiement pour les nouvelles ressources, les coûts de vos charges de travail peuvent augmenter de manière significative sans analyse et supervision appropriées. Vous utilisez les fonctionnalités d’Azure Cost Management + Facturation pour :
+Avec les produits et services Azure, vous payez uniquement ce que vous utilisez. Lorsque vous créez et utilisez des ressources Azure, celles-ci vous sont facturées. En raison de la facilité de déploiement pour les nouvelles ressources, les coûts de vos charges de travail peuvent augmenter de manière significative sans analyse et supervision appropriées. Vous pouvez utiliser les fonctionnalités de Cost Management + Billing pour :
 
 - Effectuer des tâches de facturation telles que le paiement de votre facture
 - Gérer l’accès de la facturation aux coûts
@@ -31,7 +31,7 @@ Avec les produits et services Azure, vous payez uniquement ce que vous utilisez.
 - Définir des seuils de dépense
 - Identifier les opportunités de modification de la charge de travail qui peuvent optimiser vos dépenses
 
-Pour découvrir plus en détail comment une organisation doit approcher la gestion des coûts, consultez l’article [Bonnes pratiques pour Azure Cost Management](./costs/cost-mgt-best-practices.md).
+Pour savoir comment une organisation doit approcher la gestion des coûts, consultez l’article [Bonnes pratiques Cost Management](./costs/cost-mgt-best-practices.md).
 
 ![Diagramme du processus d’optimisation de Cost Management and Billing.](./media/cost-management-optimization-process.png)
 
@@ -51,7 +51,7 @@ Le portail Azure prend en charge les types de comptes de facturation suivants :
 
 - **Contrat client Microsoft** : Un compte de facturation pour un Contrat client Microsoft est créé lorsque votre organisation signe un Contrat client Microsoft avec un commercial Microsoft. Des clients dans certaines régions, qui s’inscrivent via le site web Azure pour un compte avec tarifs de paiement à l’utilisation ou mettent à niveau leur [compte gratuit Azure](./manage/create-free-services.md), peuvent avoir un compte de facturation pour un Contrat client Microsoft.
 
-## <a name="understand-azure-cost-management"></a>Présentation d’Azure Cost Management
+## <a name="understand-cost-management"></a>Comprendre Cost Management
 
 Bien que liées, la facturation diffère de la gestion des coûts. La facturation est le processus qui vous permet de facturer des biens ou des services aux clients et de gérer les relations commerciales.
 
@@ -59,7 +59,7 @@ Cost Management révèle les modèles de coût et d’utilisation de l’organis
 
 Vous pouvez utiliser le portail Azure ou différentes API pour automatiser l’exportation visant à intégrer les données de coût à des processus et systèmes externes. Vous avez aussi à disposition une exportation automatisée des données de facturation ainsi que des rapports planifiés.
 
-Regardez la vidéo de présentation d’Azure Cost Management pour avoir une vue d’ensemble rapide de la façon dont Azure Cost Management peut vous aider à économiser de l’argent dans Azure. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
+Regardez la vidéo de présentation de Cost Management pour avoir une vue d’ensemble rapide de la façon dont Cost Management peut vous aider à économiser de l’argent dans Azure. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
@@ -77,7 +77,7 @@ Si vous utilisez des systèmes externes pour accéder ou consulter les données 
 
 ### <a name="additional-azure-tools"></a>Autres outils Azure
 
-Azure dispose d’autres outils qui ne font pas partie de l’ensemble des fonctionnalités d’Azure Cost Management + Facturation. Toutefois, ils jouent un rôle important dans le processus de gestion des coûts. Pour en savoir plus sur ces outils, consultez les liens suivants.
+Azure propose d’autres outils qui ne font pas partie de l’ensemble des fonctionnalités Cost Management + Billing. Toutefois, ils jouent un rôle important dans le processus de gestion des coûts. Pour en savoir plus sur ces outils, consultez les liens suivants.
 
 - [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/) - Utilisez cet outil pour estimer vos coûts cloud à l’avance.
 - [Azure Migrate](../migrate/migrate-services-overview.md) - Évaluez la charge actuelle de votre centre de données pour savoir ce dont vous avez besoin pour une solution de remplacement Azure.
@@ -88,5 +88,5 @@ Azure dispose d’autres outils qui ne font pas partie de l’ensemble des fonct
 
 Maintenant que vous êtes familiarisé avec Cost Management + Facturation, vous pouvez commencer à utiliser le service.
 
-- Commencez à utiliser Azure Cost Management pour [analyser les coûts](./costs/quick-acm-cost-analysis.md).
-- Vous pouvez également en savoir plus sur les [bonnes pratiques pour Azure Cost Management](./costs/cost-mgt-best-practices.md).
+- Commencez à utiliser Cost Management pour [analyser les coûts](./costs/quick-acm-cost-analysis.md).
+- Vous pouvez également en savoir plus sur les [bonnes pratiques Cost Management](./costs/cost-mgt-best-practices.md).

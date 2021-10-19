@@ -1,27 +1,29 @@
 ---
-title: Vue d’ensemble du service Azure IoT Hub Device Provisioning | Microsoft Docs
+title: Vue d’ensemble du service Microsoft Azure IoT Hub Device Provisioning
 description: Décrit le provisionnement d’appareils dans Azure avec le service IoT Hub Device Provisioning (DPS)
-author: wesmc7777
-ms.author: wesmc
-ms.date: 04/04/2019
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 10/06/2021
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
-manager: eliotgra
+manager: lizross
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: d65ef555ff0f05ca8020b3598bc6ac3022a708dd
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: eab01abee0ee75df0e342aa7cec1ef7e6c8a4b55
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272715"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659504"
 ---
 # <a name="what-is-azure-iot-hub-device-provisioning-service"></a>Qu’est-ce que le service Azure IoT Hub Device Provisioning ?
+
 Microsoft Azure fournit un ensemble complet de services cloud publics intégrés qui répondent à tous les besoins de votre solution IoT. Le service IoT Hub Device Provisioning (DPS) est un service d’assistance pour IoT Hub qui autorise un provisionnement sans contact, juste-à-temps sur le hub IoT approprié et sans aucune intervention humaine. DPS permet de provisionner plusieurs millions d’appareils de manière sécurisée et scalable.
 
 ## <a name="when-to-use-device-provisioning-service"></a>Quand utiliser le service Device Provisioning
+
 Nombreux sont les scénarios de provisionnement dans lesquels DPS s’avère être un excellent choix pour connecter et configurer des appareils sur IoT Hub, notamment :
 
 * Approvisionnement sans contact sur une solution IoT unique sans coder en dur en usine les informations de connexion IoT Hub (configuration initiale)
@@ -31,6 +33,14 @@ Nombreux sont les scénarios de provisionnement dans lesquels DPS s’avère êt
 * Connexion d’un appareil au hub IoT avec la latence la plus faible (géopartitionnement)
 * Reprovisionnement basé sur un changement au niveau de l’appareil
 * Restaurer les clés utilisées par l’appareil pour se connecter à IoT Hub (en cas de non-utilisation de certificats X.509 pour la connexion)
+
+>[!NOTE]
+>**Considération relative à la résidence des données :**
+>
+>DPS utilise le même [point de terminaison de provisionnement des appareils](concepts-service.md#device-provisioning-endpoint) pour toutes les instances de service de provisionnement et effectue l’équilibrage de charge du trafic vers le point de terminaison de service disponible le plus proche. Ainsi, les secrets d’authentification peuvent être transférés temporairement en dehors de la région où l’instance DPS a été créée initialement. Toutefois, une fois que l’appareil est connecté, ses données sont transmises directement à la région d’origine de l’instance DPS.
+>
+>Pour vous assurer que vos données ne quittent pas la région dans laquelle votre instance DPS a été créée, utilisez un point de terminaison privé.  Pour savoir comment configurer des points de terminaison privés, consultez [Prise en charge des réseaux virtuels avec le service Azure IoT Device Provisioning (DPS)](virtual-network-support.md#private-endpoint-limitations).
+
 
 ## <a name="behind-the-scenes"></a>Dans les coulisses
 Tous les scénarios listés dans la section précédente peuvent être réalisés en utilisant le service DPS pour un provisionnement sans contact avec le même flux. La plupart des étapes manuelles que nécessite généralement le provisionnement sont automatisées avec DPS pour réduire le temps de déploiement des appareils IoT et diminuer le risque d’erreur manuelle. La section suivante décrit les tâches effectuées en arrière-plan pour obtenir un appareil provisionné. La première étape est manuelle, mais toutes les suivantes sont automatiques.

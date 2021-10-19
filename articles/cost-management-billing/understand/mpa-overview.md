@@ -6,14 +6,14 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 71a3ce7a33f920c361dfe1e7d0004b52e8211336
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 62156836a37cff8e209fe8f97847b8a8c7889272
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559608"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710926"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft
 
@@ -84,4 +84,4 @@ Consultez les articles suivants pour en savoir plus sur votre compte de facturat
 
 - [Créer un abonnement Azure supplémentaire dans le cadre de votre Contrat Partenaire Microsoft](../manage/create-subscription.md)
 - Intégrer les données de facturation à votre propre système de rapports à l’aide des [API Facturation Azure](/rest/api/billing/)
-- [Guide de démarrage rapide d’Azure Cost Management pour les partenaires](../costs/get-started-partners.md)
+- [Guide de démarrage rapide de Cost Management pour les partenaires](../costs/get-started-partners.md)

@@ -1,0 +1,99 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ - Configurer les offres privées ISV à revendeur cloud
+  description: Découvrez la configuration des offres privées ISV à revendeur cloud dans l’Espace partenaires.
+  ms.service: marketplace
+  ms.subservice: partnercenter-marketplace-publisher
+  ms.topic: troubleshooting
+  ms.date: 10/07/2021
+  author: emerb19
+  ms.author: emerb
+  ms.openlocfilehash: e5409eae75ec9bf5d78cbc46a2efee24ee4fefa9
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129715736"
+title: Questions courantes sur la configuration des offres privées ISV (éditeurs de logiciels indépendants) à revendeur cloud
+summary: Cet article traite des questions sur la configuration des offres privées ISV (éditeurs de logiciels indépendants) à revendeur cloud.
+sections:
+- name: Configuration d’une offre privée
+  questions:
+  - question: Pour quels types d’offres les ISV peuvent-ils étendre une offre privée ?
+    answer: >
+      L’offre doit pouvoir faire l’objet d’une transaction et être choisie pour la vente par le biais du canal CSP (Fournisseur de solutions cloud). Cela s’applique à la fois aux types d’offres basés sur une licence et aux types d’offres basés sur la consommation.
+  - question: Un partenaire CSP négocie-t-il une marge avec un ISV ou celui-ci applique-t-il simplement une marge fixe à tous les partenaires CSP ?
+    answer: "Les ISV et les partenaires CSP doivent négocier la marge. Les ISV peuvent également fournir une marge sans avoir à consulter un partenaire CSP. Il existe une limite de 400 locataires CSP par offre. \n"
+  - question: Quelle est la durée de l’offre privée ? Est-elle identique à la période de l’offre ?
+    answer: >
+      Chaque offre privée a une date de début et une date de fin. Pour les types d’offres avec facturation et période mensuelles, la marge s’applique jusqu’à la date de fin de l’offre privée. Au premier événement de facturation qui suit la date de fin de l’offre privée, le partenaire CSP est facturé au prix sans marge, sauf si l’ISV a créé une offre privée pour cette offre et ce partenaire CSP.
+
+
+      Pour une période annuelle (facturation annuelle), le partenaire CSP est facturé au prix avec application de la marge si l’événement de facturation se produit au cours de la période de l’offre privée.
+
+
+      Il n’existe actuellement aucune offre combinant facturation mensuelle et période annuelle.
+  - question: L’ISV peut-il appliquer la marge au niveau du client ou uniquement au niveau du partenaire CSP ?
+    answer: >
+      La marge est appliquée au niveau du locataire partenaire CSP. Le partenaire CSP reçoit une marge pour toute transaction qu’il effectue pour un client. L’application d’une marge au niveau du client (client d’un partenaire CSP) est en cours d’examen pour une phase ultérieure.
+  - question: L’ISV doit-il créer une offre privée dans chaque région ?
+    answer: "Non. Quand un ISV publie une offre, il choisit les pays dans lesquels l’offre peut être vendue. Quand un ISV crée une offre privée pour un partenaire CSP, il peut choisir des locataires CSP dans n’importe quelle région au sein de la même offre privée. \n"
+  - question: Un ISV peut-il fournir différents pourcentages de marge à différents partenaires CSP ?
+    answer: >
+      Oui, l’ISV peut configurer une marge au niveau de l’offre/du plan par partenaire CSP. Différents pourcentages de marges nécessitent des offres privées distinctes.
+  - question: Une fois créée, combien de temps faut-il pour qu’une offre privée devienne active ?
+    answer: >
+      Cela dépend. Si l’offre a été choisie et que le partenaire CSP a déjà été sélectionné par l’ISV pour vendre son offre, la modification est presque immédiate (dans un délai de 15 minutes). Il peut y avoir un délai d’attente plus long (jusqu’à six heures) si l’offre doit être choisie pour être vendue par le biais du canal CSP ou si le partenaire CSP doit être autorisé à vendre l’offre de l’ISV.
+  - question: Que se passe-t-il si un ISV tente de fournir une marge à un partenaire CSP qu’il n’a pas choisi ou une offre qu’il n’a pas choisi de vendre par le biais du canal CSP ?
+    answer: >
+      Quand vous créez une offre privée pour un partenaire CSP que vous n’avez pas sélectionné pour vendre votre offre, ce partenaire est automatiquement en mesure de vendre votre offre. De même, si une offre n’a pas été choisie pour être vendue par le biais du canal CSP et que l’ISV crée une marge pour un partenaire CSP, cette offre est intégrée au canal CSP pour être vendue par le biais de ce partenaire CSP uniquement (pas par tous les partenaires CPS).
+  - question: Si un ISV ne parvient pas à trouver un partenaire auquel fournir une marge, peut-il être ajouté ?
+    answer: >
+      Non. Les partenaires doivent faire partie du programme CSP de Microsoft et doivent être des fournisseurs CSP directs ou indirects pour se voir fournir une marge. Si un partenaire n’apparaît pas dans la recherche, il est probable qu’il ne fasse pas partie du programme CSP de Microsoft ou qu’il s’agisse d’un revendeur indirect. Les partenaires CSP peuvent consulter des informations sur la façon de s’inscrire au programme à la page [S’inscrire au programme Fournisseur de solutions cloud](/partner-center/enrolling-in-the-csp-program.md).
+  - question: Si un ISV travaille avec un revendeur indirect qui achète par le biais d’un distributeur/fournisseur indirect, comment peut-il vendre son offre par le biais du revendeur indirect ?
+    answer: >
+      L’ISV doit sélectionner le fournisseur indirect auprès duquel le revendeur indirect achète et le fournisseur indirect doit choisir s’il souhaite vendre l’offre de l’ISV par le biais de ses revendeurs indirects.
+
+
+      Un ISV ne peut pas directement fournir une marge/offre privée à un revendeur indirect, mais le fournisseur indirect peut décider de répercuter une marge sur son revendeur indirect.
+  - question: Si un ISV a choisi de vendre à tous les partenaires CSP, peut-il fournir une marge uniquement à un groupe de partenaires CSP spécifique ?
+    answer: >
+      Oui. Il existe une limite de 400 locataires CSP par offre.
+  - question: Si un ISV choisit d’ajouter une marge au niveau de l’offre, tous les plans rattachés à l’offre sont-ils inclus ?
+    answer: >
+      Oui, tous les plans existants et futurs rattachés à l’offre sélectionnée sont inclus.
+  - question: À quels types de partenaires la limite de 400 locataires CSP s’applique-t-elle ?
+    answer: "Cette limite s’applique au nombre de locataires partenaires CSP de type fournisseur indirect et avec facturation directe. Si un fournisseur indirect a des milliers de revendeurs indirects, ces locataires ne sont pas pris en compte dans la limite maximale. \n"
+- name: Modification d’une offre privée
+  questions:
+  - question: Que se passe-t-il si un ISV souhaite changer la période d’une offre privée ?
+    answer: >
+      Une fois qu’un ISV a étendu une offre privée, il ne peut pas modifier la période de l’offre privée avant la date de fin, ni changer cette date. Une fois que le partenaire CSP a reçu une offre privée, elle est verrouillée jusqu’à sa date de fin.
+
+
+      Si l’ISV ajoute une nouvelle offre privée fournissant au partenaire CSP un pourcentage de marge supérieur et que la chronologie chevauche l’offre actuelle, le pourcentage de marge supérieur s’applique.
+  - question: Une offre privée peut-elle être annulée ?
+    answer: >
+      Un ISV peut demander l’annulation ou le retrait d’une offre privée. Si le partenaire CSP n’a pas encore traité l’offre, cette demande est approuvée.
+
+
+      Si le partenaire CSP l’a traitée pour son client, l’ISV ne peut pas annuler l’offre privée avant la fin de la période.
+  - question: Si l’ISV a commis une erreur et créé une offre privée avec un pourcentage de marge incorrect, peut-il la modifier ?
+    answer: >
+      Une fois l’offre privée soumise, elle ne peut pas être modifiée avant la fin de la période. L’ISV ne peut demander l’annulation (par le biais d’une demande de retrait) de l’offre privée d’origine que si le partenaire CSP n’a pas encore traité l’offre.
+  - question: Un ISV peut-il supprimer un partenaire CSP d’une offre privée existante ?
+    answer: "Non, un ISV ne peut pas supprimer un partenaire CSP si celui-ci a traité une offre.\n\nSi aucun partenaire n’a traité une offre dans le cadre de l’offre privée d’origine, l’ISV peut créer une offre privée excluant le partenaire CSP qu’il souhaite supprimer. Il doit ensuite annuler l’offre privée d’origine. \n\nSi un autre partenaire CSP de l’offre privée a traité l’offre mais que le partenaire CSP à supprimer ne l’a pas fait, l’ISV peut créer une offre privée sans le partenaire CSP qu’il souhaite supprimer. Il peut ensuite annuler l’offre privée d’origine par le biais de la fonctionnalité de retrait. \n"
+  - question: L’ISV peut-il ajouter des partenaires à une offre privée existante ?
+    answer: >
+      Non. L’ISV doit créer une offre privée pour ajouter un nouveau partenaire CSP.
+  - question: Comment un ISV peut-il étendre la date de fin d’une offre privée existante ?
+    answer: "La date de fin d’une offre privée existante ne peut pas être étendue. Le partenaire ISV doit créer une offre privée. \n"
+- name: Validation de la commande
+  questions:
+  - question: S’il existe des frais de consommation Azure associés, la marge s’applique-t-elle également à ces frais ?
+    answer: >
+      Non, la marge s’applique uniquement au prix du logiciel défini par l’ISV pour son produit, et non aux frais de consommation Azure associés.
+  - question: Que se passe-t-il si le partenaire CSP augmente le nombre de postes pour un client avec un abonnement annuel après l’expiration d’une offre privée ?
+    answer: "*Les abonnements annuels s’appliquent uniquement aux offres basées sur des droits*.\n\nToutefois, les postes nouvellement ajoutés bénéficient du tarif réduit, car il a acheté l’abonnement au cours de la période de l’offre privée d’origine. Cet avantage se poursuit jusqu’à la fin de la période d’abonnement annuelle. \n\nSi le partenaire CSP augmente le nombre de postes pour les offres avec facturation mesurée, les tarifs de la partie des frais en fonction des droits conservent la remise jusqu’à la fin de la période d’abonnement annuelle, mais la marge appliquée au prix pour la facturation mesurée n’est pas conservée après la fin de l’offre privée. La solution de contournement consiste pour les ISV à créer une offre privée pour ce partenaire CSP jusqu’à la fin de la période d’abonnement.\n\nLe même concept s’applique aux abonnements (et à la facturation) mensuels. Si une offre privée se termine au cours d’un mois, le partenaire CSP est facturé au tarif plein le mois suivant.\n\nLa date de fin d’une offre privée est toujours la fin du mois.\n"
+  - question: Dans quelle mesure les rapports de paiement sont-ils affectés par la marge ?
+    answer: Aucune modification n’est apportée à la représentation des rapports de paiement. Le montant de paiement et les frais d’agence que Microsoft facture sont basés sur le tarif après l’application de la marge pour les articles auxquels une marge est associée.

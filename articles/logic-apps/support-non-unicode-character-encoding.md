@@ -1,16 +1,16 @@
 ---
-title: Prendre en charge le codage de caractères non Unicode dans Logic Apps
-description: Utilisez du texte non Unicode dans Logic Apps. Convertissez les charges utiles textuelles en UTF-8 à l’aide de l’encodage en base64 et Azure Functions.
-ms.date: 04/29/2021
-ms.topic: conceptual
-ms.reviewer: logicappspm
+title: Convertir le texte encodé non Unicode à des fins de vérification de la compatibilité
+description: Gérez les caractères non Unicode dans Azure Logic Apps en convertissant les charges utiles textuelles en UTF-8 avec encodage base64 et Azure Functions.
+ms.date: 10/05/2021
+ms.topic: how-to
+ms.reviewer: estfan, azla
 ms.service: logic-apps
-ms.openlocfilehash: cabdb2a644870d363265fa39290eb503f72730a9
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 1251a1622e62b7940c25ac810db10f70da560000
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326909"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618987"
 ---
 # <a name="support-non-unicode-character-encoding-in-logic-apps"></a>Prendre en charge le codage de caractères non Unicode dans Logic Apps
 
@@ -24,9 +24,17 @@ Cette solution fonctionne avec les workflows *multilocataires* et *à locataire 
 
 Tout d’abord, vérifiez que votre déclencheur peut identifier correctement le type de contenu. Cette étape permet de s’assurer que Logic Apps ne présume plus que le texte est en UTF-8. 
 
-Pour les déclencheurs avec le paramètre **Déduire le type de contenu**, choisissez **Non**. Si votre déclencheur n’a pas cette option, le type de contenu est défini par le message entrant. 
+Dans les déclencheurs et actions ayant la propriété **Déduire le type de contenu**, sélectionnez **Non**.  Vous pouvez généralement trouver cette propriété dans la liste **Ajouter des paramètres** de l’opération. Toutefois, si l’opération n’inclut pas cette propriété, le type de contenu est défini par le message entrant.
 
-Si vous utilisez le déclencheur de requête HTTP pour le contenu `text/plain`, vous devez définir le paramètre `charset` dans l’en-tête `Content-Type` de l’appel. Les caractères peuvent être corrompus si vous ne définissez pas le paramètre `charset`, ou si le paramètre ne correspond pas au format d’encodage de la charge utile. Pour plus d’informations, consultez [la façon de gérer le type de contenu `text/plain`](logic-apps-content-type.md#text-plain).
+La liste suivante répertorie certains des connecteurs pour lesquels vous pouvez désactiver la déduction automatique du type de contenu :
+* [OneDrive](/connectors/onedrive/)
+* [Stockage Blob Azure](/connectors/azureblob/)
+* [Stockage Fichier Azure](/connectors/azurefile/)
+* [Système de fichiers](/connectors/filesystem/)
+* [Google Drive](/connectors/googledrive/)
+* [SFTP - SSH](/connectors/sftpwithssh/)
+ 
+Si vous utilisez le déclencheur de requête pour le contenu `text/plain`, vous devez définir le paramètre `charset` dans l’en-tête `Content-Type` de l’appel. Sinon, les caractères peuvent être corrompus, ou le paramètre ne correspond pas au format d’encodage de la charge utile. Pour plus d’informations, consultez [la façon de gérer le type de contenu `text/plain`](logic-apps-content-type.md#text-plain).
 
 Par exemple, le déclencheur HTTP convertit le contenu entrant en UTF-8 lorsque l’en-tête `Content-Type` est défini avec le paramètre `charset` correct :
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 138b6f1b0b20ac85c9800daf40d3c82e81e24d0a
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 9a69750da0ae64fc1467785e174fef14a22ab396
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539054"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725620"
 ---
 ## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
@@ -77,6 +77,7 @@ Cet exemple de code effectue les opérations suivantes :
 * Crée un `ConversationTranscriber` à l’aide du constructeur.
 * Ajoute des participants à la conversation. Les chaînes `voiceSignatureStringUser1` et `voiceSignatureStringUser2` doivent être générées à partir des étapes ci-dessus.
 * S’inscrit auprès des événements et commence la transcription.
+* Si vous souhaitez différencier les orateurs sans fournir d’exemples vocaux, activez la fonctionnalité `DifferentiateGuestSpeakers` comme dans la [Vue d’ensemble de la transcription de conversation](../../../conversation-transcription.md). 
 
 ```javascript
 (function() {
@@ -98,6 +99,9 @@ Cet exemple de code effectue les opérations suivantes :
     
     var speechTranslationConfig = sdk.SpeechTranslationConfig.fromSubscription(subscriptionKey, region);
     var audioConfig = sdk.AudioConfig.fromStreamInput(pushStream);
+    speechTranslationConfig.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
+
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
     speechTranslationConfig.speechRecognitionLanguage = "en-US";
     
     // create conversation and transcriber

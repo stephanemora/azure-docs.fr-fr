@@ -4,12 +4,12 @@ description: Cet article fournit une présentation détaillée de l’agent des 
 ms.date: 09/30/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 36dc64a28cd0199e7fba3ab2b5f3f6765eef489d
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: e4251ceafd2ab06afc43f8c3ba84f167219d7e14
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455604"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713168"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs avec Azure Arc
 
@@ -163,7 +163,7 @@ L’agent Connected Machine pour Linux et Windows communique en sortie de maniè
 Pour sécuriser davantage votre connectivité réseau à Azure Arc, au lieu d’utiliser des réseaux publics et des serveurs proxy, vous pouvez implémenter une [étendue de liaison privée Azure Arc](private-link-security.md) (préversion).
 
 > [!NOTE]
-> Les serveurs avec Azure Arc ne prennent pas en charge l’utilisation d’une [passerelle Log Analytics](../../azure-monitor/agents/gateway.md) comme proxy pour l’agent Connected Machine.
+> Les serveurs avec Azure Arc ne prennent pas en charge l’utilisation d’une [passerelle Log Analytics](../../azure-monitor/agents/gateway.md) comme proxy pour l’agent Connected Machine.
 >
 
 Si la connectivité sortante est restreinte par votre pare-feu ou votre serveur proxy, vérifiez que les URL listées ci-dessous ne sont pas bloquées. Lorsque vous n’autorisez que les plages d’adresses IP ou les noms de domaine nécessaires pour que l’agent communique avec le service, vous devez également autoriser l’accès aux URL et étiquettes de service suivantes.

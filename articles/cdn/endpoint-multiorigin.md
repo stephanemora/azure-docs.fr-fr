@@ -1,5 +1,5 @@
 ---
-title: Prise en charge de plusieurs origines par point de terminaison Azure CDN (préversion)
+title: Prise en charge de plusieurs origines par point de terminaison Azure CDN
 description: Prise en main de plusieurs origines par point de terminaison Azure CDN.
 services: cdn
 author: asudbring
@@ -8,12 +8,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: allensu
-ms.openlocfilehash: 06d0e35534db97f1de48c55f9cc6f46f979514fa
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 1e17c747c87a5abb184ae4b7b263a8b5bd1a3a49
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527927"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855989"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Prise en charge de plusieurs origines par point de terminaison Azure CDN
 
@@ -22,6 +22,8 @@ La prise en charge de plusieurs origines élimine les temps d’arrêt et établ
 En choisissant plusieurs origines au sein d’un point de terminaison Azure CDN, la redondance fournie réagit au risque en sondant l’intégrité de chaque origine et en basculant si nécessaire.
 
 Configurez un ou plusieurs groupes d’origines et choisissez un groupe d’origines par défaut. Chaque groupe d'origines est un ensemble d'une ou plusieurs origines qui peuvent prendre des charges de travail similaires.
+
+Le premier groupe d’origines est défini comme groupe d’origines par défaut. La fonctionnalité multiorigine est activée lorsqu’un groupe d’origines par défaut pour le point de terminaison du CDN est sélectionné. Une fois la fonctionnalité multiorigine activée, elle ne peut pas être désactivée et le groupe d’origines par défaut ne peut pas être supprimé. Le groupe d’origines par défaut est utilisé pour acheminer les demandes à l’origine. Vous êtes autorisé à mettre à jour la configuration du groupe d’origines et à basculer vers une configuration d’origine unique. Vous êtes également autorisé à modifier la désignation du groupe d’origines par défaut afin d’utiliser un autre groupe d’origines.
 
 > [!NOTE]
 > Actuellement, cette fonctionnalité est uniquement disponible à partir d'Azure CDN de Microsoft. 

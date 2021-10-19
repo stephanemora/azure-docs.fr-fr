@@ -9,12 +9,12 @@ author: yorek
 ms.author: damauri
 ms.reviewer: ''
 ms.date: 9/24/2021
-ms.openlocfilehash: e2785f965cdbb94af081e937f0b2290578c04796
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 38dd0f42b8c318d94c266b4837f2b67eda1f9ed9
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059527"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667855"
 ---
 # <a name="hyperscale-secondary-replicas"></a>Réplicas secondaires Hyperscale
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,6 +62,11 @@ La différence par rapport aux réplicas de haute disponibilité réside dans le
 - Ont leur propre objectif de niveau de service qui peut être défini et changé indépendamment du réplica principal ;
 - Prennent en charge un maximum de 30 réplicas nommés (pour chaque réplica principal) ;
 - Prennent en charge des processus d’authentification différents pour chaque réplica nommé en créant des connexions différentes sur les serveurs logiques hébergeant les réplicas nommés.
+
+Par conséquent, les réplicas nommés offrent plusieurs avantages par rapport aux réplicas à haute disponibilité, pour ce qui est des charges de travail en lecture seule :
+
+- Les utilisateurs connectés à un réplica nommé ne subissent aucune déconnexion si le réplica principal fait l’objet d’un scale-up ou d’un scale-down. De même, les utilisateurs connectés au réplica principal ne sont pas affectés par le scale-up ou le scale-down des réplicas nommés.
+-   Les charges de travail exécutées sur un réplica, principal ou nommé, ne sont pas affectées par les requêtes longues exécutées sur d’autres réplicas.
 
 L’objectif principal des réplicas nommés est d’autoriser un scénario d’[échelle horizontale en lecture](read-scale-out.md) OLTP massive et d’améliorer les charges de travail de traitement transactionnel et analytique hybride (HTAP, Hybrid Transactional and Analytical Processing). Des exemples de création de solutions de ce type sont disponibles ici :
 

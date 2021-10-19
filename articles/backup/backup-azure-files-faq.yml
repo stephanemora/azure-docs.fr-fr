@@ -2,15 +2,15 @@
 metadata:
   title: FAQ sur la sauvegarde des fichiers Azure
   description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
-  ms.date: 04/22/2020
+  ms.date: 10/08/2021
   ms.topic: article
   ms.service: backup
-  ms.openlocfilehash: 22aeb3771f0a1c1d1f7baafc4ce4a2e5885aa4bc
-  ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+  ms.openlocfilehash: 67ee18a0ae7654ad9ff704e66d4e0a70d00dbb4f
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129533123"
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129714198"
 title: Questions sur la sauvegarde des fichiers Azure
 summary: >
   Cet article répond aux questions courantes sur la sauvegarde des fichiers Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Sauvegarde Azure dans la [page de questions Microsoft Q&A](/answers/topics/azure-backup.html).
@@ -77,7 +77,7 @@ sections:
   - question: >
       Pourquoi les sauvegardes Azure Files ne sont-elles pas répliquées selon le paramètre Type de réplication de stockage du coffre ?
     answer: >
-      Le paramètre Type de réplication de stockage du coffre n’est pas pertinent pour la sauvegarde Azure Files. Cela est dû au fait que la solution actuelle est basée sur des instantanés et qu’aucune donnée n’est transférée vers le coffre. Les instantanés sont stockés dans le même compte de stockage que le partage des fichiers sauvegardés, et par conséquent répliqués selon le paramètre de réplication du compte de stockage.
+      Le paramètre Type de réplication de stockage du coffre n’est pas pertinent pour la sauvegarde Azure Files. C’est parce que la solution actuelle est basée sur des instantanés et qu’aucune donnée n’est transférée vers le coffre. Les instantanés sont stockés dans le même compte de stockage que le partage des fichiers sauvegardés, et par conséquent répliqués selon le paramètre de réplication du compte de stockage.
   - question: >
       Puis-je accéder aux instantanés effectués par les sauvegardes Azure et les monter ?
     answer: >
@@ -86,7 +86,7 @@ sections:
       Que se passe-t-il après le déplacement d’un partage de fichiers sauvegardé vers un autre abonnement ?
     answer: "Une fois qu’un partage de fichiers est déplacé vers un autre abonnement, il est considéré comme un nouveau partage de fichiers par Sauvegarde Azure. Les étapes recommandées sont les suivantes :\n \nScénario : Supposons que vous avez un partage de fichiers *FS1* dans l’abonnement *S1* et qu’il est protégé à l’aide du coffre *V1*. Vous souhaitez maintenant déplacer votre partage de fichiers vers l’abonnement *S2*.\n \n1.  Déplacez le compte de stockage et le partage de fichiers (FS1) souhaités vers l’autre abonnement (S2).\n2.  Dans le coffre V1, déclenchez l’arrêt de la protection avec l’opération de suppression de données pour FS1.\n3.  Désinscrivez le compte de stockage qui héberge FS1 du coffre V1.\n4.  Reconfigurez la sauvegarde pour FS1, désormais déplacée dans S2, avec un coffre (V2) dans l’abonnement S2. \n \nNotez qu’après la reconfiguration de la sauvegarde avec V2, les instantanés qui ont été pris avec V1 ne seront plus gérés par Sauvegarde Azure. Vous devrez donc supprimer ces instantanés manuellement en fonction de vos besoins.\n"
   - question: >
-      Puis-je déplacer mon partage de fichiers sauvegardé vers un autre groupe de ressources ?
+      Est-ce que je peux déplacer mon partage de fichiers sauvegardé vers un autre groupe de ressources ?
     answer: >
       Oui, vous pouvez déplacer votre partage de fichiers sauvegardé vers un autre groupe de ressources. Toutefois, vous devrez reconfigurer la sauvegarde pour le partage de fichiers, car il sera traité comme une nouvelle ressource par Sauvegarde Azure. En outre, les instantanés qui ont été créés avant le déplacement du groupe de ressources ne seront plus gérés par Sauvegarde Azure. Vous devrez donc supprimer ces instantanés manuellement en fonction de vos besoins.
   - question: >
@@ -207,4 +207,67 @@ sections:
       >[!NOTE]
 
       >Les modifications apportées à la stratégie affecteront uniquement les points de récupération créés dans le cadre de la sauvegarde planifiée. Pour les sauvegardes à la demande, la conservation est déterminée par la valeur **Conserver la sauvegarde jusqu’au** spécifiée au moment de la sauvegarde.
+  - question: >
+      Que signifie l’attribut duration dans la stratégie de sauvegarde Azure Files ?
+    answer: "L’attribut **duration** permet de déterminer l’horodatage de la dernière sauvegarde du jour. \n\nPar exemple, si l’heure de début (**start time**) est « x AM » et la durée (**duration**) est « y hours », les sauvegardes seront planifiées entre « x AM » et (x AM + y hours) en fonction de l’attribut **schedule** défini dans la stratégie. Cet attribut vous permet de faire en sorte que les sauvegardes seront déclenchées uniquement pendant les heures de travail si le contenu du partage de fichiers est fréquemment mis à jour. Le fait de prendre plusieurs instantanés protégera donc les données contre les modifications accidentelles.\n"
+  - question: >
+      Comment les sauvegardes sont-elles planifiées en fonction des attributs start time, schedule et duration ?
+    answer: >
+      Par exemple, vous avez créé une stratégie avec la configuration suivante :
+
+
+      - **Start time** : (Heure de début) 09:00
+
+      - **Schedule** : (Planification) Toutes les 4 heures
+
+      - **Duration** : (Durée) 12 heures
+
+
+      Sur la base de ces valeurs, la fenêtre de sauvegarde est calculée de la façon suivante : 09:00 – (09:00 + 12 heures), soit 09:00 – 21:00. Par conséquent, toutes les sauvegardes seront planifiées à l’intérieur de cette fenêtre.
+
+
+      La première sauvegarde de la journée est déclenchée à l’heure de début définie dans la stratégie, c’est-à-dire à 09:00, et la planification (**schedule**) détermine l’écart de temps entre les sauvegardes consécutives, c’est-à-dire 4 heures. Avec ce calcul, votre planification de sauvegarde serait la suivante : 09:00, 13:00 ( 09:00 + 4 heures), 17:00 (13:00 + 4 heures) et 21:00 (17:00 + 4 heures).
+
+
+      Étant donné que l’heure de fin de la fenêtre de sauvegarde calculée était 09:00, aucune sauvegarde ne sera déclenchée après cette heure.
+  - question: >
+      Pourquoi est-ce que j’obtiens l’erreur « La configuration sélectionnée déclenchera uniquement 1 sauvegarde par jour » ?
+    answer: >
+      Cette erreur se produit si vous avez spécifié une valeur pour **schedule** qui est supérieure à la valeur de **duration**. Par exemple, vous avez configuré **start time** sur 09:00, **schedule** sur 6 heures et **duration** sur 4 heures. Dans ce scénario, le seul moment où le travail de sauvegarde peut être déclenché est 09:00, étant donné que l’heure de la prochaine sauvegarde qui est à 15:00 (09:00 + 6 heures) se trouve en dehors de la fenêtre de sauvegarde : 09:00 – 13:00 (09:00 + 4 heures).
+
+
+      Pour résoudre ce problème, nous vous recommandons de modifier la valeur de planification ou de durée, ou de sélectionner comme fréquence **Quotidienne** au lieu de **Toutes les heures**.
+  - question: >
+      Pourquoi est-ce que j’obtiens l’erreur « La configuration sélectionnée étend la fenêtre de sauvegarde au jour suivant ? »
+    answer: >
+      Cette erreur se produit si les **start time** et **end time** de la fenêtre de sauvegarde déterminés par les attributs **schedule** et **duration** de la sauvegarde, ont lieu sur deux jours différents.
+
+
+      Par exemple, vous avez configuré une stratégie avec les paramètres suivants :
+
+
+      - **Schedule** : (Planification) Toutes les 4 heures
+
+      - **Start time** : (Heure de début) 12:00
+
+      - **Duration** : (Durée) 15 heures
+
+
+      Sur la base de cette configuration, la fenêtre de sauvegarde sera : 12:00 – 03:00 (12:00 + 15 heures). Étant donné que les heures de début et de fin se trouvent sur deux jours différents, nous vous recommandons de modifier la valeur des attributs **start time** ou **duration** pour que celles-ci aient lieu le même jour.
+
+
+      Supposons que vous remplaciez l’heure de début par 06:00 dans la configuration ci-dessus. La fenêtre de sauvegarde sera alors 06:00 – 09:00 (06:00 + 15 heures). Cette configuration est prise en charge.
+  - question: >
+      Quel est l’impact sur les points de récupération existants quand je passe de la fréquence « Quotidienne » à la fréquence « Toutes les heures » ?
+    answer: >
+      Lorsque vous passez de la fréquence **Quotidienne** à la fréquence **Toutes les heures**, le comportement est le suivant :
+
+
+      - **Conservation** : Si vous ajoutez une conservation hebdomadaire/mensuelle/annuelle dans le cadre de la modification de la stratégie, tous les points de récupération futurs créés dans le cadre de la sauvegarde planifiée seront marqués selon la nouvelle stratégie. Tous les points de récupération existants seront toujours considérés comme des points de récupération quotidiens et ne seront donc pas étiquetés comme étant hebdomadaires/mensuels/annuels.
+
+
+      - **Nettoyage des instantanés et des points de récupération** :
+
+        - Si la conservation quotidienne est étendue, la date d’expiration des points de récupération quotidiens existants est mise à jour en fonction de la valeur de conservation quotidienne configurée dans la nouvelle stratégie.
+        - Si la conservation quotidienne est raccourcie, les points de récupération et les instantanés existants seront marqués pour suppression lors du prochain nettoyage en fonction de la valeur de conservation quotidienne configurée dans la nouvelle stratégie, puis ils seront supprimés.
 additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n- [Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure](troubleshoot-azure-files.md)"

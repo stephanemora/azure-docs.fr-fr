@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier include
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7205fa7095608084140f7ac6e1c3965b1296a8fe
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: bebedbcd2c36203ec122ebf597ac8a0c64fb1ae4
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122336003"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129679904"
 ---
 |**Génération<br>de passerelle<br>VPN** |**Référence (SKU)**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> connexions SSTP** | **P2S<br> connexions IKEv2/OpenVPN** | **Agrégat<br>Référence de débit** | **BGP** | **Redondant interzone** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -30,13 +30,13 @@ ms.locfileid: "122336003"
 |**Génération2**|**VpnGw4**  | Bande passante 30*   | Bande passante 128  | Bande passante 5 000      | 5 Gbit/s    | Pris en charge | Non |
 |**Génération2**|**VpnGw5**  | Bande passante 30*   | Bande passante 128  | Bande passante 10000      | 10 Gbits/s   | Pris en charge | Non |
 |**Génération2**|**VpnGw2AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 500       | 1,25 Gbits/s | Pris en charge | Oui |
-|**Génération2**|**VpnGw3AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 2,5 Gbits/s  | Pris en charge | Oui |
-|**Génération2**|**VpnGw4AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 5 000      | 5 Gbit/s    | Pris en charge | Oui |
-|**Génération2**|**VpnGw5AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 10000      | 10 Gbits/s   | Pris en charge | Oui |
+|**Génération2**|**VpnGw3AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 1 000      | 2,5 Gbits/s  | Prise en charge | Oui |
+|**Génération2**|**VpnGw4AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 5 000      | 5 Gbit/s    | Prise en charge | Oui |
+|**Génération2**|**VpnGw5AZ**| Bande passante 30*   | Bande passante 128  | Bande passante 10000      | 10 Gbits/s   | Prise en charge | Oui |
 
 (*) Utilisez le [WAN virtuel](../articles/virtual-wan/virtual-wan-about.md) si vous avez besoin de plus de 30 tunnels VPN S2S.
 
-* Le redimensionnement des références SKU VpnGw est autorisé dans la même génération, à l’exception du redimensionnement de la référence SKU De base. La référence SKU De base est une référence SKU héritée et présente des limitations en termes de fonctionnalités. Pour passer de la référence SKU De base à une autre référence SKU VpnGw, vous devez supprimer la passerelle VPN de la référence SKU De base et créer une passerelle avec la combinaison de taille de référence SKU et de génération souhaitée.
+* Le redimensionnement des références SKU VpnGw est autorisé dans la même génération, à l’exception du redimensionnement de la référence SKU De base. La référence SKU De base est une référence SKU héritée et présente des limitations en termes de fonctionnalités. Pour passer de la référence SKU De base à une autre référence SKU VpnGw, vous devez supprimer la passerelle VPN de la référence SKU De base et créer une passerelle avec la combinaison de taille de référence SKU et de génération souhaitée. Vous pouvez uniquement redimensionner une passerelle De base vers une autre référence SKU héritée (voir [Utilisation des références SKU héritées](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)).
 
 * Ces limites de connexion sont séparées. Par exemple, vous pouvez avoir 128 connexions SSTP et 250 connexions IKEv2 sur une référence SKU VpnGw1.
 

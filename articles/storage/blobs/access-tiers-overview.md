@@ -4,17 +4,17 @@ titleSuffix: Azure Storage
 description: Le Stockage Azure offre différents niveaux d’accès afin que vous puissiez stocker vos données d’objet blob de la manière la plus économique en fonction de la façon dont elles sont utilisées. En savoir plus sur les niveaux d’accès chaud, froid et archive pour Stockage Blob.
 author: tamram
 ms.author: tamram
-ms.date: 09/29/2021
+ms.date: 10/07/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: fryu
-ms.openlocfilehash: ee0a9714f305a63ae3f25628f1bd9e9b14ce6e01
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 7af8e29890c63429a50c9818baa001bb5990c26b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129293571"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709007"
 ---
 # <a name="hot-cool-and-archive-access-tiers-for-blob-data"></a>Niveaux d’accès chaud, froid et archive pour les données d’objet blob
 
@@ -81,11 +81,13 @@ Les opérations suivantes sont prises en charge pour les objets blob dans le niv
 
 Les comptes de stockage disposent d’un paramètre de niveau d’accès par défaut qui indique le niveau en ligne dans lequel un nouvel objet blob est créé. Le paramètre de niveau d’accès par défaut peut être défini sur chaud ou froid. Les utilisateurs peuvent remplacer le paramètre par défaut d’un objet blob individuel lors du chargement de l’objet blob ou de la modification de son niveau.
 
-Par défaut, le niveau d’accès par défaut pour un nouveau compte de stockage est défini sur le niveau chaud. Vous pouvez modifier le paramètre de niveau d’accès par défaut lorsque vous créez un compte de stockage ou après sa création. Si vous ne modifiez pas ce paramètre, les objets blob sont téléchargés vers le niveau chaud par défaut.
+Par défaut, le niveau d’accès pour un nouveau compte de stockage universel v2 est défini sur le niveau chaud. Vous pouvez modifier le paramètre de niveau d’accès par défaut lorsque vous créez un compte de stockage ou après sa création. Si vous ne modifiez pas ce paramètre sur le compte de stockage ou si vous définissez explicitement le niveau lors du chargement d’un objet blob, un nouvel objet blob est chargé par défaut vers le niveau chaud.
 
 Tout objet blob ne disposant pas d’un niveau explicitement attribué déduit le niveau à partir du paramètre de niveau d’accès du compte par défaut. Si le niveau d’accès d’un objet blob est déduit du paramètre de niveau d’accès au compte par défaut, le portail Azure affiche le niveau d’accès comme **Chaud (inféré)** ou **Froid (inféré)** .
 
-La modification du paramètre de niveau d’accès au compte par défaut s’applique à tous les objets blob du compte pour lesquels un niveau d’accès n’a pas été défini explicitement. Si vous basculez le paramètre de niveau d’accès du compte par défaut de chaud à froid dans un compte à usage général v2, vous êtes facturé pour les opérations d’écriture (par tranche de 10 000) pour tous les objets blob pour lesquels le niveau d’accès est inféré. Ce changement n’est pas facturé dans les comptes Stockage Blob. Vous serez facturé pour les opérations de lecture (par 10 000) et d’extraction de données (par Go) si vous passez votre compte Stockage Blob ou usage général v2 d’un stockage froid à chaud.
+La modification du paramètre de niveau d’accès au compte par défaut s’applique à tous les objets blob du compte pour lesquels un niveau d’accès n’a pas été défini explicitement. Si vous basculez le paramètre de niveau d’accès du compte par défaut de chaud à froid dans un compte à usage général v2, vous êtes facturé pour les opérations d’écriture (par tranche de 10 000) pour tous les objets blob pour lesquels le niveau d’accès est inféré. Les opérations de lecture (par 10 000) et d’extraction de données (par Go) sont facturées si vous faites passer votre compte universel v2 du niveau froid au niveau chaud.
+
+Quand vous créez un compte de stockage hérité, vous devez spécifier le niveau d’accès par défaut sur chaud ou froid au moment de la création. Aucuns frais n’incombent pour modifier le paramètre de niveau d’accès du compte par défaut de chaud à froid dans un compte de stockage d’objets blob hérité. Les opérations de lecture (par 10 000) et d’extraction de données (par Go) sont facturées si vous faites passer votre compte de stockage d’objets blob du niveau froid au niveau chaud. Microsoft recommande d’utiliser des comptes de stockage universel v2 plutôt que des comptes de stockage d’objets blob si possible.
 
 > [!NOTE]
 > Le niveau Archive n’est pas pris en charge en tant que niveau d’accès par défaut pour un compte de stockage.

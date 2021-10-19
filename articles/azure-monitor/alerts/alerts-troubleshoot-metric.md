@@ -5,12 +5,12 @@ author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 09/30/2021
-ms.openlocfilehash: df925bd149c8516f4c6af8b49a65969737aaffa2
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 6b093eeda754d288030e6ff3f1739a5c68c659c1
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129352379"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615597"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Résolution des problèmes liés aux alertes de métrique dans Azure Monitor 
 
@@ -141,7 +141,7 @@ Pour éviter que le déploiement échoue quand vous tentez de valider les défin
     }
 ```
 > [!NOTE] 
-> L’utilisation du paramètre *skipMetricValidation* est également requise lors de la définition d’une règle d’alerte sur une métrique personnalisée existante qui n’a pas été émise en plus de trois jours.
+> L’utilisation du paramètre *skipMetricValidation* peut également être requise lors de la définition d’une règle d’alerte sur une métrique personnalisée existante qui n’a pas été émise en plusieurs jours.
 
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exporter le modèle Azure Resource Manager d’une règle d’alerte de métrique via le Portail Azure
 

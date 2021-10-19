@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/29/2020
+ms.date: 10/08/2021
 ms.topic: how-to
 ms.custom: deploy, studio, designer
-ms.openlocfilehash: 110bb5e6349ab5cb64366ba365ccace8ab029362
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: d2553ddde013c43b9ce4d23d2cc0b4541150e6f3
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949431"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740472"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Utiliser Studio pour déployer des modèles entraînés dans le concepteur
 
@@ -100,7 +100,8 @@ Vous pouvez également télécharger les fichiers à partir de la page de ressou
 Une fois que vous avez téléchargé les fichiers nécessaires, vous êtes prêt à déployer le modèle.
 
 1. Dans la page de ressources **Modèles**, sélectionnez le modèle inscrit.
-1. Sélectionnez le bouton **Déployer**.
+1. Sélectionnez **Déployer** et sélectionnez **Déployer sur le service web**.
+    ![Capture d’écran du bouton Déployer dans la page de ressources du modèle](./media/how-to-deploy-model-designer/open-deploy-wizard.png)
 1. Dans le menu Configuration, entrez les informations suivantes :
 
     - Entrez le nom du point de terminaison.

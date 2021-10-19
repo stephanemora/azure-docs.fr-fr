@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: d8ba75ce068d7d2b604e9cafa4cde76393175c30
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.openlocfilehash: 3ca38fbefccaf6529d78d1c5acce30c85d88bf7c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114298154"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129616984"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Options de configuration – Azure Monitor Application Insights pour Java
 
@@ -39,14 +39,14 @@ Vous trouverez plus de détails, ainsi que des options de configuration supplém
 
 ## <a name="configuration-file-path"></a>Chemin d'accès au fichier de configuration
 
-Par défaut, Application Insights Java 3.x s’attend à ce que le fichier config soit nommé `applicationinsights.json` et se trouve dans le même répertoire que `applicationinsights-agent-3.1.1.jar`.
+Par défaut, Application Insights Java 3.x s’attend à ce que le fichier config soit nommé `applicationinsights.json` et se trouve dans le même répertoire que `applicationinsights-agent-3.2.0.jar`.
 
 Vous pouvez spécifier votre propre chemin d’accès au fichier de configuration à l’aide d'un des éléments suivants :
 
 * variable d’environnement `APPLICATIONINSIGHTS_CONFIGURATION_FILE`, ou
 * propriété système Java `applicationinsights.configuration.file`
 
-Si vous spécifiez un chemin d’accès relatif, il sera résolu par rapport au répertoire où se trouve `applicationinsights-agent-3.1.1.jar`.
+Si vous spécifiez un chemin d’accès relatif, il sera résolu par rapport au répertoire où se trouve `applicationinsights-agent-3.2.0.jar`.
 
 ## <a name="connection-string"></a>Chaîne de connexion
 
@@ -180,6 +180,22 @@ Vous pouvez utiliser `${...}` pour lire la valeur de la variable d’environneme
 > [!NOTE]
 > À partir de la version 3.0.2, si vous ajoutez une dimension personnalisée nommée `service.version`, la valeur sera stockée dans la colonne `application_Version` de la table des journaux Application Insights plutôt que sous forme de dimension personnalisée.
 
+## <a name="inherited-attribute-preview"></a>Attribut hérité (préversion)
+
+À partir de la version 3.2.0, si vous souhaitez définir une dimension personnalisée par programme sur la télémétrie de vos demandes et faire en sorte qu’elle soit héritée par la télémétrie des dépendances qui suit :
+
+```json
+{
+  "inheritedAttributes": [
+    {
+      "key": "mycustomer",
+      "type": "string"
+    }
+  ]
+}
+```
+
+
 ## <a name="telemetry-processors-preview"></a>Processeurs de télémétrie (préversion)
 
 Elle vous permet de configurer des règles qui seront appliquées aux données de télémétrie de requêtes, de dépendances et de traces. Par exemple :
@@ -254,28 +270,6 @@ Pour désactiver la collection automatique des métriques de Micrometer (y compr
 }
 ```
 
-## <a name="auto-collected-azure-sdk-telemetry-preview"></a>Télémétrie du kit SDK Azure collectée automatiquement (préversion)
-
-De nombreuses bibliothèques récentes du kit SDK Azure émettent des données de télémétrie (voir la [liste complète](./java-in-process-agent.md#azure-sdks-preview)).
-
-À partir d’Application Insights Java 3.0.3, vous pouvez activer la capture de cette télémétrie.
-
-Si vous souhaitez activer cette fonctionnalité :
-
-```json
-{
-  "preview": {
-    "instrumentation": {
-      "azureSdk": {
-        "enabled": true
-      }
-    }
-  }
-}
-```
-
-Vous pouvez également activer cette fonctionnalité en affectant à la variable d’environnement `APPLICATIONINSIGHTS_PREVIEW_INSTRUMENTATION_AZURE_SDK_ENABLED` la valeur `true` (qui sera ensuite prioritaire sur celle spécifiée dans la configuration JSON).
-
 ## <a name="suppressing-specific-auto-collected-telemetry"></a>Suppression d’une télémétrie collectée automatiquement spécifique
 
 À partir de la version 3.0.3, une télémétrie collectée automatiquement spécifique peut être supprimée à l’aide des options de configuration suivantes :
@@ -283,6 +277,9 @@ Vous pouvez également activer cette fonctionnalité en affectant à la variable
 ```json
 {
   "instrumentation": {
+    "azureSdk": {
+      "enabled": false
+    },
     "cassandra": {
       "enabled": false
     },
@@ -301,6 +298,9 @@ Vous pouvez également activer cette fonctionnalité en affectant à la variable
     "mongo": {
       "enabled": false
     },
+    "rabbitmq": {
+      "enabled": false
+    },
     "redis": {
       "enabled": false
     },
@@ -313,12 +313,14 @@ Vous pouvez également activer cette fonctionnalité en affectant à la variable
 
 Vous pouvez également supprimer ces instrumentations à l’aide de ces variables d’environnement sur `false` :
 
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_AZURE_SDK_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_CASSANDRA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JDBC_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_JMS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_KAFKA_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MICROMETER_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_MONGO_ENABLED`
+* `APPLICATIONINSIGHTS_INSTRUMENTATION_RABBITMQ_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_REDIS_ENABLED`
 * `APPLICATIONINSIGHTS_INSTRUMENTATION_SPRING_SCHEDULING_ENABLED`
 
@@ -326,6 +328,31 @@ Vous pouvez également supprimer ces instrumentations à l’aide de ces variabl
 
 > [!NOTE]
 > Si vous souhaitez un contrôle plus précis, par exemple pour supprimer une partie mais pas la totalité des appels redis, consultez la rubrique [Remplacements d’échantillonnage](./java-standalone-sampling-overrides.md).
+
+## <a name="preview-instrumentations"></a>Instrumentations en préversion
+
+À partir de la version 3.2.0, les instrumentations en préversion suivantes peuvent être activées :
+
+```
+{
+  "preview": {
+    "instrumentation": {
+      "apacheCamel": {
+        "enabled": true
+      },
+      "grizzly": {
+        "enabled": true
+      },
+      "quartz": {
+        "enabled": true
+      },
+      "springIntegration": {
+        "enabled": true
+      }
+    }
+  }
+}
+```
 
 ## <a name="heartbeat"></a>Heartbeat
 
@@ -431,7 +458,7 @@ Par défaut, Application Insights Java 3.x se connecte au niveau `INFO` au fich
 
 `level` peut être `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG` ou `TRACE`.
 
-`path` peut être un chemin d’accès absolu ou relatif. Les chemins d’accès relatifs sont résolus par rapport au répertoire où se trouve le fichier `applicationinsights-agent-3.1.1.jar`.
+`path` peut être un chemin d’accès absolu ou relatif. Les chemins d’accès relatifs sont résolus par rapport au répertoire où se trouve le fichier `applicationinsights-agent-3.2.0.jar`.
 
 `maxSizeMb` est la taille maximale du fichier journal avant son remplacement.
 

@@ -7,16 +7,16 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 7354f0504197742a8c8acf2d0c555a524fef95d9
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 89c76331f9aad8238b596094ad2057df98eea9a9
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538844"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659523"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Fournisseur de caches de sortie ASP.NET pour le Cache Azure pour Redis
 
-Le fournisseur de caches de sortie Redis est un mécanisme de stockage hors processus pour les données de cache de sortie. Ces données concernent spécialement les réponses HTTP complètes (mise en cache de la sortie de pages). Le fournisseur se connecte au nouveau point d'extension du fournisseur de caches de sortie introduit dans ASP.NET 4. Pour des informations sur les applications ASP.NET Core, consultez [Mise en cache des réponses dans ASP.NET Core](/aspnet/core/performance/caching/response). 
+Le fournisseur de caches de sortie Redis est un mécanisme de stockage hors processus pour les données de cache de sortie. Ces données concernent spécialement les réponses HTTP complètes (mise en cache de la sortie de pages). Le fournisseur se connecte au nouveau point d'extension du fournisseur de caches de sortie introduit dans ASP.NET 4. Pour des informations sur les applications ASP.NET Core, consultez [Mise en cache des réponses dans ASP.NET Core](/aspnet/core/performance/caching/response).
 
 Pour utiliser le fournisseur de caches de sortie Redis, configurez d’abord votre cache, puis configurez votre application ASP.NET en utilisant le package NuGet du fournisseur de caches de sortie Redis. Cet article fournit des conseils sur la configuration de votre application pour utiliser le fournisseur de caches de sortie Redis. Pour plus d’informations sur la création et la configuration d’une instance de Cache Azure pour Redis, voir [Créer un cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
@@ -26,14 +26,11 @@ Pour configurer une application cliente dans Visual Studio avec le package NuGet
 
 Exécutez la commande suivante depuis la fenêtre `Package Manager Console`.
 
-```
+```powershell
 Install-Package Microsoft.Web.RedisOutputCacheProvider
 ```
 
-Le package NuGet du fournisseur de caches de sortie Redis a une dépendance sur le package StackExchange.Redis.StrongName. Le package StackExchange.Redis.StrongName est automatiquement installé s’il ne figure pas déjà dans votre projet. Pour plus d’informations sur le package NuGet du fournisseur de caches de sortie Redis, consultez la page NuGet [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/).
-
->[!NOTE]
->Il existe, en plus du package StackExchange.Redis.StrongName avec nom fort, une version de StackExchange.Redis sans nom fort. Si votre projet utilise la version StackExchange.Redis sans nom fort, vous devez la désinstaller, sans quoi vous rencontrerez des conflits de noms dans votre projet. Pour plus d’informations sur ces packages, consultez la section [Configuration des clients de cache .NET](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+Le package NuGet du fournisseur de caches de sortie Redis a une dépendance sur le package StackExchange.Redis. Le package StackExchange.Redis est automatiquement installé s’il ne figure pas déjà dans votre projet. Pour plus d’informations sur le package NuGet du fournisseur de caches de sortie Redis, consultez la page NuGet [RedisOutputCacheProvider](https://www.nuget.org/packages/Microsoft.Web.RedisOutputCacheProvider/).
 
 Le package NuGet télécharge et ajoute les références d’assembly nécessaires et ajoute la section suivante dans votre fichier web.config. Cette section contient la configuration requise pour que votre application ASP.NET utilise le fournisseur de cache de sortie Redis.
 
@@ -56,7 +53,7 @@ Configurez les attributs sur la gauche avec les valeurs de votre cache dans le P
 | --------- | ---- | ------- | ----------- |
 | *host* | string | "localhost" | Le nom hôte ou l’adresse IP du serveur Redis |
 | *port* | entier positif | 6379 (non TLS/SSL)<br/>6380 (TLS/SSL) | Port du serveur Redis |
-| *accessKey* | string | "" | Mot de passe Redis lorsque l’autorisation Redis est activée. La valeur est une chaîne vide par défaut, ce qui signifie que le fournisseur d’état de session ne peut pas utiliser n’importe quel mot de passe pour la connexion au serveur Redis. **Si votre serveur Redis se trouve sur un réseau accessible publiquement comme Azure Cache pour Redis, activez l’autorisation Redis pour améliorer la sécurité et fournir un mot de passe sécurisé.** |
+| *accessKey* | string | "" | Mot de passe Redis lorsque l’autorisation Redis est activée. La valeur est une chaîne vide par défaut, ce qui signifie que le fournisseur d’état de session ne peut pas utiliser n’importe quel mot de passe pour se connecter au serveur Redis. **Si votre serveur Redis se trouve sur un réseau accessible publiquement comme Azure Cache pour Redis, activez l’autorisation Redis pour améliorer la sécurité et fournir un mot de passe sécurisé.** |
 | *ssl* | boolean | **false** | Indique s’il faut ou non se connecter au serveur Redis via TLS. La valeur est **false** par défaut, car Redis ne prend pas en charge TLS par défaut. **Si vous utilisez Azure Cache pour Redis, qui prend en charge SSL par défaut, veillez à définir cette valeur sur true pour améliorer la sécurité.**<br/><br/>Le port non TLS est désactivé par défaut pour les nouveaux caches. Spécifiez **true** pour ce paramètre afin d’utiliser le port non TLS. Pour plus d’informations sur l’activation du port non TLS, consultez la section relative aux [ports d’accès](cache-configure.md#access-ports) dans l’article [Configuration d’un cache](cache-configure.md). |
 | *databaseIdNumber* | entier positif | 0 | *Cet attribut peut uniquement être spécifié par le biais de web.config ou AppSettings.*<br/><br/>Spécifie la base de données Redis à utiliser. |
 | *connectionTimeoutInMilliseconds* | entier positif | Fourni par StackExchange.Redis | Permet de définir *ConnectTimeout* lors de la création de StackExchange.Redis.ConnectionMultiplexer. |

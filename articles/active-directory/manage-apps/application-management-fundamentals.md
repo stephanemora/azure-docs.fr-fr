@@ -1,5 +1,6 @@
 ---
-title: 'Gestion des applications : Bonnes pratiques et recommandations | Microsoft Docs'
+title: 'Gestion des applications : Bonnes pratiques et recommandations'
+titleSuffix: Azure AD
 description: Apprenez les bonnes pratiques et les recommandations associées à la gestion des applications dans Azure Active Directory. Découvrez l’utilisation du provisionnement automatique et la publication d’applications locales avec Proxy d’application.
 services: active-directory
 author: davidmu1
@@ -14,14 +15,14 @@ ms.subservice: app-mgmt
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: napuri
-ms.openlocfilehash: ccccc1f72724cec3577016e34532b30ff9e695ee
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 0dc4edc86065a0569f933f92990cec86d7dada2b
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233632"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615008"
 ---
-# <a name="application-management-best-practices"></a>Bonnes pratiques relatives à la gestion des applications
+# <a name="application-management-best-practices-in-azure-active-directory"></a>Meilleures pratiques en matière de gestion des applications dans Azure Active Directory
 
 Cet article contient des recommandations et des bonnes pratiques pour la gestion des applications dans Azure Active Directory (Azure AD), lors de l’utilisation du provisionnement automatique et de la publication d’applications locales avec Proxy d’application.
 
@@ -54,6 +55,6 @@ Cet article contient des recommandations et des bonnes pratiques pour la gestion
 | Synchroniser les utilisateurs avant de déployer Proxy d’application | Avant le déploiement du proxy d’application, synchronisez les identités utilisateur à partir d’un annuaire local, ou créez-les directement dans Azure AD. La synchronisation des identités permet à Azure AD de pré-authentifier les utilisateurs avant de leur accorder l’accès aux applications publiées via Proxy d’application. Il fournit également les informations d’identifiant utilisateur nécessaires pour effectuer une authentification unique (SSO). (Voir [Planification de Proxy d’application](../app-proxy/application-proxy-deployment-plan.md).) |
 | Suivre nos conseils sur la haute disponibilité et l’équilibrage de charge | Pour savoir comment le trafic circule entre les utilisateurs, les connecteurs Proxy d’application et les serveurs d’applications principaux, et pour obtenir des conseils sur l’optimisation des performances et de l’équilibrage de charge, consultez [Haute disponibilité et équilibrage de charge de vos applications et connecteurs Proxy d’application](../app-proxy/application-proxy-high-availability-load-balancing.md). |
 | Utiliser plusieurs connecteurs | Utilisez au moins deux connecteurs Proxy d’application pour une plus grande résilience, disponibilité et mise à l’échelle (voir [Connecteurs Proxy d’application](../app-proxy/application-proxy-connectors.md)). Créez des groupes de connecteurs et assurez-vous que chaque groupe de connecteurs possède au moins deux connecteurs (trois connecteurs est le nombre idéal). |
-| Localiser les serveurs de connecteur à proximité des serveurs d’applications et s’assurer qu’ils se trouvent dans le même domaine | Pour optimiser les performances, placez physiquement le serveur de connecteur à proximité des serveurs d’applications (voir [Considérations sur la topologie réseau](../app-proxy/application-proxy-network-topology.md)). De plus, le serveur de connecteur et les serveurs d’applications web doivent appartenir au même domaine Active Directory, ou couvrir des domaines autorisés. Cette configuration est nécessaire pour l’authentification unique avec Authentification Windows intégrée (IWA) et la délégation Kerberos contrainte (KCD). Si les serveurs se trouvent dans des domaines différents, vous devez utiliser la délégation basée sur les ressources pour l’authentification unique (voir [KCD pour l’authentification unique avec Proxy d’application](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md)). |
+| Localiser les serveurs de connecteur à proximité des serveurs d’applications et s’assurer qu’ils se trouvent dans le même domaine | Pour optimiser les performances, placez physiquement le serveur de connecteur à proximité des serveurs d’applications (voir [Considérations sur la topologie réseau](../app-proxy/application-proxy-network-topology.md)). De plus, le serveur de connecteur et les serveurs d’applications web doivent appartenir au même domaine Active Directory, ou couvrir des domaines autorisés. Cette configuration est exigée pour l’authentification unique avec l’authentification Windows intégrée (IWA) et la délégation Kerberos contrainte (KCD). Si les serveurs se trouvent dans des domaines différents, vous devez utiliser la délégation basée sur les ressources pour l’authentification unique (voir [KCD pour l’authentification unique avec Proxy d’application](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md)). |
 | Activer les mises à jour automatiques pour les connecteurs | Activez les mises à jour automatiques de vos connecteurs pour les fonctionnalités et résolutions de bogues les plus récentes. Microsoft fournit une prise en charge directe de la version la plus récente du connecteur et de la version précédente. (Voir [Historique des versions Proxy d’application](../app-proxy/application-proxy-release-version-history.md).) |
 | Ignorer votre proxy local | Pour faciliter la maintenance, configurez le connecteur de manière à ce qu’il contourne votre proxy local et se connecte ainsi directement aux services Azure. (Voir [Connecteurs de Proxy d’application et serveurs proxy](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md).) |

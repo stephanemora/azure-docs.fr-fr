@@ -3,29 +3,30 @@ title: 'Démarrage rapide : Bibliothèque Stockage Blob Azure v12 - .NET'
 description: Dans ce démarrage rapide, vous apprendrez à utiliser la bibliothèque de client Stockage Blob Azure version 12 pour .NET afin de créer un conteneur et un blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 author: normesta
 ms.author: normesta
-ms.date: 03/03/2021
+ms.date: 10/06/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c71a362c7e8e3073929967abce4bcdc4566b8ce9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f695d344401598256d89dee83a69b886768e2774
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128652905"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659580"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Démarrage rapide : Bibliothèque cliente Stockage Blob Azure v12 pour .NET
 
 Bien démarrer avec la bibliothèque cliente Stockage Blob Azure v12 pour .NET. Le Stockage Blob Azure est la solution de stockage d’objets de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
 
-Utilisez la bibliothèque cliente Stockage Blob Azure v12 pour .NET afin d’effectuer les tâches suivantes :
+Les exemples de ce guide de démarrage rapide vous montrent comment utiliser la bibliothèque de client Stockage Blob Azure v12 pour .NET pour :
 
-- Créez un conteneur.
-- Charger un blob dans le stockage Azure
-- Lister tous les objets blob d’un conteneur
-- Télécharger l’objet blob sur votre ordinateur local
-- Supprimer un conteneur
+- [Obtenir la chaîne de connexion](#get-the-connection-string)
+- [Créer un conteneur](#create-a-container)
+- [Charger un objet blob dans un conteneur](#upload-a-blob-to-a-container)
+- [Lister les objets blob d’un conteneur](#list-blobs-in-a-container)
+- [Télécharger un objet blob](#download-a-blob)
+- [Supprimer un conteneur](#delete-a-container)
 
 Ressources supplémentaires :
 
@@ -109,14 +110,7 @@ Utilisez les classes .NET suivantes pour interagir avec ces ressources :
 
 ## <a name="code-examples"></a>Exemples de code
 
-Ces exemples d’extraits de code montrent comment effectuer les opérations suivantes avec la bibliothèque cliente Stockage Blob Azure pour .NET :
-
-- [Obtenir la chaîne de connexion](#get-the-connection-string)
-- [Créer un conteneur](#create-a-container)
-- [Charger des objets blob sur un conteneur](#upload-blobs-to-a-container)
-- [Lister les objets blob d’un conteneur](#list-the-blobs-in-a-container)
-- [Télécharger des objets blob](#download-blobs)
-- [Supprimer un conteneur](#delete-a-container)
+Les exemples d’extraits de code présentés dans les sections suivantes vous montrent comment effectuer des opérations de base sur les données avec la bibliothèque de client Stockage Blob Azure pour .NET.
 
 ### <a name="get-the-connection-string"></a>Obtenir la chaîne de connexion
 
@@ -139,7 +133,7 @@ Ajoutez ce code à la fin de la méthode `Main` :
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_CreateContainer":::
 
-### <a name="upload-blobs-to-a-container"></a>Charger des objets blob sur un conteneur
+### <a name="upload-a-blob-to-a-container"></a>Charger un objet blob dans un conteneur
 
 L’extrait de code suivant :
 
@@ -151,7 +145,7 @@ Ajoutez ce code à la fin de la méthode `Main` :
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_UploadBlobs":::
 
-### <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
+### <a name="list-blobs-in-a-container"></a>Lister les objets blob d’un conteneur
 
 Répertoriez les objets Blob dans le conteneur en appelant la méthode [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync). Dans ce cas, un seul objet blob a été ajouté au conteneur. Il n’y a donc qu’un objet blob répertorié.
 
@@ -159,7 +153,7 @@ Ajoutez ce code à la fin de la méthode `Main` :
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/quickstarts/dotnet/BlobQuickstartV12/Program.cs" id="Snippet_ListBlobs":::
 
-### <a name="download-blobs"></a>Télécharger des objets blob
+### <a name="download-a-blob"></a>Télécharger un objet blob
 
 Téléchargez l’objet blob créé précédemment en appelant la méthode [DownloadToAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadtoasync). L’exemple de code ajoute le suffixe « DOWNLOADED » au nom de fichier afin que vous puissiez voir les deux fichiers dans votre système de fichiers local.
 

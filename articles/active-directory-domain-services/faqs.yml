@@ -10,14 +10,14 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: how-to
-  ms.date: 09/01/2021
+  ms.date: 10/08/2021
   ms.author: justinha
-  ms.openlocfilehash: f11d8198c04cc93587591e41359fe9e359d350d6
-  ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+  ms.openlocfilehash: 104b738143169ffe6f9787a8223efa757a8656d6
+  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/03/2021
-  ms.locfileid: "123433137"
+  ms.lasthandoff: 10/09/2021
+  ms.locfileid: "129710351"
 title: Foire aux questions (FAQ) sur Azure Active Directory (AD) Domain Services
 summary: Cette page répond aux questions fréquemment posées sur les services de domaine Azure Active Directory.
 sections:
@@ -77,9 +77,9 @@ sections:
       Une approbation de forêt bidirectionnelle peut-elle être créée entre une forêt de ressources et une forêt locale ?
     answer: "Non. Une forêt de ressources de domaine managé prend en charge jusqu’à cinq approbations de forêt sortante unidirectionnelle vers des forêts locales. \n"
   - question: >
-      Puis-je déplacer un domaine managé des Services du domaine Azure AD existant vers un abonnement, un groupe de ressources, une région ou un réseau virtuel différent ?
+      Puis-je déplacer un domaine managé ?
     answer: >
-      Non. Après avoir créé un domaine managé des Services du domaine Azure AD, vous ne pouvez pas déplacer le domaine managé vers un autre groupe de ressources, réseau virtuel, abonnement, etc. Veillez à sélectionner l’abonnement, le groupe de ressources, la région, le réseau virtuel et le sous-réseau les plus appropriés quand vous déployez le domaine managé.
+      Non. Après avoir créé un domaine managé Azure AD Domain Services, vous ne pouvez pas le déplacer vers un autre abonnement, groupe de ressources, région, réseau virtuel ou sous-réseau. Pour résoudre ce problème, vous pouvez [supprimer le domaine managé](delete-aadds.md) à l’aide de PowerShell ou du portail Azure, et le recréer avec la configuration souhaitée. Aucune opération de restauration ne peut être fournie lors de la recréation du domaine managé.
   - question: >
       Puis-je renommer un nom de domaine Azure AD Domain Services existant ?
     answer: >

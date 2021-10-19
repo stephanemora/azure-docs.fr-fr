@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 16191b274f840438cac8deab6754991b7b9e29df
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 679be09b977ffd39dd513e88968fe4b0d474e74b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425009"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705357"
 ---
 # <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>Extensibilité des packages Python pour les images Docker prédéfinies (préversion)
 
@@ -31,7 +31,7 @@ Les [images Docker prédéfinies pour l’inférence de modèle](concept-prebuil
     Utilisez cette approche __pour les déploiements de production__. Comme le répertoire contenant les packages est monté sur l’image, il peut être utilisé même si vos déploiements ne disposent pas d’un accès Internet public. Par exemple, c’est le cas lors du déploiement dans un réseau virtuel Azure sécurisé.
 
 > [!IMPORTANT]
-> Pour l’heure, l’utilisation d’images Docker prédéfinies avec Azure Machine Learning est disponible en préversion. La fonctionnalité en préversion est fournie en l’état, sans garantie de support ni contrat de niveau de service. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> L’utilisation de l’extensibilité de package Python pour les images Docker prédéfinies avec Azure Machine Learning est actuellement disponible en préversion. La fonctionnalité en préversion est fournie en l’état, sans garantie de support ni contrat de niveau de service. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prérequis
 

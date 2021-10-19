@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 31dd0096140544db9c1265999b8c0c709def9cda
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 16c024926ddb863e3b40eac07f494c8d5dbeae9c
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350076"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617983"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Connexion sur page unique en utilisant un flux implicite OAuth 2.0 dans Azure Active Directory B2C
 
@@ -222,7 +222,7 @@ error=user_authentication_required
 Si vous recevez cette erreur dans la requête iFrame, l’utilisateur doit se connecter de nouveau de manière interactive, ceci pour récupérer un nouveau jeton.
 
 ## <a name="refresh-tokens"></a>Jetons d’actualisation
-Les jetons d’ID et les jetons d’accès expirent après une courte période de temps. Votre application doit actualiser ces jetons périodiquement.  Pour actualiser chaque type de jeton, exécutez la même demande d’IFrame masqué que dans l’exemple précédent, en utilisant le paramètre `prompt=none` pour contrôler les étapes d’Azure AD.  Pour recevoir une nouvelle valeur `id_token`, utilisez `response_type=id_token` et `scope=openid`, ainsi qu’un paramètre `nonce`.
+Les jetons d’ID et les jetons d’accès expirent après une courte période de temps. Votre application doit actualiser ces jetons périodiquement. Les flux implicites ne vous permettent pas d’obtenir un jeton d’actualisation pour des raisons de sécurité. Pour actualiser l’un ou l’autre type de jeton, utilisez le flux implicite dans un élément IFRAME HTML masqué. Dans la demande d’autorisation, incluez le paramètre `prompt=none`. Pour recevoir une nouvelle valeur id_token, utilisez `response_type=id_token` et `scope=openid`, ainsi qu’un paramètre `nonce`.
 
 ## <a name="send-a-sign-out-request"></a>Envoi d’une demande de déconnexion
 Lorsque vous souhaitez déconnecter l’utilisateur de l’application, redirigez l’utilisateur vers Azure AD pour effectuer cette déconnexion. Si vous ne le faites pas, l’utilisateur pourrait être en mesure de se réauthentifier à votre application sans avoir à saisir de nouveau ses informations d’identification, car il dispose d’une session d’authentification unique valide auprès d’Azure AD.

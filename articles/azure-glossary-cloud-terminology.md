@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2021
+ms.date: 09/17/2021
 ms.author: monicar
-ms.openlocfilehash: 0f0b624097fdb159fd52adae7ae57830833662f2
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 223e75d0a02997187eec609324014493e2fa34df
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272943"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660986"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
@@ -133,6 +133,9 @@ Voir [Contrat d’abonnement à Microsoft Online](https://azure.microsoft.com/su
 ## <a name="tag"></a>tag
 Un terme d’indexation vous permettant de catégoriser les ressources en fonction de vos exigences de gestion ou de facturation. Lorsque vous disposez d’un ensemble complexe de ressources , vous pouvez utiliser des balises pour visualiser ces ressources de la façon la plus pertinente. Par exemple, vous pouvez baliser des ressources qui jouent un rôle similaire dans votre organisation ou qui appartiennent au même département.  
 Voir [Utilisation de balises pour organiser vos ressources Azure](./azure-resource-manager/management/tag-resources.md)
+
+## <a name="tenant"></a>Locataire
+Un locataire est un groupe d’utilisateurs ou une organisation qui partagent l’accès avec des privilèges spécifiques à une instance d’un produit, d’un service ou d’une application. Dans Azure Active Directory, un locataire est une instance d’Azure Active Directory qu’une organisation reçoit lorsqu’elle s’inscrit à une application cloud telle que Microsoft 365. Chaque locataire Azure AD est distinct et indépendant des autres locataires Azure AD. L’architecture mutualisée fait référence à une instance d’une application partagée par plusieurs organisations, chacune avec un accès distinct à l’instance.
 
 ## <a name="update-domain"></a>domaine de mise à jour
 Une collection de machines virtuelles dans un groupe à haute disponibilité qui sont mises à jour en même temps. Les machines virtuelles dans un même domaine de mise à jour sont redémarrées simultanément lors de la maintenance planifiée. Azure ne redémarre jamais plus d’un domaine de mise à jour à la fois. Également appelé domaine de mise à niveau.  

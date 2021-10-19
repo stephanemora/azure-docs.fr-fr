@@ -2,13 +2,13 @@
 title: Remise d’événement WebHook
 description: Cet article décrit la remise des événements webhook et la validation des points de terminaison lors de l’utilisation de webhooks.
 ms.topic: conceptual
-ms.date: 09/15/2021
-ms.openlocfilehash: 58da34498fa3e2fc81c8fe1476b1098688b9c6c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 09/29/2021
+ms.openlocfilehash: 77908b7f36c51ca729915b09cb1e813c978235e3
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128625161"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614363"
 ---
 # <a name="webhook-event-delivery"></a>Remise d’événements webhook
 Un Webhook constitue l’un des nombreux moyens de recevoir des événements provenant d’Azure Event Grid. Lorsqu'un nouvel événement est prêt, le service Event Grid envoie une requête HTTP (POST) au point de terminaison configuré avec l'événement dans le corps de la requête.
@@ -82,6 +82,25 @@ Pour accéder à un exemple de gestion d'établissement de liaison de validation
 
 ## <a name="endpoint-validation-with-cloudevents-v10"></a>Validation de point de terminaison avec CloudEvents v1.0
 CloudEvents v1.0 implémente sa propre [sémantique de protection contre les abus](webhook-event-delivery.md) en utilisant la méthode **HTTP OPTIONS**. Pour plus d'informations à ce sujet, cliquez [ici](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). Lors de l’utilisation du schéma CloudEvents pour la sortie, Event Grid l’utilise avec la protection contre les abus CloudEvents v1.0 à la place du mécanisme d’événement de validation Event Grid.
+
+## <a name="event-subscriptions-considerations"></a>Considérations liées aux abonnements à des événements
+
+Pour éviter les problèmes lors de la création de l’abonnement, utilisez cette référence pour vérifier la compatibilité entre les schémas de rubrique et d’abonnement. Quand une rubrique est créée, un schéma d’événement entrant est défini, de même qu’un schéma d’événement sortant est défini lors de la création de l’abonnement.
+
+> [!NOTE]
+> Cette référence de table de compatibilité s’applique aux rubriques personnalisées et domaines d’événements.
+
+| Schéma d’événement entrant | Schéma d’événement sortant | Pris en charge |
+| ---- | ---- | ---- |
+| Schéma Event Grid | Schéma Event Grid | Yes |
+| | Schéma d’événements cloud v1.0 | Yes |
+| | Schéma d’entrée personnalisé | No |
+| Schéma d’événements cloud v1.0 | Schéma Event Grid | No |
+| | Schéma d’événements cloud v1.0 | Yes |
+| | Schéma d’entrée personnalisé | No |
+| Schéma d’entrée personnalisé | Schéma Event Grid | Yes |
+| | Schéma d’événements cloud v1.0 | Yes |
+| | Schéma d’entrée personnalisé | Oui |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article suivant pour savoir comment résoudre les problèmes de validation des abonnements aux événements : 

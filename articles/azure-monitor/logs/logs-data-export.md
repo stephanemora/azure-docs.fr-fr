@@ -6,12 +6,12 @@ ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
 ms.date: 05/07/2021
-ms.openlocfilehash: 04662b734f86905f0064bad43ecbecd84bc48042
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: beb3d2374e89402795dab0480d840e291c391ec8
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129401386"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811562"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -45,7 +45,7 @@ L’exportation des données d’espace de travail Log Analytics exporte en cont
 - L’exportation des données sera disponible dans toutes les régions, mais elle est actuellement prises en charge dans les régions suivantes : 
     - Centre de l’Australie
     - Australie Est
-    - Australie Sud-Est
+    - Sud-Australie Est
     - Brésil Sud
     - Centre du Canada
     - Inde centrale
@@ -142,12 +142,46 @@ Si vous avez configuré votre compte de stockage pour autoriser l’accès à pa
 [![Pare-feux de compte de stockage et réseaux virtuels](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 ### <a name="create-or-update-data-export-rule"></a>Créer ou mettre à jour une règle d’exportation de données
-Une règle d’exportation de données définit les tables pour lesquelles les données sont exportées et la destination. Vous pouvez avoir 10 règles activées dans votre espace de travail alors que toute règle supplémentaire au-delà de 10 doit être à l’état désactivé. Une destination doit être unique pour toutes les règles d’exportation de votre espace de travail.
+La règle d’exportation de données définit les tables pour lesquelles les données sont exportées et la destination. Vous pouvez avoir 10 règles activées dans votre espace de travail ; des règles supplémentaires peuvent être ajoutées, mais à l’état « désactivé ». La destination doit être unique pour toutes les règles d’exportation de votre espace de travail.
 
-> [!NOTE]
-> L’exportation de données envoie les journaux vers des destinations dont vous êtes propriétaire, mais celles-ci ont certaines limites : [scalabilité des comptes de stockage](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), [quota d’espaces de noms d’Event Hubs](../../event-hubs/event-hubs-quotas.md). Il est recommandé de surveiller les destinations et d'appliquer des mesures lorsqu'elles se rapprochent de leur limite. Par exemple : 
-> - Définissez la fonctionnalité de majoration automatique dans l’Event Hub pour effectuer un scale-up automatiquement et augmenter le nombre d’unités de débit (TU). Vous pouvez demander plus d’unités de débit lorsque la majoration automatique est au maximum.
-> - Fractionnement des tables en plusieurs règles d’exportation, chacune d’entre elles étant destinée à des destinations différentes
+Les destinations d’exportation de données ont des limites et doivent être surveillées pour réduire les limitations d’exportation, les défaillances et la latence. Consultez les informations sur la [scalabilité des comptes de stockage](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) et le [quota d’espace de noms Event Hub](../../event-hubs/event-hubs-quotas.md).
+
+#### <a name="recommendations-for-storage-account"></a>Recommandations pour le compte de stockage 
+
+1. Utiliser un compte de stockage distinct pour l’exportation
+1. Configurez l’alerte sur la métrique ci-dessous avec les paramètres suivants : 
+   - `Operator` Supérieur à
+   - `Aggregation type` Total
+   - `Aggregation granularity (period)` 5 minutes
+   - `Frequency of evaluation` Toutes les 5 minutes
+  
+    | Étendue | Espace de noms de métrique | Métrique | Agrégation | Seuil |
+    |:---|:---|:---|:---|:---|
+    | storage-name | Compte | Entrée | Sum | 80% du taux d’entrée de stockage maximal. Par exemple : 60 Gbps pour Usage général v2 dans la région USA Ouest |
+  
+1. Action corrective
+    - Utiliser un espace de noms Event Hub distinct pour l’exportation
+    - Les comptes standard Stockage Azure prennent en charge une limite d’entrée supérieure par demande. Pour demander une augmentation, contactez le [Support Azure](https://azure.microsoft.com/support/faq/).
+    - Fractionner des tables entre des comptes de stockage supplémentaires
+
+#### <a name="recommendations-for-event-hub"></a>Recommandations pour Event Hub
+
+1. Configurez l’alerte sur la métrique ci-dessous avec les paramètres suivants : 
+   - `Operator` Supérieur à
+   - `Aggregation type` Total
+   - `Aggregation granularity (period)` 5 minutes
+   - `Frequency of evaluation` Toutes les 5 minutes
+  
+    | Étendue | Espace de noms de métrique | Métrique | Agrégation | Seuil |
+    |:---|:---|:---|:---|:---|
+    | namespaces-name | Métriques standard du Event Hub | Octets entrants | Sum | 80 % de l’entrée maximale par 5 minutes. Par exemple, il s’agit de 1 Mo/s par unité de limitation |
+    | namespaces-name | Métriques standard du Event Hub | Messages entrants | Sum | 80 % du nombre maximal d’événements par 5 minutes. Par exemple, il s’agit de 1000/s par unité de limitation |
+    | namespaces-name | Métriques standard du Event Hub | Demandes de limitation | Sum | Entre 1 % et 5 % de la demande |
+
+1. Action corrective
+   - Augmenter le nombre d’unités de limitation
+   - Fractionner des tables entre des espaces de noms supplémentaires
+   - Utiliser le niveau Event Hub Premium pour un débit plus élevé
 
 La règle d’exportation doit inclure les tables que vous avez dans votre espace de travail. Exécutez cette requête pour obtenir la liste des tables disponibles dans votre espace de travail.
 

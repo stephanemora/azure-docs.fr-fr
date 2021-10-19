@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/16/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: be6bc9166ffc0bddae5433734d3213b53e6f6f0e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 57a3f1f9d9665e23ba40479062f0f60e59608b66
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673651"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707428"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Créer des cibles de calcul pour l’entraînement et le déploiement de modèle dans Azure Machine Learning Studio
 
@@ -172,7 +172,7 @@ Utilisez les [étapes ci-dessus](#portal-create) pour attacher un calcul.  Rempl
 [!INCLUDE [arc-enabled-machine-learning-create-training-compute](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 > [!IMPORTANT]
-> Pour attacher un cluster Azure Kubernetes Services (AKS) ou Kubernetes compatible avec Arc, vous devez être propriétaire de l’abonnement ou être autorisé à accéder aux ressources de cluster AKS de abonnement. Dans le cas contraire, la liste de clusters de la page « attacher un nouveau calcul » est vide.
+> Pour attacher un cluster Azure Kubernetes Services (AKS) ou Kubernetes avec Azure Arc, vous devez être propriétaire de l’abonnement ou être autorisé à accéder aux ressources de cluster AKS de l’abonnement. Dans le cas contraire, la liste de clusters de la page « attacher un nouveau calcul » est vide.
 
 Pour détacher votre calcul, procédez comme suit :
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 0ffa432b6d5d94ad4e313a183d8e277ce44aae3d
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: b1765c6f3627a694e46698f5fd512ade4ebc35d8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129584958"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725848"
 ---
 ## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
@@ -111,6 +111,7 @@ Cet exemple de code effectue les opérations suivantes :
 * Crée un `ConversationTranscriber` à l’aide du constructeur et s’abonne aux événements nécessaires.
 * Ajoute des participants à la conversation. Les chaînes `voiceSignatureStringUser1` et `voiceSignatureStringUser2` doivent être générées en sortie des étapes ci-dessus à partir de la fonction `GetVoiceSignatureString()`.
 * Joint la conversation et commence la transcription.
+* Si vous souhaitez différencier les orateurs sans fournir d’exemples vocaux, activez la fonctionnalité `DifferentiateGuestSpeakers` en tant que [Vue d’ensemble de la transcription de conversation](../../../conversation-transcription.md). 
 
 > [!NOTE]
 > `AudioStreamReader` est une classe d’assistance que vous pouvez obtenir sur [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/csharp/dotnet/conversation-transcription/helloworld/AudioStreamReader.cs).
@@ -137,7 +138,9 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
 
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
     config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
-    // config.SpeechRecognitionLanguage = "zh-cn"; // en-us by default. This code specifies Chinese.
+
+    // en-us by default. Adding this code to specify other languages, like zh-cn.
+    // config.SpeechRecognitionLanguage = "zh-cn";
     var stopRecognition = new TaskCompletionSource<int>();
 
     using (var audioInput = AudioConfig.FromWavFileInput(filepath))

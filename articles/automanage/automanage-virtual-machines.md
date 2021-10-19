@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: c45be7452d71002c2120e37999c2ecfacb8608b0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3e406f9ed38aa9360da3fed2ce256654ad7c10c0
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124800001"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707525"
 ---
 # <a name="preview-azure-automanage-for-virtual-machines"></a>Préversion : Azure Automanage pour machines virtuelles
 
@@ -36,7 +36,7 @@ Le service Azure Automanage surveille également automatiquement la dérive et l
 Automanage ne stocke ni ne traite les données client en dehors de la zone géographique où se trouvent vos machines virtuelles. Par exemple, dans la région Asie Sud-Est, Automanage ne stocke ni ne traite les données en dehors de l’Asie Sud-Est.
 
 > [!NOTE]
-> Automanage peut être activé sur les machines virtuelles Azure, ainsi que sur les serveurs avec Arc. La gestion automanage n’est pas disponible dans le cloud du gouvernement des États-Unis pour le moment.
+> Automanage peut être activé sur les machines virtuelles Azure, ainsi que sur les serveurs Azure avec Arc. La gestion automanage n’est pas disponible dans le cloud du gouvernement des États-Unis pour le moment.
 
 ## <a name="prerequisites"></a>Prérequis
 

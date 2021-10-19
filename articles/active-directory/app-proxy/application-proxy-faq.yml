@@ -12,12 +12,12 @@ metadata:
   ms.date: 04/27/2021
   ms.author: kenwith
   ms.reviewer: japere
-  ms.openlocfilehash: f0d27693bcf378988d70bae2ad45babedea4b858
-  ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+  ms.openlocfilehash: d144b160a940132bdab71362b6322b1e51679006
+  ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/29/2021
-  ms.locfileid: "129234316"
+  ms.lasthandoff: 10/06/2021
+  ms.locfileid: "129619159"
 title: Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 summary: Cette page répond aux questions fréquemment posées sur la fonctionnalité Proxy d’application Azure Active Directory (Azure AD).
 sections:
@@ -43,7 +43,7 @@ sections:
     answer: ''
   - question: >
       Pourquoi mon connecteur utilise-t-il toujours une version ancienne et n'est-il pas automatiquement mis à niveau vers la dernière version ?
-    answer: "Le service de mise à jour ne fonctionne peut-être pas correctement, ou bien aucune nouvelle mise à jour n'est disponible.\n\nLe service de mise à jour est sain s'il est en cours d'exécution et qu'aucune erreur n'est enregistrée dans le journal des événements (Journaux des applications et des services -> Microsoft -> AadApplicationProxy -> Mise à jour -> Admin). \n\n> [!IMPORTANT]\n> Seules les versions principales sont disponibles pour la mise à niveau automatique. Nous vous recommandons de mettre à jour votre connecteur manuellement uniquement si nécessaire. Par exemple, vous ne pouvez pas attendre une mise en production majeure parce que vous devez résoudre un problème connu ou utiliser une nouvelle fonctionnalité. Pour plus d'informations sur les nouvelles versions, le type de version (téléchargement, mise à niveau automatique), les correctifs de bogues et les nouvelles fonctionnalités, consultez [Proxy d'application Azure AD : historique de publication des versions](./application-proxy-release-version-history.md).\n\nPour procéder à la mise à niveau manuelle d'un connecteur :\n\n- Téléchargez la dernière version du connecteur. (Vous la trouverez sous Proxy d'application sur le portail Azure. Vous trouverez également un lien dans [Proxy d'application Azure AD : historique de publication des versions](./application-proxy-release-version-history.md).\n-   Le programme d'installation redémarre les services Azure AD Application Proxy Connector. Dans certains cas, un redémarrage du serveur peut être nécessaire si le programme d'installation ne peut pas remplacer tous les fichiers. Par conséquent, nous vous recommandons de fermer toutes les applications (par exemple, l'observateur d'événements) avant de lancer la mise à niveau.\n-   Exécutez le programme d’installation. Le processus de mise à niveau est rapide, ne nécessite aucune information d'identification, et le connecteur n'est pas réinscrit.\n"
+    answer: "Le service de mise à jour ne fonctionne peut-être pas correctement, ou bien aucune nouvelle mise à jour n'est disponible.\n\nLe service de mise à jour est sain s'il est en cours d'exécution et qu'aucune erreur n'est enregistrée dans le journal des événements (Journaux des applications et des services -> Microsoft -> AadApplicationProxy -> Mise à jour -> Admin). \n\n> [!IMPORTANT]\n> Seules les versions principales sont disponibles pour la mise à niveau automatique. Nous vous recommandons de mettre à jour votre connecteur manuellement uniquement si nécessaire. Par exemple, vous ne pouvez pas attendre une mise en production majeure parce que vous devez résoudre un problème connu ou utiliser une nouvelle fonctionnalité. Pour plus d'informations sur les nouvelles versions, le type de version (téléchargement, mise à niveau automatique), les correctifs de bogues et les nouvelles fonctionnalités, consultez [Proxy d'application Azure AD : historique de publication des versions](./application-proxy-release-version-history.md).\n\nPour procéder à la mise à niveau manuelle d'un connecteur :\n\n- Téléchargez la dernière version du connecteur. Vous la trouverez sous Proxy d’application dans le portail Azure. Vous trouverez également un lien dans [Proxy d'application Azure AD : historique de publication des versions](./application-proxy-release-version-history.md).\n-   Le programme d'installation redémarre les services Azure AD Application Proxy Connector. Dans certains cas, un redémarrage du serveur peut être nécessaire si le programme d'installation ne peut pas remplacer tous les fichiers. Par conséquent, nous vous recommandons de fermer toutes les applications (par exemple, l'observateur d'événements) avant de lancer la mise à niveau.\n-   Exécutez le programme d’installation. Le processus de mise à niveau est rapide, ne nécessite aucune information d'identification, et le connecteur n'est pas réinscrit.\n"
   - question: >
       Les services du connecteur de proxy d’application peuvent-ils s’exécuter dans un contexte utilisateur différent de celui par défaut ?
     answer: >
@@ -118,13 +118,29 @@ sections:
     answer: >
       À partir de la page des inscriptions d’applications, vous pouvez remplacer l’URL de la page d’accueil par l’URL externe souhaitée pour la page d’arrivée. La page spécifiée est chargée quand l’application est lancée à partir de Mes applications ou du portail Office 365. Pour connaître les étapes de configuration, consultez [Définir une page d’accueil personnalisée pour les applications publiées à l’aide du proxy d’application Azure AD](application-proxy-configure-custom-home-page.md).
   - question: >
+      Pourquoi est-ce que je suis redirigé vers une URL tronquée quand j’essaie d’accéder à mon application publiée chaque fois que l’URL contient un caractère « # » (mot-dièse) ?
+    answer: >
+      Si la pré-authentification Azure AD est configurée et que l’URL de l’application contient un caractère « # » lorsque vous tentez d’accéder à l’application pour la première fois, vous êtes redirigé vers Azure AD (login.microsoftonline.com) pour l’authentification. Une fois que vous avez procédé à l’authentification, vous êtes redirigé vers la partie de l’URL qui se trouve avant le caractère « # » et tout ce qui vient après le « # » semble être ignoré/supprimé. Par exemple, si l’URL est `https://www.contoso.com/#/home/index.html`, une fois que l’utilisateur a procédé à l’authentification Azure AD, il est redirigé vers `https://www.contoso.com/`.
+
+      Ce comportement est normal en raison de la façon dont le caractère « # » est géré par le navigateur.
+
+
+      Solutions/alternatives possibles :
+
+
+      - Configurer une redirection de `https://www.contoso.com` vers `https://contoso.com/#/home/index.html`. L’utilisateur doit d’abord accéder à `https://www.contoso.com`.
+
+      - L’URL utilisée pour la première tentative d’accès doit inclure le caractère « # » sous la forme encodée (%23). Le serveur publié risque de ne pas l’accepter.
+
+      - Configurer un type de pré-authentification direct (non recommandé).
+  - question: >
       Est-il possible de publier uniquement des applications IIS ? Qu’en est-il des applications web s’exécutant sur des serveurs web non-Windows ? Le connecteur doit-il être installé sur un serveur sur lequel IIS est installé ?
     answer: >
       Non, aucune configuration IIS n’est requise pour les applications publiées. Vous pouvez publier des applications web qui s’exécutent sur des serveurs autres que Windows Server. En revanche, vous ne pourrez peut-être pas utiliser la préauthentification avec un serveur autre que Windows Server, selon que le serveur web prend en charge ou non Negotiate (authentification Kerberos). IIS n’est pas exigé sur le serveur sur lequel le connecteur est installé.
   - question: >
       Puis-je configurer un Proxy d’application pour ajouter l’en-tête HSTS ?
     answer: >
-      Un Proxy d’application n’ajoute pas automatiquement l’en-tête HTTP Strict-Transport-Security aux réponses HTTPS, mais il conserve l’en-tête s’il est dans la réponse d’origine envoyée par l’application publiée. La mise au point d’un paramètre pour activer cette fonctionnalité figure dans la feuille de route. Si vous êtes intéressé par une préversion permettant d’ajouter cela aux réponses, contactez aadapfeedback@microsoft.com pour plus d’informations.
+      Un Proxy d’application n’ajoute pas automatiquement l’en-tête HTTP Strict-Transport-Security aux réponses HTTPS, mais il conserve l’en-tête s’il est dans la réponse d’origine envoyée par l’application publiée. La mise au point d’un paramètre pour activer cette fonctionnalité figure dans la feuille de route.
   - question: >
       Authentification Windows intégrée
     answer: ''
@@ -210,7 +226,7 @@ sections:
   - question: >
       WebSocket prend-il en charge les applications autres que QlikSense et le client web Bureau à distance (HTML5) ?
     answer: >
-      Actuellement, la prise en charge du protocole WebSocket est toujours en préversion publique et peut ne pas fonctionner pour d’autres applications. Malgré tout, certains clients ont tant bien que mal réussi à utiliser le protocole WebSocket avec d’autres applications. Si vous testez de tels scénarios, nous serions ravis de connaître vos résultats. Envoyez-nous vos commentaires à l’adresse aadapfeedback@microsoft.com.
+      Actuellement, la prise en charge du protocole WebSocket est toujours en préversion publique et peut ne pas fonctionner pour d’autres applications. Malgré tout, certains clients ont tant bien que mal réussi à utiliser le protocole WebSocket avec d’autres applications.
 
 
       Les fonctionnalités (Eventlogs, PowerShell et Services Bureau à distance) de Windows Admin Center (WAC) ne fonctionnent pas actuellement via Proxy d’application Azure AD.

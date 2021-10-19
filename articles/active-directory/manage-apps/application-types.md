@@ -1,5 +1,6 @@
 ---
-title: Affichage des applications qui utilisent votre locataire Azure Active Directory pour la gestion des identités
+title: Affichage des applications qui utilisent votre locataire pour la gestion des identités
+titleSuffix: Azure AD
 description: Découvrez comment afficher toutes les applications qui utilisent votre locataire Azure Active Directory pour la gestion des identités
 services: active-directory
 author: davidmu1
@@ -11,14 +12,14 @@ ms.topic: reference
 ms.date: 01/07/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-ms.openlocfilehash: 3f106a7153f9fd61c289516d129e31c9239b97fd
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a2030df0bd70781f299ee7db60df0e3ae49b8568
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532150"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620713"
 ---
-# <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Affichage des applications qui utilisent votre locataire Azure AD pour la gestion des identités
+# <a name="viewing-apps-using-your-azure-active-directory-tenant-for-identity-management"></a>Affichage des applications qui utilisent votre locataire Azure Active Directory pour la gestion des identités
 
 La [série de guides de démarrage rapide sur la gestion des applications](view-applications-portal.md) vous guide parmi les concepts de base. Vous y apprenez comment afficher toutes les applications qui utilisent votre locataire Azure AD pour la gestion des identités. Cet article aborde plus en détail les types d’applications que vous trouverez.
 

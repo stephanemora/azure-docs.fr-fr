@@ -1,27 +1,27 @@
 ---
 title: Analyser les coûts d’Azure avec l’application Power BI
-description: Cet article explique comment installer et utiliser l’application Power BI Azure Cost Management.
+description: Cet article explique comment installer et utiliser l’application Power BI Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: b500bd2b97c262739902c5e1b8af51b013ad4ecb
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: b854d3ca7bc7cde060bb78e5ad94dc2a6fbbc2c1
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122528012"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706339"
 ---
-# <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analyser les coûts avec l’application Power BI Azure Cost Management pour les Contrats Entreprise
+# <a name="analyze-cost-with-the-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analyser les coûts avec l’application Power BI Cost Management pour les Contrats Entreprise
 
-Cet article explique comment installer et utiliser l’application Power BI Azure Cost Management. L’application vous aide à analyser et à gérer vos coûts Azure dans Power BI. Vous pouvez utiliser l’application pour surveiller les coûts et les tendances d’utilisation, et pour identifier les options d’optimisation des coûts afin de réduire vos dépenses.
+Cet article explique comment installer et utiliser l’application Power BI Cost Management. L’application vous aide à analyser et à gérer vos coûts Azure dans Power BI. Vous pouvez utiliser l’application pour surveiller les coûts et les tendances d’utilisation, et pour identifier les options d’optimisation des coûts afin de réduire vos dépenses.
 
-L’application Power BI Azure Cost Management prend actuellement en charge seulement les clients titulaires d’un [Accord Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+L’application Power BI Cost Management ne prend actuellement en charge que les clients titulaires d’un [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-L’application limite les possibilités de personnalisation. Si vous souhaitez modifier et étendre les filtres, les vues et les visualisations par défaut et les personnaliser selon vos besoins, utilisez plutôt le [connecteur Azure Cost Management dans Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management). Avec le connecteur Azure Cost Management, vous pouvez joindre des données supplémentaires issues d’autres sources pour créer des rapports personnalisés afin d’obtenir des vues holistiques de vos coûts d’exploitation globaux. Le connecteur prend également en charge les contrats clients Microsoft.
+L’application limite les possibilités de personnalisation. Si vous souhaitez modifier et étendre les filtres, les vues et les visualisations par défaut et les personnaliser selon vos besoins, utilisez plutôt le [connecteur Cost Management dans Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management). Avec le connecteur Cost Management, vous pouvez joindre des données supplémentaires issues d’autres sources pour créer des rapports personnalisés afin d’obtenir des vues holistiques de vos coûts d’exploitation globaux. Le connecteur prend également en charge les contrats clients Microsoft.
 
 > [!NOTE]
 > Les applications basées sur un modèle Power BI ne prennent pas en charge le téléchargement du fichier PBIX.
@@ -35,7 +35,7 @@ L’application limite les possibilités de personnalisation. Si vous souhaitez 
 
 Pour installer l’application :
 
-1. Ouvrez [Application Power BI Azure Cost Management](https://aka.ms/costmgmt/ACMApp).
+1. Ouvrez l’[Application Power BI Cost Management](https://aka.ms/costmgmt/ACMApp).
 1. Dans la page AppSource de Power BI, sélectionnez **Obtenir**.
 1. Sélectionnez **Continuer** pour accepter les conditions d’utilisation et la politique de confidentialité.
 1. Dans la zone **Installer cette application Power BI**, sélectionnez **Installer**.
@@ -50,14 +50,14 @@ Pour installer l’application :
 
     :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" alt-text="Capture d’écran montrant où vous entrez vos informations d’inscription d’administrateur d’entreprise." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png" :::
 1. L’étape suivante de l’installation consiste à se connecter à votre inscription Contrat Entreprise ; elle nécessite un compte [Administrateur d’entreprise](../manage/understand-ea-roles.md). Laissez toutes les valeurs par défaut. Sélectionnez **Se connecter**.  
-    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Azure Cost Management avec les valeurs par défaut avec lesquelles se connecter." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" alt-text="Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Cost Management avec les valeurs par défaut avec lesquelles se connecter." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png" :::
 1. La boîte de dialogue finale se connecte à Azure et obtient des données. *Laissez les valeurs par défaut telles qu’elles sont configurées* et sélectionnez **Se connecter et continuer**.  
-    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Azure Cost Management avec les valeurs par défaut." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
+    :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" alt-text="Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Cost Management avec les valeurs par défaut." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png" :::
 1. Vous êtes invité à vous authentifier à l’aide de votre inscription d’administrateur d’entreprise. Authentifiez-vous avec Power BI. Une fois que vous êtes authentifié, le rafraîchissement des données Power BI commence.
     > [!NOTE]
     > Le processus d’actualisation des données peut prendre un certain temps. Sa durée dépend du nombre de mois spécifiés et de la quantité de données à synchroniser.
 
-Une fois l’actualisation des données terminée, sélectionnez l’application Azure Cost Management pour visualiser les rapports créés au préalable.
+Une fois l’actualisation des données terminée, sélectionnez l’application Cost Management pour visualiser les rapports créés au préalable.
 
 ## <a name="reports-available-with-the-app"></a>Rapports disponibles avec l’application
 
@@ -190,7 +190,7 @@ Cette erreur se produit si vous changez la méthode d’authentification pour la
 
 1. Connectez-vous à vos données.
 1. Après avoir entré votre inscription EA et le nombre de mois, veillez à conserver la valeur par défaut **Anonyme** pour la méthode d’authentification et **Aucun** pour le paramètre niveau de confidentialité.  
-  :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" alt-text="Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Azure Cost Management avec les valeurs Anonyme et Aucun." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" :::
+  :::image type="content" source="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" alt-text="Capture d’écran illustrant la boîte de dialogue Se connecter à l’application Cost Management avec les valeurs Anonyme et Aucun." lightbox="./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png" :::
 1. Dans la page suivante, définissez **OAuth2** pour la méthode d’authentification et **Aucun** pour le niveau de confidentialité. Ensuite, connectez-vous pour vous authentifier auprès de votre inscription. Cette étape lance également une action d’actualisation des données Power BI.
 
 ## <a name="data-reference"></a>Référence de données

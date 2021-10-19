@@ -9,12 +9,12 @@ metadata:
   ms.date: 06/08/2021
   ms.author: victorh
   ms.custom: references_regions
-  ms.openlocfilehash: a0d8c83209f5d96d10cacd95d85fc45f2d09b44b
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: eda05df5b3ec13d2f2ae4dc8c3634ead6c1e35bf
+  ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128669072"
+  ms.lasthandoff: 10/11/2021
+  ms.locfileid: "129728415"
 title: Forum aux questions sur Application Gateway
 summary: >
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -185,6 +185,8 @@ sections:
     answer: "Oui. Dans Application Gateway, vous pouvez [configurer des suites de chiffrement](application-gateway-ssl-policy-overview.md). Pour définir une stratégie personnalisée, activez au moins une des suites de chiffrement suivantes. \n\n* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 \n* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n* TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n* TLS_RSA_WITH_AES_128_GCM_SHA256\n* TLS_RSA_WITH_AES_256_CBC_SHA256\n* TLS_RSA_WITH_AES_128_CBC_SHA256\n\nApplication Gateway utilise SHA256 pour la gestion des serveurs principaux.\n"
   - question: Combien de certificats TLS/SSL Application Gateway prend-il en charge ?
     answer: Application Gateway prend en charge jusqu'à 100 certificats TLS/SSL.
+  - question: Application Gateway prend-il en charge OCSP et l’agrafage OCSP ?
+    answer: Oui, Application Gateway prend en charge les certificats avec des extensions OCSP et l’agrafage OCSP pour les certificats de serveur.
   - question: Combien de certificats d’authentification pour le nouveau chiffrement du back-end Application Gateway prend-il en charge ?
     answer: Application Gateway prend en charge jusqu’à 100 certificats d’authentification.
   - question: Application Gateway s’intègre-t-il en mode natif à Azure Key Vault ?

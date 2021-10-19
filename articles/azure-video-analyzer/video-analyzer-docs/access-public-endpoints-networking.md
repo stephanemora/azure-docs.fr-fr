@@ -3,12 +3,12 @@ title: Points de terminaison publics et réseau
 description: Azure Video Analyzer expose un ensemble de points de terminaison réseau publics qui autorisent différents scénarios de produit, notamment la gestion, l’ingestion et la lecture. Cet article explique comment accéder aux points de terminaison publics et aux réseaux.
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 0debf9b00bc8c3d78810fb377aa6e065589e6f96
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: ad02a9ddd0ff2893e14d48f6698c83108f1acd63
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389643"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659599"
 ---
 # <a name="public-endpoints-and-networking"></a>Points de terminaison publics et réseau
 
@@ -54,7 +54,7 @@ Cette section fournit la liste des points de terminaison Video Analyzer.
 
 ## <a name="azure-storage"></a>Stockage Azure
 
-* **Objectif** : enregistrer des données audio, vidéo et d’inférence lorsque les pipelines(TODO: link) sont configurés pour stocker des vidéos sur le cloud via le nœud Video Sink (TODO: link to section in pipeline.md).
+* **Objectif** : enregistrer des données audio, vidéo et d’inférence lorsque les [pipelines](pipeline.md) sont configurés pour stocker des vidéos sur le cloud via le nœud [video sink](pipeline.md#video-sink).
 * **Authentification et autorisation** : l’autorisation est effectuée par l’application standard de l’authentification et de l’autorisation du service Stockage Azure. Dans ce cas, l’accès au stockage se fait par le biais d’URL SAP spécifiques au conteneur.
 * **Exigence** : l’accès à ce point de terminaison est requis uniquement lorsqu’un pipeline périphérique Video Analyzer est configuré pour archiver la vidéo dans le cloud.
 
@@ -64,11 +64,11 @@ Cette section fournit la liste des points de terminaison Video Analyzer.
 * **Authentification et autorisation** : reportez-vous à la documentation d’Azure IoT Hub.
 * **Exigence** : un périphérique correctement configuré et fonctionnel avec le runtime Azure IoT Edge est requis pour garantir le bon fonctionnement du module périphérique Azure Video Analyzer.
 
-## <a name="114----tls-encryption"></a>1.1.4 Chiffrement TLS 
+##  <a name="tls-encryption"></a>Chiffrement TLS 
 
 * **Chiffrement et authentification du serveur** : tous les points de terminaison Video Analyzer sont exposés via des points de terminaison conformes à la norme TLS 1.2.
 
-## <a name="115----references"></a>1.1.5 Références 
+##  <a name="references"></a>Références 
 
 Public :
 

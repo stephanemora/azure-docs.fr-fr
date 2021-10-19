@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.openlocfilehash: f9dacea4d80591b6ec5b83ae93564cd8b03aff9c
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 4af576587d5d0e87053fb31cdd2c1d073d1ea97e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212453"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714762"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 
 Créez votre premier index de recherche à l’aide de l’Assistant **Importer des données** et d’un exemple de source de données intégré, constitué de données d’hôtel fictives. L’Assistant vous guide lors de la création d’un index de recherche (hotels-sample-index) afin que vous puissiez écrire des requêtes intéressantes en quelques minutes. 
 
-Bien que vous n’utilisiez pas les options de ce guide de démarrage rapide, l’Assistant comporte une page consacrée à l’enrichissement par IA, afin que vous puissiez extraire le texte et la structure des fichiers image et du texte non structuré. Pour obtenir une procédure pas à pas similaire qui propose l’enrichissement par IA, consultez [Démarrage rapide : Créer un ensemble de compétences cognitives](cognitive-search-quickstart-blob.md).
+Bien que vous n’utilisiez pas les options de ce guide de démarrage rapide, l’Assistant comporte une page consacrée à l’enrichissement par IA, afin que vous puissiez extraire le texte et la structure des fichiers image et du texte non structuré. Pour obtenir une procédure pas à pas similaire qui inclut l’enrichissement par IA, consultez les guides de démarrage rapide sur l’[ensemble de compétences relatives à la traduction de texte et aux entités](cognitive-search-quickstart-blob.md) ou l’[ensemble de compétences relatives à l’OCR et à l’analyse d’image](cognitive-search-quickstart-ocr.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

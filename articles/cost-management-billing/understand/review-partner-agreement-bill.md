@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: a7c67b364fba771ad485eee8b93a62b9bdabc841
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: acff6020d401390ab514c168241db8daca801691
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643039"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705814"
 ---
 # <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Tutoriel : Passer en revue votre facture de Contrat Partenaire Microsoft
 
- Dans le compte de facturation d’un Contrat Partenaire Microsoft, une facture est générée chaque mois pour chaque profil de facturation. La facture inclut tous les frais facturés aux clients depuis le mois précédent. Pour comprendre les frais indiqués sur votre facture, vous pouvez analyser les transactions individuelles dans le portail Azure. Vous pouvez également consulter vos factures dans le Portail Azure et comparer les frais au fichier de détails d’utilisation.
+Dans le compte de facturation d’un Contrat Partenaire Microsoft, une facture est générée chaque mois pour chaque profil de facturation. La facture inclut tous les frais facturés aux clients depuis le mois précédent. Pour comprendre les frais indiqués sur votre facture, vous pouvez analyser les transactions individuelles dans le portail Azure. Vous pouvez également consulter vos factures dans le Portail Azure et comparer les frais au fichier de détails d’utilisation.
 
 Pour plus d’informations, consultez l’article qui explique [comment télécharger des factures à partir du portail Azure](download-azure-invoice.md).
 
@@ -132,7 +132,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Passez en revue les frais en attente pour estimer votre prochaine facture
 > * Analyser vos frais d’utilisation Azure
 
-Découvrez plus en détail l’utilisation d’Azure Cost Management pour les partenaires.
+Découvrez plus en détail l’utilisation de Cost Management pour les partenaires.
 
 > [!div class="nextstepaction"]
-> [Prise en main d’Azure Cost Management pour les partenaires](../costs/get-started-partners.md)
+> [Bien démarrer avec Cost Management pour les partenaires](../costs/get-started-partners.md)

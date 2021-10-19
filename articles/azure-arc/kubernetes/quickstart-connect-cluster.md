@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/09/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 10c97945a78867d92b9ed4887e9655d49b195e33
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: e876ecf11de197e523c9d34825a5a52284af871b
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273758"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740452"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Démarrage rapide : Connecter un cluster Kubernetes existant à Azure Arc
 
@@ -27,7 +27,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir les avantages d’util
 
 * [Procédez à l'installation ou à la mise à niveau d'Azure CLI](/cli/azure/install-azure-cli) vers la version >= 2.16.0
 
-* Installez l’extension **connectedk8s** d’Azure CLI, version >= 1.0.0 :
+* Installez l’extension **connectedk8s** d’Azure CLI, version >= 1.2.0 :
 
   ```console
   az extension add --name connectedk8s
@@ -48,8 +48,6 @@ Dans ce guide de démarrage rapide, vous allez découvrir les avantages d’util
 
 * Fichier `kubeconfig` et contexte pointant vers votre cluster.
 * Autorisations d’accès en « lecture » et en « écriture » sur le type de ressource Kubernetes avec Azure Arc (`Microsoft.Kubernetes/connectedClusters`).
-
-* Installez [Helm 3](https://helm.sh/docs/intro/install). Vérifiez que la version de Helm 3 est &lt; 3.7.0.
 
 ### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -99,6 +97,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir les avantages d’util
 | `https://gbl.his.arc.azure.com` (pour le Cloud Azure), `https://gbl.his.arc.azure.us` (pour Azure US Government) |  Requis pour obtenir le point de terminaison régional pour l’extraction des certificats d’identité managée affectée par le système. |
 | `https://*.his.arc.azure.com` (pour le Cloud Azure), `https://usgv.his.arc.azure.us` (pour Azure US Government) |  Nécessaire pour tirer (pull) les certificats d’identité managée affectée par le système. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | Pour les scénarios basés sur les [connexions de cluster](cluster-connect.md) et sur les [localisations personnalisées](custom-locations.md). |
+|`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` utilise Helm 3 pour déployer des agents Azure Arc sur le cluster Kubernetes. Ce point de terminaison est nécessaire pour le téléchargement du client Helm afin de faciliter le déploiement du graphique Helm de l’agent. |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Inscrire les fournisseurs pour Kubernetes avec Azure Arc
 

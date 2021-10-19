@@ -3,12 +3,12 @@ title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
 ms.date: 07/27/2021
 ms.topic: overview
-ms.openlocfilehash: 9462281ce37e066a920c17d1dc142a177b97fb2a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: aff8dc3aa4ff97438a4ebc457a6946f30dccb142
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770547"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660853"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -74,7 +74,7 @@ Azure Policy dispose d’autorisations, aussi appelées opérations, dans deux f
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource** inclut la plupart des opérations d’Azure Policy. Quant au rôle **Propriétaire**, il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** ont accès à toutes les opérations de _lecture_ Azure Policy. Un **Contributeur** peut déclencher la correction d’une ressource, mais ne peut pas _créer_ des définitions ou des affectations. Un **Administrateur de l’accès utilisateur** est nécessaire pour accorder les autorisations nécessaires à l’identité managée sur les affectations **deployIfNotExists** ou **modify**.
+Plusieurs rôles intégrés accordent des autorisations aux ressources Azure Policy. Le rôle **Contributeur de stratégie de ressource** inclut la plupart des opérations d’Azure Policy. Quant au rôle **Propriétaire**, il dispose de tous les droits. Les rôles **Contributeur** et **Lecteur** ont accès à toutes les opérations de _lecture_ Azure Policy. Un **Contributeur** peut déclencher la correction d’une ressource, mais ne peut pas _créer_ des définitions ou des affectations. Un **Administrateur de l’accès utilisateur** est nécessaire pour accorder les autorisations nécessaires à l’identité managée sur les affectations **deployIfNotExists** ou **modify**. Tous les objets de stratégie seront lisibles par l’ensemble des rôles de l’étendue.
 
 Si aucun des rôles intégrés ne dispose d’autorisations, créez un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 

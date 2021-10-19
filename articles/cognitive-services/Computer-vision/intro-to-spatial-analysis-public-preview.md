@@ -1,7 +1,7 @@
 ---
 title: Qu'est-ce que l'Analyse spatiale ?
 titleSuffix: Azure Cognitive Services
-description: Ce document explique les concepts et fonctionnalités de base d'un conteneur Analyse spatiale Vision par ordinateur.
+description: Ce document explique les concepts et fonctionnalités de base d’un conteneur Analyse spatiale Azure.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -9,17 +9,18 @@ ms.author: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 06/21/2021
-ms.openlocfilehash: 02249fc08dc661a31a461116dab3ab08e230cbc6
-ms.sourcegitcommit: 096e7972e2a1144348f8d648f7ae66154f0d4b39
+ms.date: 10/06/2021
+ms.custom: contperf-fy22q2
+ms.openlocfilehash: 9553c7e177bdc78b071d6ed68725879e46c9ef5e
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112520912"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668444"
 ---
 # <a name="what-is-spatial-analysis"></a>Qu'est-ce que l'Analyse spatiale ?
 
-Le service Analyse spatiale aide les organisations à optimiser la valeur de leurs espaces physiques en détectant la présence de personnes et en analysant les déplacements de celles-ci au sein d'une zone donnée. Elle vous permet d’ingérer le flux vidéo de caméras de télésurveillance, d’exploiter des opérations d’intelligence artificielle (IA) pour extraire des insights de flux vidéo, et de générer des événements que d’autres systèmes peuvent utiliser. À partir d’un flux de caméra, une opération d’IA peut effectuer des opérations telles que dénombrer les personnes entrant dans un espace ou mesurer le respect des consignes de port du masque ou de distanciation sociale.
+Le service Analyse spatiale aide les organisations à optimiser la valeur de leurs espaces physiques en détectant la présence de personnes et en analysant les déplacements de celles-ci au sein d’une zone donnée. Elle vous permet d’ingérer le flux vidéo de caméras de télésurveillance, d’extraire des insights à partir de flux vidéo, et de générer des événements que d’autres systèmes peuvent utiliser. À partir d’un flux de caméra, le service peut effectuer des opérations telles que dénombrer les personnes entrant dans un espace ou mesurer le respect des consignes de port du masque ou de distanciation sociale.
 
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -29,21 +30,21 @@ Le service Analyse spatiale aide les organisations à optimiser la valeur de leu
 
 ## <a name="what-it-does"></a>Résultat
 
-Les opérations de base de l'Analyse spatiale reposent toutes sur un pipeline qui ingère un flux vidéo, détecte les personnes qui s'y trouvent, suit ces personnes dans leurs déplacements au fil du temps et génère des événements à mesure que les personnes interagissent avec des zones d'intérêt.
+Les opérations de base de l’Analyse spatiale reposent sur un système qui ingère un flux vidéo, détecte les personnes qui s’y trouvent, suit ces personnes dans leurs déplacements au fil du temps et génère des événements à mesure que les personnes interagissent avec des zones d’intérêt.
 
 ## <a name="spatial-analysis-features"></a>Fonctionnalités de l'Analyse spatiale
 
 | Fonctionnalité | Définition |
 |------|------------|
-| **Détection de personnes** | Ce composant répond à la question « Où sont les personnes dans cette image » ? Il détecte les personnes contenues dans une image et affiche un cadre englobant qui indique l'emplacement de chacune d'entre elles au composant de suivi des personnes. |
-| **Suivi des personnes** | Ce composant connecte les détections de personnes au fil du temps à mesure que les personnes se déplacent devant une caméra. Il utilise une logique temporelle relative à la manière dont les personnes ont l'habitude de se déplacer, ainsi que des informations de base sur leur apparence globale. Il ne fait pas le suivi des personnes sur plusieurs caméras. Si une personne sort du champ de la caméra pendant plus d'une minute avant d'y revenir, le système la considère comme une nouvelle personne. Le suivi des personnes n’identifie pas de manière unique les individus sur plusieurs caméras. Il n’utilise pas la reconnaissance faciale ni le suivi de la démarche. |
+| **Détection de personnes** | Ce composant répond à la question « Où sont les personnes dans cette image » ? Il détecte les personnes contenues dans une image et affiche un cadre englobant avec les coordonnées indiquant l’emplacement de chacune d’entre elles au composant **Suivi des personnes**. |
+| **Suivi des personnes** | Ce composant connecte les détections de personnes au fil du temps à mesure que les personnes se déplacent devant une caméra. Il utilise une logique temporelle relative à la manière dont les personnes ont l'habitude de se déplacer, ainsi que des informations de base sur leur apparence globale. Il ne fait pas le suivi des personnes sur plusieurs caméras. Si une personne sort du champ de la caméra pendant plus d’une minute avant d’y revenir, le système la considère comme une nouvelle personne. Le suivi des personnes n’identifie pas de manière unique les individus sur plusieurs caméras. Il n’utilise pas la reconnaissance faciale ni le suivi de la démarche. |
 | **Détection de masque** | Ce composant détecte l'emplacement du visage d'une personne dans le champ de la caméra et identifie la présence d'un masque. L'opération d'IA analyse les images de la vidéo. Lorsqu'un visage est détecté, le service affiche un cadre englobant autour de celui-ci. À l’aide des fonctionnalités de détection d’objets, il identifie la présence d’un masque dans le cadre englobant. La détection de masque ne nécessite pas de faire la distinction entre les visages, de prédire ou de classifier les attributs faciaux ni d’utiliser la reconnaissance faciale. |
-| **Zone d’intérêt** | Il s'agit d'une zone ou d'une ligne définie par l'utilisateur dans l'image vidéo d'entrée. Lorsqu'une personne interagit avec cette zone de la vidéo, le système génère un événement. Par exemple, pour l’opération PersonCrossingLine, une ligne est définie dans la vidéo. Quand une personne franchit cette ligne, un événement est généré. |
-| **Event** | Un événement est la sortie principale de l'Analyse spatiale. Chaque opération émet un événement spécifique périodiquement (par exemple, une fois par minute) ou à chaque occurrence d'un déclencheur spécifique. L’événement inclut des informations sur ce qui s’est produit dans la vidéo d’entrée, mais n’inclut aucune image ou vidéo. Par exemple, l’opération PeopleCount peut émettre un événement contenant le nombre actualisé chaque fois que le nombre de personnes change (déclencheur) ou une fois par minute (périodiquement). |
+| **Zone d’intérêt** | Ce composant est une zone ou une ligne définie par l’utilisateur dans l’image vidéo d’entrée. Lorsqu'une personne interagit avec cette zone de la vidéo, le système génère un événement. Par exemple, pour l’opération **PersonCrossingLine**, une ligne est définie dans la vidéo. Quand une personne franchit cette ligne, un événement est généré. |
+| **Event** | Un événement est la sortie principale de l'Analyse spatiale. Chaque opération déclenche un événement spécifique à intervalle régulier (par exemple, une fois par minute) ou à chaque occurrence d’un déclencheur spécifique. L’événement inclut des informations sur ce qui s’est produit dans la vidéo d’entrée, mais n’inclut aucune image ou vidéo. Par exemple, l’opération **PeopleCount** peut déclencher un événement contenant le nombre actualisé chaque fois que le nombre de personnes change (déclencheur) ou une fois par minute (périodiquement). |
 
 ## <a name="get-started"></a>Bien démarrer
 
-Suivez le [guide de démarrage rapide](spatial-analysis-container.md) pour configurer le conteneur et commencer l’analyse de la vidéo.
+Suivez le [guide de démarrage rapide](spatial-analysis-container.md) pour configurer le conteneur Analyse spatiale et commencer l’analyse vidéo.
 
 ## <a name="responsible-use-of-spatial-analysis-technology"></a>Utilisation responsable de la technologie d’analyse spatiale
 

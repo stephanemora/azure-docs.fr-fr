@@ -5,18 +5,18 @@ services: automation
 ms.subservice: update-management
 ms.date: 08/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1d8ad9b41f9d193624d9c3501493c525777832eb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 993fcf45b983fef972a7201b4ffed60e8da99555
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129350639"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129715067"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Guide pratique pour déployer des mises à jour et voir les résultats
 
-Cet article explique comment planifier un déploiement de mises à jour et voir le processus après le déploiement. Vous pouvez configurer un déploiement de mise à jour à partir d’une machine virtuelle Azure sélectionnée, du serveur Arc sélectionné ou du compte Automation pour l’ensemble des ordinateurs et serveurs configurés.
+Cet article explique comment planifier un déploiement de mises à jour et voir le processus après le déploiement. Vous pouvez configurer un déploiement de mise à jour à partir d’une machine virtuelle Azure sélectionnée, du serveur avec Azure Arc sélectionné ou du compte Automation pour l’ensemble des ordinateurs et serveurs configurés.
 
-Dans chaque scénario, le déploiement que vous créez cible l’ordinateur ou le serveur sélectionné, ou, dans le cas de la création d’un déploiement à partir de votre compte Automation, vous pouvez cibler un ou plusieurs ordinateurs. Lorsque vous planifiez un déploiement de mises à jour à partir d’une machine virtuelle Azure ou d’un serveur Arc, les étapes sont les mêmes que pour le déploiement à partir de votre compte Automation, avec les exceptions suivantes :
+Dans chaque scénario, le déploiement que vous créez cible l’ordinateur ou le serveur sélectionné, ou, dans le cas de la création d’un déploiement à partir de votre compte Automation, vous pouvez cibler un ou plusieurs ordinateurs. Lorsque vous planifiez un déploiement de mises à jour à partir d’une machine virtuelle Azure ou d’un serveur avec Azure Arc, les étapes sont les mêmes que pour le déploiement à partir de votre compte Automation, avec les exceptions suivantes :
 
 * Le système d’exploitation est automatiquement présélectionné en fonction du système d’exploitation de l’ordinateur.
 * L’ordinateur cible à mettre à jour se définit automatiquement.
@@ -36,31 +36,31 @@ La planification d’un déploiement de mises à jour entraîne la création d�
 >[!NOTE]
 >Si vous supprimez la ressource de planification dans le Portail Azure ou si vous utilisez PowerShell après la création du déploiement, l’opération de suppression arrête le déploiement de mises à jour planifié. De plus, une erreur est générée quand vous essayez de reconfigurer la ressource de planification à partir du Portail. Vous ne pouvez supprimer la ressource de planification qu’en supprimant la planification de déploiement correspondante.  
 
-Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. En fonction de la ressource sélectionnée (autrement dit, compte Automation, serveur Arc ou machine virtuelle Azure), les étapes ci-dessous s’appliquent à toutes avec des différences mineures lors de la configuration de la planification de déploiement.
+Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. En fonction de la ressource sélectionnée (autrement dit, compte Automation, serveur avec Azure Arc ou machine virtuelle Azure), les étapes ci-dessous s’appliquent à toutes avec des différences mineures lors de la configuration de la planification de déploiement.
 
 1. Dans le portail, pour planifier un déploiement pour :
 
    * une ou plusieurs machines, accédez à **Comptes Automation** et sélectionnez votre compte Automation avec Update Management activé dans la liste.
    * une machine virtuelle Azure, accédez à **Machines virtuelles** et sélectionnez votre machine virtuelle dans la liste.
-   * Pour un serveur Arc, accédez à **Serveurs – Azure Arc** et sélectionnez votre serveur dans la liste.
+   * Pour un serveur avec Azure Arc, accédez à **Serveurs - Azure Arc** et sélectionnez votre serveur dans la liste.
 
 2. En fonction de la ressource que vous avez sélectionnée, accédez à Update Management :
 
    * Si vous avez sélectionné votre compte Automation, accédez à **Update Management** sous **Gestion des mises à jour**, puis sélectionnez **Planifier le déploiement de la mise à jour**.
    * Si vous avez sélectionné une machine virtuelle Azure, accédez à **Mises à jour de l’hôte et de l’invité**, puis sélectionnez **Accéder à Update Management**.
-   * Si vous avez sélectionné un serveur Arc, accédez à **Update Management**, puis sélectionnez **Planifier le déploiement de la mise à jour**.
+   * Si vous avez sélectionné un serveur avec Azure Arc, accédez à **Update Management**, puis sélectionnez **Planifier le déploiement de mises à jour**.
 
 3. Sous **Nouveau déploiement de mises à jour**, dans le champ **Nom**, entrez un nom unique pour votre déploiement.
 
 4. Sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
 
     > [!NOTE]
-    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Arc. Le système d’exploitation est automatiquement identifié.
+    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur avec Azure Arc. Le système d’exploitation est automatiquement identifié.
 
 5. Dans la section **Groupes à mettre à jour**, définissez une requête qui combine un abonnement, des groupes de ressources, des emplacements et des balises pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour en savoir plus, consultez [Utiliser des groupes dynamiques avec Update Management](configure-groups.md).
 
     > [!NOTE]
-    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Arc. La machine est automatiquement ciblée pour le déploiement planifié.
+    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur avec Azure Arc. La machine est automatiquement ciblée pour le déploiement planifié.
 
    > [!IMPORTANT]
    > Lors de la création d’un groupe dynamique de machines virtuelles Azure, Update Management prend en charge un maximum de 500 requêtes combinant des abonnements ou des groupes de ressources dans l’étendue du groupe.
@@ -68,7 +68,7 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
 6. Dans la section **Machines à mettre à jour**, sélectionnez une recherche enregistrée, un groupe importé, ou choisissez **Machines** dans la liste déroulante et sélectionnez des machines spécifiques. Avec cette option, vous pouvez voir la préparation de l’agent Log Analytics pour chaque machine. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../../azure-monitor/logs/computer-groups.md). Vous pouvez inclure jusqu’à 1000 machines dans un déploiement planifié de mises à jour.
 
     > [!NOTE]
-    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur Arc. La machine est automatiquement ciblée pour le déploiement planifié.
+    > Cette option n’est pas disponible si vous avez sélectionné une machine virtuelle Azure ou un serveur avec Azure Arc. La machine est automatiquement ciblée pour le déploiement planifié.
 
 7. Utilisez la section **Classifications des mises à jour** pour spécifier des [classifications des mises à jour](view-update-assessments.md#work-with-update-classifications) pour les produits. Pour chaque produit, désélectionnez toutes les classifications de mises à jour prises en charge, à l’exception de celles que vous souhaitez inclure dans votre déploiement de mises à jour.
 
@@ -105,7 +105,7 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
 9. Sélectionnez **Paramètres de planification**. L’heure de début par défaut est dans 30 minutes. Vous pouvez définir l’heure de début à tout moment à partir de 10 minutes à l’avenir.
 
     > [!NOTE]
-    > Cette option est différente si vous avez sélectionné un serveur Arc. Vous pouvez sélectionner **Mettre à jour maintenant** ou une heure de début 20 minutes dans le futur.
+    > Cette option est différente si vous avez sélectionné un serveur avec Azure Arc. Vous pouvez sélectionner **Mettre à jour maintenant** ou une heure de début 20 minutes dans le futur.
 
 10. Utilisez la **périodicité** pour spécifier si le déploiement se produit une seule fois ou utilise une planification récurrente, puis sélectionnez **OK**.
 
@@ -135,7 +135,7 @@ Pour planifier un nouveau déploiement de mises à jour, procédez comme suit. E
     ![Volet Paramètres de planification des mises à jour](./media/deploy-updates/manageupdates-schedule-win.png)
 
     > [!NOTE]
-    > Lorsque vous avez terminé de configurer la planification de déploiement pour un serveur Arc sélectionné, sélectionnez **Vérifier + créer**.
+    > Lorsque vous avez terminé de configurer la planification de déploiement pour un serveur avec Azure Arc sélectionné, sélectionnez **Vérifier + créer**.
 
 15. Vous revenez au tableau de bord d’état. Sélectionnez **Planifications de déploiement** pour afficher la planification de déploiement que vous avez créée. Un maximum de 500 planifications sont répertoriées. Si vous avez plus de 500 planifications et que vous souhaitez consulter la liste complète, consultez la méthode d’API REST [Configurations de la mise à jour logicielle – Liste](/rest/api/automation/softwareupdateconfigurations/list). Spécifiez l’API version 2019-06-01 ou ultérieure.
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 983844a824f4aac6bfe21f06b8fab591c99e1bf1
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: dc878b0f1a843d8212cd6541338510f8eff4b56c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121740538"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714930"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>Tutoriel : Créer une hiérarchie d’appareils IoT Edge
 
@@ -87,9 +87,8 @@ Pour créer une hiérarchie d’appareils IoT Edge, vous aurez besoin des élém
 
    ![Au moment où elle est créée, la machine virtuelle génère un fichier JSON, qui contient son handle SSH](./media/tutorial-nested-iot-edge/virtual-machine-outputs.png)
 
-* Vérifiez que les ports suivants sont ouverts en entrée pour tous les appareils, à l’exception de l’appareil de la couche la plus basse : 8000, 443, 5671, 8883 :
-  * 8000 : Utilisé pour extraire des images conteneur Docker par le biais du proxy d’API.
-  * 443 : Utilisé entre les hubs de périphérie parent et enfant pour les appels d’API REST.
+* Vérifiez que les ports suivants sont ouverts en entrée pour tous les appareils, à l’exception de l’appareil de la couche la plus basse : 443, 5671, 8883 :
+  * 443 : Utilisé entre les hubs de périphérie parent et enfant pour les appels d’API REST et pour extraire des images conteneur Docker.
   * 5671, 8883 : Utilisé pour AMQP et MQTT.
 
   Pour plus d’informations, consultez [Guide pratique pour ouvrir des ports sur une machine virtuelle avec le portail Azure](../virtual-machines/windows/nsg-quickstart-portal.md).
@@ -235,7 +234,7 @@ Effectuez les vérifications de configuration et de connectivité sur vos appare
 Pour l’**appareil de couche inférieure**, l’image de diagnostic doit être passée manuellement dans la commande :
 
    ```bash
-   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2
+   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.2
    ```
 
 Sur l’**appareil de couche supérieure**, attendez-vous à voir une sortie avec plusieurs évaluations réussies. Vous pouvez voir des avertissements concernant les stratégies de journaux et, en fonction de votre réseau, les stratégies DNS.
@@ -259,9 +258,9 @@ Dans [Azure Cloud Shell](https://shell.azure.com/), vous pouvez consulter le fic
 
 En plus des modules de runtime **Agent IoT Edge** et **Hub IoT Edge**, l’**appareil de couche supérieure** reçoit les modules **Registre Docker** et **Proxy d’API IoT Edge**.
 
-Le module **Registre Docker** pointe vers un registre Azure Container Registry existant. Dans ce cas, `REGISTRY_PROXY_REMOTEURL` pointe vers Microsoft Container Registry. Dans `createOptions`, vous pouvez voir qu’il communique sur le port 5000.
+Le module **Registre Docker** pointe vers un registre Azure Container Registry existant. Dans ce cas, `REGISTRY_PROXY_REMOTEURL` pointe vers Microsoft Container Registry. Par défaut, le **registre Docker** écoute sur le port 5000.
 
-Le module **Proxy d’API IoT Edge** route les requêtes HTTP vers d’autres modules, ce qui permet aux appareils de couche inférieure de tirer (pull) des images conteneur ou de pousser (push) des objets blob vers le stockage. Dans ce tutoriel, il communique sur le port 8000 et est configuré pour envoyer des demandes de tirage (pull requests) d’images conteneur Docker à votre module **Registre Docker** sur le port 5000. De plus, toutes les demandes de chargement du service Stockage Blob sont routées vers le module AzureBlobStorageonIoTEdge sur le port 11002. Pour plus d’informations sur le module **Proxy d’API IoT Edge** et sur sa configuration, consultez le [guide pratique](how-to-configure-api-proxy-module.md) du module.
+Le module **Proxy d’API IoT Edge** route les requêtes HTTP vers d’autres modules, ce qui permet aux appareils de couche inférieure de tirer (pull) des images conteneur ou de pousser (push) des objets blob vers le stockage. Dans ce tutoriel, il communique sur le port 443 et est configuré pour envoyer des demandes de tirage (pull requests) d’images conteneur Docker à votre module **Registre Docker** sur le port 5000. De plus, toutes les demandes de chargement du service Stockage Blob sont routées vers le module AzureBlobStorageonIoTEdge sur le port 11002. Pour plus d’informations sur le module **Proxy d’API IoT Edge** et sur sa configuration, consultez le [guide pratique](how-to-configure-api-proxy-module.md) du module.
 
 Pour découvrir comment créer un déploiement comme celui-ci via le portail Azure ou Azure Cloud Shell, consultez la [section consacrée aux appareils de couche supérieure dans le guide pratique](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-top-layer-devices).
 
@@ -271,7 +270,7 @@ Dans [Azure Cloud Shell](https://shell.azure.com/), vous pouvez consulter le fic
    cat ~/nestedIotEdgeTutorial/iotedge_config_cli_release/templates/tutorial/deploymentLowerLayer.json
    ```
 
-Vous pouvez voir sous `systemModules` que les modules de runtime de l’**appareil de couche inférieure** sont configurés pour être tirés à partir de `$upstream:8000`, au lieu de `mcr.microsoft.com`, comme c’était le cas pour l’**appareil de couche supérieure**. L’**appareil de couche inférieure** envoie des demandes d’image Docker au module **Proxy d’API IoT Edge** sur le port 8000, car il ne peut pas tirer directement les images du cloud. L’autre module déployé sur l’**appareil de couche inférieure**, le module **Simulated Temperature Sensor**, effectue également sa demande d’image auprès de `$upstream:8000`.
+Vous pouvez voir sous `systemModules` que les modules de runtime de l’**appareil de couche inférieure** sont configurés pour être tirés à partir de `$upstream:443`, au lieu de `mcr.microsoft.com`, comme c’était le cas pour l’**appareil de couche supérieure**. L’**appareil de couche inférieure** envoie des demandes d’image Docker au module **Proxy d’API IoT Edge** sur le port 443, car il ne peut pas tirer directement les images du cloud. L’autre module déployé sur l’**appareil de couche inférieure**, le module **Simulated Temperature Sensor**, effectue également sa demande d’image auprès de `$upstream:443`.
 
 Pour découvrir comment créer un déploiement comme celui-ci via le portail Azure ou Azure Cloud Shell, consultez la [section consacrée aux appareils de couche inférieure dans le guide pratique](how-to-connect-downstream-iot-edge-device.md#deploy-modules-to-lower-layer-devices).
 
@@ -305,10 +304,8 @@ Vous pouvez exécuter `iotedge check` dans une hiérarchie imbriquée, même si 
 
 Quand vous exécutez `iotedge check` à partir de la couche inférieure, le programme essaie de tirer l’image du parent via le port 443.
 
-Dans ce tutoriel, nous utilisons le port 8000, nous devons donc le spécifier :
-
 ```bash
-sudo iotedge check --diagnostics-image-name $upstream:8000/azureiotedge-diagnostics:1.2
+sudo iotedge check --diagnostics-image-name $upstream:443/azureiotedge-diagnostics:1.2
 ```
 
 La valeur `azureiotedge-diagnostics` est extraite du registre de conteneurs lié au module registre. Dans ce tutoriel, elle est définie par défaut sur https://mcr.microsoft.com:.

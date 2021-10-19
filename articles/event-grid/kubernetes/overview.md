@@ -6,12 +6,12 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: 807d337988993c8be0fee76b9c12e1fc6dc75c7d
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 109c9248bf087cb998fd8debdc644de8cfb1488b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770565"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714901"
 ---
 # <a name="event-grid-on-kubernetes-with-azure-arc-preview---overview"></a>Event Grid sur Kubernetes avec Azure Arc (préversion) – Vue d’ensemble
 Cet article fournit une vue d’ensemble d’Event Grid sur Kubernetes, de cas d’usage, des fonctionnalités qu’il offre et de sa différence par rapport à Azure Event Grid.
@@ -29,7 +29,7 @@ Quelle que soit l’édition d’Event Grid que vous utilisez, il existe un **é
 
 
 ## <a name="event-grid-on-kubernetes-with-azure-arc"></a>Event Grid sur Kubernetes avec Azure Arc
-Event Grid sur Kubernetes avec Azure Arc est une offre qui vous permet d’exécuter Event Grid sur votre propre cluster Kubernetes. Cette fonctionnalité est activée par l’utilisation de [Kubernetes avec Azure Arc](../../azure-arc/kubernetes/overview.md). Via Kubernetes avec Azure Arc, un [cluster Kubernetes pris en charge](install-k8s-extension.md#supported-kubernetes-distributions) se connecte à Azure. Une fois connecté, vous pouvez [installer Event Grid](install-k8s-extension.md) dessus. 
+Event Grid sur Kubernetes avec Azure Arc est une offre qui vous permet d’exécuter Event Grid sur votre propre cluster Kubernetes. Cette fonctionnalité est activée par l’utilisation de [Kubernetes avec Azure Arc](../../azure-arc/kubernetes/overview.md). Via Kubernetes avec Azure Arc, un [cluster Kubernetes pris en charge](install-k8s-extension.md#supported-kubernetes-distributions) se connecte à Azure. Une fois connecté, vous pouvez [installer Event Grid](install-k8s-extension.md) dessus. 
 
 ### <a name="use-case"></a>Cas d’utilisation
 Event Grid sur Kubernetes prend en charge différents scénarios d’intégration pilotés par des événements. Toutefois, le scénario global principal pris en charge et exprimé sous la forme d’un récit utilisateur est le suivant :

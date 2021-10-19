@@ -7,20 +7,23 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
-ms.date: 05/25/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt, troubleshoot
-ms.openlocfilehash: 209a9ffe884fd772fde30bd7a6d4995a15d97f02
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 59a3709ef6145fa723d1919429fec4bf62a0998b
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129423478"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705336"
 ---
-# <a name="troubleshooting-prebuilt-docker-images-for-inference-preview"></a>Résolution des problèmes liés aux images Docker prédéfinies pour l’inférence (préversion)
+# <a name="troubleshooting-prebuilt-docker-images-for-inference"></a>Résolution des problèmes d’images Docker prédéfinies pour l’inférence
 
-Découvrez comment résoudre les problèmes que vous pouvez rencontrer quand vous utilisez des images Docker prédéfinies pour l’inférence [(préversion)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avec Azure Machine Learning.
+Découvrez comment résoudre les problèmes que vous pouvez rencontrer quand vous utilisez des images Docker prédéfinies pour l’inférence avec Azure Machine Learning.
+
+> [!IMPORTANT]
+> L’utilisation de [l’extensibilité de package Python pour les images Docker](how-to-prebuilt-docker-images-inference-python-extensibility.md) prédéfinies avec Azure Machine Learning est actuellement disponible en préversion. La fonctionnalité en préversion est fournie en l’état, sans garantie de support ni contrat de niveau de service. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="model-deployment-failed"></a>Échec du déploiement de modèle
 

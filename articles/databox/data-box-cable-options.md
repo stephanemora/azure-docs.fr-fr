@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: a2c4cce492c48ebe6e09ad142f97bc6377a8a5e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 851c717ad313c32137235704f7cbdca9544d2605
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94334599"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129716114"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Options de câblage de votre Azure Data Box
 
@@ -117,7 +117,7 @@ Utilisez cette configuration si votre appareil se trouvera dans un environnement
 
 Avant de commencer, assurez-vous que vous disposez  des éléments suivants :
 
-- Un câble RJ45 si vous souhaitez connecter DATA 1.
+- Un câble RJ45 si vous souhaitez connecter DATA 3.
 - Un câble en cuivre SFP+ Twinax 10 GbE pour chaque port de données 10 GbE que vous souhaitez connecter.
 - Une ou plusieurs sources de données exécutant un [système d’exploitation pris en charge](data-box-system-requirements.md#supported-operating-systems-for-clients). Ces sources de données peuvent se trouver dans différents réseaux, tels que des réseau 1 GbE ou 10 GbE.
 

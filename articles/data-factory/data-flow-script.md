@@ -8,12 +8,12 @@ ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/22/2021
-ms.openlocfilehash: 73fe862475b866e625d4bf2bdce3c044b6dcc87b
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: b599fbd2d41eacceed29d0d72432809507d3a7bc
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129061577"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129707985"
 ---
 # <a name="data-flow-script-dfs"></a>Script de flux de données (DFS)
 
@@ -103,7 +103,7 @@ deriveTransformationName sink(allowSchemaDrift: true,
 ```
 
 ## <a name="dfs-fundamentals"></a>Notions de base du DFS
-Le DFS est constitué d’une série de transformations connectées, y compris de sources, de récepteurs et d’autres éléments permettant d’ajouter de nouvelles colonnes, de filtrer des données, de joindre des données, et plus encore. En règle générale, le script commence parc une ou plusieurs sources suivies par de nombreuses transformations et se termine par un ou plusieurs récepteurs.
+Le DFS est constitué d’une série de transformations connectées, y compris de sources, de récepteurs et d’autres éléments permettant d’ajouter de nouvelles colonnes, de filtrer des données, de joindre des données, et plus encore. En règle générale, le script commence par une ou plusieurs sources suivies par de nombreuses transformations et se termine par un ou plusieurs récepteurs.
 
 Les sources ont toutes la même construction de base :
 ```

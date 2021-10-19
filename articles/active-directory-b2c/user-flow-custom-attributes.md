@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 10/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3e3cb266e9da128e9379d6868d189ac72408c4f7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 05d5d4a3ed9ea9e9ea99cd917762973f2865528f
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605826"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657318"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Définir des attributs personnalisés dans Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Azure AD B2C vous permet d’étendre l’ensemble d’attributs stocké sur cha
 1. Fournissez un **nom** pour l’attribut personnalisé (par exemple, « ShoeSize »).
 1. Choisissez un **Type de données**. Seules les valeurs **String**, **Boolean** et **Int** sont disponibles.
 1. Si vous le souhaitez, entrez une **Description** à titre d’information.
-1. Cliquez sur **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 L’attribut personnalisé est actuellement disponible dans la liste des **attributs utilisateur**, et pour une utilisation dans vos flux d’utilisateur. Un attribut personnalisé est créé lors de sa première utilisation dans un flux d’utilisateur, et non pas quand vous l’ajoutez à la liste des **Attributs utilisateur**.
 
@@ -58,9 +58,9 @@ L’attribut personnalisé est actuellement disponible dans la liste des **attri
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
 1. Sélectionnez votre stratégie (par exemple, « B2C_1_SignupSignin ») pour l’ouvrir.
-1. Sélectionnez **Attributs d’utilisateur**, puis sélectionnez l’attribut personnalisé (par exemple, « ShoeSize »). Cliquez sur **Enregistrer**.
+1. Sélectionnez **Attributs d’utilisateur**, puis sélectionnez l’attribut personnalisé (par exemple, « ShoeSize »). Sélectionnez **Enregistrer**.
 1. Sélectionnez **Revendications d’applications**, puis sélectionnez l’attribut personnalisé.
-1. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 Une fois que vous avez créé un utilisateur à l’aide d’un flux d’utilisateur qui utilise le nouvel attribut personnalisé, l’objet peut être interrogé dans [l’Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Vous pouvez également utiliser la fonctionnalité [Exécuter le flux d’utilisateur](./tutorial-create-user-flows.md) sur le flux d’utilisateur pour vérifier l’expérience utilisateur. Vous devez maintenant voir **ShoeSize** dans la liste d’attributs collectés lors de l’inscription, et le voir dans le jeton retourné à votre application.
 
@@ -72,7 +72,7 @@ Les attributs d’extension ne peuvent être inscrits que pour un objet applicat
 
 ::: zone pivot="b2c-user-flow"
 
-Pour récupérer l’ID de l’application :
+### <a name="get-extensions-apps-application-id"></a>Obtenir l’ID d’application de l’application d’extensions
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
@@ -86,7 +86,7 @@ Pour récupérer l’ID de l’application :
 
 ::: zone pivot="b2c-custom-policy"
 
-Obtenir les propriétés de l’application :
+### <a name="get-extensions-apps-application-properties"></a>Obtenir les propriétés d’application de l’application d’extensions
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
@@ -188,6 +188,36 @@ L’API Microsoft Graph prend en charge la création et la mise à jour d’un u
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
 ``` 
+
+## <a name="remove-extension-attribute"></a>Supprimer l’attribut d’extension
+
+Contrairement aux attributs intégrés, les attributs d’extension/personnalisés peuvent être supprimés. Les valeurs des attributs d’extension peuvent également être supprimées. 
+
+> [!Important]
+> Avant de supprimer l’attribut d’extension/personnalisé, pour chaque compte du répertoire, définissez la valeur de l’attribut extension sur null.  De cette façon, vous supprimez de manière explicite les valeurs des attributs d’extension. Continuez ensuite à supprimer l’attribut d’extension lui-même. L’attribut d’extension/personnalisé peut être interrogé à l’aide de l’API MS Graph. 
+
+::: zone pivot="b2c-user-flow"
+
+Procédez comme suit pour supprimer un attribut d’extension/personnalisé d’un flux d’utilisateur :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
+2. Veillez à bien utiliser le répertoire qui contient votre locataire Azure AD B2C :
+    1.  Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+    1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD B2C dans la liste Nom de répertoire, puis sélectionnez **Basculer**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
+1. Sélectionnez **Attributs utilisateur**, puis l’attribut que vous voulez supprimer.
+1. Sélectionnez **Supprimer**, puis cliquez sur **Oui** pour confirmer.
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Pour supprimer un attribut personnalisé, utilisez l’[API MS Graph](microsoft-graph-operations.md), puis la commande [Supprimer](/graph/api/application-delete-extensionproperty).
+
+::: zone-end
+
+ 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

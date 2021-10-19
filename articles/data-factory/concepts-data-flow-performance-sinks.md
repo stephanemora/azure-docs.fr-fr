@@ -1,20 +1,20 @@
 ---
-title: Optimisation des performances du récepteur dans le flux de données de mappage
+title: Performances du récepteur et meilleures pratiques dans le flux de données de mappage
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez l’optimisation des performances du récepteur dans les flux de données de mappage dans Azure Data Factory et les pipelines Azure Synapse Analytics.
+description: Découvrez l’optimisation des performances du récepteur et les meilleures pratiques en lien avec les flux de données de mappage dans les pipelines Azure Data Factory et Azure Synapse Analytics.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 09/29/2021
-ms.openlocfilehash: 54c03cc8b4c34be02d3dee608ce4a759e75f2200
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/06/2021
+ms.openlocfilehash: 4ed5d50d4b74e86b91d51e4011e41f2b600edb88
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129293581"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618683"
 ---
 # <a name="optimizing-sinks"></a>Optimisation des récepteurs
 
@@ -23,6 +23,10 @@ Quand des flux de données écrivent dans des récepteurs, tout partitionnement 
 ## <a name="azure-sql-database-sinks"></a>Récepteurs Azure SQL Database
 
 Avec Azure SQL Database, le partitionnement par défaut doit fonctionner dans la plupart des cas. Il est possible que votre récepteur ait un trop nombre de partitions à gérer trop important pour votre base de données SQL. Si vous rencontrez ce problème, réduisez le nombre de partitions générées par votre récepteur SQL Database.
+
+### <a name="best-practice-for-deleting-rows-in-sink-based-on-missing-rows-in-source"></a>Meilleure pratique pour supprimer des lignes dans un récepteur en fonction de lignes manquantes dans la source
+
+Voici un aperçu vidéo de l’utilisation des flux de données avec les sorties, la modification de ligne et les transformations de récepteur pour obtenir ce modèle commun : > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
 
 ### <a name="impact-of-error-row-handling-to-performance"></a>Impact de la gestion des lignes d’erreur sur les performances
 
