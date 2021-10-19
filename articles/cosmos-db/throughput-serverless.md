@@ -45,7 +45,7 @@ Dans certains cas, il peut être difficile de choisir entre le mode débit appro
 - En mode débit approvisionné, vous pouvez approvisionner un conteneur avec 500 RU/s pour un coût mensuel de 0,008 USD * 5 * 730 = **29,20 USD**.
 - En mode serverless, vous payez pour le RU consommées, soit 0,25 USD * 250 = **62,50 USD**
 
-(ces exemples ne sont pas pris en compte pour le coût de stockage, qui est le même dabs les deux modes).
+(ces exemples ne sont pas pris en compte pour le coût de stockage, qui est le même dans les deux modes).
 
 > [!NOTE]
 > Les coûts indiqués dans l’exemple précédent sont fournis à des fins de démonstration uniquement. Pour obtenir les informations les plus récentes sur la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/).
