@@ -1,6 +1,6 @@
 ---
-title: Didacticiel-Guide d’implémentation CARIN pour le bouton bleu&#174;-API Azure pour FHIR
-description: Ce didacticiel vous guide tout au long des étapes de configuration de l’API Azure pour FHIR afin de passer les tests Touchstone du Guide d’implémentation CARIN pour le bouton bleu (C4BB GI).
+title: Guide d’implémentation du bouton bleu CARIN pour le bouton bleu
+description: Ce didacticiel vous guide tout au long des étapes de configuration du service FHIR pour passer les tests Touchstone du Guide d’implémentation CARIN pour le bouton bleu (C4BB GI).
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,21 +8,24 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 05/27/2021
-ms.openlocfilehash: 1fade881fbe6d5c401712a4f97c8a249006d8190
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 08/03/2021
+ms.openlocfilehash: 4aebd92ea55e789a42444bc488dcaf2c02b2acb1
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590375"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778361"
 ---
 # <a name="carin-implementation-guide-for-blue-button174"></a>Guide d’implémentation de CARIN pour le bouton bleu&#174;
 
-Dans ce didacticiel, nous allons vous guider dans la configuration de l’API Azure pour FHIR afin de passer les tests [Touchstone](https://touchstone.aegis.net/touchstone/) du [Guide d’implémentation Carin pour le bouton bleu](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB GI).
+> [!IMPORTANT]
+> Les API Azure Healthcare sont actuellement en version préliminaire. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
+
+Dans ce didacticiel, nous allons examiner la configuration du service FHIR dans les API de santé Azure (par le biais du service FHIR) pour passer les tests [Touchstone](https://touchstone.aegis.net/touchstone/) pour le [Guide d’implémentation Carin pour le bouton bleu](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB GI).
 
 ## <a name="touchstone-capability-statement"></a>Instruction de fonctionnalité Touchstone
 
-Le premier test sur lequel nous allons nous concentrer consiste à tester l’API Azure pour FHIR à l’aide de l' [instruction de fonctionnalité C4BB GI](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). Si vous exécutez ce test sur l’API Azure pour FHIR sans aucune mise à jour, le test échoue en raison de paramètres de recherche manquants et de profils manquants. 
+Le premier test sur lequel nous allons nous concentrer consiste à tester le service FHIR à l’aide de l' [instruction de fonctionnalité C4BB GI](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). Si vous exécutez ce test sur le service FHIR sans aucune mise à jour, le test échoue en raison de paramètres de recherche manquants et de profils manquants. 
 
 ### <a name="define-search-parameters"></a>Définir les paramètres de recherche
 
@@ -35,7 +38,7 @@ Dans le cadre de C4BB GI, vous devez définir trois [nouveaux paramètres de rec
 > [!NOTE]
 > Dans le JSON brut pour ces paramètres de recherche, le nom est défini sur `ExplanationOfBenefit_<SearchParameter Name>` . Le test Touchstone s’attend à ce que le nom soit **type**, **service-date** et **assureur**.  
  
-Le reste des paramètres de recherche nécessaires pour C4BB GI est défini par la spécification de base et est déjà disponible dans l’API Azure pour FHIR sans aucune mise à jour supplémentaire.
+Le reste des paramètres de recherche nécessaires pour C4BB GI est défini par la spécification de base et est déjà disponible dans le service FHIR sans aucune mise à jour supplémentaire.
  
 ### <a name="store-profiles"></a>Stocker les profils
 
@@ -45,7 +48,7 @@ En dehors de la définition des paramètres de recherche, l’autre mise à jour
 * [C4BB ExplanationOfBenefit inpatient](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Inpatient-Institutional.html) 
 * [C4BB ExplanationOfBenefit](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Outpatient-Institutional.html) 
 * [Pharmacie C4BB ExplanationOfBenefit](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Pharmacy.html) 
-* [C4BB ExplanationOfBenefit professionnel](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Professional-NonClinician.html) 
+* [C4BB ExplanationOfBenefit Professional](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Professional-NonClinician.html) 
 * [Organisation C4BB](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Organization.html) 
 * [Patient C4BB](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Patient.html) 
 * [C4BB-praticien](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Practitioner.html) 
@@ -54,25 +57,25 @@ En dehors de la définition des paramètres de recherche, l’autre mise à jour
 
 Pour faciliter la création de ces paramètres de recherche et de ces profils, nous avons un [exemple de fichier http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB.http) qui comprend toutes les étapes décrites ci-dessus dans un fichier unique. Une fois que vous avez téléchargé tous les profils et paramètres de recherche nécessaires, vous pouvez exécuter le test d’instruction de fonctionnalité dans Touchstone.
 
-:::image type="content" source="media/cms-tutorials/capability-test-script-execution-results.png" alt-text="Résultats du test de capacité exécution du script.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/capability-test-script-execution-results.png" alt-text="Résultats du test de capacité exécution du script.":::
 
 ## <a name="touchstone-read-test"></a>Test de lecture Touchstone
 
-Après avoir testé l’instruction des fonctionnalités, nous testerons les [capacités de lecture](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) de l’API Azure pour FHIR sur C4BB GI. Ce test teste la conformité par rapport aux huit profils que vous avez chargés dans le premier test. Vous devez charger les ressources qui se conforment aux profils. Le meilleur moyen consiste à tester les ressources que vous avez déjà dans votre base de données, mais nous avons également un [fichier http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB_Sample_Resources.http) disponible avec les exemples de ressources tirés des exemples de la IG que vous pouvez utiliser pour créer les ressources et tester.
+Après avoir testé l’instruction des fonctionnalités, nous testerons les [capacités de lecture](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/01-Read&activeOnly=false&contentEntry=TEST_SCRIPTS) du service FHIR sur C4BB GI. Ce test teste la conformité par rapport aux huit profils que vous avez chargés dans le premier test. Vous devez charger les ressources qui se conforment aux profils. Le meilleur moyen consiste à tester les ressources que vous avez déjà dans votre base de données, mais nous avons également un [fichier http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/C4BB/C4BB_Sample_Resources.http) disponible avec les exemples de ressources tirés des exemples de la IG que vous pouvez utiliser pour créer les ressources et tester.
 
-:::image type="content" source="media/cms-tutorials/test-execution-results-touchstone.png" alt-text="Touchstone lit les résultats de l’exécution des tests.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/test-execution-results-touchstone.png" alt-text="Touchstone lit les résultats de l’exécution des tests.":::
 
 ## <a name="touchstone-eob-query-test"></a>Test de requête Touchstone EOB
 
 Le prochain test que nous allons examiner est le [test de requête EOB](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS). Si vous avez déjà effectué le test de lecture, vous avez toutes les données chargées dont vous avez besoin. Ce test permet de vérifier que vous pouvez rechercher des `Patient` ressources et spécifiques `ExplanationOfBenefit` à l’aide de différents paramètres.
 
-:::image type="content" source="media/cms-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Résultats de l’exécution de la requête Touchstone EOB.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Résultats de l’exécution de la requête Touchstone EOB.":::
 
 ## <a name="touchstone-error-handling-test"></a>Test de gestion des erreurs Touchstone
 
 Le test final que nous allons examiner est le test de la [gestion des erreurs](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS). La seule étape consiste à supprimer une ressource ExplanationOfBenefit de votre base de données et à utiliser l’ID de la ressource supprimée `ExplanationOfBenefit` dans le test.
 
-:::image type="content" source="media/cms-tutorials/test-execution-touchstone-error-handling.png" alt-text="Résultats de la gestion des erreurs Touchstone EOB.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/test-execution-touchstone-error-handling.png" alt-text="Résultats de la gestion des erreurs Touchstone EOB.":::
 
 
 ## <a name="next-steps"></a>Étapes suivantes

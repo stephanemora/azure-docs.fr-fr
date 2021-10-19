@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Documentation Azure Healthcare API (version préliminaire)
+summary: Documentation pour tous les services Azure Healthcare API (version préliminaire), y compris FHIR, DICOM et Data transformation.
+metadata:
+  title: Documentation sur les API de santé Azure
+  description: documentation pour tous les produits et services des API Azure Healthcare, y compris FHIR, DICOM et Data Transformation
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.topic: landing-page
+  ms.collection: collection
+  author: msjasteppe
+  ms.author: jasteppe
+  ms.date: 10/05/2021
+  ms.openlocfilehash: dc71d1a28dd572c1635c22f8505409c0905d397c
+  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+  ms.translationtype: MT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 10/05/2021
+  ms.locfileid: "129545337"
+landingContent:
+- title: Qu’est-ce que les API de santé ?
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: À propos des API de santé
+      url: healthcare-apis-overview.md
+    - text: À propos de l’espace de travail
+      url: workspace-overview.md
+  - linkListType: deploy
+    links:
+    - text: Prise en main des API de santé
+      url: healthcare-apis-quickstart.md
+- title: Utilisation des API de santé
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Authentification et autorisation
+      url: authentication-authorization.md
+    - text: Accès à l’aide du client REST
+      url: using-rest-client.md
+  - linkListType: reference
+    links:
+    - text: FAQ sur les API Healthcare
+      url: healthcare-apis-faqs.md
+- title: Transférer et transformer des données
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exporter des données
+      url: ./data-transformation/export-data.md
+    - text: Exporter des données dans Synapse
+      url: ./data-transformation/move-to-synapse.md
+  - linkListType: concept
+    links:
+    - text: Convertir des données
+      url: ./data-transformation/convert-data.md
+- title: Service FHIR
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: À propos du service FHIR
+      url: ./fhir/overview.md
+  - linkListType: deploy
+    links:
+    - text: Déployer le service FHIR à l’aide du portail
+      url: ./fhir/fhir-portal-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Interopérabilité et accès des patients
+      url: ./fhir/cms-tutorial-introduction.md
+    - text: Opération de recherche de FHIR
+      url: ./fhir/overview-of-search.md
+- title: Service DICOM
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: À propos du service DICOM
+      url: ./dicom/dicom-services-overview.md
+  - linkListType: deploy
+    links:
+    - text: Déployer le service DICOM à l’aide du portail
+      url: ./dicom/deploy-dicom-services-in-azure.md
+  - linkListType: tutorial
+    links:
+    - text: API standard DICOMweb
+      url: ./dicom/dicomweb-standard-apis-with-dicom-services.md
+    - text: Flux de modification DICOM
+      url: ./dicom/pull-dicom-changes-from-change-feed.md
+- title: Connecteur IoT
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: À propos du connecteur IoT
+      url: ./iot/iot-connector-overview.md
+  - linkListType: deploy
+    links:
+    - text: Déployer un connecteur IoT à l’aide du portail
+      url: ./iot/deploy-iot-connector-in-azure.md
+  - linkListType: tutorial
+    links:
+    - text: Recevoir des données d’appareil via Azure IoT Hub
+      url: ./iot/device-data-through-iot-hub.md

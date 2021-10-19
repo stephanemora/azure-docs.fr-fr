@@ -1,0 +1,51 @@
+### YamlMime:Landing
+title: Documentation DICOM
+summary: Page de documentation du service DICOM pour les API Azure Healthcare (version préliminaire).
+metadata:
+  title: Services DICOM des API Azure Healthcare
+  description: Section de la documentation DICOM pour les API Azure Healthcare
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: fhir
+  ms.topic: landing-page
+  ms.collection: collection
+  author: ginalee-dotcom
+  ms.author: ginle
+  ms.date: 06/21/2021
+  ms.openlocfilehash: dfd82e198623e435fedc48c6ed54a894951fb659
+  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.translationtype: MT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/13/2021
+  ms.locfileid: "121777575"
+landingContent:
+- title: Démarrer avec le service DICOM
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: À propos du service DICOM
+      url: dicom-services-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Déployer des services DICOM à l’aide de l’Portail Azure
+      url: deploy-dicom-services-in-azure.md
+- title: Utilisation de votre service DICOM
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 'Utilisation des API standard DICOMweb avec C #'
+      url: dicomweb-standard-apis-c-sharp.md
+    - text: Utilisation d’API standard DICOMweb avec l’accolade
+      url: dicomweb-standard-apis-curl.md
+    - text: Utilisation d’API standard DICOMweb avec Python
+      url: dicomweb-standard-apis-python.md
+- title: Flux de modification DICOM
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Qu’est-ce que le flux de modification DICOM ?
+      url: dicom-change-feed-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Extraire les modifications DICOM à l’aide du flux de modification
+      url: pull-dicom-changes-from-change-feed.md

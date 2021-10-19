@@ -1,0 +1,57 @@
+items:
+  - name: Service DICOM
+    href: index.yml
+  - name: Vue d’ensemble
+    expanded: true
+    items:
+      - name: À propos du service DICOM
+        href: dicom-services-overview.md
+  - name: Démarrages rapides
+    expanded: true
+    items:
+      - name: Déployer des services DICOM à l’aide de l’Portail Azure
+        href: deploy-dicom-services-in-azure.md
+  - name: Tutoriels
+    expanded: true
+    items:
+      - name: 'Utilisation des API standard DICOMweb avec C #'
+        href: dicomweb-standard-apis-c-sharp.md
+      - name: Utilisation d’API standard DICOMweb avec l’accolade
+        href: dicomweb-standard-apis-curl.md
+      - name: Utilisation d’API standard DICOMweb avec Python
+        href: dicomweb-standard-apis-python.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Utilisation des API standard DICOMweb avec le service DICOM
+        href: dicomweb-standard-apis-with-dicom-services.md
+      - name: Vue d’ensemble du flux de modification DICOM
+        href: dicom-change-feed-overview.md
+      - name: inscrire des applications Azure Active Directory pour le service DICOM
+        href: dicom-register-azure-active-directory-applications.md
+      - name: Activer la journalisation des diagnostics dans le service DICOM
+        href: enable-diagnostic-logging.md
+  - name: Guides pratiques
+    expanded: true
+    items:
+      - name: Extraire les modifications DICOM à l’aide du flux de modification
+        href: pull-dicom-changes-from-change-feed.md
+      - name: Inscrire une application cliente de service
+        href: dicom-register-service-client-application.md
+      - name: Inscrire une application cliente publique
+        href: dicom-register-public-application.md
+      - name: Inscrire une application cliente confidentielle
+        href: dicom-register-confidential-client-application.md
+      - name: Configurer Azure RBAC pour le service DICOM
+        href: dicom-configure-azure-rbac.md
+      - name: Obtenir un jeton d’accès pour le service DICOM à l’aide de Azure CLI
+        href: dicom-get-access-token-azure-cli.md
+  - name: Ressources
+    expanded: true
+    items:
+      - name: Contrôle de version de l’API pour le service DICOM
+        href: api-versioning-dicom-service.md
+      - name: Instruction de conformité DICOM
+        href: dicom-services-conformance-statement.md
+      - name: FAQ
+        href: dicom-services-faqs.yml

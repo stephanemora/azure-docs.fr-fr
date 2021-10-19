@@ -1,22 +1,25 @@
 ---
-title: Vue d’ensemble de la recherche dans l’API Azure pour FHIR
-description: Cet article décrit une vue d’ensemble de la recherche de FHIR qui est implémentée dans l’API Azure pour FHIR
-author: ginalee-dotcom
+title: Vue d’ensemble de la recherche FHIR dans les API de santé Azure
+description: Cet article décrit une vue d’ensemble de la recherche de FHIR qui est implémentée dans les API de santé Azure
+author: CaitlinV39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/17/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
-ms.openlocfilehash: 2d1bccbd40689a06a13b7a2283ad02a0ac43ce84
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 33a83bd007558de8b9b2300ab6eec7e8fa1a4584
+ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110477824"
+ms.lasthandoff: 08/25/2021
+ms.locfileid: "122821358"
 ---
 # <a name="overview-of-fhir-search"></a>Vue d’ensemble de la recherche FHIR
 
-La spécification FHIR définit les notions de base de la recherche de ressources FHIR. Cet article vous guide tout au long des aspects clés de la recherche de ressources dans FHIR. Pour plus d’informations sur la recherche de ressources FHIR, reportez-vous à [recherche](https://www.hl7.org/fhir/search.html) dans la spécification HL7 FHIR. Tout au long de cet article, nous fournirons des exemples de syntaxe de recherche. Chaque recherche sera effectuée sur votre serveur FHIR, qui a généralement l’URL `https://<FHIRSERVERNAME>.azurewebsites.net` . Dans les exemples, nous allons utiliser l’espace réservé {{FHIR_URL}} pour cette URL. 
+> [!IMPORTANT]
+> Les API Azure Healthcare sont actuellement en version préliminaire. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
+
+La spécification FHIR définit les notions de base de la recherche de ressources FHIR. Cet article vous guide tout au long des aspects clés de la recherche de ressources dans FHIR. Pour plus d’informations sur la recherche de ressources FHIR, reportez-vous à [recherche](https://www.hl7.org/fhir/search.html) dans la spécification HL7 FHIR. Tout au long de cet article, nous fournirons des exemples de syntaxe de recherche. Chaque recherche sera effectuée sur votre serveur FHIR, qui a généralement l’URL `https://<WORKSPACE NAME>-<ACCOUNT-NAME>.fhir.azurehealthcareapis.com` . Dans les exemples, nous allons utiliser l’espace réservé {{FHIR_URL}} pour cette URL. 
 
 Les recherches FHIR peuvent être effectuées sur un type de ressource spécifique, un [compartiment](https://www.hl7.org/fhir/compartmentdefinition.html)spécifié ou toutes les ressources. La façon la plus simple d’exécuter une recherche dans FHIR consiste à utiliser une `GET` requête. Par exemple, si vous souhaitez extraire tous les patients de la base de données, vous pouvez utiliser la requête suivante : 
 
@@ -28,7 +31,7 @@ Vous pouvez également effectuer une recherche à l’aide `POST` de, ce qui est
 
 Si la demande de recherche est réussie, vous recevrez une réponse de Bundle FHIR avec le type `searchset` . Si la recherche échoue, vous trouverez les détails de l’erreur dans le `OperationOutcome` pour vous aider à comprendre pourquoi la recherche a échoué.
 
-Dans les sections suivantes, nous allons aborder les différents aspects impliqués dans la recherche. Une fois que vous avez consulté ces détails, reportez-vous à notre [page d’exemples](search-samples.md) qui contient des exemples de recherches que vous pouvez effectuer dans l’API Azure pour FHIR.
+Dans les sections suivantes, nous allons aborder les différents aspects impliqués dans la recherche. Une fois que vous avez consulté ces détails, reportez-vous à notre [page d’exemples](search-samples.md) qui contient des exemples de recherches que vous pouvez effectuer dans le service FHIR dans les API de santé Azure.
 
 ## <a name="search-parameters"></a>Paramètres de recherche
 
@@ -37,40 +40,40 @@ Lorsque vous effectuez une recherche, vous effectuez une recherche en fonction d
 Chaque paramètre de recherche a un [type de données](https://www.hl7.org/fhir/search.html#ptypes)défini. La prise en charge des différents types de données est présentée ci-dessous :
 
 
-| **Type de paramètre de recherche**  | **Prise en charge - PaaS** | **Prise en charge - OSS (SQL)** | **Prise en charge - OSS (Cosmos DB)** | **Commentaire**|
-| -------------------------  | -------------------- | ------------------------- | ------------------------------- |------------|
-|  nombre                    | Oui                  | Oui                       | Oui                             |
-|  Date                      | Oui                  | Oui                       | Oui                             |
-|  string                    | Oui                  | Oui                       | Oui                             |
-|  token                     | Oui                  | Oui                       | Oui                             |
-|  reference                 | Oui                  | Oui                       | Oui                             |
-|  composites                 | Partiel              | Partiel                   | Partiel                         | La liste des types composites pris en charge est décrite plus loin dans cet article. |
-|  quantité                  | Oui                  | Oui                       | Oui                             |
-|  URI                       | Oui                  | Oui                       | Oui                             |
-|  spécial                   | Non                   | Non                        | Non                              |
+| **Type de paramètre de recherche**  | **Azure API pour FHIR** | **Service FHIR dans les API de santé Azure** | **Commentaire**|
+| -------------------------  | -------------------- | ------------------------- | ------------|
+|  nombre                    | Oui                  | Oui                       |
+|  Date                      | Oui                  | Oui                       |
+|  string                    | Oui                  | Oui                       |
+|  token                     | Oui                  | Oui                       |
+|  reference                 | Oui                  | Oui                       |
+|  composites                 | Partiel              | Partiel                   | La liste des types composites pris en charge est décrite plus loin dans cet article. |
+|  quantité                  | Oui                  | Oui                       |
+|  URI                       | Oui                  | Oui                       |
+|  spécial                   | Non                   | Non                        |
 
 ### <a name="common-search-parameters"></a>Paramètres de recherche communs
 
-Il existe des [paramètres de recherche communs](https://www.hl7.org/fhir/search.html#all) qui s’appliquent à toutes les ressources. Celles-ci sont répertoriées ci-dessous, ainsi que leur prise en charge dans l’API Azure pour FHIR :
+Il existe des [paramètres de recherche communs](https://www.hl7.org/fhir/search.html#all) qui s’appliquent à toutes les ressources. Celles-ci sont répertoriées ci-dessous, ainsi que leur prise en charge :
 
-| **Paramètre de recherche courant** | **Prise en charge - PaaS** | **Prise en charge - OSS (SQL)** | **Prise en charge - OSS (Cosmos DB)** | **Commentaire** |
-| --------------------------  | -------------------- | ------------------------- | ------------------------------- | ------------|
-| _id                         | Oui                  | Oui                       | Oui                             |             |
-| _lastUpdated                | Oui                  | Oui                       | Oui                             |             |
-| _tag                        | Oui                  | Oui                       | Oui                             |             | 
-| _type                       | Oui                  | Oui                       | Oui                             |             |
-| _security                   | Oui                  | Oui                       | Oui                             |             |
-| _profile                    | Oui                  | Oui                       | Oui                             | Si vous avez créé votre base de données R4 avant le 20 février 2021, vous devez exécuter un [travail de réindexement](how-to-run-a-reindex.md) pour activer **_profile**.|
-| _has                        | Partiel              | Oui                       | Partiel                         | La prise en charge de _has est en MVP dans l’API Azure pour FHIR et la version OSS sauvegardée par Cosmos DB. Pour plus d’informations, reportez-vous à la section chaînage ci-dessous. |
-| _query                      | Non                   | Non                        | Non                              |             |
-| _filter                     | Non                   | Non                        | Non                              |             |
-| _list                       | Non                   | Non                        | Non                              |             |
-| _text                       | Non                   | Non                        | Non                              |             |
-| _content                    | Non                   | Non                        | Non                              |             |
+| **Paramètre de recherche courant** | **Azure API pour FHIR** | **Service FHIR dans les API de santé Azure** | **Commentaire**|
+| -------------------------  | -------------------- | ------------------------- | ------------|
+| _id                         | Oui                  | Oui                       
+| _lastUpdated                | Oui                  | Oui                       |
+| _tag                        | Oui                  | Oui                       |
+| _type                       | Oui                  | Oui                       |
+| _security                   | Oui                  | Oui                       |
+| _profile                    | Oui                  | Oui                       |
+| _has                        | Oui.                 | Oui                       |  |
+| _query                      | Non                   | Non                        |
+| _filter                     | Non                   | Non                        |
+| _list                       | Non                   | Non                        |
+| _text                       | Non                   | Non                        |
+| _content                    | Non                   | Non                        |
 
 ### <a name="resource-specific-parameters"></a>Paramètres spécifiques à la ressource
 
-Avec l’API Azure pour FHIR, nous prenons en charge presque tous les [paramètres de recherche spécifiques aux ressources](https://www.hl7.org/fhir/searchparameter-registry.html) définis par la spécification FHIR. Les seuls paramètres de recherche que nous ne prenons pas en charge sont disponibles dans les liens ci-dessous :
+Avec le service FHIR dans les API de santé Azure, nous prenons en charge presque tous les [paramètres de recherche spécifiques aux ressources](https://www.hl7.org/fhir/searchparameter-registry.html) définis par la spécification FHIR. Les seuls paramètres de recherche que nous ne prenons pas en charge sont disponibles dans les liens ci-dessous :
 
 * [Paramètres de recherche non pris en charge par STU3](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/Stu3/unsupported-search-parameters.json)
 
@@ -85,12 +88,12 @@ GET {{FHIR_URL}}/metadata
 Pour afficher les paramètres de recherche dans l’instruction Capability, accédez à `CapabilityStatement.rest.resource.searchParam` pour afficher les paramètres de recherche de chaque ressource et `CapabilityStatement.rest.searchParam` Rechercher les paramètres de recherche pour toutes les ressources.
 
 > [!NOTE]
-> L’API Azure pour FHIR ne crée pas ou n’indexe pas automatiquement les paramètres de recherche qui ne sont pas définis par la spécification FHIR. Toutefois, nous fournissons un support pour vous permettre de définir vos propres [paramètres de recherche](how-to-do-custom-search.md).
+> Le service FHIR dans les API de santé Azure ne crée ou n’indexe pas automatiquement les paramètres de recherche qui ne sont pas définis par la spécification FHIR. Toutefois, nous fournissons un support pour vous permettre de définir vos propres [paramètres de recherche](how-to-do-custom-search.md).
 
 ### <a name="composite-search-parameters"></a>Paramètres de recherche composite
 La recherche composite vous permet d’effectuer des recherches sur des paires valeur. Par exemple, si vous recherchez une observation de hauteur dans laquelle la personne était de 60 pouces, vous souhaiterez vous assurer qu’un seul composant de l’observation contenait le code de la hauteur **et** la valeur de 60. Vous ne souhaitez pas obtenir une observation où un poids de 60 et une hauteur de 48 ont été stockés, même si l’observation a des entrées qui sont qualifiées pour la valeur de 60 et le code de la hauteur, juste dans des sections de composants différentes. 
 
-Avec l’API Azure pour FHIR, nous prenons en charge les jumelages de types de paramètres de recherche suivants :
+Avec le service FHIR pour les API Azure Healthcare, nous prenons en charge les jumelages de types de paramètres de recherche suivants :
 
 * Référence, jeton
 * Jeton, date
@@ -106,42 +109,42 @@ Pour plus d’informations, consultez les [paramètres de recherche composite](h
 
  ### <a name="modifiers--prefixes"></a>Modificateurs & préfixes
 
-Les [modificateurs](https://www.hl7.org/fhir/search.html#modifiers) vous permettent de modifier le paramètre de recherche. Vous trouverez ci-dessous une vue d’ensemble de tous les modificateurs FHIR et de la prise en charge de l’API Azure pour FHIR. 
+Les [modificateurs](https://www.hl7.org/fhir/search.html#modifiers) vous permettent de modifier le paramètre de recherche. Vous trouverez ci-dessous une vue d’ensemble de tous les modificateurs FHIR et de la prise en charge : 
 
-| **Modificateurs** | **Prise en charge - PaaS** | **Prise en charge - OSS (SQL)** | **Prise en charge - OSS (Cosmos DB)** |
-| ------------- | -------------------- | ------------------------- | ------------------------------- |
-|  : manquant     | Oui                  | Oui                       | Oui                             |
-|  : exact       | Oui                  | Oui                       | Oui                             | 
-|  : contient    | Oui                  | Oui                       | Oui                             | 
-|  : texte        | Oui                  | Oui                       | Oui                             | 
-|  : type (référence) | Oui             | Oui                       | Oui                             | 
-|  : non         | Oui                  | Oui                       | Oui                             | 
-|  : ci-dessous (Uri) | Oui                  | Oui                       | Oui                             |  
-|  : ci-dessus (Uri) | Oui                  | Oui                       | Oui                             | 
-|  : in (jeton)  | Non                   | Non                        | Non                              | 
-|  : ci-dessous (jeton) | Non                 | Non                        | Non                              | 
-|  : ci-dessus (jeton) | Non                 | Non                        | Non                              | 
-|  : not-in (jeton) | Non                | Non                        | Non                              | 
+| **Modificateurs** | **Azure API pour FHIR** | **Service FHIR dans les API de santé Azure** | **Commentaire**|
+| -------------------------  | -------------------- | ------------------------- | ------------|
+|  : manquant     | Oui                  | Oui                       |
+|  : exact       | Oui                  | Oui                       |
+|  : contient    | Oui                  | Oui                       |
+|  : texte        | Oui                  | Oui                       |
+|  : type (référence) | Oui             | Oui                       |
+|  : non         | Oui                  | Oui                       |
+|  : ci-dessous (Uri) | Oui                  | Oui                       |
+|  : ci-dessus (Uri) | Oui                  | Oui                       |
+|  : in (jeton)  | Non                   | Non                        |
+|  : ci-dessous (jeton) | Non                 | Non                        |
+|  : ci-dessus (jeton) | Non                 | Non                        |
+|  : not-in (jeton) | Non                | Non                        |
 
-Pour les paramètres de recherche qui ont un ordre spécifique (nombres, dates et quantités), vous pouvez utiliser un [préfixe](https://www.hl7.org/fhir/search.html#prefix) sur le paramètre pour faciliter la recherche des correspondances. L’API Azure pour FHIR prend en charge tous les préfixes.
+Pour les paramètres de recherche qui ont un ordre spécifique (nombres, dates et quantités), vous pouvez utiliser un [préfixe](https://www.hl7.org/fhir/search.html#prefix) sur le paramètre pour faciliter la recherche des correspondances. Le service FHIR dans les API Azure Healthcare prend en charge tous les préfixes.
 
  ### <a name="search-result-parameters"></a>Paramètres des résultats de la recherche
 Pour faciliter la gestion des ressources retournées, vous pouvez utiliser des paramètres de résultat de recherche dans votre recherche. Pour plus d’informations sur l’utilisation de chacun des paramètres de résultat de la recherche, reportez-vous au site Web [HL7](https://www.hl7.org/fhir/search.html#return) . 
 
-| **Paramètres des résultats de la recherche**  | **Prise en charge - PaaS** | **Prise en charge - OSS (SQL)** | **Prise en charge - OSS (Cosmos DB)** | **Commentaires**                 |
-| ----------------------------  | -------------------- | ------------------------- | ------------------------------- | -----------------------------|
-| _elements                     | Oui                  | Oui                       | Oui                             |                                |
-| _count                        | Oui                  | Oui                       | Oui                             | _count est limité à 1000 ressources. S’il est défini sur une valeur supérieure à 1000, seul 1000 est retourné et un avertissement est renvoyé dans le bundle.                               |
-| _include                      | Oui                  | Oui                       | Oui                             | Les éléments inclus sont limités à 100. _include sur PaaS et OSS sur Cosmos DB n’incluez pas : prise en charge des itérations [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).                               |
-| _revinclude                   | Oui                  | Oui                       | Oui                             |  Les éléments inclus sont limités à 100. _revinclude sur PaaS et OSS sur Cosmos DB n’incluez pas : prise en charge des itérations [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).  Problème [n° 1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
-| _summary                      | Oui             | Oui                   | Oui                        |                               |
-| _total                        | Partiel              | Partiel                   | Partiel                         | _total = None et _total = exact                               |
-| _sort                         | Partiel              | Partiel                   | Partiel                         | sort = _lastUpdated est pris en charge. Pour l’API Azure pour FHIR et OSS Cosmos DB les bases de données créées après le 20 avril, 2021 sort est également pris en charge pour le prénom, le nom et la date clinique.                               |
-| _contained                    | Non                   | Non                        | Non                              |                                |
-| _containedType                | Non                   | Non                        | Non                              |                                |
-| _score                        | Non                   | Non                        | Non                              |                                |
+| **Paramètres des résultats de la recherche**  | **Azure API pour FHIR** | **Service FHIR dans les API de santé Azure** | **Commentaire**|
+| -------------------------  | -------------------- | ------------------------- | ------------|
+| _elements                     | Oui                  | Oui                       |
+| _count                        | Oui                  | Oui                       | _count est limité à 1000 ressources. S’il est défini sur une valeur supérieure à 1000, seul 1000 est retourné et un avertissement est renvoyé dans le bundle.                               |
+| _include                      | Oui                  | Oui                       | Les éléments inclus sont limités à 100. _include sur PaaS et OSS sur Cosmos DB n’incluez pas : prise en charge des itérations [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).                               |
+| _revinclude                   | Oui                  | Oui                       |Les éléments inclus sont limités à 100. _revinclude sur PaaS et OSS sur Cosmos DB n’incluez pas : prise en charge des itérations [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). Il y a également un code d’état incorrect pour une demande incorrecte [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
+| _summary                      | Oui             | Oui                   |
+| _total                        | Partiel              | Partiel                   | _total = None et _total = exact                               |
+| _sort                         | Partiel              | Partiel                   | sort = _lastUpdated est pris en charge. Par défaut, trie l’enregistrement dans l’ordre croissant. Vous pouvez utiliser le préfixe « - » pour effectuer un tri dans l’ordre décroissant. pour l’API Azure pour FHIR et OSS Cosmos DB les bases de données créées après le 20 avril, 2021 sort est également pris en charge pour le prénom, le nom et la date clinique.             |
+| _contained                    | Non                   | Non                        |
+| _containedType                | Non                   | Non                        |
+| _score                        | Non                   | Non                        |
 
-Par défaut, l’API Azure pour FHIR est définie sur gestion stricte. Cela signifie que le serveur ignore les paramètres inconnus ou non pris en charge. Si vous souhaitez utiliser une gestion stricte, vous pouvez utiliser l’en-tête et le set **préférés** `handling=strict` .
+Par défaut, le service FHIR dans les API de santé Azure est défini sur gestion stricte. Cela signifie que le serveur ignore les paramètres inconnus ou non pris en charge. Si vous souhaitez utiliser une gestion stricte, vous pouvez utiliser l’en-tête et le set **préférés** `handling=strict` .
 
  ## <a name="chained--reverse-chained-searching"></a>Chaîné & recherche chaînée inverse
 
@@ -151,14 +154,12 @@ Une [recherche chaînée](https://www.hl7.org/fhir/search.html#chaining) vous pe
 
 De même, vous pouvez effectuer une recherche chaînée par inversion. Cela vous permet d’accéder à des ressources où vous spécifiez des critères sur d’autres ressources qui y font référence. Pour obtenir plus d’exemples de recherches chaînées et enchaînées, reportez-vous à la page d' [exemples de recherche FHIR](search-samples.md) . 
 
-> [!NOTE]
-> Dans l’API Azure pour FHIR et la source Open avec Cosmos DB, il existe une limitation où chaque sous-requête requise pour les recherches chaînées et enchaînées renverra uniquement 100 éléments. Si plus de 100 éléments sont trouvés, le message d’erreur suivant s’affiche : « les sous-requêtes dans une expression chaînée ne peuvent pas retourner plus de 100 résultats, veuillez utiliser un critère plus sélectif. » Pour obtenir une requête réussie, vous devez être plus précis dans ce que vous recherchez.
 
 ## <a name="pagination"></a>Pagination
 
 Comme indiqué ci-dessus, les résultats d’une recherche sont un bundle paginé. Par défaut, la recherche renverra 10 résultats par page, mais cela peut être augmenté (ou diminué) en spécifiant `_count` . Dans le bundle, il y aura un lien automatique qui contient le résultat actuel de la recherche. S’il existe des correspondances supplémentaires, le bundle contient un lien suivant. Vous pouvez continuer à utiliser le lien suivant pour obtenir les pages de résultats suivantes. `_count` est limité à 1000 éléments ou moins. 
 
-Actuellement, l’API Azure pour FHIR prend uniquement en charge le lien suivant dans les offres groupées et ne prend pas en charge les liens First, Last ou Previous.
+Actuellement, le service FHIR dans les API de santé Azure prend uniquement en charge le lien suivant dans les offres groupées, et il ne prend pas en charge les liens First, Last ou Previous.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

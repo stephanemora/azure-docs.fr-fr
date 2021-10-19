@@ -1,25 +1,28 @@
 ---
-title: Comment effectuer une recherche personnalisée dans l’API Azure pour FHIR
+title: Comment effectuer une recherche personnalisée dans le service FHIR
 description: Cet article explique comment vous pouvez définir vos propres paramètres de recherche personnalisés à utiliser dans la base de données.
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
-ms.openlocfilehash: 5453b11cb49bb48c48e6c949a00654a797c89202
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b299a7a60e65ede867bf9501f99b76294011cc93
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476662"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122779018"
 ---
 # <a name="defining-custom-search-parameters"></a>Définition des paramètres de recherche personnalisés
 
-La spécification FHIR définit un ensemble de paramètres de recherche pour toutes les ressources et tous les paramètres de recherche spécifiques à une ou plusieurs ressources. Toutefois, il existe des scénarios dans lesquels vous pouvez souhaiter Rechercher un élément dans une ressource qui n’est pas défini par la spécification FHIR comme paramètre de recherche standard. Cet article explique comment vous pouvez définir vos propres [paramètres de recherche](https://www.hl7.org/fhir/searchparameter.html) à utiliser dans l’API Azure pour FHIR.
+> [!IMPORTANT]
+> Les API Azure Healthcare sont actuellement en version préliminaire. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
+
+La spécification FHIR définit un ensemble de paramètres de recherche pour toutes les ressources et tous les paramètres de recherche spécifiques à une ou plusieurs ressources. Toutefois, il existe des scénarios dans lesquels vous pouvez souhaiter Rechercher un élément dans une ressource qui n’est pas défini par la spécification FHIR comme paramètre de recherche standard. Cet article explique comment vous pouvez définir vos propres [paramètres de recherche](https://www.hl7.org/fhir/searchparameter.html) à utiliser dans le service FHIR dans les API de santé Azure (par le biais du service FHIR).
 
 > [!NOTE]
-> Chaque fois que vous créez, mettez à jour ou supprimez un paramètre de recherche, vous devez exécuter un [travail de réindexation](how-to-run-a-reindex.md) pour permettre l’utilisation du paramètre de recherche en production. Nous décrirons ci-dessous comment vous pouvez tester les paramètres de recherche avant de réindexer l’ensemble du serveur FHIR.
+> Chaque fois que vous créez, mettez à jour ou supprimez un paramètre de recherche, vous devez exécuter un [travail de réindexation](how-to-run-a-reindex.md) pour permettre l’utilisation du paramètre de recherche en production. Nous décrirons ci-dessous comment vous pouvez tester les paramètres de recherche avant de réindexer l’ensemble du service FHIR.
 
 ## <a name="create-new-search-parameter"></a>Créer un nouveau paramètre de recherche
 
@@ -70,7 +73,7 @@ POST {{FHIR_URL}}/SearchParameter
 ``` 
 
 > [!NOTE]
-> Le nouveau paramètre de recherche s’affiche dans l’instruction Capability du serveur FHIR une fois que vous avez publié le paramètre de recherche dans la base de données **et** que vous avez réindexé votre base de données. L’affichage `SearchParameter` de dans l’instruction Capability est le seul moyen de savoir si un paramètre de recherche est pris en charge sur votre serveur FHIR. Si vous trouvez le paramètre de recherche en recherchant le paramètre de recherche, mais que vous ne le voyez pas dans l’instruction de fonctionnalité, vous devez toujours indexer le paramètre de recherche. Vous pouvez poster plusieurs paramètres de recherche avant de déclencher une opération de réindexation.
+> Le nouveau paramètre de recherche s’affiche dans l’instruction Capability du service FHIR après que vous avez publié le paramètre de recherche dans la base de données **et** que vous avez réindexé votre base de données. L’affichage `SearchParameter` de dans l’instruction Capability est le seul moyen de savoir si un paramètre de recherche est pris en charge dans votre service FHIR. Si vous trouvez le paramètre de recherche en recherchant le paramètre de recherche, mais que vous ne le voyez pas dans l’instruction de fonctionnalité, vous devez toujours indexer le paramètre de recherche. Vous pouvez poster plusieurs paramètres de recherche avant de déclencher une opération de réindexation.
 
 Éléments importants d’un `SearchParameter` :
 
@@ -80,15 +83,15 @@ POST {{FHIR_URL}}/SearchParameter
 
 * **base**: décrit la ou les ressources auxquelles le paramètre de recherche s’applique. Si le paramètre de recherche s’applique à toutes les ressources, vous pouvez utiliser `Resource` ; sinon, vous pouvez répertorier toutes les ressources pertinentes.
  
-* **type**: décrit le type de données pour le paramètre de recherche. Le type est limité par la prise en charge de l’API Azure pour FHIR. Cela signifie que vous ne pouvez pas définir un paramètre de recherche de type spécial ou définir un [paramètre de recherche composite](overview-of-search.md) , sauf s’il s’agit d’une combinaison prise en charge.
+* **type**: décrit le type de données pour le paramètre de recherche. Le type est limité par la prise en charge du service FHIR. Cela signifie que vous ne pouvez pas définir un paramètre de recherche de type spécial ou définir un [paramètre de recherche composite](overview-of-search.md) , sauf s’il s’agit d’une combinaison prise en charge.
 
-* **expression**: décrit comment calculer la valeur de la recherche. Lors de la description d’un paramètre de recherche, vous devez inclure l’expression, même si elle n’est pas requise par la spécification. Cela est dû au fait que vous avez besoin de l’expression ou de la syntaxe XPath et de l’API Azure pour FHIR ignore la syntaxe XPath.
+* **expression**: décrit comment calculer la valeur de la recherche. Lors de la description d’un paramètre de recherche, vous devez inclure l’expression, même si elle n’est pas requise par la spécification. Cela est dû au fait que vous avez besoin de l’expression ou de la syntaxe XPath et que le service FHIR ignore la syntaxe XPath.
 
 ## <a name="test-search-parameters"></a>Paramètres de recherche de test
 
 Si vous ne pouvez pas utiliser les paramètres de recherche en production tant que vous n’exécutez pas un travail de réindexation, il existe plusieurs façons de tester vos paramètres de recherche avant de réindexer l’intégralité de la base de données. 
 
-Tout d’abord, vous pouvez tester votre nouveau paramètre de recherche pour voir les valeurs qui seront retournées. En exécutant la commande ci-dessous sur une instance de ressource spécifique (en saisissant leur ID), vous obtenez une liste de paires de valeurs avec le nom du paramètre de recherche et la valeur stockée pour le patient spécifique. Cela inclut tous les paramètres de recherche de la ressource et vous pouvez faire défiler pour rechercher le paramètre de recherche que vous avez créé. L’exécution de cette commande ne modifie pas le comportement de votre serveur FHIR. 
+Tout d’abord, vous pouvez tester votre nouveau paramètre de recherche pour voir les valeurs qui seront retournées. En exécutant la commande ci-dessous sur une instance de ressource spécifique (en saisissant leur ID), vous obtenez une liste de paires de valeurs avec le nom du paramètre de recherche et la valeur stockée. Cela inclut tous les paramètres de recherche de la ressource et vous pouvez faire défiler pour rechercher le paramètre de recherche que vous avez créé. L’exécution de cette commande ne modifiera aucun comportement dans votre service FHIR. 
 
 ```rest
 GET https://{{FHIR_URL}}/{{RESOURCE}}/{{RESOUCE_ID}}/$reindex
@@ -131,7 +134,7 @@ Une fois que vous voyez que votre paramètre de recherche s’affiche comme pré
 POST https://{{FHIR_URL}/{{RESOURCE}}/{{RESOURCE_ID}}/$reindex
 ```
 
-À l’exécution de ce paramètre, définit les index pour tous les paramètres de recherche pour la ressource spécifique que vous avez définie pour ce type de ressource. Cela effectue une mise à jour du serveur FHIR. Vous pouvez maintenant Rechercher et définir l’en-tête use partial indexes sur true, ce qui signifie qu’il retourne des résultats où l’une des ressources a le paramètre de recherche indexé, même si toutes les ressources de ce type n’ont pas été indexées. 
+À l’exécution de ce paramètre, définit les index pour tous les paramètres de recherche pour la ressource spécifique que vous avez définie pour ce type de ressource. Cela effectue une mise à jour du service FHIR. Vous pouvez maintenant Rechercher et définir l’en-tête use partial indexes sur true, ce qui signifie qu’il retourne des résultats où l’une des ressources a le paramètre de recherche indexé, même si toutes les ressources de ce type n’ont pas été indexées. 
 
 Poursuivons avec notre exemple ci-dessus, vous pouvez indexer un patient pour activer la course de base américaine `SearchParameter` :
 
@@ -146,7 +149,7 @@ GET https://{{FHIR_URL}}/Patient?race=2028-9
 x-ms-use-partial-indices: true
 ```
 
-Après avoir testé et vérifié que votre paramètre de recherche fonctionne comme prévu, exécutez ou planifiez votre travail de réindexation afin que les paramètres de recherche puissent être utilisés dans le serveur FHIR pour les cas d’usage en production.
+Après avoir testé et vérifié que votre paramètre de recherche fonctionne comme prévu, exécutez ou planifiez votre travail de réindexation afin que les paramètres de recherche puissent être utilisés dans le service FHIR pour les cas d’usage en production.
 
 ## <a name="update-a-search-parameter"></a>Mettre à jour un paramètre de recherche
 
@@ -217,7 +220,7 @@ Delete {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à créer un paramètre de recherche. Vous pouvez ensuite apprendre à réindexer votre serveur FHIR.
+Dans cet article, vous avez appris à créer un paramètre de recherche. Vous pouvez ensuite apprendre à réindexer votre service FHIR.
 
 >[!div class="nextstepaction"]
 >[Guide pratique pour exécuter un travail de réindexation](how-to-run-a-reindex.md)

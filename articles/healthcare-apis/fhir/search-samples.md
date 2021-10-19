@@ -1,20 +1,23 @@
 ---
-title: Rechercher l’API Azure pour FHIR dans les exemples
-description: Comment effectuer une recherche à l’aide de différents paramètres de recherche, modificateurs et autres outils de recherche FHIR
+title: Exemples de recherche pour le service FHIR
+description: Comment effectuer une recherche à l’aide de différents paramètres de recherche, modificateurs et autres outils de recherche pour FHIR
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/21/2021
+ms.date: 08/03/2021
 ms.author: cavoeg
-ms.openlocfilehash: 5be1be72e47af10868867e0dce8b747911509381
-ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
+ms.openlocfilehash: 17f2ae17f2dd4677734a71fdf395ac7cdab13b8c
+ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111810803"
+ms.lasthandoff: 08/13/2021
+ms.locfileid: "121722189"
 ---
 # <a name="fhir-search-examples"></a>Exemples de recherche FHIR
+
+> [!IMPORTANT]
+> Les API Azure Healthcare sont actuellement en version préliminaire. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
 Voici quelques exemples d’utilisation des opérations de recherche FHIR, y compris les paramètres de recherche et les modificateurs, la recherche de chaîne et d’inversion de chaîne, la recherche composite, l’affichage du jeu d’entrée suivant pour les résultats de recherche et la recherche avec une `POST` demande. Pour plus d’informations sur la recherche, consultez [vue d’ensemble de la recherche de FHIR](overview-of-search.md).
    
@@ -22,7 +25,7 @@ Voici quelques exemples d’utilisation des opérations de recherche FHIR, y com
 
 ### <a name="_include"></a>_include
 
-`_include` recherche parmi les ressources celles qui incluent le paramètre spécifié de la ressource. Par exemple, vous pouvez effectuer une recherche dans l’ensemble des `MedicationRequest` ressources pour rechercher uniquement celles qui incluent des informations sur les préscriptions pour un patient spécifique, qui est le `reference` paramètre `patient` . Dans l’exemple ci-dessous, cela permet d’extraire tous les `MedicationRequests` patients qui sont référencés à partir de `MedicationRequests` :
+`_include` recherche des ressources qui incluent le paramètre spécifié de la ressource. Par exemple, vous pouvez effectuer une recherche dans l’ensemble des `MedicationRequest` ressources pour rechercher uniquement celles qui incluent des informations sur les préscriptions pour un patient spécifique, qui est le `reference` paramètre `patient` . Dans l’exemple ci-dessous, cela permet d’extraire tous les `MedicationRequests` patients qui sont référencés à partir de `MedicationRequests` :
 
 ```rest
  GET [your-fhir-server]/MedicationRequest?_include=MedicationRequest:patient
@@ -149,9 +152,6 @@ GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practit
 
 ``` 
 
-> [!NOTE]
-> Dans l’API Azure pour FHIR et le serveur FHIR Open source avec Cosmos, la recherche chaînée et la recherche chaînée par chaîne est une implémentation MVP. Pour effectuer une recherche chaînée sur Cosmos DB, l’implémentation parcourt l’expression de recherche et émet des sous-requêtes pour résoudre les ressources correspondantes. Cette opération est effectuée pour chaque niveau de l’expression. Si une requête retourne plus de 100 résultats, une erreur est générée.
-
 ## <a name="composite-search"></a>Recherche composite
 
 Pour rechercher des ressources qui répondent à plusieurs conditions à la fois, utilisez la recherche composite qui joint une séquence de valeurs de paramètre uniques à un symbole `$` . Le résultat retourné serait l’intersection des ressources qui correspondent à toutes les conditions spécifiées par les paramètres de recherche joints. Ces paramètres de recherche sont appelés paramètres de recherche composites et définissent un nouveau paramètre qui combine les différents paramètres dans une structure imbriquée. Par exemple, si vous souhaitez rechercher toutes les `DiagnosticReport` ressources qui contiennent `Observation` avec une valeur de potassium inférieure ou égale à 9,2 :
@@ -162,6 +162,12 @@ GET [your-fhir-server]/DiagnosticReport?result.code-value-quantity=2823-3$lt9.2
 ``` 
 
 Cette requête spécifie le composant contenant un code de `2823-3` , qui est dans ce cas du potassium. À la suite du `$` symbole, il spécifie la plage de la valeur du composant à l’aide `lt` de « inférieur ou égal à » et `9.2` pour la plage de valeurs de potassium. 
+
+Les paramètres de recherche composite peuvent également être utilisés pour filtrer plusieurs quantités de valeurs de code de composant avec un ou un. Par exemple, pour exprimer la requête afin de trouver la sollicitation du sang diastolic supérieure à 90 ou la sollicitation du sang systolic supérieure à 140 :
+
+```rest
+GET [your-fhir-server]/Observation?component-code-value-quantity=http://loinc.org|8462-4$gt90,http://loinc.org|8480-6$gt140
+``` 
 
 ## <a name="search-the-next-entry-set"></a>Rechercher le jeu d’entrées suivant
 

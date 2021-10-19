@@ -1,28 +1,31 @@
 ---
-title: Configurer le partage de ressources CORS (cross-origin) dans l’API Azure pour FHIR
-description: Cet article explique comment configurer le partage de ressources CORS (cross-origin) dans l’API Azure pour FHIR.
+title: Configurer le partage des ressources Cross-Origin dans le service FHIR
+description: Cet article explique comment configurer le partage des ressources Cross-Origin dans le service FHIR
 author: matjazl
 ms.author: zxue
-ms.date: 3/11/2019
+ms.date: 08/03/2021
 ms.topic: reference
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.openlocfilehash: 3ce1f914afab2a46ab734c270b00e2c7938dc80b
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: e322b1fb848f9156b1d00d2d1ae051ef62536c4a
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112283912"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778883"
 ---
-# <a name="configure-cross-origin-resource-sharing-in-azure-api-for-fhir"></a>Configurer le partage de ressources CORS (cross-origin) dans l’API Azure pour FHIR
+# <a name="configure-cross-origin-resource-sharing-in-fhir-service"></a>Configurer le partage des ressources Cross-Origin dans le service FHIR
 
-L’API Azure pour FHIR prend en charge le [partage des ressources cross-origin (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). Ce dernier permet de configurer des paramètres afin que les applications d’un domaine (origine) puissent accéder aux ressources d’un domaine différent par le biais d’une requête inter-domaines.
+> [!IMPORTANT]
+> Les API Azure Healthcare sont actuellement en version préliminaire. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
+
+Le service FHIR dans les API de santé Azure (par le biais du service FHIR) prend en charge le [partage des ressources Cross-Origin (cors)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). Ce dernier permet de configurer des paramètres afin que les applications d’un domaine (origine) puissent accéder aux ressources d’un domaine différent par le biais d’une requête inter-domaines.
 
 Le partage des ressources cross-origin (CORS) est souvent utilisé dans une application à page unique qui doit appeler une API RESTful sur un autre domaine.
 
-Pour configurer un paramètre de partage des ressources cross-origin (CORS) dans l’API Azure pour FHIR, spécifiez les paramètres suivants :
+Pour configurer un paramètre CORS dans le service FHIR, spécifiez les paramètres suivants :
 
-- **Origines (Access-Control-Allow-Origin)** . Liste de domaines autorisés à effectuer des requêtes cross-origin sur l’API Azure pour FHIR. Chaque domaine (origine) doit être entré dans une ligne distincte. Vous pouvez entrer un astérisque (*) pour autoriser les appels à partir de n’importe quel domaine, toutefois, cela n’est pas recommandé dans la mesure ou il existe un risque de sécurité.
+- **Origines (Access-Control-Allow-Origin)** . Liste des domaines autorisés à effectuer des demandes Cross-Origin auprès du service FHIR. Chaque domaine (origine) doit être entré dans une ligne distincte. Vous pouvez entrer un astérisque (*) pour autoriser les appels à partir de n’importe quel domaine, toutefois, cela n’est pas recommandé dans la mesure ou il existe un risque de sécurité.
 
 - **En-têtes (Access-Control-Allow-Headers)** . Liste d’en-têtes contenus dans la requête d’origine. Pour autoriser tous les en-têtes, saisissez un astérisque (*).
 
@@ -36,10 +39,3 @@ Pour configurer un paramètre de partage des ressources cross-origin (CORS) dans
 
 >[!NOTE]
 >Vous ne pouvez pas spécifier de paramètres différents pour différentes origines de domaine. Tous les paramètres (**En-têtes**, **Méthodes**, **Âge maximal** et **Autoriser les informations d’identification**) s’appliquent à toutes les origines spécifiées dans le paramètre Origines.
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Dans cet article, vous avez appris à configurer le partage de ressources CORS (cross-origin) dans l’API Azure pour FHIR. Ensuite, déployez une API Azure pour FHIR complètement managée :
- 
->[!div class="nextstepaction"]
->[Déployer l’API Azure pour FHIR](fhir-paas-portal-quickstart.md)

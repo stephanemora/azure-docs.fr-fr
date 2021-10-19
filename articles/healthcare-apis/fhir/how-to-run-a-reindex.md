@@ -1,22 +1,25 @@
 ---
-title: Comment exécuter un travail de réindexation dans l’API Azure pour FHIR
-description: Cet article explique comment exécuter un travail de réindexation pour indexer les paramètres de recherche ou de tri qui n’ont pas encore été indexés dans votre base de données.
+title: Comment exécuter un travail de réindexation dans le service FHIR-API Azure Healthcare (version préliminaire)
+description: Comment exécuter un travail de réindexation pour indexer les paramètres de recherche ou de tri qui n’ont pas encore été indexés dans votre base de données
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 4/23/2021
+ms.date: 08/23/2021
 ms.author: cavoeg
-ms.openlocfilehash: b4ede817b3babfb9221ac8fa982acc0322c9d7b2
-ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
+ms.openlocfilehash: 5544e0caee421d128d7238cb140c4dd525ed7022
+ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112379669"
+ms.lasthandoff: 08/24/2021
+ms.locfileid: "122778910"
 ---
 # <a name="running-a-reindex-job"></a>Exécution d’un travail de réindexation
 
-Dans certains scénarios, vous pouvez avoir des paramètres de recherche ou de tri dans l’API Azure pour FHIR qui n’ont pas encore été indexés. Cela s’avère particulièrement utile lorsque vous définissez vos propres paramètres de recherche. Tant que le paramètre de recherche n’est pas indexé, il ne peut pas être utilisé dans la recherche. Cet article présente une vue d’ensemble de l’exécution d’un travail de réindexation pour indexer les paramètres de recherche ou de tri qui n’ont pas encore été indexés dans votre base de données.
+> [!IMPORTANT]
+> Les API Azure Healthcare sont actuellement en version préliminaire. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
+
+Dans certains scénarios, vous pouvez avoir des paramètres de recherche ou de tri dans le service FHIR dans les API de santé Azure (par le biais du service FHIR) qui n’ont pas encore été indexés. Ce scénario est utile lorsque vous définissez vos propres paramètres de recherche. Tant que le paramètre de recherche n’est pas indexé, il ne peut pas être utilisé dans la recherche. Cet article présente une vue d’ensemble de l’exécution d’un travail de réindexation pour indexer les paramètres de recherche ou de tri qui n’ont pas encore été indexés dans votre base de données.
 
 > [!Warning]
 > Il est important de lire cet article dans son intégralité avant de commencer. Un travail de réindexement peut être très gourmand en performances. Cet article contient des options de limitation et de contrôle du travail de réindexation.
@@ -95,7 +98,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 
  ## <a name="how-to-check-the-status-of-a-reindex-job"></a>Vérification de l’état d’un travail de réindexation
 
-Une fois que vous avez démarré un travail de réindexation, vous pouvez vérifier l’état de la tâche à l’aide des éléments suivants :
+Une fois que vous avez démarré un travail de réindexation, vous pouvez vérifier l’état de la tâche à l’aide de l’appel suivant :
 
 `GET {{FHIR URL}}/_operations/reindex/{{reindexJobId}`
 
@@ -184,16 +187,15 @@ Si vous devez annuler un travail de réindexation, utilisez un appel Delete et s
 Un travail de réindexement peut être très gourmand en performances. Nous avons implémenté des contrôles de limitation pour vous aider à gérer la façon dont un travail de réindexation s’exécutera sur votre base de données.
 
 > [!NOTE]
-> Il n’est pas rare que des jeux de données volumineux soient exécutés pour un travail de réindexation pendant plusieurs jours. Pour une base de données avec 30 millions millions de ressources, nous avons remarqué 4-5 jours à 100 000 unités de base pour réindexer la totalité de la base de données.
+> Il n’est pas rare que des jeux de données volumineux soient exécutés pour un travail de réindexation pendant plusieurs jours.
 
-Vous trouverez ci-dessous un tableau détaillant les paramètres disponibles, les valeurs par défaut et les plages recommandées. Vous pouvez utiliser ces paramètres pour accélérer le processus (utiliser davantage de calcul) ou ralentir le processus (utilisez moins de calcul). Par exemple, vous pouvez exécuter le travail de réindexation sur un faible temps de trafic et augmenter votre calcul pour qu’il soit terminé plus rapidement. Au lieu de cela, vous pouvez utiliser les paramètres pour garantir une utilisation très faible de Compute et l’exécuter pendant des jours en arrière-plan. 
+Vous trouverez ci-dessous un tableau détaillant les paramètres disponibles, les valeurs par défaut et les plages recommandées. Vous pouvez utiliser ces paramètres pour accélérer le processus (utiliser davantage de calcul) ou ralentir le processus (utilisez moins de calcul). 
 
-| **Paramètre**                     | **Description**              | **Par défaut**        | **Plage recommandée**           |
+| **Paramètre**                     | **Description**              | **Par défaut**        | **Plage disponible**            |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
-| QueryDelayIntervalInMilliseconds  | Il s’agit du délai entre chaque lot de ressources en cours de lancement pendant le travail de réindexation. | 500 MS (. 5 secondes) | 50 à 5000:50 accélère le travail de réindexation et 5000 le ralentit de la valeur par défaut. |
-| MaximumResourcesPerQuery  | Il s’agit du nombre maximal de ressources incluses dans le lot de ressources à réindexer.  | 100 | 1-500 |
-| MaximumConcurrency  | Il s’agit du nombre de lots effectués à la fois.  | 1 | 1-5 |
-| targetDataStoreUsagePercentage | Cela vous permet de spécifier le pourcentage de votre magasin de données à utiliser pour le travail de réindexation. Par exemple, vous pouvez spécifier 50% et vous assurer qu’au plus la tâche de réindexation utilise 50% des unités de demande disponibles sur Cosmos DB.  | Non présent, ce qui signifie qu’il est possible d’utiliser jusqu’à 100%. | 1-100 |
+| QueryDelayIntervalInMilliseconds  | Délai entre chaque lot de ressources en cours de lancement pendant le travail de réindexation. Un nombre plus petit permet d’accélérer le travail, tandis qu’un nombre plus élevé le ralentit. | 500 MS (. 5 secondes) | 50 à 500000 |
+| MaximumResourcesPerQuery  | Nombre maximal de ressources incluses dans le lot de ressources à réindexer.  | 100 | 1-5000 |
+| MaximumConcurrency  | Nombre de lots effectués à la fois.  | 1 | 1-10 |
 
 Si vous souhaitez utiliser l’un des paramètres ci-dessus, vous pouvez les transmettre à la ressource de paramètres lorsque vous démarrez le travail de réindexation.
 
@@ -204,10 +206,6 @@ Si vous souhaitez utiliser l’un des paramètres ci-dessus, vous pouvez les tra
     {
       "name": "maximumConcurrency",
       "valueInteger": "3"
-    },
-    {
-      "name": "targetDataStoreUsagePercentage",
-      "valueInteger": "20"
     },
     {
       "name": "queryDelayIntervalInMilliseconds",
@@ -227,6 +225,3 @@ Dans cet article, vous avez appris à démarrer un travail de réindexation. Pou
 
 >[!div class="nextstepaction"]
 >[Définition des paramètres de recherche personnalisés](how-to-do-custom-search.md)
-
-         
-     

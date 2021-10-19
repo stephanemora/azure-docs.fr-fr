@@ -1,0 +1,51 @@
+items:
+  - name: Documentation sur l’API Azure pour FHIR
+    href: ./azure-api-for-fhir/index.yml
+  - name: Documentation Azure Healthcare API (version préliminaire)
+    href: index.yml
+  - name: Vue d’ensemble
+    expanded: true
+    items:
+      - name: À propos des API de santé
+        href: healthcare-apis-overview.md
+      - name: À propos de l’espace de travail
+        href: workspace-overview.md
+      - name: Service FHIR
+        href: ./fhir/index.yml
+      - name: Service DICOM
+        href: ./dicom/index.yml
+      - name: Connecteur IoT
+        href: ./iot/index.yml
+      - name: Transférer et transformer des données
+        href: ./data-transformation/index.yml
+  - name: Démarrages rapides
+    expanded: true
+    items:
+      - name: Déployer des API de santé
+        href: healthcare-apis-quickstart.md
+  - name: Guides pratiques
+    expanded: true
+    items:
+      - name: Authentification et autorisation
+        href: authentication-authorization.md
+      - name: Accéder au service FHIR avec le poster
+        href: use-postman.md
+      - name: Accès à l’aide de la boucle
+        href: using-curl.md
+      - name: Accès à l’aide du client REST
+        href: using-rest-client.md
+      - name: Inscrire des applications
+        href: register-application.md
+      - name: Journalisation
+        href: logging.md
+  - name: Concepts
+    items:
+      - name: Contrôles de sécurité par Azure Policy
+        href: security-controls-policy.md
+  - name: Ressources
+    expanded: true
+    items:
+      - name: FAQ
+        href: healthcare-apis-faqs.md
+      - name: projets GitHub
+        href: github-projects.md
