@@ -8,17 +8,17 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 09/10/2020
-ms.openlocfilehash: a5050958f01743ff3c6fdcdecfee3067b1d2073e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/06/2021
+ms.openlocfilehash: 6dddc7e5a2492aeaf0c15c954f685e10ce475fa7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98934261"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129612937"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Déplacer votre service Recherche cognitive Azure vers une autre région Azure
 
-Parfois, les clients demandent à déplacer un service de recherche vers une autre région. Actuellement, il n’existe aucun mécanisme ou outil intégré pour faciliter cette tâche, mais cet article peut vous aider à comprendre les étapes manuelles permettant d’obtenir le même résultat.
+Parfois, les clients demandent à déplacer un service de recherche vers une autre région. Actuellement, il n’existe aucun mécanisme ou outil intégré pour faciliter cette tâche, mais cet article peut vous aider à comprendre les étapes manuelles permettant de recréer des index et d’autres objets sur un nouveau service de recherche dans une autre région.
 
 > [!NOTE]
 > Dans le portail Azure, tous les services ont une commande **Exporter le modèle**. Dans le cas de la Recherche cognitive Azure, cette commande produit une définition de base d’un service (nom, localisation, niveau, réplica et nombre de partitions), mais ne reconnaît pas le contenu de votre service, pas plus que les clés, les rôles ou les journaux. Bien que la commande existe, nous vous déconseillons de l’utiliser pour déplacer un service de recherche.

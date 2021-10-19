@@ -1,6 +1,7 @@
 ---
-title: Créer des collections pour les portails Mes applications dans Azure Active Directory | Microsoft Docs
-description: Utilisez des collections Mes applications pour personnaliser les pages Mes applications afin de simplifier l’expérience Mes applications pour vos utilisateurs finaux. Organisez les applications en groupes avec des onglets distincts.
+title: Créer des regroupements dans les portails Mes applications
+titleSuffix: Azure AD
+description: Utilisez des collections Mes applications pour personnaliser les pages Mes applications afin de simplifier l’expérience Mes applications pour vos utilisateurs. Organisez les applications en groupes avec des onglets distincts.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 09/02/2021
 ms.author: davidmu
 ms.reviewer: lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02ccd18f4a394d17bcc73dab836c7972b37116a4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 610679e7a720f6736b575d2e58bc424de9e96d8d
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124817824"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617888"
 ---
-# <a name="create-collections-on-the-my-apps-portal"></a>Créer des collections sur le portail Mes applications
+# <a name="create-collections-on-the-my-apps-portal-in-azure-active-directory"></a>Créer des regroupements sur le portail Mes applications dans Azure Active Directory
 
 Vos utilisateurs peuvent utiliser le portail Mes applications pour afficher et démarrer les applications cloud auxquelles ils ont accès. Par défaut, toutes les applications auxquelles un utilisateur peut accéder sont répertoriées sur une seule page. Pour mieux organiser cette page pour vos utilisateurs, si vous disposez d’une licence Azure AD Premium P1 ou P2, vous pouvez configurer des collections. Avec une collection, vous pouvez regrouper des applications associées (par exemple, par rôle de travail, tâche ou projet) et les afficher sous un onglet distinct. Une collection applique essentiellement un filtre aux applications auxquelles un utilisateur a déjà accès, de sorte que celui-ci ne voit que les applications de la collection qui lui ont été attribuées.
 

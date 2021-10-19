@@ -1,19 +1,19 @@
 ---
 title: Options de groupe et de filtre dans Azure Cost Management
-description: Cet article explique comment utiliser les options de groupe et de filtre dans Azure Cost Management.
+description: Cet article explique comment utiliser les options de groupe et de filtre dans Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2021
+ms.date: 10/11/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 89344ccfe70a3d0becef103bd0bd3ffee79bb80c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8cc4a0bfd7503a48b3df6887c05f268fcfae5733
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616457"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856331"
 ---
 # <a name="group-and-filter-options-in-cost-analysis"></a>Options de groupe et de filtre dans l’analyse des coûts
 
@@ -30,7 +30,7 @@ Le tableau suivant répertorie quelques options courantes de regroupement et de 
 | Propriété | Quand l’utiliser | Notes |
 | --- | --- | --- |
 | **Zones de disponibilité** | Décompose les coûts AWS par zone de disponibilité. | S’applique uniquement aux étendues et aux groupes d’administration AWS. Les données Azure ne comportent pas de zone de disponibilité. Elles s’affichent avec le libellé **Aucune zone de disponibilité**. |
-| **Période de facturation** | Décompose les coûts de paiement à l’utilisation selon le mois où ils ont été (ou seront) facturés. | Utilisez **Période de facturation** pour avoir une représentation précise des frais PAYG facturés. Incluez 2 jours supplémentaires avant et après la période de facturation si vous filtrez sur une plage de dates personnalisée. La limitation aux dates exactes de la période de facturation ne correspondra pas à la facture. Affiche les coûts de toutes les factures de la période de facturation. Utilisez **ID de facture** pour filtrer sur une facture spécifique. S’applique uniquement aux abonnements PAYG, car EA et MCA sont facturés par mois calendaires. Les comptes EA/MCA peuvent utiliser les mois du calendrier dans le sélecteur de dates ou la granularité mensuelle pour atteindre le même objectif. |
+| **Période de facturation** | Décompose les coûts de paiement à l’utilisation selon le mois où ils ont été (ou seront) facturés. | Utilisez **Période de facturation** pour avoir une représentation précise des frais PAYG facturés. Incluez deux jours supplémentaires avant et après la période de facturation si vous filtrez sur une plage de dates personnalisée. La limitation aux dates exactes de la période de facturation ne correspondra pas à la facture. Affiche les coûts de toutes les factures de la période de facturation. Utilisez **ID de facture** pour filtrer sur une facture spécifique. S’applique uniquement aux abonnements PAYG, car EA et MCA sont facturés par mois calendaires. Les comptes EA/MCA peuvent utiliser les mois du calendrier dans le sélecteur de dates ou la granularité mensuelle pour atteindre le même objectif. |
 | **Type de dépense** | Pour décomposer selon le type de dépense : utilisation, achat, remboursement ou réservation non utilisée. | Les achats de réservation et les remboursements sont disponibles seulement pour les coûts réels, mais pas pour les coûts amortis. Les coûts liés aux réservations non utilisées s’affichent uniquement lors e la consultation des coûts amortis. |
 | **Département** | Décompose les coûts par département EA. | Disponible uniquement pour EA et les groupes d’administration. Les abonnements PAYG ne comportent pas de département. Ils s’affichent avec le libellé **Aucun département** ou **Non affecté**. |
 | **Compte d’inscription** | Pour décomposer les coûts par propriétaire de compte EA. | Disponible seulement pour les comptes, les départements et groupes d’administration EA. Les abonnements PAYG ne comportent pas de comptes d’inscription EA. Ils s’affichent avec le libellé **Aucun compte d’inscription EA** ou **Non affecté**. |
@@ -40,8 +40,8 @@ Le tableau suivant répertorie quelques options courantes de regroupement et de 
 | **Compteur** | Décompose les coûts par compteur d’utilisation. | Les achats et l’utilisation de la Place de marché s’affichent avec le libellé **Aucun compteur**. Reportez-vous à **Type de frais** pour identifier les achats et à **Type d’éditeur** pour identifier les frais de la Place de marché. |
 | **opération** | Décompose les coûts AWS par opération. | S’applique uniquement aux étendues et aux groupes d’administration AWS. Les données Azure ne comportent pas d’opérations. Elles s’affichent avec le libellé **Aucune opération**. Utilisez plutôt **Compteur**. |
 | **Modèle de tarification** | Décompose les coûts en fonction de l’utilisation à la demande, à la réservation ou ponctuelle. | Les achats apparaissent avec le libellé **OnDemand**. Si vous voyez **Non applicable**, regroupez par **Réservation** pour déterminer si l’utilisation est « Réservation » ou « À la demande », par **Type de frais** pour identifier les achats.
-| **Fournisseur** | Pour décomposer les coûts liés à AWS et liés à Azure. | Disponible uniquement pour les groupes d’administration. |
-| **Type d’éditeur** | Pour décomposer les coûts selon qu’ils proviennent d’AWS, d’Azure ou de la Place de marché. |  |
+| **Fournisseur** | Décomposez les coûts par type de fournisseur : Azure, Microsoft 365, Dynamics 365, AWS, etc. | Identificateur du produit et du secteur d’activité. |
+| **Type d’éditeur** | Décomposez les coûts liés à Microsoft, à Azure, à AWS et à la Place de marché. | Les valeurs sont **Microsoft** pour les comptes MCA, et **Azure** pour les comptes EA et paiement à l'utilisation. |
 | **Réservation** | Pour décomposer les coûts par réservation. | Les utilisations et achats non associés à une réservation s’affichent avec le libellé **Aucune réservation**. Regroupez par **Type d’éditeur** pour identifier les autres achats Azure, AWS ou Place de marché. |
 | **Ressource** | Pour décomposer les coûts par ressource. | Les achats effectués sur la place de marché s’affichent avec le libellé **Autres achats sur la place de marché**, et les achats Azure (Réservations, frais de support, etc.) avec le libellé **Autres achats Azure**. Regroupez ou filtrez les données par **Type d’éditeur** pour identifier les autres achats Azure, AWS ou Place de marché. |
 | **Groupe de ressources** | Pour décomposer les coûts par groupe de ressources. | Ni les achats, ni les ressources de locataire non associées à des abonnements, ni les ressources d’abonnement non déployées sur un groupe de ressources, ni les ressources classiques ne comportent de groupe de ressources. Ils s’affichent avec le libellé **Autres achats sur la place de marché**, **Autres achats Azure**, **Autres ressources de locataire**, **Autres ressources d’abonnement**, **$system** ou **Autres frais**. |
@@ -52,6 +52,27 @@ Le tableau suivant répertorie quelques options courantes de regroupement et de 
 | **Tag** | Pour décomposer les coûts par valeur d’étiquette pour une clé d’étiquette spécifique. | Ni les achats, ni les ressources de locataire non associées à des abonnements, ni les ressources d’abonnement non déployées sur un groupe de ressources, ni les ressources classiques ne peuvent être étiquetés. Ils s’affichent avec le libellé **Étiquettes non disponibles**. Les services qui ne comportent pas d’étiquettes dans les données d’utilisation s’affichent avec le libellé **Étiquettes non prises en charge**. Les cas restants dans lesquels aucune étiquette n’est spécifiée sur une ressource s’affichent avec le libellé **Non étiqueté**. Pour plus d’informations, consultez [Prise en charge des étiquettes pour chaque type de ressource](../../azure-resource-manager/management/tag-support.md). |
 
 Pour plus d’informations sur ces termes, consultez [Comprendre les termes utilisés dans le fichier Utilisation et frais Azure](../understand/understand-usage.md).
+
+## <a name="changes-to-publisher-type-values"></a>Modifications apportées aux valeurs de type Publisher
+
+Pour les clients disposant d’un accord MCA, la valeur `Publisher type` **Azure** est remplacée par la valeur **Microsoft** pour indiquer qu’elle s’applique à tous les frais Microsoft suivis dans Cost Management + Billing. Cette modification est effective le 14 octobre 2021.
+
+Notez les points suivants :
+
+- Affichages enregistrés dans Analyse des coûts : les vues enregistrées qui utilisent le filtre `PublisherType` = **Azure** seront mises à jour pour refléter la nouvelle valeur de **Microsoft**. 
+    - Action requise : aucune.
+- Budgets avec le filtre `PublisherType` : les budgets qui ont été créés avec le filtre `PublisherType` = **Azure** seront mis à jour pour refléter la nouvelle valeur de **Microsoft**.
+    - Action requise : aucune.
+- Exportations : les fichiers d’exportation générés avant le 14 octobre 2021 auront la valeur **Azure** dans `PublisherType field`, et après le 14 octobre 2021, la valeur sera **Microsoft**.
+    - Action requise : *assurez-vous de tenir compte des valeurs modifiées lors de la fusion de nouveaux fichiers avec les fichiers téléchargés avant le 14 octobre 2021*.
+- Données téléchargées : dans les fichiers téléchargés depuis Analyse des coûts, les fichiers téléchargés contenant les détails d’utilisation avant le 14 octobre 2021 afficheront toujours l’ancienne valeur **Azure** dans le champ `PublisherType`.
+    - Action requise : *assurez-vous de tenir compte des valeurs modifiées lors de la fusion de nouveaux fichiers avec les fichiers téléchargés avant le 14 octobre 2021*.
+- Appels de l’API REST : si vous utilisez des appels d’API REST Cost Management + Billing qui filtrent le champ PublisherType selon la valeur **Azure**, mettez-les à jour pour filtrer par **Microsoft** après le 14 octobre 2021.
+    - Action requise : *Utilisez `Publisher type` = **Microsoft** dans vos appels d’API REST pour obtenir tous vos frais de premier tiers. Les appels avec `Publisher type` = **Azure** ne retourneront aucune donnée*.
+
+> [!NOTE]
+> Cette modification ne vous concerne pas si vous disposez d’un contrat Entreprise (EA) ou d’un compte avec paiement à l’utilisation (PAYG).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

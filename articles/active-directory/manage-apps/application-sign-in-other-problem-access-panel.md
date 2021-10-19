@@ -1,5 +1,6 @@
 ---
-title: Résoudre les problèmes de connexion à une application à partir d’Azure AD Mes applications
+title: Résoudre les problèmes de connexion à une application à partir du portail Mes applications
+titleSuffix: Azure AD
 description: Résoudre les problèmes de connexion à une application à partir d’Azure AD Mes applications
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: lenalepa
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ea4b1cb837c481dab1a63850d6eb3753720ae4fa
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e4f03e2f7540b4724b7dfe001f5fc77ac3c0706e
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796397"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617831"
 ---
-# <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Résoudre les problèmes de connexion à une application à partir d’Azure AD Mes applications
+# <a name="troubleshoot-application-sign-in-in-azure-active-directory"></a>Résoudre les problèmes liés à la connexion de l’application dans Azure Active Directory
 
 Mes applications est un portail web qui permet à un utilisateur disposant d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD) de visualiser et de démarrer des applications informatiques auxquelles l’administrateur Azure AD lui a donné accès. Pour accéder à Mes applications, ouvrez un navigateur et accédez à l’adresse [https://myapps.microsoft.com](https://myapps.microsoft.com).
 

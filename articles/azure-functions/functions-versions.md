@@ -4,12 +4,12 @@ description: Azure Functions prend en charge plusieurs versions du runtime. Déc
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 09/22/2021
-ms.openlocfilehash: 85df4bec5eb4802820a8837a1bb23394851aca42
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 516bcbdd00ae4b116326e797746485c82be9c3fb
+ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128637614"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129740509"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
@@ -74,19 +74,14 @@ Les applications de fonction épinglées à `~2.0` continuent de s’exécuter s
 
 Azure Functions version 4.x (préversion) offre une compatibilité descendante forte avec la version 3.x.  De nombreuses applications doivent normalement être mises à niveau sans problème vers la version 4.x, sans aucune modification du code. Veillez néanmoins à effectuer des tests intensifs avant de changer la version principale dans les applications de production.
 
-Pour migrer une application de la version 3.x vers la version 4.x :
+Pour migrer une application de la version 3.x à la version 4.x, définissez le paramètre d’application `FUNCTIONS_EXTENSION_VERSION` sur `~4` à l’aide de la commande Azure CLI suivante :
 
-- Définissez le paramètre d’application `FUNCTIONS_EXTENSION_VERSION` sur `~4` à l’aide de la commande Azure CLI suivante :
+```bash
+az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
 
-    ```bash
-    az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
-
-- Pour les applications de fonction Windows, le runtime requiert l’activation de .NET 6.0 à l’aide de la commande Azure CLI suivante :
-
-    ```bash
-    az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
-    ```
+# For Windows function apps only, also enable .NET 6.0 that is needed by the runtime
+az functionapp config set --net-framework-version v6.0 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>
+```
 
 ### <a name="breaking-changes-between-3x-and-4x"></a>Changements cassants entre la version 3.x et la version 4.x
 
@@ -101,6 +96,13 @@ Voici quelques changements à prendre en considération avant de mettre à nivea
 - Azure Functions 4.x applique des [exigences de version minimale](https://github.com/Azure/Azure-Functions/issues/1987) pour les extensions. Effectuez une mise à niveau vers la version la plus récente des extensions concernées. Pour les langages autres que .NET, [effectuez une mise à niveau](./functions-bindings-register.md#extension-bundles) vers la version 2.x ou ultérieure du pack d’extension.
 
 - Des délais d’expiration par défaut et maximum sont désormais appliqués dans les applications de fonction de consommation Linux 4.x.
+
+- La fonctionnalité Application Insights n’est plus incluse par défaut dans la version 4.x. Elle est désormais disponible en tant qu’extension distincte.
+    - Pour les applications .NET in-process, ajoutez le package d’extension [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) à votre application de fonction.
+    - Pour les applications .NET isolées :
+        - Ajoutez le package d’extension [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) à votre application de fonction.
+        - Mettez à jour les packages [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) et [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) vers les versions les plus récentes.
+    - Pour les autres langages, une mise à jour future des [packs d’extension Azure Functions](functions-bindings-register.md#extension-bundles) inclura l’extension Application Insights. Votre application utilisera automatiquement le nouveau pack quand il sera disponible.
 
 #### <a name="languages"></a>Langages
 

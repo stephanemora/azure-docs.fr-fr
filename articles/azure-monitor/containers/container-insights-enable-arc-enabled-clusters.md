@@ -4,13 +4,13 @@ ms.date: 04/05/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-description: Collecter les métriques et les journaux des clusters Kubernetes avec Azure Arc activé à l’aide d’Azure Monitor
-ms.openlocfilehash: 55beedec85b5e2a426954f179b738fcf81eb4982
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+description: Collecter les métriques et les journaux des clusters Kubernetes avec Azure Arc à l’aide d’Azure Monitor
+ms.openlocfilehash: 1ece606aa3967d9fddaa5f964c43e24350610817
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109845741"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709723"
 ---
 # <a name="azure-monitor-container-insights-for-azure-arc-enabled-kubernetes-clusters"></a>Azure Monitor Container Insights pour les clusters Kubernetes avec Azure Arc
 
@@ -23,6 +23,9 @@ ms.locfileid: "109845741"
 - Azure Monitor Container Insights prend en charge la supervision de clusters Kubernetes avec Azure Arc (préversion) comme décrit dans l’article [Vue d’ensemble](container-insights-overview.md), à l’exception des fonctionnalités de données en temps réel (préversion). En outre, les utilisateurs n’ont pas besoin d’autorisations de [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) pour [activer les métriques](container-insights-update-metrics.md)
 - `Docker`, `Moby` et les runtimes de conteneur compatibles CRI tels que `CRI-O` et `containerd`.
 - Les proxys sortants sans authentification et les proxys sortants avec l’authentification de base sont pris en charge. Les proxys sortants qui attendent des certificats approuvés ne sont pas pris en charge actuellement.
+
+>[!NOTE]
+> Azure Monitor Container Insights ne prend actuellement pas en charge Kubernetes v1.22 ou une version ultérieure.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,7 +43,7 @@ ms.locfileid: "109845741"
     | `*.monitoring.azure.com` | 443 |
     | `login.microsoftonline.com` | 443 |
 
-    Si votre ressource Kubernetes compatible Arc se trouve dans l’environnement Azure US Government, les points de terminaison suivants doivent être activés pour l’accès sortant :
+    Si votre ressource Kubernetes avec Azure Arc se trouve dans l’environnement Azure US Government, les points de terminaison suivants doivent être activés pour l’accès sortant :
 
     | Point de terminaison | Port |
     |----------|------|
@@ -130,7 +133,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 ### <a name="onboarding-from-the-azure-arc-enabled-kubernetes-resource-blade"></a>Intégration à partir du panneau de ressources Kubernetes avec Azure Arc
 
-1. Dans le portail Azure, sélectionnez le cluster Kubernetes avec Arc que vous souhaitez surveiller.
+1. Dans le portail Azure, sélectionnez le cluster Kubernetes avec Azure Arc que vous souhaitez surveiller.
 
 2. Sélectionnez l’élément « Insights (préversion) » sous la section « Surveillance » du panneau de ressources.
 
@@ -182,7 +185,7 @@ Si votre cluster est déconnecté d’Azure pendant plus de 48 heures, Azure Res
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Kubernetes compatible Arc et des charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Container Insights.
+- Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Kubernetes avec Azure Arc et des charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Container Insights.
 
 - Par défaut, l’agent conteneurisé collecte les journaux de conteneurs stdout/ stderr de tous les conteneurs en cours d’exécution dans tous les espaces de noms, sauf kube-system. Pour configurer la collecte des journaux de conteneurs spécifiques d’un ou plusieurs espaces de noms particuliers, consultez [Configurer la collecte de données de l’agent pour Azure Monitor pour conteneurs](container-insights-agent-config.md) afin de configurer les paramètres de collecte de données souhaités dans votre fichier de configurations ConfigMap.
 

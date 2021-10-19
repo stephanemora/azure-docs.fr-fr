@@ -1,5 +1,6 @@
 ---
-title: Configurer le consentement de l’utilisateur final pour une application à l’aide d’Azure AD
+title: Configurer le consentement de l’utilisateur final pour une application
+titleSuffix: Azure AD
 description: Apprenez à gérer comment et quand les utilisateurs peuvent donner leur consentement pour des applications qui auront accès aux données de votre organisation.
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 06/01/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ecf463ed332299f20ef1d34f0c3158db31f52e8d
-ms.sourcegitcommit: e0ef8440877c65e7f92adf7729d25c459f1b7549
+ms.openlocfilehash: 5289f9a6ed602df67d85cbb5b11875befec916f5
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113568043"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129614894"
 ---
-# <a name="configure-how-end-users-consent-to-applications"></a>Configurer le consentement de l’utilisateur final pour une application
+# <a name="configure-how-end-users-consent-to-applications-using-azure-active-directory"></a>Configurer le consentement de l’utilisateur final pour une application à l’aide d’Azure Active Directory
 
 Vous pouvez intégrer vos applications avec la plateforme d’identités Microsoft pour permettre à des utilisateurs de se connecter à l’aide de leur compte professionnel ou scolaire, et d’accéder aux données de votre organisation afin d’offrir des expériences riches pilotées par les données.
 

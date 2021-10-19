@@ -4,15 +4,15 @@ description: L’API d’événement d’utilisation vous permet d’émettre de
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 10/12/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 85bc266dcd1434a7d28eb642376bea32c94c3610
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 056fd364902ccd530b1aa2d540cd7d0457e0276b
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457123"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855856"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API de facturation à la consommation de la Place de marché
 
@@ -164,8 +164,12 @@ L’API d’événement d’utilisation par lot vous permet d’émettre des év
 | `authorization`      | Jeton d’accès unique qui identifie le serveur ISV qui effectue cet appel d’API. Le format est `Bearer <access_token>` lorsque la valeur de jeton est récupérée par le serveur de publication, comme expliqué pour <br> <ul> <li> SaaS dans [Récupération du jeton avec une requête HTTP POST](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Application managée dans [Stratégies d’authentification](./marketplace-metering-service-authentication.md). </li> </ul> |
 | | |
 
+>[!NOTE]
+>Dans le corps de la demande, l’identificateur de ressource a des significations différentes pour les applications SaaS et pour les applications gérées par Azure qui émettent des compteurs personnalisés. L’identificateur de ressource d’une application SaaS est `resourceID`. L’identificateur de ressource pour les plans des applications managées Azure Application est `resourceUri`.
 
-*Exemple de corps de la demande :*
+Pour les offres SaaS, le paramètre `resourceId` est l’ID d’abonnement SaaS. Pour plus d’informations sur les abonnements SaaS, voir [Lister les abonnements](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+
+*Exemple de corps de demande pour les applications SaaS :*
 
 ```json
 {
@@ -188,12 +192,30 @@ L’API d’événement d’utilisation par lot vous permet d’émettre des év
 }
 ```
 
->[!NOTE]
->`resourceId` a une signification différente pour l’application SaaS et pour l’application managée qui émet un compteur personnalisé. 
+Pour les plans des applications managées Azure Application, l’ID `resourceUri` correspond à l’application managée `resource group Id`. Un exemple de script permettant de l’extraire est disponible dans [Utilisation du jeton d’identités managées par Azure](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
 
-Pour les plans des applications managées Azure Application, l’ID `resourceId` correspond à l’application managée `resource group Id`. Un exemple de script permettant de l’extraire est disponible dans [Utilisation du jeton d’identités managées par Azure](marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token). 
+*Exemple de corps de demande pour les applications managées Azure Application :*
 
-Pour les offres SaaS, le paramètre `resourceId` est l’ID d’abonnement SaaS. Pour plus d’informations sur les abonnements SaaS, voir [Lister les abonnements](partner-center-portal/pc-saas-fulfillment-api-v2.md#get-list-of-all-subscriptions).
+```json
+{
+  "request": [ // list of usage events for the same or different resources of the publisher
+    { // first event
+      "resourceUri": "<guid1>", // Unique identifier of the resource against which usage is emitted. 
+      "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0, can be integer or float value
+      "dimension": "dim1", //Custom dimension identifier
+      "effectiveStartTime": "2018-12-01T08:30:14",//Time in UTC when the usage event occurred, from now and until 24 hours back
+      "planId": "plan1", // id of the plan purchased for the offer
+    },
+    { // next event
+      "resourceId": "<guid2>", 
+      "quantity": 39.0, 
+      "dimension": "email", 
+      "effectiveStartTime": "2018-11-01T23:33:10
+      "planId": "gold", // id of the plan purchased for the offer
+    }
+  ]
+}
+```
 
 ### <a name="responses"></a>Réponses
 

@@ -6,15 +6,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 4165768837f590690a39226b983b4d32361957e3
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.date: 10/06/2021
+ms.openlocfilehash: 5ea2c908cce37e19023e27b0e3e4cc76f778b7f0
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114730556"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620162"
 ---
-# <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Guide de configuration de la mise en cache pour l’enrichissement incrémentiel dans Recherche cognitive Azure
+# <a name="configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Configuration de la mise en cache pour l’enrichissement incrémentiel dans Recherche cognitive Azure
 
 > [!IMPORTANT] 
 > Cette fonctionnalité est en préversion publique sous les [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST en préversion](/rest/api/searchservice/index-preview) prend en charge cette fonctionnalité
@@ -29,12 +29,9 @@ Si le processus de configuration des indexeurs ne vous est pas familier, commenc
 
 Si vous avez un indexeur existant qui est déjà doté d’un ensemble de compétences, suivez les étapes de cette section pour ajouter la mise en cache. Dans le cadre d’une opération ponctuelle, vous devez réinitialiser et réexécuter l’indexeur entièrement pour que le traitement incrémentiel puisse prendre effet.
 
-> [!TIP]
-> En guise de preuve de concept, vous pouvez utiliser ce [démarrage rapide du portail](cognitive-search-quickstart-blob.md) pour créer les objets nécessaires, puis utiliser Postman ou le portail pour effectuer vos mises à jour. Vous souhaiterez peut-être joindre une ressource Cognitive Services facturable. L’exécution de l’indexeur à plusieurs reprises entraîne l’épuisement de l’allocation quotidienne gratuite avant que vous ne puissiez effectuer toutes les étapes.
-
 ### <a name="step-1-get-the-indexer-definition"></a>Étape 1 : Obtenir la définition de l’indexeur
 
-Démarrez par un indexeur valide existant qui contient les composants suivants : source de données, ensemble de compétences, index. Votre indexeur doit être exécutable. 
+Démarrez par un indexeur valide existant qui contient les composants suivants : source de données, ensemble de compétences, index. Votre indexeur doit être exécutable.
 
 À l’aide d’un client d’API, créez une [requête GET Indexer](/rest/api/searchservice/get-indexer) pour obtenir la configuration actuelle de l’indexeur. Lorsque vous utilisez la version préliminaire de l’API pour faire une requête GET sur l’indexeur, une propriété `cache` définie sur Null est ajoutée aux définitions.
 

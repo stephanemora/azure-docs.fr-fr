@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 7200c13d5ad4157afeb2c0dd1d7ab7445670609d
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 61e5bda5722d343aae2fc6be80312f13a21c415a
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425332"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658180"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Sécuriser un espace de travail Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -105,18 +105,28 @@ Azure Machine Learning prend en charge les comptes de stockage configurés pour 
 
 # <a name="private-endpoint"></a>[Point de terminaison privé](#tab/pe)
 
-> [!TIP]
-> Vous devez configurer deux points de terminaison privés pour votre compte de stockage par défaut :
-> * un point de terminaison privé avec une sous-ressource cible **blob** ;
-> * un point de terminaison privé avec une sous-ressource cible **fichier** (partage de fichiers).
->
-> Si vous envisagez d’utiliser [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) dans votre pipeline, vous devez également configurer des points de terminaison privés avec des sous-ressources cibles de type **file d’attente** et **table**. ParallelRunStep utilise les options de file d’attente et de table pour la planification et la distribution des tâches.
+1. Dans le portail Azure, sélectionnez le compte de stockage Azure.
+1. Consultez les informations contenues dans [Utiliser des points de terminaison privés pour Stockage Azure](../storage/common/storage-private-endpoints.md#creating-a-private-endpoint) pour savoir comment ajouter des points de terminaison privés pour les sous-ressources de stockage suivantes :
 
-:::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Capture d’écran montrant la page de configuration du point de terminaison privé avec les options d’objets blob et de fichier":::
+    * **Objet blob**
+    * **File**
+    * **File d’attente** : nécessaire uniquement si vous envisagez d’utiliser [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) dans un pipeline Azure Machine Learning.
+    * **Tableau** : nécessaire uniquement si vous envisagez d’utiliser [ParallelRunStep](./tutorial-pipeline-batch-scoring-classification.md) dans un pipeline Azure Machine Learning.
 
-Pour configurer un point de terminaison privé pour un compte de stockage qui n’est **pas** le stockage par défaut, sélectionnez le type de **sous-ressource cible** correspondant au compte de stockage que vous souhaitez ajouter.
+    :::image type="content" source="./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png" alt-text="Capture d’écran montrant la page de configuration du point de terminaison privé avec les options d’objets blob et de fichier":::
 
-Pour plus d’informations, consultez [Utiliser des points de terminaison privés pour le stockage Azure](../storage/common/storage-private-endpoints.md)
+    > [!TIP]
+    > Lors de la configuration d’un compte de stockage qui n’est **pas** le stockage par défaut, sélectionnez le type de **sous-ressource cible** correspondant au compte de stockage que vous souhaitez ajouter.
+
+1. Après avoir créé les points de terminaison privés pour les sous-ressources, sélectionnez l’onglet __Pare-feu et réseaux virtuels__ sous __Mise en réseau__ pour le compte de stockage.
+1. Choisissez __Réseaux sélectionnés__, puis, sous __Instances de ressource__, sélectionnez `Microsoft.MachineLearningServices/Workspace` comme __Type de ressource__. Sélectionnez votre espace de travail à l’aide du __nom de l’instance__. Pour plus d’informations, consultez [Accès approuvé basé sur l’identité managée affectée par le système](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+
+    > [!TIP]
+    > Vous pouvez également sélectionner __Autoriser les services Azure de la liste des services approuvés à accéder à ce de stockage__ afin d’autoriser plus largement l’accès à partir de services de confiance. Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
+
+    :::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-no-vnet.png" alt-text="Zone Mise en réseau sur la page Stockage Azure dans le portail Azure lors de l’utilisation d’un point de terminaison privé":::
+
+1. Sélectionnez __Enregistrer__ pour enregistrer la configuration.
 
 > [!TIP]
 > Lorsque vous utilisez un point de terminaison privé, vous pouvez également désactiver l’accès public. Pour plus d’informations, consultez [Interdire l’accès en lecture public](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
@@ -134,14 +144,12 @@ Pour plus d’informations, consultez [Utiliser des points de terminaison privé
 
 1. Sous __Instances de ressources__, sélectionnez `Microsoft.MachineLearningServices/Workspace` comme __type de ressource__, puis votre espace de travail à l’aide du __nom d’instance__. Pour plus d’informations, consultez [Accès approuvé basé sur l’identité managée affectée par le système](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
 
-1. Sous __Exceptions__, sélectionnez __Autoriser les services Azure de la liste des services approuvés à accéder à ce de stockage__.
+    > [!TIP]
+    > Vous pouvez également sélectionner __Autoriser les services Azure de la liste des services approuvés à accéder à ce de stockage__ afin d’autoriser plus largement l’accès à partir de services de confiance. Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
-    * Les ressources de certains services, **inscrites dans votre abonnement**, peuvent accéder au compte de stockage **dans le même abonnement** pour des opérations spécifiques. C’est, par exemple, le cas de l’écriture de journaux ou de la création de sauvegardes.
-    * Vous pouvez accorder aux ressources de certains services un accès explicite à votre compte de stockage en __attribuant un rôle Azure__ à son identité managée attribuée par le système.
+    :::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="Zone Mise en réseau sur la page Stockage Azure dans le portail Azure":::
 
-    Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
-
-:::image type="content" source="./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png" alt-text="Zone Mise en réseau sur la page Stockage Azure dans le portail Azure":::
+1. Sélectionnez __Enregistrer__ pour enregistrer la configuration.
 
 > [!TIP]
 > Lorsque vous utilisez un point de terminaison de service, vous pouvez également désactiver l’accès public. Pour plus d’informations, consultez [Interdire l’accès en lecture public](../storage/blobs/anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
@@ -239,11 +247,11 @@ Le tableau suivant liste les services pour lesquels vous devez ignorer la valida
 | Service | Omission nécessaire de la validation ? |
 | ----- |:-----:|
 | Stockage Blob Azure | Oui |
-| Partage de fichiers Azure | Oui |
-| Azure Data Lake Store Gen1 | Non |
+| Partage de fichiers Azure | Yes |
+| Azure Data Lake Store Gen1 | No |
 | Azure Data Lake Store Gen2 | Non |
 | Azure SQL Database | Oui |
-| PostgreSQL | Oui |
+| PostgreSQL | Yes |
 
 > [!NOTE]
 > Azure Data Lake Store Gen1 et Azure Data Lake Store Gen2 ignorent la validation par défaut ; vous n’avez donc rien à faire.

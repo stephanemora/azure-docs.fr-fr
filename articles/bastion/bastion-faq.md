@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: d44ccec62a9da63fccc45a0735ff16f615dfbb4b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 99cee6b73fb37caf0ccf09170d60ea4ba3effc2a
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128643134"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714188"
 ---
 # <a name="azure-bastion-faq"></a>FAQ sur Azure Bastion
 
@@ -79,7 +79,24 @@ Non, l’accès aux machines virtuelles Windows Server par Azure Bastion ne néc
 
 ### <a name="which-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Quelles sont les dispositions de clavier prises en charge pendant la session à distance Bastion ?
 
-Azure Bastion prend actuellement en charge la disposition de clavier en-US-QWERTY dans la machine virtuelle.  La prise en charge d’autres paramètres régionaux pour la disposition de clavier est en cours de développement.
+Azure Bastion prend actuellement en charge les dispositions de clavier suivantes à l’intérieur de la machine virtuelle :
+* en-us-qwerty
+* en-gb-qwerty
+* de-ch-qwertz
+* de-de-qwertz
+* fr-be-azerty
+* fr-fr-azerty
+* fr-ch-qwertz
+* hu-hu-qwertz
+* it-it-qwerty
+* ja-jp-qwerty
+* pt-br-qwerty
+* es-es-qwerty
+* es-latam-qwerty
+* sv-se-qwerty
+* tr-tr-qwerty
+
+La disposition de clavier par défaut de la machine virtuelle cible correspond à votre langue locale, qui peut être modifiée dans les paramètres de votre ordinateur local.
 
 ### <a name="does-azure-bastion-support-timezone-configuration-or-timezone-redirection-for-target-vms"></a><a name="timezone"></a>Azure Bastion prend-il en charge la configuration du fuseau horaire ou la redirection des fuseaux horaires pour les machines virtuelles cibles ?
 

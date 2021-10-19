@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: d38c2518b3504b79f70c58aff1e6cf832d05c8a5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8388df72352669eb81a22df392ca077f91d13cfb
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633904"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754650"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Options de calcul et de stockage dans Azure Database pour MySQL - Serveur flexible (Préversion)
 
@@ -101,11 +101,11 @@ Nous vous recommandons <!--turn on storage auto-grow or to--> de configurer une 
 
 ### <a name="storage-auto-grow"></a>Croissance automatique du stockage
 
-La croissance automatique du stockage permet à votre serveur de disposer en permanence d’un espace de stockage suffisant et de ne pas passer en lecture seule. Si la croissance automatique du stockage est activée, le stockage évolue automatiquement sans affecter la charge de travail. La croissance automatique du stockage est activée par défaut pour tous les nouveaux serveurs créés. Pour les serveurs avec moins de 100 Go de stockage approvisionnés, la taille de stockage approvisionnée augmente de 5 Go lorsque l’espace de stockage libre est inférieur à 10 % de la taille de stockage approvisionnée. Pour les serveurs avec plus de 100 Go de stockage approvisionnés, la taille de stockage approvisionnée augmente de 5 % lorsque l’espace de stockage libre est inférieur à 10 Go de taille de stockage approvisionnée. Les limites de stockage maximales indiquées ci-dessus s’appliquent.
+La croissance automatique du stockage permet à votre serveur de disposer en permanence d’un espace de stockage suffisant et de ne pas passer en lecture seule. Si la croissance automatique du stockage est activée, le stockage évolue automatiquement sans affecter la charge de travail. La croissance automatique du stockage est activée par défaut pour tous les nouveaux serveurs créés. Pour les serveurs avec moins de 100 Go de stockage approvisionnés, la taille de stockage approvisionnée augmente de 5 Go lorsque l’espace de stockage libre est inférieur à 10 % de la taille de stockage approvisionnée. Pour les serveurs avec plus de 100 Go de stockage approvisionnés, la taille de stockage approvisionnée augmente de 5 % lorsque l’espace de stockage libre est inférieur à 10 Go de taille de stockage approvisionnée. Les limites de stockage maximales indiquées ci-dessus s’appliquent. Actualisez l’instance de serveur pour voir l’approvisionnement du stockage mis à jour dans le panneau Calcul + stockage. 
 
 Par exemple, si vous avez approvisionné 1000 Go de stockage et que l’utilisation réelle dépasse 990 Go, la taille de stockage du serveur passe à 1050 Go. Sinon, si vous avez configuré 10 Go de stockage, la taille de stockage passe à 15 Go lorsque moins de 1 Go de stockage est libre.
 
-N’oubliez pas que le stockage peut seulement monter en puissance.
+N’oubliez pas qu’il est impossible d’effectuer un scale-down du stockage une fois que le scale-up automatique a été configuré.
 
 ## <a name="iops"></a>E/S par seconde
 

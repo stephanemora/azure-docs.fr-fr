@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 40f7973149ae81fb9ae8f00df99c51c27300c6d1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e76a536080ffd2b4bf35de744bd34d8022458300
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641771"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129725814"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -122,7 +122,7 @@ Avec Form Recognizer, vous pouvez créer deux types de client différents. Le pr
 
 * Reconnaître les champs et le contenu de formulaires, à l’aide de modèles personnalisés entraînés pour analyser vos formulaires personnalisés.  Ces valeurs sont retournées dans une collection d’objets `RecognizedForm`. Consultez l’exemple [Analyser les formulaires personnalisés](#analyze-forms-with-a-custom-model).
 * Reconnaître le contenu des formulaires, notamment les tableaux, les lignes et les mots, sans avoir à entraîner un modèle.  Le contenu des formulaires est retourné dans une collection d’objets `FormPage`. Consultez l’exemple [Analyser la disposition](#analyze-layout).
-* Reconnaître les champs courants des tickets de caisse, cartes de visite, factures et documents d’identité émis aux États-Unis à l’aide d’un modèle préentraîné dans le service Form Recognizer.
+* Reconnaître les champs courants des reçus, cartes de visite, factures et documents d’identité émis aux États-Unis à l’aide d’un modèle préentraîné dans le service Form Recognizer.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 

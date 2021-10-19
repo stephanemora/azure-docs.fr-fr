@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 9afad44bcf67478a81e75c17d0ff8ffc6d8c65aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad29b24c6c79447a23e0b910583322107fa5af32
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94841126"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618588"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Utilisation de l’authentification multifacteur Azure Active Directory
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -68,12 +68,11 @@ Si vous exécutez SSMS 18.x ou une version ultérieure, le nom de domaine AD ou 
 
 ### <a name="azure-ad-business-to-business-support"></a>Prise en charge d’Azure AD B2B
 
-> [!IMPORTANT]
-> La prise en charge des utilisateurs invités se connectant à Azure SQL Database, SQL Managed Instance et Azure Synapse sans nécessairement faire partie d’un groupe est actuellement en **préversion publique**. Pour plus d’informations, consultez [Créer des utilisateurs invités Azure AD et les définir comme administrateurs Azure AD](authentication-aad-guest-users.md).
+Les utilisateurs Azure AD pris en charge pour les scénarios Azure AD B2B comme utilisateurs invités (voir [Qu’est-ce que la collaboration Azure B2B ?](../../active-directory/external-identities/what-is-b2b.md)) ne peuvent se connecter à SQL Database et Azure Synapse qu’en tant qu’utilisateurs individuels ou que membres d’un groupe Azure AD créé dans l’instance Azure AD associée et mappés manuellement à l’aide de l’instruction [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) dans une base de données spécifique. 
 
-Les utilisateurs Azure AD pris en charge pour les scénarios Azure AD B2B comme utilisateurs invités (voir [Qu’est-ce que la collaboration Azure AD B2B ?](../../active-directory/external-identities/what-is-b2b.md)) ne peuvent se connecter à SQL Database et Azure Synapse qu’en tant que membres d’un groupe créé dans l’instance Azure AD associée et mappés manuellement à l’aide de l’instruction Transact-SQL [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) dans une base de données spécifique. Par exemple, si `steve@gmail.com` est invité à Azure AD `contosotest` (avec le domaine Azure AD `contosotest.onmicrosoft.com`), un groupe Azure AD, tel que `usergroup`, doit être créé dans l’annuaire Azure AD qui contient le membre `steve@gmail.com`. Ensuite, l’administrateur Azure AD SQL ou le propriétaire de la base de données Azure AD doit créer ce groupe pour une base de données spécifique (par exemple, `MyDatabase`) en exécutant l’instruction Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER`. 
+Par exemple, si `steve@gmail.com` est invité dans Azure AD `contosotest` (avec le domaine Azure AD `contosotest.onmicrosoft.com`), un utilisateur `steve@gmail.com` doit être créé pour une base de données spécifique (par exemple **MyDatabase**) par un administrateur Azure AD SQL ou un propriétaire de base de données Azure AD à l’aide de l’exécution de l’instruction Transact-SQL `create user [steve@gmail.com] FROM EXTERNAL PROVIDER`. Si `steve@gmail.com` fait partie d’un groupe Azure AD, tel que `usergroup`, ce groupe doit être créé pour une base de données spécifique (par exemple **MyDatabase**) par un administrateur Azure AD SQL ou un propriétaire de base de données Azure AD à l’aide de l’exécution de l’instruction Transact-SQL `create user [usergroup] FROM EXTERNAL PROVIDER`. 
 
-Une fois l’utilisateur de base de données créé, l’utilisateur `steve@gmail.com` peut se connecter à `MyDatabase` en utilisant l’option d’authentification SSMS `Azure Active Directory – Universal with MFA`. Par défaut, `usergroup` dispose uniquement de l’autorisation de connexion. Tout autre accès aux données doit être [accordé](/sql/t-sql/statements/grant-transact-sql) dans la base de données par un utilisateur disposant de privilèges suffisants. 
+Une fois l’utilisateur ou le groupe d'utilisateurs de la base de données créé, l’utilisateur `steve@gmail.com` peut se connecter à `MyDatabase` en utilisant l’option d’authentification SSMS `Azure Active Directory – Universal with MFA`. Par défaut, l’utilisateur ou le groupe d’utilisateurs ne dispose que de l’autorisation de connexion. Tout autre accès aux données doit être [accordé](/sql/t-sql/statements/grant-transact-sql) dans la base de données par un utilisateur disposant de privilèges suffisants. 
 
 > [!NOTE]
 > Pour SSMS 17.x, en utilisant `steve@gmail.com` comme utilisateur invité, vous devez cocher la case **Nom du domaine AD ou ID de locataire** et ajouter le nom de domaine AD `contosotest.onmicrosoft.com` dans la boîte de dialogue **Propriété de connexion**. L’option **Nom du domaine AD ou ID de locataire**  est prise en charge uniquement pour **Azure Active Directory - Authentification universelle avec MFA**. Sinon, la case à cocher est grisée.

@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 08/09/2021
-ms.openlocfilehash: c99d3dde29edbd0e43f883ff9b31e054cea1a720
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/11/2021
+ms.openlocfilehash: 07e48fba8bfb554604d875f9f4a041fed466dbe7
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129278877"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754707"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nouveautés d’Azure Sentinel
 
@@ -32,6 +32,43 @@ Si vous recherchez des éléments datant de plus de six mois, vous les trouverez
 >
 > Vous pouvez également contribuer ! Rejoignez-nous dans la [communauté GitHub des chasseurs de menaces Azure Sentinel](https://github.com/Azure/Azure-Sentinel/wiki).
 >
+
+## <a name="october-2021"></a>Octobre 2021
+
+- [Modèles de playbook et galerie désormais disponibles (préversion publique)](#playbook-templates-and-gallery-now-available-public-preview)
+- [Gestion des versions des modèles pour vos règles d’analyse planifiée (préversion publique)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
+- [Schéma de normalisation DHCP (préversion publique)](#dhcp-normalization-schema-public-preview)
+
+### <a name="playbook-templates-and-gallery-now-available-public-preview"></a>Modèles de playbook et galerie désormais disponibles (préversion publique)
+
+Un modèle de playbook est un flux de travail prédéfini, testé et prêt à l’emploi qui peut être personnalisé pour répondre à vos besoins. Les modèles peuvent également servir de référence pour les meilleures pratiques lors du développement de playbooks à partir de zéro, ou servir d’inspiration pour de nouveaux scénarios d’automatisation.
+
+Les modèles de playbook ont été développés par la communauté Azure Sentinel, des éditeurs de logiciels indépendants (ISV) et les experts de Microsoft. Vous pouvez les trouver dans l’onglet **Modèles de playbook** (sous **Automation**), dans le cadre d’une [**solution Azure Sentinel**](sentinel-solutions.md) ou dans le [**référentiel GitHub d’Azure Sentinel**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). 
+
+Pour plus d’informations sur le déploiement d’un modèle de playbook à partir de l’onglet **Modèles de playbook** sous **Automation**, consultez [Créer et personnaliser des playbooks à partir de modèles intégrés](use-playbook-templates.md).
+
+### <a name="manage-template-versions-for-your-scheduled-analytics-rules-public-preview"></a>Gestion des versions des modèles pour vos règles d’analyse planifiée (préversion publique)
+
+Lorsque vous créez des règles d’analyse à partir de [modèles de règles Azure Sentinel intégrés](detect-threats-built-in.md), vous créez en réalité une copie du modèle. Au-delà de ce point, la règle active n’est ***pas*** mise à jour dynamiquement pour correspondre aux modifications apportées au modèle d’origine.
+
+Toutefois, les règles créées à partir de modèles ***se souviennent*** des modèles dont elles sont issues, ce qui présente deux avantages :
+
+- Si vous avez apporté des modifications à une règle lors de sa création à partir d’un modèle (ou à tout moment par la suite), vous pouvez toujours rétablir la règle dans sa version originale (en tant que copie du modèle).
+
+- Vous pouvez être averti de la mise à jour d’un modèle, et vous aurez le choix de mettre à jour vos règles avec la nouvelle version de leurs modèles ou de les laisser telles quelles.
+
+[Découvrez comment gérer ces tâches](manage-analytics-rule-templates.md) et ce qu’il faut garder à l’esprit. Ces procédures s’appliquent à toutes les règles d’analyse [planifiées](detect-threats-built-in.md#scheduled) créées à partir de modèles.
+
+### <a name="dhcp-normalization-schema-public-preview"></a>Schéma de normalisation DHCP (préversion publique)
+
+Le modèle d’information Azure Sentinel (ASIM) prend désormais en charge un schéma de normalisation DHCP, qui sert à décrire les événements signalés par un serveur DHCP et qui est utilisé par Azure Sentinel pour permettre des analyses indépendantes de la source. 
+
+Les événements décrits dans le schéma de normalisation DHCP incluent le traitement des demandes d’adresses IP DHCP louées à partir des systèmes clients et la mise à jour d’un serveur DNS avec les baux accordés.
+
+Pour plus d'informations, consultez les pages suivantes :
+
+- [Informations de référence du schéma de normalisation DHCP Azure Sentinel (préversion publique)](dhcp-normalization-schema.md)
+- [Normalisation et modèle ASIM (Azure Sentinel Information Model)](normalization.md)
 
 ## <a name="september-2021"></a>Septembre 2021
 

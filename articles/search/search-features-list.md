@@ -1,5 +1,5 @@
 ---
-title: Présentation des fonctionnalités
+title: Description des fonctionnalités
 titleSuffix: Azure Cognitive Search
 description: Explorez les catégories de fonctionnalités de Recherche cognitive Azure.
 manager: nitinme
@@ -7,23 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: f25f67839c0bf859e020859db60027d9a5b2db91
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.date: 10/06/2021
+ms.openlocfilehash: 714dc6ac27f466c98e5c74bc16a9cfa3c5cd30cf
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114729139"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129620276"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Fonctionnalités de Recherche cognitive Azure
 
-Recherche cognitive Azure fournit un moteur de recherche en texte intégral, un stockage persistant d’index de recherche, une IA intégrée utilisée pendant l’indexation pour extraire davantage de texte et de structure, ainsi que des API et des outils. Le tableau suivant récapitule les fonctionnalités par catégorie. Pour plus d’informations sur la comparaison de Recherche cognitive avec d’autres technologies de recherche, consultez [Qu’est-ce que Recherche cognitive Azure ?](search-what-is-azure-search.md)
+Recherche cognitive Azure fournit un moteur de recherche en texte intégral, un stockage persistant d’index de recherche, une IA intégrée utilisée pendant l’indexation pour extraire davantage de texte et de structure, ainsi que des API et des outils. 
+
+Le tableau suivant récapitule les fonctionnalités par catégorie. Pour plus d’informations sur la comparaison de Recherche cognitive à d’autres technologies de recherche, consultez [Comparer les options de recherche](search-what-is-azure-search.md#compare-search-options).
 
 ## <a name="indexing-features"></a>Fonctionnalités d’indexation
 
 | Catégorie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Fonctionnalités |
 |-------------------|----------|
-| Sources de données | Les index de recherche peuvent accepter du texte de n’importe quelle source, à condition qu’il soit envoyé en tant que document JSON. <br/><br/> Les [**indexeurs**](search-indexer-overview.md) sont une fonctionnalité qui automatise l’importation de données à partir de sources de données prises en charge pour extraire du contenu pouvant faire l’objet de recherches dans des magasins de données principaux. Les indexeurs gèrent la sérialisation JSON pour vous. Vous pouvez vous connecter à [plusieurs sources de données](search-data-sources-gallery.md), notamment [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) ou le [stockage blob Azure](search-howto-indexing-azure-blob-storage.md). |
+| Sources de données | Les index de recherche peuvent accepter du texte de n’importe quelle source, à condition qu’il soit envoyé en tant que document JSON. <br/><br/> Les [**indexeurs**](search-indexer-overview.md) sont une fonctionnalité qui automatise l’importation de données à partir de sources de données prises en charge pour extraire du contenu pouvant faire l’objet de recherches dans des magasins de données principaux. Les indexeurs gèrent la sérialisation JSON pour vous. Vous pouvez vous connecter à [différentes sources de données](search-data-sources-gallery.md), notamment [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) ou le [stockage blob Azure](search-howto-indexing-azure-blob-storage.md). |
 | Structures de données hiérarchiques et imbriquées | Les [**types complexes**](search-howto-complex-data-types.md) et les collections vous permettent de modéliser pratiquement tout type de structure JSON au sein d’un index de recherche. La cardinalité « un à plusieurs » et « plusieurs à plusieurs » peut être exprimée de manière native à travers des collections, des types complexes et des collections de types complexes.|
 | Analyse linguistique | Les analyseurs sont des composants utilisés pour le traitement au cours des opérations d’indexation et de recherche de texte. Par défaut, vous pouvez utiliser l’analyseur Lucene standard à usage général ou remplacer la valeur par défaut par un analyseur linguistique, un analyseur personnalisé que vous configurez ou un autre analyseur prédéfini qui produit des jetons au format requis. <br/><br/>Les [**analyseurs de langage**](index-add-language-analyzers.md) de Lucene ou de Microsoft sont utilisés pour gérer intelligemment les caractéristiques linguistiques propres à la langue, notamment les temps des verbes, le masculin et le féminin, les noms au pluriel irrégulier (par exemple, « cheval » et « chevaux »), la décomposition des mots, la césure des mots (pour les langues sans espaces), etc. <br/><br/>Les [**analyseurs lexicaux personnalisés**](index-add-custom-analyzers.md) servent pour des formes de requêtes complexes telles que la correspondance phonétique et les expressions régulières.<br/><br/> |
 

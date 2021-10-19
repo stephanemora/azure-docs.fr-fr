@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 0e86c503fb016f79097d9ddde1d30f4314942870
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 9b2dfe8d4ae7bb17eee4d875178ff059080cb4e0
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695288"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728890"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Lancement fiable pour les machines virtuelles Azure (préversion)
 
@@ -57,24 +57,20 @@ Azure propose le lancement fiable pour améliorer de manière fluide la sécurit
 - SUSE 15 SP2
 - Ubuntu 20.04 LTS
 - Ubuntu 18.04 LTS
-- Windows Server 2019
+- Debian 11
+- CentOS 8.4
+- Oracle Linux 8.3
+- Windows Server 2019
 - Windows Server 2016
+- Windows 11 Pro
+- Windows 11 Entreprise
+- Windows 11 Entreprise multisession
 - Windows 10 Professionnel
 - Windows 10 Entreprise
 - Windows 10 Entreprise multisession
 
 **Régions** : 
-- USA Centre
-- USA Est
-- USA Est 2
-- Centre-Nord des États-Unis
-- États-Unis - partie centrale méridionale
-- USA Ouest
-- USA Ouest 2
-- Europe Nord
-- Europe Ouest
-- Japon Est
-- Asie Sud-Est
+- Toutes les régions publiques
 
 **Tarifs** : aucun coût supplémentaire par rapport à la tarification existante des machines virtuelles.
 

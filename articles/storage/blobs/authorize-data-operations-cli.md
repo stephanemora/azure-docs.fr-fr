@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b8dd3f6a81317abff79dce906c4a9c8ef6ea6484
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 537259315a766da179a47defc277da5abecc4779
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128680240"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859149"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Choisir comment autoriser l’accès à des données blob avec Azure CLI
 
@@ -115,4 +115,4 @@ Vous pouvez spécifier des paramètres d’autorisation dans des variables d’e
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Attribuer un rôle Azure pour l’accès aux données d’objet blob](assign-azure-role-data-access.md)
-- [Autoriser l’accès à des données blob et de files d’attente avec des identités managées pour les ressources Azure](../common/storage-auth-aad-msi.md)
+- [Autoriser l’accès aux données de blob avec des identités managées pour les ressources Azure](authorize-managed-identity.md)

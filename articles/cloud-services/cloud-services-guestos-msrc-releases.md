@@ -11,47 +11,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/17/2021
+ms.date: 10/8/2021
 ms.author: gunnarc
-ms.openlocfilehash: c3119136c6c64c67921474c64b266b22708168a7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 76807a8f653de9a48c91c5d6429869ae0e5c9312
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128655901"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728871"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
 ## <a name="september-2021-guest-os"></a>Système d’exploitation invité - Septembre 2021
 
->[!NOTE] 
-
->Le système d’exploitation invité de septembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de septembre. Cette liste est susceptible d’être modifiée. 
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 21-09 |  [5005568]  |  Dernière mise à jour cumulative (LCU) | 6.35 | 14 septembre 2021 |
-|  Version 21-09 |  [5005563]  |  Mises à jour cumulatives d’IE | 2.114, 3.101, 4.94 | 14 septembre 2021 |
-|  Version 21-09 |  [5005573]  |  Dernière mise à jour cumulative (LCU) | 5.59 | 14 septembre 2021 |
-|  Version 21-09 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 2,114 | 16 février 2021 |
-|  Version 21-09 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 2,114 | 8 juin 2021 |
-|  Version 21-09 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 4.94 | 16 février 2021 |
-|  Version 21-09 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 4.94 | 16 février 2021 |
-|  Version 21-09 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 3.101 | 16 février 2021 |
-|  Version 21-09 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | 3.101 | 16 février 2021 |
-|  Version 21-09 |  [5004335]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | 6.35 | 10 août 2021 |
-|  Version 21-09 |  [5005633]  |  Correctif cumulatif mensuel  | 2,114 | 14 septembre 2021 |
-|  Version 21-09 |  [5005623]  |  Correctif cumulatif mensuel  | 3.101 | 14 septembre 2021 |
-|  Version 21-09 |  [5005613]  |  Correctif cumulatif mensuel  | 4.94 | 14 septembre 2021 |
-|  Version 21-09 |  [5001401]  |  Mise à jour de la pile de maintenance  | 3.101 | 13 avril 2021 |
-|  Version 21-09 |  [5001403]  |  Mise à jour de la pile de maintenance  | 4.94 | 13 avril 2021 |
-|  Version 21-09 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | 4.94 | 19 août 2020 |
-|  Version 21-09 |  [5005698]  |  Mise à jour de la pile de maintenance  | 5.59 | 14 septembre 2021 |
-|  Version 21-09 |  [5004378]  |  Mise à jour de la pile de maintenance  | 2,114 | 13 juillet 2021 |
-|  Version 21-09 |  5005701  |  Mise à jour de la pile de maintenance  | 6.35 | 10 août 2021 |
-|  Version 21-09 |  [4494175]  |  Microcode  | 5.59 | 1er septembre 2020 |
-|  Version 21-09 |  [4494174]  |  Microcode  | 6.35 | 1er septembre 2020 |
+|  Version 21-09 |  [5005568]  |  Dernière mise à jour cumulative (LCU) | [6.35] | 14 septembre 2021 |
+|  Version 21-09 |  [5005563]  |  Mises à jour cumulatives d’IE | [2.114], [3.101], [4.94] | 14 septembre 2021 |
+|  Version 21-09 |  [5005573]  |  Dernière mise à jour cumulative (LCU) | [5.59] | 14 septembre 2021 |
+|  Version 21-09 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [2,114] | 16 février 2021 |
+|  Version 21-09 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [2,114] | 8 juin 2021 |
+|  Version 21-09 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [4.94] | 16 février 2021 |
+|  Version 21-09 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | [4.94] | 16 février 2021 |
+|  Version 21-09 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | [3.101] | 16 février 2021 |
+|  Version 21-09 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | [3.101] | 16 février 2021 |
+|  Version 21-09 |  [5004335]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | [6.35] | 10 août 2021 |
+|  Version 21-09 |  [5005633]  |  Correctif cumulatif mensuel  | [2,114] | 14 septembre 2021 |
+|  Version 21-09 |  [5005623]  |  Correctif cumulatif mensuel  | [3.101] | 14 septembre 2021 |
+|  Version 21-09 |  [5005613]  |  Correctif cumulatif mensuel  | [4.94] | 14 septembre 2021 |
+|  Version 21-09 |  [5001401]  |  Mise à jour de la pile de maintenance  | [3.101] | 13 avril 2021 |
+|  Version 21-09 |  [5001403]  |  Mise à jour de la pile de maintenance  | [4.94] | 13 avril 2021 |
+|  Version 21-09 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | [4.94] | 19 août 2020 |
+|  Version 21-09 |  [5005698]  |  Mise à jour de la pile de maintenance  | [5.59] | 14 septembre 2021 |
+|  Version 21-09 |  [5004378]  |  Mise à jour de la pile de maintenance  | [2,114] | 13 juillet 2021 |
+|  Version 21-09 |  5005701  |  Mise à jour de la pile de maintenance  | [6.35] | 10 août 2021 |
+|  Version 21-09 |  [4494175]  |  Microcode  | [5.59] | 1er septembre 2020 |
+|  Version 21-09 |  [4494174]  |  Microcode  | [6.35] | 1er septembre 2020 |
 
 [5005568]: https://support.microsoft.com/kb/5005568
 [5005563]: https://support.microsoft.com/kb/5005563
@@ -73,6 +70,11 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [5004378]: https://support.microsoft.com/kb/5004378
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
+[2,114]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.101]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.94]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.59]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.35]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 
 ## <a name="august-2021-guest-os"></a>Système d’exploitation invité, août 2021
@@ -1206,7 +1208,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 10-19   |  [4516655]  |  SSU   |  [2.91]  |  10 septembre 2019  |
 |  Version 10-19   |  [4516055]  |  Non relatif à la sécurité   |  [3.78]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512939]  |  SSU   |  [3.78]  |  10 septembre 2019  |
-|  Version 10-19   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  10 septembre 2019  |
+|  Version 10-19   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  10 septembre 2019  |
 |  Version 10-19   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  10 septembre 2019  |
 |  Version 10-19   |  [4516067]  |  Non liée à la sécurité   |  [4.71]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512938]  |  SSU   |  [4.71]  |  10 septembre 2019  |

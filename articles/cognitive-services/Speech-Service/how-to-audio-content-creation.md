@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: pafarley
-ms.openlocfilehash: 2e5942ccbb9e7acf090e5b538dfbb70b1c84762f
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: e396c3b206f581935e04321c91bfd0c07c741953
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538630"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617565"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Améliorer la synthèse avec l’outil de création de contenu audio
 
@@ -138,13 +138,12 @@ L’utilisateur doit préparer un [compte Microsoft](https://account.microsoft.c
 Procédez comme suit pour ajouter un utilisateur à une ressource Speech afin qu’il puisse utiliser Création de contenu audio.
 
 1. Recherchez **Cognitive Services** dans le [portail Azure](https://portal.azure.com/), sélectionnez la ressource Speech à laquelle vous souhaitez ajouter des utilisateurs.
-2. Cliquez sur **Contrôle d’accès (IAM)** . Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cet abonnement.
-    :::image type="content" source="media/audio-content-creation/access-control-roles.png" alt-text="Onglet d’attribution de rôle":::
-3. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle. Dans la liste déroulante Rôle, sélectionnez le rôle **Utilisateur du service cognitif**. Si vous souhaitez attribuer à l’utilisateur la propriété de cette ressource Speech, vous pouvez sélectionner le rôle **Propriétaire**.
-4. Tapez l’adresse de messagerie de l’utilisateur et sélectionnez l’utilisateur dans l’annuaire. L’adresse e-mail doit être un **compte Microsoft**, auquel Azure Active Directory fait confiance. Les utilisateurs peuvent facilement s’inscrire à un [compte Microsoft](https://account.microsoft.com/account) en utilisant une adresse e-mail personnelle. 
-5. Cliquez sur **Enregistrer** pour attribuer le rôle. 
-6. L’utilisateur va recevoir une invitation par e-mail. Acceptez l’invitation en cliquant sur **Accepter l’invitation** > **Accepter de rejoindre Azure** dans l’e-mail. L’utilisateur est ensuite redirigé vers le portail Azure. L’utilisateur n’a pas besoin d’effectuer une autre action dans le portail Microsoft Azure. Après quelques instants, l’utilisateur se voit attribuer le rôle au niveau de l’étendue de la ressource vocale et aura accès à cette ressource vocale. Si l’utilisateur n’a pas reçu l’e-mail d’invitation, vous pouvez rechercher le compte de l’utilisateur sous « Attributions de rôle » et accéder au sein du profil de l’utilisateur. Recherchez « Identité » -> « Invitation acceptée » et cliquez sur **(gérer)** pour renvoyer l’invitation d’e-mail. Vous pouvez également copier le lien d’invitation vers les utilisateurs. 
-7. L’utilisateur accède à présent à la page du produit [Création de contenu audio](https://aka.ms/audiocontentcreation) ou l’actualise et se connecte avec le compte Microsoft de l’utilisateur. Sélectionnez le bloc **Création de contenu audio** parmi les produits vocaux. Choisissez la ressource vocale dans la fenêtre contextuelle ou dans les paramètres dans le coin supérieur droit de la page. Si l’utilisateur ne peut pas trouver la ressource vocale disponible, vérifiez si vous êtes dans le répertoire approprié. Pour vérifier le répertoire approprié, cliquez sur le profil de compte dans le coin supérieur droit, puis cliquez sur **Basculer** en regard du « répertoire actif ». Si plusieurs répertoires sont disponibles, cela signifie que vous avez accès à plusieurs répertoires. Basculez vers d’autres répertoires et accédez à Paramètres pour voir si la bonne ressource vocale est disponible. 
+2. Cliquez sur **Contrôle d’accès (IAM)** . Sélectionnez **Ajouter** > **Ajouter une attribution de rôle (préversion)** pour ouvrir le volet Ajouter une attribution de rôle. 
+1. Dans la liste déroulante **Rôle**, sélectionnez le rôle **Utilisateur Cognitive Services**. Si vous souhaitez attribuer à l’utilisateur la propriété de cette ressource Speech, vous pouvez sélectionner le rôle **Propriétaire**.
+1. Dans l’onglet **Membres**, tapez l’adresse e-mail de l’utilisateur et sélectionnez l’utilisateur dans l’annuaire. L’adresse e-mail doit être un **compte Microsoft**, auquel Azure Active Directory fait confiance. Les utilisateurs peuvent facilement s’inscrire à un [compte Microsoft](https://account.microsoft.com/account) en utilisant une adresse e-mail personnelle. 
+1. Dans l’onglet **Passer en revue + affecter**, sélectionnez **Passer en revue + affecter** pour affecter le rôle.
+1. L’utilisateur va recevoir une invitation par e-mail. Acceptez l’invitation en cliquant sur **Accepter l’invitation** > **Accepter de rejoindre Azure** dans l’e-mail. L’utilisateur est ensuite redirigé vers le portail Azure. L’utilisateur n’a pas besoin d’effectuer une autre action dans le portail Microsoft Azure. Après quelques instants, l’utilisateur se voit attribuer le rôle au niveau de l’étendue de la ressource vocale et aura accès à cette ressource vocale. Si l’utilisateur n’a pas reçu l’e-mail d’invitation, vous pouvez rechercher le compte de l’utilisateur sous « Attributions de rôle » et accéder au sein du profil de l’utilisateur. Recherchez « Identité » -> « Invitation acceptée » et cliquez sur **(gérer)** pour renvoyer l’invitation d’e-mail. Vous pouvez également copier le lien d’invitation vers les utilisateurs. 
+1. L’utilisateur accède à présent à la page du produit [Création de contenu audio](https://aka.ms/audiocontentcreation) ou l’actualise et se connecte avec le compte Microsoft de l’utilisateur. Sélectionnez le bloc **Création de contenu audio** parmi les produits vocaux. Choisissez la ressource vocale dans la fenêtre contextuelle ou dans les paramètres dans le coin supérieur droit de la page. Si l’utilisateur ne peut pas trouver la ressource vocale disponible, vérifiez si vous êtes dans le répertoire approprié. Pour vérifier le répertoire approprié, cliquez sur le profil de compte dans le coin supérieur droit, puis cliquez sur **Basculer** en regard du « répertoire actif ». Si plusieurs répertoires sont disponibles, cela signifie que vous avez accès à plusieurs répertoires. Basculez vers d’autres répertoires et accédez à Paramètres pour voir si la bonne ressource vocale est disponible. 
 
     :::image type="content" source="media/audio-content-creation/add-role-first.png" alt-text="Boîte de dialogue Ajouter un rôle":::
 

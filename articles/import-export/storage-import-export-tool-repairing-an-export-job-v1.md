@@ -5,17 +5,21 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 10/04/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d84f26b2764a103a9b504c1480e88b58fed3c201
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1768c506928642ec7742ea8713b98ad4f154ed1
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98705927"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709237"
 ---
 # <a name="repairing-an-export-job"></a>Réparation d’un travail d’exportation
+
+> [!IMPORTANT]
+> La réparation d’un travail n’est plus prise en charge par l’outil Azure Import/Export. Dans la version 1.5.0.300 et les versions ultérieures, vous devrez corriger les problèmes dans votre exportation d’objet BLOB, puis [créer un nouveau travail d’exportation](storage-import-export-data-from-blobs.md?tabs=azure-portal#step-1-create-an-export-job).
+
 Une fois qu’un travail d’exportation est terminé, vous pouvez exécuter l’outil Microsoft Azure Import/Export local pour :  
   
 1.  Télécharger tous les fichiers que le service Azure Import/Export n’a pas pu exporter.  
@@ -152,7 +156,7 @@ Tout composant dont la vérification échoue sera téléchargé par l’outil et
   
 ## <a name="next-steps"></a>Étapes suivantes
  
-* [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+<!--* [Setting Up the Azure Import/Export Tool](storage-import-export-tool-setup-v1.md)-->
 * [Préparation des disques durs pour un travail d’importation](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives)   
 * [Consultation de l’état du travail avec les fichiers journaux de copie](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Réparation d’un travail d’importation](storage-import-export-tool-repairing-an-import-job-v1.md)
+<!--* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)-->

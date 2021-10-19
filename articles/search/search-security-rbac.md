@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2021
-ms.openlocfilehash: 1968bb34d124fa37a51b296071ee24b3eae47772
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.date: 10/04/2021
+ms.openlocfilehash: 80471da945dcc5fdee690ec477599565777f1beb
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273720"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129611450"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Utiliser l’autorisation basée sur les rôles dans Azure Recherche cognitive
 
@@ -129,7 +129,7 @@ Si vous utilisez le billet ou un autre outil de test Web, consultez le Conseil c
 1. [Assignez des rôles](#assign-roles) sur le service et vérifiez qu’ils fonctionnent correctement dans le plan de données.
 
 > [!TIP]
-> Les appels de l’API REST de gestion sont authentifiés via le Répertoire actif Azure. Pour obtenir des conseils sur la configuration d’un principe de sécurité et d’une demande, consultez ce billet de blog [Azure REST API with poster (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). L’exemple précédent a été testé à l’aide des instructions et de la collection de publications fournies dans le billet de blog.
+> Les appels de l’API REST de gestion sont authentifiés via le Répertoire actif Azure. Pour obtenir des conseils sur la configuration d’un principe de sécurité et d’une demande, consultez ce billet de blog [API REST Azure avec Billet (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). L’exemple précédent a été testé à l’aide des instructions et de la collection de Billets fournies dans le billet de blog.
 
 ---
 
@@ -139,7 +139,7 @@ Si vous utilisez le billet ou un autre outil de test Web, consultez le Conseil c
 
 Les rôles peuvent être attribués à l'aide de l'une des [approches prises](../role-based-access-control/role-assignments-steps.md) en charge décrites dans la documentation sur le contrôle d'accès basé sur les rôles d'Azure.
 
-Vous devez être un **Propriétaire** ou avoir des autorisations[Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) pour gérer les attributions de rôles.
+Vous devez être un **Propriétaire** ou avoir des autorisations [Microsoft.Authorization/roleAssignments/write](/azure/templates/microsoft.authorization/roleassignments) pour gérer les attributions de rôles.
 
 ### <a name="azure-portal"></a>[**Portail Azure**](#tab/roles-portal)
 
@@ -293,4 +293,20 @@ Vous ne pouvez pas combiner les étapes 1 et 2. À l’étape 1, « disableLoca
 Pour réactiver l’authentification de la clé, réexécutez la dernière demande, en affectant la valeur false à « disableLocalAuth ». Le service de recherche recommencera à accepter automatiquement les clés API sur la requête (en supposant qu'elles soient spécifiées).
 
 > [!TIP]
-> Les appels de l’API REST de gestion sont authentifiés via le Répertoire actif Azure. Pour obtenir des conseils sur la configuration d’un principe de sécurité et d’une demande, consultez ce billet de blog [Azure REST API with poster (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). L’exemple précédent a été testé à l’aide des instructions et de la collection de publications fournies dans le billet de blog.
+> Les appels de l’API REST de gestion sont authentifiés via le Répertoire actif Azure. Pour obtenir des conseils sur la configuration d’un principe de sécurité et d’une demande, consultez ce billet de blog [API REST Azure avec Billet (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). L’exemple précédent a été testé à l’aide des instructions et de la collection de Billets fournies dans le billet de blog.
+
+## <a name="conditional-access"></a>Accès conditionnel
+
+L’[accès conditionnel](../active-directory/conditional-access/overview.md) est l’outil utilisé par Azure Active Directory pour appliquer des stratégies organisationnelles. En utilisant des stratégies d’accès conditionnel, vous pouvez appliquer les contrôles d’accès nécessaires pour garantir la sécurité de votre organisation. Lors de l’accès à un service Recherche cognitive Azure à l’aide du contrôle d’accès en fonction du rôle, l’accès conditionnel peut appliquer des stratégies organisationnelles.
+
+Pour activer une stratégie d’accès conditionnel pour Recherche cognitive Azure, procédez comme suit :
+1. [Connectez-vous](https://portal.azure.com) au portail Azure.
+1. Recherchez **Accès conditionnel Azure AD**.
+1. Sélectionnez **Stratégies**.
+1. Sélectionnez **+ Nouvelle stratégie**.
+1. Dans la section **Applications cloud ou actions** de la stratégie, ajoutez **Recherche cognitive Azure** en tant qu’application cloud selon la manière dont vous souhaitez configurer votre stratégie.
+1. Mettez à jour les paramètres restants de la stratégie. Par exemple, spécifiez les utilisateurs et les groupes auxquels cette stratégie s’applique. 
+1. Enregistrez la stratégie.
+
+> [!IMPORTANT]
+> Si une identité managée est attribuée à votre service de recherche, celui-ci apparaîtra comme une application cloud qui peut être incluse ou exclue dans le cadre de la stratégie d’accès conditionnel. Les stratégies d’accès conditionnel ne peuvent pas être appliquées à un service de recherche spécifique. Veillez plutôt à sélectionner l’application cloud générale **Recherche cognitive Azure**.

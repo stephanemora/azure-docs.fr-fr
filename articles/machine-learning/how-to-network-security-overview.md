@@ -8,15 +8,15 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 09/24/2021
+ms.date: 09/29/2021
 ms.topic: how-to
 ms.custom: devx-track-python, references_regions, contperf-fy21q1,contperf-fy21q4,FY21Q4-aml-seo-hack, security
-ms.openlocfilehash: 1d1389b5627f18c8772a55300a89dca9d0de4917
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: c478744bc960a90d8d84d3e51bd1cd9d8bb3719e
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129423516"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657870"
 ---
 <!-- # Virtual network isolation and privacy overview -->
 # <a name="secure-azure-machine-learning-workspace-resources-using-virtual-networks-vnets"></a>Sécuriser les ressources d’espace de travail Azure Machine Learning à l’aide de réseaux virtuels
@@ -78,7 +78,7 @@ Utilisez la procédure ci-dessous pour sécuriser votre espace de travail et les
     | Service | Informations sur le point de terminaison | Autoriser les informations approuvées |
     | ----- | ----- | ----- |
     | __Azure Key Vault__| [Point de terminaison de service](../key-vault/general/overview-vnet-service-endpoints.md)</br>[Point de terminaison privé](../key-vault/general/private-link-service.md) | [Autoriser les services Microsoft approuvés à contourner ce pare-feu](how-to-secure-workspace-vnet.md#secure-azure-key-vault) |
-    | __Compte Stockage Azure__ | [Service et point de terminaison privé](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Point de terminaison privé](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Accorder l’accès aux services Azure approuvés](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
+    | __Compte Stockage Azure__ | [Service et point de terminaison privé](how-to-secure-workspace-vnet.md?tabs=se#secure-azure-storage-accounts)</br>[Point de terminaison privé](how-to-secure-workspace-vnet.md?tabs=pe#secure-azure-storage-accounts) | [Accorder l’accès à partir d’instances de ressource Azure](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview)</br>**or**</br>[Accorder l’accès aux services Azure approuvés](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services) |
     | __Azure Container Registry__ | [Point de terminaison privé](../container-registry/container-registry-private-link.md) | [Autoriser les services approuvés](../container-registry/allow-access-trusted-services.md) |
 
 

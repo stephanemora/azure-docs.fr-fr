@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
-ms.openlocfilehash: 24872e96333aeb67661c462e54acebc62b32c8aa
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: e71f6b6dde1ae12a68f425dcb372cca73456de73
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455415"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858123"
 ---
 # <a name="startstop-vms-v2-preview-overview"></a>Vue d’ensemble de la fonctionnalité Start/Stop VMs v2 (préversion)
 
@@ -45,14 +45,20 @@ Les fonctions de déclencheur basées sur la file d’attente sont requises pour
 
  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) permet de configurer et de gérer les planifications de démarrage et d’arrêt de la machine virtuelle en appelant la fonction à l’aide d’une charge utile JSON. Par défaut, pendant le déploiement initial, il crée un total de cinq applications logiques pour les scénarios suivants :
 
-- Planification : les actions de démarrage et d’arrêt sont basées sur une planification que vous spécifiez sur les machines virtuelles Azure Resource Manager et classiques. **ststv2_vms_Scheduled_start** et **ststv2_vms_Scheduled_stop** configurent le démarrage et l’arrêt planifiés.
+- **Planification** : Les actions de démarrage et d’arrêt sont basées sur une planification que vous spécifiez sur les machines virtuelles Azure Resource Manager et classiques. **ststv2_vms_Scheduled_start** et **ststv2_vms_Scheduled_stop** configurent le démarrage et l’arrêt planifiés.
 
-- Séquençage : les actions de démarrage et d’arrêt sont basées sur une planification ciblant les machines virtuelles avec des balises de séquençage prédéfinies. Seules deux balises nommées sont prises en charge : **sequencestart** et **sequencestop**. **ststv2_vms_Sequenced_start** et **ststv2_vms_Sequenced_stop** configurent le démarrage et l’arrêt séquencés.
+- **Séquençage** : Les actions de démarrage et d’arrêt sont basées sur une planification ciblant les machines virtuelles avec des balises de séquencement prédéfinies. Seules deux balises nommées sont prises en charge : **sequencestart** et **sequencestop**. **ststv2_vms_Sequenced_start** et **ststv2_vms_Sequenced_stop** configurent le démarrage et l’arrêt séquencés. 
+
+    La façon correcte d’utiliser la fonctionnalité de séquence est de créer une balise nommée **sequencestart** sur chaque machine virtuelle que vous souhaitez démarrer dans une séquence. La valeur de balise doit être un entier compris entre 1 et N pour chaque machine virtuelle dans l’étendue respective. La balise est facultative et, si elle n’est pas présente, la machine virtuelle ne participera tout simplement pas au séquencement. Le même critère s’applique à l’arrêt des machines virtuelles, seul le nom de la balise est différent : utilisez **sequencestop** dans ce cas. Vous devez configurer les deux balises dans chaque machine virtuelle pour obtenir une action de démarrage et d’arrêt.
+
+    Par exemple, le tableau suivant montre la manière dont deux machines virtuelles avec des séquences opposées finissent par s’exécuter dans le même ordre :
+
+    :::image type="content" source="media/overview/sequence-settings-table.png" alt-text="Tableau illustrant des exemples de balises de paramètres de séquence":::
 
     > [!NOTE]
     > Ce scénario ne prend en charge que les machines virtuelles Azure Resource Manager.
 
-- Autostop : cette fonctionnalité est utilisée uniquement pour effectuer une action d’arrêt sur les machines virtuelles Azure Resource Manager et classiques en fonction de leur utilisation de l’UC. Il peut également s’agir d’une *action* basée sur une planification, qui crée des alertes sur les machines virtuelles et, sur la base de la condition, l’alerte est déclenchée pour exécuter l’action d’arrêt. **ststv2_vms_AutoStop** configure la fonctionnalité d’arrêt automatique.
+- **Autostop** : Cette fonctionnalité est utilisée uniquement pour effectuer une action d’arrêt sur les machines virtuelles Azure Resource Manager et classiques en fonction de leur utilisation de l’UC. Il peut également s’agir d’une *action* basée sur une planification, qui crée des alertes sur les machines virtuelles et, sur la base de la condition, l’alerte est déclenchée pour exécuter l’action d’arrêt. **ststv2_vms_AutoStop** configure la fonctionnalité d’arrêt automatique.
 
 Chaque action de démarrage/d’arrêt prend en charge l’affectation d’un ou de plusieurs abonnements, groupes de ressources ou d’une liste de machines virtuelles.
 

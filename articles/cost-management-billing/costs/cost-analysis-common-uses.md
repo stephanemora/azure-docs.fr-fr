@@ -1,23 +1,23 @@
 ---
 title: Usages courants de l’analyse des coûts dans Azure Cost Management
-description: Cet article explique comment obtenir des résultats des tâches courantes d’analyse des coûts dans Azure Cost Management.
+description: Cet article explique comment obtenir des résultats des tâches courantes d’analyse des coûts dans Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: e17a30f5210f77c8fcabdeaf6b719814025b87fa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0fa5eba77727676f21a7b45848171859395b00f0
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599845"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706000"
 ---
 # <a name="common-cost-analysis-uses"></a>Usages courants de l’analyse des coûts
 
-Souvent, les utilisateurs d’Azure Cost Management souhaitent obtenir des réponses aux questions que beaucoup d’autres se posent. Cet article vous explique, pas à pas, comment obtenir des résultats des tâches courantes d’analyse des coûts dans Cost Management.
+Souvent, les utilisateurs de Cost Management souhaitent obtenir des réponses aux questions que beaucoup d’autres se posent. Cet article vous explique, pas à pas, comment obtenir des résultats des tâches courantes d’analyse des coûts dans Cost Management.
 
 ## <a name="view-forecasted-costs"></a>Afficher les coûts prévus
 

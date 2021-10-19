@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.date: 07/08/2021
-ms.openlocfilehash: b66f76d80d3dad6b24eefa6fb7bbd88cfce082e0
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: d86abb52b5282c70e99abc68da75c4b5f85ecbb8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360032"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129712073"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Environnements organisés Azure Machine Learning
 
@@ -34,7 +34,7 @@ Cet article dresse la liste des environnements organisés dans Azure Machine Lea
 Le Dockerfile suivant peut être personnalisé en fonction de vos workflows personnels.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/pytorch-1.9
 
@@ -89,7 +89,7 @@ Autres environnements PyTorch disponibles :
 Le Dockerfile suivant peut être personnalisé en fonction de vos workflows personnels.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/lightgbm
 
@@ -132,7 +132,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 Le Dockerfile suivant peut être personnalisé en fonction de vos workflows personnels.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/sklearn-0.24.1
 
@@ -169,7 +169,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 Le Dockerfile suivant peut être personnalisé en fonction de vos workflows personnels.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20210922.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211005.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/tensorflow-2.4
 
@@ -211,55 +211,14 @@ Les workflows de formation du pipeline Azure ML qui utilisent AutoML sélectionn
 | --- | --- | --- |
 |AzureML-AutoML | UC | Non |
 |AzureML-AutoML-DNN | UC | Oui |
-| AzureML-AutoML-GPU | GPU | Non |
-| AzureML-AutoML-DNN-GPU | GPU | Oui |
+| AzureML-AutoML-GPU | GPU | No |
+| AzureML-AutoML-DNN-GPU | GPU | Yes |
 
 Pour plus d’informations sur AutoML et sur les pipelines Azure ML, consultez [Utiliser le ML automatisé dans un pipeline Azure Machine Learning dans Python](how-to-use-automlstep-in-pipelines.md).
 
-## <a name="inference-only-curated-environments-and-prebuilt-docker-images"></a>Environnements organisés d’inférence uniquement et images Docker prédéfinies
+## <a name="inference-curated-environments-and-prebuilt-docker-images"></a>Environnements organisés d’inférence et images Docker prédéfinies
 
-* Toutes les images Docker s’exécutent en tant qu’utilisateur non racine.
-* Nous vous recommandons d’utiliser la balise `latest` pour les images docker. Les images docker prédéfinies pour l’inférence sont publiées dans le registre de conteneur Microsoft (MCR). Pour interroger la liste des balises disponibles, suivez les [instructions sur leur référentiel GitHub](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content).
-
-### <a name="tensorflow"></a>TensorFlow
-
-Version du framework | UC/GPU | Packages préinstallés | Chemin MCR | Environnement organisé
- --- | --- | --- | --- | --- |
- 1.15 | Processeur | pandas==0.25.1 </br> numpy=1.20.1 | `mcr.microsoft.com/azureml/tensorflow-1.15-ubuntu18.04-py37-cpu-inference:latest`  | AzureML-tensorflow-1.15-ubuntu18.04-py37-cpu-inference | 
-2.4 | Processeur | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cpu-inference |
-2.4 | GPU | numpy >= 1.16.0 </br> pandas~=1.1.x </br> CUDA==11.0.3 </br> CuDNN==8.0.5.39 | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference |
-
-### <a name="pytorch"></a>PyTorch
-
-Version du framework | UC/GPU | Packages préinstallés | Chemin MCR | Environnement organisé
- --- | --- | --- | --- | --- |
- 1.6 | Processeur | numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/pytorch-1.6-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.6-ubuntu18.04-py37-cpu-inference |
-1.7 | Processeur | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/pytorch-1.7-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.7-ubuntu18.04-py37-cpu-inference |
-
-### <a name="scikit-learn"></a>SciKit-Learn
-
-Version du framework | UC/GPU | Packages préinstallés | Chemin MCR | Environnement organisé
- --- | --- | --- | --- | --- |
-0.24.1  | Processeur | scikit-learn==0.24.1 </br> numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/sklearn-0.24.1-ubuntu18.04-py37-cpu-inference:latest` | AzureML-sklearn-0.24.1-ubuntu18.04-py37-cpu-inference |
-
-### <a name="onnx-runtime"></a>ONNX Runtime
-
-Version du framework | UC/GPU | Packages préinstallés | Chemin MCR | Environnement organisé
- --- | --- | --- | --- | --- |
-1.6 | Processeur | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/onnxruntime-1.6-ubuntu18.04-py37-cpu-inference:latest` |AzureML-onnxruntime-1.6-ubuntu18.04-py37-cpu-inference |
-
-### <a name="xgboost"></a>XGBoost
-
-Version du framework | UC/GPU | Packages préinstallés | Chemin MCR | Environnement organisé
- --- | --- | --- | --- | --- |
-0.9 | Processeur | scikit-learn==0.23.2 </br> numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/xgboost-0.9-ubuntu18.04-py37-cpu-inference:latest` | AzureML-xgboost-0.9-ubuntu18.04-py37-cpu-inference | 
-
-### <a name="no-framework"></a>Pas de framework
-
-Version du framework | UC/GPU | Packages préinstallés | Chemin MCR | Environnement organisé
- --- | --- | --- | --- | --- |
-N/D | Processeur | N/D | `mcr.microsoft.com/azureml/minimal-ubuntu18.04-py37-cpu-inference:latest` | AzureML-minimal-ubuntu18.04-py37-cpu-inference  |
-
+[!INCLUDE [list-of-inference-prebuilt-docker-images](../../includes/aml-inference-list-prebuilt-docker-images.md)]
 
 ## <a name="security"></a>Sécurité
 Des mises à jour de version pour les environnements pris en charge sont publiées toutes les deux semaines pour répondre aux vulnérabilités de moins de 30 jours. 

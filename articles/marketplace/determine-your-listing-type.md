@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 07/30/2021
-ms.openlocfilehash: 154cfa6f8fd413c1cef1a22143d7e4d357053760
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: f1f352c93fca84f26516811b0014f6fca549b1cd
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867011"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668805"
 ---
 # <a name="introduction-to-listing-options"></a>Présentation des options de référencement
 
@@ -24,19 +24,19 @@ Ce tableau présente les options de référencement disponibles pour chaque type
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Azure Application (application gérée) |   | &#10004; |   | &#10004; |
 | Azure Application (modèle de solution) |  |  |  | &#10004; |
-| Service de conseil |  |  | &#10004; |  |
 | Conteneur Azure |  |  |  | &#10004; |
+| Machine virtuelle Azure | &#10004; | &#10004; |  | &#10004; |
+| Service de conseil |  |  | &#10004; |  |
 | Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
 | Dynamics 365 Customer Engagement et Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
 | Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; | &#10004; |
 | Module IoT Edge |  |  |  | &#10004; |
 | Service managé |  |  |  | &#10004; |
 | Application Power BI |  |  |  | &#10004; |
-| Machine virtuelle Azure | &#10004; | &#10004; |  | &#10004; |
 | Software as a Service | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-&#42; L’option de référencement **Obtenir maintenant** inclut Obtenir maintenant (gratuit), BYOL (apportez votre propre licence), Abonnement et Tarification basée sur l’utilisation. Pour plus d’informations, consultez [Obtenir maintenant](#get-it-now).
+\* L’option de référencement **Obtenir maintenant** inclut Obtenir maintenant (gratuit), BYOL (apportez votre propre licence), Abonnement et Tarification basée sur l’utilisation. Pour plus d’informations, consultez [Obtenir maintenant](#get-it-now).
 
 ## <a name="change-the-offer-type"></a>Changer le type d’offre
 

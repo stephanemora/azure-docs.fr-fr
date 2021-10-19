@@ -5,20 +5,37 @@ description: Notes de publication pour Azure Data Science Virtual Machine
 author: michalmar
 ms.service: data-science-vm
 ms.author: mimarusa
-ms.date: 07/16/2021
+ms.date: 10/11/2021
 ms.topic: reference
-ms.openlocfilehash: e256382b4d1e397be6d11a3660a4c4fe73eafb23
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: c20d7e93bdf507db7c6ac43634c06c20c79b1786
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122778322"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811189"
 ---
 # <a name="azure-data-science-virtual-machine-release-notes"></a>Notes de publication Azure Data Science Virtual Machine
 
 Dans cet article, découvrez les versions d’Azure Data Science Virtual Machine. Pour obtenir la liste complète des outils inclus, ainsi que les numéros de version, consultez [cette page](./tools-included.md).
 
 Consultez la [liste des problèmes connus](reference-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
+
+## <a name="2021-10-07"></a>07-10-2021
+
+Nouvelle image pour [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+
+Version : 07-10-21
+
+Principaux changements :
+ - passage de pytorch à la version 1.9.1
+ - passage de Docker à la version 20.10.9
+ - passage d’Intellijidea à la version 2021.2.2
+ - passage de NodeJS à la version 14.18.0
+ - passage de Pycharm à la version 2021.2.2
+ - passage de VS Code à la version 1.60.2
+ - correction de l’environnement AutoML (azureml_py36_automl)
+ - correction de la stabilité de l’Explorateur Stockage Azure
+ - Amélioration de la stabilité et correction de bogues mineurs 
 
 
 ## <a name="2021-08-11"></a>2021-08-11

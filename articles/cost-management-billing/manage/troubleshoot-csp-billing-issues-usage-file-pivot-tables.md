@@ -7,21 +7,21 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 2532b02247a85d180d7b1cccd504838b83a8f93f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: de526c46a9aace4a6740b8b9afaab5cc23f3f87d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591840"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711106"
 ---
 # <a name="troubleshoot-csp-billing-issues-with-usage-file-pivot-tables"></a>Résoudre les problèmes de facturation CSP à l’aide de tableaux croisés dynamiques créés à partir de fichiers d’utilisation
 
 Cet article vous aide à résoudre les problèmes de facturation CSP à l’aide de tableaux croisés dynamiques que vous utilisez dans vos fichiers de rapprochement (utilisation) sur l’Espace partenaires. Les fichiers d’utilisation Azure contiennent toutes les informations relatives à l’utilisation et à la consommation Azure. Les informations contenues dans ces fichiers peuvent vous aider à :
 
 - Comprendre la façon dont les réservations Azure sont utilisées et appliquées
-- Rapprocher les informations présentées dans Azure Cost Management avec celles de votre facture
+- Rapprocher les informations présentées dans Cost Management avec votre facture
 - Gérer une flambée des coûts
 - Calculer le montant d’un remboursement pour un contrat de niveau de service
 
@@ -111,4 +111,4 @@ Le fichier contient les colonnes suivantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Bien démarrer avec Azure Cost Management pour les partenaires](../costs/get-started-partners.md)
+- [Bien démarrer avec Cost Management pour les partenaires](../costs/get-started-partners.md)

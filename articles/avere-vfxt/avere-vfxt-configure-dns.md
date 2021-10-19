@@ -4,14 +4,14 @@ description: Découvrez comment configurer un serveur DNS pour l’équilibrage 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/19/2019
+ms.date: 10/07/2021
 ms.author: rohogue
-ms.openlocfilehash: 81b53904f85e2ac936195b1e39d7586fd1d47524
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1567cbd90bcb97088e7527cf7cd76ce3895e958
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009022"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129668963"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuration d’un DNS pour le cluster Avere
 
@@ -35,42 +35,46 @@ Pour répartir la charge globale, configurez votre domaine DNS afin qu’il util
 
 ## <a name="configuration-details"></a>Détails de configuration
 
-Quand les clients accèdent au cluster, RRDNS répartit automatiquement leurs requêtes entre toutes les interfaces disponibles.
+Lorsque les clients accèdent au cluster, RRDNS (DNS tourniquet) répartit automatiquement leurs requêtes entre toutes les interfaces disponibles.
 
-Pour obtenir des performances optimales, configurez votre serveur DNS afin qu’il gère les adresses de cluster accessibles par les clients comme indiqué dans le diagramme suivant.
+Pour configurer ce système, vous devez personnaliser le fichier config du serveur DNS de façon à ce qu’il attribue le trafic parmi tous les points de montage du cluster vFXT lorsqu’il reçoit des requêtes de montage vers l’adresse de domaine principale du cluster. Les clients montent le cluster vFXT en utilisant son nom de domaine comme argument de serveur. Ils sont ensuite routés automatiquement vers l’adresse IP de montage suivante.
 
-Le diagramme présente un vserver de cluster à gauche, et des adresses IP au centre et à droite. Configurez chaque point d’accès client avec des enregistrements A et des pointeurs comme illustré ci-dessous.
+Il existe deux étapes principales pour configurer RRDNS :
 
-![Diagramme d’un DNS en tourniquet (round-robin) pour le cluster Avere](media/avere-vfxt-rrdns-diagram.png)
-<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+1. Modifiez le fichier ``named.conf`` de votre serveur DNS pour définir l’ordre cyclique des requêtes envoyées à votre cluster vFXT. Cette option amène le serveur à parcourir toutes les valeurs d’adresse IP disponibles. Ajoutez une instruction similaire à celle-ci :
 
-Chaque adresse IP accessible par un client doit avoir un nom unique, qui est utilisé en interne par le cluster. (Dans ce diagramme, les adresses IP clientes sont nommées vs1-client-IP-* pour plus de clarté, mais dans un environnement de production, vous devrez sans doute utiliser des noms plus courts, comme client*.)
+   ```bash
+   options {
+       rrset-order {
+           class IN A name "vfxt.contoso.com" order cyclic;
+       };
+   };
+   ```
 
-Les clients montent le cluster en utilisant le nom vserver comme argument serveur.
+1. Configurez des enregistrements A et des enregistrements de pointeur (PTR) pour chaque adresse IP disponible, comme dans l’exemple suivant.
 
-Modifiez le fichier ``named.conf`` de votre serveur DNS pour définir l’ordre cyclique des requêtes envoyées à vserver. Cette option garantit que toutes les valeurs disponibles sont utilisées de manière cyclique. Ajoutez une instruction similaire à celle-ci :
+   Ces commandes ``nsupdate`` fournissent un exemple de configuration correcte du DNS pour un cluster vFXT avec le nom de domaine vfxt.contoso.com et trois adresses de montage (10.0.0.10, 10.0.0.11 et 10.0.0.12) :
 
-```
-options {
-    rrset-order {
-        class IN A name "vserver1.example.com" order cyclic;
-    };
-};
-```
+   ```bash
+   update add vfxt.contoso.com. 86400 A 10.0.0.10
+   update add vfxt.contoso.com. 86400 A 10.0.0.11
+   update add vfxt.contoso.com. 86400 A 10.0.0.12
+   update add client-IP-10.contoso.com. 86400 A 10.0.0.10
+   update add client-IP-11.contoso.com. 86400 A 10.0.0.11
+   update add client-IP-12.contoso.com. 86400 A 10.0.0.12
+   update add 10.0.0.10.in-addr.arpa. 86400 PTR client-IP-10.contoso.com
+   update add 11.0.0.10.in-addr.arpa. 86400 PTR client-IP-11.contoso.com
+   update add 12.0.0.10.in-addr.arpa. 86400 PTR client-IP-12.contoso.com
+   ```
 
-Les commandes ``nsupdate`` suivantes sont un exemple de configuration correcte d’un système DNS :
+   Ces commandes créent un enregistrement A pour chacune des adresses de montage du cluster et configurent également des enregistrements de pointeur pour prendre en charge les vérifications de DNS inversé de manière appropriée.
 
-```
-update add vserver1.example.com. 86400 A 10.0.0.10
-update add vserver1.example.com. 86400 A 10.0.0.11
-update add vserver1.example.com. 86400 A 10.0.0.12
-update add vs1-client-IP-10.example.com. 86400 A 10.0.0.10
-update add vs1-client-IP-11.example.com. 86400 A 10.0.0.11
-update add vs1-client-IP-12.example.com. 86400 A 10.0.0.12
-update add 10.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-10.example.com
-update add 11.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-11.example.com
-update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
-```
+   Le diagramme ci-dessous illustre la structure de base de cette configuration.
+
+   :::image type="complex" source="media/round-robin-dns-diagram-vfxt.png" alt-text="Diagramme montrant la configuration DNS du point de montage client.":::
+   <Le diagramme montre les connexions entre trois catégories d’éléments : le nom de domaine unique du cluster vFXT (à gauche), trois adresses IP (colonne du milieu) et trois interfaces clientes inversées d’usage interne (colonne de droite). Sur la gauche, un ovale intitulé « vfxt.contoso.com » est connecté par des flèches pointant vers trois ovales étiquetés avec des adresses IP : 10.0.0.10, 10.0.0.11 et 10.0.0.12. Les flèches entre l’ovale vfxt.contoso.com et les trois ovales IP sont étiquetées « A ». Chacun des ovales de l’adresse IP est connecté par deux flèches à un ovale étiqueté comme une interface client : l’ovale avec l’adresse IP 10.0.0.10 est connecté à « client-IP-10.contoso.com », l’ovale avec l’adresse IP 10.0.0.11 est connecté à « client-IP-11.contoso.com » et l’ovale avec l’adresse IP 10.0.0.12 est connecté à « client-IP-11.contoso.com ». Les connexions entre les ovales de l’adresse IP et les ovales de l’interface client sont deux flèches : une flèche intitulée « PTR » qui pointe de l’ovale de l’adresse IP vers l’ovale de l’interface client et une flèche intitulée « A » qui pointe de l’ovale de l’interface client vers l’ovale de l’adresse IP.> :::image-end:::
+
+Une fois le système RRDNS configuré, demandez à vos ordinateurs clients de l’utiliser pour résoudre l’adresse du cluster dans leurs commandes de montage.
 
 ## <a name="cluster-dns-settings"></a>Paramètres du DNS du cluster
 

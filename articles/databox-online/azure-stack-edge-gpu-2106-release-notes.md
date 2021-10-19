@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 07/19/2021
 ms.author: alkohli
-ms.openlocfilehash: 81c6f9eb55a44be49cfdbde5e171ce431f4f3cfd
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f536ac07a15b0b17405cf83233b2fbfba4193d25
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114481439"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714085"
 ---
 # <a name="azure-stack-edge-2106-release-notes"></a>Notes de publication d’Azure Stack Edge 2106
 
@@ -79,7 +79,7 @@ Le tableau suivant fournit un résumé des problèmes connus déjà présents da
 |**6.**|Connexion de partage NFS|Si plusieurs processus copient vers le même partage et que l’attribut `nolock` n’est pas utilisé, des erreurs peuvent apparaître en cours de copie.|L’attribut `nolock` doit être passé à la commande mount pour copier des fichiers vers le partage NFS. Par exemple : `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
 |**7.**|Cluster Kubernetes|Lorsque vous appliquez une mise à jour sur votre appareil exécutant un cluster Kubernetes, les machines virtuelles Kubernetes redémarrent. Dans ce cas, seuls les pods déployés avec des réplicas spécifiés sont automatiquement restaurés après une mise à jour.  |Si vous avez créé des pods individuels en dehors d’un contrôleur de réplication sans spécifier de jeu de réplicas, ces pods ne seront pas restaurés automatiquement après la mise à jour de l’appareil. Vous devrez les restaurer.<br>Un jeu de réplicas remplace des pods supprimés ou arrêtés pour une raison quelconque, par exemple un échec de nœud ou une mise à niveau de nœud perturbatrice. Pour cette raison, nous vous recommandons d’utiliser un jeu de réplicas, même si votre application ne requiert qu’un seul pod.|
 |**8.**|Cluster Kubernetes|Kubernetes sur Azure Stack Edge Pro est pris en charge uniquement avec Helm v3 ou ultérieur. Pour plus d’informations, consultez le [Forum Aux Questions : Suppression de Tiller](https://v3.helm.sh/docs/faq/).|
-|**9.**|Kubernetes avec Azure Arc |Pour la disponibilité générale, Kubernetes activé par Azure Arc est mis à jour de la version 0.1.18 vers la version 0.2.9. Étant donné que la mise à jour de Kubernetes activé par Azure Arc n’est pas pris en charge sur un appareil Azure Stack Edge, vous devez redéployer Kubernetes activé par Azure Arc.|Effectuez les étapes suivantes :<ol><li>[Appliquez les mises à jour logicielles de l’appareil et de Kubernetes](azure-stack-edge-gpu-install-update.md).</li><li>Connectez-vous à l’[interface PowerShell de l’appareil](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>Supprimez l’agent Azure Arc existant. Entrez : `Remove-HcsKubernetesAzureArcAgent`.</li><li>Déployez [Azure Arc sur une nouvelle ressource](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). N’utilisez pas de ressource Azure Arc existante.</li></ol>|
+|**9.**|Kubernetes avec Azure Arc |Pour la disponibilité générale, Kubernetes avec Azure Arc est mis à jour de la version 0.1.18 vers la version 0.2.9. Étant donné que la mise à jour de Kubernetes avec Azure Arc n’est pas prise en charge sur un appareil Azure Stack Edge, vous devez redéployer Kubernetes avec Azure Arc.|Effectuez les étapes suivantes :<ol><li>[Appliquez les mises à jour logicielles de l’appareil et de Kubernetes](azure-stack-edge-gpu-install-update.md).</li><li>Connectez-vous à l’[interface PowerShell de l’appareil](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>Supprimez l’agent Azure Arc existant. Entrez : `Remove-HcsKubernetesAzureArcAgent`.</li><li>Déployez [Azure Arc sur une nouvelle ressource](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). N’utilisez pas de ressource Azure Arc existante.</li></ol>|
 |**10.**|Kubernetes avec Azure Arc|Les déploiements d’Azure Arc ne sont pas pris en charge si un proxy web est configuré sur votre appareil Azure Stack Edge Pro.||
 |**11.**|Kubernetes |Le port 31000 est réservé au tableau de bord Kubernetes. Le port 31001 est réservé au registre de conteneurs Edge. De même, dans la configuration par défaut, les adresses IP 172.28.0.1 et 172.28.0.10 sont réservées respectivement pour le service Kubernetes et le service DNS de base.|N’utilisez pas d’adresses IP réservées.|
 |**12.**|Kubernetes |Kubernetes n’autorise pas actuellement les services LoadBalancer multiprotocoles. Par exemple, un service DNS devant écouter à la fois les protocoles TCP et UDP. |Pour contourner cette limitation de Kubernetes avec MetalLB, deux services (un pour TCP, un pour UDP) peuvent être créés sur le même sélecteur de pod. Ces services utilisent la même clé de partage et spec.loadBalancerIP pour partager la même adresse IP. Des adresses IP peuvent également être partagées si vous avez plus de services qu’il n’y d’adresses IP disponibles. <br> Pour plus d’informations, voir [Partage d’adresse IP](https://metallb.universe.tf/usage/#ip-address-sharing).|

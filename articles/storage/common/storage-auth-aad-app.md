@@ -1,23 +1,23 @@
 ---
-title: Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente
+title: Autoriser l’accès à des données de blob ou de file d’attente à partir d’une application native ou web
 titleSuffix: Azure Storage
 description: Utilisez Azure Active Directory pour vous authentifier à partir d’une application client, acquérir un jeton OAuth 2.0 et autoriser les requêtes de Stockage Blob et File d’attente Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 10/11/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 746d908065523651f9147a721531514d1a0f84c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0eb9c51f112af25356023ea0483440cea1831e3e
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673271"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856446"
 ---
-# <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente
+# <a name="authorize-access-to-blob-or-queue-data-from-a-native-or-web-application"></a>Autoriser l’accès à des données de blob ou de file d’attente à partir d’une application native ou web
 
 Le principal avantage d’utiliser Azure Active Directory (Azure AD) avec le Stockage Blob ou File d’attente Azure est que vos informations d’identification n’ont plus besoin d’être stockées dans votre code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 auprès de la plateforme d’identité Microsoft. Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne le jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers le Stockage Blob ou File d’attente Azure.
 
@@ -294,4 +294,4 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 - [Plateforme d’identité Microsoft](../../active-directory/develop/index.yml)
 - [Attribuer un rôle Azure pour l’accès aux données d’objet blob](../blobs/assign-azure-role-data-access.md)
-- [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md) (Authentifier l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure)
+- [Autoriser l’accès aux données de blob avec des identités managées pour les ressources Azure](../blobs/authorize-managed-identity.md)

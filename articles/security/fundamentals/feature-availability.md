@@ -6,12 +6,12 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 3f2559ca573ed9fedf5a15fce454cf406f8f6b0b
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 918743544aeaf60932f14d1d1eed609775b29efd
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210741"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129710553"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilité des fonctionnalités cloud pour les clients du secteur public américain
 
@@ -107,7 +107,7 @@ Le tableau suivant présente la disponibilité actuelle des fonctionnalités Sec
 
 <sup><a name="footnote3" /></a>3</sup> Requiert Azure Defender pour les registres de conteneurs.
 
-<sup><a name="footnote4" /></a>4</sup> Partiellement GA : la prise en charge des clusters avec Arc est disponible en préversion publique et pas sur Azure Government.
+<sup><a name="footnote4" /></a>4</sup> Partiellement GA : la prise en charge des clusters avec Azure Arc est en préversion publique et n’est pas disponible sur Azure Government.
 
 <sup><a name="footnote5" /></a>5</sup> Requiert Azure Defender pour Kubernetes.
 
@@ -304,23 +304,36 @@ Le tableau suivant présente la disponibilité actuelle des fonctionnalités Azu
 | [Inventaire et détection des appareils locaux](../../defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md) | GA | GA |
 | [Gestion des vulnérabilités](../../defender-for-iot/how-to-create-risk-assessment-reports.md) | GA | GA |
 | [Détection des menaces avec IoT et analyse comportementale OT](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
-| [Mises à jour automatiques de Threat Intelligence](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
+| [Mises à jour manuelles et automatiques de Threat Intelligence](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
 | **Unifier la sécurité OT et IT avec SIEM, SOAR et XDR** |  |  |
-| - [Transférer les informations d’alerte](../../defender-for-iot/how-to-forward-alert-information-to-partners.md) | GA | GA |
-| - [Configurer Sentinel avec Azure Defender pour IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Préversion publique | Non disponible |
-| - [Systèmes SOC](../../defender-for-iot/integration-splunk.md) | GA | GA |
-| - [Système de tickets et CMDB (Service Now)](../../defender-for-iot/integration-servicenow.md) | GA | GA |
-| - [Provisionnement de capteur](../../defender-for-iot/how-to-manage-sensors-on-the-cloud.md) | GA | GA |
+| [Active Directory](../../defender-for-iot/organizations/how-to-create-and-manage-users.md#integrate-with-active-directory-servers) | GA | GA |
+| [ArcSight](../../defender-for-iot/organizations/how-to-accelerate-alert-incident-response.md#accelerate-incident-workflows-by-using-alert-groups) | GA | GA |
+| [ClearPass (alertes et inventaire)](../../defender-for-iot/organizations/how-to-install-software.md#attach-a-span-virtual-interface-to-the-virtual-switch) | GA | GA |
+| [CyberArk PSM](../../defender-for-iot/organizations/concept-key-concepts.md#integrations) | GA | GA |
+| [E-mail](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
+| [FortiGate](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
+| [FortiSIEM](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
+| [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | Version préliminaire publique | Version préliminaire publique |
+| [NetWitness](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
+| [Palo Alto NGFW](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
+| [Palo Alto Panorama](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
+| [ServiceNow (alertes et inventaire)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
+| [Analyse SNMP MIB](../../defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring.md) | GA | GA |
+| [Splunk](../../defender-for-iot/organizations/tutorial-splunk.md) | GA | GA |
+| [Serveur SYSLOG (format CEF)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [Serveur SYSLOG (format LEEF)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [Serveur SYSLOG (objet)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [Serveur SYSLOG (SMS)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
+| [Rappel web (webhook)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
 
 ### <a name="for-device-builders"></a>Pour les fabricants d’appareils
 
 | Fonctionnalité | Azure | Azure Government |
 |--|--|--|
 | [Micro-agent pour Azure RTOS](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
-| - [Configurer Sentinel avec Azure Defender pour IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | Non disponible |
+| [Configurer Sentinel avec Azure Defender pour IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Version préliminaire publique | Version préliminaire publique |
 | **Micro-agent autonome pour Linux** |  |  |
-| - [Vue d’ensemble du micro-agent autonome](../../defender-for-iot/concept-standalone-micro-agent-overview.md) | Version préliminaire publique | Version préliminaire publique |
-| - [Installation du fichier binaire de l’agent autonome](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Version préliminaire publique | Version préliminaire publique |
+| [Installation du fichier binaire de l’agent autonome](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Version préliminaire publique | Version préliminaire publique |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,16 +9,16 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 4f657e742165bdb87e1cc1c021966dc2e5473e81
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d64d0bead5df1aa8b91ae39a79c1255eaac51f27
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128647730"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706174"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gérer le coût et l’utilisation d’AWS dans Azure
 
-Après avoir configuré l’intégration du rapport sur le coût et l’utilisation d’AWS pour Azure Cost Management, vous pouvez gérer votre coût et utilisation d’AWS. Cet article explique comment utiliser les fonctionnalités d’analyse des budgets et des coûts dans Cost Management pour gérer le coût et votre utilisation d’AWS.
+Après avoir configuré l’intégration du rapport sur les coûts et l’utilisation d’AWS pour Cost Management, vous pouvez gérer vos coûts et votre utilisation d’AWS. Cet article explique comment utiliser les fonctionnalités d’analyse des budgets et des coûts dans Cost Management pour gérer le coût et votre utilisation d’AWS.
 
 Si vous n’avez pas déjà configuré l’intégration, consultez [Configurer l’intégration du rapport d’utilisation d’AWS](aws-integration-set-up-configure.md).
 
@@ -151,7 +151,7 @@ Cette erreur signifie que Cost Management ne peut pas appeler l’API AssumeRole
 
 **Code d’erreur :** _AccessDeniedReportDefinitions_
 
-Cette erreur signifie que Cost Management ne peut pas voir les définitions de rapport d’utilisation et de coût. Cette autorisation est utilisée pour valider le fait que le rapport d’utilisation et de coût est défini comme prévu par Azure Cost Management. Consultez [Créer un rapport sur les coûts et l’utilisation dans AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+Cette erreur signifie que Cost Management ne peut pas voir les définitions de rapport d’utilisation et de coût. Cette autorisation est utilisée pour valider le fait que le rapport d’utilisation et de coût est défini comme prévu par Cost Management. Consultez [Créer un rapport sur les coûts et l’utilisation dans AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
 
 ### <a name="collection-failed-with-access-denied---list-reports"></a>Échec de la collecte avec l’erreur Accès refusé - Lister les rapports
 

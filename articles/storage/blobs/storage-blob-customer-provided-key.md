@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c3096da8b3c83dbfe8cfdd6a5fa4d177241334de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6f7001b9eabd34774930378d0656b4ad7ef3c25
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97693513"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857794"
 ---
 # <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Spécifier une clé fournie par le client sur une demande au stockage d’objets blob avec .NET
 
@@ -29,7 +29,7 @@ Pour savoir comment s’authentifier avec la bibliothèque de client Azure Ident
 
 ## <a name="use-a-customer-provided-key-to-write-to-a-blob"></a>Utilisation d’une clé fournie par le client pour écrire dans un objet blob
 
-Dans l’exemple suivant est fournie une clé AES-256 lors du chargement d’un objet blob avec la bibliothèque de client v12 pour le Stockage Blob. Ici, c’est l’objet [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) qui est utilisé pour autoriser la demande d’écriture auprès d’Azure AD, mais il est également possible de se servir à cet effet des informations d’identification de la clé partagée.
+Dans l’exemple suivant est fournie une clé AES-256 lors du chargement d’un objet blob avec la bibliothèque de client v12 pour le Stockage Blob. Ici, c’est l’objet [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) qui est utilisé pour autoriser la demande d’écriture auprès d’Azure AD, mais il est également possible de se servir à cet effet des informations d’identification de la clé partagée. Pour plus d’informations sur l’utilisation de la classe DefaultAzureCredential pour autoriser une identité managée à accéder à Stockage Azure, consultez [Bibliothèque de client d’identité Azure pour .NET](/dotnet/api/overview/azure/identity-readme).
 
 ```csharp
 async static Task UploadBlobWithClientKey(Uri blobUri,

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/10/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 8cc39325f8c993afb6901e9700376fc73ecbefe7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 81032760fa559cbdbae6382084e7a2d2e629d989
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602856"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659390"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device"></a>Installer et provisionner Azure IoT Edge pour Linux sur un appareil Windows
 
@@ -81,9 +81,9 @@ Azure IoT Edge pour Linux sur Windows prend en charge les méthodes d’approvis
 
   * Choisissez la méthode d’authentification que vous souhaitez utiliser, puis suivez la procédure de l’article correspondant pour configurer une instance DPS et créer une inscription permettant de provisionner votre ou vos appareils. Pour plus d’informations sur les types d’inscription, consultez l’article [Concepts du service Azure IoT Hub Device Provisioning](../iot-dps/concepts-service.md#enrollment).
 
-    * [Provisionnement d’un appareil IoT Edge avec le Service DPS et des clés symétriques](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
-    * [Provisionnement d’un appareil IoT Edge avec le Service DPS et des certificats X.509](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
-    * [Provisionnement d’un appareil IoT Edge avec le Service DPS et une attestation TPM](how-to-auto-provision-tpm-linux-on-windows.md)
+    * [Provisionnement d’un appareil IoT Edge avec le Service DPS et des clés symétriques](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md).
+    * [Provisionnement d’un appareil IoT Edge avec le Service DPS et des certificats X.509](how-to-provision-devices-at-scale-linux-on-windows-x509.md).
+    * [Provisionnement d’un appareil IoT Edge avec le Service DPS et une attestation TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
 
 ## <a name="create-a-new-deployment"></a>Créer un déploiement
 
@@ -242,7 +242,7 @@ Vous pouvez utiliser Windows Admin Center ou une session PowerShell avec éléva
 
   * [Provisionnement automatique avec le Service Device Provisioning (DPS) et des clés symétriques](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md#configure-the-device-with-provisioning-information)
   * [Provisionnement automatique avec le Service DPS et des certificats X.509](how-to-provision-devices-at-scale-linux-on-windows-x509.md#configure-the-device-with-provisioning-information)
-  * [Provisionnement automatique avec le Service DPS et une attestation TPM](how-to-auto-provision-tpm-linux-on-windows.md#configure-the-device-with-provisioning-information)
+  * [Provisionnement automatique avec le Service DPS et une attestation TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md#configure-the-device-with-provisioning-information)
 
 ### <a name="manual-provisioning-using-the-connection-string"></a>Provisionnement manuel avec la chaîne de connexion
 

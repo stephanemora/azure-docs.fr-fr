@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: c5232d9ed3e7ab7caec6134e4c5d3e553e2b543c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 0c5321625f9963a15527d8fb0edef73f0701bd6e
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818411"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129856382"
 ---
 # <a name="dcsv2-series"></a>série DCsv2
 
@@ -22,7 +22,9 @@ Les machines virtuelles de la série DCsv2 permettent de protéger la confident
 
 Ces machines sont associées à des processeurs Intel® Xeon E-2288G (Coffee Lake) à 3,7 GHz avec la technologie SGX. Grâce à la technologie Intel® Turbo Boost Max 3.0, ces machines peuvent atteindre jusqu’à 5 GHz. 
 
-Les exemples de cas d’usage incluent le partage de données pluripartites confidentielles, la détection des fraudes, les bases de données confidentielles, la lutte contre le blanchiment d’argent, la blockchain, l’analyse de l’utilisation confidentielle, l’analyse décisionnelle et le Machine Learning confidentiel.
+[!NOTE] L’hyperthreading est désactivé pour plus de sécurité. La tarification est basée sur les performances supérieures des cœurs physiques par rapport aux vCores, ainsi que sur les capacités de sécurité uniques de la série DC.
+
+Exemples de cas d’usage confidentiels : bases de données, blockchain, analyse de données multipartites, détection des fraudes, lutte contre le blanchiment d’argent, analyse de l’utilisation, analyse décisionnelle et apprentissage automatique.
 
 ## <a name="configuration"></a>Configuration
 
@@ -38,7 +40,7 @@ Les exemples de cas d’usage incluent le partage de données pluripartites conf
 
 ## <a name="technical-specifications"></a>Spécifications techniques
 
-| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) | Mémoire EPC (Mio) |
+| Taille             | Cœurs physiques | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) | Mémoire EPC (Mio) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
 | Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
 | Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |
@@ -51,7 +53,6 @@ Les exemples de cas d’usage incluent le partage de données pluripartites conf
 - Créer des machines virtuelles DCsv2 à l’aide du [Portail Azure](./linux/quick-create-portal.md) ou de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 - Les machines virtuelles de la série DCsv2 sont des [machines virtuelles de 2e génération](./generation-2.md#creating-a-generation-2-vm) et ne prennent en charge que les images `Gen2`.
 - Actuellement disponibles dans les régions listées sur la page [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
-- Nouvelle génération de machines virtuelles de la série DC : [rejoignez le programme de préversion](https://aka.ms/intelgen3)
 
 ## <a name="more-sizes-and-information"></a>Autres tailles et informations
 

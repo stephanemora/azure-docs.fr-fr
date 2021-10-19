@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: dc89bfcd3d89e6987c2c8b742f5fe2453c273fc7
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8aac6f90880775c5a1d7002048c79257b4e5ab85
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532578"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129855894"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features"></a>Accès de l’indexeur au contenu protégé par les fonctionnalités de sécurité réseau Azure
 
@@ -76,7 +76,7 @@ Recherche cognitive Azure détermine l’environnement le plus adapté à l’ex
 Si la ressource à laquelle votre indexeur tente d’accéder est limitée à un certain nombre de plages d’adresses IP, vous devez développer l’ensemble pour inclure les plages d’adresses IP à partir desquelles une demande d’indexeur peut provenir. Comme indiqué ci-dessus, il existe deux environnements possibles dans lesquels les indexeurs s’exécutent et à partir desquels les demandes d’accès peuvent provenir. Vous devez ajouter les adresses IP des **deux environnements** pour permettre le bon fonctionnement de l’indexeur.
 
 - Pour obtenir l’adresse IP de l’environnement privé spécifique du service de recherche, `nslookup` (ou `ping`) le nom de domaine complet (FQDN) de votre service de recherche. Par exemple, le nom de domaine complet d’un service de recherche dans le cloud public peut être `<service-name>.search.windows.net`. Ces informations sont disponibles sur le portail Azure.
-- Les adresses IP des environnements multilocataires sont disponibles via la balise de service `AzureCognitiveSearch`. Les [balises de service Azure](../virtual-network/service-tags-overview.md) disposent d’une plage d’adresses IP publiée pour chaque service, ce qui est possible via une [API de détection (préversion)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) ou un [fichier JSON téléchargeable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Dans les deux cas, les plages d’adresses IP sont décomposées par région. Vous pouvez choisir uniquement les plages d’adresses IP attribuées à la région dans laquelle votre service de recherche est approvisionné.
+- Les adresses IP des environnements multilocataires sont disponibles via la balise de service `AzureCognitiveSearch`. Les [étiquettes de service Azure](../virtual-network/service-tags-overview.md) disposent d’une plage publiée d’adresses IP pour chaque service, ce qui est possible via une [API de détection](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) ou un [fichier JSON téléchargeable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Dans les deux cas, les plages d’adresses IP sont décomposées par région. Vous pouvez choisir uniquement les plages d’adresses IP attribuées à la région dans laquelle votre service de recherche est approvisionné.
 
 Pour certaines sources de données, la balise de service elle-même peut être utilisée directement plutôt que d’énumérer la liste de plages d’adresses IP (l’adresse IP du service de recherche doit toujours être utilisée explicitement). Ces sources de données restreignent l’accès au moyen de la configuration d’une [règle de groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md), qui prend en charge l’ajout d’une étiquette de service en mode natif, à la différence des règles IP telles que celles proposées par Stockage Azure, Cosmos DB, Azure SQL, etc. Les sources de données qui prennent en charge l’utilisation de l’étiquette de service `AzureCognitiveSearch` directement en plus des adresses IP du service de recherche sont les suivantes :
 

@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 10/11/2021
 ms.author: banders
-ms.openlocfilehash: 41a4f22e669300e24ddce0248e8ab1744b773202
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 741efbce1f8578ca425059b2b04b64d9892112cb
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113301921"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857597"
 ---
 # <a name="track-your-microsoft-azure-consumption-commitment-macc"></a>Suivre votre Engagement de consommation Microsoft Azure (MACC)
 
-L’offre Engagement de consommation Microsoft Azure (MACC) est un engagement contractuel que votre organisation peut avoir souscrit pour des dépenses relatives à Microsoft Azure au fil du temps. Si votre organisation a un MACC pour un compte de facturation Contrat client Microsoft (MCA), vous pouvez vérifier des aspects importants de votre engagement, notamment les dates de début et de fin, l’engagement restant et les dépenses admissibles dans le portail Azure ou via les API REST. Les comptes de facturation MACC ou CTC pour Contrat Entreprise (EA) ne sont pas encore disponibles sur le portail Azure ou via les API REST.
+L’offre Engagement de consommation Microsoft Azure (MACC) est un engagement contractuel que votre organisation peut avoir souscrit pour des dépenses relatives à Microsoft Azure au fil du temps. Si votre organisation a un MACC pour un compte de facturation Contrat client Microsoft (MCA) ou Contrat Entreprise (EA), vous pouvez vérifier des aspects importants de votre engagement, notamment les dates de début et de fin, l’engagement restant et les dépenses admissibles dans le portail Azure ou via les API REST.
 
 ## <a name="track-your-macc-commitment"></a>Suivre votre engagement MACC
 
@@ -27,13 +27,16 @@ L’offre Engagement de consommation Microsoft Azure (MACC) est un engagement co
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Recherchez **Gestion des coûts + facturation**.  
     :::image type="content" source="./media/track-consumption-commitment/billing-search-cost-management-billing.png" alt-text="Capture d’écran montrant la recherche de Cost Management and Billing dans le portail." lightbox="./media/track-consumption-commitment/billing-search-cost-management-billing.png" :::
-3. Dans la page des étendues de facturation, sélectionnez le compte de facturation pour lequel vous souhaitez suivre l’engagement. Le compte de facturation doit être de type **Contrat client Microsoft**.  
+3. Dans la page des étendues de facturation, sélectionnez le compte de facturation pour lequel vous souhaitez suivre l’engagement. Le type de compte de facturation doit être **Contrat client Microsoft** pour les clients Contrat client Microsoft (MCA) ou **Contrat Entreprise** pour les clients EA.   
     :::image type="content" source="./media/track-consumption-commitment/list-of-scopes.png" alt-text="Capture d’écran montrant les étendues de facturation." lightbox="./media/track-consumption-commitment/list-of-scopes.png" :::
     > [!NOTE]
      > Le portail Azure mémorise la dernière étendue de facturation à laquelle vous accédez et affiche l’étendue la prochaine fois que vous revenez à la page Gestion des coûts + facturation. Vous ne verrez pas la page des étendues de facturation si vous avez déjà consulté Gestion des coûts + facturation. Si c’est le cas, vérifiez que vous êtes dans l’[étendue appropriée](#check-access-to-a-microsoft-customer-agreement). Si ce n’est pas le cas, [changez d’étendue](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) pour sélectionner le compte de facturation d’un Contrat client Microsoft.
-4. Sélectionnez **Propriétés** dans la partie gauche, puis sélectionnez **Engagement de consommation Microsoft Azure (MACC)** .  
-    :::image type="content" source="./media/track-consumption-commitment/select-macc-tab.png" alt-text="Capture d’écran qui montre la sélection de l’onglet MACC." lightbox="./media/track-consumption-commitment/select-macc-tab.png" :::
-5. L’onglet Engagement de consommation Microsoft Azure (MACC) comporte les sections suivantes.
+4. En fonction de votre type de contrat, effectuez l’une des actions suivantes :
+    - Pour les clients (MCA), sélectionnez **Propriétés** dans la partie gauche, puis sélectionnez **Engagement de consommation Microsoft Azure (MACC)** .  
+        :::image type="content" source="./media/track-consumption-commitment/select-macc-tab.png" alt-text="Capture d’écran montrant la sélection de l’onglet MACC pour MCA." lightbox="./media/track-consumption-commitment/select-macc-tab.png" :::
+    - Pour les clients EA, sélectionnez **Crédits + engagements** dans le menu de navigation gauche, puis sélectionnez **Engagement de consommation Microsoft Azure (MACC)** .  
+        :::image type="content" source="./media/track-consumption-commitment/select-macc-tab-ea.png" alt-text="Capture d’écran montrant la sélection de l’onglet MACC pour EA." lightbox="./media/track-consumption-commitment/select-macc-tab-ea.png" :::
+1. L’onglet Engagement de consommation Microsoft Azure (MACC) comporte les sections suivantes.
 
 #### <a name="remaining-commitment"></a>Engagement restant 
 
@@ -73,7 +76,7 @@ La section Événements affiche les événements (dépenses facturées) qui ont 
 |---|---|
 | Date | Date à laquelle l’événement s’est produit |
 | Description | Description de l’événement |
-| Profil de facturation | Profil de facturation pour lequel l’événement s’est produit |
+| Profil de facturation | Profil de facturation pour lequel l’événement s’est produit. Le profil de facturation s’applique uniquement aux Contrats client Microsoft. Si vous avez une inscription EA, le profil de facturation n’est pas affiché. |
 | Décrémentation MACC | Montant de la décrémentation MACC à partir de l’événement |
 | Engagement restant | Engagement MACC restant après l’événement |
 
@@ -81,7 +84,7 @@ La section Événements affiche les événements (dépenses facturées) qui ont 
 
 Vous pouvez utiliser les API [Facturation Azure](/rest/api/billing/) et [Consommation](/rest/api/consumption/) pour obtenir programmatiquement Engagement de consommation Microsoft Azure (MACC) de votre compte de facturation.
 
-Les exemples ci-dessous utilisent les API REST. Actuellement, PowerShell et Azure CLI ne sont pas pris en charge.
+Les exemples ci-dessous utilisent les API REST. Actuellement, PowerShell et Azure CLI ne sont pas pris en charge. L’exemple de sortie concerne les Contrats client Microsoft ; la sortie pour les Contrats Entreprise sera donc différente.
 
 ### <a name="find-billing-accounts-you-have-access-to"></a>Rechercher les comptes de facturation auxquels vous avez accès
 

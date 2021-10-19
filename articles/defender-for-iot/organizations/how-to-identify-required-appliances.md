@@ -3,16 +3,16 @@ title: Identifier les appareils nécessaires
 description: En savoir plus sur les appliances matérielles et virtuelles pour les capteurs certifiés Defender pour IoT et la console de gestion locale.
 ms.date: 06/21/2021
 ms.topic: how-to
-ms.openlocfilehash: b22f1dc81aee7ee20f4490d716b1e2af953b4553
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: c124ccd69257b9a0b7a57c53b6fa6b0817d95fb6
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113017311"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754346"
 ---
 # <a name="identify-required-appliances"></a>Identifier les appareils nécessaires
 
-Cet article fournit des informations sur les appliances de détection certifiées Defender pour IoT. Defender pour IoT peut être déployée sur des appliances physiques et virtuelles.
+Cet article fournit des informations sur les appliances de détection certifiées Defender pour IoT. La solution Defender pour IoT peut être déployée sur des appliances physiques et virtuelles.
 
 Cela comprend des appliances *préconfigurées* certifiées, sur lesquelles les logiciels sont déjà installés, et des appliances certifiées non configurées sur lesquelles vous pouvez télécharger et installer les logiciels requis.
 
@@ -40,7 +40,7 @@ Cette section fournit une vue d’ensemble des modèles de capteur physique disp
 | Modèle | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | Ports de surveillance | jusqu’à 15 RJ45 ou 8 OPT | jusqu’à 8 RJ45 ou 6 OPT | jusqu’à 4 RJ45 | jusqu’à 5 RJ45 |
 | Bande passante maximum[1](#anchortext) | 3 Go/s | 1 Go/s | 200 Mo/s | 100 Mo/s |
-| Nombre maximal d’appareils protégés | 30,000 | 15,000 | 1 000 | 800 |
+| Nombre maximal d’appareils protégés | 10 000 | 10 000 | 1 000 | 800 |
 
 Pour plus d’informations sur le fournisseur, consultez [Spécifications des appliances](#appliance-specifications).
 
@@ -54,12 +54,12 @@ Pour plus d’informations sur le fournisseur, consultez [Spécifications des ap
 
 ### <a name="virtual-sensors"></a>Capteurs virtuels
 
-Cette section fournit une vue d’ensemble des capteurs virtuels qui sont disponibles.
+Cette section décrit les capteurs virtuels qui sont disponibles.
 
 | Type de déploiement | Entreprise | Enterprise | SMB |
 |--|--|--|--|
 | Bande passante maximum | 2,5 Go/s | 800 Mo/s | 160 Mo/s |
-| Nombre maximal d’appareils protégés | 30,000 | 10 000 | 800 |
+| Nombre maximal d’appareils protégés | 10 000 | 10 000 | 800 |
 
 ## <a name="on-premises-management-console-appliance"></a>Appliance de console de gestion locale
 

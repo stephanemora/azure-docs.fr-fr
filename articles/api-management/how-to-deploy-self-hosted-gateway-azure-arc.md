@@ -6,18 +6,18 @@ ms.author: danlep
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
-ms.openlocfilehash: bfcb6e738c480281361d544c4aa7a8dd355d92de
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ee2b0fc20111fddd55a987bef4d454d5b63b8e4e
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590700"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708480"
 ---
 # <a name="deploy-an-azure-api-management-gateway-on-azure-arc-preview"></a>Déployer une passerelle de gestion des API Azure sur Azure Arc (préversion)
 
 Avec l’intégration entre la Gestion des API Azure et [Azure Arc sur Kubernetes](../azure-arc/kubernetes/overview.md), vous pouvez déployer le composant de passerelle Gestion des API en tant qu’[extension dans un cluster Kubernetes avec Azure Arc](../azure-arc/kubernetes/extensions.md). 
 
-Le déploiement de la passerelle Gestion des API sur un cluster Kubernetes avec Arc étend la prise en charge de la gestion des API aux environnements hybrides et à plusieurs clouds. Activez le déploiement à l’aide d’une extension de cluster pour assurer la cohérence de la gestion et de l’application des stratégies à votre cluster avec Arc.
+Le déploiement de la passerelle Gestion des API sur un cluster Kubernetes avec Azure Arc étend la prise en charge de la gestion des API aux environnements hybrides et à plusieurs clouds. Activez le déploiement à l’aide d’une extension de cluster pour assurer la cohérence de la gestion et de l’application des stratégies à votre cluster avec Azure Arc.
 
 [!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-azure-arc.md)]
 

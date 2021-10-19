@@ -7,13 +7,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 08/06/2021
-ms.openlocfilehash: f930c52c4b913e9411c6f619231fb50d0bb6cc5c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/11/2021
+ms.openlocfilehash: 2412673dd71c6fbe6a1f070451db24d748694a8d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531897"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811130"
 ---
 # <a name="configure-export-policy-for-nfs-or-dual-protocol-volumes"></a>Configurer la stratégie d’exportation pour les volumes NFS ou à deux protocoles
 
@@ -44,7 +44,7 @@ Vous pouvez créer jusqu’à cinq règles de stratégie d’exportation.
 
       ![Options de sécurité Kerberos](../media/azure-netapp-files/kerberos-security-options.png) 
 
-    * **Accès racine** : Spécifiez si le compte `root` peut accéder au volume.  Par défaut, l’accès racine est défini sur **Activé** et le compte `root` a accès au volume.
+    * **Accès racine** : Spécifiez si le compte `root` peut accéder au volume.  Par défaut, l’accès racine est défini sur **Activé** et le compte `root` a accès au volume.  Cette option n’est pas disponible pour les volumes Kerberos NFS v4.1.
 
       ![Exporter la stratégie](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

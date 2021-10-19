@@ -12,17 +12,17 @@ ms.author: datrigan
 ms.reviewer: vanto, sstein
 ms.date: 06/09/2021
 tags: azure-synapse
-ms.openlocfilehash: c3b2d31a2351e90be2a30b146dd12d02b90ac16b
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: d6e613c02a4261523992411ce9122ca3518af35d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112236370"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708333"
 ---
 # <a name="sql-advanced-threat-protection"></a>SQL Advanced Threat Protection
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)] :::image type="icon" source="../media/applies-to/yes.png" border="false":::SQL Server sur une machine virtuelle :::image type="icon" source="../media/applies-to/yes.png" border="false":::SQL Server avec Azure Arc
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)] :::image type="icon" source="../media/applies-to/yes.png" border="false":::SQL Server sur machine virtuelle Azure :::image type="icon" source="../media/applies-to/yes.png" border="false":::SQL Server avec Azure Arc
 
-Advanced Threat Protection pour [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), [SQL Server sur les machines virtuelles Azure](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) et [SQL Server avec Azure Arc](/sql/sql-server/azure-arc/overview) détecte les activités anormales révélant des tentatives inhabituelles et potentiellement dangereuses d’accès ou d’exploitation des bases de données.
+La Protection avancée contre les menaces pour [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md), [SQL Server sur Machines virtuelles Azure](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) et [SQL Server avec Azure Arc](/sql/sql-server/azure-arc/overview) détecte les activités anormales révélant des tentatives inhabituelles et potentiellement dangereuses d’accès à des bases de données ou d’exploit.
 
 Advanced Threat Protection fait partie de l’offre [Azure Defender pour SQL](../../security-center/defender-for-sql-introduction.md). Il s’agit d’un package unifié pour les fonctionnalités de sécurité SQL avancées. Advanced Threat Protection est accessible et peut être géré par le biais du portail Azure Defender pour SQL central.
 

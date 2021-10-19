@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 10/13/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e609268258142875ebbe924f3cfbdebc94911f8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 115876aab202c550d694267294345b5472ad1f2a
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128601715"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811728"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gérer l’indexation dans l’API pour MongoDB d’Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -361,13 +361,13 @@ Lorsque vous supprimez des index et que vous exécutez immédiatement des requê
 
 ## <a name="reindex-command"></a>Commande ReIndex
 
-La commande `reIndex` recrée tous les index d’une collection. Dans la plupart des cas, c’est inutile. Toutefois, dans de rares cas, les performances des requêtes peuvent s’améliorer après l’exécution de la commande `reIndex`.
+La commande `reIndex` recrée tous les index d’une collection. Dans certains cas rares, l’exécution de la commande `reIndex` peut résoudre des problèmes de performances des requêtes ou d’autres problèmes d’index dans votre collection. Si vous rencontrez des problèmes d’indexation, il est recommandé de recréer les index à l’aide de la commande `reIndex`. 
 
 Vous pouvez exécuter la commande `reIndex` à l’aide de la syntaxe suivante :
 
 `db.runCommand({ reIndex: <collection> })`
 
-Vous pouvez utiliser la syntaxe ci-dessous pour vérifier si vous devez exécuter la commande `reIndex` :
+Vous pouvez utiliser la syntaxe ci-dessous pour vérifier si l’exécution de la commande `reIndex` améliore les performances des requêtes dans votre collection :
 
 `db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
 
@@ -402,7 +402,7 @@ Exemple de sortie :
 }
 ```
 
-Si `reIndex` est nécessaire, **requiresReIndex** prend la valeur True. Si `reIndex` n’est pas nécessaire, cette propriété est omise.
+Si `reIndex` permet d’améliorer les performances des requêtes, **requiresReIndex** a la valeur true. Si `reIndex` n’améliore pas les performances des requêtes, cette propriété est omise.
 
 ## <a name="migrate-collections-with-indexes"></a>Migrer des collections avec des index
 
@@ -440,4 +440,4 @@ Si vous souhaitez créer un index générique, [effectuez une mise à niveau ver
 * Pour en savoir plus sur la relation entre le partitionnement et l’indexation, consultez le guide pratique pour [interroger un conteneur Azure Cosmos](../how-to-query-container.md).
 * Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
     * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
-    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
+    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)

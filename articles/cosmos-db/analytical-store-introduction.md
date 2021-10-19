@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: b2501631c8ccdb6c61d4f31e9179a7e94c2276cb
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 09b5d7c1865020ba33a89e73b2ba39260f473e6a
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210399"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129859339"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Qu’est-ce que le magasin analytique Azure Cosmos DB ?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -180,19 +180,21 @@ df = spark.read\
 
 ### <a name="schema-representation"></a>Représentation du schéma
 
-Il existe deux modes de représentation de schéma dans le magasin analytique. Ces modes définissent la méthode de représentation de schéma pour tous les conteneurs dans le compte de base de données. Ils présentent des compromis entre la simplicité de l’expérience de requête et la commodité d’une représentation en colonnes plus inclusive pour les schémas polymorphes.
+Il existe deux types de représentation de schéma dans le magasin analytique. Ces types définissent la méthode de représentation de schéma pour tous les conteneurs dans le compte de base de données. Ils présentent des compromis entre la simplicité de l’expérience de requête et la commodité d’une représentation en colonnes plus inclusive pour les schémas polymorphes.
 
 * Représentation de schéma bien définie, option par défaut pour les comptes d’API SQL (Core). 
 * Représentation de schéma de fidélité optimale, option par défaut pour les comptes d’API Azure Cosmos DB pour MongoDB.
 
-Il est possible d’utiliser le schéma de fidélité optimale pour les comptes d’API SQL (Core). Les considérations relatives à cette éventualité sont les suivantes :
+#### <a name="full-fidelity-schema-for-sql-api-accounts"></a>Schéma de fidélité optimale pour les comptes API SQL
 
- * Cette option n’est valide que pour les comptes pour lesquels la fonctionnalité Synapse Link n’est pas activée.
- * Il n’est pas possible de désactiver, puis réactiver la fonctionnalité Synapse Link afin de réinitialiser l’option par défaut et passer d’une représentation de schéma bien définie à une représentation de fidélité optimale.
- * Aucun autre processus ne permet de passer d’une représentation de schéma bien définie à une représentation de fidélité optimale.
- * Les comptes MongoDB ne sont pas compatibles avec cette possibilité de modifier la méthode de représentation.
- * Actuellement, il n’est pas possible de prendre cette décision via le portail Azure.
- * La décision relative à cette option doit être prise au moment de l’activation de la fonctionnalité Synapse Link sur le compte :
+Il est possible d’utiliser un schéma de fidélité optimale pour les comptes API SQL (Core), au lieu de l’option par défaut, en définissant le type de schéma lors de la première activation de Synapse Link sur un compte Cosmos DB. Voici les considérations relatives à la modification du type de représentation de schéma par défaut :
+
+ * Cette option n’est valide que pour les comptes pour lesquels la fonctionnalité Synapse Link n’est **pas** déjà activée.
+ * Il n’est pas possible de réinitialiser le type de représentation du schéma d’une précision bien définie à une fidélité optimale ou inversement.
+ * Actuellement, les comptes Azure Cosmos DB API pour MongoDB ne sont pas compatibles avec cette possibilité de modifier la représentation du schéma. Tous les comptes MongoDB auront toujours le type de représentation de schéma de fidélité optimale.
+ * Actuellement, cette modification n’est pas possible via le portail Azure. Tous les comptes de base de données pour lesquels Synapse Link est activé par le portail Azure auront le type de représentation de schéma par défaut : schéma bien défini.
+ 
+Le type de représentation du schéma doit être choisi en même temps que l’activation de Synapse Link sur le compte, à l’aide d’Azure CLI ou de PowerShell.
  
  Avec Azure CLI :
  ```cli

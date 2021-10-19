@@ -4,15 +4,15 @@ description: Découvrez les récentes mises à jour d’Azure Database pour MySQ
 author: hjtoland3
 ms.service: mysql
 ms.author: jtoland
-ms.custom: mvc
+ms.custom: mvc, references_regions
 ms.topic: conceptual
 ms.date: 09/29/2021
-ms.openlocfilehash: 377c9fc994c4d26b67791e3eb525c7fba75a9d78
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 4a74fb34eb750924f9d8c08225edd10a5a220084
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388885"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129657851"
 ---
 # <a name="whats-new-in-azure-database-for-mysql---flexible-server-preview"></a>Nouveautés Azure Database pour MySQL - Serveur flexible (préversion)
 
@@ -21,10 +21,12 @@ ms.locfileid: "129388885"
 [Azure Database pour MySQL - Serveur flexible](./overview.md#azure-database-for-mysql---flexible-server-preview) est un mode de déploiement qui est conçu pour offrir un contrôle et une flexibilité plus granulaires des fonctions de gestion de base de données et des paramètres de configuration que le mode de déploiement Serveur unique. Le service prend actuellement en charge les versions de la communauté de MySQL 5.7 et 8.0.
 
 Cet article résume les nouvelles versions et fonctionnalités d’Azure Database pour MySQL - Serveur flexible à compter de janvier 2021. Les éléments s’affichent dans l’ordre chronologique inverse, avec les mises à jour les plus récentes en premier.
+
 ## <a name="october-2021"></a>Octobre 2021
+
 - **Zones de disponibilité - Sélection lors de la création de réplicas en lecture**
 
-    Lorsque vous créez un réplica en lecture, vous avez la possibilité de sélectionner l’emplacement Zones de disponibilité de votre choix. Une zone de disponibilité est une offre à haute disponibilité qui protège vos applications et vos données contre les défaillances des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. [En savoir plus](../flexible-server/concepts-read-replicas.md)
+    Lorsque vous créez un réplica en lecture, vous avez la possibilité de sélectionner l’emplacement Zones de disponibilité de votre choix. Une zone de disponibilité est une offre à haute disponibilité qui protège vos applications et vos données contre les défaillances des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. [Plus d’informations](../flexible-server/concepts-read-replicas.md)
 
 - **Réplicas en lecture dans Azure Database pour MySQL - Les serveurs flexibles ne seront plus disponibles sur les références (SKU) de type burstable**
     
@@ -32,7 +34,11 @@ Cet article résume les nouvelles versions et fonctionnalités d’Azure Databas
 
     Si vous disposez d’un serveur flexible Azure Database pour MySQL avec un réplica en lecture activé, vous devez mettre à l’échelle votre serveur vers les niveaux tarifaires Usage général ou À mémoire optimisée ou supprimer le réplica en lecture dans un délai de 60 jours. Après la période de 60 jours, vous pouvez continuer à utiliser le serveur principal pour vos opérations de lecture-écriture, mais la réplication pour les serveurs de réplica en lecture sera arrêtée. Pour les serveurs nouvellement créés, l’option de réplica en lecture est disponible uniquement pour les niveaux de tarification Usage général et À mémoire optimisée.  
 
+ - **Supervision d’Azure Database pour MySQL – Serveur flexible avec classeurs Azure Monitor**
  
+     Azure Database pour MySQL – Serveur flexible désormais intégré dans les classeurs Azure Monitor. Les classeurs fournissent un canevas flexible pour l’analyse des données et la création de rapports visuels enrichis au sein du portail Azure. Avec cette intégration, le serveur dispose d’un lien vers des classeurs et de quelques exemples de modèles, qui permettent de surveiller le service à grande échelle. Vous pouvez modifier ces modèles, les adapter aux besoins du client et les épingler au tableau de bord pour créer une vue ciblée et organisée des ressources Azure. Les modèles [Query Performance Insight](./tutorial-query-performance-insights.md), [Audit](./tutorial-configure-audit.md) et Vue d’ensemble de l’instance sont actuellement disponibles. [Plus d’informations](./concepts-workbooks.md)
+
+- **Acompte pour les ressources de calcul Azure Database pour MySQL avec des instances réservées** Azure Database pour MySQL - Serveur flexible vous permet désormais de réaliser des économies en payant un acompte pour les ressources de calcul par rapport aux tarifs du paiement à l’utilisation. Avec des instances réservées Azure Database pour MySQL, vous prenez un engagement initial pour le serveur MySQL, sur une période d’un ou de trois ans, afin de bénéficier d’une remise importante sur les coûts de calcul. Vous pouvez également échanger une réservation d’Azure Database pour MySQL - Serveur unique avec un serveur flexible. [Plus d’informations](../concept-reserved-pricing.md)
 
 ## <a name="september-2021"></a>Septembre 2021
 
@@ -40,21 +46,21 @@ Cette version d’Azure Database pour MySQL - Serveur flexible inclut les mises 
 
 - **Disponibilité dans trois régions Azure supplémentaires**
 
-  La préversion publique d’Azure Database pour MySQL - Serveur flexible est maintenant disponible dans les régions Azure suivantes :
+   La préversion publique d’Azure Database pour MySQL - Serveur flexible est maintenant disponible dans les régions Azure suivantes :
 
-  - Ouest du Royaume-Uni
-  - Est du Canada
-  - OuJapon Est
+   - Ouest du Royaume-Uni
+   - Est du Canada
+   - OuJapon Est
 
 - **Résolution des bogues**
 
-  La création d’une haute disponibilité de zone identique est résolue dans les régions suivantes :
+   La création d’une haute disponibilité de zone identique est résolue dans les régions suivantes :
 
-  - Inde centrale
-  - Asie Est
-  - Centre de la Corée
-  - Afrique du Sud Nord
-  - Suisse Nord
+   - Inde centrale
+   - Asie Est
+   - Centre de la Corée
+   - Afrique du Sud Nord
+   - Suisse Nord
 
 ## <a name="august-2021"></a>Août 2021
 
@@ -86,19 +92,21 @@ Cette version d’Azure Database pour MySQL - Serveur flexible inclut les mises 
 
 - **Disponibilité dans quatre régions Azure supplémentaires**
 
-  La préversion publique d’Azure Database pour MySQL - Serveur flexible est maintenant disponible dans les régions Azure suivantes [En savoir plus](overview.md#azure-regions) :
+   La préversion publique d’Azure Database pour MySQL - Serveur flexible est maintenant disponible dans les régions Azure suivantes :
 
-  - Sud-Australie Est
-  - Afrique du Sud Nord
-  - Asie Est (Hong Kong, R.A.S.)
-  - Inde Centre
+   - Sud-Australie Est
+   - Afrique du Sud Nord
+   - Asie Est (Hong Kong, R.A.S.)
+   - Inde centrale
 
-- **Problème connu**
+   [Plus d’informations](overview.md#azure-regions)
 
-  - Juste après le basculement du serveur à haute disponibilité redondant interzone, les clients ne parviennent pas à se connecter au serveur si SSL est utilisé avec le ssl_mode VERIFY_IDENTITY. Ce problème peut être atténué en utilisant le ssl_mode VERIFY_CA.
-  - Impossible de créer un serveur à haute disponibilité dans la même zone dans les régions suivantes : Inde Centre, Asie Est, Corée Centre, Afrique du Sud Nord, Suisse Nord.
-  - Dans un scénario rare et après un basculement à haute disponibilité, le serveur principal est en mode read_only. Résolvez le problème en mettant à jour la valeur « read_only » du panneau des paramètres du serveur sur OFF (Désactivé).
-  - Après avoir correctement mis à l’échelle le calcul dans le panneau Calcul + stockage, les E/S par seconde sont réinitialisées à la référence SKU par défaut. Les clients peuvent contourner le problème en restaurant les E/S par seconde dans le panneau Calcul + stockage à la valeur souhaitée (précédemment définie) après le déploiement du calcul et la réinitialisation des E/S par seconde qui en résulte.
+- **Problèmes connus**
+
+   - Juste après le basculement du serveur à haute disponibilité redondant interzone, les clients ne parviennent pas à se connecter au serveur si SSL est utilisé avec le ssl_mode VERIFY_IDENTITY. Ce problème peut être atténué en utilisant le ssl_mode VERIFY_CA.
+   - Impossible de créer un serveur à haute disponibilité dans la même zone dans les régions suivantes : Inde Centre, Asie Est, Corée Centre, Afrique du Sud Nord, Suisse Nord.
+   - Dans un scénario rare et après un basculement à haute disponibilité, le serveur principal est en mode read_only. Résolvez le problème en mettant à jour la valeur « read_only » du panneau des paramètres du serveur sur OFF (Désactivé).
+   - Après avoir correctement mis à l’échelle le calcul dans le panneau Calcul + stockage, les E/S par seconde sont réinitialisées à la référence SKU par défaut. Les clients peuvent contourner le problème en restaurant les E/S par seconde dans le panneau Calcul + stockage à la valeur souhaitée (précédemment définie) après le déploiement du calcul et la réinitialisation des E/S par seconde qui en résulte.
 
 ## <a name="july-2021"></a>Juillet 2021
 
@@ -145,9 +153,9 @@ Cette version d’Azure Database pour MySQL - Serveur flexible inclut les mises 
 
   Cette version inclut des correctifs pour les problèmes connus liés au basculement forcé afin de s’assurer que les paramètres du serveur et les modifications d’IOPS supplémentaires sont conservés entre les basculements.
 
-- **Problème connu**
+- **Problèmes connus**
 
-  - La tentative d’exécution d’une opération de scale-up ou de scale-down du calcul sur un serveur existant avec moins de 20 Go de stockage provisionné ne s’effectue pas correctement. Résolvez le problème en mettant à l’échelle le stockage provisionné à 20 Go et en réessayant l’opération de mise à l’échelle du calcul.
+   - La tentative d’exécution d’une opération de scale-up ou de scale-down du calcul sur un serveur existant avec moins de 20 Go de stockage provisionné ne s’effectue pas correctement. Résolvez le problème en mettant à l’échelle le stockage provisionné à 20 Go et en réessayant l’opération de mise à l’échelle du calcul.
 
 ## <a name="may-2021"></a>Mai 2021
 
@@ -167,9 +175,9 @@ Cette version d’Azure Database pour MySQL - Serveur flexible inclut les mises 
 
 - **Problèmes connus**
 
-  - Les modifications d’IOPs supplémentaires ne sont pas prises en compte dans les serveurs à haute disponibilité redondants interzone. Les clients peuvent contourner le problème en désactivant la haute disponibilité, en mettant à l’échelle les IOPS et en réactivant la haute disponibilité redondante interzone.
-  - Après le basculement forcé, la zone de disponibilité de secours est reflétée de manière incorrecte dans le portail. (Aucune solution de contournement)
-  - Les modifications apportées aux paramètres du serveur ne sont pas prises en compte dans le serveur à haute disponibilité après le basculement forcé. (Aucune solution de contournement)
+   - Les modifications d’IOPs supplémentaires ne sont pas prises en compte dans les serveurs à haute disponibilité redondants interzone. Les clients peuvent contourner le problème en désactivant la haute disponibilité, en mettant à l’échelle les IOPS et en réactivant la haute disponibilité redondante interzone.
+   - Après le basculement forcé, la zone de disponibilité de secours est reflétée de manière incorrecte dans le portail. (Aucune solution de contournement)
+   - Les modifications apportées aux paramètres du serveur ne sont pas prises en compte dans le serveur à haute disponibilité après le basculement forcé. (Aucune solution de contournement)
 
 ## <a name="april-2021"></a>Avril 2021
 
@@ -209,8 +217,8 @@ Cette version d’Azure Database pour MySQL - Serveur flexible inclut les mises 
 
 - **Problèmes connus**
 
-  - SSL/TLS 1.2 est appliqué et ne peut pas être désactivé. (Aucune solution de contournement)
-  - Il existe des échecs de provisionnement intermittents pour les serveurs provisionnés dans un réseau virtuel. La solution de contournement consiste à réessayer le provisionnement du serveur jusqu’à ce qu’il aboutisse.
+   - SSL/TLS 1.2 est appliqué et ne peut pas être désactivé. (Aucune solution de contournement)
+   - Il existe des échecs de provisionnement intermittents pour les serveurs provisionnés dans un réseau virtuel. La solution de contournement consiste à réessayer le provisionnement du serveur jusqu’à ce qu’il aboutisse.
 
 ## <a name="february-2021"></a>Février 2021
 
@@ -230,7 +238,7 @@ Cette version d’Azure Database pour MySQL - Serveur flexible inclut les mises 
 
 - **Jusqu’à 10 réplicas de lecture pour MySQL - Serveur flexible**
 
-  L’offre Serveur flexible prend maintenant en charge la réplication asynchrone des données d’un serveur de base de données Azure pour MySQL (la « source ») jusqu’à 10 serveurs de base de données Azure pour MySQL (les « réplicas ») dans la même région. Cette fonctionnalité permet de mettre à l’échelle les charges de travail nécessitant beaucoup de lectures et de les équilibrer entre les différents serveurs de réplication en fonction des préférences de l’utilisateur. [Plus d’informations](concepts-read-replicas.md)
+  L’offre Serveur flexible prend maintenant en charge la réplication asynchrone des données d’un serveur Azure Database pour MySQL (la « source ») sur un maximum de 10 serveurs Azure Database pour MySQL (les « réplicas ») dans la même région. Cette fonctionnalité permet de mettre à l’échelle les charges de travail nécessitant beaucoup de lectures et de les équilibrer entre les différents serveurs de réplication en fonction des préférences de l’utilisateur. [Plus d’informations](concepts-read-replicas.md)
 
 ## <a name="contacts"></a>Contacts
 

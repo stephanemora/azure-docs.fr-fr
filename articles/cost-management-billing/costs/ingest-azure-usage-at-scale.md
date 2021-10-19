@@ -1,23 +1,23 @@
 ---
-title: Récupérer de volumineux jeux de données de coûts de façon récurrente avec des exportations
-description: Cet article vous aide à exporter régulièrement de grandes quantités de données à l’aide d’exportations à partir d’Azure Cost Management.
+title: Récupérer de volumineux jeux de données de coûts de façon récurrente avec des exportations à partir d’Azure Cost Management
+description: Cet article vous aide à exporter régulièrement de grandes quantités de données à l’aide d’exportations à partir de Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/08/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 465225341bdffc984ac6cbc82ba94eb656ad60df
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a27e64e7b5c94d033529c08ea02e757ba8857549
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509631"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705851"
 ---
 # <a name="retrieve-large-cost-datasets-recurringly-with-exports"></a>Récupérer de volumineux jeux de données de coûts de façon récurrente avec des exportations
 
-Cet article vous aide à exporter régulièrement de grandes quantités de données à l’aide d’exportations à partir d’Azure Cost Management. L’exportation est la méthode recommandée pour récupérer des données de coût non agrégées. En particulier, lorsque les fichiers d’utilisation sont trop volumineux pour un appel et un téléchargement fiables avec l’API Détails de l’utilisation. Les données exportées sont placées dans le compte de stockage Azure de votre choix. À partir de là, vous pouvez les charger dans vos propres systèmes, et les analyser en fonction des besoins. Pour configurer des exportations dans le portail Azure, consultez [Exporter des données](tutorial-export-acm-data.md).
+Cet article vous aide à exporter régulièrement de grandes quantités de données à l’aide d’exportations à partir de Cost Management. L’exportation est la méthode recommandée pour récupérer des données de coût non agrégées. En particulier, lorsque les fichiers d’utilisation sont trop volumineux pour un appel et un téléchargement fiables avec l’API Détails de l’utilisation. Les données exportées sont placées dans le compte de stockage Azure de votre choix. À partir de là, vous pouvez les charger dans vos propres systèmes, et les analyser en fonction des besoins. Pour configurer des exportations dans le portail Azure, consultez [Exporter des données](tutorial-export-acm-data.md).
 
 Si vous souhaitez automatiser les exportations sur différentes étendues, l’exemple de requête d’API de la section suivante constitue un bon point de départ. Vous pouvez utiliser l’API Exportations pour créer des exportations automatiques dans le cadre de la configuration générale de votre environnement. Les exportations automatiques permettent de vous assurer que vous disposez des données dont vous avez besoin. Vous pouvez vous en servir dans les propres systèmes de votre organisation, à mesure que vous développez votre utilisation d’Azure.
 
@@ -79,7 +79,7 @@ URL de requête : `PUT https://management.azure.com/{scope}/providers/Microsoft
 
 ## <a name="copy-large-azure-storage-blobs"></a>Copier des blobs de stockage Azure volumineux
 
-Vous pouvez utiliser Cost Management pour planifier l’exportation des détails de votre utilisation d’Azure vers vos comptes Azure Storage sous forme de blobs. La taille des blobs résultants peut dépasser les gigaoctets. L’équipe d’Azure Cost Management a collaboré avec l’équipe de Stockage Azure pour tester la copie de blocs de stockage Azure volumineux. Les résultats sont documentés dans les sections suivantes. Vous pouvez vous attendre à obtenir des résultats similaires lorsque vous copiez des blobs de stockage d’une région Azure à une autre.
+Vous pouvez utiliser Cost Management pour planifier l’exportation des détails de votre utilisation d’Azure vers vos comptes Azure Storage sous forme de blobs. La taille des blobs résultants peut dépasser les gigaoctets. L’équipe de Cost Management a collaboré avec l’équipe de Stockage Azure pour tester la copie de blocs de stockage Azure volumineux. Les résultats sont documentés dans les sections suivantes. Vous pouvez vous attendre à obtenir des résultats similaires lorsque vous copiez des blobs de stockage d’une région Azure à une autre.
 
 Pour tester ses performances, l’équipe a transféré des blobs de comptes de stockage de la région USA Ouest vers la même région ainsi que vers d’autres régions. L’équipe a mesuré des vitesses allant de 2 Go par seconde dans la même région à 150 Mo par seconde vers des comptes de stockage de la région Asie Sud-Est.
 

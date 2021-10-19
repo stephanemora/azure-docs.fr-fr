@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/09/2021
 ms.author: memildin
-ms.openlocfilehash: ef37d84d2fcef851e13837ae40da14db9fb2412f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f2ab2dfeec7522599cfb8b3eccdf9b498fdfff32
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124777447"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713704"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utiliser des contrôles d’application adaptatifs pour réduire les surfaces d’attaque de vos machines
 
@@ -244,7 +244,7 @@ Voici certaines des fonctions disponibles à partir de l’API REST :
 Aucune option de mise en œuvre n’est disponible à l’heure actuelle. Les contrôles d’application adaptatifs sont destinés à fournir des **alertes de sécurité** si une application autre que celles que vous avez définies comme sécurisées s’exécute. Ils offrent un large éventail d’avantages ([Quels sont les avantages des contrôles d’application adaptatifs ?](#what-are-the-benefits-of-adaptive-application-controls)) et sont extrêmement personnalisables, comme indiqué sur cette page.
 
 ### <a name="why-do-i-see-a-qualys-app-in-my-recommended-applications"></a>Pourquoi une application Qualys est-elle présente dans mes applications recommandées ?
-[Azure Defender pour les serveurs](defender-for-servers-introduction.md) comprend l’analyse des vulnérabilités de vos machines sans coût supplémentaire. Vous n’avez pas besoin d’une licence Qualys ni même de compte Qualys : tout est traité de manière fluide dans Security Center. Pour plus d’informations sur ce scanneur et pour savoir comment le déployer, consultez [Solution d’évaluation des vulnérabilités intégrée de Defender](deploy-vulnerability-assessment-vm.md).
+[Azure Defender pour les serveurs](defender-for-servers-introduction.md) comprend l’analyse des vulnérabilités de vos machines sans coût supplémentaire. Vous n’avez pas besoin d’une licence Qualys ni même de compte Qualys : tout est traité de manière fluide dans Security Center. Pour plus d’informations sur ce scanneur et pour savoir comment le déployer, consultez [Solution intégrée d’évaluation des vulnérabilités Qualys de Defender](deploy-vulnerability-assessment-vm.md).
 
 Pour assurer qu’aucune alerte n’est générée lorsque Security Center déploie le scanneur, la liste d’autorisation des contrôles d’application adaptatifs recommandée comprend le scanneur pour toutes les machines. 
 

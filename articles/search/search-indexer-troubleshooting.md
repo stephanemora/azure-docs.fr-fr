@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: 650f5f40bf8b8fc0909b4fec85ef6b5724a2e3c7
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 4453660cb58a1b976488d1cc9e240768637a85b6
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539821"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857091"
 ---
 # <a name="indexer-troubleshooting-guidance-for-azure-cognitive-search"></a>Instructions pour la résolution des problèmes de l’indexeur pour la Recherche cognitive Azure
 
@@ -26,7 +26,7 @@ Les indexeurs rencontrent parfois des problèmes et il n’y a pas d’erreur po
 >
 > Vous trouverez l’adresse IP de votre service Search en effectuant un test ping de son nom de domaine complet (p. ex., `<your-search-service-name>.search.windows.net`).
 >
-> Vous pouvez trouver la plage d’adresses IP de `AzureCognitiveSearch` [l’étiquette de service](../virtual-network/service-tags-overview.md#available-service-tags) en utilisant des [fichiers JSON téléchargeables](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) ou via [l’API de détection d’étiquettes de service](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). La plage d’adresses IP est mise à jour chaque semaine.
+> Vous pouvez trouver la plage d’adresses IP de `AzureCognitiveSearch` [l’étiquette de service](../virtual-network/service-tags-overview.md#available-service-tags) en utilisant des [fichiers JSON téléchargeables](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) ou via [l’API de détection d’étiquettes de service](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api). La plage d’adresses IP est mise à jour chaque semaine.
 
 ### <a name="firewall-rules"></a>Règles de pare-feu
 
@@ -105,7 +105,7 @@ Pour mettre à jour la stratégie afin d’autoriser l’indexeur à accéder à
 
     Des adresses IP supplémentaires sont utilisées pour les requêtes qui proviennent de l’[environnement d’exécution mutualisé](search-indexer-securing-resources.md#indexer-execution-environment) de l’indexeur. Vous pouvez récupérer cette plage d’adresses IP à partir de l’étiquette de service.
 
-    Vous pouvez obtenir les plages d’adresses IP pour la balise de service `AzureCognitiveSearch` via l’[API de découverte (préversion)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) ou le [fichier JSON téléchargeable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+    Vous pouvez obtenir les plages d’adresses IP de l’étiquette de service `AzureCognitiveSearch` avec l’[API de détection](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) ou le [fichier JSON téléchargeable](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
     Pour cette procédure pas à pas, en supposant que le service de recherche est le cloud public Azure, le [fichier JSON public Azure](https://www.microsoft.com/download/details.aspx?id=56519) doit être téléchargé.
 

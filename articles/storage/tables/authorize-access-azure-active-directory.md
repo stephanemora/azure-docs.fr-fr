@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3f0c18d7f9130c4ef50b085a4f8c1ec5c22ed6d3
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: e0bf6ebac7826346089b82962963d3596d1d4a8f
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360390"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857908"
 ---
 # <a name="authorize-access-to-tables-using-azure-active-directory-preview"></a>Autoriser l’accès aux tables avec Azure Active Directory (préversion)
 
@@ -31,7 +31,7 @@ Avec Azure AD, l’autorisation est disponible pour tous les comptes à usage g
 
 Quand un principal de sécurité (utilisateur, groupe ou application) tente d’accéder à une ressource de table, la requête doit être autorisée. Avec Azure AD, l’accès à une ressource est un processus en deux étapes. Pour commencer, l’identité du principal de sécurité est authentifiée, et un jeton OAuth 2.0 est renvoyé. Ensuite, ce jeton est passé dans le cadre d’une requête adressée au service Table et utilisé par le service pour autoriser l’accès à la ressource spécifiée.
 
-L’étape d’authentification nécessite qu’une application demande un jeton d’accès OAuth 2.0 au moment de l’exécution. Si une application s’exécute à partir d’une entité Azure comme une machine virtuelle Azure, un groupe de machines virtuelles identiques ou une application Azure Functions, elle peut utiliser une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) pour accéder aux tables. Pour savoir comment autoriser des requêtes adressées par une identité managée, consultez [Autoriser l’accès aux tables avec Azure Active Directory et les identités managées pour les ressources Azure](../common/storage-auth-aad-msi.md).
+L’étape d’authentification nécessite qu’une application demande un jeton d’accès OAuth 2.0 au moment de l’exécution. Si une application s’exécute à partir d’une entité Azure comme une machine virtuelle Azure, un groupe de machines virtuelles identiques ou une application Azure Functions, elle peut utiliser une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) pour accéder aux tables. Pour savoir comment autoriser les demandes d’une identité managée, consultez [Autoriser l’accès aux données de la table avec des identités managées pour les ressources Azure](authorize-managed-identity.md).
 
 L’étape d’autorisation exige qu’un ou plusieurs rôles Azure soient attribués au principal de sécurité. Le Stockage Azure fournit des rôles Azure qui englobent des ensembles communs d’autorisations pour les données de table. Les rôles qui sont attribués à un principal de sécurité déterminent les autorisations dont disposera le principal. Pour en savoir plus sur l’attribution de rôles Azure pour l’accès aux tables, consultez [Attribuer un rôle Azure pour l’accès aux données de table](assign-azure-role-data-access.md).
 

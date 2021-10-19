@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 17d6120a951af052c82f06ed62025279011018a6
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: 0055cae979e1ab116d71a387f3f9d7e61afb9d32
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867551"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754479"
 ---
 # <a name="translator-language-support"></a>Prise en charge linguistique de Translator
 
@@ -39,6 +39,7 @@ ms.locfileid: "122867551"
 | Assamais | `as` |✔|✔||||
 | Azéri | `az` |✔|✔||||
 | Bangla | `bn` |✔|✔|✔||✔|
+| Bashkir | `ba` |✔|||||
 | Bosniaque (latin) | `bs` |✔|✔|✔||✔|
 | Bulgare | `bg` |✔|✔|✔|✔|✔|
 | Cantonais (traditionnel) | `yue` |✔|✔||||
@@ -50,6 +51,7 @@ ms.locfileid: "122867551"
 | Tchèque | `cs` |✔|✔|✔|✔|✔|
 | Danois | `da` |✔|✔|✔|✔|✔|
 | Dari | `prs` |✔|✔||||
+| Maldivien | `dv` |✔|||✔||
 | Néerlandais | `nl` |✔|✔|✔|✔|✔|
 | Anglais | `en` |✔|✔|✔|✔|✔|
 | Estonien | `et` |✔|✔|✔|✔||
@@ -58,6 +60,7 @@ ms.locfileid: "122867551"
 | Finnois | `fi` |✔|✔|✔|✔|✔|
 | Français | `fr` |✔|✔|✔|✔|✔|
 | Français (Canada) | `fr-ca` |✔|✔||||
+| Géorgien | `ka` |✔|||✔||
 | Allemand | `de` |✔|✔|✔|✔|✔|
 | Grec | `el` |✔|✔|✔|✔|✔|
 | Goudjrati | `gu` |✔|✔|✔|✔||
@@ -80,15 +83,19 @@ ms.locfileid: "122867551"
 | Coréen | `ko` |✔|✔|✔|✔|✔|
 | Kurde (central) | `ku` |✔|✔||✔||
 | Kurde (Nord) | `kmr` |✔|✔||||
+| Kirghiz | `ky` |✔|||||
 | Lao | `lo` |✔|✔||✔||
 | Letton | `lv` |✔|✔|✔|✔|✔|
 | Lituanien | `lt` |✔|✔|✔|✔|✔|
+| Macédonien | `mk` |✔|||✔||
 | Malgache | `mg` |✔|✔|✔|||
 | Malais | `ms` |✔|✔|✔|✔|✔|
 | Malayalam | `ml` |✔|✔||||
 | Maltais | `mt` |✔|✔|✔|✔|✔|
 | Maori | `mi` |✔|✔|✔|||
 | Marathi | `mr` |✔|✔|✔|||
+| Mongole (cyrillique) | `mn-Cyrl` |✔|||||
+| Mongol (traditionnel) | `mn-Mong` |✔|||✔||
 | Myanmar | `my` |✔|✔||✔||
 | Népalais | `ne` |✔|✔||||
 | Norvégien | `nb` |✔|✔|✔|✔|✔|
@@ -112,13 +119,18 @@ ms.locfileid: "122867551"
 | Suédois | `sv` |✔|✔|✔|✔|✔|
 | Tahitien | `ty` |✔| |✔|✔||
 | Tamoul | `ta` |✔|✔|||✔|
+| Tatar | `tt` |✔|||||
 | Télougou | `te` |✔|✔||||
 | Thaï | `th` |✔| |✔|✔|✔|
+| Tibétain | `bo` |✔||||
 | Tigrigna | `ti` |✔|✔||||
 | Tonga | `to` |✔|✔|✔|||
 | Turc | `tr` |✔|✔|✔|✔|✔|
+| Turkmène | `tk` |✔||||
 | Ukrainien | `uk` |✔|✔|✔|✔|✔|
 | Ourdou | `ur` |✔|✔|✔|✔|✔|
+| Ouïgour | `ug` |✔||||
+| Ouzbek (latin) | `uz` |✔|||✔||
 | Vietnamien | `vi` |✔|✔|✔|✔|✔|
 | Gallois | `cy` |✔|✔|✔|✔|✔|
 | Yucatec Maya | `yua` |✔|✔||✔||

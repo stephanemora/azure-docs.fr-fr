@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 3fe90f5c9038c37e3ac3e9fba357ea27ca089679
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8e14e1fd97bbf3e0fe83c1b7e0eeae1cf446e74d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525127"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811225"
 ---
 # <a name="face-detection-and-attributes"></a>Détection et attributs de visage
 
@@ -34,6 +34,8 @@ Les points de repère de visage sont un ensemble de points faciles à trouver su
 ![Schéma de visage avec les 27 points de repère étiquetés](../Images/landmarks.1.jpg)
 
 Les coordonnées des points sont retournées en unités de pixels.
+
+Le modèle Detection_03 a actuellement la détection de points de repère la plus précise. Les points de repère des yeux et des pupilles qu’il renvoie sont suffisamment précis pour permettre le suivi du regard sur le visage.
 
 ## <a name="attributes"></a>Attributs
 

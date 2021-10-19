@@ -1,28 +1,28 @@
 ---
-title: Azure Automanage pour les serveurs avec Arc
-description: Découvrez le service Azure Automanage pour les serveurs avec Arc
+title: Azure Automanage pour les serveurs Azure Arc
+description: Découvrez le service Azure Automanage pour les serveurs Azure Arc.
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 06/24/2021
-ms.openlocfilehash: ce12689548884d4c57363851f7de99b5fb067ef6
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: cb04cdd75815ecc0579d9e4efbda9c49f1a7ff1c
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456230"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713447"
 ---
-# <a name="azure-automanage-for-machines-best-practices---arc-enabled-servers"></a>Bonnes pratiques pour Azure Automanage pour les machines – Serveurs avec Arc
+# <a name="azure-automanage-for-machines-best-practices---azure-arc-enabled-servers"></a>Meilleures pratiques concernant Azure Automanage pour les machines – Serveurs Azure Arc
 
-Ces services Azure sont automatiquement intégrés pour vous lorsque vous utilisez les bonnes pratiques d’Automanage pour les machines sur une machine virtuelle de serveur avec Arc. Ils sont essentiels pour notre livre blanc sur les meilleures pratiques, que vous pouvez trouver dans notre [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
+Ces services Azure sont automatiquement intégrés pour vous lorsque vous utilisez les meilleures pratiques d’Automanage pour les machines sur une machine virtuelle de serveur Azure Arc. Ils sont essentiels pour notre livre blanc sur les meilleures pratiques, que vous pouvez trouver dans notre [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 Nous allons intégrer et configurer automatiquement tous ces services, superviser leur fonctionnement et apporter les corrections nécessaires en cas de dérive. Pour en savoir plus sur ce processus, consultez [Azure Automanage pour machines virtuelles](automanage-virtual-machines.md).
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-Automanage prend en charge les systèmes d’exploitation suivants pour les serveurs avec Arc
+Automanage prend en charge les systèmes d’exploitation suivants pour les serveurs Azure Arc :
 
 - Windows Server 2012/R2
 - Windows Server 2016

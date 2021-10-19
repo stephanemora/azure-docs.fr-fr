@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: article
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: 382a4c040c7a519462ee3e35119b9471031e0724
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e758560eed1ffb01117764f9399aa6f4f4b1395
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101097714"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857547"
 ---
 # <a name="url-redirect-and-url-rewrite-with-azure-front-door-standardpremium-preview"></a>Redirection d’URL et réécriture d’URL avec Azure Front Door Standard/Premium (préversion)
 
@@ -74,6 +74,10 @@ Vous pouvez configurer la redirection d’URL par le biais d’un ensemble de r�
 ### <a name="source-pattern"></a>Modèle source
 
 Le modèle source est le chemin de l’URL dans la demande source à remplacer. Actuellement, le modèle source utilise une correspondance basée sur un préfixe. Pour correspondre à tous les chemins d’URL, utilisez une barre oblique (/) comme valeur de modèle source.
+
+Pour le modèle source de réécriture d’URL, seul le chemin d’accès après la configuration d’itinéraire « Modèles à mettre en correspondance » est pris en compte. Par exemple, dans le format d’URL entrant `<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-Source-pattern>`, seule la partie `/<Rule-URL-Rewrite-Source-pattern>` est prise en compte par le moteur de règles comme modèle source à réécrire. Par conséquent, lorsque vous disposez d’une règle de réécriture d’URL utilisant la correspondance du modèle source, le format de l’URL sortante est `<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-destination>`.
+
+Pour les scénarios, où le segment `/<route-patterns-to-match-path` du chemin URL doit être supprimé, définissez le chemin Origine du groupe Origine dans la configuration d’itinéraire sur `/`.
 
 ### <a name="destination"></a>Destination
 

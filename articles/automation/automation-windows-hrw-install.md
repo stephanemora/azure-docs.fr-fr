@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 59d3b78ac09c253270279612598b2d42ac6a2204
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 900ccf0434ee9d6dde9b0312a1bace180fe1470f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129272064"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706546"
 ---
 # <a name="deploy-an-agent-based-windows-hybrid-runbook-worker-in-automation"></a>Déployer un Runbook Worker hybride Windows basé sur un agent dans Automation
 
@@ -169,22 +169,22 @@ Pour installer et configurer un runbook Worker hybride pour Windows, effectuez l
 
 1. Déployez l’agent Log Analytics sur la machine cible.
 
-    * Pour les machines virtuelles Azure, installez l’agent Log Analytics pour Windows à l’aide de l’[extension de machine virtuelle pour Windows](../virtual-machines/extensions/oms-windows.md). L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Vous pouvez utiliser un modèle Azure Resource Manager, PowerShell ou Azure Policy pour attribuer la définition de stratégie intégrée [Déployer l’agent Log Analytics pour les machines virtuelles *Linux* ou *Windows*](../governance/policy/samples/built-in-policies.md#monitoring). Une fois l’agent installé, la machine peut être ajoutée à un groupe de Runbook Workers hybrides dans votre compte Automation.
+    - Pour les machines virtuelles Azure, installez l’agent Log Analytics pour Windows à l’aide de l’[extension de machine virtuelle pour Windows](../virtual-machines/extensions/oms-windows.md). L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Vous pouvez utiliser un modèle Azure Resource Manager, PowerShell ou Azure Policy pour attribuer la définition de stratégie intégrée [Déployer l’agent Log Analytics pour les machines virtuelles *Linux* ou *Windows*](../governance/policy/samples/built-in-policies.md#monitoring). Une fois l’agent installé, la machine peut être ajoutée à un groupe de Runbook Workers hybrides dans votre compte Automation.
     
-    * Pour les ordinateurs non Azure, vous pouvez installer l’agent Log Analytics à l’aide de [serveurs avec Azure Arc](../azure-arc/servers/overview.md). Les serveurs avec Arc prennent en charge le déploiement de l’agent Log Analytics à l’aide des méthodes suivantes :
+    - Pour les ordinateurs non Azure, vous pouvez installer l’agent Log Analytics à l’aide de [serveurs avec Azure Arc](../azure-arc/servers/overview.md). Les serveurs Azure Arc prennent en charge le déploiement de l’agent Log Analytics à l’aide des méthodes suivantes :
     
-        - Utilisation de l’infrastructure des extensions de machine virtuelle.
+      - Utilisation de l’infrastructure des extensions de machine virtuelle.
         
-            Cette fonctionnalité des serveurs activés pour Azure Arc vous permet de déployer l’extension de machine virtuelle de l’agent Log Analytics sur un serveur Windows et/ou Linux non-Azure. Les extensions de machine virtuelle peuvent être gérées à l’aide des méthodes suivantes sur vos machines ou serveurs hybrides gérés par des serveurs compatibles Arc :
+        Cette fonctionnalité des serveurs Azure Arc vous permet de déployer l’extension de machine virtuelle de l’agent Log Analytics sur un serveur Windows ou Linux non Azure. Les extensions de machine virtuelle peuvent être gérées à l’aide des méthodes suivantes sur vos machines ou serveurs hybrides gérés par des serveurs compatibles Arc :
         
-            - [Portail Azure](../azure-arc/servers/manage-vm-extensions-portal.md)
-            - [Azure CLI](../azure-arc/servers/manage-vm-extensions-cli.md)
-            - [Azure PowerShell](../azure-arc/servers/manage-vm-extensions-powershell.md)
-            - [Modèles Azure Resource Manager](../azure-arc/servers/manage-vm-extensions-template.md)
+        - [Portail Azure](../azure-arc/servers/manage-vm-extensions-portal.md)
+        - [Azure CLI](../azure-arc/servers/manage-vm-extensions-cli.md)
+        - [Azure PowerShell](../azure-arc/servers/manage-vm-extensions-powershell.md)
+        - [Modèles Azure Resource Manager](../azure-arc/servers/manage-vm-extensions-template.md)
         
-        - Utilisation d’Azure Policy.
+      - Utilisation d’Azure Policy.
         
-            Avec cette approche, vous utilisez la définition de stratégie intégrée [Déployer l’agent Log Analytics sur des machines Linux ou Windows Azure Arc](../governance/policy/samples/built-in-policies.md#monitoring) d’Azure Policy pour vérifier si l’agent Log Analytics est installé sur le serveur compatible Arc. Si l’agent n’est pas installé, elle le déploie automatiquement en utilisant une tâche de remédiation. Si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../governance/policy/samples/built-in-initiatives.md#monitoring) pour installer et configurer l’agent Log Analytics.
+      Avec cette approche, vous utilisez la définition de stratégie intégrée [Déployer l’agent Log Analytics sur des machines Linux ou Windows Azure Arc](../governance/policy/samples/built-in-policies.md#monitoring) d’Azure Policy pour vérifier si l’agent Log Analytics est installé sur le serveur compatible Arc. Si l’agent n’est pas installé, elle le déploie automatiquement en utilisant une tâche de remédiation. Si vous envisagez de superviser les machines avec Azure Monitor pour machines virtuelles, utilisez plutôt l’initiative [Activer Azure Monitor pour machines virtuelles](../governance/policy/samples/built-in-initiatives.md#monitoring) pour installer et configurer l’agent Log Analytics.
 
     Nous vous recommandons d’installer l’agent Log Analytics pour Windows ou Linux en utilisant Azure Policy.
 

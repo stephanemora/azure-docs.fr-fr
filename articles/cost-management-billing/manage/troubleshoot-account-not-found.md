@@ -7,20 +7,20 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 4a21ede66501832512530513423bed018c92f1aa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5b712ad275ece9293aca5f4fbe01bbc590958aff
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128646945"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711071"
 ---
 # <a name="troubleshoot-viewing-your-billing-account-in-the-azure-portal"></a>Résoudre les problèmes d’affichage de votre compte de facturation dans le portail Azure
 
 Un compte de facturation est créé lorsque vous vous inscrivez pour utiliser Azure. Votre compte de facturation vous permet de gérer vos factures et paiements, et de suivre les coûts. Vous pouvez accéder à plusieurs comptes de facturation. Par exemple, vous pouvez vous être inscrit à Azure pour une utilisation personnelle. Vous pouvez aussi accéder à Azure via le Contrat Entreprise de votre organisation ou le Contrat client Microsoft. Pour chacun de ces scénarios, vous disposez d’un compte de facturation distinct. Cet article vous aide à résoudre les problèmes que vous pouvez rencontrer quand vous essayez d’afficher votre compte de facturation dans le portail Azure.
 
-Vous pouvez afficher vos comptes de facturation dans la page [Azure Cost Management + Facturation](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade).
+Vous pouvez afficher vos comptes de facturation sur la page [Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade).
 
 Pour plus d’informations sur les comptes de facturation et savoir comment identifier le type de votre compte de facturation, consultez [Afficher les comptes de facturation dans le portail Azure](view-all-accounts.md).
 

@@ -3,12 +3,12 @@ title: Surveiller et utiliser les sauvegardes avec le Centre de sauvegarde
 description: Cet article explique comment surveiller et utiliser les sauvegardes à grande échelle à l’aide du Centre de sauvegarde
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 86b81110d6abeb1425e18ee45dfe65a96f69687d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cab9e710cfe4bf43b0d225d64e8f64b16c09e3a6
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506123"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659846"
 ---
 # <a name="monitor-and-operate-backups-using-backup-center"></a>Superviser et utiliser des sauvegardes avec le Centre de sauvegarde
 
@@ -88,6 +88,14 @@ Le Centre de sauvegarde vous permet d’afficher et de modifier les informations
 Sélectionnez l’élément de menu **Stratégies de sauvegarde** pour consulter toutes les stratégies que vous avez créées dans votre espace de sauvegarde. Vous pouvez filtrer la liste par abonnement de coffre, groupe de ressources, emplacement, type de source de données et coffre. Cliquez avec le bouton droit sur un élément de la grille pour afficher les éléments associés à cette stratégie, modifier la stratégie, voire la supprimer si nécessaire.
 
 ![Centre de sauvegarde - Stratégies](./media/backup-center-monitor-operate/backup-center-policies.png)
+
+
+## <a name="resource-centric-views"></a>Vues centrées sur les ressources
+
+Si votre organisation sauvegarde plusieurs ressources dans un coffre commun, et que chaque propriétaire de ressource souhaite uniquement consulter les informations de sauvegarde des ressources dont il est propriétaire, vous pouvez utiliser la vue centrée sur les ressources dans le centre de sauvegarde. Pour utiliser la vue centrée sur les ressources, activez la case à cocher « Afficher uniquement les informations sur les sources de données auxquelles j’ai accès ». Cette option est actuellement prise en charge pour les onglets suivants : **Vue d’ensemble**, **Instances de sauvegarde**, **Travaux**, **Alertes**. Les charges de travail prises en charge sont les machines virtuelles Azure, les machines virtuelles SQL dans Azure, les machines virtuelles SAP HANA dans Azure, les blobs Azure et les disques Azure.
+
+> [!NOTE]
+> Les utilisateurs devront toujours disposer des autorisations RBAC nécessaires sur le coffre, même s’ils utilisent la vue centrée sur les ressources. L’objectif de cette vue est de permettre aux utilisateurs individuels d’éviter d’afficher des informations pour des ressources (par exemple, des machines virtuelles) qu’ils ne possèdent pas.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

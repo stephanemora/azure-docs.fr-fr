@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 10/03/2021
 ms.author: memildin
-ms.openlocfilehash: ca1e75af5f1d5697b84742e3aec207a33a57b1c6
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 516fa13a24c9cb5376bc6e8d38eeb1fc077f1d57
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407187"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713948"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archive des nouveautés d’Azure Security Center
 
@@ -519,9 +519,9 @@ Principales fonctionnalités :
 - Réception et analyse des vulnérabilités détectées par les agents déployés (manuellement et à grande échelle)
 - Expérience unifiée pour les machines virtuelles Azure et Azure Arc
 
-[Découvrez-en plus sur le déploiement de l’analyseur de vulnérabilité intégré sur vos machines hybrides](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[Découvrez-en plus sur le déploiement de l’analyseur de vulnérabilité Qualys intégré sur vos machines hybrides](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Découvrez-en plus sur les serveurs avec Azure Arc](../azure-arc/servers/index.yml).
+[Découvrez-en plus sur les serveurs Azure Arc](../azure-arc/servers/index.yml).
 
 
 ### <a name="secure-score-for-management-groups-is-now-available-in-preview"></a>Le degré de sécurisation pour les groupes d’administration est maintenant disponible en préversion
@@ -971,7 +971,7 @@ Les mises à jour d’octobre sont les suivantes :
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Évaluation des vulnérabilités pour les machines locales et multi-cloud (préversion)
 
-L’analyseur d’évaluation des vulnérabilités intégré d’[Azure Defender pour les serveurs](defender-for-servers-introduction.md) (fourni par Qualys) analyse désormais les serveurs avec Azure Arc.
+L’analyseur d’évaluation des vulnérabilités intégré d’[Azure Defender pour les serveurs](defender-for-servers-introduction.md) (avec Qualys) analyse désormais les serveurs Azure Arc.
 
 Une fois que vous avez activé Azure Arc sur vos machines non-Azure, Security Center propose de déployer l’analyseur de vulnérabilité intégré dessus, manuellement et à grande échelle.
 
@@ -984,9 +984,9 @@ Principales fonctionnalités :
 - Réception et analyse des vulnérabilités détectées par les agents déployés (manuellement et à grande échelle)
 - Expérience unifiée pour les machines virtuelles Azure et Azure Arc
 
-[Découvrez-en plus sur le déploiement de l’analyseur de vulnérabilité intégré sur vos machines hybrides](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[Découvrez-en plus sur le déploiement de l’analyseur de vulnérabilité Qualys intégré sur vos machines hybrides](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
-[Découvrez-en plus sur les serveurs avec Azure Arc](../azure-arc/servers/index.yml).
+[Découvrez-en plus sur les serveurs Azure Arc](../azure-arc/servers/index.yml).
 
 
 ### <a name="azure-firewall-recommendation-added-preview"></a>Ajout d’une recommandation concernant le pare-feu Azure (préversion)
@@ -1257,7 +1257,7 @@ Les résultats de sécurité sont désormais disponibles pour l’exportation vi
 
 Pages connexes :
 
-- [Solution intégrée d’évaluation des vulnérabilités de Security Center pour les machines virtuelles Azure](deploy-vulnerability-assessment-vm.md)
+- [Solution intégrée d’évaluation des vulnérabilités Qualys de Security Center pour les machines virtuelles Azure](deploy-vulnerability-assessment-vm.md)
 - [Solution d’évaluation des vulnérabilités intégrée à Security Center pour les images Azure Container Registry](defender-for-container-registries-usage.md)
 - [Exportation continue](continuous-export.md)
 
@@ -2011,7 +2011,7 @@ Azure Security Center peut désormais analyser des images de conteneur dans Azur
 
 Le balayage d’image fonctionne en analysant le fichier image du conteneur, puis en vérifiant s’il existe des vulnérabilités connues (optimisées par Qualys).
 
-L’analyse proprement dite est déclenchée automatiquement lors de l’envoi (push) de nouvelles images de conteneur au Registre de conteneurs Azure (Azure Container Registry). Les vulnérabilités détectées sont présentées en tant que recommandations d’Azure Security Center, et incluses dans le degré de sécurisation Azure avec des informations sur la façon de les corriger afin de réduire la surface d’attaque autorisée.
+L’analyse proprement dite est déclenchée automatiquement lors de l’envoi (push) de nouvelles images de conteneur au Registre de conteneurs Azure (Azure Container Registry). Les vulnérabilités découvertes feront l’objet de recommandations de Security Center et seront incluses dans le degré de sécurisation avec des informations sur la façon de les corriger afin de réduire la surface d’attaque qu’elles offrent.
 
 
 ### <a name="additional-regulatory-compliance-standards-preview"></a>Normes de conformité réglementaire supplémentaires (préversion)
@@ -2045,7 +2045,7 @@ Les applications installées sur les machines virtuelles peuvent souvent présen
 
 Le support d’Azure Security Center en lien avec la protection contre les menaces et l’évaluation des vulnérabilités pour les bases de données SQL s’exécutant sur des machines virtuelles IaaS est désormais en préversion.
 
-La fonctionnalité [Évaluation des vulnérabilités](../azure-sql/database/sql-vulnerability-assessment.md) est un service simple à configurer, qui vous permet de découvrir, suivre et de corriger des vulnérabilités de base de données potentielles. Il offre une visibilité sur votre posture de sécurité en lien avec le degré de sécurisation Azure, et inclut des étapes pour résoudre des problèmes de sécurité et renforcer la protection de votre base de données.
+La fonctionnalité [Évaluation des vulnérabilités](../azure-sql/database/sql-vulnerability-assessment.md) est un service simple à configurer, qui vous permet de découvrir, suivre et de corriger des vulnérabilités de base de données potentielles. Il offre une visibilité sur votre posture de sécurité dans le cadre du degré de sécurisation et inclut des étapes pour résoudre les problèmes de sécurité et renforcer la protection de votre base de données.
 
 La [protection avancée contre les menaces](../azure-sql/database/threat-detection-overview.md) détecte des activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d’accès à votre serveur SQL ou d’exploitation de celui-ci. Elle supervise en permanence votre base de données pour détecter des activités suspectes, et envoie des alertes de sécurité orientées action en cas de modèles d’accès anormaux à la base de données. Ces alertes fournissent des détails sur les activités suspectes et des mesures recommandées pour examiner et atténuer la menace.
 

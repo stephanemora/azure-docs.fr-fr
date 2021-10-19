@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: ee18a405ca6c6a9d2e6a3a6cceb5c0ff89b5cf73
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3126eb9a2c3289f6fbc97a14fadf94300d1c2e84
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748613"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129728776"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Choisir l’option MySQL Server appropriée dans Azure
 
@@ -61,7 +61,7 @@ Le tableau suivant liste les principales différences entre ces options :
 | Mise à l’échelle du stockage automatique | Prise en charge| Prise en charge| Non pris en charge|
 | Mise à l’échelle des E/S par seconde | Non pris en charge| Prise en charge| Non pris en charge|
 | [**Optimisation des coûts**](https://azure.microsoft.com/pricing/details/mysql/flexible-server/) | | | |
-| Prix ​​des instances réservées | Prise en charge | Prise en charge | Prise en charge |
+| Prix ​​des instances réservées | Prise en charge | Pris en charge | Prise en charge |
 | Arrêter/démarrer le serveur pour le développement | Le serveur peut être arrêté jusqu’à 7 jours | Le serveur peut être arrêté jusqu’à 30 jours | Prise en charge |
 | Références SKU Burstable à faible coût | Non pris en charge | Prise en charge | Prise en charge |
 | [**Mise en réseau et sécurité**](concepts-security.md) | | | |
@@ -111,9 +111,9 @@ Le tableau suivant liste les principales différences entre ces options :
 | [**Surveillance**](flexible-server/concepts-monitoring.md) | | | |
 | Intégration Azure Monitor et alertes | Prise en charge | Prise en charge | Géré par l’utilisateur |
 | Supervision des opérations de base de données | Prise en charge | Prise en charge | Géré par l’utilisateur |
-| Query Performance Insight | Prise en charge | Non pris en charge | Géré par l’utilisateur |
+| Query Performance Insight | Prise en charge | Prise en charge (à l’aide de Workbooks)| Géré par l’utilisateur |
 | Journaux d’activité du serveur | Prise en charge | Prise en charge (à l’aide des journaux de diagnostic) | Géré par l’utilisateur |
-| Journaux d’audit | Prise en charge | Prise en charge | Prise en charge | 
+| Journaux d’audit | Prise en charge | Pris en charge | Prise en charge | 
 | Journaux d’activité d’erreurs | Non pris en charge | Prise en charge | Prise en charge |
 | Prise en charge Azure Advisor | Prise en charge | Non pris en charge | Non pris en charge |
 | **Plug-ins** | | | |

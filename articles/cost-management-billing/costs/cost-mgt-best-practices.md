@@ -3,22 +3,22 @@ title: Optimiser votre investissement dans le cloud avec Azure Cost Management
 description: Cet article vous aide à tirer le meilleur parti de vos investissements dans le cloud, à réduire vos coûts et à évaluer vos postes de dépenses.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/02/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 26b48e4f5ed50b547c8ec628fc534e24dfeb252e
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: 5ea9f5a857c28195d0aa82a1314df839ab2236e8
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122609542"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705906"
 ---
-# <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Guide pratique pour optimiser votre investissement dans le cloud avec Azure Cost Management
+# <a name="how-to-optimize-your-cloud-investment-with-cost-management"></a>Guide pratique pour optimiser votre investissement dans le cloud avec Cost Management
 
-Azure Cost Management met à votre disposition les outils nécessaires pour la planification, l’analyse et la réduction de vos dépenses en vue d’optimiser votre investissement dans le cloud. Ce document fournit une approche méthodique de la gestion des coûts et met en valeur les outils dont vous pouvez vous servir pour résoudre les problèmes de coût auxquels votre organisation peut être confrontée. Azure permet de générer et de déployer facilement des solutions cloud. Toutefois, il est important que ces solutions soient optimisées afin de réduire les coûts pour votre organisation. Si vous suivez les principes présentés dans ce document et utilisez nos outils, vous pourrez mener votre organisation à la réussite.
+Cost Management met à votre disposition les outils nécessaires pour la planification, l’analyse et la réduction de vos dépenses en vue d’optimiser votre investissement dans le cloud. Ce document fournit une approche méthodique de la gestion des coûts et met en valeur les outils dont vous pouvez vous servir pour résoudre les problèmes de coût auxquels votre organisation peut être confrontée. Azure permet de générer et de déployer facilement des solutions cloud. Toutefois, il est important que ces solutions soient optimisées afin de réduire les coûts pour votre organisation. Si vous suivez les principes présentés dans ce document et utilisez nos outils, vous pourrez mener votre organisation à la réussite.
 
 ## <a name="methodology"></a>Méthodologie
 
@@ -162,7 +162,7 @@ Les étiquettes représentent une manière pratique de comprendre les coûts ré
 
 De même, il est possible que vous ayez des environnements ou applications web, par exemple de test ou de production, qui utilisent des ressources de plusieurs abonnements en possession de différentes équipes. Pour mieux comprendre le coût total des charges de travail, identifiez les ressources qu’elles utilisent. Lorsque les étiquettes sont correctement appliquées, elles peuvent servir à filtrer l’analyse des coûts pour mieux comprendre les tendances.
 
-Une fois le balisage des ressources planifiée, vous pouvez configurer Azure Policy pour appliquer le balisage des ressources. Regardez la vidéo [Comment examiner les stratégies d’identification avec Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) pour comprendre les outils dont vous disposez pour appliquer une identification des ressources évolutive. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
+Une fois le balisage des ressources planifiée, vous pouvez configurer Azure Policy pour appliquer le balisage des ressources. Regardez la vidéo [Comment examiner les stratégies d’identification avec Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) pour comprendre les outils dont vous disposez pour appliquer une identification des ressources évolutive. Pour regarder d’autres vidéos, consultez la [chaîne YouTube relative à Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
 
@@ -231,4 +231,4 @@ Pour plus d’informations, consultez [Calculatrice des économies réalisées a
 Azure propose également un service avec lequel vous pouvez créer des services qui tirent parti de la capacité excédentaire dans Azure et bénéficier ainsi de tarifs réduits. Pour plus d’informations, consultez [Utiliser des machines virtuelles de faible priorité avec Batch](../../batch/batch-low-pri-vms.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Si vous ne connaissez pas Cost Management, consultez [Qu’est-ce que la gestion des coûts Azure ?](../cost-management-billing-overview.md) pour découvrir dans quelle mesure ce processus aide à superviser et à maîtriser les dépenses Azure, mais aussi à optimiser l’utilisation des ressources.
+- Si vous ne connaissez pas Cost Management, consultez [Qu’est-ce que Cost Management ?](../cost-management-billing-overview.md) pour découvrir dans quelle mesure ce processus aide à superviser et à maîtriser les dépenses Azure, mais aussi à optimiser l’utilisation des ressources.

@@ -1,5 +1,6 @@
 ---
-title: Configurer le flux de travail de consentement de l’administrateur-Azure Active Directory | Microsoft Docs
+title: Configurer le workflow du consentement administrateur
+titleSuffix: Azure AD
 description: Découvrez comment configurer un moyen pour les utilisateurs finaux de demander l’accès aux applications qui requièrent le consentement de l’administrateur.
 services: active-directory
 author: davidmu1
@@ -8,18 +9,18 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 10/06/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5611de6dde5ef1380a819ba3f3a2e6050d79374b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 07254d54d535616aa3a6b1c17a2b1b81d8fe16bb
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532144"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129659200"
 ---
-# <a name="configure-the-admin-consent-workflow"></a>Configurer le workflow du consentement administrateur
+# <a name="configure-the-admin-consent-workflow-in-azure-active-directory"></a>Configurer le workflow du consentement administrateur dans Azure Active Directory
 
 Cet article explique comment activer la fonctionnalité de workflow du consentement de l’administrateur, qui donne aux utilisateurs finaux la possibilité de demander l’accès aux applications qui requièrent le consentement de l’administrateur.
 
@@ -90,7 +91,7 @@ Pour passer en revue les demandes de consentement de l’administrateur et prend
 
 8. Évaluez la demande et prenez les mesures appropriées :
 
-   * **Approuvez la demande**. Pour approuver une demande, accordez le consentement de l’administrateur à l’application. Une fois qu’une demande est approuvée, tous les demandeurs sont avertis qu’un accès leur a été accordé.  
+   * **Approuvez la demande**. Pour approuver une demande, accordez le consentement de l’administrateur à l’application. Une fois qu’une demande est approuvée, tous les demandeurs sont avertis qu’un accès leur a été accordé. L’approbation d’une demande permet à tous les utilisateurs de votre locataire d’accéder à l’application, à moins qu’ils ne soient limités par l’attribution d’un utilisateur. 
    * **Refusez la demande**. Pour refuser une demande, vous devez fournir une justification qui sera fournie à tous les demandeurs. Une fois qu’une demande est refusée, tous les demandeurs sont avertis de l’accès à l’application. Le refus d’une demande n’empêchera pas les utilisateurs de demander le consentement de l’administrateur à l’application à l’avenir.  
    * **Bloquez la demande**. Pour bloquer une demande, vous devez fournir une justification qui sera fournie à tous les demandeurs. Une fois qu’une demande est bloquée, tous les demandeurs sont avertis de l’accès à l’application. Le blocage d’une demande crée un objet principal de service pour l’application dans votre client à l’état désactivé. À l’avenir, les utilisateurs ne seront pas en mesure de demander le consentement administrateur à l’application.
 

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/14/2021
 ms.author: memildin
-ms.openlocfilehash: 2fc8c04cbe86737d924a1e61e8a2b3808082b7c9
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 76134a5da21056ca493911a7d1242cf8a269d067
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351724"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858997"
 ---
 # <a name="defend-azure-arc-enabled-kubernetes-clusters-running-in-on-premises-and-multi-cloud-environments"></a>Défendre des clusters Kubernetes avec Azure Arc s’exécutant dans des environnements locaux et multicloud
 
@@ -34,7 +34,7 @@ L’extension peut également protéger des clusters Kubernetes sur d’autres f
 | Limites | Kubernetes avec Azure Arc et l’extension Azure Defender **ne prennent pas en charge** les offres Kubernetes managées, telles que Google Kubernetes Engine et Elastic Kubernetes Service. [Azure Defender est disponible en mode natif pour Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md), et ne nécessite pas de connexion du cluster à Azure Arc. |
 | Environnements et régions | La disponibilité de cette extension est identique à celle de [Kubernetes avec Azure Arc](../azure-arc/kubernetes/overview.md)|
 
-## <a name="architecture-overview"></a>Vue d’ensemble de l’architecture
+## <a name="architecture-overview"></a>Présentation de l'architecture
 
 Pour tous les clusters Kubernetes autres que AKS, vous devez connecter votre cluster à Azure Arc. Une fois le cluster connecté, Azure Defender pour Kubernetes peut être déployé sur des ressources [Kubernetes Azure avec Azure Arc](../azure-arc/kubernetes/overview.md) en tant qu’[extension de cluster](../azure-arc/kubernetes/extensions.md).
 
@@ -49,7 +49,6 @@ Ce diagramme illustre l’interaction entre Azure Defender pour Kubernetes et le
 Avant de déployer l’extension, effectuez les opérations suivantes :
 - [Connectez le cluster Kubernetes à Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md)
 - Suivez les [prérequis indiqués dans la documentation sur les extensions de cluster génériques](../azure-arc/kubernetes/extensions.md#prerequisites).
-- Avoir [Helm 3](https://helm.sh/docs/intro/install) version 3.7.0 ou ultérieure
 - Configurez le **port 443** sur les points de terminaison suivants pour l’accès sortant :
     - Pour les clusters du cloud Azure Government :
         - *.ods.opinsights.azure.us
@@ -77,7 +76,7 @@ Une recommandation dédiée dans Azure Security Center offre ce qui suit :
 
 1. Utilisez le filtre pour trouver la recommandation nommée **Les clusters Kubernetes avec Azure Arc doivent avoir l’extension Azure Defender installée**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Recommandation d’Azure Security Center pour le déploiement de l’extension Azure Defender pour les clusters Kubernetes avec Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Recommandation d’Azure Security Center relative au déploiement de l’extension Azure Defender pour les clusters Kubernetes avec Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
     > [!TIP]
     > Notez l’icône **Corriger** dans la colonne actions
@@ -198,7 +197,7 @@ Pour vérifier que l’extension Azure Defender est installée sur votre cluster
 
 1. Sélectionnez la recommandation nommée **L’extension d’Azure Defender doit être installée sur les clusters Kubernetes avec Azure Arc**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Recommandation d’Azure Security Center pour le déploiement de l’extension Azure Defender pour les clusters Kubernetes avec Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Recommandation d’Azure Security Center relative au déploiement de l’extension Azure Defender pour les clusters Kubernetes avec Azure Arc." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 1. Vérifiez que le cluster sur lequel vous avez déployé l’extension est répertorié comme **Sain**.
 

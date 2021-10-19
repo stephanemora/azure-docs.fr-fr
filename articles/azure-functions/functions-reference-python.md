@@ -4,12 +4,12 @@ description: Développer des fonctions avec Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d44de94ef30976a35bbfeddf68b60068b952fbde
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: 940ad3d08069ee51a9d138585b6e7dca0af49996
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450878"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658906"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -98,7 +98,7 @@ Le dossier principal du projet (<project_root>) peut contenir les fichiers suiva
 
 * *local.settings.json* : Utilisé pour stocker les paramètres d’application et les chaînes de connexion lors d’une exécution locale. Ce fichier n’est pas publié sur Azure. Pour en savoir plus, consultez la section [local.settings.file](functions-develop-local.md#local-settings-file).
 * *requirements.txt* : Contient la liste des packages Python que le système installe lors de la publication sur Azure.
-* *host.json* : Contient les options de configuration globale qui affectent toutes les fonctions d’une application de fonction. Ce fichier est publié sur Azure. Toutes les options ne sont pas prises en charge lors de l’exécution locale. Pour en savoir plus, consultez la section [host.json](functions-host-json.md).
+* *host.json* : contient les options de configuration qui affectent toutes les fonctions d’une instance d’application de fonction. Ce fichier est publié sur Azure. Toutes les options ne sont pas prises en charge lors de l’exécution locale. Pour en savoir plus, consultez la section [host.json](functions-host-json.md).
 * *.vscode/*  : (Facultatif) Contient la configuration VSCode du magasin. Pour plus d’informations, consultez [Paramètre VSCode](https://code.visualstudio.com/docs/getstarted/settings).
 * *.venv/*  : (Facultatif) Contient un environnement virtuel Python utilisé par le développement local.
 * *Dockerfile* : (Facultatif) Utilisé lors de la publication de votre projet dans un [conteneur personnalisé](functions-create-function-linux-custom-image.md).

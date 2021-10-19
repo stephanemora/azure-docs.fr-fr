@@ -3,21 +3,21 @@ title: Affecter des coûts Azure
 description: Cet article explique comment créer des règles d'affectation des coûts pour répartir les coûts des abonnements, des groupes de ressources ou des étiquettes.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/10/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: b837e5819318707b44932f5915746479e27646ec
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7696dc683d41080f5be2c97ebcb0cdf314e2098d
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734873"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706266"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Créer et gérer des règles d'affectation des coûts Azure (préversion)
 
-Les grandes entreprises disposent souvent de services ou de ressources Azure gérés de manière centralisée, mais utilisés par différents départements internes ou unités commerciales. En règle générale, l'équipe de gestion centralisée souhaite réaffecter les coûts des services partagés aux départements internes ou aux unités commerciales de l'organisation qui utilisent activement les services. Cet article vous aidera à comprendre et à utiliser la fonctionnalité d'affectation des coûts d'Azure Cost Management.
+Les grandes entreprises disposent souvent de services ou de ressources Azure gérés de manière centralisée, mais utilisés par différents départements internes ou unités commerciales. En règle générale, l'équipe de gestion centralisée souhaite réaffecter les coûts des services partagés aux départements internes ou aux unités commerciales de l'organisation qui utilisent activement les services. Cet article vous aidera à comprendre et à utiliser la fonctionnalité d'affectation des coûts de Cost Management.
 
 Avec l'affectation des coûts, vous pouvez réattribuer ou répartir les coûts des services partagés des abonnements, des groupes de ressources ou des étiquettes au sein d'autres abonnements, groupes de ressources ou étiquettes de votre organisation. L'affectation des coûts permet de transférer les coûts des services partagés vers d'autres abonnements, groupes de ressources ou étiquettes appartenant aux départements internes ou aux unités commerciales consommateurs. En d'autres termes, l'affectation des coûts permet de gérer et d'afficher la _responsabilité des coûts_ d'un emplacement à un autre.
 
@@ -26,7 +26,7 @@ L'affectation des coûts ne se répercute pas sur votre facture. Les responsabil
 Les coûts affectés sont présentés dans l'analyse des coûts. Ils sont présentés en tant qu'éléments supplémentaires associés aux abonnements, groupes de ressources ou étiquettes ciblés que vous spécifiez lorsque vous créez une règle d'affectation des coûts.
 
 > [!NOTE]
-> La fonctionnalité d'affectation des coûts d'Azure Cost Management est actuellement en préversion publique. Certaines fonctionnalités de Cost Management peuvent être limitées ou non prises en charge.
+> La fonctionnalité d'affectation des coûts de Cost Management est actuellement en préversion publique. Certaines fonctionnalités de Cost Management peuvent être limitées ou non prises en charge.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -132,4 +132,4 @@ Les éléments suivants ne sont actuellement pas pris en charge par la préversi
 
 - Consultez les [questions fréquentes (FAQ) sur Cost Management + Billing](../cost-management-billing-faq.yml) pour voir les questions et réponses sur l’affectation des coûts.
 - Créer ou mettre à jour des règles d'affectation à l'aide de l'[API Rest Affectation des coûts](/rest/api/cost-management/costallocationrules)
-- En savoir plus sur l'[Optimisation de votre investissement dans le cloud avec Azure Cost Management](cost-mgt-best-practices.md)
+- En savoir plus sur l'[Optimisation de votre investissement dans le cloud avec Cost Management](cost-mgt-best-practices.md)

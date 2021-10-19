@@ -1,23 +1,23 @@
 ---
 title: Configurer l’intégration de AWS avec Azure Cost Management
-description: Cet article vous guide tout au long de la configuration de l'intégration des rapports de coûts et d'utilisation AWS avec Azure Cost Management.
+description: Cet article vous guide tout au long de la configuration de l’intégration du rapport sur les coûts et l’utilisation d’AWS avec Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 098766674e3bd665bb533fbf4d78fe1b0b1aebda
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 6c8c03f93e811e622daa93515740e1cc25e65434
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111756038"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706152"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurer l'intégration des rapports sur les coûts et l'utilisation AWS
 
-Grâce à l’intégration du rapport de coût et d’utilisation (CUR) d’Amazon Web Services (AWS), vous supervisez et contrôlez vos dépenses AWS dans Azure Cost Management. L’intégration offre un emplacement unique dans le portail Azure où vous supervisez et contrôlez les dépenses pour Azure et AWS. Cet article explique comment configurer l’intégration et l’utiliser pour analyser les coûts et revoir les budgets à l’aide des fonctionnalités Azure Cost Management.
+Grâce à l’intégration du rapport sur les coûts et l’utilisation (CUR) d’Amazon Web Services (AWS), vous supervisez et contrôlez vos dépenses AWS dans Cost Management. L’intégration offre un emplacement unique dans le portail Azure où vous supervisez et contrôlez les dépenses pour Azure et AWS. Cet article explique comment configurer l’intégration et l’utiliser pour analyser les coûts et revoir les budgets à l’aide des fonctionnalités de Cost Management.
 
 Cost Management traite le rapport sur les coûts et l'utilisation AWS stocké dans un compartiment S3 en utilisant vos identifiants d'accès à AWS pour obtenir les définitions des rapports et télécharger des fichiers CSV de rapport au format GZIP.
 
@@ -59,7 +59,7 @@ Il peut s'écouler jusqu'à 24 heures avant qu'AWS commence à distribuer des ra
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Créer un rôle et une stratégie dans AWS
 
-Azure Cost Management accède plusieurs fois par jour au compartiment S3 où se trouve le rapport sur les coûts et l'utilisation. Le service a besoin d'accéder aux informations d'identification pour vérifier la présence de nouvelles données. Vous créez un rôle et une stratégie dans AWS pour permettre à Cost Management d'y accéder.
+Cost Management accède plusieurs fois par jour au compartiment S3 où se trouve le rapport sur les coûts et l’utilisation. Le service a besoin d'accéder aux informations d'identification pour vérifier la présence de nouvelles données. Vous créez un rôle et une stratégie dans AWS pour permettre à Cost Management d'y accéder.
 
 Pour activer l'accès en fonction du rôle à un compte AWS dans Cost Management, le rôle est créé dans la console AWS. Vous devez obtenir un _rôle ARN_ et un _identifiant externe_  de la console AWS. Vous utiliserez ces informations sur la page **Créer un connecteur AWS** dans Cost Management.
 
@@ -71,7 +71,7 @@ Utilisez l'Assistant Créer un rôle :
 4. Sur la page suivante, **Another AWS account** (Autre compte AWS).
 5. Dans **ID de compte**, entrez **432263259397**.
 6. Dans **Options**, sélectionnez **Require external ID (Best practice when a third party will assume this role)** (Nécessite un ID externe (il est recommandé qu’un tiers occupe ce rôle)).
-7. Dans **ID externe**, entrez l’ID externe, qui est un code secret partagé entre le rôle AWS et Azure Cost Management. Le même ID externe est également utilisé sur la page **Nouveau connecteur** dans Cost Management. Microsoft vous recommande d’utiliser une stratégie de code secret sécurisé lors de la saisie de l’ID externe.
+7. Dans **ID externe**, entrez l’ID externe, qui est un code secret partagé entre le rôle AWS et Cost Management. Le même ID externe est également utilisé sur la page **Nouveau connecteur** dans Cost Management. Microsoft vous recommande d’utiliser une stratégie de code secret sécurisé lors de la saisie de l’ID externe.
     > [!NOTE]
     > Ne modifiez pas la sélection pour **Exiger une authentification multifacteur**. Elle doit rester désactivée.
 8. Sélectionnez **Suivant : Autorisations**.
@@ -114,7 +114,7 @@ Ajoutez l’autorisation pour les organisations AWS :
 5. Sélectionnez **Suivant : Vérification**).
 6. Entrez un nom pour le nouveau rôle. Vérifiez que vous avez entré les informations correctes, puis sélectionnez **Créer un rôle**.
 
-    Notez le rôle ARN et l’ID externe utilisés dans les étapes précédentes lorsque vous avez créé le rôle. Vous allez les utiliser ultérieurement pour configurer le connecteur Azure Cost Management.
+    Notez le rôle ARN et l’ID externe utilisés dans les étapes précédentes lorsque vous avez créé le rôle. Vous allez les utiliser ultérieurement pour configurer le connecteur Cost Management.
 
 L’élément JSON de la stratégie doit ressembler à l’exemple suivant. Remplacez _bucketname_ par le nom de votre compartiment S3.
 

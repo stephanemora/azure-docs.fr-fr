@@ -4,15 +4,15 @@ description: Découvrez comment créer et gérer une offre SaaS sur Microsoft Ap
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/10/2020
+ms.date: 10/08/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 194d9465d43de33f1f05e9587d2e166e9d2831f1
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: c420a2fd947e32acb0cce9a6ce4a73ddd1d2a3bd
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455130"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729137"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de traitement SaaS version 2 sur la Place de marché commerciale
 
@@ -30,11 +30,11 @@ Le diagramme suivant montre les états d’un abonnement SaaS et les actions app
 
 #### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Acheté mais pas encore activé (*PendingFulfillmentStart*)
 
-Une fois qu’un utilisateur final (ou CSP) a acheté une offre SaaS sur la Place de marché commerciale, l’éditeur doit être informé de l’achat. L’éditeur peut ensuite créer et configurer un nouveau compte SaaS côté éditeur pour l’utilisateur final.
+Lorsqu’un utilisateur final ou un fournisseur de solutions Cloud (CSP) achète une offre SaaS sur le marketplace commercial, l’éditeur doit être informé de cet achat. L’éditeur peut ensuite créer et configurer un nouveau compte SaaS côté éditeur pour l’utilisateur final.
 
 Pour la création du compte :
 
-1. Le client sélectionne le bouton **Configurer** disponible pour une offre SaaS après son achat dans Microsoft AppSource ou le portail Azure. Il peut également utiliser le bouton **Configurer** dans l’e-mail qu’il reçoit peu après l’achat.
+1. Le client sélectionne le bouton **Configurer le compte** disponible pour une offre SaaS après son achat dans Microsoft AppSource ou le portail Azure. Il peut également utiliser le bouton **Configurer** dans l’e-mail qu’il reçoit peu après l’achat.
 2. Microsoft avertit ensuite le partenaire de l’achat en ouvrant, dans le nouvel onglet de navigateur, l’URL de la page d’arrivée avec le paramètre de jeton (le jeton d’identification d’achat de la Place de marché commerciale).
 
 Un exemple de ce type d’appel est `https://contoso.com/signup?token=<blob>`, tandis que l’URL de la page d’arrivée de cette offre SaaS dans l’Espace partenaires est configurée comme `https://contoso.com/signup`. Ce jeton fournit à l’éditeur un ID qui identifie de façon unique l’achat SaaS et le client.
@@ -84,7 +84,7 @@ Un seul abonnement actif peut être mis à jour. Pendant la mise à jour de l’
 
 Dans ce flux, le client modifie le plan d’abonnement ou le nombre de postes à partir du portail Azure ou du Centre d’administration Microsoft 365.
 
-1. Après qu’une mise à jour est entrée, Microsoft appelle l’URL du webhook de l’éditeur, configurée dans le champ **Webhook de connexion** de l’Espace partenaires, avec une valeur appropriée pour l’*action* et d’autres paramètres pertinents. 
+1. Après la saisie d’une mise à jour, Microsoft appelle l’URL du webhook de l’éditeur, configurée dans le champ **Webhook de connexion** de la page _Configuration technique_ d’Espace partenaires, avec une valeur appropriée pour l’*action* et d’autres paramètres pertinents.
 1. Le côté éditeur doit apporter les modifications requises au service SaaS et notifier Microsoft lorsqu’il a terminé en appelant l’[API Mettre à jour l’état de l’opération](#update-the-status-of-an-operation).
 1. Si le correctif est envoyé avec l’état *fail*, le processus de mise à jour ne se terminera pas côté Microsoft. L’abonnement SaaS conservera le plan et la quantité de postes existants.
 
@@ -101,7 +101,7 @@ Dans ce processus, le client modifie le plan d’abonnement ou le nombre de post
 
 1. Le code de l’éditeur doit appeler l’[API Modifier le plan](#change-the-plan-on-the-subscription) et/ou l’[API Modifier la quantité](#change-the-quantity-of-seats-on-the-saas-subscription) avant d’effectuer la modification demandée côté éditeur. 
 
-1. Microsoft appliquera la modification à l’abonnement, puis notifiera l’éditeur via **Webhook de connexion** pour appliquer la même modification.
+1. Microsoft appliquera la modification à l’abonnement, puis informera l’éditeur via **Webhook de connexion** d’appliquer la même modification.
 
 1. Ce n’est qu’à ce moment-là que l’éditeur doit apporter la modification requise à l’abonnement SaaS, et notifier Microsoft lorsque la modification est effectuée en appelant l’[API Mettre à jour l’état de l’opération](#update-the-status-of-an-operation).
 
@@ -728,8 +728,6 @@ Code : 500 Erreur interne du serveur. Renouvelez l’appel d’API.  Si l’err
 
 Obtenir la liste des opérations en attente pour l’abonnement SaaS spécifié.  L’éditeur doit accuser réception des opérations retournées en appelant l’[API Patch d’opérations](#update-the-status-of-an-operation).
 
-Actuellement, seules les **opérations de réactivation** sont retournées comme réponse pour cet appel d’API.
-
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
@@ -750,7 +748,7 @@ Actuellement, seules les **opérations de réactivation** sont retournées comme
 
 *Codes de réponse :*
 
-Code : 200 Retourne l’opération de réactivation en attente sur l’abonnement SaaS spécifié.
+Code : 200 Renvoie les opérations en attente sur l’abonnement SaaS spécifié.
 
 *Exemple de charge utile de réponse :*
 
@@ -773,7 +771,7 @@ Code : 200 Retourne l’opération de réactivation en attente sur l’abonneme
 }
 ```
 
-Retourne un objet json vide si aucune opération de réactivation n’est en attente.
+Renvoie un objet json vide si aucune opération n’est en attente.
 
 Code : 400 Demande incorrecte : échecs de validation.
 
@@ -899,10 +897,10 @@ Code : 500 Erreur interne du serveur.  Renouvelez l’appel d’API.  Si l’er
 
 ## <a name="implementing-a-webhook-on-the-saas-service"></a>Implémentation d’un webhook sur le service SaaS
 
-Lors de la création d’une offre SaaS qui peut être utilisée dans l’Espace partenaires, le partenaire fournit l’URL **Connexion webhook** à utiliser comme point de terminaison HTTP.  Ce webhook est appelé par Microsoft à l’aide de l’appel POST HTTP pour notifier le côté éditeur des événements suivants qui se produisent côté Microsoft :
+Lors de la création d’une offre SaaS payante dans Espace partenaires, le partenaire fournit l’URL du **webhook de connexion** à utiliser comme point de terminaison HTTP.  Ce webhook est appelé par Microsoft à l’aide de l’appel POST HTTP pour notifier le côté éditeur des événements suivants qui se produisent côté Microsoft :
 
 * Lorsque l’abonnement SaaS est à l’état *Subscribed* :
-    * ChangePlan 
+    * ChangePlan
     * ChangeQuantity
     * Interrompre
     * Se désabonner

@@ -10,12 +10,12 @@ ms.date: 02/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 80c02416f5e1fb232d84b1311d261122dc7b9a35
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: ebd9ba6beabe1a0bd3e6f158b90ca90510ea1b66
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113733661"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129857819"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-directory-or-blob-with-net"></a>Créer une SAP de délégation d’utilisateur pour un conteneur, un répertoire ou un blob en utilisant .NET
 
@@ -29,13 +29,11 @@ Cet article explique comment utiliser les informations d’identification Azure 
 
 Lorsqu’un principal de sécurité Azure AD tente d’accéder aux données blob, ce principal de sécurité doit avoir des autorisations sur la ressource. Que le principal de sécurité soit une identité managée dans Azure ou un compte d’utilisateur Azure AD exécutant du code dans l’environnement de développement, un rôle Azure qui accorde l’accès aux données blob dans le stockage Azure doit être affecté au principal de sécurité. Pour obtenir des informations sur l’attribution d’autorisations via le contrôle d’accès en fonction du rôle Azure, consultez [Attribuer un rôle Azure pour l’accès aux données d’objet blob](assign-azure-role-data-access.md).
 
-[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
-
-Pour en savoir plus sur la façon de s’authentifier avec de la bibliothèque cliente Azure Identity à partir du Stockage Azure, consultez la section intitulée **S’authentifier avec la bibliothèque d’identité Azure** dans [Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
+Pour en savoir plus sur la façon d’obtenir un jeton avec la bibliothèque de client d’identités Azure à partir de Stockage Azure, consultez [Utiliser la bibliothèque d’identités Azure pour obtenir un jeton d’accès pour l’autorisation](../common/identity-library-acquire-token.md).
 
 ## <a name="get-an-authenticated-token-credential"></a>Obtenir des informations d’identification d’un jeton authentifié
 
-Pour obtenir les informations d’identification d’un jeton que votre code peut utiliser pour autoriser les requêtes au stockage Azure, créez une instance de la classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
+Pour obtenir les informations d’identification d’un jeton que votre code peut utiliser pour autoriser les requêtes au stockage Azure, créez une instance de la classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). Pour plus d’informations sur l’utilisation de la classe DefaultAzureCredential pour autoriser une identité managée à accéder à Stockage Azure, consultez [Bibliothèque de client d’identité Azure pour .NET](/dotnet/api/overview/azure/identity-readme).
 
 L’extrait de code suivant montre comment obtenir les informations d’identification d’un jeton authentifié et comment les utiliser pour créer un client de service pour le stockage blob :
 

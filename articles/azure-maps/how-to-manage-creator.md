@@ -1,18 +1,18 @@
 ---
 title: Gérer Microsoft Azure Maps Creator
 description: Cet article explique comment gérer Microsoft Azure Maps Creator.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/18/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/08/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: af01febed5398ecb6750305e6d03352f9bcea727
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 09a70e55d796e0eb16d0806fb9a0726ff67ea812
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532850"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729764"
 ---
 # <a name="manage-azure-maps-creator"></a>Gérer le Créateur Azure Maps
 
@@ -32,7 +32,7 @@ Cet article vous guide tout au long des étapes de création et de suppression d
 
     :::image type="content" border="true" source="./media/how-to-manage-creator/creator-blade-settings.png" alt-text="Page Créer un Créateur Azure Maps":::
 
-4. Entrez le nom, l’emplacement et le mappage des unités de stockage d’approvisionnement pour votre ressource Creator. Actuellement, Creator n’est pris en charge qu’aux États-Unis. Sélectionnez **Revoir + créer**.
+4. Entrez le nom, l’emplacement et le mappage des unités de stockage d’approvisionnement pour votre ressource Creator, puis sélectionnez **Vérifier + créer**.
 
    :::image type="content" source="./media/how-to-manage-creator/creator-creation-dialog.png" alt-text="Page Entrer les informations du compte du Créateur":::
 

@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 07/26/2021
-ms.openlocfilehash: cb88998009ab05eb91b8945a138ef935660dac35
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.date: 10/05/2021
+ms.openlocfilehash: 89fcd5ce46ea9093779ad24dcca5a80a3a4f6ada
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114710752"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129618325"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Surveiller et régler dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -26,7 +26,7 @@ Outre l’affichage des graphiques des mesures, vous pouvez configurer des alert
 
 ### <a name="per-node-vs-aggregate"></a>Par nœud versus agrégat
 
-Par défaut, le Portail Azure agrège les mesures Hyperscale (Citus) sur les nœuds dans un groupe de serveurs. Toutefois, certaines mesures, telles que le pourcentage d’utilisation du disque, sont plus détaillées au niveau de chaque nœud. Pour voir les mesures par nœud affichées individuellement, utilisez le [fractionnement des métriques](../azure-monitor/essentials/metrics-charts.md#metric-splitting) Azure Monitor par nom de serveur.
+Par défaut, le Portail Azure agrège les mesures Hyperscale (Citus) sur les nœuds dans un groupe de serveurs. Toutefois, certaines mesures, telles que le pourcentage d’utilisation du disque, sont plus détaillées au niveau de chaque nœud. Pour voir les mesures par nœud affichées individuellement, utilisez le [fractionnement des métriques](howto-hyperscale-monitoring.md#view-metrics-per-node) Azure Monitor par nom de serveur.
 
 > [!NOTE]
 >
@@ -51,5 +51,6 @@ Azure ne fournit aucune mesure agrégée pour le cluster dans son ensemble, mais
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Découvrez comment [afficher les métriques](howto-hyperscale-monitoring.md) pour un groupe de serveurs Hyperscale (Citus).
 - Consultez le [guide pratique pour configurer des alertes](howto-hyperscale-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.
 - Découvrez comment effectuer le[Fractionnement des métriques](../azure-monitor/essentials/metrics-charts.md#metric-splitting) pour contrôler les mesures par nœud dans un groupe de serveurs.

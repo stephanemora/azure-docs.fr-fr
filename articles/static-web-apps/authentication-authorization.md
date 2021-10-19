@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 10/08/2021
 ms.author: cshoe
-ms.openlocfilehash: 00f01e184b254e4fbc40fefa79506498bae30597
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: e38cc40407f636f8bfd53a9196ecaf9c431d34db
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122634909"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729821"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps"></a>Authentification et autorisation pour les applications Azure Static Web Apps
 
@@ -21,7 +21,8 @@ Azure Static Web Apps offre une expérience d’authentification simplifiée. Pa
 - N’importe quel utilisateur peut s’authentifier auprès d’un fournisseur activé.
 - Une fois connectés, les utilisateurs appartiennent par défaut aux rôles `anonymous` et `authenticated`.
 - Les utilisateurs autorisés ont accès aux [itinéraires](configuration.md#routes) restreints par les règles définies dans le fichier [staticwebapp.config.json](./configuration.md).
-- Les utilisateurs accèdent à des rôles personnalisés au moyen [d’invitations](#invitations) propres au fournisseur ou d’une [inscription de fournisseur Azure Active Directory personnalisée](./authentication-custom.md).
+- Des rôles personnalisés sont attribués aux utilisateurs à l’aide du système d’[invitations](#invitations) intégré.
+- Les utilisateurs peuvent se voir attribuer des rôles personnalisés par programmation au moment de la connexion par le biais d’une fonction d’API.
 - Tous les fournisseurs d’authentification sont activés par défaut.
   - Pour restreindre un fournisseur d’authentification, [bloquez l’accès](#block-an-authorization-provider) avec une règle d’acheminement personnalisée.
 - Les fournisseurs préconfigurés sont les suivants :
@@ -38,9 +39,11 @@ Tous les utilisateurs qui accèdent à une application web statique appartiennen
 - **Anonyme** : tous les utilisateurs appartiennent automatiquement au rôle _anonyme_.
 - **Authentifié** : tous les utilisateurs qui sont connectés appartiennent au rôle _authentifié_ .
 
-Au-delà des rôles intégrés, vous pouvez créer des rôles, les attribuer à des utilisateurs via des invitations et les référencer dans le fichier _staticwebapp.config.json_.
+Outre les rôles intégrés, vous pouvez attribuer des rôles personnalisés aux utilisateurs et les référencer dans le fichier _staticwebapp.config.json_.
 
 ## <a name="role-management"></a>Gestion des rôles
+
+# <a name="invitations"></a>[Invitations](#tab/invitations)
 
 ### <a name="add-a-user-to-a-role"></a>Ajouter un utilisateur à un rôle
 
@@ -104,6 +107,115 @@ Lorsque vous supprimez un utilisateur, vous devez garder à l’esprit les consi
 1. La suppression d’un utilisateur invalide ses autorisations.
 1. La propagation globale peut prendre quelques minutes.
 1. Si l’utilisateur est de nouveau ajouté à l’application, le [`userId` change](user-information.md).
+
+# <a name="function-preview"></a>[Fonction (préversion)](#tab/function)
+
+Au lieu d’utiliser le système d’invitations intégré, vous pouvez utiliser une fonction serverless pour attribuer par programmation des rôles aux utilisateurs lorsqu’ils se connectent.
+
+Pour attribuer des rôles personnalisés dans une fonction, vous pouvez définir une fonction d’API qui est automatiquement appelée chaque fois qu’un utilisateur réussit à s’authentifier auprès d’un fournisseur d’identité. La fonction reçoit les informations de l’utilisateur de la part du fournisseur. Elle doit renvoyer une liste des rôles personnalisés qui sont attribués à l’utilisateur.
+
+Voici quelques exemples d’utilisation de cette fonction :
+
+- Interroger une base de données pour déterminer les rôles à attribuer à un utilisateur
+- Appeler l’[API Microsoft Graph](https://developer.microsoft.com/graph) pour déterminer les rôles d’un utilisateur en fonction de son appartenance à un groupe Active Directory
+- Déterminer les rôles d’un utilisateur en fonction des revendications renvoyées par le fournisseur d’identité
+
+> [!NOTE]
+> La possibilité d’attribuer des rôles par le biais d’une fonction n’est disponible que lorsque [l’authentification personnalisée](authentication-custom.md) est configurée.
+>
+> Lorsque cette fonctionnalité est activée, tous les rôles attribués via le système d’invitations intégré sont ignorés.
+
+### <a name="configure-a-function-for-assigning-roles"></a>Configurer une fonction pour attribuer des rôles
+
+Pour configurer Static Web Apps afin d’utiliser une fonction d’API comme fonction d’attribution de rôle, ajoutez une propriété `rolesSource` à la section `auth` du [fichier config](configuration.md) de votre application. La valeur de la propriété `rolesSource` est le chemin d’accès à la fonction d’API.
+
+```json
+{
+  "auth": {
+    "rolesSource": "/api/GetRoles",
+    "identityProviders": {
+      // ...
+    }
+  }
+}
+```
+
+> [!NOTE]
+> Une fois configurée, la fonction d’attribution de rôle n’est plus accessible par des requêtes HTTP externes.
+
+### <a name="create-a-function-for-assigning-roles"></a>Créer une fonction pour attribuer des rôles
+
+Après avoir défini la propriété `rolesSource` dans la configuration de votre application, ajoutez une [fonction d’API](apis.md) dans votre application web statique à l’emplacement indiqué. Vous pouvez utiliser une application de fonction managée ou apporter votre propre application de fonction.
+
+Chaque fois qu’un utilisateur s’authentifie auprès d’un fournisseur d’identité, la fonction spécifiée est appelée. Le corps de la demande transmet à la fonction un objet JSON qui contient les informations du fournisseur sur l’utilisateur. Pour certains fournisseurs d’identité, les informations de l’utilisateur comprennent également un `accessToken` que la fonction peut utiliser pour effectuer des appels d’API en utilisant l’identité de l’utilisateur.
+
+Voici un exemple de charge utile provenant d’Azure Active Directory :
+
+```json
+{
+  "identityProvider": "aad",
+  "userId": "72137ad3-ae00-42b5-8d54-aacb38576d76",
+  "userDetails": "ellen@contoso.com",
+  "claims": [
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+          "val": "ellen@contoso.com"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname",
+          "val": "Contoso"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
+          "val": "Ellen"
+      },
+      {
+          "typ": "name",
+          "val": "Ellen Contoso"
+      },
+      {
+          "typ": "http://schemas.microsoft.com/identity/claims/objectidentifier",
+          "val": "7da753ff-1c8e-4b5e-affe-d89e5a57fe2f"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+          "val": "72137ad3-ae00-42b5-8d54-aacb38576d76"
+      },
+      {
+          "typ": "http://schemas.microsoft.com/identity/claims/tenantid",
+          "val": "3856f5f5-4bae-464a-9044-b72dc2dcde26"
+      },
+      {
+          "typ": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+          "val": "ellen@contoso.com"
+      },
+      {
+          "typ": "ver",
+          "val": "1.0"
+      }
+  ],
+  "accessToken": "eyJ0eXAiOiJKV..."
+}
+```
+
+La fonction peut utiliser les informations de l’utilisateur pour déterminer les rôles à lui attribuer. Elle doit renvoyer une réponse HTTP 200 avec un corps JSON contenant une liste de noms de rôles personnalisés à attribuer à l’utilisateur.
+
+Par exemple, pour attribuer à l’utilisateur les rôles `Reader` et `Contributor`, renvoyez la réponse suivante :
+
+```json
+{
+  "roles": [
+    "Reader",
+    "Contributor"
+  ]
+}
+```
+
+Si vous ne souhaitez pas attribuer de rôles supplémentaires à l’utilisateur, renvoyez un tableau `roles` vide.
+
+Pour en savoir plus, consultez [Tutoriel : Attribuer des rôles personnalisés avec une fonction et Microsoft Graph](assign-roles-microsoft-graph.md).
+
+---
 
 ## <a name="remove-personal-identifying-information"></a>Supprimer les informations d’identification personnelle
 

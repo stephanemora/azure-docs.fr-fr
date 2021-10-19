@@ -7,35 +7,37 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: 5b28540f30c23abc4ba1d58f6984524984f2c001
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/08/2021
+ms.openlocfilehash: 841cd106f1c54e1c35d3b2785eb942842d77f825
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524778"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129706761"
 ---
 # <a name="knowledge-store-projections-in-azure-cognitive-search"></a>« Projections » de base de connaissances dans Recherche cognitive Azure
 
-Les projections, un élément de la [base de connaissances](knowledge-store-concept-intro.md), sont des vues de documents enrichis qui peuvent être enregistrées dans une mémoire physique à des fins d’exploration des connaissances. Une projection vous permet de « projeter » vos données dans une forme qui répond à vos besoins, en conservant les relations afin que les outils tels que Power BI puissent lire les données sans effort supplémentaire.
+Les projections sont l’élément d’une définition de [base de connaissances](knowledge-store-concept-intro.md) qui spécifie l’expression physique de vos données dans Stockage Azure. Une définition de projection détermine le nombre et le type de structures de données dans Stockage Azure.
 
-Les projections peuvent être tabulaires, où les données sont articulées en lignes et en colonnes dans Stockage Table Azure, des objets JSON stockés dans Stockage Blob Azure ou encore des images binaires également stockées dans Stockage Blob. Vous pouvez définir plusieurs projections de vos données pendant leur enrichissement. Des projections multiples sont utile lorsque vous souhaitez que les mêmes données soient mises en forme différemment pour des cas d’utilisation individuels.
+## <a name="types-of-data-structures"></a>Types de structures de données
 
-La base de connaissances prend en charge trois types de projections :
+Une base de connaissances est une construction logique exprimée physiquement dans Stockage Azure sous la forme de tables, d’objets JSON ou de fichiers image binaires.
 
-+ **Tables** : Pour les données qui sont mieux représentées sous forme de lignes et de colonnes, les projections de table vous permettent de définir une forme schématisée ou une projection dans le stockage Table. Seuls les objets JSON valides peuvent être projetés en tant que tables. Dans la mesure où un document enrichi peut contenir des nœuds qui ne sont pas des objets JSON nommés, vous ajouterez une [compétence Modélisateur ou utiliserez la modélisation inlined](knowledge-store-projection-shape.md) dans une compétence pour créer un JSON valide. 
+| Projection | Stockage | Utilisation |
+|------------|---------|-------|
+| Tables | Stockage de table Azure | Utilisé pour les données qui sont idéalement représentées sous forme de lignes et de colonnes. Les projections de table vous permettent de définir une forme ou une projection schématisées. Seuls les objets JSON valides peuvent être projetés en tant que tables. Dans la mesure où un document enrichi peut contenir des nœuds qui ne sont pas des objets JSON nommés, vous ajouterez une [compétence Modélisateur ou utiliserez la modélisation inlined](knowledge-store-projection-shape.md) dans une compétence pour créer un JSON valide. |
+| Objets | Stockage Blob Azure | Utilisé quand vous avez besoin d’une représentation JSON de vos données et enrichissements. Comme pour les projections de table, seuls les objets JSON valides peuvent être projetés en tant qu’objets, et la modélisation peut vous aider à le faire. |
+| Fichiers | Stockage Blob Azure | Utilisé quand vous devez enregistrer des fichiers image binaires normalisés. |
 
-+ **Objets** : Lorsque vous avez besoin d’une représentation JSON de vos données et enrichissements, utilisez des projections d’objets pour enregistrer la sortie sous forme de blobs. Comme pour les projections de table, seuls les objets JSON valides peuvent être projetés en tant qu’objets, et la modélisation peut vous aider à le faire.
+Vous pouvez définir plusieurs projections de vos données pendant leur enrichissement. Des projections multiples sont utile lorsque vous souhaitez que les mêmes données soient mises en forme différemment pour des cas d’utilisation individuels.
 
-+ **Fichiers** : Quand vous devez enregistrer les images extraites des documents, les projections de fichiers vous permettent d’enregistrer les images normalisées dans un stockage d’objets blob.
+## <a name="basic-definition"></a>Définition de base
 
-Pour voir des projections définies en contexte, consultez [Créer une base de connaissances avec REST](knowledge-store-create-rest.md).
+Les projections sont un ensemble de collections complexes sous une définition `knowledgeStore` dans un [objet ensemble de compétences](/rest/api/searchservice/create-skillset). 
 
-## <a name="basic-pattern"></a>Modèle de base
+Chaque ensemble de tables, d’objets et de fichiers constitue un *groupe de projets*. Vous pouvez avoir plusieurs groupes si les exigences de stockage incluent la prise en charge de différents outils et scénarios. Au sein d’un même groupe, vous pouvez avoir plusieurs tables, objets et fichiers. 
 
-Les projections sont un ensemble de collections complexes sous une définition `knowledgeStore` dans un objet ensemble de compétences. Chaque ensemble de tables, d’objets et de fichiers constitue un *groupe de projets*. Vous pouvez avoir plusieurs groupes si les exigences de stockage incluent la prise en charge de différents outils et scénarios. Au sein d’un même groupe, vous pouvez avoir plusieurs tables, objets et fichiers. 
-
-En général, un seul groupe est utilisé, mais l’exemple suivant en présente deux pour illustrer le modèle lorsque plusieurs groupes existent.
+En général, un seul groupe est utilisé, mais l’exemple suivant en présente deux pour renforcer l’idée de groupes multiples.
 
 ```json
 "knowledgeStore" : {
@@ -55,7 +57,7 @@ En général, un seul groupe est utilisé, mais l’exemple suivant en présente
 }
 ```
 
-### <a name="projection-groups"></a>Groupes de projections
+## <a name="data-isolation-and-relatedness"></a>Isolation et parenté des données
 
 Il est utile de disposer de plusieurs ensembles de combinaisons table-objet-fichier pour prendre en charge différents scénarios. Vous pouvez utiliser un ensemble pour la conception et le débogage d’un ensemble de compétences, en capturant la sortie pour un examen plus approfondi, tandis qu’un deuxième ensemble collecte la sortie utilisée pour une application en ligne et qu’un troisième est utilisé pour les charges de travail de science des données.
 

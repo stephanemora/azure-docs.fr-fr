@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/03/2021
+ms.date: 10/06/2021
 ms.author: memildin
-ms.openlocfilehash: c0ae5cc8d3dee5a09916194418345c1602a19e4b
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: bd8ebca221041684a47bb66bb01c176fd1b65ba6
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424781"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729517"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -30,13 +30,56 @@ Pour en savoir plus sur les changements *planifiés* qui seront bientôt disponi
 
 Les mises à jour d’octobre sont les suivantes :
 
+- [Ajout de Gestion des menaces et des vulnérabilités de Microsoft comme solution d’évaluation des vulnérabilités (en préversion)](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview)
+- [Les solutions d’évaluation des vulnérabilités peuvent désormais être activées automatiquement (en préversion)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview)
+- [Ajout de filtres d’inventaire logiciel à l’inventaire des ressources (en préversion)](#software-inventory-filters-added-to-asset-inventory-in-preview)
 - [Modification du préfixe de certains types d’alerte de « ARM_ » à « VM_ »](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
+
+
+### <a name="microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview"></a>Ajout de Gestion des menaces et des vulnérabilités de Microsoft comme solution d’évaluation des vulnérabilités (en préversion)
+
+Nous avons étendu l’intégration entre [Azure defender pour les serveurs](defender-for-servers-introduction.md) et Microsoft Defender pour point de terminaison afin de prendre en charge une nouvelle évaluation des vulnérabilités fournie pour vos machines : [Gestion des menaces et des vulnérabilités de Microsoft](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). 
+
+Utilisez la **gestion des menaces et des vulnérabilités** pour découvrir les vulnérabilités et les erreurs de configuration en quasi-temps réel grâce à l’[intégration à Microsoft Defender pour point de terminaison](security-center-wdatp.md), et sans avoir besoin d’agents supplémentaires ou d’analyses périodiques. Gestion des menaces et des vulnérabilités hiérarchise les vulnérabilités en fonction du paysage des menaces et des détections dans votre organisation.
+
+Utilisez la recommandation de sécurité « [Une solution d’évaluation des vulnérabilités doit être activée sur vos machines virtuelles](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ffff0522-1e88-47fc-8382-2a80ba848f5d) » pour faire apparaître les vulnérabilités détectées par Gestion des menaces et des vulnérabilités pour vos [machines prises en charge](/microsoft-365/security/defender-endpoint/tvm-supported-os?view=o365-worldwide&preserve-view=true). 
+
+Pour faire apparaître automatiquement les vulnérabilités sur les machines existantes et nouvelles sans avoir besoin de corriger manuellement la recommandation, consultez [Les solutions d’évaluation des vulnérabilités peuvent désormais être activées automatiquement (en préversion)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview).
+
+En savoir plus dans [Investiguer les faiblesses avec la gestion des menaces et des vulnérabilités de Microsoft Defender pour point de terminaison](deploy-vulnerability-assessment-tvm.md).
+
+### <a name="vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview"></a>Les solutions d’évaluation des vulnérabilités peuvent désormais être activées automatiquement (en préversion)
+
+La page d’approvisionnement automatique de Security Center comprend désormais l’option permettant d’activer automatiquement une solution d’évaluation des vulnérabilités sur les machines virtuelles Azure et les machines Azure Arc sur des abonnements protégés par [Azure Defender pour les serveurs](defender-for-servers-introduction.md).
+
+En outre, si l’[intégration à Microsoft Defender pour point de terminaison](security-center-wdatp.md) est activée, vous aurez le choix entre plusieurs solutions d’évaluation des vulnérabilités :
+
+- (**NOUVEAU**) Le module Gestion des menaces et des vulnérabilités de Microsoft de Microsoft Defender pour point de terminaison (voir [la note de publication](#microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview))
+- L’agent Qualys intégré
+
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/auto-provision-vulnerability-assessment-agent.png" alt-text="Configurer l’approvisionnement automatique de Gestion des menaces et des vulnérabilités de Microsoft à partir d’Azure Security Center.":::
+
+La solution que vous avez choisie sera automatiquement activée sur les machines prises en charge.
+
+En savoir plus dans [Configurer automatiquement l’évaluation des vulnérabilités pour vos machines](auto-deploy-vulnerability-assessment.md).
+
+### <a name="software-inventory-filters-added-to-asset-inventory-in-preview"></a>Ajout de filtres d’inventaire logiciel à l’inventaire des ressources (en préversion)
+
+La page [Inventaire des ressources](asset-inventory.md) comprend désormais un filtre permettant de sélectionner les machines exécutant un logiciel spécifique, et même de spécifier les versions qui vous intéressent. 
+
+En outre, vous pouvez interroger les données d’inventaire logiciel dans **Azure Resource Graph Explorer**.
+
+Pour utiliser ces nouvelles fonctionnalités, vous devez activer l’[intégration à Microsoft Defender pour point de terminaison](security-center-wdatp.md). 
+
+Pour plus de détails, y compris des exemples de requêtes Kusto pour Azure Resource Graph, consultez [Accéder à un inventaire logiciel](asset-inventory.md#access-a-software-inventory).
+
+:::image type="content" source="media/deploy-vulnerability-assessment-tvm/software-inventory.png" alt-text="Si vous avez activé la solution de gestion des menaces et des vulnérabilités, l’inventaire des ressources de Security Center offre un filtre permettant de sélectionner les ressources en fonction de leurs logiciels installés.":::
 
 ### <a name="changed-prefix-of-some-alert-types-from-arm_-to-vm_"></a>Modification du préfixe de certains types d’alerte de « ARM_ » à « VM_ » 
 
 En juillet 2021, nous avons annoncé une [réorganisation logique d’Azure Defender pour les alertes Resource Manager](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
 
-Dans le cadre d’une réorganisation logique de certains des plans Azure Defender, nous avons déplacé vingt et une alertes d’[Azure Defender pour Resource Manager](defender-for-resource-manager-introduction.md) vers [Azure Defender pour les serveurs](defender-for-servers-introduction.md).
+Dans le cadre d’une réorganisation logique de certains des plans Azure Defender, nous avons déplacé 21 alertes d’[Azure Defender pour Resource Manager](defender-for-resource-manager-introduction.md) vers [Azure Defender pour les serveurs](defender-for-servers-introduction.md).
 
 Avec cette mise à jour, nous avons modifié les préfixes de ces alertes pour qu’elles correspondent à cette réaffectation et remplacé « ARM_ » par « VM_ », comme indiqué dans le tableau suivant :
 
@@ -71,7 +114,7 @@ En savoir plus sur les plans [Azure Defender pour Resource Manager](defender-for
 
 En septembre, la mise à jour suivante a été publiée :
 
-### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance"></a>Deux nouvelles recommandations pour auditer les configurations de système d’exploitation pour la conformité de la base de référence de sécurité Azure
+### <a name="two-new-recommendations-to-audit-os-configurations-for-azure-security-baseline-compliance-in-preview"></a>Deux nouvelles recommandations pour auditer les configurations de système d’exploitation pour la conformité de la ligne de base de sécurité Azure (en préversion)
 
 Les deux recommandations suivantes ont été publiées pour évaluer la conformité de vos machines à la [Base de référence de sécurité Windows](../governance/policy/samples/guest-configuration-baseline-windows.md) et à la [Base de référence de sécurité Linux](../governance/policy/samples/guest-configuration-baseline-linux.md) :
 
@@ -112,7 +155,7 @@ En savoir plus dans [Protéger vos points de terminaison avec la solution EDR i
 
 ### <a name="two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview"></a>Deux nouvelles recommandations pour la gestion des solutions de protection de point de terminaison (en préversion)
 
-Nous avons ajouté deux recommandations **en préversion** pour déployer et gérer les solutions de protection des points de terminaison sur vos machines. Ces deux recommandations incluent la prise en charge des machines virtuelles Azure et des machines connectées aux serveurs compatibles avec Azure Arc.
+Nous avons ajouté deux recommandations **en préversion** pour déployer et gérer les solutions de protection des points de terminaison sur vos machines. Ces deux recommandations incluent la prise en charge des machines virtuelles Azure et des machines connectées aux serveurs Azure Arc.
 
 |Recommandation |Description |Gravité |
 |---|---|---|
@@ -511,11 +554,11 @@ Une fois cette modification apportée, vous pouvez aussi utiliser le bouton **Ou
 
 :::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="Le bouton Ouvrir une requête propose désormais des options pour une requête plus détaillée présentant les résultats de la sécurité pour les recommandations relatives à l’analyseur de vulnérabilités.":::
 
-Le bouton **Ouvrir une requête** offre aussi des options supplémentaires pour d’autres recommandations, le cas échéant.
+Le bouton **Ouvrir une requête** offre des options supplémentaires pour d’autres recommandations, le cas échéant.
 
 Découvrez plus d’informations sur les analyseurs de vulnérabilités de Security Center :
 
-- [Analyseur d’évaluation des vulnérabilités intégré d’Azure Defender pour les machines Azure et hybrides](deploy-vulnerability-assessment-vm.md)
+- [Analyseur de vulnérabilités intégré Qualys d’Azure Defender pour les machines Azure et hybrides](deploy-vulnerability-assessment-vm.md)
 - [Analyseur d’évaluation des vulnérabilités intégré d’Azure Defender pour les serveurs SQL](defender-for-sql-on-machines-vulnerability-assessment.md)
 - [Analyseur d’évaluation des vulnérabilités intégré d’Azure Defender pour les registres de conteneurs](defender-for-container-registries-usage.md)
 

@@ -9,12 +9,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 05/18/2021
-ms.openlocfilehash: 16782538918c0477b969f95b7730b38221f97f82
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 2fa7a60b4f0cbc7e72304c1b01444bf9a9f6a842
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414819"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667627"
 ---
 # <a name="azure-sql-managed-instance---compute-hardware-in-the-vcore-service-tier"></a>Azure SQL Managed Instance - Matériel de calcul dans le niveau de Service vCore
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,9 +35,9 @@ Les options de niveau de service du modèle d’achat vCore sont les suivantes 
 |**Cas d’usage**|**Usage général**|**Critique pour l’entreprise**|
 |---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques. |Offre aux applications métier la résilience la plus élevée aux défaillances en utilisant plusieurs réplicas isolés et assure les meilleures performances d’E/S.|
-|Stockage|Utilise le stockage à distance. 32 Go - 8 To |Utilise le stockage SSD local. 32 Go - 4 To |
+|Stockage|Utilise le stockage à distance. 32 Go - 8 To </br> 16 To (préversion) en fonction du nombre de cœurs, Gen5 uniquement |Utilise le stockage SSD local. 32 Go - 4 To |
 |IOPS et débit (approximatif)|Consultez [Vue d’ensemble des limites de ressources Azure SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics).|Consultez [Vue d’ensemble des limites de ressources Azure SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics).|
-|Disponibilité|1 réplica, réplicas sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](../database/read-scale-out.md),<br/>haute disponibilité (HA) redondante interzone|
+|Disponibilité|1 réplica, réplicas sans échelle lecture|4 réplicas au total, 1 [réplica avec échelle lecture](../database/read-scale-out.md),<br/> 2 réplicas haute disponibilité (HA)|
 |Sauvegardes|[Stockage géoredondant avec accès en lecture (RA-GRS)](../../storage/common/geo-redundant-design.md), 1 à 35 jours (7 jours par défaut)|[RA-GRS](../../storage/common/geo-redundant-design.md), 1 à 35 jours (7 jours par défaut)|
 |En mémoire|Non pris en charge|Pris en charge|
 ||||

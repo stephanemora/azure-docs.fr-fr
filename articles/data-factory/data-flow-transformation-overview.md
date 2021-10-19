@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
-ms.openlocfilehash: 393e6dbc0f30e4a541408119db6f606f24023d5d
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.date: 10/07/2021
+ms.openlocfilehash: 56a6a521eb648a1ad49baf2bf206ef84aa084731
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059736"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129714116"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Vue d’ensemble de la transformation de flux de données de mappage
 
@@ -43,6 +43,7 @@ Vous trouverez ci-dessous la liste des transformations actuellement prises en ch
 | [Section sink](data-flow-sink.md) | - | Destination finale pour vos données |
 | [Sort](data-flow-sort.md) | Modificateur de ligne | Triez les lignes entrantes sur le flux de données actuel. |
 | [Source](data-flow-source.md) | - | Source de données pour le flux de données |
+| [Stringifier](data-flow-stringify.md) | - | Transformer des types complexes en chaînes brutes |
 | [Clé de substitution](data-flow-surrogate-key.md) | Modificateur de schéma | Ajoutez une valeur de clé arbitraire non professionnelle d’incrémentation. |
 | [Union](data-flow-union.md) | Entrées/sorties multiples | Combinez plusieurs flux de données verticalement. |
 | [Supprimer le tableau croisé dynamique](data-flow-unpivot.md) | Modificateur de schéma | Créer un tableau croisé dynamique pour convertir des colonnes en valeurs de ligne |

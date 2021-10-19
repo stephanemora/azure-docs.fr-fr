@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: af8e6a64e94530d6cca1494aff2c3b249186a42e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9ca3471b599e9f0671cd39603d71def344f7d72c
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524704"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660492"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Vue d’ensemble des liaisons de Stockage Blob Azure pour Azure Functions
 
@@ -55,10 +55,10 @@ Les applications Functions 1.x ont automatiquement une référence au package N
 
 ## <a name="hostjson-settings"></a>Paramètres host.json
 
-> [!NOTE]
-> Cette section ne s’applique pas lors de l’utilisation de versions d’extension antérieures à 5.0.0. Pour ces versions, il n’existe aucun paramètre de configuration global pour les blobs.
+Cette section décrit les paramètres de configuration d’application de fonction disponibles pour les fonctions de cette liaison. Ces paramètres s’appliquent uniquement lors de l’utilisation de la [version d’extension 5.0.0 ou d’une version supérieure](#storage-extension-5x-and-higher). L’exemple de fichier host.json ci-dessous contient seulement les paramètres des versions 2.x et ultérieures pour cette liaison. Pour plus d’informations sur les paramètres de configuration de l’application de fonction dans les versions 2.x et ultérieures, consultez [Référence host.json pour Azure Functions](functions-host-json.md).
 
-Cette section décrit les paramètres de configuration globaux disponibles pour cette liaison lors de l’utilisation des [extensions versions 5.0.0 et ultérieures](#storage-extension-5x-and-higher). L’exemple de fichier *host.json* ci-dessous contient seulement les paramètres des versions 2.x et ultérieures pour cette liaison. Pour plus d’informations sur les paramètres de configuration globaux dans les versions de Functions 2.x et ultérieures, consultez [Informations de référence sur le fichier host.json pour Azure Functions](functions-host-json.md).
+> [!NOTE]
+> Cette section ne s’applique pas aux versions d’extension antérieures à 5.0.0. Pour ces versions antérieures, il n’y a pas de paramètre de configuration de l’application de fonction pour les blobs.
 
 ```json
 {

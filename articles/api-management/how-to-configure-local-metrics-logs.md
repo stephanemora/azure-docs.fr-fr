@@ -1,6 +1,6 @@
 ---
 title: Configurer des métriques et journaux locaux pour la passerelle auto-hébergée de Gestion des API Azure | Microsoft Docs
-description: Découvrez comment configurer des métriques et journaux locaux pour la passerelle auto-hébergée de Gestion des API Azure sur un cluster Kubernetes.
+description: Découvrez comment configurer des métriques et journaux locaux pour la passerelle auto-hébergée de Gestion des API Azure sur un cluster Kubernetes
 services: api-management
 documentationcenter: ''
 author: dlepow
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/11/2021
 ms.author: danlep
-ms.openlocfilehash: 94dde4e35a072431fbcc5a30b3257b7a70b59e44
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 421111e289ffba14b792af5cf810ac562164c846
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551115"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129660834"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurer des métriques et journaux locaux pour la passerelle auto-hébergée de Gestion des API Azure
 
@@ -30,6 +30,9 @@ La passerelle auto-hébergée prend en charge [StatsD](https://github.com/statsd
 ### <a name="deploy-statsd-and-prometheus-to-the-cluster"></a>Déployer StatsD et Prometheus sur le cluster
 
 Voici un exemple de configuration YAML pour le déploiement des services StatsD et Prometheus sur le cluster Kubernetes dans lequel une passerelle auto-hébergée est déployée. Il crée également un [Service](https://kubernetes.io/docs/concepts/services-networking/service/) pour chaque service. La passerelle auto-hébergée publie des métriques sur le service StatsD. Nous allons accéder au tableau de bord de Prometheus via son service.
+
+> [!NOTE]
+> L’exemple suivant tire (pull) des images conteneurs publiques à partir de Docker Hub. Nous vous recommandons de configurer un secret d’extraction pour l’authentification à l’aide d’un compte Docker Hub au lieu de créer une demande de tirage anonyme. Pour une plus grande fiabilité lors de l’utilisation de contenu public, importez et gérez les images dans un registre de conteneurs Azure privé. [En savoir plus sur l’utilisation des images publiques.](../container-registry/buffer-gate-public-content.md)
 
 ```yaml
 apiVersion: v1

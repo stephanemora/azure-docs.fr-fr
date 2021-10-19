@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 10/07/2021
 ms.author: b-juche
-ms.openlocfilehash: abbf02776d6bc1506912a5bdd1446393b9f678fb
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: f396904b3832403337a6fa4553e2ae4a4b8c86b4
+ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095051"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129667950"
 ---
 # <a name="requirements-and-considerations-for-azure-netapp-files-backup"></a>Exigences et considérations relatives à la sauvegarde Azure NetApp Files 
 
@@ -45,6 +45,8 @@ Vous devez être conscient de plusieurs exigences et considérations avant d'uti
     Le volume qui doit être sauvegardé nécessite une politique de création d'instantanés configurée. Le nombre configuré de sauvegardes est stocké dans le stockage Azure. 
 
 * Si un problème survient (par exemple, il ne reste pas suffisamment d'espace sur le volume) et que la politique d'instantanés arrête de créer de nouveaux instantanés, la fonction de sauvegarde n'aura pas de nouveaux instantanés à sauvegarder. 
+
+* Dans un paramètre de réplication entre les régions, la sauvegarde Azure NetApp Files ne peut être configurée que sur un volume source. Elle n’est pas prise en charge sur un volume de *destination* de réplication entre régions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

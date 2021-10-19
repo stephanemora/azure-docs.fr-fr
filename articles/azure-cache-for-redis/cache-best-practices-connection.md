@@ -5,14 +5,14 @@ description: Découvrez comment rendre vos connexions Azure Cache pour Redis ré
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 10/11/2021
 ms.author: shpathak
-ms.openlocfilehash: a0dd6e3e8f4c2a7645da1ceccf77f7607d2b84b3
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 02b5c4bd42abc9c36ef971b053979d590d1e602d
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128656946"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129808838"
 ---
 # <a name="connection-resilience"></a>Résilience des connexions
 
@@ -23,6 +23,23 @@ Configurez vos connexions client pour effectuer de nouvelles tentatives avec un 
 ## <a name="test-resiliency"></a>Tester la résilience
 
 Testez la résilience de votre système aux interruptions de connexion en effectuant un [redémarrage](cache-administration.md#reboot) pour simuler un correctif. Pour plus d’informations sur le tests de performance, consultez [Test de performance](cache-best-practices-performance.md).
+
+## <a name="tcp-settings-for-linux-hosted-client-applications"></a>Paramètres TCP pour les applications clientes hébergées par Linux
+
+Certaines versions de Linux utilisent des paramètres TCP optimistes par défaut. Les paramètres TCP peuvent créer une situation dans laquelle une connexion cliente à un cache ne peut pas être rétablie pendant une longue période quand un serveur Redis ne répond plus avant de fermer la connexion correctement. Le rétablissement d’une connexion peut échouer si le nœud principal de votre Azure Cache pour Redis devient indisponible, par exemple, pour une maintenance non planifiée.
+
+Nous vous recommandons d’utiliser les paramètres TCP suivants :
+
+|Paramètre  |Valeur |
+|---------|---------|
+| *net.ipv4.tcp_retries2*   | 5 |
+| *TCP_KEEPIDLE*   | 15 |
+| *TCP_KEEPINTVL*  | 5 |
+| *TCP_KEEPCNT* | 3 |
+
+Envisagez d’utiliser le modèle *ForceReconnect*. Pour une implémentation du modèle, consultez le code dans [Reconnecting with Lazy\<T\> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-lazyreconnect-cs).
+
+Pour plus d’informations sur ce scénario, consultez [Connection does not re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). Bien que cette discussion concerne la bibliothèque StackExchange.Redis, d’autres bibliothèques clientes s’exécutant sur Linux sont également affectées. L’explication reste néanmoins utile et vous pouvez la généraliser à d’autres bibliothèques.
 
 ## <a name="configure-appropriate-timeouts"></a>Configurer les délais d’attente appropriés
 

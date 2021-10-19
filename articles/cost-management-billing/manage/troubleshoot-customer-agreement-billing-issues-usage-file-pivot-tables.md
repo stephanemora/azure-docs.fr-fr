@@ -7,21 +7,21 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
-ms.openlocfilehash: 1d4e6a407e75a70618089f20a7d19343785380ad
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cd7507a6bbb9ef8cfe71c95431fe63191cd63275
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128616476"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129711117"
 ---
 # <a name="troubleshoot-mca-billing-issues-with-usage-file-pivot-tables"></a>Résoudre les problèmes de facturation MCA à l’aide de tableaux croisés dynamiques créés à partir de fichiers d’utilisation
 
 Cet article vous aide à résoudre les problèmes de facturation Contrat client Microsoft (MCA) en utilisant des tableaux croisés dynamiques dans vos fichiers d’utilisation. Les fichiers d’utilisation Azure contiennent toutes les informations relatives à l’utilisation et à la consommation Azure. Les informations contenues dans ces fichiers peuvent vous aider à :
 
 - Comprendre la façon dont les réservations Azure sont utilisées et appliquées
-- Rapprocher les informations présentées dans Azure Cost Management avec celles de votre facture
+- Rapprocher les informations présentées dans Cost Management avec celles de votre facture
 - Gérer une flambée des coûts
 - Calculer le montant d’un remboursement pour un contrat de niveau de service
 

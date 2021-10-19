@@ -1,6 +1,6 @@
 ---
-title: Déployer une application PHP `Guestbook` sur Kubernetes avec Arc sur un appareil Azure Stack Edge Pro avec GPU | Microsoft Docs
-description: Décrit comment déployer une application sans état PHP `Guestbook` avec Redis en utilisant GitOps sur un cluster Kubernetes avec Arc de votre appareil Azure Stack Edge Pro.
+title: Déployer une application PHP `Guestbook` sur Kubernetes avec Azure Arc sur un appareil Azure Stack Edge Pro avec GPU | Microsoft Docs
+description: Décrit comment déployer une application sans état PHP `Guestbook` avec Redis en utilisant GitOps sur un cluster Kubernetes avec Azure Arc de votre appareil Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 4c5a361fafeaed6452481adc9e6eae856828bfda
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bcf2b8e97a00e693825124e92acd0f551ebfde14
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635581"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709775"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Déployer une application sans état PHP `Guestbook` avec Redis sur un cluster Kubernetes avec Arc sur Azure Stack Edge Pro avec GPU
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-azure-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Déployer une application sans état PHP `Guestbook` avec Redis sur un cluster Kubernetes avec Azure Arc sur Azure Stack Edge Pro avec GPU
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -25,7 +25,7 @@ Cet article explique comment créer et déployer une simple application web mult
 - plusieurs instances Redis répliquées pour servir les lectures ;
 - plusieurs instances frontales web.
 
-Le déploiement s’effectue à l’aide de GitOps sur le cluster Kubernetes avec Arc sur votre appareil Azure Stack Edge Pro. 
+Le déploiement s’effectue à l’aide de GitOps sur le cluster Kubernetes avec Azure Arc de votre appareil Azure Stack Edge Pro. 
 
 Cette procédure est destinée aux personnes qui ont examiné les [charges de travail Kubernetes sur un appareil Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) et connaissent les concepts de [Kubernetes avec Azure Arc (préversion)](../azure-arc/kubernetes/overview.md).
 
@@ -83,7 +83,7 @@ Procédez comme suit pour configurer la ressource Azure Arc afin de déployer un
 
 1. Accédez à **configurations**, puis sélectionnez **+ Ajouter une configuration**.
 
-    ![Capture d’écran montrant le cluster Kubernetes Azure Arc avec l’option Ajouter une configuration sélectionnée.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![Capture d’écran montrant le cluster Kubernetes avec Azure Arc avec l’option Ajouter une configuration sélectionnée.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
 1. Dans **Ajouter une configuration**, entrez les valeurs appropriées pour les champs, puis sélectionnez **Appliquer**.
 
@@ -104,11 +104,11 @@ Procédez comme suit pour configurer la ressource Azure Arc afin de déployer un
 
 1. Le déploiement de la configuration démarre et l’**État de l’opérateur** indique **En attente**. 
 
-    ![Capture d’écran montrant le cluster Kubernetes Azure Arc dans un état en attente pendant qu’il s’actualise.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![Capture d’écran montrant le cluster Kubernetes avec Azure Arc dans un état en attente pendant qu’il s’actualise.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. Le déploiement prend quelques minutes. Une fois le déploiement terminé, l’**État de l’opérateur** indique **Installé**.
 
-    ![Capture d’écran montrant le cluster Kubernetes Azure Arc dans un état installé.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![Capture d’écran montrant le cluster Kubernetes avec Azure Arc dans un état installé.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 ## <a name="verify-deployment"></a>Vérifier le déploiement
 

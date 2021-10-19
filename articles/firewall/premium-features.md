@@ -5,15 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 10/11/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d1a46cd010f0a629e787a7ebabcfe002837b7ad3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c6cc19bd688dd2c38210fae8d77a036f2ba5be7e
+ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124811167"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129754308"
 ---
 # <a name="azure-firewall-premium-features"></a>Fonctionnalités du Pare-feu Azure Premium
 
@@ -103,6 +103,8 @@ Le Pare-feu Azure Premium est pris en charge dans les régions suivantes :
 - Inde Centre (public/Inde)
 - USA Centre (public/États-Unis)
 - USA Centre EUAP (public/Canaries (États-Unis))
+- Chine Nord 2 (Mooncake / Chine)
+- Chine Est 2 (Mooncake / Chine)
 - Asie Est (public/Asie-Pacifique)
 - USA Est (public/États-Unis)
 - USA Est 2 (public/États-Unis)
@@ -125,6 +127,9 @@ Le Pare-feu Azure Premium est pris en charge dans les régions suivantes :
 - Émirats arabes unis Nord (public/Émirats Arabes Unis)
 - Royaume-Uni Sud (public/Royaume-Uni)
 - Royaume-Uni Ouest (public/Royaume-Uni)
+- Gouvernement américain - Arizona (Fairfax / Gouvernement des États-Unis)
+- Gouvernement des États-Unis - Texas (Fairfax / Gouvernement des États-Unis)
+- Gouvernement des États-Unis - Virginie (Fairfax / Gouvernement des États-Unis)
 - USA Centre-Ouest (public/États-Unis)
 - Europe Ouest (public/Europe)
 - Inde Ouest (public/Inde)

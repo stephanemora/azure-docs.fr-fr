@@ -4,15 +4,15 @@ description: Obtenez plus d’informations sur les objectifs d’extensibilité 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/06/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 83e33933e8afb8b376750368a64c60cb56406a75
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 66ad68711d57767f6f657d941222e4b225c4b20e
+ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128651538"
+ms.lasthandoff: 10/07/2021
+ms.locfileid: "129658934"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles à l’aide des protocoles SMB et de système de fichiers NFS. Cet article présente les objectifs de performance et d’extensibilité pour Azure Files et Azure File Sync.
@@ -71,7 +71,7 @@ Azure prend en charge plusieurs types de comptes de stockage pour différents sc
 
 <sup>1</sup> Les limites pour les partages de fichiers standard s’appliquent aux trois niveaux disponibles pour les partages de fichiers standard : transaction optimisée, chaud et froid.
 
-<sup>2</sup> La valeur par défaut sur les partages de fichiers standard est de 5 Tio. Pour plus d’informations sur la création de partages de fichiers de 100 Tio et l’augmentation de la taille de partages de fichiers standard existants (jusqu’à 100 Tio), consultez [Créer un partage de fichiers Azure](./storage-how-to-create-file-share.md).
+<sup>2</sup> La valeur par défaut sur les partages de fichiers standard est de 5 Tio. Pour plus d’informations sur la création de partages de fichiers de 100 Tio et l’augmentation de la taille de partages de fichiers standard existants (jusqu’à 100 Tio), consultez [Créer un partage de fichiers Azure](./storage-how-to-create-file-share.md). Pour tirer parti des plus grandes cibles de mise à l’échelle, vous devez modifier votre quota afin qu’il soit supérieur à 5 Tio.
 
 ### <a name="file-scale-targets"></a>Objectifs de mise à l'échelle de fichier
 | Attribut | Fichiers dans les partages de fichiers standard  | Fichiers dans les partages de fichiers Premium  |

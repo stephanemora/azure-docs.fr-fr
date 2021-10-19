@@ -1,24 +1,24 @@
 ---
 title: Prise en main d’Azure Cost Management pour les partenaires
-description: Cet article explique aux partenaires comment utiliser les fonctionnalités d’Azure Cost Management et comment autoriser l’accès à Cost Management à leurs clients.
+description: Cet article explique aux partenaires comment utiliser les fonctionnalités de Cost Management et comment autoriser l’accès à leurs clients.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 78a2ef8491eea5fa3df5355236f23be730062108
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d402acaf43682a7c025147fd38bccb9baa033683
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532884"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705981"
 ---
-# <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
+# <a name="get-started-with-cost-management-for-partners"></a>Prise en main de Cost Management pour les partenaires
 
-Azure Cost Management est disponible de façon native pour les partenaires directs qui ont intégré leurs clients à un Contrat client Microsoft et qui ont [acheté un plan Azure](/partner-center/purchase-azure-plan). Cet article explique comment les partenaires utilisent les fonctionnalités d’[Azure Cost Management](../index.yml) pour afficher les coûts des abonnements dans le plan Azure. Il leur explique également comment autoriser l’accès à Cost Management aux prix à la revente à leurs clients.
+Cost Management est disponible de façon native pour les partenaires directs qui ont intégré leurs clients à un Contrat client Microsoft et qui ont [acheté un plan Azure](/partner-center/purchase-azure-plan). Cet article explique comment les partenaires utilisent les fonctionnalités de [Cost Management](../index.yml) pour afficher les coûts des abonnements dans le plan Azure. Il leur explique également comment autoriser l’accès à Cost Management aux prix à la revente à leurs clients.
 
 Pour les partenaires directs et les fournisseurs indirects, l’administrateur général et les agents d’administration peuvent accéder à Cost Management dans le locataire du partenaire et gérer les coûts aux prix facturés.
 
@@ -43,19 +43,19 @@ Voici un exemple montrant les coûts pour un client unique.
 
 [![Exemple montrant les coûts pour un client unique](./media/get-started-partners/customer-costs2.png)](./media/get-started-partners/customer-costs2.png#lightbox)
 
-Toutes les fonctionnalités disponibles dans Azure Cost Management sont également disponibles avec les API REST. Utilisez les API pour automatiser les tâches de gestion des coûts.
+Toutes les fonctionnalités disponibles dans Cost Management sont également disponibles grâce aux API REST. Utilisez les API pour automatiser les tâches de gestion des coûts.
 
 ## <a name="prerequisites"></a>Prérequis
 
-En tant que partenaire, Azure Cost Management est disponible en mode natif uniquement pour les abonnements qui figurent sur le plan Azure.
+En tant que partenaire, Cost Management est disponible en mode natif uniquement pour les abonnements qui figurent sur le plan Azure.
 
-Pour activer Azure Cost Management dans le Portail Azure, vous devez avoir confirmé l’acceptation par le client du Contrat client Microsoft (pour le compte du client) et avoir effectué une transition du client vers le plan Azure. Seuls les coûts des abonnements dont la transition a été effectuée vers le plan Azure sont disponibles dans Azure Cost Management.
+Pour activer Cost Management dans le portail Azure, vous devez avoir confirmé l’acceptation par le client du Contrat client Microsoft (pour le compte du client) et avoir effectué une transition du client vers le plan Azure. Seuls les coûts des abonnements dont la transition a été effectuée vers le plan Azure sont disponibles dans Cost Management.
 
-Azure Cost Management nécessite un accès en lecture à votre abonnement ou votre compte de facturation.
+Cost Management nécessite un accès en lecture à votre abonnement ou votre compte de facturation.
 
-Pour plus d’informations sur l’autorisation et l’attribution de l’accès à Azure Cost Management pour un compte de facturation, consultez [Attribuer des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview). Les rôles **Administrateur général** et **Agent d’administration** peuvent gérer les coûts d’un compte de facturation.
+Pour plus d’informations sur l’autorisation et l’attribution de l’accès à Cost Management pour un compte de facturation, consultez [Attribuer des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview). Les rôles **Administrateur général** et **Agent d’administration** peuvent gérer les coûts d’un compte de facturation.
 
-Pour accéder à Azure Cost Management dans l’étendue de l’abonnement, tout utilisateur disposant d’un accès Azure RBAC à un abonnement peut afficher les coûts au tarif de vente au détail (paiement à l’utilisation). Toutefois, la [stratégie de visibilité des coûts pour le locataire client](#enable-the-policy-to-view-azure-usage-charges) doit être activée. Pour accéder à la liste complète des types de comptes pris en charge, consultez [Comprendre les données de Cost Management](understand-cost-mgt-data.md).
+Pour accéder à Cost Management dans l’étendue de l’abonnement, tout utilisateur disposant d’un accès RBAC Azure à un abonnement peut afficher les coûts au tarif de vente au détail (paiement à l’utilisation). Toutefois, la [stratégie de visibilité des coûts pour le locataire client](#enable-the-policy-to-view-azure-usage-charges) doit être activée. Pour accéder à la liste complète des types de comptes pris en charge, consultez [Comprendre les données de Cost Management](understand-cost-mgt-data.md).
 
 Lorsque des accords de facturation existants sont transférés à un nouveau partenaire, les fonctionnalités de gestion des coûts ne sont accessibles qu’à la relation de facturation actuelle avec le partenaire. Les coûts historiques antérieurs au transfert vers le nouveau partenaire ne sont pas déplacés dans le nouveau compte de facturation. Cependant, l’historique des coûts reste dans le compte de facturation associé d’origine.
 
@@ -145,7 +145,7 @@ Sous **Paramètres**, sélectionnez **Stratégies**.
 La stratégie de visualisation des coûts actuelle est indiquée pour les frais d’**utilisation d’Azure** associés aux abonnements du client sélectionné.
 ![Stratégie permettant aux clients de voir les frais de paiement à l’utilisation](./media/get-started-partners/cost-management-billing-policies.png)
 
-Quand la stratégie est définie sur **Non**, Azure Cost Management n’est pas disponible pour les utilisateurs d’abonnement associés au client. La stratégie de visualisation des coûts est désactivée par défaut pour tous les utilisateurs d’abonnement sauf si elle est activée par un partenaire.
+Quand la stratégie est définie sur **Non**, Cost Management n’est pas disponible pour les utilisateurs d’abonnement associés au client. La stratégie de visualisation des coûts est désactivée par défaut pour tous les utilisateurs d’abonnement sauf si elle est activée par un partenaire.
 
 Quand la stratégie de coût est définie sur **Oui**, les utilisateurs d’abonnement associés au locataire client peuvent voir les frais d’utilisation selon les tarifs de paiement à l’utilisation.
 
@@ -162,8 +162,6 @@ L’analyse des coûts, les budgets et les alertes sont disponibles pour les ét
 Les vues amorties et les coûts réels pour les instances réservées dans les étendues Azure RBAC indiquent des frais nuls. Les frais d’achat des droits, tels que les frais relatifs aux instances réservées ou à la Place de marché, s’affichent uniquement dans les étendues de facturation du locataire du partenaire au sein duquel les achats ont été effectués.
 
 Les tarifs utilisés pour calculer les coûts affichés dans la vue sont les mêmes que ceux indiqués dans la calculatrice de prix Azure pour tous les clients. Les coûts indiqués n’incluent pas les remises ni les crédits que le partenaire peut avoir, comme les crédits partenaires, les remises de niveau et les remises globales sur les services.
-
- 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analyser les coûts dans la vue d’analyse des coûts
 
@@ -229,7 +227,7 @@ Les champs de données suivants sont disponibles dans les fichiers de détails s
 | unitOfMeasure | Identifie l’unité dans laquelle le service est facturé. Par exemple, des Go et des heures. | Identifie l’unité dans laquelle le service est facturé. Par exemple, Go, heures et 10 000 s. |
 | pricingCurrency | Devise définissant le prix unitaire. | Devise utilisée dans la liste de prix.|
 | billingCurrency | Devise définissant le coût facturé. | Devise définie comme devise de facturation sur la facture. |
-| chargeType | Définit le type de frais représenté par le coût dans Azure Cost Management, comme un achat et un remboursement. | Type de frais ou d’ajustement. Non disponible pour l’activité en cours. |
+| chargeType | Définit le type de frais représenté par le coût dans Cost Management, comme un achat et un remboursement. | Type de frais ou d’ajustement. Non disponible pour l’activité en cours. |
 | costinBillingCurrency | Coût étendu ou combiné avant l’application des taxes, dans la devise facturée. | N/A |
 | CostInPricingCurrency | Coût étendu ou combiné avant l’application des taxes, dans la devise de tarification, à corréler avec les prix. | N/A |
 | **costinUSD** | Estimation du coût du coût étendu ou combiné avant l’application des taxes, en USD. | N/A |
@@ -247,7 +245,7 @@ Les champs de données suivants sont disponibles dans les fichiers de détails s
 
 ## <a name="view-partner-earned-credit-pec-resource-costs"></a>Voir les coûts des ressources associés au crédit Partenaires
 
-Dans Azure Cost Management, les partenaires peuvent utiliser l’analyse des coûts pour voir les coûts qui ont bénéficié des avantages du crédit Partenaires.
+Dans Cost Management, les partenaires peuvent utiliser l’analyse des coûts pour voir les coûts qui ont bénéficié des avantages du crédit PEC.
 
 Dans le portail Azure, connectez-vous au locataire partenaire, puis sélectionnez **Gestion des coûts + facturation**. Sous **Gestion des coûts**, sélectionnez **Analyse des coûts**.
 
@@ -261,7 +259,7 @@ Quand la propriété **PartnerEarnedCreditApplied** a la valeur _True_, le coût
 
 Quand la propriété **PartnerEarnedCreditApplied** a la valeur _False_, le coût associé n’est pas éligible au crédit ou le service acheté n’est pas éligible au crédit Partenaires.
 
-L’affichage des données d’utilisation des services prend généralement entre 8 et 24 heures dans Cost Management. Pour plus d’informations, consultez [Mises à jour et rétention des données de coût et d’utilisation](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Les crédits PEC s’affichent dans un délai de 48 heures à compter de l’heure d’accès dans Azure Cost Management.
+L’affichage des données d’utilisation des services prend généralement entre 8 et 24 heures dans Cost Management. Pour plus d’informations, consultez [Mises à jour et rétention des données de coût et d’utilisation](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Les crédits PEC s’affichent dans un délai de 48 heures à compter de l’heure d’accès dans Cost Management.
 
 
 Vous pouvez également grouper et filtrer sur la propriété **PartnerEarnedCreditApplied** à l’aide des options **Grouper par**. Utilisez les options pour examiner les coûts avec et sans crédit PEC.
@@ -298,7 +296,7 @@ Pour vérifier les données, dans la liste des exportations, sélectionnez le no
 
 Les partenaires et les clients peuvent utiliser les API Cost Management décrites dans les sections suivantes pour les tâches courantes.
 
-### <a name="azure-cost-management-apis---direct-and-indirect-providers"></a>API Azure Cost Management : Fournisseurs directs et indirects
+### <a name="cost-management-apis---direct-and-indirect-providers"></a>API Cost Management : Fournisseurs directs et indirects
 
 Les partenaires ayant accès aux étendues de facturation d’un locataire partenaire peuvent utiliser les API suivantes pour afficher les coûts facturés.
 

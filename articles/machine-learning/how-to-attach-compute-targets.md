@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/18/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1
-ms.openlocfilehash: af5d5914d0a90c2c142582e5cdf2105982205f04
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d6a50982b546ae5d4e615c2e3cfc2b2dcd955a0f
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427682"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129713252"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurer des cibles de calcul pour l'apprentissage et le déploiement de modèles
 
@@ -32,7 +32,7 @@ Cet article explique comment configurer l'espace de travail pour utiliser ces re
 * Azure Databricks, utilisé comme cible de calcul de formation uniquement dans les [pipelines Machine Learning](how-to-create-machine-learning-pipelines.md).
 * Service Analytique Azure Data Lake
 * Azure Container Instance
-* Azure Kubernetes Service et Kubernetes compatible avec Azure Arc (préversion)
+* Azure Kubernetes Service et Kubernetes avec Azure Arc (préversion)
 
 Pour utiliser les cibles de calcul gérées par Azure Machine Learning service, consultez :
 

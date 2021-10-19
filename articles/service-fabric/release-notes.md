@@ -5,12 +5,12 @@ ms.date: 04/13/2021
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 11615d48bb1331e068c685a507670f0add883344
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 8404078943f9398df6604c78413bc3750f13d655
+ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562110"
+ms.lasthandoff: 10/11/2021
+ms.locfileid: "129729080"
 ---
 # <a name="service-fabric-releases"></a>Versions de Azure Service Fabric
 
@@ -40,6 +40,9 @@ Nous avons le plaisir d’annoncer que la version 8.1 du runtime Service Fabri
 | Date de publication | Libérer | En savoir plus |
 |---|---|---|
 | 28 juillet 2021 | [Azure Service Fabric 8.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-release/ba-p/2594194)  | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81.md)|
+| 13 août 2021 | [Première mise en production actualisée d’Azure Service Fabric 8.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-first-refresh-release/ba-p/2638798) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU1.md) |
+| 09 septembre 2021 | [Deuxième mise en production actualisée d’Azure Service Fabric 8.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-second-refresh-release/ba-p/2734904) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU2.md) |
+| 6 octobre 2021 | [Troisième mise en production actualisée d’Azure Service Fabric 8.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-third-refresh-release/ba-p/2816117) | [Notes de publication](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU3.md) |
 
 
 ## <a name="service-fabric-80"></a>Service Fabric 8.0

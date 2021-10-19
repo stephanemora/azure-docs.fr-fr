@@ -1,5 +1,5 @@
 ---
-title: fichier descriptif
+title: Fichier include
 description: Fichier Include
 services: virtual-machines-windows
 author: cynthn
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a188812751552532ae1536529b12e54d55a24a2b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f66591f1f6fb20951a956e166645d63129f209b7
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "126056799"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129638149"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Systèmes d’exploitation et pilotes pris en charge
 
 ### <a name="nvidia-tesla-cuda-drivers"></a>Pilotes Tesla NVIDIA (CUDA)
 
-Les pilotes Tesla NVIDIA (CUDA) pour les machines virtuelles des séries NC, NCv2, NCv3, NCasT4_v3, ND et NDv2 (facultatif pour la série NV) sont pris en charge uniquement dans les systèmes d’exploitation répertoriés dans le tableau suivant. Les liens de téléchargement des pilotes sont à jour au moment de la publication. Pour les pilotes les plus récents, visitez le site Web de [NVIDIA](https://www.nvidia.com/).
+Les pilotes Tesla NVIDIA (CUDA) pour les machines virtuelles des séries NC, NCv2, NCv3, NCasT4_v3, ND et NDv2 (facultatif pour la série NV) ne sont testés que dans les systèmes d’exploitation répertoriés dans le tableau suivant. Le pilote CUDA est générique et n’est pas spécifique à Azure. Pour les pilotes les plus récents, visitez le site Web de [NVIDIA](https://www.nvidia.com/).
 
 > [!TIP]
 > Vous pouvez déployez une image de [machine virtuelle de science des données](../articles/machine-learning/data-science-virtual-machine/overview.md) Azure, comme alternative à une installation manuelle du pilote CUDA sur une machine virtuelle Windows Server. Les éditions des machines virtuelles Science des données pour Windows Server 2016 préinstallent les pilotes NVIDIA CUDA, la bibliothèque de réseau neuronal profond et d’autres outils.

@@ -7,13 +7,13 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/27/2021
-ms.openlocfilehash: c50a36c521848956577fd0e8f53bdb2dceaaee8f
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 10/11/2021
+ms.openlocfilehash: 0ef727d47949acb1d095bbfb3890021b273c50db
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084041"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129811203"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Utilisation dans les données d’analytique de la Place de marché commerciale
 
@@ -43,7 +43,7 @@ Le [tableau de bord de l’utilisation](https://go.microsoft.com/fwlink/?linkid=
 #### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-1. Sur la page Accueil, sélectionnez la vignette **Insights**.
+1. Dans la page d’accueil, sélectionnez la vignette **Insights**.
 
     [ ![Illustre la vignette Insights sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
@@ -191,7 +191,7 @@ _**Tableau 1 : dictionnaire des termes relatifs aux données**_
 | Action entreprise à | Action entreprise à | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Spécifie le moment où l’éditeur a reconnu l’utilisation de dépassement par le client pour la dimension de compteur personnalisée de l’offre comme authentique ou fausse.<br>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par accès programmatique, la valeur sera Null._ | ActionTakenAt |
 | Action entreprise par | Action entreprise par | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Spécifie la personne qui a reconnu l’utilisation de dépassement par le client pour la dimension de compteur personnalisée de l’offre comme authentique ou fausse.<br>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par accès programmatique, la valeur sera Null._ | ActionTakenBy |
 | Impact financier estimé (USD) | Impact financier estimé en USD | **S’applique aux offres avec des dimensions de compteur personnalisées**.<br>Lorsqu’Espace partenaires signale une utilisation de dépassement par le client pour la dimension de compteur personnalisée de l’offre comme anormale, le champ spécifie l’impact financier estimé (en USD) de l’utilisation de dépassement anormale.<br>_Si l’éditeur n’a pas d’offres avec des dimensions de compteur personnalisées et exporte cette colonne par des moyens programmatiques, la valeur sera Null._ | EstimatedFinancialImpactUSD |
-| N/A | ID de ressource | Identifiant complet de la ressource, y compris le nom et le type de la ressource. Notez qu’il s’agit d’un champ de données disponible dans les rapports de téléchargement uniquement.<br>Utilisez le format :<br> /subscriptions/{guid}/resourceGroups/{nom_groupe_ressources}/{espace_noms-fournisseur-ressources}/{type_ressource}/{nom_ressource} | N/A |
+| N/A | ID de ressource | Identifiant complet de la ressource, y compris le nom et le type de la ressource. Notez qu’il s’agit d’un champ de données disponible dans les rapports de téléchargement uniquement.<br>Utilisez le format :<br> /subscriptions/{guid}/resourceGroups/{nom_groupe_ressources}/{espace_noms-fournisseur-ressources}/{type_ressource}/{nom_ressource}<br>**Remarque** : Ce champ est déconseillé depuis le 20/10/2021. | N/A |
 |||||
 
 ### <a name="usage-page-filters"></a>Filtres de la page Utilisation

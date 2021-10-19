@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/08/2021
-ms.openlocfilehash: 05ccdc3613141e7b04c3255a6035c7a03ad25995
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ee81fa18ac0f6bae6a3aefbfef60333991001dff
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128579726"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129812134"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-flexible-server-data-in-replication"></a>Procédure de configuration de la réplication des données entrantes pour Serveur flexible Azure Database pour MySQL
 
@@ -164,6 +164,8 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
    Restaurez le fichier de sauvegarde sur le serveur créé dans le service Serveur flexible Azure Database pour MySQL. Reportez-vous à [Dump & Restore](../concepts-migrate-dump-restore.md) (Vider et restaurer) pour savoir comment restaurer un fichier de vidage sur un serveur MySQL. Si le fichier de vidage est volumineux, transférez-le vers une machine virtuelle dans Azure au sein de la même région que votre serveur réplica. Restaurez-le sur le Serveur flexible Azure Database pour MySQL à partir de la machine virtuelle.
 
+>[!Note]
+>* Si vous souhaitez éviter de définir la base de données en lecture uniquement lorsque vous sauvegardez et restaurez, vous pouvez utiliser [mydumper/myloader](../concepts-migrate-mydumper-myloader.md).
 
 ## <a name="link-source-and-replica-servers-to-start-data-in-replication"></a>Lier les serveurs source et réplica pour démarrer Réplication des données entrantes
 
@@ -189,7 +191,8 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
      Il est recommandé de transmettre ce paramètre comme variable. Pour plus d'informations, consultez les exemples suivants.
 
    > [!NOTE]
-   > Si le serveur source est hébergé dans une machine virtuelle Azure, activez l’option « Autoriser l’accès aux services Azure » pour autoriser les serveurs sources et de réplica à communiquer entre eux. Ce paramètre peut être modifié dans les options de **sécurité de la connexion**. Pour plus d’informations, consultez [Gestion des règles de pare-feu avec le portail](how-to-manage-firewall-portal.md).
+   > * Si le serveur source est hébergé dans une machine virtuelle Azure, activez l’option « Autoriser l’accès aux services Azure » pour autoriser les serveurs sources et de réplica à communiquer entre eux. Ce paramètre peut être modifié dans les options de **sécurité de la connexion**. Pour plus d’informations, consultez [Gérer les règles de pare-feu à l’aide du portail](how-to-manage-firewall-portal.md).
+   > * Si vous avez utilisé mydumper/myloader pour sauvegarder la base de données, vous pouvez obtenir les fichiers master_log_file et master_log_pos à partir du fichier */backup/metadata*. 
 
    **Exemples**
 

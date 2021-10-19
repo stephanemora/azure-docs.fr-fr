@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: security
 author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: 285b4c4fb9fae46ed7549352a93553b15a518e36
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.openlocfilehash: 2138c1947fd6d068bfc4d171595cf818ecf5dd77
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122535151"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129708049"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rôles et autorisations pour Azure Data Factory
 
@@ -27,6 +27,10 @@ Pour créer des instances Data Factory, le compte d’utilisateur que vous utili
 
 Les exigences applicables à la création et à la gestion des ressources enfants pour Data Factory (jeux de données, services liés, pipelines, déclencheurs et runtimes d’intégration) sont les suivantes :
 - Pour créer et gérer des ressources enfants dans le portail Azure, vous devez appartenir au rôle **Contributeur de Data Factory** au niveau du **groupe de ressources** ou à un niveau supérieur.
+  
+  > [!NOTE]
+  > Si le rôle **Contributeur** vous a déjà été attribué au niveau **Groupe de ressources** ou à un niveau supérieur, vous n’avez pas besoin du rôle **Contributeur Data Factory**. Le [rôle Contributeur](../role-based-access-control/built-in-roles.md#contributor) constitue un sur-ensemble de rôles qui comprend toutes les autorisations accordées au [rôle Contributeur Data Factory](../role-based-access-control/built-in-roles.md#data-factory-contributor).
+
 - Pour créer et gérer des ressources enfants à l’aide de PowerShell ou du Kit de développement logiciel (SDK), le rôle **Contributeur** au niveau du groupe de ressources ou à un niveau supérieur est suffisant.
 
 Pour découvrir des exemples d’instructions concernant l’ajout d’un utilisateur à un rôle, consultez l’article décrivant comment [ajouter des rôles](../cost-management-billing/manage/add-change-subscription-administrator.md).

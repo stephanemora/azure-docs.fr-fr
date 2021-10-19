@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/23/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b84c73e5286dc633b54ade2d59d43957f517361e
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: eb883fafd7c738ca99fe2282edb67d1849b9b1af
+ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057659"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129858155"
 ---
 # <a name="using-a-system-assigned-managed-identity-for-an-azure-automation-account-preview"></a>À l’aide d’une identité managée affectée par le système pour votre compte Azure Automation (préversion)
 
@@ -23,7 +23,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 - Un compte Azure Automation. Pour obtenir des instructions, consultez [Créer un compte Azure Automation](./quickstarts/create-account-portal.md).
 
-- La dernière version des modules de compte Azure. Il s'agit actuellement de la version 2.2.8. (Pour plus d'informations sur cette version, consultez [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/)).
+- La version la plus récente des modules Az PowerShell Az.Accounts, Az.Resources, Az.Automation et Az.KeyVault.
 
 - Une ressource Azure à laquelle vous souhaitez accéder à partir de votre runbook Automation. Cette ressource doit avoir un rôle défini pour l’identité managée, ce qui aide le runbook Automation à authentifier l’accès à la ressource. Pour ajouter des rôles, vous devez être propriétaire de la ressource dans le locataire Azure AD correspondant.
 
@@ -107,7 +107,7 @@ Pour obtenir une sortie supplémentaire, exécutez : `$output.identity | Conver
 
 Vous trouverez ci-dessous une syntaxe et des exemples d’étapes.
 
-#### <a name="syntax"></a>Syntaxe
+#### <a name="syntax"></a>Syntax
 
 La syntaxe du corps ci-dessous active une identité managée affectée par le système à un compte Automation existant à l’aide de la méthode HTTP **PATCH**. Toutefois, cette syntaxe supprimera toutes les identités managées affectées par l’utilisateur existantes associées au compte Automation.
 

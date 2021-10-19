@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: tagore
-ms.openlocfilehash: 90486f944c2c891415b61fd29731f6f485ca0f04
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9693b2d3eebd52d76bf5e52104c8b5d8c585c0ee
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673157"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807330"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager
 
@@ -167,7 +167,7 @@ Les représentations des ressources du modèle de déploiement classique et de R
 | Adresse IP virtuelle |Adresse IP publique avec nom DNS |L’adresse IP virtuelle devient une adresse IP publique et est associée à l’équilibreur de charge. Une adresse IP virtuelle ne peut faire l’objet d’une migration que si un point de terminaison d’entrée lui a été attribué. |
 | Réseau virtuel |Réseau virtuel |Le réseau virtuel fait l’objet d’une migration vers le modèle de déploiement Resource Manager avec toutes ses propriétés. Un nouveau groupe de ressources est créé avec le nom `-migrated`. |
 | IP réservées |Adresse IP publique avec méthode d’allocation statique |La migration des IP réservées associées à l’équilibreur de charge est effectuée en même temps que la migration du service cloud ou de la machine virtuelle. Vous pouvez migrer des adresses IP réservées non associées à l’aide de la commande [Move-AzureReservedIP](/powershell/module/servicemanagement/azure.service/move-azurereservedip).  |
-| Adresse IP publique par machine virtuelle |Adresse IP publique avec méthode d’allocation dynamique |L’adresse IP publique associée à la machine virtuelle est convertie en ressource d’adresse IP publique avec la méthode d’allocation statique. |
+| Adresse IP publique par machine virtuelle |Adresse IP publique avec méthode d’allocation dynamique |L’IP publique associée à la machine virtuelle est convertie en ressource d’IP publique avec la méthode d’allocation dynamique. |
 | Groupes de sécurité réseau |Groupes de sécurité réseau |Les groupes de sécurité réseau (NSG) associés à une machine virtuelle ou un sous-réseau sont clonés dans le cadre de la migration vers le modèle de déploiement du gestionnaire de ressource Le groupe de sécurité réseau (NSG) du modèle de déploiement classique n’est pas supprimé durant la migration. Toutefois, les opérations du plan de gestion relatives au NSG sont bloquées pendant le processus de migration. Vous pouvez migrer des groupes de sécurité réseau non associés à l’aide de la commande [Move-AzureNetworkSecurityGroup](/powershell/module/servicemanagement/azure.service/move-azurenetworksecuritygroup).|
 | Serveurs DNS |Serveurs DNS |La migration des serveurs DNS associés à un réseau virtuel ou à la machine virtuelle est effectuée dans le cadre de la migration des ressources correspondantes avec toutes les propriétés. |
 | Itinéraires définis par l’utilisateur (UDR) |Itinéraires définis par l’utilisateur (UDR) |Les Itinéraires définis par l’utilisateur associés à un sous-réseau sont clonés dans le cadre de la migration vers le modèle de déploiement Resource Manager. L’itinéraire défini par l’utilisateur dans le modèle de déploiement classique n’est pas supprimé durant la migration. Les opérations du plan de gestion relatives pour l’itinéraire défini par l’utilisateur sont bloquées pendant le processus de migration. Vous pouvez migrer des Itinéraires définis par l’utilisateur (UDR) non associés à l’aide de la commande [Move-AzureRouteTable](/powershell/module/servicemanagement/azure.service/Move-AzureRouteTable). |

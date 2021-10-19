@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 09/28/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: ad107daa5d1a90e3416777375f47640359f10f37
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.openlocfilehash: bfa9e8a767167d7ae31dae3269be6cad2a1c1d07
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122867263"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129709378"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Voir l’état des tâches Azure Import/Export
 
@@ -42,7 +42,7 @@ Selon la phase de traitement de votre lecteur, vous obtiendrez l’un des statut
 | Statut de tâche | Description |
 |:--- |:--- |
 | Creating | Dès qu’une tâche est créée, son état est défini sur **Création**. Quand le travail est en état **Création**, le service Import/Export suppose que les disques n’ont pas été expédiés au centre de données. Un travail peut rester dans cet état pendant deux semaines maximum. Passé ce délai, le service le supprime automatiquement. |
-| Expédition | Après avoir expédié votre colis, vous devez mettre à jour les informations de suivi dans le portail Azure.  Cela a pour effet de modifier l’état du travail en **Expédition**. La tâche reste dans l’état **Expédition** pendant deux semaines maximum. 
+| Expédition | Après avoir expédié votre colis, vous devez mettre à jour les informations de suivi dans le portail Azure. Cela a pour effet de modifier l’état du travail en **Expédition**. La tâche reste dans l’état **Expédition** pendant deux semaines maximum.<br>Lorsqu’un travail atteint l’état Expédition, il ne peut plus être annulé.
 | Reçu | Quand tous les lecteurs ont été reçus au centre de données, l’état de la tâche est défini sur **Reçu**.</br>L’état de la tâche peut varier de 1 à 3 jours ouvrables après la livraison de l’appareil par le transporteur, lorsque le traitement de la commande est terminé dans le centre de données. |
 | Transferring | Une fois que le traitement a commencé pour au moins un lecteur, l’état de la tâche est défini sur **Transfert**. Pour plus d’informations, accédez à [États de lecteur](#view-drive-status). |
 | Packaging | Une fois que tous les lecteurs ont été traités, la tâche est définie sur l’état **Emballage** jusqu’à ce que les lecteurs vous soient réexpédiés. |

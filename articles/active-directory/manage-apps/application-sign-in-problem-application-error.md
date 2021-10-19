@@ -1,5 +1,6 @@
 ---
-title: Un message d’erreur apparaît sur la page de l’application après la connexion | Microsoft Docs
+title: Un message d’erreur apparaît sur la page de l’application après la connexion
+titleSuffix: Azure AD
 description: Comment résoudre les problèmes de connexion à Azure AD quand l’application renvoie un message d’erreur.
 services: active-directory
 author: davidmu1
@@ -12,14 +13,14 @@ ms.date: 07/11/2017
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c1910eb106e7a3e405f58ba672c38fa108544d2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 499ce4c7875a1805b5845614221ffef0641816d6
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524725"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129617774"
 ---
-# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Une page d’application affiche un message d’erreur une fois que l’utilisateur est connecté
+# <a name="an-app-page-shows-an-error-message-after-the-user-signs-in-azure-active-directory"></a>Une page d’application affiche un message d’erreur une fois que l’utilisateur est connecté dans Azure Active Directory
 
 Dans ce scénario, Azure Active Directory (Azure AD) connecte l’utilisateur. Toutefois, l’application affiche un message d’erreur et ne permet pas à l’utilisateur de terminer le flux de connexion. Le problème est que l’application n’a pas accepté la réponse émise par Azure AD.
 

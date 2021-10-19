@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e9bfa2dc340f567a6c2b7c4ab5d45cfeaa41e6c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 99fbf0a6ecd232ae646639e84864addd103c1f5a
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661010"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129807776"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins
 
@@ -42,9 +42,12 @@ Suivez les instructions ci-dessous si vous avez l’intention d’utiliser l’i
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Créer un point de terminaison pour Azure Digital Twins
 
 Voici les types de points de terminaison pris en charge que vous pouvez créer pour votre instance :
-* [Event Grid](../event-grid/overview.md) 
-* [Hubs d'événements](../event-hubs/event-hubs-about.md)
-* [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
+* Rubrique [Event Grid](../event-grid/overview.md)
+* Hub [Event Hubs](../event-hubs/event-hubs-about.md)
+* Rubrique [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
+
+>[!NOTE]
+> Pour les points de terminaison Event Grid, seules les **rubriques** Event Grid sont prises en charge. Les **domaines** Event Grid ne sont pas pris en charge en tant que points de terminaison.
 
 Pour plus d’informations sur les différents points de terminaison, consultez [Choisir entre les différents services de messagerie Azure](../event-grid/compare-messaging-services.md).
 
@@ -58,7 +61,7 @@ Utilisez le graphique suivant pour identifier les ressources qui doivent être c
 
 | Type de point de terminaison | Ressources requises (liées aux instructions de création) |
 | --- | --- |
-| Point de terminaison Event Grid | [Rubrique Event Grid](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) |
+| Point de terminaison Event Grid | [Rubrique Event Grid](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)<br/>* Le schéma d’événement doit être Schéma Event Grid ou Schéma d’événement cloud v1.0 |
 | Point de terminaison Event Hubs | [Espace de noms&nbsp;Event&nbsp;Hubs](../event-hubs/event-hubs-create.md)<br/><br/>[hub d’événements](../event-hubs/event-hubs-create.md)<br/><br/>(Facultatif) [Règle d’autorisation](../event-hubs/authorize-access-shared-access-signature.md) pour l’authentification basée sur une clé | 
 | Point de terminaison de Service Bus | [Espace de noms Service Bus](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/>[Rubrique Service Bus](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/> (Facultatif) [Règle d’autorisation](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) pour l’authentification basée sur une clé|
 

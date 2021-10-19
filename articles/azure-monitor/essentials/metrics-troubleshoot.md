@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
-ms.openlocfilehash: 6acab9618566766b12b4b236c75aa58386100513
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: f8ff057f818999a9d170fe6f58101c99cd931f7e
+ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961062"
+ms.lasthandoff: 10/12/2021
+ms.locfileid: "129809692"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Résolution des problèmes liés aux graphiques de métriques
 
@@ -51,11 +51,11 @@ En [verrouillant les limites de l’axe y du graphique](../essentials/metrics-ch
 
 **Solution :** Vérifiez que les limites de l’axe y du graphique ne sont pas verrouillées en dehors de la plage des valeurs de métrique. Si les limites de l’axe y sont verrouillées, il peut être utile de les réinitialiser temporairement pour vous assurer que les valeurs de métrique ne sont pas en dehors de la plage du graphique. Il n’est pas recommandé de verrouiller la plage de l’axe y avec une granularité automatique pour les graphiques avec une agrégation de type **Somme**, **Min** et **Max**, car leurs valeurs changent avec la granularité si vous redimensionnez la fenêtre du navigateur ou changez de résolution d’écran. Si vous modifiez la granularité, la zone d’affichage de votre graphique peut être vide.
 
-### <a name="you-are-looking-at-a-guest-os-metric-but-didnt-enable-azure-diagnostic-extension"></a>Vous examinez une métrique de SE invité, mais vous n’avez pas activé l’extension Azure Diagnostics.
+### <a name="you-are-looking-at-a-guest-classic-metric-but-didnt-enable-azure-diagnostic-extension"></a>Vous examinez une métrique Invité (classique), mais vous n’avez pas activé l’extension Diagnostics Azure
 
-La collecte des métriques de **SE invité** nécessite la configuration de l’extension Diagnostics Azure ou son activation à l’aide du panneau **Paramètres de diagnostic** de votre ressource.
+Pour collecter des métriques **Invité (classique)** , il est nécessaire de configurer l’extension Diagnostics Azure ou de l’activer dans le panneau **Paramètres de diagnostic** de votre ressource.
 
-**Solution :** Si l’extension Diagnostics Azure est activée mais que vos métriques ne s’affichent toujours pas, suivez les étapes décrites dans le [guide de résolution des problèmes liés à l’extension Azure Diagnostics](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Consultez également les étapes de résolution des problèmes à la section [Impossible de choisir l’espace de noms et les métriques de SE invité](#cannot-pick-guest-os-namespace-and-metrics).
+**Solution :** Si l’extension Diagnostics Azure est activée mais que vos métriques ne s’affichent toujours pas, suivez les étapes décrites dans le [guide de résolution des problèmes liés à l’extension Azure Diagnostics](../agents/diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Consultez également la procédure de résolution des problèmes dans la section [Impossible de choisir l’espace de noms et les métriques Invité (classique)](#cannot-pick-guest-namespace-and-metrics).
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Message « Erreur durant la récupération des données » sur le tableau de bord
 
@@ -79,19 +79,19 @@ Dans de nombreux cas, la baisse des valeurs de métrique perçue est due à une 
 
 **Solution :** Ce comportement est normal. Nous pensons qu’il est avantageux d’afficher les données dès que nous les recevons, même si elles sont *partielles* ou *incomplètes*. Vous pouvez ainsi tirer une conclusion importante plus rapidement et démarrer un examen immédiatement. Par exemple, pour une métrique qui affiche le nombre d’échecs, l’affichage d’une valeur partielle X vous indique qu’au moins X échecs se sont produits sur une minute donnée. Vous pouvez commencer à examiner le problème immédiatement au lieu d’attendre de voir le nombre exact d’échecs qui se sont produits sur cette minute, ce qui n’est peut-être pas si important. Le graphique sera mis à jour une fois que nous aurons reçu l’ensemble du jeu de données. Cependant, à ce moment, de nouveaux points de données correspondant aux minutes les plus récentes seront peut-être également incomplets.
 
-## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>Impossible de choisir l’espace de noms et les métriques de SE invité
+## <a name="cannot-pick-guest-namespace-and-metrics"></a>Impossible de choisir l’espace de noms et les métriques Invité
 
-Deux catégories de métriques sont disponibles pour les machines virtuelles et groupes de machines virtuelles identiques : Métriques d’**hôte de machine virtuelle** qui sont collectées par l’environnement d’hébergement Azure et métriques de **SE invité (classique)** qui sont collectées par l’[agent de surveillance](../agents/agents-overview.md) exécuté sur vos machines virtuelles. Vous installez l’agent de surveillance en activant [l’extension Azure Diagnostics](../agents/diagnostics-extension-overview.md).
+Deux catégories de métriques sont disponibles pour les machines virtuelles et les groupes de machines virtuelles identiques : les métriques **Hôte de la machine virtuelle** (collectées par l’environnement d’hébergement Azure) et les métriques **Invité (classique)** (collectées par [l’agent de monitoring](../agents/agents-overview.md) qui s’exécute sur vos machines virtuelles). Vous installez l’agent de surveillance en activant [l’extension Azure Diagnostics](../agents/diagnostics-extension-overview.md).
 
-Par défaut, les métriques de SE invité sont stockées dans le compte de Stockage Azure, que vous sélectionnez dans l’onglet **Paramètres de diagnostic** de votre ressource. Si les métriques de SE invité ne sont pas collectées ou si Metrics Explorer ne peut pas y accéder, vous verrez seulement l’espace de noms de la métrique **Ordinateur hôte de l’ordinateur virtuel** :
+Par défaut, les métriques Invité (classique) sont stockées dans le compte Stockage Azure, que vous sélectionnez dans l’onglet **Paramètres de diagnostic** de votre ressource. Si les métriques Invité ne sont pas collectées ou si Metrics Explorer ne peut pas y accéder, seul l’espace de noms de la métrique **Hôte de la machine virtuelle** apparaît :
 
-![image de métrique](./media/metrics-troubleshoot/vm.png)
+![image de métrique](./media/metrics-troubleshoot/vm-metrics.png)
 
-**Solution :** Si vous ne voyez pas l’espace de noms et les métriques **SE invité (classique)** dans Metrics Explorer :
+**Solution :** Si vous ne voyez ni l’espace de noms ni les métriques **Invité (classique)** dans Metrics Explorer, procédez comme suit :
 
 1. Vérifiez que [l’extension Azure Diagnostics](../agents/diagnostics-extension-overview.md) est activée et configurée pour collecter les métriques.
     > [!WARNING]
-    > Vous ne pouvez pas utiliser [l’agent Log Analytics](../agents/agents-overview.md#log-analytics-agent) (également appelé Microsoft Monitoring Agent ou « MMA ») pour envoyer le **SE invité** dans un compte de stockage.
+    > Il n’est pas possible d’utiliser [l’agent Log Analytics](../agents/agents-overview.md#log-analytics-agent) (également appelé Microsoft Monitoring Agent, ou MMA) pour envoyer **Invité (classique)** dans un compte de stockage.
 
 1. Assurez-vous que le fournisseur de ressources **Microsoft.Insights** est [inscrit pour votre abonnement](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 

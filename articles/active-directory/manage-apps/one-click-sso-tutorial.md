@@ -1,6 +1,7 @@
 ---
-title: Configuration en un clic de l’authentification unique (SSO) pour votre application sur la Place de marché Azure | Microsoft Docs
+title: Configuration en un clic de l’authentification unique (SSO) pour votre application sur la Place de marché Azure
 description: Étapes de la configuration en un clic de l’authentification unique pour votre application à partir de la Place de marché Azure.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,14 +13,14 @@ ms.date: 06/11/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
-ms.openlocfilehash: dac32dd14e006b1187f62389d3bc38e3c30a890f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 97cdedac91fa80c45ec8b36bad4a1368e48e3e81
+ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124791457"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129615787"
 ---
-# <a name="one-click-app-configuration-of-single-sign-on"></a>Configuration en un clic de l’authentification unique pour une application
+# <a name="one-click-app-configuration-of-single-sign-on-in-azure-active-directory"></a>Configuration d’application en un clic pour l’authentification unique dans Azure Active Directory
 
  Ce didacticiel explique comment effectuer en un clic à partir de la Place de marché Azure une configuration de l’authentification unique (SSO) pour des applications Azure Active Directory (Azure AD) prenant en charge SAML.
 

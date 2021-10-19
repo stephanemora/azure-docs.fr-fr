@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 09/30/2021
 ms.author: abnarain
-ms.openlocfilehash: c9e6c4c0475842d9eb8c674464ebcf997d98b548
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ec238a018dea8940143aa6a2483c0e7dfa0d3d63
+ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124749439"
+ms.lasthandoff: 10/09/2021
+ms.locfileid: "129705629"
 ---
 # <a name="troubleshoot-azure-data-factory-and-synapse-pipelines"></a>Résoudre les problèmes liés aux pipelines Azure Data Factory et Synapse
 
@@ -142,6 +142,20 @@ Pour des problèmes de connecteur, tels qu’une erreur lors de l’utilisation 
 
 - **Recommandation** : Si vous utilisez un runtime d’intégration auto-hébergé, assurez-vous que la connexion réseau est fiable à partir des nœuds du runtime d’intégration. Si vous utilisez le runtime d’intégration Azure, une nouvelle tentative fonctionne généralement.
  
+### <a name="the-boolean-run-output-starts-coming-as-string-instead-of-expected-int"></a>La sortie de l’exécution booléenne commence par une chaîne au lieu d’une valeur int attendue
+
+- **Symptômes** : la sortie de votre exécution booléenne commence par une chaîne (par exemple, `"0"` ou `"1"`) au lieu d’une valeur int attendue (par exemple, `0` ou `1`).
+
+   :::image type="content" source="media/data-factory-troubleshoot-guide/databricks-pipeline.png" alt-text="Capture d’écran du pipeline Databricks.":::
+
+    Vous avez remarqué cette modification le 28 septembre 2021 vers 9 heures IST, lorsque votre pipeline reposant sur cette sortie a commencé à échouer. Aucune modification n’a été apportée au pipeline, et la sortie booléenne était conforme aux attentes avant l’échec. 
+
+   :::image type="content" source="media/data-factory-troubleshoot-guide/old-and-new-output.png" alt-text="Capture d’écran de la différence dans la sortie.":::
+
+- **Cause** : ce problème est dû à une modification récente, qui est par conception. Après la modification, si le résultat est un nombre qui commence par zéro, Azure Data Factory convertit le nombre en valeur octale, ce qui constitue un bogue. Ce nombre est toujours 0 ou 1, ce qui n’avait jamais entraîné de problèmes avant la modification. Par conséquent, pour corriger la conversion octale, la sortie de chaîne est transmise à partir du bloc-notes. 
+
+- **Recommandation** : remplacez la condition **if** par une valeur telle que `if(value=="0")`.
+
 ## <a name="azure-data-lake-analytics"></a>Service Analytique Azure Data Lake
 
 Le tableau suivant s’applique à U-SQL.
@@ -1021,6 +1035,15 @@ Si vous remarquez que l’exécution de l’activité dure beaucoup plus longtem
 **Cause :** La charge utile pour chaque exécution d’activité comprend la configuration de l’activité, du ou des jeux de données associés et du ou des services liés le cas échéant, ainsi qu’une petite partie des propriétés système générées par type d’activité. La limite de la taille d’une telle charge utile est de 896 Ko, tel que mentionné dans la documentation sur les limites Azure pour [Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits) et [Azure Synapse Analytics](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-synapse-analytics-limits).
 
 **Recommandation :** Vous atteignez cette limite probablement parce que vous transmettez une ou plusieurs grandes valeurs de paramètres à partir de la sortie d’une activité en amont ou d’un élément externe, surtout si vous transmettez des données réelles entre les activités dans le flux de contrôle. Vérifiez si vous pouvez réduire la taille des valeurs de paramètres élevées. Sinon, paramétrez votre logique de pipeline de façon à gérer ces valeurs à l’intérieur de l’activité plutôt que de les transmettre entre les activités.
+
+### <a name="unsupported-compression-causes-files-to-be-corrupted"></a>Une compression non prise en charge provoque la corruption des fichiers
+
+**Symptômes** : vous essayez de décompresser un fichier qui est stocké dans un conteneur d’objets BLOB. Une activité de copie unique dans un pipeline a une source dont le type de compression est défini sur « deflate64 » (ou tout autre type non pris en charge). Cette activité s’exécute avec succès et produit le fichier texte contenu dans le fichier zip. Cependant, il y a un problème avec le texte du fichier, et ce fichier semble corrompu. Lorsque ce fichier est décompressé localement, il est sain.
+
+**Cause** : votre fichier zip est compressé à l’aide de l’algorithme de « deflate64 », tandis que la bibliothèque zip interne d’Azure Data Factory prend uniquement en charge « deflate ». Si le fichier zip est compressé par le système Windows et que la taille globale du fichier dépasse un certain seuil, Windows utilisera « deflate64 » par défaut, ce qui n’est pas pris en charge par Azure Data Factory. En revanche, si la taille du fichier est inférieure ou si vous utilisez des outils de compression tiers qui permettent de spécifier l’algorithme de compression, Windows utilisera « deflate » par défaut.
+
+> [!TIP]
+> En fait, les sections [Format Binary (binaire) dans Azure Data Factory et Azure Synapse Analytics](format-binary.md) et [Format de texte délimité dans Azure Data Factory et Azure Synapse Analytics](format-delimited-text.md) indiquent clairement que le format « deflate64 » n’est pas pris en charge dans Azure Data Factory.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
