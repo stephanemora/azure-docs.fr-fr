@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: 92db32e4e51d94e7e6c827803653c367bec4f759
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: de4c836fd5108a029208ead4ab6e1152f7b3fc1b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123440994"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166774"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu 
 
@@ -84,7 +84,7 @@ Les documents suivants contiennent des dispositions qui, par référence à ce t
 | [MS-SSTR-Ingest]  | [Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](./media-services-fmp4-live-ingest-overview.md)                                                      |
 | [RFC8216]         | R. Pantos, Ed.; W. May. HTTP Live Streaming. Août 2017. Informatif. [https://tools.ietf.org/html/rfc8216](https://tools.ietf.org/html/rfc8216)                                                            |
 | [RFC4648]         | The Base16, Base32, and Base64 Data Encodings - [https://tools.ietf.org/html/rfc4648](https://tools.ietf.org/html/rfc4648)                                                                                     |
-| [RTMP]            | [« Adobe’s Real-Time Messaging Protocol », 21 décembre 2012](https://www.adobe.com/devnet/rtmp.html)                                                                                                            |
+| [RTMP]            | [« Adobe’s Real-Time Messaging Protocol », 21 décembre 2012](https://rtmp.veriskope.com/docs/spec/)                                                                                                            |
 | [SCTE-35-2019]    | SCTE 35 : 2019 - Digital Program Insertion Cueing Message for Cable - https://scte-cms-resource-storage.s3.amazonaws.com/ANSI_SCTE-35-2019a-1582645390859.pdf                                                                       |
 | [SCTE-214-1]      | SCTE 214-1 2016 – MPEG DASH for IP-Based Cable Services Part 1: MPD Constraints and Extensions                                                                                                                 |
 | [SCTE-214-3]      | SCTE 214-3 2015 MPEG DASH for IP-Based Cable Services Part 3: DASH/FF Profile                                                                                                                                  |

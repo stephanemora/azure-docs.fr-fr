@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 10/08/2021
 ms.author: cshoe
-ms.openlocfilehash: e38cc40407f636f8bfd53a9196ecaf9c431d34db
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 8180dc98745079f351d321c971ed7d24d25b4b41
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729821"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002906"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps"></a>Authentification et autorisation pour les applications Azure Static Web Apps
 
@@ -48,9 +48,6 @@ Outre les rôles intégrés, vous pouvez attribuer des rôles personnalisés aux
 ### <a name="add-a-user-to-a-role"></a>Ajouter un utilisateur à un rôle
 
 Pour ajouter un utilisateur à un rôle, il faut générer des invitations permettant d’associer des utilisateurs à des rôles spécifiques. Les rôles sont définis et gérés dans le fichier _staticwebapp.config.json_.
-
-> [!NOTE]
-> Vous pouvez choisir [d’inscrire un fournisseur Azure Active Directory personnalisé](./authentication-custom.md) afin d’éviter d’émettre des invitations pour la gestion de groupes.
 
 <a name="invitations" id="invitations"></a>
 

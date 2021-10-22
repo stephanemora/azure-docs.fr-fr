@@ -1,14 +1,14 @@
 ---
 title: Réinitialiser des mots de passe pour des machines virtuelles dans Azure Lab Services | Microsoft Docs
 description: Découvrez comment réinitialiser les mots de passe de machines virtuelles (VM) dans les labos d’Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1b0b13862ca4620da15606138c0a80adeac8056a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca311c08419ff54fdfe72b20a2a2bffbc436d1dd
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96436808"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180131"
 ---
 # <a name="set-or-reset-password-for-virtual-machines-in-labs-students"></a>Définition ou réinitialisation du mot de passe de machines virtuelles dans des labos (étudiants)
 Cet article explique comment les étudiants peuvent définir/réinitialiser le mot de passe de leurs machines virtuelles. 

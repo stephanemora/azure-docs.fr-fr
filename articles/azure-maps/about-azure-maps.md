@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc, references_regions
-ms.openlocfilehash: f9b307aeba76f3d5c5ef43ad88f86163b7fc2f57
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 339e6059ae1dd55e55dfe143d8ea4dd5dcbb2236
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273853"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003303"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -24,7 +24,6 @@ Azure Maps est une collection de services géospatiaux et de kits de développem
 * Services Search pour localiser les adresses, les lieux et les points d’intérêt dans le monde entier.
 * Diverses options de routage : point à point, multipoint, optimisation multipoint, isochrone, véhicule électrique, véhicule commercial, trafic influencé et routage par matrice.
 * Vue du flux de trafic et vue des incidents pour les applications qui ont besoin d’informations de trafic en temps réel.
-* Services Mobility en préversion pour demander des informations de transit public, planifier des itinéraires en fusionnant différents modes de voyage et arrivées en temps réel.
 * Services de fuseau horaire (Time zone) et de géolocalisation (Geolocation).
 * Services Elevation avec un modèle Digital Elevation
 * Services de geofencing et stockage des données cartographiques, avec les informations d’emplacement hébergées dans Azure.
@@ -67,12 +66,6 @@ Les données sont indispensables pour les cartes. Le service Data permet de char
 Utilisez le service Geolocation pour récupérer le code de pays/région à deux lettres pour une adresse IP. Ce service peut vous aider à améliorer l’expérience utilisateur en personnalisant le contenu des applications en fonction de la localisation géographique.
 
 Pour plus d’informations, consultez la [Documentation du service Geolocation](/rest/api/maps/geolocation).
-
-### <a name="mobility-services-preview"></a>Services Mobility en préversion
-
-Les services Mobility d’Azure Maps améliorent le temps de développement pour les applications présentant des fonctionnalités de transport public, comme le calcul d’itinéraires de transport et la recherche d’arrêts à proximité. Les utilisateurs peuvent extraire des informations détaillées sur les arrêts, les lignes et les horaires des transports publics. Le service Mobility permet aussi aux utilisateurs de récupérer les géométries d’arrêts et de lignes, les alertes pour les arrêts, les lignes, les zones de service ainsi que les arrivées des transports publics et les alertes de service en temps réel. De plus, les services Mobility offrent des fonctionnalités de calcul d’itinéraires avec des options de planification de trajet multimodal. La planification de trajet multimodal permet de combiner marche, vélo et transports publics. Les utilisateurs peuvent aussi accéder à des itinéraires pas à pas multimodaux détaillés.
-
-Pour en savoir plus sur le service, consultez la [Documentation des services Mobility](/rest/api/maps/mobility).
 
 ### <a name="render-service"></a>Render Service
 
@@ -227,7 +220,7 @@ Pour accéder aux services Azure Maps, accédez au [portail Azure](https://porta
 Azure Maps utilise un schéma d’authentification basé sur une clé. Lorsque vous créez votre compte, deux clés sont générées. Pour vous authentifier auprès des services Azure Maps, vous pouvez utiliser celle de votre choix.
 
 > [!NOTE]
-> Azure Maps partage les demandes d’adresse/de lieu fournies par le client (« demandes ») avec la société tierce TomTom pour la fonctionnalité de carte. Les demandes ne sont liées à aucun client ou utilisateur final quand elles sont partagées avec TomTom et ne peuvent pas être utilisées pour identifier des individus. Les services Mobility, qui incluent l’intégration avec Moovit, sont actuellement en [préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Maps partage les requêtes d’adresses/de lieux fournies par le client avec la société tierce TomTom à des fins de cartographie. Ces requêtes ne sont liées à aucun client ou utilisateur final quand elles sont partagées avec TomTom, et ne peuvent pas être utilisées pour identifier des individus.
 
 Microsoft est en train d’ajouter TomTom, Moovit et AccuWeather à la liste des sous-traitants de services en ligne.
 

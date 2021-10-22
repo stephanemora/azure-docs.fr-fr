@@ -1,22 +1,27 @@
 ---
 title: Qu’est-ce qu’Azure Digital Twins ?
 titleSuffix: Azure Digital Twins
-description: Présentation des opérations qu’il est possible de réaliser avec Azure Digital Twins.
+description: Vue d’ensemble d’Azure Digital Twins, de ce que le service comprend et de la façon dont il peut être utilisé dans une solution cloud étendue.
 author: baanders
 ms.author: baanders
-ms.date: 8/23/2021
+ms.date: 10/5/2021
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 6dfb4faac6fd5bb11dfc1fbb928d9ba377ec1fe3
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 818f001666baa55c1c015974932a5d291a82614d
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224387"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134143"
 ---
 # <a name="what-is-azure-digital-twins"></a>Qu’est-ce qu’Azure Digital Twins ?
 
-**Azure Digital Twins** est une offre PaaS (platform as a service) qui permet de créer des graphes de jumeaux basés sur des modèles numériques d’environnements entiers. Il peut s’agir de bâtiments, d’usines, de batteries de serveurs, de réseaux énergétiques, de chemins de fer, de stades, etc., voire de villes entières. Ces modèles numériques peuvent être utilisés pour obtenir des insights qui permettent d’améliorer les produits, d’optimiser les opérations, de réduire les coûts et de fournir des expériences client exceptionnelles.
+**Azure Digital Twins** est une offre de plateforme en tant que service (PaaS) qui permet de créer des graphes de jumeaux basés sur des modèles numériques d’environnements entiers, qui peuvent être des bâtiments, des usines, des batteries de serveurs, des réseaux d’énergie, des chemins de fer, des stades, etc., voire des villes entières. Ces modèles numériques peuvent être utilisés pour obtenir des insights qui permettent d’améliorer les produits, d’optimiser les opérations, de réduire les coûts et de fournir des expériences client exceptionnelles.
+
+Azure Digital Twins peut être utilisé pour concevoir une architecture de jumeaux numériques qui représente des appareils IoT réels dans une solution cloud étendue, et qui se connecte à des jumeaux d’appareil IoT Hub pour envoyer et recevoir des données en direct.
+
+> [!NOTE]
+> Les *jumeaux d’appareil IoT Hub* sont différents des *jumeaux numériques* dans le service Azure Digital Twins. Alors que les *jumeaux d’appareil IoT Hub* sont gérés par votre hub IoT pour chaque appareil IoT que vous connectez au hub, les *jumeaux numériques* peuvent être des représentations de tout ce qui est défini par des modèles numériques et instanciés dans Azure Digital Twins. 
 
 Tirez parti de votre expertise sur Azure Digital Twins pour créer des solutions personnalisées et connectées qui :
 * Modélisent tous les environnements et donnent vie aux jumeaux numériques de manière scalable et sécurisée
@@ -80,7 +85,7 @@ Cette option est une autre façon pour Azure Digital Twins de se connecter à un
 
 Azure Digital Twins est couramment utilisé en association avec d’autres services Azure dans le cadre d’une solution IoT de plus grande envergure. 
 
-Une solution complète utilisant Azure Digital Twins peut contenir les éléments suivants :
+Un exemple d’architecture d’une solution complète utilisant Azure Digital Twins peut se présenter comme suit :
 * Instance de service Azure Digital Twins. Ce service stocke vos modèles de jumeaux et votre graphe de jumeaux avec son état, et orchestre le traitement des événements.
 * Une ou plusieurs applications clientes qui pilotent l’instance Azure Digital Twins en configurant des modèles, en créant une topologie et en extrayant des insights à partir du graphe de jumeaux.
 * Une ou plusieurs ressources de calcul externes pour traiter les événements générés par Azure Digital Twins ou les sources de données connectées telles que les appareils. Une façon courante de fournir des ressources de calcul consiste à utiliser [Azure Functions](../azure-functions/functions-overview.md).
@@ -101,6 +106,6 @@ Vous pouvez voir la liste des **termes IoT courants** et leurs utilisations au s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Explorez l’utilisation d’Azure Digital Twins dans [Bien démarrer avec Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
+* Explorez l’utilisation d’Azure Digital Twins dans [Bien démarrer avec Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md) et [Créer une solution de bout en bout](tutorial-end-to-end.md) pour voir des exemples de scénarios.
 
 * Vous pouvez également découvrir les concepts d’Azure Digital Twins en lisant [Modèles DTDL](concepts-models.md).

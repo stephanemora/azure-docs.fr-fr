@@ -3,15 +3,15 @@ title: Supervision des performances des applications web Java - Azure Applicatio
 description: Surveillance étendue des performances et de l’utilisation de votre site web Java avec Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 3489591a39901a79323faf307b8700863f71522a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 989a0707ded7f9f462263a368bb64d55395cc03c
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110104177"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134010"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Surveiller les dépendances, les exceptions interceptées et les temps d’exécution des méthodes dans les applications web Java
 

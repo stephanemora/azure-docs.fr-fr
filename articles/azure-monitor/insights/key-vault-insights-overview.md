@@ -3,15 +3,13 @@ title: Superviser Key Vault avec Key Vault Insights | Microsoft Docs
 description: Cet article décrit Key Vault Insights.
 services: azure-monitor
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 953d6300b8ac19ddfcfe3b37a1cfde50480e19a4
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0ad400ffcb892c09d6f746c482c9cb78c5627075
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095119"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131863"
 ---
 # <a name="monitoring-your-key-vault-service-with-key-vault-insights"></a>Superviser votre service de coffre de clés avec Key Vault Insights
 Key Vault Insights permet une supervision complète de vos coffres de clés en fournissant une vue unifiée des informations relatives aux requêtes, au niveau de performance, aux échecs et à la latence de Key Vault.

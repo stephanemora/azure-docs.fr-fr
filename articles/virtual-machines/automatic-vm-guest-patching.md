@@ -6,19 +6,19 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 10/18/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a120914051f7da0ccbfffb2a7fda9ab8404e7a76
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7df73a0e09cf845f0dd7b5fda10bbb370057e998
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216458"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181385"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>Préversion : Mise à jour corrective automatique des systèmes invités des machines virtuelles Azure
 
-**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
+**S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles
 
 L’activation de la mise à jour corrective automatique des systèmes invités des machines virtuelles Azure facilite la gestion des mises à jour en appliquant les patchs sur les machines virtuelles de façon automatique et sécurisée afin de maintenir la conformité en termes de sécurité.
 

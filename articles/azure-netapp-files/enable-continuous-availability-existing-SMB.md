@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 10/15/2021
 ms.author: b-juche
-ms.openlocfilehash: 705cc540097ea41bc0039336d7cc9fdc025dd247
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 8dace313ed9296dd514fb059e8ed681a6276af0f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218381"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074529"
 ---
 # <a name="enable-continuous-availability-on-existing-smb-volumes"></a>Activer la disponibilité continue sur des volumes SMB existants
 
@@ -34,8 +34,11 @@ Vous pouvez activer la fonctionnalité de disponibilité continue SMB lors de la
 ## <a name="steps"></a>Étapes
 
 1. Assurez-vous que vous êtes [inscrit à la fonctionnalité de partages de disponibilité continue SMB](https://aka.ms/anfsmbcasharespreviewsignup) .  
-2. Cliquez sur le volume SMB pour lequel vous souhaitez activer la disponibilité continue. Puis cliquez sur **Modifier**.  
-3. Dans la fenêtre de modification qui apparaît, cochez la case **Activer la disponibilité continue**.   
+
+    Vous devez activer la disponibilité continue uniquement pour les [conteneurs de profil utilisateur FSLogix](../virtual-desktop/create-fslogix-profile-container.md) et SQL Server. L’utilisation de partages de disponibilité continue SMB pour des charges de travail autres que les conteneurs de profil utilisateur FSLogix et SQL Server n’est *pas* prise en charge. Cette fonctionnalité est actuellement prise en charge sur Windows SQL Server. Linux SQL Server n’est pas pris en charge actuellement. Si vous utilisez un compte non-administrateur (domaine) pour installer SQL Server, assurez-vous que le compte dispose du privilège de sécurité requis. Si le compte de domaine ne dispose pas du privilège de sécurité requis (`SeSecurityPrivilege`) et que le privilège ne peut pas être défini au niveau du domaine, vous pouvez octroyer le privilège au compte à l’aide du champ **Utilisateurs avec privilège de sécurité** des connexions Active Directory. Consultez [Créer une connexion Active Directory](create-active-directory-connections.md#create-an-active-directory-connection).
+            
+3. Cliquez sur le volume SMB pour lequel vous souhaitez activer la disponibilité continue. Puis cliquez sur **Modifier**.  
+4. Dans la fenêtre de modification qui apparaît, cochez la case **Activer la disponibilité continue**.   
     ![Capture instantanée affichant l’option Activer la disponibilité continue.](../media/azure-netapp-files/enable-continuous-availability.png)
 
 4. Redémarrez les systèmes de Windows qui se connectent au partage SMB existant.   

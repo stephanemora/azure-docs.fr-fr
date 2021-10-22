@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Bien démarrer'
 description: Suivez ce guide de démarrage rapide pour vous familiariser avec le workflow de base du déploiement de Defender pour IoT.
 ms.topic: quickstart
 ms.date: 06/06/2021
-ms.openlocfilehash: 32565bfcf87facb957dc4e8b1fc73f52eb1c7ac2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 223337469a309fd1f28ef1bf469f2998a5af43ba
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124836413"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138456"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>Démarrage rapide : Bien démarrer avec Defender pour IoT
 
@@ -76,8 +76,6 @@ Vous pouvez également utiliser un abonnement d’évaluation pour superviser 10
 1. Sélectionnez l’onglet **Téléchargez la console de gestion locale** et enregistrez le fichier d’activation téléchargé. Ce fichier contient les appareils validés agrégés que vous avez définis. Il sera chargé dans la console de gestion après la connexion initiale.
 
 Pour plus d’informations sur la manière de désactiver un abonnement, consultez [Désactiver un abonnement](how-to-manage-subscriptions.md#offboard-a-subscription).
-
-
 
 ## <a name="install-and-set-up-the-on-premises-management-console"></a>Installation et configuration de la console de gestion locale
 

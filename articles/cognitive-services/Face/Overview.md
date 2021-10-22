@@ -11,12 +11,12 @@ ms.date: 09/27/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconnaissance faciale, logiciel de reconnaissance faciale, analyse faciale, correspondance de visage, application de reconnaissance faciale, recherche de visage par image, recherche de reconnaissance faciale
-ms.openlocfilehash: 3cb63bb5fb98eddee84677bb8e2d8d11ed86c876
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 90a2b656d66c15eed10d68be8e5af5c35f35d135
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362754"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005688"
 ---
 # <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
 
@@ -57,7 +57,7 @@ Les entreprises et les applications modernes peuvent utiliser les opérations d�
 
 ### <a name="identification"></a>Identification
 
-L’identification de visage peut s’employer à résoudre une correspondance « un-à-plusieurs » d’un visage sur une image comparé à un ensemble de visages dans un référentiel sécurisé. Les candidats correspondants sont retournés en fonction de la similarité de leurs données de visage et le visage faisant l’objet de la requête. Ce scénario est utilisé pour accorder l’accès dans un bâtiment à un certain groupe de personnes ou pour vérifier l’utilisateur d’un appareil.
+L’identification de visage peut s’employer à résoudre une correspondance « un-à-plusieurs » d’un visage sur une image comparé à un ensemble de visages dans un référentiel sécurisé. Les candidats correspondants sont retournés en fonction de la similarité de leurs données de visage et le visage faisant l’objet de la requête. Ce scénario est utilisé pour octroyer des privilèges d’accès dans un bâtiment ou un aéroport à un certain groupe de personnes, ou pour vérifier l’identité de l’utilisateur d’un appareil.
 
 L’image suivante est un exemple de base de données nommée `"myfriends"`. Chaque groupe peut contenir jusqu’à 1 million d’objets Personne différents. Chaque objet Personne peut avoir jusqu’à 248 visages enregistrés.
 
@@ -69,9 +69,7 @@ Après avoir créé et formé un groupe, vous pouvez effectuer l’identificatio
 
 L’opération de vérification répond à la question « Ces deux visages appartiennent-ils à la même personne ? ». 
 
-La vérification est également une correspondance « un-à-un » d’un visage sur une image comparé à un visage sur une photo ou dans un référentiel sécurisé
-
-Elle peut être utilisée dans les scénarios de vérification d’identité ou de contrôle d’accès pour vérifier qu’une image correspond à une image précédemment capturée (par exemple, à partir d’une photo provenant d’une carte d’identité délivrée par un gouvernement).
+La vérification consiste également à établir une correspondance « unique » entre un visage sur une image et un seul visage provenant d’un dépôt sécurisé ou d’une photo pour vérifier qu’il s’agit de la même personne. La vérification peut être utilisée à des fins de vérification d’identité. Il peut s’agir par exemple d’une application bancaire qui permet aux utilisateurs d’ouvrir un compte à distance en prenant un selfie et en photographiant une pièce d’identité avec photo. 
 
 Pour plus d’informations sur la vérification de l’identité, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’API [Identifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) et [Vérifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 

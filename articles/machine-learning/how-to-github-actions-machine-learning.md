@@ -10,12 +10,12 @@ ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: how-to
 ms.custom: github-actions-azure
-ms.openlocfilehash: ba3ac45c04ef359db56086ff8ddf75b428574062
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d040b613e11065aaf3a1ad457184ca5afdec1aa4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427454"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074244"
 ---
 # <a name="use-github-actions-with-azure-machine-learning"></a>Utiliser GitHub Actions avec Azure Machine Learning
 
@@ -83,7 +83,7 @@ Dans l’exemple ci-dessus, remplacez les espaces réservés par votre ID d’ab
 
 ## <a name="connect-to-the-workspace"></a>Se connecter à l’espace de travail
 
-Utilisez l’[action Espace de travail Azure Machine Learning](https://github.com/marketplace/actions/azure-machine-learning-workspace) pour vous connecter à votre espace de travail Azure Machine Learning. 
+Utilisez l’**action Espace de travail Azure Machine Learning** pour vous connecter à votre espace de travail Azure Machine Learning. 
 
 ```yaml
     - name: Connect/Create Azure Machine Learning Workspace

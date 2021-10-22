@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: c4aa31c94accf9aad13c54cf3680298476bf016d
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 8bfb5811cd8c4ffe2efa10a0bb8fcac8b449092e
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532677"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065037"
 ---
 # <a name="associate-a-vm-to-a-capacity-reservation-group-preview"></a>Associer une machine virtuelle à un groupe de réservations de capacité (préversion) 
 
@@ -82,6 +82,19 @@ Dans le corps de la demande, ajoutez la propriété `capacityReservationGroup` c
 1. Une fois la validation exécutée, sélectionnez le bouton **Créer**. 
 1. Une fois le déploiement effectué, sélectionnez **Accéder à la ressource**.
 
+### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli1)
+
+Utilisez `az vm create` pour créer une machine virtuelle et ajouter la propriété `capacity-reservation-group` pour associer la machine virtuelle à un groupe de réservations de capacité existant. L’exemple ci-dessous crée une machine virtuelle Standard_D2s_v3 dans l’emplacement USA Est et associe la machine virtuelle à un groupe de réservations de capacité.
+
+```azurecli-interactive
+az vm create 
+--resource-group myResourceGroup 
+--name myVM 
+--location eastus 
+--size Standard_D2s_v3 
+--image UbuntuLTS 
+--capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
+```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1)
 
@@ -159,6 +172,24 @@ Alors que la réservation de capacité est en préversion, pour associer une mac
 1. Accédez à **Configurations** à gauche.
 1. Dans la liste déroulante **Groupe de réservations de capacité**, sélectionnez le groupe auquel vous souhaitez associer la machine virtuelle. 
 
+### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli2)
+
+1. Libérer la machine virtuelle
+
+    ```azurecli-interactive
+    az vm deallocate 
+    -g myResourceGroup 
+    -n myVM
+    ```
+
+1. Associer la machine virtuelle à un groupe de réservations de capacité
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{CapacityReservationGroupName}
+    ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 
@@ -242,6 +273,16 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
    }
 } 
 ``` 
+
+### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli3)
+
+```azurecli-interactive
+az capacity reservation show 
+-g myResourceGroup
+-c myCapacityReservationGroup 
+-n myCapacityReservation 
+```
+
 ### <a name="powershell"></a>[PowerShell](#tab/powershell3)
 
 ```powershell-interactive

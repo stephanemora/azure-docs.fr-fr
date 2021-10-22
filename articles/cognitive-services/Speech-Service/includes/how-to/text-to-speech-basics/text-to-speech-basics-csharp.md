@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81c1e8315bdc51b1806016c3a895a031185ccac6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 41ba1bb39b4cf92b84ccc6ff0365cb6735a65bcc
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539345"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143794"
 ---
 Dans ce guide de démarrage rapide, vous découvrez les modèles de conception courants qui permettent d’utiliser la synthèse vocale au moyen du kit SDK Speech. Vous commencez par créer une configuration et une synthèse de base, puis passez à des exemples plus poussés en matière de développement d’applications personnalisées, notamment :
 
@@ -78,6 +78,24 @@ public class Program
     {
         var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     }
+}
+```
+
+## <a name="select-synthesis-language-and-voice"></a>Sélectionner la langue et la voix de synthèse
+
+Le service Synthèse vocale Azure prend en charge plus de 250 voix ainsi que plus de 70 langues et variantes.
+Vous pouvez en obtenir la [liste complète](../../../language-support.md#neural-voices) ou les tester dans la [version de démonstration de la synthèse vocale](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Spécifiez la langue ou la voix de [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) en fonction de votre texte d’entrée, puis utilisez la voix souhaitée.
+
+```csharp
+static async Task SynthesizeAudioAsync()
+{
+    var config = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    // Note: if only language is set, the default voice of that language is chosen.
+    config.SpeechSynthesisLanguage = "<your-synthesis-language>"; // e.g. "de-DE"
+    // The voice setting will overwrite language setting.
+    // The voice setting will not overwrite the voice element in input SSML.
+    config.SpeechSynthesisVoiceName = "<your-wanted-voice>";
 }
 ```
 

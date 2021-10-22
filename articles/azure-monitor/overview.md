@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: afe6e82c3cc9773fbf0c17992fd6894d199d177f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 02a568d48ca99a58778adfd4068c359b4748ab43
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105937241"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178448"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -44,7 +44,7 @@ Pour de nombreuses ressources Azure, vous verrez les données collectées par Az
 
 ![Diagramme montrant le flux des données de métriques dans Metrics Explorer à utiliser dans les visualisations](media/overview/metrics.png)
 
-Les données de journal collectées par Azure Monitor peuvent être analysées à l’aide de [requêtes](logs/log-query-overview.md) qui permettent de récupérer, consolider et analyser rapidement les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de [Log Analytics](./logs/log-query-overview.md) dans le portail Azure. Vous pouvez ensuite analyser directement les données avec différents outils ou enregistrer les requêtes pour les utiliser avec des [visualisations](visualizations.md) ou des [règles d’alerte](alerts/alerts-overview.md).
+Les données de journal collectées par Azure Monitor peuvent être analysées à l’aide de [requêtes](logs/log-query-overview.md) qui permettent de récupérer, consolider et analyser rapidement les données collectées.  Vous pouvez créer et tester des requêtes à l’aide de [Log Analytics](./logs/log-query-overview.md) dans le portail Azure. Vous pouvez ensuite analyser directement les données avec différents outils ou enregistrer les requêtes pour les utiliser avec des [visualisations](best-practices-analysis.md) ou des [règles d’alerte](alerts/alerts-overview.md).
 
 Azure Monitor utilise une version du [langage de requête Kusto](/azure/kusto/query/) qui est adapté aux requêtes simples dans les journaux, mais comprend également des fonctionnalités avancées telles que les agrégations, les jointures et l’analytique intelligente. Il existe [plusieurs leçons](logs/get-started-queries.md) pour vous aider à apprendre le langage de requête.  Des conseils particuliers sont fournis aux utilisateurs qui connaissent déjà [SQL](/azure/data-explorer/kusto/query/sqlcheatsheet) et [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet).
 
@@ -107,7 +107,7 @@ La mise à l’échelle automatique vous permet de disposer de la bonne quantit�
 ![Diagramme illustrant la mise à l’échelle automatique, avec plusieurs serveurs sur une ligne intitulée Temps processeur > 80 %, dont deux serveurs marqués comme Minimum, trois comme Capacité actuelle et cinq comme Maximum](media/overview/autoscale.png)
 
 ## <a name="visualizing-monitoring-data"></a>Affichage des données de supervision
-Les [visualisations](visualizations.md), telles que les tables et les graphiques, sont des outils efficaces pour résumer les données de supervision et les proposer à différents publics. Azure Monitor dispose de ses propres fonctionnalités de visualisation des données de supervision et s’appuie sur d’autres services Azure pour leur publication auprès de différents publics.
+Les [visualisations](best-practices-analysis.md), telles que les tables et les graphiques, sont des outils efficaces pour résumer les données de supervision et les proposer à différents publics. Azure Monitor dispose de ses propres fonctionnalités de visualisation des données de supervision et s’appuie sur d’autres services Azure pour leur publication auprès de différents publics.
 
 ### <a name="dashboards"></a>Tableaux de bord
 Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) vous permettent de combiner différentes sortes de données dans un même volet du [portail Azure](https://portal.azure.com). Si vous le souhaitez, vous pouvez partager le tableau de bord avec d’autres utilisateurs d’Azure. Ajoutez la sortie de n’importe quelle requête de journal ou graphique de métriques à un tableau de bord Azure. Par exemple, vous pouvez créer un tableau de bord qui combine des vignettes affichant un graphique de métriques, un tableau de journaux d’activité, un graphique d’utilisation provenant d’Application Insights et la sortie d’une requête de journal d’activité.

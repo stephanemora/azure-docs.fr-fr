@@ -3,19 +3,19 @@ title: 'Tutoriel : Connecter des utilisateurs dans une application web Node.js 
 titleSuffix: Microsoft identity platform
 description: Dans ce tutoriel, vous ajoutez la prise en charge de la connexion des utilisateurs dans une application web.
 services: active-directory
-author: derisen
+author: KarenH444
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/17/2021
-ms.author: v-doeris
-ms.openlocfilehash: 58132b6d038abe0db02d1e58f8c8a8f64962ff49
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.author: karenhoran
+ms.openlocfilehash: 4767d7aa31d705e25f8d87ca24f928c64fe022f1
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279712"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161605"
 ---
 # <a name="tutorial-sign-in-users-in-a-nodejs--express-web-app"></a>Tutoriel : Connecter des utilisateurs dans une application web Node.js et Express
 

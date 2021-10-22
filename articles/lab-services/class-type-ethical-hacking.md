@@ -1,14 +1,14 @@
 ---
 title: Configurer un labo de piratage éthique avec Azure Lab Services | Microsoft Docs
 description: Découvrez comment configurer un labo à l’aide d’Azure Lab Services pour enseigner le piratage éthique.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 97cdf13f39cc73ee7f35fb402229469195f1456c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 649646e560906c499cacda13c7745be3f2f3f758
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97616420"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176906"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurer un labo pour enseigner le piratage éthique
 

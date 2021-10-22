@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 0cc474ba9566737cb0117cc3a0f2bfb079cdf3d9
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: f6769cfc95ff06ef67d9020ff109993772b36bf0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616509"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000836"
 ---
 # <a name="labeling-in-azure-purview"></a>Étiquetage dans Azure Purview
 
@@ -35,7 +35,7 @@ Azure Purview vous permet d’appliquer des étiquettes de confidentialité à d
 * **Étiquetage automatique :** les étiquettes peuvent être appliquées automatiquement en fonction du niveau de confidentialité des données. Lorsqu’une ressource est analysée afin d’identifier la présence de données confidentielles, les règles d’étiquetage automatique sont utilisées pour déterminer l’étiquette de confidentialité à appliquer. Vous pouvez créer des règles d’étiquetage automatique pour chaque étiquette de confidentialité, en définissant le type de classification ou d’informations sensibles constituant une étiquette.
 * **Appliquez des étiquettes aux fichiers et aux colonnes de base de données :** les étiquettes peuvent être appliquées aux fichiers inclus dans un stockage tel qu’Azure Data Lake, Azure Files, etc., ainsi qu’aux données schématisées telles que les colonnes dans Azure SQL DB, Cosmos DB, etc.
 
-Les étiquettes de confidentialité sont des balises que vous pouvez appliquer aux ressources pour classer et protéger vos données. En savoir plus sur les [étiquettes de confidentialité ici](/microsoft-365/compliance/create-sensitivity-labels.md).
+Les étiquettes de confidentialité sont des balises que vous pouvez appliquer aux ressources pour classer et protéger vos données. En savoir plus sur les [étiquettes de confidentialité ici](/microsoft-365/compliance/create-sensitivity-labels).
 
 ## <a name="how-to-apply-labels-to-assets-in-azure-purview"></a>Appliquer des étiquettes aux ressources dans Azure Purview
 

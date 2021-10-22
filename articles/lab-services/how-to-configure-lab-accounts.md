@@ -1,14 +1,14 @@
 ---
 title: Configurer l’arrêt automatique des machines virtuelles dans Azure Lab Services
 description: Cet article explique comment configurer l’arrêt automatique des machines virtuelles dans le compte lab.
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/17/2020
-ms.openlocfilehash: c0a147a81aaed88313a1b9aa4b0754d9a3badcb5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fabadbfc61a10b7ca53d0aa4711051a12347bd1d
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91650032"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180758"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Configurer l’arrêt automatique des machines virtuelles pour un compte lab
 

@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce que la place de marché commerciale Microsoft ?
-description: Vue d’ensemble des avantages et des options pour les partenaires Microsoft qui listent des solutions sur la Place de marché commerciale Microsoft.
+description: Vue d’ensemble des avantages et des options pour les partenaires Microsoft qui listent des solutions sur la Place de marché commerciale.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: overview
 ms.custom: contperf-fy21q4
 ms.date: 10/15/2020
-ms.openlocfilehash: 9764afb8bbb0dd6e627336e360ed5b5edc5b8d14
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 6a3d9dbb81bffc628e574d22aa56526a9abeeaa1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855970"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070959"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Qu’est-ce que la place de marché commerciale Microsoft ?
 
@@ -61,11 +61,11 @@ Voici un exemple de page de liste d’offres dans AppSource :
 
 Les clients peuvent également accéder à vos offres AppSource via Microsoft 365, Dynamics 365, Power Platform et Azure. L’exemple suivant montre comment accéder aux compléments AppSource à partir du menu **Fichier** dans Power BI.
 
-:::image type="content" source="media/overview/power-bi.png" alt-text="Montre comment accéder aux visuels Power BI dans AppSource à partir du menu Fichier dans Power BI."::: 
+:::image type="content" source="media/overview/power-bi.png" alt-text="Capture d’écran montrant comment accéder aux visuels Power BI dans AppSource à partir du menu Fichier dans Power BI.":::
 
 Cette option ouvre une fenêtre dans laquelle le client peut rechercher des compléments Power BI par nom ou catégorie. 
 
-:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Montre la liste des compléments AppSource dans Power BI."::: 
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Capture d’écran montrant la liste des compléments AppSource dans Power BI.":::
 
 ### <a name="azure-marketplace"></a>Place de marché Azure
 
@@ -73,17 +73,17 @@ La [Place de marché Azure](https://azuremarketplace.microsoft.com/) concerne de
 
 Voici un exemple de page de liste d’offres dans la Place de marché Azure :
 
-:::image type="content" source="media/overview/example-marketplace.png" alt-text="Illustre une page de la liste des offres dans la Place de marché Azure."::: 
+:::image type="content" source="media/overview/example-marketplace.png" alt-text="Illustre une page de la liste des offres dans la Place de marché Azure.":::
 
 #### <a name="azure-marketplace-in-the-azure-portal"></a>Place de marché Azure dans le portail Azure
 
 Les clients Azure peuvent découvrir et déployer les solutions proposées par la Place de marché, via l’option **Créer une ressource** dans le [portail Azure](https://portal.azure.com/).
 
-:::image type="content" source="media/overview/create-resource.png" alt-text="Montre l’option Créer une ressource dans le portail Azure"::: 
+:::image type="content" source="media/overview/create-resource.png" alt-text="Capture d’écran montrant l’option Créer une ressource dans le Portail Azure":::
 
 Cette option ouvre la Place de marché Azure dans le portail Azure, où ils peuvent rechercher des solutions par nom ou par catégorie.
 
-:::image type="content" source="media/overview/search-portal.png" alt-text="Montre les options de recherche de la Place de marché Azure dans le portail Azure"::: 
+:::image type="content" source="media/overview/search-portal.png" alt-text="Capture d’écran montrant les options de recherche de la Place de marché Azure dans le portail Azure.":::
 
 ### <a name="which-store-should-i-choose"></a>Quel magasin dois-je choisir ?
 Lorsque vous créez une offre de la place de marché commerciale dans l’Espace partenaires, elle peut figurer dans l’un ou l’autre des magasins en fonction du type d’offre, des catégories et d’autres options que vous sélectionnez. Dans les rares cas où l’offre est pertinente pour les utilisateurs des deux magasins en ligne, elle peut apparaître dans les deux. Pour en savoir plus, consultez [Options de référencement et de tarification par magasin en ligne](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).

@@ -1,14 +1,14 @@
 ---
 title: Concepts des labos – Azure Lab Services | Microsoft Docs
 description: Découvrez les concepts de base de Lab Services et comment cet outil facilite la création et la gestion des laboratoires.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: fa3a8dad195b4b3cbf0786c8923c8b330d148898
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59e0fdb572f4a27658afdb42f270c67d76b5fcd0
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96435516"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181271"
 ---
 # <a name="labs-concepts"></a>Concepts des labos
 

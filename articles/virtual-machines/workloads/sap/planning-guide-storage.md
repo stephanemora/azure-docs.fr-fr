@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0af6df954dda4e5af6335776b1f93f929da5834e
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 25cdaf3bd916b587adeeaf200d0c55b0c4001ad2
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122527708"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074548"
 ---
 # <a name="azure-storage-types-for-sap-workload"></a>Types de stockage Azure pour une charge de travail SAP
 Azure possède de nombreux types de stockage qui diffèrent notablement en termes de capacités, de débit, de latence et de prix. Certains des types de stockage ne sont pas, ou peu, utilisables pour les scénarios SAP. En revanche, plusieurs types de stockage Azure sont bien adaptés ou optimisés pour des scénarios de charge de travail SAP spécifiques. Pour SAP HANA en particulier, certains types de stockage Azure ont été certifiés pour être utilisés avec SAP HANA. Dans ce document, nous passons en revue les différents types de stockage et décrivons leur capacité et leur facilité d'utilisation avec les charges de travail et les composants SAP.
@@ -97,15 +97,15 @@ Caractéristiques que vous pouvez attendre des types de stockage différents :
 
 | Scénario d’usage | HDD Standard | SSD Standard | Stockage Premium | Disque Ultra | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| SLA de débit/IOPS | non | Non | Oui | Oui | Oui |
+| SLA de débit/IOPS | non | non | Oui | Oui | Oui |
 | Lectures de latence | high | moyen à élevé | low | sous-milliseconde | sous-milliseconde |
 | Écritures de latence | high | moyen à élevé  | faible (sous-milliseconde<sup>1</sup>) | sous-milliseconde | sous-milliseconde |
 | HANA pris en charge | non | non | Oui<sup>1</sup> | Oui | Oui |
-| Captures instantanées de disque possibles | Oui | Oui | Oui | Non | Oui |
+| Captures instantanées de disque possibles | Oui | Oui | Oui | non | Oui |
 | Allocation de disques sur différents clusters de stockage lors de l’utilisation de groupes à haute disponibilité | via des disques managés | via des disques managés | via des disques managés | type de disque non pris en charge avec les machines virtuelles déployées via des groupes à haute disponibilité | non<sup>3</sup> |
 | Aligné avec les Zones de disponibilité | Oui | Oui | Oui | Oui | nécessite l’engagement de Microsoft |
 | Redondance de zone | pas pour les disques managés | pas pour les disques managés | pas pour les disques managés | non | non |
-| Redondance géographique | pas pour les disques managés | pas pour les disques managés | non | Non | non |
+| Redondance géographique | pas pour les disques managés | pas pour les disques managés | non | non | non |
 
 
 <sup>1</sup> Avec utilisation de l’[Accélérateur d’écriture Azure](../../how-to-enable-write-accelerator.md) pour les familles de machines virtuelles M/Mv2 et les volumes journal/restauration par progression
@@ -130,7 +130,7 @@ Le stockage SSD Premium Azure a été introduit dans le but de fournir les avant
 * Contrat de niveau de service pour les IOPS et le débit
 * Moins de variabilité dans la latence des E/S
 
-Ce type de stockage cible les charges de travail SGBD, le trafic de stockage qui nécessite une latence faible à un chiffre, et les contrats SLA sur les IOPS et le coût du débit dans le cas du stockage Premium Azure ne correspondent pas au volume de données réel stocké sur ces disques, mais à la catégorie de taille d’un tel disque, indépendamment de la quantité de données stockées sur le disque. Vous pouvez également créer des disques dans Stockage Premium qui ne sont pas directement mappés aux catégories de taille présentées dans l’article [SSD Premium](../../disks-types.md#premium-ssd). Les conclusions de cet article sont les suivantes :
+Ce type de stockage cible les charges de travail SGBD, le trafic de stockage qui nécessite une latence faible à un chiffre, et les contrats SLA sur les IOPS et le coût du débit dans le cas du stockage Premium Azure ne correspondent pas au volume de données réel stocké sur ces disques, mais à la catégorie de taille d’un tel disque, indépendamment de la quantité de données stockées sur le disque. Vous pouvez également créer des disques dans Stockage Premium qui ne sont pas directement mappés aux catégories de taille présentées dans l’article [SSD Premium](../../disks-types.md#premium-ssds). Les conclusions de cet article sont les suivantes :
 
 - Le stockage est organisé en plages. Par exemple, un disque dans la plage 513 Gio à 1024 Gio partage les mêmes fonctionnalités et les mêmes coûts mensuels.
 - Les IOPS par Gio ne suivent pas de manière linéaire les catégories de taille. Les petits disques de moins de 32 Gio ont des taux d'IOPS par Gio plus élevés. Pour les disques entre 32 Gio et 1024 Gio, le taux d'IOPS par Gio se situe entre 4 et 5 IOPS par Gio. Pour les disques plus volumineux jusqu'à 32 767 Gio, le taux d’IOPS par Gio est inférieur à 1
@@ -190,8 +190,8 @@ Les disques Ultra Azure fournissent un stockage sur disque présentant un débit
 En créant un disque Ultra, vous disposez de trois dimensions que vous pouvez définir :
 
 - Capacité du disque. Les plages sont comprises entre 4 Gio et 65 536 Gio
-- IOPS provisionnées pour le disque. Des valeurs maximales différentes s’appliquent à la capacité du disque. Lire l’article [Disque Ultra](../../disks-types.md#ultra-disk) pour plus de détails
-- Bande passante de stockage approvisionnée. Une bande passante maximale différente s’applique en fonction de la capacité du disque. Lire l’article [Disque Ultra](../../disks-types.md#ultra-disk) pour plus de détails
+- IOPS provisionnées pour le disque. Des valeurs maximales différentes s’appliquent à la capacité du disque. Lire l’article [Disque Ultra](../../disks-types.md#ultra-disks) pour plus de détails
+- Bande passante de stockage approvisionnée. Une bande passante maximale différente s’applique en fonction de la capacité du disque. Lire l’article [Disque Ultra](../../disks-types.md#ultra-disks) pour plus de détails
 
 Le coût d’un seul disque est déterminé par les trois dimensions que vous pouvez définir pour les disques spécifiques séparément. 
 

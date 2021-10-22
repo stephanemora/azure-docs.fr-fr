@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: allensu
-ms.openlocfilehash: e983494b41e2fe0187f9468a66242c71c9bd3280
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 372953e9a2a11cbb614cc6afd6ccde629344e0c2
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368512"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132775"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ?
 
@@ -57,7 +57,6 @@ IPv6 pour les réseaux virtuels Azure inclut les fonctionnalités suivantes :
     - Configurations front-end facultatives qui permettent à un même équilibreur de charge d’utiliser plusieurs adresses IP publiques IPv6. Les mêmes protocole et port frontal peuvent être réutilisés pour plusieurs adresses front-end.
     - Les ports IPv6 facultatifs peuvent être réutilisés sur des instances principales à l’aide de la fonctionnalité *IP flottante* des règles d’équilibrage de charge 
     - Remarque : L’équilibrage de charge n’effectue aucune traduction de protocole (pas de NAT64). 
-    - Remarque : La charge d’IPv6 peut être équilibrée uniquement vers l’interface réseau principale (carte réseau) sur les machines virtuelles Azure. 
 - [L'équilibreur de charge interne IPv6 Standard](../../virtual-network/ipv6-dual-stack-standard-internal-load-balancer-powershell.md) prend en charge la création d'applications multiniveau résilientes dans des réseaux virtuels Azure.   
 - Prise en charge de l'équilibreur de charge public IPv6 De base pour assurer la compatibilité avec des déploiements hérités
 - [Les adresses et plages d’adresses IP publiques IPv6 réservées](public-ip-address-prefix.md) fournissent des adresses IPv6 stables et prévisibles qui facilitent le filtrage de vos applications hébergées par Azure pour votre entreprise et vos clients.

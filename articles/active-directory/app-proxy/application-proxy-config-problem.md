@@ -3,7 +3,7 @@ title: Problèmes rencontrés lors de la création d'une application Proxy d'app
 description: Résoudre les problèmes de création d'applications Proxy d'application sur le portail d'administration Azure Active Directory
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: a3f60e63d4fb5257d7d822a8e1a9326adf9eb62d
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 513d75a0f5b2a0b0faf283000909e239f706d702
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186564"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990403"
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>Problèmes lors de la création d’une application de proxy d’application 
 

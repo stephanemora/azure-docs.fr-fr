@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 673dca65726a4258e267e8dd3e403329b47f6d98
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5a14f9367a1b46a641f371b8c17a62b9f58c5756
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739976"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001311"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Slack pour l’attribution automatique d’utilisateurs
 
@@ -37,7 +37,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 
 * [Un locataire Azure AD](../develop/quickstart-create-new-tenant.md).
 * Un compte d’utilisateur dans Azure AD avec l’[autorisation](../roles/permissions-reference.md) de configurer l’approvisionnement (par exemple, administrateur d’application, administrateur d’application Cloud, propriétaire d’application ou administrateur général).
-* Un client Slack avec le [forfait Plus](https://aadsyncfabric.slack.com/pricing) ou mieux activé.
+* Un client Slack avec le [forfait Plus](https://slack.com/pricing) ou mieux activé.
 * Un compte d’utilisateur dans Slack avec les autorisations d’administrateur d’équipe.
 
 > [!NOTE]

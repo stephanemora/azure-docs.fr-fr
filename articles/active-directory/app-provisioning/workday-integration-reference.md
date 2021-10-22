@@ -3,7 +3,7 @@ title: Référence sur l’intégration d’Azure Active Directory et de Workday
 description: Présentation technique approfondie de l’approvisionnement piloté par Workday RH dans Azure Active Directory
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
-ms.openlocfilehash: a67026238c0a3cf469cb7d6bc3112eb269cf5a13
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 1a1b0dfbdad6aaea91ca8e3fe7d11d74b1aa2967
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110785894"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990346"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Comment de l’approvisionnement Azure Active Directory s’intègre avec Workday
 

@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/21/2019
+ms.date: 10/13/2021
 ms.custom:
 - mvc
 - mqtt
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 7dbc0404679927bcef1647dfdf46ce3360216a79
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21055be377dff564753844e779cae287cab63b03
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98733298"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176013"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -261,7 +261,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel vous avez appris à synchroniser les informations d’état entre vos appareils et votre hub IoT. Passez au didacticiel suivant pour découvrir comment utiliser les jumeaux d’appareil pour implémenter un processus de mise à jour du microprogramme.
+Dans ce tutoriel vous avez appris à synchroniser les informations d’état entre vos appareils et votre hub IoT. Passez au tutoriel suivant pour découvrir comment utiliser des jumeaux d’appareil pour implémenter le processus de mise à jour d’appareil.
 
 > [!div class="nextstepaction"]
-> [Implémenter un processus de mise à jour de microprogramme d’appareil](tutorial-firmware-update.md)
+> [Tutoriel : Implémenter une mise à jour d’appareil pour Azure IoT Hub : Utilisation de l’image de référence Raspberry Pi 3 B+](../iot-hub-device-update/device-update-raspberry-pi.md).

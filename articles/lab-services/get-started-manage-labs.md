@@ -1,14 +1,14 @@
 ---
 title: Prise en main d’Azure Lab Services
 description: Cet article explique comment prendre en main Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/18/2020
-ms.openlocfilehash: d260ace7d7819c3ca2db96d6c4984bf834e170da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a9342fa290bf6b12e59e0b56617683ebda6d25c0
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98165040"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181176"
 ---
 # <a name="get-started-with-lab-services"></a>Prise en main de Lab Services 
 

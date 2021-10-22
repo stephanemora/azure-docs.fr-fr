@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: banders
-ms.openlocfilehash: fb37278a30e935d2bb65a7b132177a1bd588117d
-ms.sourcegitcommit: f2eb1bc583962ea0b616577f47b325d548fd0efa
+ms.openlocfilehash: 18d8a363a21e8086b3ebcd01c0b32b0ae119a483
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/28/2021
-ms.locfileid: "114731168"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000420"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Ajouter ou mettre à jour une carte de crédit pour Azure
 
 Ce document s’applique aux clients qui se sont inscrits à Azure Online avec une carte de crédit.
 
-Dans le portail Azure, vous pouvez remplacer votre mode de paiement par défaut par une nouvelle carte de crédit et mettre à jour les informations de votre carte de crédit. Vous devez être [Administrateur de compte](../understand/subscription-transfer.md#whoisaa) ou disposer des [autorisations MCA](understand-mca-roles.md) appropriées pour effectuer ces modifications. Vous pouvez également remplacer votre carte de crédit actuelle pour tous les abonnements.
+Dans le portail Azure, vous pouvez remplacer votre mode de paiement par défaut par une nouvelle carte de crédit et mettre à jour les informations de votre carte de crédit. Vous devez être [Administrateur de compte](add-change-subscription-administrator.md#whoisaa) ou disposer des [autorisations MCA](understand-mca-roles.md) appropriées pour effectuer ces modifications.
 
 Si vous voulez supprimer une carte de crédit, consultez [Supprimer un mode de paiement pour la facturation Azure](delete-azure-payment-method.md).
 

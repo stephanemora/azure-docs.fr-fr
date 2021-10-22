@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 82b5892b027627871e5492e3c6cd3776a923632b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: c8375a7e7a404c257b80f48b8824f26bb3af309c
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113438780"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162541"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Tutoriel : Créer une passerelle NAT avec le portail Azure
 
@@ -141,8 +141,8 @@ Dans cette section, vous allez créer une machine virtuelle pour tester la passe
     | **Détails de l’instance** |   |
     | Nom de la machine virtuelle | Entrez **myVM**. |
     | Région | Sélectionnez **(Europe) Europe Ouest**. |
-    | Options de disponibilité | Conservez la valeur par défaut indiquant qu’aucune redondance n’est nécessaire. |
-    | Image | Sélectionnez **Windows Server 2019 Datacenter - Gen1**. |
+    | Options de disponibilité | Sélectionnez **Aucune redondance d’infrastructure requise**. |
+    | Image | Sélectionnez **Windows Server 2019 Datacenter – Gen2**. |
     | Taille | Sélectionnez **Standard_DS1_v2**. |
     | **Compte administrateur** |   |
     | Nom d’utilisateur | Entrez un nom d’utilisateur pour la machine virtuelle. |

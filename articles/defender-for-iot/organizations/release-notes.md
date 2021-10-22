@@ -3,12 +3,12 @@ title: Nouveautés d’Azure Defender pour IoT
 description: Cet article vous présente les nouveautés de la dernière version de Defender pour IoT.
 ms.topic: overview
 ms.date: 05/05/2021
-ms.openlocfilehash: e731d45d527a3bb2a59e532065fefc78a3237fd5
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: bb039f53228b5b6abc05708ba7f6efd79c349672
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113011098"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179542"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Nouveautés d’Azure Defender pour IoT  
 
@@ -30,6 +30,62 @@ Microsoft prévoit de publier des mises à jour pour Azure Defender pour IoT au 
 |--|--|--|
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 02/2022 |
+
+## <a name="october-2021"></a>Octobre 2021
+
+Les améliorations de fonctionnalités suivantes sont disponibles avec la version 10.5.2 d’Azure Defender pour IoT.
+
+- [Détections du mode d’opération PLC (préversion publique)](#plc-operating-mode-detections-public-preview)
+
+- [API PCAP](#pcap-api)
+
+- [Audit de la console de gestion locale](#on-premises-management-console-audit)
+
+- [Webhook étendu](#webhook-extended)
+
+- [Prise en charge Unicode pour les phrases secrètes de certificat](#unicode-support-for-certificate-passphrases) 
+
+### <a name="plc-operating-mode-detections-public-preview"></a>Détections du mode d’opération PLC (préversion publique)
+
+Les utilisateurs peuvent désormais afficher les états, les changements et les risques du mode d’opération PLC. Le mode d’opération PLC est composé de l’état d’exécution logique PLC et de l’état de la clé physique, si un commutateur de clé physique existe sur le PLC.
+Cette nouvelle fonctionnalité permet d’améliorer la sécurité en détectant les PLC *non sécurisés*, et donc de prévenir les attaques malveillantes telles que les téléchargements de programme PLC. L’attaque Triton 2017 contre une usine pétrochimique illustre l’impact de ces risques.
+Ces informations fournissent également aux ingénieurs opérationnels une visibilité critique sur le mode d’opération des PLC d’entreprise.
+
+#### <a name="what-is-an-unsecure-mode"></a>Qu’est-ce qu’un mode non sécurisé ?
+
+Si l’état de la clé est détecté comme Programme ou que l’état d’exécution est détecté comme À distance ou Programme, le PLC est défini par Defender pour IoT comme *non sécurisé*.
+
+#### <a name="visibility-and-risk-assessment"></a>Visibilité et évaluation des risques
+
+- Utilisez l’inventaire des appareils pour afficher l’état PLC des PLC d’organisation ainsi que des informations contextuelles sur les appareils. Utilisez la boîte de dialogue Paramètres d’inventaire des appareils pour ajouter cette colonne à l’inventaire.
+
+    :::image type="content" source="media/release-notes/device-inventory-plc.png" alt-text="Inventaire des appareils montrant le mode d’opération PLC.":::
+
+- Affichez l’état sécurisé PLC et les informations sur la dernière modification par PLC dans la section Attributs de l’écran Propriétés de l’appareil. Si l’état de la clé est détecté comme Programme ou que l’état d’exécution est détecté comme À distance ou Programme, le PLC est défini par Defender pour IoT comme *non sécurisé*. L’option PLC sécurisé des propriétés de l’appareil indiquera « false ». Pour plus d’informations, consultez [Afficher et gérer les propriétés de l’appareil](how-to-work-with-the-sensor-device-map.md#view-and-manage-device-properties).
+
+    :::image type="content" source="media/release-notes/attributes-plc.png" alt-text="Écran Attributs montrant les informations PLC.":::
+
+- Affichez tous les statuts d’état de clé et d’exécution PLC réseau en créant une exploration de données avec les informations du mode d’opération PLC.
+
+    :::image type="content" source="media/release-notes/data-mining-plc.png" alt-text="Écran Inventaire des données montrant l’option PLC.":::
+
+- Utilisez le rapport d’évaluation des risques pour vérifier le nombre de PLC réseau en mode non sécurisé, et des informations supplémentaires que vous pouvez utiliser pour atténuer les risques liés aux PLC non sécurisés.
+
+### <a name="pcap-api"></a>API PCAP
+
+La nouvelle API PCAP permet à l’utilisateur de récupérer des fichiers PCAP à partir du capteur via la console de gestion locale, avec ou sans accès direct au capteur lui-même. Vous utilisez pour cela la console de gestion en tant que proxy.
+
+### <a name="on-premises-management-console-audit"></a>Audit de la console de gestion locale
+
+Les journaux d’audit pour le déploiement de votre capteur sont désormais disponibles à partir de la console de gestion locale.
+
+### <a name="webhook-extended"></a>Webhook étendu
+
+Le webhook étendu peut être utilisé pour envoyer toutes les informations contenues dans l’alerte webhook ainsi que des données supplémentaires au point de terminaison.
+
+### <a name="unicode-support-for-certificate-passphrases"></a>Prise en charge Unicode pour les phrases secrètes de certificat 
+
+Les caractères Unicode sont désormais pris en charge lors de l’utilisation de phrases secrètes de certificat de capteur. Pour plus d’informations, consultez [À propos des certificats](how-to-deploy-certificates.md#about-certificates)
 
 ## <a name="april-2021"></a>Avril 2021
 
@@ -103,20 +159,6 @@ Cette fonctionnalité est disponible sur la console de gestion locale avec la ve
 Vous pouvez maintenant améliorer la sécurité de votre déploiement en ajoutant une deuxième interface réseau à votre console de gestion locale. Cette fonctionnalité permet à votre gestion locale d’avoir ses capteurs connectés sur un seul réseau sécurisé, tout en permettant à vos utilisateurs d’accéder à la console de gestion locale par le biais d’une deuxième interface réseau distincte.
 
 Cette fonctionnalité est disponible sur la console de gestion locale avec la version 10.2.
-
-### <a name="device-builder---new-micro-agent-public-preview"></a>Générateur d’appareils - Nouveau micro-agent (préversion publique)
-
-Un nouveau module Générateur d’appareils est disponible. Le module, désigné sous le terme de micro-agent, offre les éléments suivants :
-
-- **Intégration à Azure IoT Hub et Azure Defender pour IoT** : renforcez la sécurité des points de terminaison directement sur vos appareils IoT en l’intégrant à l’option d’analyse fournie par Azure IoT Hub et Azure Defender pour IoT.
-- **Options de déploiement flexibles avec prise en charge des systèmes d’exploitation IoT standard** : possibilité de déploiement en tant que package binaire ou en tant que code source modifiable, avec prise en charge des systèmes d’exploitation IoT standard, tels que Linux et Azure RTOS.
-- **Ressources minimales requises sans dépendances du noyau du système d’exploitation** : faible encombrement, faible consommation du processeur et aucune dépendance du noyau du système d’exploitation.
-- **Gestion de la posture de sécurité** : surveillez de manière proactive la posture de sécurité de vos appareils IoT.
-- **Détection continue des menaces IoT/OT en temps réel** : détectez les menaces, telles que les botnets, les tentatives d’attaque par force brute, les cryptomineurs et l’activité réseau suspecte
-
-La documentation du micro-agent Defender-IoT déconseillé sera déplacée dans le dossier *Solution basée sur les agents pour les générateurs d’appareils > Classique*.
-
-Cet ensemble de fonctionnalités est disponible avec la version cloud de la préversion publique actuelle.
 
 ## <a name="january-2021"></a>Janvier 2021
 

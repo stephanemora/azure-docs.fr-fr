@@ -1,19 +1,19 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier include
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 08/30/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8cfe26f3f1718acde32c34f00b0f50a79b963d35
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 64ce44dc96571447c8d6baa4afd4b60ed4c68932
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114593732"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143799"
 ---
 Event Hubs organise les séquences d’événements envoyés à un hub d’événements dans une ou plusieurs partitions. Les événements les plus récents sont ajoutés à la fin de cette séquence. 
 
@@ -32,7 +32,7 @@ Event Hubs est conçu pour faciliter le traitement de gros volumes d’événeme
 ### <a name="number-of-partitions"></a>Nombre de partitions
 Le nombre de partitions est spécifié au moment de la création d’un hub d’événements. Il doit être compris entre 1 et le nombre maximal de partitions autorisé pour chaque niveau tarifaire. Pour connaître la limite du nombre de partitions de chaque niveau, consultez [cet article](../event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers). 
 
-Nous vous recommandons de choisir au moins autant de partitions que nécessaire pendant le pic de charge de votre application pour ce hub d’événements particulier. Vous ne pouvez pas changer le nombre de partitions d’un hub d’événements après sa création, sauf dans le cas du hub d’événements d’un cluster dédié. Dans un [cluster Event Hubs dédié](../event-hubs-dedicated-overview.md), le nombre de partitions d’un hub d’événements peut être [augmenté](../dynamically-add-partitions.md) après sa création, mais dans ce cas, la distribution des flux entre les partitions changera à mesure que le mappage des clés de partition aux partitions changera. Vous devez donc tenter d’éviter de telles modifications si l’ordre relatif des événements est important dans votre application.
+Nous vous recommandons de choisir au moins autant de partitions que nécessaire pendant le pic de charge de votre application pour ce hub d’événements particulier. Vous ne pouvez pas changer le nombre de partitions d’un hub d’événements après sa création, sauf dans le cas du hub d’événements d’un cluster dédié et d’un niveau Premium. Dans un [cluster Event Hubs dédié](../event-hubs-dedicated-overview.md), le nombre de partitions d’un hub d’événements peut être [augmenté](../dynamically-add-partitions.md) après sa création, mais dans ce cas, la distribution des flux entre les partitions changera à mesure que le mappage des clés de partition aux partitions changera. Vous devez donc tenter d’éviter de telles modifications si l’ordre relatif des événements est important dans votre application.
 
 Il est tentant de définir le nombre de partitions sur la valeur maximale autorisée, mais gardez toujours à l’esprit que vos flux d’événements doivent être structurés de sorte que vous puissiez tirer parti de plusieurs partitions. Si vous avez impérativement besoin de préserver l’ordre parmi tous les événements ou seulement quelques sous-flux, vous ne pourrez peut-être pas tirer parti de nombreuses partitions. En outre, de nombreuses partitions rendent le côté traitement plus complexe. 
 

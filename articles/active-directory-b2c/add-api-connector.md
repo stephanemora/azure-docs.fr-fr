@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
 ms.date: 08/24/2021
-ms.author: mimart
-author: msmimart
-manager: celestedg
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 ms.custom: it-pro
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 288cffbaa90db2725d2aa2985c003474b2c7eb7b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 661801e8eb184e8368cb5156d7f7b7f71612f8f2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570726"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040148"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Ajouter un connecteur d’API à un workflow d’utilisateur d’inscription
 
@@ -320,7 +320,7 @@ Content-type: application/json
 | version     | String | Oui      | Version de votre API.                                                    |
 | action                                             | String            | Oui      | La valeur doit être `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Non       | Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur.                    |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Non       | La revendication n’a pas besoin de contenir `_<extensions-app-id>_`, cela est *facultatif*. Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | La revendication n’a pas besoin de contenir `_<extensions-app-id>_`, cela est *facultatif*. Les valeurs retournées peuvent remplacer des valeurs collectées à partir d’un utilisateur. |
 
 ### <a name="example-of-a-blocking-response"></a>Exemple de réponse de blocage
 

@@ -8,12 +8,12 @@ ms.date: 10/01/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: references_regions
-ms.openlocfilehash: 452948e3fffa9d6bdd5bc8b9523c659a06247a27
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: e7c8ce91f15a6b92e3efa9bae8c5a78bc9fd4baa
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129668026"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129051"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Services Azure prenant en charge les zones de disponibilité
 
@@ -34,7 +34,7 @@ Azure fournit l’empreinte mondiale la plus complète de tous les fournisseurs 
 | USA Centre | Europe Nord | | Japon Est |
 | USA Est | Norvège Est | | Centre de la Corée |
 | USA Est 2 | Sud du Royaume-Uni | | Asie Sud-Est |
-| États-Unis - partie centrale méridionale | Europe Ouest | | |
+| États-Unis - partie centrale méridionale | Europe Ouest | | Asie Est* |
 | Gouvernement américain - Virginie | Suède* | | |
 | USA Ouest 2 | | | |
 | USA Ouest 3 | | | |
@@ -73,7 +73,7 @@ Dans le catalogue de produits, les services toujours disponibles sont répertori
 | **Produits**   | **Résilience**   |
 | --- | --- |
 | [Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | ![Icône indiquant que ce service est redondant interzone.](media/icon-zone-redundant.svg) ![Icône indiquant que ce service est zonal.](media/icon-zonal.svg)  |
-| [Azure Backup](/architecture/backup/backup-create-rs-vault#set-storage-redundancy.md)  | ![Icône indiquant que ce service est zonal.](media/icon-zonal.svg)  |
+| [Azure Backup](/azure/backup/backup-create-rs-vault)  | ![Icône indiquant que ce service est zonal.](media/icon-zonal.svg)  |
 | [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)  | ![Icône indiquant que ce service est redondant interzone.](media/icon-zone-redundant.svg)   |
 | [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)  | ![Icône indiquant que ce service est redondant interzone.](media/icon-zone-redundant.svg)  |
 | [Azure DNS : Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md)  | ![Icône indiquant que ce service est redondant interzone.](media/icon-zone-redundant.svg)  |
@@ -212,6 +212,6 @@ Vous pouvez accéder aux zones de disponibilité Azure à l’aide de votre abon
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Création de solutions pour la haute disponibilité à l’aide de zones de disponibilité](/architecture/high-availability/building-solutions-for-high-availability)
-- [Haute disponibilité avec les services Azure](/architecture/framework/resiliency/overview)
-- [Concevoir des modèles pour la haute disponibilité](/architecture/framework/resiliency/app-design)
+- [Création de solutions pour la haute disponibilité à l’aide de zones de disponibilité](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [Haute disponibilité avec les services Azure](/azure/architecture/framework/resiliency/overview)
+- [Concevoir des modèles pour la haute disponibilité](/azure/architecture/framework/resiliency/app-design)

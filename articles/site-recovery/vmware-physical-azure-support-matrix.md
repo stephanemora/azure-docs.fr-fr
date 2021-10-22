@@ -3,12 +3,12 @@ title: Matrice de prise en charge pour la récupération d’urgence VMware ou p
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles et des serveurs physiques VMware sur Azure en utilisant Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.openlocfilehash: ba92dacf320d35c53d31de877079a3e19b56c317
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 2557292af835f13792673c2cfbb1eb82542b7725
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129670173"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994477"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -59,7 +59,7 @@ Type d’adresse IP | statique
 Ports | 443 utilisé pour l’orchestration du canal de contrôle<br/>9443 utilisé pour le transport de données
 
 > [!NOTE]
-Le système d’exploitation doit être installé avec les paramètres régionaux anglais. La conversion de paramètres régionaux après l’installation peut entraîner des problèmes.
+> Le système d’exploitation doit être installé avec les paramètres régionaux anglais. La conversion de paramètres régionaux après l’installation peut entraîner des problèmes.
 
 
 

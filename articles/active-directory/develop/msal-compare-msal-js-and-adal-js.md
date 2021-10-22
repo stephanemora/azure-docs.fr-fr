@@ -3,21 +3,21 @@ title: Migrer votre application JavaScript d’ADAL.js vers MSAL.js | Azure
 titleSuffix: Microsoft identity platform
 description: Comment mettre à jour votre application JavaScrip existante pour utiliser la Bibliothèque d’authentification Microsoft (MSAL) pour l’authentification et l’autorisation au lieu de la Bibliothèque d’authentification du Répertoire actif (ADAL).
 services: active-directory
-author: derisen
+author: KarenH444
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 07/06/2021
-ms.author: v-doeris
+ms.author: karenhoran
 ms.custom: has-adal-ref
-ms.openlocfilehash: 541200501fd9bd3cc1883283bc308445d0e4115e
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 9e5e7b5f5bec9cf26e7dbdd019509157b9a225ba
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232240"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163907"
 ---
 # <a name="how-to-migrate-a-javascript-app-from-adaljs-to-msaljs"></a>Comment migrer une application JavaScript d'ADAL.js vers MSAL.js
 

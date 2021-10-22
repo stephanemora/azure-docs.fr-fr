@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: 395b9d2670a488ab0743a987b1e8b857f6f2fb2f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c2cdf1dc396a04adb106ee1b3777eb11e7c36279
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708321"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045481"
 ---
 # <a name="whats-new-in-computer-vision"></a>Nouveautés de Vision par ordinateur
 
@@ -80,7 +80,7 @@ La préversion publique de l’API Vision par ordinateur v3.2 a été mise à j
 ## <a name="february-2021"></a>Février 2021
 
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Préversion publique de l’API Lire v3.2 avec prise en charge de la reconnaissance optique de caractères (OCR) pour 73 langues
-La préversion publique de l’API Lire v3.2 de Vision par ordinateur, disponible en tant que service cloud et conteneur Docker, comprend les mises à jour suivantes :
+La préversion publique de l’API Read v3.2 du service Vision par ordinateur, disponible en tant que service cloud et conteneur Docker, comprend les mises à jour suivantes :
 * [OCR pour 73 langues](./language-support.md#optical-character-recognition-ocr) y compris le chinois simplifié, le chinois traditionnel, le japonais, le coréen et le latin.
 * Ordre de lecture naturel pour la sortie des lignes de texte (langues latines uniquement)
 * Classification du style d’écriture manuscrite pour les lignes de texte avec un score de confiance (langues latines uniquement).
@@ -123,7 +123,7 @@ L’API Vision par ordinateur en disponibilité générale a été mise à nivea
 Le [conteneur Analyse spatiale](spatial-analysis-container.md) est désormais disponible en préversion. La fonctionnalité Analyse spatiale de Vision par ordinateur vous permet d’analyser les vidéos en streaming en temps réel, afin d’analyser les relations spatiales entre les personnes et leurs déplacements dans des environnements physiques. Analyse spatiale est un conteneur Docker que vous pouvez utiliser localement. 
 
 ### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>La préversion publique de l’API Lire v3.1 ajoute la reconnaissance optique de caractères (OCR) pour le japonais
-La préversion publique de l’API Lire v3.1 de Vision par ordinateur ajoute les fonctionnalités suivantes :
+La préversion publique de l’API Read v3.1 du service Vision par ordinateur ajoute les fonctionnalités suivantes :
 * Reconnaissance optique de caractères (OCR) pour le japonais
 * Pour chaque ligne de texte, indiquez si l’apparence correspond à un style d’écriture manuscrite ou d’impression, ainsi qu’un score de confiance (langues latines uniquement).
 * Pour un document multipage, extrayez uniquement le texte des pages sélectionnées ou de la plage de pages.
@@ -138,7 +138,7 @@ Pour en savoir plus, consultez le [guide pratique consacré à l'API Read](Visio
 ## <a name="july-2020"></a>Juillet 2020
 
 ### <a name="read-api-v31-public-preview-with-ocr-for-simplified-chinese"></a>Préversion publique de l’API Lire v3.1 avec reconnaissance optique de caractères (OCR) pour le chinois simplifié
-La prise en charge du chinois simplifié est ajoutée à la préversion publique de l’API de lecture v3.1 de Vision par ordinateur.
+La préversion publique de l’API Read v3.1 du service Vision par ordinateur ajoute la prise en charge du chinois simplifié.
 
 * Cette préversion de l’API de lecture prend en charge l’anglais, le néerlandais, le français, l’allemand, l’italien, le portugais, le chinois simplifié et l’espagnol.
 

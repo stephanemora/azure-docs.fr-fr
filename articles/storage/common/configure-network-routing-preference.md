@@ -10,12 +10,12 @@ ms.date: 03/17/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c871a1ec4feec89cc3250f1fbfefefa69ed927bb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b5d33e9bfe123b0c0b2fceacc3d59e8f1f35de7f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128589318"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066772"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage"></a>Configuration d’une préférence de routage réseau pour le Stockage Azure
 
@@ -131,7 +131,7 @@ Cette préférence n’a une incidence que sur le point de terminaison propre à
 
    - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage réseau Microsoft, définissez le paramètre `-PublishMicrosoftEndpoint` sur `true`.
 
-   - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage Internet, définissez le paramètre `-PublishInternetEndpointTo` sur `true`.
+   - Pour créer un point de terminaison propre à l’itinéraire qui utilise la préférence de routage Internet, définissez le paramètre `-PublishInternetEndpoint` sur `true`.
 
    L’exemple suivant crée un point de terminaison propre à l’itinéraire qui utilise la préférence de routage réseau Microsoft.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/11/2021
 ms.author: depadia
-ms.openlocfilehash: 7b4f49efff29717e3345a2cc04286e9c3e86c8f7
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 7ece73f467e2dc148e79512c7dd1a6fcc19cf270
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123306527"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072629"
 ---
 # <a name="sap-bw-nls-implementation-guide-with-sap-iq-on-azure"></a>Guide d’implémentation SAP BW NLS avec SAP IQ sur Azure
 
@@ -99,7 +99,7 @@ Pour SAP IQ sur Azure, vous pouvez utiliser les types de stockage Azure suivants
 
 - Disques managés Azure
 
-  Un [disque managé](../../managed-disks-overview.md) est un volume de stockage de niveau bloc qui est géré par Azure. Vous pouvez utiliser des disques managés pour le déploiement de SAP IQ simplex. Différents types de disques managés sont disponibles, mais nous vous recommandons d’utiliser des disques [SSD Premium](../../disks-types.md#premium-ssd) pour SAP IQ. 
+  Un [disque managé](../../managed-disks-overview.md) est un volume de stockage de niveau bloc qui est géré par Azure. Vous pouvez utiliser des disques managés pour le déploiement de SAP IQ simplex. Différents types de disques managés sont disponibles, mais nous vous recommandons d’utiliser des disques [SSD Premium](../../disks-types.md#premium-ssds) pour SAP IQ. 
 
 - Disques partagés Azure
 

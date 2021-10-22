@@ -8,14 +8,14 @@ metadata:
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: conceptual
-  ms.date: 09/16/2021
+  ms.date: 10/13/2021
   ms.author: banders
-  ms.openlocfilehash: 7edae913ea733002aa3ad0736cf744f969003cdb
-  ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+  ms.openlocfilehash: cc2ee1984af35b357f1c67c03fecacbf17444d22
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/09/2021
-  ms.locfileid: "129706212"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "129993052"
 title: Questions fréquentes (FAQ) sur Cost Management + Billing
 summary: ''
 sections:
@@ -121,6 +121,9 @@ sections:
   - question: Que peut-il se passer si des règles d'affectation des coûts (sources/cibles) se chevauchent ?
     answer: >
       <a name="rule-overlap"></a>Il est déconseillé d'avoir recours à des règles dont les sources ou les cibles se chevauchent. Les règles d'affectation des coûts sont appliquées dans l'ordre de leur date de création. Ainsi, si des règles d'affectation des coûts se chevauchent, celle dont la date de création est la plus ancienne est prioritaire.
+  - question: Puis-je afficher les produits de consommation et les licences New Commerce en plus d’Azure dans Cost Management ?
+    answer: >
+      Oui. Les partenaires disposant d’un accord MCA peuvent acheter des produits de consommation et des licences New Commerce dans l’Espace partenaires. Les produits sont facturés en même temps que vos produits Azure, et vous pouvez consulter les frais dans Cost Management. La dimension « Fournisseur » permet de faire la distinction entre les produits Azure et ceux basés sur des licences, comme Microsoft 365 et Dynamics 365.
 - name: Questions sur l’API Cost Management + Billing
   questions:
   - question: Quand les API de création de rapports EA vont-elles être dépréciées ?

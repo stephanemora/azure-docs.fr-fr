@@ -1,14 +1,14 @@
 ---
 title: Comprenez le fonctionnement des alertes de métrique dans Azure Monitor.
 description: Obtenez un aperçu des actions possibles avec les alertes de métriques et de leur fonctionnement dans Azure Monitor.
-ms.date: 03/11/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: dd0672523329b17b0e101d5abb16700254b8a918
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: fa577d4c2099be6b333994690b56c7581ae32669
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441327"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994724"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -146,6 +146,7 @@ Cette fonctionnalité est actuellement prise en charge pour les métriques de pl
 | Coffres de clés | **Oui** | **Oui** | **Oui** |
 | Cache Azure pour Redis | **Oui** | **Oui** | **Oui** |
 | Appareils Data Box Edge | **Oui** | **Oui** | **Oui** |
+| Coffres Recovery Services | **Oui** | **Non** | **Non** |
 
 <sup>1</sup> Pas pris en charge pour les métriques de réseau des machines virtuelles (Octets entrants réseau totaux, Octets sortants réseau totaux, Flux entrants, Flux sortants, Taux de création maximal de flux entrants, Taux de création maximal de flux sortants).
 

@@ -3,17 +3,25 @@ title: 'Azure PowerShell : remise WebHook sécurisée avec Azure AD Applicati
 description: Explique comment remettre des événements aux points de terminaison HTTPS protégés par Azure AD Application à l’aide d’Azure Event Grid
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 09/29/2021
-ms.openlocfilehash: d05b8d5eb42e6b656b07e7d573a4fc67841a071a
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.date: 10/14/2021
+ms.openlocfilehash: d32676858c72685dfc70da476fb6fd8297194cfb
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129621371"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066582"
 ---
 # <a name="secure-webhook-delivery-with-azure-ad-application-in-azure-event-grid"></a>Remise WebHook sécurisée avec Azure AD Application dans Azure Event Grid
 
 Ce script fournit la configuration qui permet de remettre des événements aux points de terminaison HTTPS protégés par Azure AD Application à l’aide d’Azure Event Grid.
+
+Voici les étapes générales du script :
+
+1. Créer un principal de service pour **Microsoft.EventGrid** s’il n’en existe pas encore
+1. Créer un rôle nommé **AzureEventGridSecureWebhookSubscriber** dans l’**application Azure AD pour votre webhook**
+1. Créer un principal de service pour l’**application d’écriture d’abonnement aux événements** s’il n’en existe pas encore
+1. Ajouter le principal de service de l’application Azure AD d’écriture d’abonnement aux événements au rôle AzureEventGridSecureWebhookSubscriber 
+1. Ajouter également le principal de service de Microsoft.EventGrid au rôle AzureEventGridSecureWebhookSubscriber
 
 ## <a name="sample-script---stable"></a>Exemple de script : stable
 

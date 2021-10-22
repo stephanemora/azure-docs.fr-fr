@@ -1,18 +1,18 @@
 ---
 title: Se connecter à un back-end v1
 description: Découvrez comment connecter de façon sécurisée des ressources de backend à partir d'un environnement App Service. Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
-author: stefsch
+author: madsd
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.topic: article
 ms.date: 10/04/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 9f8e288f771b9d584a0fd3430115f5fa60f68e47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb022d72dbbf433c8a91f092cb2337fc7e3a6e55
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88961803"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004670"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Se connecter en toute sécurité aux ressources principales à partir d'un environnement App Service
 Étant donné qu’un environnement App Service est toujours créé **soit** dans un réseau virtuel Azure Resource Manager **ou** un [réseau virtuel][virtualnetwork] de modèle de déploiement classique, les connexions sortantes d’un environnement App Service à destination d’autres ressources de back-end peuvent passer exclusivement sur le réseau virtuel. Depuis juin 2016, les environnements ASE peuvent également être déployés dans les réseaux virtuels qui utilisent soit des plages d’adresses publiques, soit des espaces d’adressage RFC1918 (adresses privées).  

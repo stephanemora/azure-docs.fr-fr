@@ -63,6 +63,8 @@ items:
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page'
           - name: Bien démarrer avec les composants IU
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page'
+          - name: Ajouter un composite d’appel à votre application mobile
+            href: quickstarts/ui-library/get-started-call.md
       - name: Accéder aux relais TURN
         href: quickstarts/relay-token.md
   - name: Didacticiels
@@ -135,6 +137,10 @@ items:
             href: concepts/ui-library/ui-library-overview.md
           - name: Cas d’usage de la bibliothèque IU
             href: concepts/ui-library/ui-library-use-cases.md
+          - name: Vue d’ensemble de la bibliothèque IU mobile
+            href: concepts/ui-library/mobile-ui-library.md
+          - name: Cas d’usage de la bibliothèque IU mobile
+            href: concepts/ui-library/mobile-ui-use-cases.md
       - name: Kits SDK et API REST
         href: concepts/sdk-options.md
       - name: Architecture client et serveur

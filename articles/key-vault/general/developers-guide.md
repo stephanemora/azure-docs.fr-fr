@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4c1b4b6437b14039284fb938405fa7069b0e239c
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 7c7bc9f0c520529506e988f6980756a38ef7c8b3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667551"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997551"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur Azure Key Vault
 
@@ -175,5 +175,5 @@ Pour en savoir plus sur :
 ## <a name="social"></a>Réseaux sociaux
 
 - [Blog de Key Vault](/archive/blogs/kv/)
-- [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+- [Microsoft Q&A](/answers/products/)
 - [Stack Overflow pour Key Vault](https://stackoverflow.com/questions/tagged/azure-keyvault)

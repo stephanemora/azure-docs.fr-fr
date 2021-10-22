@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: e4278cb662d4e3ee518a52651462ca04d634c556
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 0bc3035b934f5b450345449b21e5aedd44642cf4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122688296"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070752"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 et Esv4
 
@@ -85,7 +85,7 @@ Les tailles de la série Esv4 s’exécutent sur Intel&reg; Xeon&reg; Platinum 
 <sup>1</sup> Les machines virtuelles de la série Esv4 peuvent [augmenter](./disk-bursting.md) leurs performances de disque et atteindre leur maximum de bursting pendant 30 minutes à la fois.<br>
 <sup>2</sup> [Tailles avec contraintes de cœurs disponibles)](./constrained-vcpu.md).<br>
 <sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.<br>
-<sup>4</sup> La mise en réseau accélérée ne peut être appliquée qu’à une seule carte réseau. 
+<sup>4</sup> L’accélération réseau peut uniquement être appliquée à une seule carte d’interface réseau. 
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
@@ -101,7 +101,7 @@ Les tailles de la série Esv4 s’exécutent sur Intel&reg; Xeon&reg; Platinum 
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disk)
+Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

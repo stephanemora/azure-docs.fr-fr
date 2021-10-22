@@ -1,15 +1,15 @@
 ---
 title: Présentation de l’agent Connected Machine
 description: Cet article fournit une présentation détaillée de l’agent des serveurs avec Azure Arc disponible, qui prend en charge la surveillance de machines virtuelles hébergées dans des environnements hybrides.
-ms.date: 09/30/2021
+ms.date: 10/12/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e4251ceafd2ab06afc43f8c3ba84f167219d7e14
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 71446d57d5f73e81c859a0d8453a2017f4c5fd12
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713168"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984361"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Présentation de l’agent des serveurs avec Azure Arc
 
@@ -183,17 +183,11 @@ URL :
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
+|`pas.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Configuration invité|
 |`*.his.arc.azure.com`|Service d’identité hybride|
 |`*.blob.core.windows.net`|Source de téléchargement pour les extensions de serveurs avec Azure Arc|
-
-Les agents de préversion (version 0.11 et antérieure) nécessitent également l’accès aux URL suivantes :
-
-| Ressource de l’agent | Description |
-|---------|---------|
-|`agentserviceapi.azure-automation.net`|Configuration invité|
-|`*-agentservice-prod-1.azure-automation.net`|Configuration invité|
 
 Pour obtenir la liste d’adresses IP de chaque balise de service/région, consultez le fichier JSON - [Plages d’adresses IP Azure et balises de service – Cloud Public](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publie chaque semaine une mise à jour contenant chacun des services Azure et les plages d’adresses IP qu’il utilise. Ces informations dans le fichier JSON constituent la liste actuelle des plages d’adresses IP qui correspondent à chaque balise de service. Les adresses IP sont sujettes à modification. Si des plages d’adresses IP sont requises par la configuration de votre pare-feu, utilisez l’étiquette de service **AzureCloud** pour autoriser l’accès à tous les services Azure. Ne désactivez pas la supervision ou l’inspection de la sécurité de ces URL ; autorisez-les comme vous le feriez pour tout autre trafic Internet.
 
