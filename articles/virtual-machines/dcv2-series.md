@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 0c5321625f9963a15527d8fb0edef73f0701bd6e
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 89714a766dfd4ddc2c952554ab12068121543044
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856382"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070771"
 ---
 # <a name="dcsv2-series"></a>série DCsv2
 
@@ -22,7 +22,8 @@ Les machines virtuelles de la série DCsv2 permettent de protéger la confident
 
 Ces machines sont associées à des processeurs Intel® Xeon E-2288G (Coffee Lake) à 3,7 GHz avec la technologie SGX. Grâce à la technologie Intel® Turbo Boost Max 3.0, ces machines peuvent atteindre jusqu’à 5 GHz. 
 
-[!NOTE] L’hyperthreading est désactivé pour plus de sécurité. La tarification est basée sur les performances supérieures des cœurs physiques par rapport aux vCores, ainsi que sur les capacités de sécurité uniques de la série DC.
+> [!NOTE]
+> L’hyperthreading est désactivé pour plus de sécurité. La tarification est basée sur les performances supérieures des cœurs physiques par rapport aux vCores, ainsi que sur les capacités de sécurité uniques de la série DC.
 
 Exemples de cas d’usage confidentiels : bases de données, blockchain, analyse de données multipartites, détection des fraudes, lutte contre le blanchiment d’argent, analyse de l’utilisation, analyse décisionnelle et apprentissage automatique.
 
@@ -63,7 +64,7 @@ Exemples de cas d’usage confidentiels : bases de données, blockchain, analys
 - [Calcul haute performance](sizes-hpc.md)
 - [Générations précédentes](sizes-previous-gen.md)
 - [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
-- [En savoir plus sur les types de disques](./disks-types.md#ultra-disk)
+- [En savoir plus sur les types de disques](./disks-types.md#ultra-disks)
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 

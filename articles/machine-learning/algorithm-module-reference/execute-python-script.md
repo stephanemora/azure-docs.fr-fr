@@ -10,12 +10,12 @@ ms.custom: devx-track-python, has-adal-ref
 author: likebupt
 ms.author: keli19
 ms.date: 06/15/2021
-ms.openlocfilehash: fe98144b204c0baa22bc17972162799b6f341675
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 6465779b3b72bfecab7fd240d8c9a0713a8e5672
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122831358"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177856"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
@@ -128,7 +128,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     #   -  Single return value: return dataframe1,
     #   -  Two return values: return dataframe1, dataframe2
     return dataframe1,
-}
 ```
 
 Une fois l’exécution du pipeline terminée, vous pouvez afficher un aperçu de l’image dans le panneau de droite du module.
@@ -214,7 +213,7 @@ Le module Exécuter un script Python contient un exemple de code Python que vous
 
     ```python
     def my_func(dataframe1):
-    return dataframe1
+        return dataframe1
     ```
     Voici un exemple de code montrant comment utiliser les fichiers dans le regroupement de scripts :    
 

@@ -3,12 +3,12 @@ title: Niveaux de service et fonctionnalités du registre
 description: Découvrez les fonctionnalités et les limites (quotas) des niveaux de service (SKU) De base, Standard et Premium d’Azure Container Registry.
 ms.topic: article
 ms.date: 08/12/2021
-ms.openlocfilehash: 7f9fe5d461dede4510d3fc8069f42e7950803984
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e15824ec342ffd21f1a0f40dcc87c34c015112a1
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582330"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003266"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Niveaux de service Azure Container Registry
 
@@ -65,7 +65,7 @@ La limitation peut se produire temporairement quand vous générez une rafale d�
 
 ## <a name="show-registry-usage"></a>Afficher l'utilisation du registre
 
-Utilisez la commande [AZ ACR Show-usage](/cli/az/acr#az_acr_show_usage) ou l’API REST [liste des utilisations](/rest/api/containerregstry/registries/list-usages) pour obtenir un instantané de la consommation actuelle du stockage et d’autres ressources du Registre, en comparaison avec les limites du niveau de service de ce registre. L’utilisation du stockage s’affiche également sur la page **Vue d’ensemble** du registre dans le portail.
+Utilisez la commande [AZ ACR Show-usage](/cli/azure/acr#az_acr_show_usage) ou l’API REST [liste des utilisations](/rest/api/containerregistry/registries/list-usages) pour obtenir un instantané de la consommation actuelle du stockage et d’autres ressources du Registre, en comparaison avec les limites du niveau de service de ce registre. L’utilisation du stockage s’affiche également sur la page **Vue d’ensemble** du registre dans le portail.
 
 Les informations d’utilisation vous aident à prendre des décisions sur [la modification du niveau de service](#changing-tiers) lorsque votre registre est proche d’une limite. Ces informations vous permettent également de [gérer la consommation](container-registry-best-practices.md#manage-registry-size). 
 

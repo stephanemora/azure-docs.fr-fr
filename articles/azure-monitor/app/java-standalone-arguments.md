@@ -3,15 +3,15 @@ title: Ajout de l’argument JVM – Azure Monitor Application Insights pour Jav
 description: Comment ajouter l’argument JVM qui active Azure Monitor Application Insights pour Java
 ms.topic: conceptual
 ms.date: 04/16/2020
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 9886bec931b9daafa858ff98a2fa25dfcc882cd4
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 4bd6127d12cca9c2b5fb5fbcc1305189a567a239
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616965"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133820"
 ---
 # <a name="adding-the-jvm-arg---azure-monitor-application-insights-for-java"></a>Ajout de l’argument JVM – Azure Monitor Application Insights pour Java
 

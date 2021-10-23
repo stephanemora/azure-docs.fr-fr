@@ -7,12 +7,12 @@ ms.service: confidential-ledger
 ms.topic: overview
 ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 7ea55c3f21664d504366657a653b5e3598666710
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 751da192288fd7dc7b0c46a537c7206309fc2f6f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110385784"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160845"
 ---
 # <a name="microsoft-azure-confidential-ledger-preview"></a>Registre confidentiel Microsoft Azure (préversion)
 
@@ -66,4 +66,7 @@ Les API fonctionnelles permettent une interaction directe avec votre registre co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble du Registre confidentiel Microsoft Azure](overview.md)
+- [Architecture du Registre confidentiel Microsoft Azure](architecture.md)
+- [Démarrage rapide : Portail Azure](quickstart-portal.md)
+- [Démarrage rapide : Python](quickstart-python.md)
+- [Démarrage rapide : Modèle Azure Resource Manager (ARM)](quickstart-portal.md)

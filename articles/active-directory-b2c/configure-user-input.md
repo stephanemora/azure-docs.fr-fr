@@ -3,22 +3,22 @@ title: Ajouter des attributs utilisateur et personnaliser l’entrée utilisateu
 titleSuffix: Azure AD B2C
 description: Découvrez comment personnaliser l’entrée utilisateur et ajouter des attributs utilisateur au parcours d’inscription ou de connexion dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f2b7eade30ad675b9c64fbe8d21ce5c7f6d63e43
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9ebc40c8777a4b49f0bd6aaeccff4b2f82d4f7a4
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128558414"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064416"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Ajouter des attributs utilisateur et personnaliser l’entrée utilisateur dans Azure Active Directory B2C
 
@@ -161,7 +161,7 @@ Ouvrez le fichier d’extensions de votre stratégie. Par exemple <em>`SocialAn
       <UserInputType>DropdownSingleSelect</UserInputType>
       <Restriction>
         <Enumeration Text="Berlin" Value="berlin" />
-        <Enumeration Text="London" Value="bondon" />
+        <Enumeration Text="London" Value="london" />
         <Enumeration Text="Seattle" Value="seattle" />
       </Restriction>
     </ClaimType>
@@ -175,7 +175,7 @@ Incluez l’attribut [SelectByDefault](claimsschema.md#enumeration) sur un `Enum
 ```xml
 <Restriction>
   <Enumeration Text="Berlin" Value="berlin" />
-  <Enumeration Text="London" Value="bondon" SelectByDefault="true" />
+  <Enumeration Text="London" Value="london" SelectByDefault="true" />
   <Enumeration Text="Seattle" Value="seattle" />
 </Restriction>
 ```

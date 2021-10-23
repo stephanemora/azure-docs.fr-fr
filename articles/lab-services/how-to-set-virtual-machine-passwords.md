@@ -1,14 +1,14 @@
 ---
 title: Définir des mots de passe pour des machines virtuelles dans Azure Lab Services | Microsoft Docs
 description: Découvrez comment définir et réinitialiser le mot de passe de machines virtuelles dans les labos d’Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ae577ee4c0c7e31760e0fb12afeaeac1ef8b7e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b39dcae2f9568785313a77c9a3b2a9afd4f0a581
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434224"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180093"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurer et gérer un pool de machines virtuelles 
 Cet article explique comment effectuer les tâches suivantes :

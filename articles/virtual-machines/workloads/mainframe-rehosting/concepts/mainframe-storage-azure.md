@@ -7,12 +7,12 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-ms.openlocfilehash: 27f625e7fced5ff710a6fa0e8b2045a8c5434258
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 853fee40417bc09168fa1cfba1428b8e99bf9a86
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104954358"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072743"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Déplacement du stockage du mainframe vers Azure
 
@@ -109,7 +109,7 @@ Le stockage Blob fournit le plus grand volume de stockage sur Azure. En plus de 
 - [Réhébergement du mainframe sur des machines virtuelles Azure](../overview.md)
 - [Déplacer le calcul mainframe vers Azure](mainframe-compute-Azure.md)
 - [Choisir quand utiliser Objets Blob Azure, Fichiers Azure ou Disques Azure](../../../../storage/common/storage-introduction.md)
-- [Disques managés SSD Standard pour les charges de travail des machines virtuelles Azure](../../../disks-types.md#standard-ssd)
+- [Disques managés SSD Standard pour les charges de travail des machines virtuelles Azure](../../../disks-types.md#standard-ssds)
 
 ### <a name="ibm-resources"></a>Ressources IBM
 

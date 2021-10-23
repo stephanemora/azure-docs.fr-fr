@@ -3,19 +3,19 @@ title: 'Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Grap
 titleSuffix: Microsoft identity platform
 description: Dans ce tutoriel, vous créez une application de bureau Electron qui peut connecter des utilisateurs et utiliser le flux du code d’authentification pour obtenir un jeton d’accès de la plateforme d’identités Microsoft et appeler l’API Microsoft Graph.
 services: active-directory
-author: derisen
+author: KarenH444
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/17/2021
-ms.author: v-doeris
-ms.openlocfilehash: e9e36a3ed2cab05eb63168452bc8472656ab5efb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: karenhoran
+ms.openlocfilehash: 2036a0317aef3d383d065cdd2ad6143342ea1d91
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644287"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161857"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-in-an-electron-desktop-app"></a>Tutoriel : Connecter des utilisateurs et appeler l’API Microsoft Graph dans une application de bureau Electron
 

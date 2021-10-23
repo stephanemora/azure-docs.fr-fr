@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 91e95bd6b269558353d74cbaa51dce94539001c1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 66b22007636ef7ffb6452e5ce19cee7cfa15ba1f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606396"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000988"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutoriel : Connecter un réseau virtuel à un circuit ExpressRoute à l’aide du portail
 
@@ -127,6 +127,9 @@ Vous pouvez supprimer une connexion en sélectionnant l’icône **Supprimer** p
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Supprimer une clé d’autorisation":::
 
 Si vous voulez supprimer la connexion tout en conservant la clé d’autorisation, vous pouvez supprimer la connexion de la page connexion du circuit.
+> [!NOTE]
+  > Les connexions échangées dans des abonnements différents ne s’affichent pas dans la page de connexion du circuit. Accédez à l’abonnement dans lequel l’autorisation a été échangée, puis supprimez la ressource de connexion de niveau supérieur.
+  >
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Supprimer le circuit propriétaire de la connexion":::
 

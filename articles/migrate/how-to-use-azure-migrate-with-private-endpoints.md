@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: efe9f6ce21e59df3d7f8009b7ff540a77b4cc50a
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 773a22fb1fbd94540f8d56fb417a88bbcfccdd3a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129094497"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003134"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>Utiliser Azure Migrate avec des points de terminaison privés
 
@@ -27,7 +27,7 @@ Passez en revue les autorisations requises suivantes, ainsi que les scénarios e
 
 ### <a name="supported-geographies"></a>Zones géographiques prises en charge
 
-La fonctionnalité est désormais disponible en préversion dans les zones géographiques du [cloud public](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) et du [cloud du secteur public](/azure/migrate-support-matrix#supported-geographies-azure-government) prises en charge.
+La fonctionnalité est désormais disponible en préversion dans les zones géographiques du [cloud public](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) et du [cloud du secteur public](/azure/migrate/migrate-support-matrix#supported-geographies-azure-government) prises en charge.
 
 ### <a name="required-permissions"></a>Autorisations requises
 
@@ -53,7 +53,7 @@ Pour activer l’accès au réseau public pour le projet Azure Migrate,connecte
 
 ![Capture d’écran montrant la procédure de modification d’un mode d’accès au réseau.](./media/how-to-use-azure-migrate-with-private-endpoints/migration-project-properties.png)
 
-### <a name="other-considerations"></a>Autres éléments à prendre en compte
+### <a name="other-considerations"></a>Autres considérations
 
 **Considérations** | **Détails**
 --- | ---
@@ -136,7 +136,7 @@ Assurez-vous que le serveur répond aux [exigences matérielles](./migrate-appli
 
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
 
-4. Exécutez le script nommé `AzureMigrateInstaller.ps1` via la commande suivante :
+4. Exécutez le script `AzureMigrateInstaller.ps1` à l’aide de la commande suivante :
 
    `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 

@@ -1,14 +1,14 @@
 ---
 title: Guide de configuration accélérée de compte de laboratoire pour Azure Lab Services
 description: Ce guide aide les administrateurs à configurer rapidement un compte de laboratoire pour une utilisation au sein de leur école.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: e1f36b6d0983c10926a790d42edef3736e848a59
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8b233464da7e6a5c5529e0057240d839282faf46
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104669387"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177343"
 ---
 # <a name="lab-account-setup-guide"></a>Guide de configuration de compte de laboratoire
 Si vous êtes un administrateur, avant de configurer votre environnement Azure Lab Services, vous devez commencer par créer un *compte de laboratoire* au sein de votre abonnement Azure. Un compte de laboratoire est un conteneur pour laboratoires. Sa configuration ne prend que quelques minutes.

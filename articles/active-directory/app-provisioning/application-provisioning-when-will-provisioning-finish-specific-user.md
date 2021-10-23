@@ -3,7 +3,7 @@ title: Déterminer à quel moment un utilisateur spécifique peut accéder à un
 description: Découvrez comment déterminer à quel moment un utilisateur très important peut accéder à une application que vous avez configurée pour l’approvisionnement des utilisateurs avec Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: f972028b407ca5704fed5000142072231d65410b
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: ef678a9e8a2db46315722eb54f0c4e428355e68d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109782898"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991600"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Vérifier l’état de l’approvisionnement d’utilisateurs
 

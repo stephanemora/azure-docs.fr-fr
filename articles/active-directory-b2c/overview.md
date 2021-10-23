@@ -2,20 +2,20 @@
 title: Qu’est-ce qu’Azure Active Directory B2C ?
 description: Découvrez comment utiliser Azure Active Directory B2C pour prendre en charge les identités externes dans vos applications, notamment l’inscription via les réseaux sociaux avec Facebook, Google et d’autres fournisseurs d’identité.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 10/01/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 54af9f4b8584500faa9c3134f350a436da54c24b
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 6a56d8135a55b472f282781bbf50af5726d18785
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129709971"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036129"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Qu’est-ce qu’Azure Active Directory B2C ?
 

@@ -43,7 +43,7 @@ additionalContent:
           links:
             - url: ./blobs/data-lake-storage-introduction.md
               text: À propos du stockage des lacs de données d’entreprise (Data Lake Storage)
-            - url: ./blobs/data-lake-storage-data-scenarios.md
+            - url: ./blobs/data-lake-storage-best-practices.md
               text: Options et outils de traitement des Big Data
         - title: Partages de fichiers hébergés dans le cloud
           links:

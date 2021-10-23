@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 06/21/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 48b1eaa6e01bf25b11ca269e0771b4fd03530bba
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 02654c3f196b6c3bc199e636b3601777ed372a99
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533224"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992531"
 ---
 # <a name="what-is-optical-character-recognition"></a>Présentation de la Reconnaissance optique de caractères
 
@@ -32,7 +32,7 @@ Cette documentation contient les types d’articles suivants :
 
 ## <a name="read-api"></a>API Lire 
 
-[L’API Lire](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) Vision par ordinateur, toute dernière technologie OCR d’Azure ([découvrez les nouveautés](./whats-new.md)), extrait du texte imprimé (dans plusieurs langues), du texte manuscrit (en anglais uniquement), des chiffres et des symboles monétaires à partir d’images et de documents PDF multipages. Elle est optimisée pour extraire le texte d’images à forte composante textuelle et de documents PDF multipages en langue mixte. Elle prend en charge la détection de texte imprimé et manuscrit dans la même image ou le même document.
+L’[API Read](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) du service Vision par ordinateur est la dernière technologie OCR d’Azure ([découvrir les nouveautés](./whats-new.md)). Elle extrait le texte imprimé (en plusieurs langues), le texte manuscrit (en plusieurs langues), les chiffres et les symboles monétaires à partir d’images et de documents PDF multipages. Elle est optimisée pour extraire le texte d’images à forte composante textuelle et de documents PDF multipages en langue mixte. Elle prend en charge la détection de texte imprimé et manuscrit dans la même image ou le même document.
 
 ![Comment la reconnaissance optique de caractères convertit les images et les documents en une sortie structurée avec du texte extrait](./Images/how-ocr-works.svg)
 

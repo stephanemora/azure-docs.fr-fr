@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/29/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc233e3aac51255be4b6b7befde322216ae7f053
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 9e59347ec1c38c8d315de9ee7332a4955427770b
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754555"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130068966"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure
 
@@ -130,8 +130,8 @@ Lorsque vous sélectionnez une technologie de disque partagé, gardez à l’esp
 **Disque partagé Azure pour les charges de travail SAP**
 
 - Cette fonctionnalité permet d’attacher simultanément un disque managé Azure à plusieurs machines virtuelles sans logiciels supplémentaires à gérer ni à utiliser.
-- Le [disque partagé Azure](../../disks-shared.md) avec disques [SSD Premium](../../disks-types.md#premium-ssd) est pris en charge pour le déploiement SAP dans un groupe à haute disponibilité et des zones de disponibilité.
-- Ni le [disque Ultra Azure](../../disks-types.md#ultra-disk) ni les [disques Standard Azure](../../disks-types.md#standard-ssd) ne sont pris en charge comme disque partagé Azure pour les charges de travail SAP.
+- Le [disque partagé Azure](../../disks-shared.md) avec disques [SSD Premium](../../disks-types.md#premium-ssds) est pris en charge pour le déploiement SAP dans un groupe à haute disponibilité et des zones de disponibilité.
+- Ni le [disque Ultra Azure](../../disks-types.md#ultra-disks) ni les [disques Standard Azure](../../disks-types.md#standard-ssds) ne sont pris en charge comme disque partagé Azure pour les charges de travail SAP.
 - Veillez à provisionner le disque Azure Premium avec une taille de disque minimale (cf. [Plages SSD Premium](../../disks-shared.md#disk-sizes)) pour pouvoir l’attacher simultanément au nombre nécessaire de machines virtuelles (généralement deux pour le cluster de basculement Windows SAP ASCS).
  
 **SIOS**
@@ -148,13 +148,13 @@ Microsoft propose des [disques partagés Azure](../../disks-shared.md), qui peuv
 
 Il est actuellement possible d’utiliser des disques SSD Premium Azure comme disque partagé Azure pour l'instance SAP ASCS/SCS. Quelques limitations s'appliquent pour le moment :
 
--  Ni le [disque Ultra Azure](../../disks-types.md#ultra-disk) ni les [disques SSD Standard](../../disks-types.md#standard-ssd) ne sont pris en charge comme disque partagé Azure pour les charges de travail SAP.
--  Le [disque partagé Azure](../../disks-shared.md) avec disques [SSD Premium](../../disks-types.md#premium-ssd) est pris en charge pour le déploiement SAP dans un groupe à haute disponibilité et des zones de disponibilité.
+-  Ni le [disque Ultra Azure](../../disks-types.md#ultra-disks) ni les [disques SSD Standard](../../disks-types.md#standard-ssds) ne sont pris en charge comme disque partagé Azure pour les charges de travail SAP.
+-  Le [disque partagé Azure](../../disks-shared.md) avec disques [SSD Premium](../../disks-types.md#premium-ssds) est pris en charge pour le déploiement SAP dans un groupe à haute disponibilité et des zones de disponibilité.
 -  Le disque partagé Azure avec disques SSD Premium est fourni avec deux références SKU de stockage.
    - Le stockage localement redondant (LRS, Locally Redundant Storage) pour disque partagé Premium (skuName : Premium_LRS) est pris en charge avec le déploiement dans un groupe à haute disponibilité Azure.
    - Le stockage redondant interzone (ZRS, Zone-Redundant Storage) pour disque partagé Premium (skuName : Premium_ZRS) est pris en charge avec le déploiement dans des zones de disponibilité Azure.
 -  La valeur [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) du disque partagé Azure détermine combien de nœuds de cluster peuvent utiliser le disque partagé. En règle générale, pour une instance SAP ASCS/SCS, on configure deux nœuds dans le cluster de basculement Windows. Par conséquent, la valeur de `maxShares` doit être définie sur deux.
--  Lorsque des [groupes de placement de proximité Azure](../../windows/proximity-placement-groups.md) sont utilisés pour le système SAP, toutes les machines virtuelles qui se partagent un disque doivent faire partie du même groupe de placement de proximité.
+-  Lorsque des [groupes de placement de proximité Azure](../../windows/proximity-placement-groups.md) sont utilisés pour le système SAP, toutes les machines virtuelles qui partagent un disque doivent faire partie du même groupe de placement de proximité.
 
 Pour plus d’informations sur les limitations du disque partagé Azure, lisez attentivement la section [Limitations](../../disks-shared.md#limitations) de la documentation consacrée au disque partagé Azure.
 
@@ -165,10 +165,10 @@ Voici quelques-uns des points importants à prendre en compte pour le disque par
 - Stockage LRS pour disque partagé Premium :
   - Le déploiement SAP avec stockage LRS pour disque partagé Premium fonctionne avec un seul disque partagé Azure par cluster de stockage. Votre instance SAP ASCS/SCS serait affectée en cas de problème au niveau du cluster de stockage dans lequel le disque partagé Azure est déployé.
 
-- Stockage ZRS pour disque partagé Premium :
-  - La latence d’écriture du stockage ZRS est supérieure à celle du stockage LRS en raison de la copie de données interzone.
-  - La distance entre les zones de disponibilité de différentes régions varie, et avec elle la latence de disque ZRS entre les zones de disponibilité. [Effectuez un test d’évaluation de vos disques](../../disks-benchmarks.md) pour identifier la latence du disque ZRS dans votre région.
-  - Le stockage ZRS pour disque partagé Premium réplique les données de façon synchrone dans trois zones de disponibilité de la région. En cas de problème dans l’un des clusters de stockage, votre instance SAP ASCS/SCS continue à s’exécuter. Le basculement de stockage est en effet transparent pour la couche d’application.
+- Stockage redondant interzone (ZRS) pour disque partagé Premium
+  - La latence d’écriture pour le stockage ZRS est supérieure à celle du stockage LRS en raison d’une copie de données entre zones.
+  - La distance entre les zones de disponibilité de différentes régions varie et, par conséquent, la latence du disque ZRS entre les zones de disponibilité également. [Évaluez le point de référence de vos disques](../../disks-benchmarks.md) pour identifier la latence du disque ZRS dans votre région.
+  - Le stockage ZRS pour disque partagé Premium réplique de façon synchrone des données dans trois zones de disponibilité dans la région. En cas de problème dans l’un des clusters de stockage, votre SAP ASCS/SCS continue à s’exécuter, car le basculement du stockage est transparent pour la couche application.
   - Pour plus d’informations, consultez la section [Limitations](../../disks-redundancy.md#limitations) du stockage ZRS pour les disques managés.
 
 > [!TIP]

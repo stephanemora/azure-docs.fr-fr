@@ -2,18 +2,18 @@
 title: Plug-in Angular pour le Kit de développement logiciel (SDK) JavaScript Application Insights
 description: Comment installer et utiliser le plug-in Angular pour le Kit de développement logiciel (SDK) JavaScript Application Insights.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.author: lagayhar
-ms.openlocfilehash: 7ac83d0c43026b431370fab1d8c49aec1adf6659
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: dc5b7e3f1e452bbbf4e65442cbf683b4cb1a8816
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312720"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129811"
 ---
 # <a name="angular-plugin-for-application-insights-javascript-sdk"></a>Plug-in Angular pour le Kit de développement logiciel (SDK) JavaScript Application Insights
 
