@@ -9,12 +9,12 @@ metadata:
   ms.custom: hdinsightactive,seoapr2020
   ms.topic: conceptual
   ms.date: 11/20/2019
-  ms.openlocfilehash: 22754fcddcb7a5eb75e10e2ae09dfa768f2ec2bb
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 6de6c58484c49f10e86453dd4149ce66b47d4c39
+  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124819719"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130038400"
 title: 'Azure HDInsight : Forum aux questions'
 summary: >
   Cet article fournit des réponses à certaines questions fréquemment posées sur l’exécution d’[Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
@@ -275,7 +275,7 @@ sections:
       Comment récupérer les détails de configuration du cluster HDI à l’aide d’un utilisateur Azure Active Directory ?
     answer: "Pour négocier des jetons d’authentification appropriés avec votre utilisateur AAD, traversez la passerelle en utilisant le format suivant :\n\n* https://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/versions_stack/1/versions_référentiel/1 \n"
   - question: >
-      Comment faire pour utiliser l’API Restful Ambari pour superviser les performances de YARN ?
+      Comment faire pour superviser les performances de YARN à l’aide d’Ambari RESTful ?
     answer: "Si vous appelez la commande Curl dans le même réseau virtuel ou dans un réseau virtuel appairé, la commande est la suivante :\n\n```curl\ncurl -u <cluster login username> -sS -G\nhttp://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu\n```\n \nSi vous appelez la commande à partir de l’extérieur du réseau virtuel ou d’un réseau virtuel non appairé, le format de la commande est le suivant :\n\n- Pour un cluster non ESP :\n  \n  ```curl\n  curl -u <cluster login username> -sS -G \n  https://<ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu\n  ```\n\n- Pour un cluster ESP :\n  \n  ```curl\n  curl -u <cluster login username>-sS -G \n  https://<ClusterName>.azurehdinsight.net/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu\n  ```\n\n> [!NOTE]\n> Curl vous invite à entrer un mot de passe. Vous devez entrer un mot de passe valide pour le nom d’utilisateur de connexion du cluster.\n"
 - name: Facturation
   questions:

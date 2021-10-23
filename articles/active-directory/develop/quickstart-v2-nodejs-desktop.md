@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Appeler Microsoft Graph depuis une application de b
 titleSuffix: Microsoft identity platform
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment une application de bureau Electron Node.js peut connecter des utilisateurs et obtenir un jeton d’accès pour appeler une API protégée par un point de terminaison de plateforme d’identités Microsoft.
 services: active-directory
-author: derisen
+author: KarenH444
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
-ms.author: v-doeris
-ms.openlocfilehash: 8e791392386f6a2f74f6d59e7999afeb272249aa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: karenhoran
+ms.openlocfilehash: 362fdcddc9a8d58da30f269be44fc195870949e1
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605750"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163758"
 ---
 # <a name="quickstart-acquire-an-access-token-and-call-the-microsoft-graph-api-from-an-electron-desktop-app"></a>Démarrage rapide : Acquérir un jeton d’accès et appeler l’API Microsoft Graph depuis une application de bureau Electron
 

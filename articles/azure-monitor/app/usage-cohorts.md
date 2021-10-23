@@ -2,15 +2,13 @@
 title: Cohortes d’utilisation Application Insights | Microsoft Docs
 description: Analyser différents jeux d’utilisateurs, sessions, événements ou opérations qui partagent un point commun
 ms.topic: conceptual
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 07/30/2021
-ms.openlocfilehash: de5a452f15cd19c97fec727307b33fc469166459
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: ba51e407a7e9d72926c4ed7c480e0c1ba71225e1
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532844"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129507"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes Application Insights
 

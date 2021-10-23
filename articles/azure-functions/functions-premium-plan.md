@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: f2ac7aa7d5078359f747e141971eabeba21eab3e
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 2bbef3190a38d1c0f9b058f2c57050ecd85756e3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122968729"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984760"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
@@ -173,37 +173,45 @@ Consultez la disponibilité régionale complète de Functions sur le [site web A
 |Sud-Australie Est | 100 | 20 |
 |Brésil Sud| 100 | 20 |
 |Centre du Canada| 100 | 20 |
+|Inde centrale| 100 | 20 |
 |USA Centre| 100 | 20 |
 |Chine orientale 2| 100 | 20 |
 |Chine Nord 2| 100 | 20 |
 |Asie Est| 100 | 20 |
-|USA Est | 100 | 20 |
+|USA Est | 100 | 40 |
 |USA Est 2| 100 | 20 |
 |France Centre| 100 | 20 |
-|Allemagne Centre-Ouest| 100 | Non disponible |
+|Allemagne Centre-Ouest| 100 | 20 |
 |Japon Est| 100 | 20 |
 |OuJapon Est| 100 | 20 |
+|JIO Inde Ouest| 100 | 20 |
 |Centre de la Corée| 100 | 20 |
 |Corée du Sud| Non disponible | 20 |
 |Centre-Nord des États-Unis| 100 | 20 |
 |Europe Nord| 100 | 20 |
 |Norvège Est| 100 | 20 |
+|Afrique du Sud Nord| 100 | 20 |
 |États-Unis - partie centrale méridionale| 100 | 20 |
 |Inde Sud | 100 | Non disponible |
 |Asie Sud-Est| 100 | 20 |
-|Suisse Nord| 100 | Non disponible |
-|Suisse Ouest| 100 | Non disponible |
+|Suisse Nord| 100 | 20 |
+|Suisse Ouest| 100 | 20 |
+|Émirats arabes unis Nord| 100 | 20 |
 |Sud du Royaume-Uni| 100 | 20 |
 |Ouest du Royaume-Uni| 100 | 20 |
 |Gouvernement des États-Unis - Arizona| 100 | 20 |
+|Gouvernement des États-Unis - Texas| 100 | Non disponible |
 |USGov Virginia| 100 | 20 |
 |USNat East| 100 | Non disponible |
 |USNat West| 100 | Non disponible |
+|USSec Est| 100 | 20 |
+|USSec Ouest| 100 | 20 |
+|Centre-USA Ouest| 100 | 20 |
 |Europe Ouest| 100 | 20 |
 |Inde Ouest| 100 | 20 |
-|Centre-USA Ouest| 100 | 20 |
 |USA Ouest| 100 | 20 |
 |USA Ouest 2| 100 | 20 |
+|USA Ouest 3| 100 | 20 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

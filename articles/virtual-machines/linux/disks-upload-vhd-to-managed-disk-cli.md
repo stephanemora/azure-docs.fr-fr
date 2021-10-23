@@ -8,12 +8,12 @@ ms.date: 09/07/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 08c58a65a8801646d0dd6d0bd51bbab8d57d97e9
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bd1c741bcd12e7708ba37fdcd1190a8c76a6c2f2
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754606"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072306"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Charger un disque dur virtuel sur Azure ou copier un disque dans une autre région - Azure CLI
 
@@ -81,7 +81,7 @@ Maintenant que vous disposez d'une SAS pour votre disque managé vierge, vous po
 
 Utilisez AzCopy v10 pour charger votre fichier de disque dur virtuel local sur un disque managé en spécifiant l'URI de la SAS que vous avez générée.
 
-Ce chargement présente le même débit que le disque [HDD Standard](../disks-types.md#standard-hdd) correspondant. Par exemple, pour une taille correspondant à S4, vous aurez un débit allant jusqu'à 60 Mio/s. Mais pour une taille correspondant à S70, le débit ira jusqu’à 500 Mio/s.
+Ce chargement présente le même débit que le disque [HDD Standard](../disks-types.md#standard-hdds) correspondant. Par exemple, pour une taille correspondant à S4, vous aurez un débit allant jusqu'à 60 Mio/s. Mais pour une taille correspondant à S70, le débit ira jusqu’à 500 Mio/s.
 
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob

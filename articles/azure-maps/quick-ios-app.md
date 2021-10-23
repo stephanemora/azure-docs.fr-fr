@@ -1,19 +1,21 @@
 ---
 title: Créer une application iOS
 description: Étapes de création d’un compte Azure Maps et de la première application iOS.
-author: deniseatmicrosoft
-ms.author: v-dbogomolov
-ms.date: 09/30/2021
-ms.topic: conceptual
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/13/2021
+ms.topic: quickstart
 ms.service: azure-maps
-ms.openlocfilehash: 46e5ec41c0cea9a417b920e8441ff1129040c209
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+services: azure-maps
+manager: eriklind
+ms.openlocfilehash: e2f1f8fff5869cc8d2eb942e45fe40e59d050b4c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389605"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045100"
 ---
-#  <a name="create-an-ios-app-public-preview"></a>Créer une application iOS (préversion publique)
+# <a name="create-an-ios-app-public-preview"></a>Créer une application iOS (préversion publique)
 
 Cet article vous montre comment ajouter Azure Maps à une application iOS. Il vous guide pas à pas durant ces étapes de base :
 
@@ -28,27 +30,28 @@ Cet article vous montre comment ajouter Azure Maps à une application iOS. Il vo
 * Créez un compte Azure Maps en vous connectant au [portail Azure](https://portal.azure.com/). Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * [Créer un compte Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 * [Obtenez une clé d’abonnement principale](quick-demo-map-app.md#get-the-primary-key-for-your-account), également appelée clé primaire ou clé d’abonnement. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
-* Téléchargez gratuitement [Xcode à partir d’App Store](https://apps.apple.com/cz/app/xcode/id497799835?mt=12).
+* Téléchargez gratuitement [‎Xcode dans le Mac App Store](https://apps.apple.com/cz/app/xcode/id497799835?mt=12).
 
 ## <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps
 
 Créez un compte Azure Maps en effectuant les étapes suivantes :
 
-1. Dans le coin supérieur gauche du [portail Azure](https://portal.azure.com/), cliquez sur **Créer une ressource**.
+1. Dans le coin supérieur gauche du [portail Azure](https://portal.azure.com/), sélectionnez **Créer une ressource**.
 
 2. Dans la zone _Rechercher dans la Place de marché_, tapez **Azure Maps**.
 
-3. Dans les _Résultats_, sélectionnez **Azure Maps**. Cliquez sur le bouton **Créer** qui s’affiche sous la carte.
+3. Dans les _résultats_, sélectionnez **Azure Maps**, puis sélectionnez le bouton **Créer** qui apparaît sous la carte.
 
 4. Sur la page **Créer un compte Maps**, entrez les valeurs suivantes :
-   - _L’Abonnement_ à utiliser pour ce compte.
-   - Le _Groupe de ressources_ pour ce compte. Vous pouvez choisir de _Créer_ ou d’utiliser un groupe de ressources _Existant_.
-   - Le _Nom_ de votre nouveau compte.
-   - Le _niveau tarifaire_ pour ce compte.
-   - Lisez la _Licence_ et la _Déclaration de confidentialité_, puis cochez la case pour accepter les conditions.
-   - Cliquez sur le bouton **Créer**.
 
-   :::image source="./media/quick-ios-app/create-account.png" alt-text="Capture d’écran de la création d’un compte Azure Maps.":::
+   * _L’Abonnement_ à utiliser pour ce compte.
+   * Le _Groupe de ressources_ pour ce compte. Vous pouvez choisir de _Créer_ ou d’utiliser un groupe de ressources _Existant_.
+   * Le _Nom_ de votre nouveau compte.
+   * Le _niveau tarifaire_ pour ce compte.
+   * Lisez la _Licence_ et la _Déclaration de confidentialité_, puis cochez la case pour accepter les conditions.
+   * Cliquez sur le bouton **Créer**.
+
+    ![Créez un compte Azure Maps.](./media/ios-sdk/quick-ios-app/create-account.png)
 
 ## <a name="get-the-primary-key-for-your-account"></a>Obtenir la clé primaire de votre compte
 
@@ -60,10 +63,12 @@ Une fois le compte Maps créé, récupérez la clé principale qui vous permet d
 
 3. Copiez la **Clé primaire** dans le Presse-papiers. Enregistrez-la localement, vous l’utiliserez plus tard dans ce didacticiel.
 
-   > [!Note]
-   > Si vous utilisez la clé d’abonnement Azure au lieu de la clé primaire Azure Maps, votre carte ne s’affiche pas correctement. En outre, pour des raisons de sécurité, il est recommandé de permuter vos clés principale et secondaire. Pour permuter les clés, mettez à jour votre application pour utiliser la clé secondaire, déployez, puis appuyez sur le bouton cycle/actualiser en regard de la clé principale pour générer une nouvelle clé principale. L’ancienne clé principale est désactivée. Pour plus d’informations sur la permutation des clés, consultez [Configurer Azure Key Vault avec la permutation des clés et l’audit](../key-vault/secrets/tutorial-rotation-dual.md)
-
-   :::image source="./media/quick-ios-app/get-key.png" alt-text="Capture d’écran d’obtention de la clé d’abonnement.":::
+>[!NOTE]
+> Ce guide de démarrage rapide utilise l’approche basée sur l’authentification par [clé partagée](azure-maps-authentication.md#shared-key-authentication) à des fins de démonstration. Toutefois, l’approche recommandée pour tout environnement de production est celle de l’authentification [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication).
+<!--
+> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](/azure/key-vault/secrets/tutorial-rotation-dual)
+-->
+![Obtenir la clé d’abonnement.](./media/ios-sdk/quick-ios-app/get-key.png)
 
 ## <a name="create-a-project-in-xcode"></a>Créer un projet dans Xcode
 
@@ -71,80 +76,99 @@ Tout d’abord, créez un nouveau projet d’application iOS. Suivez ces étapes
 
 1. Sous **File (Fichier)** , sélectionnez **New (Nouveau)**  -> **Project (Projet)** .
 
-2. Dans l’onglet **iOS**, sélectionnez **App (Application)** , puis **Next (Suivant)** .
+2. Sous l’onglet **iOS**, sélectionnez **Application**, puis **Suivant**.
 
-3. Entrez le nom de l’application et l’ID du pack, puis sélectionnez **Next (Suivant)** .
+3. Entrez le nom de l’application, l’ID de bundle, puis sélectionnez **Suivant**.
 
-   Pour plus d’informations sur la création d’un nouveau projet, consultez [Creating an Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) (Création d’un projet Xcode pour une application).
+Pour plus d’informations sur la création d’un nouveau projet, consultez [Creating an Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) (Création d’un projet Xcode pour une application).
 
-:::image source="./media/quick-ios-app/create-app.png" alt-text="Créer la première application iOS.":::
+![Créer la première application iOS.](./media/ios-sdk/quick-ios-app/create-app.png)
 
 ## <a name="install-the-azure-maps-ios-sdk"></a>Installer le Kit de développement logiciel (SDK) iOS Azure Maps
 
 L’étape suivante de la création de votre application consiste à installer le Kit de développement logiciel (SDK) iOS Azure Maps. Pour installer le Kit de développement logiciel (SDK), procédez comme suit :
 
-1. Dans **Project navigator (Navigateur de projets)** , sélectionnez le fichier du projet.
+1. Une fois le projet Xcode iOS souhaité sélectionné dans le **Project navigator** (Navigateur de projets), sélectionnez le bouton **+** pour **ajouter une dépendance de package**.
 
-2. Dans **Project Editor (Éditeur de projet)** ouvert, sélectionner un projet.
+   ![Ajouter une dépendance de package.](./media/ios-sdk/quick-ios-app/xcode-add-package-dependency.png)
 
-3. Basculez sur l’onglet **Swift Package (Package Swift)** .
+2. Entrez ce qui suit dans la boîte de dialogue qui s’affiche :
+   * Entrez `https://github.com/Azure/azure-maps-ios-sdk-distribution.git` dans la barre de recherche qui apparaît dans le coin supérieur droit.
+   * Sélectionnez `Up to Next Major Version` dans le champ **Dependency Rule** (Règle de dépendance).
+   * Entrez `1.0.0-pre.1` dans le champ de version de la **règle de dépendance**.
 
-4. Ajoutez le Kit de développement logiciel (SDK) iOS Azure Maps :`{link goes here}`.
+   ![Ajouter une règle de dépendance à un projet iOS.](./media/ios-sdk/quick-ios-app/xcode-dependency-rule.png)
 
-   :::image source="./media/quick-ios-app/add-project.png" alt-text="Capture d’écran de l’ajout d’un projet iOS.":::
-  
+3. Une fois que le package et ses dépendances sont résolus, sélectionnez le bouton **Add Package** (Ajouter un package) pour effectuer la configuration des dépendances.
+
+   ![Ajouter un package à un projet iOS.](./media/ios-sdk/quick-ios-app/xcode-add-package.png)
+
 ## <a name="add-mapcontrol-view"></a>Ajouter un affichage MapControl
 
 1. Ajoutez un `UIView` personnalisé au contrôleur d’affichage.
 
-2. Sélectionnez une classe `MapControl` dans le module `AzureMapsControl`.
+1. Sélectionnez une classe `MapControl` dans le module `AzureMapsControl`.
 
-   :::image source="./media/quick-ios-app/add-map-control.png" alt-text="Capture d’écran de l’ajout d’un contrôle Azure Maps.":::
+   ![Ajouter un contrôle Azure Maps.](./media/ios-sdk/quick-ios-app/add-map-control.png)
 
-3. Dans le fichier **AppDelegate.swift** :
+1. Dans le fichier **AppDelegate.swift** :
 
-   - Ajoutez l’importation pour le Kit de développement logiciel (SDK) Azure Maps.
-   - Définissez vos informations d’authentification Azure Maps.
-   
-   Si vous définissez les informations d’authentification sur la classe AzureMaps de façon globale à l’aide des méthodes `AzureMaps.configure(subscriptionKey:)` ou `AzureMaps.configure(aadClient:aadAppId:aadTenant:)`, vous n’aurez pas besoin d’ajouter vos informations d’authentification à chaque affichage.
+   * Ajouter l’instruction import pour le kit SDK Azure Maps
+   * Définir vos informations d’authentification Azure Maps
 
-4. Sélectionnez le bouton d’exécution comme illustré dans le graphique suivant (ou appuyez sur les touches `CMD` + `R`) pour générer votre application.
+Si vous définissez les informations d’authentification sur la classe AzureMaps de façon globale à l’aide des méthodes `AzureMaps.configure(subscriptionKey:)` ou `AzureMaps.configure(aadClient:aadAppId:aadTenant:)`, vous n’aurez pas besoin d’ajouter vos informations d’authentification à chaque affichage.
 
-   :::image source="./media/quick-ios-app/run.png" alt-text="Capture d’écran de l’exécution de l’application iOS.":::
+1. Sélectionnez le bouton d’exécution comme illustré dans le graphique suivant (ou appuyez sur les touches `CMD` + `R`) pour générer votre application.
 
-   Xcode prendra quelques secondes pour créer l’application. Une fois la création terminée, vous pouvez tester votre application dans l’appareil iOS simulé. La carte doit ressembler à ceci :
+   ![Exécuter l’application iOS.](./media/ios-sdk/quick-ios-app/run.png)
 
-   :::image source="./media/quick-ios-app/example.png" alt-text="Capture d’écran de votre première carte sur une application iOS.":::
+Xcode prendra quelques secondes pour créer l’application. Une fois la création terminée, vous pouvez tester votre application dans l’appareil iOS simulé. La carte doit ressembler à ceci :
+
+![Votre première carte sur une application iOS.](./media/ios-sdk/quick-ios-app/example.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
+<!--
 > [!WARNING]
-> Les tutoriels répertoriés dans la section [Étapes suivantes](#next-steps) expliquent en détail comment utiliser et configurer Azure Maps avec votre compte. Si vous souhaitez suivre les tutoriels, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide.
+> The tutorials listed in the [Next Steps](#next-steps) section detail how to use and configure Azure Maps with your account. Don't clean up the resources created in this quickstart if you plan to continue to the tutorials.
+-->
 
-Sinon, effectuez ces étapes pour nettoyer les ressources :
+Suivez les étapes ci-dessous pour nettoyer les ressources créées dans ce guide de démarrage rapide :
 
 1. Fermez Xcode et supprimez le projet que vous avez créé.
+
 2. Si vous avez testé l’application sur un appareil externe, désinstallez l’application de cet appareil.
 
 Si vous n’envisagez pas de continuer à développer à l’aide du Kit de développement logiciel (SDK) iOS Azure Maps :
 
-1. Accédez à la page du portail Azure. Sélectionnez **Toutes les ressources** dans la page principale du portail. Ou cliquez sur l’icône de menu dans le coin supérieur gauche. Sélectionnez **Toutes les ressources**.
-2. Cliquez sur votre compte Azure Maps. En haut de la page, cliquez sur **Supprimer**.
+1. Accédez à la page du portail Azure. Sélectionnez **Toutes les ressources** dans la page principale du portail. Sinon, sélectionnez l’icône de menu dans le coin supérieur gauche, puis sélectionnez **Toutes les ressources**.
+
+2. Sélectionnez votre compte Azure Maps. En haut de la page, sélectionnez **Supprimer**.
+
 3. Si vous n’envisagez pas de poursuivre le développement d’applications iOS, désinstallez Xcode.
 
+## <a name="additional-information"></a>Informations supplémentaires
+
+Consultez les articles suivants pour obtenir des exemples de code supplémentaires :
+
+* [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md)
+
 <!--
-For more code examples, see these guides:
+## Additional information
 
-*  [Manage authentication in Azure Maps](how-to-manage-authentication.md)
-*  [Change map styles in iOS maps](Set%20map%20style%20%28iOS%20SDK%29.md)
-*  [Add a symbol layer](Add%20a%20symbol%20layer%20%28iOS%20SDK%29.md)
-*  [Add a line layer](Add%20a%20line%20layer%20to%20the%20map%20%28iOS%20SDK%29.md)
-*  [Add a polygon layer](Add%20a%20polygon%20layer%20to%20the%20map%20%28iOS%20SDK%29.md)
--->
+See the following articles for additional code examples:
 
-## <a name="next-steps"></a>Étapes suivantes
+* [Manage authentication in Azure Maps](how-to-manage-authentication.md)
+* [Change map styles in iOS maps](set-map-style-ios-sdk.md)
+* [Add a symbol layer](add-symbol-layer-ios.md)
+* [Add a line layer](add-line-layer-to-map-ios.md)
+* [Add a polygon layer](add-polygon-layer-map-ios.md)
 
-Dans ce guide de démarrage rapide, vous avez créé votre compte Azure Maps ainsi qu’une application de démonstration. Pour en savoir plus sur Azure Maps, consultez les tutoriels suivants :
+## Next steps
+
+In this quickstart, you created your Azure Maps account and created a demo application. Take a look at the following tutorials to learn more about Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Charger des données GeoJSON dans Azure Maps](tutorial-load-geojson-file-android.md)
+
+> [Load GeoJSON data into Azure Maps](tutorial-load-geojson-file-ios.md)
+-->

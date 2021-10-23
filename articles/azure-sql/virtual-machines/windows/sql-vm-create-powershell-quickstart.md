@@ -3,7 +3,7 @@ title: Créer un serveur SQL Server sur une machine virtuelle Windows avec Azure
 description: Ce tutoriel montre comment utiliser Azure PowerShell pour créer une machine virtuelle Windows exécutant SQL Server 2017.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: deployment
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8bfcd62558fd7e10bd4e4d80d3f0e8c04f5ba233
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: b063badd26207b7bda9f959476c2e93f71a16b9e
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220651"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165984"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Démarrage rapide : Créer un serveur SQL Server sur une machine virtuelle Windows avec Azure PowerShell
 

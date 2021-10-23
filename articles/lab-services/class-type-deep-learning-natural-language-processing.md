@@ -1,14 +1,14 @@
 ---
 title: Configurer un labo axé sur le deep learning avec Azure Lab Services | Microsoft Docs
 description: Découvrez comment configurer un laboratoire axé sur l’apprentissage profond (Deep Learning) dans le cadre du traitement en langage naturel (NLP) à l’aide d’Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 01199e76b7b9cb1a6360b5aba010d0cfd8936c23
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f087cf890e622634b92b5b9c10db6a6e8621ece1
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91251454"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176944"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configurer un labo axé sur le deep learning dans le cadre du traitement en langage naturel avec Azure Lab Services
 Cet article vous montre comment configurer un labo axé sur le deep learning dans le cadre du traitement en langage naturel (NLP) avec Azure Lab Services. Le traitement en langage naturel (NLP) est une forme d’intelligence artificielle (IA) qui fournit aux ordinateurs des fonctionnalités de traduction, de reconnaissance vocale et d’autres fonctionnalités de compréhension de la langue.  

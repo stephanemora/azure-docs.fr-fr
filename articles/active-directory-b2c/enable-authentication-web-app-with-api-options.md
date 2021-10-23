@@ -2,21 +2,21 @@
 title: Activer une application web qui appelle des options d’API web à l’aide d’Azure Active Directory B2C
 description: Cet article explique comment activer l’utilisation d’une application web qui appelle des options de l’API web de plusieurs façons.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 7bc5982d6f0ce4631ba1225964efb4ac2bc9fda4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e6d43846307ddf97983a408c244ff3470bea2641
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641215"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040870"
 ---
 # <a name="configure-authentication-options-in-a-web-app-that-calls-a-web-api-by-using-azure-ad-b2c"></a>Configurer des options d’authentification dans une application web qui appelle une API web à l’aide d’Azure Active Directory B2C 
 

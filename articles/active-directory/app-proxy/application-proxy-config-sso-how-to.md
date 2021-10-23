@@ -3,20 +3,20 @@ title: Prendre connaissance de l’authentification unique avec une application 
 description: Prenez connaissance de l’authentification unique avec une application locale utilisant le proxy d’application.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere, asteen
-ms.openlocfilehash: 33276b986f951a1ad343a25229b2ee23c33e05b8
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.reviewer: ashishj, asteen
+ms.openlocfilehash: 420851665b1f32a99779b10dcef7ed3a6079e3d1
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232391"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990156"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Comment configurer l’authentification unique pour une application de proxy d’application
 

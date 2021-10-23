@@ -3,7 +3,7 @@ title: 'Tutoriel : Développer un point de terminaison SCIM pour le provisionne
 description: Le système SCIM (Cross-domain Identity Management) normalise le provisionnement automatique des utilisateurs. Ce tutoriel explique comment développer un point de terminaison SCIM, intégrer votre API SCIM avec Azure Active Directory, et automatiser l’approvisionnement d’utilisateurs et de groupes dans vos applications cloud.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/26/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 539daea27b83203794fb4bf09969a288e2e570dd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 03e2ce2c2d40c5edfa35515dd746802307d05f4b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124759868"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990650"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>Tutoriel : Développer et planifier le provisionnement d’un point de terminaison SCIM dans Azure Active Directory
 

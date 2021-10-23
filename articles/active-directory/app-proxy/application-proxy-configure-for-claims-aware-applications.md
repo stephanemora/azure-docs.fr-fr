@@ -3,20 +3,20 @@ title: Applications compatibles avec les revendications – Proxy d’applicatio
 description: Découvrez comment publier des applications ASP.NET locales qui acceptent les revendications AD FS pour assurer un accès à distance sécurisé à vos utilisateurs.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 0ff8f785589cf35f1b3ff93fe4973c5587c48c74
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: 50f0f4ead9b44da13eb2a45a96db1caed81a5471
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186486"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990004"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Utilisation d’applications prenant en charge les revendications dans le proxy d’application
 [Les applications prenant en charge les revendications](/previous-versions/windows/desktop/legacy/bb736227(v=vs.85)) effectuent une redirection vers le service d’émission de jeton de sécurité (STS). Le service d’émission de jeton de sécurité demande des informations d’identification à l’utilisateur en échange d’un jeton, puis redirige l’utilisateur vers l’application. Il existe plusieurs façons d’activer le proxy d’application pour utiliser ces redirections. Utilisez cet article pour configurer votre déploiement pour les applications prenant en charge les revendications. 

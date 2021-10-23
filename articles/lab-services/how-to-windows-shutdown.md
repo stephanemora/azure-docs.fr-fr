@@ -1,14 +1,14 @@
 ---
 title: Guide de contrôle du comportement d’arrêt de Windows dans Azure Lab Services | Microsoft Docs
 description: Procédure d'arrêt automatique d’une machine virtuelle Windows inactive et de suppression de la commande d’arrêt Windows.
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 248bbeabaf704ba636e2f82c7a93d0ee90a09f22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b76855e80d01091686911ab3d55b7b05eaf92bb5
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94647696"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179903"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guide de contrôle du comportement d’arrêt de Windows
 

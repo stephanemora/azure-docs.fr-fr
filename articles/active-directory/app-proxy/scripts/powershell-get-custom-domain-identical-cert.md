@@ -3,20 +3,20 @@ title: Exemple PowerShell - Applications Proxy d’application Azure Active Di
 description: Exemple PowerShell listant toutes les applications Proxy d’application Azure Active Directory (Azure AD) qui ont été publiées avec le même certificat.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
 ms.date: 04/29/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 15151bcba0deb3cf3c86e46f035c21a5349de1a2
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.reviewer: ashishj
+ms.openlocfilehash: 319c97b95a3908d0f7f3d0f9c8813b105c188647
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293683"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988276"
 ---
 # <a name="get-all-azure-active-directory-application-proxy-apps-that-are-published-with-the-identical-certificate"></a>Récupérer toutes les applications Proxy d’application Azure Active Directory publiées avec le même certificat
 

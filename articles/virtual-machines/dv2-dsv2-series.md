@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: d10ef37931b748b11cbbce96393aff3c3917178a
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: de6267b3bb591a1861ad916f4dbc68a170c8b5a7
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122687990"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071508"
 ---
 # <a name="dv2-and-dsv2-series"></a>Séries Dv2 et DSv2
 
@@ -81,7 +81,7 @@ Les tailles de la série DSv2 s’exécutent sur les processeurs Intel® Xeon® 
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disk)
+Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disks)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

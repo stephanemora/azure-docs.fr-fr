@@ -3,7 +3,7 @@ title: Créer un serveur SQL Server sur une machine virtuelle Windows dans le po
 description: Ce tutoriel montre comment créer une machine virtuelle Windows avec SQL Server 2017 dans le portail Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: deployment
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 07/11/2019
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: c1186d6c138b555144d59414d7b1d9293474390d
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 9890c3b6068fd7e11e8b0e1de663aa262b87399e
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112079622"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162591"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer un serveur SQL Server 2017 sur une machine virtuelle Windows dans le portail Azure
 

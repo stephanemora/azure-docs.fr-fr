@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
 ms.author: pafarley
-ms.openlocfilehash: 3aa8b987c51691d9f13df83945e39931ae0743ca
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 8c7adb5a8f76082e34171daeec1a8a79b0170c27
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123539331"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130143633"
 ---
 Dans ce guide de démarrage rapide, vous découvrez les modèles de conception courants qui permettent d’utiliser la synthèse vocale au moyen du kit SDK Speech. Vous commencez par créer une configuration et une synthèse de base, puis passez à des exemples plus poussés en matière de développement d’applications personnalisées, notamment :
 
@@ -65,6 +65,20 @@ Dans cet exemple, vous créez un [`SpeechConfig`](/python/api/azure-cognitiveser
 
 ```python
 speech_config = SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
+```
+
+## <a name="select-synthesis-language-and-voice"></a>Sélectionner la langue et la voix de synthèse
+
+Le service Synthèse vocale Azure prend en charge plus de 250 voix ainsi que plus de 70 langues et variantes.
+Vous pouvez en obtenir la [liste complète](../../../language-support.md#neural-voices) ou les tester dans la [version de démonstration de la synthèse vocale](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Spécifiez la langue ou la voix de [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) en fonction de votre texte d’entrée, puis utilisez la voix souhaitée.
+
+```python
+# Note: if only language is set, the default voice of that language is chosen.
+speech_config.speech_synthesis_language = "<your-synthesis-language>" # e.g. "de-DE"
+# The voice setting will overwrite language setting.
+# The voice setting will not overwrite the voice element in input SSML.
+speech_config.speech_synthesis_voice_name ="<your-wanted-voice>"
 ```
 
 ## <a name="synthesize-speech-to-a-file"></a>Synthétiser la voix dans un fichier

@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: e5594ea57dce2d7cf03989da9288ab2869e28e06
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a272e5c7f4d467dadfe618f6d70b9a36225c48ff
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743801"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175823"
 ---
 # <a name="system-variables-supported-by-azure-data-factory-and-azure-synapse-analytics"></a>Variables système prises en charge par Azure Data Factory et Azure Synapse Analytics
 
@@ -72,6 +72,9 @@ Il est possible de faire référence à ces variables système n’importe où d
 | @triggerBody().fileName  |Nom du fichier dont la création ou la suppression a entraîné le déclenchement du déclencheur.   |
 | @triggerBody().folderPath  |Chemin du dossier contenant le fichier spécifié par `@triggerBody().fileName`. Le premier segment du chemin du dossier correspond au nom du conteneur de Stockage Blob Azure.  |
 | @trigger().startTime |Heure à laquelle le déclencheur s’est déclenché pour appeler l’exécution du pipeline. |
+
+   > [!NOTE]
+   > Si vous créez votre pipeline et votre déclencheur dans [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), vous devez utiliser `@trigger().outputs.body.fileName` et `@trigger().outputs.body.folderPath` en guise de paramètres. Ces deux propriétés capturent les informations BLOB. Utilisez ces propriétés au lieu de `@triggerBody().fileName` et `@triggerBody().folderPath`.
 
 ## <a name="custom-event-trigger-scope"></a>Étendue du déclencheur d’événements peresonnalisé
 

@@ -12,19 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 84ccb06b6be84c26ce9adf5d0c8e25d45190fa2b
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 34ee024344fb5ed7bf7da32f181a0bc43cbfc8fd
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407909"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038647"
 ---
 # <a name="create-volume-replication-for-azure-netapp-files"></a>Créer une réplication de volume pour Azure NetApp Files
-
-> [!IMPORTANT]
-> La fonctionnalité de réplication interrégionale est actuellement disponible en préversion. Vous devez soumettre une demande d’inscription à la liste d’attente pour accéder à la fonctionnalité via la [page de soumission de demande d’inscription à la liste d’attente de réplication inter-région Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Attendez de recevoir un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant d’utiliser la fonctionnalité de réplication inter-région.
 
 Cet article explique comment configurer la réplication inter-région en créant un peering de réplication. 
 

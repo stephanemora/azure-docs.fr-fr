@@ -2,21 +2,21 @@
 title: Activer l’authentification dans une application Angular à l’aide de blocs de construction Azure Active Directory B2C
 description: Utilisez les blocs de construction Azure Active Directory B2C pour connecter et inscrire des utilisateurs dans une application Angular.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 100fed96c2a7adaa0d0934ab316db1d70bffdcb9
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 35f48f23fba0bed51d9068e3402b673b36614d0e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220817"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041440"
 ---
 # <a name="enable-authentication-in-your-own-angular-application-by-using-azure-active-directory-b2c"></a>Activer l’authentification dans votre propre application Angular à l’aide d’Azure Active Directory B2C
 
@@ -112,12 +112,12 @@ export const b2cPolicies = {
 export const msalConfig: Configuration = {
      auth: {
          clientId: '<your-MyApp-application-ID>',
-         authority: b2cPolicies.authorities.signUpSignIn.
+         authority: b2cPolicies.authorities.signUpSignIn,
          knownAuthorities: [b2cPolicies.authorityDomain],
          redirectUri: '/', 
      },
      cache: {
-         cacheLocation: BrowserCacheLocation.LocalStorage,.
+         cacheLocation: BrowserCacheLocation.LocalStorage,
          storeAuthStateInCookie: isIE, 
      },
      system: {
@@ -134,7 +134,7 @@ export const msalConfig: Configuration = {
 export const protectedResources = {
   todoListApi: {
     endpoint: "http://localhost:5000/api/todolist",
-    scopes: ["https://your-tenant-namee.onmicrosoft.com/api/tasks.read"],
+    scopes: ["https://your-tenant-name.onmicrosoft.com/api/tasks.read"],
   },
 }
 export const loginRequest = {

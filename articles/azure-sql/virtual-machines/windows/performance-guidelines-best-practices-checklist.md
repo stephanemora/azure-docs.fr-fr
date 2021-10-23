@@ -3,7 +3,7 @@ title: 'Liste de vérification : Meilleures pratiques et recommandations'
 description: Fournit une check-list rapide qui vous permet de passer en revue les bonnes pratiques et recommandations pour optimiser les performances de votre serveur SQL Server dans une instance de SQL Server sur les machines virtuelles Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: dplessMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2021
-ms.author: dpless
+ms.author: pamela
 ms.custom: contperf-fy21q3
-ms.reviewer: jroth
-ms.openlocfilehash: f5c6a0864790003e115d201c1a50b181df63c5ac
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.reviewer: mathoma
+ms.openlocfilehash: 1dd05395d921e2a75a56db353e0b0c740b094e49
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128666701"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164509"
 ---
 # <a name="checklist-best-practices-for-sql-server-on-azure-vms"></a>Liste de vérification : Meilleures pratiques relatives à SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,9 +58,9 @@ Voici une check-list rapide des bonnes pratiques relatives à la configuration d
 - Surveillez l’application et [déterminez les besoins en bande passante et de latence de stockage](../../../virtual-machines/premium-storage-performance.md#counters-to-measure-application-performance-requirements) pour les fichiers de données, de journal et tempdb SQL Server avant de choisir le type de disque. 
 - Pour optimiser les performances du stockage, prévoyez les IOPS non mises en cache les plus élevées disponibles, et utilisez la mise en cache des données en tant que fonctionnalité de performance pour les lectures de données, tout en évitant les [plafonnements/limitations applicables à la machine virtuelle et aux disques](../../../virtual-machines/premium-storage-performance.md#throttling).
 - Placez les fichiers de données, de journal et tempdb sur des lecteurs distincts.
-    - Pour le lecteur de données, utiliser uniquement les [disques Premium P30 et P40](../../../virtual-machines/disks-types.md#premium-ssd) pour garantir la disponibilité de la prise en charge du cache
-    - Pour le lecteur de journaux, prévoyez une capacité suffisante et testez les performances par rapport aux coûts quand vous évaluez les [disques premium P30 - P80](../../../virtual-machines/disks-types.md#premium-ssd).
-      - Si la latence de stockage en millisecondes est requise, utilisez des [Disques Ultra Azure](../../../virtual-machines/disks-types.md#ultra-disk) pour le journal des transactions. 
+    - Pour le lecteur de données, utiliser uniquement les [disques Premium P30 et P40](../../../virtual-machines/disks-types.md#premium-ssds) pour garantir la disponibilité de la prise en charge du cache
+    - Pour le lecteur de journaux, prévoyez une capacité suffisante et testez les performances par rapport aux coûts quand vous évaluez les [disques premium P30 - P80](../../../virtual-machines/disks-types.md#premium-ssds).
+      - Si la latence de stockage en millisecondes est requise, utilisez des [Disques Ultra Azure](../../../virtual-machines/disks-types.md#ultra-disks) pour le journal des transactions. 
       - Pour les déploiements de machines virtuelles de la série M, utilisez l’[accélérateur d’écriture](../../../virtual-machines/how-to-enable-write-accelerator.md) à la place des disques Ultra Azure.
     - Placez [tempdb](/sql/relational-databases/databases/tempdb-database) sur le lecteur SSD éphémère local (par défaut : `D:\`) pour la plupart des charges de travail SQL Server, après avoir choisi la taille de machine virtuelle optimale. 
       - Si la capacité du lecteur local n’est pas suffisante pour tempdb, pensez à redimensionner la machine virtuelle. Consultez les [Stratégies de mise en cache de fichiers de données](performance-guidelines-best-practices-storage.md#data-file-caching-policies) pour plus d’informations.

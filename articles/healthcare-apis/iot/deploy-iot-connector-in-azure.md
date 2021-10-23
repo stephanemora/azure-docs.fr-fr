@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/13/2021
+ms.date: 10/19/2021
 ms.author: jasteppe
-ms.openlocfilehash: 064c904b33317d72adbef771353a98a947438252
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 4b4a91f8c8e1e5207973e621e87c17f9bbadb807
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003209"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259526"
 ---
 # <a name="deploy-iot-connector-in-the-azure-portal"></a>Déployer IoT Connector dans le Portail Azure
 
@@ -28,7 +28,7 @@ Il est important que les conditions préalables suivantes soient remplies avant 
 * [Compte Azure](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Groupe de ressources déployé dans le Portail Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md)
 * [Espace de noms Event Hubs et hub d’événements déployés dans le Portail Azure](../../event-hubs/event-hubs-create.md)
-* [Espace de travail déployé dans les API de santé Azure](../workspace-overview.md)  
+* [Espace de travail déployé dans les API de santé Azure](../healthcare-apis-quickstart.md)  
 * [Service FHIR déployé dans les API de santé Azure](../fhir/fhir-portal-quickstart.md) 
 
 
@@ -38,7 +38,7 @@ Il est important que les conditions préalables suivantes soient remplies avant 
  
    ![Capture d’écran de la saisie du nom de ressource de l’espace de travail dans le champ de la barre de recherche.](media/select-workspace-resource-group.png#lightbox)
 
-2. Sélectionnez le panneau **connecteurs IOT** .
+2. Sélectionnez **déployer les connecteurs IOT**.
 
    ![Capture d’écran du panneau connecteurs IoT.](media/iot-connector-blade.png#lightbox)
 
@@ -155,7 +155,7 @@ Sous l’onglet **balises** , entrez les propriétés de balise associées au co
 
 4. Ensuite, sélectionnez **Créer**.
 
-   Le connecteur IoT que vous venez de déployer s’affichera dans votre groupe de ressources Azure.
+   Le connecteur IoT que vous venez de déployer s’affichera à l’intérieur de votre page groupes de ressources Azure.
 
    ![Capture d’écran du connecteur IoT déployé répertorié dans la liste des ressources Azure récentes.](media/azure-resources-iot-connector-deployed.png#lightbox)  
 

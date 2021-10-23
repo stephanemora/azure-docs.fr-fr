@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 8502c35a145e4a041f9d44b8396fe16f5db3febc
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 89288c0e5205ba99a51104ffe24eb016aeb27f06
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384202"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179371"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -103,7 +103,7 @@ Le tableau suivant récapitule les modes d’accès :
 | À qui chaque modèle s’adresse-t-il ? | Administration centrale. Les administrateurs qui ont besoin de configurer une collecte de données et les utilisateurs qui ont besoin d’accéder à un large éventail de ressources. Également nécessaire pour les utilisateurs qui doivent accéder aux journaux des ressources situées en dehors d’Azure. | Équipes d’application. Administrateurs de ressources Azure en cours de supervision. |
 | De quoi un utilisateur a-t-il besoin pour voir les journaux ? | Autorisations sur l’espace de travail. Consultez **Autorisations d’espace de travail** dans [Gérer l’accès à l’aide d’autorisations au niveau de l’espace de travail](./manage-access.md#manage-access-using-workspace-permissions). | Accès en lecture à la ressource. Consultez **Autorisations de ressources** dans [Gérer l’accès à l’aide d’autorisations Azure](./manage-access.md#manage-access-using-azure-permissions). Les autorisations peuvent être héritées (par exemple du groupe de ressources les contenant) ou directement attribuées à la ressource. L’autorisation sur les journaux pour la ressource est automatiquement attribuée. |
 | Quelle est l’étendue des autorisations ? | Espace de travail. Les utilisateurs ayant accès à l’espace de travail peuvent interroger tous les journaux dans cet espace de travail à partir des tables sur lesquelles ils ont des autorisations. Consultez [Contrôle d’accès aux tables](./manage-access.md#table-level-azure-rbac). | Ressource Azure. L’utilisateur peut interroger les journaux à propos de ressources, groupes de ressources ou abonnements auxquels il a accès à partir de n’importe quel espace de travail, mais il ne peut pas interroger les journaux associés à d’autres ressources. |
-| Comment l’utilisateur peut-il accéder aux journaux ? | <ul><li>Démarrez **Journaux** dans le menu **Azure Monitor**.</li></ul> <ul><li>Démarrez **Journaux** à partir des **Espaces de travail Log Analytics**.</li></ul> <ul><li>À partir des [Workbooks](../visualizations.md#workbooks) Azure Monitor.</li></ul> | <ul><li>Démarrez **Journaux** dans le menu associé à la ressource Azure.</li></ul> <ul><li>Démarrez **Journaux** dans le menu **Azure Monitor**.</li></ul> <ul><li>Démarrez **Journaux** à partir des **Espaces de travail Log Analytics**.</li></ul> <ul><li>À partir des [Workbooks](../visualizations.md#workbooks) Azure Monitor.</li></ul> |
+| Comment l’utilisateur peut-il accéder aux journaux ? | <ul><li>Démarrez **Journaux** dans le menu **Azure Monitor**.</li></ul> <ul><li>Démarrez **Journaux** à partir des **Espaces de travail Log Analytics**.</li></ul> <ul><li>À partir des [Workbooks](../best-practices-analysis.md#workbooks) Azure Monitor.</li></ul> | <ul><li>Démarrez **Journaux** dans le menu associé à la ressource Azure.</li></ul> <ul><li>Démarrez **Journaux** dans le menu **Azure Monitor**.</li></ul> <ul><li>Démarrez **Journaux** à partir des **Espaces de travail Log Analytics**.</li></ul> <ul><li>À partir des [Workbooks](../best-practices-analysis.md#workbooks) Azure Monitor.</li></ul> |
 
 ## <a name="access-control-mode"></a>Mode de contrôle d’accès
 

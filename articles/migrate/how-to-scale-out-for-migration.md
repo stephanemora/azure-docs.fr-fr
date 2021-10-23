@@ -1,5 +1,5 @@
 ---
-title: Configurer une appliance de montée en puissance parallèle Azure Migrate pour une migration VMware sans agent
+title: Configurer une appliance scale-out Azure Migrate pour une migration VMware sans agent
 description: Découvrez comment configurer une appliance de montée en puissance parallèle Azure Migrate pour migrer des machines virtuelles Hyper-V.
 author: anvar-ms
 ms.author: anvar

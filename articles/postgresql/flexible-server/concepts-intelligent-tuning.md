@@ -6,12 +6,12 @@ ms.author: nathanwisner
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2021
-ms.openlocfilehash: ca4dbea3701007d29327b5f8f26e0566f77b0c13
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: b354394a393907f47b5c29adf668c8d42e059122
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455907"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044892"
 ---
 # <a name="perform-intelligent-tuning-in-azure-database-for-postgresql---flexible-server"></a>Effectuer un réglage intelligent dans Azure Database pour PostgreSQL – Serveur flexible
 
@@ -20,7 +20,7 @@ ms.locfileid: "129455907"
 
 **S’applique à :** Azure Database pour PostgreSQL – Serveur flexible versions 11 et ultérieures.
 
-La fonctionnalité de réglage intelligent d’Azure Database pour PostgreSQL – Serveur flexible permet d’améliorer automatiquement les performances de votre base de données. Le réglage intelligent ajuste automatiquement vos paramètres `checkpoint_completion_target`, `min_wal_size` et `max_wal_size` en fonction des modèles et valeurs d’utilisation. Il interroge les statistiques de votre base de données toutes les 30 minutes et effectue des ajustements constants pour optimiser les performances sans aucune interaction.
+La fonctionnalité de réglage intelligent d’Azure Database pour PostgreSQL – Serveur flexible permet d’améliorer automatiquement les performances de votre base de données. Le réglage intelligent ajuste automatiquement vos paramètres `checkpoint_completion_target`, `min_wal_size` et `bgwriter_delay` en fonction des modèles et valeurs d’utilisation. Il interroge les statistiques de votre base de données toutes les 30 minutes et effectue des ajustements constants pour optimiser les performances sans aucune interaction.
 
 Le réglage intelligent étant une fonctionnalité avec option d’adhésion, elle n’est pas activée par défaut sur un serveur. Elle n’est disponible que pour certaines bases de données et n’est pas globale. Le fait de l’activer sur une base de données ne l’active pas sur toutes les bases de données connectées.
 
@@ -35,7 +35,7 @@ Laissez jusqu’à 35 minutes pour que le premier lot de données soit conserv�
 
 ## <a name="information-about-intelligent-tuning"></a>Informations relatives au réglage intelligent
 
-Le réglage intelligent s’articule autour de trois paramètres principaux pour le moment : `checkpoint_completion_target`, `min_wal_size` et `max_wal_size`.
+Le réglage intelligent s’articule autour de trois paramètres principaux pour le moment : `checkpoint_completion_target`, `min_wal_size` et `bgwriter_delay`.
 
 Ces trois paramètres concernent principalement : 
 
