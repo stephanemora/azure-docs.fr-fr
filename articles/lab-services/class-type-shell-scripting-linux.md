@@ -1,14 +1,14 @@
 ---
 title: Configurer un labo de création de scripts shell avec Azure Lab Services | Microsoft Docs
 description: Découvrez comment configurer un labo pour enseigner la création de scripts shell sur Linux.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ba14f2fb5263367014b57741c78d6e509df044b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0faf5c9a11ad4aed3bf1157bc18dbeb84f60030b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85444962"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176545"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurer un labo pour enseigner la création de scripts shell sur Linux
 Cet article vous montre comment configurer un labo pour enseigner la création de scripts shell sur Linux. Dans le cadre de l’administration système, l’écriture de scripts permet aux administrateurs d’éviter les tâches répétitives. Dans cet exemple de scénario, les scripts bash traditionnels et les scripts améliorés sont abordés. Les scripts améliorés sont des scripts qui associent des commandes bash et Ruby. Cette approche permet à Ruby de passer des données et fournit des commandes bash pour interagir avec le shell. 

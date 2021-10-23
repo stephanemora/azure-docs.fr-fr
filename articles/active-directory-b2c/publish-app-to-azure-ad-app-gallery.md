@@ -3,20 +3,20 @@ title: Publication de votre application Azure Active Directory B2C dans la ga
 description: Apprenez à répertorier une application Azure AD B2C qui prend en charge l’authentification unique dans la galerie d’applications Azure Active Directory.
 titleSuffix: Azure AD B2C
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 4413832661ffe2eea6fd48f8337618e628f2094b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7ac57eb6e52acee3154a1970947e17e1f5947283
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562142"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035661"
 ---
 # <a name="publish-your-azure-ad-b2c-app-to-the-azure-ad-app-gallery"></a>Publier votre application Azure AD B2C dans la galerie d’applications Azure AD
 

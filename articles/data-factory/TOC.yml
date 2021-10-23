@@ -114,6 +114,8 @@ items:
         items:
           - name: Transformer des données avec des flux de données de mappage
             items:
+              - name: Exemple de magasin Adventure Works pour les pipelines Synapse
+                href: tutorial-data-flow-adventure-works-retail-template.md
               - name: "Bonnes pratiques pour écrire des données dans le lac de données avec ADLS\_Gen2"
                 href: tutorial-data-flow-write-to-lake.md
               - name: Définir des noms de colonnes de manière dynamique

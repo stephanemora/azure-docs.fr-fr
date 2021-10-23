@@ -4,15 +4,15 @@ description: Liste les définitions de stratégie intégrées d’Azure Policy p
 ms.date: 10/11/2021
 ms.topic: reference
 ms.service: azure-migrate
-author: rayne-wiselman
-ms.author: raynew
+author: SGSneha
+ms.author: v-ssudhir
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7d03c34e818a46a00d8196b86fde0f64c4846ab7
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: eb27dae436f57dea60598c47f740f3ccdb869df7
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809076"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176336"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-migrate"></a>Définitions intégrées d’Azure Policy pour Azure Migrate
 

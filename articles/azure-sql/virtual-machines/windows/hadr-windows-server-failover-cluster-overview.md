@@ -3,7 +3,7 @@ title: Vue d’ensemble du cluster de basculement Windows Server
 description: 'Découvrez les différences observables avec la technologie de cluster de basculement Windows Server lorsqu’elle est utilisée avec SQL Server sur des machines virtuelles Azure, telles que les groupes de disponibilité et les instances de cluster de basculement. '
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2021
-ms.author: mathoma
-ms.openlocfilehash: f85c603f7bfa4113edaeaed1eb92d907d06fe09d
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: dc007e4aeb68d3cecd156a650bd3c04de1fd26e0
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112581922"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162200"
 ---
 # <a name="windows-server-failover-cluster-with-sql-server-on-azure-vms"></a>Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -3,7 +3,7 @@ title: Configurer un groupe de disponibilité SQL Server Always On dans différe
 description: Cet article explique comment configurer un groupe de disponibilité SQL Server Always On sur des machines virtuelles avec un réplica dans une autre région.
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -13,14 +13,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
-ms.author: mathoma
+ms.author: rsetlem
 ms.custom: seo-lt-2019
-ms.openlocfilehash: dc516c9631eda2904ff311af6ca779872d9802f0
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.reviewer: mathoma
+ms.openlocfilehash: e9f00376008e4c469318044d3a45280981be621a
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129537184"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166149"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configurer un groupe de disponibilité SQL Server Always On dans différentes régions Azure
 

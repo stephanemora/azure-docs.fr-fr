@@ -4,15 +4,16 @@ description: Dans ce tutoriel, vous allez apprendre à configurer votre locatair
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: e28a210a4f80540da9aa8f08ca443c355705b469
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: d480696acf10586f41aa9c5c70a8dcf6e2c7651f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730791"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070011"
 ---
 # <a name="configure-your-tenant-for-azure-ad-verifiable-credentials-preview"></a>Configurer votre locataire pour les justificatifs vérifiables Azure AD (préversion)
 
@@ -31,11 +32,11 @@ Dans cet article, vous apprendrez comment :
 
 Le diagramme suivant illustre l’architecture des justificatifs vérifiables Azure AD et le composant que vous configurez.
 
-![Le diagramme illustre l’architecture des justificatifs vérifiables Azure AD.](media/verifiable-credentials-configure-tenant/verifiable-credentials-architecture.png)
+![Diagramme illustrant l’architecture des justificatifs vérifiables Azure AD](media/verifiable-credentials-configure-tenant/verifiable-credentials-architecture.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’avez pas d’abonnement Azure, créez-en [un gratuit](https://azure.microsoft.comfree/?WT.mc_id=A261C142F).
+- Si vous n’avez pas d’abonnement Azure, créez-en [un gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Prenez un abonnement aux [éditions Azure Active Directory Premium](../../active-directory/fundamentals/active-directory-get-started-premium.md) dans votre locataire.
 - L’autorisation d’[administrateur général](../../active-directory/roles/permissions-reference.md#global-administrator) pour l’annuaire que vous souhaitez configurer.
 - [PowerShell](/powershell/scripting/install/installing-powershell)7.0.6 LTS-x64, PowerShell 7.1.3-x64 ou une version ultérieure installée.

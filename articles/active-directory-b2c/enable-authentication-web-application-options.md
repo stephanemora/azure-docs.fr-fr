@@ -2,21 +2,21 @@
 title: Activer les options d’authentification de l’application web à l’aide d’Azure Active Directory B2C
 description: Cet article décrit plusieurs façons d’activer les options d’authentification de l’application web.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 08/12/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 50cdb5f171614c138427b358f2418b8b81751457
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 097422d3d3156f42b55374593aaced8514ae2d09
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220322"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040851"
 ---
 # <a name="enable-authentication-options-in-a-web-app-by-using-azure-ad-b2c"></a>Activer les options d’authentification dans une application web avec Azure AD B2C 
 
@@ -33,7 +33,7 @@ Pour utiliser un domaine personnalisé et l’ID de votre locataire dans l’URL
 Dans le fichier *appsettings.json*, faites ce qui suit :
 
 - Mettez à jour l'entrée `Instance` avec votre domaine personnalisé.
-- Mettez à jour l'entrée `Domain` avec votre [ID de locataire](tenant-management.md#get-your-tenant-id). Pour plus d’informations, consultez [Utiliser l’ID de locataire](custom-domain.md#optional-use-tenant-id).
+- Mettez à jour l’entrée `Domain` avec votre [ID de locataire](tenant-management.md#get-your-tenant-id). Pour plus d’informations, consultez [Utiliser l’ID de locataire](custom-domain.md#optional-use-tenant-id).
 
 Le code JSON suivant montre les paramètres de l’application avant la modification : 
 
@@ -367,7 +367,7 @@ services.AddAuthorization(options =>
 
 Vous contrôlez l’autorisation dans ASP.NET Core à l’aide de [AuthorizeAttribute](/aspnet/core/security/authorization/simple) et de ses différents paramètres. Dans sa forme la plus basique, l’application de l’attribut `Authorize` à une page de contrôleur, d’action ou Razor, limite l’accès aux utilisateurs authentifiés de ce composant.
 
-Les stratégies sont appliquées aux contrôleurs à l’aide de l'attribut `Authorize` avec le nom de la stratégie. Le code suivant limite l’accès à l'action `Claims` aux utilisateurs autorisés par la stratégie `EmployeeOnly` :
+Les stratégies sont appliquées aux contrôleurs à l’aide de l'attribut `Authorize` avec le nom de la stratégie. Le code suivant limite l’accès à l’action `Claims` aux utilisateurs autorisés par la stratégie `EmployeeOnly` :
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]

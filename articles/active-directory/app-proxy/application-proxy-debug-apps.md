@@ -3,20 +3,20 @@ title: Débogage des applications Proxy d’application – Azure Active Direct
 description: Déboguez les problèmes liés aux applications de proxy d'application Azure Active Directory (Azure AD).
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 058ff3bc61794f74d2068bd99b93df007495bedf
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: a1bd86432fbe4b24904515b3773b944cc88a4a7c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186049"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989643"
 ---
 # <a name="debug-application-proxy-application-issues"></a>Déboguer les problèmes d’application de proxy d’application 
 

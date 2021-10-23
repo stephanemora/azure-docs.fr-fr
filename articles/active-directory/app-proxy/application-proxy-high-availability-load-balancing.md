@@ -3,20 +3,20 @@ title: Haute disponibilité et équilibrage de charge – Proxy d’application 
 description: Fonctionnement de la distribution du trafic avec votre déploiement de proxy d’application. Contient des conseils pour optimiser les performances du connecteur et utiliser l’équilibrage de charge pour les serveurs principaux.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/29/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 215c8e2d2f758044898fa184bc10721996d84b5f
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.reviewer: ashishj
+ms.openlocfilehash: 322761135366b14364470bb8c73a282af5ce7a84
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111964728"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989377"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Haute disponibilité et équilibrage de charge de vos applications et connecteurs de proxy d’application
 

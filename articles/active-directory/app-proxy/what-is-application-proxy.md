@@ -3,21 +3,21 @@ title: Publier des applications locales avec Proxy d’application d’Azure Act
 description: Découvrez comment utiliser le proxy d’application pour publier des applications web locales en externe pour les utilisateurs distants. Découvrez l’architecture du proxy d’application, ses connecteurs, ses méthodes d’authentification et ses avantages de sécurité.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: has-adal-ref
-ms.openlocfilehash: cb6241443f4ec7aa9d60501aab50ca21ed1d147d
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 5968de16c25fd8f559caebaa2af5a9292688076c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129235855"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987781"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Utilisation du proxy d’application Azure AD pour publier des applications locales pour les utilisateurs distants
 
@@ -92,7 +92,7 @@ Il existe plusieurs façons de configurer une application pour l’authentificat
 
 Le proxy d’application fonctionne avec les applications qui utilisent le protocole d’authentification natif suivant :
 
-* [**Authentification Windows intégrée (IWA)** ](./application-proxy-configure-single-sign-on-with-kcd.md). Pour IWA, les connecteurs de proxy d’application utilisent la délégation Kerberos contrainte (KCD) pour authentifier les utilisateurs dans l’application.
+* [**Authentification Windows intégrée (IWA)**](./application-proxy-configure-single-sign-on-with-kcd.md). Pour IWA, les connecteurs de proxy d’application utilisent la délégation Kerberos contrainte (KCD) pour authentifier les utilisateurs dans l’application.
 
 Le proxy d’application prend également en charge les protocoles d’authentification suivants avec l’intégration de tiers ou dans des scénarios de configuration spécifiques :
 

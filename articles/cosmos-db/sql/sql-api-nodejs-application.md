@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 10/18/2021
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: e83c245960815630891407a042303f1d8ae58b35
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: e9ee6ef04563466cb47f1bc6fe8f92929dd11950
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123117703"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177552"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutoriel : Créer une application web Node.js avec le Kit de développement logiciel (SDK) JavaScript pour gérer un compte d’API SQL dans Azure Cosmos DB 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -92,7 +92,7 @@ Voyons maintenant comment créer un projet Node.js « Hello World » de base à 
 
 ## <a name="install-the-required-modules"></a><a name="install-modules"></a>Installer les modules requis
 
-Le fichier **package.json** est l'un des fichiers créés à la racine du projet. Il contient une liste de modules supplémentaires qui sont nécessaires pour les applications Node.js. Lorsque vous déployez cette application sur Azure, ce fichier permet de déterminer quels modules doivent être installés sur Azure pour la prise en charge de votre application. Installez deux autres packages pour ce tutoriel.
+Le fichier **package.json** est l'un des fichiers créés à la racine du projet. Il contient une liste d’autres modules qui sont nécessaires pour votre application Node.js. Lorsque vous déployez cette application sur Azure, ce fichier permet de déterminer quels modules doivent être installés sur Azure pour la prise en charge de votre application. Installez deux autres packages pour ce tutoriel.
 
 1. Installez le module **\@azure/cosmos** via npm. 
 
@@ -455,25 +455,17 @@ Maintenant que vous avez créé l’application, vous pouvez l’exécuter local
 
 5. Pour arrêter l’application, appuyez sur CTRL + C dans la fenêtre de terminal, puis cliquez sur **Y** pour arrêter le traitement par lots.
 
-## <a name="deploy-your-application-to-web-apps"></a><a name="deploy-app"></a>Déployer votre application sur Web Apps
+## <a name="deploy-your-application-to-app-service"></a><a name="deploy-app"></a>Déployer votre application sur App Service
 
-Lorsque votre application a bien été exécutée localement, vous pouvez la déployer sur Azure en procédant comme suit :
+Lorsque votre application a bien été exécutée localement, vous pouvez la déployer sur Azure App Service. Dans le terminal, vérifiez que vous êtes dans le répertoire d’application *todo*. Déployez le code dans votre dossier local (todo) à l’aide de la commande [az webapp up](/cli/azure/webapp?view=azure-cli-latest#az_webapp_up&preserve-view=true) suivante :
 
-1. Si vous ne l’avez pas encore fait, activez un référentiel git pour votre application Web Apps.
+```azurecli
+az webapp up --sku F1 --name <app-name>
+```
 
-2. Ajoutez votre application Web Apps en tant que git distant.
-   
-   ```bash
-   git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
-   ```
+Remplacez <app_name> par un nom unique dans Azure (les caractères valides sont a-z, 0-9 et -). Un bon modèle consiste à utiliser une combinaison du nom de votre société et d’un identificateur d’application. Pour en savoir plus sur le déploiement d’applications, consultez l’article [Déploiement d’applications Node.js dans Azure](../../app-service/quickstart-nodejs.md?tabs=linux&pivots=development-environment-cli#deploy-to-azure).
 
-3. Déployez l’application en l’envoyant à l’appareil distant.
-   
-   ```bash
-   git push azure main
-   ```
-
-4. Dans quelques secondes, votre application web sera publiée et lancée dans un navigateur.
+La commande peut prendre quelques minutes. Lors de son exécution, elle fournit des messages sur la création du groupe de ressources, du plan App Service et de la ressource d’application, sur la configuration de la journalisation et sur le déploiement ZIP. Elle vous donne ensuite une URL pour lancer l’application à `http://<app-name>.azurewebsites.net`, qui est l’URL de l’application sur Azure.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -481,13 +473,12 @@ Dès que vous n’avez plus besoin de ces ressources, vous pouvez supprimer le g
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
-    * Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existantes, consultez l’article [Estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
-    * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, consultez l’article [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+  * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+  * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 > [Créer des applications mobiles avec Xamarin et Azure Cosmos DB](mobile-apps-with-xamarin.md)
-
 
 [Node.js]: https://nodejs.org/
 [Git]: https://git-scm.com/

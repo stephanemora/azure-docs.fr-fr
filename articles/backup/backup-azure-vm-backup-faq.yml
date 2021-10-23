@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 08/19/2021
-  ms.openlocfilehash: 2b7ecc95117201d9ab60a39acf1d0f6ae60896a0
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: 7ccfe8d814cc06e7c637b6de3a8df6edb43f52bd
+  ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124799298"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130069441"
 title: Forum aux questions - Sauvegarde de machines virtuelles Azure
 summary: >
   Cet article fournit des réponses à des questions courantes sur la sauvegarde des machines virtuelles Azure avec le service [Sauvegarde Azure](./backup-overview.md).
@@ -80,7 +80,7 @@ sections:
     answer: La Sauvegarde Azure crée un groupe de ressources distinct au format `AzureBackupRG_<geo>_<number>` pour stocker les objets ResourcePointCollections. Étant donné que ce groupe de ressources est détenu par un service, le verrouillage entraînera l’échec des sauvegardes. Les verrous ne peuvent être appliqués qu’aux groupes de ressources créés par le client.
   - question: Le service Sauvegarde Microsoft Azure prend-il en charge les disques managés SSD standard ?
     answer: >
-      Oui, le service Sauvegarde Azure prend en charge les [disques managés SSD standard](../virtual-machines/disks-types.md#standard-ssd).
+      Oui, le service Sauvegarde Azure prend en charge les [disques managés SSD standard](../virtual-machines/disks-types.md#standard-ssds).
   - question: Pouvons-nous sauvegarder une machine virtuelle dotée d’un disque avec Accélérateur d’écriture ?
     answer: Les instantanés ne peuvent être effectués que sur les disques de données avec Accélérateur d’écriture et non sur les disques de système d’exploitation. Ainsi, seuls les disques de données avec Accélérateur d’écriture peuvent être protégés.
   - question: J’ai une machine virtuelle dotée de disques avec Accélérateur d’écriture et sur laquelle SAP HANA est installé. Comment faire pour effectuer une sauvegarde ?

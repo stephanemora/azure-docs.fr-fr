@@ -1,14 +1,14 @@
 ---
 title: Exemples de types de classes dans Azure Lab Services | Microsoft Docs
 description: Cite certains des types de classes pour lesquels il est possible de configurer des laboratoires à l’aide d’Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 086f5eebb6ef96b1846c2f2777b045821b0418c8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d2adfd22649bb65bb7ae0d360a5b2a33944abd8d
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736634"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181233"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Vue d’ensemble des types de classes - Azure Lab Services
 

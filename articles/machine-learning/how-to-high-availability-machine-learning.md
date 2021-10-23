@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 05/05/2021
-ms.openlocfilehash: a25cfb69b0de9561de2093a8e9e91bf4e9f8cb98
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: fc13ac868f2abb1ccd466b245c22682af79ba915
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424280"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161259"
 ---
 # <a name="failover-for-business-continuity-and-disaster-recovery"></a>Basculement de la continuité d’activité et reprise d’activité
 
@@ -188,4 +188,4 @@ Les artefacts suivants peuvent être exportés et importés entre les espaces de
 > * Les __sorties d’exécution__ sont stockées dans le compte de stockage par défaut associé à un espace de travail. Si les sorties d’exécution peuvent devenir inaccessibles à partir de l’interface utilisateur de Studio en cas de panne d’un service, vous pouvez accéder directement aux données via le compte de stockage. Pour plus d’informations sur l’utilisation des données stockées dans des objets blob, consultez [Créer, télécharger et lister des objets blob avec Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md).
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour déployer Azure Machine Learning avec les ressources associées avec vos paramètres de haute disponibilité, utilisez un [Modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced).
+Pour déployer Azure Machine Learning avec les ressources associées avec vos paramètres de haute disponibilité, utilisez un [Modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/).

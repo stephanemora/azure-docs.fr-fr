@@ -8,18 +8,18 @@ ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 5ea12e47b67f79ab2d5aa559f3afc1db587e1a55
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 2f1c56070a2b86945494bf0a8625f223d017f326
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122695912"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070815"
 ---
 # <a name="using-azure-ultra-disks"></a>Utilisation de disques Ultra Azure
 
 **S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
-Cet article explique comment déployer et utiliser un disque Ultra ; pour obtenir des informations conceptuelles sur les disques Ultra, reportez-vous à [Quels sont les types de disque disponibles dans Azure ?](disks-types.md#ultra-disk).
+Cet article explique comment déployer et utiliser un disque Ultra ; pour obtenir des informations conceptuelles sur les disques Ultra, reportez-vous à [Quels sont les types de disque disponibles dans Azure ?](disks-types.md#ultra-disks).
 
 Les disques Ultra Azure permettent un stockage de disque à haut débit avec un nombre élevé d’IOPS et une faible latence homogène pour les machines virtuelles Azure IaaS. Cette nouvelle offre fournit des performances optimales aux mêmes niveaux de disponibilité que nos offres de disques existantes. Entre autres avantages, les disques Ultra permettent de changer dynamiquement les performances des disques SSD en fonction de vos charges de travail, sans avoir à redémarrer les machines virtuelles. Les disques Ultra sont adaptés aux charges de travail qui consomment beaucoup de données, par exemple SAP HANA, les bases de données de niveau supérieur et les charges de travail avec un grand nombre de transactions.
 

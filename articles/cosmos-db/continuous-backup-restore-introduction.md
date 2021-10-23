@@ -4,16 +4,16 @@ description: La fonctionnalité de limite de restauration dans le temps d’Azur
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 10/18/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
-ms.openlocfilehash: e7d46d1680e11307eb873383e91e6e682f545549
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: c0e08a9aadc7389fa064ba03fbd026ace197cae1
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546536"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165530"
 ---
 # <a name="continuous-backup-with-point-in-time-restore-in-azure-cosmos-db"></a>Sauvegarde continue avec restauration à un instant dans le passé dans Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -105,13 +105,11 @@ La fonctionnalité de restauration à un instant dans le passé présente les li
 
 * Seules les API Azure Cosmos DB pour SQL et MongoDB sont prises en charge pour la sauvegarde continue. Les API Cassandra, Table et Gremlin ne sont pas encore prises en charge.
 
-* Les régions constituées de clouds souverains Azure et du cloud Azure Government ne sont pas encore prises en charge.
-
 * Les comptes avec des clés gérées par le client ne sont pas pris en charge pour l’utilisation de la sauvegarde continue.
 
 * Les comptes d’écriture dans plusieurs régions ne sont pas pris en charge.
 
-* Azure Synapse Link et le mode de sauvegarde périodique peuvent coexister dans le même compte de base de données. Cependant, les données du magasin analytique ne sont pas incluses dans les sauvegardes et les restaurations. Lorsque Synapse Link est activé, Azure Cosmos DB continue à effectuer des sauvegardes automatiques de vos données dans le magasin transactionnel à un intervalle de sauvegarde planifié. 
+* Azure Synapse Link et le mode de sauvegarde périodique peuvent coexister dans le même compte de base de données. Cependant, les données du magasin analytique ne sont pas incluses dans les sauvegardes et les restaurations. Lorsque Synapse Link est activé, Azure Cosmos DB continue à effectuer des sauvegardes automatiques de vos données dans le magasin transactionnel à un intervalle de sauvegarde planifié.
 
 * Azure Synapse Link et le mode de sauvegarde continue ne peuvent pas coexister dans le même compte de base de données. Actuellement, les comptes de base de données avec Synapse Link activé ne peuvent pas utiliser le mode de sauvegarde continu et vice-versa.
 

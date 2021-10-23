@@ -8,12 +8,12 @@ metadata:
   ms.date: 03/19/2021
   author: saasguide
   ms.author: souchak
-  ms.openlocfilehash: 8cc5dc728279477fc698135a317b773cbdaccabf
-  ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+  ms.openlocfilehash: 4092ad53e67cc7ed526f66b4e5214a9bb9a1aeda
+  ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129456439"
+  ms.lasthandoff: 10/15/2021
+  ms.locfileid: "130043298"
 title: Questions courantes sur les API de traitement SaaS
 summary: Cet article décrit plusieurs conditions d’intégration de la Place de marché commerciale Microsoft permettant aux clients Azure de s’abonner à des offres SaaS.
 sections:
@@ -52,7 +52,7 @@ sections:
       > L’utilisateur qui achète doit se connecter en utilisant Azure Active Directory, l’authentification unique (SSO Azure AD) comme indiqué par la [stratégie](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context). La propriété `mail` de la ressource utilisateur récupérée à partir de l’API Microsoft Graph vous donne les coordonnées dans le cas d’Azure AD et `userPrincipalName` pour MSA. Il est possible que le champ « mail » soit vide pour Azure AD, et que l’utilisateur n’ait pas d’adresse e-mail enregistrée. Si c’est le cas, nous vous recommandons de le détecter et de demander une adresse e-mail de contact. C’est votre seule chance d’obtenir une adresse e-mail pour contacter un client pendant ou après le processus d’intégration du client.
 
 
-      Lorsque l'utilisateur Azure est redirigé vers la page d'accueil, un jeton est ajouté à l'URL de la requête. Ce jeton de courte durée est valide pendant 24 heures. Vous pouvez alors détecter la présence de ce jeton et appeler l'API Microsoft pour obtenir plus de contexte sur celui-ci.
+      Lorsque l'utilisateur Azure est redirigé vers la page d'accueil, un jeton est ajouté à l'URL de la requête. Ce jeton de courte durée est valide pendant 24 heures. Vous pouvez alors détecter la présence de ce jeton, et appeler l’API Microsoft pour obtenir plus de contexte sur celui-ci.
 
 
       ![Flux d’abonnement du client](media/saas-metering-service-integration-flow-a.png)

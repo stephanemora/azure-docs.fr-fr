@@ -3,7 +3,7 @@ title: Interopérabilité des fonctionnalités avec l’instance FCI de SQL Serv
 description: 'En savoir plus sur les considérations supplémentaires à prendre en compte lors de l’utilisation de certaines fonctionnalités de SQL Server et d’une ressource de nom de réseau distribué (DNN) avec une instance de cluster de basculement sur SQL Server sur des machines virtuelles Azure. '
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
-ms.author: mathoma
-ms.openlocfilehash: 03dcd9f4750e9bf3e6ec5568255b06ccb8316a0b
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: b868de74376199fdc173c41e8711575b44e67200
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111569437"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164796"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interopérabilité des fonctionnalités avec l’instance FCI de SQL Server et DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -179,6 +180,6 @@ Pour en savoir plus, consultez :
 
 - [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md)
-- [Vue d’ensemble d’une instance de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Vue d’ensemble des instances de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 - [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)
 

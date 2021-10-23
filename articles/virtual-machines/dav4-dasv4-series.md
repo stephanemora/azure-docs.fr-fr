@@ -8,12 +8,12 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.reviewer: jushiman
-ms.openlocfilehash: 43602810d9526257c5980d6a113e6bc45c3ead77
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 3fc10f9b1751bbeebe8b126b16f44c8850ff3270
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129153422"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072325"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 et Dasv4
 
@@ -90,7 +90,7 @@ Les tailles de la série Dasv4 sont basées sur le processeur AMD EPYC<sup>TM</
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disk)
+Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disks)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

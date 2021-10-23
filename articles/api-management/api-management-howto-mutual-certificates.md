@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 01/26/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 72b1680af5bb20d772d93d7743224170fde437fd
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.openlocfilehash: 9db002f50675c45a0eeb7bb7e213d0dc65b64ab8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740281"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006619"
 ---
 # <a name="secure-backend-services-using-client-certificate-authentication-in-azure-api-management"></a>Sécuriser les services principaux à l’aide d’une authentification par certificat client dans Gestion des API Azure
 
 Gestion des API permet de sécuriser l’accès au service principal d’une API en utilisant des certificats clients. Ce guide montre comment gérer des certificats dans une instance de service Gestion des API Azure à l’aide du portail Azure. Il explique également comment configurer une API pour utiliser un certificat pour accéder à un service principal.
 
-Vous pouvez également gérer des certificats Gestion des API à l’aide de l’[API REST Gestion des API](/rest/api/apimanagement/2020-12-01/certificate).
+Vous pouvez également gérer des certificats Gestion des API à l’aide de l’[API REST Gestion des API](/rest/api/apimanagement/2021-01-01-preview/certificate).
 
 ## <a name="certificate-options"></a>Options de certificat
 
@@ -154,4 +154,3 @@ Pour supprimer un certificat, sélectionnez-le, puis sélectionnez **Supprimer**
 [Azure API Management REST API Certificate entity]: ./api-management-caching-policies.md
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
-

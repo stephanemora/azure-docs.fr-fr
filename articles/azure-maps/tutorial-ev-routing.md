@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 72fc6a96b588f3ca897fe69054e28029b34f2688
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a167e0a0374a1c24b7da51171b51b2ee28cf4bb0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733425"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996377"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutoriel : Router les véhicules électriques avec Azure Notebooks (Python)
 
-Azure Maps est un portefeuille d’API de services géospatiaux intégrées en mode natif dans Azure. Ces API permettent aux développeurs, entreprises et éditeurs de logiciels indépendants de créer des applications utilisant la géolocalisation ainsi que des solutions d’IoT, de mobilité, de logistique et de suivi des ressources. 
+Azure Maps est un portefeuille d’API de services géospatiaux intégrées en mode natif dans Azure. Ces API permettent aux développeurs, entreprises et éditeurs de logiciels indépendants de créer des applications utilisant la géolocalisation ainsi que des solutions d’IoT, de mobilité, de logistique et de suivi des ressources.
 
-Les API REST Azure Maps peuvent être appelées dans des langages tels que Python et R, pour activer l’analyse de données géospatiales et les scénarios de Machine Learning. Azure Maps propose un solide ensemble d’[API de routage](/rest/api/maps/route) qui permettent aux utilisateurs de calculer des itinéraires entre différents points de données. Les calculs sont basés sur différentes conditions, comme le type de véhicule ou la zone accessible. 
+Les API REST Azure Maps peuvent être appelées dans des langages tels que Python et R, pour activer l’analyse de données géospatiales et les scénarios de Machine Learning. Azure Maps propose un solide ensemble d’[API de routage](/rest/api/maps/route) qui permettent aux utilisateurs de calculer des itinéraires entre différents points de données. Les calculs sont basés sur différentes conditions, comme le type de véhicule ou la zone accessible.
 
 Dans ce tutoriel, vous allez aider un conducteur de véhicule électrique dont la batterie est presque vide. Le conducteur doit trouver la borne de recharge la plus proche possible de son véhicule.
 
@@ -40,7 +40,6 @@ Ce didacticiel présente les procédures suivantes :
 
 Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
-
 ## <a name="create-an-azure-notebooks-project"></a>Créer un projet Azure Notebooks
 
 Pour suivre ce tutoriel, vous devez créer un projet Azure Notebooks, puis télécharger et exécuter le fichier Jupyter Notebook. Le fichier Jupyter Notebook contient du code Python qui implémente le scénario de ce tutoriel. Pour créer un projet Azure Notebooks et y charger le document Jupyter Notebook, effectuez les étapes suivantes :
@@ -51,18 +50,18 @@ Pour suivre ce tutoriel, vous devez créer un projet Azure Notebooks, puis tél�
     ![Bouton Mes projets](./media/tutorial-ev-routing/myproject.png)
 
 1. Dans la page **Mes projets**, sélectionnez **Nouveau projet**.
- 
+
    ![Bouton Nouveau projet](./media/tutorial-ev-routing/create-project.png)
 
 1. Dans le panneau **Créer un projet**, entrez un nom et un identifiant de projet.
- 
+
     ![Panneau Créer un projet](./media/tutorial-ev-routing/create-project-window.png)
 
 1. Sélectionnez **Create** (Créer).
 
 1. Une fois que votre projet a été créé, téléchargez ce [fichier de document Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) à partir du [dépôt Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
-1. Dans la liste des projets de la page **Mes projets**, sélectionnez votre projet, puis sélectionnez **Charger** pour télécharger le fichier de document Jupyter Notebook. 
+1. Dans la liste des projets de la page **Mes projets**, sélectionnez votre projet, puis sélectionnez **Charger** pour télécharger le fichier de document Jupyter Notebook.
 
     ![chargement de Jupyter Notebook](./media/tutorial-ev-routing/upload-notebook.png)
 
@@ -79,10 +78,9 @@ Essayez de comprendre les fonctionnalités implémentées dans le fichier Jupyte
 Pour exécuter le code dans Jupyter Notebook, installez les packages au niveau du projet en effectuant les étapes suivantes :
 
 1. Téléchargez le fichier [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) à partir du [dépôt Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook), puis chargez-le dans votre projet.
-1. Dans le tableau de bord du projet, sélectionnez **Paramètres du projet**. 
+1. Dans le tableau de bord du projet, sélectionnez **Paramètres du projet**.
 1. Dans le panneau **Paramètres du projet**, sélectionnez l’onglet **Environnement**, puis **Ajouter**.
-1. Sous **Étapes de configuration de l’environnement**, effectuez les étapes suivantes :   
-    a. Dans la première liste déroulante, sélectionnez **Requirements.txt**.  
+1. Sous **Étapes de configuration de l’environnement**, effectuez les opérations suivantes : a. Dans la première liste déroulante, sélectionnez **Requirements.txt**.  
     b. Dans la deuxième liste déroulante, sélectionnez votre fichier *Requirements.txt*.  
     c. Dans la troisième liste déroulante, sélectionnez **Python Version 3.6** comme version.
 1. Sélectionnez **Enregistrer**.
@@ -102,7 +100,7 @@ from IPython.display import Image, display
 
 ## <a name="request-the-reachable-range-boundary"></a>Demander les limites de la zone accessible
 
-Une société de livraison de colis compte quelques véhicules électriques dans sa flotte. Pendant la journée, les véhicules électriques doivent être rechargés sans avoir à revenir à l’entrepôt. Chaque fois que la charge restante passe sous la barre d’une heure, vous recherchez un ensemble de bornes de recharge dans une zone accessible. En bref, vous recherchez une borne de recharge quand la charge de la batterie est faible. Vous obtenez également des informations sur les limites de cette zone de bornes de recharge. 
+Une société de livraison de colis compte quelques véhicules électriques dans sa flotte. Pendant la journée, les véhicules électriques doivent être rechargés sans avoir à revenir à l’entrepôt. Chaque fois que la charge restante passe sous la barre d’une heure, vous recherchez un ensemble de bornes de recharge dans une zone accessible. En bref, vous recherchez une borne de recharge quand la charge de la batterie est faible. Vous obtenez également des informations sur les limites de cette zone de bornes de recharge.
 
 Étant donné que la société préfère utiliser les itinéraires offrant un compromis économie-vitesse, le routeType demandé est *eco*. Le script suivant appelle l’[API d’obtention de zone d’itinéraire](/rest/api/maps/route/getrouterange) du service de routage Azure Maps. Il utilise des paramètres pour le modèle de consommation du véhicule. Le script analyse ensuite la réponse pour créer un objet polygone au format geojson, qui représente la zone maximale accessible du véhicule.
 
@@ -150,7 +148,7 @@ boundsData = {
 
 ## <a name="search-for-electric-vehicle-charging-stations-within-the-reachable-range"></a>Rechercher des bornes de recharge de véhicule électrique dans la zone accessible
 
-Après avoir déterminé la zone accessible (isochrone) pour le véhicule électrique, vous pouvez rechercher les bornes de recharge dans cette zone. 
+Après avoir déterminé la zone accessible (isochrone) pour le véhicule électrique, vous pouvez rechercher les bornes de recharge dans cette zone.
 
 Le script suivant appelle l’[API de recherche dans une géométrie](/rest/api/maps/search/postsearchinsidegeometry) Azure Maps. Il recherche les stations de chargement de véhicules électriques, dans les limites de la plage d’accessibilité maximale de la voiture. Ensuite, le script analyse la réponse dans un tableau de lieux accessibles.
 
@@ -169,7 +167,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Chargement de la zone accessible et des points de recharge dans le service Data Azure Maps
 
-Vous souhaitez visualiser sur une carte les bornes de recharge et les limites de la zone accessible pour le véhicule électrique. Pour cela, chargez les données des limites et des bornes de recharge dans le service Data Azure Maps en tant qu’objets GeoJSON. Utilisez l’[API de chargement des données](/rest/api/maps/data-v2/upload-preview). 
+Vous souhaitez visualiser sur une carte les bornes de recharge et les limites de la zone accessible pour le véhicule électrique. Pour cela, chargez les données des limites et des bornes de recharge dans le service Data Azure Maps en tant qu’objets GeoJSON. Utilisez l’[API de chargement des données](/rest/api/maps/data-v2/upload-preview).
 
 Pour charger les données des limites et des points de recharge sur le service Data d’Azure Maps, exécutez les deux cellules suivantes :
 
@@ -274,10 +272,9 @@ display(Image(poiRangeMap))
 
 ![Carte représentant la zone localisée](./media/tutorial-ev-routing/location-range.png)
 
-
 ## <a name="find-the-optimal-charging-station"></a>Rechercher la borne de recharge optimale
 
-Tout d’abord, vous souhaitez trouver toutes les bornes de recharge potentielles dans la zone accessible. Ensuite, vous souhaitez savoir celles que vous pouvez atteindre en un minimum de temps. 
+Tout d’abord, vous souhaitez trouver toutes les bornes de recharge potentielles dans la zone accessible. Ensuite, vous souhaitez savoir celles que vous pouvez atteindre en un minimum de temps.
 
 Le script suivant appelle l’[API de routage par matrice](/rest/api/maps/route/postroutematrix) d’Azure Maps. Elle retourne l’emplacement du véhicule spécifié, le temps de trajet et la distance jusqu’à chaque borne de recharge. Le script de la cellule suivante analyse la réponse pour localiser la borne de recharge accessible la plus proche en temps.
 

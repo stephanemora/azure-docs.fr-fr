@@ -3,7 +3,7 @@ title: Page d’accueil personnalisée pour les applications publiées – Proxy
 description: Découvrez les bases des connecteurs Proxy d’application Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
-ms.openlocfilehash: fbeadc3a8c947f673ca134e0daf8a0a1c1d68b80
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8a74bbffc487117aa38f541093961fa21450eaa4
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787506"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990061"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-active-directory-application-proxy"></a>Définition d’une page d’accueil personnalisée pour les applications publiées avec le Proxy d’application Azure Active Directory
 

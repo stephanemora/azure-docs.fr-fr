@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: e499813b8758ce77b18b87a2b331ff1a737ff590
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 5c9df61e7f4430a623f354294863b2a1bc06b7c8
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715060"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164276"
 ---
 # <a name="language-support-for-form-recognizer"></a>Prise en charge linguistique pour Form Recognizer
 
@@ -25,36 +25,45 @@ ms.locfileid: "129715060"
 
 ## <a name="layout-and-custom-model"></a>Disposition et modèle personnalisé
 
-Le modèle en préversion comprend toutes les améliorations apportées aux langues actuellement en disponibilité générale.
+Les listes suivantes couvrent les langues en GA (disponibilité générale) dans la version 2.1 ainsi que les nouvelles préversions de la préversion 3.0 de Form Recognizer. Ces langues sont prises en charge par les modèles de disposition et les modèles personnalisés. La préversion peut inclure des améliorations apportées aux langues en GA.
 
-### <a name="handwritten-text"></a>Texte manuscrit
+> [!NOTE]
+> **Code de langue facultatif**
+>
+> Les modèles universels basés sur le deep learning de Form Recognizer extraient tout le texte multilingue de vos documents, notamment les lignes de texte contenant plusieurs langues, et ne nécessitent pas la spécification d’un code de langue. N’indiquez pas de code de langue en tant que paramètre, sauf si vous êtes sûr de la langue et si vous souhaitez forcer le service à appliquer uniquement le modèle approprié. Sinon, le service pourrait retourner du texte incomplet et incorrect.
 
-|Langage| Code langue (facultatif) | version |
+Pour utiliser les langues en préversion dans les modèles de disposition et les modèles personnalisés, consultez le [guide de migration de l’API REST v3.0](/v3-migration-guide.md#changes-to-the-rest-api-endpoints) afin de comprendre les différences par rapport à l’API v2.1 en GA, puis accédez aux [guides de démarrage rapide du kit SDK v3.0 (préversion)](quickstarts/try-v3-python-sdk.md) et au [guide de démarrage rapide de l’API REST (préversion)](quickstarts/try-v3-rest-api.md).
+
+### <a name="handwritten-languages"></a>Langues manuscrites
+Le tableau suivant liste les langues manuscrites prises en charge par les fonctionnalités des modèles personnalisés et des modèles de disposition de Form Recognizer.
+
+|Langage| Code langue (facultatif) | Préversion ?  |
 |:-----|:----:|:----:|
 |Anglais|`en`||
-|Chinois (simplifié) |`zh-Hans`| (préversion)
-|Français |`fr`| (préversion)
-|Allemand |`de`| (préversion)
-|Italien|`it`| (préversion)
-|Portugais |`pt`| (préversion)
-|Espagnol |`es`| (préversion)
+|Chinois (simplifié) |`zh-Hans`| preview
+|Français |`fr`| preview
+|Allemand |`de`| preview
+|Italien|`it`| preview
+|Portugais |`pt`| preview
+|Espagnol |`es`| preview
 
-### <a name="print-text"></a>Texte imprimé
+### <a name="print-languages"></a>Langues d’impression
+Le tableau suivant liste les langues d’impression prises en charge par les fonctionnalités des modèles personnalisés et des modèles de disposition de Form Recognizer.
 
-|Langage| Code langue (facultatif) | version |
+|Langage| Code langue (facultatif) | Préversion ? |
 |:-----|:----:|:----:|
 |Afrikaans|`af`||
 |Albanais |`sq`||
 |Asturien |`ast`| |
-|Azerbaïdjanais (Latin) | `az` | (préversion) |
+|Azerbaïdjanais (Latin) | `az` | preview |
 |Basque  |`eu`| |
-|Biélorusse (cyrillique) | `be` | (préversion) |
-|Biélorusse (latin) | `be` | (préversion) |
+|Biélorusse (cyrillique) | `be` | preview |
+|Biélorusse (latin) | `be` | preview |
 |Bichelamar   |`bi`| |
-|Bosniaque (latin)   |`bs`|(préversion) |
+|Bosniaque (latin)   |`bs`| preview |
 |Breton    |`br`| |
-|Bulgare |`bg`|(préversion) |
-|Buryat (cyrillique)|`bua`| (préversion) |
+|Bulgare |`bg`| preview |
+|Buryat (cyrillique)|`bua`| preview |
 |Catalan    |`ca`| |
 |Cebuano    |`ceb`| |
 |Chamorro  |`ch`| |
@@ -63,31 +72,31 @@ Le modèle en préversion comprend toutes les améliorations apportées aux lang
 |Cornique     |`kw`| |
 |Corse      |`co`| |
 |Tatar de Crimée (latin)|`crh`| |
-|Croate |`hr`|(préversion) |
+|Croate |`hr`| preview |
 |Tchèque | `cs` | |
 |Danois | `da` | |
 |Néerlandais | `nl` | |
 |Anglais | `en` | |
-|Erzya (Cyrillique) |`myv`| (préversion) |
+|Erzya (Cyrillique) |`myv`| preview |
 |Estonien  |`et`|  |
-|Féroïen |`fo`| (préversion) |
+|Féroïen |`fo`| preview |
 |Fidjien |`fj`| |
 |Filipino  |`fil`| |
 |Finnois | `fi` | |
 |Français | `fr` | |
 |Frioulan  | `fur` | |
-|Gagauz (Latin) |`gag`|(préversion) |
+|Gagauz (Latin) |`gag`| preview |
 |Galicien   | `gl` | |
 |Allemand | `de` | |
 |Gilbertin    | `gil` | |
 |Groenlandais   | `kl` | |
 |Créole haïtien  | `ht` | |
 |Hani  | `hni` | |
-|Hawaïen |`haw`|(préversion) |
+|Hawaïen |`haw`| preview |
 |Hmong daw (latin)| `mww` | |
 |Hongrois | `hu` | |
-|Islandais |`is`| (préversion) |
-|Inari Sami |`smn`|(préversion) |
+|Islandais |`is`| preview |
+|Inari Sami |`smn`| preview |
 |Indonésien   | `id` | |
 |Interlingua  | `ia` | |
 |Inuktitut (Latin) | `iu` | |
@@ -98,69 +107,69 @@ Le modèle en préversion comprend toutes les améliorations apportées aux lang
 |Quiché  | `quc` | |
 |Créole du Cap-Vert | `kea` | |
 |Kachin (latin) | `kac` | |
-|Karachay-Balkar |`krc`|(préversion) |
+|Karachay-Balkar |`krc`| preview |
 |Kara-Kalpak (Latin) | `kaa` | |
-|Kara-Kalpak (Cyrillique) | `kaa-cyrl` | (préversion) |
+|Kara-Kalpak (Cyrillique) | `kaa-cyrl` | preview |
 |Cachoube | `csb` | |
-|Kazakh (Cyrillique) |`kk-cyrl`| (préversion) |
-|Kazakh (Latin) |`kk-latn`| (préversion) |
+|Kazakh (Cyrillique) |`kk-cyrl`| preview |
+|Kazakh (Latin) |`kk-latn`| preview |
 |Khasi  | `kha` |  |
 |Coréen | `ko` | |
-|Koryak |`kpy`| (préversion) |
-|Kosrae |`kos`| (préversion) |
-|Kumyk (Cyrillique) |`kum`| (préversion) |
+|Koryak |`kpy`| preview |
+|Kosrae |`kos`| preview |
+|Kumyk (Cyrillique) |`kum`| preview |
 |Kurde (latin)| `kur` | |
-|Kirghiz (cyrillique) |`ky`| (préversion) |
-|Lakota |`lkt`| (préversion) |
-|Latin|`la`| (préversion) |
-|Lituanien|`lt`| (préversion) |
-|Bas sorabe|`dsb`| (préversion) |
-|Lule Sami|`smj`| (préversion) |
+|Kirghiz (cyrillique) |`ky`| preview |
+|Lakota |`lkt`| preview |
+|Latin|`la`| preview |
+|Lituanien|`lt`| preview |
+|Bas sorabe|`dsb`| preview |
+|Lule Sami|`smj`| preview |
 |Luxembourgeois  | `lb` |  |
 |Malais (latin) | `ms` |  |
-|Maltais|`mt`| (préversion) |
+|Maltais|`mt`| preview |
 |Mannois  | `gv` |  |
-|Maori|`mi`| (préversion) |
-|Mongole (cyrillique)|`mn`|(préversion) |
-|Monténégrin (cyrillique)|`cnr-cyrl`|(préversion) |
-|Montenegrin (latin)|`cnr-latn`| (préversion) |
+|Maori|`mi`| preview |
+|Mongole (cyrillique)|`mn`| preview |
+|Monténégrin (cyrillique)|`cnr-cyrl`| preview |
+|Montenegrin (latin)|`cnr-latn`| preview |
 |Napolitain   | `nap` | |
-|Niué|`niu`|(préversion) |
-|Nogay|`nog`| (préversion) |
-|Same du Nord (latin)|`sme`|(préversion) |
+|Niué|`niu`| preview |
+|Nogay|`nog`| preview |
+|Same du Nord (latin)|`sme`| preview |
 |Norvégien | `no` |  |
 |Occitan | `oc` | |
-|Ossète|`os`| (préversion) |
+|Ossète|`os`| preview |
 |Polonais | `pl` | |
 |Portugais | `pt` | |
-|Francique ripuaire|`ksh`| (préversion) |
-|Roumain | `ro` | (préversion)|
+|Francique ripuaire|`ksh`| preview |
+|Roumain | `ro` | preview |
 |Romanche  | `rm` | |
-|Russe | `ru` | (préversion) |
-|Samoan (latin)|`sm`| (préversion) |
+|Russe | `ru` | preview |
+|Samoan (latin)|`sm`| preview |
 |Scots  | `sco` | |
 |Gaélique écossais  | `gd` | |
-|Serbe (latin) | `sr-latn` | (préversion) |
-|Same de Skolt|`sms`| (préversion) |
-|Slovaque | `sk` | (préversion) |
+|Serbe (latin) | `sr-latn` | preview |
+|Same de Skolt|`sms`| preview |
+|Slovaque | `sk` | preview |
 |Slovène  | `slv` | |
-|Same du Sud|`sma`|(préversion) |
+|Same du Sud|`sma`| preview |
 |Espagnol | `es` | |
 |Swahili (latin)  | `sw` | |
 |Suédois | `sv` | |
-|Tadjik (cyrillique)|`tg`|(préversion) |
+|Tadjik (cyrillique)|`tg`| preview |
 |Tatar (latin)  | `tat` | |
 |Tétoum    | `tet` |  |
 |Tonga|`to`|(préversion) |
 |Turc | `tr` | |
-|Turkmène (latin)|`tk`| (préversion) |
-|Touvain|`tyv`| (préversion) |
+|Turkmène (latin)|`tk`| preview |
+|Touvain|`tyv`| preview |
 |Haut sorabe  | `hsb` | |
 |Ouzbek (cyrillique)  | `uz-cyrl` |  |
 |Ouzbek (latin)     | `uz` |  |
 |Volapük   | `vo` | |
 |Haut-valaisan    | `wae` |  |
-|Gallois     | `cy` | (préversion) |
+|Gallois     | `cy` | preview |
 |Frison occidental | `fy` |  |
 |Yucatec Maya | `yua` |  |
 |Zhuang | `za` | |

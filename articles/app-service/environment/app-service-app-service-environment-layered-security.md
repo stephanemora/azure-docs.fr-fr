@@ -1,18 +1,18 @@
 ---
 title: Sécurité en couche v1
 description: Découvrez comment implémenter une architecture de sécurité en couche dans votre environnement App Service. Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
-author: stefsch
+author: madsd
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
 ms.date: 08/30/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 813160ee19c8447fdfcb705e7a9162a41a0c308c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d2245cc7557b7f5d6c6c392957fe0ef817975c53
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739506"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001672"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implémentation d’une architecture de sécurité en couche avec les environnements App Service
 Dans la mesure où les environnements App Service fournissent un environnement d’exécution isolé déployé dans un réseau virtuel, les développeurs peuvent créer une architecture de sécurité en couche offrant différents niveaux d’accès réseau pour chaque couche application physique.

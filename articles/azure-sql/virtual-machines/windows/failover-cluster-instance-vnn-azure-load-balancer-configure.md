@@ -3,7 +3,7 @@ title: Configurer Azure Load Balancer, une instance de cluster de basculement VN
 description: Apprenez à configurer un Azure Load Balancer pour acheminer le trafic vers le nom de réseau virtuel (VNN) de votre instance de cluster de basculement (FCI) avec Microsoft SQL Server sur les machines virtuelles Azure pour la haute disponibilité et la récupération d’urgence (HADR).
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 66b762cac767987a1ea2cf74b9e706e7a7939d51
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 327c030708f37bffab05aa72884422a487b6b729
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563397"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166940"
 ---
 # <a name="configure-azure-load-balancer-for-an-fci-vnn"></a>Configurer Azure Load Balancer pour un VNN FCI
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -273,7 +273,7 @@ Pour en savoir plus, consultez :
 
 - [Cluster de basculement Windows Server avec SQL Server sur des machines virtuelles Azure](hadr-windows-server-failover-cluster-overview.md)
 - [Instances de cluster de basculement avec SQL Server sur des machines virtuelles Azure](failover-cluster-instance-overview.md)
-- [Vue d’ensemble d’une instance de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Vue d’ensemble des instances de cluster de basculement](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 - [Paramètres HADR pour SQL Server sur les machines virtuelles Azure](hadr-cluster-best-practices.md)
 
 

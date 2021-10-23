@@ -8,14 +8,14 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
-ms.openlocfilehash: be8c322bafb5dfaf3fadecfadfd5f9b1ec9a95f1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: eac0244393bb3fe8ef2291d27e9dab33563523b2
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124804081"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166734"
 ---
-# <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Préversion : modes d’orchestration pour les groupes de machines virtuelles identiques dans Azure
+# <a name="orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Modes d’orchestration pour les groupes de machines virtuelles identiques dans Azure
 
 
 **S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
@@ -45,14 +45,12 @@ Avec l’orchestration Flexible, Azure offre une expérience unifiée sur tout l
 - Services cherchant à combiner différents types de machines virtuelles ou à tirer parti à la fois de machines virtuelles spot et à la demande
 - Applications d’un groupe à haute disponibilité existant
 
-> [!IMPORTANT]
-> Les groupes de machines virtuelles identiques en mode d’orchestration Flexible sont actuellement en préversion publique. Une procédure de consentement est requise pour utiliser la fonctionnalité en préversion publique décrite ci-dessous.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## <a name="what-has-changed-with-flexible-orchestration-mode"></a>Quels changements le mode d’orchestration Flexible apporte-t-il ?
-L’un des principaux avantages de l’orchestration Flexible est qu’elle fournit des fonctionnalités d’orchestration sur des machines virtuelles Azure IaaS standard et non sur des machines virtuelles enfants de groupe identique. Vous pouvez donc utiliser toutes les API de machine virtuelle standard pour la gestion d’instances avec orchestration Flexible, plutôt que les API de machine virtuelle VMSS que vous utilisez avec l’orchestration Uniform. Pendant la période de préversion, la gestion des instances avec une orchestration Flexible et une orchestration Uniform diffère par plusieurs points. D’une manière générale, nous vous recommandons d’utiliser les API de machine virtuelle Azure IaaS standard dans la mesure du possible. Cette section met en avant des exemples de bonnes pratiques pour la gestion des instances de machine virtuelle avec une orchestration Flexible.
+L’un des principaux avantages de l’orchestration Flexible est qu’elle fournit des fonctionnalités d’orchestration sur des machines virtuelles Azure IaaS standard et non sur des machines virtuelles enfants de groupe identique. Vous pouvez donc utiliser toutes les API de machine virtuelle standard pour la gestion d’instances avec orchestration Flexible, plutôt que les API de machine virtuelle VMSS que vous utilisez avec l’orchestration Uniform. La gestion des instances avec une orchestration Flexible et celle avec une orchestration Uniform diffèrent sur plusieurs points. D’une manière générale, nous vous recommandons d’utiliser les API de machine virtuelle Azure IaaS standard dans la mesure du possible. Cette section met en avant des exemples de bonnes pratiques pour la gestion des instances de machine virtuelle avec une orchestration Flexible.
+
+### <a name="scale-out-with-standard-azure-virtual-machines"></a>Effectuer un scale-out avec des machines virtuelles Azure standard
+Les groupes de machines virtuelles identiques en mode d’orchestration Flexible gèrent les machines virtuelles Azure standard. Vous avez un contrôle total sur le cycle de vie des machines virtuelles, ainsi que sur les interfaces réseau et les disques, grâce aux commandes et aux API Azure standard. Les machines virtuelles créées avec le mode d’orchestration Uniform sont exposées et gérées via les commandes de l’API de machine virtuelle du groupe de machines virtuelles identiques. Les instances individuelles ne sont pas compatibles avec les commandes d’API de machine virtuelle Azure IaaS standard, les fonctionnalités de gestion Azure telles que les autorisations RBAC d’étiquetage des ressources d’Azure Resource Manager et les services Sauvegarde Azure et Azure Site Recovery.
 
 ### <a name="assign-fault-domain-during-vm-creation"></a>Attribuer un domaine d’erreur au moment de la création de la machine virtuelle
 Vous pouvez choisir le nombre de domaines d’erreur pour le groupe identique avec orchestration Flexible. Par défaut, quand vous ajoutez une machine virtuelle à un groupe identique Flexible, Azure répartit uniformément les instances entre les domaines d’erreur. Il est recommandé de laisser Azure attribuer le domaine d’erreur. Cependant, pour des scénarios avancés ou de dépannage, vous pouvez remplacer ce comportement par défaut et spécifier le domaine d’erreur auquel appartiendra l’instance.
@@ -80,7 +78,7 @@ L’interrogation des ressources avec [Azure Resource Graph](../governance/resou
 - Utiliser l’option de développement pour récupérer la vue d’instance (attribution de domaine d’erreur, états d’alimentation et de provisionnement) pour toutes les machines virtuelles de votre abonnement.
 - Utiliser les commandes et l’API de machine virtuelle Get pour obtenir un modèle et une vue d’instance pour une seule instance.
 
-### <a name="scale-sets-vm-batch-operations"></a>Opérations de traitement par lots de machines virtuelles de groupe identique
+### <a name="scale-sets-vm-batch-operations"></a>Opérations de traitement par lots des machines virtuelles de groupe identique
 Utilisez les commandes de machine virtuelle standard pour démarrer, arrêter, redémarrer et supprimer des instances, plutôt que les API de machine virtuelle VMSS. Les opérations de traitement par lots de machine virtuelle VMSS (tout démarrer, tout arrêter, tout réinitialiser, etc.) ne sont pas utilisées avec le mode d’orchestration Flexible.
 
 ### <a name="monitor-application-health"></a>Superviser l’intégrité de l’application
@@ -99,44 +97,77 @@ Utilisez les extensions ciblant les machines virtuelles standard plutôt que cel
 ## <a name="a-comparison-of-flexible-uniform-and-availability-sets"></a>Comparaison du mode d’orchestration Flexible, du mode d’orchestration Uniform et des groupes à haute disponibilité
 Le tableau suivant compare le mode d’orchestration Flexible, le mode d’orchestration Uniform et les groupes à haute disponibilité selon leurs fonctionnalités.
 
-| Fonctionnalité  | Prise en charge par l’orchestration Flexible (préversion)  | Prise en charge par l’orchestration Uniform (disponibilité générale)  | Prise en charge par les groupes à haute disponibilité (disponibilité générale)  |
-|-|-|-|-|
-| Type de machine virtuelle  | Machine virtuelle Azure IaaS standard (Microsoft.compute /virtualmachines)  | Machines virtuelles spécifiques d’un groupe identique (Microsoft.compute /virtualmachinescalesets/virtualmachines)  | Machine virtuelle Azure IaaS standard (Microsoft.compute /virtualmachines)  |
-| Références SKU prises en charge  | Série D, Série E, Série F, Série A, Série B, Intel, AMD  | Toutes les références SKU  | Toutes les références SKU  |
-| Zones de disponibilité  | Vous pouvez spécifier toutes les instances appartenant à une même zone de disponibilité  | Spécifiez des instances appartenant à 1, 2 ou 3 zones de disponibilité  | Non prise en charge  |
-| Domaine d’erreur – Diffusion maximale (Azure va diffuser les instances au maximum)  | Oui  | Oui  | Non  |
-| Domaine d’erreur – Diffusion fixe  | 2 ou 3 domaines (en fonction du maximum régional) ; 1 pour les déploiements zonaux  | 2, 3 ou 5 domaines ; 1 ou 5 pour les déploiements zonaux  | 2 ou 3 domaines (en fonction du maximum régional)  |
-| Mettre à jour les domaines  | Déconseillé, maintenance de plateforme effectuée domaine par domaine | 5 domaines de mise à jour  | Jusqu’à 20 domaines de mise à jour  |
-| Contrat SLA de disponibilité  | Pas à l'heure actuelle  | 99,95 % pour les domaines comprenant plus d’un groupe de placement unique ; 99,99 % pour les instances réparties sur plusieurs zones  | 99,95 %  |
+### <a name="basic-setup"></a>Configuration de base
+| Fonctionnalité | Prise en charge par l’orchestration Flexible pour les groupes identiques | Prise en charge par l’orchestration Uniform pour les groupes identiques | Prise en charge par les groupes à haute disponibilité |
+|---|---|---|---|
+| Type de machine virtuelle  | Machine virtuelle Azure IaaS standard (Microsoft.compute/virtualmachines)  | Machines virtuelles propres aux groupes identiques (Microsoft.compute/virtualmachinescalesets/virtualmachines)  | Machine virtuelle Azure IaaS standard (Microsoft.compute/virtualmachines) |
+| Nombre maximal d’instances (avec garanties de domaine d’erreur)  | 1 000  | 100  | 200 |
+| Références SKU prises en charge  | Série D, série E, série F, série A, série B, Intel, AMD ; les références SKU de spécialité (G, H, L, M, N) ne sont pas prises en charge | Toutes les références SKU  | Toutes les références SKU |
 | Contrôle total sur la machine virtuelle, les cartes réseau et les disques  | Oui  | Contrôle limité avec l’API de machine virtuelle de groupes de machines virtuelles identiques (VMSS)  | Oui  |
-| Mise à l’échelle automatique (manuelle, basée sur des métriques, basée sur une planification)  | Oui  | Oui  | Non  |
-| Attribuer une machine virtuelle à un domaine d’erreur spécifique  | Oui  | Non  | Non  |
-| Supprimer automatiquement les cartes réseau et les disques lors de la suppression d’instances de machine virtuelle  | Oui  | Oui  | Non  |
-| Stratégie de mise à niveau (groupes de machines virtuelles identiques)  | Non, la stratégie de mise à niveau doit être null ou [] lors de la création  | Automatique, propagée, manuelle  | N/A  |
-| Mises à jour automatiques du système d’exploitation basées sur une image  | Non  | Oui  | N/A  |
-| Mise à jour corrective de sécurité intégrée (« in-guest »)  | Oui  | Non  | Oui  |
-| Notifications d’arrêt (groupes de machines virtuelles identiques)  | Oui  | Oui  | N/A  |
-| Réparation d’instance (groupes de machines virtuelles identiques)  | Oui  | Oui  | N/A  |
-| Mise en réseau accélérée  | Non  | Oui  | Oui  |
-| Instances spot et tarifs   | Oui, vous pouvez avoir des instances spot et des instances à priorité normale  | Oui, les instances doivent être toutes des instances spot ou toutes des instances normales  | Non, des instances à priorité normale uniquement  |
-| Différents systèmes d’exploitation  | Oui, Linux et Windows peuvent résider dans le même groupe identique Flexible  | Non, les instances ont le même système d’exploitation  | Oui, Linux et Windows peuvent résider dans le même groupe identique Flexible  |
-| Supervision de l’intégrité de l’application  | Extension Intégrité de l’application  | Extension Intégrité de l’application ou sonde Azure Load Balancer  | Extension Intégrité de l’application  |
-| Disques UltraSSD   | Oui  | Oui, pour les déploiements zonaux uniquement  | Non  |
-| Infiniband   | Non  | Oui, groupe de placement unique seulement  | Oui  |
-| Accélérateur d’écriture   | Non  | Oui  | Oui  |
-| Groupes de placement de proximité   | Oui  | Oui  | Oui  |
-| Hôtes dédiés Azure   | Non  | Oui  | Oui  |
-| Équilibreur de charge logiciel De base   | Non  | Oui  | Oui  |
-| Azure Load Balancer - SKU Standard  | Oui  | Oui  | Oui  |
-| Application Gateway  | Oui  | Oui  | Oui  |
-| Contrôle de la maintenance   | Non  | Oui  | Oui  |
-| Liste des machines virtuelles d’un groupe  | Oui  | Oui  | Oui, liste des machines virtuelles d’un groupe à haute disponibilité  |
-| Alertes Azure  | Non  | Oui  | Oui  |
-| Insights de machine virtuelle  | Non  | Oui  | Oui  |
-| Sauvegarde Azure  | Oui  | Non  | Oui  |
-| Azure Site Recovery  | Oui (via PowerShell)  | Non  | Oui  |
-| Service Fabric  | Non  | Oui  | Non  |
-| Azure Kubernetes Service (AKS) / AKE  | Non  | Oui  | Non  |
+| Autorisations RBAC nécessaires  | Écriture sur des VMSS de calcul, écriture sur des machines virtuelles de calcul, réseau | Écriture sur des VMSS de calcul  | N/A |
+| Mise en réseau accélérée  | Oui  | Oui  | Oui |
+| Instances spot et tarifs   | Oui, vous pouvez avoir des instances spot et des instances à priorité normale  | Oui, les instances doivent être toutes des instances spot ou toutes des instances normales  | Non, des instances à priorité normale uniquement |
+| Différents systèmes d’exploitation  | Oui, Linux et Windows peuvent résider dans le même groupe identique Flexible  | Non, les instances ont le même système d’exploitation  | Oui, Linux et Windows peuvent résider dans le même groupe identique Flexible |
+| Types de disques  | Disques managés uniquement, tous les types de stockage  | Disques managés et non managés, tous les types de stockage  | Disques managés et non managés, Ultradisk non pris en charge |
+| Accélérateur d’écriture   | Non  | Oui  | Oui |
+| Groupes de placement de proximité   | Oui, lisez la [Documentation sur les groupes de placement de proximité](../virtual-machine-scale-sets/proximity-placement-groups.md) | Oui, lisez la [Documentation sur les groupes de placement de proximité](../virtual-machine-scale-sets/proximity-placement-groups.md) | Oui |
+| Hôtes dédiés Azure   | Non  | Oui  | Oui |
+| Identité managée  | Identité affectée par l’utilisateur uniquement  | Affectée par le système ou par l’utilisateur  | N/A (peut spécifier une identité managée pour chaque instance) |
+| Ajout d’une machine virtuelle existante à un groupe/suppression du groupe  | Non  | Non  | Non |
+| Service Fabric  | Non  | Oui  | Non |
+| Pool de nœuds Azure Kubernetes Service (AKS)/AKE/k8s  | Non  | Oui  | Non |
+| UserData  | Partielle. UserData peut être spécifié pour chaque machine virtuelle | Oui  | UserData peut être spécifié pour chaque machine virtuelle |
+
+
+### <a name="autoscaling-and-instance-orchestration"></a>Mise à l’échelle automatique et orchestration des instances
+| Fonctionnalité | Prise en charge par l’orchestration Flexible pour les groupes identiques | Prise en charge par l’orchestration Uniform pour les groupes identiques | Prise en charge par les groupes à haute disponibilité |
+|---|---|---|---|
+| Liste des machines virtuelles d’un groupe | Oui | Oui | Oui, liste des machines virtuelles d’un groupe à haute disponibilité |
+| Mise à l’échelle automatique (manuelle, basée sur des métriques, basée sur une planification) | Oui | Oui | Non |
+| Supprimer automatiquement les cartes réseau et les disques lors de la suppression d’instances de machine virtuelle | Oui | Oui | Non |
+| Stratégie de mise à niveau (groupes de machines virtuelles identiques) | Non, la stratégie de mise à niveau doit être null ou [] lors de la création | Automatique, propagée, manuelle | N/A |
+| Mises à jour automatiques de système d’exploitation (groupes de machines virtuelles identiques) | Non | Oui | N/A |
+| Mise à jour corrective de sécurité intégrée (« in-guest ») | Oui | Non | Oui |
+| Notifications d’arrêt (groupes de machines virtuelles identiques) | Oui, lisez la [Documentation sur les notifications d’arrêt](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | Oui, lisez la [Documentation sur les notifications d’arrêt](../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md) | N/A |
+| Supervision de l’intégrité de l’application | Extension Intégrité de l’application | Extension Intégrité de l’application ou sonde Azure Load Balancer | Extension Intégrité de l’application |
+| Réparation d’instance (groupes de machines virtuelles identiques) | Oui, lisez la [documentation sur la réparation d’instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | Oui, lisez la [documentation sur la réparation d’instance](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md) | N/A |
+| Protection des instances | Non, utilisez des [verrous de ressource Azure](../azure-resource-manager/management/lock-resources.md) | Oui | Non |
+| Stratégie de scale-in | Non | Oui | Non |
+| VMSS - Obtenir une vue d’instance | Non | Oui | N/A |
+| Opérations de traitement par lots de machines virtuelles (Tout démarrer, Tout arrêter, supprimer un sous-ensemble, etc.) | Non (peut déclencher des opérations sur chaque instance à l’aide de l’API de machine virtuelle) | Oui | Non |
+
+### <a name="high-availability"></a>Haute disponibilité 
+
+| Fonctionnalité | Prise en charge par l’orchestration Flexible pour les groupes identiques | Prise en charge par l’orchestration Uniform pour les groupes identiques | Prise en charge par les groupes à haute disponibilité |
+|---|---|---|---|
+| Contrat SLA de disponibilité | 99,95 % pour les instances réparties sur plusieurs domaines d’erreur ; 99,99 % pour les instances réparties sur plusieurs zones | 99,95 % pour les domaines comprenant plus d’un groupe de placement unique ; 99,99 % pour les instances réparties sur plusieurs zones | 99,95 % |
+| Zones de disponibilité | Spécifiez des instances appartenant à 1, 2 ou 3 zones de disponibilité | Spécifiez des instances appartenant à 1, 2 ou 3 zones de disponibilité | Non prise en charge |
+| Affecter une machine virtuelle à une zone de disponibilité spécifique | Oui | Non | Non |
+| Domaine d’erreur – Diffusion maximale (Azure va diffuser les instances au maximum) | Oui | Oui | Non |
+| Domaine d’erreur – Diffusion fixe | 2 ou 3 domaines d’erreur (en fonction du nombre maximal de domaines d’erreur par région), 1 pour les déploiements zonaux | 2, 3 ou 5 domaines ; 1 ou 5 pour les déploiements zonaux | 2 ou 3 domaines d’erreur (en fonction du nombre maximal par région) |
+| Attribuer une machine virtuelle à un domaine d’erreur spécifique | Oui | Non | Non |
+| Mettre à jour les domaines | Déprécié (maintenance de plateforme effectuée domaine d’erreur par domaine d’erreur) | 5 domaines de mise à jour | Jusqu’à 20 domaines de mise à jour |
+| Effectuer la maintenance | Déclencher la maintenance sur chaque instance à l’aide de l’API de machine virtuelle | Oui | N/A |
+
+### <a name="networking"></a>Mise en réseau 
+
+| Fonctionnalité | Prise en charge par l’orchestration Flexible pour les groupes identiques | Prise en charge par l’orchestration Uniform pour les groupes identiques | Prise en charge par les groupes à haute disponibilité |
+|---|---|---|---|
+| Connectivité sortante par défaut | Non, doit avoir une [connectivité sortante explicite](../virtual-network/ip-services/default-outbound-access.md) | Oui | Oui |
+| Azure Load Balancer - SKU Standard | Oui | Oui | Oui |
+| Application Gateway | Oui | Oui | Oui |
+| Réseau InfiniBand | Non | Oui, groupe de placement unique seulement | Oui |
+| Équilibreur de charge logiciel De base | Non | Oui | Oui |
+| Transfert de port réseau | Oui (règles NAT pour chaque instance) | Oui (pool NAT) | Oui (règles NAT pour chaque instance) |
+
+### <a name="backup-and-recovery"></a>Sauvegarde et récupération 
+
+| Fonctionnalité | Prise en charge par l’orchestration Flexible pour les groupes identiques | Prise en charge par l’orchestration Uniform pour les groupes identiques | Prise en charge par les groupes à haute disponibilité |
+|---|---|---|---|
+| Sauvegarde Azure  | Oui | Non | Oui |
+| Azure Site Recovery | Oui (via PowerShell) | Non | Oui |
+| Alertes Azure  | Oui | Oui | Oui |
+| Insights de machine virtuelle  | Peut être installé sur chaque machine virtuelle | Oui | Oui |
 
 
 ## <a name="get-started-with-flexible-orchestration-mode"></a>Démarrer avec le mode d’orchestration Flexible
@@ -154,50 +185,16 @@ Inscrivez-vous et commencez à utiliser le [Mode d’orchestration flexible](..\
 
     | Attribut de disponibilité  | Orchestration Flexible  | Orchestration Uniform  | Groupes à haute disponibilité  |
     |-|-|-|-|
-    | Déploiement entre plusieurs zones de disponibilité  | Non  | Oui  | Non  |
+    | Déploiement entre plusieurs zones de disponibilité  | Oui  | Oui  | Non  |
     | Garanties de disponibilité de domaine d’erreur au sein d’une région  | Oui, jusqu’à 1 000 instances peuvent être réparties sur un maximum de 3 domaines d’erreur dans la région. Le nombre maximal de domaines d’erreur varie selon la région  | Oui, jusqu’à 100 instances  | Oui, jusqu’à 200 instances  |
     | Groupes de placement  | Le mode Flexible utilise toujours plusieurs groupes de placement (singlePlacementGroup = false)  | Vous pouvez choisir un groupe de placement unique ou plusieurs groupes de placement | N/A  |
     | Domaines de mise à jour  | Aucun. La maintenance et les mises à jour de l’ordinateur hôte sont effectuées domaine d’erreur par domaine d’erreur  | Jusqu’à 5 domaines de mise à jour  | Jusqu’à 20 domaines de mise à jour  |
 
 - **Quel est le nombre maximal absolu d’instances avec une disponibilité garantie de domaine d’erreur ?**
 
-    | Fonctionnalité  | Prise en charge par l’orchestration Flexible (préversion)  | Prise en charge par l’orchestration Uniform (disponibilité générale)  | Prise en charge par les groupes à haute disponibilité (disponibilité générale)  |
+    | Fonctionnalité  | Prise en charge par l’orchestration Flexible  | Prise en charge par l’orchestration Uniform (disponibilité générale)  | Prise en charge par les groupes à haute disponibilité (disponibilité générale)  |
     |-|-|-|-|
     | Nombre maximal d’instances (avec garantie de disponibilité de domaine d’erreur)  | 1 000  | 3000  | 200  |
-
-## <a name="troubleshoot-scale-sets-with-flexible-orchestration"></a>Résoudre les problèmes de groupes identiques avec orchestration Flexible
-Trouvez la solution adaptée à votre scénario de dépannage.
-
-```
-InvalidParameter. The value 'False' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: True
-```
-
-**Cause :** L’abonnement n’est pas inscrit à la préversion publique du mode d’orchestration Flexible.
-
-**Solution :** Suivez les instructions plus haut pour inscrire l’abonnement à la préversion publique du mode d’orchestration Flexible.
-
-```
-InvalidParameter. The specified fault domain count 2 must fall in the range 1 to 1.
-```
-
-**Cause :** Le paramètre `platformFaultDomainCount` n’est pas valide pour la région ou la zone sélectionnée.
-
-**Solution :** Sélectionnez une valeur `platformFaultDomainCount` valide. Pour les déploiements zonaux, la valeur `platformFaultDomainCount` maximale est 1. Pour les déploiements régionaux où aucune zone n’est spécifiée, la valeur `platformFaultDomainCount` maximale varie selon la région. Consultez les scripts de l’article [Gestion de la disponibilité des machines virtuelles](../virtual-machines/availability.md) pour déterminer le nombre maximal de domaines d’erreur par région.
-
-```
-OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.
-```
-
-**Cause :** Tentative de suppression d’un groupe identique en mode d’orchestration Flexible associé à une ou plusieurs machines virtuelles.
-
-**Solution :** Supprimez toutes les machines virtuelles associées au groupe identique en mode d’orchestration Flexible. Vous pourrez alors supprimer le groupe identique.
-
-```
-InvalidParameter. The value 'True' of parameter 'singlePlacementGroup' is not allowed. Allowed values are: False.
-```
-**Cause :** L’abonnement est inscrit à la préversion du mode d’orchestration Flexible, mais le paramètre `singlePlacementGroup` a la valeur *True*.
-
-**Solution :** Le paramètre `singlePlacementGroup` doit être défini sur *False*.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

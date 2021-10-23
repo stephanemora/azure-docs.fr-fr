@@ -40,8 +40,8 @@
       href: tutorial-manual-failover.md
     - name: Configurer vos appareils
       href: tutorial-device-twins.md
-    - name: Gérer les mises à jour de microprogramme
-      href: tutorial-firmware-update.md
+    - name: Gérer les mises à jour des appareils
+      href: ../iot-hub-device-update/device-update-raspberry-pi.md
     - name: Connectivité des appareils de test
       href: tutorial-connectivity.md
     - name: Visualisation des données dans Power BI

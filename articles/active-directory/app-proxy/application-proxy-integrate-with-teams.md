@@ -3,7 +3,7 @@ title: Accès aux applications Proxy d’application Azure Active Directory dans
 description: Utilisez le Proxy d’application Azure Active Directory pour accéder à votre application locale avec Microsoft Teams.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: harshja
-ms.openlocfilehash: ff79c1f6f1e646ef6261769a9bb6c10b0e696688
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: d609e7e6fdebd6d4329989d325e76390ccc684f2
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229866"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989149"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams-with-azure-active-directory-application-proxy"></a>Accès à des applications locales par Microsoft Teams avec le Proxy d’application Azure Active Directory
 

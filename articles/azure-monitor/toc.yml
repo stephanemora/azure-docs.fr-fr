@@ -151,8 +151,6 @@
           href: alerts/alerts-unified-log.md
         - name: Alertes de journal d’activité
           href: alerts/activity-log-alerts.md
-    - name: Visualiser les données
-      href: visualizations.md
     - name: Intégrations des partenaires
       href: partners.md
     - name: Sécurité
@@ -166,6 +164,18 @@
   items:
     - name: Scénarios
       items:
+        - name: Bonnes pratiques Azure Monitor
+          items:
+            - name: Vue d’ensemble
+              href: best-practices.md
+            - name: Planification
+              href: best-practices-plan.md
+            - name: Configurer la collecte de données
+              href: best-practices-data-collection.md
+            - name: Analyse et visualisations
+              href: best-practices-analysis.md
+            - name: Alertes et actions automatisées
+              href: best-practices-alerts.md
         - name: Superviser une ressource azure
           href: essentials/monitor-azure-resource.md
         - name: Surveillance des machines virtuelles
@@ -185,13 +195,6 @@
           displayname: VM
         - name: Surveiller Kubernetes
           href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-    - name: Déployer
-      items:
-        - name: Déployer Azure Monitor
-          href: deploy.md
-        - name: Déployer à l’échelle
-          displayName: 'Azure Policy, Policy'
-          href: deploy-scale.md
     - name: Gérer et configurer
       items:
         - name: Sécurité et autorisations des rôles
@@ -402,9 +405,6 @@
             - name: Collecte des données
               displayname: 'data collection rule,Azure Monitor agent'
               href: agents/data-collection-rule-azure-monitor-agent.md
-            - name: Déployer à l’échelle
-              displayname: Deploy Azure Monitor agent at scale
-              href: deploy-scale.md#azure-monitor-agent
             - name: Migrer à partir d’anciens agents
               displayname: Migrate to Azure Monitor agent
               href: agents/azure-monitor-agent-migration.md

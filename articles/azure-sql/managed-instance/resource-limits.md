@@ -12,12 +12,12 @@ author: vladai78
 ms.author: vladiv
 ms.reviewer: mathoma, vladiv, sachinp
 ms.date: 09/28/2021
-ms.openlocfilehash: 86b823ca368223c2d789ff651fe831b76bbd5c58
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: c399b5eb082c8521ba14996bef035f9ea94371c3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129613374"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041706"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -73,8 +73,8 @@ SQL Managed Instance a deux niveaux de service : [Usage général](../database/
 | Taille de base de données maximale | Jusqu’à la taille d’instance actuellement disponible (maximum 2 To - 8 To, 16 To (préversion) en fonction du nombre de vCores). | Jusqu’à la taille d’instance actuellement disponible (maximum 1-4 To en fonction du nombre de vCores). |
 | Taille maximale de tempDB | Limitée à 24 Go/vCore (96-1920 Go) et à la taille de stockage d’instance actuellement disponible.<br/>Ajoutez plus de vCores pour obtenir davantage d’espace TempDB.<br/> La taille du fichier journal est limitée à 120 Go.| Jusqu’à la taille de stockage d’instance actuellement disponible. |
 | Nombre maximal de bases de données par instance | 100 bases de données utilisateur, sauf si la limite de taille de stockage d’instance a été atteinte. | 100 bases de données utilisateur, sauf si la limite de taille de stockage d’instance a été atteinte. |
-| Nombre maximal de fichiers de base de données par instance | Jusqu’à 280, sauf si la limite de taille de stockage d’instance ou d’[espace d’allocation de stockage sur disque Premium Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) a été atteinte. | 32 767 fichiers par base de données, sauf si la limite de taille de stockage d’instance a été atteinte. |
-| Taille maximale du fichier de données | Limitée à la taille de stockage d’instance actuellement disponible (maximum 2-8 To) et à l’[espace d’allocation de stockage sur disque Premium Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). Utilisez au moins deux fichiers de données pour les bases de données de plus de 8 To. | Limitée à la taille de stockage d’instances actuellement disponible (jusqu’à 1-4 To). |
+| Nombre maximal de fichiers de base de données par instance | Jusqu’à 280, sauf si la limite de taille de stockage d’instance ou d’[espace d’allocation de stockage sur disque Premium Azure](doc-changes-updates-known-issues.md#exceeding-storage-space-with-small-database-files) a été atteinte. | 32 767 fichiers par base de données, sauf si la limite de taille de stockage d’instance a été atteinte. |
+| Taille maximale du fichier de données | Limitée à la taille de stockage d’instance actuellement disponible (maximum 2-8 To) et à l’[espace d’allocation de stockage sur disque Premium Azure](doc-changes-updates-known-issues.md#exceeding-storage-space-with-small-database-files). Utilisez au moins deux fichiers de données pour les bases de données de plus de 8 To. | Limitée à la taille de stockage d’instances actuellement disponible (jusqu’à 1-4 To). |
 | Taille maximale du fichier journal | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. |
 | IOPS de données/journal (approximatives) | Jusqu’à 30-40 K IOPS par instance*, 500-7500 par fichier<br/>\*[Augmentez la taille de fichier pour obtenir davantage d’IOPS](#file-io-characteristics-in-general-purpose-tier)| 16 000 à 320 000 (4 000 IOPS/vCore)<br/>Ajoutez plus de vCores pour obtenir de meilleures performances d’E/S. |
 | Limite du débit d’écriture du journal (par instance) | 3 Mo/s par vCore<br/>120 Mo/s max. par instance<br/>22 à 65 Mo/s par base de données<br/>\*[Augmentez la taille de fichier pour obtenir de meilleures performances d’E/S](#file-io-characteristics-in-general-purpose-tier) | 4 Mo/s par vCore<br/>96 Mo/s max. |

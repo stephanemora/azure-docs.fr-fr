@@ -3,15 +3,15 @@ title: Comment configurer les métriques JMX – Azure Monitor Application Insig
 description: Configurer une collection de métriques JMX supplémentaire pour l’agent Java Azure Monitor Application Insights
 ms.topic: conceptual
 ms.date: 03/16/2021
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 8b5db7861a3488fb71e709d17679e8d54911b0c9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 932ce7191aa64850dcf276f5906a038a0352ee80
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110069181"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133877"
 ---
 # <a name="configuring-jmx-metrics"></a>Configuration des métriques JMX
 

@@ -9,14 +9,14 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 64fc87455b035503891319de1b8fd06090586b4b
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 571894779b05a823b4de2e841a3b198dc334ab1f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122699208"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166539"
 ---
-# <a name="preview-create-virtual-machines-in-a-flexible-scale-set-using-an-arm-template"></a>Préversion : Créer des machines virtuelles dans un groupe identique Flexible à l’aide d’un modèle ARM
+# <a name="create-virtual-machines-in-a-flexible-scale-set-using-an-arm-template"></a>Créer des machines virtuelles dans un groupe identique Flexible à l’aide d’un modèle ARM
 
 **S’applique à :** :heavy_check_mark: Groupes identiques flexibles
 
@@ -24,11 +24,11 @@ ms.locfileid: "122699208"
 Cet article décrit l’utilisation d’un modèle ARM pour créer un groupe identique de machines virtuelles en mode d’orchestration Flexible. Pour plus d’informations sur les groupes identiques Flexibles, consultez le [mode d’orchestration Flexible pour les groupes identiques de machines virtuelles](flexible-virtual-machine-scale-sets.md). 
 
 
-> [!IMPORTANT]
-> Les groupes de machines virtuelles identiques en mode d’orchestration Flexible sont actuellement en préversion publique. Une procédure de consentement est requise pour utiliser la fonctionnalité en préversion publique décrite ci-dessous.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Si votre environnement remplit les prérequis et que vous êtes déjà familiarisé avec l’utilisation des modèles ARM, sélectionnez le bouton **Déployer sur Azure**. Le modèle s’ouvre dans le portail Azure.
+
+[![Déployer sur Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvmss-flexible-orchestration-quickstart%2Fazuredeploy.json)
 
 > [!CAUTION]
 > Le mode d’orchestration est défini lorsque vous créez le groupe identique et ne peut pas être modifié ou mis à jour ultérieurement.
@@ -36,10 +36,6 @@ Cet article décrit l’utilisation d’un modèle ARM pour créer un groupe ide
 ## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-## <a name="register-for-flexible-orchestration-mode"></a>S’inscrire au mode d’orchestration Flexible
-
-Avant de pouvoir déployer des groupes identiques de machines virtuelles en mode d’orchestration Flexible, vous devez d’abord [inscrire la fonctionnalité en préversion pour votre abonnement](flexible-virtual-machine-scale-sets.md#register-for-flexible-orchestration-mode). L’inscription peut prendre plusieurs minutes.
 
 ## <a name="arm-template"></a>Modèle ARM 
 

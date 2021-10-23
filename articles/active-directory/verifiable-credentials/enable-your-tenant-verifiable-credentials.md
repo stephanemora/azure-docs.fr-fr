@@ -3,7 +3,7 @@ title: 'Tutoriel : configurer Azure Active Directory pour émettre des justific
 description: Dans ce tutoriel, vous allez créer l’environnement nécessaire pour déployer des justificatifs vérifiables dans votre abonné.
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.topic: tutorial
@@ -12,12 +12,12 @@ ms.date: 06/24/2021
 ms.author: barclayn
 ms.reviewer: ''
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2bcacf36982c133eb89fe1c92f937f12b5cdb155
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: a502932fd30ffe149614a4695f5d65c2b7c70b05
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729688"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006923"
 ---
 # <a name="tutorial---configure-azure-active-directory-to-issue-verifiable-credentials-preview"></a>Tutoriel : configurer Azure Active Directory pour émettre des justificatifs vérifiables (préversion)
 

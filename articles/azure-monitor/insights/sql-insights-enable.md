@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 9a5d14c3363f5d4b4d25e0592b184b6e706fef6b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d2872d2293802c435eb4bbd67078e6d1e973a6b9
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562575"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004594"
 ---
 # <a name="enable-sql-insights-preview"></a>Activer SQL Insights (préversion)
 Cet article explique comment activer [SQL Insights](sql-insights-overview.md) pour analyser vos déploiements SQL. L’analyse est effectuée à partir d’une machine virtuelle Azure qui établit une connexion à vos déploiements SQL et utilise des vues de gestion dynamique (DMV) pour collecter les données d’analyse. Vous pouvez contrôler les jeux de données qui sont collectés et la fréquence de collecte à l’aide d’un profil d’analyse.
@@ -225,7 +225,7 @@ Entrer la chaîne de connexion dans le formulaire :
 
 ```
 "sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
+      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
     ] 
 ```
 Obtenez les détails de l’élément de menu **Chaînes de connexion** pour l’instance gérée.

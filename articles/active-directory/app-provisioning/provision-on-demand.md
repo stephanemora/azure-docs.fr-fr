@@ -3,7 +3,7 @@ title: Approvisionner un utilisateur à la demande en utilisant Azure Active Dir
 description: Apprenez à attribuer des utilisateurs à la demande dans Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 56c86e5d0f06d66eea1841e5c1157432fd92f0ac
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 021e582887ec2927fa1e3180c41c522bd0e09fbf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785004"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990954"
 ---
 # <a name="on-demand-provisioning-in-azure-active-directory"></a>Attribution à la demande dans Azure Active Directory
 L’approvisionnement à la demande vous permet d’approvisionner un utilisateur dans une application en quelques secondes. Entre autres choses, vous pouvez utiliser cette fonctionnalité pour :

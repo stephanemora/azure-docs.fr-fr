@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 71f3d64a05a44773652852adb860b64363e158a9
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 67984beeb3cff6dbb68d440f432684971fa930a7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855951"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003077"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Démarrage rapide : Créer et déployer des applications sur Azure Spring Cloud
 
@@ -183,7 +183,7 @@ Avant de procéder au déploiement avec Azure CLI ou Maven, effectuez les exempl
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Installez JDK 8](/java/azure/jdk/)
+* [Installez JDK 8 ou JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 * [Souscrire à un abonnement Azure](https://azure.microsoft.com/free/)
 * (Facultatif) [Installez Azure CLI version 2.0.67 ou ultérieure](/cli/azure/install-azure-cli) et installez l’extension Azure Spring Cloud avec la commande : `az extension add --name spring-cloud`
 * (Facultatif) [Installez Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) et [connectez-vous](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/17/2021
-ms.openlocfilehash: 3684c038ab96fe16d28802012293357c0a8f4e5b
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 7040b9b813d57d1ad10b2406e8167ac2ec0cd690
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232011"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166392"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Réplicas en lecture dans Azure Database pour MySQL - Serveur flexible
 
@@ -97,7 +97,7 @@ Découvrez comment [arrêter la réplication sur un réplica](how-to-read-replic
 
 Il n’existe aucun basculement automatique entre les serveurs source et réplica.
 
-Les réplicas en lecture ont vocation à mettre à l’échelle les charges de travail intensives en lecture, et non à répondre aux besoins de haute disponibilité d’un serveur. Il n’existe aucun basculement automatique entre les serveurs source et réplica. L’arrêt de la réplication sur le réplica en lecture pour le mettre en ligne en mode lecture-écriture permet d’effectuer ce basculement manuel.
+Les réplicas en lecture ont vocation à mettre à l’échelle les charges de travail intensives en lecture, et non à répondre aux besoins de haute disponibilité d’un serveur. L’arrêt de la réplication sur le réplica en lecture pour le mettre en ligne en mode lecture-écriture permet d’effectuer ce basculement manuel.
 
 Étant donné que la réplication est asynchrone, il existe un décalage entre le serveur source et le réplica. Le niveau de décalage dépend de nombreux facteurs, comme la charge de travail exécutée sur le serveur source et la latence qui existe entre les centres de données. Dans la plupart des cas, le décalage du réplica va de quelques secondes à quelques minutes. Pour connaître le décalage d’un réplica, consultez la métrique *Décalage de la réplication*, qui est disponible pour chaque réplica. Cette métrique indique le temps écoulé depuis la dernière transaction réexécutée. Il est recommandé d’observer votre réplica sur une période donnée afin de déterminer le décalage moyen. Vous pouvez configurer une alerte afin d’être averti lorsque le décalage d’un réplica sort de la plage définie et prendre les mesures nécessaires.
 

@@ -4,12 +4,12 @@ description: Cette article fournit une vue d’ensemble de la terminologie d’A
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 59ed8f85f1196328b6ab477faae77ed35d054223
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 1b9de2608d3b6ccb3922636f8cd473e79eff5e00
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601859"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070239"
 ---
 # <a name="azure-video-analyzer-terminology"></a>Terminologie d’Azure Video Analyzer
 
@@ -40,7 +40,7 @@ Vous pouvez utiliser le service Video Analyzer pour créer des ressources vidéo
 
 ## <a name="streaming"></a>Diffusion en continu
 
-Vous pouvez utiliser le service Video Analyzer pour diffuser en continu des enregistrements vidéo à des clients, en utilisant des protocoles de diffusion multimédia en continu basés sur HTTP, comme [HTTP Live Streaming (TLS)](https://developer.apple.com/streaming/) et [MPEG-DASH](https://dashif.org/about/). Vous pouvez utiliser les [widgets du lecteur Azure Video Analyzer](https://github.com/Azure/video-analyzer/blob/main/widgets/readme.md) (composants web) pour lire des ressources vidéo. Par ailleurs, HLS est pris en charge par des lecteurs web comme [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Shaka Player de Google](https://github.com/google/shaka-player), et vous pouvez effectuer un rendu en mode natif dans des applications mobiles avec [Exoplayer](https://github.com/google/ExoPlayer) d’Android et [AV Foundation](https://developer.apple.com/av-foundation/) d’iOS. MPEG-DASH est également pris en charge par [une série de clients mentionnés sur cette page](https://dashif.org/clients/).
+Vous pouvez utiliser le service Video Analyzer pour diffuser en continu des enregistrements vidéo à des clients, en utilisant des protocoles de diffusion multimédia en continu basés sur HTTP, comme [HTTP Live Streaming (TLS)](https://developer.apple.com/streaming/) et [MPEG-DASH](https://dashif.org/about/). Vous pouvez utiliser les [widgets du lecteur Azure Video Analyzer](https://github.com/Azure/video-analyzer/blob/main/widgets/readme.md) (composants web) pour lire des ressources vidéo. Par ailleurs, HLS est pris en charge par des lecteurs web comme [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Shaka Player de Google](https://github.com/google/shaka-player), et vous pouvez effectuer un rendu en mode natif dans des applications mobiles avec [Exoplayer](https://github.com/google/ExoPlayer) d’Android et [AV Foundation](https://developer.apple.com/av-foundation/) d’iOS. MPEG-DASH est également pris en charge par [une série de clients mentionnés sur cette page](https://dashif.org/members/).
 
 ## <a name="vms"></a>VMS
 

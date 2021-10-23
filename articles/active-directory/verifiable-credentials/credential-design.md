@@ -3,18 +3,18 @@ title: Comment personnaliser vos justificatifs vérifiables Azure Active Directo
 description: Cet article vous montre comment créer vos propres justificatifs vérifiables personnalisés
 services: active-directory
 author: barclayn
-manager: davba
+manager: karenh444
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 0ecc7c2407798bed5b72211d3bdba114d3200d4c
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1a42387be183d1fa2263e609bcbfed5f388e901c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466335"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004081"
 ---
 # <a name="how-to-customize-your-verifiable-credentials-preview"></a>Comment personnaliser vos justificatifs vérifiables (préversion)
 

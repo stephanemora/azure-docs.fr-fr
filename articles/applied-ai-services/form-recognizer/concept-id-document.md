@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 4b73526ad245d9364b0ada997fc014e0dd16df40
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 98364df02238c36f7e15f00eaff6ec124631987c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716476"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178236"
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -40,13 +40,13 @@ Le modèle de document d’identité associe de puissantes fonctionnalités de r
 
 Vous pouvez voir comment les données du document d’identité sont extraites en essayant notre outil d’étiquetage des exemples. Vous aurez besoin des éléments suivants :
 
-* Un abonnement Azure : vous pouvez [en créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
+* Un abonnement Azure : [vous pouvez en créer un gratuitement](https://azure.microsoft.com/free/cognitive-services/)
 
 * Une [instance Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) dans le portail Azure. Vous pouvez utiliser le niveau tarifaire gratuit (`F0`) pour tester le service. Une fois votre ressource déployée, cliquez sur **Accéder à la ressource** pour accéder à la clé et au point de terminaison de votre API.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Capture d’écran : clés et emplacement du point de terminaison dans le Portail Azure.":::
 
-* Un document d’identité. Vous pouvez utiliser notre [exemple de document d’identité](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg).
+* Un document d’identité. Vous pouvez utiliser notre [exemple de document d’identité](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/applied-ai-services/form-recognizer/media/id-license.jpg).
 
 > [!div class="nextstepaction"]
   > [Essayer](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
@@ -126,7 +126,7 @@ Dans l’interface utilisateur de Form Recognizer :
 
 * Suivez le [**Guide de migration de Form Recognizer v3.0**](v3-migration-guide.md) pour apprendre à utiliser la préversion dans vos applications et vos flux de travail.
 
-* Découvrez notre [**API REST (préversion)** ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) pour en savoir plus sur la préversion et les nouvelles fonctionnalités.
+* Découvrez notre [**API REST (préversion)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) pour en savoir plus sur la préversion et les nouvelles fonctionnalités.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

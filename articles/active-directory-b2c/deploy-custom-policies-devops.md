@@ -3,20 +3,20 @@ title: Déployer des stratégies personnalisées avec Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Découvrez comment déployer des stratégies personnalisées Azure AD B2C dans un pipeline CI/CD en utilisant Azure Pipelines.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: d24e1cf8394b697348492ffcddc4634646ebbbb6
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: f042131bd67c27041ca464fde1be6f4d4915d7a6
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "122967085"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039654"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Déployer des stratégies personnalisées avec Azure Pipelines
 
@@ -176,13 +176,13 @@ Une tâche de pipeline est un script prédéfini qui effectue une action. Ajoute
 
 
         ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
         ```
         
         Le paramètre `-Files` est une liste délimitée par des virgules des fichiers de stratégie à déployer. Mettez à jour la liste avec vos fichiers de stratégie.
         
         > [!IMPORTANT]
-        >  Vérifiez que les stratégies sont chargées dans le bon ordre. Tout d’abord, la stratégie de base, la stratégie d’extensions, puis les stratégies de la partie de confiance. Par exemple : `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
+        >  Vérifiez que les stratégies sont chargées dans le bon ordre. Tout d’abord, la stratégie de base, la stratégie d’extensions, puis les stratégies de la partie de confiance. Par exemple : `TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
         
 1. Sélectionnez **Enregistrer** pour enregistrer le Travail de l’agent.
 

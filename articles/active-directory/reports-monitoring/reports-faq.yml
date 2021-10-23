@@ -17,12 +17,12 @@ metadata:
   ms.author: markvi
   ms.reviewer: dhanyahk
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: fe6775a15dc878bb31c60df592ca5d24b29b2c6a
-  ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+  ms.openlocfilehash: f74612097e1ad6edc059625c89f22003d15884af
+  ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/13/2021
-  ms.locfileid: "124838964"
+  ms.lasthandoff: 10/19/2021
+  ms.locfileid: "130162886"
 title: Forum aux questions (FAQ) sur les rapports Azure Active Directory
 summary: "Cet article répond aux questions fréquemment posées sur les rapports Azure Active Directory (Azure AD). Pour plus d’informations, consultez la page [Génération de rapports Azure Active Directory](overview-reports.md). \n"
 sections:
@@ -35,7 +35,7 @@ sections:
   - question: >
       J’utilise les API de point de terminaison `https://graph.windows.net/<tenant-name>/reports/` pour tirer (pull) par programmation les rapports de sécurité Azure AD (concernant certains types de détections, tels que les fuites d’informations d’identification ou les connexions à partir d’adresses IP anonymes) dans notre système de création de rapports. Que dois-je utiliser à présent ?
     answer: >
-      Vous pouvez utiliser  [l’API Identity Protection relative aux détections de risques](../identity-protection/howto-identity-protection-graph-api.md)  pour accéder aux détections de sécurité par le biais de Microsoft Graph. Ce nouveau format offre davantage de flexibilité dans la façon dont vous pouvez interroger les données, c’est-à-dire avec un filtrage avancé, une sélection des champs, etc. De plus, il rassemble les détections de risques sous un même type pour faciliter l’intégration aux serveurs SIEM et autres outils de collecte de données. Étant donné que les données ont différents formats, vous ne pouvez pas remplacer vos anciennes requêtes par une nouvelle requête. Toutefois, [la nouvelle API utilise Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta&preserve-view=true), qui est désormais la plateforme standard de Microsoft pour les API telles que Microsoft 365 et Azure AD. Le travail nécessaire peut donc développer vos investissements Microsoft Graph actuels ou vous aider à démarrer la transition vers cette nouvelle plateforme standard.
+      Vous pouvez utiliser  [l’API Identity Protection relative aux détections de risques](../identity-protection/howto-identity-protection-graph-api.md)  pour accéder aux détections de sécurité par le biais de Microsoft Graph. Ce nouveau format offre davantage de flexibilité dans la façon dont vous pouvez interroger les données, c’est-à-dire avec un filtrage avancé, une sélection des champs, etc. De plus, il rassemble les détections de risques sous un même type pour faciliter l’intégration aux serveurs SIEM et autres outils de collecte de données. Étant donné que les données ont différents formats, vous ne pouvez pas remplacer vos anciennes requêtes par une nouvelle requête. Toutefois, [la nouvelle API utilise Microsoft Graph](/graph/api/resources/identityprotection-root), qui est désormais la plateforme standard de Microsoft pour les API telles que Microsoft 365 et Azure AD. Le travail nécessaire peut donc développer vos investissements Microsoft Graph actuels ou vous aider à démarrer la transition vers cette nouvelle plateforme standard.
   - question: >
       Comment obtenir une licence Premium ?
     answer: >
