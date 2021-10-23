@@ -2,7 +2,7 @@
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: À propos de DevTest Labs
+    - name: Qu’est-ce que DevTest Labs ?
       href: devtest-lab-overview.md
 - name: Démarrage rapide
   items:

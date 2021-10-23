@@ -62,7 +62,7 @@
                 - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité avec Azure (CLI)
                   href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
         - name: Adresse IP publique
-          href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
+          href: ../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: SQL Database
           items:
             - name: Zones de disponibilité avec SQL Database - Niveau usage général
