@@ -5,14 +5,14 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/18/2021
+ms.date: 10/19/2021
 ms.author: jasteppe
-ms.openlocfilehash: 0092482af2f9f4f6f9a090a00cc387ae901e5b68
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: e66a6f3e2603645be4efeb68211ffd4d785067db
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130187581"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259408"
 ---
 # <a name="open-source-projects"></a>Projets open source
 
@@ -20,19 +20,29 @@ consultez nos projets open source sur GitHub qui fournissent du code source et d
 
 ## <a name="iot-connector-github-projects"></a>projets de GitHub du connecteur IoT
 
-#### <a name="integration-with-iot-hub-and-iot-central"></a>Intégration à IoT Hub et IoT Central
+#### <a name="fhir-integration"></a>Intégration de FHIR
 
-* [Microsoft/IoMT-fhir](https://github.com/microsoft/iomt-fhir): intégration avec IoT Hub ou IOT central aux ressources de l’interopérabilité de la santé rapide (fhir&#174;) avec la normalisation des données et la conversion fhir des données normalisées
-* Normalisation : les informations de données de l’appareil sont extraites dans un format commun pour un traitement ultérieur
-* Conversion FHIR : les données normalisées et regroupées sont mappées à FHIR. Les observations sont créées ou mises à jour en fonction des modèles configurés et liés à l’appareil et au patient.
+* [Microsoft/IoMT-fhir](https://github.com/microsoft/iomt-fhir): version open source du service administré des API Azure Healthcare pour le connecteur IOT. Peut être utilisé avec n’importe quel service FHIR&#174; (Fast Healthcare Interoperability Resources) qui prend en charge [FHIR R7&#174;](https://https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
 
-#### <a name="device-and-fhir-destination-mappings-authoring-and-troubleshooting"></a>Création et résolution des mappages de destinations appareil et FHIR
+#### <a name="device-and-fhir-destination-mappings"></a>Mappages de destination des appareils et FHIR
 
-* [Outils pour vous aider à générer des mappages de destination d’appareil et de FHIR](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): visualiser la configuration de mappage pour normaliser les données d’entrée de l’appareil et les transformer en ressources FHIR. Les développeurs peuvent utiliser cet outil pour modifier et tester les mappages des appareils et les mappages de destination FHIR. Exportez-les pour le chargement vers IoT Connector dans le Portail Azure.
+* [Mappeur de données du connecteur IoMT](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): outil pour la modification, le test et la résolution des problèmes des mappages de destination FHIR et des appareils IOT Connector. Exportez les mappages pour le chargement vers le connecteur IoT dans le Portail Azure ou utilisez avec la version open source.
 
-#### <a name="healthkit-and-fhir-integration"></a>Intégration de HealthKit et de FHIR
+#### <a name="wearables-integration"></a>Intégration d’un portable
 
-* [Microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): bibliothèque SWIFT qui automatise l’exportation des données Apple healthkit vers un service fhir.
+Fitbit
+
+* [Microsoft/Fitbit-on-fhir](https://github.com/microsoft/FitbitOnFHIR): mettez Fitbit&#174; données à un service fhir.
+
+HealthKit
+
+* [Microsoft/healthkit-on-fhir](https://github.com/microsoft/healthkit-on-fhir): ajoutez des données Apple&#174; healthkit&#174; à un service fhir.
+
+* [Microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): offre un moyen simple de créer des ressources fhir à partir de HKObjects
+
+Synchronisation des données d’intégrité
+
+* [Microsoft/Health-Data-Sync](https://github.com/microsoft/health-data-sync): bibliothèque SWIFT qui simplifie et automatise l’exportation de données HealthKit vers un magasin externe.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment déployer IoT Connector dans le Portail Azure

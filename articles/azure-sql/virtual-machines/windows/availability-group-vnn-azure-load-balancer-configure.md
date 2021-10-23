@@ -3,7 +3,7 @@ title: Configurer l’équilibreur de charge pour l’écouteur VNN AG
 description: Apprenez à configurer Azure Load Balancer pour acheminer le trafic vers l’écouteur de nom de réseau virtuel (VNN) pour votre groupe de disponibilité avec Microsoft SQL Server sur des machines virtuelles Azure pour la haute disponibilité et la récupération d’urgence (HADR).
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/14/2021
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 902704052524a396812e4d9d3848c754c3a7c4a3
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: cddf36f1bd51b50d1642f92158adc3a3ba46cdc2
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112580869"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161495"
 ---
 # <a name="configure-load-balancer-for-ag-vnn-listener"></a>Configurer l’équilibreur de charge pour l’écouteur VNN AG
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Avant d’effectuer les étapes décrites dans cet article, vous devez déjà di
 
 ## <a name="create-load-balancer"></a>Créer un équilibreur de charge
 
-Vous pouvez créer un équilibreur de charge interne ou externe. Un équilibreur de charge interne ne peut émaner que de ressources privées accessibles internes au réseau.  Un équilibreur de charge externe peut router du trafic de ressources publiques vers des ressources internes. Quand vous configurez un équilibreur de charge interne, utilisez la même adresse IP que la ressource écouteur de groupe de disponibilité durant la configuration des règles d’équilibrage de charge. Quand vous configurez un équilibreur de charge externe, vous ne pouvez pas utiliser la même adresse IP que celle de l’écouteur de groupe de disponibilité, car l’adresse IP de celui-ci ne peut pas être une adresse IP publique. Ainsi, pour utiliser un équilibreur de charge externe, allouez logiquement une adresse IP située dans le même sous-réseau que le groupe de disponibilité, qui n’est pas en conflit avec une autre adresse IP, et utilisez cette adresse comme adresse IP frontale pour les règles d’équilibrage de charge. 
+Vous pouvez créer un équilibreur de charge interne ou externe. Avec un équilibreur de charge interne, le trafic peut provenir uniquement des ressources privées sollicitées internes au réseau.  Un équilibreur de charge externe peut router du trafic de ressources publiques vers des ressources internes. Quand vous configurez un équilibreur de charge interne, utilisez la même adresse IP que la ressource écouteur de groupe de disponibilité durant la configuration des règles d’équilibrage de charge. Quand vous configurez un équilibreur de charge externe, vous ne pouvez pas utiliser la même adresse IP que celle de l’écouteur de groupe de disponibilité, car l’adresse IP de celui-ci ne peut pas être une adresse IP publique. Ainsi, pour utiliser un équilibreur de charge externe, allouez logiquement une adresse IP située dans le même sous-réseau que le groupe de disponibilité, qui n’est pas en conflit avec une autre adresse IP, et utilisez cette adresse comme adresse IP frontale pour les règles d’équilibrage de charge. 
 
 Utilisez le [portail Azure](https://portal.azure.com) pour créer l’équilibreur de charge :
 
@@ -132,7 +132,7 @@ Définissez les règles d’équilibrage de charge pour l’équilibreur de char
 1. Définissez les paramètres de règles d’équilibrage de charge :
 
    - **Name** : Nom des règles d’équilibrage de charge.
-   - **Adresse IP frontale** : adresse IP publique que les clients utilisent pour se connecter au point de terminaison public. 
+   - **Adresse IP front-end** : Adresse IP publique que les clients utilisent pour se connecter au point de terminaison public. 
    - **Port** : Port TCP SQL Server. Le port d’instance par défaut est 1433.
    - **Port principal** : port utilisé par l’écouteur du groupe de disponibilité. Par défaut, il s’agit du port 1433. 
    - **Pool principal** : Le nom du pool principal que vous avez configuré précédemment.
@@ -204,7 +204,7 @@ Le tableau ci-dessous décrit les valeurs que vous devez mettre à jour :
 |---------|---------|
 |`Cluster Network Name`| Nom du cluster de basculement Windows Server pour le réseau. Dans le **Gestionnaire du cluster de basculement** > **Réseaux**, cliquez avec le bouton droit sur le réseau et sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
 |`AG listener IP Address Resource Name`|Nom de ressource pour l’adresse IP de l’écouteur du groupe de disponibilité. Dans **Gestionnaire du cluster de basculement** > **Rôles**, sous le rôle du groupe de disponibilité, sous **Nom du serveur**, cliquez avec le bouton droit sur la ressource d’adresse IP, puis sélectionnez **Propriétés**. La valeur correcte est sous **Nom** dans l’onglet **Général**.|
-|`ELBIP`|Adresse IP de l’équilibreur de charge externe (ELB). Cette adresse est configurée dans le portail Azure comme adresse frontale de l’équilibreur de charge externe, et utilisée pour la connexion à l’équilibreur de charge public à partir de ressources externes.|
+|`ELBIP`|Adresse IP de l’équilibreur de charge externe (ELB, external load balancer). Cette adresse est configurée dans le portail Azure comme adresse front-end de l’ELB et est utilisée pour la connexion à l’équilibreur de charge public à partir de ressources externes.|
 |`nnnnn`|Port de sonde que vous avez configuré dans la sonde d’intégrité de l’équilibreur de charge. N’importe quel port TCP inutilisé est valide.|
 |« SubnetMask »| Masque de sous-réseau pour le paramètre de cluster. Il doit s’agir de l’adresse de diffusion TCP IP : `255.255.255.255`.| 
 
@@ -216,7 +216,7 @@ Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
 
 > [!NOTE]
-> Étant donné qu’il n’y a pas d’adresse IP privée pour l’équilibreur de charge externe, les utilisateurs ne peuvent pas utiliser directement le nom DNS du nom de réseau virtuel (VNN), car il résout l’adresse IP dans le sous-réseau. Utilisez l’adresse IP publique de l’équilibreur de charge public ou configurez un autre mappage DNS sur le serveur DNS. 
+> Étant donné qu’il n’y a pas d’adresse IP privée pour l’équilibreur de charge externe, les utilisateurs ne peuvent pas utiliser directement le nom DNS VNN, car il résout l’adresse IP dans le sous-réseau. Utilisez l’adresse IP publique de l’équilibreur de charge public ou configurez un autre mappage DNS sur le serveur DNS. 
 
 
 ---

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f4bf378db5d9091cb48f2b0c813a92823bc72589
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: 54069c9b37b33ab343c11b8eb3ef02712e29ea3e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112031742"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038761"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutoriel : Modérer les images de produits e-commerce avec Azure Content Moderator
 
@@ -80,7 +80,7 @@ Observez le code suivant dans la méthode **Main**, qui effectue une itération 
 
 ## <a name="evaluateadultracy-method"></a>Méthode EvaluateAdultRacy
 
-Observez la méthode **EvaluateAdultRacy** dans la classe **Program**. Cette méthode prend l’URL d’une image et un tableau de paires clé/valeur comme paramètres. Elle appelle l’API Image Content Moderator (en utilisant REST) pour obtenir les scores de l’image pour Adultes et Osé. Si le score de l’une de ces catégories est supérieur à 0,4 (la plage est comprise entre 0 et 1), cela entraîne la définition de la valeur correspondante dans le tableau **ReviewTags** à **True**.
+Observez la méthode **EvaluateAdultRacy** dans la classe **Program**. Cette méthode prend l’URL d’une image et un tableau de paires clé/valeur comme paramètres. Elle appelle l’API REST Content Moderator du service Image afin d’obtenir les scores de l’image concernant le contenu pour adultes et choquant. Si le score de l’une de ces catégories est supérieur à 0,4 (la plage est comprise entre 0 et 1), cela entraîne la définition de la valeur correspondante dans le tableau **ReviewTags** à **True**.
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b4635b461441b4ac4ed193a48cbd8e14790ac835
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 50504d2e36c490c90c7c8bdbb8b737837b64eaff
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060665"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163038"
 ---
 # <a name="about-azure-key-vault"></a>À propos d’Azure Key Vault
 
@@ -39,7 +39,7 @@ Vos applications peuvent accéder en toute sécurité aux informations nécessai
 
 L’accès à un coffre de clés par un appelant (utilisateur ou application) requiert une authentification et une autorisation adéquates. L’authentification établit l’identité de l’appelant, tandis que l’autorisation détermine les opérations que ce dernier est autorisé à effectuer.
 
-L’authentification s’effectue par le biais d’Azure Active Directory. L’autorisation peut être assurée par l’intermédiaire du mécanisme de contrôle d’accès en fonction du rôle Azure (Azure RBAC) ou d’une stratégie d’accès à Key Vault. Azure RBAC est utilisé dans le cadre de la gestion des coffres, et la stratégie d’accès au coffre de clés est appliquée lors d’une tentative d’accès aux données stockées dans un coffre.
+L’authentification s’effectue par le biais d’Azure Active Directory. L’autorisation peut être assurée par l’intermédiaire du mécanisme de contrôle d’accès en fonction du rôle Azure (Azure RBAC) ou d’une stratégie d’accès à Key Vault. Vous pouvez utiliser Azure RBAC pour la gestion des coffres et l’accès aux données stockées dans un coffre, alors que la stratégie d’accès au coffre de clés ne peut être utilisée que lors d’une tentative d’accès aux données stockées dans un coffre.
 
 Les coffres de clés Azure Key Vault peuvent être protégés par logiciel ou, avec le niveau Premium, protégés par des modules de sécurité matériels (HSM, Hardware Security Module). Les clés, les secrets et les certificats protégés par logiciel sont gardés par Azure, en utilisant des algorithmes et des longueurs de clé standard.  Dans les situations qui nécessitent un surcroît de sécurité, vous pouvez importer ou générer des clés dans des HSM dont les clés ne quittent jamais la limite du HSM. Azure Key Vault utilise des HSM nCipher, qui sont certifiés FIPS (Federal Information Processing Standards) 140-2 de niveau 2. Pour déplacer une clé de votre HSM vers Azure Key Vault, vous pouvez utiliser les outils nCipher.
 
