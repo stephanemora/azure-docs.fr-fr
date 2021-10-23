@@ -332,13 +332,13 @@ conceptualContent:
         - url: ./app/export-telemetry.md
           itemType: how-to-guide
           text: Exporter la télémétrie
-        - url: ./app/export-stream-analytics.md
+        - url: ../stream-analytics/app-insights-export-stream-analytics.md
           itemType: how-to-guide
           text: "Exporter vers Stream\_Analytics"
-        - url: ./app/code-sample-export-sql-stream-analytics.md
+        - url: ../stream-analytics/app-insights-export-sql-stream-analytics.md
           itemType: how-to-guide
           text: "Exporter vers SQL à l’aide de Stream\_Analytics"
-        - url: ./app/code-sample-export-sql-stream-analytics.md
+        - url: ../stream-analytics/app-insights-export-sql-stream-analytics.md
           itemType: how-to-guide
           text: Exporter le modèle de données
         - url: ./logs/logicapp-flow-connector.md

@@ -12,12 +12,12 @@ author: misliplavo
 ms.author: mlazic
 ms.reviewer: mathoma
 ms.date: 09/13/2021
-ms.openlocfilehash: f683bbd008e47a154fac11d89e8d06f0e07b87f2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3c8df890cb8772c919d70e790f7a2c62eb757e87
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674207"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041276"
 ---
 # <a name="quickstart-restore-a-database-to-azure-sql-managed-instance-with-ssms"></a>Démarrage rapide : Restaurer une base de données dans SQL Managed Instance avec SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,69 +51,69 @@ Dans SSMS, suivez ces étapes pour restaurer la base de données Wide World Impo
 1. Ouvrez SSMS et connectez-vous à votre instance managée.
 2. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur les bases de données de votre instance managée et sélectionnez **Restaurer la base de données** pour ouvrir l’Assistant Restauration.
 
-    ![Capture d’écran montrant l’ouverture de l’Assistant Restauration.](./media/restore-sample-database-quickstart/restore-wizard-start.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-start.png" alt-text="Capture d’écran montrant l’ouverture de l’Assistant Restauration.":::
 
 3. Dans le nouvel Assistant Restauration, sélectionnez les points de suspension ( **...** ) pour choisir la source du fichier de sauvegarde à utiliser.
 
-    ![Capture d’écran montrant l’ouverture d’une fenêtre du nouvel Assistant Restauration.](./media/restore-sample-database-quickstart/new-restore-wizard.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/new-restore-wizard.png" alt-text="Capture d’écran montrant l’ouverture d’une fenêtre du nouvel Assistant Restauration.":::
 
 4. Dans **Sélectionner les unités de sauvegarde**, cliquez sur **Ajouter**. Dans **Type de support de sauvegarde**, **URL** est la seule option, car il s’agit du seul type de source pris en charge. Sélectionnez **OK**.
 
-    ![Capture d’écran montrant la sélection de l’unité.](./media/restore-sample-database-quickstart/restore-wizard-select-device.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-select-device.png" alt-text="Capture d’écran montrant la sélection de l’unité.":::
 
 5. Dans **Sélectionner un emplacement de fichier de sauvegarde**, vous pouvez choisir parmi trois options pour fournir des informations sur l’emplacement des fichiers de sauvegarde :
     - Sélectionnez un conteneur de stockage pré-enregistré dans le menu déroulant.
     - Entrez un nouveau conteneur de stockage et une signature d’accès partagé. (De nouvelles informations d’identification SQL vont être enregistrées pour vous.) 
     - Sélectionnez **Ajouter** pour rechercher d’autres conteneurs de stockage dans votre abonnement Azure.
 
-    ![Capture d’écran montrant la sélection de l’emplacement du fichier de sauvegarde.](./media/restore-sample-database-quickstart/restore-wizard-backup-file-location.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-backup-file-location.png" alt-text="Capture d’écran montrant la sélection de l’emplacement du fichier de sauvegarde.":::
 
     Effectuez les étapes suivantes si vous sélectionnez le bouton **Ajouter**. Si vous utilisez une autre méthode pour fournir l’emplacement du fichier de sauvegarde, passez à l’étape 12.
 6. Dans **Se connecter à un abonnement Microsoft**, sélectionnez **Se connecter** pour vous connecter à votre abonnement Azure :
 
-    ![Capture d’écran montrant la connexion à un abonnement Azure.](./media/restore-sample-database-quickstart/restore-wizard-connect-subscription-sign-in.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-connect-subscription-sign-in.png" alt-text="Capture d’écran montrant la connexion à un abonnement Azure.":::
 
 7. Connectez-vous à votre compte Microsoft pour lancer la session dans Azure :
 
-    ![Capture d’écran montrant la connexion à la session Azure.](./media/restore-sample-database-quickstart/restore-wizard-sign-in-session.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-sign-in-session.png" alt-text="Capture d’écran montrant la connexion à la session Azure.":::
 
 8. Sélectionnez l’abonnement où se trouve le compte de stockage contenant les fichiers de sauvegarde :
 
-    ![Capture d’écran montrant la sélection de l’abonnement.](./media/restore-sample-database-quickstart/restore-wizard-select-subscription.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-select-subscription.png" alt-text="Capture d’écran montrant la sélection de l’abonnement.":::
 
 9. Sélectionnez le compte de stockage où se trouvent les fichiers de sauvegarde :
 
-    ![Capture d’écran montrant le compte de stockage.](./media/restore-sample-database-quickstart/restore-wizard-select-storage-account.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-select-storage-account.png" alt-text="Capture d’écran montrant le compte de stockage.":::
 
 10. Sélectionnez le conteneur d’objets blob dans lequel se trouvent les fichiers de sauvegarde :
 
-    ![Sélectionner le conteneur d’objets blob](./media/restore-sample-database-quickstart/restore-wizard-select-container.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-select-container.png" alt-text="Sélectionner le conteneur d’objets blob":::
 
 11. Spécifiez la date d’expiration de la stratégie d’accès partagé et sélectionnez **Créer des informations d’identification**. Une signature d’accès partagé est créée avec les autorisations appropriées. Sélectionnez **OK**.
 
-    ![Capture d’écran montrant la génération de la signature d’accès partagé.](./media/restore-sample-database-quickstart/restore-wizard-generate-shared-access-signature.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-generate-shared-access-signature.png" alt-text="Capture d’écran montrant la génération de la signature d’accès partagé.":::
 
 12. Dans le volet gauche, développez la structure de dossiers pour afficher le dossier dans lequel se trouvent les fichiers de sauvegarde. Sélectionnez tous les fichiers de sauvegarde associés au jeu de sauvegarde à restaurer, puis sélectionnez **OK** :
 
-    ![Capture d’écran montrant la section des fichiers de sauvegarde.](./media/restore-sample-database-quickstart/restore-wizard-backup-file-selection.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-backup-file-selection.png" alt-text="Capture d’écran montrant la section des fichiers de sauvegarde.":::
 
     SSMS valide le jeu de sauvegarde. Le processus prend quelques secondes selon la taille du jeu de sauvegarde.
 
 13. Si la sauvegarde est validée, spécifiez le nom de la base de données de destination ou laissez celui du jeu de sauvegarde, puis sélectionnez **OK** :
 
-    ![Capture d’écran montrant le démarrage de la restauration.](./media/restore-sample-database-quickstart/restore-wizard-start-restore.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-start-restore.png" alt-text="Capture d’écran montrant le démarrage de la restauration.":::
 
     La restauration démarre. Sa durée dépend de la taille du jeu de sauvegarde.
 
-    ![Capture d’écran montrant l’exécution de la restauration.](./media/restore-sample-database-quickstart/restore-wizard-running-restore.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-running-restore.png" alt-text="Capture d’écran montrant l’exécution de la restauration.":::
 
 14. Une fois la restauration terminée, une boîte de dialogue indique qu’elle a réussi. Sélectionnez **OK**.
 
-    ![Capture d’écran montrant la restauration terminée.](./media/restore-sample-database-quickstart/restore-wizard-finish-restore.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-finish-restore.png" alt-text="Capture d’écran montrant la restauration terminée.":::
 
 15. Vérifiez la base de données restaurée dans l’Explorateur d’objets :
 
-    ![Capture d’écran montrant la base de données restaurée.](./media/restore-sample-database-quickstart/restore-wizard-restored-database.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore-wizard-restored-database.png" alt-text="Capture d’écran montrant la base de données restaurée.":::
 
 
 ## <a name="restore-from-a-backup-file-using-t-sql"></a>Restaurer à partir d’un fichier de sauvegarde en utilisant T-SQL
@@ -133,7 +133,7 @@ Dans SQL Server Management Studio, suivez ces étapes pour restaurer la base de 
    , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
 
-    ![créer des informations d’identification](./media/restore-sample-database-quickstart/credential.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/credential.png" alt-text="créer des informations d’identification":::
 
 4. Pour vérifier vos informations d’identification, exécutez le script suivant, qui utilise une URL de [conteneur](https://azure.microsoft.com/services/container-instances/) permettant d’obtenir une liste de fichiers de sauvegarde.
 
@@ -142,7 +142,7 @@ Dans SQL Server Management Studio, suivez ces étapes pour restaurer la base de 
       'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
-    ![liste de fichiers](./media/restore-sample-database-quickstart/file-list.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/file-list.png" alt-text="liste de fichiers":::
 
 5. Exécutez le script suivant pour restaurer la base de données Wide World Importers.
 
@@ -151,7 +151,7 @@ Dans SQL Server Management Studio, suivez ces étapes pour restaurer la base de 
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
-    ![Capture d’écran montrant l’exécution du script dans l’Explorateur d’objets, avec un message de réussite.](./media/restore-sample-database-quickstart/restore.png)
+    :::image type="content" source="./media/restore-sample-database-quickstart/restore.png" alt-text="Capture d’écran montrant l’exécution du script dans l’Explorateur d’objets, avec un message de réussite.":::
 
 6. Exécutez le script suivant pour suivre l’état de votre restauration.
 

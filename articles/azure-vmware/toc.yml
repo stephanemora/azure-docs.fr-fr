@@ -187,27 +187,27 @@
         - name: Général
           href: ./faq.yml
         - name: Facturation
-          href: /azure/azure-vmware/faq#billing
+          href: ./faq.yml
         - name: Communication du client
-          href: /azure/azure-vmware/faq#customer-communication
+          href: ./faq.yml
         - name: Configuration et installation
-          href: /azure/azure-vmware/faq#configuration-and-setup
+          href: ./faq.yml
         - name: Logiciels VMware
-          href: /azure/azure-vmware/faq#vmware-software
+          href: ./faq.yml
         - name: Solutions de sauvegarde tierces
-          href: /azure/azure-vmware/faq#third-party-backup-and-recovery
+          href: ./faq.yml
         - name: Compute
-          href: /azure/azure-vmware/faq#compute
+          href: ./faq.yml
         - name: Réseau et interconnectivité
-          href: /azure/azure-vmware/faq#networking-and-interconnectivity
+          href: ./faq.yml
         - name: Stockage
-          href: /azure/azure-vmware/faq#storage
+          href: ./faq.yml
         - name: 'Hôtes, clusters et clouds privés'
-          href: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
+          href: ./faq.yml
         - name: Gestion des identités
-          href: /azure/azure-vmware/faq#identity-management
+          href: ./faq.yml
         - name: CSP et multilocation
-          href: /azure/azure-vmware/faq#csp-and-multi-tenancy
+          href: ./faq.yml
     - name: Vidéos
       items:
         - name: Sélection
