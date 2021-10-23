@@ -3,12 +3,12 @@ title: Structure et syntaxe des fichiers Bicep
 description: Décrit la structure et les propriétés d’un fichier Bicep en utilisant une syntaxe déclarative.
 ms.topic: conceptual
 ms.date: 10/07/2021
-ms.openlocfilehash: 8251c490b61f3bbb739fd9519c10b1b124f9064c
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 8cdeb75aa676b9121d69ba8bf612067157328ee0
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129661119"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067152"
 ---
 # <a name="understand-the-structure-and-syntax-of-bicep-files"></a>Comprendre la structure et la syntaxe des fichiers Bicep
 
@@ -129,7 +129,7 @@ Les valeurs autorisées sont les suivantes :
 * **managementGroup** : utilisée pour les [déploiements de groupes d’administration](deploy-to-management-group.md).
 * **tenant** : utilisée pour les [déploiements de locataires](deploy-to-tenant.md).
 
-Dans un module, vous pouvez spécifier une étendue différente de celle du reste du fichier Bicep. Pour plus d'informations, consultez [Configurer l’étendue du module](modules.md#configure-module-scopes)
+Dans un module, vous pouvez spécifier une étendue différente de celle du reste du fichier Bicep. Pour plus d'informations, consultez [Configurer l’étendue du module](modules.md#set-module-scope)
 
 ## <a name="parameters"></a>Paramètres
 

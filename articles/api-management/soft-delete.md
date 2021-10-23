@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: dlepow
 ms.author: danlep
 ms.date: 11/27/2020
-ms.openlocfilehash: 0cf99dfe2fb697b0a28db1fbacecaa2e2021a9d4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ca142ec96bf4ec45cc7c2f612a38ee0d10bf9615
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128622015"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000572"
 ---
 # <a name="api-management-soft-delete-preview"></a>Suppression réversible de Gestion des API (version préliminaire)
 
@@ -22,19 +22,19 @@ Avec la fonctionnalité de suppression réversible (préversion) de Gestion des 
 
 ## <a name="supporting-interfaces"></a>Prise en charge des interfaces
 
-La fonctionnalité de suppression réversible est disponible via [API REST](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/restore).
+La fonctionnalité de suppression réversible est disponible via [API REST](/rest/api/apimanagement/2021-01-01-preview/api-management-service/restore).
 
 > [!TIP]
 > Pour obtenir des conseils et des outils sur l’appel des API REST Azure, consultez [Référence API REST Azure](/rest/api/azure/).
 
 | Opération | Description | Espace de noms de Gestion des API | Version d’API minimale |
 |--|--|--|--|
-| [Créer ou mettre à jour](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | Crée ou met à jour un service Gestion des API.  | Service Gestion des API | Quelconque |
-| [Créer ou mettre à jour](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) avec la propriété `restore` définie sur **true** | Supprime le service Gestion des API s’il a été précédemment supprimé de manière réversible. Si `restore` est spécifié et défini sur `true`, toutes les autres propriétés seront ignorées.  | Service Gestion des API |  2020-06-01-preview |
-| [Supprimer](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Supprime un service Gestion des API existant. | Service Gestion des API | 2020-06-01-preview|
-| [Récupérer par nom](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) | Procurez-vous le service Gestion des API supprimé de manière réversible par nom. | Services supprimés | 2020-06-01-preview |
-| [Lister par abonnement](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) | Répertorie tous les services supprimés de manière réversible et disponibles pour l’annulation de la suppression pour l’abonnement donné. | Services supprimés | 2020-06-01-preview
-| [Purge](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Vide le service Gestion des API (le supprime sans option d’annulation de suppression). | Services supprimés | 2020-06-01-preview
+| [Créer ou mettre à jour](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update) | Crée ou met à jour un service Gestion des API.  | Service Gestion des API | Quelconque |
+| [Créer ou mettre à jour](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update) avec la propriété `restore` définie sur **true** | Supprime le service Gestion des API s’il a été précédemment supprimé de manière réversible. Si `restore` est spécifié et défini sur `true`, toutes les autres propriétés seront ignorées.  | Service Gestion des API |  2020-06-01-preview |
+| [Supprimer](/rest/api/apimanagement/2021-01-01-preview/api-management-service/delete) | Supprime un service Gestion des API existant. | Service Gestion des API | 2020-06-01-preview|
+| [Récupérer par nom](/rest/api/apimanagement/2021-01-01-preview/deleted-services/get-by-name) | Procurez-vous le service Gestion des API supprimé de manière réversible par nom. | Services supprimés | 2020-06-01-preview |
+| [Lister par abonnement](/rest/api/apimanagement/2021-01-01-preview/deleted-services/list-by-subscription) | Répertorie tous les services supprimés de manière réversible et disponibles pour l’annulation de la suppression pour l’abonnement donné. | Services supprimés | 2020-06-01-preview
+| [Purge](/rest/api/apimanagement/2021-01-01-preview/deleted-services/purge) | Vide le service Gestion des API (le supprime sans option d’annulation de suppression). | Services supprimés | 2020-06-01-preview
 
 ## <a name="soft-delete-behavior"></a>Comportement de la suppression réversible
 
@@ -48,11 +48,11 @@ Si votre instance APIM n’est pas récupérée dans les 48 heures, elle sera s
 
 ## <a name="list-deleted-apim-instances"></a>Répertorier les instances APIM supprimées
 
-Vous pouvez vérifier qu’une instance APIM supprimée de manière réversible est disponible pour la restauration (annulation de suppression) à l’aide des opérations des services supprimés [Récupérer par nom](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) ou [Lister par abonnement](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription).
+Vous pouvez vérifier qu’une instance APIM supprimée de manière réversible est disponible pour la restauration (annulation de suppression) à l’aide des opérations des services supprimés [Récupérer par nom](/rest/api/apimanagement/2021-01-01-preview/deleted-services/get-by-name) ou [Lister par abonnement](/rest/api/apimanagement/2021-01-01-preview/deleted-services/list-by-subscription).
 
 ### <a name="get-a-soft-deleted-instance-by-name"></a>Récupérer une instance supprimée de manière réversible par nom
 
-Utilisez l’opération [Récupérer par nom](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) de Gestion des API, en remplaçant `{subscriptionId}`, `{location}` et `{serviceName}` par votre abonnement Azure, l’emplacement de la ressource et le nom de l’instance Gestion des API :
+Utilisez l’opération [Récupérer par nom](/rest/api/apimanagement/2021-01-01-preview/deleted-services/get-by-name) de Gestion des API, en remplaçant `{subscriptionId}`, `{location}` et `{serviceName}` par votre abonnement Azure, l’emplacement de la ressource et le nom de l’instance Gestion des API :
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2020-06-01-preview
@@ -76,7 +76,7 @@ S’il est disponible pour l’annulation de la suppression, Azure renvoie un en
 
 ### <a name="list-all-soft-deleted-instances-for-a-given-subscription"></a>Répertorier toutes les instances supprimées de manière réversible pour un abonnement donné
 
-Utilisez l’opération [Lister par abonnement](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) de Gestion des API, en remplaçant `{subscriptionId}` par votre ID d’abonnement :
+Utilisez l’opération [Lister par abonnement](/rest/api/apimanagement/2021-01-01-preview/deleted-services/list-by-subscription) de Gestion des API, en remplaçant `{subscriptionId}` par votre ID d’abonnement :
 
 ```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/deletedservices?api-version=2020-06-01-preview
@@ -86,10 +86,11 @@ Cette opération renvoie la liste de tous les services supprimés de manière r�
 
 ## <a name="recover-a-deleted-apim-instance"></a>Récupérer une instance APIM supprimée
 
-Utilisez l’opération [Créer ou mettre à jour](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) de Gestion des API, en remplaçant `{subscriptionId}`, `{resourceGroup}` et `{apimServiceName}` par votre abonnement Azure, le nom du groupe de ressources et le nom de Gestion des API :
+Utilisez l’opération [Créer ou mettre à jour](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update) de Gestion des API, en remplaçant `{subscriptionId}`, `{resourceGroup}` et `{apimServiceName}` par votre abonnement Azure, le nom du groupe de ressources et le nom de Gestion des API :
 
 ```rest
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2020-06-01-preview
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2021-01-01-preview
 ```
 
 . . . et affectez à la propriété `restore` la valeur `true` dans le corps de la demande. (Lorsque cet indicateur est spécifié et défini sur *true*, toutes les autres propriétés sont ignorées.) Exemple :
@@ -111,7 +112,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="purge-a-soft-deleted-apim-instance"></a>Vider une instance APIM supprimée de manière réversible
 
-Utilisez l’opération [Vider](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) de Gestion des API, en remplaçant `{subscriptionId}`, `{location}` et `{serviceName}` par votre abonnement Azure, l’emplacement de la ressource et le nom de Gestion des API :
+Utilisez l’opération [Vider](/rest/api/apimanagement/2021-01-01-preview/deleted-services/purge) de Gestion des API, en remplaçant `{subscriptionId}`, `{location}` et `{serviceName}` par votre abonnement Azure, l’emplacement de la ressource et le nom de Gestion des API :
 
 ```rest
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.ApiManagement/locations/{location}/deletedservices/{serviceName}?api-version=2020-06-01-preview

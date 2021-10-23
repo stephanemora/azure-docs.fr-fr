@@ -3,7 +3,7 @@ title: Comprendre le fonctionnement du générateur d’expressions avec l’app
 description: Comprenez le fonctionnement du générateur d’expressions avec l’approvisionnement d’application dans Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/02/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 336005a94d4403d6a9e3fb125001b78a68179aa4
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: ed5623f2b7d4585a7ffe417dbfa0943bf37ebf21
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962085"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991467"
 ---
 # <a name="understand-how-expression-builder-in-application-provisioning-works"></a>Comprendre le fonctionnement du générateur d’expressions dans l’approvisionnement d’application
 

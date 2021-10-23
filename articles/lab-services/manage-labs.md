@@ -1,14 +1,14 @@
 ---
 title: Afficher et supprimer des laboratoires dans un compte lab dans Azure Lab Services
 description: Découvrez comment afficher tous les laboratoires dans un compte lab et supprimer un laboratoire de celui-ci.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: cc097e97430462e36a33b982a7394a20c308eab5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7d2c356d9e3a9851093ab387e7fbd943908165a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95993616"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179675"
 ---
 # <a name="manage-labs-in-a-lab-account"></a>Gérer les laboratoires dans un compte lab
 Cet article explique comment un propriétaire ou administrateur de compte lab peut afficher tous les laboratoires et supprimer un laboratoire de ce compte. 

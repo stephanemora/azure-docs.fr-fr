@@ -18,10 +18,10 @@ highlightedContent:
     - title: Présentation d’Azure Defender pour IoT pour les organisations finales
       itemType: overview
       url: organizations/overview.md
-    - title: Nouveautés pour les organisations
+    - title: Nouveautés pour les organisations d’utilisateurs finaux
       itemType: whats-new
       url: organizations/release-notes.md
-    - title: Architecture de la solution sans agent pour les organisations
+    - title: Architecture d’une solution sans agent pour les organisations d’utilisateurs finaux
       itemType: architecture
       url: organizations/architecture.md
     - title: Présentation d’Azure Defender pour IoT pour les fabricants d’appareils

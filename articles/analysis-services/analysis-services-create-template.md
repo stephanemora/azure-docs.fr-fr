@@ -3,18 +3,18 @@ title: 'Démarrage rapide : Créer une ressource serveur Azure Analysis Service
 description: Guide de démarrage rapide montrant comment créer une ressource de serveur Azure Analysis Services à l’aide d’un modèle Azure Resource Manager.
 author: minewiskan
 ms.author: owend
-ms.date: 08/31/2020
+ms.date: 10/12/2021
 ms.topic: quickstart
 ms.service: azure-analysis-services
 tags:
 - azure-resource-manager
 ms.custom: devx-track-azurepowershell - subject-armqs - references_regions - mode-arm
-ms.openlocfilehash: 5d54ac9a7bbf8d63f160f95d67723bc82fa3e1c2
-ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
+ms.openlocfilehash: b8010df6b4e6284a1050d479e9ab312fb8e7bb97
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111895403"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998805"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Démarrage rapide : Créer un serveur - Modèle ARM
 
@@ -33,7 +33,7 @@ Si votre environnement remplit les prérequis et que vous êtes déjà familiari
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
-Le modèle utilisé dans ce démarrage rapide est tiré des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/analysis-services-create/).
+Le modèle utilisé dans ce guide de démarrage rapide est tiré des [modèles Azure](https://azure.microsoft.com/resources/templates/analysis-services-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.analysisservices/analysis-services-create/azuredeploy.json":::
 

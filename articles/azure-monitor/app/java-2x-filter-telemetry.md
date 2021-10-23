@@ -3,15 +3,15 @@ title: Filtrer les données de télémétrie d’Azure Application Insights dans
 description: Réduisez le trafic de télémétrie en excluant les événements que vous n’avez pas besoin de surveiller.
 ms.topic: conceptual
 ms.date: 3/14/2019
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: c4b3c874b5723cc8df085f7fe05bdd243c27e094
-ms.sourcegitcommit: 82d82642daa5c452a39c3b3d57cd849c06df21b0
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 26addfdcd7b7b2d9ec3b049040e5d387d7c5bb86
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113357957"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133953"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrer la télémétrie dans votre application web Java
 

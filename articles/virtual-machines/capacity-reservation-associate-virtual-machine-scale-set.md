@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: e2563f7addb773b256a56dc67b2ec892b7231372
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 9f8f9f14099c20259d26e9cf031695a1e72171a9
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532657"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066278"
 ---
 # <a name="associate-a-virtual-machine-scale-set-to-a-capacity-reservation-group-preview"></a>Associer un groupe de machines virtuelles identiques à un groupe de réservations de capacité (version préliminaire)
 
@@ -82,6 +82,21 @@ Ajoutez la propriété `capacityReservationGroup` dans le `virtualMachineProfile
     } 
 ```
 
+### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli1)
+
+Utilisez `az vmss create` pour créer un groupe de machines virtuelles identiques et ajouter la propriété `capacity-reservation-group` pour associer le groupe identique à un groupe de réservations de capacité existant. L’exemple ci-dessous crée un groupe identique uniforme pour une machine virtuelle Standard_Ds1_v2 à l’emplacement États-Unis de l’est et associe le groupe identique à un groupe de réservations de capacité.
+
+```azurecli-interactive
+az vmss create 
+--resource-group myResourceGroup 
+--name myVMSS 
+--location eastus 
+--vm-sku Standard_Ds1_v2 
+--image UbuntuLTS 
+--capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName} 
+```
+
+
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1) 
 
 Utilisez `New-AzVmss` pour créer un groupe de machines virtuelles identiques et ajouter la propriété `CapacityReservationGroupId` pour associer le groupe identique à un groupe de réservations de capacité existant. L’exemple ci-dessous crée un groupe identique uniforme pour une machine virtuelle Standard_Ds1_v2 à l’emplacement États-Unis de l’est et associe le groupe identique à un groupe de réservations de capacité.
@@ -149,6 +164,26 @@ Pour la version préliminaire publique, afin d’associer un groupe de machines 
                 }
         }
     }
+    ```
+
+### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli2)
+
+1. Libérez un groupe de machines virtuelles identiques. 
+
+    ```azurecli-interactive
+    az vmss deallocate 
+    --location eastus
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    ```
+
+1. Associez le groupe identique au groupe de réservations de capacité. 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    --capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
     ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2) 
@@ -236,6 +271,14 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     } 
 } 
 ```  
+
+### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli3)
+
+```azurecli-interactive
+az capacity reservation group show 
+-g myResourceGroup
+-n myCapacityReservationGroup 
+``` 
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell3) 
 

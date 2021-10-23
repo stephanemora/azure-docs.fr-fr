@@ -17,12 +17,12 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: dcbc2f726d4c7c935462743578f863efc8762f79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 076ca7918aee424dc6805f6a6bc997d1b0f060a1
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121749203"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138629"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Présentation de la gestion des droits d’utilisation Azure AD
 
@@ -121,11 +121,11 @@ Pour mieux comprendre la gestion des droits d’utilisation et sa documentation,
 
 | Terme | Description |
 | --- | --- |
-| package d'accès | Bundle de ressources dont une équipe ou un projet a besoin et qui est régi par des stratégies. Un package d’accès est toujours contenu dans un catalogue. Vous créez un package d’accès pour un scénario dans lequel les utilisateurs doivent demander l’accès.  |
-| demande d’accès | Demande d’accès aux ressources dans un package d’accès. Cette demande transite généralement par un flux d’approbation.  Si elle est approuvée, l’utilisateur demandeur reçoit une affectation de package d’accès. |
-| affectation | L’affectation d’un package d’accès à un utilisateur garantit que l’utilisateur dispose de tous les rôles de ressources de ce package d’accès.  Les affectations de package d’accès ont généralement une durée limite avant leur expiration. |
-| catalogue | Conteneur de ressources connexes et de packages d’accès.  Les catalogues sont utilisés pour la délégation, afin que les non-administrateurs puissent créer leurs propres packages d’accès. Les propriétaires de catalogue peuvent ajouter les ressources qu’ils possèdent à un catalogue. |
-| créateur de catalogue | Regroupement d’utilisateurs autorisés à créer des catalogues.  Lorsqu’un utilisateur non-administrateur, autorisé à être créateur de catalogue, crée un catalogue, il devient automatiquement le propriétaire de ce catalogue. |
+| package d'accès | Bundle de ressources dont une équipe ou un projet a besoin et qui est régi par des stratégies. Un package d’accès est toujours contenu dans un catalogue. Vous créez un package d’accès pour un scénario dans lequel les utilisateurs doivent demander l’accès. |
+| demande d’accès | Demande d’accès aux ressources dans un package d’accès. Cette demande transite généralement par un flux d’approbation. Si elle est approuvée, l’utilisateur demandeur reçoit une affectation de package d’accès. |
+| affectation | L’affectation d’un package d’accès à un utilisateur garantit que l’utilisateur dispose de tous les rôles de ressources de ce package d’accès. Les affectations de package d’accès ont généralement une durée limite avant leur expiration. |
+| catalogue | Conteneur de ressources connexes et de packages d’accès. Les catalogues sont utilisés pour la délégation, afin que les non-administrateurs puissent créer leurs propres packages d’accès. Les propriétaires de catalogue peuvent ajouter les ressources qu’ils possèdent à un catalogue. |
+| créateur de catalogue | Regroupement d’utilisateurs autorisés à créer des catalogues. Lorsqu’un utilisateur non-administrateur, autorisé à être créateur de catalogue, crée un catalogue, il devient automatiquement le propriétaire de ce catalogue. |
 | organisation connectée | Domaine ou annuaire Azure AD externe avec lequel vous avez une relation. Les utilisateurs provenant d’une organisation connectée peuvent être spécifiés dans une stratégie comme étant autorisés à demander l’accès. |
 | policy | Ensemble de règles définissant le cycle de vie d’un accès, telles que le mode d’accès des utilisateurs, les approbateurs et la durée d’accès par le biais d’une affectation. Une stratégie est liée à un package d’accès. Par exemple, un package d’accès peut avoir deux stratégies de demande d’accès : l’une pour les employés, l’autre pour les utilisateurs externes. |
 | resource | Ressource (un groupe Office, un groupe de sécurité, une application ou un site SharePoint Online, par exemple) dotée d’un rôle pour lequel un utilisateur peut obtenir des autorisations. |

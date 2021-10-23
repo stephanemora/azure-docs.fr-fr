@@ -2,15 +2,15 @@
 title: Configurer un laboratoire avec R et RStudio sur Windows à l’aide d’Azure Lab Services
 description: Découvrez comment configurer des laboratoires pour enseigner R à l’aide de RStudio sur Windows
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: enewman
-ms.openlocfilehash: 5d081e21723fa73d84beec12e8602234ad5e8074
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8e748a3c1af845ddd9c29e71de5b319b4b4b0603
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124757379"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176564"
 ---
 # <a name="set-up-a-lab-to-teach-r-on-windows"></a>Configurer un laboratoire pour enseigner R sur Windows
 

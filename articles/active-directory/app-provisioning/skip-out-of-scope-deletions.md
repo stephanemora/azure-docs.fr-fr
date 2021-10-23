@@ -3,7 +3,7 @@ title: Ignorer la suppression des utilisateurs hors étendue dans l’approvisio
 description: Découvrez comment remplacer le comportement par défaut de la suppression des privilèges d’accès des utilisateurs hors étendue dans Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 6d9483ee7d6d131b28f58ce559f0313f3eddbb34
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: 3aa0176db0bba82d1a793fd196c6a7bead4d531f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231797"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990745"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope-in-azure-active-directory"></a>Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue dans Azure Active Directory
 

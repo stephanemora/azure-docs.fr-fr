@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/13/2021
 ms.author: ayshak
 ms.reviewer: jushiman
-ms.openlocfilehash: 5b27feeb6e185ce2ea4bd247a3251a6e3db7dc98
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: c5f2304de4cd10b8d4eea43c324d6d6e17bdbd7f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129153593"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070505"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 et Easv4
 
@@ -94,7 +94,7 @@ Les tailles de la série Easv4 sont basées sur le processeur AMD EPYC<sup>TM</
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disk)
+Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disks)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

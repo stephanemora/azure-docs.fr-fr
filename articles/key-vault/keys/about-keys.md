@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 74d08095b8ea1df0ffb34264c2f0ca3af64b5dd8
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: ef1725161630e4a79b078a3c473f56e3d14a06ca
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122772692"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994515"
 ---
 # <a name="about-keys"></a>À propos des clés
 
@@ -59,17 +59,17 @@ Key Vault prend en charge les clés RSA et EC. Un HSM managé prend en charge le
 
 |Type de clé|Coffres (SKU Premium uniquement)|Modules HSM managés|
 |--|--|--|
-|**EC-HSM** : clé Elliptic Curve | Prise en charge | Prise en charge|
-|**RSA-HSM** : clé RSA|Prise en charge|Prise en charge|
-|**oct-HSM** : clé symétrique|Non pris en charge|Pris en charge|
+|**EC-HSM** : clé Elliptic Curve | Pris en charge (P-256, P-384, P-521, P-256K)| Pris en charge (P-256, P-256K, P-384, P-521)|
+|**RSA-HSM** : clé RSA|Pris en charge (2048 bits, 3072 bits, 4096 bits)|Pris en charge (2048 bits, 3072 bits, 4096 bits)|
+|**oct-HSM** : clé symétrique|Non pris en charge|Pris en charge (128 bits, 192 bits, 256 bits)|
 |||
 
 ### <a name="software-protected-keys"></a>Clés protégées par logiciel
 
 |Type de clé|Coffres|Modules HSM managés|
 |--|--|--|
-**RSA** : clé RSA « protégée par logiciel »|Prise en charge|Non pris en charge
-**EC** : clé Elliptic Curve « protégée par logiciel »|Prise en charge|Non pris en charge
+**RSA** : clé RSA « protégée par logiciel »|Pris en charge (2048 bits, 3072 bits, 4096 bits)|Non pris en charge
+**EC** : clé Elliptic Curve « protégée par logiciel » |Pris en charge (P-256, P-384, P-521, P-256K)|Non pris en charge
 |||
 
 ### <a name="compliance"></a>Conformité

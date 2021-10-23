@@ -1,14 +1,14 @@
 ---
 title: Configuration d’instances Lab Projet Lead The Way avec Azure Lab Services
 description: Découvrez comment configurer des instances Lab pour enseigner dans le cadre de cours Project Lead The Way.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 85e8b8d55ed5a91c21c2554ce15e3ef893e30f15
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9ee9c0dfdd9174691c27ee007c1dc0070249afbe
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562759"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176773"
 ---
 # <a name="set-up-labs-for-project-lead-the-way-classes"></a>Configuration d’instances Lab pour des cours Project Lead The Way
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 4e6c6b441684d3877a8b85f40b650b257a5159da
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: e8429933e70ca0e83d8cf0b89789fda811b7122d
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106069"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132053"
 ---
 # <a name="test-through-simulations"></a>Tester à l’aide de simulations
 
@@ -35,7 +35,7 @@ Nous travaillons en collaboration avec [BreakingPoint Cloud](https://www.ixiacom
 ## <a name="prerequisites"></a>Prérequis
 
 - Avant de pouvoir exécuter la procédure de ce tutoriel, vous devez créer un [plan de protection Azure DDoS Standard](manage-ddos-protection.md) avec des adresses IP publiques protégées.
-- Vous devez d’abord créer un compte avec [BreakingPoint Cloud](http://breakingpoint.cloud/). 
+- Vous devez d’abord créer un compte avec [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud). 
 
 ## <a name="configure-a-ddos-test-attack"></a>Configurer une attaque de test DDoS
 
@@ -66,7 +66,7 @@ Une fois la ressource attaquée, vous devez voir que la valeur passe de **0** à
 
 ### <a name="breakingpoint-cloud-api-script"></a>Script de l’API BreakingPoint Cloud
 
-Ce [script d’API](https://aka.ms/ddosbreakingpoint) peut être utilisé pour automatiser les tests DDoS en exécutant une seule fois ou à l’aide de cron pour planifier des tests réguliers. Cela permet de vérifier que votre journalisation est correctement configurée et que les procédures de détection et de réponse sont efficaces. Les scripts requièrent un système d’exploitation Linux (testé avec Ubuntu 18.04 LTS) et Python 3. Installez les composants requis et le client API à l’aide du script inclus ou à l’aide de la documentation sur le site Web [BreakingPoint Cloud](http://breakingpoint.cloud/) .
+Ce [script d’API](https://aka.ms/ddosbreakingpoint) peut être utilisé pour automatiser les tests DDoS en exécutant une seule fois ou à l’aide de cron pour planifier des tests réguliers. Cela permet de vérifier que votre journalisation est correctement configurée et que les procédures de détection et de réponse sont efficaces. Les scripts requièrent un système d’exploitation Linux (testé avec Ubuntu 18.04 LTS) et Python 3. Installez les composants requis et le client API à l’aide du script inclus ou à l’aide de la documentation sur le site Web [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

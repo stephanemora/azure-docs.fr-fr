@@ -1,24 +1,24 @@
 ---
 title: Configurer des paramètres personnalisés
 description: Configurez des paramètres qui s’appliquent à l’ensemble de l’environnement Azure App Service. Découvrez comment faire cela avec des modèles Azure Resource Manager.
-author: ccompy
+author: madsd
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
 ms.date: 01/29/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: mvc, seodec18
-ms.openlocfilehash: e871778576266d772f37c23ee174dda7df6a6a75
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: e95f8a4434f0ca27c57791edfe8663df9e77bbaa
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112027422"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002710"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Paramètres de configuration personnalisés pour les environnements App Service
 ## <a name="overview"></a>Vue d’ensemble
 Les environnements App Service (ASE) étant isolés pour chaque client, certains paramètres de configuration peuvent être appliqués exclusivement à des environnements App Service. Cet article décrit les différentes personnalisations pour les environnements App Service disponibles.
 
-Si vous ne possédez pas d’environnement App Service, voir [Comment créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md).
+Si vous n’avez pas d’instance d’App Service Environment, consultez [Guide pratique pour créer un environnement ASEv1 à partir d’un modèle](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 Vous pouvez stocker les personnalisations de l’environnement App Service (App Service Environment) à l’aide d’un tableau dans le nouvel attribut **clusterSettings** . Cet attribut se trouve dans le dictionnaire des « Propriétés » de l’entité Azure Resource Manager *hostingEnvironments* .
 

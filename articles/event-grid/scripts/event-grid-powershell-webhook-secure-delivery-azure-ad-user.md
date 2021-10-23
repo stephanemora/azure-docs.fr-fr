@@ -4,16 +4,23 @@ description: Explique comment remettre des événements aux points de terminaiso
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 09/29/2021
-ms.openlocfilehash: 4b0f445572099dbf8b555f26be5474f84062d42a
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 91cdc4f4959d417e8f68dc9712737d234248e4bd
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129621311"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063694"
 ---
 # <a name="secure-webhook-delivery-with-azure-ad-user-in-azure-event-grid"></a>Livraison sécurisée de webhooks avec Azure AD User dans Azure Event Grid
 
 Ce script fournit la configuration qui permet de remettre des événements aux points de terminaison HTTPS protégés par Azure AD User à l’aide d’Azure Event Grid.
+
+Voici les étapes générales du script :
+
+1. Créer un principal de service pour **Microsoft.EventGrid** s’il n’en existe pas encore
+1. Créer un rôle nommé **AzureEventGridSecureWebhookSubscriber** dans l’**application Azure AD pour votre webhook**
+1. Ajouter le principal de service de l’utilisateur qui créera l’abonnement au rôle AzureEventGridSecureWebhookSubscriber
+1. Ajouter le principal de service de Microsoft.EventGrid au AzureEventGridSecureWebhookSubscriber
 
 ## <a name="sample-script---stable"></a>Exemple de script : stable
 

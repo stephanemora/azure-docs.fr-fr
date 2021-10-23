@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b37cdba3f5b95f1e6ecc6b4dab02b5c9d69f109
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 9d30c282bd45dd26184c2c14bcb78a499d895bbd
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754379"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130068947"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec clustering de basculement Windows Server et disque partagé Azure
 
@@ -33,8 +33,8 @@ Cet article explique comment passer d'une installation ASCS/SCS unique à une co
 
 Il est actuellement possible d’utiliser des disques SSD Premium Azure comme disque partagé Azure pour l'instance SAP ASCS/SCS. Quelques limitations s'appliquent pour le moment :
 
--  Le [disque Ultra Azure](../../disks-types.md#ultra-disk) et les [disques SSD Standard](../../disks-types.md#standard-ssd) ne sont pas pris en charge comme disque partagé Azure pour les charges de travail SAP.
--  Le [disque partagé Azure](../../disks-shared.md) avec des [disques SSD Premium](../../disks-types.md#premium-ssd) est pris en charge pour le déploiement SAP dans un groupe à haute disponibilité et des zones de disponibilité.
+-  Le [disque Ultra Azure](../../disks-types.md#ultra-disks) et les [disques SSD Standard](../../disks-types.md#standard-ssds) ne sont pas pris en charge comme disque partagé Azure pour les charges de travail SAP.
+-  Le [disque partagé Azure](../../disks-shared.md) avec des [disques SSD Premium](../../disks-types.md#premium-ssds) est pris en charge pour le déploiement SAP dans un groupe à haute disponibilité et des zones de disponibilité.
 -  Le disque partagé Azure avec des disques SSD Premium est proposé avec deux SKU de stockage.
    - Le stockage localement redondant (LRS) pour les disques partagés Premium (skuName : Premium_LRS) est pris en charge pour un déploiement dans un groupe à haute disponibilité.
    - Le stockage redondant interzone (ZRS) pour les disques partagés Premium (skuName : ZRS) est pris en charge pour un déploiement dans des zones de disponibilité.

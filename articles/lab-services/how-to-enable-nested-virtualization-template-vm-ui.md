@@ -2,15 +2,15 @@
 title: Activer la virtualisation imbriquée sur un modèle de machine virtuelle dans Azure Lab Services (IU) | Microsoft Docs
 description: Découvrez comment créer un modèle de machine virtuelle contenant plusieurs machines virtuelles.  En d’autres termes, activez la virtualisation imbriquée sur un modèle de machine virtuelle dans Azure Lab Services.
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: f8135e11fb7b7ddb588ab3a8ed01227712072fd2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2f4fa1dc4089b55afaffdb4ef5a5a3c68beedd1
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94647917"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180473"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-manually"></a>Activer la virtualisation imbriquée sur un modèle de machine virtuelle dans Azure Lab Services manuellement
 

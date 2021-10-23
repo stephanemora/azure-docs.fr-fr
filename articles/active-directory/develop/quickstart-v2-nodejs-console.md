@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Appeler Microsoft Graph dans une application consol
 titleSuffix: Microsoft identity platform
 description: Dans ce démarrage rapide, vous téléchargez et exécutez un exemple de code qui montre comment une application console Node.js peut obtenir un jeton d’accès et appeler une API protégée par un point de terminaison de la plateforme d’identités Microsoft, en utilisant l’identité propre de l’application.
 services: active-directory
-author: derisen
+author: KarenH444
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
-ms.author: v-doeris
-ms.openlocfilehash: ffe6f750604546a51a7d3d7852df5745ba07dd3a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.author: karenhoran
+ms.openlocfilehash: 84dcc9861bd7b7288e0feefbc32ce1bf820eef7f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619133"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163808"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-nodejs-console-app-using-apps-identity"></a>Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console Node.js en utilisant l’identité de l’application
 

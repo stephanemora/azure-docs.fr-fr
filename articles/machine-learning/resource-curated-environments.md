@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.date: 07/08/2021
-ms.openlocfilehash: d86abb52b5282c70e99abc68da75c4b5f85ecbb8
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 2303e111d3b19f777760b0d43e6198bf4bb4a135
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129712073"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999356"
 ---
 # <a name="azure-machine-learning-curated-environments"></a>Environnements organisés Azure Machine Learning
 
@@ -34,7 +34,7 @@ Cet article dresse la liste des environnements organisés dans Azure Machine Lea
 Le Dockerfile suivant peut être personnalisé en fonction de vos workflows personnels.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20211005.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20211012.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/pytorch-1.9
 
@@ -61,10 +61,10 @@ RUN HOROVOD_WITH_PYTORCH=1 \
                 'scipy>=1.5,<1.6' \
                 'numpy>=1.10,<1.20' \
                 'ipykernel~=6.0' \
-                'azureml-core==1.34.0' \
-                'azureml-defaults==1.34.0' \
-                'azureml-mlflow==1.34.0' \
-                'azureml-telemetry==1.34.0' \
+                'azureml-core==1.35.0' \
+                'azureml-defaults==1.35.0' \
+                'azureml-mlflow==1.35.0' \
+                'azureml-telemetry==1.35.0' \
                 'tensorboard==2.4.0' \
                 'tensorflow-gpu==2.4.1' \
                 'onnxruntime-gpu>=1.7,<1.8' \
@@ -89,7 +89,7 @@ Autres environnements PyTorch disponibles :
 Le Dockerfile suivant peut être personnalisé en fonction de vos workflows personnels.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211005.v1
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211012.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/lightgbm
 
@@ -116,10 +116,10 @@ RUN HOROVOD_WITH_TENSORFLOW=1 \
                 'dask-ml~=1.9.0' \
                 'adlfs~=0.7.0' \
                 'ipykernel~=6.0' \
-                'azureml-core==1.34.0' \
-                'azureml-defaults==1.34.0' \
-                'azureml-mlflow==1.34.0' \
-                'azureml-telemetry==1.34.0'
+                'azureml-core==1.35.0' \
+                'azureml-defaults==1.35.0' \
+                'azureml-mlflow==1.35.0' \
+                'azureml-telemetry==1.35.0'
 
 # This is needed for mpi to locate libpython
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
@@ -169,7 +169,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 Le Dockerfile suivant peut être personnalisé en fonction de vos workflows personnels.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211005.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211012.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/tensorflow-2.4
 
@@ -189,10 +189,10 @@ RUN HOROVOD_WITH_TENSORFLOW=1 \
                 'scipy>=1.5,<1.6' \
                 'numpy>=1.10,<1.20' \
                 'ipykernel~=6.0' \
-                'azureml-core==1.34.0' \
-                'azureml-defaults==1.34.0' \
-                'azureml-mlflow==1.34.0' \
-                'azureml-telemetry==1.34.0' \
+                'azureml-core==1.35.0' \
+                'azureml-defaults==1.35.0' \
+                'azureml-mlflow==1.35.0' \
+                'azureml-telemetry==1.35.0' \
                 'tensorboard==2.4.0' \
                 'tensorflow-gpu==2.4.1' \
                 'tensorflow-datasets==4.3.0' \
@@ -207,12 +207,12 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 
 Les workflows de formation du pipeline Azure ML qui utilisent AutoML sélectionnent automatiquement un environnement organisé en fonction du type de calcul et de l’activation de DNN. AutoML fournit les environnements organisés suivants :
 
-| Name | Type de calcul | DNN activé |
+| Nom | Type de calcul | DNN activé |
 | --- | --- | --- |
 |AzureML-AutoML | UC | Non |
 |AzureML-AutoML-DNN | UC | Oui |
 | AzureML-AutoML-GPU | GPU | No |
-| AzureML-AutoML-DNN-GPU | GPU | Yes |
+| AzureML-AutoML-DNN-GPU | GPU | Oui |
 
 Pour plus d’informations sur AutoML et sur les pipelines Azure ML, consultez [Utiliser le ML automatisé dans un pipeline Azure Machine Learning dans Python](how-to-use-automlstep-in-pipelines.md).
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4cb7fdf7f32070de66e81736d7572e0b48aad896
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 7e7ea41a95c2b59e124f8f605be52f3ba774f763
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123429493"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998634"
 ---
 # <a name="add-a-bar-chart-layer"></a>Ajouter une couche de graphique à barres
 
@@ -56,6 +56,14 @@ Vous trouverez ci-dessous tous les paramètres du **Format** disponibles dans la
 > Si les barres présentent une petite valeur de largeur et que l’option **Mettre à l’échelle la largeur pendant le zoom** est désactivée, elles peuvent disparaître en cas de zoom arrière important, car leur largeur affichée est inférieure à un pixel en termes de taille. Cependant, quand l’option **Mettre à l’échelle la largeur pendant le zoom** est activée, des calculs supplémentaires sont effectués lorsque le niveau de zoom évolue, ce qui peut avoir un impact sur les performances des grands jeux de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Changez l’affichage de vos données sur la carte :
+
+> [!div class="nextstepaction"]
+> [Ajouter une couche de bulles](power-bi-visual-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [Ajouter une couche de carte thermique](power-bi-visual-add-heat-map-layer.md)
 
 Ajouter davantage de contexte à la carte :
 

@@ -2,18 +2,16 @@
 title: Visualisations de graphiques de classeur Azure Monitor
 description: Découvrez toutes les visualisations de graphiques de classeur Azure Monitor.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.author: lagayhar
-ms.openlocfilehash: 139c8cdb1a227595d728d2acc0b09cf1eb210715
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 59f42867ec4dce29d136ec96df6e7642b7329911
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100599938"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129279"
 ---
 # <a name="chart-visualizations"></a>Visualisations de graphiques
 

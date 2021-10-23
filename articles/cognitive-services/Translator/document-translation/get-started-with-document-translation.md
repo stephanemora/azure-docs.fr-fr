@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/16/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 0e1192e310c658e93c4cfe5738e9ad4d36984113
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 051e218b8c0bce8249c6fbe3dd785d797130b61f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128580869"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062725"
 ---
 # <a name="get-started-with-document-translation"></a>Bien démarrer avec la traduction de documents
 
@@ -117,7 +117,7 @@ Les en-têtes suivants sont inclus avec chaque demande d’API du Traducteur de 
 * La valeur `targetUrl` de chaque langue cible doit être unique.
 
 >[!NOTE]
-> Si un fichier portant le même nom existe déjà dans la destination, il est remplacé.
+> Si un fichier portant le même nom existe déjà dans la destination, le travail se solde par un échec.
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="translate-all-documents-in-a-container"></a>Traduire tous les documents dans un conteneur

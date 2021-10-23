@@ -11,19 +11,19 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: ac0b1b78291d895e97cb967e047ae36da6ff7469
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bc1be378d16388ad3814596f3e49d434af350a96
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746834"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004955"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorer Azure Machine Learning avec des notebooks Jupyter
 
 > [!NOTE] 
 > Vous trouverez un dépôt d’exemples créés par la communauté à l’adresse https://github.com/Azure/azureml-examples.
 
-L’[exemple de dépôt Azure Machine Learning Notebooks](https://github.com/azure/machinelearningnotebooks) contient les derniers exemples du Kit de développement logiciel (SDK) Python Azure Machine Learning. Ces notebooks Jupyter sont conçus pour vous aider à explorer le SDK et servent de modèles pour vos propres projets Machine Learning.
+L’[exemple de dépôt Azure Machine Learning Notebooks](https://github.com/azure/machinelearningnotebooks) contient les derniers exemples du Kit de développement logiciel (SDK) Python Azure Machine Learning. Ces notebooks Jupyter sont conçus pour vous aider à explorer le SDK, et servent de modèles pour vos propres projets Machine Learning.
 
 Cet article vous montre comment accéder au dépôt dans les environnements suivants :
 

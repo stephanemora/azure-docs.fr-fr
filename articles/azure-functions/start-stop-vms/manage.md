@@ -5,18 +5,18 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: cf2461484d290dc05912121a6964b42ca58194cc
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 1bb5a7bf62bd16274a168ecb8b3147c07afc8860
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455519"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175861"
 ---
 # <a name="how-to-manage-startstop-vms-v2-preview"></a>Gestion de Start/Stop VMs v2 (préversion)
 
 ## <a name="azure-dashboard"></a>Tableau de bord Azure
 
-Start/Stop VMs v2 (préversion) comprend un [tableau de bord](../../azure-monitor/visualizations.md#azure-dashboards) pour vous aider à comprendre le périmètre de gestion et les opérations récentes sur vos machines virtuelles. Il s’agit d’un moyen simple et rapide de vérifier l’état de chaque opération effectuée sur vos machines virtuelles Azure. La visualisation dans chaque vignette est basée sur une requête de journal. Pour voir la requête, sélectionnez l’option **Ouvrir dans le panneau Journaux** dans le coin droit de la vignette. Cela ouvre l’outil [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics) dans le portail Azure, à partir duquel vous pouvez évaluer la requête et la modifier pour répondre à vos besoins, comme des [alertes de journal](../../azure-monitor/alerts/alerts-log.md) personnalisées, un [classeur](../../azure-monitor/visualize/workbooks-overview.md) personnalisé, etc.
+Start/Stop VMs v2 (préversion) comprend un [tableau de bord](../../azure-monitor/best-practices-analysis.md#azure-dashboards) pour vous aider à comprendre le périmètre de gestion et les opérations récentes sur vos machines virtuelles. Il s’agit d’un moyen simple et rapide de vérifier l’état de chaque opération effectuée sur vos machines virtuelles Azure. La visualisation dans chaque vignette est basée sur une requête de journal. Pour voir la requête, sélectionnez l’option **Ouvrir dans le panneau Journaux** dans le coin droit de la vignette. Cela ouvre l’outil [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics) dans le portail Azure, à partir duquel vous pouvez évaluer la requête et la modifier pour répondre à vos besoins, comme des [alertes de journal](../../azure-monitor/alerts/alerts-log.md) personnalisées, un [classeur](../../azure-monitor/visualize/workbooks-overview.md) personnalisé, etc.
 
 Les données de journal de chaque vignette du tableau de bord sont actualisés toutes les heures, avec une option d’actualisation manuelle à la demande en cliquant sur l’icône **Actualiser** d’une visualisation donnée ou en actualisant le tableau de bord complet.
 

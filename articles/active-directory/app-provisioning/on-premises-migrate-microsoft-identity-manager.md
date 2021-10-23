@@ -3,7 +3,7 @@ title: Exporter un connecteur Microsoft Identity Manager à utiliser avec l’H�
 description: Décrit la procédure de création et d’exportation d’un connecteur depuis MIM Sync, à utiliser avec l’Hôte de connecteur ECMA Azure AD.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -11,12 +11,12 @@ ms.date: 06/01/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b96d3ec481d21d937a9c8810c6f2601966672ff1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0044f96f58ba3aa868577b0d0664d71daeddbc7f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551540"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991068"
 ---
 # <a name="export-a-microsoft-identity-manager-connector-for-use-with-the-azure-ad-ecma-connector-host"></a>Exporter un connecteur Microsoft Identity Manager à utiliser avec l’Hôte de connecteur ECMA Azure AD
 

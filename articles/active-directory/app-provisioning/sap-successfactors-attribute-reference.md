@@ -3,7 +3,7 @@ title: Référence d’attribut SAP SuccessFactors pour Azure Active Directory
 description: Découvrez quels attributs de SuccessFactors sont pris en charge par l’approvisionnement piloté par SuccessFactors-HR dans Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: chmutali
-ms.openlocfilehash: ea6887c69b292cc2cff4d923ba2ce60af8f1920e
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 83e3a0462543131298ee9460225db015d960bc52
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784950"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990783"
 ---
 # <a name="sap-successfactors-attribute-reference-for-azure-active-directory"></a>Référence d’attribut SAP SuccessFactors pour Azure Active Directory
 

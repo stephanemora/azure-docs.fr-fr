@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: a61eaa10420a9a4a413074559a158e2a32f5cf95
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8bdb31d13f35f2ffbc4713623e5509675433ddd8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128634992"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997173"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Résoudre un solde impayé pour votre abonnement Azure
 
 Cet article s’applique aux clients qui se sont inscrits à Azure Online avec une carte de crédit, et qui disposent d’un compte de facturation Programme Microsoft Online Services. Découvrez comment [vérifier votre type de compte de facturation](#check-the-type-of-your-account). Si vous avez un compte de facturation Contrat client Microsoft, consultez [Payer votre facture pour Microsoft Azure](../understand/pay-bill.md) à la place.
 
-Si votre paiement n’a pas été reçu ou si nous ne pouvons pas traiter votre paiement, vous recevrez un e-mail et verrez une alerte sur le portail Azure vous informant que l’échéance du paiement de cet abonnement est dépassée. Si votre mode de paiement par défaut est la carte de crédit, l’[administrateur du compte](../understand/subscription-transfer.md#whoisaa) peut régler ces frais en souffrance sur le portail Azure. Si vous payez par facture (chèque/virement bancaire), envoyez votre paiement à l’adresse indiquée au bas de la facture.
+Si votre paiement n’a pas été reçu ou si nous ne pouvons pas traiter votre paiement, vous recevrez un e-mail et verrez une alerte sur le portail Azure vous informant que l’échéance du paiement de cet abonnement est dépassée. Si votre mode de paiement par défaut est la carte de crédit, l’[administrateur du compte](add-change-subscription-administrator.md#whoisaa) peut régler ces frais en souffrance sur le portail Azure. Si vous payez par facture (chèque/virement bancaire), envoyez votre paiement à l’adresse indiquée au bas de la facture.
 
 > [!IMPORTANT]
 > * Si vous avez plusieurs abonnements associés à la même carte de crédit et qu’ils sont tous en retard de paiement, vous devez payer l’intégralité du solde restant dû en une seule fois.
