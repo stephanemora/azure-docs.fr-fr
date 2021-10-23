@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: abd279b8464e4477a99aa0da8be480844bf18563
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 55e3d529b0f0e713be1c19e9f2ae4736d9b6a9ca
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716525"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177514"
 ---
 # <a name="how-to-use-custom-and-composed-models"></a>Guide pratique : Utiliser des modèles personnalisés et composés
 
-Form Recognizer utilise la technologie de Machine Learning avancée pour détecter et extraire des informations à partir d’images de document et retourner les données extraites dans une sortie JSON structurée. Grâce à Form Recognizer, vous pouvez effectuer l’apprentissage de modèles personnalisés autonomes ou combiner des modèles personnalisés pour créer des modèles composés.
+Form Recognizer utilise la technologie de Machine Learning avancée pour détecter et extraire des informations à partir d’images de document et retourner les données extraites dans une sortie JSON structurée. Avec Form Recognizer, vous pouvez effectuer l’apprentissage de modèles personnalisés autonomes ou combiner des modèles personnalisés pour créer des modèles composés.
 
 * **Modèles personnalisés**. Les modèles personnalisés Form Recognizer vous permettent d’analyser et d’extraire des données à partir de formulaires et de documents spécifiques à votre entreprise. Les modèles personnalisés sont entraînés pour vos données et cas d’usage spécifiques.
 
@@ -161,9 +161,9 @@ Une fois l’opération effectuée, le modèle récemment composé apparaît dan
 
 Utilisez le code du langage de programmation de votre choix pour créer un modèle composé qui sera appelé avec un ID de modèle unique. Vous trouverez ci-dessous des liens vers des exemples de code qui montrent comment créer un modèle composé à partir de modèles personnalisés existants :
 
-* [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample8_ModelCompose.md).
+* [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_ModelCompose.md).
 
-* [**Java**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/CreateComposedModel.java).
+* [**Java**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/administration/CreateComposedModel.java).
 
 * [**JavaScript**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v3/javascript/createComposedModel.js).
 
@@ -195,9 +195,9 @@ Utilisez le code du langage de programmation de votre choix pour créer un modè
 
 Utilisation du langage de programmation de votre choix pour analyser un formulaire ou un document avec un modèle personnalisé ou composé. Vous aurez besoin de votre point de terminaison Form Recognizer, de votre clé API et de votre ID de modèle.
 
-* [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample8_ModelCompose.md#recognize-a-custom-form-using-a-composed-model)
+* [**C#/.NET**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_ModelCompose.md)
 
-* [**Java**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/RecognizeCustomFormsFromUrl.java)
+* [**Java**](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/AnalyzeCustomDocumentFromUrl.java)
 
 * [**JavaScript**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v3/javascript/recognizeCustomForm.js)
 

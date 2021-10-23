@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: fc23ef0b4311a01e5d7bae1904f9a04ef77a0478
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 3b2ff000a43618442da5670aac9dc1a094f0cbf2
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716659"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161170"
 ---
 # <a name="get-started-form-recognizer-rest-api---preview"></a>Bien démarrer : API REST Form Recognizer | Préversion
 
@@ -37,7 +37,7 @@ Azure Cognitive Services Form Recognizer est un service cloud qui utilise le mac
 * Documents d’identité – Analysez et extrayez les champs courants des documents d’identité, tels que les passeports ou les permis de conduire, en utilisant un modèle de pièce d’identité préentraîné.
 * Cartes de visite – Analysez et extrayez les champs courants des cartes de visite en utilisant un modèle de carte de visite préentraîné.
 
-Dans ce guide de démarrage rapide, vous allez utiliser les fonctionnalités suivantes pour analyser et extraire les données et les valeurs des formulaires et des documents :
+Dans ce guide de démarrage rapide, vous allez utiliser les fonctionnalités suivantes pour analyser et extraire les données et les valeurs de formulaires et de documents :
 
 * [**Document général**](#try-it-general-document-model)
 
@@ -70,7 +70,7 @@ Dans ce guide de démarrage rapide, vous allez utiliser les fonctionnalités sui
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{subscription key}` par la clé d’abonnement que vous avez copiée à l’étape précédente.
-1. Remplacez `\"{your-document-url}` par un exemple d’URL de formulaire.
+1. Remplacez `{your-document-url}` par un exemple d’URL de formulaire.
 
 #### <a name="request"></a>Requête
 
@@ -82,11 +82,11 @@ Dans ce guide de démarrage rapide, vous allez utiliser les fonctionnalités sui
 
 Vous recevrez une réponse `202 (Success)` incluant un en-tête **Operation-Location**. La valeur de cet en-tête contient un ID de résultats qui vous permet d’interroger l’état de l’opération asynchrone et d’obtenir les résultats :
 
-https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
+https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
 
 ### <a name="get-general-document-results"></a>Obtenir les résultats de document général
 
-Après avoir appelé l’API **[Analyser un document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** , appelez l’API **[Obtenir un résultat d’analyse](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** pour obtenir l’état de l’opération et les données extraites. Avant d’exécuter la commande, apportez les modifications suivantes :
+Après avoir appelé l’API **[Analyser un document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** , appelez l’API **[Obtenir un résultat d’analyse](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview)** pour obtenir l’état de l’opération et les données extraites. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{subscription key}` par la clé d’abonnement que vous avez copiée à l’étape précédente.
@@ -327,7 +327,7 @@ Le nœud `"analyzeResults"` contient tout le texte reconnu. Le texte est organis
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{subscription key}` par la clé d’abonnement que vous avez copiée à l’étape précédente.
-1. Remplacez `\"{your-document-url}` par l’un des exemples d’URL.
+1. Remplacez `"{your-document-url}` par l’un des exemples d’URL.
 
 #### <a name="request"></a>Requête
 
@@ -342,9 +342,9 @@ Vous recevrez une réponse `202 (Success)` incluant un en-tête **Operation-Loca
 
 `https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview`
 
-### <a name="get-general-document-results"></a>Obtenir les résultats de document général
+### <a name="get-layout-results"></a>Obtenir les résultats de la disposition
 
-Après avoir appelé l’API **[Analyser un document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** , appelez l’API **[Obtenir un résultat d’analyse](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** pour obtenir l’état de l’opération et les données extraites. Avant d’exécuter la commande, apportez les modifications suivantes :
+Après avoir appelé l’API **[Analyser un document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** , appelez l’API **[Obtenir un résultat d’analyse](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview)** pour obtenir l’état de l’opération et les données extraites. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{subscription key}` par la clé d’abonnement que vous avez copiée à l’étape précédente.
@@ -354,7 +354,7 @@ Après avoir appelé l’API **[Analyser un document](https://westus.dev.cogniti
 #### <a name="request"></a>Requête
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
 ```
 
 ### <a name="examine-the-response"></a>Examiner la réponse
@@ -395,9 +395,9 @@ Vous recevrez une réponse `202 (Success)` incluant un en-tête **Operation-Loca
 
 https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
 
-### <a name="get-general-document-results"></a>Obtenir les résultats de document général
+### <a name="get-invoice-results"></a>Obtenir les résultats de la facture
 
-Après avoir appelé l’API **[Analyser un document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** , appelez l’API **[Obtenir un résultat d’analyse](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** pour obtenir l’état de l’opération et les données extraites. Avant d’exécuter la commande, apportez les modifications suivantes :
+Après avoir appelé l’API **[Analyser un document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** , appelez l’API **[Obtenir un résultat d’analyse](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-invoice/analyzeResults/{resultId}?api-version=2021-09-30-preview)** pour obtenir l’état de l’opération et les données extraites. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{subscription key}` par la clé d’abonnement que vous avez copiée à l’étape précédente.

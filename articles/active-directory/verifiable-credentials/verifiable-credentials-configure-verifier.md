@@ -4,15 +4,16 @@ description: Dans ce tutoriel, vous allez apprendre à configurer votre locatair
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: 4faed2beb4f31537453dc60805467c9128d5cc0a
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: d2cc41dc21ebe9c18db5f920e49a21d9395349f3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730886"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993375"
 ---
 # <a name="configure-azure-ad-verifiable-credentials-verifier-preview"></a>Configurer un vérificateur de justificatifs vérifiables Azure AD (préversion)
 

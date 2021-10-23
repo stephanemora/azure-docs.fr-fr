@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: f00188c93bc664395ddb9b72fc5150ede31bf670
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: f1f31fe80a0ac156fdb7f2e01ec9a783c4220189
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123105406"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071223"
 ---
 # <a name="edv4-and-edsv4-series"></a>Séries Edv4 et Edsv4
 
@@ -80,7 +80,7 @@ Les tailles de la série Edsv4 s’exécutent sur les processeurs Intel &reg;�
 <sup>1</sup> Les machines virtuelles de la série Edsv4 peuvent [augmenter via le mode rafale](./disk-bursting.md) leurs performances de disque et atteindre le maximum du mode rafale pendant au plus 30 minutes à la fois.<br>
 <sup>2</sup> [Tailles avec contraintes de cœurs disponibles)](./constrained-vcpu.md).<br>
 <sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.<br>
-<sup>4</sup> La mise en réseau accélérée ne peut être appliquée qu’à une seule carte réseau. 
+<sup>4</sup> L’accélération réseau peut uniquement être appliquée à une seule carte d’interface réseau. 
 
 
 
@@ -97,7 +97,7 @@ Les tailles de la série Edsv4 s’exécutent sur les processeurs Intel &reg;�
 
 Calculatrice de prix : [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 
-Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disk)
+Pour plus d’informations sur les types de disques : [Types de disques](./disks-types.md#ultra-disks)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

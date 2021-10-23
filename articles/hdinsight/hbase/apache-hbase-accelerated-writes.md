@@ -4,16 +4,16 @@ description: Offre une vue d’ensemble de la fonctionnalité Écritures accél�
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: c42a9d47cabd803944b858fc470c1bedc39d2d77
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 76e2211eb146178d8e491237370147c3bfed7079
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868900"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070201"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Écritures accélérées pour Apache HBase dans Azure HDInsight
 
-Cet article fournit des informations sur la fonctionnalité **Écritures accélérées** pour Apache HBase dans Azure HDInsight et explique comment elle peut être utilisée efficacement pour améliorer les performances en écriture. **Écritures accélérées** utilise les [disques managés SSD Premium Azure](../../virtual-machines/disks-types.md#premium-ssd) pour améliorer les performances du journal WAL (write-ahead log) Apache HBase. Pour en savoir plus sur Apache HBase, consultez [Nouveautés d’Apache HBase dans Azure HDInsight](apache-hbase-overview.md).
+Cet article fournit des informations sur la fonctionnalité **Écritures accélérées** pour Apache HBase dans Azure HDInsight et explique comment elle peut être utilisée efficacement pour améliorer les performances en écriture. **Écritures accélérées** utilise les [disques managés SSD Premium Azure](../../virtual-machines/disks-types.md#premium-ssds) pour améliorer les performances du journal WAL (write-ahead log) Apache HBase. Pour en savoir plus sur Apache HBase, consultez [Nouveautés d’Apache HBase dans Azure HDInsight](apache-hbase-overview.md).
 
 ## <a name="overview-of-hbase-architecture"></a>Vue d’ensemble de l’architecture HBase
 

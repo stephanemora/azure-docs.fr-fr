@@ -2,15 +2,13 @@
 title: Superviser vos applications sans modification du code - Instrumentation automatique pour Azure Monitor Application Insights | Microsoft Docs
 description: Présentation de l’instrumentation automatique Azure Monitor Application Insights - Gestion des performances des applications sans code
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
 ms.date: 08/31/2021
-ms.openlocfilehash: 3f6af0beb887f66f4696707dcc0e0f408004509a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 8603837d9d9ac098f7093a8760f326a1c0e44f89
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124827627"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133630"
 ---
 # <a name="what-is-auto-instrumentation-for-azure-monitor-application-insights"></a>Qu’est-ce que l’instrumentation automatique pour Azure Monitor Application Insights ?
 

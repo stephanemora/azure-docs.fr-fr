@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/30/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 49ca89112f011f8f1c6d411ab187697b29523eeb
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 15d8b077feadefb95d40014e257b9c300ef1aba2
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562339"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069847"
 ---
 # <a name="list-azure-role-definitions"></a>Lister les définitions de rôles Azure
 
@@ -38,9 +38,6 @@ Suivez ces étapes pour lister tous les rôles dans le portail Azure.
 1. Cliquez sur l’onglet **Rôles** pour afficher une liste de tous les rôles intégrés et personnalisés.
 
    ![Capture d’écran montrant la liste des rôles avec une nouvelle expérience.](./media/shared/roles-list.png)
-
-    > [!TIP]
-    > Pour voir l’expérience de la liste des rôles précédente, cliquez sur **Utiliser l’expérience classique**.
   
 1. Pour voir les autorisations d’un rôle en particulier, dans la colonne **Détails**, cliquez sur le lien **Voir**.
 

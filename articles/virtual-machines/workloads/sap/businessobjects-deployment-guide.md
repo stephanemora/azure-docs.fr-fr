@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: a489b8fd416c750071fa5e292bf916f23c83dab5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 946fe1e1700cfa90af6f329dc6786c5801e526a6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525144"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073940"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guide de planification et d’implémentation de la plateforme SAP BusinessObjects BI sur Azure
 
@@ -243,7 +243,7 @@ Stockage Azure propose aux clients différents types de stockage, présentés en
 
 - Disques managés Azure
 
-  Il s'agit d'un volume de stockage de niveau bloc qui est géré par Azure. Vous pouvez utiliser les disques pour les serveurs d'applications et les bases de données de SAP BOBI Platform, lorsqu'ils sont installés sur des machines virtuelles Azure. Différents types de [Disques managés Azure](../../managed-disks-overview.md) sont disponibles, mais il est recommandé d'utiliser des [disques SSD Premium](../../disks-types.md#premium-ssd) pour l'application et la base de données SAP BOBI Platform.
+  Il s'agit d'un volume de stockage de niveau bloc qui est géré par Azure. Vous pouvez utiliser les disques pour les serveurs d'applications et les bases de données de SAP BOBI Platform, lorsqu'ils sont installés sur des machines virtuelles Azure. Différents types de [Disques managés Azure](../../managed-disks-overview.md) sont disponibles, mais il est recommandé d'utiliser des [disques SSD Premium](../../disks-types.md#premium-ssds) pour l'application et la base de données SAP BOBI Platform.
 
   Dans l'exemple ci-dessous, des disques SSD Premium sont utilisés pour le répertoire d'installation de BOBI Platform. Concernant les bases de données installées sur une machine virtuelle, vous pouvez utiliser des disques managés pour les données et le volume du fichier journal, conformément aux instructions. Les bases de données CMS et Audit sont généralement de petite taille et ne présentent donc pas les mêmes exigences que les autres bases de données SAP OLTP/OLAP en termes de performances de stockage.
 

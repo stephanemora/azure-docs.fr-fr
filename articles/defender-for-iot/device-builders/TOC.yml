@@ -69,8 +69,8 @@
           href: concept-security-alerts.md
         - name: Alertes de sécurité personnalisées pour IoT Hub
           href: concept-customizable-security-alerts.md
-        - name: Recommandations de sécurité pour IoT Hub
-          href: concept-recommendations.md
+    - name: Recommandations de sécurité pour IoT Hub
+      href: concept-recommendations.md
     - name: Classique
       items:
         - name: Micro-agent Defender-IoT

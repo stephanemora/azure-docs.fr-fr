@@ -3,7 +3,7 @@ title: 'Taille de machine virtuelle : Meilleures pratiques et recommandations r
 description: Fournit les meilleures pratiques et les recommandations relatives à la taille des machines virtuelles pour optimiser les performances de votre instance de SQL Server sur les machines virtuelles Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: dplessMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
-ms.reviewer: jroth
-ms.openlocfilehash: 14197b7974db7697b9718f13ef59ac3e34c22a9b
-ms.sourcegitcommit: ddac53ddc870643585f4a1f6dc24e13db25a6ed6
+ms.reviewer: pamela
+ms.openlocfilehash: c80cf00bf7beb98b8548f0eebfd1cfa241bd2136
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122563950"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161480"
 ---
 # <a name="vm-size-performance-best-practices-for-sql-server-on-azure-vms"></a>Taille de machine virtuelle : Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

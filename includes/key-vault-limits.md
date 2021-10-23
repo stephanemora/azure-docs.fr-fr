@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 05/28/2021
 ms.author: ambapat
-ms.openlocfilehash: 3539e222407fee63a829e80db986f2b0eed02e24
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 2918ae1a7fcca250de91e61ecc9b2c64a2d9a0aa
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111761253"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019133"
 ---
 Le service Azure Key Vault prend en charge deux types de ressources : les coffres et les HSM managés. Les deux sections suivantes décrivent les limites de service pour chacun d’entre eux.
 
@@ -21,13 +21,13 @@ Cette section décrit les limites de service pour le type de ressource `vaults`.
 
 |Type de clé|Clé HSM<br>Clé CREATE|Clé HSM<br>Toutes les autres transactions|Clé logicielle<br>Clé CREATE|Clé logicielle<br>Toutes les autres transactions|
 |:---|---:|---:|---:|---:|
-|RSA 2 048 bits|5|1 000|10|2 000|
+|RSA 2 048 bits|5|1 000|10|2 000|
 |RSA 3 072 bits|5|250|10|500|
 |RSA 4 096 bits|5|125|10|250|
-|ECC P-256|5|1 000|10|2 000|
-|ECC P-384|5|1 000|10|2 000|
-|ECC P-521|5|1 000|10|2 000|
-|ECC SECP256K1|5|1 000|10|2 000|
+|ECC P-256|5|1 000|10|2 000|
+|ECC P-384|5|1 000|10|2 000|
+|ECC P-521|5|1 000|10|2 000|
+|ECC SECP256K1|5|1 000|10|2 000|
 ||||||
 
 > [!NOTE]
@@ -86,7 +86,7 @@ Cette section décrit les limites de service pour le type de ressource `managed 
 
 |Élément|Limites|
 |----|------:|
-Nombre d’instances HSM par région et par abonnement|1 
+Nombre d’instances HSM par région et par abonnement|5 
 Nombre de clés par pool HSM|5 000
 Nombre de versions par clé|100
 Nombre de définitions de rôles personnalisées par HSM|50

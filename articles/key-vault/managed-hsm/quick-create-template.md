@@ -14,12 +14,12 @@ ms.custom:
 - mvc
 - devx-track-azurecli
 - mode-arm
-ms.openlocfilehash: 5934c20c2c7749b75b05bdb80b6d9dee85d6d3c1
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: da540d63c78e9029addf098b76ec24773e63a782
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007010"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131065"
 ---
 # <a name="quickstart-create-an-key-vault-managed-hsm-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un HSM managé Key Vault avec un modèle Azure Resource Manager
 
@@ -81,7 +81,7 @@ Il se peut que vous ayez aussi besoin de votre ID de locataire. Pour le trouver,
 
     - **Abonnement**: Sélectionnez un abonnement Azure.
     - **Groupe de ressources** : Sélectionnez **Créer**, entrez un nom unique pour le groupe de ressources, puis cliquez sur **OK**.
-    - **Emplacement** : Sélectionnez un emplacement. Par exemple, **USA Centre Sud**.
+    - **Emplacement** : Sélectionnez un emplacement. Par exemple, **USA Centre**.
     - **managedHSMName** : attribuez un nom à votre HSM managé.
     - **ID du locataire** : la fonction de modèle récupère automatiquement votre ID de locataire ; ne changez pas la valeur par défaut.  En l’absence de valeur, entrez l’ID de locataire que vous avez récupéré dans [Prérequis](#prerequisites).
     * **initialAdminObjectIds** : entrez l’ID d’objet que vous avez récupéré dans [Prérequis](#prerequisites).

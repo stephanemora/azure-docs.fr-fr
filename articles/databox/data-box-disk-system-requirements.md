@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 10/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 750ed8f65db04199ea284e69693bced65a1dc8d9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 171297be3e0e8e5215c5c551e984a45d0516507e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703131"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003153"
 ---
 ::: zone target="docs"
 
@@ -74,11 +74,16 @@ L’ordinateur client qui contient les données doit être doté d’un port USB
 
 Voici une liste des types de stockage pris en charge pour le disque Data Box.
 
-| **Compte de stockage** | **Remarques** |
+| **Compte de stockage** | **Niveaux d’accès pris en charge** |
 | --- | --- |
-| Classique | standard |
-| Usage général  |Standard ; V1 et V2 sont pris en charge. Les niveaux chaud et froid sont tous les deux pris en charge. |
+| Standard classique | |
+| Édition Standard v1 à usage général  | Chaud, froid |
+| Comptes de stockage à usage général v1 Premium   |  |
+| Standard v2 universel<sup>*</sup> | Chaud, froid |
+| Comptes de stockage à usage général v2 Premium   |  |
 | Compte de stockage d’objets blob | |
+
+<sup>*</sup> *Azure Data Lake Storage Gen2 (ADLS Gen2) est pris en charge.*
 
 > [!IMPORTANT]
 > Le protocole NFS (Network File System) 3.0 dans Stockage Blob Azure n’est pas pris en charge avec Data Box Disk.

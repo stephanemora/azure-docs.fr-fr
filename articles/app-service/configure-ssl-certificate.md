@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: cf15fd428c7e487b82823586be6edfd21f6cab48
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: e9344aae6dd001a660549d85ac1b1527c332f2d8
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129057395"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178573"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Ajouter un certificat TLS/SSL dans Azure App Service
 
@@ -176,7 +176,7 @@ Sélectionnez **Vérification App Service**. Étant donné que vous avez déjà 
 > - **App Service** : option la plus pratique quand le domaine a déjà été mappé à une application App Service dans le même abonnement. Elle profite du fait que l’application App Service a déjà vérifié la propriété du domaine.
 > - **Domaine** : permet de vérifier un [domaine App Service que vous avez acheté sur Azure](manage-custom-dns-buy-domain.md). Azure ajoute automatiquement l’enregistrement TXT de vérification pour vous et effectue le processus.
 > - **E-mail** : permet de vérifier le domaine en envoyant un e-mail à l’administrateur de domaine. Quand vous sélectionnez cette option, des instructions supplémentaires s’affichent.
-> - **Manuelle** : permet de vérifier le domaine à l’aide d’une page HTML (certificat **Standard** uniquement) ou d’un enregistrement TXT DNS. Quand vous sélectionnez cette option, des instructions supplémentaires s’affichent.
+> - **Manuelle** : permet de vérifier le domaine à l’aide d’une page HTML (certificat **Standard** uniquement) ou d’un enregistrement TXT DNS. Quand vous sélectionnez cette option, des instructions supplémentaires s’affichent. L’option de page HTML ne fonctionne pas avec les applications web pour lesquelles « HTTPS uniquement » est activé.
 
 ### <a name="import-certificate-into-app-service"></a>Importer le certificat dans App Service
 
@@ -334,7 +334,9 @@ Pour remplacer un certificat arrivant à expiration, la façon dont vous mettez 
 ### <a name="renew-an-app-service-certificate"></a>Renouveler un certificat App Service
 
 > [!NOTE]
-> Depuis le 23 septembre 2021, les certificats App Service nécessitent la validation de domaine tous les 395 jours. Contrairement au certificat managé App Service, la revalidation de domaine pour App Service Certificate NE sera PAS automatisée.
+> Depuis le 23 septembre 2021, les certificats App Service nécessitent une validation de domaine tous les 395 jours. Cela est dû à une nouvelle recommandation implémentée par le CA/Browser Forum, à laquelle les autorités de certification doivent se conformer. 
+> 
+> Contrairement au certificat managé App Service, la revalidation de domaine pour App Service Certificate NE sera PAS automatisée. Consultez [Vérifier la propriété du domaine](#verify-domain-ownership) pour plus d’informations sur la vérification de votre certificat App Service.
 
 > [!NOTE]
 > Le processus de renouvellement exige que [le principal de service connu pour App Service dispose des autorisations requises sur votre coffre de clés](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). Cette autorisation est configurée pour vous lorsque vous importez un App Service Certificate via le portail et ne doit pas être supprimée de votre coffre de clés.

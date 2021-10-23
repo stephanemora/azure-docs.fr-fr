@@ -2,18 +2,16 @@
 title: Visualisations de grille de classeur Azure Monitor
 description: Découvrez toutes les visualisations de grille de classeur Azure Monitor.
 services: azure-monitor
-author: lgayhardt
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.author: lagayhar
-ms.openlocfilehash: 4b30c98bbaf7f7806feecdbccd2c8736d431943c
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: 91b0933102c166657c237e7a7c9511a22a28de5c
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854339"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132490"
 ---
 # <a name="grid-visualizations"></a>Visualisations de grille
 

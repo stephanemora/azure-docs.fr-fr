@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.openlocfilehash: 032669d298ef0aeda3663c303f5575e24cd02354
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 8c0fee509dabc0d7d0462dd28e14c453615af52e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809768"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000521"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>Bien démarrer : Form Recognizer Studio | Préversion
 
@@ -38,6 +38,22 @@ Un [**compte de Stockage blob Azure**](https://ms.portal.azure.com/#create/Micro
 
   * [**Créer un compte de stockage**](/azure/storage/common/storage-account-create). Lorsque vous créez votre compte de stockage, veillez à sélectionner performance **Standard** dans le champ **Détails de l’instance → Performance**.
   * [**Créer un conteneur**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). Lors de la création de votre conteneur, définissez le champ **Niveau d’accès public** sur **Conteneur** (accès en lecture anonyme pour les conteneurs et les objets blob) dans la fenêtre **Nouveau conteneur** .
+
+### <a name="configure-cors"></a>Configuration de CORS
+
+[CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) doit être configuré sur votre compte Stockage Azure pour qu’il soit accessible à partir de Form Recognizer Studio. Pour configurer CORS dans le portail Azure, vous devez accéder au panneau CORS de votre compte de stockage.
+
+:::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Capture d’écran montrant la configuration de CORS pour un compte de stockage.":::
+
+1. Sélectionnez le panneau CORS pour le compte de stockage.
+2. Commencez par créer une entrée CORS dans le service BLOB.
+3. Affectez à **Origines autorisées** la valeur **https://formrecognizer.appliedai.azure.com** .
+4. Sélectionnez les 8 options disponibles pour **Méthodes autorisées**.
+5. Approuvez tous les **En-têtes autorisés** et tous les **En-têtes exposés** en entrant un * dans chaque champ.
+6. Affectez à **Âge maximal** la valeur 120 secondes ou toute autre valeur acceptable.
+7. Cliquez en haut de la page sur le bouton Enregistrer pour enregistrer les changements apportés.
+
+CORS doit à présent être configuré pour utiliser le compte de stockage à partir de Form Recognizer Studio.
 
 ### <a name="sample-documents-set"></a>Ensemble d’exemples de documents
 
@@ -150,15 +166,15 @@ Vous pouvez aussi voir tous vos modèles avec l’onglet Modèles sur la gauche.
 
 ## <a name="labeling-as-tables"></a>Étiquetage en tant que tableaux
 
-Lors de la création de vos modèles personnalisés, vous devrez peut-être extraire des collections de valeurs de vos documents. Ces collections s’affichent dans différents formats. Par exemple :
+Durant la création de vos modèles personnalisés, vous devrez peut-être extraire des collections de données de vos documents. Celles-ci peuvent apparaître sous plusieurs formats. Utilisation de tables en tant que modèle visuel :
 
-* Collection dynamique de valeurs (lignes) pour un ensemble donné de champs (colonnes)
+* Nombre dynamique ou variable de valeurs (lignes) pour un ensemble donné de champs (colonnes)
 
-* Collection fixe de valeurs regroupées par un deuxième ensemble de champs (lignes ou colonnes)
+* Collection spécifique de valeurs pour un ensemble donné de champs (colonnes et/ou lignes)
 
 ### <a name="label-as-dynamic-table"></a>Étiqueter en tant que tableau dynamique
 
-Pour étiqueter des lignes dynamiques de données pour un ensemble donné de champs :
+Utilisez des tables dynamiques afin d’extraire le nombre variable de valeurs (lignes) pour un ensemble donné de champs (colonnes) :
 
 1. Ajoutez une nouvelle étiquette de type « Tableau », sélectionnez le type « Tableau dynamique » et nommez votre étiquette.
 
@@ -170,7 +186,7 @@ Pour étiqueter des lignes dynamiques de données pour un ensemble donné de cha
 
 ### <a name="label-as-fixed-table"></a>Étiqueter en tant que tableau fixe
 
-Pour étiqueter des collections fixes de données regroupées par deux ensembles de champs :
+Utilisez des tables fixes afin d’extraire une collection spécifique de valeurs pour un ensemble donné de champs (colonnes et/ou lignes) :
 
 1. Créez une nouvelle étiquette de type « Tableau », sélectionnez le type « Tableau fixe » et nommez-le.
 
@@ -193,5 +209,9 @@ Pour étiqueter pour une détection de signature :
 :::image border="true" type="content" source="../media/quickstarts/custom-signature.gif" alt-text="Exemple d’étiquetage pour la détection de signature dans Form Recognizer":::
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+* Suivez notre [**Guide de migration Form Recognizer v3.0**](../v3-migration-guide.md) pour découvrir les différences par rapport à la version antérieure de l’API REST.
+* Explorez nos [**guides de démarrage rapide des kits SDK (préversion)** ](try-v3-python-sdk.md) pour tester les fonctionnalités en préversion dans vos applications à l’aide des nouveaux kits SDK.
+* Consultez nos [**guides de démarrage rapide de l’API REST (préversion)** ](try-v3-rest-api.md) pour tester les fonctionnalités en préversion à l’aide de la nouvelle API REST.
 
 [Bien démarrer avec Form Recognizer Studio (préversion)](https://formrecognizer.appliedai.azure.com)

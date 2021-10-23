@@ -3,16 +3,16 @@ title: Attacher des pools de disques à des hôtes Azure VMware Solution (prév
 description: Découvrez comment attacher un pool de disques exposé par le biais d’une cible iSCSI comme magasin de données VMware d’un cloud privé Azure VMware Solution. Une fois que le magasin de données est configuré, vous pouvez y créer des volumes et les attacher à votre instance VMware.
 ms.topic: how-to
 ms.date: 08/20/2021
-ms.openlocfilehash: 2487e26d887935f0d66f13d51ce7894edb2b2b6e
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 72af6f2e2186b2c4f79d6e49e8f8a272cc6a6326
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769299"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073199"
 ---
 # <a name="attach-disk-pools-to-azure-vmware-solution-hosts-preview"></a>Attacher des pools de disques à des hôtes Azure VMware Solution (préversion)
 
-Les [pools de disques Azure](../virtual-machines/disks-pools.md) offrent un stockage de bloc persistant pour les applications et les charges de travail reposant sur des disques Azure. Vous pouvez utiliser des disques comme stockage persistant pour Azure VMware Solution et ainsi bénéficier d’une solution optimale en termes de coût et de performances. Par exemple, vous pouvez effectuer un scale-up en utilisant des pools de disques plutôt que de mettre à l’échelle des clusters si vous hébergez des charges de travail gourmandes en stockage. Vous pouvez également utiliser des disques pour répliquer des données à partir d’environnements VMware locaux ou principaux vers un stockage sur disque pour le site secondaire. Pour mettre à l’échelle le stockage indépendamment des hôtes Azure VMware Solution, nous prenons en charge l’exposition des [disques Ultra](../virtual-machines/disks-types.md#ultra-disk) et des [disques SSD Premium](../virtual-machines/disks-types.md#premium-ssd) comme magasins de données.  
+Les [pools de disques Azure](../virtual-machines/disks-pools.md) offrent un stockage de bloc persistant pour les applications et les charges de travail reposant sur des disques Azure. Vous pouvez utiliser des disques comme stockage persistant pour Azure VMware Solution et ainsi bénéficier d’une solution optimale en termes de coût et de performances. Par exemple, vous pouvez effectuer un scale-up en utilisant des pools de disques plutôt que de mettre à l’échelle des clusters si vous hébergez des charges de travail gourmandes en stockage. Vous pouvez également utiliser des disques pour répliquer des données à partir d’environnements VMware locaux ou principaux vers un stockage sur disque pour le site secondaire. Pour mettre à l’échelle le stockage indépendamment des hôtes Azure VMware Solution, nous prenons en charge l’exposition des [disques Ultra](../virtual-machines/disks-types.md#ultra-disks) et des [disques SSD Premium](../virtual-machines/disks-types.md#premium-ssds) comme magasins de données.  
 
 >[!IMPORTANT]
 >Les pools de disques Azure sur Azure VMware Solution (préversion) sont actuellement en préversion publique.

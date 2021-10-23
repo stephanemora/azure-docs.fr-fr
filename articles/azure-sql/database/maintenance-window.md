@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 10/05/2021
-ms.openlocfilehash: ca8ed4fa480bd394196f4ca5b37c52bcc06e41c1
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.date: 10/15/2021
+ms.openlocfilehash: 123ea592e46c270830bccef1dc06f9caa3e8fd6e
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129546149"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071870"
 ---
 # <a name="maintenance-window-preview"></a>Fenêtre de maintenance (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -66,7 +66,6 @@ Vous pouvez configurer des notifications de maintenance afin d’être averti de
 ### <a name="supported-service-level-objectives"></a>Objectifs de niveau de service pris en charge
 
 Le choix d’une fenêtre de maintenance autre que celle par défaut est disponible sur tous les objectifs de niveau de service **sauf** :
-* Hyperscale 
 * Pools d’instances
 * Gen4 vCore hérité
 * De base, S0 et S1 

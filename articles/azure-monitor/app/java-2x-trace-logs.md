@@ -3,15 +3,15 @@ title: Exploration des journaux des traces Java dans Azure Application Insights
 description: Recherche de suivi Log4J ou Logback dans Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 967da2f29ec841120ce6c0eb971f22495e241345
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 60f73edaa1f8d93c8aa05d383b9cc3f9d29290b5
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110103942"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133972"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux d’activité Java dans Application Insights
 

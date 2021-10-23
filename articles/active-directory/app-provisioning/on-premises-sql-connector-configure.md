@@ -3,7 +3,7 @@ title: Configuration du connecteur SQL générique avec l’hôte du connecteur
 description: Ce document décrit comment configurer le connecteur SQL générique avec l’hôte du connecteur Azure AD ECMA.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/06/2021
 ms.author: billmath
 ms.reviewer: arvinh
-ms.openlocfilehash: 90924dda7e4483884681322ed175de1e59b34928
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 494f3eaec7fbc90597fd5b6c91e619f3aae94935
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128633770"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991353"
 ---
 # <a name="azure-ad-ecma-connector-host-generic-sql-connector-configuration"></a>Configuration du connecteur SQL générique avec l’hôte du connecteur Azure AD ECMA
 La documentation suivante fournit des informations sur la configuration et les didacticiels montrant comment le connecteur SQL générique et l’hôte du connecteur ECMA peuvent être utilisés avec un Serveur SQL.

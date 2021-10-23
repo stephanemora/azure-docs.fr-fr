@@ -3,20 +3,20 @@ title: Définir un profil technique d’erreur personnalisée OAuth2 dans une st
 titleSuffix: Azure AD B2C
 description: Définissez un profil technique d’erreur personnalisée OAuth2 dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 05/26/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 6fc4f9e7be394a8c63bb95969a2928c63b0c122d
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1126ce99c660860f7ee0f4abc9afcb9ed5cd1afc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111962331"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036243"
 ---
 # <a name="define-an-oauth2-custom-error-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique d’erreur personnalisée OAuth2 dans une stratégie personnalisée Azure Active Directory B2C
 

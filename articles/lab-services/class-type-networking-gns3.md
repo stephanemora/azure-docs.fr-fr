@@ -1,14 +1,14 @@
 ---
 title: Configurer un labo de mise en réseau avec Azure Lab Services et GNS3 | Microsoft Docs
 description: Découvrez comment configurer un labo à l’aide d’Azure Lab Services pour enseigner la mise en réseau avec GNS3.
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: dec5dea13d5a89536a06da45fc57d33881a9b3ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4e4562ac472b728f5feff1828897d6bee162b75
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99499393"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176811"
 ---
 # <a name="set-up-a-lab-to-teach-a-networking-class"></a>Configurer un labo pour enseigner la mise en réseau 
 Cet article explique comment configurer une classe qui se concentre sur la possibilité pour les étudiants d’émuler, de configurer, de tester et de dépanner des réseaux virtuels et réels à l’aide du logiciel [GNS3](https://www.gns3.com/). 

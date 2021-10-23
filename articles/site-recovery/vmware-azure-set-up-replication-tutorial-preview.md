@@ -5,12 +5,12 @@ ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 08/19/2021
 ms.custom: MVC
-ms.openlocfilehash: 66bd4e5f24423ef022f8930b618b3cee9b5c9631
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cfed44e293ce95dbe174f1bb92cbfa96669ab551
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124777333"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071774"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms---preview"></a>Configuration de la récupération d’urgence sur Azure de machines virtuelles VMware locales – Préversion
 
@@ -123,7 +123,7 @@ Pour activer la réplication, procédez comme suit :
       Par défaut, un nouveau compte de stockage de type LRS v1 est créé par Azure Site Recovery pour la première opération d’activation de la réplication d’un coffre. Pour les opérations suivantes, le même compte de stockage de cache est réutilisé.
     -  Disques managés
 
-       Par défaut, des disques managés HDD Standard sont créés dans Azure. Vous pouvez personnaliser le type de disque managé en sélectionnant **Personnaliser**. Veillez à [choisir le type de disque approprié](../virtual-machines/disks-types.md#disk-comparison) en fonction des besoins de l’entreprise et des IOPS des disques de la machine source. Pour plus d’informations sur la tarification, consultez le document sur la [tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
+       Par défaut, des disques managés HDD Standard sont créés dans Azure. Vous pouvez personnaliser le type de disque managé en sélectionnant **Personnaliser**. Veillez à [choisir le type de disque approprié](../virtual-machines/disks-types.md#disk-type-comparison) en fonction des besoins de l’entreprise et des IOPS des disques de la machine source. Pour plus d’informations sur la tarification, consultez le document sur la [tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
 
        >[!NOTE]
        > Si vous installez manuellement le service de mobilité avant d’activer la réplication, vous pouvez modifier le type de disque managé au niveau du disque. Sinon, par défaut, un seul type de disque managé peut être choisi au niveau de la machine.

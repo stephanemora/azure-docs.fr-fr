@@ -1,14 +1,14 @@
 ---
 title: Utiliser des labos pour des formations - Azure Lab Services
 description: Cet article explique comment utiliser Azure DevTest Labs afin de créer des laboratoires sur Azure pour les scénarios d'apprentissage.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: f9eb3d44d470a978e676f6268cd693b283dd2703
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e99c3f9d8f27571a88fcdf6d62fa16a86d180a1c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96433570"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178611"
 ---
 # <a name="use-labs-for-trainings"></a>Utiliser des labos pour des formations
 Les services Azure Labs permettent aux formateurs (enseignants, professeurs, animateurs ou assistants, etc.) de créer rapidement et facilement un laboratoire en ligne afin d’approvisionner des environnements d’apprentissage préconfigurés pour les stagiaires. Chaque candidat doit être capable d’utiliser des environnements identiques et isolés pour la formation. Vous pouvez appliquer des stratégies pour vous assurer que les environnements de formation sont à la disposition des participants uniquement lorsque ces derniers en ont besoin et qu’ils contiennent suffisamment de ressources (telles que des machines virtuelles) pour la formation. 
