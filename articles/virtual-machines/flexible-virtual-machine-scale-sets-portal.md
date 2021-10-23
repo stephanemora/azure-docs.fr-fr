@@ -9,46 +9,22 @@ ms.subservice: flexible-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 5d25e46ae62962e3f94d4a3f9222f91ebfa1d430
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9804b8cd773eec6df8a8b7a5b06e61ee110987b3
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823454"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163560"
 ---
-# <a name="preview-create-virtual-machines-in-a-flexible-scale-set-using-azure-portal"></a>Préversion : Créer des machines virtuelles dans un groupe identique Flexible à l’aide du portaiI Azure
+# <a name="create-virtual-machines-in-a-flexible-scale-set-using-azure-portal"></a>Créer des machines virtuelles dans un groupe identique Flexible à l’aide du portail Azure
 
 **S’applique à :** :heavy_check_mark: Groupes identiques flexibles
 
 Cet article décrit l’utilisation du portail Azure pour créer un groupe identique de machines virtuelles mode d’orchestration Flexible. Pour plus d’informations sur les groupes identiques Flexibles, consultez  [mode d’orchestration Flexible pour les groupes identiques de machines virtuelles](flexible-virtual-machine-scale-sets.md). 
 
 
-> [!IMPORTANT]
-> Les groupes de machines virtuelles identiques en mode d’orchestration Flexible sont actuellement en préversion publique. Une procédure de consentement est requise pour utiliser la fonctionnalité en préversion publique décrite ci-dessous.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 > [!CAUTION]
 > Le mode d’orchestration est défini lorsque vous créez le groupe identique et ne peut pas être modifié ou mis à jour ultérieurement.
-
-
-## <a name="register-for-flexible-orchestration-mode"></a>S’inscrire au mode d’orchestration Flexible
-
-Avant de pouvoir déployer des groupes de machines virtuelles identiques en mode d’orchestration Flexible, vous devez inscrire la fonctionnalité d’évaluation pour votre abonnement. L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes.
-
-1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
-1. Accédez à vos **Abonnements**.
-1. Accédez à la page des informations de l’abonnement pour lequel vous souhaitez créer un groupe identique en mode d’orchestration Flexible en sélectionnant le nom de l’abonnement.
-1. Dans le menu, sous **Paramètres**, sélectionnez **Fonctionnalités en préversion**.
-1. Sélectionnez les quatre fonctionnalités d’orchestrateur à activer : *VMOrchestratorSingleFD*, *VMOrchestratorMultiFD*, *VMScaleSetFlexPreview* et *SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview*.
-1. Sélectionnez **Inscription**.
-
-Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul. 
-
-1. Dans le menu, sous **Paramètres**, sélectionnez **Fournisseurs de ressources**.
-1. Sélectionnez `Microsoft.compute`.
-1. Sélectionnez **Ré-inscrire**.
 
 
 ## <a name="get-started-with-flexible-orchestration-mode"></a>Démarrer avec le mode d’orchestration Flexible
@@ -64,7 +40,7 @@ Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effe
 1. Terminez la création de votre groupe identique. Pour plus d’informations sur la création d’un groupe identique, consultez [Créer un groupe identique dans le portail Azure](../virtual-machine-scale-sets/quick-create-portal.md#create-virtual-machine-scale-set).
 
 
-### <a name="next-add-a-virtual-machine-to-the-scale-set-in-flexible-orchestration-mode"></a>Ensuite, ajoutez une machine virtuelle au groupe identique en mode d’orchestration Flexible.
+### <a name="optional-add-a-virtual-machine-to-the-scale-set-in-flexible-orchestration-mode"></a>(Facultatif) Ajoutez une machine virtuelle au groupe identique en mode d’orchestration Flexible.
 
 1. Dans la barre de recherche, recherchez et sélectionnez **Machines virtuelles**.
 1. Sélectionnez **Ajouter** dans la page **Machines virtuelles**.
@@ -73,7 +49,7 @@ Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effe
 1. Accédez à l’onglet **Mise en réseau** et définissez votre connectivité sortante de manière explicite.
 
     > [!IMPORTANT]
-    > Une connectivité sortante définie de manière explicite est requise pour les groupes de machines virtuelles identiques avec une orchestration flexible. Consultez la [connectivité réseau sortante explicite ](flexible-virtual-machine-scale-sets.md#explicit-network-outbound-connectivity-required) pour plus d’informations.
+    > Une connectivité sortante définie de manière explicite est requise pour les groupes de machines virtuelles identiques avec une orchestration flexible. Consultez la [connectivité réseau sortante explicite ](flexible-virtual-machine-scale-sets-migration-resources.md#explicit-network-outbound-connectivity-required) pour plus d’informations.
 
 1. Terminez la création de votre machine virtuelle.
 

@@ -3,7 +3,7 @@ title: Problèmes rencontrés lors de la connexion à une application locale à 
 description: Résolution des problèmes couramment rencontrés lorsque vous ne parvenez pas à vous connecter à une application locale intégrée à l'aide du Proxy d'application Azure AD
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 8c3070e42b8ccf1d73d2466524d272b73f4e8d8b
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: b51bd97f4ee79358230e85f94351abc937bf5225
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227089"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988446"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-active-directory-application-proxy"></a>Problèmes rencontrés lors de la connexion à une application locale à l'aide du Proxy d'application Azure Active Directory
 

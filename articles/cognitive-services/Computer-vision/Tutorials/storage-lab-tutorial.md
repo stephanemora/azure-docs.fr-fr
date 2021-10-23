@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f97f01ecb1b11af6ca4292c8b2bfd3ebdb50e943
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 12734d32322fe6cdc0fcaa48486d76d9d7bddd70
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360259"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047679"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutoriel : Utiliser le service Vision par ordinateur pour générer des métadonnées des images dans le stockage Azure
 
@@ -419,7 +419,7 @@ Ensuite, vous allez ajouter le code qui utilise réellement le service Vision pa
 1. Accédez ensuite à la méthode **Upload**, qui convertit et charge les images dans un stockage blob. Ajoutez le code suivant immédiatement après le bloc qui commence par `// Generate a thumbnail` (ou à la fin du processus de création de l’objet blob de l’image). Ce code utilise l’objet blob contenant l’image (`photo`) et génère une description de cette image à l’aide de Vision par ordinateur. L’API Vision par ordinateur génère également une liste de mots clés en lien avec l’image. Les mots clés et la description générés sont stockés dans les métadonnées de l’objet blob pour les utiliser plus tard.
 
     ```csharp
-    // Submit the image to Azure's Computer Vision API
+    // Submit the image to the Azure Computer Vision API
     ComputerVisionClient vision = new ComputerVisionClient(
         new ApiKeyServiceClientCredentials(ConfigurationManager.AppSettings["SubscriptionKey"]),
         new System.Net.Http.DelegatingHandler[] { });

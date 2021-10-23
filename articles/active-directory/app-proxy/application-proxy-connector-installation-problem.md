@@ -3,20 +3,20 @@ title: Problèmes liés à l'installation du connecteur de l'agent Proxy d'appli
 description: Comment résoudre les problèmes que vous pouvez rencontrer lors de l’installation du connecteur de l’agent Proxy d’application pour Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 5e44dcb52639b8080938ab6d4deea1c165080b52
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: a3821cbdf6dc7f61d704e4d3c1756dc262398783
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186057"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989662"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problèmes lors de l’installation du connecteur d’agent de proxy d’application
 

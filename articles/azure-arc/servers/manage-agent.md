@@ -1,14 +1,14 @@
 ---
 title: Gestion de l’agent des serveurs avec Azure Arc
 description: Cet article décrit les différentes tâches de gestion à effectuer en règle générale pendant le cycle de vie de l’agent de machine connectée des serveurs avec Azure Arc.
-ms.date: 08/17/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: d8a8613a6fc97fd2510779715d392b9534598950
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d0b4d32100a8063346d9a6f7bd2b4bd70156d868
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124807452"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041174"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Gestion et maintenance de l’agent Connected Machine
 
@@ -30,7 +30,7 @@ Pour les serveurs ou les machines que vous ne souhaitez plus gérer avec les ser
 
     * Exécutez la commande `azcmagent disconnect` sur la machine ou le serveur.
 
-    * Sur le serveur avec Azure Arc inscrit que vous avez sélectionné dans le Portail Azure, sélectionnez **Supprimer** dans la barre supérieure.
+    * Sur le serveur Azure Arc inscrit que vous avez sélectionné dans le Portail Azure, sélectionnez **Supprimer** dans la barre supérieure.
 
     * Utilisez [Azure CLI](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-cli#delete-resource) ou [Azure PowerShell](../../azure-resource-manager/management/delete-resource-group.md?tabs=azure-powershell#delete-resource). Pour le paramètre`ResourceType`, utilisez `Microsoft.HybridCompute/machines`.
 
@@ -125,13 +125,13 @@ Vous pouvez télécharger le package d’agent le plus récent à partir du [ré
 1. Pour mettre à jour l’index de package local avec les dernières modifications apportées aux référentiels, exécutez la commande suivante :
 
     ```bash
-    apt update
+    sudo apt update
     ```
 
 2. Pour mettre à niveau votre système, exécutez la commande suivante :
 
     ```bash
-    apt upgrade
+    sudo apt upgrade azcmagent
     ```
 
 Les actions de la commande [apt](https://help.ubuntu.com/lts/serverguide/apt.html), telles que l’installation et la suppression de packages, sont consignées dans le fichier journal `/var/log/dpkg.log`.
@@ -141,13 +141,13 @@ Les actions de la commande [apt](https://help.ubuntu.com/lts/serverguide/apt.htm
 1. Pour mettre à jour l’index de package local avec les dernières modifications apportées aux référentiels, exécutez la commande suivante :
 
     ```bash
-    yum check-update
+    sudo yum check-update
     ```
 
 2. Pour mettre à niveau votre système, exécutez la commande suivante :
 
     ```bash
-    yum update
+    sudo yum update azcmagent
     ```
 
 Les actions de la commande [yum](https://access.redhat.com/articles/yum-cheat-sheet), telles que l’installation et la suppression de packages, sont consignées dans le fichier journal `/var/log/yum.log`. 
@@ -157,13 +157,13 @@ Les actions de la commande [yum](https://access.redhat.com/articles/yum-cheat-sh
 1. Pour mettre à jour l’index de package local avec les dernières modifications apportées aux référentiels, exécutez la commande suivante :
 
     ```bash
-    zypper refresh
+    sudo zypper refresh
     ```
 
 2. Pour mettre à niveau votre système, exécutez la commande suivante :
 
     ```bash
-    zypper update
+    sudo zypper update azcmagent
     ```
 
 Les actions de la commande [zypper](https://en.opensuse.org/Portal:Zypper), telles que l’installation et la suppression de packages, sont consignées dans le fichier journal `/var/log/zypper.log`.

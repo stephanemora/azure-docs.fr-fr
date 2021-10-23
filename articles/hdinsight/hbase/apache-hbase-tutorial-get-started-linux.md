@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/22/2021
-ms.openlocfilehash: fa1ac05766a95754631c5a6c78f80b9abdc4e3a7
-ms.sourcegitcommit: ca38027e8298c824e624e710e82f7b16f5885951
+ms.openlocfilehash: a8d5b2ca155917c5b08f11167da6309da9df7e6b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112573667"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047168"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutoriel : Utiliser Apache HBase dans Azure HDInsight
 
@@ -221,11 +221,11 @@ Les données HBase peuvent également être interrogées à partir de Hive, au m
 > [!NOTE]
 > Après la mise à l’échelle d’un des clusters, `/etc/hosts` doit être ajouté à nouveau
 
-## <a name="use-hbase-rest-apis-using-curl"></a>Utilisation des API REST HBase à l’aide de Curl
+## <a name="use-the-hbase-rest-api-via-curl"></a>Utiliser l’API REST HBase via Curl
 
-L’API REST est sécurisée à l’aide de l’ [authentification de base](https://en.wikipedia.org/wiki/Basic_access_authentication). Vous devrez toujours effectuer les demandes à l’aide du protocole Secure HTTP (HTTPS) pour vous assurer que vos informations d’identification sont envoyées en toute sécurité au serveur.
+L’API REST est sécurisée à l’aide de l’[authentification de base](https://en.wikipedia.org/wiki/Basic_access_authentication). Vous devrez toujours effectuer les demandes à l’aide du protocole Secure HTTP (HTTPS) pour vous assurer que vos informations d’identification sont envoyées en toute sécurité au serveur.
 
-1. Pour activer les API REST HBase dans le cluster HDInsight, ajoutez le script de démarrage personnalisé suivant à la section **Action de script**. Vous pouvez ajouter le script de démarrage lorsque vous créez le cluster ou après sa création. Pour **Type de nœud**, sélectionnez **Serveurs de région** afin de vous assurer que le script s’exécute uniquement dans les serveurs de région HBase.
+1. Pour activer l’API REST HBase dans le cluster HDInsight, ajoutez le script de démarrage personnalisé suivant à la section **Action de script**. Vous pouvez ajouter le script de démarrage lorsque vous créez le cluster ou après sa création. Pour **Type de nœud**, sélectionnez **Serveurs de région** afin de vous assurer que le script s’exécute uniquement dans les serveurs de région HBase.
 
 
     ```bash
@@ -359,7 +359,7 @@ Si vous ne comptez pas continuer à utiliser cette application, effectuez les é
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à créer un cluster Apache HBase. Vous avez aussi découvert comment créer des tables et à afficher les données contenues dans ces tables à partir de l’interpréteur de commandes HBase. Vous avez également vu comment utiliser une requête Hive pour interroger les données des tables HBase, et comment utiliser les API REST C# HBase pour créer une table HBase et en extraire les données. Pour plus d'informations, consultez les rubriques suivantes :
+Dans ce tutoriel, vous avez appris à créer un cluster Apache HBase. Vous avez aussi découvert comment créer des tables et à afficher les données contenues dans ces tables à partir de l’interpréteur de commandes HBase. Vous avez également vu comment utiliser une requête Hive pour interroger les données des tables HBase, et comment utiliser l’API REST C# HBase pour créer une table HBase et en extraire les données. Pour plus d'informations, consultez les rubriques suivantes :
 
 > [!div class="nextstepaction"]
 > [Vue d’ensemble de HDInsight HBase](./apache-hbase-overview.md)

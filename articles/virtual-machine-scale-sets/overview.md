@@ -8,16 +8,19 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
-ms.openlocfilehash: 00d094b0e535c3e3a5c465e248a0a4e88f538da8
-ms.sourcegitcommit: 6a3096e92c5ae2540f2b3fe040bd18b70aa257ae
+ms.openlocfilehash: c4ad34729b81d6ca13bb2ff52c30dc77cd1614b9
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112323121"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167381"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Que sont les groupes de machines virtuelles identiques ?
+
 Les groupes identiques de machines virtuelles Azure vous permettent de créer et de gérer un groupe de machines virtuelles et disposant d’une charge équilibrée. Le nombre d’instances de machine virtuelle peut augmenter ou diminuer automatiquement en fonction d’une demande ou d’un calendrier défini. Les groupes identiques offrent une haute disponibilité à vos applications, et vous permettent de gérer, configurer et mettre à jour de manière centralisée un grand nombre de machines virtuelles. Avec les groupes identiques de machines virtuelles, vous pouvez créer des services à grande échelle pour des zones telles que le calcul, Big Data et des charges de travail de conteneur.
 
+> [!IMPORTANT]
+> Cet article concerne les groupes de machines virtuelles identiques en mode d’orchestration Uniforme. Pour plus d’informations sur les groupes identiques en mode Flexible, consultez [Mode d’orchestration Flexible pour les groupes identiques de machines virtuelles](../virtual-machines/flexible-virtual-machine-scale-sets.md).
 
 ## <a name="why-use-virtual-machine-scale-sets"></a>Pourquoi utiliser les groupes identiques de machines virtuelles ?
 Pour offrir une redondance et de meilleures performances, les applications sont généralement réparties sur plusieurs instances. Les clients peuvent accéder à votre application via un équilibreur de charge qui distribue les requêtes à l’une des instances de l’application. Si vous avez besoin effectuer une maintenance ou de mettre à jour une instance d’application, vos clients doivent être répartis sur une autre instance disponible de l’application. Pour suivre la demande de clients supplémentaires, vous devrez peut-être augmenter le nombre d’instances d’application qui exécutent votre application.

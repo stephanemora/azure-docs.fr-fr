@@ -3,20 +3,20 @@ title: Authentification basée sur un en-tête avec PingAccess pour Proxy d’ap
 description: Publiez des applications avec PingAccess et Application Proxy pour prendre en charge l’authentification basée sur un en-tête.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: dce7a8ed6b4fc80c0f3dbd04f3462776027da98a
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.reviewer: ashishj
+ms.openlocfilehash: ff80311cc4fc8fd335eb14c28f9c28f2efacb27d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229855"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988997"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 

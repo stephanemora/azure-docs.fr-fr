@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fb69068ddac311a8020a76eec9b18fab3256fea6
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 09161b73c177642b327ed8bd57cbff13229085a4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752531"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042123"
 ---
 # <a name="about-azure-key-vault-certificates"></a>À propos des certificats Azure Key Vault
 
@@ -154,6 +154,19 @@ Les contacts du certificat contiennent des informations de contact pour l’envo
 ## <a name="certificate-access-control"></a>Contrôle d’accès aux certificats
 
  Le contrôle d’accès pour les certificats est géré par Key Vault et fourni par le coffre de clés qui contient ces certificats. La stratégie de contrôle d’accès pour les certificats est différente des stratégies de contrôle d’accès pour les clés et les secrets dans un même coffre de clés. Les utilisateurs peuvent créer un ou plusieurs coffres pour stocker les certificats afin de maintenir une segmentation et une gestion des certificats appropriées au scénario.  Pour plus d’informations sur le contrôle d’accès aux certificats, reportez-vous [ici](certificate-access-control.md).
+
+
+## <a name="certificate-use-cases"></a>Cas d’usage de certificat
+
+### <a name="secure-communication-and-authentication"></a>Sécuriser les communications et l’authentification
+
+Les certificats TLS peuvent aider à chiffrer les communications sur Internet et à établir l’identité des sites web, ce qui permet de sécuriser le point d’entrée et le mode de communication.  En outre, un certificat chaîné signé par une autorité de certification publique peut aider à vérifier que les entités détenant les certificats sont bien celles qu’elles prétendent. À titre d’exemple, voici quelques excellents cas d’usage de certificats pour sécuriser la communication et activer l’authentification :
+* Sites web intranet/Internet : protégez l’accès à votre site intranet et assurez le chiffrement du transfert de données via Internet à l’aide de certificats TLS.
+* Appareils IoT et réseau : protégez et sécurisez vos appareils à l’aide de certificats pour l’authentification et la communication.
+* Cloud/multicloud : sécurisez les applications cloud locales, inter-cloud ou dans le locataire de votre fournisseur de cloud.
+
+### <a name="code-signing"></a>Signature de code
+Un certificat peut aider à sécuriser le code/script du logiciel, garantissant ainsi que l’auteur peut partager le logiciel sur Internet sans que celui-ci soit modifié par des entités malveillantes. En outre, une fois que l’auteur a signé le code à l’aide d’un certificat tirant parti de la technologie de signature de code, le logiciel est marqué d’un tampon d’authentification affichant l’auteur et son site web. Ainsi, le certificat utilisé dans la signature de code permet de valider l’authenticité du logiciel, ce qui promeut la sécurité de bout en bout.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

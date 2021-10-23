@@ -2,21 +2,21 @@
 title: Activer les options d’application mobile Android avec Azure Active Directory B2C
 description: Cet article présente plusieurs façons d'activer les options des applications mobiles Android en utilisant Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: c66d2faead9b14eb665622e1a710afd94b2ddd0f
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 415f31c0b6627b290c86f3581eee0723ad20bcb9
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220690"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040262"
 ---
 # <a name="configure-authentication-options-in-an-android-app-by-using-azure-ad-b2c"></a>Configurer les options d'authentification dans une application Android en utilisant Azure AD B2C 
 

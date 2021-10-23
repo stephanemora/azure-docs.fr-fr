@@ -3,20 +3,20 @@ title: Atténuer les attaques d’informations d’identification - Azure AD B2
 titleSuffix: Azure AD B2C
 description: Découvrez les techniques de détection et d’atténuation des attaques d’informations d’identification (attaques par mot de passe) dans Azure Active Directory B2C, y compris les fonctionnalités de verrouillage intelligent de compte.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 99363e4f9f67e6ceca0d163131a2f2ff64b09857
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3ec563e05f21ca1e9697300710def5ad89b10d02
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546970"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042918"
 ---
 # <a name="mitigate-credential-attacks-in-azure-ad-b2c"></a>Atténuer les attaques d’informations d’identification dans Azure AD B2C
 

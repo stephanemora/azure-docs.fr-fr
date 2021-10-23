@@ -3,7 +3,7 @@ title: Consentement administrateur pour les connexions au compte LinkedIn – Az
 description: Explique comment activer et désactiver les connexions de compte d’intégration LinkedIn dans les applications Microsoft dans Azure Active Directory
 services: active-directory
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ffa937f91af7078b28331a655f99397d3821def
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 27b7b7281a156cadcf8cda7b9ebf1339f0a8dc2b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96545891"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129985653"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Intégrer des connexions de compte LinkedIn dans Azure Active Directory
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 10/06/2021
 ms.author: shants
-ms.openlocfilehash: cb1a4cc1e0c1539ab56b986a35084fa761d85438
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: fdeffdd1b3ad6c37773d39e729cf821df1b8c1f8
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657527"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164889"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Maintenance des machines virtuelles dans Azure
 
@@ -86,16 +86,6 @@ Si vous décidez d’attendre jusqu’à la phase de maintenance planifiée, plu
 
 Chaque région Azure est jumelée à une autre région de la même zone géographique. Elles constituent une paire de régions. Durant la phase de maintenance planifiée, Azure met uniquement à jour les machines virtuelles d’une seule des régions d’une paire de régions. Par exemple, durant la mise à jour de la machine virtuelle dans la région USA Centre Nord, Azure ne met à jour simultanément aucune machine virtuelle dans la région USA Centre Sud. En revanche, les autres régions, Europe Nord par exemple, peuvent faire l’objet d’une maintenance en même temps que la région USA Est. Comprendre le fonctionnement des paires régionales peut vous aider à mieux répartir vos machines virtuelles entre les régions. Pour en savoir plus, consultez [Paires régionales Azure](../best-practices-availability-paired-regions.md).
 
-#### <a name="availability-sets-and-scale-sets"></a>Groupes à haute disponibilité et groupes identiques
-
-Lorsque vous déployez une charge de travail sur des machines virtuelles Azure, vous pouvez créer des machines virtuelles dans un *groupe à haute disponibilité* afin de fournir une haute disponibilité pour votre application. À l’aide des groupes à haute disponibilité, vous pouvez vous assurer qu’au moins une machine virtuelle est disponible en cas de panne ou d’événements de maintenance nécessitant un redémarrage.
-
-Au sein d’un groupe à haute disponibilité, les machines virtuelles individuelles sont réparties sur un maximum de 20 domaines de mise à jour. Durant la maintenance planifiée, un seul domaine de mise à jour est mis à jour à un moment donné. Les domaines de mise à jour ne sont pas systématiquement mis à jour de façon séquentielle. 
-
-Les *groupes de machines virtuelles identiques* sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques en tant que ressource unique. Le groupe identique est automatiquement déployé dans les domaines de mise à jour, comme les machines virtuelles dans un groupe à haute disponibilité. Comme pour les groupes à haute disponibilité, un seul UD est mis à jour à un moment donné dans les groupes identiques durant la maintenance planifiée.
-
-Pour plus d’informations sur la configuration de vos machines virtuelles pour la haute disponibilité, consultez [Gérer la disponibilité de vos machines virtuelles pour Windows](./availability.md) ou l’article correspondant pour [Linux](./availability.md).
-
 #### <a name="availability-zones"></a>Zones de disponibilité
 
 Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. 
@@ -103,6 +93,22 @@ Les Zones de disponibilité sont des emplacements physiques uniques au sein d’
 Une zone de disponibilité combine un domaine d’erreur et un domaine de mise à jour. Si vous créez trois machines virtuelles ou plus dans trois zones d’une région Azure, vos machines virtuelles sont efficacement réparties sur trois domaines d’erreur et trois domaines de mise à jour. La plateforme Azure reconnaît cette répartition entre les domaines de mise à jour pour vous assurer que les machines virtuelles des différentes zones ne sont pas mises à jour en même temps.
 
 Chaque mise à jour d’infrastructure est déployée par zone au sein d’une seule région. Cependant, le déploiement peut avoir lieu dans une Zone 1, en même temps qu’un autre déploiement dans une Zone 2. Les déploiements ne sont pas tous sérialisés. En revanche, un seul déploiement n’est déployé que sur une zone à la fois afin de limiter les risques.
+
+#### <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles
+
+Les groupes de machines virtuelles identiques avec orchestration **Flexible** sont des ressources de calcul Azure qui vous permettent de combiner la scalabilité des groupes de machines virtuelles identiques utilisant le mode d’orchestration Uniform avec les garanties de disponibilité régionale des groupes à haute disponibilité.
+
+Avec l’orchestration Flexible, vous pouvez choisir si vos instances doivent être réparties sur plusieurs zones, ou réparties sur plusieurs domaines d’erreur au sein d’une même région. 
+
+#### <a name="availability-sets-and-uniform-scale-sets"></a>Groupes à haute disponibilité et groupes identiques Uniform
+
+Lorsque vous déployez une charge de travail sur des machines virtuelles Azure, vous pouvez créer des machines virtuelles dans un *groupe à haute disponibilité* afin de fournir une haute disponibilité pour votre application. À l’aide des groupes à haute disponibilité, vous pouvez vous assurer qu’au moins une machine virtuelle est disponible en cas de panne ou d’événements de maintenance nécessitant un redémarrage.
+
+Au sein d’un groupe à haute disponibilité, les machines virtuelles individuelles sont réparties sur un maximum de 20 domaines de mise à jour. Durant la maintenance planifiée, un seul domaine de mise à jour est mis à jour à un moment donné. Les domaines de mise à jour ne sont pas systématiquement mis à jour de façon séquentielle. 
+
+Les *groupes de machines virtuelles identiques* en mode d’orchestration **Uniform** sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques comme une seule et même ressource. Le groupe identique est automatiquement déployé dans les domaines de mise à jour, comme les machines virtuelles dans un groupe à haute disponibilité. Comme pour les groupes à haute disponibilité, un seul UD est mis à jour à un moment donné dans les groupes identiques Uniform durant la maintenance planifiée.
+
+Pour plus d’informations sur la configuration de vos machines virtuelles pour la haute disponibilité, consultez [Gérer la disponibilité de vos machines virtuelles pour Windows](./availability.md) ou l’article correspondant pour [Linux](./availability.md).
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

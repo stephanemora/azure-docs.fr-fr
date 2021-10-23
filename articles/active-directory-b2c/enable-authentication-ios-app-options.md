@@ -2,21 +2,21 @@
 title: Activer les options d’application mobile iOS Swift avec Azure Active Directory B2C
 description: Cet article décrit plusieurs façons d’activer les options d’application mobile iOS Swift avec Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/29/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 128c5000e6614e769100a92303007317eadaed96
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: b96e33bedcd4f92b6d75ecea02483e2d22c62ac8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220695"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041079"
 ---
 # <a name="enable-authentication-options-in-an-ios-swift-app-by-using-azure-ad-b2c"></a>Activer les options d’authentification dans une application iOS Swift avec Azure AD B2C 
 
@@ -51,7 +51,7 @@ let kAuthorityHostName = "login.contoso.com"
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
 1. Si vous utilisez une stratégie personnalisée, ajoutez la revendication d’entrée requise comme décrit dans [Configurer la connexion directe](direct-signin.md#prepopulate-the-sign-in-name). 
-1. Recherchez votre objet de configuration de la bibliothèque d’authentification Microsoft (MSAL), puis ajoutez la méthode `withLoginHint()` avec l’indicateur de connexion.
+1. Recherchez votre objet de configuration de la Bibliothèque d’authentification Microsoft (MSAL), puis ajoutez la méthode `withLoginHint()` avec l’indicateur de connexion.
 
 ```swift
 let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParameters!)
@@ -128,7 +128,7 @@ applicationContext.acquireToken(with: parameters) { (result, error) in
 [!INCLUDE [active-directory-b2c-app-integration-id-token-hint](../../includes/active-directory-b2c-app-integration-id-token-hint.md)]
 
 1. Dans votre stratégie personnalisée, définissez un [indicateur de jeton d’ID de profil technique](id-token-hint.md).
-1. Dans votre code, générez ou obtenez un jeton d’ID, puis définissez le jeton sur une variable (par exemple `idToken`). 
+1. Dans votre code, générez ou obtenez un jeton d'identification, puis définissez le jeton dans une variable (par exemple, `idToken`). 
 1. Créez un objet de liste ou utilisez un objet existant afin d’y stocker des paramètres de requête supplémentaires.
 1. Ajoutez le paramètre `id_token_hint` avec la variable correspondante qui stocke le jeton d’ID.
 1. Passez la liste des paramètres de requête supplémentaires dans l’attribut `extraQueryParameters` de l’objet de configuration MSAL.

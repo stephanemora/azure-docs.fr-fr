@@ -3,20 +3,20 @@ title: Authentification unique basée sur l’en-tête pour les applications loc
 description: Découvrez comment fournir l’authentification unique pour les applications locales sécurisées avec une authentification basée sur l’en-tête.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 6b81ad97a99115ab9741b2200437774b502b4fa6
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.reviewer: ashishj
+ms.openlocfilehash: 28f5cbcd124363f3e7a004bd80f254248dd80e95
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108227215"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162426"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy"></a>Authentification unique basée sur l’en-tête pour les applications locales avec le Proxy d’application Azure AD
 
@@ -50,7 +50,7 @@ Le tableau suivant répertorie les fonctionnalités courantes requises pour les 
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-:::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png" alt-text="Fonctionnement de l’authentification unique basée sur l’en-tête avec le Proxy d’application." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png":::
+:::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png" alt-text="Fonctionnement de l’authentification unique basée sur l’en-tête avec le Proxy d’application." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works-updated.png":::
 
 1. L’administrateur personnalise les mappages d’attributs que requiert l’application dans le portail Azure AD. 
 2. Quand un utilisateur accède à l’application, le Proxy d’application s’assure que l’utilisateur est authentifié par Azure AD. 

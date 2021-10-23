@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurepowershell
-ms.openlocfilehash: 23629a5a15603697eb1feb6e964e63754fbed14c
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e2c53e09553e62b1a6ca8c1c827d3d2341cae687
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123426726"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046674"
 ---
 # <a name="deploy-a-managed-disk-that-uses-zone-redundant-storage"></a>Déployer un disque managé qui utilise le stockage redondant interzone
 
@@ -26,22 +26,6 @@ Pour obtenir des informations conceptuelles sur ZRS, consultez [Stockage redonda
 [!INCLUDE [disk-storage-zrs-limitations](../../includes/disk-storage-zrs-limitations.md)]
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
-
-### <a name="prerequisites"></a>Prérequis
-
-Vous devez activer la fonctionnalité pour votre abonnement. Pour activer la fonctionnalité pour votre abonnement, procédez comme suit :
-
-1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.  Vérifiez que l'état de l'inscription est **Inscrit** (cela peut prendre quelques minutes) à l'aide de la commande suivante avant d'essayer la fonctionnalité.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
 
 ### <a name="create-a-vm-with-a-zrs-os-disk"></a>Créer une machine virtuelle avec un disque de système d’exploitation ZRS
 
@@ -78,22 +62,6 @@ Vous avez déployé une machine virtuelle avec un disque de système d’exploit
 Vous avez créé un disque managé qui utilise ZRS.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-#### <a name="prerequisites"></a>Prérequis
-
-Vous devez activer la fonctionnalité pour votre abonnement. Pour activer la fonctionnalité pour votre abonnement, procédez comme suit :
-
-1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
-
-    ```azurecli
-    az feature register --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
- 
-2.  Vérifiez que l'état de l'inscription est **Inscrit** (cela peut prendre quelques minutes) à l'aide de la commande suivante avant d'essayer la fonctionnalité.
-
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
 
 #### <a name="create-a-vm-with-zrs-disks"></a>Créer une machine virtuelle avec des disques ZRS
 
@@ -185,23 +153,6 @@ az vmss create -g $rgName \
 ```
 # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
-
-#### <a name="prerequisites"></a>Prérequis
-
-Vous devez activer la fonctionnalité pour votre abonnement. Pour activer la fonctionnalité pour votre abonnement, procédez comme suit :
-
-1.  Exécutez la commande suivante pour inscrire la fonctionnalité pour votre abonnement
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.  Vérifiez que l'état de l'inscription est **Inscrit** (cela peut prendre quelques minutes) à l'aide de la commande suivante avant d'essayer la fonctionnalité.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
-    
 #### <a name="create-a-vm-with-zrs-disks"></a>Créer une machine virtuelle avec des disques ZRS
 
 ```powershell

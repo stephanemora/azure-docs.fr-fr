@@ -3,20 +3,20 @@ title: Débogage des connecteurs Proxy d’application – Azure Active Directo
 description: Déboguez les problèmes liés aux connecteurs Proxy d’application Azure Active Directory (Azure AD).
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: 730fba1b1a936a6277289b816412750764930469
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: beb232054eb4f0ead8aaaaf3f878bca8ef360cbd
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108186041"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129989491"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Déboguer les problèmes d’un connecteur Proxy d’application 
 

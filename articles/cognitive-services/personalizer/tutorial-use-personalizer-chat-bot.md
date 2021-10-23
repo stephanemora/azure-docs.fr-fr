@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 15774ad99391dee3cc89bec6fa09bb808715a4ef
-ms.sourcegitcommit: 16e25fb3a5fa8fc054e16f30dc925a7276f2a4cb
+ms.openlocfilehash: 94c46b0c911d8f9e6ba0bee34d207bd7c1d4b8e5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122830290"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044740"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutoriel : Utiliser Personalizer dans un chatbot .NET
 
@@ -331,7 +331,7 @@ Les méthodes ayant le préfixe `Send` gèrent la conversation avec le bot et LU
 
 #### <a name="calling-rank-api-and-display-results"></a>Appel de l’API Rank et affichage des résultats
 
-La méthode `ChooseRankAsync` crée les données JSON à envoyer à l’API Rank de Personalizer en recueillant les actions avec les caractéristiques et les caractéristiques de contexte.
+La méthode `ChooseRankAsync` génère les données JSON à envoyer à l’API Rank du service Personalizer en collectant les actions avec les fonctionnalités et les fonctionnalités de contexte.
 
 ```csharp
 private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, string eventId, CancellationToken cancellationToken)
@@ -400,7 +400,7 @@ private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, strin
 
 #### <a name="calling-reward-api-and-display-results"></a>Appel de l’API Reward et affichage des résultats
 
-La méthode `RewardAsync` crée les données JSON à envoyer à l’API Reward de Personalizer en déterminant le score. Le score est déterminé à partir de l’intention LUIS identifiée dans le texte de l’utilisateur et envoyé à partir de la méthode `OnTurnAsync`.
+La méthode `RewardAsync` génère les données JSON à envoyer à l’API Reward du service Personalizer en déterminant le score. Le score est déterminé à partir de l’intention LUIS identifiée dans le texte de l’utilisateur et envoyé à partir de la méthode `OnTurnAsync`.
 
 ```csharp
 private async Task RewardAsync(ITurnContext turnContext, string eventId, double reward, CancellationToken cancellationToken)

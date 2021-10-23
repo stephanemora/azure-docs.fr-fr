@@ -3,20 +3,20 @@ title: Exemple PowerShell - Attribuer un utilisateur à une application Proxy 
 description: Exemple PowerShell qui attribue un utilisateur à une application Proxy d’application Azure Active Directory (Azure AD).
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: sample
 ms.date: 04/29/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: ce17fbdeb8286c1055efeea6241049e8aa397053
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.reviewer: ashishj
+ms.openlocfilehash: f1a37ca534d98858f931f24e6a7618a5e749232f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293675"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129988332"
 ---
 # <a name="assign-a-user-to-a-specific-azure-active-directory-application-proxy-application"></a>Affecter un utilisateur à une application Proxy d’application Azure Active Directory spécifique
 

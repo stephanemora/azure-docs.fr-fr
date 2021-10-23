@@ -12,22 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 10/14/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: f97e4ec774dc9ed703a41cdd75fb88747fb627e5
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: c8cef623e26882443379fff73edcc1999463ec3e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129090910"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045765"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Réplication inter-région des volumes Azure NetApp Files
 
 La fonctionnalité de réplication Azure NetApp Files fournit une protection des données via la réplication de volume inter-région. Vous pouvez répliquer de façon asynchrone des données à partir d’un volume Azure NetApp Files (source) d’une région vers un autre volume Azure NetApp Files (destination) d’une autre région.  Cette fonctionnalité vous permet de basculer votre application critique en cas de panne ou d’incident touchant l’ensemble de la région.
-
-> [!IMPORTANT]
-> La fonctionnalité de réplication inter-région est actuellement disponible en préversion. Vous devez soumettre une demande d’inscription à la liste d’attente pour accéder à la fonctionnalité via la [page de soumission de demande d’inscription à la liste d’attente de réplication inter-région Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Attendez de recevoir un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant d’utiliser la fonctionnalité de réplication inter-région.
 
 ## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Paires de réplication interrégion prises en charge
 
