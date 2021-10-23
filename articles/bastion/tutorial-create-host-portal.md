@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 09/07/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0aa2efb84c207592131d3b7c3060aebc22cc49f6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0bac9ef5d9a636fb4772352c93de537d21483139
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128668891"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179296"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>Tutoriel : Configurer Bastion et se connecter à une machine virtuelle Windows
 
@@ -82,7 +82,7 @@ Cette section vous aide à créer l’objet bastion dans votre réseau virtuel. 
 1. Dans la page Bastions, cliquez sur **+ Créer** pour ouvrir la page **Créer un bastion**.
 1. Dans la page **Create a bastion** (Créer un bastion), configurez une nouvelle ressource Bastion.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/review-create.png" alt-text="Capture d’écran de la page Créer un portail Bastion." lightbox="./media/tutorial-create-host-portal/create-expand.png":::
+   :::image type="content" source="./media/tutorial-create-host-portal/review-create.png" alt-text="Capture d’écran de la page Créer un portail Bastion." lightbox="./media/tutorial-create-host-portal/create.png":::
 
 ### <a name="project-details"></a>Détails du projet
 

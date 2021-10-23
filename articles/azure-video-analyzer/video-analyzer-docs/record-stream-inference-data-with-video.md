@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Video Anal
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 3122ea07fdab20c93ed4720d0c43f180cce5306d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 0e2df2b89efb974e6336cf4df0ce4e06a63d528a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562518"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996301"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutoriel : Enregistrer et streamer des métadonnées d’inférence avec une vidéo
   
@@ -101,7 +101,7 @@ Ensuite, accédez au dossier src/cloud-to-device-console-app. Vous y voyez le fi
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/analyze-live-video-use-your-model-http/deployment-single-device.png" alt-text= "Screenshot of Create Deployment for Single Device":::
 
-1. Quand vous êtes invité à sélectionner un appareil IoT Hub, sélectionnez **ava-sample-iot-edge-device**.
+1. Quand vous êtes invité à sélectionner un appareil IoT Hub, sélectionnez **avasample-iot-edge-device**.
 1. Après environ 30 secondes, dans l’angle en bas à gauche de la fenêtre, actualisez Azure IoT Hub. L’appareil de périphérie affiche maintenant les modules déployés suivants :
 
    - Le module **avaedge**, qui est le module Video Analyzer.
@@ -319,7 +319,7 @@ La section body contient des informations sur l’emplacement de sortie. Dans ce
 
 ### <a name="recordingavailable-event"></a>Événement RecordingAvailable
 
-Comme son nom l’indique, l’événement RecordingStarted est envoyé lorsque l’enregistrement démarre. Il est cependant possible que les données du média ne soient pas encore chargées dans la ressource vidéo. Dès que le nœud récepteur vidéo a chargé le média, il émet un événement de type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable** :
+Comme son nom l’indique, l’événement RecordingStarted est envoyé lorsque l’enregistrement démarre. Il est cependant possible que les données du média ne soient pas encore chargées dans la ressource vidéo. Lorsque le nœud récepteur vidéo a chargé une vidéo, il émet un événement de type **Microsoft.VideoAnalyzers.Pipeline.Operational.RecordingAvailable** :
 
 ```
 [IoTHubMonitor] [[9:43:38 AM] Message received from [ava-sample-device/avaedge]:
@@ -378,7 +378,7 @@ Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par 
 1. Ouvrez votre navigateur web pour accéder au [portail Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
 1. Localisez votre compte Video Analyzer parmi les ressources qui figurent dans votre abonnement, puis ouvrez le volet du compte.
 1. Sélectionnez **Vidéos** dans la liste **Video Analyzer**.
-1. Vous y trouvez une vidéo portant le nom `sample-cvr-with-inference-metadata`. Il s’agit du nom choisi dans votre fichier de topologie de pipeline.
+1. Vous trouverez une vidéo portant le nom de `sample-cvr-with-inference-metadata`. Il s’agit du nom choisi dans votre fichier de topologie de pipeline.
 1. Sélectionnez la vidéo.
 1. Dans la page d’informations de la vidéo, cliquez sur l’icône de **lecture**
 1. Pour afficher les métadonnées d’inférence sous forme de cadres englobants sur la vidéo, cliquez sur l’icône de **cadre englobant** (dans le cercle rouge)

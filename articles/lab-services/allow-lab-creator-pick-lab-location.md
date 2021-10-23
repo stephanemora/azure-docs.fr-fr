@@ -1,14 +1,14 @@
 ---
 title: Autoriser un créateur de labo à choisir une localisation dans Azure Lab Services
 description: Cet article explique comment un administrateur de compte lab peut autoriser des créateurs de labo à choisir des localisations pour leurs labos.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f9dbafe6b297d7b94b1d1ec5eb419345cb140457
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85444197"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177248"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Autoriser un créateur de labo à choisir la localisation du labo dans Azure Lab Services
 Dans Azure Lab Services, le propriétaire d’un compte lab peut permettre aux créateurs de labo (enseignants) de choisir une localisation pour le labo créé. Cette localisation peut être différente de celle du compte lab. Une localisation est un groupe de régions Azure. Par exemple, la localisation États-Unis est un groupe de régions comme USA Est, USA Ouest, etc. 

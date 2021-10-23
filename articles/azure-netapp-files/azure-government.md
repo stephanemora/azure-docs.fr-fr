@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 4dbdc8086b59553474d05297cdaf030d897d441e
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 3e820abf824a9593c265fd7d9d4c6ccd9be5cb38
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234069"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047586"
 ---
 # <a name="azure-netapp-files-for-azure-government"></a>Azure NetApp Files pour Azure Government 
 
@@ -35,7 +35,7 @@ Toutes les [fonctionnalités Azure NetApp Files](whats-new.md) disponibles sur l
 
 | Fonctionnalités Azure NetApp Files | Disponibilité sur le cloud public Azure |  Disponibilité sur Azure Government |
 |:--- |:--- |:--- |
-| Réplication interrégion Azure NetApp Files | Préversion publique | [Limité](cross-region-replication-introduction.md#supported-region-pairs) |
+| Réplication interrégion Azure NetApp Files | Disponibilité générale (GA) | [Limité](cross-region-replication-introduction.md#supported-region-pairs) |
 | Sauvegarde Azure NetApp Files | Préversion publique | Non |
 
 ## <a name="portal-access"></a>Accès au portail

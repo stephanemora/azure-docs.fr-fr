@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: allensu
-ms.openlocfilehash: 692bcd4900ae960928a66eaa63b02c6ddf12f2bf
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 485cd0d3d7ce2c64bfb0f37e07d785dee8808e3a
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705271"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062668"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -98,6 +98,7 @@ Le tableau ci-dessous liste les ressources disponibles qui prennent en charge un
 | **Service Private Link** (votre propre service) |  Microsoft.Network/privateLinkServices | empty |
 | **Power BI** | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
 | **Azure Purview** | Microsoft.Purview/accounts | account |
+| **Azure Purview** | Microsoft.Purview/accounts | portail |
 | **Azure Backup** | Microsoft.RecoveryServices/vaults | coffre |
 | **Azure Relay** | Microsoft.Relay/namespaces | espace de noms |
 | **Recherche Microsoft** | Microsoft.Search/searchServices | service de recherche |

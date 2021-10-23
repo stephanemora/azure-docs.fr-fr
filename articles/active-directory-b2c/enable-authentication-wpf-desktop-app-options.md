@@ -2,21 +2,21 @@
 title: Activer les options d’application de bureau WPF à l’aide d’Azure Active Directory B2C
 description: Activez l’utilisation des options d’application de bureau WPF à l’aide de plusieurs méthodes.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 08/04/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: bbb0b9d29b2551a6c733d0df8b62505efe68514f
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 16b625f739df35604b649b9d7391d969669af6be
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220300"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040755"
 ---
 # <a name="enable-authentication-options-in-a-wpf-desktop-app-by-using-azure-ad-b2c"></a>Activer les options d’authentification dans une application de bureau WPF avec Azure AD B2C 
 

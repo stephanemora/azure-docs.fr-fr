@@ -3,7 +3,7 @@ title: 'Tutoriel : Créer une application Angular qui utilise la plateforme d�
 titleSuffix: Microsoft identity platform
 description: Dans ce tutoriel, vous allez générer une application monopage (SPA) Angular à l’aide du flux de code d’authentification, qui utilise la plateforme d’identités Microsoft pour connecter les utilisateurs et obtenir un jeton d’accès permettant d’appeler l’API Microsoft Graph en leur nom.
 services: active-directory
-author: joarroyo
+author: jo-arroyo
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/14/2021
 ms.author: joarroyo
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 01c35297a35b41b58b83aaf361aaa47a76cfecee
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: b116c7481dcbbdf05bf7aba476feeef853c0c87f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230852"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993641"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application-spa-using-auth-code-flow"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) Angular à l’aide du flux de code d’authentification
 
@@ -449,7 +449,7 @@ Pour permettre l’affichage de certaines IU uniquement pour les utilisateurs au
 1. Ajoutez `MsalBroadcastService` à *src/app/app.component.ts*, puis abonnez-vous au `inProgress$` observable pour vérifier si l’interaction a eu lieu, et si un compte est connecté avant l’affichage de l’IU. Votre code doit désormais ressembler à ceci :
 
     ```javascript
-    import { Component, OnInit } from '@angular/core';
+    import { Component, OnInit, OnDestroy } from '@angular/core';
     import { MsalService, MsalBroadcastService } from '@azure/msal-angular';
     import { InteractionStatus } from '@azure/msal-browser';
     import { Subject } from 'rxjs';
@@ -460,7 +460,7 @@ Pour permettre l’affichage de certaines IU uniquement pour les utilisateurs au
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
     })
-    export class AppComponent implements OnInit {
+    export class AppComponent implements OnInit, OnDestroy {
       title = 'msal-angular-tutorial';
       isIframe = false;
       loginDisplay = false;
@@ -653,7 +653,7 @@ MSAL Angular fournit `MsalGuard`, une classe qui vous permet de protéger les ro
 3. Modifiez les appels de connexion dans *src/app/app.component.ts* pour prendre en compte le `authRequest` défini dans les configurations de protection. À présent, votre code doit ressembler à ce qui suit :
 
     ```javascript
-    import { Component, OnInit, Inject } from '@angular/core';
+    import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
     import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
     import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
     import { Subject } from 'rxjs';
@@ -664,7 +664,7 @@ MSAL Angular fournit `MsalGuard`, une classe qui vous permet de protéger les ro
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
     })
-    export class AppComponent implements OnInit {
+    export class AppComponent implements OnInit, OnDestroy {
       title = 'msal-angular-tutorial';
       isIframe = false;
       loginDisplay = false;
@@ -873,7 +873,7 @@ Mettez à jour le code dans *src/app/app.component.html* pour afficher un bouton
 Mettez à jour le code dans *src/app/app.component.ts* pour déconnecter un utilisateur à l’aide de redirections :
 
 ```javascript
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
@@ -884,7 +884,7 @@ import { filter, takeUntil } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'msal-angular-tutorial';
   isIframe = false;
   loginDisplay = false;
@@ -935,7 +935,7 @@ export class AppComponent implements OnInit {
 Mettez à jour le code dans *src/app/app.component.ts* pour déconnecter un utilisateur à l’aide de fenêtres indépendantes :
 
 ```javascript
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 import { InteractionStatus, PopupRequest } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
@@ -946,7 +946,7 @@ import { filter, takeUntil } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'msal-angular-tutorial';
   isIframe = false;
   loginDisplay = false;

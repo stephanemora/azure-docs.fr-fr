@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: 26858ca04af7a96896229c44757fa963ae362f1c
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: de2ef5b76e67ae19eca6bbb24c9d65dfc7b602b6
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110534169"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987306"
 ---
 # <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB serverless
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -46,7 +46,6 @@ Le serverless est un nouveau type de compte Azure Cosmos, ce qui signifie que vo
 Tout conteneur créé dans un compte serverless est un conteneur serverless. Les conteneurs serverless exposent les mêmes fonctionnalités que les conteneurs créés en mode de débit approvisionné, ce qui vous permet de lire, d’écrire et d’interroger vos données exactement de la même façon. Toutefois, les comptes et les conteneurs serverless ont également des caractéristiques spécifiques :
 
 - Un compte serverless ne peut s’exécuter que dans une seule région Azure. Il n’est pas possible d’ajouter des régions Azure supplémentaires à un compte serverless après l’avoir créé.
-- Il n’est pas possible d’activer la [fonctionnalité Synapse Link](synapse-link.md) sur un compte serverless.
 - L’approvisionnement de débit n’est pas requis sur les conteneurs serverless ; les instructions suivantes sont donc applicables :
     - Vous ne pouvez pas passer de débit lors de la création d’un conteneur serverless ; faire cela retourne une erreur.
     - Vous ne pouvez pas lire ou mettre à jour le débit sur un conteneur serverless ; faire cela retourne une erreur.

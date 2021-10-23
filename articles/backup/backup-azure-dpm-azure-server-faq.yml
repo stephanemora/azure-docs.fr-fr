@@ -5,13 +5,13 @@ metadata:
   ms.reviewer: srinathv
   ms.topic: article
   ms.service: backup
-  ms.date: 07/05/2019
-  ms.openlocfilehash: edd3ad16f6fc223ec08a99e4bf2a992cbd69c6e5
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.date: 10/13/2021
+  ms.openlocfilehash: a46b7b990e8ea9deb929430d15a8c208434ff0e2
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122252155"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "129998558"
 title: Serveur de sauvegarde Azure et DPM - Forum aux questions
 summary: ''
 sections:
@@ -29,6 +29,10 @@ sections:
       Puis-je utiliser DPM pour sauvegarder des applications dans Azure Stack ?
     answer: >
       Non. Vous pouvez utiliser la sauvegarde Azure pour protéger Azure Stack, mais la sauvegarde Azure ne prend pas en charge actuellement l’utilisation de DPM pour sauvegarder des applications dans Azure Stack.
+  - question: >
+      Que se passe-t-il si la sauvegarde hebdomadaire, mensuelle ou annuelle prévue échoue ?
+    answer: >
+      Si la sauvegarde échoue, la sauvegarde suivante réussie après la sauvegarde hebdomadaire, mensuelle ou annuelle prévue est conservée pendant la période de conservation des données pour respectivement les points de récupération hebdomadaires, mensuels et annuels (points de conservation à long terme), conformément à la stratégie de sauvegarde. Cette sauvegarde réussie peut être une sauvegarde ad hoc ou une sauvegarde planifiée dans le cas de l’agent MARS.
   - question: >
       Si j’ai installé l’agent Sauvegarde Azure pour protéger mes fichiers et dossiers, puis-je installer System Center DPM pour sauvegarder les charges de travail locales vers Azure ?
     answer: >

@@ -6,12 +6,12 @@ author: shseth
 ms.author: shseth
 ms.date: 7/12/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 01c2f7b49b051e9166ad1ceef99fc816e611f579
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: d3f2fa2457ef52fc02e2fd5b7d183918e2e9e09c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563793"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177984"
 ---
 # <a name="migrate-from-log-analytics-agents"></a>Migrer depuis des agents Log Analytics
 Cet article fournit des conseils de haut niveau sur le moment et la façon de migrer vers le nouvel agent Azure Monitor (AMA) et les règles de collecte de données (DCR). Cet article sera mis à jour lorsque de nouveaux outils de migration seront disponibles.
@@ -38,10 +38,10 @@ Cet article fournit des conseils de haut niveau sur le moment et la façon de mi
     - Destinations, comme des espaces de travail Log Analytics
 1. [Créez de nouvelles règles de collecte de données](/rest/api/monitor/datacollectionrules/create#examples) à l’aide de la configuration précédente. Il est recommandé de disposer d’une règle de collecte de données distincte pour les sources Windows et Linux. Vous pouvez également utiliser des règles de collecte de données distinctes pour les équipes individuelles ayant des besoins différents en matière de collecte de données.
 1. [Activez une identité managée attribuée par le système](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#system-assigned-managed-identity) sur les ressources cibles.
-1. Installez l’extension de l’agent Azure Monitor. Déployez les associations de règles de collecte de données sur toutes les ressources cibles à l’aide de l’[initiative de la stratégie intégrée](../deploy-scale.md#built-in-policy-initiatives). Fournissez la règle de collecte de données précédente en tant que paramètre d’entrée. 
+2. Installez l’extension de l’agent Azure Monitor. Déployez les associations de règles de collecte de données sur toutes les ressources cibles à l’aide de l’[initiative de la stratégie intégrée](azure-monitor-agent-install.md#install-with-azure-policy). Fournissez la règle de collecte de données précédente en tant que paramètre d’entrée. 
 1. Confirmez que les données circulent comme prévu via l’agent Azure Monitor. Vérifiez les valeurs de la nouvelle version de l’agent dans la table **Pulsations**. Assurez-vous qu’elles correspondent aux données qui transitent par l’agent Log Analytics existant.
-1. Validez toutes les dépendances en aval, comme les tableaux de bord, les alertes et les Runbook Workers. Tous les workbooks continuent à fonctionner maintenant en utilisant les données du nouvel agent.
-1. [Désinstallez l’agent Log Analytics](./agent-manage.md#uninstall-agent) sur les ressources. Ne le désinstallez pas si vous avez besoin de l’utiliser pour des scénarios System Center Operations Manager ou d’autres solutions qui ne sont pas encore disponibles sur l’agent Azure Monitor.
-1. Nettoyez les fichiers de configuration, les clés d’espace de travail ou les certificats qui ont été utilisés précédemment par l’agent Log Analytics.
+2. Validez toutes les dépendances en aval, comme les tableaux de bord, les alertes et les Runbook Workers. Tous les workbooks continuent à fonctionner maintenant en utilisant les données du nouvel agent.
+3. [Désinstallez l’agent Log Analytics](./agent-manage.md#uninstall-agent) sur les ressources. Ne le désinstallez pas si vous avez besoin de l’utiliser pour des scénarios System Center Operations Manager ou d’autres solutions qui ne sont pas encore disponibles sur l’agent Azure Monitor.
+4. Nettoyez les fichiers de configuration, les clés d’espace de travail ou les certificats qui ont été utilisés précédemment par l’agent Log Analytics.
 
 

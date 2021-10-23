@@ -8,12 +8,12 @@ ms.date: 07/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 81c448b39dcbed56d0208f3e8931eacabd5331f0
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 7d36bace70e8e539d03e75808152a79b17b35423
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129661877"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063390"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-with-a-tpm-on-linux"></a>Création et provisionnement d’appareils IoT Edge à grande échelle avec un module TPM sur Linux
 
@@ -107,7 +107,7 @@ Un commutateur virtuel permet à votre machine virtuelle de se connecter à un r
 
 Créez une machine virtuelle à partir d’un fichier image démarrable.
 
-1. Téléchargez un fichier image de disque à utiliser pour votre machine virtuelle et enregistrez-le localement. Par exemple, [Ubuntu Server 18.04](http://releases.ubuntu.com/18.04/). Pour plus d’informations sur les systèmes d’exploitation pris en charge pour les appareils IoT Edge, consultez [Systèmes pris en charge Azure IoT Edge](/support.md).
+1. Téléchargez un fichier image de disque à utiliser pour votre machine virtuelle et enregistrez-le localement. Par exemple, [Ubuntu Server 18.04](http://releases.ubuntu.com/18.04/). Pour plus d’informations sur les systèmes d’exploitation pris en charge pour les appareils IoT Edge, consultez [Systèmes pris en charge Azure IoT Edge](/azure/iot-edge/support).
 
 1. Dans Hyper-V Manager, sélectionnez **Action** > **Créer** > **Machine virtuelle** dans le menu **Actions**.
 
@@ -179,7 +179,7 @@ Lorsque vous créez une inscription auprès du service Device Provisioning, vous
 > [!TIP]
 > Bien que les étapes décrites dans cet article concernent le portail Azure, vous pouvez également créer des inscriptions individuelles à l’aide d’Azure CLI. Pour plus d’informations, consultez la section relative à [az iot dps enrollment](/cli/azure/iot/dps/enrollment). Dans la commande CLI, utilisez l’indicateur **edge-enabled** pour spécifier que l’inscription concerne un appareil IoT Edge.
 
-1. Sur le [Portail Microsoft Azure](https://portal.azure.com), accédez à votre instance du Service IoT Hub Device Provisioning.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre instance du Service IoT Hub Device Provisioning.
 
 1. Sous **Paramètres**, sélectionnez **Gérer les inscriptions**.
 
@@ -187,11 +187,11 @@ Lorsque vous créez une inscription auprès du service Device Provisioning, vous
 
    1. Pour **Mécanisme**, sélectionnez **TPM**.
 
-   1. Spécifiez la **Paire de clés de type EK (Endorsement Key)** et **l’ID d’inscription** que vous avez copiés sur votre machine virtuelle ou votre appareil physique.
+   1. Spécifiez la **paire de clés de type EK (Endorsement Key)** et l’**ID d’inscription** que vous avez copiés sur votre machine virtuelle ou votre appareil physique.
 
    1. Fournissez un ID pour votre appareil si vous le souhaitez. Si vous ne fournissez pas un ID d’appareil, l’ID d’inscription est utilisé.
 
-   1. Sélectionnez **Vrai** pour déclarer que votre machine virtuelle ou votre appareil physique est un appareil IoT Edge.
+   1. Sélectionnez **True** pour déclarer que votre machine virtuelle ou votre appareil physique est un appareil IoT Edge.
 
    1. Choisissez le hub IoT lié auquel vous voulez connecter votre appareil, ou sélectionnez **Lier à un nouveau hub IoT**. Vous pouvez choisir plusieurs hubs : l’appareil sera affecté à l’un d’entre eux en fonction de la stratégie d’attribution sélectionnée.
 

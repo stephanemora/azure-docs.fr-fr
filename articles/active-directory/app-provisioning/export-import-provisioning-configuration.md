@@ -3,7 +3,7 @@ title: Exporter la configuration de l’approvisionnement d’applications et re
 description: Découvrez comment exporter votre configuration de l’approvisionnement d’applications et restaurer un état correct connu pour la récupération d’urgence dans Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 202450e66fe9f91257364b6840f1056435299f55
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: f84219d6ac47773603b91bd2d3556fdc3347f455
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109782934"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991505"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Procédure : Exporter la configuration de provisionnement et restaurer la dernière bonne configuration connue
 

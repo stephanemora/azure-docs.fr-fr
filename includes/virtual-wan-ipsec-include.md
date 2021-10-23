@@ -1,6 +1,6 @@
 ---
 title: Fichier include
-description: Fichier include
+description: Fichier Include
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 02ced43f8c3fc7c83359b78362e8ad0feeab3070
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5c1ee4676942462e6e92ddc6c33b1044ea24483f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "72168412"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050578"
 ---
 >[!NOTE]
->Quand vous utilisez des stratégies par défaut, Azure peut jouer le rôle d’initiateur et de répondeur lors de la configuration d’un tunnel IPsec. Azure ne peut pas jouer le rôle de répondeur uniquement.
+>Quand vous utilisez des stratégies par défaut, Azure peut jouer le rôle d’initiateur et de répondeur lors de la configuration d’un tunnel IPsec.
 >
 
 ### <a name="initiator"></a>Initiateur

@@ -100,8 +100,20 @@
           href: set-up-customize-master-image.md
         - name: Installer Office sur une image VHD principale
           href: install-office-on-wvd-master-image.md
-    - name: Mettre à l’échelle des hôtes de session automatiquement
-      href: set-up-scaling-script.md
+    - name: Mettre à l’échelle des hôtes de session avec Azure Automation
+      items:
+        - name: Configurer un script de mise à l’échelle
+          href: set-up-scaling-script.md
+    - name: Mise à l’échelle automatique (préversion)
+      items:
+        - name: Utiliser la fonctionnalité de mise à l’échelle automatique (préversion)
+          href: autoscale-scaling-plan.md
+        - name: Mettre à l’échelle des hôtes de session (préversion)
+          href: autoscale-new-existing-host-pool.md
+        - name: Mettre à l’échelle des diagnostics (préversion)
+          href: autoscale-diagnostics.md
+        - name: FAQ sur la fonctionnalité de mise à l’échelle automatique (préversion)
+          href: autoscale-faq.yml
     - name: Personnaliser un flux
       href: customize-feed-for-virtual-desktop-users.md
     - name: Utiliser les diagnostics des services

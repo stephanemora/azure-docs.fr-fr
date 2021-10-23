@@ -4,7 +4,7 @@ description: Expiration des groupes Microsoft 365 - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16306e0a1767c0f65fe34193410999f631671e69
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: edfa2f5190441f4cfc46623acc1d17c2e7b199bf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123427315"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129986261"
 ---
 # <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Configurer l'expiration des groupes Microsoft 365 dans Azure Active Directory
 

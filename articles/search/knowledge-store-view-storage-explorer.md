@@ -7,19 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/10/2021
-ms.openlocfilehash: d87ec3fa05e1740b5cba7b4230894f1df822ac1f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/15/2021
+ms.openlocfilehash: 8be37bfc85b56af67784fb1abb457da95b9565fc
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784621"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067038"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Voir une base de connaissances avec l’Explorateur Stockage
 
 Un [magasin de connaissances](knowledge-store-concept-intro.md) est un contenu créé par des compétences Recherche cognitive Azure et enregistré dans Stockage Azure. Cet article explique comment afficher le contenu d’une base de connaissances à l’aide d’Explorateur Stockage dans le Portail Azure.
-
-## <a name="prerequisites"></a>Prérequis
 
 Commencez avec un magasin de connaissances existant créé dans le [Portail Azure](knowledge-store-create-portal.md) ou à l’aide des [API REST](knowledge-store-create-rest.md). Les procédures pas à pas pour le portail et REST créent une base de connaissances dans Stockage Table Azure.
 
@@ -29,7 +27,7 @@ Commencez avec un magasin de connaissances existant créé dans le [Portail Azur
 
 1. Dans le volet de navigation de gauche du compte de stockage, sélectionnez **Explorateur Stockage**.
 
-## <a name="edit-and-query-tables"></a>Modifier et interroger des tables
+## <a name="view-edit-and-query-tables"></a>Afficher, modifier et interroger des tables
 
 1. Développez la liste **TABLES** pour afficher la liste des projections de tables Azure créées durant la création de la base de connaissances. Si vous avez utilisé l’article de démarrage rapide ou REST pour créer le magasin de connaissances, les tables contiennent du contenu relatif aux révisions client d’un hôtel européen.
 

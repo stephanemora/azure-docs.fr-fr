@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: be90a868ca4ef738f0275b06fb49abec761c7a0c
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: c0ccdf22928a824194015858592c7dd1c3d98ed6
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538189"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063181"
 ---
 # <a name="configure-redis-clustering-for-a-premium-azure-cache-for-redis-instance"></a>Configurer le clustering Redis pour le niveau Premium de Cache Azure pour Redis
 
@@ -90,7 +90,7 @@ Pour accéder à un exemple de code relatif à l’utilisation du clustering ave
 
 Pour modifier la taille de cluster sur un cache de niveau Premium en cours d’exécution avec le clustering activé, sélectionnez **Taille du cluster** dans le **menu Ressources**.
 
-![Taille du cluster Redis][redis-cache-redis-cluster-size]
+:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Taille du cluster Redis":::
 
 Pour modifier la taille du cluster, utilisez le curseur ou entrez un nombre compris entre 1 et 10 dans la zone de texte **Nombre de partitions**. Cliquez ensuite sur **OK** pour enregistrer.
 
@@ -201,11 +201,3 @@ Si vous utilisez StackExchange.Redis et recevez des exceptions `MOVE` lorsque vo
 En savoir plus sur les fonctionnalités d’Azure Cache pour Redis.
 
 * [Niveaux de service Premium Azure Cache pour Redis](cache-overview.md#service-tiers)
-
-<!-- IMAGES -->
-
-[redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
-
-[redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
-
-[redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: f8815258398e6aaa3c54032279645960417756d7
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: c78c48bc86c999ab85c02f0ba596d425b516ac5a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667190"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984969"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Intégration d’Azure Active Directory géré par AKS
 
@@ -396,7 +396,7 @@ aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
 ```
 ### <a name="apply-just-in-time-access-at-the-namespace-level"></a>Appliquer l’accès juste-à-temps au niveau de l’espace de noms
 
-1. Intégrez votre cluster AKS au [contrôle d’accès en fonction du rôle (RBAC) Azure](https://docs.microsoft.com/azure/aks/manage-azure-rbac).
+1. Intégrez votre cluster AKS au [contrôle d’accès en fonction du rôle (RBAC) Azure](manage-azure-rbac.md).
 2. Associez le groupe que vous voulez intégrer à l’accès juste-à-temps à un espace de noms du cluster par le biais de l’attribution de rôle.
 
 ```azurecli-interactive

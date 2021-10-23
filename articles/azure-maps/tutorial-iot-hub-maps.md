@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 ms.custom: mvc
-ms.openlocfilehash: d911f5f0ee1670177e6de23b7afd647582253a8a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6fd1592e1f0b7d5da44fac15e20b03b8f237ad0a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121748781"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997342"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutoriel : Implémenter l’analytique spatiale IoT avec Azure Maps
 
@@ -116,7 +116,7 @@ Une fois le compte de stockage créé, vous devez créer un conteneur pour stock
 
 Ensuite, utilisez l’[application Postman](https://www.getpostman.com) pour [charger la limite géographique](./geofence-geojson.md) dans Azure Maps. La limite géographique définit la zone géographique autorisée pour notre véhicule de location. Vous utiliserez la limite géographique dans votre fonction Azure pour déterminer si une voiture est allée en dehors de la limite géographique.
 
-Effectuez les étapes suivantes pour charger la limite géographique à l’aide de l’API de chargement de données Azure Maps : 
+Effectuez les étapes suivantes pour charger la limite géographique à l’aide de l’API de chargement de données Azure Maps :
 
 1. Ouvrez l’application Postman et sélectionnez **Nouveau**. Dans la fenêtre **Create New**, sélectionnez **HTTP Request**, puis entrez le nom de la requête.
 
@@ -246,7 +246,6 @@ Quand votre fonction Azure s’exécute, vous pouvez maintenant envoyer les donn
     dotnet run
     ```
 
-
   Votre terminal local doit ressembler à celui présenté ci-dessous.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Capture d’écran de la sortie de terminal.":::
@@ -283,7 +282,6 @@ Aucune ressource ne nécessite un nettoyage.
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur la façon d’envoyer des données de télémétrie appareil-à-cloud, et vice versa, consultez :
-
 
 > [!div class="nextstepaction"]
 > [Envoyer des données de télémétrie depuis un appareil](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)

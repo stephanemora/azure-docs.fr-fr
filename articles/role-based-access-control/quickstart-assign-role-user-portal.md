@@ -11,15 +11,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/07/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 5df6b591cc7ba3795104957b9cd11de814e2472a
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 96064811bf0d82ab37a338adf3ed2ac4568c57f1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111591863"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069163"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du portail Azure
 
@@ -68,7 +68,7 @@ Dans le RBAC Azure, vous attribuez un rôle Azure pour accorder l’accès.
    ![Page Contrôle d’accès (IAM) pour un groupe de ressources.](./media/shared/rg-role-assignments.png)
 
 
-1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle (préversion)** .
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle**.
 
    Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
 

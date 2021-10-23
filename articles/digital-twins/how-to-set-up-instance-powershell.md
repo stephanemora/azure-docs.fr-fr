@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment configurer une instance du service Azure Digital Twins à l’aide de PowerShell
 author: baanders
 ms.author: baanders
-ms.date: 12/16/2020
+ms.date: 9/3/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1e2751c7df1cd3b43ce6c700bc51b51faf95963f
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: c5af0d96b8e639494b556f875a23f13781cbfbec
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468692"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996225"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Configurer une instance Azure Digital Twins et l’authentification (PowerShell)
 
@@ -22,9 +22,6 @@ ms.locfileid: "114468692"
 Cet article explique comment **configurer une nouvelle instance Azure Digital Twins**, notamment la création de l’instance et la configuration de l’authentification. À l’issue de cet article, vous aurez une instance Azure Digital Twins prête pour la programmation.
 
 Cette version de cet article suit ces étapes manuellement, une par une, à l’aide d’[Azure PowerShell](/powershell/azure/new-azureps-module-az).
-
-* Pour suivre ces étapes manuellement dans le Portail Azure, consultez la version du portail de cet article dans [Configurer une instance et l’authentification (portail)](how-to-set-up-instance-portal.md).
-* Pour effectuer une configuration automatique à l’aide d’un exemple de script de déploiement, consultez la version avec script de cet article dans [Configurer une instance et authentification (avec script)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 

@@ -9,12 +9,12 @@ metadata:
   ms.date: 02/19/2020
   ms.author: alkemper
   ms.custom: references_regions
-  ms.openlocfilehash: fdfc62b4b5c61cd1b064e6623464147d01dbc58e
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: e68cc85c5c4512fe5f60344b77e38920d703b015
+  ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128603103"
+  ms.lasthandoff: 10/19/2021
+  ms.locfileid: "130179344"
 title: Azure App Configuration – Questions fréquentes (FAQ)
 summary: Cet article répond aux questions fréquentes sur Azure App Configuration.
 sections:
@@ -60,7 +60,11 @@ sections:
 
       Vous pouvez également importer et exporter des paramètres entre App Service et App Configuration. Cela vous permet de configurer rapidement un nouveau magasin App Configuration en fonction des paramètres App Service existants. Vous pouvez aussi partager la configuration avec une application existante qui s’appuie sur les paramètres App Service.
   - question: Existe-t-il des limitations de taille sur les clés et les valeurs stockées dans App Configuration ?
-    answer: Il existe une limite de 10 Ko pour un seul élément de clé-valeur.
+    answer: >
+      Il existe une limite de 10 Ko pour une seule paire clé-valeur ainsi que pour les attributs tels que l’étiquette, le type de contenu, les étiquettes de marquage et d’autres métadonnées.
+
+
+      Cette limite doit être suffisante pour un seul paramètre dans la plupart des applications. Si vous trouvez que le paramètre est supérieur à cette limite, vous pouvez stocker vos données ailleurs et [ajouter une référence à ces données](./howto-best-practices.md#references-to-external-data) dans App Configuration.
   - question: Comment dois-je stocker les configurations pour plusieurs environnements (test, intermédiaire, production, etc) ?
     answer: >
       Vous contrôlez qui peut accéder à App Configuration au niveau de chaque magasin. Utilisez un magasin distinct pour chaque environnement qui nécessite des autorisations différentes. Il s’agit de l’approche qui offre la meilleure isolation sur le plan de la sécurité.
@@ -77,7 +81,7 @@ sections:
 
       - Niveau Gratuit
 
-      - Niveau standard.
+      - Niveau standard
 
 
       Si vous avez créé un magasin avant l’introduction du niveau Standard, il passe automatiquement au niveau Gratuit lors de la mise à la disposition générale. Vous pouvez choisir de passer au niveau Standard ou de rester au niveau Gratuit.
@@ -161,7 +165,7 @@ sections:
       Le magasin App Configuration ne peut pas être créé dans un autre abonnement/groupe de ressources tant que la période de conservation n’est pas écoulée. Toutefois, vous pouvez recréer la ressource dans le groupe de ressources/l’abonnement d’origine, puis la déplacer vers un nouveau groupe de ressources/abonnement en suivant [ces instructions](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal).
 
 
-      La recréation d’un magasin App Configuration pendant la période de conservation est prise en charge uniquement par Azure CLI au moyen de la commande `az appconfig create` décrite [ici](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).
+      La recréation d’un magasin App Configuration durant la période de conservation est prise en charge uniquement par Azure CLI via la [commande](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create) `az appconfig create`.
   - question: Comment puis-je restaurer un magasin App Configuration que j’ai supprimé par erreur ?
     answer: >
       Les magasins App Configuration de niveau standard peuvent être récupérés dans les sept jours suivant leur suppression. Pour récupérer un magasin App Configuration supprimé par erreur, contactez Support Microsoft.

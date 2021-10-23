@@ -11,12 +11,12 @@ metadata:
   ms.date: 10/30/2018
   ms.author: genli
   ms.custom: devx-track-azurepowershell
-  ms.openlocfilehash: 6f8d30011a19c6d8210d9c63f4378a66237fe024
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: 825840dfe237d58f281db5e26b6090c153707195
+  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122534846"
+  ms.lasthandoff: 10/14/2021
+  ms.locfileid: "129992835"
 title: FAQ sur la configuration et la gestion de Web Apps dans Azure
 summary: >
   Cet article contient des réponses aux questions fréquemment posées sur les problèmes de configuration et de gestion de la [fonctionnalité Web Apps d’Azure App Service](https://azure.microsoft.com/services/app-service/web/).
@@ -245,13 +245,6 @@ sections:
   - question: >
       Comment connecter une application web App Service à un réseau virtuel disposant d’une passerelle de routage statique (basée sur une stratégie) ?
     answer: "Actuellement, la connexion d’une application web App Service à un réseau virtuel disposant d’une passerelle de routage statique (basée sur une stratégie) n’est pas prise en charge. Si votre réseau virtuel cible existe déjà, pour que vous puissiez le connecter à une application, il doit prendre en charge le réseau VPN de point à site avec une passerelle de routage dynamique. Si votre passerelle est configurée pour un routage statique, vous ne pouvez pas activer un réseau VPN de point à site. \n\nPour plus d’informations, voir [Intégrer une application à un réseau Azure Virtual Network](web-sites-integrate-with-vnet.md).\n"
-  - question: >
-      Dans mon App Service Environment, pourquoi ne puis-je créer qu’un seul plan App Service, même si j’ai deux workers disponibles ?
-    answer: >
-      Pour offrir une tolérance de panne, App Service Environment requiert que chaque pool de workers dispose d’au moins une ressource de calcul supplémentaire. Aucune charge de travail ne peut être assignée à la ressource de calcul supplémentaire.
-
-
-      Pour plus d’informations, voir [Comment créer un environnement App Service](environment/app-service-web-how-to-create-an-app-service-environment.md).
   - question: >
       Pourquoi y a-t-il des délais d’attente quand j’essaie de créer un App Service Environment ?
     answer: >

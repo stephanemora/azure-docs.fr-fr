@@ -11,19 +11,16 @@ ms.custom:
 - mvc
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: b6e79ee61440ffeb9fdd5f05cdb840480112a14a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 552475edc586c015d89fb12db91376852fa88460
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123304790"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165472"
 ---
 # <a name="tutorial-using-openssl-to-create-self-signed-certificates"></a>Tutoriel : Utilisation d’OpenSSL pour créer des certificats auto-signés
 
-Vous pouvez authentifier un appareil auprès de votre hub IoT en utilisant deux certificats d’appareil auto-signés. C’est ce que l’on appelle parfois l’authentification par empreinte, car les certificats contiennent des empreintes (valeurs de hachage) que vous envoyez au hub IoT. Les étapes suivantes vous indiquent comment créer deux certificats auto-signés.
-
-> [!NOTE]
-> Cet exemple a été créé avec Cygwin64 pour Windows. Cygwin est une collection d’outils open source qui permet d’exécuter des applications Unix ou linux sur Windows à partir d’une interface de type Linux. CygWin64 est fourni avec OpenSSL. Si vous utilisez Linux, OpenSSL est probablement déjà installé. 
+Vous pouvez authentifier un appareil auprès de votre hub IoT en utilisant deux certificats d’appareil auto-signés. C’est ce que l’on appelle parfois l’authentification par empreinte, car les certificats contiennent des empreintes (valeurs de hachage) que vous envoyez au hub IoT. Les étapes suivantes vous indiquent comment créer deux certificats auto-signés. Ce type de certificat est principalement utilisé à des fins de tests.
 
 ## <a name="step-1---create-a-key-for-the-first-certificate"></a>Étape 1 : Créer une clé pour le premier certificat
 
@@ -111,4 +108,8 @@ Accédez à votre hub IoT dans le portail Azure et créez une identité d’appa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Accédez à [Test de l’authentification par certificat](tutorial-x509-test-certificate.md) pour déterminer si votre certificat peut authentifier votre appareil auprès de votre hub IoT.
+Accédez à [Test de l’authentification par certificat](tutorial-x509-test-certificate.md) pour déterminer si votre certificat peut authentifier votre appareil auprès de votre hub IoT. Le code dans cette page nécessite l’utilisation d’un certificat PFX. Utilisez la commande OpenSSL suivante pour convertir votre certificat .crt d’appareil au format .pfx.
+
+```bash
+openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx
+```

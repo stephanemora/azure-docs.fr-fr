@@ -3,7 +3,7 @@ title: Activer la prévention des suppressions accidentelles dans l’approvisio
 description: Activez la prévention des suppressions accidentelles dans l’approvisionnement d’applications dans Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 6f7cb755663b7bf454e33c5a4f785d29d862967d
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: bc100df9a0d666048ac64ae4d496c68a793deabb
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129155417"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991904"
 ---
 # <a name="enable-accidental-deletions-prevention-in-the-azure-ad-provisioning-service-preview"></a>Activer la prévention des suppressions accidentelles dans le service d’approvisionnement d’Azure AD (préversion)
 
