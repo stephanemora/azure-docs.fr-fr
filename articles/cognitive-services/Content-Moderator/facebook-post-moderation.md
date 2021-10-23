@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: 58de8de28b796d67f9368224ced24c9c592cfdb6
-ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.openlocfilehash: f88c5d4746fbafaf8255f2a767cef1cc2f145954
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112033812"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074510"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutoriel : Modérer les publications et commandes Facebook avec Azure Content Moderator
 
@@ -121,7 +121,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/) et suivez les étap
     > [!IMPORTANT]
     > En 2018, Facebook mis en place un contrôle plus strict des applications Facebook. Vous ne pourrez suivre les sections 2, 3 et 4 que si votre application a été examinée et approuvée par l’équipe de révision de Facebook.
 
-    1. Accédez à [Facebook](https://www.facebook.com/bookmarks/pages), puis créez une **page Facebook**.
+    1. Accédez à [Facebook](https://www.facebook.com/pages), puis créez une **page Facebook**.
     1. Autorisez l’application Facebook à accéder à cette page en suivant les étapes suivantes :
         1. Accédez à l’[Explorateur API Graph](https://developers.facebook.com/tools/explorer/).
         1. Sélectionnez **Application**.

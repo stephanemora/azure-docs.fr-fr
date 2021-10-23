@@ -1,14 +1,14 @@
 ---
 title: Activer la virtualisation imbriquée pour une machine virtuelle modèle dans Azure Lab Services | Microsoft Docs
 description: Cet article explique comment configurer la virtualisation imbriquée sur une machine modèle dans Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: f1f981602adcf90762258a2921b996507f56f3a2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0e730dc71150a5e201e4dcda84f9c6ed61ec2f90
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125568"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180397"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Activer la virtualisation imbriquée pour une machine virtuelle modèle dans Azure Lab Services
 

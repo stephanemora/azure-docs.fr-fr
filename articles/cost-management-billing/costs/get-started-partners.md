@@ -3,18 +3,18 @@ title: Prise en main d’Azure Cost Management pour les partenaires
 description: Cet article explique aux partenaires comment utiliser les fonctionnalités de Cost Management et comment autoriser l’accès à leurs clients.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 10/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d402acaf43682a7c025147fd38bccb9baa033683
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 747dc5829315091d6a42fbf6c0749af104c5e1ac
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705981"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984061"
 ---
 # <a name="get-started-with-cost-management-for-partners"></a>Prise en main de Cost Management pour les partenaires
 
@@ -211,6 +211,7 @@ Les champs de données suivants sont disponibles dans les fichiers de détails s
 | ID d’abonnement | Identificateur unique de l’abonnement Azure généré par Microsoft. | EntitlementID |
 | subscriptionName | Nom de l’abonnement Azure. | N/A |
 | Terme | Affiche le terme de validité de l’offre. Par exemple, les instances réservées affichent 12 mois d’une période annuelle de l’instance réservée. Pour les achats ponctuels ou récurrents, cette période indique un mois pour SaaS, la Place de marché Azure et le support. Cela ne s’applique pas à la consommation d’Azure. | N/A |
+| provider | Identificateur du produit et du secteur d’activité. Décomposez les coûts par type de fournisseur : Azure, Microsoft 365, Dynamics 365, AWS, etc.  | N/A |
 | publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Type de serveur de publication qui identifie le serveur de publication en tant que premier tiers, revendeur tiers ou agence tierce. | N/A |
 | partNumber | Numéro de référence de l’instance réservée inutilisée et des services de la Place de marché Azure. | N/A |
 | publisherName | Nom de l’éditeur du service, y compris Microsoft ou des serveurs de publication tiers. | Nom de l’éditeur du produit.|

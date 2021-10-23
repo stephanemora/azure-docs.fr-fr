@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/07/2021
 ms.author: danlep
-ms.openlocfilehash: 02442bf73d16486ce51b765e6922bbf434fb69f1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 5fc47f2238427c7875d2af29324e06d8b6487f1a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609799"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001786"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Gérer les protocoles et les chiffrements dans Gestion des API Azure
 
@@ -43,7 +43,7 @@ Ce guide vous montre comment gérer la configuration des protocoles et des chiff
 1. Cliquez sur **Enregistrer**. Les modifications sont appliquées dans l’heure qui suit.  
 
 > [!NOTE]
-> Certains protocoles ou suites de chiffrement (par exemple, TLS côté serveur principal 1.2) ne peuvent pas être activés ou désactivés à partir du portail Azure. Au lieu de cela, vous devez appliquer l’appel REST. Utilisez la `properties.customProperties` structure de l’article [Créer/Mettre à jour l’API REST du service de Gestion des API](/rest/api/apimanagement/2020-06-01-preview/api-management-service/create-or-update#request-body).
+> Certains protocoles ou suites de chiffrement (par exemple, TLS côté serveur principal 1.2) ne peuvent pas être activés ou désactivés à partir du portail Azure. Au lieu de cela, vous devez appliquer l’appel REST. Utilisez la `properties.customProperties` structure de l’article [Créer/Mettre à jour l’API REST du service de Gestion des API](/rest/api/apimanagement/2021-01-01-preview/api-management-service/create-or-update).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

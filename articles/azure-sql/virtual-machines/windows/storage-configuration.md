@@ -3,7 +3,7 @@ title: Configurer le stockage pour les machines virtuelles SQL Server | Microsof
 description: Cette rubrique décrit comment Azure configure le stockage pour les machines virtuelles SQL Server lors du provisionnement (modèle de déploiement Azure Resource Manager). Elle explique également comment vous pouvez configurer le stockage pour vos machines virtuelles SQL Server existantes.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
-ms.author: mathoma
-ms.openlocfilehash: 3ddcd99257eb7605322fe81f1002123d4876456b
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 5a30cfbd95f660e470854977a63b4dc469a3f769
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113435413"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162440"
 ---
 # <a name="configure-storage-for-sql-server-vms"></a>Configurer le stockage pour les machines virtuelles SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -54,7 +55,7 @@ Si vous sélectionnez **Traitement transactionnel** (OLTP) or **Entreposage de d
 
 La configuration du disque est entièrement personnalisable pour vous permettre de configurer la topologie de stockage, le type de disque et les E/S par seconde dont vous avez besoin pour votre charge de travail de machine virtuelle SQL Server. Vous avez également la possibilité d’utiliser UltraSSD (préversion) comme option pour le **type de disque** si votre machine virtuelle SQL Server se trouve dans l’une des régions prises en charge (USA Est 2, Asie Sud-Est et Europe Nord) et si vous avez activé les [disques Ultra pour votre abonnement](../../../virtual-machines/disks-enable-ultra-ssd.md).
 
-En outre, il vous est possible de définir la mise en cache pour les disques. Les machines virtuelles Azure disposent d’une technologie de mise en cache à plusieurs niveaux appelée [Cache Blob](../../../virtual-machines/premium-storage-performance.md#disk-caching) lorsqu'elle est utilisée avec des [disques Premium](../../../virtual-machines/disks-types.md#premium-ssd). Cache Blob combine la RAM de la machine virtuelle et le SSD local pour la mise en cache.
+En outre, il vous est possible de définir la mise en cache pour les disques. Les machines virtuelles Azure disposent d’une technologie de mise en cache à plusieurs niveaux appelée [Cache Blob](../../../virtual-machines/premium-storage-performance.md#disk-caching) lorsqu'elle est utilisée avec des [disques Premium](../../../virtual-machines/disks-types.md#premium-ssds). Cache Blob combine la RAM de la machine virtuelle et le SSD local pour la mise en cache.
 
 La mise en cache du disque pour SSD Premium peut être *ReadOnly*, *ReadWrite* ou *Aucune*.
 

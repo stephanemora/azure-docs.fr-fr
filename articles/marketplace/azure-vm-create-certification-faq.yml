@@ -8,12 +8,12 @@ metadata:
   author: mathapli
   ms.author: mathapli
   ms.date: 09/27/2021
-  ms.openlocfilehash: 11b8ccca944be6896724b7b81b4c9f017b97e169
-  ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+  ms.openlocfilehash: 0fa2274526b8d25340586bcdfb79298865d142e0
+  ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/27/2021
-  ms.locfileid: "129082191"
+  ms.lasthandoff: 10/18/2021
+  ms.locfileid: "130138309"
 title: Résoudre les problèmes de certification des machines virtuelles
 summary: >
   Lorsque vous publiez l’image d’une machine virtuelle sur Place de marché Azure, l’équipe Azure la valide pour s’assurer qu’elle est démarrable, sécurisée et compatible avec Azure. Si votre image de machine virtuelle échoue à l’un des tests de haute qualité, elle ne sera pas publiée. Vous recevrez un message d’erreur qui décrit le problème.
@@ -310,7 +310,7 @@ sections:
 
       |---|---|
 
-      |Windows Server 2008 R2|6.1.7601.23689|
+      |Windows Server 2008 R2|6.1.7601.23689|
 
       |Windows Server 2012|6.2.9200.22099|
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2021
-ms.openlocfilehash: 80471da945dcc5fdee690ec477599565777f1beb
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: ceb65226c30d6ee9768388bb18807dd7cf6d6f85
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129611450"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070581"
 ---
 # <a name="use-role-based-authorization-in-azure-cognitive-search"></a>Utiliser l’autorisation basée sur les rôles dans Azure Recherche cognitive
 
@@ -23,14 +23,12 @@ Azure fournit un système d'autorisation global de[contrôle d'accès basé sur 
 
 + Utilisez les nouveaux rôles d’aperçu pour la gestion de contenu (création et gestion d’index et autres objets de niveau supérieur), [**disponible par demande**](https://aka.ms/azure-cognitive-search/rbac-preview).
 
-> [!NOTe]
+> [!NOTE]
 > Le Contributeur du Service de recherche est un rôle de « disponibilité générale » qui dispose de fonctionnalités de « préversion ». Il s’agit du seul rôle qui prend en charge un véritable hybride de tâches de gestion de service et de contenu, ce qui permet d’effectuer toutes les opérations sur un service de recherche donné. Pour obtenir la préversion de la gestion de contenu sur ce rôle, [**inscrivez-vous à la préversion**](https://aka.ms/azure-cognitive-search/rbac-preview).
 
 Certains scénarios RBAC ne sont **pas** pris en charge ou ne sont pas traités dans cet article :
 
 + Les connexions de l’indexeur sortant sont documentées dans [« Configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée »](search-howto-managed-identities-data-sources.md). Pour un service de recherche auquel une identité managée est affectée, vous pouvez créer des attributions de rôles qui étendent les services de données externes, tels que le Stockage d’objets Blob Azure, l’accès en lecture sur les objets blob par votre service de recherche approuvé.
-
-+ Les [Rôles personnalisés](../role-based-access-control/custom-roles.md) ne sont pas pris en charge.
 
 + L’accès à l’identité de l’utilisateur via les résultats de la recherche (parfois appelé sécurité au niveau des lignes ou sécurité au niveau du document) n’est pas pris en charge. Pour un accès en fonction de l’identité sur les résultats de recherche, vous pouvez créer des [filtres de sécurité](search-security-trimming-for-azure-search.md) pour ajuster les résultats par identité, en supprimant les documents auxquels le demandeur ne doit pas avoir accès.
 

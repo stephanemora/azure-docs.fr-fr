@@ -3,19 +3,19 @@ title: Fonctionnalités Azure AD prises en charge
 description: Découvrez les fonctionnalités Azure AD qui sont encore prises en charge dans Azure AD B2C.
 services: active-directory-b2c
 author: kengaderdus
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 10/08/2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: f43f6afb5e102dc33bc8b5b1e1a146a58f394f60
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 99f6d58af1a8508b6e3582b4ec0139081a259046
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129621335"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042994"
 ---
 # <a name="supported-azure-ad-features"></a>Fonctionnalités Azure AD prises en charge
 

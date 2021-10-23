@@ -6,12 +6,12 @@ ms.author: rywinter
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 01/11/2021
-ms.openlocfilehash: 7b23569b07893ebbecf86336a40e52cd8627851a
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 128bea34a2e391a44b4dba68d844c68f7331cb06
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111590069"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994534"
 ---
 # <a name="what-is-azure-iot-device-and-application-development"></a>Qu’est-ce que le développement d’applications et d’appareils Azure IoT ?
 
@@ -33,10 +33,10 @@ Cet article traite de deux rôles communs que l’on peut observer chez les dév
 ### <a name="device-application-development"></a>Développement d’applications pour appareils
 Les développeurs d’applications pour appareils adaptent les appareils existants pour qu’ils puissent se connecter au cloud et s’intégrer à leurs solutions IoT. Ces appareils peuvent prendre en charge des langages d’ordre supérieur, tels que C# ou Python, et prennent souvent en charge un système d’exploitation à usage général robuste, tel que Windows ou Linux. Les appareils cibles courants incluent les PC, les conteneurs, les ordinateurs Raspberry Pi et les appareils mobiles. 
 
-Au lieu de développer des appareils limités à grande échelle, ces développeurs se concentrent sur l’activation d’un scénario IoT spécifique requis par leur solution cloud. Certains de ces développeurs travaillent également sur des appareils limités pour leur solution cloud. Les développeurs qui travaillent avec des appareils limités sont invités à consulter [Développement d’appareils intégrés](#embedded-device-development) ci-dessous.
+Au lieu de développer des appareils limités à grande échelle, ces développeurs se concentrent sur l’activation d’un scénario IoT spécifique requis par leur solution cloud. Certains de ces développeurs travaillent également sur des appareils limités pour leur solution cloud. Les développeurs qui travaillent avec des appareils aux ressources limitées sont invités à consulter [Développement pour appareils embarqués](#embedded-device-development) ci-dessous.
 
-> [!TIP]
-> Consultez les [Kits de développement logiciel (SDK) pour appareils non limités](about-iot-sdks.md#unconstrained-device-sdks) pour commencer.
+> [!IMPORTANT]
+> Consultez les [kits SDK pour appareils](about-iot-sdks.md#device-sdks) pour bien démarrer.
 
 ### <a name="embedded-device-development"></a>Développement d’appareils intégrés
 Le développement intégré cible des appareils limités qui ont une mémoire et un traitement restreints. Les appareils limités restreignent ce qui peut être réalisé par rapport à une plateforme de développement traditionnelle.
@@ -47,8 +47,8 @@ Les Kits de développement logiciel (SDK) intégrés actuels ciblent le langage 
 
 Si votre appareil est en mesure d’exécuter un système d’exploitation à usage général, nous vous recommandons de suivre la voie du [développement d’applications pour appareils](#device-application-development). Cela offre un ensemble plus riche d’options de développement.
 
-> [!TIP]
-> Consultez les [Kits de développement logiciel (SDK) pour appareils limités](about-iot-sdks.md#constrained-device-sdks) pour commencer.
+> [!IMPORTANT]
+> Consultez les [kits SDK pour appareils embarqués](about-iot-sdks.md#embedded-device-sdks) pour bien démarrer.
 
 ## <a name="choosing-your-hardware"></a>Choix de votre matériel
 Les appareils Azure IoT sont les éléments de base d’une solution IoT et sont chargés d’observer et d’interagir avec leur environnement. Il existe de nombreux types d’appareils IoT, et il est utile de comprendre les types d’appareils qui existent et la manière dont ils peuvent avoir un impact sur votre processus de développement.

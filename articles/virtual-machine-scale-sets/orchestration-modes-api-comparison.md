@@ -8,21 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.date: 08/05/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 9fd4d2171aa54da469aacfaa7090025c296dd0c1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: db141f863389d724cc1437beeed3b00b44020098
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124804072"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161835"
 ---
-# <a name="preview-orchestration-modes-api-comparison"></a>Préversion : Comparaison de l’API des modes d’orchestration 
+# <a name="orchestration-modes-api-comparison"></a>Comparaison des API des modes d’orchestration 
 
 Cet article compare les différences d’API entre les modes d'[orchestration Flexible](..\virtual-machines\flexible-virtual-machine-scale-sets.md) et Uniforme pour les groupes de machines virtuelles identiques. Pour en savoir plus sur les groupes de machines virtuelles identiques Uniformes et Flexibles, consultez [modes d’orchestration](virtual-machine-scale-sets-orchestration-modes.md).
-
-> [!IMPORTANT]
-> Les groupes de machines virtuelles identiques en mode d’orchestration Flexible sont actuellement en préversion publique. Une procédure de consentement est requise pour utiliser la fonctionnalité en préversion publique décrite ci-dessous.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="instance-view"></a>Vue d’instance
@@ -66,7 +61,7 @@ Appeler des API de machine virtuelle uniques :
 
 ### <a name="uniform-api"></a>API uniforme
 `VMSS List Instances`: 
-- Retourne l’ID du groupe identique associé à chaque instance pendant cette version préliminaire 
+- Retourne l’ID du groupe identique associé à chaque instance
 
 ### <a name="flexible-alternative"></a>Alternative flexible
 Graphe des ressources Azure : 
@@ -95,6 +90,8 @@ Opérations des groupes de machines virtuelles identiques :
 ### <a name="flexible-alternative"></a>Alternative flexible
 Appeler des opérations sur des machines virtuelles individuelles.
 
+Opérations de machines virtuelles :
+- [Réinitialisation](/rest/api/compute/virtual-machines/reimage) : Invoquer une API de machine virtuelle unique - Réinitialiser des machines virtuelles de système d’exploitation éphémère uniquement
 
 ## <a name="vm-extension"></a>Extension de machine virtuelle
 

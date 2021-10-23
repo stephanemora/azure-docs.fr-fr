@@ -3,7 +3,7 @@ title: Tutoriel - Personnaliser les mappages d’attributs Azure Active Directo
 description: Découvrez ce que sont les mappages d’attributs pour les applications SaaS (software as a service) dans le provisionnement d’application Azure Active Directory, et comment les modifier pour répondre à vos besoins métier.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/07/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a7839ec1b131377cd9a6614c570dacd829c6c46a
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: 1e08dc5c0dc0d8e427de9ae1ebc53f16cb8e015a
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123310960"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043602"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutoriel - Personnaliser les mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -120,7 +120,7 @@ Les applications et les systèmes qui prennent en charge la personnalisation de 
 
 
 > [!NOTE]
-> La modification de la liste des attributs pris en charge n’est recommandée que pour les administrateurs qui ont personnalisé le schéma de leurs applications et systèmes, et qui ont une connaissance directe de la façon dont leurs attributs personnalisés ont été définis ou si un attribut source n’est pas automatiquement affiché dans l’interface utilisateur du portail Azure. Ceci nécessite parfois de connaître les API et les outils de développement fournis par une application ou un système. La possibilité de modifier la liste des attributs pris en charge est verrouillée par défaut, mais les clients peuvent activer cette fonctionnalité en accédant à l’URL suivante : https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Vous pouvez ensuite accéder à votre application pour voir la liste des attributs comme décrit [ci-dessus](#editing-the-list-of-supported-attributes). 
+> La modification de la liste des attributs pris en charge n’est recommandée que pour les administrateurs qui ont personnalisé le schéma de leurs applications et systèmes, et qui ont une connaissance directe de la façon dont leurs attributs personnalisés ont été définis ou si un attribut source n’est pas automatiquement affiché dans l’interface utilisateur du portail Azure. Ceci nécessite parfois de connaître les API et les outils de développement fournis par une application ou un système. La possibilité de modifier la liste des attributs pris en charge est verrouillée par défaut, mais les clients peuvent activer cette fonctionnalité en accédant à l’URL suivante : https://portal.azure.com/?Microsoft_AAD_Connect_Provisioning_forceSchemaEditorEnabled=true. Vous pouvez ensuite accéder à votre application pour voir la liste des attributs comme décrit [ci-dessus](#editing-the-list-of-supported-attributes). 
 
 Lorsque vous modifiez la liste des attributs pris en charge, les propriétés suivantes sont fournies :
 
