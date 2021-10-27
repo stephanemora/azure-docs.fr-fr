@@ -3,12 +3,12 @@ title: En savoir plus sur les appareils découverts par tous les capteurs d’en
 description: Utilisez l’inventaire des appareils dans la console de gestion locale pour obtenir une vue complète des informations d’appareil obtenues à partir des capteurs connectés. Utilisez les outils d’importation, d’exportation et de filtrage pour gérer ces informations.
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.openlocfilehash: 0ae59123b59cfb54cba2a2ee9bdeefb411c8793b
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 8016efe809d03cbc00bdb94b67f99caa7f98ac4c
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113017136"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137818"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Examiner toutes les détections de capteur d’entreprise dans l’inventaire des appareils
 
@@ -42,6 +42,7 @@ Le tableau suivant décrit les colonnes de table dans l’inventaire des apparei
 | **Groupes** | Groupes auxquels cet appareil participe. |
 | **Dernière activité** | Dernière activité effectuée par l’appareil. |
 | **Discovered** | Lorsque cet appareil a été détecté pour la première fois sur le réseau. |
+| **Mode PLC (préversion)** | Le mode de fonctionnement PLC comprend l’état Clé (physique) et l’état Exécution (logique). Les états **Clés** possibles incluent Exécuter, Programme, Distant, Arrêter, Non valide, Programmation, Désactivé. Les états **Exécution** possibles sont Exécuter, Programmer, Arrêter, Suspendu, Exception, Arrêté, Intercepté, Inactif, Hors connexion. Si les deux états sont identiques, seul l’état OE est présenté. |
 
 ## <a name="integrate-data-into-the-enterprise-device-inventory"></a>Intégrer des données dans l’inventaire des appareils de l’entreprise
 

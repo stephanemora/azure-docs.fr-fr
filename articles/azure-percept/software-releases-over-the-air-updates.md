@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: c8f05b1c2d04e492b44aef88ac31a8e4dece5e16
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 1eb6f41d738f7ab5a2dbd68fab341c2b7c9917ad
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222858"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001160"
 ---
 # <a name="software-releases-for-ota-updates"></a>Versions de logiciel (mises à jour OTA)
 
@@ -69,13 +69,13 @@ Microsoft peut traiter chaque version du kit de développement avec des packages
 
 |Libérer|Version(s) applicable(s)|Liens de téléchargement|Notes|
 |---|---|---|---|
-|Version de service de juillet (2107)|2021.106.111.115|[Package de mise à jour OTA 2021.107.129.116](https://go.microsoft.com/fwlink/?linkid=2169245)||
+|Version du service de septembre (2109)|2021.106.111.115,<br>2021.107.129.116|[Package de mise à jour OTA 2021.109.129.108](https://go.microsoft.com/fwlink/?linkid=2174634)||
 
 **Mises en production à arrêt fixe :**
 
 |Libérer|Version(s) applicable(s)|Liens de téléchargement|Notes|
 |---|---|---|---|
-|Version du service de juin (2106)|2021.102.108.112, 2021.104.110.103, 2021.105.111.122 |[2021.106.111.115 Manifeste OTA (pour PE-101)](https://go.microsoft.com/fwlink/?linkid=2167127)<br>[2021.106.111.115 Manifeste OTA (pour APDK-101)](https://go.microsoft.com/fwlink/?linkid=2167235) <br>[Package de mise à jour OTA 2021.106.111.115](https://go.microsoft.com/fwlink/?linkid=2167128) |Veillez à utiliser le manifeste approprié en fonction du « nom de modèle » (PE-101/APDK-101)|
+|Version du service de juin (2106)|2021.102.108.112, 2021.104.110.103, 2021.105.111.122 |[2021.106.111.115 Manifeste OTA (pour PE-101)](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/aduimportmanifest_PE-101_2021.106.111.115_v3.json)<br>[2021.106.111.115 Manifeste OTA (pour APDK-101)](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/aduimportmanifest_Azure-Percept-DK_2021.106.111.115_v3.json) <br>[Package de mise à jour OTA 2021.106.111.115](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/Microsoft-Azure-Percept-DK-2021.106.111.115.swu) |Veillez à utiliser le manifeste approprié en fonction du « nom de modèle » (PE-101/APDK-101)|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

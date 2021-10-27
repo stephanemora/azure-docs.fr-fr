@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 32f98eb9b98168bdab270ecff07446c31f8d706d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c8d3e988edd48d33c1bbf7e1680b9a777725727d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729821"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019093"
 ---
 Utilisez le déclencheur de fonction pour répondre à un événement envoyé à un flux d’événements d’un hub d’événements. Vous devez disposer de l’accès en lecture au hub d’événements sous-jacent pour configurer le déclencheur. Une fois la fonction déclenchée, le message passé à la fonction est du type chaîne.
 
@@ -360,9 +360,11 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**eventHubName** |**EventHubName** | Functions 2.x et versions ultérieures. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. Peut être référencé via les [paramètres d’application](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
 |**consumerGroup** |**ConsumerGroup** | Propriété facultative qui définit le [groupe de consommateurs](../articles/event-hubs/event-hubs-features.md#event-consumers) utilisé pour l’abonnement à des événements dans le hub. En cas d’omission, le groupe de consommateurs `$Default` est utilisé. |
 |**cardinalité** | n/a | Utilisé pour toutes les autres langages non-C#. Définissez sur `many` afin d’activer le traitement par lot.  Si omis ou défini sur `one`, un message unique est transmis à la fonction.<br><br>En C#, cette propriété est affectée automatiquement chaque fois que le déclencheur a un tableau pour le type.|
-|**connection** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour [l’espace de noms](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), et non pour le hub d’événements lui-même. Cette chaîne de connexion doit avoir au moins des droits de lecture pour activer le déclencheur.<br><br>Si vous utilisez la [version 5.x ou ultérieure de l’extension](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), au lieu d’une chaîne de connexion, vous pouvez fournir une référence à une section de configuration qui définit la connexion. Consultez [Connexions](../articles/azure-functions/functions-reference.md#connections).|
+|**connection** |**Connection** | Nom d’un paramètre d’application ou d’une collection de paramètres qui spécifie la façon de se connecter à Event Hubs. Consultez [Connexions](#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-event-hubs-connections](./functions-event-hubs-connections.md)]
 
 ## <a name="usage"></a>Usage
 
@@ -404,7 +406,7 @@ Pour plus d'informations, consultez l’[exemple de déclencheur](#example) Java
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Pour plus d'informations, consultez l’[exemple de déclencheur](#example) Javascript.
+Pour plus d'informations, consultez l’[exemple de déclencheur](#example) JavaScript.
 
 # <a name="python"></a>[Python](#tab/python)
 

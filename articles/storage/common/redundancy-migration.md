@@ -10,12 +10,12 @@ ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47445520e92f6c7f4a8e5eb78c404b6875dbe017
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 187c4c1808133308f607bf9cb70b851a16d50e57
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129274061"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039122"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modifier la manière dont un compte de stockage est répliqué
 
@@ -108,9 +108,9 @@ Si vous devez migrer votre compte de stockage de LRS vers ZRS dans la région pr
 
 Pendant une migration dynamique, vous pouvez accéder aux données de votre compte de stockage sans aucune perte de durabilité ni de disponibilité. Le SLA Stockage Azure est conservé pendant le processus de migration. La migration dynamique n’occasionne aucune perte de données. Les points de terminaison de service, les clés d’accès, les signatures d’accès partagé et les autres options de compte restent inchangés après la migration.
 
-Dans le niveau de performance Standard, ZRS prend uniquement en charge les comptes v2 universels. Veillez donc à mettre à niveau votre compte de stockage s’il s’agit d’un compte v1 universel avant de soumettre une demande de migration dynamique à ZRS. Pour obtenir plus d’informations, consultez [Mettre à niveau vers un compte de stockage v2 à usage général](storage-account-upgrade.md). Un compte de stockage doit contenir les données à migrer à l’aide de la migration dynamique.
+Pour le niveau de performance Standard, le stockage ZRS prend uniquement en charge les comptes v2 universels. Veillez donc à mettre à niveau votre compte de stockage s’il s’agit d’un compte v1 universel avant d’envoyer une demande de migration dynamique au stockage ZRS. Pour obtenir plus d’informations, consultez [Mettre à niveau vers un compte de stockage v2 à usage général](storage-account-upgrade.md). Un compte de stockage doit contenir les données à migrer à l’aide de la migration dynamique.
 
-Dans le niveau de performance Premium, la migration dynamique est prise en charge pour les comptes de partage de fichiers Premium, mais pas pour les comptes d’objets blob de blocs Premium ou d’objets blob de pages Premium.
+Pour le niveau de performance Premium, la migration dynamique est prise en charge pour les comptes de partage de fichiers Premium, mais pas pour les comptes d’objets blob de blocs Premium ou d’objets blob de pages Premium.
 
 Si votre compte utilise RA-GRS, vous devez commencer par modifier le type de réplication de votre compte en LRS ou GRS avant de procéder à la migration dynamique. Cette étape intermédiaire supprime le point de terminaison en lecture seule secondaire fourni par RA-GRS.
 

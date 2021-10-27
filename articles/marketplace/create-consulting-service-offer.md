@@ -1,6 +1,6 @@
 ---
-title: Comment créer une offre de services de conseil dans le marketplace commercial de Microsoft
-description: Découvrez comment créer une nouvelle offre de service de conseil pour Microsoft AppSource ou Place de marché Azure à l’aide du programme de marketplace commercial dans Espace partenaires Microsoft.
+title: Créer une offre de services de conseil pour la place de marché commerciale
+description: Créez une offre de services de conseil pour Microsoft AppSource ou la Place de marché Azure en utilisant l’Espace partenaires.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,29 +8,29 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: af8e238d57d6168e8c9620177cbf8e97a7d08727
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 5556859fb350354fd2c307412ceaed1215620df8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129083014"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042160"
 ---
-# <a name="how-to-create-a-consulting-service-offer-in-the-commercial-marketplace"></a>Comment créer une offre de services de conseil dans le marketplace commercial
+# <a name="create-a-consulting-service-offer"></a>Créer une offre de services de conseil
 
-Cet article explique comment créer une offre de services de conseil pour le marketplace commercial de Microsoft à l’aide d’Espace partenaires.
+Cet article explique comment créer une offre de services de conseil pour le marketplace commercial à l’aide d’Espace partenaires.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour publier une offre de service de conseil, vous devez respecter certaines conditions d’éligibilité pour démontrer votre expertise dans votre domaine. Si vous ne l’avez pas déjà fait, lisez [Planifier une offre de services de conseil pour le marketplace commercial](./plan-consulting-service-offer.md). L’article décrit les conditions préalables à un service de conseil et les ressources dont vous aurez besoin lorsque vous créerez l’offre avec Espace partenaires.
+Pour publier une offre de service de conseil, vous devez respecter certaines conditions d’éligibilité pour démontrer votre expertise dans votre domaine. Si vous ne l’avez pas déjà fait, lisez [Planifier une offre de services de conseil](./plan-consulting-service-offer.md). Il décrit les conditions préalables et les ressources dont vous aurez besoin pour créer une offre de services de conseil dans l’Espace partenaires.
 
-## <a name="create-a-new-consulting-service-offer"></a>Créer une offre de service de conseil
+## <a name="create-a-consulting-service-offer"></a>Créer une offre de services de conseil
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
-#### <a name="workspaces-view"></a>[Vues d’espaces de travail](#tab/workspaces-view)
+#### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-1. Dans la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
 
     [ ![Illustre la vignette des offres de la Place de marché dans la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 

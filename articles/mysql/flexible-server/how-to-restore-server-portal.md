@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/01/2021
-ms.openlocfilehash: 687d9386d330e5b09366e22ace8f7fd8666ee9d9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 20632b46067f7ec1db6add26d9bed4318f6a7fd5
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525164"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069612"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview-using-azure-portal"></a>Restauration à un instant dans le passé d’un serveur flexible Azure Database pour MySQL (préversion) à l’aide du portail Azure
 

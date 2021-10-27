@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Check Point Infinity Portal | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Check Point Infinity Portal'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Check Point Infinity Portal.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2021
+ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 25511f956d61a16efbfe589f8b4df4cb16a406a7
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3dbb0cde804ac913a139cdffdd142fa6e22b5206
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124747656"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993736"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-infinity-portal"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Check Point Infinity Portal
+# <a name="tutorial-azure-ad-sso-integration-with-check-point-infinity-portal"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Check Point Infinity Portal
 
 Dans ce tutoriel, vous allez apprendre à intégrer Check Point Infinity Portal à Azure Active Directory (Azure AD). Quand vous intégrez Check Point Infinity Portal à Azure AD, vous pouvez :
 
@@ -111,6 +111,55 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer Check Point Infinity Portal**, copiez les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
+Il existe deux moyens d’autoriser les utilisateurs :
+
+* Configurer les rôles utilisateur de l’application Check Point Infinity Portal dans le portail Azure AD
+
+* Configurer les rôles utilisateur de l’application Check Point Infinity Portal dans Check Point Infinity Portal
+
+#### <a name="configure-check-point-infinity-portal-application-user-roles-in-azure-ad-portal"></a>Configurer les rôles utilisateur de l’application Check Point Infinity Portal dans le portail Azure AD
+
+Dans cette section, vous allez créer les rôles Administrateur et Lecture seule dans le portail Azure.
+
+1. Dans le volet gauche du portail Azure, sélectionnez successivement **Inscription d’application**, **Toutes les applications** et l’application **Check Point Infinity Portal**.
+
+2. Dans le volet gauche, sélectionnez **Rôles d’application**, cliquez sur **Créer un rôle d’application** et suivez ces étapes :
+
+   a. Dans le champ **Nom d’affichage**, entrez **Administrateur**.
+
+   b. Dans le champ **Types de membres autorisés**, choisissez **Utilisateurs/groupes**.
+   
+   c. Dans le champ **Valeur**, entrez **administrateur**.
+
+   d. Dans le champ **Description**, entrez **Rôle Administrateur de Check Point Infinity Portal**.
+
+   e. Assurez-vous que l’option **Activer ce rôle d’application** est sélectionnée.
+
+   f. Cliquez sur **Appliquer**.
+
+   g. Cliquez une nouvelle fois sur **Créer un rôle d’application**.
+
+   h. Dans le champ **Nom d’affichage**, entrez **Lecture seule**.
+
+   i. Dans le champ **Types de membres autorisés**, choisissez **Utilisateurs/groupes**.
+
+   j. Dans le champ **Valeur**, entrez **lecture seule**.
+
+   k. Dans le champ **Description**, entrez **Rôle Lecture seule de Check Point Infinity Portal**.
+
+   l. Assurez-vous que l’option **Activer ce rôle d’application** est sélectionnée.
+
+   m. Cliquez sur **Appliquer**.
+
+#### <a name="configure-check-point-infinity-portal-application-user-roles-in-check-point-infinity-portal"></a>Configurer les rôles utilisateur de l’application Check Point Infinity Portal dans Check Point Infinity Portal
+
+Cette configuration s’applique uniquement aux groupes affectés à l’application Check Point Infinity Portal dans Azure AD.
+
+Dans cette section, vous allez créer un ou plusieurs groupes d’utilisateurs qui auront les rôles Global et Service pour les groupes Azure AD appropriés.
+
+* Copiez l’ID du groupe affecté pour l’utiliser avec le groupe d’utilisateurs Check Point Infinity Portal.
+* Pour la configuration des groupes d’utilisateurs, reportez-vous à [Infinity Portal Admin Guide](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Default.htm#cshid=user_groups).
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

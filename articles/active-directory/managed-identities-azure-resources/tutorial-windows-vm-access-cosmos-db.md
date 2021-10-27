@@ -16,12 +16,13 @@ ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 15deae3de20de579bff880a6cb7c9e44719a63ed
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ROBOTS: NOINDEX
+ms.openlocfilehash: 33e1c6653769a0fa5d03f86efa50d631e5590db8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776426"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041991"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Cosmos DB
 
@@ -95,7 +96,7 @@ Vous devez installer la dernière version d’[Azure CLI](/cli/azure/install-azu
 1. Dans le portail Azure, accédez à **Machines virtuelles**, accédez à votre machine virtuelle Windows, puis, en haut de la page **Vue d’ensemble**, cliquez sur **Se connecter**. 
 2. Entrez le **Nom d’utilisateur** et le **Mot de passe** que vous avez ajoutés lorsque vous avez créé la machine virtuelle Windows. 
 3. Maintenant que vous avez créé une **Connexion au Bureau à distance** avec la machine virtuelle, ouvrez PowerShell dans la session à distance.
-4. À l’aide de Invoke-WebRequest de Powershell, envoyez une requête aux identités managées locales pour le point de terminaison de ressources Azure afin d’obtenir un jeton d’accès pour Azure Resource Manager.
+4. Avec Invoke-WebRequest de PowerShell, envoyez une requête aux identités managées locales pour le point de terminaison de ressources Azure afin d’obtenir un jeton d’accès pour Azure Resource Manager.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

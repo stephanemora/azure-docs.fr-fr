@@ -5,14 +5,14 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 05/13/2021
+ms.date: 10/15/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 86795c29f5eaaedb1ea08975a69b6afde9d755c1
-ms.sourcegitcommit: 0396ddf79f21d0c5a1f662a755d03b30ade56905
+ms.openlocfilehash: 9f9043b7ff667903ed9d2318e4ec20363cae71f9
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122271484"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063656"
 ---
 # <a name="quickstart-integrate-azure-spring-cloud-with-azure-database-for-mysql"></a>Démarrage rapide : Intégrer Azure Spring Cloud à Azure Database pour MySQL
 
@@ -34,6 +34,10 @@ export MYSQL_DATABASE_NAME=petclinic
 
 ## <a name="prepare-an-azure-database-for-mysql-instance"></a>Préparer une instance Azure Database pour MySQL
 
+1. Si vous n’avez pas exécuté les commandes suivantes dans les guides de démarrage rapide précédents, définissez les valeurs par défaut de l’interface CLI.
+    ```azcli
+    az configure --defaults group=<resource group name> spring-cloud=<service name>
+    ```
 1. Créez un serveur Azure Database pour MySQL. 
 
     ```azcli
@@ -162,5 +166,5 @@ az spring-cloud app update --name visits-service \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Lier une instance Azure Database pour MySQL à votre application Azure Spring Cloud](how-to-bind-mysql.md)
-* [Utiliser une identité managée pour connecter Azure SQL Database à une application Azure Spring Cloud](./connect-managed-identity-to-azure-sql.md)
+* [Lier une instance Azure Database pour MySQL à votre application dans Azure Spring Cloud](how-to-bind-mysql.md)
+* [Utiliser une identité managée pour connecter Azure SQL Database à une application dans Azure Spring Cloud](./connect-managed-identity-to-azure-sql.md)

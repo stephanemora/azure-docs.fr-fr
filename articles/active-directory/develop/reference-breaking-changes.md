@@ -12,12 +12,12 @@ ms.date: 6/4/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: cf7821b8227b21efb063850b02222f2675a245b7
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 606d1d06a76a1783b38841f2344f2e5273add915
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122535184"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069561"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ?
 
@@ -34,6 +34,30 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 > Cette page est mise à jour régulièrement. Donc, consultez-la souvent. Sauf indication contraire, ces modifications sont uniquement mises en place pour les applications récemment inscrites.
 
 ## <a name="upcoming-changes"></a>Changements à venir
+
+## <a name="october-2021"></a>Octobre 2021
+
+### <a name="appid-uri-in-single-tenant-applications-will-require-use-of-default-scheme-or-verified-domains"></a>Dans les applications à locataire unique, l’URI AppId nécessite l’utilisation du schéma par défaut ou des domaines vérifiés
+
+**Date d’effet** : octobre 2021
+
+**Points de terminaison impactés** : v2.0 et v1.0
+
+**Protocole impacté** : Tous les flux
+
+**Changement**
+
+Pour les applications à locataire unique, une demande d’ajout/de mise à jour de l’URI AppId (identifierUris) valide que le domaine dans la valeur de l’URI fait partie de la liste de domaines vérifiés dans le locataire du client ou la valeur utilise le schéma par défaut (`api://{appId}`) fourni par AAD.
+Cela peut empêcher les applications d’ajouter un URI AppId si le domaine ne se trouve pas dans la liste de domaines vérifiée ou si la valeur n’utilise pas le schéma par défaut.
+Pour plus d’informations sur les domaines vérifiés, reportez-vous à la [documentation sur les domaines personnalisés](../../active-directory/fundamentals/add-custom-domain.md).
+
+Le changement n’affecte pas les applications existantes utilisant des domaines non vérifiés dans leur URI AppId. Il valide uniquement les nouvelles applications ou quand une application existante met à jour un URI d’identificateur ou en ajoute une nouvelle à la collection identifierUri. Les nouvelles restrictions s’appliquent uniquement aux URI ajoutés à la collection identifierUris d’une application après le 15 octobre 2021. Les URI AppId qui se trouvent déjà dans la collection identifierUris d’une application au moment où la restriction prend effet le 15 octobre 2021 continueront de fonctionner même si vous ajoutez de nouveaux URI à cette collection.
+
+Si la vérification de validation d’une demande échoue, l’API d’application pour créer/mettre à jour retourne `400 badrequest` au client, indiquant HostNameNotOnVerifiedDomain.
+
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
+
+## <a name="june-2021"></a>Juin 2021
 
 ### <a name="the-device-code-flow-ux-will-now-include-an-app-confirmation-prompt"></a>L’expérience utilisateur du flux de code d’appareil inclut désormais une invite de confirmation d’application
 

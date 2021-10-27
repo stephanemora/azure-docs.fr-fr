@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 07/01/2021
 ms.author: allensu
-ms.openlocfilehash: e17bc129268f8bc93d107492912c868e8efebae1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: adeca1558fd97c1f8534539b7a4ad134d364e4d8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671143"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996130"
 ---
 # <a name="using-source-network-address-translation-snat-for-outbound-connections"></a>Utilisation de SNAT (Source Network Address Translation) pour les connexions sortantes
 
@@ -30,7 +30,7 @@ La connectivité sortante à Internet peut être activée des manières suivante
 | 2 | Association d’une passerelle NAT au sous-réseau | Statique, explicite | Oui | La meilleure | 
 | 3 | Attribution d’une adresse IP publique à la machine virtuelle | Statique, explicite | Oui | OK | 
 | 4 | Utilisation de la ou des adresse(s) IP frontale(s) d’un équilibreur de charge pour les messages sortants (et entrants) | Implicite | No | Deuxième pire |
-| 5 | Utilisation de l’accès sortant par défaut | Implicite | Non | Pire |
+| 5 | Utilisation de [l’accès sortant par défaut](../virtual-network/default-outbound-access.md) | Implicite | Non | Pire |
 
 ## <a name="using-the-frontend-ip-address-of-a-load-balancer-for-outbound-via-outbound-rules"></a><a name="outboundrules"></a>Utilisation de l’adresse IP frontale d’un équilibreur de charge pour le trafic sortant via des règles de trafic sortant
 

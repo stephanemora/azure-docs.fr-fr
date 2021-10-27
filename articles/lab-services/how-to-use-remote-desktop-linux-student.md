@@ -1,14 +1,14 @@
 ---
 title: Se connecter à une machine virtuelle dans Azure Lab Services | Microsoft Docs
 description: Découvrez comment utiliser le Bureau à distance pour les machines virtuelles Linux dans un labo dans Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 04a86ba98df3e1600ac95d19e690815515eb4c6d
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6c8cd04f1ca3a070db73d2fc0eda4b6d4091f6ae
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531721"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179960"
 ---
 # <a name="connect-to-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Se connecter aux machines virtuelles Linux dans un labo de classe d’Azure Lab Services
 Cet article explique comment les étudiants peuvent se connecter à une machine virtuelle Linux d’un labo en utilisant :
@@ -42,7 +42,7 @@ Cet article explique comment les étudiants peuvent se connecter à une machine 
 L’instructeur peut choisir de configurer des machines virtuelles afin que les étudiants puissent également se connecter à l’aide d’un bureau à distance GUI.  Dans ce cas, les étudiants doivent comprendre auprès de leur instructeur s’il faut se connecter à leurs machines virtuelles à l’aide du **Bureau à distance Microsoft (RDP)** ou de l’application cliente **X2Go**.  Ces deux applications permettent à un étudiant de se connecter à distance à sa machine virtuelle et d’afficher le bureau graphique Linux sur son ordinateur local.
 
 > [!WARNING]
->  Nous vous recommandons d’utiliser un environnement de bureau graphique différent de [GNOME](https://www.gnome.org/).  Évitez d’installer GNOME sur des machines virtuelles de labo, car GNOME présente un conflit avec l’agent Linux Azure qui est nécessaire pour que les machines virtuelles fonctionnent correctement dans Azure Lab Services.  Par exemple, nous vous recommandons d’utiliser un environnement de bureau graphique, tel que XFCE.
+>  Si vous devez utiliser [GNOME](https://www.gnome.org/) ou [MATE](https://mate-desktop.org/), coordonnez les efforts avec votre instructeur pour vous assurer que votre machine virtuelle de labo peut être correctement configurée.  Un conflit réseau connu peut se produire avec l’agent Linux Azure, celui-ci étant nécessaire au bon fonctionnement des machines virtuelles dans Azure Lab Services.  Nous vous recommandons d’utiliser à la place un autre environnement de bureau graphique, par exemple [XFCE](https://www.xfce.org/).
 
 ### <a name="connect-to-the-student-vm-using-microsoft-remote-desktop-rdp"></a>Se connecter à la machine virtuelle de l’étudiant à l’aide du bureau à distance Microsoft (RDP)
 Les étudiants peuvent utiliser le Bureau à distance Microsoft (RDP) pour se connecter à leurs machines virtuelles Linux une fois que leur instructeur a configuré leur labo avec RDP et des packages d’interface graphique utilisateur pour un environnement de bureau graphique Linux (par exemple, XFCE, MATE, etc.). Voici la procédure à suivre pour se connecter : 
@@ -52,11 +52,20 @@ Les étudiants peuvent utiliser le Bureau à distance Microsoft (RDP) pour se co
     ![Machine virtuelle d'étudiant - options de connexion](./media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 2. Sélectionnez l’option **RDP**.  Une fois le fichier RDP téléchargé sur votre ordinateur, enregistrez-le sur votre machine virtuelle.
 
-3. Si vous vous connectez à partir d’un ordinateur Windows, en général, le client Bureau à distance Microsoft (RDP) est déjà installé et configuré.  Par conséquent, il vous suffit de cliquer sur le fichier RDP pour l’ouvrir et démarrer la session à distance.
+3. Si vous vous connectez à partir d’un ordinateur Windows, en général, le client RDP est déjà installé et configuré.  Par conséquent, il vous suffit de cliquer sur le fichier RDP pour l’ouvrir et démarrer la session à distance.
 
     Par contre, si vous vous connectez à partit d’un Mac ou Chromebook, procédez comme suit :
    - [Se connecter à une machine virtuelle à l’aide de RDP sur un Mac](connect-virtual-machine-mac-remote-desktop.md).
    - [Se connecter à une machine virtuelle à l’aide de RDP sur un Chromebook](connect-virtual-machine-chromebook-remote-desktop.md).
+
+Le client RDP comprend différents paramètres que vous pouvez ajuster pour optimiser l’expérience de connexion de l’utilisateur.  En général, il est inutile de les modifier.  Par défaut, les paramètres sont déjà configurés pour choisir l’expérience adaptée à votre connexion réseau.  Pour plus d’informations sur ces paramètres, [lisez l’article sur les paramètres **Expérience** du client RDP](/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings).
+
+Si votre instructeur a configuré le bureau graphique GNOME avec le client RDP, nous vous recommandons d’utiliser les paramètres suivants pour optimiser les performances :
+- Sous l’onglet **Affichage**, définissez la profondeur de couleur sur **32768 couleurs (15 bits)** .
+    ![Modifier les paramètres Affichage de RDP](./media/how-to-enable-remote-desktop-linux/rdp-display-settings.png)
+
+- Sous l’onglet **Expérience**, définissez la vitesse de connexion sur **Modem (56 Kbits/s)** .
+    ![Modifier les paramètres Expérience de RDP](./media/how-to-enable-remote-desktop-linux/rdp-experience-settings.png)
 
 ### <a name="connect-to-the-student-vm-using-x2go"></a>Se connecter à la machine virtuelle de l’étudiant à l’aide de X2Go
 Les étudiants peuvent utiliser X2Go pour se connecter à leurs machines virtuelles Linux une fois que leur instructeur a configuré leur labo avec X2Go et des packages d’interface graphique utilisateur pour un environnement de bureau graphique Linux (par exemple, XFCE, MATE, etc.).
@@ -82,7 +91,8 @@ L’instructeur doit indiquer aux étudiants l’environnement de bureau graphiq
    - **Hôte** : ID de votre machine virtuelle ; par exemple, **`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`** .
    - **Session** : nom d’utilisateur de votre machine virtuelle ; par exemple, **Étudiant**.
    - **Port SSH** : port unique affecté à votre machine virtuelle ; par exemple, **12345**.
-   - **Type de session** : sélectionnez l’environnement de bureau graphique Linux sur lequel votre instructeur a configuré votre machine virtuelle.  Vous devez vous procurer ces informations auprès de votre instructeur.
+   - **Type de session** : sélectionnez l’environnement de bureau graphique Linux sur lequel votre instructeur a configuré votre machine virtuelle.  Vous devez vous procurer ces informations auprès de votre instructeur.  Par exemple, sélectionnez `XFCE` si vous utilisez un environnement de bureau graphique XFCE ou Xubuntu.
+        
 
     Enfin, cliquez sur **OK** pour créer la session.
 

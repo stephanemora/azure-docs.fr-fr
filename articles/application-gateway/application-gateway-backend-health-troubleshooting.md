@@ -2,18 +2,18 @@
 title: Résoudre les problèmes d’intégrité des back-ends dans Azure Application Gateway
 description: Décrit comment résoudre les problèmes d’intégrité des back-ends dans Azure Application Gateway
 services: application-gateway
-author: surajmb
+author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
-ms.author: surmb
+ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3bb3a89443cdefeedbe5df254d215dfcec770983
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 3cc75c637dd286cb87ca745d713a55a0a2cf8834
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737844"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137697"
 ---
 # <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Résoudre les problèmes d’intégrité des back-ends dans Application Gateway
 
@@ -121,6 +121,37 @@ Pour augmenter la valeur du délai, effectuez les étapes suivantes :
 1.  Si vous utilisez le DNS par défaut d’Azure, vérifiez dans votre registre d’inscription des noms de domaine que le mappage approprié avec un enregistrement A ou un enregistrement CNAME a été effectué.
 
 1.  Si le domaine est privé ou interne, essayez de le résoudre à partir d’une machine virtuelle dans le même réseau virtuel. Si vous pouvez le résoudre, redémarrez Application Gateway et vérifiez de nouveau. Pour redémarrer Application Gateway, vous devez l’[arrêter](/powershell/module/azurerm.network/stop-azurermapplicationgateway) et le [démarrer](/powershell/module/azurerm.network/start-azurermapplicationgateway) à l’aide des commandes PowerShell correspondantes (cliquez sur les liens fournis ici pour plus d’informations).
+
+### <a name="updates-to-the-dns-entries-of-the-backend-pool"></a>Mises à jour des entrées DNS du pool principal
+
+**Message :** impossible de récupérer l’état d’intégrité du pool principal. Cela se produit quand un NSG/UDR/pare-feu sur le sous-réseau de passerelle applicative bloque le trafic sur les ports 65503 à 65534 dans le cas d’une référence SKU v1 et sur les ports 65200 à 65535 dans le cas d’une référence SKU v2 ou si le nom de domaine complet configuré dans le pool principal n’a pas pu être résolu en adresse IP. Pour en savoir plus, consultez https://aka.ms/UnknownBackendHealth.
+
+**Cause :** Application Gateway résout les entrées DNS du pool principal au moment du démarrage et ne les met pas à jour dynamiquement pendant l’exécution.
+
+**Résolution :**
+
+Application Gateway doit être redémarré après toute modification des entrées DNS du serveur principal pour commencer à utiliser les nouvelles adresses IP.  Cette opération peut être effectuée via Azure PowerShell ou l’interface Azure CLI.
+
+#### <a name="azure-powershell"></a>Azure PowerShell
+```
+# Get Azure Application Gateway
+$appgw=Get-AzApplicationGateway -Name <appgw_name> -ResourceGroupName <rg_name>
+ 
+# Stop the Azure Application Gateway
+Stop-AzApplicationGateway -ApplicationGateway $appgw
+ 
+# Start the Azure Application Gateway
+Start-AzApplicationGateway -ApplicationGateway $appgw
+```
+
+#### <a name="azure-cli"></a>Azure CLI
+```
+# Stop the Azure Application Gateway
+az network application-gateway stop -n <appgw_name> -g <rg_name>
+
+# Start the Azure Application Gateway
+az network application-gateway start -n <appgw_name> -g <rg_name>
+```
 
 ### <a name="tcp-connect-error"></a>Erreur de connexion TCP
 

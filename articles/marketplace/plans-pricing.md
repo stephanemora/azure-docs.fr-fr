@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 07/05/2021
-ms.openlocfilehash: 4ab56d50bbe6eed3763540e7b993ecc4f403b09c
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.openlocfilehash: 6ea06820a9f66c831847808d9f6de9a6bf4803b1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113598267"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073959"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Plans et tarification pour les offres de la place de marché commerciale
 
@@ -42,7 +42,7 @@ Les plans ne sont pas pris en charge pour les types d’offres suivants :
 
 - Service de conseil
 - Dynamics 365 Business Central
-- Dynamics 365 Customer Engagement et PowerApps
+- Dynamics 365 Customer Engagement et Power Apps
 - Dynamics 365 for Operations
 - Application Power BI
 
@@ -146,7 +146,7 @@ Vous pouvez activer un essai gratuit sur des plans pour des offres SaaS et de ma
 > - Machine virtuelle Azure 
 > - SaaS 
 > - Dynamics 365 Business Central
-> - Dynamics 365 for Customer Engagement et PowerApps
+> - Dynamics 365 pour Customer Engagement et Power Apps
 > - Dynamics 365 for Operations
 >
 > Pour plus d’informations sur les options de référencement, consultez [Déterminer votre option de publication](determine-your-listing-type.md).

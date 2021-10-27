@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services - Comment récupérer une image Linux personnalisée à partir d’une machine virtuelle Azure.
+title: Guide pratique pour apporter une image personnalisée Linux à partir d’une machine virtuelle Azure.
 description: Décrit comment récupérer une image Linux personnalisée à partir d’une machine virtuelle Azure.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: edb1620b0051e82df3994982eb069e78e22777bf
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: fec4c6272b43aefc40607df38b2211bde5cbb04a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123450932"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180872"
 ---
 # <a name="bring-a-linux-custom-image-from-an-azure-virtual-machine"></a>Récupérer une image personnalisée Windows à partir d’une machine virtuelle Azure
 

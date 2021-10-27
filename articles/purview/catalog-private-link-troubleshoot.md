@@ -6,13 +6,13 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
-ms.openlocfilehash: c077eb0c1639089fcc7196693a617e32c01d9a9a
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.date: 10/15/2021
+ms.openlocfilehash: cb41c6bd06541f414b5cd8f353e59f6094182d13
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129230453"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063353"
 ---
 # <a name="troubleshooting-private-endpoint-configuration-for-purview-accounts"></a>Résolution des problèmes de configuration des points de terminaison privés pour vos comptes Purview
 
@@ -196,6 +196,18 @@ L’utilisateur tente de se connecter à Azure Purview à partir d’un point de
 
 ### <a name="resolution"></a>Résolution
 Dans ce cas, pour ouvrir Azure Purview Studio, utilisez soit une machine qui est déployée dans le même réseau virtuel que le point de terminaison privé du Portail Azure Purview, soit une machine virtuelle qui est connectée à votre CorpNet dans lequel la connectivité hybride est autorisée.
+
+### <a name="issue"></a>Problème
+Vous pouvez recevoir le message d’erreur suivant lors de l’analyse d’un serveur SQL utilisant un runtime d’intégration auto-hébergé :
+
+  `Message=This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms`
+
+### <a name="cause"></a>Cause 
+L’ordinateur du runtime d’intégration auto-hébergé a activé le mode FIPS.
+FIPS (Federal Information Processing Standards) définit un certain ensemble d’algorithmes de chiffrement qui peuvent être utilisés. Lorsque le mode FIPS est activé sur l’ordinateur, certaines classes de chiffrement dont dépendent les processus appelés sont bloquées dans certains scénarios.
+
+### <a name="resolution"></a>Résolution
+Désactivez le mode FIPS sur le serveur d’intégration auto-hébergé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/08/2020
 ms.author: RamaKoni
-ms.reviewer: sqlblt, daleche
+ms.reviewer: sqlblt, daleche, mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8428f9ce69bc58a206eb5c60b3602ffbb17f7c19
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: b28a2872667ed49b74c6b1ece86280e3dfdec4b6
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225677"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165996"
 ---
 # <a name="in-place-change-of-sql-server-version-on-azure-vm"></a>Modification sur place de la version de SQL Server sur une machine virtuelle Azure
 
@@ -33,7 +33,7 @@ Cet article explique comment modifier la version de Microsoft SQL Server sur une
 Pour effectuer une mise à niveau sur place de SQL Server, les conditions suivantes s’appliquent :
 
 - Le support d’installation de la version souhaitée de SQL Server est requis. Les clients qui disposent de la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) peuvent obtenir leur support d’installation à partir du [Centre de gestion des licences en volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Les clients qui ne disposent pas de la Software Assurance peuvent utiliser le support d’installation d’une image de machine virtuelle SQL Server de la Place de marché Azure correspondant à la version souhaitée (généralement située dans C:\SQLServerFull).
-- Les mises à niveau d’édition doivent suivre les [chemins de mise à niveau de support](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15).
+- Les mises à niveau de version doivent suivre les [chemins de mise à niveau de support](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15).
 
 ## <a name="planning-for-version-change"></a>Planification du changement de version
 
@@ -124,4 +124,4 @@ Pour plus d’informations, consultez les articles suivants :
 - [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 - [Questions fréquentes (FAQ) pour SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.yml)
 - [Guide des tarifs pour SQL Server sur une machine virtuelle Windows](pricing-guidance.md)
-- [Notes de publication pour SQL Server sur une machine virtuelle Windows](doc-changes-updates-release-notes.md)
+* [Nouveautés de SQL Server sur des machines virtuelles Azure](doc-changes-updates-release-notes-whats-new.md)

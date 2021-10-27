@@ -3,12 +3,12 @@ title: Utiliser la carte des appareils de capteur
 description: La carte des appareils fournit une représentation graphique des périphériques réseau détectés. Utilisez la carte pour analyser et gérer les informations sur les appareils et les sections réseau, et pour générer des rapports.
 ms.date: 1/7/2021
 ms.topic: how-to
-ms.openlocfilehash: f7579cbca618baef404236556993c9831dd84bdf
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 58ccb69606f41a279424d0faa0241befbe9914bf
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113015302"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137794"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Examiner les détections de capteur dans la carte des appareils
 
@@ -320,7 +320,7 @@ Les informations suivantes peuvent être mises à jour manuellement. Les informa
 | Système d’exploitation | Le système d’exploitation de l’appareil détecté par le capteur. |
 | Couche Purdue | La couche Purdue identifiée par le capteur pour cet appareil, y compris : <br /> - Automatique <br /> - Contrôle de processus <br /> - Superviseur <br /> - Entreprise |
 | Description | Un champ de texte libre. <br /> Ajoutez plus d’informations sur l’appareil. |
-| Attributs | Toutes les informations supplémentaires découvertes sur l’appareil pendant la période d’apprentissage et qui n’appartiennent pas à d’autres catégories s’affichent dans la section Attributs. <br /> Ces informations sont en lecture seule. |
+| Attributs | Des informations supplémentaires ont été découvertes sur l’appareil. Par exemple, affichez l’état Clé et Exécution du PLC, l’état sécurisé du PLC ou les informations sur le moment où l’état a changé.  <br /> Les informations sont en lecture seule et ne peuvent pas être mises à jour à partir de la section Attributs. |
 | Paramètres | Vous pouvez modifier manuellement les paramètres de l’appareil pour éviter les faux positifs : <br /> - **Appareil autorisé** : Pendant la période d’apprentissage, tous les appareils découverts sur le réseau sont identifiés comme des appareils autorisés. Quand un appareil est découvert après la période d’apprentissage, il apparaît comme un appareil non autorisé par défaut. Vous pouvez modifier cette définition manuellement. <br /> - **Est considéré comme un scanneur** : Activez cette option si vous savez que cet appareil est connu comme étant un scanneur et qu’il est inutile de vous en informer. <br /> - **Appareil de programmation** : Activez cette option si vous savez que cet appareil est connu comme étant un appareil de programmation et qu’il est utilisé pour apporter des modifications de programmation. Son identification en tant qu’appareil de programmation bloquera les alertes relatives aux modifications de programmation provenant de cette ressource. |
 | Groupes personnalisés | Groupes personnalisés dans la table des appareils auxquels cet appareil participe. |
 | État | La sécurité et l’état d’autorisation de l’appareil : <br /> - L’État est `Secured` s’il n’y a aucune alerte <br /> - Lorsqu’il existe des alertes relatives à l’appareil, le nombre d’alertes s’affiche <br /> -L’état `Unauthorized` s’affiche pour les appareils qui ont été ajoutés au réseau après la période d’apprentissage. Vous pouvez définir manuellement l’appareil comme étant un `Authorized Device` dans les paramètres <br /> - Si l’adresse de cet appareil est définie en tant qu’adresse dynamique, `DHCP` est ajouté à l’état. |

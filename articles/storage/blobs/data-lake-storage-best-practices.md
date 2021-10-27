@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 10/14/2021
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: da97095edce8c089acd53a8faf8ba353dd39515d
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 85f6ce139db0fb69428dc775ef75befccb081af3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614210"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042728"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2
 
@@ -36,6 +36,12 @@ Utilisez le modèle suivant lorsque vous configurez votre compte de manière à 
 #### <a name="understand-the-terms-used-in-documentation"></a>Comprendre les termes utilisés dans la documentation
 
 En passant d’un ensemble de contenu à l’autre, vous remarquerez quelques légères différences terminologiques. Par exemple, le contenu proposé dans la [Documentation Stockage Blob](storage-blobs-introduction.md)utilise le terme *blob* au lieu de *fichier*. Techniquement, les fichiers que vous ingérez dans votre compte de stockage deviennent des objets Blob dans votre compte. Par conséquent, le terme est correct. Toutefois, cela peut entraîner une confusion si vous utilisez le terme *fichier*. Vous verrez également le terme *conteneur*, utilisé pour faire référence à un *système de fichiers*. Considérez ces termes comme des synonymes.
+
+## <a name="consider-premium"></a>Envisager Premium
+
+Si vos charges de travail nécessitent une latence faible et cohérente et/ou nécessitent un nombre élevé d’opérations d’entrée/sorties par seconde (IOP), envisagez d’utiliser un compte de stockage d’objets blob de blocs Premium. Ce type de compte rend les données disponibles à l’aide de matériel hautes performances. Les données sont stockées sur des disques SSD optimisés pour une latence faible. Les disques SSD offrent un débit plus élevé que les disques durs traditionnels. Les coûts de stockage des performances Premium sont plus élevés, mais les coûts de transaction sont moindres. Par conséquent, si vos charges de travail exécutent un grand nombre de transactions, un compte d’objet blob de blocs de performances Premium peut être économique.
+
+Si votre compte de stockage doit être utilisé pour l’analytique, nous vous recommandons vivement d’utiliser Azure Data Lake Storage Gen2 avec un compte de stockage d’objets blob de blocs Premium. Cette combinaison d’utilisation de comptes de stockage d’objets blob de blocs Premium avec un compte Data Lake Storage activé est appelée [niveau Premium pour Azure Data Lake Storage](premium-tier-for-data-lake-storage.md).
 
 ## <a name="optimize-for-data-ingest"></a>Optimiser pour l’ingestion de données
 

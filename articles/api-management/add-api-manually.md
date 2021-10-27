@@ -8,12 +8,13 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 04/26/2021
 ms.author: danlep
-ms.openlocfilehash: 2e88bef36179a0e923ad6dfa8c7744f20d0a4d33
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 07b200c67b831b7d7fb01ea8da657e9bcc9b3b18
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128623966"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997002"
 ---
 # <a name="add-an-api-manually"></a>Ajouter une API manuellement
 
@@ -110,6 +111,9 @@ Testez l’opération dans le portail Azure.  Vous pouvez également la tester d
 1. Appuyez sur **Envoyer**.
 
     La réponse que l’opération « http://httpbin.org/headers  » génère s’affiche. Si vous souhaitez transformer vos opérations, consultez [Transform and protect your API](transform-api.md) (Transformer et protéger votre API).
+  
+>[!NOTE] 
+> Il peut être important de comprendre comment l’hôte de l’API back-end que vous intégrez gère les barres obliques de fin sur une URL d’opération. Pour plus d’informations, consultez ce [FAQ sur la gestion des API](./api-management-faq.yml#how-does-api-management-handle-trailing-slashes-when-calling-backend-services-).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

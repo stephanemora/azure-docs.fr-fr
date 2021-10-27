@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/13/2021
 ms.author: b-juche
-ms.openlocfilehash: acdb84621af21cc29feb3f750a5ea60cb21e3d4a
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 06d7e334205de142b60f73d1e98f0c4167c65b7d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095025"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993147"
 ---
 # <a name="configure-policy-based-backups-for-azure-netapp-files"></a>Configurer des sauvegardes basées sur les stratégies pour les fichiers NetApp Azure 
 
@@ -48,7 +48,7 @@ L’attribution d’une stratégie crée un instantané de ligne de base qui est
 Vous devez créer une stratégie d’instantané et associer la stratégie d’instantané au volume que vous souhaitez sauvegarder. Une même stratégie d’instantané peut être attachée à plusieurs volumes. Les modifications apportées à la stratégie d’instantané peuvent avoir une incidence sur le fonctionnement de la sauvegarde d’un volume. 
 
 1. Connectez-vous au portail Azure et accédez à **Azure NetApp Files**.    
-2. Sélectionnez votre abonnement Azure NetApp Files.   
+2. Sélectionnez votre compte Azure NetApp Files.   
 3. Sélectionnez **Stratégie d’instantané**.   
 
     ![Capture d’écran montrant comment accéder à l’option Stratégie d’instantané.](../media/azure-netapp-files/backup-navigate-snapshot-policy.png)   
@@ -88,7 +88,7 @@ Vous devez créer une stratégie de sauvegarde et associer la stratégie de sauv
 Pour activer une sauvegarde (planifiée) basée sur une stratégie : 
 
 1. Connectez-vous au portail Azure et accédez à **Azure NetApp Files**. 
-2. Sélectionnez votre abonnement Azure NetApp Files.
+2. Sélectionnez votre compte Azure NetApp Files.
 3. Sélectionnez **Sauvegardes**. 
 
     ![Capture d’écran montrant comment naviguer vers l’option Sauvegardes.](../media/azure-netapp-files/backup-navigate.png)
@@ -157,10 +157,10 @@ Pour activer la fonctionnalité de sauvegarde pour un volume :
 * [Configuration des sauvegardes manuelles](backup-configure-manual.md)
 * [Gestion des stratégies de sauvegarde](backup-manage-policies.md)
 * [Recherche dans les sauvegardes](backup-search.md)
-* [Restauration d’une sauvegarde sur un nouveau volume](backup-restore-new-volume.md)
+* [Restaurer une sauvegarde sur un nouveau volume](backup-restore-new-volume.md)
 * [Désactivation de la fonctionnalité de sauvegarde pour un volume](backup-disable.md)
 * [Supprimer des sauvegardes d’un volume](backup-delete.md)
-* [Métriques des sauvegardes de volume](azure-netapp-files-metrics.md#volume-backup-metrics)
+* [Métriques de sauvegarde d’un volume](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [FAQ sur la sauvegarde Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
 
 

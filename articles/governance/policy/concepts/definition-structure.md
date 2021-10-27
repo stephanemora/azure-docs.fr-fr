@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 09/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7665d2b3855765c0d3c60cdb9c7181720835a963
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 08e4df487786de0e43e7bc1ae7c0a5debb6a9752
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129456971"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002507"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -125,6 +125,7 @@ La propriété facultative `metadata` stocke les informations relatives à la d�
 - `category` (chaîne) : détermine sous quelle catégorie du portail Azure la définition de stratégie apparaît.
 - `preview` (booléen) : indicateur true ou false permettant de déterminer si la définition de stratégie est en _préversion_.
 - `deprecated` (booléen) : indicateur true ou false permettant de déterminer si la définition de stratégie a été marquée comme _déconseillée_.
+- `portalReview` (chaîne) : détermine si les paramètres doivent être examinés dans le portail, quelle que soit l’entrée requise. 
 
 > [!NOTE]
 > Le service Azure Policy utilise les propriétés `version`, `preview` et `deprecated` pour transmettre le niveau de changement à la définition ou à initiative et à l’état d’une stratégie intégrée. Le format de `version` est le suivant : `{Major}.{Minor}.{Patch}`. Les états spécifiques, tels que _déprécié_ ou _préversion_, sont ajoutés à la propriété `version` ou à toute autre propriété en tant que valeur **booléenne**. Pour plus d’informations sur la façon dont les versions d’Azure Policy sont intégrées, consultez [Contrôle des versions des éléments intégrés](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).

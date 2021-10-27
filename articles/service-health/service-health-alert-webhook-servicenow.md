@@ -4,16 +4,16 @@ description: Obtenir des notifications personnalisées sur les événements d’
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: df6596dd9853a792b5bfdb333361a2b9cd02a347
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd806768e0ce73de824ea398ef954121d5ae86bd
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100588182"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040528"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envoyer des alertes Azure Service Health avec ServiceNow à l’aide de webhooks
 
-Cet article vous explique comment intégrer les alertes sur l’intégrité du service Azure avec ServiceNow à l’aide d’un Webhook. Après avoir configuré l’intégration de Webhook avec votre instance ServiceNow, vous obtenez des alertes via votre infrastructure de notification existante lorsque des problèmes liés au service Azure vous affectent. Chaque fois qu’une alerte sur l’intégrité du service Azure se déclenche, celle-ci appelle un Webhook via l’API REST de script de ServiceNow.
+Cet article vous explique comment intégrer les alertes sur l’intégrité du service Azure avec ServiceNow à l’aide d’un Webhook. Après avoir configuré l’intégration de Webhook avec votre instance ServiceNow, vous obtenez des alertes via votre infrastructure de notification existante lorsque des problèmes liés au service Azure vous affectent. Chaque fois qu’une alerte Azure Service Health se déclenche, celle-ci appelle un Webhook via l’API REST de script ServiceNow.
 
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Création d’une API REST de script dans ServiceNow
 
@@ -66,8 +66,8 @@ Cet article vous explique comment intégrer les alertes sur l’intégrité du s
                 } else {
                     inc.initialize();
                 }
-                var short_description = "Azure Service Health&quot;;
-                if (event.data.context.activityLog.properties.incidentType == &quot;Incident") {
+                var short_description = "Azure Service Health";
+                if (event.data.context.activityLog.properties.incidentType == "Incident") {
                     short_description += " - Service Issue - ";
                 } else if (event.data.context.activityLog.properties.incidentType == "Maintenance") {
                     short_description += " - Planned Maintenance - ";

@@ -3,15 +3,15 @@ title: Vue d’ensemble de la résolution des problèmes liés à Azure Virtual 
 description: Vue d’ensemble de la résolution des problèmes liés à la configuration d’un environnement Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 12/04/2020
+ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: c847c87a24dedc994da39a37f37def3caeef4db1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f8abe1cc793b5e7e5528d377ee0a7226d5415909
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818620"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045291"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-azure-virtual-desktop"></a>Vue d’ensemble de la résolution des problèmes, des commentaires et du support pour Azure Virtual Desktop
 
@@ -19,6 +19,10 @@ ms.locfileid: "124818620"
 >Ce contenu s’applique à Azure Virtual Desktop avec des objets Azure Virtual Desktop Azure Resource Manager. Si vous utilisez Azure Virtual Desktop (Classic) sans objets Azure Resource Manager, consultez [cet article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 Cet article fournit une vue d’ensemble des problèmes que vous pouvez rencontrer durant la configuration d’un environnement Azure Virtual Desktop, et propose des solutions pour les résoudre.
+
+## <a name="troubleshoot-deployment-and-connection-issues"></a>Résoudre les problèmes de déploiement et de connexion
+
+[Azure Monitor pour Windows Virtual Desktop](azure-monitor.md) est un tableau de bord basé sur des classeurs Azure Monitor, permettant de rapidement dépanner et identifier pour vous les problèmes dans votre environnement Windows Virtual Desktop. Si vous préférez utiliser des requêtes Kusto, nous vous recommandons d’utiliser à la place [Log Analytics](diagnostics-log-analytics.md), la fonctionnalité de diagnostic intégré.
 
 ## <a name="report-issues"></a>Signaler des problèmes
 

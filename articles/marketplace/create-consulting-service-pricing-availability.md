@@ -1,6 +1,6 @@
 ---
-title: Comment configurer la tarification et de la disponibilité de votre service de conseil dans l’Espace partenaires Microsoft
-description: Découvrez comment configurer les détails de prix de votre offre de service de conseil sur la place de marché commerciale Microsoft à l’aide de l’Espace partenaires.
+title: Configurer la tarification et la disponibilité de votre service de conseil pour la Place de marché commerciale
+description: Configurer les détails de prix de votre offre de service de conseil sur la Place de marché commerciale Microsoft à l’aide de l’Espace partenaires.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: 6b386238bd759714bc0c8ad81d67c29aa1774aba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf6290632a1c9d78265961ccaa47b25fc1734a1b
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96780227"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065955"
 ---
-# <a name="how-to-configure-your-consulting-service-pricing-and-availability"></a>Comment configurer la tarification et de la disponibilité de votre service de conseil
+# <a name="configure-consulting-service-offer-pricing-and-availability"></a>Configurer la tarification et la disponibilité de votre offre de service de conseil
 
 Cet article explique comment définir la disponibilité sur le marché et les détails de tarification de votre offre de service de conseil sur le marketplace commercial de Microsoft.
 

@@ -1,22 +1,22 @@
 ---
-title: Copier des données depuis Amazon Simple Storage Service (S3)
+title: Copier et transformer des données dans Amazon Simple Storage Service (S3)
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment copier des données à partir d'Amazon Simple Storage Service (S3) vers des magasins de données récepteurs pris en charge avec les pipelines Azure Data Factory ou Synapse Analytics.
+description: Apprenez à copier des données depuis Amazon Simple Storage Service (S3) et à transformer des données dans Amazon Simple Storage Service (S3) à l’aide des pipelines Azure Data Factory ou Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: baaf601ce6ab21a524cbabc7188de24231002ffd
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/15/2021
+ms.openlocfilehash: ffc3a58ef83d667c812ae1c4b9cc3f899a1aa03d
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124762076"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063998"
 ---
-# <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory-or-synapse-analytics"></a>Copie de données depuis Amazon Simple Storage Service à l'aide d'Azure Data Factory ou de Synapse Analytics
+# <a name="copy-and-transform-data-in-amazon-simple-storage-service-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données dans Amazon Simple Storage Service avec Azure Data Factory ou Azure Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 >
 > * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
@@ -24,7 +24,7 @@ ms.locfileid: "124762076"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Cet article explique comment copier des données depuis Amazon Simple Storage Service (Amazon S3). Pour plus d'informations, consultez les articles de présentation d'[Azure Data Factory](introduction.md) et de [Synapse Analytics](../synapse-analytics/overview-what-is.md).
+Cet article explique comment utiliser l’activité Copy pour copier des données à partir d’Amazon Simple Storage Service (Amazon S3) et comment utiliser Data Flow pour transformer les données dans Amazon S3. Pour plus d'informations, consultez les articles de présentation d'[Azure Data Factory](introduction.md) et de [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!TIP]
 >Pour en savoir plus sur le scénario de migration de données d'Amazon S3 vers le service Stockage Azure, consultez [Migrer des données d'Amazon S3 vers le service Stockage Azure](data-migration-guidance-s3-azure-storage.md).
@@ -281,6 +281,81 @@ Supposons que vous disposez de la structure de dossiers sources suivante et que 
 ## <a name="preserve-metadata-during-copy"></a>Conserver les métadonnées lors de la copie
 
 Lorsque vous copiez des fichiers depuis Amazon S3 vers Azure Data Lake Storage Gen2 ou Stockage Blob Azure, vous pouvez choisir de conserver les métadonnées des fichiers avec les données. Pour plus d’informations, consultez [Conserver les métadonnées](copy-activity-preserve-metadata.md#preserve-metadata).
+
+## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
+
+Lorsque vous transformez des données en flux de données de mappage, vous pouvez lire les fichiers d’Amazon S3 dans les formats suivants :
+
+- [Avro](format-avro.md#mapping-data-flow-properties)
+- [Texte délimité](format-delimited-text.md#mapping-data-flow-properties)
+- [Delta](format-delta.md#mapping-data-flow-properties)
+- [Excel](format-excel.md#mapping-data-flow-properties)
+- [JSON](format-json.md#mapping-data-flow-properties)
+- [Parquet](format-parquet.md#mapping-data-flow-properties)
+
+Les paramètres spécifiques du format se trouvent dans la documentation de ce format. Pour plus d’informations, consultez [Transformation de la source dans un flux de données de mappage](data-flow-source.md).
+
+> [!NOTE]
+> La transformation de la source Amazon S3 est désormais prise en charge uniquement dans l’espace de travail **Azure Synapse Analytics**.
+
+### <a name="source-transformation"></a>Transformation de la source
+
+Dans une transformation de source, vous pouvez lire à partir d’un conteneur, d’un dossier ou d’un fichier individuel dans Amazon S3. Utilisez l’onglet **Options de la source** pour gérer la façon dont les fichiers sont lus. 
+
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Capture d’écran des options de la source.":::
+
+**Chemin d’accès à caractères génériques :** L’utilisation d’un modèle à caractères génériques donne pour instruction au service de parcourir en boucle chaque dossier et fichier correspondant dans une même transformation de la source. Il s’agit d’un moyen efficace de traiter plusieurs fichiers dans un seul et même flux. Ajoutez plusieurs modèles de correspondance à caractères génériques avec le signe plus qui apparaît quand vous pointez sur votre modèle à caractères génériques existant.
+
+Dans le conteneur source, choisissez une série de fichiers qui correspondent à un modèle. Seul un conteneur peut être spécifié dans le jeu de données. Votre chemin contenant des caractères génériques doit donc également inclure le chemin de votre dossier à partir du dossier racine.
+
+Exemples de caractères génériques :
+
+- `*` Représente un jeu de caractères quelconque.
+- `**` Représente une imbrication de répertoires récursifs.
+- `?` Remplace un caractère.
+- `[]` Cherche une correspondance avec le ou les caractères entre crochets.
+
+- `/data/sales/**/*.csv` Obtient tous les fichiers .csv se trouvant sous /data/sales.
+- `/data/sales/20??/**/` Obtient tous les fichiers datés du XXe siècle.
+- `/data/sales/*/*/*.csv` Obtient les fichiers .csv à deux niveaux sous /data/sales.
+- `/data/sales/2004/*/12/[XY]1?.csv` Obtient tous les fichiers .csv datés de décembre 2004, commençant par X ou Y et ayant comme préfixe un nombre à deux chiffres.
+
+**Chemin racine de la partition :** Si vous avez partitionné des dossiers dans votre source de fichier avec un format `key=value` (par exemple, `year=2019`), vous pouvez attribuer le niveau supérieur de cette arborescence de dossiers de partitions à un nom de colonne dans votre flux de données.
+
+Tout d’abord, définissez un caractère générique pour inclure tous les chemins d’accès des dossiers partitionnés, ainsi que des fichiers de nœud terminal que vous souhaitez lire.
+
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Capture d’écran des paramètres du fichier source de la partition.":::
+
+Utilisez le paramètre **Chemin racine de la partition** pour définir le niveau supérieur de la structure de dossiers. Quand vous affichez le contenu de vos données à l’aide d’un aperçu des données, vous voyez que le service ajoute les partitions résolues trouvées dans chacun de vos niveaux de dossiers.
+
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Capture d’écran du chemin d’accès racine de la partition.":::
+
+**Liste de fichiers :** Il s’agit d’un ensemble de fichiers. Créez un fichier texte qui inclut une liste de fichiers avec chemin relatif à traiter. Pointez sur ce fichier texte.
+
+**Colonne où stocker le nom du fichier :** Stockez le nom du fichier source dans une colonne de vos données. Entrez un nouveau nom de colonne pour stocker la chaîne de nom de fichier.
+
+**Après l’exécution :** après l’exécution du flux de données, choisissez de ne rien faire avec le fichier source, de le supprimer ou de le déplacer. Pour le déplacement, les chemins sont des chemins relatifs.
+
+Pour déplacer les fichiers sources vers un autre emplacement de post-traitement, sélectionnez tout d’abord « Déplacer » comme opération de fichier. Définissez ensuite le répertoire de provenance (« from »). Si vous n’utilisez pas de caractères génériques pour votre chemin, le paramètre « from » sera le même dossier que votre dossier source.
+
+Si vous avez un chemin d’accès source contenant un caractère générique, votre syntaxe se présente comme suit :
+
+`/data/sales/20??/**/*.csv`
+
+Vous pouvez spécifier « from » comme suit :
+
+`/data/sales`
+
+Et vous pouvez spécifier « to » comme suit :
+
+`/backup/priorSales`
+
+Dans le cas présent, tous les fichiers qui provenaient de `/data/sales` sont déplacés dans `/backup/priorSales`.
+
+> [!NOTE]
+> Les opérations de fichier s’exécutent uniquement quand vous démarrez le flux de données à partir d’une exécution de pipeline (débogage ou exécution) qui utilise l’activité Exécuter le flux de données dans un pipeline. Les opérations de fichiers ne s’exécutent *pas* en mode de débogage de flux de données.
+
+**Filtrer par date de dernière modification :** Vous pouvez filtrer les fichiers traités en spécifiant une plage de dates sur laquelle les fichiers ont été modifiés pour la dernière fois. Toutes les valeurs de DateHeure sont exprimées en temps universel coordonné (UTC). 
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 

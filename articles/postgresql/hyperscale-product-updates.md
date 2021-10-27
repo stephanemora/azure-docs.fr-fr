@@ -7,13 +7,13 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 09/15/2021
-ms.openlocfilehash: 0cedb35e03427c3c8827a4a47e3358cc7e7d5758
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/15/2021
+ms.openlocfilehash: aed4439cf608c5080d5c429a4f3af957bd77ccdb
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128701314"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070125"
 ---
 # <a name="product-updates-for-postgresql---hyperscale-citus"></a>Mises à jour produit pour PostgreSQL - Hyperscale (Citus)
 
@@ -28,6 +28,12 @@ Azure Database pour PostgreSQL - Hyperscale (Citus) propose des préversions pou
 Voici les fonctionnalités actuellement disponibles pour la préversion :
 
 * **[pgAudit](concepts-hyperscale-audit.md)** . Fournit une journalisation détaillée des audits de session et d’objets via la fonctionnalité de journalisation PostgreSQL standard. Elle génère les journaux d’audit nécessaires pour passer certains audits administratifs, financiers ou de certification ISO.
+* **[Accès privé](concepts-hyperscale-private-access.md)**.
+  Autorisez les hôtes sur un réseau virtuel (VNet) à accéder en toute sécurité à un groupe de serveurs Hyperscale (Citus) sur un point de terminaison privé.
+
+> [!NOTE]
+>
+> L’accès privé est disponible en préversion dans [certaines régions](concepts-hyperscale-limits.md#regions) uniquement.
 
 ## <a name="contact-us"></a>Nous contacter
 

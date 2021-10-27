@@ -3,7 +3,7 @@ title: Configurer des écouteurs de groupe de disponibilité et l’équilibreur
 description: Configurez les écouteurs de groupe de disponibilité sur le modèle Azure Resource Manager, à l’aide d’un équilibreur de charge interne avec une ou plusieurs adresses IP.
 services: virtual-machines
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 ms.assetid: 14b39cde-311c-4ddf-98f3-8694e01a7d3b
 ms.service: virtual-machines-sql
@@ -12,14 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
-ms.author: mathoma
+ms.author: rsetlem
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 3c58814943d844ec1e644412eef926745e2df620
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.reviewer: mathoma
+ms.openlocfilehash: c7b2bff6f4c927090dfdff92f324b4957b645644
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572397"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167721"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
 
@@ -137,7 +138,7 @@ foreach($VMName in $VMNames)
 
 ## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a> Exemple de script : Ajouter une adresse IP à un équilibreur de charge existant à l’aide de PowerShell
 
-Pour utiliser plusieurs groupes de disponibilité, ajoutez une adresse IP supplémentaire à l’équilibreur de charge. Chaque adresse IP nécessite une règle d’équilibrage de charge, un port de sonde et un port frontal propres.
+Pour utiliser plusieurs groupes de disponibilité, ajoutez une adresse IP supplémentaire à l’équilibreur de charge. Chaque adresse IP nécessite une règle d’équilibrage de charge, un port de sonde et un port frontal propres. Ajoutez uniquement l’adresse IP principale de la machine virtuelle au pool principal de l’équilibreur de charge, car [l’adresse IP de la machine virtuelle secondaire ne prend pas en charge l’adresse IP flottante](/azure/load-balancer/load-balancer-floating-ip).
 
 Le port frontal est le port que les applications utilisent pour se connecter à l’instance SQL Server. Les adresses IP de groupes de disponibilité différents peuvent utiliser le même port frontal.
 

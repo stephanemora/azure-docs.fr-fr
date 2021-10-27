@@ -2,13 +2,13 @@
 title: Prise en charge des opérations de déplacement par type de ressource
 description: Liste les types de ressources Azure qui peuvent être déplacés vers un nouveau groupe de ressources, un nouvel abonnement ou une nouvelle région.
 ms.topic: conceptual
-ms.date: 10/04/2021
-ms.openlocfilehash: b5086256142c4ce72111dddcacaf19c4a40cdc35
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/15/2021
+ms.openlocfilehash: 98685bfd969cd02848330c8abb3108fa044a25a0
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429335"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071413"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 
@@ -97,6 +97,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
 > - [Microsoft.Experimentation](#microsoftexperimentation)
+> - [Microsoft.ExtendedLocation](#microsoftextendedlocation)
 > - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Features](#microsoftfeatures)
 > - [Microsoft.Genomics](#microsoftgenomics)
@@ -988,6 +989,13 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ---------- | ----------- |
 > | experimentworkspaces | Non | Non | Non |
 
+## <a name="microsoftextendedlocation"></a>Microsoft.ExtendedLocation
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Resource group | Abonnement | Changement de région |
+> | ------------- | ----------- | ---------- | ----------- |
+> | customLocations | Non | Non | Non |
+
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon
 
 > [!div class="mx-tableFixed"]
@@ -1425,7 +1433,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | expressroutecircuits | Non | Non | Non |
 > | expressroutegateways | Non | Non | Non |
 > | expressrouteserviceproviders | Non | Non | Non |
-> | firewallpolicies | Oui | Oui | Non |
+> | firewallpolicies | Non | Non | Non |
 > | frontdoors | Non | Non | Non |
 > | ipallocations | Oui | Oui | Non |
 > | ipgroups | Oui | Oui | Non |

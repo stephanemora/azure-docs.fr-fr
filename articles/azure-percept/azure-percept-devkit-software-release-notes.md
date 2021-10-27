@@ -7,18 +7,30 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: f957ad88d89b9d31ab8e073214e765dbbdb13094
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: dd0d2c3e8466d0f5b4486be7c15b0092d7026a5e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123224931"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996244"
 ---
 # <a name="azure-percept-dk-software-release-notes"></a>Notes de publication des versions de logiciel pour Azure Percept DK
 
 Cette page fournit des informations sur les modifications et les correctifs pour chaque version du microprogramme et du système d’exploitation Azure Percept DK.
 
 Pour télécharger les images de mise à jour, consultez [Versions du logiciel Azure Percept DK pour mise à jour via câble USB](./software-releases-usb-cable-updates.md) ou [Versions du logiciel Azure Percept DK pour mise à jour OTA](./software-releases-over-the-air-updates.md).
+
+## <a name="september-2109-release"></a>Version de septembre 2109
+
+- Wi-Fi :
+  - Utilisez un canal fixe à la place de la sélection automatique du canal pour éviter à hostapd.service d’effectuer des retentatives et de redémarrer constamment.
+- Expérience d’installation :
+  - Les erreurs système du serveur OOBE sont localisées.
+  - Activez les tables de routage multiples IPv6.
+- Système d’exploitation
+  - Derniers correctifs de sécurité.
+  - Le service Nginx s’exécute en tant qu’utilisateur non racine.
+
 
 ## <a name="july-2107-release"></a>Version de juillet (2107)
 

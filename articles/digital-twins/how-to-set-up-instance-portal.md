@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Découvrez comment configurer une instance du service Azure Digital Twins à l’aide du portail Azure
 author: baanders
 ms.author: baanders
-ms.date: 7/23/2020
+ms.date: 9/2/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2, subject-rbac-steps
-ms.openlocfilehash: f520ed1054c5d0d9dd6c053e22a984a813840131
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2b7522c91ce5cb60683ce9be905a263a5cb99e52
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468773"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984817"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurer une instance Azure Digital Twins et l’authentification (portail)
 
@@ -22,8 +22,6 @@ ms.locfileid: "114468773"
 Cet article explique comment **configurer une nouvelle instance Azure Digital Twins**, notamment la création de l’instance et la configuration de l’authentification. À l’issue de cet article, vous aurez une instance Azure Digital Twins prête pour la programmation.
 
 Cette version de cet article suit ces étapes manuellement, une par une, à l’aide du portail Azure. Le portail Azure est une console web unifiée qui offre une alternative aux outils en ligne de commande.
-* Pour suivre ces étapes manuellement à l’aide de CLI, consultez la version CLI de cet article : [Configurer une instance et l’authentification (CLI)](how-to-set-up-instance-cli.md).
-* Pour exécuter une configuration automatisée à l’aide d’un exemple de script de déploiement, consultez la version avec script de cet article : [Configurer une instance et l’authentification (procédure scriptée)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -40,7 +38,7 @@ Cette version de cet article suit ces étapes manuellement, une par une, à l’
 
     :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Capture d’écran du processus de création de ressources pour Azure Digital Twins dans le portail Azure. Les valeurs décrites sont renseignées.":::
 
-4. Lorsque vous avez terminé, vous pouvez sélectionner **Vérifier + créer** si vous ne souhaitez pas configurer d’autres paramètres pour votre instance. Une page de résumé s’affiche, dans laquelle vous pouvez consulter les détails de l’instance que vous avez entrés, avant d’appuyer sur **Créer**. 
+4. Lorsque vous avez terminé, vous pouvez sélectionner **Vérifier + créer** si vous ne souhaitez pas configurer d’autres paramètres pour votre instance. Ainsi, une page de résumé s’affiche, dans laquelle vous pouvez consulter les détails de l’instance que vous avez entrés, avant d’appuyer sur **Créer**. 
 
     Si vous ne souhaitez pas configurer d’autres détails pour votre instance, la section suivante décrit les autres onglets d’installation.
 
@@ -49,21 +47,21 @@ Cette version de cet article suit ces étapes manuellement, une par une, à l’
 Voici les options supplémentaires que vous pouvez configurer lors de l’installation en utilisant les autres onglets du processus **Créer une ressource**.
 
 * **Réseau** : Dans cet onglet, vous pouvez activer des points de terminaison privés avec [Azure Private Link](../private-link/private-link-overview.md) afin d’éliminer l’exposition au réseau public pour votre instance. Pour obtenir des instructions, consultez [Activer l’accès privé avec Private Link (préversion)](./how-to-enable-private-link.md?tabs=portal#add-a-private-endpoint-during-instance-creation).
-* **Avancé** : Dans cet onglet, vous pouvez activer une identité managée par le système pour votre instance, qui peut être utilisée lors du transfert d’événements vers des [points de terminaison](concepts-route-events.md). Pour plus d’informations sur l’utilisation d’identités gérées par le système avec Azure Digital Twins, consultez [Sécurité pour les solutions Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
+* **Avancé** : Dans cet onglet, vous pouvez activer une identité managée par le système pour votre instance, qui peut être utilisée lors du transfert d’événements vers des [points de terminaison](concepts-route-events.md). Pour plus d’informations sur l’utilisation d’identités gérées par le système avec Azure Digital Twins, consultez [Sécurité pour les solutions Azure Digital Twins](concepts-security.md#managed-identity-for-accessing-other-resources).
 * **Étiquettes** : Dans cet onglet, vous pouvez ajouter des balises à votre instance pour vous aider à les organiser parmi vos ressources Azure. Pour plus d’informations sur les balises de ressources Azure, consultez [Baliser les ressources, les groupes de ressources et les abonnements pour l’organisation logique](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Vérifier la réussite de l’exécution et collecter les valeurs importantes
 
-Après avoir terminé la configuration de votre instance et appuyé sur **Créer**, vous pouvez afficher l’état du déploiement de votre instance dans vos notifications Azure le long de la barre d’icônes du portail. La notification indique quand le déploiement a réussi, et vous pourrez sélectionner le bouton _Accéder à la ressource_ pour afficher votre instance créée.
+Après avoir terminé la configuration de votre instance et appuyé sur **Créer**, vous pouvez afficher l’état du déploiement de votre instance dans vos notifications Azure le long de la barre d’icônes du portail. La notification indiquera quand le déploiement a réussi, et vous pourrez alors sélectionner le bouton _Accéder à la ressource_ pour afficher votre instance créée.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Capture d’écran des notifications Azure montrant un déploiement réussi et mettant en évidence le bouton « Accéder à la ressource » dans le portail Azure":::
 
-Autrement, si le déploiement échoue, la notification indique pourquoi. Lisez le conseil du message d’erreur, puis réessayez de créer l’instance.
+Si le déploiement échoue, la notification indique pourquoi. Lisez le conseil du message d’erreur, puis réessayez de créer l’instance.
 
 >[!TIP]
 >Une fois votre instance créée, vous pouvez revenir à sa page à tout moment en recherchant son nom dans la barre de recherche du portail Azure.
 
-À partir de la page *Vue d’ensemble* de l’instance, notez son *Nom*, son *Groupe de ressources* et son *Nom d’hôte*. Il s’agit de toutes les valeurs importantes dont vous pouvez avoir besoin quand vous continuez à travailler avec votre instance Azure Digital Twins. Si d’autres utilisateurs doivent programmer pour l’instance, vous devez partager ces valeurs avec eux.
+À partir de la page *Vue d’ensemble* de l’instance, notez son **Nom**, son **Groupe de ressources** et son **Nom d’hôte**. Il s’agit de toutes les valeurs importantes que vous pouvez utiliser quand vous continuez à travailler avec votre instance d’Azure Digital Twins. Si d’autres utilisateurs doivent programmer pour l’instance, vous devez partager ces valeurs avec eux.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Capture d’écran du portail Azure, mettant en évidence les valeurs importantes de la page de présentation de l’instance Azure Digital Twins":::
 

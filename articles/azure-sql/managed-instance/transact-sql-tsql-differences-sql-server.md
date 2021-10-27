@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: mathoma, bonova, danil
 ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 7f9067d2f568c3f3d65b89508d85046970c9e334
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 1f8d848c87979419b4c2605560c3c371edfa5147
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273416"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045689"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Différences T-SQL entre SQL Server et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Certaines limitations PaaS ont été introduites dans SQL Managed Instance et ce
 
 La plupart de ces fonctionnalités sont des contraintes architecturales et représentent des fonctionnalités de service.
 
-Les problèmes connus temporaires qui ont été détectés dans SQL Managed Instance et qui seront résolus ultérieurement sont décrits dans la [page des notes de version](../database/doc-changes-updates-release-notes.md).
+Les problèmes connus temporaires qui ont été détectés dans SQL Managed Instance et qui seront résolus ultérieurement sont décrits dans [Nouveautés](doc-changes-updates-release-notes-whats-new.md).
 
 ## <a name="availability"></a>Disponibilité
 
@@ -561,5 +561,6 @@ SQL Managed Instance ajoute des informations détaillées dans les journaux des 
 
 - Pour plus d’informations sur SQL Managed Instance, consultez [Présentation de SQL Managed Instance](sql-managed-instance-paas-overview.md).
 - Pour consulter la liste des fonctionnalités et les comparer, voir [Comparaison des fonctionnalités Azure SQL Managed Instance](../database/features-comparison.md).
-- Pour obtenir les mises à jour de version et l’état des problèmes connus, consultez [Notes de publication SQL Managed Instance](../database/doc-changes-updates-release-notes.md)
+- Pour les mises à jour de version, consultez [Nouveautés](doc-changes-updates-release-notes-whats-new.md).
+- Pour les problèmes, les solutions de contournement et les résolutions, consultez [Problèmes connus](doc-changes-updates-known-issues.md).
 - Pour obtenir un guide de démarrage rapide qui montre comment créer une instance gérée SQL, voir [Créer une instance gérée SQL](instance-create-quickstart.md).

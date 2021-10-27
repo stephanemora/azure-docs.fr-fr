@@ -13,12 +13,12 @@ ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev, has-adal-ref
-ms.openlocfilehash: 3c44d6f6c5c3dabe1fb2e5d22083cc31c2294e72
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 2698d958746aaea86a7dbb290468ffaf1f8c2eec
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527861"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993718"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considérations relatives à l’utilisation de Xamarin iOS avec MSAL.NET
 
@@ -78,6 +78,29 @@ Activez également l’accès au trousseau dans le fichier `Entitlements.plist`.
 Lorsque vous utilisez l’API `WithIosKeychainSecurityGroup()`, MSAL ajoute automatiquement votre groupe de sécurité à la fin de l’*ID d’équipe* de l’application (`AppIdentifierPrefix`). MSAL ajoute votre groupe de sécurité parce que, lorsque vous générez votre application dans Xcode, elle en fait de même. C’est la raison pour laquelle les droits d’utilisation dans le fichier `Entitlements.plist` doivent inclure `$(AppIdentifierPrefix)` devant le groupe d’accès au trousseau.
 
 Pour plus d’informations, voir la [documentation sur les droits d’utilisation iOS](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps).
+
+#### <a name="troubleshooting-keychain-access"></a>Résolution des problèmes d’accès au trousseau
+
+Si vous recevez un message d’erreur semblable à « The application cannot access the iOS keychain for the application publisher (the TeamId is null) » (L’application ne peut pas accéder au trousseau iOS pour l’éditeur de l’application (TeamId a la valeur null)), cela signifie que MSAL n’est pas en mesure d’accéder au trousseau. Il s’agit d’un problème de configuration. Pour résoudre le problèmes, essayez d’accéder vous-même au trousseau, par exemple : 
+
+```csharp
+var queryRecord = new SecRecord(SecKind.GenericPassword)
+{
+    Service = "",
+    Account = "SomeTeamId",
+    Accessible = SecAccessible.Always
+};
+
+SecRecord match = SecKeyChain.QueryAsRecord(queryRecord, out SecStatusCode resultCode);
+
+if (resultCode == SecStatusCode.ItemNotFound)
+{
+    SecKeyChain.Add(queryRecord);
+    match = SecKeyChain.QueryAsRecord(queryRecord, out resultCode);
+}
+
+// Make sure that  resultCode == SecStatusCode.Success
+```
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Activer le partage du cache de jeton entre des applications iOS
 

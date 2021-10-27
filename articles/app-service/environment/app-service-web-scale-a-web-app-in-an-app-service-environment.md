@@ -1,18 +1,18 @@
 ---
 title: Mettre à l’échelle une application dans ASE v1
 description: Mise à l'échelle d'une application dans un environnement App Service. Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
-author: ccompy
+author: madsd
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
 ms.date: 10/17/2016
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 15fd0cccbc5db52de14f3de471519c92645572db
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "86220556"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004613"
 ---
 # <a name="scaling-apps-in-an-app-service-environment-v1"></a>Mise à l’échelle d’applications dans un environnement App Service v1
 Dans Azure App Service, il existe normalement trois éléments que vous pouvez mettre à l'échelle :
@@ -58,7 +58,7 @@ Avant de déplacer votre ASP à partir d'un pool de travaux vers un autre, il es
 > 
 
 ## <a name="getting-started"></a>Prise en main
-Pour prendre en main les environnements App Service, consultez [Comment créer un environnement App Service][HowtoCreateASE]
+Pour le démarrage avec les environnements App Service Environment, consultez [Comment créer un environnement ASEv1 à partir d’un modèle](app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png
@@ -68,7 +68,6 @@ Pour prendre en main les environnements App Service, consultez [Comment créer u
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ScaleWebapp]: ../manage-scale-up.md
-[HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
 [Appserviceplans]: ../overview-hosting-plans.md

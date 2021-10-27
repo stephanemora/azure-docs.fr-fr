@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/27/2021
-ms.openlocfilehash: 7f784773ff2f29b7f5b9c244811f818861f5ae42
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: b8d72d3b2e32f22cd3fc6bbe8a89b11469b343c4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080616"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072211"
 ---
 # <a name="azure-consumption-commitment-enrollment"></a>Inscription à Azure Consumption Commitment
 
@@ -40,7 +40,7 @@ Une offre doit remplir les conditions suivantes pour être inscrite au programme
 #### <a name="workspaces-view"></a>[Vues d’espaces de travail](#tab/workspaces-view)
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-1. Dans la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
 
     [ ![Illustre la vignette des offres de la Place de marché dans la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
@@ -73,5 +73,5 @@ Une offre doit remplir les conditions suivantes pour être inscrite au programme
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur la façon dont le programme MACC profite aux clients et sur la manière dont ils peuvent trouver des solutions qui sont activées pour MACC, consultez [Avantage d’Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit).
-- Pour en savoir plus sur la façon dont votre organisation peut tirer parti de la Place de marché Azure, suivez notre module Microsoft Learn : [Simplifier le provisionnement et la gouvernance dans le cloud avec la Place de marché Azure](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/).
+- Pour en savoir plus sur la façon dont votre organisation peut tirer parti de la Place de marché Azure, suivez notre module Microsoft Learn : [Simplifier le provisionnement et la gouvernance dans le cloud avec la Place de marché Azure](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/)
 - [Fonctionnalités de transaction de la place de marché commerciale](marketplace-commercial-transaction-capabilities-and-considerations.md#transact-publishing-option)

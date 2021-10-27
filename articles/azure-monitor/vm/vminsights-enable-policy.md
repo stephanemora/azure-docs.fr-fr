@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 51baf009543208fbbfe091238d0215a24761641d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 63e68a247dd9d38cffe1555806ab23391c38f1fa
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031954"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177437"
 ---
 # <a name="enable-vm-insights-by-using-azure-policy"></a>Activer VM Insights à l’aide d’Azure Policy
 Cet article explique comment activer VM Insights pour des machines virtuelles Azure ou une machine virtuelle hybride connectée avec Azure Arc (préversion) à l’aide d’Azure Policy. Azure Policy vous permet d’attribuer des définitions de stratégie qui installent les agents requis pour VM Insights dans votre environnement Azure et activent automatiquement la surveillance des machines virtuelles à mesure qu’elles sont créées. VM Insights offre une fonctionnalité permettant de découvrir et corriger les machines virtuelles non conformes dans votre environnement. Utilisez cette fonctionnalité au lieu d’utiliser directement Azure Policy.
@@ -20,20 +20,22 @@ Si vous n’êtes pas familiarisé avec Azure Policy, consultez la brève introd
 > [!NOTE]
 > Pour utiliser Azure Policy avec des groupes de machines virtuelles identiques Azure ou pour utiliser directement Azure Policy pour activer des machines virtuelles Azure, consultez [Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md#vm-insights).
 
-## <a name="prerequisites"></a>Prérequis
-- [Créer et configurer un espace de travail Log Analytics](./vminsights-configure-workspace.md)
-- Pour vous assurer que le système d’exploitation de la machine virtuelle ou du groupe de machines virtuelles identiques que vous activez est pris en charge, consulter [Systèmes d’exploitation pris en charge](./vminsights-enable-overview.md#supported-operating-systems). 
+## <a name="vm-insights-initiatives"></a>Initiatives VM Insights
+VM Insights fournit des définitions de stratégie intégrées pour l’installation de l’agent Log Analytics et de l’agent de dépendances sur les machines virtuelles Azure. Les initiatives intégrées suivantes installent les deux agents pour activer la surveillance complète. Attribuez ces initiatives à un groupe d’administration, un abonnement ou un groupe de ressources pour installer automatiquement les agents sur toutes les machines virtuelles Windows ou Linux de cette étendue.
+
+|Nom |Description |
+|:---|:---|
+|Activer VM Insights | Installe l’agent Log Analytics et l’agent Dependency sur les machines virtuelles Azure et les machines virtuelles hybrides connectées à Azure Arc. |
+|Activer Azure Monitor pour les groupes de machines virtuelles identiques | Ceci permet d’installer l’agent Log Analytics et l’agent Dependency sur des groupes de machines virtuelles identiques Azure. |
 
 
-## <a name="vm-insights-initiative"></a>Initiative VM Insights
-VM Insights fournit des définitions de stratégie intégrées pour l’installation de l’agent Log Analytics et de l’agent de dépendances sur les machines virtuelles Azure. L’initiative **Activer VM Insights** inclut chacune de ces définitions de stratégie. Attribuez cette initiative à un groupe d’administration, un abonnement ou un groupe de ressources pour installer automatiquement les agents sur toutes les machines virtuelles Windows ou Linux de cette étendue.
 
 ## <a name="open-policy-coverage-feature"></a>Accéder à la fonctionnalité de couverture de stratégie
 Pour accéder à la **couverture de la stratégie VM Insights**, sélectionnez **Machines virtuelles** dans le menu **Azure Monitor** du portail Azure. Sélectionnez **Autres options d’intégration**, puis **Activer** sous **Activer l’utilisation de la stratégie**.
 
 [![Onglet Prise en main d’Azure Monitor pour machines virtuelles](./media/vminsights-enable-policy/get-started-page.png)](./media/vminsights-enable-policy/get-started-page.png#lightbox)
 
-## <a name="create-new-assignment"></a>Créer une attribution
+### <a name="create-new-assignment"></a>Créer une attribution
 Si vous ne disposez pas encore d’une attribution, créez-en une en cliquant sur **Assigner une stratégie**.
 
 [![Créer une attribution](media/vminsights-enable-policy/create-assignment.png)](media/vminsights-enable-policy/create-assignment.png#lightbox)
@@ -51,7 +53,7 @@ Dans la page **Paramètres**, sous **Espace de travail Log Analytics**, sélecti
 
 Cliquez sur **Vérifier + créer** pour vérifier les informations sur l’attribution, puis cliquez sur **Créer** pour la créer. Ne créez pas de tâche de correction à ce stade, car vous aurez probablement besoin de plusieurs tâches de correction pour activer les machines virtuelles existantes. Consultez [Corriger les résultats de conformité](#remediate-compliance-results) plus bas.
 
-## <a name="review-compliance"></a>Vérifier la conformité
+### <a name="review-compliance"></a>Vérifier la conformité
 Une fois l’attribution créée, vous pouvez vérifier et gérer la couverture pour l’initiative **Activer VM Insights** dans vos groupes d’administration et abonnements. Vous pouvez voir combien de machines virtuelles existent dans chacun des groupes d’administration et des abonnements ainsi que leur état de conformité.
 
 [![Page Stratégie de gestion de VM Insights](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
@@ -74,7 +76,7 @@ Le tableau suivant décrit les informations fournies dans cette vue.
 Quand vous attribuez l’initiative, l’étendue sélectionnée dans l’attribution peut être l’étendue indiquée ou un sous-ensemble de celle-ci. Par exemple, vous avez peut-être créé une attribution pour un abonnement (étendue de la stratégie) et non pas un groupe d’administration (étendue de la couverture). Dans ce cas, la valeur de **Couverture d’attribution** indique les machines virtuelles dans l’étendue d’initiative divisée par les machines virtuelles dans l’étendue de couverture. Dans un autre cas, vous pouvez avoir exclu des machines virtuelles, des groupes de ressources ou un abonnement de l’étendue de stratégie. Si la valeur est vide, elle indique que la stratégie ou l’initiative n’existe pas ou que vous n’avez pas l’autorisation. Des informations sont fournies sous **État de l’attribution**.
 
 
-## <a name="remediate-compliance-results"></a>Corriger les résultats de conformité
+### <a name="remediate-compliance-results"></a>Corriger les résultats de conformité
 L’initiative sera appliquée aux machines virtuelles à mesure qu’elles sont créées ou modifiées, mais ne sera pas appliquée aux machines virtuelles existantes. Si votre attribution n’est pas conforme à 100 %, créez des tâches de correction pour évaluer et activer les machines virtuelles existantes et sélectionnez **Afficher la conformité** en sélectionnant les points de suspension (...).
 
 [![Afficher la conformité](media/vminsights-enable-policy/view-compliance.png)](media/vminsights-enable-policy/view-compliance.png#lightbox)
@@ -105,6 +107,22 @@ Cliquez sur **Corriger** pour créer la tâche de correction, puis cliquez sur *
 
 
 Une fois les tâches de correction accomplies, vos machines virtuelles doivent être conformes aux agents installés et activées pour VM Insights. 
+
+
+## <a name="azure-policy"></a>Azure Policy
+Pour utiliser Azure Policy dans le but d’activer l’analyse de groupes de machines virtuelles identiques, attribuez l’initiative **Activer Azure Monitor pour Microsoft Azure Virtual Machine Scale Sets** à un groupe d’administration, un abonnement ou un groupe de ressources Azure, en fonction de l’étendue de vos ressources à surveiller. Un [groupe d’administration ](../../governance/management-groups/overview.md) est utile pour définir l’étendue de la stratégie, surtout si votre organisation possède plusieurs abonnements.
+
+![Capture d’écran de la page Affecter une initiative dans le Portail Azure. La définition d’initiative est définie sur Activer Azure Monitor pour les groupes de machines virtuelles identiques.](media/vminsights-enable-policy/virtual-machine-scale-set-assign-initiative.png)
+
+Sélectionnez l’espace de travail auquel les données seront envoyées. Cet espace de travail doit avoir la solution *VMInsights* installée comme décrit dans [Configurer l’espace de travail Log Analytics pour VM Insights](vminsights-configure-workspace.md).
+
+![Capture d’écran montrant la sélection d’un espace de travail.](media/vminsights-enable-policy/virtual-machine-scale-set-workspace.png)
+
+Créez une tâche de correction si vous devez affecter cette stratégie à des groupes de machines virtuelles identiques existants.
+
+![Capture d’écran montrant comment créer une tâche de correction](media/vminsights-enable-policy/virtual-machine-scale-set-remediation.png)
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

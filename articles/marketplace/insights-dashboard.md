@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 09/27/2021
-ms.openlocfilehash: a8ee69e0c9c196f42a733c4cb6c3079228238b21
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 30b26ea098c66bc807250c0100db93d7564222b6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129082919"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069194"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Insights de la Place de marché dans les données d’analytique de la Place de marché commerciale
 
@@ -43,7 +43,7 @@ Le tableau de bord Insights de la Place de marché fournit des données de parco
 #### <a name="workspaces-view"></a>[Vue des espaces de travail](#tab/workspaces-view)
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-1. Sur la page Accueil, sélectionnez la mosaïque **Insights**.
+1. Dans la page d’accueil, sélectionnez la vignette **Insights**.
 
     [ ![Illustre la mosaïque Insights sur la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 

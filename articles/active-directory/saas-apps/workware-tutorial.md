@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Workware | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Workware'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workware.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/21/2020
+ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 5ed4be15346e1f3248773472b68e8972457c34fb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 9d213c63be608f2b28ec28f6597d33ff622b8cb5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124785455"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005757"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workware"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Workware
+# <a name="tutorial-azure-ad-sso-integration-with-workware"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Workware
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Workware à Azure Active Directory (Azure AD). Quand vous intégrez Workware à Azure AD, vous pouvez :
 
@@ -37,9 +37,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Workware prend en charge l’authentification unique lancée par le **fournisseur d’identité**
+* Workware prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
 
-## <a name="adding-workware-from-the-gallery"></a>Ajout de Workware depuis la galerie
+## <a name="add-workware-from-the-gallery"></a>Ajouter Workware à partir de la galerie
 
 Pour configurer l’intégration de Workware à Azure AD, vous devez ajouter Workware à partir de la galerie à votre liste d’applications SaaS gérées.
 
@@ -50,7 +50,6 @@ Pour configurer l’intégration de Workware à Azure AD, vous devez ajouter Wo
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Workware** dans la zone de recherche.
 1. Sélectionnez **Workware** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-workware"></a>Configurer et tester l’authentification unique Azure AD pour Workware
 
 Configurez et testez l’authentification unique Azure AD avec Workware à l’aide d’un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Workware associé.
@@ -58,10 +57,10 @@ Configurez et testez l’authentification unique Azure AD avec Workware à l’a
 Pour configurer et tester l’authentification unique Azure AD avec Workware, procédez comme suit :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Workware](#configure-workware-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    * **[Créer un utilisateur de test Workware](#create-workware-test-user)** pour avoir un équivalent de B.Simon dans Workware lié à la représentation Azure AD de l’utilisateur.
+    1. **[Créer un utilisateur de test Workware](#create-workware-test-user)** pour avoir un équivalent de B.Simon dans Workware lié à la représentation Azure AD de l’utilisateur.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -70,15 +69,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le portail Azure, accédez à la page d’intégration de l’application **Workware**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `<WORKWARE_URL>/WW/AuthServices`
+    a. Dans la zone de texte **Identificateur**, tapez une valeur au format suivant : `<WORKWARE_URL>/WW/AuthServices`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `<WORKWARE_URL>/WW/AuthServices/Acs`
+    b. Dans la zone de texte **URL de réponse**, tapez une valeur au format suivant : `<WORKWARE_URL>/WW/AuthServices/Acs`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Workware](mailto:support@activeops.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -90,6 +89,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la section **Configurer Workware**, copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
@@ -141,7 +141,6 @@ Pour utiliser la fonctionnalité SSO dans Workware, vous devez effectuer la conf
     1. Chargez le **certificat** téléchargé dans la zone **Identity Provider Certificate** (Certificat du fournisseur d’identité) à partir du portail Azure.
     1. Cliquez sur **Enregistrer**.
 
-
 ### <a name="create-workware-test-user"></a>Créer un utilisateur de test Workware
 
 1. Connectez-vous au site web Workware en tant qu’administrateur.
@@ -162,10 +161,9 @@ Pour utiliser la fonctionnalité SSO dans Workware, vous devez effectuer la conf
 
 Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-* Sur le portail Azure, cliquez sur Tester cette application. Vous êtes alors automatiquement connecté à l’instance de Workware pour laquelle vous avez configuré l’authentification unique
+* Cliquez sur Tester cette application dans le portail Azure, ce qui devrait vous connecter automatiquement à l’application Workware pour laquelle vous avez configuré l’authentification unique.
 
-* Vous pouvez utiliser le volet d’accès Microsoft. Le fait de cliquer sur la vignette Workware dans le panneau d’accès doit vous connecter automatiquement à l’application Workware pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
-
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Workware dans Mes applications, vous devriez être connecté automatiquement à l’application Workware pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

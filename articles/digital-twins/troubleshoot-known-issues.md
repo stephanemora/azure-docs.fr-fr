@@ -1,20 +1,21 @@
 ---
-title: Problèmes connus - Azure Digital Twins
+title: 'Résolution des problèmes : Problèmes connus'
+titleSuffix: Azure Digital Twins
 description: Recevez de l’aide pour la reconnaissance et l’atténuation des problèmes connus avec Azure Digital Twins.
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.date: 09/15/2021
+ms.date: 10/6/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 02a1a6d5088a722c0b919811afc0ac89c7c52550
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b80da6d98a2b70f9c0d8d84922e9043bef114d80
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128593569"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133611"
 ---
-# <a name="known-issues-in-azure-digital-twins"></a>Problèmes connus dans Azure Digital Twins
+# <a name="troubleshooting-azure-digital-twins-known-issues"></a>Résolution des problèmes rencontrés avec Azure Digital Twins : Problèmes connus
 
 Cet article fournit des informations sur les problèmes connus associés à Azure Digital Twins.
 

@@ -4,12 +4,12 @@ description: Analysez les performances et diagnostiquez les problèmes dans les 
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 703862d80a7c079739c3bb7f733ae417375675e9
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3148dccc9bf6e99d528e34fe54643c871d4a28b5
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287134"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162862"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Surveiller vos services et applications Node.js avec Application Insights
 
@@ -69,6 +69,9 @@ Incluez le kit de développement logiciel dans votre application afin qu’il co
     Vous pouvez essayer le kit de développement logiciel (SDK) sans envoyer de télémétrie en définissant `appInsights.defaultClient.config.disableAppInsights = true`.
 
 5. Commencez à collecter et à envoyer automatiquement des données en appelant `appInsights.start();`.
+
+> [!NOTE]
+> Dans le cadre de l’utilisation de l’instrumentation Application Insights, nous collectons et envoyons des données de diagnostic à Microsoft. Ces données nous permettent d’exécuter et d’améliorer Application Insights. Vous avez la possibilité de désactiver la collecte de données non essentielles. [En savoir plus](./statsbeat.md)
 
 ### <a name="monitor-your-app"></a><a name="monitor"></a> Surveiller votre application
 

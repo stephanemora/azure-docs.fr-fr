@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/14/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fe6397b79ff37074342b40880aa5284e020cd8a1
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 86cf5cfaf5d64c9aa1f1cda17df543b953a5ed17
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859185"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066981"
 ---
 # <a name="authorize-access-to-blobs-using-azure-active-directory"></a>Autoriser l’accès aux blobs avec Azure Active Directory
 
@@ -32,15 +32,17 @@ Lorsqu’un principal de sécurité (utilisateur, groupe ou application) tente d
 
 L’étape d’authentification nécessite qu’une application demande un jeton d’accès OAuth 2.0 au moment de l’exécution. Si une application s’exécute à partir d’une entité Azure telle qu’une machine virtuelle Azure, un groupe de machines virtuelles identiques ou une application Azure Functions, elle peut utiliser une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) pour accéder aux données blob. Pour savoir comment autoriser des requêtes adressées au service Azure Blob par une identité managée, consultez [Autoriser l’accès aux données de blob avec des identités managées pour les ressources Azure](authorize-managed-identity.md).
 
-L’étape d’autorisation exige qu’un ou plusieurs rôles Azure soient attribués au principal de sécurité. Le Stockage Azure fournit des rôles Azure qui englobent des ensembles communs d’autorisations pour les données blob. Les rôles qui sont attribués à un principal de sécurité déterminent les autorisations dont disposera le principal. Pour en savoir plus sur l’attribution de rôles Azure pour l’accès au blob, consultez [Attribuer un rôle Azure pour l’accès aux données blob](../blobs/assign-azure-role-data-access.md).
+L’étape d’autorisation exige qu’un ou plusieurs rôles Azure RBAC soient attribués au principal de sécurité qui effectue la requête. Pour plus d’informations, consultez [Attribuer des rôles Azure pour les droits d’accès](#assign-azure-roles-for-access-rights).
 
 Les applications natives et les applications web qui adressent des requêtes au service Azure Blob peuvent également autoriser l’accès avec Azure AD. Pour savoir comment demander un jeton d’accès et l’utiliser pour autoriser les requêtes pour les données blob, consultez [Autoriser l’accès au stockage Azure avec Azure AD à partir d’une application de stockage Azure](../common/storage-auth-aad-app.md).
 
 ## <a name="assign-azure-roles-for-access-rights"></a>Attribuer des rôles Azure pour les droits d’accès
 
-Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées par le biais du [contrôle d’accès en fonction du rôle Azure (Azure RBAC)](../../role-based-access-control/overview.md). Le stockage Azure définit un ensemble de rôles intégrés Azure qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob. Vous pouvez également définir des rôles personnalisés pour l’accès aux données blob.
+Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées par le biais d’Azure RBAC. Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob. Vous pouvez également définir des rôles personnalisés pour l’accès aux données blob. Pour en savoir plus sur l’attribution de rôles Azure pour l’accès au blob, consultez [Attribuer un rôle Azure pour l’accès aux données blob](../blobs/assign-azure-role-data-access.md).
 
-Lorsqu’un rôle Azure est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md). Les rôles RBAC qui sont attribués à un principal de sécurité déterminent les autorisations dont le principal disposera. Pour en savoir plus sur l’attribution de rôles Azure pour l’accès au blob, consultez [Attribuer un rôle Azure pour l’accès aux données blob](../blobs/assign-azure-role-data-access.md)
+
+Dans certains cas, vous devrez peut-être activer un accès affiné aux ressources d’objets blob ou simplifier les autorisations si vous avez un grand nombre d’attributions de rôles pour une ressource de stockage. Vous pouvez utiliser le contrôle d’accès en fonction de l’attribut (Azure ABAC) pour configurer les conditions d’attribution de rôle. Vous pouvez utiliser des conditions avec un [rôle personnalisé](../../role-based-access-control/custom-roles.md) ou sélectionner des rôles intégrés. Pour plus d’informations sur la configuration de conditions pour les ressources de stockage Azure avec ABAC, consultez [Autoriser l'accès aux objets blob à l'aide des conditions d'attribution de rôle Azure (préversion)](../common/storage-auth-abac.md). Pour obtenir des détails sur les conditions prises en charge pour les opérations de données d’objets blob, consultez [Actions et attributs pour les conditions d'attribution de rôle Azure dans le service Stockage Azure (préversion)](../common/storage-auth-abac-attributes.md).
 
 ### <a name="resource-scope"></a>Étendue des ressources
 

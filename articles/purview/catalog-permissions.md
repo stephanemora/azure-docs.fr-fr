@@ -6,12 +6,12 @@ ms.author: viseshag
 ms.service: purview
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: fc2ea92f8e5a3d727db130cc4dce7c13c449a9fa
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 8e6f9840f89d3e4c180da366f45548ef54a678dc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129209050"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042652"
 ---
 # <a name="access-control-in-azure-purview"></a>Contrôle d’accès dans Azure Purview
 
@@ -31,9 +31,9 @@ Une collection est un outil utilisé par Azure Purview pour regrouper des ressou
 Azure Purview utilise un ensemble de rôles prédéfinis pour contrôler qui peut accéder à quoi dans le compte. Ces rôles sont actuellement les suivants :
 
 - **Administrateurs de collection** : rôle pour les utilisateurs qui doivent attribuer des rôles à d’autres utilisateurs dans Azure Purview ou gérer des collections. Les administrateurs de collection peuvent ajouter des utilisateurs à des rôles sur des collections dont ils sont administrateurs. Ils peuvent également modifier des collections et leurs détails, et ajouter des sous-groupes.
-- **Conservateurs de données** : rôle qui fournit l’accès au catalogue de données pour gérer les ressources, configurer des classifications personnalisées, définir des termes de glossaire et consulter des informations. Les conservateurs de données peuvent créer des ressources, les lire, les modifier, les déplacer, les supprimer et y ajouter des annotations.
-- **Administrateurs de source de données** : rôle qui peut gérer les sources et analyses de données. Un utilisateur ayant seulement le rôle d’administrateur de source de données n’a pas accès à Azure Purview Studio. La combinaison de ce rôle avec ceux de lecteur de données ou conservateur de données fournit un accès plus large.
-- **Lecteurs de données** : rôle qui fournit un accès en lecture seule aux ressources de données, aux classifications, aux règles de classification, aux collections, au glossaire et aux informations.
+- **Conservateurs de données** : rôle qui fournit l’accès au catalogue de données pour gérer les ressources, configurer des classifications personnalisées, définir des termes de glossaire et afficher les insights. Les conservateurs de données peuvent créer des ressources, les lire, les modifier, les déplacer et les supprimer. Ils peuvent également ajouter des annotations aux ressources.
+- **Lecteurs de données** : rôle qui fournit un accès en lecture seule aux ressources de données, aux classifications, aux règles de classification, aux collections, aux termes du glossaire et aux insights.
+- **Administrateurs de source de données** : rôle qui autorise un utilisateur à gérer les analyses et sources de données. Un utilisateur ayant le rôle d’administrateur de sources de données n’a pas accès à Azure Purview Studio. La combinaison de ce rôle avec les rôles Lecteur de données ou Conservateur de données dans n’importe quelle étendue de collection fournit l’accès à Azure Purview Studio.
 
 ## <a name="who-should-be-assigned-to-what-role"></a>Qui doit être affecté à quelle rôle ?
 

@@ -1,26 +1,21 @@
 ---
-title: Implémenter QoS (Qualité de service) pour Azure Virtual Desktop (préversion)
+title: Implémenter QoS (Qualité de service) pour Azure Virtual Desktop
 titleSuffix: Azure
-description: Comment configurer QoS (préversion) pour Azure Virtual Desktop.
+description: Comment configurer QoS pour Azure Virtual Desktop.
 author: gundarev
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 10/18/2021
 ms.author: denisgun
-ms.openlocfilehash: c90811009a38db0874589dc828059277b9ae285c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: d82f885a2a1b527be292137049453efbe888f15e
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753033"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181423"
 ---
-# <a name="implement-quality-of-service-qos-for-azure-virtual-desktop-preview"></a>Implémenter QoS (Qualité de service) pour Azure Virtual Desktop (préversion)
+# <a name="implement-quality-of-service-qos-for-azure-virtual-desktop"></a>Implémenter QoS (Qualité de service) pour Azure Virtual Desktop
 
-> [!IMPORTANT]
-> La prise en charge de la stratégie QoS (Qualité de service) pour Azure Virtual Desktop est actuellement en préversion publique.
-> Cette préversion étant fournie sans contrat de niveau de service, nous déconseillons son utilisation pour des charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-[RDP Shortpath](./shortpath.md) fournit un transport UDP direct entre le Bureau à distance client et l’Hôte de session. RDP Shortpath permet de configurer des stratégies QoS (Qualité de service) pour les données RDP.
+[RDP Shortpath pour les réseaux managés](./shortpath.md) fournit un transport UDP direct entre le client Bureau à distance et l’hôte de session. RDP Shortpath pour les réseaux managés permet de configurer des stratégies QoS (Qualité de service) pour les données RDP.
 QoS dans Azure Virtual Desktop permet au trafic RDP en temps réel, qui est sensible aux retards réseau, de passer avant le trafic qui y est moins sensible. Un exemple de trafic moins sensible serait le téléchargement d’une nouvelle application, où une seconde supplémentaire nécessaire pour le téléchargement ne constitue pas un gros problème. QoS utilise des objets Stratégie de groupe Windows pour identifier et marquer tous les paquets dans des flux en temps réel et aider votre réseau à fournir au trafic RDP une partie dédiée de la bande passante.
 
 Si vous prenez en charge un grand groupe d’utilisateurs rencontrant l’un des problèmes décrits dans cet article, vous devrez probablement implémenter QoS. Une petite entreprise avec peu d’utilisateurs peut ne pas avoir besoin de QoS, mais cela pourrait quand même lui être utile.
@@ -50,7 +45,7 @@ Une analogie simple est que QoS crée des « files de covoiturage » virtuelle
 À un niveau élevé, procédez comme suit pour implémenter QoS :
 
 1. [Vérifiez que votre réseau est prêt](#make-sure-your-network-is-ready)
-2. [Vérifiez que RDP Shortpath est activé](./shortpath.md) : les stratégies QoS ne sont pas prises en charge pour le transport de connexion inverse
+2. [Vérifiez que RDP Shortpath pour les réseaux managés est activé](./shortpath.md) : les stratégies QoS ne sont pas prises en charge pour le transport de connexion inverse
 3. [Implémentez l’insertion de marqueurs DSCP](#insert-dscp-markers) sur les hôtes de session
 
 Lorsque vous vous préparez à implémenter QoS, gardez les instructions suivantes à l’esprit :
@@ -119,10 +114,10 @@ Les nouvelles stratégies que vous avez créées ne prennent pas effet tant que 
 
 ### <a name="implement-qos-on-session-host-using-powershell"></a>Implémenter QoS sur l’hôte de session à l’aide de PowerShell
 
-Vous pouvez définir QoS pour RDP Shortpath à l’aide de la cmdlet PowerShell ci-dessous :
+Vous pouvez définir QoS pour RDP Shortpath pour les réseaux managés en utilisant l’applet de commande PowerShell ci-dessous :
 
 ```powershell
-New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
+New-NetQosPolicy -Name "RDP Shortpath for managed networks" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
 ```
 
 ## <a name="related-articles"></a>Articles connexes

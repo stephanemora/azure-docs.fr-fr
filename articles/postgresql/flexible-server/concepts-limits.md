@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/17/2021
-ms.openlocfilehash: 1966ce24919e2d98658afe2cec09d37e3b567c60
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 58e5f6f5646eb2dd75215a17349b053426b7c837
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129387484"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133326"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -29,27 +29,28 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 | B1ms                 | 1      | 2 Gio       | 50              | 47                   |
 | B2s                  | 2      | 4 Gio       | 100             | 97                   |
 | **Usage général**  |        |             |                 |                      |
-| D2s_v3               | 2      | 8 Gio       | 859             | 856                  |
-| D4s_v3               | 4      | 16 Gio      | 1719            | 1716                 |
-| D8s_v3               | 8      | 32 Gio      | 3438            | 3435                 |
-| D16s_v3              | 16     | 64 Gio      | 5 000            | 4997                 |
-| D32s_v3              | 32     | 128 Go     | 5 000            | 4997                 |
-| D48s_v3              | 48     | 192 Gio     | 5 000            | 4997                 |
-| D64s_v3              | 64     | 256 Gio     | 5 000            | 4997                 |
+| D2s_v3/D2ds_v4    | 2      | 8 Gio       | 859             | 856                  |
+| D4s_v3/D4ds_v4    | 4      | 16 Gio      | 1719            | 1716                 |
+| D8s_v3/D8ds_V4    | 8      | 32 Gio      | 3438            | 3435                 |
+| D16s_v3/D16ds_v4   | 16     | 64 Gio      | 5 000            | 4997                 |
+| D32s_v3/D32ds_v4   | 32     | 128 Go     | 5 000            | 4997                 |
+| D48s_v3/D48ds_v4   | 48     | 192 Gio     | 5 000            | 4997                 |
+| D64s_v3/D64ds_v4   | 64     | 256 Gio     | 5 000            | 4997                 |
 | **Mémoire optimisée** |        |             |                 |                      |
-| E2s_v3               | 2      | 16 Gio      | 1719            | 1716                 |
-| E4s_v3               | 4      | 32 Gio      | 3438            | 3433                 |
-| E8s_v3               | 8      | 64 Gio      | 5 000            | 4997                 |
-| E16s_v3              | 16     | 128 Go     | 5 000            | 4997                 |
-| E32s_v3              | 32     | 256 Gio     | 5 000            | 4997                 |
-| E48s_v3              | 48     | 384 Gio     | 5 000            | 4997                 |
-| E64s_v3              | 64     | 432 Gio     | 5 000            | 4997                 |
+| E2s_v3  / E2ds_v4    | 2      | 16 Gio      | 1719            | 1716                 |
+| E4s_v3  / E4ds_v4    | 4      | 32 Gio      | 3438            | 3433                 |
+| E8s_v3/E8ds_v4    | 8      | 64 Gio      | 5 000            | 4997                 |
+| E16s_v3/E16ds_v4   | 16     | 128 Go     | 5 000            | 4997                 |
+| E20ds_v4             | 20     | 160 Gio     | 5 000            | 4997                 |
+| E32s_v3/E32ds_v4   | 32     | 256 Gio     | 5 000            | 4997                 |
+| E48s_v3/E48ds_v4   | 48     | 384 Gio     | 5 000            | 4997                 |
+| E64s_v3/E64ds_v4   | 64     | 432 Gio     | 5 000            | 4997                 |
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > FATAL: sorry, too many clients already.
 
 > [!IMPORTANT]
-> Pour une expérience optimale, nous vous recommandons d’utiliser un regroupement de connexions comme PgBouncer pour gérer efficacement les connexions.
+> Pour une expérience optimale, nous vous recommandons d’utiliser un gestionnaire de regroupement de connexions comme PgBouncer pour gérer efficacement les connexions. Azure Database pour PostgreSQL - Serveur flexible offre une [solution de regroupement de connexions intégrée](concepts-pgbouncer.md) à PgBouncer. 
 
 Une connexion PostgreSQL, même inactive, peut utiliser environ 10 Mo de mémoire. De plus, la création de nouvelles connexions prend du temps. La plupart des applications requièrent de nombreuses connexions à courte durée, ce qui aggrave la situation. Par conséquent, il y a moins de ressources disponibles pour votre charge de travail réelle; ce qui entraîne une diminution des performances. Le regroupement de connexions peut être utilisé afin de réduire le nombre de connexions inactives et de réutiliser les connexions existantes. Pour en savoir plus, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 

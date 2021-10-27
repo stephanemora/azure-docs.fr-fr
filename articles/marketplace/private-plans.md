@@ -6,13 +6,13 @@ ms.service: marketplace
 ms.topic: article
 author: navits09
 ms.author: navits
-ms.date: 08/13/2021
-ms.openlocfilehash: cc7f4e983ab766577af41497c2e270694361605a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/14/2021
+ms.openlocfilehash: d04a031abced1bdc689feb078015737d20f40cfb
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124784752"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047774"
 ---
 # <a name="private-plans-in-the-microsoft-commercial-marketplace"></a>Plans privés dans la place de marché commerciale de Microsoft
 
@@ -52,7 +52,7 @@ Pour les *nouvelles offres qui comportent uniquement des plans privés*, les éd
 
 ## <a name="target-customers-with-private-plans"></a>Cibler des clients avec des plans privés
 
-Avec les plans privés, qu’ils soient anciens ou nouveaux, les éditeurs ont la possibilité de cibler des clients avec leurs identificateurs d’abonnement. Pour les offres Machines virtuelles Azure, Azure Application et Services gérés, les éditeurs peuvent limiter la disponibilité d’un plan privé à un ID d’abonnement Azure individuel ou charger un fichier CSV d’un maximum de 10 000 ID d’abonnement Azure. Pour les offres SaaS, les éditeurs peuvent associer un ID de locataire Azure Active Directory pour limiter la disponibilité d’un plan privé, suivant l’approche manuelle ou par chargement CSV.
+Avec les plans privés, qu’ils soient anciens ou nouveaux, les éditeurs ont la possibilité de cibler des clients avec leurs identificateurs d’abonnement. Pour les offres Azure Application et Services gérés, les éditeurs peuvent limiter la disponibilité d’un plan privé à des ID d’abonnement Azure individuels. Pour les offres SaaS, les éditeurs peuvent associer un ID de locataire Azure Active Directory pour limiter la disponibilité d’un plan privé. Pour les offres de machines virtuelles, les éditeurs peuvent attribuer le public qui aura accès à un plan privé à l’aide d’ID de locataire Azure, d’ID d’abonnement ou des deux. Pour chacun de ces types d’offre, jusqu’à 10 ID peuvent être ajoutés manuellement ou une feuille de calcul CSV peut être importée si plus de 10 ID sont requis.
 
 Une fois qu’une offre a été certifiée et publiée, il devient possible de mettre à jour ou de supprimer des clients du plan avec la fonctionnalité de synchronisation des abonnements privés. Cette capacité permet aux éditeurs de mettre à jour rapidement et facilement la liste des clients auxquels le plan privé est présenté, sans avoir à certifier ou publier de nouveau l’offre.
 
@@ -63,14 +63,14 @@ Une fois connectés au portail Azure, les clients peuvent suivre ces étapes pou
 1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/).
 1. Sous **Services Azure**, sélectionnez **Créer une ressource**.
 1. Sur la page **Nouveau**, à côté de **Place de marché Azure**, sélectionnez **Afficher tout**. La page Marketplace s’affiche.
-1. Dans le volet de navigation de gauche, sélectionnez **Plans privés**.
+1. Dans le volet de navigation de gauche, sélectionnez **Produits privés**.
 
 > [!NOTE]
 > Les plans privés sont uniquement découvrables dans le [portail Azure](https://azure.microsoft.com/features/azure-portal/) ou [Microsoft AppSource](https://appsource.microsoft.com/). Ils ne sont pas visibles dans la [Place de marché Azure](https://azuremarketplace.microsoft.com). Pour en savoir plus sur la publication sur les différents magasins en ligne du marketplace commercial, consultez [Présentation des options de référencement](./determine-your-listing-type.md).
 
 Les plans privés apparaissent également dans les résultats de recherche et peuvent être déployés par le biais d’une ligne de commande et de modèles Azure Resource Manager, comme n’importe quelle autre offre.
 
-[![[Offres privées apparaissant dans les résultats de la recherche.]](media/marketplace-publishers-guide/private-offer.png)](media/marketplace-publishers-guide/private-offer.png#lightbox)
+[![[Offres privées apparaissant dans les résultats de la recherche.]](media/marketplace-publishers-guide/private-product.png)](media/marketplace-publishers-guide/private-product.png#lightbox)
 
 >[!Note]
 >Les plans privés ne sont pas pris en charge par les abonnements souscrits via un revendeur participant au programme des fournisseurs de solutions cloud (CSP).

@@ -1,25 +1,25 @@
 ---
-title: Gérer les notifications d’alerte d’événement d’appareil pour vos ressources Azure Stack Edge Pro | Microsoft Docs
-description: Décrit comment utiliser le portail Azure pour gérer les alertes des événements d’appareil sur vos ressources Azure Stack Edge Pro.
+title: Utiliser des règles d’action pour gérer les notifications d’alerte sur les appareils Azure Stack Edge | Microsoft Docs
+description: Décrit comment définir des règles d’action pour gérer les notifications d’alerte pour les appareils Azure Stack Edge dans le portail Azure.
 services: databox
 author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 10/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 585343137a4a8fd8a1fb591c640e1183d71c0fd3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 804d956f934774b01b29301e0be8f9c1a6fd2657
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443095"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043355"
 ---
-# <a name="manage-device-event-alert-notifications-on-azure-stack-edge-pro-resources"></a>Gérer les notifications d’alerte d’événement d’appareil sur les ressources Azure Stack Edge Pro
+# <a name="use-action-rules-to-manage-alert-notifications-on-azure-stack-edge-devices"></a>Utiliser des règles d’action pour gérer les notifications d’alerte sur les appareils Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Cet article explique comment créer des règles d’action dans le portail Azure afin de déclencher ou supprimer des notifications d’alerte pour les événements d’appareil qui se produisent au sein d’un groupe de ressources, d’un abonnement Azure ou d’une ressource Azure Stack Edge individuelle. Cet article s’applique à tous les modèles d’Azure Stack Edge.  
+Cet article explique comment créer des règles d’action dans le portail Azure afin de déclencher ou supprimer des notifications d’alerte pour les événements d’appareil qui se produisent au sein d’un groupe de ressources, d’un abonnement Azure ou d’une ressource Azure Stack Edge individuelle.  
 
 ## <a name="about-action-rules"></a>À propos des règles d’action
 
@@ -125,8 +125,6 @@ La notification par e-mail ressemble à celle-ci.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-<!-- - See [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md) for guidance on creating a new action group.
-- See [Configure an action rule](../azure-monitor/alerts/alerts-action-rules.md?tabs=portal#configuring-an-action-rule) for more info about creating action rules that send or suppress alert notifications. -2 bullets referenced above. Making room for local tasks in "Next Steps." --> 
-- Pour plus d’informations sur l’examen des événements d’appareil, de l’état du matériel et des graphiques de métriques, consultez [Superviser votre appareil Azure Stack Edge Pro](azure-stack-edge-monitor.md). 
-- Pour plus d’informations sur l’optimisation d’Azure Monitor pour les appareils Azure Stack Edge Pro GPU, consultez [Utilisation d’Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).
-- Pour plus d’informations sur la gestion des alertes individuelles, consultez [Créer, afficher et gérer des alertes de métriques à l’aide d’Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
+- [Affichez les alertes de l’appareil](azure-stack-edge-alerts.md).
+- [Utilisez des métriques d’alerte](../azure-monitor/alerts/alerts-metric.md).
+- [Configurez Azure Monitor](azure-stack-edge-gpu-enable-azure-monitor.md).

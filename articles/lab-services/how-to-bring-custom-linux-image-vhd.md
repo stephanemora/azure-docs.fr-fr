@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services - Guide pratique pour apporter une image Linux personnalisée depuis votre environnement de labo physique
+title: Guide pratique pour apporter une image personnalisée Linux à partir de votre environnement lab physique
 description: Explique comment apporter une image Linux personnalisée depuis votre environnement de labo physique.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 9a8591d383ac5230085bc83d1d791e9de830a99e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6f044c062b770c6653a1e239ca7c1074ed969b9c
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771362"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180891"
 ---
 # <a name="bring-a-linux-custom-image-from-your-physical-lab-environment"></a>Apporter une image personnalisée Linux depuis votre environnement de labo physique
 
@@ -26,11 +26,11 @@ Dans le cadre d’un déplacement d’images d’un environnement lab physique v
 
 ## <a name="prepare-a-custom-image-by-using-hyper-v-manager"></a>Préparer une image personnalisée avec le Gestionnaire Hyper-V
 
-Les étapes suivantes montrent comment créer une image Ubuntu 16.04\18.04\20.04 à partir d’une machine virtuelle Hyper-V à l’aide du Gestionnaire Windows Hyper-V.
+Les étapes suivantes montrent comment créer une image Ubuntu 18.04\20.04 à partir d’une machine virtuelle Hyper-V en utilisant le Gestionnaire Windows Hyper-V.
 
 1. Téléchargez sur votre ordinateur hôte Windows l’image officielle de [Linux Ubuntu Server](https://ubuntu.com/server/docs) que vous utiliserez pour configurer l’image personnalisée sur une machine virtuelle Hyper-V.
 
-   Nous vous recommandons d’utiliser une image Ubuntu sur laquelle le bureau de l’interface graphique utilisateur [GNOME](https://www.gnome.org/) n’est *pas* installé. GNOME est en conflit avec l’agent Linux Azure qui est nécessaire au bon fonctionnement de l’image dans Lab Services. Par exemple, utilisez l’image Ubuntu Server et installez un autre bureau d’interface graphique utilisateur, tel que XFCE ou MATE.
+   Si vous utilisez Ubuntu 18.04 LTS, nous vous recommandons d’utiliser une image sur laquelle le bureau graphique [GNOME](https://www.gnome.org/) ou [MATE](https://mate-desktop.org/) *n’est pas installé*. GNOME et MATE sont actuellement en conflit réseau avec l’agent Linux Azure, celui-ci étant nécessaire au bon fonctionnement de l’image dans Azure Lab Services. Utilisez à la place une image Ubuntu Server et installez un autre bureau graphique, par exemple [XFCE](https://www.xfce.org/).  Une autre option consiste à installer [GNOME\MATE](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md) avec le modèle de machine virtuelle d’un lab.
 
    Ubuntu publie également des [disques durs virtuels Azure prédéfinis téléchargeables](https://cloud-images.ubuntu.com/). Ces disques durs virtuels sont destinés à la création d’images personnalisées à partir d’un ordinateur hôte Linux et d’un hyperviseur tel que KVM. Pour ces disques durs virtuels, vous devez d’abord définir le mot de passe utilisateur par défaut, opération qui ne peut être effectuée qu’avec des outils Linux, tels que qemu, qui ne sont pas disponibles pour Windows. Ainsi, quand vous créez une image personnalisée avec Windows Hyper-V, vous ne pouvez pas vous connecter à ces disques durs virtuels pour personnaliser l’image. Pour plus d’informations sur les disques durs virtuels Azure prédéfinis, consultez la [documentation d’Ubuntu](https://help.ubuntu.com/community/UEC/Images?_ga=2.114783623.1858181609.1624392241-1226151842.1623682781#QEMU_invocation).
 
@@ -54,7 +54,9 @@ Les étapes suivantes montrent comment créer une image Ubuntu 16.04\18.04\20.0
     - La dernière étape consiste à convertir le fichier **VHDX** en un fichier **VHD**. Voici les étapes équivalentes qui montrent comment effectuer cette opération avec le **Gestionnaire Hyper-V** :
 
         1. Accédez à **Gestionnaire Hyper-V** > **Action** > **Modifier le disque**.
-        1. Ensuite, choisissez de **Convertir** le disque d’un fichier VHDX en disque dur virtuel.
+        1. Localisez le disque VHDX à convertir.
+        1. Ensuite, choisissez **Convertir** pour convertir le disque.
+        1. Sélectionnez l’option de conversion au **format de disque dur virtuel**.
         1. Pour le **Type de disque**, sélectionnez **Taille fixe**.
             - Si vous choisissez aussi d’augmenter la taille du disque à ce stade, veillez à ne *pas* dépasser 128 Go.
             :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Capture de l’écran Choisir une action.":::
@@ -67,13 +69,14 @@ Pour vous aider à redimensionner le disque dur virtuel et à le convertir en un
 ## <a name="upload-the-custom-image-to-a-shared-image-gallery"></a>Chargez l’image personnalisée sur une galerie d’images partagées
 
 1. Chargez le disque dur virtuel sur Azure pour créer un disque managé.
-    1. Vous pouvez utiliser l’Explorateur Stockage ou AzCopy à partir de la ligne de commande, comme démontré dans l’article [Charger un disque dur virtuel sur Azure ou copier un disque managé dans une autre région](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
+    1. Vous pouvez utiliser l’Explorateur Stockage Azure ou AzCopy à partir de la ligne de commande, comme démontré dans l’article [Charger un disque dur virtuel sur Azure ou copier un disque managé dans une autre région](../virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
+
+        > [!WARNING]
+        > Si votre ordinateur se met en veille ou se verrouille, le processus de chargement peut s’interrompre et échouer. Assurez-vous aussi que quand AzCopy se termine, vous révoquez l’accès SAS au disque. Dans le cas contraire, quand vous tentez de créer une image à partir du disque, vous obtenez une erreur : L’opération « Créer l’image » n’est pas prise en charge avec le disque « nom de votre disque » dans l’état « Chargement actif ». Code d’erreur : OperationNotAllowed*. »
 
     1. Après avoir chargé le disque dur virtuel, vous devriez désormais disposer d’un disque managé visible dans le portail Azure.
 
-    Si votre ordinateur se met en veille ou se verrouille, le processus de chargement peut s’interrompre et échouer. Assurez-vous aussi que quand AzCopy se termine, vous révoquez l’accès SAS au disque. Dans le cas contraire, quand vous tentez de créer une image à partir du disque, vous obtenez une erreur : L’opération « Créer l’image » n’est pas prise en charge avec le disque « nom de votre disque » dans l’état « Chargement actif ». Code d’erreur : OperationNotAllowed*. »
-
-    Utilisez l’onglet **Taille+Performances** du portail Azure pour le disque managé pour modifier la taille de votre disque. Comme mentionné précédemment, la taille *ne doit pas* être supérieure à 128 Go.
+        Vous pouvez utiliser l’onglet **Taille+Performances** du portail Azure pour le disque managé afin de modifier la taille de votre disque. Comme mentionné précédemment, la taille *ne doit pas* être supérieure à 128 Go.
 
 1. Dans une galerie d’images partagées, créez une définition et une version d’image :
     1. [Créez une définition d’image](../virtual-machines/image-version.md) :
@@ -81,16 +84,16 @@ Pour vous aider à redimensionner le disque dur virtuel et à le convertir en un
         - Choisissez **Linux** comme **Système d’exploitation**.
         - Choisissez **Généralisé** comme **État du système d’exploitation**.
 
-    Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](../virtual-machines/shared-image-galleries.md#image-definitions).
+        Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](../virtual-machines/shared-image-galleries.md#image-definitions).
 
-    Vous pouvez également choisir d’utiliser une définition d’image existante, et créer une nouvelle version de votre image personnalisée.
+        Vous pouvez également choisir d’utiliser une définition d’image existante, et créer une nouvelle version de votre image personnalisée.
 
-1. [Créez une version d’image](../virtual-machines/image-version.md) :
-    - La propriété **Numéro de version** utilise le format suivant : *VersionMajeure.VersionMineure.Patch*. Lorsque vous utilisez Lab Services pour créer un labo et choisir une image personnalisée, la version la plus récente de l’image est automatiquement utilisée. La version la plus récente est choisie en fonction de la valeur la plus élevée de MajorVersion, de MinorVersion, puis de Patch.
-    - Pour la **Source**, sélectionnez **Disques et/ou captures instantanées** à partir de la liste déroulante.
-    - Pour la propriété **Disque de système d’exploitation**, choisissez le disque que vous avez créé lors des étapes précédentes.
+    1. [Créez une version d’image](../virtual-machines/image-version.md) :
+        - La propriété **Numéro de version** utilise le format suivant : *VersionMajeure.VersionMineure.Patch*. Lorsque vous utilisez Lab Services pour créer un labo et choisir une image personnalisée, la version la plus récente de l’image est automatiquement utilisée. La version la plus récente est choisie en fonction de la valeur la plus élevée de MajorVersion, de MinorVersion, puis de Patch.
+        - Pour la **Source**, sélectionnez **Disques et/ou captures instantanées** à partir de la liste déroulante.
+        - Pour la propriété **Disque de système d’exploitation**, choisissez le disque que vous avez créé lors des étapes précédentes.
 
-    Pour plus d’informations sur les valeurs que vous pouvez spécifier dans une définition d’image, consultez [Versions d’image](../virtual-machines/shared-image-galleries.md#image-versions).
+        Pour plus d’informations sur les valeurs que vous pouvez spécifier dans une version d’image, consultez [Versions d’image](../virtual-machines/shared-image-galleries.md#image-versions).
 
 ## <a name="create-a-lab"></a>Création d’un laboratoire
 

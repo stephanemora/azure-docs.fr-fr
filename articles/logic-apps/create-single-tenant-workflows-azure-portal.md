@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/25/2021
-ms.openlocfilehash: 33a40f118daf90ccc97ea6c14b87c5aa7c79b6c9
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 10/05/2021
+ms.openlocfilehash: 5be8a3cfa8681bced90ba6fc74ebc69baa2f7962
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708804"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065670"
 ---
 # <a name="create-an-integration-workflow-with-single-tenant-azure-logic-apps-standard-in-the-azure-portal"></a>Créer un workflow d’intégration avec Azure Logic Apps monolocataire (Standard) dans le Portail Azure
 
@@ -55,6 +55,8 @@ Bien que cet exemple de flux de travail soit basé sur le cloud et ne comporte q
 
 * Si vous créez vos ressources d’application logique avec des paramètres qui prennent en charge l’utilisation d’[Application Insights](../azure-monitor/app/app-insights-overview.md), vous pouvez choisir d’activer la journalisation et le suivi des diagnostics pour votre application logique. Vous pouvez le faire lorsque vous créez votre application logique ou après le déploiement. Vous devez disposer d’une instance d’Application Insights, mais vous pouvez créer cette ressource [à l’avance](../azure-monitor/app/create-workspace-resource.md), lorsque vous créez votre application logique, ou après le déploiement.
 
+* Pour déployer votre ressource **Logic App (Standard)** sur un [environnement ASEv3 (App Service Environment v3)](../app-service/environment/overview.md), vous devez d’abord créer cette ressource d’environnement. Vous pouvez ensuite sélectionner cet environnement comme emplacement de déploiement quand vous créez votre ressource d’application logique. Pour plus d’informations, consultez [Types de ressources et environnements](single-tenant-overview-compare.md#resource-environment-differences) et [Créer un environnement App Service Environment](../app-service/environment/creation.md).
+
 <a name="create-logic-app-resource"></a>
 
 ## <a name="create-the-logic-app-resource"></a>Créer la ressource d’application logique
@@ -75,8 +77,8 @@ Bien que cet exemple de flux de travail soit basé sur le cloud et ne comporte q
    | **Groupe de ressources** | Oui | <*nom-groupe-de-ressources-Azure*> | Groupe de ressources Azure dans lequel vous créez votre application logique et les ressources associées. Ce nom de ressource doit être unique d’une région à l’autre et peut uniquement contenir des lettres, des chiffres, des traits d’union ( **-** ), des traits de soulignement ( **_** ), des parenthèses [ **()** ] et des points ( **.** ). <p><p>Cet exemple crée un groupe de ressources nommé `Fabrikam-Workflows-RG`. |
    | **Type** | Oui | **Standard** | Ce type de ressource d’application logique s’exécute dans l’environnement Azure Logic Apps monolocataire et utilise le [modèle d’utilisation, de facturation et de tarification Standard](logic-apps-pricing.md#standard-pricing). |
    | **Nom de l’application logique** | Oui | <*logic-app-name*> | Nom à utiliser pour votre application logique. Ce nom de ressource doit être unique d’une région à l’autre et peut uniquement contenir des lettres, des chiffres, des traits d’union ( **-** ), des traits de soulignement ( **_** ), des parenthèses [ **()** ] et des points ( **.** ). <p><p>Cet exemple crée une application logique nommée `Fabrikam-Workflows`. <p><p>**Remarque** : le nom de votre application logique reçoit automatiquement le suffixe `.azurewebsites.net`, car la ressource **Application logique (standard)** est alimentée par Azure Functions, qui utilise la même convention d’affectation de noms d’application. |
-   | **Publier** | Oui | <*deployment-environment*> | Destination de déploiement pour votre application logique. Par défaut, le **flux de travail** est sélectionné pour le déploiement sur un seul locataire Azure Logic Apps. Azure crée une ressource d’application logique vide dans laquelle vous devez ajouter votre premier flux de travail. <p><p>**Remarque** : Actuellement, l’option **Conteneur Docker** nécessite un [*emplacement personnalisé*](../azure-arc/kubernetes/conceptual-custom-locations.md) sur un cluster Kubernetes avec Azure Arc, que vous pouvez utiliser sur [Logic Apps avec Azure Arc (préversion)](azure-arc-enabled-logic-apps-overview.md). Les emplacements de ressources doivent tous être identiques pour votre application logique, votre emplacement personnalisé et votre cluster. |
-   | **Région** | Oui | <*Azure-region*> | L’emplacement à utiliser pour la création de votre groupe de ressources et de vos ressources. Si vous avez sélectionné **conteneur Docker**, sélectionnez votre emplacement personnalisé. <p><p>Cet exemple déploie l’exemple d’application logique sur Azure et utilise **USA Ouest**. |
+   | **Publier** | Oui | <*deployment-environment*> | Destination de déploiement pour votre application logique. Par défaut, le **flux de travail** est sélectionné pour le déploiement sur un seul locataire Azure Logic Apps. Azure crée une ressource d’application logique vide dans laquelle vous devez ajouter votre premier flux de travail. <p><p>**Remarque** : actuellement, l’option de **conteneur Docker** requiert un [*emplacement personnalisé*](../azure-arc/kubernetes/conceptual-custom-locations.md) sur un cluster Kubernetes avec Azure Arc, que vous pouvez utiliser sur [Azure Arc avec Logic Apps (préversion)](azure-arc-enabled-logic-apps-overview.md). Les emplacements de ressources doivent tous être identiques pour votre application logique, votre emplacement personnalisé et votre cluster. |
+   | **Région** | Oui | <*Azure-region*> | L’emplacement à utiliser pour la création de votre groupe de ressources et de vos ressources. Cet exemple déploie l’exemple d’application logique sur Azure et utilise **USA Ouest**. <p>– Si vous avez sélectionné **Conteneur Docker**, sélectionnez votre emplacement personnalisé. <p>– Pour déployer sur une ressource [ASEv3](../app-service/environment/overview.md), qui doit d’abord exister, sélectionnez cette ressource d’environnement dans la liste **Région**. |
    |||||
 
    L’exemple suivant illustre la page **créer une application logique (standard)** :

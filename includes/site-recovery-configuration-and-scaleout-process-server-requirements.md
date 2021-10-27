@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: a39b49c8a75f8ffbf99b3d92917c8e5e3e0cae55
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: f345ab52b2f663116602d2a3c782ad050ea4c207
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129585225"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019030"
 ---
 **Exigences des serveur de configuration et de traitement**
 
@@ -74,6 +74,9 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 VMware vSphere PowerCLI | Non nécessaire pour les versions 9.14 et ultérieures
 MYSQL | MySQL doit être installé. Vous pouvez l’installer manuellement ou laisser Site Recovery le faire. (Reportez-vous à la [configuration des paramètres](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) pour plus d’informations)
 |
+
+> [!NOTE]
+> La mise à niveau de MySql sur le serveur de configuration n’est pas prise en charge.
 
 ## <a name="sizing-and-capacity-requirements"></a>Besoins en capacité et dimensionnement
 

@@ -1,6 +1,6 @@
 ---
-title: Comment configurer les propriétés de votre offre de service de conseil dans Espace partenaires Microsoft
-description: Découvrez comment configurer les propriétés de votre offre de service de conseil sur le marketplace commercial de Microsoft à l’aide d’Espace partenaires.
+title: Configurer les propriétés d’une offre de service de conseil pour le marketplace commercial
+description: Configurez les propriétés d’une offre de service de conseil dans le marketplace commercial à l’aide d’Espace partenaires.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: a77414e794073771f7bf5fe9346e4196b6b4b836
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 60f4d1d8e86eed6a3dab390ebf8e46296f4644d2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715770"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040186"
 ---
-# <a name="how-to-configure-your-consulting-service-offer-properties"></a>Comment configurer les propriétés de votre offre de service de conseil
+# <a name="configure-consulting-service-offer-properties"></a>Configurer les propriétés d’une offre de service de conseil
 
-Cet article explique comment configurer les propriétés de votre offre de service de conseil dans le marketplace commercial de Microsoft.
+Cet article explique comment configurer les propriétés d’une offre de service de conseil dans le marketplace commercial de Microsoft.
 
 Sous l’onglet **Propriétés** de votre offre dans Espace partenaires, vous définirez le produit principal au cœur de votre service de conseil, le type de service et les secteurs d’activité applicables. Vous indiquerez également les compétences Microsoft que vous avez obtenues. Les informations contenues dans cet onglet garantissent que votre service de conseil est correctement affiché sur le marché commercial et proposé au bon groupe de clients.
 

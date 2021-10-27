@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: b6b8f300fe4e9f89e58afca14d39ac938b08b644
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e2a76e251f1013c6f67c205d1e3f7f170d9b9b30
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128673176"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138291"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau
 
@@ -221,7 +221,7 @@ ssh azureuser@137.117.58.232
 
 Pour effectuer un envoi vers ou depuis une interface réseau secondaire, vous devez ajouter manuellement des itinéraires persistants au système d’exploitation pour chaque interface réseau secondaire. Dans cet article, *eth1* représente l’interface secondaire. Les instructions pour l’ajout d’itinéraires persistants au système d’exploitation varient selon la distribution. Consultez la documentation de votre distribution pour obtenir des instructions.
 
-Lors de l’ajout de l’itinéraire au système d’exploitation, l’adresse de la passerelle est *.1* pour tout sous-réseau dans lequel se trouve l’interface réseau. Par exemple, si l’adresse *10.0.2.4* est affectée à l’interface réseau, la passerelle que vous spécifiez pour l’itinéraire est *10.0.2.1*. Vous pouvez définir un réseau spécifique pour la destination de l’itinéraire ou spécifier la destination *0.0.0.0* si vous voulez que tout le trafic pour l’interface passe par la passerelle spécifiée. La passerelle pour chaque sous-réseau est gérée par le réseau virtuel.
+Lors de l’ajout de l’itinéraire au système d’exploitation, l’adresse de la passerelle est la première adresse du sous-réseau dans lequel se trouve l’interface réseau. Par exemple, si la plage *10.0.2.0/24* est attribuée au sous-réseau, la passerelle que vous spécifiez pour l’itinéraire est *10.0.2.1*. De même, si la plage *10.0.2.128/25* a été attribuée au sous-réseau, la passerelle que vous spécifiez pour l’itinéraire est *10.0.2.129*. Vous pouvez définir un réseau spécifique pour la destination de l’itinéraire ou spécifier la destination *0.0.0.0* si vous voulez que tout le trafic pour l’interface passe par la passerelle spécifiée. La passerelle pour chaque sous-réseau est gérée par le réseau virtuel.
 
 Une fois que vous avez ajouté l’itinéraire pour une interface secondaire, vérifiez que l’itinéraire est dans votre table de routage avec `route -n`. L’exemple de sortie suivant concerne la table de routage qui contient les deux interfaces réseau ajoutées à la machine virtuelle dans cet article :
 
