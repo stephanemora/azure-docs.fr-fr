@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 06/14/2021
 ms.author: surmb
-ms.openlocfilehash: f838b1821e38e6046014f5cd8233694db7f2ef87
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 841583de276e4657384854f8430bbb82d75517d3
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729840"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045916"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuration de l’infrastructure Application Gateway
 
@@ -62,9 +62,10 @@ Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-résea
 
 1. Autorisez le trafic entrant à partir d’une adresse IP source ou d’une plage d’adresses IP avec la destination comme plage d’adresses de sous-réseau Application Gateway et le port de destination comme votre port d’accès entrant, par exemple, le port 80 pour l’accès HTTP.
 2. Autorisez les demandes entrantes à partir de la source comme balise de service **GatewayManager** et la destination **Any** et les ports de destination 65503-65534 pour la référence SKU Application Gateway v1, et les ports 65200-65535 pour la référence SKU v2 pour les [communications de l’état d’intégrité du back-end](./application-gateway-diagnostics.md). Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés en place, les entités externes ne peuvent pas lancer des modifications sur ces points de terminaison.
-3. Autorisez les sondes Azure Load Balancer entrantes (balise *AzureLoadBalancer*) et le trafic de réseau virtuel entrant (balise *VirtualNetwork*) sur le [Groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md).
-4. Bloquez tout autre trafic entrant avec une règle Tout refuser.
-5. Autoriser le trafic sortant vers internet pour toutes les destinations.
+3. Autorisez les sondes Azure Load Balancer entrantes (balise *AzureLoadBalancer*) sur le [groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md).
+4. Autorisez le trafic entrant du réseau virtuel (balise *VirtualNetwork*) sur le [groupe de sécurité réseau](../virtual-network/network-security-groups-overview.md).
+5. Bloquez tout autre trafic entrant avec une règle Tout refuser.
+6. Autoriser le trafic sortant vers internet pour toutes les destinations.
 
 ## <a name="supported-user-defined-routes"></a>Itinéraires définis par l’utilisateur pris en charge 
 

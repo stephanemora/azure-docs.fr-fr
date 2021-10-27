@@ -4,12 +4,12 @@ description: Écrivez des processeurs de télémétrie et des initialiseurs de t
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5fe23d6cae1b363cdb0c70cba561953368412361
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 293de0f963829516e3fdb119e3bcbf592f9ad113
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128645129"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063409"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
@@ -512,6 +512,9 @@ Quelle est la différence entre les processeurs de télémétrie et les initiali
 * Les initialiseurs de télémétrie permettent de remplacer ou supprimer complètement un élément de télémétrie.
 * Tous les initialiseurs de télémétrie enregistrés sont assurés d’être appelés pour chaque élément de télémétrie. En ce qui concerne les processeurs de télémétrie, le kit de développement logiciel (SDK) garantit l’appel du premier processeur de télémétrie. L'appel des autres processeurs dépend des processeurs de télémétrie précédents.
 * Utilisez les initialiseurs de télémétrie = pour enrichir la télémétrie avec des propriétés supplémentaires ou remplacer une télémétrie existante. Utilisez les initialiseurs de télémétrie = pour filtrer la télémétrie.
+
+> [!NOTE]
+> JavaScript n’a que des initialiseurs de télémétrie qui peuvent [filtrer les événements à l’aide de ITelemetryInitializer](#javascript-web-applications)
 
 ## <a name="troubleshoot-applicationinsightsconfig"></a>Résolution des problèmes liés à ApplicationInsights.config
 

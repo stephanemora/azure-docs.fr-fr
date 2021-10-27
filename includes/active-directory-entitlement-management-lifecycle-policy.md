@@ -1,5 +1,5 @@
 ---
-title: Fichier include
+title: Fichier Include
 description: Fichier Include
 services: active-directory
 author: msaburnley
@@ -8,22 +8,24 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: db13884e3deed8e990d21d82e215a1e837371275
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f078710392f895dc672c9562ac3a7b03f4623e1e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98052825"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019225"
 ---
 ## <a name="lifecycle"></a>Cycle de vie
 
 Dans l’onglet **Cycle de vie**, vous spécifiez l’expiration de l’attribution du package d’accès à un utilisateur. Vous pouvez également spécifier si les utilisateurs peuvent étendre leurs attributions.
 
-1. Dans la section **Expiration**, définissez **L’affectation de package d’accès expire** sur **Date**, **Nombre de jours** ou **Jamais**.
+1. Dans la section **Expiration**, définissez **L’affectation de package d’accès expire** sur **Date**, **Nombre de jours**, **Nombre d’heures** ou **Jamais**.
 
     Pour **Date**, sélectionnez une date d’expiration.
 
     Pour **Nombre de jours**, spécifiez un nombre de jours compris entre 0 et 3 660.
+
+    Dans **Nombre d’heures**, indiquez un nombre d’heures.
 
     Selon votre sélection, l’attribution du package d’accès à un utilisateur expire à une date définie, un nombre de jours définis après approbation ou n’expire jamais.
 

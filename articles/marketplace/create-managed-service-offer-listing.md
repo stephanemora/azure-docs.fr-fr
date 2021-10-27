@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.openlocfilehash: 1b2171c300fd52403da29d23f9f34d3f94961b3d
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: c8b18179af70788d7dea385224b02d7dddeb5ad6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114204496"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072990"
 ---
 # <a name="configure-managed-service-offer-listing-details"></a>Configurer les détails du référencement de l’offre Service managé
 
@@ -56,13 +56,13 @@ Si vous avez des sites web de support pour les clients Azure Global et/ou les cl
 
 Sous **Logos**, chargez un **Grand** logo au format .PNG d’une taille comprise entre 216 x 216 et 350 x 350 pixels. L’Espace partenaires crée automatiquement un **moyen** et un **petit** logos, que vous pourrez remplacer ultérieurement.
 
-- Le grand logo (d’une taille comprise entre 216 x 216 et 350 x 350 pixels) apparaît dans le référencement de votre offre dans la Place de marché Azure.
-- Le logo moyen (90 x 90 pixels) s’affiche lors de la création d’une ressource.
-- Le petit logo (48 x 48 pixels) s’affiche dans les résultats de la recherche de la Place de marché Azure.
+- Le grand logo (taille comprise entre 216 x 216 et 350 x 350 px) apparaît dans le référencement de votre offre dans la Place de marché Azure.
+- Le logo moyen (90 x 90 px) apparaît quand une ressource est créée.
+- Le petit logo (48 x 48 px) est utilisé dans les résultats de la recherche de la Place de marché Azure.
 
 ### <a name="add-screenshots-optional"></a>Captures d’écran (facultatif)
 
-Ajoutez jusqu’à cinq images qui illustrent votre offre. Chacune image doit avoir une taille de 1280 x 720 pixels et être au format .PNG.
+Ajoutez jusqu’à cinq images qui illustrent votre offre. Chacune des images doit avoir une taille de 1280 x 720 pixels et être au format .PNG.
 
 1. Sous **Captures d’écran**, glissez-déposez votre fichier PNG dans la zone **Capture d’écran**.
 2. Sélectionnez **Ajouter une légende d’image**.

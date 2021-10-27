@@ -6,12 +6,12 @@ author: nickomang
 ms.topic: article
 ms.date: 09/09/2021
 ms.author: nickoman
-ms.openlocfilehash: 19a1392756596a1cbfe7000ebd9c7013c053c153
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 43ee8a41ad6c487f5998760396b05a3ec56206d7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129856920"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004746"
 ---
 # <a name="http-proxy-support-in-azure-kubernetes-service-preview"></a>Prise en charge du proxy HTTP dans Azure Kubernetes Service (préversion)
 
@@ -79,10 +79,29 @@ Le schéma du fichier config est du type suivant :
 }
 ```
 
-Créez un fichier et fournissez des valeurs pour *httpProxy*, *HttpsProxy* et *NoProxy*. Si votre environnement l’exige, fournissez également une valeur *trustedCa*. Ensuite, déployez un cluster, en passant votre nom de fichier au moyen de l’indicateur `proxy-configuration-file`.
+`httpProxy` : URL de proxy à utiliser pour créer des connexions HTTP à l’extérieur du cluster. Le schéma d’URL doit être `http`.
+`httpsProxy` : URL de proxy à utiliser pour créer des connexions HTTPS à l’extérieur du cluster. Si la valeur n’est pas spécifiée, `httpProxy` est utilisé à la fois pour les connexions HTTP et HTTPS.
+`noProxy` : liste des noms de domaine de destination, domaines, adresses IP ou autres CIDR de réseau pour exclure le proxy.
+`trustedCa` : chaîne avec le contenu de certificat d’autorité de certification de remplacement `base64 encoded`. Pour le moment, nous prenons uniquement en charge le format `PEM`. Il est également important de noter que dans un souci de compatibilité avec les composants basés sur Go qui font partie du système k8s, le certificat DOIT prendre en charge `Subject Alternative Names(SANs)` à la place des certificats de noms communs déconseillés.
+
+Exemple d’entrée : notez que le certificat de l’autorité de certification doit être la chaîne encodée en base64 du contenu du certificat au format PEM.
+
+```json
+"httpProxyConfig": { 
+     "httpProxy": "http://myproxy.server.com:8080/", 
+     "httpsProxy": "https://myproxy.server.com:8080/", 
+     "noProxy": [
+         "localhost",
+         "127.0.0.1"
+     ],
+     "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
+}
+```
+
+Créez un fichier et fournissez des valeurs pour *httpProxy*, *HttpsProxy* et *NoProxy*. Si votre environnement l’exige, fournissez également une valeur *trustedCa*. Ensuite, déployez un cluster, en passant votre nom de fichier au moyen de l’indicateur `http-proxy-config`.
 
 ```azurecli
-az aks create -n $clusterName -g $resourceGroup --proxy-configuration-file aks-proxy-config.json
+az aks create -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config.json
 ```
 
 Votre cluster s’initialise avec le proxy HTTP configuré sur les nœuds.
@@ -114,7 +133,7 @@ Les valeurs de *httpProxy*, *HttpsProxy* et *NoProxy* ne peuvent pas être chang
 Par exemple, en supposant qu’un fichier *aks-proxy-config-2.json* a été créé avec la chaîne encodée en base64 du nouveau certificat d’autorité de certification, l’action suivante met à jour le cluster :
 
 ```azurecli
-az aks update -n $clusterName -g $resourceGroup --proxy-configuration-file aks-proxy-config-2.json
+az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config-2.json
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

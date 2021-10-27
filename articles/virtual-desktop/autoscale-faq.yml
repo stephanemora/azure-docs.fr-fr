@@ -1,0 +1,35 @@
+### YamlMime:FAQ
+metadata:
+  title: Questions fréquentes (FAQ) sur la mise à l’échelle automatique d’Azure Virtual Desktop (préversion) – Azure
+  description: Questions fréquentes et meilleures pratiques concernant Azure Virtual Desktop.
+  author: Heidilohr
+  ms.topic: conceptual
+  ms.date: 10/19/2021
+  ms.author: helohr
+  ms.custom: devx-track-azurepowershell
+  manager: femila
+  ms.openlocfilehash: 7024b24b27e8a33cd79c3ad199dcd9e4040588d5
+  ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 10/19/2021
+  ms.locfileid: "130181762"
+title: Questions fréquentes (FAQ) sur la mise à l’échelle automatique d’Azure Virtual Desktop (préversion)
+summary: Cet article répond aux questions fréquentes sur l’utilisation de la fonctionnalité de mise à l’échelle automatique (en préversion) pour Azure Virtual Desktop.
+sections:
+- name: Ignoré
+  questions:
+  - question: >
+      Comment puis-je configurer la mise à l’échelle automatique de sorte à ne pas exécuter d’hôtes de session en dehors des heures de travail ?
+    answer: "Le mode ralentissement utilise toujours le plus petit nombre possible d’hôtes de session. Toutefois, s’il existe des sessions actives, le plus petit nombre d’hôtes de session utilisables ne sera pas égal à zéro. Configurez une stratégie de limite de temps pour déconnecter tous les utilisateurs déconnectés afin d’éviter d’avoir des hôtes de session utilisables en dehors des heures de travail.\n \n"
+  - question: >
+      La mise à l’échelle automatique crée-t-elle ou supprime-t-elle des machines virtuelles en fonction de la charge du service ?
+    answer: >
+      Non.
+  - question: >
+      Puis-je configurer une mise à l’échelle pour des dates spécifiques comme celles des vacances ?
+    answer: >
+      Non. La mise à l’échelle automatique ne prend actuellement pas en charge un ralentissement à des dates spécifiques.
+  - question: >
+      Suis-je facturé pour l’utilisation de la fonctionnalité de mise à l’échelle automatique ?
+    answer: Non. Pour plus d’informations sur les tarifs, consultez [notre page des tarifs](https://azure.microsoft.com/pricing/details/virtual-desktop/).

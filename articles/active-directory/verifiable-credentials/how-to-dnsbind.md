@@ -3,20 +3,20 @@ title: Lier votre domaine à votre identificateur décentralisé (DID) (prévers
 description: Découvrir la liaison DNS
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: c1254176966a902f81cd42b68db17557288aa241
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: d1a74d0019c931c8d52dccdc14ddd11a5ed7a1f3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466177"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006866"
 ---
-# <a name="link-your-domain-to-your-decentralized-identifier-did"></a>Lier votre domaine à votre identificateur décentralisé (DID)
+# <a name="link-your-domain-to-your-decentralized-identifier-did-preview"></a>Lier votre domaine à votre identificateur décentralisé (DID) (préversion)
 
 > [!IMPORTANT]
 > Les justificatifs vérifiables Azure Active Directory sont actuellement en préversion publique.

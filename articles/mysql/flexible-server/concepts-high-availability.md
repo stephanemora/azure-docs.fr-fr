@@ -6,12 +6,12 @@ ms.author: sunaray
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.openlocfilehash: 95cc91298945c50174f1edec6ca766e3f7df59c8
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 276bcd288f519a5060f859bf6b5a74c0453e7c79
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129153726"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994059"
 ---
 # <a name="high-availability-in-azure-database-for-mysql---flexible-server-preview"></a>Haute disponibilité dans le serveur flexible Azure Database pour MySQL en préversion
 
@@ -120,7 +120,7 @@ Les journaux dans le stockage redondant interzone sont accessibles même lorsque
 **Dois-je effectuer une action après un basculement ?**</br>
 Les basculements sont entièrement transparents à partir de l’application cliente. Aucune action de votre part n’est nécessaire. L’application doit simplement utiliser la logique de nouvelle tentative pour ses connexions. </br>
 **Que se passe-t-il si je ne choisis pas une zone spécifique pour mon réplica de secours ? Puis-je modifier la zone par la suite ?**</br>
-Si vous ne choisissez pas de zone, l’une d’elles sera sélectionnée au hasard. Il ne s’agira pas de celle utilisée pour le serveur principal. Pour modifier la zone ultérieurement, vous pouvez définir **Mode haute disponibilité** sur **Désactivé** dans le volet **Haute disponibilité**, puis le remettre sur **Redondant interzone** et choisir une zone.</br>
+Si vous ne choisissez pas de zone, l’une d’elles sera sélectionnée au hasard. Il ne s’agira pas de celle utilisée pour le serveur principal. Pour modifier la zone ultérieurement, vous pouvez définir **Haute disponibilité** sur **Désactivée** dans le volet **Haute disponibilité**, puis la redéfinir sur **Redondant interzone** et choisir une zone.</br>
 **La réplication entre le serveur principal et le serveur réplica de secours est-elle synchrone ?**</br>
  La réplication entre le réplica primaire et celui de remplacement est similaire au [mode semisynchrone](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html) de MySQL. Lorsqu’une transaction est validée, elle n’est pas nécessairement validée dans le réplica de remplacement. Toutefois, lorsque le serveur principal n’est pas disponible, celui de secours réplique toutes les modifications de données à partir du serveur principal pour s’assurer qu’il n’y a aucune perte de données.</br> 
 **Un basculement est-il opéré vers le réplica de secours dans tous les cas de défaillance non planifiée ?**</br>
@@ -132,7 +132,7 @@ Les événements planifiés, comme la mise à l’échelle du calcul et les mise
 **Puis-je effectuer une restauration à un instant dans le passé (PITR) de mon serveur haute disponibilité ?**</br>
 Vous pouvez effectuer une [PITR](./concepts-backup-restore.md#point-in-time-restore) d’un serveur flexible Azure Database pour MySQL pour lequel la haute disponibilité est activée vers un nouveau serveur flexible Azure Database pour MySQL pour lequel la haute disponibilité est désactivée. Si le serveur source a été créé avec une haute disponibilité redondante interzone, vous pouvez par la suite activer la haute disponibilité redondante interzone ou la haute disponibilité dans la même zone sur le serveur restauré. Si le serveur source a été créé avec une haute disponibilité dans la même zone, vous pouvez uniquement activer la haute disponibilité dans la même zone sur le serveur restauré.</br>
 **Puis-je activer la haute disponibilité sur un serveur après avoir créé le serveur ?**</br>
-Vous pouvez activer la haute disponibilité dans la même zone après avoir créé le serveur. La haute disponibilité redondante interzone doit être activée lors de la création du serveur.</br> 
+La haute disponibilité redondante interzone doit être activée lors de la création du serveur. Vous pouvez activer la haute disponibilité dans la même zone après avoir créé le serveur. Avant d’activer la haute disponibilité dans la même zone, assurez-vous que les paramètres de serveur « enforce_gtid_consistency » et [« gtid_mode »](./concepts-read-replicas.md#global-transaction-identifier-gtid) sont activés.</br> 
 **Puis-je désactiver la haute disponibilité pour un serveur après sa création ?** </br>
 Vous pouvez désactiver la haute disponibilité sur un serveur une fois que vous l’avez créé. La facturation s’arrête immédiatement.  </br>
 **Comment puis-je réduire le temps d’arrêt ?**</br>
@@ -150,6 +150,8 @@ La réplication des données entrantes n’est pas prise en charge pour les serv
 **Puis-je basculer vers un serveur de secours pour réduire le temps d’arrêt pendant le redémarrage du serveur ou une mise à l’échelle ?** </br>
 Actuellement, lorsque vous effectuez une opération de scale-up ou scale-down, le serveur de secours et le serveur primaire sont mis à l’échelle en même temps. Le basculement n’est donc pas utile. L’activation du scale-up sur le serveur de secours en premier, suivi du basculement et du scale-up du serveur primaire figure sur notre feuille de route, mais n’est pas encore prise en charge.</br>
 
+**Peut-on modifier le mode de disponibilité (HA redondante interzone/dans la même zone) du serveur ?** </br>
+Si vous créez le serveur avec le mode Haute disponibilité redondante interzone activé, vous pouvez passer de Haute disponibilité redondante interzone à la haute disponibilité dans la même zone et vice versa. Pour modifier le mode de disponibilité ultérieurement, vous pouvez définir **Haute disponibilité** sur **Désactivée** dans le volet **Haute disponibilité**, puis la redéfinir sur **Redondant interzone ou dans la même zone** et choisir **Mode Haute disponibilité**.</br>  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

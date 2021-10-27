@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac53f16e80904216a4e19b03772dcd2820882f94
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 618283c64268f279b0a63ffb35779ea6e8ef55d0
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657889"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043545"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory"></a>Activer la connexion par clé de sécurité sans mot de passe à des ressources locales avec Azure Active Directory 
 
@@ -223,6 +223,11 @@ Assurez-vous qu’un nombre suffisant de contrôleurs de domaine sont corrigés 
 
 > [!NOTE]
 > Le commutateur `/keylist` dans la commande `nltest` est disponible dans le client Windows 10 v2004 et versions ultérieures.
+
+
+### <a name="is-fido2-security-keys-works-on-windows-login-with-rodc-present-in-the-hybrid-enviornment"></a>Les clés de sécurité FIDO2 fonctionnent-elles sur les connexions Windows lorsqu’un contrôleur de domaine en lecture seule est présent dans l’environnement hybride ?
+
+La connexion Windows par FIDO2 recherche un contrôleur de domaine accessible en écriture pour échanger le TGT de l’utilisateur. Tant que vous avez au moins un contrôleur de domaine accessible en écriture par site, cela fonctionne correctement. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

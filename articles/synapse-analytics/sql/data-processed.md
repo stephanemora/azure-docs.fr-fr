@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1e87198d66e94204b0465919e7a94e0d04f9c885
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: b1439eb4b2f1f014608c2fe411176d14177c4487
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128844"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137301"
 ---
 # <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Gestion des coûts d’un pool SQL serverless dans Azure Synapse Analytics
 
@@ -139,6 +139,14 @@ Pour voir quelle quantité de données a été traitée au cours de la journée,
 ```sql
 SELECT * FROM sys.dm_external_data_processed
 ```
+
+## <a name="exceeding-the-limits-defined-in-the-cost-control"></a>Dépassement des limites définies dans le contrôle des coûts
+
+Dans le cas où une limite est dépassée pendant l’exécution de la requête, la requête ne se termine pas.  
+
+Quand la limite est dépassée, la nouvelle requête est rejetée avec le message d’erreur qui contient les détails relatifs à la période et à la limite définie pour cette période, ainsi que les données traitées pour cette période. Le message d’erreur est le suivant par exemple en cas d’exécution d’une nouvelle requête, quand la limite hebdomadaire est définie sur 1 To et qu’elle a été dépassée : 
+
+```Query is rejected because SQL Serverless budget limit for a period is exceeded. (Period = Weekly: Limit = 1 TB, Data processed = 1 TB))```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

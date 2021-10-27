@@ -3,12 +3,12 @@ title: Créer une liaison privée pour la gestion des ressources - Portail Azure
 description: Utilisez le portail Azure pour créer une liaison privée pour la gestion des ressources.
 ms.topic: conceptual
 ms.date: 07/29/2021
-ms.openlocfilehash: efe1fdb47bf550b996f4f44eed9f2d41f2a1083d
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 4d829dbc75aa384e57f706f3e689e8b36365a9c1
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123227380"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137763"
 ---
 # <a name="use-portal-to-create-private-link-for-managing-azure-resources"></a>Utiliser le portail pour créer une liaison privée pour la gestion des ressources Azure
 
@@ -38,7 +38,7 @@ Lorsque vous créez une liaison privée de gestion des ressources, vous créez a
 
 Créez maintenant un point de terminaison privé qui fait référence à la liaison privée de gestion des ressources.
 
-1. Accédez au **Centre Private Link**. Sélectionnez **Créer une liaison privée**.
+1. Accédez au **Centre Private Link**. Sélectionnez **Créer un point de terminaison privé**.
 
    :::image type="content" source="./media/create-private-link-access-portal/private-link-center.png" alt-text="Sélectionner Centre Private Link":::
 

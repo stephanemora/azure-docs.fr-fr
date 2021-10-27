@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766228eb291776c0ba4162f78238d6336d9194ae
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 456260a09a4355ad1bcae843f2a1cc390fb17d91
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525061"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070486"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -26,8 +26,8 @@ Lorsque vous ajoutez un utilisateur invité à votre annuaire, le compte d’uti
    > [!IMPORTANT]
    >
    > - **À partir du 12 juillet 2021**, si les clients Azure AD B2B configurent de nouvelles intégrations Google pour une utilisation avec l’inscription en libre-service pour leurs applications métier ou personnalisées, l’authentification avec des identités Google ne fonctionne pas tant que les authentifications ne sont pas déplacées vers les vues web système. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
-   > - **À partir du 30 septembre 2021**, Google [déprécie la prise en charge de la connexion à la vue web intégrée](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vos applications authentifient les utilisateurs avec une vue web intégrée et que vous utilisez la fédération Google avec [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) ou Azure AD B2B pour des [invitations d’utilisateurs externes](google-federation.md) ou une [inscription en libre-service](identity-providers.md), les utilisateurs de Google Gmail ne pourront pas s’authentifier. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
-   > - **À compter d’octobre 2021**, Microsoft ne prendra plus en charge l’acceptation d’invitations en créant des locataires et des comptes Azure AD non gérés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l’[authentification au moyen d’un code secret à usage unique envoyé par e-mail](one-time-passcode.md), qui est maintenant en disponibilité générale.
+   > - **À partir du 30 septembre 30, 2021**, Google [déprécie la prise en charge de la connexion aux vues web intégrée](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). Si vos applications authentifient les utilisateurs avec une vue Web incorporée et que vous utilisez Google Federation avec [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) ou Azure AD B2B pour des [invitations utilisateur externes](google-federation.md) ou une [inscription en libre-service](identity-providers.md), les utilisateurs de Google Gmail ne peuvent pas s’authentifier. [Plus d’informations](google-federation.md#deprecation-of-web-view-sign-in-support)
+   > - **À compter du 1e novembre 2021**, Microsoft ne prend plus en charge l’acceptation d’invitation en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. À cette date, nous commençons à déployer un changement afin d’activer la fonctionnalité de code secret à usage unique pour tous les locataires existants et de l’activer par défaut pour les nouveaux locataires. Si vous ne souhaitez pas autoriser cette fonctionnalité à s’activer automatiquement, vous pouvez [la désactiver](one-time-passcode.md#disable-email-one-time-passcode).
 
 ## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>Acceptation et connexion via un point de terminaison commun
 

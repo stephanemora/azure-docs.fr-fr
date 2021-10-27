@@ -3,7 +3,7 @@ title: 'Stockage : Meilleures pratiques et recommandations relatives aux perfor
 description: Fournit les meilleures pratiques et les recommandations relatives au stockage pour optimiser les performances de votre SQL Server sur une machine virtuelle Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: dplessMSFT
+author: bluefooted
 editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/25/2021
-ms.author: dpless
-ms.reviewer: jroth
-ms.openlocfilehash: 86db0ce090c68f1a610aae6c69ed74dcf303416a
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.author: pamela
+ms.reviewer: mathoma
+ms.openlocfilehash: 83d47a3b1d42233df6f90690e88a898feaccb70b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635201"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161521"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>Stockage : Meilleures pratiques sur les performances de SQL Server sur les machines virtuelles Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -39,9 +39,9 @@ Consultez la liste de contrôle suivante pour obtenir une vue d’ensemble des m
 - Surveillez l’application et [déterminez les besoins en bande passante et de latence de stockage](../../../virtual-machines/premium-storage-performance.md#counters-to-measure-application-performance-requirements) pour les fichiers de données, de journal et tempdb SQL Server avant de choisir le type de disque. 
 - Pour optimiser les performances de stockage, planifiez les IOPS non mises en cache les plus élevées disponibles et utilisez la mise en cache des données en tant que fonctionnalité de performances pour les lectures de données tout en évitant l'[encapsulation des machines virtuelles et des disques](../../../virtual-machines/premium-storage-performance.md#throttling).
 - Placez les fichiers de données, de journal et tempdb sur des lecteurs distincts.
-    - Pour le lecteur de données, utiliser uniquement les [disques Premium P30 et P40](../../../virtual-machines/disks-types.md#premium-ssd) pour garantir la disponibilité de la prise en charge du cache
-    - Pour le plan du lecteur de journal pour les performances de capacité et de test par rapport au coût lors de l’évaluation des [disques Premium P30 - P80](../../../virtual-machines/disks-types.md#premium-ssd)
-      - Si la latence de stockage en millisecondes est requise, utilisez des [Disques Ultra Azure](../../../virtual-machines/disks-types.md#ultra-disk) pour le journal des transactions. 
+    - Pour le lecteur de données, utiliser uniquement les [disques Premium P30 et P40](../../../virtual-machines/disks-types.md#premium-ssds) pour garantir la disponibilité de la prise en charge du cache
+    - Pour le plan du lecteur de journal pour les performances de capacité et de test par rapport au coût lors de l’évaluation des [disques Premium P30 - P80](../../../virtual-machines/disks-types.md#premium-ssds)
+      - Si la latence de stockage en millisecondes est requise, utilisez des [Disques Ultra Azure](../../../virtual-machines/disks-types.md#ultra-disks) pour le journal des transactions.
       - Pour les déploiements de machines virtuelles de la série M, envisagez l'[accélérateur d’écriture](../../../virtual-machines/how-to-enable-write-accelerator.md) à l’aide des Disques Ultra Azure.
     - Placez [tempdb](/sql/relational-databases/databases/tempdb-database) sur le lecteur SSD éphémère local `D:\` pour la plupart des charges de travail SQL Server après avoir choisi la taille de machine virtuelle optimale. 
       - Si la capacité du lecteur local n’est pas suffisante pour tempdb, pensez à redimensionner la machine virtuelle. Consultez les [Stratégies de mise en cache de fichiers de données](#data-file-caching-policies) pour plus d’informations.
@@ -71,7 +71,7 @@ Le type de disque dépend à la fois du type de fichier hébergé sur le disque 
 
 Vous avez le choix entre plusieurs niveaux de performances pour vos disques. Les types de disques managés disponibles en tant que stockage sous-jacent (répertoriés par des fonctionnalités de performances accrues) sont les lecteurs de disque dur standard (HDD), les disques SSD standard, les disques SSD (Solid-State Drives) Premium et les disques Ultra. 
 
-Les performances du disque augmentent avec la capacité, regroupées par [étiquettes de disque Premium](../../../virtual-machines/disks-types.md#premium-ssd) telles que P1 avec 4 Gio d’espace et 120 IOPS au P80 avec 32 Tio de stockage et 20 000 IOPS. Le stockage Premium prend en charge un cache de stockage qui permet d’améliorer les performances de lecture et d’écriture pour certaines charges de travail. Pour plus d’informations, consultez [Vue d’ensemble de la fonctionnalité Disques managés](../../../virtual-machines/managed-disks-overview.md). 
+Les performances du disque augmentent avec la capacité, regroupées par [étiquettes de disque Premium](../../../virtual-machines/disks-types.md#premium-ssds) telles que P1 avec 4 Gio d’espace et 120 IOPS au P80 avec 32 Tio de stockage et 20 000 IOPS. Le stockage Premium prend en charge un cache de stockage qui permet d’améliorer les performances de lecture et d’écriture pour certaines charges de travail. Pour plus d’informations, consultez [Vue d’ensemble de la fonctionnalité Disques managés](../../../virtual-machines/managed-disks-overview.md). 
 
 Il existe également trois [types de disques](../../../virtual-machines/managed-disks-overview.md#disk-roles) principaux à prendre en compte pour votre SQL Server sur une machine virtuelle Azure : un disque de système d’exploitation, un disque temporaire et vos disques de données. Choisissez soigneusement ce qui est stocké sur le lecteur du système d’exploitation `(C:\)` et le lecteur temporaire éphémère `(D:\)`. 
 
@@ -99,6 +99,9 @@ Placez les fichiers de données et les fichiers journaux sur les disques de donn
 
 Formatez votre disque de données de façon à utiliser une taille d’unité d’allocation de 64 Ko pour tous les fichiers de données placés sur un lecteur autre que le lecteur temporaire `D:\` (dont la taille par défaut est de 4 Ko). Les machines virtuelles SQL Server déployées via la Place de marché Azure sont fournies avec des disques de données formatés avec une taille d’unité d’allocation et un entrelacement pour le pool de stockage défini sur 64 Ko. 
 
+> [!NOTE]
+> Il est également possible d’héberger vos fichiers de base de données SQL Server directement dans le [stockage d’objets Blob Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) ou sur un [stockage SMB](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option), par exemple le [partage de fichiers Azure premium](../../../storage/files/storage-how-to-create-file-share.md), mais nous vous recommandons d’utiliser des [disques managés Azure](../../../virtual-machines/managed-disks-overview.md) pour optimiser les performances, la fiabilité et la disponibilité des fonctionnalités.
+
 ## <a name="premium-disks"></a>Disques Premium
 
 Utilisez des disques SSD Premium pour les fichiers de données et les fichiers journaux pour les charges de travail de production SQL Server. Les IOPS et la bande passante SSD Premium varient en fonction de la [taille et du type de disque](../../../virtual-machines/disks-types.md). 
@@ -109,7 +112,7 @@ Pour les charges de travail OLTP, faites correspondre les IOPS cibles par disque
 
 Utilisez les espaces de stockage pour atteindre des performances optimales, configurer deux pools, une pour le ou les fichiers journaux et l’autre pour les fichiers de données. Si vous n’utilisez pas l’entrelacement de disques, utilisez deux disques SSD premium mappés sur des lecteurs distincts, un pour le fichier journal et l’autre pour les données.
 
-Les [IOPS approvisionnées et le débit](../../../virtual-machines/disks-types.md#premium-ssd) par disque qui sont utilisés dans le cadre de votre pool de stockage. Les fonctionnalités combinées d’IOPS et de débit des disques sont la capacité maximale pour les limites de débit de la machine virtuelle.
+Les [IOPS approvisionnées et le débit](../../../virtual-machines/disks-types.md#premium-ssds) par disque qui sont utilisés dans le cadre de votre pool de stockage. Les fonctionnalités combinées d’IOPS et de débit des disques sont la capacité maximale pour les limites de débit de la machine virtuelle.
 
 La meilleure pratique consiste à utiliser le moins de disques possibles tout en répondant aux conditions minimales requises pour les IOPS (et le débit) et la capacité. Toutefois, l’équilibre entre prix et performances a tendance à être mieux adapté à un grand nombre de petits disques plutôt qu’à un petit nombre de disques de grande taille.
 
@@ -127,15 +130,15 @@ Pour plus d’informations, consultez [Niveaux de performances pour les disques 
 
 ## <a name="azure-ultra-disk"></a>Disque Ultra Azure
 
-Si vous avez besoin de temps de réponse de demi-milliseconde avec une latence réduite, envisagez d’utiliser un [Disk Ultra Azure](../../../virtual-machines/disks-types.md#ultra-disk) pour le lecteur de journalisation SQL Server, ou même le lecteur de données pour les applications extrêmement sensibles à la latence d’E/S. 
+Si vous avez besoin de temps de réponse de demi-milliseconde avec une latence réduite, envisagez d’utiliser un [Disk Ultra Azure](../../../virtual-machines/disks-types.md#ultra-disks) pour le lecteur de journalisation SQL Server, ou même le lecteur de données pour les applications extrêmement sensibles à la latence d’E/S.
 
 Le disque Ultra peut être configuré lorsque la capacité et les IOPS peuvent se mettre à l’échelle de façon indépendante. Avec le disque Ultra, les administrateurs peuvent approvisionner un disque avec les exigences de capacité, d’IOPS et de débit en fonction des besoins de l’application. 
 
-Le disque Ultra n’est pas pris en charge sur toutes les séries de machines virtuelles et présente d’autres limitations, telles que la disponibilité des régions, la redondance et la prise en charge de Sauvegarde Azure. Pour plus d’informations, consultez [Utilisation de disques Ultra Azure](../../../virtual-machines/disks-enable-ultra-ssd.md) pour obtenir une liste complète des limitations. 
+Le disque Ultra n’est pas pris en charge sur toutes les séries de machines virtuelles et présente d’autres limitations, telles que la disponibilité des régions, la redondance et la prise en charge de Sauvegarde Azure. Pour plus d’informations, consultez [Utilisation de disques Ultra Azure](../../../virtual-machines/disks-enable-ultra-ssd.md) pour obtenir une liste complète des limitations.
 
 ## <a name="standard-hdds-and-ssds"></a>Disques HDD standard et SSD
 
-Les [disques HDD standard](../../../virtual-machines/disks-types.md#standard-hdd) et les disques SSD possèdent différents temps de latence et une bande passante variable. Ils sont recommandés uniquement pour les charges de travail de dev/test. Les charges de production doivent utiliser des disques SSD premium. Si vous utilisez un disque SSD Standard (scénarios dev/test), nous vous recommandons d’ajouter le nombre maximal de disques de données pris en charge par la [taille de votre machine virtuelle](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json) et d’utiliser l’entrelacement de disques avec les espaces de stockage pour des performances optimales.
+Les [disques HDD standard](../../../virtual-machines/disks-types.md#standard-hdds) et les disques SSD possèdent différents temps de latence et une bande passante variable. Ils sont recommandés uniquement pour les charges de travail de dev/test. Les charges de production doivent utiliser des disques SSD premium. Si vous utilisez un disque SSD Standard (scénarios dev/test), nous vous recommandons d’ajouter le nombre maximal de disques de données pris en charge par la [taille de votre machine virtuelle](../../../virtual-machines/sizes.md?toc=/azure/virtual-machines/windows/toc.json) et d’utiliser l’entrelacement de disques avec les espaces de stockage pour des performances optimales.
 
 ## <a name="caching"></a>Mise en cache
 

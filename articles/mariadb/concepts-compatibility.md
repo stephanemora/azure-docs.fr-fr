@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 49fd2c8da3ba0a44f4901bc6c7a2241e9e20df4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08db679737c4d7823ed369e36c40b27f14b9632c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98659867"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036471"
 ---
 # <a name="mariadb-drivers-and-management-tools-compatible-with-azure-database-for-mariadb"></a>Pilotes MariaDB et outils de gestion compatibles avec Azure Database for MariaDB
 
@@ -19,7 +19,7 @@ Cet article décrit les pilotes et outils de gestion compatibles avec Azure Data
 
 ## <a name="mariadb-drivers"></a>Pilotes MariaDB
 
-Azure Database for MariaDB utilise la version Community du serveur MariaDB. Par conséquent, elle est compatible avec un large éventail de langages de programmation et de pilotes. L’API et le protocole MariaDB sont compatibles avec ceux utilisés par MySQL. Autrement dit, les connecteurs qui fonctionnent avec MySQL doivent également fonctionner avec MariaDB.
+Azure Database for MariaDB utilise la version Community du serveur MariaDB. Par conséquent, elle est compatible avec un large éventail de langages de programmation et de pilotes. Le protocole et l’API MariaDB sont compatibles avec ceux utilisés par MySQL. Autrement dit, les connecteurs qui fonctionnent avec MySQL doivent également fonctionner avec MariaDB.
 
 L’objectif est de prendre en charge les trois versions les plus récentes des pilotes MariaDB, et de travailler avec les auteurs de la communauté open source pour améliorer en permanence les fonctionnalités et la compatibilité des pilotes MariaDB. Le tableau ci-dessous liste les pilotes qui ont été testés et jugés compatibles avec Azure Database for MariaDB 10.2 :
 

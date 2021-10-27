@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: f258ba3b8c62d0d290785bbf6a66cc7651286162
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 84208764621bd03959db7d695bf0616dcccc4491
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390580"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064777"
 ---
 # <a name="troubleshoot-the-azure-synapse-analytics-azure-sql-database-and-sql-server-connectors-in-azure-data-factory-and-azure-synapse"></a>Résoudre les problèmes liés aux connecteurs Azure Synapse Analytics, Azure SQL Database et SQL Server dans Azure Data Factory et Azure Synapse
 
@@ -93,10 +93,12 @@ Cet article fournit des suggestions pour résoudre les problèmes courants liés
 
 - **Message** : `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
-- **Cause** : La procédure stockée spécifiée n’est pas valide. Cela peut être dû au fait que la procédure stockée ne retourne pas de données.
+- **Causes et recommandations** : Différentes causes peuvent être à l’origine de cette erreur. Consultez la liste ci-dessous pour obtenir une analyse des causes possibles et des recommandations associées.
 
-- **Recommandation** :  Validez la procédure stockée à l’aide des outils SQL. Assurez-vous que la procédure stockée peut retourner des données.
-
+  | Analyse de la cause                                               | Recommandation                                             |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | La procédure stockée spécifiée n’est pas valide. | Validez la procédure stockée à l’aide des outils SQL. Assurez-vous que la procédure stockée peut retourner des données.  |
+  | L’activité Lookup requiert que la procédure stockée renvoie une valeur, mais le code de la procédure stockée ne renvoie aucune valeur. | Utilisez l’activité Stored Procedure si la procédure stockée est supposée ne renvoyer aucune donnée. |
 
 ## <a name="error-code-sqlinvaliddbquerystring"></a>Code d’erreur : SqlInvalidDbQueryString
 

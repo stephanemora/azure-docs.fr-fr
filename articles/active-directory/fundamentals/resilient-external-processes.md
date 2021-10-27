@@ -13,16 +13,16 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d3c159c615d928a8d56d3913c8e1cab846c7580
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: fede718111b6f1dcc9e49e8c96ec88a967b31b20
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114462090"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042331"
 ---
 # <a name="resilient-interfaces-with-external-processes"></a>Interfaces résilientes avec processus externes
 
-Dans cet article, nous vous proposons des conseils sur la façon de planifier et d’implémenter les API RESTFul dans le parcours utilisateur et de rendre votre application plus résiliente vis-à-vis des défaillances de l’API.
+Dans cet article, nous vous proposons des conseils sur la façon de planifier et d’implémenter les API RESTful dans le parcours utilisateur et de rendre votre application plus résiliente vis-à-vis des défaillances de l’API.
 
 ![Image montrant les interfaces avec des composants de processus externes](media/resilient-external-processes/external-processes-architecture.png)
 
@@ -40,7 +40,7 @@ Les stratégies Identity Experience Framework (IEF) vous permettent d’appeler 
 
 - Utilisez les [connecteurs d’API du flux d’utilisateurs intégré à l’inscription](../../active-directory-b2c/api-connectors-overview.md) chaque fois que cela est possible pour intégrer les API web, soit après la fédération avec un fournisseur d’identité pendant l’inscription, soit avant la création de l’utilisateur. Comme les flux d’utilisateurs sont déjà largement testés, il est probable que vous n’ayez pas à effectuer de tests fonctionnels, de performance ou d’échelle au niveau des flux d’utilisateurs. Vous devez toujours tester vos applications sur le plan des fonctionnalités, des performances et de la mise à l’échelle.
 
-- Les [profils techniques](../../active-directory-b2c/restful-technical-profile.md) des API RESTFul Azure AD ne fournissent aucun comportement de mise en cache. Au lieu de cela, le profil d’API RESTFul implémente une logique de nouvelle tentative et un délai d’expiration intégré à la stratégie.
+- Les [profils techniques](../../active-directory-b2c/restful-technical-profile.md) des API RESTful Azure AD ne fournissent aucun comportement de mise en cache. Au lieu de cela, le profil d’API RESTful implémente une logique de nouvelle tentative et un délai d’expiration intégré à la stratégie.
 
 - Pour les API qui ont besoin d’écrire des données, mettez en file d’attente une tâche pour que ces tâches soient exécutées par un Worker en arrière-plan. Vous pouvez utiliser des services tels que [Files d’attente Azure](../../storage/queues/storage-queues-introduction.md). Ainsi, l’API retourne efficacement, ce qui augmentera les performances d’exécution de la stratégie.  
 
@@ -52,7 +52,7 @@ Comme les API se trouvent en dehors du système Azure AD B2C, il est nécessaire
 
 - Une API pouvant échouer pour diverses raisons, faites en sorte que votre application soit résiliente face à de tels échecs. [Renvoyez un message d’erreur HTTP 4XX](../../active-directory-b2c/restful-technical-profile.md#returning-validation-error-message) si l’API ne parvient pas à terminer la requête. Dans la stratégie d’Azure AD B2C, essayez de gérer correctement l’indisponibilité de l’API et peut-être de rendre une expérience réduite.
 
-- [Gérez correctement les erreurs temporaires](../../active-directory-b2c/restful-technical-profile.md#error-handling). Le profil d’API RESTFul vous permet de configurer des messages d’erreur pour différents [disjoncteurs](/azure/architecture/patterns/circuit-breaker).
+- [Gérez correctement les erreurs temporaires](../../active-directory-b2c/restful-technical-profile.md#error-handling). Le profil d’API RESTful vous permet de configurer des messages d’erreur pour différents [disjoncteurs](/azure/architecture/patterns/circuit-breaker).
 
 - Surveillez et utilisez de manière proactive l’intégration continue et la livraison continue (CI/CD) et alternez les informations d’identification d’accès à l’API, telles que les mots de passe et les certificats utilisés par le [moteur de profil technique](../../active-directory-b2c/restful-technical-profile.md).
 

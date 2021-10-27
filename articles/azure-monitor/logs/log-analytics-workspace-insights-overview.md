@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 05/06/2021
-ms.openlocfilehash: 0d5fb976bfeb496e6c69e7df401ed0a756985475
-ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
+ms.openlocfilehash: c56a90ab18467e67360653c83d32c7cfc6f84078
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2021
-ms.locfileid: "113295881"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133250"
 ---
-# <a name="log-analytics-workspace-insights-preview"></a>Log Analytics Workspace Insights (préversion)
+# <a name="log-analytics-workspace-insights"></a>Log Analytics Workspace Insights
 
-Log Analytics Workspace Insights (préversion) offre une surveillance complète de vos espaces de travail grâce à une vue unifiée de l’utilisation de votre espace de travail, des performances, de l’intégrité, de l’agent, des requêtes et du journal des modifications. Cet article vous aidera à comprendre comment intégrer et utiliser Log Analytics Workspace Insights (préversion).
+Log Analytics Workspace Insights offre une surveillance complète de vos espaces de travail grâce à une vue unifiée de l’utilisation de votre espace de travail, des performances, de l’intégrité, de l’agent, des requêtes et du journal des modifications. Cet article vous aidera à comprendre comment intégrer et utiliser Log Analytics Workspace Insights.
 
 ## <a name="overview-your-log-analytics-workspaces"></a>Superviser vos espaces de travail Log Analytics
 
@@ -29,7 +29,7 @@ Pour lancer Log Analytics Workspace Insights à l’échelle, procédez comme su
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Sélectionnez **Surveillance** dans le volet gauche du Portail Azure, puis dans la section Hub Insights, sélectionnez **Log Analytics Workspace Insights (préversion)** .
+2. Sélectionnez **Surveillance** dans le volet gauche du Portail Azure, puis dans la section Hub Insights, sélectionnez **Log Analytics Workspace Insights**.
 
 ## <a name="view-insights-for-a-log-analytics-workspace"></a>Voir les Insights pour un espace de travail Log Analytics
 

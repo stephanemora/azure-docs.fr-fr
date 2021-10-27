@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: 86a998e304755085a9ae1e15e011df3b242c4df8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 97e7c6a21eaf33e2f32d3277e14b4da74decc6cc
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531498"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132547"
 ---
 # <a name="microsoft-365-defender-integration-with-azure-sentinel"></a>Intégration de Microsoft 365 Defender avec Azure Sentinel
 
@@ -31,6 +31,8 @@ ms.locfileid: "122531498"
 > **Microsoft 365 Defender** était anciennement connu sous le nom de **Protection Microsoft contre les menaces** ou **MTP**.
 >
 > **Microsoft Defender for Endpoint** était précédemment appelé **Microsoft Defender Advanced Threat Protection**, ou **MDATP**.
+>
+> **Microsoft Defender pour Office 365** était anciennement connu sous le nom **Office 365 Advanced Threat Protection**.
 >
 > Vous pouvez voir les anciens noms encore en cours d’utilisation pendant un certain temps.
 
@@ -94,13 +96,13 @@ Dans Microsoft 365 Defender, toutes les alertes d’un incident peuvent être t
 
 ## <a name="advanced-hunting-event-collection"></a>Collecte d’événements de repérage avancé
 
-Le connecteur Microsoft 365 Defender vous permet de diffuser des événements de **repérage avancé** (un type de données d’événement brutes) de Microsoft 365 Defender vers Azure Sentinel. Vous pouvez actuellement collecter des événements de [repérage avancé](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) de [Microsoft Defender pour Endpoint (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) et les diffuser directement vers des tables dédiées dans votre espace de travail Azure Sentinel. Ces tables sont générées sur le même schéma que celui utilisé dans le portail Microsoft 365 Defender, ce qui vous donne un accès complet à l’ensemble des événements de repérage avancé, et vous permet d’effectuer les opérations suivantes :
+Le connecteur Microsoft 365 Defender vous permet de diffuser des événements de **repérage avancé** (un type de données d’événement brutes) de Microsoft 365 Defender vers Azure Sentinel. Vous pouvez actuellement collecter des événements de [repérage avancé](/microsoft-365/security/defender/advanced-hunting-overview) de Microsoft Defender pour point de terminaison et *(à partir d’octobre 2021)* de Microsoft Defender pour Office 365, les diffuser directement vers des tables dédiées dans votre espace de travail Azure Sentinel. Ces tables sont générées sur le même schéma que celui utilisé dans le portail Microsoft 365 Defender, ce qui vous donne un accès complet à l’ensemble des événements de repérage avancé, et vous permet d’effectuer les opérations suivantes :
 
-- Copier facilement vos requêtes de repérage avancé Microsoft Defender pour Endpoint existantes dans Azure Sentinel.
+- Copiez facilement vos requêtes de repérage avancé Microsoft Defender pour point de terminaison/Office 365 existantes dans Azure Sentinel.
 
 - Utilisez les journaux des événements bruts afin de fournir des insights supplémentaires pour vos alertes, la recherche de menaces et l’investigation, et mettez en corrélation les événements avec ceux provenant d’autres sources de données dans Azure Sentinel.
 
-- Stockez les journaux avec une période de conservation accrue, au-delà de la durée par défaut de 30 jours de Microsoft Defender for Endpoint ou Microsoft 365 Defender. Pour ce faire, vous pouvez configurer la période de conservation de votre espace de travail ou la conservation par table dans Log Analytics.
+- Stockez les journaux avec une période de conservation accrue, au-delà de la durée par défaut de 30 jours de Microsoft Defender pour point de terminaison/Office 365 ou Microsoft 365 Defender. Pour ce faire, vous pouvez configurer la période de conservation de votre espace de travail ou la conservation par table dans Log Analytics.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

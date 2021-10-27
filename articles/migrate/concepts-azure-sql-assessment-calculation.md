@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: c9319465c4e77eab294606ed046f7946948f2cc1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bba3965dc3f03bb0b42595ba6bdf5d8889b483ee
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140368"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004290"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Vue d’ensemble de l’évaluation (migrer vers Azure SQL)
 
@@ -26,7 +26,7 @@ Il existe trois types d’évaluations que vous pouvez créer à l’aide de l�
 **Type d’évaluation** | **Détails**
 --- | --- 
 **Microsoft Azure** | Évaluations pour migrer vos serveurs locaux vers des machines virtuelles Azure. <br/><br/> Ce type d’évaluation vous permet d’évaluer vos serveurs locaux dans un environnement [VMware](how-to-set-up-appliance-vmware.md) et [Hyper-V](how-to-set-up-appliance-hyper-v.md), ainsi que vos [serveurs physiques](how-to-set-up-appliance-physical.md) pour une migration vers des machines virtuelles Azure.
-**Azure SQL** | Évaluations pour migrer vos serveurs SQL Server locaux de votre environnement VMware vers Azure SQL Database ou Azure SQL Managed Instance.
+**Azure SQL** | Évaluations pour migrer vos serveurs SQL Server locaux de votre environnement VMware vers Azure SQL Database ou Azure SQL Managed Instance. <br/><br/> Si vos serveurs SQL s’exécutent sur une plateforme non VMware, vous pouvez évaluer leur état de préparation en utilisant [Assistant Migration de données](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
 **Azure VMware Solution (AVS)** | Évaluations pour migrer vos serveurs locaux vers [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Vous pouvez évaluer vos [machines virtuelles VMware](how-to-set-up-appliance-vmware.md) locales pour la migration vers Azure VMware Solution (AVS) avec ce type d’évaluation. [En savoir plus](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]

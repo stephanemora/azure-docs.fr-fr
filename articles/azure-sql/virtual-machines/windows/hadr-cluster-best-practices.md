@@ -3,7 +3,7 @@ title: Bonnes pratiques de configuration de la HADR
 description: En savoir plus sur les configurations de cluster prises en charge lorsque vous configurez la haute disponibilité et la récupération d’urgence (HADR) pour SQL Server sur des machines virtuelles Azure, telles que des options de prise en charge de quorums ou de routage de connexion.
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2021
-ms.author: mathoma
-ms.openlocfilehash: b9aa10e9a11ee1268c8bb49d5cb32d0550c2ca3a
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 40c68a77a3e432c5ff03da2a99e93255719e8898
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112582075"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163418"
 ---
 # <a name="hadr-configuration-best-practices-sql-server-on-azure-vms"></a>Bonnes pratiques de configuration de la HADR (SQL Server sur des machines virtuelles Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -284,7 +285,9 @@ Les limites de machine virtuelle ou de disque peuvent entraîner un goulot d’�
 
 ## <a name="networking"></a>Mise en réseau
 
-Utilisez une seule carte réseau (NIC) par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle Azure. Le rapport de validation du cluster vous avertit que les nœuds sont accessibles uniquement sur un seul réseau. Vous pouvez ignorer cet avertissement sur les clusters de basculement invités de machines virtuelles Azure.
+Utilisez une seule carte réseau (NIC) par serveur (nœud de cluster). Les réseaux Azure intègrent une redondance physique, ce qui rend inutiles les cartes réseau supplémentaires sur un cluster invité de machine virtuelle Azure. Le rapport de validation du cluster vous avertit que les nœuds sont accessibles uniquement sur un seul réseau. Vous pouvez ignorer cet avertissement sur les clusters de basculement invités de machines virtuelles Azure. 
+
+Les limites de bande passante pour une machine virtuelle particulière sont partagées entre les cartes réseau et l’ajout d’une carte réseau supplémentaire n’améliore pas les performances des groupes de disponibilité pour SQL Server sur les machines virtuelles Azure. Par conséquent, il n’est pas nécessaire d’ajouter une deuxième carte réseau. 
 
 Le service DHCP non compatible RFC dans Azure peut provoquer l’échec de la création de certaines configurations de cluster de basculement. Cet échec se produit car une adresse IP dupliquée est affectée au nom réseau du cluster, par exemple la même adresse IP que l’un des nœuds du cluster. Cela constitue un problème quand vous utilisez des groupes de disponibilité, qui dépendent de la fonctionnalité Cluster de basculement Windows.
 

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: karenhoran
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8aa2519027f210e88af4e03ec9232fcdefb5d3e4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 38f602d41d8891aadc45a9dd35d2ea62afda897d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128597851"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998235"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planifier un déploiement d’accès conditionnel
 
@@ -217,7 +217,7 @@ Les jetons d’accès sont émis par défaut si une condition de stratégie d’
 
 ### <a name="minimize-the-number-of-conditional-access-policies"></a>Réduire le nombre de stratégies d’accès conditionnel
 
-Créer une stratégie pour chaque application n’est pas avantageux et débouche sur une administration compliqué. L’accès conditionnel n’appliquera que les 195 premières stratégies par utilisateur. Nous vous recommandons d’analyser vos applications et de les regrouper par applications partageant les mêmes exigences en ressources pour les mêmes utilisateurs. Par exemple, si toutes les applications Microsoft 365 ou de RH présentent les mêmes exigences pour les mêmes utilisateurs, créez une stratégie unique et incluez toutes les applications auxquelles elle s’applique. 
+Créer une stratégie pour chaque application n’est pas efficace et entraîne une administration complexe. Il peut y avoir un maximum de 195 accès conditionnels dans chaque locataire Azure AD. Nous vous recommandons d’analyser vos applications et de les regrouper par applications ayant les mêmes exigences d’accès. Par exemple, si toutes les applications Microsoft 365 ou de RH présentent les mêmes exigences pour les mêmes utilisateurs, créez une stratégie unique et incluez toutes les applications au lieu d’ajouter une politique à chaque application.
 
 ### <a name="set-up-emergency-access-accounts"></a>Configurer des comptes d’accès d’urgence
 

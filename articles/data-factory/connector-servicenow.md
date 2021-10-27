@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: fa90dceea91140f024517493ef13848cbcaef930
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 505874b03e5a5c187f0bb5ea638d09808ffb418c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763991"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045614"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory-or-synapse-analytics"></a>Copier des données de ServiceNow à l’aide d’Azure Data Factory ou Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -142,7 +142,7 @@ Pour copier des données à partir de ServiceNow, définissez le type de source 
 
 Notez les points suivants au moment de spécifier le schéma et la colonne pour ServiceNow dans la requête, et **reportez-vous à la section [Conseils sur les performances](#performance-tips) pour en savoir plus sur l’implication des performances de copie**.
 
-- **Schéma :** spécifiez le schéma avec la valeur `Actual` ou `Display` dans la requête ServiceNow, ce que vous pouvez considérer comme le paramètre de `sysparm_display_value` avec la valeur true ou false quand vous appelez les [API RESTful de ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Schéma :** spécifiez le schéma avec la valeur `Actual` ou `Display` dans la requête ServiceNow, ce que vous pouvez considérer comme le paramètre de `sysparm_display_value` avec la valeur true ou false quand vous appelez les [API REST ServiceNow](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Colonne :** le nom de la colonne pour une valeur réelle sous le schéma `Actual` est `[column name]_value`, tandis que pour la valeur d’affichage, sous le schéma `Display`, le nom est `[column name]_display_value`. Le nom de colonne doit correspondre au schéma utilisé dans la requête.
 
 **Exemple de requête :** 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db83f9f2f5e7f93686506ec0f7f94153ef3501e
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 7a31cad4f2828a505eb89782bf28b01049a46cfc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112080486"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998007"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -54,7 +54,7 @@ Une application cliente peut demander un [jeton d’accès pour l’application 
 | [Obtenir un jeton par C#](#get-a-token-using-c) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client C# |
 | [Obtenir un jeton par le biais de Java](#get-a-token-using-java) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client Java |
 | [Obtenir un jeton par Go](#get-a-token-using-go) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client Go |
-| [Obtenir un jeton par Azure PowerShell](#get-a-token-using-azure-powershell) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client PowerShell |
+| [Obtenir un jeton à l’aide de PowerShell](#get-a-token-using-powershell) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client PowerShell |
 | [Obtenir un jeton par CURL](#get-a-token-using-curl) | Exemple d’utilisation d’un point de terminaison REST d’identités managées pour ressources Azure à partir d’un client Bash/CURL |
 | Gestion de la mise en cache des jetons | Conseils pour la gestion des jetons d’accès expirés |
 | [Gestion des erreurs](#error-handling) | Conseils pour la gestion des erreurs HTTP retournées par le point de terminaison de jeton d’identités managées pour ressources Azure |
@@ -282,7 +282,7 @@ func main() {
 }
 ```
 
-## <a name="get-a-token-using-azure-powershell"></a>Obtenir un jeton par Azure PowerShell
+## <a name="get-a-token-using-powershell"></a>Obtenir un jeton à l’aide de PowerShell
 
 L’exemple suivant montre comment utiliser le point de terminaison REST d’identités managées pour ressources Azure à partir d’un client PowerShell :
 

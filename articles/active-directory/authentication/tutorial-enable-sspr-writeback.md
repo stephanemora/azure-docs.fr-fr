@@ -11,12 +11,12 @@ author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: ff38cf413f6e1812c72d410c31088b965af1b3dd
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: a2b716d2b0187e90e71156f2259a380d6fde7db4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123213924"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073256"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutoriel : Activer la réécriture de la réinitialisation du mot de passe en libre-service Azure Active Directory dans un environnement local
 
@@ -92,7 +92,7 @@ Les stratégies de mot de passe dans l’environnement AD DS local peuvent empê
 Si vous mettez à jour la stratégie de groupe, attendez la réplication de la stratégie mise à jour ou utilisez la commande `gpupdate /force`.
 
 > [!Note]
-> Pour que les mots de passe soient changés immédiatement, la réécriture du mot de passe doit être définie sur 0. Toutefois, si les utilisateurs adhèrent aux stratégies locales et que le paramètre *Âge minimal du mot de passe* est défini sur une valeur supérieure à zéro, la réécriture du mot de passe fonctionne toujours une fois les stratégies locales évaluées.
+> Pour que les mots de passe soient changés immédiatement, l’*âge minimum du mot de passe* doit être défini sur 0. Toutefois, si les utilisateurs adhèrent aux stratégies locales et que le paramètre *Âge minimal du mot de passe* est défini sur une valeur supérieure à zéro, la réécriture du mot de passe fonctionne toujours une fois les stratégies locales évaluées.
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Activer la réécriture du mot de passe dans Azure AD Connect
 

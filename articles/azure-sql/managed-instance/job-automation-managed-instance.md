@@ -13,12 +13,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 06/03/2021
-ms.openlocfilehash: ef1dceba0c95729ccb824b1ad2f32641c92891e7
-ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
+ms.openlocfilehash: 8d23e2d2c1c6123a986e47a7f2d8e384c99eb5af
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111441907"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046807"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Automatiser des tâches de gestion à l’aide de travaux SQL Agent dans Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -204,6 +204,6 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ## <a name="learn-more"></a>En savoir plus
 
 - [Qu’est-ce qu’Azure SQL Managed Instance ?](../managed-instance/sql-managed-instance-paas-overview.md)
-- [Nouveautés d’Azure SQL Database et de SQL Managed Instance](../../azure-sql/database/doc-changes-updates-release-notes.md?tabs=managed-instance)
+- [Nouveautés d’Azure SQL Managed Instance](doc-changes-updates-release-notes-whats-new.md)
 - [Différences T-SQL d’Azure SQL Managed Instance par rapport à SQL Server](../../azure-sql/managed-instance/transact-sql-tsql-differences-sql-server.md#sql-server-agent)
 - [Comparaison des fonctionnalités : Azure SQL Database et Azure SQL Managed Instance](../../azure-sql/database/features-comparison.md)

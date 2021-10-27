@@ -7,24 +7,24 @@ ms.service: mysql
 ms.topic: conceptual
 ms.custom: ''
 ms.date: 6/3/2020
-ms.openlocfilehash: 2c212922ebf550b75ee140637717a48beec9de02
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: 1dc37ae36703e334ca132b52749edbcdb9b3a602
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122641176"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164784"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
 
 [!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
-Azure Database pour MySQL a été développé à partir de [MySQL Community Edition](https://www.mysql.com/products/community/), avec le moteur de stockage InnoDB. Le service prend en charge toutes les versions majeures actuelles prises en charge par la communauté, à savoir MySQL 5.6, 5.7 et 8.0. MySQL utilise le schéma de nommage X.Y.Z, où X est la version majeure, Y la version mineure et Z la version du correctif de bogue. Pour plus d’informations sur ce schéma, reportez-vous à la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
+Azure Database pour MySQL a été développé à partir de [MySQL Community Edition](https://www.mysql.com/products/community/), avec le moteur de stockage InnoDB. Le service prend en charge toutes les versions majeures actuelles prises en charge par la communauté, à savoir MySQL 5.7 et 8.0. MySQL utilise le schéma de nommage X.Y.Z, où X est la version majeure, Y la version mineure et Z la version du correctif de bogue. Pour plus d’informations sur ce schéma, reportez-vous à la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
 ## <a name="connect-to-a-gateway-node-that-is-running-a-specific-mysql-version"></a>Se connecter à un nœud de passerelle qui exécute une version spécifique de MySQL
 
 Dans l’option de déploiement Serveur unique, une passerelle est utilisée pour rediriger les connexions vers des instances de serveur. Une fois la connexion établie, le client de MySQL affiche la version de MySQL définie dans la passerelle, et non la version en cours d’exécution sur votre instance de serveur MySQL. Pour déterminer la version de votre instance de serveur MySQL, utilisez la commande `SELECT VERSION();` à l’invite de MySQL. Consultez [Architecture de connectivité](./concepts-connectivity-architecture.md#connectivity-architecture) pour en savoir plus sur les passerelles dans l’architecture de service Azure Database pour MySQL.
 
-Comme Azure Database pour MySQL prend en charge la version principale v5.6, v5.7 et v8.0, le port par défaut 3306 pour la connexion à Azure Database pour MySQL exécute la version client MySQL 5.6 (le plus petit dénominateur commun) pour prendre en charge les connexions aux serveurs des 3 versions principales prises en charge. Toutefois, si votre application doit se connecter à une version principale spécifique, par exemple v5.7 ou v8.0, vous pouvez le faire en modifiant le port dans la chaîne de connexion de votre serveur.
+Comme Azure Database pour MySQL prend en charge la version principale v5.7 et v8.0, le port par défaut 3306 pour la connexion à Azure Database pour MySQL exécute la version client MySQL 5.7 (le plus petit dénominateur commun) pour prendre en charge les connexions aux serveurs des 2 versions principales prises en charge. Toutefois, si votre application doit se connecter à une version principale spécifique, par exemple v5.7 ou v8.0, vous pouvez le faire en modifiant le port dans la chaîne de connexion de votre serveur.
 
 Dans le service Azure Database pour MySQL, les nœuds de passerelle écoutent le port 3308 pour les clients v5.7 et le port 3309 pour les clients v8.0. En d’autres termes, si vous souhaitez vous connecter au client de passerelle v5.7, vous devez utiliser le nom de serveur complet et le port 3308 pour vous connecter à votre serveur à partir de l’application cliente. De même, si vous souhaitez vous connecter au client de passerelle v8.0, vous pouvez utiliser le nom de serveur complet et le port 3309 pour vous connecter à votre serveur. Pour plus de clarté, consultez l’exemple suivant.
 

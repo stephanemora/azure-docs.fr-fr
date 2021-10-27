@@ -653,7 +653,7 @@ items:
                 href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
               - name: "Superviser les métriques des applications Apache\_Spark avec Prometheus et Grafana"
                 href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-              - name: Superviser vos applications Apache Spark avec Azure Log Analytics (préversion)
+              - name: Superviser vos applications Apache Spark avec Azure Log Analytics
                 href: ./spark/apache-spark-azure-log-analytics.md
               - name: Collecter les journaux et les métriques des applications Apache Spark avec un compte de stockage Azure
                 href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md

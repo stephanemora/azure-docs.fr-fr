@@ -3,12 +3,12 @@ title: Créer des rapports d’évaluation des risques
 description: Obtenez des informations sur les risques réseau détectés par des capteurs individuels ou un affichage agrégé des risques détectés par tous les capteurs.
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 567660d1e1e55ee3dde0cbf5e5c09748cbb2cf0c
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 908a78f659dc17d0207d81613b6be7dd2295a1d2
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113017515"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138609"
 ---
 # <a name="risk-assessment-reporting"></a>Rapport d’évaluation des risques
 
@@ -44,7 +44,10 @@ Les rapports d’évaluation des risques fournissent les éléments suivants :
 
 ### <a name="risk-mitigation"></a>Atténuation des risques
 
-Les rapports fournissent des recommandations pour vous aider à améliorer votre score de sécurité. Par exemple, installez les dernières mises à jour de sécurité, mettez à niveau le microprogramme vers la dernière version ou suivez les alertes.
+Les rapports fournissent des recommandations pour vous aider à améliorer votre score de sécurité. Par exemple :
+- installer les dernières mises à jour de sécurité.
+- Mettez à niveau le microprogramme vers la version la plus récente.
+- Examinez les PLC dans des états non sécurisés.
 
 ## <a name="about-security-scores"></a>À propos des scores de sécurité
 
@@ -112,4 +115,3 @@ Pour importer un logo de société :
 ## <a name="see-also"></a>Voir aussi
 
 [Création de rapports de vecteurs d’attaque](how-to-create-attack-vector-reports.md)
-

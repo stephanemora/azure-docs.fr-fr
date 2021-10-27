@@ -7,12 +7,12 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 26d81a492b12cd2dd7f1d4de260aa22ac4e73a3e
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 2003e4b6f143f9220b9618a57a2894e678014602
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234449"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175633"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Bonnes pratiques en matière de configuration d’appareil dans une solution IoT
 
@@ -90,4 +90,4 @@ Voici les bonnes pratiques pour les opérateurs de solutions IoT qui utilisent u
 
 * Suivez les étapes pour créer, mettre à jour ou supprimer une configuration automatique de l’appareil dans [Configurer et surveiller des appareils IoT à grande échelle](./iot-hub-automatic-device-management.md).
 
-* Implémentez un modèle de mise à jour de microprogramme à l’aide de jumeaux d’appareil et de configurations automatiques des appareils dans [Tutoriel : Implémenter un processus de mise à jour de microprogramme d’appareil](tutorial-firmware-update.md).
+* Découvrez comment effectuer une mise à jour de bout en bout basée sur une image dans [Tutoriel sur le service Device Update pour IoT Hub : Utilisation de l’image de référence Raspberry Pi 3 B+](../iot-hub-device-update/device-update-raspberry-pi.md).

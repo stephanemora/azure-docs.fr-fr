@@ -5,15 +5,15 @@ services: automation
 ms.subservice: ''
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2021
+ms.date: 10/18/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 824925f4c3616b91f10fc3bae4bdaa1f5a0bb5ee
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 623e36b4efc3a0ecd0a7a5d7f7097e1f5aa64788
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129277154"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179219"
 ---
 # <a name="troubleshoot-agent-based-hybrid-runbook-worker-issues-in-automation"></a>Résoudre les problèmes de Runbook Worker hybride basés sur un agent dans Automation
 
@@ -50,6 +50,16 @@ Les ordinateurs qui exécutent les Runbooks Worker hybrides doivent respecter la
 Vérifiez que l’ordinateur qui exécute la fonctionnalité Runbook Worker hybride possède la configuration matérielle minimale requise. Si c’est le cas, surveillez l’utilisation du processeur et de la mémoire pour déterminer toute corrélation entre les performances des processus Runbook Worker hybride et Windows. Toute pression sur la mémoire ou les ressources processeur peut indiquer la nécessité de mettre à niveau des ressources. Vous pouvez également sélectionner une ressource de calcul différente qui prend en charge la configuration minimale requise et effectuer une mise à l’échelle lorsque les demandes en matière de charge de travail indiquent qu’une augmentation est nécessaire.
 
 Vérifiez dans le journal des événements **Microsoft-SMA** la présence d’un événement correspondant à la description `Win32 Process Exited with code [4294967295]`. La cause de cette erreur est que vous n’avez pas configuré l’authentification dans vos runbooks ou que vous n’avez pas spécifié les informations de connexion du compte d’identification du groupe Runbook Worker hybride. Consultez les autorisations du runbook dans la section [Exécution de runbooks sur un Runbook Worker hybride](../automation-hrw-run-runbooks.md) pour vérifier que l’authentification a été correctement configurée pour vos runbooks.
+
+### <a name="scenario-runbooks-fail-with-gateway-error"></a>Scénario : Échec des runbooks avec une erreur de passerelle
+
+#### <a name="issue"></a>Problème
+
+L’actualisation des tâches Runbook Worker hybrides a échoué lors de la communication par le biais d’un serveur de passerelle Log Analytics et l’erreur retournée est semblable à ce qui suit : `Spool operation id does not exist (spool ID): see attachment for job details and exact exception messages.`
+
+#### <a name="resolution"></a>Résolution
+
+Vérifiez que le serveur de passerelle Log Analytics est en ligne et qu’il est accessible à partir de la machine hébergeant le rôle Runbook Worker hybride. Pour obtenir plus d’informations sur la résolution des problèmes, consultez [Résoudre les problèmes liés à la passerelle Log Analytics](../../azure-monitor/agents/gateway.md#troubleshooting).
 
 ### <a name="scenario-event-15011-in-the-hybrid-runbook-worker"></a><a name="cannot-connect-signalr"></a>Scénario : Événement 15011 dans le Runbook Worker hybride
 
@@ -372,7 +382,7 @@ Pour résoudre ce problème :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre problème ne figure pas ici ou que vous ne pouvez pas le résoudre, utilisez un des canaux suivants pour obtenir une aide supplémentaire :
+Si votre problème ne figure pas ici ou que vous ne pouvez pas le résoudre, utilisez l’un des canaux suivants pour obtenir une aide supplémentaire :
 
 * Obtenez des réponses de la part d’experts Azure via les [Forums Azure](https://azure.microsoft.com/support/forums/).
 * Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Le Support Azure fournit à la communauté Azure des réponses, un support technique et des experts.

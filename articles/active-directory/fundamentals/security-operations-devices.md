@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d7adc35829e60f40c74f310023b2ea5a259cec
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bbe50839beb886d22ad05414e220781f87e5f75b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754306"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045461"
 ---
 # <a name="azure-active-directory-security-operations-for-devices"></a>Opérations de sécurité Azure Active Directory pour les appareils
 
@@ -50,7 +50,7 @@ Pour réduire le risque d’attaque de votre infrastructure par des acteurs malv
 
 ## <a name="where-to-look"></a>Emplacement des fichiers
 
-Les fichiers journaux que vous pouvez utiliser pour investiguer et superviser sont les suivants : 
+Les fichiers journaux que vous pouvez utiliser pour l’investigation et la supervision sont les suivants : 
 
 * [Journaux d’audit Azure AD](../reports-monitoring/concept-audit-logs.md)
 
@@ -60,7 +60,7 @@ Les fichiers journaux que vous pouvez utiliser pour investiguer et superviser so
 
 * [Journaux Azure Key Vault](../..//key-vault/general/logging.md?tabs=Vault)
 
-Dans le portail Azure, vous pouvez afficher les journaux d’audit Azure AD et les télécharger sous forme de fichiers CSV ou JSON. Le portail Azure offre plusieurs moyens d’intégrer des journaux Azure AD aux autres outils, ce qui permet une plus grande automatisation de la supervision et des alertes :
+Sur le Portail Azure, vous pouvez afficher les journaux d’audit Azure AD et les télécharger sous forme de fichiers CSV (valeurs séparées par des virgules) ou JSON (JavaScript Object Notation). Le portail Azure offre plusieurs moyens d’intégrer des journaux Azure AD aux autres outils, ce qui permet une plus grande automatisation de la supervision et des alertes :
 
 * **[Azure Sentinel](../../sentinel/overview.md)** – Permet une analytique de sécurité intelligente au niveau de l’entreprise en fournissant des fonctionnalités d’informations de sécurité et de gestion d’événements management (SIEM). 
 
@@ -68,7 +68,7 @@ Dans le portail Azure, vous pouvez afficher les journaux d’audit Azure AD et 
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) avec intégration SIEM** : permet [d’intégrer les journaux Azure AD à d’autres systèmes SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) comme Splunk, ArcSight, QRadar et Sumo Logic grâce à l’intégration Azure Event Hub.
 
-* **[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS)** : permet de découvrir et de gérer les applications, de gouverner toutes les applications et ressources, et de vérifier la conformité des applications cloud. 
+* **[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security)**  : permet de découvrir et de gérer les applications, de gouverner toutes les applications et ressources et de vérifier la conformité des applications cloud. 
 
 La majeure partie du monitoring et des alertes est produite par les stratégies d’accès conditionnel. Vous pouvez utiliser le [classeur Insights et rapports sur l’accès conditionnel](../conditional-access/howto-conditional-access-insights-reporting.md) pour examiner les effets d’une ou de plusieurs stratégies d’accès conditionnel sur vos connexions, ainsi que leur résultat, notamment l’état de l’appareil. Ce classeur permet de voir un résumé de l’impact et d’identifier l’incidence sur une période donnée. Vous pouvez également vous en servir pour examiner les connexions d’un utilisateur spécifique. 
 

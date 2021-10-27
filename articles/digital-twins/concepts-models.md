@@ -1,33 +1,31 @@
 ---
 title: Modèles DTDL
 titleSuffix: Azure Digital Twins
-description: Découvrez comment Azure Digital Twins utilise des modèles personnalisés pour décrire les entités de votre environnement.
+description: Découvrez comment Azure Digital Twins utilise des modèles personnalisés pour décrire les entités dans votre environnement et comment définir ces modèles à l’aide du DTDL (Digital Twin Definition Language).
 author: baanders
 ms.author: baanders
-ms.date: 8/25/2021
+ms.date: 10/7/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 792ddf3f3ca57b16112de78a6ecf2c2d887494ef
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 79931aeb1e2f6fc37ea2cf4030a6b35dc55e6a26
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535856"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130130970"
 ---
-# <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendre les modèles de jumeau dans Azure Digital Twins
+# <a name="learn-about-twin-models-and-how-to-define-them-in-azure-digital-twins"></a>En savoir plus sur les modèles et leur définition dans Azure Digital Twins
 
-L’une des principales caractéristiques d’Azure Digital Twins est la possibilité de définir votre propre vocabulaire et à créer votre graphique de jumeau dans les termes définis par votre entreprise. Cette fonctionnalité est fournie via les **modèles** spécifiés par l’utilisateur. Vous pouvez considérer les modèles comme des noms dans une description de votre monde. 
+L’une des principales caractéristiques d’Azure Digital Twins est la possibilité de définir votre propre vocabulaire et à créer votre graphique de jumeau dans les termes définis par votre entreprise. Cette fonctionnalité est fournie via les **modèles** spécifiés par l’utilisateur. Vous pouvez considérer les modèles comme des noms dans une description de votre monde. Les modèles Azure Digital Twins sont représentés avec le **langage DTDL (Digital Twins Definition Language)** basé sur JSON-LD. 
 
 Un modèle est comparable à une **classe** dans un langage de programmation orienté objet, définissant une forme de données pour un concept particulier dans votre environnement de travail réel. Les modèles ont des noms (par exemple, *Room* ou *TemperatureSensor*) et contiennent des éléments tels que des propriétés, de la télémétrie ou des événements, ainsi que des commandes décrivant ce que peut faire ce type d’entité dans votre environnement. Plus tard, vous utiliserez ces modèles pour créer des [jumeaux numériques](concepts-twins-graph.md) représentant des entités spécifiques répondant à une description de ce type.
-
-Les modèles Azure Digital Twins sont représentés avec le **langage DTDL (Digital Twins Definition Language)** basé sur JSON-LD.  
 
 ## <a name="digital-twin-definition-language-dtdl-for-models"></a>Langage DTDL (Digital Twin Definition Language) pour les modèles
 
 Les modèles pour Azure Digital Twins sont définis à l’aide du langage de définition Digital Twins (DTDL). 
 
-Vous pouvez afficher les spécifications de langage complètes pour DTDL dans GitHub : [Langage de définition Digital Twins (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Vous pouvez afficher les spécifications de langage complètes pour DTDL dans GitHub : [Langage de définition Digital Twins (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Cette page contient des informations de référence DTDL et des exemples pour vous aider à commencer à écrire vos propres modèles DTDL.
 
 Le langage DTDL est basé sur JSON-LD et est indépendant du langage de programmation. Le langage DTDL n’est pas exclusif d’Azure Digital Twins. Il est également utilisé pour représenter des données d’appareil dans d’autres services IoT tels que [IoT Plug-and-Play](../iot-develop/overview-iot-plug-and-play.md). Azure Digital Twins utilise DTDL **version 2** (l’utilisation de DTDL version 1 avec Azure Digital Twins est désormais déconseillée). 
 

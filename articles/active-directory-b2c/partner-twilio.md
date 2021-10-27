@@ -3,20 +3,20 @@ title: Application Twilio Verify avec Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Découvrez comment intégrer un exemple d’application de paiement en ligne dans Azure AD B2C avec l’API Twilio Verify. Conformez-vous à la directive PSD2 (Payment Services Directive 2) sur les transactions grâce à la liaison dynamique et à l’authentification forte du client.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 6937318e3d2e8d1a42279242a0d8b476cdab892f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 10fc0f015d67d6b0ab8b728156e161c91d1ffc8c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606681"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035825"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Intégration de l’application Twilio Verify à Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ La solution Twilio se compose des éléments suivants :
 | 2     | L’utilisateur démarre une transaction à haut risque, par exemple, un virement de 50,00 $. Le jeton d’accès actif de l’utilisateur est évalué pour le PolicyId afin de déterminer si l’utilisateur s’est déjà authentifié par le biais d’une stratégie personnalisée renforcée (step-up).     |
 | 3     | L’application enregistre la valeur (50,00 $) et le bénéficiaire (John Doe) de la transaction, puis génère un jeton signé. Ce jeton, appelé `id_token_hint`, contient la revendication `amount:$500, payee:john doe`. `id_token_hint` est envoyé avec la demande à la stratégie personnalisée Azure AD B2C, qui est intégrée à Twilio.     |
 | 4     | Azure AD B2C vérifie la signature du jeton id_token_hint en contrôlant le point de terminaison OpenId Connect `/.well-known` des applications. Après la vérification, il extrait les revendications de ce jeton, à savoir `amount` et `payee`. L’utilisateur voit alors une page qui permet de vérifier son numéro de téléphone mobile par SMS.     |
-| 5     | L’utilisateur fait la demande de vérification de son numéro de téléphone par SMS, et Azure AD B2C envoie une demande d’API REST au point de terminaison de l’API Twilio Verify. Il envoie également les revendications `amount` et `payee` de la transaction dans le cadre du processus PSD2 pour générer le code secret à usage unique (OTP). Twilio envoie un SMS au numéro de téléphone enregistré de l’utilisateur.     |
+| 5     | L’utilisateur fait la demande de vérification de son numéro de téléphone par SMS, et Azure AD B2C envoie une demande d’API REST au point de terminaison d’API Twilio Verify. Il envoie également les revendications `amount` et `payee` de la transaction dans le cadre du processus PSD2 pour générer le code secret à usage unique (OTP). Twilio envoie un SMS au numéro de téléphone enregistré de l’utilisateur.     |
 | 6     |  L’utilisateur entre le code secret à usage unique qu’il a reçu par SMS et le soumet à Azure AD B2C. Azure AD B2C effectue une demande d’API avec ce code secret à l’API Twilio Verify pour vérifier que le code secret est correct. Pour finir, un jeton est envoyé à l’application, avec un nouveau PolicyId qui signifie que l’utilisateur a bien effectué l’authentification renforcée.    |
 |      |      |
 

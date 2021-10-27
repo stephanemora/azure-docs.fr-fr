@@ -10,12 +10,12 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: ea418576ab8fe06964a61e48f16393e1a0566ce8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 42d35abfb3b3cea82355d2ed610a2ccc72c13f6d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182245"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004537"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Déclencheur de préchauffage Azure Functions
 
@@ -240,7 +240,7 @@ Aucune information supplémentaire n’est fournie à une fonction de déclenche
 
 ## <a name="trigger---limits"></a>Déclencheur : limites
 
-* Le déclencheur de préchauffage est uniquement disponible pour les applications qui s’exécutent dans le cadre d’un [plan Premium](./functions-premium-plan.md).
+* Le déclencheur de préchauffage n’est pas disponible pour les applications qui s’exécutent dans le cadre d’un [plan Consommation](./consumption-plan.md).
 * Le déclencheur de préchauffage est uniquement appelé pendant les opérations de scale-out, et non lors des redémarrages ou d’autres démarrages sans mise à l’échelle. Vous devez vous assurer que votre logique peut charger toutes les dépendances nécessaires sans utiliser le déclencheur de préchauffage. Le chargement différé est un bon modèle pour y parvenir.
 * Le déclencheur de préchauffage ne peut pas être appelé une fois qu’une instance est déjà en cours d’exécution.
 * Il ne peut y avoir qu’une seule fonction de déclencheur de préchauffage par application de fonction.

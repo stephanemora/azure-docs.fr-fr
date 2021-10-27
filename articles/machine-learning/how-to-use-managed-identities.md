@@ -1,5 +1,5 @@
 ---
-title: Utiliser des identités managées pour le contrôle d'accès (préversion)
+title: Utiliser des identités managées pour le contrôle d’accès
 titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser des identités managées pour contrôler l’accès aux ressources Azure à partir d’un espace de travail Azure Machine Learning.
 services: machine-learning
@@ -9,15 +9,15 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.topic: how-to
-ms.date: 10/22/2020
-ms.openlocfilehash: 37f0cff74b3918cc81b099149fff485dba405939
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.date: 10/13/2021
+ms.openlocfilehash: 38d9487c5f0cd31c732a855de1008bae74df7e3f
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424063"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163262"
 ---
-# <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utiliser les identités managées avec Azure Machine Learning (préversion)
+# <a name="use-managed-identities-with-azure-machine-learning"></a>Utiliser des identités managées avec Azure Machine Learning
 
 Les [identités managées](../active-directory/managed-identities-azure-resources/overview.md) vous permettent de configurer votre espace de travail avec les *autorisations minimales requises pour accéder aux ressources*. 
 
@@ -30,9 +30,6 @@ Cet article explique comment utiliser les identités managées pour :
  * Configurer et utiliser ACR pour votre espace de travail Azure Machine Learning sans avoir à activer l’accès utilisateur administrateur à ACR.
  * Accéder à un ACR privé externe à votre espace de travail, pour extraire des images de base à des fins de formation ou d’inférence.
  * Créer un espace de travail avec une identité managée affectée par l’utilisateur pour accéder aux ressources associées.
-
-> [!IMPORTANT]
-> L’utilisation d’identités managées pour contrôler l’accès aux ressources avec Azure Machine Learning est actuellement disponible en préversion. La fonctionnalité en préversion est fournie en l’état, sans garantie de support ni contrat de niveau de service. Pour plus d’informations, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 ## <a name="prerequisites"></a>Prérequis
 
@@ -255,7 +252,7 @@ ws = Workspace.create(name="workspace name",
     primary_user_assigned_identity="managed identity ARM ID")
 ```
 
-Vous pouvez également utiliser un [modèle ARM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced) pour créer un espace de travail avec une identité managée affectée par l’utilisateur.
+Vous pouvez également utiliser un [modèle ARM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/) pour créer un espace de travail avec une identité managée affectée par l’utilisateur.
 
 > [!IMPORTANT]
 > Si vous apportez vos propres ressources associées au lieu de les créer avec Azure Machine Learning Service, vous devez accorder les rôles d’identité managée à ces ressources. Utilisez le [modèle ARM d’attribution de rôle](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) pour effectuer les attributions.
@@ -268,3 +265,5 @@ Si vous disposez déjà d’un espace de travail, vous pouvez convertir l’iden
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez-en davantage sur la [sécurité d'entreprise dans Azure Machine Learning](concept-enterprise-security.md).
+* En savoir plus sur l’[accès aux données en fonction de l’identité](how-to-identity-based-data-access.md).
+* En savoir plus sur les [identités managées sur le cluster de calcul](how-to-create-attach-compute-cluster.md).

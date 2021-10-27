@@ -1,18 +1,18 @@
 ---
-title: Résoudre les problèmes de performances
+title: 'Résolution des problèmes : Performances'
 titleSuffix: Azure Digital Twins
 description: Conseils pour la résolution des problèmes de performances d’une instance Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 5/11/2021
+ms.date: 10/8/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 252eeea15e5c9ebde19c5925423615cd7c50234c
-ms.sourcegitcommit: bc29cf4472118c8e33e20b420d3adb17226bee3f
+ms.openlocfilehash: 67f182ffbaf439d2c6b592854156073d6104efa7
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113493096"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131426"
 ---
 # <a name="troubleshooting-azure-digital-twins-performance"></a>Résolution des problèmes rencontrés avec Azure Digital Twins : Performances
 
@@ -20,7 +20,7 @@ Si vous rencontrez un problème de délai ou d’autres problèmes de performanc
 
 ## <a name="isolate-the-source-of-the-delay"></a>Isoler la source du délai
 
-Déterminez si le délai provient d’Azure Digital Twins ou d’un autre service de votre solution. Pour cela, vous pouvez utiliser la métrique **Latence de l’API** dans [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) sur le portail Azure. Pour obtenir des instructions sur l’affichage des métriques Azure Monitor concernant une instance Azure Digital Twins, consultez [Résolution des problèmes : Afficher les métriques avec Azure Monitor](troubleshoot-metrics.md).
+Déterminez si le délai provient d’Azure Digital Twins ou d’un autre service de votre solution. Pour cela, vous pouvez utiliser la métrique **Latence de l’API** dans [Azure Monitor](../azure-monitor/essentials/quick-monitor-azure-resource.md) sur le portail Azure. Pour obtenir des instructions sur l’affichage des métriques Azure Monitor concernant une instance Azure Digital Twins, consultez [Résolution des problèmes : Métriques](troubleshoot-metrics.md).
 
 ## <a name="check-regions"></a>Vérifier les régions
 
@@ -28,7 +28,7 @@ Si votre solution utilise Azure Digital Twins conjointement avec d’autres serv
 
 ## <a name="check-logs"></a>Inspecter les journaux d’activité
 
-Azure Digital Twins peut collecter les journaux de votre instance de service pour vous aider à superviser ses performances et diverses autres données. Les journaux sont envoyés à [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) ou à votre système de stockage personnalisé. Pour activer la journalisation dans votre instance, suivez les instructions données dans [Résolution des problèmes : Configurer les diagnostics](troubleshoot-diagnostics.md). Vous pouvez analyser les horodatages des journaux pour mesurer les latences, évaluer leur cohérence et déterminer leur source.
+Azure Digital Twins peut collecter les journaux de votre instance de service pour vous aider à superviser ses performances et diverses autres données. Les journaux sont envoyés à [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) ou à votre système de stockage personnalisé. Pour activer la journalisation dans votre instance, suivez les instructions données dans [Résolution des problèmes : Journaux de diagnostic](troubleshoot-diagnostics.md). Vous pouvez analyser les horodatages des journaux pour mesurer les latences, évaluer leur cohérence et déterminer leur source.
 
 ## <a name="check-api-frequency"></a>Vérifier la fréquence de l’API
 
@@ -46,7 +46,7 @@ Procédez comme suit :
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez d’autres façons de résoudre les problèmes rencontrés avec votre instance Azure Digital Twins dans les articles suivants :
-* [Résolution des problèmes : Afficher les métriques avec Azure Monitor](troubleshoot-metrics.md)
-* [Résolution des problèmes : Configurer les diagnostics](troubleshoot-diagnostics.md).
-* [Résolution des problèmes : Configurer des alertes](troubleshoot-alerts.md).
-* [Résolution des problèmes : Comprendre l’intégrité de vos ressources](troubleshoot-resource-health.md)
+* [Résolution des problèmes : Métriques](troubleshoot-metrics.md)
+* [Résolution des problèmes : Journaux de diagnostic](troubleshoot-diagnostics.md)
+* [Résolution des problèmes : Alertes](troubleshoot-alerts.md)
+* [Résolution des problèmes : Intégrité des ressources](troubleshoot-resource-health.md)

@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 876bdc57f2d97cf4254cc0c4bba381df812bdda5
-  ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+  ms.openlocfilehash: 81c0d46d58b39b0d4b6698da1f1b39d5c36eb587
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/06/2021
-  ms.locfileid: "129616642"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130246189"
 landingContent:
 - title: À propos de Serveur flexible (préversion)
   linkLists:
@@ -109,11 +109,15 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Choisir les outils appropriés en vue de la migration vers Azure Database pour MySQL
+      url: ../how-to-decide-on-right-migration-tools.md
+    - text: Migrer d’un serveur unique vers un serveur flexible
+      url: ../howto-migrate-single-flexible-minimum-downtime.md
     - text: Migrer en ligne
       url: ../howto-migrate-online.md
     - text: Migrer RDS pour MySQL en utilisant la réplication des données entrantes
       url: ../how-to-migrate-rds-mysql-data-in-replication.md
-- title: Référence
+- title: Informations de référence
   linkLists:
   - linkListType: sample
     links:

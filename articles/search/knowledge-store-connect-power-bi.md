@@ -7,21 +7,21 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2021
-ms.openlocfilehash: 97a0025437b7f055f9fcf2e7860e926e9693cde6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/18/2021
+ms.openlocfilehash: 14a6cd5ec07d9c4c5ee584312e9ba20b2251d0ef
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124766926"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178300"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Connecter une base de connaissances à Power BI
 
-Cet article explique comment connecter et explorer une base de connaissances à l’aide de Power Query dans l’application Power BI Desktop. Vous pouvez commencer plus rapidement avec des modèles, ou créer un tableau de bord personnalisé à partir de rien.
+Cet article explique comment connecter et interroger une base de connaissances à l’aide de Power Query dans l’application Power BI Desktop. Vous pouvez commencer plus rapidement avec des modèles, ou créer un tableau de bord personnalisé à partir de rien.
 
 Un magasin de connaissances composé de tables dans stockage Azure fonctionnent mieux dans Power BI. Si les tables contiennent des projections provenant des mêmes compétences et du même groupe de projection, vous pouvez facilement les « joindre » pour générer des visualisations de table qui incluent des champs de tables associées.
 
-Suivez les étapes décrites dans cet article à l’aide des exemples de données et du magasin de connaissances [créés dans le Portail Azure](knowledge-store-create-portal.md) ou par le biais des [API Postman et REST](knowledge-store-create-rest.md). 
+Suivez les étapes décrites dans cet article à l’aide des exemples de données et de la base de connaissances [créés dans ce démarrage rapide du portail](knowledge-store-create-portal.md) ou par le biais des [API Postman et REST](knowledge-store-create-rest.md). 
 
 ## <a name="connect-to-azure-storage"></a>Se connecter à Stockage Azure
 
@@ -45,11 +45,11 @@ Suivez les étapes décrites dans cet article à l’aide des exemples de donné
 
    ![Ouvrir Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Ouvrir Power Query")
 
-1. Sélectionnez *hotelReviewsSsDocument*, puis supprimez les colonnes *PartitionKey*, *RowKey* et *Timestamp*. 
+1. Ouvrez *hotelReviewsDocument* et supprimez ses colonnes *PartitionKey*, *RowKey* et *Timestamp*. Ces colonnes sont utilisées pour les relations entre les tables dans Stockage Table Azure. Power BI n’en a pas besoin. Il doit vous rester une colonne nommée « Contenu » affichant *Enregistrement* dans chacune. 
 
    ![Modifier les tables](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Modifier les tables")
 
-1. En haut à droite de la table, cliquez sur l’icône montrant des flèches opposées pour développer le *Contenu*. Une fois que la liste des colonnes s’affiche, sélectionnez toutes les colonnes, puis désélectionnez les colonnes commençant par « métadonnées ». Cliquez sur **OK** pour afficher les colonnes sélectionnées.
+1. En haut à droite de la table, cliquez sur l’icône montrant des flèches opposées pour développer *Contenu*. Lorsque la liste des colonnes s’affiche, sélectionnez toutes les colonnes. Effacez les colonnes commençant par « Métadonnées ». Cliquez sur **OK** pour inclure les colonnes sélectionnées.
 
    ![Développer le contenu](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Développer le contenu")
 
@@ -60,9 +60,9 @@ Suivez les étapes décrites dans cet article à l’aide des exemples de donné
 
    ![Changer les types de données](media/knowledge-store-connect-power-bi/powerbi-change-type.png "Changer les types de données")
 
-1. Sélectionnez *hotelReviewsSsPages*, puis répétez les étapes 9 et 10 pour supprimer les colonnes et développer le *Contenu*.
+1. Ouvrez *hotelReviewsSsPages* et répétez les étapes de suppression de colonne, en développant *Contenu* pour sélectionner les colonnes à partir des enregistrements. Il n’y a aucune modification de type de données pour cette table.
 
-1. Sélectionnez *hotelReviewsSsKeyPhrases*, puis répétez les étapes 9 et 10 pour supprimer les colonnes et développer le *Contenu*. Il n’y a aucune modification de type de données pour cette table.
+1. Ouvrez *hotelReviewsSsKeyPhrases* et répétez les étapes de suppression de colonne, en développant *Contenu* pour sélectionner les colonnes à partir des enregistrements. Il n’y a aucune modification de type de données pour cette table.
 
 1. Dans la barre de commandes, cliquez sur **Fermer et appliquer**.
 

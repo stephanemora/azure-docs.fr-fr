@@ -1,50 +1,77 @@
 ---
 title: En savoir plus sur Azure Image Builder
 description: Découvrez Azure Image Builder pour les machines virtuelles Azure.
-author: kof-f
-ms.author: kofiforson
-ms.date: 05/24/2021
+author: sumit-kalra
+ms.author: sukalra
+ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: cynthn
-ms.openlocfilehash: 805b2a8bf29edfd76804aec3607acc11155edd16
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: af390012d2f433b580f66187889c680e3de01a86
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697068"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074282"
 ---
 # <a name="azure-image-builder-overview"></a>Vue d’ensemble du Générateur d’images Azure
 
 **S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Machines virtuelles Windows :heavy_check_mark: Groupes identiques flexibles :heavy_check_mark: Groupes identiques uniformes
 
-Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence des déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. La définition de votre propre pipeline d’acquisition d’images nécessite du temps, une infrastructure et une configuration. Toutefois, avec Azure VM Image Builder, il vous suffit de fournir une configuration décrivant votre image et de l’envoyer au service, après quoi l’image est générée et distribuée.
- 
-Azure VM Image Builder (Azure Image Builder) vous permet de partir d’une image de la Place de marché Azure basée sur Windows ou Linux ou d’images personnalisées existantes, et de commencer à y ajouter vos propres personnalisations. Étant donné qu’Image Builder repose sur [HashiCorp Packer](https://packer.io/), vous verrez des similitudes, mais vous bénéficiez d’un service managé. Vous pouvez également spécifier où vous souhaitez que vos images soient hébergées dans la [Galerie d’images partagées Azure](shared-image-galleries.md), en tant qu’images managées ou disque dur virtuel.
+Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence de leurs déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis, et les logiciels nécessaires. La configuration de votre propre pipeline d’acquisition d’images nécessite du temps, une infrastructure et une configuration. Avec Azure VM Image Builder (Image Builder), il vous suffit de créer une configuration décrivant votre image et de l’envoyer au service, après quoi l’image est générée et distribuée.
 
+Avec Image Builder, vous pouvez migrer votre pipeline de personnalisation d’images existant vers Azure tout en continuant à utiliser des scripts, des commandes et des processus existants pour personnaliser les images. À l’aide d’Image Builder, vous pouvez intégrer vos applications principales dans une image de machine virtuelle afin que vos machines virtuelles puissent prendre en charge les charges de travail immédiatement après leur création. Vous pouvez même ajouter des configurations afin de générer des images pour Azure Virtual Desktop ou en tant que VHD pour une utilisation dans Azure Stack ou pour faciliter l’exportation.
+
+Image Builder vous permet de commencer avec des images Windows ou Linux, issues de la Place de marché Azure ou avec des images personnalisées existantes, et d’ajouter vos propres personnalisations. Vous pouvez également spécifier où vous souhaitez que vos images obtenues soient hébergées dans la galerie [Azure Shared Image Gallery](shared-image-galleries.md), en tant qu’images managées ou disque dur virtuel.
 
 ## <a name="features"></a>Fonctionnalités
 
-Azure Image Builder prend en charge les fonctionnalités suivantes :
+Bien qu’il soit possible de créer des images de machine virtuelle personnalisées manuellement ou avec d’autres outils, le processus peut être fastidieux et peu fiable. Azure VM Image Builder, qui est basé sur [HashiCorp Packer](https://www.packer.io/), vous offre les avantages d’un service managé.
 
-- Création d’images de référence, qui incluent vos configurations minimales de sécurité et d’entreprise, et qui permettent aux services d’affiner leur personnalisation.
-- Intégration des applications de base, de sorte que les machines virtuelles peuvent accepter les charges de travail après leur création, ou ajouter des configurations pour prendre en charge les images Azure Virtual Desktop.
-- En corrigeant des images existantes, le Générateur d’images vous permet de corriger en permanence des images personnalisées.
-- Connectez Image Builder à vos réseaux virtuels existants, afin de pouvoir vous connecter à des serveurs de configuration existants (DSC, Chef, Puppet, etc.), à des partages de fichiers ou à tout autre serveur/service routable.
-- L’intégration avec la Galerie d’images partagées Azure vous permet de distribuer, de contrôler les versions, et de mettre à l’échelle des images globalement, et offre un système de gestion des images.
-- Pour l’intégration avec des pipelines de génération d’images existants, il vous suffit d’appeler Image Builder à partir de votre pipeline ou d’utiliser la simple tâche Azure DevOps d’Image Builder.
-- Migrez un pipeline de personnalisation d’image existant vers Azure. Utilisez vos scripts, commandes et processus existants pour personnaliser des images.
-- Création d’images au format VHD pour prendre en charge Azure Stack.
- 
+### <a name="simplicity"></a>Simplicité
+
+- Élimine la nécessité d’utiliser des outils, des processus complexes et des étapes manuelles pour créer une image de machine virtuelle. Image Builder simplifie tous ces détails et masque les exigences spécifiques à Azure, comme la nécessité de généraliser l’image (sysprep) tout en donnant aux utilisateurs plus avancés la possibilité de les remplacer.
+- Image Builder peut s’intégrer à des pipelines de build d’images existants pour une expérience « click-and-go ». Vous pouvez simplement appeler Image Builder à partir de votre pipeline ou utiliser [Tâche DevOps du service Azure Image Builder (préversion)](./linux/image-builder-devops-task.md).
+- Image Builder peut extraire des données de personnalisation à partir de diverses sources, ce qui évite de devoir les collecter dans un même endroit pour créer une image de machine virtuelle.
+- L’intégration d’Image Builder avec la galerie Azure Shared Image Gallery vous offre un système de gestion des images qui vous permet de distribuer, de répliquer, de contrôler les versions et de mettre à l’échelle des images globalement. En outre, vous pouvez distribuer la même image obtenue en tant que disque dur virtuel ou en tant qu’une ou plusieurs images managées sans avoir à la recréer à partir de zéro.
+
+### <a name="infrastructure-as-code"></a>Infrastructure en tant que code
+
+- Il n’est pas nécessaire de gérer l’infrastructure à long terme (*comme les comptes de stockage pour conserver les données de personnalisation*) ou l’infrastructure temporaire (*comme une machine virtuelle temporaire pour créer l’image*). 
+- Image Builder stocke vos artefacts de spécification et de personnalisation de création d’image de machine virtuelle en tant que ressources Azure, ce qui évite de conserver les définitions hors connexion et élimine le risque de dérives liées à l’environnement provoquées par des suppressions accidentelles ou des mises à jour.
+
+### <a name="security"></a>Sécurité
+
+- Image Builder permet la création d’images de référence (*qui peuvent inclure vos configurations minimales de sécurité et d’entreprise*) et permet à différents services d’affiner leur personnalisation. Ces images peuvent être maintenues sécurisées et conformes si vous utilisez Image Builder pour reconstruire rapidement une image de référence à l’aide de la dernière version corrigée d’une image source. Image Builder facilite également la création d’images qui respectent la Base de référence Azure Windows. Pour plus d’informations, consultez [Image Builder - Modèle de base Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/imagebuilder-windowsbaseline).
+- Vous n’avez pas besoin de rendre vos artefacts de personnalisation accessibles publiquement pour permettre à Image Builder de les récupérer. Image Builder peut utiliser votre [identité managée Azure](../active-directory/managed-identities-azure-resources/overview.md) pour extraire ces ressources, et vous pouvez limiter les privilèges de cette identité aussi strictement que vous le souhaitez à l’aide d’Azure-RBAC. Cela signifie non seulement que vous pouvez garder vos artefacts secrets, mais qu’ils ne peuvent pas non plus être falsifiés par des intervenants non autorisés.
+- Les copies des artefacts de personnalisation, des ressources de calcul et de stockage transitoires, et les images obtenues sont stockées en toute sécurité dans votre abonnement avec un accès contrôlé par Azure-RBAC. Cela comprend la machine virtuelle de build utilisée pour créer l’image personnalisée et garantit que vos scripts de personnalisation et vos fichiers ne sont pas copiés sur une machine virtuelle inconnue dans un abonnement inconnu. En outre, vous pouvez obtenir un niveau élevé d’isolation des charges de travail des autres clients à l’aide des [offres de machines virtuelles isolées](./isolation.md) pour la machine virtuelle de build.
+- Vous pouvez connecter Image Builder à vos réseaux virtuels existants, afin de communiquer avec des serveurs de configuration existants (DSC, Chef, Puppet, etc.), des partages de fichiers ou tout autre serveur et service routable.
 
 ## <a name="regions"></a>Régions
 
-Le service Azure Image Builder est disponible dans [ces](./linux/image-builder-json.md#location) régions. Des images peuvent être distribuées en dehors de ces régions.
+Le service Azure Image Builder est disponible dans les régions suivantes : régions. 
+
+>[!NOTE]
+> Les images peuvent toujours être distribuées en dehors de ces régions.
+> 
+- USA Est
+- USA Est 2
+- Centre-USA Ouest
+- USA Ouest
+- USA Ouest 2
+- États-Unis - partie centrale méridionale
+- Europe Nord
+- Europe Ouest
+- Asie Sud-Est
+- Sud-Australie Est
+- Australie Est
+- Sud du Royaume-Uni
+- Ouest du Royaume-Uni
 
 ## <a name="os-support"></a>Prise en charge du système d’exploitation
-Le Générateur d’images Azure prendra en charge les images de système d’exploitation de base de la Place de marché Azure :
+Azure Image Builder prend en charge les images de système d’exploitation de base de la Place de marché Azure :
 - Ubuntu 18.04
 - Ubuntu 16.04
 - RHEL 7.6, 7.7
@@ -55,7 +82,8 @@ Le Générateur d’images Azure prendra en charge les images de système d’ex
 - Windows 2016
 - Windows 2019
 
-Nous avons listé les systèmes d’exploitation que nous avons testés et savons fonctionner avec Azure Image Builder. Toutefois, Azure Image Builder doit fonctionner avec n’importe quelle Image Linux ou Windows sur le marketplace.
+>[!IMPORTANT]
+> Les systèmes d’exploitation listés ont été testés et fonctionnent désormais avec Azure Image Builder. Toutefois, Azure Image Builder doit fonctionner avec n’importe quelle Image Linux ou Windows sur le marketplace.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -63,9 +91,9 @@ Azure VM Image Builder est un service Azure complètement managé qui est access
 
 ![Tracé conceptuel du processus Azure Image Builder présentant les sources (Windows/Linux), les personnalisations (Shell, PowerShell, Redémarrage et mise à jour de Windows, ajout de fichiers) et la distribution mondiale avec Azure Shared Image Gallery](./media/image-builder-overview/image-builder-flow.png)
 
-Les configurations de modèle peuvent être passées en utilisant PowerShell, Az CLI, des modèles ARM et la tâche DevOps d’Azure VM Image Builder. Quand vous la soumettrez au service, nous créerons une ressource de modèle d’image. Une fois la ressource de modèle d’image créée, vous voyez un groupe de ressources d’indexation créé dans votre abonnement, au format : IT_\<DestinationResourceGroup> _\<TemplateName>_ \(GUID). Le groupe de ressources d’indexation contient des fichiers et des scripts référencés dans la personnalisation des fichiers, de l’interpréteur de commandes et de PowerShell dans la propriété ScriptURI.
+Les configurations de modèle peuvent être passées en utilisant PowerShell, Azure CLI, des modèles Azure Resource Manager et la Tâche DevOps du service Azure Image Builder. Quand vous les envoyez au service, nous créons une ressource de modèle d’image. Une fois la ressource de modèle d’image créée, vous voyez un groupe de ressources de mise en lots créé dans votre abonnement, au format : `IT_\<DestinationResourceGroup>_\<TemplateName>_\(GUID)`. Le groupe de ressources d’indexation contient des fichiers et des scripts référencés dans la personnalisation des fichiers, de l’interpréteur de commandes et de PowerShell dans la propriété ScriptURI.
 
-Pour exécuter la build, vous appelez `Run` sur la ressource de modèle d’image. Le service déploie alors des ressources supplémentaires pour la build, comme une machine virtuelle, un réseau, un disque, une carte réseau, etc. Si vous générez une image sans utiliser un réseau virtuel existant, Image Builder déploie également une IP publique et un groupe de sécurité réseau. Le service se connecte à la machine virtuelle de la build à l’aide de SSH de WinRM. Si vous sélectionnez un réseau virtuel existant, le service est déployé avec Azure Private Link et aucune adresse IP publique n’est nécessaire. Pour plus d’informations sur le réseau Image Builder, consultez ces [détails](./linux/image-builder-networking.md).
+Pour exécuter la build, vous appelez `Run` sur la ressource de modèle d’image. Le service déploie alors des ressources supplémentaires pour la build, comme une machine virtuelle, un réseau, un disque, une carte réseau, etc. Si vous générez une image sans utiliser un réseau virtuel existant, Image Builder déploie également une IP publique et un groupe de sécurité réseau. Le service se connecte à la machine virtuelle de la build à l’aide de SSH de WinRM. Si vous sélectionnez un réseau virtuel existant, le service est déployé avec Azure Private Link et aucune adresse IP publique n’est nécessaire. Pour plus d’informations, consultez [Vue d’ensemble du réseau Image Builder](./linux/image-builder-networking.md).
 
 Une fois la build terminée, toutes les ressources sont supprimées, à l’exception du groupe de ressources d’indexation et du compte de stockage. Pour les supprimer, vous devez supprimer la ressource de modèle d’image. Vous pouvez également les conserver en vue de réexécuter la build.
 
@@ -75,7 +103,7 @@ Cette documentation contient plusieurs exemples et des guides pas à pas qui fon
 La ressource de modèle d’image est immuable et contient des liens vers les ressources et le groupe de ressources d’indexation. Par conséquent, le déplacement de ce type de ressource n’est pas pris en charge. Si vous voulez déplacer la ressource de modèle d’image, vérifiez que vous disposez d’une copie du modèle de configuration (extrayez la configuration existante de la ressource si vous ne l’avez pas), créez une ressource de modèle d’image dans le nouveau groupe de ressources sous un nouveau nom, puis supprimez la ressource de modèle d’image précédente. 
 
 ## <a name="permissions"></a>Autorisations
-Lorsque vous vous inscrivez à AIB, cela permet au service AIB de créer, de gérer et de supprimer un groupe de ressources intermédiaire (IT_ *), et d’y ajouter des ressources requise pour la génération d’image. Cette opération est effectuée par un nom de principal du service AIB rendu disponible dans votre abonnement lors d’une inscription réussie.
+Lorsque vous vous inscrivez à AIB, cela permet au service AIB de créer, de gérer et de supprimer un groupe de ressources de mise en lots `(IT_*)`, et d’y ajouter des ressources requises pour la génération d’image. Cette opération est effectuée par un nom de principal du service AIB rendu disponible dans votre abonnement lors d’une inscription réussie.
 
 Pour permettre à Azure VM Image Builder de distribuer des images aux images gérées ou à une galerie d’images partagées, vous devez créer une identité attribuée par l’utilisateur Azure qui dispose des autorisations nécessaires pour lire et écrire des images. Si vous accédez au Stockage Azure, des autorisations sont nécessaires pour lire des conteneurs privés et publics.
 

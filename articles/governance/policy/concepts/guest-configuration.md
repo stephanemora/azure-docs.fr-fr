@@ -3,22 +3,28 @@ title: Comprendre la fonctionnalité de configuration invité de la Stratégie A
 description: Découvrez comment la Stratégie Azure utilise la fonctionnalité de configuration invité pour auditer ou configurer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 07/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: d9da1454fa531bcc6526cc11dda3b341be0688df
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: d562842da341394247a02516c08b062ee12a01cc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129092620"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042633"
 ---
 # <a name="understand-the-guest-configuration-feature-of-azure-policy"></a>Comprendre la fonctionnalité de configuration invité de la Stratégie Azure
 
-La Stratégie Azure peut auditer et configurer les paramètres à l’intérieur d’une machine, tant pour les machines s’exécutant dans Azure que pour les [machines avec Arc](../../../azure-arc/servers/overview.md).
-Chaque tâche est effectuée par l’agent de configuration invité dans Windows et Linux.
-L’extension de la configuration invité, via l’agent, gère les paramètres tels que :
+La fonctionnalité de configuration d’invité d’Azure Policy fournit des fonctionnalités natives pour auditer ou configurer des paramètres de système d’exploitation en tant que code, à la fois pour les machines s’exécutant dans Azure et les machines hybrides [avec Arc](../../../azure-arc/servers/overview.md).
+La fonctionnalité peut être utilisée directement par machine ou être orchestrée à grande échelle par Azure Policy.
 
-- La configuration du système d’exploitation
+Les configurations sont différentes des définitions de stratégie. La configuration d’invité utilise Azure Policy pour attribuer dynamiquement des configurations aux machines. Vous pouvez également attribuer des configurations à des machines [manuellement](/guest-configuration-assignments.md#manually-creating-guest-configuration-assignments) ou à l’aide d’autres services Azure comme [AutoManage](../../../automanage/automanage-virtual-machines.md).
+
+Les ressources de configuration dans Azure sont conçues comme une [ressource d’extension](../../../azure-resource-manager/management/extension-resource-types.md).
+Vous pouvez imaginer chaque configuration comme un ensemble de propriétés supplémentaires pour la machine. Les configurations peuvent inclure des paramètres comme :
+
+- Paramètres du système d’exploitation
 - La configuration ou la présence de l’application
 - Paramètres d'environnement
+
+Les résultats de chaque configuration peuvent être affichés sur la [Page des affectations d’invités](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) ou si la configuration est orchestrée par une affectation Azure Policy, en cliquant sur le lien « Dernière ressource évaluée » sur la [page « Détails de conformité »](../how-to/determine-non-compliance.md#view-configuration-assignment-details-at-scale).
 
 [Un guide vidéo de ce document est disponible](https://youtu.be/t9L8COY-BkM).
 
@@ -78,8 +84,8 @@ Les définitions de stratégie de la Configuration invité sont incluses dans le
 |Serveur de publication|Nom|Versions|
 |-|-|-|
 |Amazon|Linux|2|
-|Canonical|Serveur Ubuntu|16.04 - 20.x|
-|Credativ|Debian|9 - 10.x|
+|Canonical|Serveur Ubuntu|14.04 - 20.x|
+|Credativ|Debian|8 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Client Windows|Windows 10|
 |Oracle|Oracle-Linux|7.x, 8.x|

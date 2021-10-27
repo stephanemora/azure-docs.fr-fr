@@ -3,7 +3,7 @@ title: Changer le modèle de licence d’une machine virtuelle SQL dans Azure
 description: Découvrez comment faire passer la machine virtuelle SQL Server dans Azure de la licence avec paiement à l’utilisation à la licence BYOL (apportez votre propre licence) à l’aide d’Azure Hybrid Benefit.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.subservice: management
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6d840893de2c516137e54d015123fa9249b93d54
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 6f6e2a4216284776b0d566caac0f79ccfaeb349b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113434621"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162239"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Changer le modèle de licence d’une machine virtuelle SQL dans Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -117,7 +117,7 @@ Le changement de modèle de licence est :
    - Disponible uniquement pour les clients disposant de [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview).
    - Pris en charge uniquement pour les éditions Standard et Entreprise de SQL Server. Les changements de licence ne sont pas pris en charge pour les versions Express, Web et Développeur. 
    - Pris en charge uniquement pour les machines virtuelles déployées à l’aide du modèle Azure Resource Manager. Les machines virtuelles déployées via le modèle classique ne sont pas prises en charge. 
-   - Disponible uniquement pour les clouds publics ou Azure Government. 
+   - Disponible uniquement pour les clouds publics ou Azure Government. Actuellement non disponible pour la région Azure Chine. 
 
 > [!Note]
 > Seule une licence par cœur SQL Server avec Software Assurance ou des licences d’abonnement sont éligibles pour Azure Hybrid Benefit. Si vous utilisez une licence Serveur + licence d’accès client pour SQL Server et que vous disposez de Software Assurance, vous pouvez utiliser BYOL (apportez votre propre licence) sur une image de machine virtuelle Azure SQL Server pour tirer parti de la mobilité des licences pour ces serveurs, mais vous ne pouvez pas tirer parti des autres fonctionnalités d’Azure Hybrid Benefit. 
@@ -143,5 +143,5 @@ Pour plus d’informations, consultez les articles suivants :
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Questions fréquentes (FAQ) pour SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.yml)
 * [Guide des tarifs pour SQL Server sur une machine virtuelle Windows](pricing-guidance.md)
-* [Notes de publication pour SQL Server sur une machine virtuelle Windows](../../database/doc-changes-updates-release-notes.md)
+* [Nouveautés de SQL Server sur des machines virtuelles Azure](doc-changes-updates-release-notes-whats-new.md)
 * [Vue d’ensemble de l’extension SQL IaaS Agent](./sql-server-iaas-agent-extension-automate-management.md)

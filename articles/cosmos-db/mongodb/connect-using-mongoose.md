@@ -9,12 +9,12 @@ ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 39e2e9c0258be13698d3569dcc6e64d02bff8f42
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2bae7f2466363861afe99d37748e7ea41fc0e1c9
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554498"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046636"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connecter une application Mongoose Node.js à Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -95,7 +95,7 @@ Après avoir créé la base de données, vous utiliserez son nom dans la variabl
     ```JavaScript
    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
-        user: process.env.COSMOSDB_USER,
+        username: process.env.COSMOSDB_USER,
         password: process.env.COSMOSDB_PASSWORD
       },
     useNewUrlParser: true,
@@ -330,6 +330,6 @@ Comme vous pouvez le constater, il est très simple d’utiliser des discriminat
 - Explorez les [exemples](nodejs-console-app.md) MongoDB avec l’API Azure Cosmos DB pour MongoDB.
 - Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
     - Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
-    - Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez [Estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
+    - Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
 
 [dbleveltp]: ./media/connect-using-mongoose/db-level-throughput.png

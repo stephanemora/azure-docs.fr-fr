@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 10/11/2021
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: eb20d283e092be8b5932d1427f7e7064afa9c654
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 8f8daa67c22f8a505014ff326ca3961fa86f21f5
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129859645"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160828"
 ---
 # <a name="enable-azure-monitor-opentelemetry-exporter-for-net-nodejs-and-python-applications-preview"></a>Activer Azure Monitor OpenTelemetry Exporter pour les applications .NET, Node.js et Python (préversion)
 
@@ -313,10 +313,13 @@ Exécutez votre application et ouvrez votre onglet Ressource Application Insight
 > [!NOTE]
 > Si vous n’êtes pas en mesure d’exécuter l’application ou si vous n’obtenez pas de données comme prévu, accédez à [Résolution des problèmes](#troubleshooting).
 
-:::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Capture d’écran de l’onglet Vue d’ensemble d’Application Insights avec les demandes serveur et le temps de réponse du serveur mis en surbrillance.":::
+:::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Capture d’écran de l’onglet Vue d’ensemble d’Application Insights avec les demandes serveur et le temps de réponse du serveur mis en évidence.":::
 
 > [!IMPORTANT]
-> Si vous avez deux ou plusieurs services émettant des données de télémétrie vers la même ressource Application Insights, vous devez [définir les noms des rôles cloud](#set-cloud-role-name-and-cloud-role-instance) pour les représenter correctement sur la cartographie d’application.
+> Si vous avez deux ou plusieurs services émettant de la télémétrie vers la même ressource Application Insights, vous devez [définir les noms des rôles cloud](#set-cloud-role-name-and-cloud-role-instance) pour les représenter correctement sur la cartographie d’application.
+
+> [!NOTE]
+> Dans le cadre de l’utilisation de l’instrumentation Application Insights, nous collectons et envoyons des données de diagnostic à Microsoft. Ces données nous permettent d’exécuter et d’améliorer Application Insights. Vous avez la possibilité de désactiver la collecte de données non essentielles. [En savoir plus](./statsbeat.md)
 
 ## <a name="set-cloud-role-name-and-cloud-role-instance"></a>Définir le nom du rôle cloud et l’instance de rôle cloud
 
@@ -997,7 +1000,7 @@ Pour les problèmes OpenTelemetry, contactez directement la [communauté OpenTel
 
 - Remplissez [l’enquête sur les commentaires des clients](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform) de la communauté OpenTelemetry.
 - Parlez de vous à Microsoft en rejoignant notre [communauté OpenTelemetry Early Adopter](https://aka.ms/AzMonOTel/).
-- Discutez avec d’autres utilisateurs d’Azure Monitor dans la [communauté Microsoft Tech](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor).
+- Discutez avec d’autres utilisateurs d’Azure Monitor dans la [communauté technique de Microsoft](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

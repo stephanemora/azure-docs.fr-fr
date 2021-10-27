@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 5d6a9ca83060c074740985b87af841bfa4be17f9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6bf722279462c1f9b6d08830af19577ec218f756
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524285"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039141"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Supprimer les alertes d’Azure Defender
 
@@ -107,7 +107,7 @@ Pour supprimer une ou plusieurs des règles que vous avez créées, accédez à 
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>Créer et gérer des règles de suppression avec une API
 
-Vous pouvez utiliser l’API REST de Security Center pour créer, afficher ou supprimer des règles de suppression d’alerte. 
+Vous pouvez utiliser l’API REST Security Center pour créer, afficher ou supprimer des règles de suppression d’alerte. 
 
 Les méthodes HTTP de l’API REST adaptées aux règles de suppression sont les suivantes :
 

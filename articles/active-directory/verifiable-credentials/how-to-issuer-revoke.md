@@ -1,20 +1,20 @@
 ---
-title: Guide pratique pour révoquer des justificatifs vérifiables en tant qu’émetteur – Justificatifs vérifiables d’Azure Active Directory
+title: Guide pratique pour révoquer des justificatifs vérifiables en tant qu’émetteur – Justificatifs vérifiables d’Azure Active Directory (préversion)
 description: Découvrez comment révoquer des justificatifs vérifiables que vous avez émis
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 86a1683751b76b0b6e08b71fdeccaae47d88ffc3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8548410c2df423f8635092002401501705fb24a8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466126"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006828"
 ---
 # <a name="revoke-a-previously-issued-verifiable-credential-preview"></a>Révoquer des justificatifs vérifiables précédemment émis (préversion)
 

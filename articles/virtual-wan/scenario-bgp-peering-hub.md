@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/06/2021
 ms.author: cherylmc
-ms.openlocfilehash: e570e5f06af814a6d0cbb581275d1c70ebf0df8a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5cc5b3dd26d0cb88460fabbd2ceb3cd28b107121
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124780791"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129070"
 ---
 # <a name="scenario-bgp-peering-with-a-virtual-hub-preview"></a>Scénario : Peering BGP avec un hub virtuel (préversion)
 
@@ -61,6 +61,8 @@ Le routeur de hub Azure Virtual WAN, également appelé routeur de hub virtuel, 
    | Ressource | Limite |
    |---|---|
    |  Nombre d’itinéraires que chaque pair BGP peut publier sur le hub virtuel.| Le hub ne peut accepter qu’un nombre maximal de 10 000 itinéraires (total) à partir de ses ressources connectées. Par exemple, si un hub virtuel a un total de 6 000 itinéraires à partir des réseaux virtuels connectés, des branches, des hubs virtuels, etc., lorsqu’un nouveau Peering BGP est configuré avec une NVA, celle-ci ne peut publier que jusqu’à 4 000 itinéraires. |
+* Les itinéraires provenant d’une appliance virtuelle réseau dans un réseau virtuel qui sont plus spécifiques que l’espace d’adressage du réseau virtuel, lorsqu’ils sont publiés sur le hub virtuel via BGP, ne sont pas propagés plus loin localement.
+* Le trafic destiné aux adresses du réseau virtuel directement connectées au hub virtuel ne peut pas être configuré pour être acheminé par le biais de l’appliance virtuelle réseau en utilisant le Peering BGP entre le hub et l’appliance virtuelle réseau. Ceci est dû au fait que le hub virtuel apprend automatiquement les itinéraires système associés aux adresses dans le réseau virtuel spoke lors de la création de la connexion au réseau virtuel spoke. Ces itinéraires système appris automatiquement sont préférés aux itinéraires appris par le hub via BGP.
 
 ## <a name="bgp-peering-scenarios"></a>Scénarios de Peering BGP
 

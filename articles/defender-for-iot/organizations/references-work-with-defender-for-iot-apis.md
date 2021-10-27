@@ -1,14 +1,14 @@
 ---
 title: Utiliser les API Defender pour IoT
 description: Utilisez une API REST externe pour accéder aux données découvertes par les capteurs et les consoles de gestion et effectuer des actions avec ces données.
-ms.date: 12/14/2020
+ms.date: 10/17/2021
 ms.topic: reference
-ms.openlocfilehash: 7b97be1e30440131045dccf1822fe6855e747768
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f11627a35f2d91cb719866e6fc7d8fc480a50b17
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128600624"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131577"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>API de capteur et de console de gestion Defender pour IoT
 
@@ -26,27 +26,27 @@ Pour générer un jeton :
   
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-tokens.png" alt-text="Capture d’écran de la fenêtre Paramètres système mettant en surbrillance le bouton Jetons d’accès.":::
 
-2. Sélectionnez **Générer un nouveau jeton**.
-   
+1. Sélectionnez **Générer un nouveau jeton**.
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/new-token.png" alt-text="Sélectionnez le bouton pour créer un nouveau jeton.":::
 
-3. Décrivez l’objectif du nouveau jeton et sélectionnez **Suivant**.
-   
+1. Décrivez l’objectif du nouveau jeton et sélectionnez **Suivant**.
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-name.png" alt-text="Générez un nouveau jeton et entrez le nom de l’intégration qui lui est associée.":::
 
-4. Le jeton d'accès apparaît. Copiez-le, car il ne s’affichera plus.
-   
+1. Le jeton d'accès apparaît. Copiez-le, car il ne s’affichera plus.
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/token-code.png" alt-text="Copiez votre jeton d’accès pour votre intégration.":::
 
-5. Sélectionnez **Terminer**. Les jetons que vous créez apparaissent dans la boîte de dialogue **Jetons d’accès**.
-   
+1. Sélectionnez **Terminer**. Les jetons que vous créez apparaissent dans la boîte de dialogue **Jetons d’accès**.
+
    :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Capture d’écran de la boîte de dialogue Jetons d’appareil avec des jetons remplis":::
 
    **Utilisé** indique l’heure à laquelle le dernier appel externe avec ce jeton a été reçu.
 
    Si **N/A** est affiché dans le champ **Utilisé** pour ce jeton, cela signifie que la connexion entre le capteur et le serveur connecté ne fonctionne pas.
 
-6. Ajoutez un en-tête HTTP intitulé **Autorisation** à votre requête et définissez sa valeur sur le jeton que vous avez généré.
+1. Ajoutez un en-tête HTTP intitulé **Autorisation** à votre requête et définissez sa valeur sur le jeton que vous avez généré.
 
 ## <a name="sensor-api-specifications"></a>Spécifications de l’API de capteur
 
@@ -74,13 +74,15 @@ Cette section décrit les API de capteur suivantes :
 
 - [Mise à jour du mot de passe de l’utilisateur par l’administrateur système – /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
 
+- [Récupérer une alerte PCAP – /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
+
 ### <a name="retrieve-device-information---apiv1devices"></a>Récupérer des informations sur les appareils – /api/v1/devices
 
 Utilisez cette API pour demander une liste de tous les appareils détectés par un capteur Defender pour IoT.
 
 #### <a name="method"></a>Méthode
 
-**GET**
+- **GET**
 
 Demande une liste de tous les appareils détectés par le capteur Defender pour IoT.
 
@@ -96,7 +98,7 @@ Demande une liste de tous les appareils détectés par le capteur Defender pour 
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -277,7 +279,7 @@ Tableau d'objets JSON qui représentent les appareils.
 
 | Type | API | Exemple |
 |--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
 
 ### <a name="retrieve-device-connection-information---apiv1devicesconnections"></a>Récupérer les informations de connexion des appareils – /api/v1/devices/connections
 
@@ -285,7 +287,7 @@ Utilisez cette API pour demander une liste de toutes les connexions par appareil
 
 #### <a name="method"></a>Méthode
 
-**GET**
+- **GET**
 
 #### <a name="query-parameters"></a>Paramètres de requête
 
@@ -321,7 +323,7 @@ Si vous ne définissez pas les paramètres de la requête, toutes les connexions
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -450,8 +452,8 @@ Tableau d'objets JSON qui représentent les connexions de l’appareil.
 > [!div class="mx-tdBreakAll"]
 > | Type | API | Exemple |
 > |--|--|--|
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/connections` |
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000'` |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/connections` |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000'` |
 
 ### <a name="retrieve-information-on-cves---apiv1devicescves"></a>Récupérer des informations sur les CVE – /api/v1/devices/cves
 
@@ -459,7 +461,7 @@ Utilisez cette API pour demander une liste de tous les CVE connus découverts su
 
 #### <a name="method"></a>Méthode
 
-**GET**
+- **GET**
 
 #### <a name="query-parameters"></a>Paramètres de requête
 
@@ -485,7 +487,7 @@ Par défaut, cette API fournit la liste de toutes les adresses IP d’appareil a
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -565,8 +567,8 @@ Tableau d’objets JSON qui représentent les CVE identifiés sur les adresses I
 
 | Type | API | Exemple |
 |--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/cves` |
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top=` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/cves` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top=` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50` |
 
 ### <a name="retrieve-alert-information---apiv1alerts"></a>Récupérer des informations sur les alertes – /api/v1/alerts
 
@@ -574,7 +576,7 @@ Utilisez cette API pour demander une liste de toutes les alertes détectées par
 
 #### <a name="method"></a>Méthode
 
-**GET**
+- **GET**
 
 #### <a name="query-parameters"></a>Paramètres de requête
 
@@ -604,7 +606,7 @@ Utilisez cette API pour demander une liste de toutes les alertes détectées par
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -708,7 +710,7 @@ Notez que /api/v2/ est nécessaire pour les informations suivantes :
 > [!div class="mx-tdBreakAll"]
 > | Type | API | Exemple |
 > |--|--|--|
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections'` |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections'` |
 
 ### <a name="retrieve-timeline-events---apiv1events"></a>Récupérer les événements de chronologie – /api/v1/events
 
@@ -716,7 +718,7 @@ Utilisez cette API pour demander une liste des événements signalés à la chro
 
 #### <a name="method"></a>Méthode
 
-**GET**
+- **GET**
 
 #### <a name="query-parameters"></a>Paramètres de requête
 
@@ -736,7 +738,7 @@ Utilisez cette API pour demander une liste des événements signalés à la chro
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -829,7 +831,7 @@ Tableau d'objets JSON qui représentent les alertes.
 
 | Type | API | Exemple |
 |--|--|--|
-| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<ADRESSE_IP>/api/v1/events?minutesTimeFrame=&type=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED' |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=&type='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED'` |
 
 ### <a name="retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices"></a>Récupérer des informations sur les vulnérabilités – /api/v1/reports/vulnerabilities/devices
 
@@ -837,11 +839,11 @@ Utilisez cette API pour demander les résultats de l’évaluation de vulnérabi
 
 #### <a name="method"></a>Méthode
 
-**GET**
+- **GET**
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -1076,14 +1078,13 @@ L’objet d’appareil contient :
     }
 
 ]
-
 ```
 
 #### <a name="curl-command"></a>Commande Curl
 
 | Type | API | Exemple |
 |--|--|--|
-| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/reports/vulnerabilities/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/devices |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/devices` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/devices` |
 
 ### <a name="retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity"></a>Récupérer les failles de sécurité – /api/v1/reports/vulnerabilities/security
 
@@ -1093,79 +1094,79 @@ Cette évaluation est basée sur des informations générales sur le réseau et 
 
 #### <a name="method"></a>Méthode
 
-**GET**
+- **GET**
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
 Objet JSON qui représente les résultats évalués. Chaque clé peut accepter la valeur Null. Sinon, elle contient un objet JSON avec des clés qui n’acceptent pas la valeur Null.
 
-### <a name="result-fields"></a>Champs de résultats
+#### <a name="result-fields"></a>Champs de résultats
 
-**Clés**
+- **Clés**
 
-**unauthorizedDevices**
+    **unauthorizedDevices**
 
-| Nom du champ | Type | Liste de valeurs |
-| ---------- | ---- | -------------- |
-| **address** | String | Adresse IP |
-| **name** | String | - |
-| **firstDetectionTime** | Numérique | Époque (UTC) |
-| lastSeen | Numérique | Époque (UTC) |
+    | Nom du champ | Type | Liste de valeurs |
+    | ---------- | ---- | -------------- |
+    | **address** | String | Adresse IP |
+    | **name** | String | - |
+    | **firstDetectionTime** | Numérique | Époque (UTC) |
+    | lastSeen | Numérique | Époque (UTC) |
 
-**illegalTrafficByFirewallRules**
+    **illegalTrafficByFirewallRules**
 
-| Nom du champ | Type | Liste de valeurs |
-| ---------- | ---- | -------------- |
-| **server** | String | Adresse IP |
-| **client** | String | Adresse IP |
-| **port** | Numérique | - |
-| **transport** | String | TCP, UDP ou ICMP |
+    | Nom du champ | Type | Liste de valeurs |
+    | ---------- | ---- | -------------- |
+    | **server** | String | Adresse IP |
+    | **client** | String | Adresse IP |
+    | **port** | Numérique | - |
+    | **transport** | String | TCP, UDP ou ICMP |
 
-**weakFirewallRules**
+    **weakFirewallRules**
 
-| Nom du champ | Type | Liste de valeurs |
-| ---------- | ---- | -------------- |
-| **sources** | Tableau de sources JSON. Chaque source peut être dans l’un des quatre formats. | « Any », « ip address (Host) », « from ip-to ip (RANGE) », « ip address, subnet mask (NETWORK) » |
-| **destinations** | Tableau de destinations JSON. Chaque destination peut être dans l’un des quatre formats. | « Any », « ip address (Host) », « from ip-to ip (RANGE) », « ip address, subnet mask (NETWORK) » |
-| **ports** | Tableau de ports JSON dans l’un des trois formats | « Any », « port (protocol, if detected) », « from port-to port (protocol, if detected) » |
+    | Nom du champ | Type | Liste de valeurs |
+    | ---------- | ---- | -------------- |
+    | **sources** | Tableau de sources JSON. Chaque source peut être dans l’un des quatre formats. | « Any », « ip address (Host) », « from ip-to ip (RANGE) », « ip address, subnet mask (NETWORK) » |
+    | **destinations** | Tableau de destinations JSON. Chaque destination peut être dans l’un des quatre formats. | « Any », « ip address (Host) », « from ip-to ip (RANGE) », « ip address, subnet mask (NETWORK) » |
+    | **ports** | Tableau de ports JSON dans l’un des trois formats | « Any », « port (protocol, if detected) », « from port-to port (protocol, if detected) » |
 
-**accessPoints**
+    **accessPoints**
 
-| Nom du champ | Type | Liste de valeurs |
-| ---------- | ---- | -------------- |
-| **macAddress** | String | Adresse MAC |
-| **vendor** | String | Nom du fournisseur |
-| **ipAddress** | String | Adresse IP ou N/A |
-| **name** | String | Nom de l’appareil ou N/A |
-| **wireless** | String | Non, Soupçonné ou Oui |
+    | Nom du champ | Type | Liste de valeurs |
+    | ---------- | ---- | -------------- |
+    | **macAddress** | String | Adresse MAC |
+    | **vendor** | String | Nom du fournisseur |
+    | **ipAddress** | String | Adresse IP ou N/A |
+    | **name** | String | Nom de l’appareil ou N/A |
+    | **wireless** | String | Non, Soupçonné ou Oui |
 
-**connectionsBetweenSubnets**
+    **connectionsBetweenSubnets**
 
-| Nom du champ | Type | Liste de valeurs |
-| ---------- | ---- | -------------- |
-| **server** | String | Adresse IP |
-| **client** | String | Adresse IP |
+    | Nom du champ | Type | Liste de valeurs |
+    | ---------- | ---- | -------------- |
+    | **server** | String | Adresse IP |
+    | **client** | String | Adresse IP |
 
-**industrialMalwareIndicators**
+    **industrialMalwareIndicators**
 
-| Nom du champ | Type | Liste de valeurs |
-| ---------- | ---- | -------------- |
-| **detectionTime** | Numérique | Époque (UTC) |
-| **alertMessage** | String | - |
-| **description** | String | - |
-| **devices** | Tableau JSON | Noms des appareils | 
+    | Nom du champ | Type | Liste de valeurs |
+    | ---------- | ---- | -------------- |
+    | **detectionTime** | Numérique | Époque (UTC) |
+    | **alertMessage** | String | - |
+    | **description** | String | - |
+    | **devices** | Tableau JSON | Noms des appareils |
 
-**internetConnections**
+    **internetConnections**
 
-| Nom du champ | Type | Liste de valeurs |
-| ---------- | ---- | -------------- |
-| **internalAddress** | String | Adresse IP |
-| **autorisé** | Boolean | Oui ou Non | 
-| **externalAddresses** | Tableau JSON | Adresse IP |
+    | Nom du champ | Type | Liste de valeurs |
+    | ---------- | ---- | -------------- |
+    | **internalAddress** | String | Adresse IP |
+    | **autorisé** | Boolean | Oui ou Non |
+    | **externalAddresses** | Tableau JSON | Adresse IP |
 
 #### <a name="response-example"></a>Exemple de réponse
 
@@ -1323,14 +1324,13 @@ Objet JSON qui représente les résultats évalués. Chaque clé peut accepter l
     ]
 
 }
-
 ```
 
 #### <a name="curl-command"></a>Commande Curl
 
 | Type | API | Exemple |
 |--|--|--|
-| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/reports/vulnerabilities/security | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/security |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/security` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/security` |
 
 ### <a name="retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational"></a>Récupérer les vulnérabilités opérationnelles – /api/v1/reports/vulnerabilities/operational
 
@@ -1338,11 +1338,11 @@ Utilisez cette API pour demander les résultats de l’évaluation de vulnérabi
 
 #### <a name="method"></a>Méthode
 
-**GET**
+- **GET**
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -1350,51 +1350,51 @@ Objet JSON qui représente les résultats évalués. Chaque clé contient un tab
 
 #### <a name="result-fields"></a>Champs de résultats
 
-**Clés**
+- **Clés**
 
-**backupServer**
+    **backupServer**
 
-| Nom du champ | Type | Liste de valeurs |
-|--|--|--|
-| **source** | String | Adresse IP |
-| **destination** | String | Adresse IP |
-| **port** | Numérique | - |
-| **transport** | String | TCP ou UDP |
-| **backupMaximalInterval** | String | - |
-| **lastSeenBackup** | Numérique | Époque (UTC) |
+    | Nom du champ | Type | Liste de valeurs |
+    |--|--|--|
+    | **source** | String | Adresse IP |
+    | **destination** | String | Adresse IP |
+    | **port** | Numérique | - |
+    | **transport** | String | TCP ou UDP |
+    | **backupMaximalInterval** | String | - |
+    | **lastSeenBackup** | Numérique | Époque (UTC) |
 
-**ipNetworks**
+    **ipNetworks**
 
-| Nom du champ | Type | Liste de valeurs |
-|--|--|--|
-| **addresse** s | Numérique | - |
-| **network** | String | Adresse IP |
-| **mask** | String | Masque de sous-réseau |
+    | Nom du champ | Type | Liste de valeurs |
+    |--|--|--|
+    | **addresse** s | Numérique | - |
+    | **network** | String | Adresse IP |
+    | **mask** | String | Masque de sous-réseau |
 
-**protocolProblems**
+    **protocolProblems**
 
-| Nom du champ | Type | Liste de valeurs |
-|--|--|--|
-| **protocol** | String | - |
-| **addresses** | Tableau JSON | Adresses IP |
-| **alert** | String | - |
-| **reportTime** | Numérique | Époque (UTC) |
+    | Nom du champ | Type | Liste de valeurs |
+    |--|--|--|
+    | **protocol** | String | - |
+    | **addresses** | Tableau JSON | Adresses IP |
+    | **alert** | String | - |
+    | **reportTime** | Numérique | Époque (UTC) |
 
-**protocolDataVolumes**
+    **protocolDataVolumes**
 
-| Nom du champ | Type | Liste de valeurs |
-|--|--|--|
-| protocol | String | - |
-| volume | String | « volume number MB » |
+    | Nom du champ | Type | Liste de valeurs |
+    |--|--|--|
+    | protocol | String | - |
+    | volume | String | « volume number MB » |
 
-**disconnections**
+    **disconnections**
 
-| Nom du champ | Type | Liste de valeurs |
-|--|--|--|
-| **assetAddress** | String | Adresse IP |
-| **assetName** | String | - |
-| **lastDetectionTime** | Numérique | Époque (UTC) |
-| **backToNormalTime** | Numérique | Époque (UTC) |     
+    | Nom du champ | Type | Liste de valeurs |
+    |--|--|--|
+    | **assetAddress** | String | Adresse IP |
+    | **assetName** | String | - |
+    | **lastDetectionTime** | Numérique | Époque (UTC) |
+    | **backToNormalTime** | Numérique | Époque (UTC) |
 
 #### <a name="response-example"></a>Exemple de réponse
 
@@ -1520,14 +1520,13 @@ Objet JSON qui représente les résultats évalués. Chaque clé contient un tab
     ]
 
 }
-
 ```
 
 #### <a name="curl-command"></a>Commande Curl
 
 | Type | API | Exemple |
 |--|--|--|
-| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/v1/reports/vulnerabilities/operational | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/operational |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational` |
 
 ### <a name="validate-user-credentials---apiexternalauthenticationvalidation"></a>Valider les informations d’identification d’utilisateur – /api/external/authentication/validation
 
@@ -1537,11 +1536,11 @@ Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser
 
 #### <a name="method"></a>Méthode
 
-**POST**
+- **POST**
 
 #### <a name="request-type"></a>Type de demande
 
-**JSON**
+- **JSON**
 
 #### <a name="query-parameters"></a>Paramètres de requête
 
@@ -1567,7 +1566,7 @@ request:
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -1587,14 +1586,13 @@ response:
     "msg": "Authentication succeeded."
 
 }
-
 ```
 
 #### <a name="curl-command"></a>Commande Curl
 
 | Type | API | Exemple |
 |--|--|--|
-| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" https://<ADRESSE_IP>/api/external/authentication/validation | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/external/authentication/validation |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authentication/validation` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/external/authentication/validation` |
 
 ### <a name="change-password---externalauthenticationset_password"></a>Modifier le mot de passe – /external/authentication/set_password
 
@@ -1602,11 +1600,11 @@ Utilisez cette API pour permettre aux utilisateurs de modifier leur mot de passe
 
 #### <a name="method"></a>Méthode
 
-**POST**
+- **POST**
 
 #### <a name="request-type"></a>Type de demande
 
-**JSON**
+- **JSON**
 
 #### <a name="request-example"></a>Exemple de requête
 
@@ -1622,12 +1620,11 @@ request:
     "new_password": "Test54321\!"
 
 }
-
 ```
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -1653,7 +1650,6 @@ response:
     }
 
 }
-
 ```
 
 #### <a name="device-fields"></a>Champs de l’appareil
@@ -1668,7 +1664,7 @@ response:
 
 | Type | API | Exemple |
 |--|--|--|
-| POST | curl -k -d '{"username": "<NOM_UTILISATEUR>","password": "<MOT_DE_PASSE_ACTUEL>","new_password": "<NOUVEAU_MOT_DE_PASSE>"}' -H 'Content-Type: application/json'  https://<ADRESSE_IP>/api/external/authentication/set_password | curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password |
+| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password` |
 
 ### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Mise à jour du mot de passe de l’utilisateur par l’administrateur système – /external/authentication/set_password_by_admin
 
@@ -1676,11 +1672,11 @@ Utilisez cette API pour permettre aux administrateurs système de modifier les m
 
 #### <a name="method"></a>Méthode
 
-**POST**
+- **POST**
 
 #### <a name="request-type"></a>Type de demande
 
-**JSON**
+- **JSON**
 
 #### <a name="request-example"></a>Exemple de requête
 
@@ -1700,7 +1696,7 @@ request:
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -1749,18 +1745,72 @@ response:
 > [!div class="mx-tdBreakAll"]
 > | Type | API | Exemple |
 > |--|--|--|
-> | POST | curl -k -d '{"admin_username":"<NOM_UTILISATEUR_ADMINISTRATEUR>","admin_password":"<MOT_DE_PASSE_ADMINISTRATEUR>","username": "<NOM_UTILISATEUR>","new_password": "<NOUVEAU_MOT_DE_PASSE>"}' -H 'Content-Type: application/json'  https://<ADRESSE_IP>/api/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password_by_admin |
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin` |
 
-## <a name="on-premises-management-console-api-specifications"></a>Spécifications des API de la console de gestion locale ##
+### <a name="retrieve-alert-pcap---apiv2alertspcap"></a>Récupérer une alerte PCAP – /api/v2/alerts/pcap
+
+Utilisez cette API pour récupérer un fichier PCAP lié à une alerte.
+
+Ce point de terminaison n’utilise pas de jeton d’accès ordinaire pour l’autorisation. Au lieu de cela, il nécessite un jeton spécial créé par le point de terminaison d’API `/external/v2/alerts/pcap` sur le CM.
+
+#### <a name="method"></a>Méthode
+
+- **GET**
+
+#### <a name="query-parameters"></a>Paramètres de requête
+
+- id : Identifiant de l’alerte Xsense  
+Exemple :  
+`/api/v2/alerts/pcap/<id>`
+
+#### <a name="response-type"></a>Type de réponse
+
+- **JSON**
+
+#### <a name="response-content"></a>Contenu de la réponse
+
+- **Success** : Fichier binaire contenant des données PCAP
+- **Failure** : Objet JSON qui contient un message d’erreur
+
+#### <a name="response-example"></a>Exemple de réponse
+
+#### <a name="error"></a>Erreur
+
+```json
+{
+  "error": "PCAP file is not available"
+}
+```
+
+#### <a name="curl-command"></a>Commande Curl
+
+|Type|API|Exemple|
+|-|-|-|
+|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
+
+## <a name="on-premises-management-console-api-specifications"></a>Spécifications des API de la console de gestion locale
 
 Cette section décrit les API de la console de gestion locale pour :
-- Exclusions des alertes
-- Informations sur l'appareil
-- Informations sur l’alerte
 
-### <a name="alert-exclusions"></a>Exclusions des alertes ###
+- [Exclusions des alertes](#alert-exclusions)
 
-Définissez les conditions dans lesquelles les alertes ne seront pas envoyées. Par exemple, définissez et mettez à jour les heures d’arrêt et de démarrage, les appareils ou sous-réseaux qui doivent être exclus lors du déclenchement d’alertes ou les moteurs Defender pour IoT qui doivent être exclus. Par exemple, au cours d’une fenêtre de maintenance, vous souhaiterez peut-être arrêter l’envoi de toutes les alertes, à l’exception des alertes de programmes malveillants sur les appareils critiques. Les éléments que vous définissez ici apparaissent dans la fenêtre **Exclusions d’alerte** de la console de gestion locale comme des règles d’exclusion en lecture seule.
+- [Récupérer des informations sur les appareils – /external/v1/devices](#retrieve-device-information---externalv1devices)
+
+- [Récupérer des informations sur les alertes – /external/v1/alerts](#retrieve-alert-information---externalv1alerts)
+
+- [Alertes QRadar](#qradar-alerts)
+
+- [Exclusions d’alerte (fenêtre de maintenance) – /external/v1/maintenanceWindow](#alert-exclusions-maintenance-window---externalv1maintenancewindow)
+
+- [Modifier le mot de passe – /external/authentication/set_password (1)](#change-password---externalauthenticationset_password-1)
+
+- [Mise à jour du mot de passe de l’utilisateur par l’administrateur système – /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+
+- [Demander une alerte PCAP – /external/v2/alerts/pcap](#request-alert-pcap---externalv2alertspcap)
+
+### <a name="alert-exclusions"></a>Exclusions des alertes
+
+Définissez les conditions dans lesquelles les alertes ne seront pas envoyées. Par exemple, définissez et mettez à jour les heures d’arrêt et de démarrage, les appareils ou sous-réseaux qui doivent être exclus lors du déclenchement d’alertes ou les moteurs Defender pour IoT qui doivent être exclus. Par exemple, au cours d’une fenêtre de maintenance, vous souhaiterez peut-être arrêter l’envoi de toutes les alertes, à l’exception des alertes de programmes malveillants sur les appareils critiques. Les éléments que vous définissez ici apparaissent dans la fenêtre Exclusions d’alertes de la console de gestion locale en tant que règles d’exclusion en lecture seule.
 
 #### <a name="externalv1maintenancewindow"></a>/external/v1/maintenanceWindow
 
@@ -1774,28 +1824,19 @@ Définissez les conditions dans lesquelles les alertes ne seront pas envoyées. 
 {
     "msg": "Authentication succeeded."
 }
-
 ```
 
-#### <a name="change-password---externalauthenticationset_password"></a>Modifier le mot de passe – /external/authentication/set_password 
-
-Utilisez cette API pour permettre aux utilisateurs de modifier leur mot de passe. Tous les rôles d’utilisateur Defender pour IoT peuvent fonctionner avec l’API. Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser cette API.
-
-#### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Mise à jour du mot de passe de l’utilisateur par l’administrateur système – /external/authentication/set_password_by_admin 
-
-Utilisez cette API pour permettre aux administrateurs système de modifier les mots de passe d’utilisateurs spécifiques. Tous les rôles d’utilisateur administrateur Defender pour IoT peuvent fonctionner avec l’API. Vous n’avez pas besoin d’un jeton d’accès Defender pour IoT pour utiliser cette API.
-
-### <a name="retrieve-device-information---externalv1devices"></a>Récupérer des informations sur les appareils – /external/v1/devices ###
+### <a name="retrieve-device-information---externalv1devices"></a>Récupérer des informations sur les appareils – /external/v1/devices
 
 Cette API demande une liste de tous les appareils détectés par les capteurs Defender pour IoT connectés à une console de gestion locale.
 
 #### <a name="method"></a>Méthode
 
-**GET**
+- **GET**
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -2008,7 +2049,7 @@ Tableau d'objets JSON qui représentent les appareils.
 
 | Type | API | Exemple |
 |--|--|--|
-| GET | curl -k -H "Authorization: <JETON_AUTHENTIFICATION>" 'https://<>ADRESSE_IP>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true' |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true'` |
 
 ### <a name="retrieve-alert-information---externalv1alerts"></a>Récupérer des informations sur les alertes – /external/v1/alerts
 
@@ -2016,7 +2057,7 @@ Utilisez cette API pour récupérer toutes les alertes ou les alertes filtrées 
 
 #### <a name="method"></a>Méthode
 
-**GET**
+- **GET**
 
 #### <a name="query-parameters"></a>Paramètres de requête
 
@@ -2137,7 +2178,7 @@ Notez que /api/v2/ est nécessaire pour les informations suivantes :
 > [!div class="mx-tdBreakAll"]
 > | Type | API | Exemple |
 > |--|--|--|
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1'` |
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1'` |
 
 ### <a name="qradar-alerts"></a>Alertes QRadar
 
@@ -2169,7 +2210,7 @@ Exemple de la charge utile envoyée à QRadar :
 
 #### <a name="request-type"></a>Type de demande
 
-**JSON**
+- **JSON**
 
 #### <a name="request-content"></a>Contenu de la demande
 
@@ -2192,14 +2233,13 @@ Objet JSON qui représente l’action à effectuer sur l’alerte qui contient l
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
 Tableau d'objets JSON qui représentent les appareils.
 
 #### <a name="response-fields"></a>Champs de réponse
-
 
 | Nom | Type | Nullable | Description |
 |--|--|--|--|
@@ -2240,7 +2280,7 @@ Tableau d'objets JSON qui représentent les appareils.
 
 | Type | API | Exemple |
 |--|--|--|
-| PUT | `curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID>` | `curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/alerts/1-1594550943000` |
+| PUT | `curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID>` | `curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/alerts/1-1594550943000` |
 
 ### <a name="alert-exclusions-maintenance-window---externalv1maintenancewindow"></a>Exclusions d’alerte (fenêtre de maintenance) – /external/v1/maintenanceWindow
 
@@ -2260,11 +2300,15 @@ Les API que vous définissez ici apparaissent dans la fenêtre de la console de 
 
 - **engines** : Définit à partir de quel moteur de sécurité supprimer les alertes pendant le processus de maintenance :
 
-   - ANOMALY
-   - MALWARE
-   - OPERATIONAL
-   - POLICY_VIOLATION
-   - PROTOCOL_VIOLATION
+    - ANOMALY
+
+    - MALWARE
+
+    - OPERATIONAL
+
+    - POLICY_VIOLATION
+
+    - PROTOCOL_VIOLATION
 
 - **sensorIds** : Définit à partir de quel capteur Defender pour IoT supprimer les alertes pendant le processus de maintenance. Il s’agit du même ID que celui récupéré à partir de /api/v1/appliances (GET).
 
@@ -2366,7 +2410,7 @@ Récupérez un journal de toutes les actions d’ouverture, de fermeture et de m
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -2389,10 +2433,10 @@ Tableau d’objets JSON qui représentent les opérations de fenêtre de mainten
 
 | Type | API | Exemple |
 |--|--|--|
-| POST | `curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
-| PUT | `curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
-| DELETE | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow` |
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
+| POST | `curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
+| PUT | `curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
+| DELETE | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
 
 ### <a name="authenticate-user-credentials---externalauthenticationvalidation"></a>Authentifier les informations d’identification d’utilisateur – /external/authentication/validation
 
@@ -2404,7 +2448,7 @@ Utilisez cette API pour valider les informations d’identification de l’utili
 
 #### <a name="request-type"></a>Type de demande
 
-**JSON**
+- **JSON**
 
 #### <a name="request-example"></a>Exemple de requête
 
@@ -2422,7 +2466,7 @@ request:
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -2455,7 +2499,7 @@ response:
 
 | Type | API | Exemple |
 |--|--|--|
-| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https:/<span>/127.0.0.1/external/authentication/validation'` |
+| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/external/authentication/validation'` |
 
 ### <a name="change-password---externalauthenticationset_password"></a>Modifier le mot de passe – /external/authentication/set_password
 
@@ -2467,7 +2511,7 @@ Utilisez cette API pour permettre aux utilisateurs de modifier leur mot de passe
 
 #### <a name="request-type"></a>Type de demande
 
-**JSON**
+- **JSON**
 
 #### <a name="request-example"></a>Exemple de requête
 
@@ -2488,7 +2532,7 @@ request:
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -2529,7 +2573,7 @@ response:
 
 | Type | API | Exemple |
 |--|--|--|
-| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password` |
+| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password` |
 
 ### <a name="user-password-update-by-system-admin---externalauthenticationset_password_by_admin"></a>Mise à jour du mot de passe de l’utilisateur par l’administrateur système – /external/authentication/set_password_by_admin
 
@@ -2537,11 +2581,11 @@ Utilisez cette API pour permettre aux administrateurs système de modifier les m
 
 #### <a name="method"></a>Méthode
 
-**POST**
+- **POST**
 
 #### <a name="request-type"></a>Type de demande
 
-**JSON**
+- **JSON**
 
 #### <a name="request-example"></a>Exemple de requête
 
@@ -2561,7 +2605,7 @@ request:
 
 #### <a name="response-type"></a>Type de réponse
 
-**JSON**
+- **JSON**
 
 #### <a name="response-content"></a>Contenu de la réponse
 
@@ -2610,7 +2654,68 @@ response:
 > [!div class="mx-tdBreakAll"]
 > | Type | API | Exemple |
 > |--|--|--|
-> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password_by_admin` |
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password_by_admin` |
+
+### <a name="request-alert-pcap---externalv2alertspcap"></a>Demander une alerte PCAP – /external/v2/alerts/pcap
+
+Utilisez cette API pour demander un fichier PCAP lié à une alerte.
+
+#### <a name="method"></a>Méthode
+
+- **GET**
+
+#### <a name="query-parameters"></a>Paramètres de requête
+
+- id : Identifiant de l’alerte CM  
+Exemple :  
+`/external/v2/alerts/pcap/<id>`
+
+#### <a name="response-type"></a>Type de réponse
+
+- **JSON**
+
+#### <a name="response-content"></a>Contenu de la réponse
+
+- **Success** : Objet JSON qui contient les données relatives au fichier PCAP demandé
+- **Failure** : Objet JSON qui contient un message d’erreur
+
+#### <a name="data-fields"></a>Champs de données
+
+|Nom|Type|Nullable|
+|-|-|-|
+|id|Numérique|Non|
+|xsenseId|Numérique|Non|
+|xsenseAlertId|Numérique|Non|
+|downloadUrl|String|Non|
+|token|String|Non|
+
+#### <a name="response-example"></a>Exemple de réponse
+
+#### <a name="success"></a>Succès
+
+```json
+{
+  "downloadUrl": "https://10.1.0.2/api/v2/alerts/pcap/1",
+  "xsenseId": 1,
+  "token": "d2791f58-2a88-34fd-ae5c-2651fe30a63c",
+  "id": 1,
+  "xsenseAlertId": 1
+}
+```
+
+#### <a name="error"></a>Error
+
+```json
+{
+  "error": "alert not found"
+}
+```
+
+### <a name="curl-command"></a>Commande Curl
+
+|Type|API|Exemple|
+|-|-|-|
+|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

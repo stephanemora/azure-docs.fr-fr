@@ -1,25 +1,25 @@
 ---
-title: Utiliser des journaux de diagnostic.
+title: 'Résolution des problèmes : journaux des diagnostics'
 titleSuffix: Azure Digital Twins
-description: Découvrez comment activer la journalisation avec les paramètres de diagnostic et comment interroger les journaux pour un affichage immédiat. Découvrez également les catégories de journaux et leurs schémas.
+description: Dans cet article, découvrez comment activer la journalisation avec les paramètres de diagnostic et comment interroger les journaux pour un affichage immédiat. Découvrez également les catégories de journaux et leurs schémas.
 author: baanders
 ms.author: baanders
-ms.date: 9/15/2021
+ms.date: 9/24/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: c868f0c8418f6b265e3de5b4d8ea0c6b7312a33e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 89b7c741ce75a629de99e3337428027429bce5b7
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128593646"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131768"
 ---
-# <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Dépannage d’Azure Digital Twins : Journalisation des diagnostics
-
-Azure Digital Twins peut collecter les **journaux** de votre instance de service pour superviser ses performances, son accès et d’autres données. Vous pouvez utiliser ces journaux pour obtenir un aperçu de ce qui se passe dans votre instance Azure Digital Twins et analyser des causes racines sur des problèmes sans avoir besoin de contacter le support Azure.
+# <a name="troubleshooting-azure-digital-twins-diagnostics-logs"></a>Dépannage d’Azure Digital Twins : Journaux des diagnostics
 
 Cet article vous montre comment configurer les paramètres de diagnostic dans le [portail Azure](https://portal.azure.com), y compris les types de journaux à collecter et où les stocker (comme Log Analytics ou un compte de stockage de votre choix). Ensuite, vous pouvez interroger les journaux pour obtenir rapidement des informations personnalisées.
+
+Azure Digital Twins peut collecter les **journaux** de votre instance de service pour superviser ses performances, son accès et d’autres données. Vous pouvez utiliser ces journaux pour obtenir un aperçu de ce qui se passe dans votre instance Azure Digital Twins et analyser des causes racines sur des problèmes sans avoir besoin de contacter le support Azure.
 
 Cet article contient également des informations sur toutes les **catégories de journaux** que les jumeaux numériques Azure peuvent collecter, ainsi que leurs **schémas**.
 
@@ -367,5 +367,5 @@ Voici un exemple de corps JSON pour une `ADTEventRoutesOperation` qui est de typ
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la configuration des diagnostics, consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/essentials/platform-logs-overview.md).
-* Pour plus d’informations sur les métriques d’Azure Digital Twins, consultez [Dépannage : Afficher les métriques avec Azure Monitor](troubleshoot-metrics.md).
-* Pour savoir comment activer les alertes pour vos métriques, consultez [Résolution des problèmes : Configurer des alertes](troubleshoot-alerts.md).
+* Pour plus d’informations sur les métriques d’Azure Digital Twins, consultez [Dépannage : métriques](troubleshoot-metrics.md).
+* Pour savoir comment activer les alertes pour vos métriques, consultez [Résolution des problèmes : alertes](troubleshoot-alerts.md).

@@ -6,13 +6,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
-ms.openlocfilehash: 7cc61d144576e8f386997e1d2acfa083c9e5f571
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.date: 10/15/2021
+ms.openlocfilehash: 26f70e4750d29231b3f139ecd617b43071e369bb
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535794"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066088"
 ---
 # <a name="shaping-data-for-projection-into-a-knowledge-store"></a>Mise en forme des données pour la projection dans un magasin de connaissances
 
@@ -144,7 +144,7 @@ Avec le nœud `tableprojection` défini dans la section `outputs` ci-dessus, vou
 ]
 ```
 
-## <a name="inline-shaping-projections"></a>Mise en forme incluse pour les projections
+## <a name="inline-shape-for-table-projections"></a>Forme incluse pour les projections de table
 
 La mise en forme incluse permet de former de nouvelles formes dans la définition de projection. La mise en forme incluse a les caractéristiques suivantes :
 
@@ -219,6 +219,67 @@ Pour projeter les mêmes données que l’exemple précédent, nous utilisons un
 ```
   
 Dans les deux approches, nous pouvons observer comment les valeurs de « Keyphrases » sont projetées à l’aide de « sourceContext ». Le nœud « Keyphrases », qui contient une collection de chaînes, est lui-même un enfant du texte de la page. Toutefois, étant donné que les projections requièrent un objet JSON et que la page est de type primitif (chaîne), « sourceContext » est utilisé pour inclure l’expression clé dans un objet avec une propriété nommée. Cette technique permet aussi de projeter des primitives de manière indépendante.
+
+<a name="inline-shape"></a>
+
+## <a name="inline-shape-for-object-projections"></a>Forme incluse pour les projections d’objets
+
+Vous pouvez générer une nouvelle forme à l’aide de la compétence Modélisateur ou utiliser la mise en forme inline de la projection d’objet. Tandis que l’exemple de tables illustre l’approche de la création d’une forme et du découpage, cet exemple illustre l’utilisation de la mise en forme inline. 
+
+La mise en forme inline permet de créer une forme dans la définition des entrées d’une projection. La modélisation inline crée un objet anonyme identique à ce que produirait une compétence Modélisateur (dans le cas présent, `projectionShape`). La mise en forme inline est utile si vous définissez une forme que vous n’envisagez pas de réutiliser.
+
+La propriété projections est un tableau. Cet exemple comprend une nouvelle instance de projection au tableau, où la définition knowledgeStore contient des projections inline. Quand vous utilisez des projections inline, vous pouvez omettre la compétence Modélisateur.
+
+```json
+"knowledgeStore" : {
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+            {
+            "tables": [ ],
+            "objects": [
+                {
+                    "storageContainer": "sampleobject",
+                    "source": null,
+                    "generatedKeyName": "myobject",
+                    "sourceContext": "/document",
+                    "inputs": [
+                        {
+                            "name": "metadata_storage_name",
+                            "source": "/document/metadata_storage_name"
+                        },
+                        {
+                            "name": "metadata_storage_path",
+                            "source": "/document/metadata_storage_path"
+                        },
+                        {
+                            "name": "content",
+                            "source": "/document/content"
+                        },
+                        {
+                            "name": "keyPhrases",
+                            "source": "/document/merged_content/keyphrases/*"
+                        },
+                        {
+                            "name": "entities",
+                            "source": "/document/merged_content/entities/*/name"
+                        },
+                        {
+                            "name": "ocrText",
+                            "source": "/document/normalized_images/*/text"
+                        },
+                        {
+                            "name": "ocrLayoutText",
+                            "source": "/document/normalized_images/*/layoutText"
+                        }
+                    ]
+
+                }
+            ],
+            "files": []
+        }
+    ]
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

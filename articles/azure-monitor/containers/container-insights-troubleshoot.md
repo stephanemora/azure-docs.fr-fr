@@ -3,12 +3,12 @@ title: Comment résoudre des problèmes de Container Insights | Microsoft Docs
 description: Cet article explique comment résoudre des problèmes rencontrés avec Containers insights.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: b7618e9073308da67a8e17c82375a0f05925a542
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 04fea3c36cbff4e2c8ecb315f6e3f93bc92aa2b3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627113"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003247"
 ---
 # <a name="troubleshooting-container-insights"></a>Résolution de problèmes liés à Container Insights
 
@@ -160,6 +160,31 @@ Pour visualiser le cluster Kubernetes non Azure dans Container insights, un acc�
         kubernetes.azure.com/managedby: aks
         ```
 
+## <a name="installation-of-azure-monitor-containers-extension-fail-with-an-error-containing-manifests-contain-a-resource-that-already-exists-on-azure-arc-enabled-kubernetes-cluster"></a>Échec de l’installation de l’extension des conteneurs Azure Monitor avec une erreur « Les manifestes contiennent une ressource qui existe déjà » sur le cluster Kubernetes avec Azure Arc
+L’erreur _Les manifestes contiennent une ressource qui existe déjà_ indique que des ressources de l’agent Container Insights existent déjà sur le cluster Kubernetes avec Azure Arc. Cela indique que l’agent Container Insights est déjà installé par le biais de chart HELM azuremonitor-containers ou du module complémentaire de supervision s’il s’agit d’un cluster AKS qui est connecté à Azure Arc. La solution à ce problème consiste à nettoyer les ressources existantes de l’agent Container Insights le cas échéant, puis à activer l’extension des conteneurs Azure Monitor.
+
+### <a name="for-non-aks-clusters"></a>Pour les clusters non AKS 
+1.  Sur le cluster K8s qui est connecté à Azure Arc, exécutez la commande ci-dessous pour vérifier si la version du chart Helm azmon-containers-release-1 existe ou pas :
+
+    `helm list  -A`
+
+2.  Si la sortie de la commande ci-dessus indique que azmon-containers-release-1 existe, supprimez la version du chart Helm :
+
+    `helm del azmon-containers-release-1`
+
+### <a name="for-aks-clusters"></a>Pour les clusters AKS
+1.  Exécutez les commandes ci-dessous et recherchez le profil de module complémentaire omsagent pour vérifier si le module complémentaire de supervision AKS est activé ou pas :
+
+    ```
+    az  account set -s <clusterSubscriptionId>
+    az aks show -g <clusterResourceGroup> -n <clusterName>
+    ```
+
+2.  S’il y a une configuration de profil du module complémentaire omsagent avec l’ID de ressource de l’espace de travail Log Analytics dans la sortie de la commande ci-dessus, cela indique que le module complémentaire de supervision AKS est activé et doit être désactivé :
+
+    `az aks disable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName>`
+
+Si les étapes ci-dessus n’ont pas résolu les problèmes d’installation de l’extension des conteneurs de Azure Monitor, créez un ticket envoyé à Microsoft pour qu’ils soient examinés.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

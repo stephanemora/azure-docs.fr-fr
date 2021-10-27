@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2021
-ms.openlocfilehash: ef34ec8531242dfdb20e984c4c6d8f86d08b8fcf
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 28bd435e8c6f6144b1dafd11df174d69f763d45d
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562192"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987458"
 ---
 # <a name="query-packs-in-azure-monitor-logs-preview"></a>Packs de requêtes dans les journaux Azure Monitor (préversion)
 Un pack de requêtes est un objet du Gestionnaire des ressources qui agit comme un conteneur pour les requêtes de journal dans Azure Monitor qui offrent un moyen d’enregistrer des requêtes de journal et de les partager entre plusieurs espaces de travail et d’autres contextes dans Log Analytics. 
@@ -79,11 +79,8 @@ Chaque requête dans le pack de requêtes a les propriétés suivantes.
 | Lié au     | Catégories liées, types de ressources et solutions associés à la requête. Utilisé pour le regroupement et le filtrage dans Log Analytics par l’utilisateur pour faciliter la localisation de la requête. Chaque requête peut en avoir jusqu’à dix de chaque type. Récupérez les valeurs autorisées de https://api.loganalytics.io/v1/metadata?select=resourceTypes,solutions,catégories. |
 | tags        | Balises supplémentaires utilisées par l’utilisateur pour le tri et le filtrage dans Log Analytics. Chaque balise sera ajoutée à Catégorie, à Type de ressource et à Solution lors du [regroupement et du filtrage des requêtes](queries.md#finding-and-filtering-queries). |
 
-
-
-
 ## <a name="create-a-query-pack"></a>Créer un pack de requêtes
-La seule façon d’installer un pack de requêtes est d’utiliser l’API REST. 
+Vous pouvez créer un pack de requêtes dans le portail Azure dans le panneau des packs de requêtes Log Analytics ou à l’aide de l’API REST. 
 
 ### <a name="create-token"></a>Créer un jeton
 Vous avez besoin d’un jeton pour l’authentification de la requête d’API. Il existe plusieurs méthodes pour obtenir un jeton, y compris l’utilisation de **armclient**.

@@ -4,18 +4,18 @@ description: L’inventaire du Stockage Azure est un outil qui permet d’obteni
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 08/16/2021
+ms.date: 10/11/2021
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 6962688a574d7f7c11f8cbfc71ccdb29ac3b6445
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 712cf4c6002983a47e44fb87be983bfca575f534
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619385"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996814"
 ---
 # <a name="azure-storage-blob-inventory"></a>Inventaire des objets blob du Stockage Azure
 
@@ -55,7 +55,7 @@ Si vous êtes un utilisateur actuel de l’inventaire de blobs Stockage Azure qu
 
 ## <a name="inventory-policy"></a>Stratégie d’inventaire
 
-Une stratégie d’inventaire est un ensemble de règles dans un document JSON.
+La configuration d’un rapport d’inventaire s’effectue en ajoutant une stratégie d’inventaire avec une ou plusieurs règles. Une stratégie d’inventaire est un ensemble de règles dans un document JSON.
 
 ```json
 {
@@ -197,7 +197,7 @@ Pour afficher le code JSON de règles d’inventaire, sélectionnez l’onglet *
 
 ## <a name="inventory-run"></a>Exécution d’un inventaire
 
-L’exécution d’un inventaire des objets blob est planifiée automatiquement tous les jours. Elle peut prendre jusqu’à 24 heures. La configuration d’un rapport d’inventaire s’effectue en ajoutant une stratégie d’inventaire avec une ou plusieurs règles.
+L’exécution d’un inventaire des objets blob est planifiée automatiquement tous les jours. Elle peut prendre jusqu’à 24 heures. Pour les comptes dotés d’un espace de noms hiérarchique, une exécution peut durer jusqu’à deux jours et, selon le nombre de fichiers traités, l’exécution peut ne pas se terminer à la fin de ces deux jours. Si une exécution ne se termine pas correctement, vérifiez les exécutions suivantes pour voir si elles se terminent avant de contacter le support. Les performances d’une exécution peuvent varier. Par conséquent, si une exécution ne se termine pas, il est possible que les exécutions suivantes, elles, se terminent.
 
 Les stratégies d’inventaire sont lues ou écrites en entier. Les mises à jour partielles ne sont pas prises en charge.
 
@@ -254,12 +254,17 @@ Chaque règle d’inventaire génère un ensemble de fichiers dans le conteneur 
 
 Chaque exécution d’inventaire pour une règle génère les fichiers suivants :
 
-- **Fichier d’inventaire :** L’exécution d’un inventaire pour une règle génère un ou plusieurs fichiers au format CSV ou Apache Parquet. Si le nombre d’objets mis en correspondance est important, plusieurs fichiers sont générés au lieu d’un seul. Chacun de ces fichiers contient les objets mis en correspondance et leurs métadonnées. Pour un fichier au format CSV, la première ligne est toujours celle du schéma. Voici un fichier CSV d’inventaire ouvert dans Microsoft Excel.
-
-  :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Capture d’écran d’un fichier CSV d’inventaire ouvert dans Microsoft Excel":::
+- **Fichier d’inventaire :** L’exécution d’un inventaire pour une règle génère un ou plusieurs fichiers au format CSV ou Apache Parquet. Si le nombre d’objets mis en correspondance est important, plusieurs fichiers sont générés au lieu d’un seul. Chacun de ces fichiers contient les objets mis en correspondance et leurs métadonnées. 
 
   > [!NOTE]
   > Les rapports au format Apache Parquet présentent les dates au format suivant : `timestamp_millis [number of milliseconds since 1970-01-01 00:00:00 UTC`.
+
+  Pour un fichier au format CSV, la première ligne est toujours celle du schéma. Voici un fichier CSV d’inventaire ouvert dans Microsoft Excel.
+
+  :::image type="content" source="./media/blob-inventory/csv-file-excel.png" alt-text="Capture d’écran d’un fichier CSV d’inventaire ouvert dans Microsoft Excel":::
+
+  > [!IMPORTANT]
+  > Les chemins d’accès des blobs qui apparaissent dans un fichier d’inventaire peuvent ne pas apparaître dans un ordre particulier. 
 
 - **Fichier de somme de contrôle :** Un fichier de somme de contrôle contient la somme de contrôle MD5 du contenu du fichier manifest.json. Le nom du fichier de somme de contrôle est `<ruleName>-manifest.checksum`. La génération du fichier de somme de contrôle marque la fin de l’exécution d’une règle d’inventaire.
 
@@ -341,7 +346,7 @@ Cette section décrit les limitations et les problèmes connus de la fonctionnal
 
 ### <a name="inventory-job-fails-to-complete-for-hierarchical-namespace-enabled-accounts"></a>Impossible de terminer le travail d’inventaire pour les comptes dont l’espace de noms hiérarchique est activé
 
-Le travail d’inventaire risque de ne pas se terminer dans les 24 heures pour un compte contenant des centaines de millions de blobs et dont l’espace de noms hiérarchique est activé. Dans ce cas, aucun fichier d’inventaire n’est créé.
+Le travail d’inventaire peut ne pas se terminer dans les deux jours pour un compte contenant des centaines de millions de blobs et dont l’espace de noms hiérarchique est activé. Dans ce cas, aucun fichier d’inventaire n’est créé. Si un travail ne se termine pas correctement, vérifiez les travaux suivants pour voir s’ils se terminent avant de contacter le support. Les performances d’un travail peuvent varier. Par conséquent, si un travail ne se termine pas, il est possible que les travaux suivants, eux, se terminent.
 
 ### <a name="inventory-job-cannot-write-inventory-reports"></a>Le travail d’inventaire ne peut pas écrire de rapports d’inventaire
 

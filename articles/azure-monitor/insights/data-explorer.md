@@ -4,14 +4,12 @@ description: Cet article décrit comment utiliser Azure Data Explorer Insights.
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/05/2021
-author: lgayhardt
-ms.author: lagayhar
-ms.openlocfilehash: b522e510968b97d80917bc6fa4123d33e4480cbf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fc40608b7c9faa4acdef999fdef787d787aca720
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662207"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132813"
 ---
 # <a name="azure-data-explorer-insights"></a>Azure Data Explorer Insights
 
@@ -112,6 +110,8 @@ L’onglet **Utilisation** permet aux utilisateurs d’approfondir les performan
 - Identifier les principaux groupes de charge de travail, utilisateurs et applications par requêtes ayant échoué.
 - Identifier les modifications récentes du nombre de requêtes, par rapport à la moyenne quotidienne historique (au cours des 16 derniers jours), par groupe de charges de travail, par utilisateur et par application.
 - Identifier les tendances et les pics de nombre de requêtes, de mémoire et de consommation du processeur par groupe de charges de travail, utilisateur, application et type de commande.
+
+L’onglet **Utilisation** comprend des actions qui sont effectuées directement par les utilisateurs. Les opérations internes de cluster ne figurent pas dans cet onglet.
 
 [![Capture d’écran de la vue des opérations avec des graphiques en anneau relatifs aux commandes et aux requêtes.](./media/data-explorer/usage.png)](./media/data-explorer/usage.png#lightbox)
 

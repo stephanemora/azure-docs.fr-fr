@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 05/17/2021
 ms.author: qixwang
-ms.openlocfilehash: 8b25f56b238c7f0c42a1ba589f7da2d68344c915
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: a9f0095ebd82ab82003c03c1ca9d59f70d908c9f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110464388"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006106"
 ---
 # <a name="configure-an-azure-front-door-standardpremium-route"></a>Configurer une route Azure Front Door Standard/Premium
 
@@ -56,7 +56,7 @@ Pour configurer un groupe d’origines, consultez [Configurer une origine Azure 
     | --- | --- |
     | Nom | Entrez un nom unique pour la nouvelle route. |   
     | Domain| Sélectionnez un ou plusieurs domaines qui ont été validés et qui ne sont pas associés à une autre route. |
-    | Modèles à mettre en correspondance  | Configurez tous les modèles de chemin d’URL que cette route acceptera. Par exemple, vous pouvez définir ce paramètre sur `/images/*` pour accepter toutes les requêtes sur l’URL `www.contoso.com/images/*`. AFD essaiera d’abord de déterminer le trafic en fonction d’une correspondance exacte, puis, si aucun chemin ne correspond exactement, recherchera un chemin générique qui correspond. Si aucune règle de routage n’est trouvée avec un chemin correspondant, la demande est rejetée et une réponse HTTP 400 : Demande incorrecte est retournée. |
+    | Modèles à mettre en correspondance  | Configurez tous les modèles de chemin d’URL que cette route acceptera. Par exemple, vous pouvez définir ce paramètre sur `/images/*` pour accepter toutes les requêtes sur l’URL `www.contoso.com/images/*`. AFD essaiera d’abord de déterminer le trafic en fonction d’une correspondance exacte, puis, si aucun chemin ne correspond exactement, recherchera un chemin générique qui correspond. Si aucune règle de routage n’est trouvée avec un chemin correspondant, la demande est rejetée et une réponse HTTP 400 : Demande incorrecte est retournée. Les modèles pour faire correspondre les chemins d’accès ne respectent pas la casse, ce qui signifie que les chemins d’accès avec une casse différente sont traités comme des doublons. Par exemple, vous avez le même hôte qui utilise le même protocole avec les chemins d’accès `/FOO` et `/foo`. Ces chemins d’accès sont considérés comme des doublons qui ne sont pas autorisés dans le paramètre Modèles à mettre en correspondance. |
     | Protocoles acceptés | Spécifiez les protocoles qu’Azure Front Door doit accepter quand le client effectue la requête. |
     | Rediriger | Spécifier si le protocole HTTPS est appliqué à la requête entrante avec une requête HTTP |
     | Groupe d’origines | Sélectionnez le groupe d’origines de destination du transfert quand la requête de retour à l’origine est effectuée. |

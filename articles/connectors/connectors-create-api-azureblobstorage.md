@@ -7,12 +7,12 @@ ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/11/2021
 tags: connectors
-ms.openlocfilehash: cc56c079173fad1509d9da9cf1d435675b1918f7
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 7ceafa54a202433e84535b19e73e99d38726dd0c
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129808983"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064031"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Créer et gérer des objets Blob dans Stockage Blob Azure avec Azure Logic Apps
 
@@ -337,7 +337,7 @@ Les étapes suivantes sont identiques pour les applications logiques Consommatio
 
 1. Dans le menu de navigation de la ressource d’application logique, sélectionnez **Identité** sous **Paramètres**.
 
-1. Dans le volet **Système affecté**, définissez **État** sur **Activé** si ce n’est pas déjà le cas. Sous **Autorisations**, sélectionnez **Attributions de rôles Azure**.
+1. Dans le volet **Affectée par le système**, définissez **État** sur **Activé**, s’il n’est pas déjà activé, sélectionnez **Enregistrer**, puis confirmez vos modifications. Sous **Autorisations**, sélectionnez **Attributions de rôles Azure**.
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-1.png" alt-text="Capture d’écran montrant le Portail Azure et le menu de la ressource d’application logique avec le volet Paramètres « Identité » et le bouton « Autorisations d’attributions de rôles Azure ».":::
 
@@ -345,21 +345,19 @@ Les étapes suivantes sont identiques pour les applications logiques Consommatio
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-add-2.png" alt-text="Capture d’écran montrant le volet d’attributions de rôles d’application logique, avec l’abonnement sélectionné et le bouton permettant d’ajouter une nouvelle attribution de rôle.":::
 
-1. Dans le volet **Ajouter des attributions de rôles**, configurez la nouvelle attribution de rôle en procédant comme suit :
+1. Dans le volet **Ajouter des attributions de rôle**, configurez la nouvelle attribution de rôle avec les valeurs suivantes :
 
-   1. Pour **Étendue**, sélectionnez **Stockage**.
+   | Propriété | Valeur | Description |
+   |----------|-------|-------------|
+   | **Portée** | <*resource-scope*> | Ensemble de ressources dans lequel vous souhaitez appliquer l’attribution de rôle. Dans cet exemple, sélectionnez **Stockage**. |
+   | **Abonnement** | <*Azure-subscription*> | Abonnement Azure pour votre compte de stockage. |
+   | **Ressource** | <*storage-account-name*> | Nom du compte de stockage auquel vous souhaitez accéder à partir du flux de travail de votre application logique. |
+   | **Rôle** | <*role-to-assign*> | Rôle que votre scénario exige pour que votre flux de travail fonctionne avec la ressource. Cet exemple requiert le rôle **Contributeur aux données Blob du stockage**, qui autorise l’accès en lecture, écriture et suppression aux conteneurs de blobs et à la date. Pour voir le détail des autorisations, déplacez votre souris sur l’icône d’informations située à côté d’un rôle dans le menu déroulant. |
+   ||||
 
-   1. Pour **Abonnement**, sélectionnez l’abonnement de votre compte de stockage.
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-configure.png" alt-text="Capture d’écran du volet de configuration de l’attribution de rôle, qui présente les paramètres de l’étendue, de l’abonnement, de la ressource et du rôle.":::
 
-   1. Pour **Ressource**, sélectionnez le compte de stockage auquel vous souhaitez accéder à partir de votre flux de travail d’application logique.
-
-   1. Pour **Rôle**, sélectionnez les autorisations appropriées pour votre scénario.
-
-      Cet exemple utilise **Contributeur aux données Blob du stockage**, qui autorise l’accès en lecture, écriture et suppression aux conteneurs d’objets blob et à la date. Pour voir le détail des autorisations, déplacez votre souris sur l’icône d’informations située à côté d’un rôle dans le menu déroulant.
-
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/role-assignment-configure.png" alt-text="Capture d’écran du volet de configuration de l’attribution de rôle, qui présente les paramètres de l’étendue, de l’abonnement, de la ressource et du rôle.":::
-
-   1. Sélectionnez **Enregistrer** pour terminer la création de l’attribution de rôle.
+1. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour terminer la création de l’attribution de rôle.
 
 <a name="enable-managed-identity-support"></a>
 

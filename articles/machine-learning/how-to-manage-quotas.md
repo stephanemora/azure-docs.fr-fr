@@ -10,12 +10,12 @@ ms.author: siarora
 ms.date: 06/14/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: eddf1f5a77ef67de3ab6e1861ae44a19b07d8027
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: bbfcf7fd3edb483415041a4706e7a5cd22e2d76a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425977"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997116"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning
 
@@ -99,12 +99,13 @@ Le tableau suivant présente des limites supplémentaires dans la plateforme. Po
 | Serveurs de paramètres par nœud | 1 |
 
 <sup>1</sup> La durée de vie maximale est la durée entre le début et la fin d’une exécution. Les exécutions terminées sont conservées indéfiniment. Les données des exécutions non terminées pendant la durée de vie maximale ne sont pas accessibles.
+
 <sup>2</sup> Les travaux sur un nœud basse priorité doivent être vidés au préalable chaque fois qu’il existe une contrainte de capacité. Nous vous recommandons d’implémenter des points de contrôle dans votre travail.
 
 ### <a name="azure-machine-learning-managed-online-endpoints-preview"></a>Points de terminaison en ligne managés Azure Machine Learning (préversion)
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Les points de terminaison en ligne managés Azure Machine Learning présentent les limites suivantes.
+Les points de terminaison en ligne managés Azure Machine Learning présentent les limites suivantes :
 
 | **Ressource** | **Limite** |
 | --- | --- |
@@ -114,13 +115,13 @@ Les points de terminaison en ligne managés Azure Machine Learning présentent l
 | Nombre de déploiements par abonnement | 200 |
 | Nombre de déploiements par point de terminaison | 20 |
 | Nombre d’instances par déploiement | 20 |
-| Taille maximale de la charge utile au niveau du point de terminaison |1,5 Mo |
+| Taille maximale de la charge utile au niveau du point de terminaison | 1,5 Mo |
 | Délai d’expiration maximal des demandes au niveau du point de terminaison  | 60 secondes |
-| Nombre total de requêtes par seconde (RPS) au niveau du point de terminaison pour tous les déploiements  | 100 |
+| Nombre total de requêtes par seconde (RPS) au niveau du point de terminaison pour tous les déploiements | 100 |
 
-<sup>1</sup> Les tirets simples, comme `my-endpoint-name`, sont acceptés dans les noms des points de terminaison et des déploiements
+<sup>1</sup> Les tirets simples, comme dans `my-endpoint-name`, sont acceptés dans les noms des points de terminaison et des déploiements.
 
-#### <a name="azure-machine-learning-pipelines"></a>Pipelines Azure Machine Learning
+### <a name="azure-machine-learning-pipelines"></a>Pipelines Azure Machine Learning
 Les [pipelines Azure Machine Learning](concept-ml-pipelines.md) ont les limites suivantes.
 
 | **Ressource** | **Limite** |

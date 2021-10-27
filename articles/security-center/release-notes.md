@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/06/2021
+ms.date: 10/17/2021
 ms.author: memildin
-ms.openlocfilehash: bd8ebca221041684a47bb66bb01c176fd1b65ba6
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: bd75b5fff78c213bc9d0541fb1824969b7a798a3
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729517"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129146"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Nouveautés d’Azure Security Center
 
@@ -34,6 +34,7 @@ Les mises à jour d’octobre sont les suivantes :
 - [Les solutions d’évaluation des vulnérabilités peuvent désormais être activées automatiquement (en préversion)](#vulnerability-assessment-solutions-can-now-be-auto-enabled-in-preview)
 - [Ajout de filtres d’inventaire logiciel à l’inventaire des ressources (en préversion)](#software-inventory-filters-added-to-asset-inventory-in-preview)
 - [Modification du préfixe de certains types d’alerte de « ARM_ » à « VM_ »](#changed-prefix-of-some-alert-types-from-arm_-to-vm_)
+- [Les pages de détails sur les recommandations affichent maintenant les recommandations associées](#recommendations-details-pages-now-show-related-recommendations)
 
 
 ### <a name="microsoft-threat-and-vulnerability-management-added-as-vulnerability-assessment-solution-in-preview"></a>Ajout de Gestion des menaces et des vulnérabilités de Microsoft comme solution d’évaluation des vulnérabilités (en préversion)
@@ -109,6 +110,42 @@ Avec cette mise à jour, nous avons modifié les préfixes de ces alertes pour q
 |||
 
 En savoir plus sur les plans [Azure Defender pour Resource Manager](defender-for-resource-manager-introduction.md) et [Azure Defender pour les serveurs](defender-for-servers-introduction.md).
+
+### <a name="recommendations-details-pages-now-show-related-recommendations"></a>Les pages de détails sur les recommandations affichent maintenant les recommandations associées
+
+Pour clarifier les relations entre les différentes recommandations, nous avons ajouté une zone **Recommendations associées** aux pages de détails de nombreuses recommandations. 
+
+Les trois types de relations qui sont affichés sur ces pages sont les suivants :
+
+- **Condition préalable** : recommandation qui doit être complétée avant la recommandation sélectionnée
+- **Alternative** : recommandation différente qui offre une autre façon d’atteindre les objectifs de la recommandation sélectionnée
+- **Dépendante** : recommandation pour laquelle la recommandation sélectionnée est une condition préalable
+
+Pour chaque recommandation associée, le nombre de ressources défectueuses s’affiche dans la colonne « Ressources affectées ».
+
+> [!TIP]
+> Si une recommandation associée est grisée, sa dépendance n’est pas encore terminée et n’est donc pas disponible.
+
+Voici un exemple de recommandations associées :
+
+1. Security Center vérifie la présence de solutions d’évaluation des vulnérabilités prises en charge sur vos ordinateurs :<br>
+    **Une solution d’évaluation des vulnérabilités doit être activée sur vos machines virtuelles**
+
+1. Si une vulnérabilité est détectée, vous serez informé des vulnérabilités découvertes :<br>
+    **Les vulnérabilités de vos machines virtuelles doivent être corrigées**
+
+Évidemment, Security Center ne peut pas vous avertir des vulnérabilités découvertes, à moins de trouver une solution d’évaluation des vulnérabilités prise en charge.
+
+Par conséquent :
+
+ - Recommandation #1 est une condition préalable à la recommandation #2
+ - La recommandation #2 dépend de la recommandation #1
+
+:::image type="content" source="media/release-notes/related-recommendations-solution-not-found.png" alt-text="Capture d’écran de la recommandation de déploiement de la solution d’évaluation des vulnérabilités.":::
+
+:::image type="content" source="media/release-notes/related-recommendations-vulnerabilities-found.png" alt-text="Capture d’écran de la recommandation pour résoudre les vulnérabilités découvertes.":::
+
+
 
 ## <a name="september-2021"></a>Septembre 2021
 
@@ -392,7 +429,7 @@ Les mises à jour du mois de juin incluent :
 
 Pour développer les protections contre les menaces fournies par Azure Defender pour Key Vault, nous avons ajouté l’alerte suivante :
 
-| Alerte (type d’alerte)                                                                 | Description                                                                                                                                                                                                                                                                                                                                                      | Tactique MITRE | severity |
+| Alerte (type d’alerte)                                                                 | Description                                                                                                                                                                                                                                                                                                                                                      | Tactique MITRE | Gravité |
 |------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
 | Accès à partir d’une adresse IP suspecte à un coffre de clés<br>(KV_SuspiciousIPAccess)  | Un coffre de clés a fait l’objet d’un accès réussi par une IP qui a été identifiée par Microsoft Threat Intelligence comme adresse IP suspecte. Cela peut indiquer que votre infrastructure a été compromise. Nous recommandons d’investiguer plus en profondeur. En savoir plus sur les [capacités de renseignement sur les menaces de Microsoft](https://go.microsoft.com/fwlink/?linkid=2128684). | Accès aux informations d’identification                            | Moyenne   |
 |||
@@ -515,7 +552,7 @@ Pour en savoir plus, consultez [Présentation d’Azure Defender pour les bases 
 
 Pour développer les protections contre les menaces fournies par Azure Defender pour Resource Manager, nous avons ajouté les alertes suivantes :
 
-| Alerte (type d’alerte)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | Tactiques MITRE | severity |
+| Alerte (type d’alerte)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | Tactiques MITRE | Gravité |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|----------|
 |**Autorisations accordées à un rôle RBAC de manière inhabituelle pour votre environnement Azure (préversion)**<br>(ARM_AnomalousRBACRoleAssignment)|Azure Defender pour Resource Manager a détecté une attribution de rôle RBAC qui est inhabituelle par rapport à d’autres attributions effectuées par le même attributeur / pour le même attributaire / dans votre locataire en raison des anomalies suivantes : heure d’attribution, adresse de l’attributeur, attributeur, méthode d’authentification, entités attribuées, logiciel client utilisé, extension d’attribution. Cette opération a probablement été effectuée par un utilisateur légitime de votre organisation. Elle peut également indiquer qu’un compte de votre organisation a été violé et que l’acteur de menaces tente d’accorder des autorisations à un autre compte d’utilisateur dont il est propriétaire.|Mouvement latéral, évasion de la défense|Moyenne|
 |**Rôle personnalisé privilégié créé pour votre abonnement de façon suspecte (préversion)**<br>(ARM_PrivilegedRoleDefinitionCreation)|Azure Defender pour Resource Manager a détecté une création suspecte de définition de rôle personnalisé privilégié dans votre abonnement. Cette opération a probablement été effectuée par un utilisateur légitime de votre organisation. Elle peut également indiquer qu’un compte de votre organisation a été violé et que l’acteur de menaces tente de créer un rôle privilégié qu’il utilisera pour s’évader de la détection.|Mouvement latéral, évasion de la défense|Faible|

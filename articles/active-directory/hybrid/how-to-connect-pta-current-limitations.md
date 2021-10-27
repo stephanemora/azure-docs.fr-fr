@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7db9a12a65cf127cb4c65e24128181ab6c0cb485
-ms.sourcegitcommit: 8942cdce0108372d6fc5819c71f7f3cf2f02dc60
+ms.openlocfilehash: c3aadcb1ccb4ff3a88c5fae7286f2655e41e3195
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113135029"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138730"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : Limites actuelles
 
@@ -43,6 +43,7 @@ Les scénarios suivants ne sont _pas_ pris en charge :
 - Détection des utilisateurs avec des [informations d’identification volées](../identity-protection/overview-identity-protection.md).
 - Azure AD Domain Services a besoin que la synchronisation du hachage de mot de passe soit activée sur le locataire. Ainsi, les locataires qui utilisent l’authentification directe _uniquement_ ne fonctionnent pas pour les scénarios qui ont besoin d’Azure AD Domain Services.
 - L’authentification directe n’est pas intégrée à [Azure AD Connect Health](./whatis-azure-ad-connect.md).
+- La connexion à des appareils joints Azure AD (AADJ) avec un mot de passe temporaire ou arrivé à expiration n’est pas prise en charge pour les utilisateurs de l’authentification directe. L’erreur « La méthode de connexion que vous essayez d’utiliser n’est pas autorisée » s’affiche.  Ces utilisateurs doivent se connecter à un navigateur pour mettre à jour leur mot de passe temporaire.
 
 > [!IMPORTANT]
 > Comme solution de contournement _uniquement_ pour les scénarios non pris en charge (à l’exception de l’intégration d’Azure AD Connect Health), activez la synchronisation de hachage du mot de passe dans la page [Fonctionnalités facultatives](how-to-connect-install-custom.md#optional-features) de l’Assistant Azure AD Connect.

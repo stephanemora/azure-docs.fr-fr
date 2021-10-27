@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 10/11/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 748abad646342f2f13a554212fcd84393b8d3391
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 7ba5d47c33b276b1585ad6200058439be4c4bc02
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669641"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993584"
 ---
 # <a name="extend-or-renew-azure-ad-role-assignments-in-privileged-identity-management"></a>Étendre ou renouveler des attributions de rôle Azure AD dans Privileged Identity Management
 
@@ -48,7 +48,7 @@ Les utilisateurs ou groupes affectés à un rôle peuvent étendre des attributi
 
 ![Rôles Azure AD : page Mes rôles répertoriant les rôles éligibles avec une colonne d’action](./media/pim-how-to-renew-extend/pim-extend-link-in-portal.png)
 
-Lorsque la date/heure de fin de l’attribution se situe 14 jours plus tard ou moins, le bouton **Étendre** devient un lien actif dans l’interface utilisateur. Dans l’exemple ci-dessous, supposons que la date actuelle est le 27 mars.
+Lorsque la date/heure de fin de l’attribution se situe 14 jours plus tard ou moins, le bouton **Étendre** devient un lien actif dans l’interface utilisateur. Dans l’exemple ci-dessous, supposons que la date actuelle est le 27 mars. Pour un groupe affecté à un rôle, le lien **Étendre** n’est jamais disponible afin qu’un utilisateur unique avec une affectation héritée ne puisse pas étendre l’affectation du groupe.
 
 ![Colonne d’action avec des liens d’activation et d’extension](./media/pim-how-to-renew-extend/pim-extend-within-fourteen.png)
 

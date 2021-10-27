@@ -2,19 +2,18 @@
 title: Nouveautés de la version
 titleSuffix: Azure Machine Learning
 description: Découvrez les dernières mises à jour d’Azure Machine Learning et les kits SDK Python de Machine Learning et de préparation de données.
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 10/04/2021
-ms.openlocfilehash: 598cc1944cb49024d91da476b95f9aa0b25f6279
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 8807aa11ce8f9d4c96ae27656d9d29a4f5f7e7f1
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811097"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994173"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -42,7 +41,7 @@ __Flux RSS__ : Recevez une notification quand cette page est mise à jour en co
   + **azureml-responsibleai**
     + Amélioration du message d’erreur en cas d’échec du téléchargement d’un tableau de bord
   + **azureml-train-automl-client**
-    + Ajout de la prise en charge des tâches de vision par ordinateur, telles que la classification d’images, la détection d’objet et la segmentation d’instance. La documentation détaillée est disponible à l’adresse suivante : https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-image-models.
+    + Ajout de la prise en charge des tâches de vision par ordinateur, telles que la classification d’images, la détection d’objet et la segmentation d’instance. La documentation détaillée est disponible à l’adresse suivante : [Apprentissage automatique des modèles d’image](how-to-auto-train-image-models.md).
     + Activation du calcul des métriques binaires
   + **azureml-train-automl-runtime**
     + Ajout de la prise en charge de TCNForecaster aux séries de tests de modèle.

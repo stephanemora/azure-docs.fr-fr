@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 07/17/2020
+ms.date: 10/12/2021
 ms.author: marsma
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: d9944b2e3ac68cc2b04b4a6052e9dd0647fe91ad
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: ffd447d4fcacad1185d8ad95778e0a9d22cb16ce
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129229617"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066012"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutoriel : Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript à l’aide du flux de code d’authentification
 
@@ -49,13 +49,13 @@ Package de navigateur de la bibliothèque d’authentification Microsoft pour Ja
 
 ## <a name="get-the-completed-code-sample"></a>Obtenir l’exemple de code complet
 
-Vous préférez plutôt télécharger l’exemple de projet complet de ce tutoriel ? Pour exécuter le projet en utilisant un serveur web local, par exemple Node.js, clonez le dépôt [ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) :
+Vous préférez plutôt télécharger l’exemple de projet complet de ce tutoriel ? Clonez le dépôt [ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2). 
 
 `git clone https://github.com/Azure-Samples/ms-identity-javascript-v2`
 
-Ensuite, pour configurer l’exemple de code avant de l’exécuter, passez à l’[étape de configuration](#register-your-application).
+Pour exécuter le projet téléchargé dans votre environnement de développement local, commencez par créer un serveur localhost pour votre application, comme décrit à l’étape 1 [Créer votre projet](#create-your-project). Une fois que vous avez terminé, vous pouvez configurer l’exemple de code en ignorant l’[étape de configuration](#register-your-application).
 
-Pour poursuivre le tutoriel et générer vous-même l’application, passez à la section suivante, [Prérequis](#prerequisites).
+Pour poursuivre le tutoriel et générer vous-même l’application, passez à la section suivante, [Créer votre projet](#create-your-project).
 
 ## <a name="create-your-project"></a>Créer votre projet
 

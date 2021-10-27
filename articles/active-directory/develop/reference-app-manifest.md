@@ -13,12 +13,12 @@ ms.date: 02/02/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 199d85d2805b92e1421330be8f299c769637b649
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0b7b167971fbbe1554512ed62ab609f8fdab01e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578462"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072591"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifeste d’application Azure Active Directory
 
@@ -205,12 +205,15 @@ Exemple :
 | :--- | :--- |
 | identifierUris | Tableau de chaînes |
 
-Les URI définis par l’utilisateur qui identifient de manière unique une application web au sein de son locataire Azure AD ou au sein d’un domaine personnalisé vérifié si l’application est multi-locataires.
+URI définis par l’utilisateur qui identifient de manière unique une application web au sein de son locataire Azure AD ou d’un domaine vérifié appartenant à l’utilisateur.
+Lorsqu’une application est utilisée en tant qu’application de ressource, la valeur identifierUri est utilisée pour identifier la ressource de façon unique et y accéder.
+
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
 Exemple :
 
 ```json
-    "identifierUris": "https://MyRegisteredApp",
+    "identifierUris": "https://contoso.onmicrosoft.com/fc4d2d73-d05a-4a9b-85a8-4f2b3a5f38ed",
 ```
 
 ### <a name="informationalurls-attribute"></a>attribut informationalUrls

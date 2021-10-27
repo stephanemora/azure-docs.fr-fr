@@ -6,15 +6,15 @@ author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 07/23/2021
 ms.author: vvasic
-ms.reviewer: jrasnick
-ms.openlocfilehash: 35a56131c55549cc5d33989579514fec3a0184c8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: 50464db5c62ffa0b5f6c48a323a9a23a43b06315
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123428233"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994021"
 ---
 # <a name="create-and-use-native-external-tables-using-sql-pools-in-azure-synapse-analytics"></a>Créer et utiliser des tables externes natives à l’aide de pools SQL dans Azure Synapse Analytics
 
@@ -25,7 +25,7 @@ Les tables externes sont utiles si vous souhaitez contrôler l’accès aux donn
 - le stockage protégé où les utilisateurs accèdent aux fichiers de stockage à l’aide d’informations d’identification SAP, d’une identité Azure AD ou de l’identité managée d’un espace de travail Synapse.
 
 > [!NOTE]
->  Dans des pools SQL dédiés, vous ne pouvez utiliser que des tables externes Parquet natives. Les tables externes Parquet natives sont en préversion publique limitée dans les pools SQL dédiés, car cette fonctionnalité n’est pas encore disponible dans toutes les régions. Si vous souhaitez rejoindre la version préliminaire publique, contactez votre gestionnaire technique de compte Microsoft ou votre architecte de solution cloud pour vérifier si vous pouvez utiliser la table externe Parquet native dans vos pools dédiés. Si vous souhaitez utiliser une fonctionnalité généralement disponible dans des pools SQL dédiés, ou si vous devez accéder à des fichiers CSV ou ORC, utilisez des tables externes Hadoop. Les tables externes natives sont généralement disponibles dans les pools SQL serverless.
+> Dans des pools SQL dédiés, vous pouvez uniquement utiliser des tables externes natives avec un type de fichier Parquet, et cette fonctionnalité est en **préversion publique**. Si vous voulez utiliser une fonctionnalité de lecteur Parquet en disponibilité générale dans des pools SQL dédiés, ou si vous avez besoin d’accéder à des fichiers CSV ou ORC, utilisez des tables externes Hadoop. Les tables externes natives sont généralement disponibles dans les pools SQL serverless.
 > Pour en savoir plus sur les différences entre les tables externes natives et Hadoop, consultez [Utiliser des tables externes avec Synapse SQL](develop-tables-external-tables.md).
 
 ## <a name="prerequisites"></a>Prérequis

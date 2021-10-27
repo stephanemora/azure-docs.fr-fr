@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: memildin
-ms.openlocfilehash: 9af4f225b1b9ca5e8023a8d5b4bb7607762e4447
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ca7b13a7a0873300995a91a6469fc29050f3c95
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631895"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047035"
 ---
 # <a name="manage-multi-factor-authentication-mfa-enforcement-on-your-subscriptions"></a>Gérer la mise en œuvre de l’authentification multifacteur (MFA) sur vos abonnements
 
@@ -81,7 +81,7 @@ Pour connaître les comptes pour lesquels la MFA n’est pas activée, utilisez 
     > Les comptes sont représentés par un ID d’objet plutôt qu’un nom de compte pour garantir la confidentialité des titulaires de compte.
 
 > [!TIP]
-> Vous pouvez également utiliser la méthode [Assessments - Get](/rest/api/securitycenter/assessments/get) de l’API REST du Centre de sécurité.
+> Vous pouvez également utiliser la méthode [Assessments - Get](/rest/api/securitycenter/assessments/get) de l’API REST Security Center.
 
 
 ## <a name="faq---mfa-in-security-center"></a>FAQ - MFA dans Security Center

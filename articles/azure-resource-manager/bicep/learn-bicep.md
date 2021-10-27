@@ -2,13 +2,13 @@
 title: Découvrir Bicep sur Microsoft Learn
 description: Fournit une vue d’ensemble des unités disponibles sur Microsoft Learn pour Bicep.
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.openlocfilehash: 71af6012dcdd9cd5b951a0edbe8f244fb3a8be26
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/18/2021
+ms.openlocfilehash: 086e9e4c9552e48ef4b9e8cf8a737cd2624ddd66
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124793509"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176298"
 ---
 # <a name="bicep-on-microsoft-learn"></a>Bicep sur Microsoft Learn
 
@@ -43,6 +43,7 @@ Outre les parcours d’apprentissage précédents, les modules suivants incluent
 | [Créer votre premier workflow de déploiement Bicep à l’aide de GitHub Actions](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/) | Créez un workflow de déploiement de base pour le code Bicep. Utilisez un secret pour identifier votre workflow GitHub Actions auprès d’Azure en toute sécurité, puis définissez le moment auquel le workflow est exécuté à l’aide de déclencheurs et de planifications. |
 | [Authentifier votre pipeline de déploiement Azure à l’aide de principaux de service](/learn/modules/authenticate-azure-deployment-pipeline-service-principals/) | Les principaux de service permettent à vos pipelines de déploiement de s’authentifier en toute sécurité auprès Azure. Dans ce module, vous allez découvrir les principaux de service et leur fonctionnement, ainsi que la façon de les créer. Vous découvrirez également comment leur octroyer l’autorisation d’accès à vos ressources Azure pour que vos pipelines puissent déployer vos fichiers Bicep. |
 | [Tester votre code Bicep en utilisant Azure Pipelines](/learn/modules/test-bicep-code-using-azure-pipelines/) | Validez et testez votre code Bicep dans votre pipeline de déploiement. Vous allez utiliser le linting, la validation préliminaire et l’opération de simulation pour valider vos modifications Azure de déployer, et vous allez tester vos ressources après chaque déploiement. |
+| [Gérer plusieurs environnements à l’aide de Bicep et d’Azure Pipelines](/learn/modules/manage-multiple-environments-using-bicep-azure-pipelines/) | Déployez votre code Bicep dans plusieurs environnements pour améliorer la qualité de vos déploiements. Utilisez des modèles de pipeline pour réduire la duplication de code, et définissez les valeurs des paramètres pour chaque environnement. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

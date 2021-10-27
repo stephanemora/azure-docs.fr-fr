@@ -1,17 +1,18 @@
 ---
-title: Spécifier des artefacts obligatoires
+title: Spécifier des artefacts obligatoires dans Azure DevTest Labs
 description: Découvrez comment spécifier les artefacts à installer obligatoirement avant d’installer les artefacts sélectionnés par l’utilisateur sur les machines virtuelles (VM) de l’instance lab.
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: 8963db2f99cc893937365a4eac0a656e1ba90613
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/19/2021
+ms.openlocfilehash: 1f755266a3176ed0cdc5a7426850c09d20b2af86
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128678494"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179238"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Spécifier des artefacts obligatoires pour une instance Azure DevTest Labs
-En tant que propriétaire d’un labo, vous pouvez spécifier des artefacts obligatoires qui sont appliqués à chaque machine créée dans le labo. Supposons que vous souhaitez qu’elles soient toutes connectées à votre réseau d’entreprise. Dans ce cas, chaque utilisateur lab devra ajouter un artefact de jonction de domaine lors de la création de la machine virtuelle pour respecter cette exigence. En d’autres termes, il devra pour ainsi dire recréer une machine si jamais il oublie d’y appliquer les artefacts obligatoires. En tant que propriétaire d’une instance lab, c’est vous qui rendez obligatoire l’artefact de jonction de domaine. L’objectif est de faire en sorte que chaque machine soit connectée au réseau d’entreprise et de faire gagner du temps aux utilisateurs.
+
+En tant que propriétaire d’un labo, vous pouvez spécifier des artefacts obligatoires qui sont appliqués à chaque machine créée dans le labo. Imaginez un scénario dans lequel vous souhaitez que chaque ordinateur de votre laboratoire ait Visual Studio Code installé. Dans ce cas, chaque utilisateur du laboratoire doit ajouter un artefact Visual Studio Code lors de la création de l’ordinateur virtuel pour s’assurer que son ordinateur a reçu Visual Studio Code. En d’autres termes, il devra pour ainsi dire recréer une machine si jamais il oublie d’y appliquer les artefacts obligatoires. En tant que propriétaire d’une instance lab, c’est vous qui rendez obligatoire l’artefact Visual Studio Code. Cette étape veille à ce que chaque machine dispose de Visual Studio Code et permet des économies de temps et d’efforts pour les utilisateurs de votre laboratoire.
  
 On peut citer d’autres artefacts obligatoires possibles, comme un outil commun utilisé par l’équipe, un pack de sécurité lié à la plateforme que chaque machine doit posséder par défaut, etc. En somme, tout logiciel devant être commun à toutes les machines de l’instance lab devient un artefact obligatoire. Si vous créez une image personnalisée à partir d’une machine à laquelle des artefacts obligatoires sont appliqués, puis que vous créez une nouvelle machine à partir de cette image, les artefacts obligatoires sont réappliqués à la machine lors de sa création. Ce comportement a une autre conséquence : chaque fois qu’une image personnalisée, même ancienne, est utilisée pour créer une machine, la dernière version des artefacts obligatoires est appliquée à cette dernière au cours du flux de création. 
  
@@ -32,7 +33,7 @@ Les artefacts obligatoires des machines Windows et Linux peuvent être sélectio
 6. Pour ajouter un autre artefact, sélectionnez l’article, puis **Ajouter**. Cet exemple ajoute **Chrome** comme deuxième artefact obligatoire.
 
     ![Pages des artefacts obligatoires – Ajouter Chrome](media/devtest-lab-mandatory-artifacts/add-chrome.png)
-7. Sur la page **Artefacts obligatoires**, un message indique le nombre d’artefacts sélectionnés. Cliquez dessus pour voir les artefacts sélectionnés. Sélectionnez **Enregistrer** pour enregistrer. 
+7. Sur la page **Artefacts obligatoires**, un message indique le nombre d’artefacts sélectionnés. Sélectionnez-le pour voir les artefacts sélectionnés. Sélectionnez **Enregistrer** pour enregistrer. 
 
     ![Pages des artefacts obligatoires – Enregistrer les artefacts](media/devtest-lab-mandatory-artifacts/save-artifacts.png)
 8. Répétez les étapes pour spécifier les artefacts obligatoires des machines virtuelles Linux. 

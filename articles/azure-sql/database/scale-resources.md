@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma, urmilano, wiassaf
 ms.date: 06/25/2019
-ms.openlocfilehash: 818a783a85fd9117738f8199e612d97a0fb95b99
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d6dd794a9eb0a7af1ed2e91a04c27d5321e14ca3
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562410"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179333"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,17 +38,17 @@ Azure SQL Database offre le modèle d’achat DTU et le [modèle d’achat DTU](
 - Le [modèle d’achat DTU](service-tiers-dtu.md) offre une combinaison de ressources de calcul, de mémoire et d’E/S réparties sur trois niveaux de service pour prendre en charge les charges de travail de base de données, aussi bien légères qu’importantes : De base, Standard et Premium. Les niveaux de performance de chaque niveau fournissent une combinaison différente de ces ressources, à laquelle vous pouvez ajouter d’autres ressources de stockage.
 - Le [modèle d’achat vCore](service-tiers-vcore.md) vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage. Ce modèle d’achat propose trois niveaux de service : Usage général, Critique pour l’entreprise et Hyperscale.
 
-Vous pouvez créer votre première application dans une petite base de données unique pour un coût mensuel modique avec le niveau de service De base, Standard ou Usage général, puis remplacer ce niveau de service manuellement ou par programme à tout moment par le niveau de service Premium ou Critique pour l’entreprise, afin de répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
+Le niveau de service, le niveau de calcul et les limites de ressources d’une base de données, d’un pool élastique ou d’une instance managée peuvent être modifiés à tout moment. Par exemple, vous pouvez créer votre première application sur une seule base de données avec le niveau de calcul serverless. Vous pouvez à tout moment remplacer son niveau de service, manuellement ou automatiquement, par le niveau de calcul provisionné pour répondre aux besoins de votre solution.
 
 > [!NOTE]
-> La scalabilité dynamique est différente de la mise à l’échelle automatique. La mise à l’échelle automatique survient quand un service se met à l’échelle automatiquement en fonction de critères, tandis que l’extensibilité dynamique permet la mise à l’échelle manuelle avec un temps d’arrêt minimal.
+> Les exceptions notables pour lesquelles vous ne pouvez pas modifier le niveau de service d’une base de données sont les suivantes :
+> - Les bases de données dans le niveau de service Hyperscale ne peuvent pas être remplacées par un niveau de service différent.
+> - Les bases de données qui utilisent des fonctionnalités [uniquement disponibles](features-comparison.md#features-of-sql-database-and-sql-managed-instance) dans les niveaux de service Critique pour l’entreprise/Premium ne peuvent pas être modifiées pour utiliser le niveau de service Usage général/Standard.
 
-Des bases de données uniques dans Azure SQL Database prennent en charge la scalabilité dynamique manuelle, mais pas la mise à l’échelle automatique. Pour plus expérience plus *automatique*, envisagez d’utiliser des pools élastiques, ce qui permet aux bases de données de partager des ressources dans un pool en fonction de leurs besoins individuels.
-Toutefois, il existe des scripts qui peuvent aider à automatiser la scalabilité pour une base de données unique dans Azure SQL Database. Pour obtenir un exemple, consultez la rubrique [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/monitor-and-scale-database-powershell.md).
+Vous pouvez ajuster les ressources allouées à votre base de données en modifiant l’objectif de service, ou la mise à l’échelle, pour répondre aux demandes de la charge de travail. De cette façon, vous payez uniquement pour les ressources dont vous avez besoin, quand vous en avez besoin. Reportez-vous à la [remarque](#impact-of-scale-up-or-scale-down-operations) concernant l’impact potentiel d’une opération de mise à l’échelle sur une application.
 
-Vous pouvez changer les [niveaux de service DTU](service-tiers-dtu.md) ou les [caractéristiques vCore](resource-limits-vcore-single-databases.md) à tout moment, avec un temps d’arrêt minimal de votre application (généralement inférieur à quatre secondes). Pour de nombreuses entreprises et applications, la possibilité de créer des bases de données et d’augmenter ou ralentir les performances à la demande se révèle suffisante, surtout si les modèles d’utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial. Pour ce scénario, vous utilisez un pool élastique avec un certain nombre d’eDTU qui sont partagées entre plusieurs bases de données dans le pool.
-
-![Présentation de SQL Database : DTU de base de données unique par couche et niveau](./media/scale-resources/single_db_dtus.png)
+> [!NOTE]
+> La scalabilité dynamique est différente de la mise à l’échelle automatique. La mise à l’échelle automatique survient quand un service se met à l’échelle automatiquement en fonction de critères, tandis que l’extensibilité dynamique permet la mise à l’échelle manuelle avec un temps d’arrêt minimal. Les bases de données uniques dans Azure SQL Database peuvent être mises à l’échelle manuellement ou, dans le cas du [niveau serverless](serverless-tier-overview.md), configurées pour mettre automatiquement à l’échelle les ressources de calcul. Les [pools élastiques](elastic-pool-overview.md), qui permettent aux bases de données de partager des ressources dans un pool, peuvent uniquement être mis à l’échelle manuellement pour l’instant.
 
 Azure SQL Database offre la possibilité de mettre à l'échelle vos bases de données de façon dynamique :
 
@@ -59,7 +59,9 @@ Azure SQL Managed Instance vous permet également une mise à l’échelle :
 
 - [SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) utilise le mode [vCores](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) et vous permet de définir le nombre maximum de cœurs UC et la quantité maximale de stockage alloués à votre instance. Toutes les bases de données au sein de l’instance gérée partageront les ressources allouées à l’instance.
 
-Quelle que soit la version, une action de mise à l’échelle (scale up ou scale down) aurait pour effet de redémarrer le processus du moteur de base de données et de le déplacer si nécessaire vers une autre machine virtuelle. Le déplacement du processus du moteur de base de données vers une nouvelle machine virtuelle est un **processus en ligne**, ce qui vous permet de continuer à utiliser votre service Azure SQL Database existant pendant sa progression. Une fois le moteur de base de données cible entièrement initialisé et prêt à traiter les requêtes, les connexions sont [basculées du moteur de base de données source vers le moteur de base de données cible](single-database-scale.md#impact).
+## <a name="impact-of-scale-up-or-scale-down-operations"></a>Impact des opérations de scale-up ou de scale-down
+
+Quelle que soit la saveur, une action de scale-up ou de scale-down redémarre le processus du moteur de base de données et le déplace si nécessaire vers une autre machine virtuelle. Le déplacement du processus du moteur de base de données vers une nouvelle machine virtuelle est un **processus en ligne** durant lequel vous pouvez continuer à utiliser votre service Azure SQL Database existant. Une fois que le moteur de base de données cible est prêt à traiter les requêtes, les connexions ouvertes au moteur de base de données actif sont [terminées](single-database-scale.md#impact) et les transactions non validées sont restaurées. De nouvelles connexions sont établies au moteur de base de données cible.
 
 > [!NOTE]
 > Il n’est pas recommandé de mettre votre instance gérée à l’échelle si une transaction durable, telle que l’importation de données, les travaux de traitement de données, la régénération d’index, etc., est en cours d’exécution, ou si vous avez une connexion active sur l’instance. Pour éviter que la mise à l’échelle ne prenne plus de temps que d’habitude, vous devez mettre l’instance à l’échelle à la fin de toutes les opérations durables.
@@ -80,3 +82,4 @@ La mise à l'échelle des ressources reste la façon la plus facile et efficace 
 - Pour en savoir sur l’optimisation de votre base de données par une intelligence intégrée, consultez [Ajustement automatique](automatic-tuning-overview.md).
 - Pour en savoir plus sur la fonctionnalité Lecture du Scale-out dans Azure SQL Database, consultez comment [utiliser des réplicas en lecture seule pour équilibrer les charges de travail de requêtes en lecture seule](read-scale-out.md).
 - Pour en savoir plus sur le partitionnement de base de données, consultez [Scale-out avec Azure SQL Database](elastic-scale-introduction.md).
+- Pour obtenir un exemple d’utilisation de scripts pour superviser et mettre à l’échelle une base de données unique, consultez [Utiliser PowerShell pour superviser et mettre à l’échelle une instance SQL Database unique](scripts/monitor-and-scale-database-powershell.md).

@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 layout: LandingPage
 ms.date: 06/23/2021
-ms.openlocfilehash: e48c464ffa1aa5077f04ea1a7580e0d15e0fd7ca
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7cb78f108e53c93e736b11d49d21d8cd7c242b79
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531836"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047073"
 ---
 # <a name="data-sources-gallery"></a>Galerie de sources de données
 
@@ -670,7 +670,7 @@ Le connecteur Bentley AssetWise de BAI permet d’exposer le contenu d’AssetWi
 
 par [Accenture](https://www.accenture.com)
 
-Le connecteur Box analyse le contenu d’un dépôt Box. Le connecteur récupère les éléments pris en charge à l’aide de l’API RESTful, ce qui permet l’analyse complète ou incrémentielle, l’extraction des métadonnées, l’extraction des listes ACL, etc.
+Le connecteur Box analyse le contenu d’un dépôt Box. Le connecteur récupère les éléments pris en charge par l’intermédiaire de l’API REST, ce qui permet l’analyse complète ou incrémentielle, l’extraction des métadonnées, l’extraction des listes ACL, etc.
 
 [En savoir plus](https://contentanalytics.digital.accenture.com/display/aspire40/Box++Connector)
 

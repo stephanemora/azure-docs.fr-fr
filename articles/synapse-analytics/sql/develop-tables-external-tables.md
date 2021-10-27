@@ -2,19 +2,19 @@
 title: Utiliser des tables externes avec Synapse SQL
 description: Lecture ou écriture de fichiers de données avec des tables externes dans Synapse SQL
 services: synapse-analytics
-author: julieMSFT
+author: ma77b
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/26/2021
-ms.author: jrasnick
-ms.reviewer: jrasnick
-ms.openlocfilehash: 834feed476c307bc1a16bf95719b630389e58511
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.date: 07/23/2021
+ms.author: maburd
+ms.reviewer: wiassaf
+ms.openlocfilehash: a229bd769afa30b93cae9ca0f2073ad8a0621cdd
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123430789"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001387"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utiliser des tables externes avec Synapse SQL
 
@@ -22,15 +22,15 @@ Une table externe pointe vers des données situées dans Hadoop, Stockage Blob A
 
 Selon le type de la source de données externe, vous pouvez utiliser deux types de tables externes :
 - Les tables externes Hadoop que vous pouvez utiliser pour lire et exporter des données dans différents formats de données tels que CSV, Parquet et ORC. Les tables externes Hadoop sont disponibles dans les pools SQL dédiés, mais pas dans les pools SQL serverless.
-- Les tables externes natives que vous pouvez utiliser pour lire et exporter des données dans différents formats de données tels que CSV et Parquet. Les tables externes natives sont disponibles dans les pools SQL serverless et en préversion dans les pools Synapse SQL dédiés.
+- Les tables externes natives que vous pouvez utiliser pour lire et exporter des données dans différents formats de données tels que CSV et Parquet. Des tables externes natives sont disponibles dans des pools SQL serverless. Elles sont en **préversion publique** dans des pools SQL dédiés.
 
 Les principales différences entre les tables externes Hadoop et natives sont présentées dans le tableau suivant :
 
 | Type de table externe | Hadoop | Natif |
 | --- | --- | --- |
-| Pool SQL dédié | Disponible | Les tables Parquet sont disponibles dans la **préversion à accès contrôlé** : contactez votre responsable technique de compte Microsoft ou votre architecte de solution cloud pour savoir si vous pouvez ajouter votre pool SQL dédié à la préversion à accès contrôlé. |
+| Pool SQL dédié | Disponible | Des tables Parquet sont disponibles en **préversion publique**. |
 | Pool SQL serverless | Non disponible | Disponible |
-| Formats pris en charge | Délimité/CSV, Parquet, ORC, Hive RC et RC | Pool SQL serverless : délimité/CSV, Parquet et Delta Lake (préversion)<br/>Pool SQL dédié : Parquet |
+| Formats pris en charge | Délimité/CSV, Parquet, ORC, Hive RC et RC | Pool SQL serverless : Délimité/CSV, Parquet, et [Delta Lake (préversion)](query-delta-lake-format.md)<br/>Pool SQL dédié : Parquet |
 | Élimination des partitions de dossier | Non | Uniquement pour les tables partitionnées synchronisées à partir de pools Apache Spark dans l’espace de travail Synapse vers des pools SQL serverless |
 | Format personnalisé pour l’emplacement | Yes | Oui, avec des caractères génériques comme `/year=*/month=*/day=*` |
 | Analyse récursive des dossiers | No | Uniquement dans les pools SQL serverless quand `/**` est spécifié à la fin du chemin d’accès d’emplacement |
@@ -38,7 +38,7 @@ Les principales différences entre les tables externes Hadoop et natives sont pr
 | Authentification du stockage | Clé d’accès de stockage, authentification directe AAD, identité managée, identité Azure AD d’application personnalisée | Signature d’accès partagé (SAS), authentification directe AAD, identité managée |
 
 > [!NOTE]
-> Les tables externes natives au format Delta Lake sont en préversion publique. [CETAS](develop-tables-cetas.md) ne prend pas en charge l’exportation de contenu au format Delta Lake.
+> Les tables externes natives au format Delta Lake sont en préversion publique. Pour plus d’informations, consultez [Interroger des fichiers Delta Lake (préversion)](query-delta-lake-format.md). [CETAS](develop-tables-cetas.md) ne prend pas en charge l’exportation de contenu au format Delta Lake.
 
 ## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Tables externes dans un pool SQL dédié et un pool SQL serverless
 

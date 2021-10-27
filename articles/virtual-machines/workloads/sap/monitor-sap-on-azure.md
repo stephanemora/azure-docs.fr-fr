@@ -6,26 +6,26 @@ ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 08/24/2021
+ms.date: 10/13/2021
 ms.author: v-hborys
-ms.openlocfilehash: 779a70c4a0386420389937864be01295f985f5b8
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 4f90fc00dc895617796cc478835690c931a55f51
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123104455"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004860"
 ---
 # <a name="monitor-sap-on-azure-preview"></a>Surveiller SAP sur Azure (préversion)
 
-Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. 
+Quand vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous souhaitez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. 
 
 Cet article explique comment surveiller l’exécution de SAP sur Azure à l’aide d’Azure Monitor pour SAP Solutions. Azure Monitor pour SAP Solutions utilise des parties spécifiques de l’infrastructure d’[Azure Monitor](../../../azure-monitor/overview.md).
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure Monitor pour SAP Solutions est un produit de surveillance Azure natif pour toute personne exécutant ses paysages SAP sur Azure. Le produit fonctionne avec [SAP sur des machines virtuelles Azure](./hana-get-started.md) et [SAP sur des instances volumineuses Azure](./hana-overview-architecture.md).
+Azure Monitor pour SAP Solutions est un produit de surveillance Azure natif pour toute personne exécutant ses paysages SAP sur Azure. Il fonctionne à la fois avec [SAP sur Azure Machines Virtuelles](./hana-get-started.md) et [SAP sur Azure Grandes instances](./hana-overview-architecture.md).
 
-Azure Monitor pour SAP Solutions vous permet de collecter des données de télémétrie à partir de l’infrastructure Azure et des bases de données dans un emplacement central et d’établir une corrélation visuelle entre les données de télémétrie afin d’accélérer la résolution des problèmes.
+Azure Monitor pour SAP Solutions vous permet de collecter des données de télémétrie à partir de l’infrastructure Azure et des bases de données dans un emplacement central et d’établir une corrélation visuelle entre les données afin d’accélérer la résolution des problèmes.
 
 Vous pouvez surveiller différents composants d’un paysage SAP, tels que les machines virtuelles Azure, le cluster à haute disponibilité, la base de données SAP HANA, SAP NetWeaver et ainsi de suite, en ajoutant le **fournisseur** de ce composant. Pour plus d’informations, consultez [Déploiement d’Azure Monitor pour SAP Solutions à l’aide du portail Azure](azure-monitor-sap-quickstart.md).
 
@@ -38,9 +38,7 @@ Bases de données prises en charge :
 - Base de données SAP HANA
 - Microsoft SQL Server
 
-Azure Monitor pour SAP Solutions utilise les fonctionnalités [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) et [Classeurs](../../../azure-monitor/visualize/workbooks-overview.md) d’[Azure Monitor](../../../azure-monitor/overview.md).
-
-Cette application vous permet d’effectuer les opérations suivantes :
+Azure Monitor pour SAP Solutions utilise les fonctionnalités [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) et [Classeurs](../../../azure-monitor/visualize/workbooks-overview.md) d’[Azure Monitor](../../../azure-monitor/overview.md). Cette application vous permet d’effectuer les opérations suivantes :
 
 - Créez des [visualisations personnalisées](../../../azure-monitor/visualize/workbooks-overview.md#getting-started) en modifiant les classeurs par défaut fournis par Azure Monitor pour SAP Solutions. 
 - Écrivez des [requêtes personnalisées](../../../azure-monitor/logs/log-analytics-tutorial.md).
@@ -52,7 +50,7 @@ Cette application vous permet d’effectuer les opérations suivantes :
 
 Azure Monitor pour SAP Solutions ne collecte pas de métriques ou de données de journal des ressources Azure Monitor comme de nombreuses autres ressources Azure. Au lieu de cela, il envoie directement des journaux personnalisés au système de journaux Azure Monitor, où vous pouvez ensuite utiliser les fonctionnalités intégrées de Log Analytics.
 
-La collecte de données dans Azure Monitor pour SAP Solutions varie en fonction des fournisseurs que vous configurez. La préversion publique collecte les données suivantes.
+La collecte de données dans Azure Monitor pour SAP Solutions varie en fonction des fournisseurs que vous configurez. Les données suivantes sont collectées au cours de la préversion publique.
 
 Télémétrie de cluster Pacemaker haute disponibilité :
 - État du nœud, de la ressource et de l’appareil de traitement par blocs STONITH
@@ -111,7 +109,7 @@ Les composants clés de l’architecture sont les suivants :
 - **Portail Azure** : votre point de départ. Vous pouvez accéder à la place de marché au sein du portail Azure et découvrir Azure Monitor pour SAP Solutions.
 - **Ressource Azure Monitor pour SAP Solutions** : un emplacement d’arrivée vous permettant d’examiner la télémétrie de surveillance.
 - **Groupe de ressources managées** : déployé automatiquement dans le cadre du déploiement de ressource Azure Monitor pour SAP Solutions. Les ressources déployées dans le groupe de ressources managées aident à collecter des données de télémétrie. Les ressources clés déployées et leurs objectifs sont les suivantes :
-   - **Machine virtuelle Azure** : également appelée *machine virtuelle de collecteur*, il s’agit d’une machine virtuelle Standard_B2ms. L’objectif principal de cette machine virtuelle est d’héberger la *charge utile de surveillance*. La charge utile de surveillance fait référence à la logique de la télémétrie de collecte des données à partir des systèmes sources et du transfert des données vers l’infrastructure de surveillance. Dans le diagramme ci-dessus, la charge utile de surveillance contient la logique permettant la connexion à la base de données SAP HANA via le port SQL.
+   - **Machine virtuelle Azure** : également appelée *machine virtuelle de collecteur*, il s’agit d’une machine virtuelle Standard_B2ms. L’objectif principal de cette machine virtuelle est d’héberger la *charge utile de surveillance*. La charge utile de surveillance fait référence à la logique de la télémétrie de collecte des données à partir des systèmes sources et du transfert des données vers l’infrastructure de surveillance. Dans le diagramme précédent, la charge utile de supervision contient la logique permettant la connexion à la base de données SAP HANA via le port SQL.
    - **[Azure Key Vault](../../../key-vault/general/basic-concepts.md)** : cette ressource est déployée pour conserver en toute sécurité les informations d’identification de la base de données SAP HANA et pour stocker des informations sur les [fournisseurs](./azure-monitor-providers.md).
    - **Espace de travail Log Analytics** : destination où sont stockées les données de télémétrie.
       - La visualisation est basée sur la télémétrie dans Log Analytics à l’aide de [workbooks Azure](../../../azure-monitor/visualize/workbooks-overview.md). Vous pouvez personnaliser la visualisation. Vous pouvez également épingler vos classeurs ou une visualisation spécifique au sein des classeurs au tableau de bord Azure afin de permettre une actualisation automatique. La fréquence maximale d’actualisation est de 30 minutes.

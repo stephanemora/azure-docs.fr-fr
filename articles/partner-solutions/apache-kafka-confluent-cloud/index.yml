@@ -1,0 +1,51 @@
+### YamlMime:Landing
+title: Intégration d’Apache Kafka pour Confluent Cloud à Azure
+summary: Permet d’utiliser Apache Kafka en tant que service.
+metadata:
+  title: Documentation de Confluent Cloud sur Azure
+  description: Confluent Cloud s’intègre à Azure pour fournir Apache Kafka en tant que service.
+  ms.service: partner-services
+  ms.topic: landing-page
+  ms.collection: na
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 10/22/2021
+  ms.openlocfilehash: 415012ddb93d0f64e89b82ce6d822b0fd128ce63
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130269079"
+landingContent:
+- title: À propos de Confluent Cloud sur Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Apache Kafka pour Confluent Cloud ?
+      url: overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer la ressource Confluent Cloud
+      url: manage.md
+- title: Créer une ressource Confluent
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Bien démarrer avec Apache Kafka pour Confluent Cloud - Portail Azure
+      url: create.md
+    - text: Bien démarrer avec Apache Kafka pour Confluent Cloud - Azure CLI
+      url: create-cli.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ajouter des connecteurs pour Confluent Cloud
+      url: add-connectors.md
+    - text: Résolution des problèmes d’Apache Kafka pour les solutions Confluent Cloud
+      url: troubleshoot.md
+- title: Explorer le contenu de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure CLI
+      url: /cli/azure/confluent
+    - text: Azure PowerShell
+      url: /powershell/module/az.confluent/#confluent

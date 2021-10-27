@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 0df95d90d0119f8bc513fe2a26ed731d87401b3d
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: 77295f2d47f0645b8d4610af3834f0b8a64ec7a0
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154258"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064454"
 ---
 # <a name="troubleshoot-azure-private-endpoint-connectivity-problems"></a>Résoudre les problèmes de connectivité d’Azure Private Endpoint
 
@@ -103,8 +103,9 @@ Passez en revue ces étapes pour vous assurer que toutes les configurations habi
 1. L’itinéraire du tronçon suivant de l’adresse IP du point de terminaison privé de la machine virtuelle source doit être InterfaceEndpoints dans les itinéraires effectifs de la carte réseau. 
 
     a. Si vous ne voyez pas l’itinéraire du point de terminaison privé sur la machine virtuelle source, vérifiez les points suivants : 
-     - Si la machine virtuelle source et le point de terminaison privé appartiennent au même réseau virtuel, vous devez contacter le support. 
-     - Si la machine virtuelle source et le point de terminaison privé font partie de différents réseaux virtuels, vérifiez la connectivité IP entre les réseaux virtuels. S’il existe une connectivité IP et que vous ne voyez toujours pas l’itinéraire, contactez le support. 
+     - La machine virtuelle source et le point de terminaison privé font partie du même réseau virtuel. vous devez contacter le support. 
+     - La machine virtuelle source et le point de terminaison privé font partie de différents réseaux virtuels qui sont directement appairés les uns avec les autres. vous devez contacter le support.
+     - Si la machine virtuelle source et le point de terminaison privé font partie de différents réseaux virtuels qui ne sont directement appairés les uns avec les autres, vérifiez la connectivité IP entre les réseaux virtuels.
 
 1. Si la connexion a des résultats validés, le problème de connectivité est peut-être lié à d’autres aspects tels que les secrets, les jetons et les mots de passe au niveau de la couche application.
    - Dans ce cas, passez en revue la configuration de la ressource Private Link associée au point de terminaison privé. Pour plus d’informations, consultez le [Guide de résolution des problèmes Azure Private Link](troubleshoot-private-link-connectivity.md).

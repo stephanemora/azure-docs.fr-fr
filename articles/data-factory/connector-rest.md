@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: makromer
-ms.openlocfilehash: dc9aec86e01655087a64c3ac0a494d448889f857
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f24bb345442b2320344cf1c9e89d383571447ded
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124733089"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044759"
 ---
 # <a name="copy-and-transform-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copier et transformer des données depuis et vers un point de terminaison REST à l’aide d’Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -23,8 +23,8 @@ Cet article décrit comment utiliser l’activité Copy dans Azure Data Factory 
 
 Les différences entre ce connecteur REST, un [connecteur HTTP](connector-http.md) et le [connecteur Table web](connector-web-table.md) sont les suivantes :
 
-- Le **connecteur REST** prend spécifiquement en charge la copie de données à partir d’API RESTful. 
-- Le **connecteur HTTP** est générique pour récupérer des données à partir de n’importe quel point de terminaison HTTP, par exemple pour télécharger un fichier. Avant que ce connecteur REST soit disponible, vous utilisiez peut-être un connecteur HTTP pour copier des données à partir d’une API RESTful, ce qui est pris en charge mais moins fonctionnel comparé au connecteur REST.
+- Le **connecteur REST** prend spécifiquement en charge la copie de données à partir d’API RESTful.
+- Le **connecteur HTTP** est générique pour récupérer des données à partir de n’importe quel point de terminaison HTTP, par exemple pour télécharger un fichier. Avant que ce connecteur REST soit disponible, vous utilisiez peut-être un connecteur HTTP pour copier les données d’API RESTful, ce qui est pris en charge, mais moins fonctionnel que le connecteur REST.
 - Le **connecteur Table web** extrait le contenu de tables d’une page web HTML.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge

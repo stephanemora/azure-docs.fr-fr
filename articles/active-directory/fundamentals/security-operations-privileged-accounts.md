@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/15/2021
 ms.author: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4a9afd9e2470085509c809153fd2abd9a63c27
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 467c5ad44b38e237b1ad9b947f438dcef1006750
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796435"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038837"
 ---
 # <a name="security-operations-for-privileged-accounts"></a>Opérations de sécurité pour les comptes privilégiés
 
@@ -36,7 +36,7 @@ Vous êtes entièrement responsable de toutes les couches de sécurité de votre
 
 ## <a name="where-to-look"></a>Emplacement des fichiers
 
-Les fichiers journaux que vous pouvez utiliser pour investiguer et superviser sont les suivants : 
+Les fichiers journaux que vous pouvez utiliser pour l’investigation et la supervision sont les suivants : 
 
 * [Journaux d’audit Azure AD](../reports-monitoring/concept-audit-logs.md)
 
@@ -52,7 +52,7 @@ Sur le Portail Azure, vous pouvez afficher les journaux d’audit Azure AD et l
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) avec intégration SIEM[ : permet de transmettre les journaux Azure AD à d’autres systèmes SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) comme Splunk, ArcSight, QRadar et Sumo Logic grâce à l’intégration Azure Event Hub.
 
-* [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) : permet de découvrir et de gérer les applications, de gouverner toutes les applications et ressources, et de vérifier la conformité des applications cloud. 
+* [Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security) : permet de découvrir et de gérer les applications, de gouverner toutes les applications et ressources et de vérifier la conformité des applications cloud. 
 
 * Microsoft Graph : vous pouvez exporter les données et utiliser MS Graph pour effectuer d’autres analyses. Pour plus d’informations sur MS Graph, consultez [Kit de développement logiciel (SDK) Microsoft Graph PowerShell et Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md). 
 
@@ -180,7 +180,7 @@ Examinez les modifications apportées aux privilèges et règles d’authentific
 | - | - | - | - | - |
 | Création d’un compte privilégié.| Moyenne| Journaux d’audit Azure AD| Service = répertoire principal<br>-et-<br>Catégorie = gestion des utilisateurs<br>-et-<br>Type d’activité = Ajouter un utilisateur<br>-corrélation avec –<br>Type de catégorie = gestion des rôles<br>-et-<br>Type d’activité = ajout d’un membre au rôle<br>-et-<br>Propriétés modifiées = Role.DisplayName| Surveillez la création de comptes privilégiés. Recherchez la corrélation entre la création et la suppression de comptes. |
 | Modifications apportées aux méthodes d’authentification.| Élevé| Journaux d’audit Azure AD| Service = méthode d’authentification<br>-et-<br>Type d’activité = informations de sécurité inscrites par l’utilisateur<br>-et-<br>Catégorie = gestion des utilisateurs| Cela peut être le cas d’une personne malveillante qui ajoute une méthode d’authentification au compte afin d’obtenir un accès en continu. |
-| Signalez les modifications apportées aux autorisations de compte privilégié.| Élevé| Journaux d’audit Azure AD| Catégorie = Gestion des rôles<br>-et-<br>Type d’activité – Ajout d’un membre éligible (permanent)<br>-et-<br>Type d’activité – Ajout d’un membre éligible (éligible)<br>-et-<br>État = Réussite/Échec<br>-et-<br>Propriétés modifiées = Role.DisplayName| Cela est particulièrement vrai pour les comptes auxquels les rôles attribués sont inconnus ou en dehors de leurs responsabilités normales. |
+| Signalez les modifications apportées aux autorisations de compte privilégié.| Élevé| Journaux d’audit Azure AD| Catégorie = Gestion des rôles<br>-et-<br>Type d’activité – Ajout d’un membre éligible (permanent)<br>-et-<br>Type d’activité – Ajout d’un membre éligible (éligible)<br>-et-<br>État = Réussite/Échec<br>-et-<br>Propriétés modifiées = Role.DisplayName| Cela est particulièrement vrai pour les comptes auxquels les rôles attribués sont inconnus ou en dehors de leurs responsabilités normales. |
 | Comptes privilégiés inutilisés.| Moyenne| Révisions d’accès Azure AD| | Passez en revue tous les mois les comptes d’utilisateurs privilégiés inactifs. |
 | Comptes exemptés de l’accès conditionnel| Élevé| Journaux Azure Monitor<br>-ou-<br>Révisions d’accès| Insights et rapports sur l’accès conditionnel| Tout compte exempté de l’autorité de certification contourne probablement les contrôles de sécurité et est plus vulnérable à la compromission. Les comptes de secours sont exemptés. Consultez les informations sur la façon de surveiller les comptes de secours dans une section ultérieure de cet article.|
 

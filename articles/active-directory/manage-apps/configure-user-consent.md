@@ -12,13 +12,13 @@ ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5289f9a6ed602df67d85cbb5b11875befec916f5
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.custom: contperf-fy21q2, contperf-fy22q2
+ms.openlocfilehash: cbdf0ed80397d5cd63cd7c38f12f6432e420ec7c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129614894"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998026"
 ---
 # <a name="configure-how-end-users-consent-to-applications-using-azure-active-directory"></a>Configurer le consentement de l’utilisateur final pour une application à l’aide d’Azure Active Directory
 
@@ -58,27 +58,25 @@ Pour configurer les paramètres de consentement de l’utilisateur via le portai
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Vous pouvez utiliser le dernier module Azure AD PowerShell en préversion, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), pour choisir la stratégie de consentement d’application régissant le consentement de l’utilisateur pour les applications.
+Vous pouvez utiliser le dernier module [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true), pour choisir la stratégie de consentement d’application régissant le consentement de l’utilisateur pour les applications.
 
 #### <a name="disable-user-consent"></a>Désactiver le consentement de l’utilisateur
 
 Pour désactiver le consentement de l’utilisateur, définissez les stratégies de consentement qui régissent le consentement de l’utilisateur de façon à ce qu’elles soient vides :
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @() }
+```
 
 #### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>Autoriser le consentement de l’utilisateur soumis à une stratégie de consentement d’application
 
 Pour autoriser le consentement de l’utilisateur, choisissez la stratégie de consentement de l’application qui doit régir l’autorisation des utilisateurs pour accorder le consentement aux applications :
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.{consent-policy-id}") }
+```
 
 Remplacez `{consent-policy-id}` par l’ID de la stratégie que vous souhaitez appliquer. Vous pouvez choisir une [stratégie de consentement d’application personnalisée](manage-app-consent-policies.md#create-a-custom-app-consent-policy) que vous avez créée ou vous pouvez choisir parmi les stratégies intégrées suivantes :
 
@@ -90,9 +88,8 @@ Remplacez `{consent-policy-id}` par l’ID de la stratégie que vous souhaitez a
 Par exemple, pour activer le consentement de l’utilisateur pour l’objet de la stratégie intégrée `microsoft-user-default-low` :
 
 ```powershell
-Set-AzureADMSAuthorizationPolicy `
-   -Id "authorizationPolicy" `
-   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.microsoft-user-default-low")
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.microsoft-user-default-low") }
 ```
 
 ---

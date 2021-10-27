@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36c43448abba82ef084a16e13e70700ddf12bdc2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90563146"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042010"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Quelles sont les options d’architecture d’Azure Firewall Manager ?
 
@@ -36,7 +36,7 @@ Le tableau suivant compare ces deux options d’architecture et peut vous aider 
 |**Hub and Spoke**     |Utiliser le peering de réseaux virtuels|Automatisé à l’aide d’une connexion au réseau virtuel hub|
 |**Connectivité locale**     |Passerelle VPN jusqu’à 10 Gbits/s et 30 connexions S2S ; ExpressRoute|Passerelle VPN plus scalable jusqu’à 20 Gbits/s et 1 000 connexions S2S ; ExpressRoute|
 |**Connectivité automatisée des branches à l’aide de SDWAN**      |Non pris en charge|Prise en charge|
-|**Hubs par région**     |Plusieurs réseaux virtuels par région|Un seul hub virtuel par région. Plusieurs hubs possibles avec plusieurs réseaux étendus (WAN) virtuels|
+|**Hubs par région**     |Plusieurs réseaux virtuels par région|Plusieurs hubs virtuels par région|
 |**Pare-feu Azure - Adresses IP publiques multiples**      |Fourni par le client|Généré automatiquement|
 |**Zones de disponibilité du pare-feu Azure**     |Prise en charge|Pas encore disponible|
 |**Sécurité Internet avancée avec la sécurité tierce comme partenaires de services**     |Connectivité VPN managée et établie par le client au service partenaire de votre choix|Automatisé par le biais du flux Fournisseur partenaire de sécurité et de l’expérience de gestion du partenaire|

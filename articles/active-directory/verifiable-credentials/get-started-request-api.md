@@ -1,23 +1,23 @@
 ---
-title: Appel de l’API REST du service de demande
+title: Guide pratique pour appeler l’API REST du service de demande (préversion)
 titleSuffix: Azure Active Directory Verifiable Credentials
 description: Découvrez comment émettre et vérifier à l’aide de l’API REST du service de demande
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 6dff1940219aa666453d150ed24d84f8eb0165da
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: f4c3a42108e6098cfde3509bc5f365b78d9a4bba
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809854"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073541"
 ---
-# <a name="request-service-rest-api-preview"></a>API REST du service de demande (version préliminaire)
+# <a name="request-service-rest-api-preview"></a>API REST du service de demande (préversion)
 
 L'API REST du service de demande des justificatifs vérifiables Azure Active Directory vous permet d’émettre et de vérifier des justificatifs vérifiables à l’aide du service des justificatifs vérifiables Azure AD. Cet article vous montre comment commencer à utiliser l’API REST du service de demande.
 
@@ -180,7 +180,7 @@ const result = await mainApp.msalCca.acquireTokenByClientCredential(mainApp.msal
 
 Pour émettre ou vérifier des justificatifs vérifiables, procédez comme suit :
 
-1. Construisez une requête HTTP POST vers l'API REST du service de demande. Remplacez `{tenantID}` par votre [ID de locataire](https://TBD) ou votre nom de locataire.
+1. Construisez une requête HTTP POST vers l'API REST du service de demande. Remplacez `{tenantID}` par votre **ID de locataire** ou votre nom de locataire.
 
     ```http
     POST https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request

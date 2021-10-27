@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/01/2021
 ms.author: danlep
-ms.openlocfilehash: f63a8e9f083256cb68a23d69e49d44d9bbfd57de
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 74ef0589a32520a411b0ba8aa0677496b44f9549
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429468"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999926"
 ---
 # <a name="api-management-cross-domain-policies"></a>Gestion des API dans les stratégies de domaine
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
@@ -91,7 +91,7 @@ Vous devez appliquer la stratégie CORS pour activer la console interactive dans
 ```
 
 ### <a name="example"></a>Exemple
-Cet exemple montre comment prendre en charge les demandes en amont, telles que celles comportant des en-têtes personnalisés ou des méthodes autres que GET et POST. Pour prendre en charge les en-têtes personnalisés et autres verbes HTTP, utilisez les sections `allowed-methods` et `allowed-headers` comme indiqué dans l’exemple suivant.
+Cet exemple montre comment prendre en charge les [demandes en amont](https://developer.mozilla.org/docs/Web/HTTP/CORS#preflighted_requests), telles que celles comportant des en-têtes personnalisés ou des méthodes autres que GET et POST. Pour prendre en charge les en-têtes personnalisés et autres verbes HTTP, utilisez les sections `allowed-methods` et `allowed-headers` comme indiqué dans l’exemple suivant.
 
 ```xml
 <cors allow-credentials="true">

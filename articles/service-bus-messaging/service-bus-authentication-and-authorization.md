@@ -3,12 +3,12 @@ title: Configuration de l’authentification et de l’autorisation Service Bus
 description: Authentifiez des applications dans Service Bus avec l’authentification Signature d’accès partagé (SAS).
 ms.topic: article
 ms.date: 09/15/2021
-ms.openlocfilehash: 74ad1674bc09f1514264f4b7f1521526f8da2fd5
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1b1cc20df861f657ed9fff4704862e9ee36965a2
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128597148"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002071"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Authentification et de autorisation Service Bus
 Il existe deux façons d’authentifier et d’autoriser l’accès aux ressources Azure Service Bus : Azure Active Directory (Azure AD) et les signatures d’accès partagé (SAP). Cet article vous explique l’utilisation de ces deux types de mécanismes de sécurité. 

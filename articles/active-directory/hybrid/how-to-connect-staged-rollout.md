@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e35f88ef38367a9c25da6a77b556f4009880af0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 35dcb1125451e378d79aa7bab4c4e066ccab9acb
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562732"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044305"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout"></a>Migrer vers l’authentification cloud avec un lancement intermédiaire
 
@@ -96,6 +96,8 @@ Les scénarios suivants ne sont pas pris en charge pour le lancement intermédia
 - Si vous disposez d’une configuration VDI non persistante avec la version 1903 ou une version ultérieure de Windows 10, vous devez rester sur un domaine fédéré. Le passage à un domaine managé n’est pas pris en charge sur une infrastructure VDI non persistante. Pour plus d’informations, consultez [Identité d’appareil et virtualisation des postes de travail](../devices/howto-device-identity-virtual-desktop-infrastructure.md).
 
 - Si vous disposez d’un certificat de confiance hybride Windows Hello Entreprise avec des certificats émis par le biais de votre serveur de fédération agissant en tant qu’autorité d’inscription ou utilisateur de carte à puce, le scénario n’est pas pris en charge dans un déploiement par étapes. 
+
+- L’inscription Autopilot n’est pas prise en charge dans le déploiement par étapes. Les utilisateurs activés pour le déploiement par étapes continuent d’utiliser l’authentification fédérée lors de l’inscription Autopilot. Si Windows 10 version 1903 ou ultérieure est installé sur votre appareil, après l’inscription Autopilot, l’ensemble des demandes d’authentification passent par le déploiement par étapes. 
 
   >[!NOTE]
   >Vous devez encore effectuer le basculement final de l’authentification fédérée à l’authentification cloud à l’aide d’Azure AD Connect ou de PowerShell. Le lancement intermédiaire ne fait pas basculer les domaines d’un état fédéré à managé.  Pour plus d’informations sur le basculement de domaine, consultez [Migrer de la fédération à la synchronisation de hachage de mot de passe](./migrate-from-federation-to-cloud-authentication.md) et [Migrer de la fédération à l’authentification directe](./migrate-from-federation-to-cloud-authentication.md).

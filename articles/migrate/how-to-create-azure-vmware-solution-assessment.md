@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: cfa3004b0587bbfe74157bf2922dd98cd8741597
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 89c7c903d382d67d9be64829118bdddf8ee4bd31
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562868"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005992"
 ---
 # <a name="create-an-azure-vmware-solution-assessment"></a>Créer une évaluation Azure VMware Solution
 
@@ -123,9 +123,10 @@ Il existe deux types de critères de dimensionnement que vous pouvez utiliser po
 Une évaluation Azure VMware Solution (AVS) indique :
 
 - **Préparation pour Azure VMware Solution (AVS)** : Si les serveurs locaux sont adaptés à la migration vers Azure VMware Solution (AVS).
-- **Nombre de nœuds AVS**: Estimation du nombre de nœuds AVS requis pour exécuter les serveurs.
+- **Nombre de nœuds Azure VMware Solution** : nombre estimé de nœuds Azure VMware Solution nécessaires pour exécuter les serveurs.
 - **Utilisation des nœuds AVS**: Utilisation estimée du processeur, de la mémoire et du stockage sur tous les nœuds.
     - L’utilisation comprend la factorisation initiale dans le cadre des opérations de gestion de cluster suivantes, par exemple vCenter Server, NSX Manager (grand), NSX Edge, HCX Manager (si HCX est déployé) et l’appliance IX, qui consomment environ 44 vCPU (11 processeurs), 75 Go de RAM et 722 Go de stockage avant compression et déduplication.
+    - Le facteur de limitation détermine le nombre d’hôtes/nœuds nécessaires pour prendre en charge les ressources.
 - **Estimation des coûts mensuels** : Les coûts mensuels estimés pour tous les nœuds Azure VMware Solution (AVS) exécutant les machines virtuelles locales.
 
 
@@ -137,7 +138,7 @@ Une évaluation Azure VMware Solution (AVS) indique :
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="Récapitulatif de l’évaluation AVS":::
 
-1. Passez en revue le récapitulatif de l’évaluation. Vous pouvez également modifier les propriétés de l’évaluation ou recalculer celle-ci.
+1. Passez en revue le récapitulatif de l’évaluation. Vous pouvez cliquer sur les **hypothèses de dimensionnement** pour comprendre les hypothèses prises en compte dans le dimensionnement des nœuds et les calculs d’utilisation des ressources. Vous pouvez également modifier les propriétés de l’évaluation ou recalculer celle-ci.
 
 ### <a name="review-azure-vmware-solution-avs-readiness"></a>Vérifier la préparation pour Azure VMware Solution (AVS)
 
@@ -173,8 +174,6 @@ Cette vue montre une estimation des coûts liés à l’exécution des serveurs 
 ### <a name="review-confidence-rating"></a>Examiner le niveau de confiance
 
 Quand vous effectuez des évaluations basées sur les performances, un niveau de confiance est affecté à l’évaluation.
-
-![Niveau de confiance](./media/how-to-create-assessment/confidence-rating.png)
 
 - Un niveau allant de 1 étoile (le plus faible) à 5 étoiles (le plus élevé) est attribué.
 - Le niveau de confiance vous aide à estimer la fiabilité des suggestions de taille fournies par l’évaluation.

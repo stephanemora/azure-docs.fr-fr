@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/25/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: af88edbb788afa3576d3317d4e1cd54dea6f4deb
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: b4801d18454ad93c4ffa7284ab5bfaabea254cd1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988064"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074206"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Attribuer à un utilisateur le rôle d’administrateur d’un abonnement Azure
 
@@ -49,11 +49,11 @@ La page **Contrôle d’accès (IAM)** vous permet généralement d’attribuer 
 
 1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher les attributions de rôles pour cette étendue.
 
-1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle (préversion)** .
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle**.
 
    Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
 
-    ![Capture d’écran du menu Ajouter > Ajouter une attribution de rôle pour une expérience en préversion.](./media/shared/add-role-assignment-menu-preview.png)
+    ![Capture d’écran du menu Ajouter > Ajouter une attribution de rôle.](./media/shared/add-role-assignment-menu.png)
 
     La page Ajouter une attribution de rôle s’ouvre.
 
@@ -65,7 +65,7 @@ Le rôle [Propriétaire](built-in-roles.md#owner) octroie un accès total à la 
 
     Vous pouvez rechercher un rôle par nom ou par description. Vous pouvez également filtrer les rôles par type et par catégorie.
 
-   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Roles pour une expérience en préversion.](./media/shared/roles.png)
+   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Rôles.](./media/shared/roles.png)
 
 1. Cliquez sur **Suivant**.
 
@@ -73,7 +73,7 @@ Le rôle [Propriétaire](built-in-roles.md#owner) octroie un accès total à la 
 
 1. Dans l’onglet **Membres**, sélectionnez **Utilisateur, groupe ou principal du service**.
 
-   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Ajouter des membres pour une expérience en préversion.](./media/shared/members.png)
+   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Ajouter des membres.](./media/shared/members.png)
 
 1. Cliquez sur **Sélectionner des membres**.
 
@@ -81,7 +81,7 @@ Le rôle [Propriétaire](built-in-roles.md#owner) octroie un accès total à la 
 
     Vous pouvez entrer du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage ou des adresses e-mail dans l’annuaire.
 
-   ![Capture d’écran de la fenêtre Sélectionner des membres pour une expérience en préversion.](./media/shared/select-members.png)
+   ![Capture d’écran du volet Sélectionner des membres.](./media/shared/select-members.png)
 
 1. Cliquez sur **Enregistrer** pour ajouter l’utilisateur à la liste Membres.
 
@@ -99,7 +99,7 @@ Le rôle [Propriétaire](built-in-roles.md#owner) octroie un accès total à la 
 
    Après quelques instants, le rôle Propriétaire est attribué à l’utilisateur au niveau de l’abonnement.
 
-    ![Capture d’écran de la liste d’attribution de rôle après l’attribution d’un rôle pour une expérience en préversion.](./media/role-assignments-portal-subscription-admin/sub-role-assignments-owner.png)
+    ![Capture d’écran de la liste d’attributions de rôle après l’attribution du rôle.](./media/role-assignments-portal-subscription-admin/sub-role-assignments-owner.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

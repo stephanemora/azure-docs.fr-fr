@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 11d9b2c4825df76bad8e7c860c9edae3b60233ea
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 5a3b9ab410ff8a757aa3ef23ee7d097ee1b3071b
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110575027"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130077930"
 ---
 ## <a name="add-to-your-functions-app"></a>Ajouter à votre application de fonction
 
@@ -31,11 +31,23 @@ Pour utiliser le déclencheur et les liaisons, vous devez référencer le packag
 
 ### <a name="event-hubs-extension-5x-and-higher"></a>Extension Event Hubs 5.x et versions ultérieures
 
-Une nouvelle version de l’extension de liaisons d’Event Hubs est disponible sous la forme d’un [package NuGet en préversion](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.4). Cette préversion introduit la possibilité de [se connecter à l’aide d’une identité au lieu d’un secret](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). Pour les applications .NET, elle change également les types vers lesquels vous pouvez établir une liaison, en remplaçant les types de `Microsoft.Azure.EventHubs` par des types plus récents de [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
+Une nouvelle version de l’extension de liaisons Event Hubs est disponible en préversion. Elle introduit la possibilité de [se connecter à l’aide d’une identité plutôt que d’un secret](../articles/azure-functions/functions-reference.md#configure-an-identity-based-connection). Pour les applications .NET, elle change également les types vers lesquels vous pouvez établir une liaison, en remplaçant les types de `Microsoft.Azure.EventHubs` par des types plus récents de [Azure.Messaging.EventHubs](/dotnet/api/azure.messaging.eventhubs).
 
-> [!NOTE]
-> Le package en préversion n’étant pas inclus dans un bundle d’extensions, il doit être installé manuellement. Pour les applications .NET, ajoutez une référence au package. Pour tous les autres types d’applications, consultez [Mettre à jour vos extensions].
+Cette version de l’extension est disponible sous la forme d’un [package NuGet en préversion] ou peut être ajoutée à partir de la version 3 du bundle d’extensions en préversion en ajoutant le code suivant dans votre fichier `host.json` :
 
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+Pour en savoir plus, consultez [Mettre à jour vos extensions].
+
+[Package NuGet en préversion]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/5.0.0-beta.7
 [core tools]: ./functions-run-local.md
 [Bundle d’extensions]: ./functions-bindings-register.md#extension-bundles
 [Package NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs/

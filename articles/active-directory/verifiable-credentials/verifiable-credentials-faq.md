@@ -2,20 +2,20 @@
 title: Forum aux questions – Justificatifs vérifiables Azure (préversion)
 description: Trouvez des réponses aux questions les plus fréquentes sur les Justificatifs vérifiables Azure
 author: barclayn
-manager: davba
+manager: karenh444
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: c9253ce81b64b45d0ab8a72605eeba4c0d49f3f6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 760f90a766eca28e3d6cc009e3370192a9bd5285
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110457888"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994800"
 ---
-# <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
+# <a name="frequently-asked-questions-faq-preview"></a>Foire aux questions (FAQ) [préversion]
 
 Cette page contient des questions fréquemment posées sur les Justificatifs vérifiables et l’identité décentralisée. Les questions sont organisées dans les sections suivantes.
 

@@ -4,13 +4,14 @@ description: Utilisez des étiquettes de service HDInsight pour autoriser le tra
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 06/23/2021
-ms.openlocfilehash: 988e3249580408147b74409856bea1e45df4e966
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.date: 10/07/2021
+ms.author: guyhay
+ms.openlocfilehash: f85ad29b11e45f5e906bfbf50321c86d16670f89
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129857110"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004348"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Étiquettes de service Azure HDInsight des groupes de sécurité réseau
 
@@ -59,11 +60,14 @@ Si votre cluster se trouve dans une région répertoriée dans ce tableau, il vo
 | Australie | Australie Est | HDInsight.AustraliaEast |
 | &nbsp; | Sud-Australie Est | HDInsight.AustraliaSoutheast |
 | &nbsp; | Centre de l’Australie | HDInsight.AustraliaCentral |
+| Asia | Asie Est | HDInsight.EastAsia |
+| &nbsp; | Asie Sud-Est | HDInsight.SoutheastAsia |
 | Brésil | Brésil Sud | HDInsight.BrazilSouth |
 | &nbsp; | Brésil Sud-Est | HDInsight.BrazilSoutheast |
 | Chine | Chine orientale 2 | HDInsight.ChinaEast2 |
 | &nbsp; | Chine Nord 2 | HDInsight.ChinaNorth2 |
-| Japon | OuJapon Est | HDInsight.JapanWest |
+| Japon | Japon Est | HDInsight.JapanEast |
+| &nbsp; | OuJapon Est | HDInsight.JapanWest |
 | Corée du Sud | Centre de la Corée | HDInsight.KoreaCentral |
 | &nbsp; | Corée du Sud | HDInsight.KoreaSouth |
 | Inde | Inde centrale | HDInsight.CentralIndia |
@@ -72,14 +76,19 @@ Si votre cluster se trouve dans une région répertoriée dans ce tableau, il vo
 | Afrique du Sud | Afrique du Sud Nord | HDInsight.SouthAfricaNorth |
 | UAE | Émirats arabes unis Nord | HDInsight.UAENorth |
 | &nbsp; | Émirats arabes unis Centre | HDInsight.UAECentral |
+| Europe | Europe Nord | HDInsight.NorthEurope |
+| &nbsp; | Europe Ouest | HDInsight.WestEurope |
 | France | France Centre| HDInsight.FranceCentral |
 | Allemagne | Allemagne Centre-Ouest| HDInsight.GermanyWestCentral |
 | Norvège | Norvège Est | HDInsight.NorwayEast |
+| Suède | Suède Centre | HDInsight.SwedenCentral |
+| &nbsp; | Suède Sud | HDInsight.SwedenSouth |
 | Suisse | Suisse Nord | HDInsight.SwitzerlandNorth |
 | &nbsp; | Suisse Ouest | HDInsight.SwitzerlandWest |
 | Royaume-Uni | Sud du Royaume-Uni | HDInsight.UKSouth |
 | &nbsp; | Ouest du Royaume-Uni | HDInsight.UKWest |
 | États-Unis | Centre-Nord des États-Unis | HDInsight.NorthCentralUS |
+| &nbsp; | USA Centre | HDInsight.CentralUS |
 | &nbsp; | USA Ouest 2 | HDInsight.WestUS2 |
 | &nbsp; | USA Ouest 3 | HDInsight.WestUS3 |
 | &nbsp; | Centre-USA Ouest | HDInsight.WestCentralUS |

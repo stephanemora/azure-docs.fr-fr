@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 591e7c43b26bbd8668bbe50bc78965f04f194c36
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 6061b0ccba7448bbb51dcc93bacecce27c63b910
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524349"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179276"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Planifier et diffuser des travaux (Node.js)
 
@@ -297,6 +297,6 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
 
-Pour poursuivre votre découverte d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez [Tutoriel : Mettre à jour un microprogramme](tutorial-firmware-update.md).
+Pour approfondir l’apprentissage d’IoT Hub et les modèles de gestion des appareils, comme la mise à jour de bout en bout basée sur une image dans [Tutoriel sur le service Device Update pour IoT Hub : Utilisation de l’image de référence Raspberry Pi 3 B+](../iot-hub-device-update/device-update-raspberry-pi.md).
 
 Afin d’approfondir l’apprentissage de IoT Hub, consultez [Getting started with Azure IoT Edge](../iot-edge/quickstart-linux.md) (Bien démarrer avec Azure IoT Edge).

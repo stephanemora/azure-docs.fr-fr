@@ -8,12 +8,12 @@ author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
 ms.date: 07/13/2021
-ms.openlocfilehash: 8e705c95f875428c5089416ed3f49d90a474def9
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: eccc66085ae8a3df93315054a1acdea994310d28
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524399"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065518"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Présentation de la co-vente avec les équipes de vente et les partenaires Microsoft
 
@@ -72,13 +72,13 @@ Le statut Incentive de co-vente Azure IP peut être appliqué à ces types d’o
 
 Le statut Incentive de co-vente d’applications métier (Standard et Premium) peut être appliqué à ces types d’offres :
 
-- Dynamics 365 for Customer Engagement et PowerApps
+- Dynamics 365 pour Customer Engagement et Power Apps
 - Dynamics 365 for Operations
 
 Les offres qui obtiennent le statut de _Co-vente Azure IP avec incentives_ bénéficient des avantages suivants sur la Place de marché commerciale :
 
 - Les partenaires fournisseurs de solutions cloud (CSP) reçoivent une prime de 10 % pour vendre votre offre SaaS ou solution IaaS. Pour en savoir plus sur le programme CSP, consultez [Programme des fournisseurs de solutions cloud](cloud-solution-providers.md).
-- Les ventes de votre offre via la Place de marché Azure contribueront aux engagements Azure Consumption Commitment des clients. Pour les clients éligibles, l’offre sera accompagnée de la mention **Éligible à Azure Benefit** dans le portail Azure. Pour en savoir plus sur la façon dont le programme MACC profite aux clients et sur le moyen dont ils peuvent trouver des solutions qui sont activées pour MACC, consultez [Avantage d’Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit). Pour plus d’informations sur la façon dont les éditeurs peuvent inscrire leur offre commercialisable dans MACC, consultez [Inscription à Azure Consumption Commitment](azure-consumption-commitment-enrollment.md).
+- Les ventes de votre offre via la Place de marché Azure contribueront aux engagements Azure Consumption Commitment des clients. Pour les clients admissibles, l’offre sera accompagnée de la mention **Admissible à des avantages Azure** dans le portail Azure. Pour en savoir plus sur la façon dont le programme MACC profite aux clients et sur le moyen dont ils peuvent trouver des solutions qui sont activées pour MACC, consultez [Avantage d’Azure Consumption Commitment](/marketplace/azure-consumption-commitment-benefit). Pour plus d’informations sur la façon dont les éditeurs peuvent inscrire leur offre commercialisable dans MACC, consultez [Inscription à Azure Consumption Commitment](azure-consumption-commitment-enrollment.md).
 - Les offres qui atteignent le statut _Co-vente Azure IP avec incentives_ ou qui sont inscrites dans le [Programme Microsoft Business Applications ISV Connect](business-applications-isv-program.md) avec le statut de préparation pour la co-vente recevront un badge **Solutions Microsoft préférées** dans la page d’annonce de l’offre dans les magasins en ligne : [Place de marché Azure](https://azuremarketplace.microsoft.com/) et [AppSource](https://appsource.microsoft.com/).  Une fois qu’une offre a atteint l’état correspondant, le badge de la solution préférée peut prendre jusqu’à 30 jours pour s’afficher dans le magasin en ligne. Ce badge démontre la qualité, les performances et la capacité d’une offre à répondre aux besoins des clients dans un segment vertical ou un domaine fonctionnel précis.
 
 Pour découvrir comment atteindre les statuts Prêt pour la co-vente et Incentive de co-vente, consultez [Exigences pour les statuts Prêt pour la co-vente et Incentive de co-vente](co-sell-requirements.md).

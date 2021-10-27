@@ -6,12 +6,12 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2021
-ms.openlocfilehash: 0a161c2341137abc047d81b408058ca56e192526
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 50eb92441c248884930e556551a92acb9e43661b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122527928"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176403"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations
 Les [journaux de plateforme](./platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Les [métriques de plateforme](./data-platform-metrics.md) sont collectées par défaut et généralement stockées dans la base de données de métriques Azure Monitor. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme et les métriques de plateforme vers différentes destinations.
@@ -196,19 +196,89 @@ Consultez [Exemples de modèle Resource Manager pour les paramètres de diagnost
 ## <a name="create-using-rest-api"></a>Créer à l’aide de l’API REST
 Pour créer ou mettre à jour des paramètres de diagnostic à l’aide de l’[API REST Azure Monitor](/rest/api/monitor/), voir [Paramètres de diagnostic](/rest/api/monitor/diagnosticsettings).
 
-## <a name="create-using-azure-policy"></a>Créer à l’aide d’Azure Policy
-Sachant qu’un paramètre de diagnostic doit être créé pour chaque ressource Azure, vous pouvez utiliser Azure Policy pour qu’un paramètre de diagnostic soit créé automatiquement à chaque création de ressource. Pour plus d’informations, consultez [Déployer Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md).
+## <a name="create-at-scale-using-azure-policy"></a>Créer à grande échelle à l’aide d’Azure Policy
+Sachant qu’un paramètre de diagnostic doit être créé pour chaque ressource Azure, vous pouvez utiliser Azure Policy pour qu’un paramètre de diagnostic soit créé automatiquement à chaque création de ressource. Chaque type de ressource Azure est constitué d’un ensemble unique de catégories qui doivent être listées dans le paramètre de diagnostic. Pour cette raison, chaque type de ressource a besoin d’une définition de stratégie distincte. Certains types de ressources comportent des définitions de stratégie intégrées que vous pouvez affecter sans modification. Pour les autres types de ressources, vous devez créer une définition personnalisée.
 
-## <a name="error-metric-category-is-not-supported"></a>Erreur : La catégorie de métrique n’est pas prise en charge
-Lors du déploiement d’un paramètre de diagnostic, vous recevez le message d’erreur suivant :
+### <a name="built-in-policy-definitions-for-azure-monitor"></a>Définitions de stratégie intégrées pour Azure Monitor
+Il existe deux définitions de stratégie intégrées pour chaque type de ressource : l’une pour l’envoi à un espace de travail Log Analytics et l’autre pour l’envoi à un Event Hub. Si vous avez besoin d’un seul emplacement, affectez cette stratégie pour le type de ressource. Si vous avez besoin des deux, affectez les deux définitions de stratégie pour la ressource.
 
-   « La catégorie de métrique « *xxxx* » n’est pas prise en charge »
+Par exemple, l’image suivante montre les définitions de stratégie de paramètres de diagnostic intégrées pour Azure Data Lake Analytics.
 
-Par exemple : 
+![Capture d’écran partielle de la page de définitions d’Azure Policy montrant deux définitions de stratégie de paramètres de diagnostic intégrées pour Data Lake Analytics.](media/diagnostic-settings/builtin-diagnostic-settings.png)
 
-   « La catégorie de métrique « ActionsFailed » n’est pas prise en charge »
+### <a name="custom-policy-definitions"></a>Définitions de stratégie personnalisées
+Pour les types de ressource qui n’ont pas de stratégie intégrée, vous devez créer une définition de stratégie personnalisée. Vous pouvez le faire manuellement sur le portail Azure en copiant une stratégie intégrée existante et en la modifiant pour votre type de ressource. Toutefois, il est plus efficace de créer la stratégie programmatiquement en utilisant un script dans PowerShell Gallery.
 
-alors que votre précédent déploiement avait réussi. 
+Le script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) crée des fichiers de stratégie pour un type de ressource déterminé que vous pouvez installer via PowerShell ou l’interface Azure CLI. Pour créer une définition de stratégie personnalisée pour des paramètres de diagnostic, procédez comme suit :
+
+1. Vérifiez qu’[Azure PowerShell](/powershell/azure/install-az-ps) est installé.
+2. Installez le script en utilisant la commande suivante :
+  
+    ```azurepowershell
+    Install-Script -Name Create-AzDiagPolicy
+    ```
+
+3. Exécutez le script en spécifiant la destination des journaux à l’aide des paramètres. Vous êtes ensuite invité à spécifier un abonnement et un type de ressource. 
+
+   Par exemple, pour créer une définition de stratégie qui envoie des journaux vers un espace de travail Log Analytics et un Event Hub, utilisez la commande suivante :
+
+   ```azurepowershell
+   Create-AzDiagPolicy.ps1 -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
+   ```
+
+   Vous pouvez aussi spécifier un abonnement et un type de ressource dans la commande. Par exemple, pour créer une définition de stratégie qui envoie des journaux vers un espace de travail Log Analytics et un Event Hub pour des bases de données Azure SQL Server, utilisez la commande suivante :
+
+   ```azurepowershell
+   Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
+   ```
+
+5. Le script crée des dossiers distincts pour chaque définition de stratégie. Chaque dossier contient trois fichiers nommés *azurepolicy.json*, *azurepolicy.rules.json* et *azurepolicy.parameters.json*. Si vous voulez créer la stratégie manuellement sur le portail Azure, vous pouvez copier et coller le contenu du fichier *azurepolicy.json*, car il contient la définition de stratégie complète. Utilisez les deux autres fichiers avec PowerShell ou l’interface Azure CLI pour créer la définition de stratégie à partir d’une ligne de commande.
+
+   Les exemples suivants montrent comment installer la définition de stratégie à partir de PowerShell et de l’interface Azure CLI. Chaque exemple comprend des métadonnées pour spécifier une catégorie de **Supervision** pour regrouper la nouvelle définition de stratégie avec les définitions de stratégie intégrées.
+
+   ```azurepowershell
+   New-AzPolicyDefinition -name "Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace" -policy .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json -parameter .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json -mode All -Metadata '{"category":"Monitoring"}'
+   ```
+
+   ```azurecli
+   az policy definition create --name 'deploy-diag-setting-sql-database--workspace' --display-name 'Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace'  --rules 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json' --params 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json' --subscription 'AzureMonitor_Docs' --mode All
+   ```
+
+### <a name="initiative"></a>Initiative
+Au lieu de créer une affectation pour chaque définition de stratégie, une stratégie courante consiste à créer une initiative incluant les définitions de stratégie pour créer des paramètres de diagnostic pour chaque service Azure. Créez une affectation entre l’initiative et un groupe d’administration, un abonnement ou un groupe de ressources, en fonction de la façon dont vous gérez votre environnement. Cette stratégie offre les avantages suivants :
+
+- Créez une seule affectation pour l’initiative au lieu de plusieurs pour chaque type de ressource. Utilisez la même initiative pour plusieurs groupes de supervision, abonnements ou groupes de ressources.
+- Modifiez l’initiative quand vous devez ajouter un nouveau type de ressource ou une nouvelle destination. Par exemple, vos exigences initiales peuvent être d’envoyer les données uniquement vers un espace de travail Log Analytics et d’ajouter par la suite un Event Hub. Modifiez l’initiative au lieu de créer de nouvelles affectations.
+
+Pour plus d’informations sur la création d’une initiative, consultez [Créer et attribuer une définition d’initiative](../../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition). Tenez compte des recommandations suivantes :
+
+- Définissez la **Catégorie** sur **Supervision** pour la regrouper avec les définitions de stratégie intégrées et personnalisées associées.
+- Au lieu de spécifier les détails de l’espace de travail Log Analytics et de l’Event Hub pour la définition de stratégie incluse dans l’initiative, utilisez un paramètre d’initiative commun. Ce paramètre vous permet de spécifier facilement une valeur commune pour l’ensemble des définitions de stratégie et de changer cette valeur si nécessaire.
+
+![Capture d’écran montrant les paramètres de définition d’initiative.](media/diagnostic-settings/initiative-definition.png)
+
+### <a name="assignment"></a>Affectation 
+Affectez l’initiative à un groupe d’administration, un abonnement ou un groupe de ressources Azure en fonction de l’étendue de vos ressources à superviser. Un [groupe d’administration ](../../governance/management-groups/overview.md) est utile pour définir l’étendue de la stratégie, surtout si votre organisation possède plusieurs abonnements.
+
+![Capture d’écran des paramètres de l’onglet De base dans la section Affecter une initiative des paramètres de diagnostic pour l’espace de travail Log Analytics dans le portail Azure.](media/diagnostic-settings/initiative-assignment.png)
+
+Les paramètres initiative vous permettent de spécifier l’espace de travail ou d’autres détails une seule fois pour toutes les définitions de stratégie de l’initiative. 
+
+![Capture d’écran montrant les paramètres d’initiative sous l’onglet Paramètres.](media/diagnostic-settings/initiative-parameters.png)
+
+### <a name="remediation"></a>Correction
+L’initiative s’applique à chaque machine virtuelle à mesure qu’elle est créée. Une [tâche de correction](../../governance/policy/how-to/remediate-resources.md) déploie les définitions de stratégie de l’initiative dans les ressources existantes, ce qui vous permet de créer des paramètres de diagnostic pour toutes les ressources qui ont déjà été créées. 
+
+Quand vous créez l’affectation à partir du portail Azure, vous avez la possibilité de créer une tâche de correction simultanément. Pour plus d’informations sur la correction, consultez [Corriger les ressources non conformes avec Azure Policy](../../governance/policy/how-to/remediate-resources.md).
+
+![Capture d’écran montrant la correction d’initiative pour un espace de travail Log Analytics.](media/diagnostic-settings/initiative-remediation.png)
+
+
+## <a name="troubleshooting"></a>Dépannage
+
+### <a name="metric-category-is-not-supported"></a>La catégorie de métrique n’est pas prise en charge
+
+Lors du déploiement d’un paramètre de diagnostic, vous recevez un message d’erreur semblable à *La catégorie de métrique « xxxx » n’est pas prise en charge*. Vous pouvez recevoir cette erreur même si un précédent déploiement a réussi. 
 
 Le problème se produit lors de l’utilisation d’un modèle Resource Manager, de l’API REST des paramètres de diagnostic, d’Azure CLI ou d’Azure PowerShell. Les paramètres de diagnostic créés via le portail Azure ne sont pas affectés, car seuls les noms des catégories prises en charge sont présentés.
 
@@ -216,7 +286,7 @@ Le problème est dû à une modification récente de l’API sous-jacente. Les c
 
 Si vous recevez cette erreur, mettez à jour vos déploiements en y remplaçant tous les noms de catégories de métriques par « AllMetrics » pour résoudre le problème. Si le déploiement cumulait déjà plusieurs catégories, une seule catégorie avec la référence « AllMetrics » doit être conservée. Si vous continuez à rencontrer le problème, contactez le support technique Azure via le portail Azure. 
 
-## <a name="error-setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>Erreur : Le paramètre disparaît en raison de la présence de caractères non ASCII dans resourceID
+## <a name="setting-disappears-due-to-non-ascii-characters-in-resourceid"></a>Le paramètre disparaît en raison de la présence de caractères non ASCII dans resourceID
 
 Les paramètres de diagnostic ne prennent pas en charge les resourceID comportant des caractères non ASCII (par exemple Preproducción). Or, il n’est pas possible de renommer des ressources dans Azure. La seule option consiste donc à créer une nouvelle ressource sans caractères non ASCII. Si les caractères se trouvent dans le nom d’un groupe de ressources, vous pouvez déplacer les ressources dans un nouveau groupe. Sinon, vous devez recréer la ressource. 
 

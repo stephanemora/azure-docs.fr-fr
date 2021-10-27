@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 07/28/2021
-ms.openlocfilehash: eca62eccca6f53935f29a16bca0afc382896212c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d23daba1618a606ee53b117518324604d47f3fe3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124810352"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998257"
 ---
 # <a name="troubleshoot-assessment"></a>Résoudre les problèmes d’évaluation
 
@@ -142,6 +142,10 @@ Le calcul de la note de confiance pour les évaluations **basées sur les perfor
 
 - Pour les évaluations de machine virtuelle Azure et d’Azure VMware Solution, peu de serveurs ont été créés après le démarrage de la découverte. Par exemple, supposons que vous créez une évaluation de l’historique des performances du mois dernier, mais que la création de quelques serveurs dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouveaux serveurs ne seront pas disponibles pendant toute la durée et la note de confiance sera faible. [Plus d’informations](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 - Pour les évaluations Azure SQL, peu d’instances et de bases de données SQL ont été créées après le démarrage de la découverte. Par exemple, supposons que vous créez une évaluation de l’historique des performances du mois dernier, mais que la création de quelques instances ou bases de données SQL dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouveaux serveurs ne seront pas disponibles pendant toute la durée et la note de confiance sera faible. [Plus d’informations](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## <a name="why-is-my-ram-utilization-greater-than-100"></a>Pourquoi l’utilisation de la RAM est-elle supérieure à 100 % ?
+
+Par conception, si la mémoire maximale provisionnée est inférieure aux exigences de la machine virtuelle dans Hyper-V, l’évaluation indique une utilisation de la mémoire supérieure à 100 %.
 
 ## <a name="is-the-operating-system-license-included-in-an-azure-vm-assessment"></a>La licence du système d'exploitation est-elle incluse dans une évaluation de machine virtuelle Azure ?
 

@@ -4,14 +4,14 @@ description: Liste des métriques disponibles pour chaque type de ressource avec
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 09/10/2021
+ms.date: 10/05/2021
 ms.author: robb
-ms.openlocfilehash: 15e8ea8c1622ec846d9ab36452d8982c1a64a084
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: e0843f9e25b3059bbdd0102e4a830f151b0e87b0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458147"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996909"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -58,7 +58,6 @@ L’agent Azure Monitor remplace l’extension Diagnostics Azure et l’agent 
 ## <a name="table-formatting"></a>Mise en forme des tableaux
 
 Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les métriques ont par ailleurs été réorganisées par ordre alphabétique. En raison de ces informations complémentaires, une barre de défilement horizontale est susceptible d’apparaître en bas des tableaux, en fonction de la largeur de votre fenêtre de navigateur. Si vous pensez qu’il manque des informations, utilisez la barre de défilement pour afficher l’intégralité du tableau.
-
 
 ## <a name="microsoftaadiamazureadmetrics"></a>microsoft.aadiam/azureADMetrics
 
@@ -280,7 +279,6 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |UnusableNodeCount|Non|Nombre de nœuds inutilisables|Count|Total|Le nombre de nœuds inutilisables|Aucune dimension|
 |WaitingForStartTaskNodeCount|Non|Nombre de nœuds en attente de démarrage de tâche|Count|Total|Nombre de nœuds en attente de la fin d’une tâche de démarrage|Aucune dimension|
 
-
 ## <a name="microsoftbatchaiworkspaces"></a>Microsoft.BatchAI/workspaces
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -300,7 +298,6 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |Nombre total de nœuds|Oui|Nombre total de nœuds|Count|Average|Nombre total de nœuds|Scenario, ClusterName|
 |Cœurs inutilisables|Oui|Cœurs inutilisables|Count|Average|Nombre de cœurs inutilisables|Scenario, ClusterName|
 |Nœuds inutilisables|Oui|Nœuds inutilisables|Count|Average|Le nombre de nœuds inutilisables|Scenario, ClusterName|
-
 
 ## <a name="microsoftbingaccounts"></a>microsoft.bing/accounts
 
@@ -455,7 +452,7 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |cachemisses7|Oui|Absences dans le cache (Shard 7)|Count|Total|Nombre de recherches de clé ayant échoué. Pour plus d'informations, consultez https://aka.ms/redis/metrics.|Aucune dimension|
 |cachemisses8|Oui|Absences dans le cache (Shard 8)|Count|Total|Nombre de recherches de clé ayant échoué. Pour plus d'informations, consultez https://aka.ms/redis/metrics.|Aucune dimension|
 |cachemisses9|Oui|Absences dans le cache (Shard 9)|Count|Total|Nombre de recherches de clé ayant échoué. Pour plus d'informations, consultez https://aka.ms/redis/metrics.|Aucune dimension|
-|cachemissrate|Oui|Taux d’échec d’accès au cache|Pourcentage|cachemissrate|Pourcentage des requêtes get dont l’accès échoue. Pour plus d'informations, consultez https://aka.ms/redis/metrics.|ShardId|
+|cachemissrate|Oui|Taux d’échec d’accès au cache|Pourcentage|Total|Pourcentage des requêtes get dont l’accès échoue. Pour plus d'informations, consultez https://aka.ms/redis/metrics.|ShardId|
 |cacheRead|Oui|Lecture du cache|BytesPerSecond|Maximale|Quantité de données lues dans le cache en mégaoctets par seconde (Mo/s). Pour plus d'informations, consultez https://aka.ms/redis/metrics.|ShardId|
 |cacheRead0|Oui|Cache de lecture (Shard 0)|BytesPerSecond|Maximale|Quantité de données lues dans le cache en mégaoctets par seconde (Mo/s). Pour plus d'informations, consultez https://aka.ms/redis/metrics.|Aucune dimension|
 |cacheRead1|Oui|Lecture du cache (Shard 1)|BytesPerSecond|Maximale|Quantité de données lues dans le cache en mégaoctets par seconde (Mo/s). Pour plus d'informations, consultez https://aka.ms/redis/metrics.|Aucune dimension|
@@ -961,7 +958,7 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |VmAvailabilityMetric|Oui|Métrique de disponibilité des machines virtuelles (préversion)|Count|Average|Mesure de la disponibilité des machines virtuels au fil du temps. Remarque : Pour le moment, cette métrique est disponible en préversion pour un petit ensemble de clients, car nous donnons la priorité à l’amélioration de la qualité et de la cohérence des données. À mesure que nous améliorerons notre niveau de données, nous déploierons cette fonctionnalité sur l’ensemble des appareils de manière progressive.|Aucune dimension|
 
 
-## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
+## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualmachineScaleSets
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1015,6 +1012,7 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |Pourcentage d’IOPS en cache de machine virtuelle consommées|Oui|Pourcentage d’IOPS en cache de machine virtuelle consommées|Pourcentage|Average|Pourcentage d'IOPS de disque en cache consommées par la machine virtuelle|VMName|
 |Pourcentage de bande passante non mise en cache consommée par la machine virtuelle|Oui|Pourcentage de bande passante non mise en cache consommée par la machine virtuelle|Pourcentage|Average|Pourcentage de bande passante de disque non mise en cache consommée par la machine virtuelle|VMName|
 |Pourcentage d’IOPS non mises en cache de machine virtuelle consommées|Oui|Pourcentage d’IOPS non mises en cache de machine virtuelle consommées|Pourcentage|Average|Pourcentage d'IOPS de disque non mises en cache consommées par la machine virtuelle|VMName|
+|VmAvailabilityMetric|Oui|Métrique de disponibilité des machines virtuelles (préversion)|Count|Average|Mesure de la disponibilité des machines virtuels au fil du temps. Remarque : Pour le moment, cette métrique est disponible en préversion pour un petit ensemble de clients, car nous donnons la priorité à l’amélioration de la qualité et de la cohérence des données. À mesure que nous améliorerons notre niveau de données, nous déploierons cette fonctionnalité sur l’ensemble des appareils de manière progressive.|VMName|
 
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
@@ -1077,16 +1075,19 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ClaimsProviderRequestLatency|Yes|Durée d’exécution des requêtes de revendication|Millisecondes|Average|Durée d’exécution moyenne des requêtes au point de terminaison du fournisseur de revendications client, en millisecondes|VehicleId, DeviceName|
-|ClaimsProviderRequests|Yes|Requêtes au fournisseur de revendications|Nombre|Total|Nombre de requêtes adressées au fournisseur de revendications|VehicleId, DeviceName|
-|ConnectionServiceRequestRuntime|Yes|Durée d’exécution de la demande de service de connexion de véhicule|Millisecondes|Average|Durée moyenne d’exécution de la demande de connexion au véhicule, en millisecondes|VehicleId, DeviceName|
-|ConnectionServiceRequests|Yes|Demandes de service de connexion au véhicule|Nombre|Total|Nombre total de demandes de connexion au véhicule|VehicleId, DeviceName|
-|ProvisionerServiceRequestRuntime|Yes|Durée d’exécution de l’approvisionnement du véhicule|Millisecondes|Average|Durée d’exécution moyenne des demandes d’approvisionnement de véhicule, en millisecondes|VehicleId, DeviceName|
-|ProvisionerServiceRequests|Yes|Demandes de service d’approvisionnement de véhicule|Nombre|Total|Nombre total de demandes d’approvisionnement de véhicule|VehicleId, DeviceName|
-|StateStoreReadRequestLatency|Yes|Durée d’exécution des lectures du magasin d’état|Millisecondes|Average|Durée moyenne d’exécution des demandes de lecture du magasin d’état, en millisecondes|VehicleId, DeviceName|
-|StateStoreReadRequests|Yes|Demandes de lecture du magasin d’état|Nombre|Total|Nombre de demandes de lecture adressées au magasin d’état|VehicleId, DeviceName|
-|StateStoreWriteRequestLatency|Yes|Durée d’exécution des écritures dans le magasin d’état|Millisecondes|Average|Durée moyenne d’exécution des demandes d’écriture dans le magasin d’état, en millisecondes|VehicleId, DeviceName|
-|StateStoreWriteRequests|Yes|Demandes d’écriture dans le magasin d’état|Nombre|Total|Nombre de demandes d’écriture adressées au magasin d’état|VehicleId, DeviceName|
+|ClaimsProviderRequestLatency|Yes|Durée d’exécution des requêtes de revendication|Millisecondes|Average|Durée d’exécution moyenne des requêtes au point de terminaison du fournisseur de revendications client, en millisecondes|VehicleId, DeviceName, IsSuccessful, FailureCategory|
+|ClaimsProviderRequests|Yes|Requêtes au fournisseur de revendications|Nombre|Total|Nombre de requêtes adressées au fournisseur de revendications|VehicleId, DeviceName, IsSuccessful, FailureCategory|
+|ConnectionServiceRequestRuntime|Yes|Durée d’exécution de la demande de service de connexion de véhicule|Millisecondes|Average|Durée moyenne d’exécution de la demande de connexion au véhicule, en millisecondes|VehicleId, DeviceName, IsSuccessful, FailureCategory|
+|ConnectionServiceRequests|Yes|Demandes de service de connexion au véhicule|Nombre|Total|Nombre total de demandes de connexion au véhicule|VehicleId, DeviceName, IsSuccessful, FailureCategory|
+|DataPipelineMessageCount|Oui|Nombre de messages du pipeline de données|Count|Total|Nombre total de messages envoyés au pipeline de données MCVP pour être stockés.|VehicleId, DeviceName, IsSuccessful, FailureCategory|
+|ExtensionInvocationCount|Oui|Nombre d’appels d’extension|Count|Total|Nombre total de fois où une extension a été appelée.|VehicleId, DeviceName, ExtensionName, IsSuccessful, FailureCategory|
+|ExtensionInvocationRuntime|Oui|Temps d’exécution de l’appel d’extension|Millisecondes|Average|Temps d’exécution moyen passé à l’intérieur d’une extension en millisecondes.|VehicleId, DeviceName, ExtensionName, IsSuccessful, FailureCategory|
+|ProvisionerServiceRequestRuntime|Yes|Durée d’exécution de l’approvisionnement du véhicule|Millisecondes|Average|Durée d’exécution moyenne des demandes d’approvisionnement de véhicule, en millisecondes|VehicleId, DeviceName, IsSuccessful, FailureCategory|
+|ProvisionerServiceRequests|Yes|Demandes de service d’approvisionnement de véhicule|Nombre|Total|Nombre total de demandes d’approvisionnement de véhicule|VehicleId, DeviceName, IsSuccessful, FailureCategory|
+|StateStoreReadRequestLatency|Yes|Durée d’exécution des lectures du magasin d’état|Millisecondes|Average|Durée moyenne d’exécution des demandes de lecture du magasin d’état, en millisecondes|VehicleId, DeviceName, ExtensionName, IsSuccessful, FailureCategory|
+|StateStoreReadRequests|Yes|Demandes de lecture du magasin d’état|Nombre|Total|Nombre de demandes de lecture adressées au magasin d’état|VehicleId, DeviceName, ExtensionName, IsSuccessful, FailureCategory|
+|StateStoreWriteRequestLatency|Yes|Durée d’exécution des écritures dans le magasin d’état|Millisecondes|Average|Durée moyenne d’exécution des demandes d’écriture dans le magasin d’état, en millisecondes|VehicleId, DeviceName, ExtensionName, IsSuccessful, FailureCategory|
+|StateStoreWriteRequests|Yes|Demandes d’écriture dans le magasin d’état|Nombre|Total|Nombre de demandes d’écriture adressées au magasin d’état|VehicleId, DeviceName, ExtensionName, IsSuccessful, FailureCategory|
 
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
@@ -1119,7 +1120,7 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |apiserver_current_inflight_requests|Non|Demandes en cours|Count|Average|Nombre maximal de demandes en cours actuellement utilisées sur le serveur d’API par type de demande au cours de la dernière seconde|requestKind|
 |cluster_autoscaler_cluster_safe_to_autoscale|Non|Intégrité des clusters|Count|Average|Détermine si l’autoscaler de cluster entreprend ou non une action sur le cluster|Aucune dimension|
 |cluster_autoscaler_scale_down_in_cooldown|Non|Recharge de scale-down|Count|Average|Détermine si le scale-down est en recharge. Aucun nœud n’est supprimé au cours de cette période|Aucune dimension|
-|cluster_autoscaler_unneeded_nodes_count|Non|Nœuds inutiles|Count|Average|L’autoscaler de cluster marque ces nœuds comme candidats à la suppression et ils sont finalement supprimés|Aucune dimension|
+|cluster_autoscaler_unneeded_nodes_count|Non|Nœuds inutiles|Count|Average|L’autoscaler de cluster marque ces nœuds comme des candidats pour la suppression et ils sont finalement supprimés|Aucune dimension|
 |cluster_autoscaler_unschedulable_pods_count|Non|Pods non planifiables|Count|Average|Nombre de pods actuellement non planifiables dans le cluster|Aucune dimension|
 |kube_node_status_allocatable_cpu_cores|Non|Nombre total de cœurs d’unité centrale disponibles dans un cluster géré|Count|Average|Nombre total de cœurs d’unité centrale disponibles dans un cluster géré|Aucune dimension|
 |kube_node_status_allocatable_memory_bytes|Non|Quantité totale de mémoire disponible dans un cluster géré|Octets|Average|Quantité totale de mémoire disponible dans un cluster géré|Aucune dimension|
@@ -1583,7 +1584,7 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |---|---|---|---|---|---|---|
 |AddRegion|Oui|Région ajoutée|Count|Count|Région ajoutée|Région|
 |AutoscaleMaxThroughput|Non|Débit maximal de mise à l’échelle automatique|Count|Maximale|Débit maximal de mise à l’échelle automatique|DatabaseName, CollectionName|
-|AvailableStorage|Non|(déconseillé) Stockage disponible|Octets|Total|« Stockage disponible » sera supprimé d’Azure Monitor à la fin du mois de septembre 2023. La taille de stockage de collection Cosmos DB est maintenant illimitée. La seule restriction est que la taille de stockage est de 20 Go par clé de partition logique. Vous pouvez activer PartitionKeyStatistics dans le journal de diagnostic pour connaître la consommation de stockage des principales clés de partition. Pour plus d'informations sur les quotas de stockage de Cosmos DB, veuillez consulter ce document : [Quotas du service Azure Cosmos DB](../../cosmos-db/concepts-limits.md). À la date où la métrique sera déconseillée, les règles d’alerte qui seront encore définies dessus seront automatiquement désactivées.|CollectionName, DatabaseName, Region|
+|AvailableStorage|Non|(déconseillé) Stockage disponible|Octets|Total|« Stockage disponible » sera supprimé d’Azure Monitor à la fin du mois de septembre 2023. La taille de stockage de collection Cosmos DB est maintenant illimitée. La seule restriction est que la taille de stockage est de 20 Go par clé de partition logique. Vous pouvez activer PartitionKeyStatistics dans le journal de diagnostic pour connaître la consommation de stockage des principales clés de partition. Pour plus d’informations sur le quota de stockage de Cosmos DB, consultez ce document : [https://docs.microsoft.com/azure/cosmos-db/concepts-limits](/azure/cosmos-db/concepts-limits). À la date où la métrique sera déconseillée, les règles d’alerte qui seront encore définies dessus seront automatiquement désactivées.|CollectionName, DatabaseName, Region|
 |CassandraConnectionClosures|Non|Fermetures de connexion Cassandra|Count|Total|Nombre de connexions de Cassandra fermées, signalées à une granularité d'une minute|APIType, Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|Non|Latence de réplication moyenne du connecteur Cassandra|Millisecondes|Average|Latence de réplication moyenne du connecteur Cassandra|Aucune dimension|
 |CassandraConnectorReplicationHealthStatus|Non|État d’intégrité de la réplication du connecteur Cassandra|Count|Count|État d’intégrité de la réplication du connecteur Cassandra|NotStarted, ReplicationInProgress, Error|
@@ -1620,6 +1621,10 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |IntegratedCacheItemHitRate|No|IntegratedCacheItemHitRate|Pourcentage|Average|Nombre de lectures de points qui ont utilisé le cache intégré divisé par le nombre de lectures de points acheminées par la passerelle dédiée avec cohérence éventuelle|Region, CacheEntryType|
 |IntegratedCacheQueryExpirationCount|No|IntegratedCacheQueryExpirationCount|Count|Average|Nombre de requêtes exclues du cache intégré en raison de l’expiration de la durée de vie|Region, CacheEntryType|
 |IntegratedCacheQueryHitRate|No|IntegratedCacheQueryHitRate|Pourcentage|Average|Nombre de requêtes qui ont utilisé le cache intégré divisé par le nombre de requêtes acheminées par la passerelle dédiée avec cohérence éventuelle|Region, CacheEntryType|
+|MaterializedViewCatchupGapInMinutes|No|Écart à rattraper de la vue matérialisée en minutes|Count|Maximale|Différence de temps maximale en minutes entre les données du conteneur source et les données propagées à la vue matérialisée|Region, TargetContainerName, BuildType|
+|MaterializedViewsBuilderAverageCPUUsage|No|Utilisation moyenne de l’UC par le générateur de vues matérialisées|Pourcentage|Average|Utilisation moyenne de l’UC sur les instances de générateur de vues matérialisées, utilisées pour alimenter les données dans des vues matérialisées|Region, MetricType|
+|MaterializedViewsBuilderAverageMemoryUsage|No|Utilisation moyenne de la mémoire par le générateur de vues matérialisées|Octets|Average|Utilisation moyenne de la mémoire sur les instances de générateur de vues matérialisées, utilisées pour alimenter les données dans des vues matérialisées|Région|
+|MaterializedViewsBuilderMaximumCPUUsage|No|Utilisation maximum de l’UC par le générateur de vues matérialisées|Pourcentage|Average|Utilisation maximum de l’UC sur les instances de générateur de vues matérialisées, utilisées pour alimenter les données dans des vues matérialisées|Region, MetricType|
 |MetadataRequests|Non|Demandes de métadonnées|Count|Count|Nombre de demandes de métadonnées. Cosmos DB gère la collection des métadonnées système pour chaque compte, ce qui vous permet d’énumérer les collections, les bases de données, etc., ainsi que leur configuration, et ce gratuitement.|DatabaseName, CollectionName, Region, StatusCode, Role|
 |MongoCollectionCreate|Non|Collection Mongo créée|Count|Count|Collection Mongo créée|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
 |MongoCollectionDelete|Non|Collection Mongo supprimée|Count|Count|Collection Mongo supprimée|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, OperationType|
@@ -2204,6 +2209,7 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |ContentKeyPolicyCount|Oui|Nombre de stratégies de clé de contenu|Count|Average|Nombre de stratégies de clé de contenu déjà créées dans le compte de service multimédia actuel|Aucune dimension|
 |ContentKeyPolicyQuota|Oui|Quota de stratégies de clé de contenu|Count|Average|Nombre de stratégies de clé de contenu autorisées pour le compte de service multimédia actuel|Aucune dimension|
 |ContentKeyPolicyQuotaUsedPercentage|Oui|Pourcentage du quota de stratégies de clé de contenu utilisé|Pourcentage|Average|Pourcentage de stratégies de clé de contenu utilisées dans le compte de service multimédia actuel|Aucune dimension|
+|JobQuota|Oui|Quota du travail|Count|Average|Quota du travail pour le compte de service de médias actuel.|Aucune dimension|
 |JobsScheduled|Yes|Travaux planifiés|Count|Average|Nombre de travaux à l’état Planifié. Les chiffres de cette métrique reflètent uniquement les travaux soumis via l’API v3. Les travaux soumis via l’API v2 (héritée) ne sont pas comptabilisés.|Aucune dimension|
 |MaxChannelsAndLiveEventsCount|Oui|Quota maximum d’événements en direct|Count|Average|Nombre maximum d’événements en direct autorisés dans le compte Media Services actif|Aucune dimension|
 |MaxRunningChannelsAndLiveEventsCount|Oui|Quota maximum d’événements en direct en cours d’exécution|Count|Average|Nombre maximum d’événements en direct en cours d’exécution autorisés dans le compte Media Services actif|Aucune dimension|
@@ -2211,6 +2217,7 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |StreamingPolicyCount|Oui|Nombre de stratégies de diffusion en continu|Count|Average|Nombre de stratégies de streaming déjà créées dans le compte de service multimédia actuel|Aucune dimension|
 |StreamingPolicyQuota|Oui|Quota de stratégies de diffusion en continu|Count|Average|Nombre de stratégies de streaming autorisées pour le compte de service multimédia actuel|Aucune dimension|
 |StreamingPolicyQuotaUsedPercentage|Oui|Pourcentage du quota de stratégies de diffusion en continu utilisé|Pourcentage|Average|Pourcentage de stratégies de streaming utilisées dans le compte de service multimédia actuel|Aucune dimension|
+|TransformQuota|Oui|Quota de transformation|Count|Average|Quota de transformation pour le compte de service de médias actuel.|Aucune dimension|
 
 
 ## <a name="microsoftmediamediaservicesliveevents"></a>Microsoft.Media/mediaservices/liveEvents
@@ -2238,7 +2245,7 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ReceivedBytes|Oui|Octets reçus|Octets|Total|Nombre d’octets reçus par le nœud de pipeline.|PipelineTopology, Pipeline, Node|
+|IngressBytes|Oui|Octets d’entrée|Octets|Total|Nombre d’octets entrés par le nœud de pipeline.|PipelineTopology, Pipeline, Node|
 
 
 ## <a name="microsoftmixedrealityremoterenderingaccounts"></a>Microsoft.MixedReality/remoteRenderingAccounts
@@ -2516,8 +2523,8 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|PEBytesIn|No|Bytes In|Count|Total|Nombre d’octets lus en sortie|Aucune dimension|
-|PEBytesOut|No|Bytes Out|Count|Total|Nombre d’octets lus en sortie|Aucune dimension|
+|PEBytesIn|Oui|Bytes In|Count|Total|Nombre d’octets lus en sortie|Aucune dimension|
+|PEBytesOut|Oui|Bytes Out|Count|Total|Nombre d’octets lus en sortie|Aucune dimension|
 
 
 ## <a name="microsoftnetworkprivatelinkservices"></a>Microsoft.Network/privateLinkServices
@@ -2837,6 +2844,7 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |PrefixLatency|Oui|Latence du préfixe|Millisecondes|Average|Latence du préfixe médiane|PrefixName|
+|RoundTripTime|Oui|Durée de l’aller-retour|Millisecondes|Average|Durée moyenne de l’aller-retour|ConnectionMonitorTestName|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
@@ -3588,18 +3596,17 @@ Dans cette dernière mise à jour a été ajoutée une nouvelle colonne ; les m�
 
 |Métrique|Exportable par le biais des paramètres de diagnostic ?|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|BytesPerSecond|Oui|Octets par seconde.|BytesPerSecond|Average|Vitesse de débit, en octets/seconde, utilisée pour un outil de migration.||
-|DirectoriesCreatedCount|Oui|Nombre de répertoires créés|Count|Total|Cela fournit une vue dynamique du nombre de répertoires qui ont été créés dans le cadre d’une migration.||
-|FileMigrationCount|Oui|Nombre de fichiers de migration|Count|Total|Cela fournit un total cumulé du nombre de fichiers ayant été migrés.||
-|InitialScanDataMigratedInBytes|Oui|Données d’analyse initiales migrées, en octets|Octets|Total|Cela permet de voir le nombre total d’octets qui ont été transférés dans un nouvel outil de migration suite à l’analyse initiale du système de fichiers local. Toutes les données qui sont ajoutées à la migration après la migration de l’analyse initiale ne sont PAS incluses dans cette métrique.||
-|LiveDataMigratedInBytes|Oui|Données actives migrées, en octets|Count|Total|Fournit un total cumulé des données active qui ont été modifiées en raison de l’activité du client depuis le début de la migration.||
-|MigratorCPULoad|Oui|Charge processeur de l’outil de migration|Pourcentage|Average|Consommation du processeur par le processus de l’outil de migration.||
-|NumberOfExcludedPaths|Oui|Nombre de chemins exclus|Count|Total|Fournit le nombre cumulé des chemins qui ont été exclus de la migration en raison de règles d’exclusion.||
-|NumberOfFailedPaths|Oui|Nombre de chemins ayant échoué|Count|Total|Nombre de chemins dont la migration a échoué.||
-|SystemCPULoad|Oui|Charge processeur du système|Pourcentage|Average|Consommation totale du processeur.||
-|TotalMigratedDataInBytes|Oui|Quantité totale de données migrées, en octets|Octets|Total|Cela fournit une vue des octets correctement migrés pour un outil de migration donné||
-|TotalTransactions|Oui|Nombre total de transactions|Count|Total|Cela fournit un total cumulé des transactions de données pour lesquelles l’utilisateur peut être facturé.||
-
+|BytesPerSecond|Oui|Octets par seconde.|BytesPerSecond|Average|Vitesse de débit, en octets/seconde, utilisée pour un outil de migration.|Aucune dimension|
+|DirectoriesCreatedCount|Oui|Nombre de répertoires créés|Count|Total|Cela fournit une vue dynamique du nombre de répertoires qui ont été créés dans le cadre d’une migration.|Aucune dimension|
+|FileMigrationCount|Oui|Nombre de fichiers de migration|Count|Total|Cela fournit un total cumulé du nombre de fichiers ayant été migrés.|Aucune dimension|
+|InitialScanDataMigratedInBytes|Oui|Données d’analyse initiales migrées, en octets|Octets|Total|Cela permet de voir le nombre total d’octets qui ont été transférés dans un nouvel outil de migration suite à l’analyse initiale du système de fichiers local. Toutes les données qui sont ajoutées à la migration après la migration de l’analyse initiale ne sont PAS incluses dans cette métrique.|Aucune dimension|
+|LiveDataMigratedInBytes|Oui|Données actives migrées, en octets|Count|Total|Fournit un total cumulé des données active qui ont été modifiées en raison de l’activité du client depuis le début de la migration.|Aucune dimension|
+|MigratorCPULoad|Oui|Charge processeur de l’outil de migration|Pourcentage|Average|Consommation du processeur par le processus de l’outil de migration.|Aucune dimension|
+|NumberOfExcludedPaths|Oui|Nombre de chemins exclus|Count|Total|Fournit le nombre cumulé des chemins qui ont été exclus de la migration en raison de règles d’exclusion.|Aucune dimension|
+|NumberOfFailedPaths|Oui|Nombre de chemins ayant échoué|Count|Total|Nombre de chemins dont la migration a échoué.|Aucune dimension|
+|SystemCPULoad|Oui|Charge processeur du système|Pourcentage|Average|Consommation totale du processeur.|Aucune dimension|
+|TotalMigratedDataInBytes|Oui|Quantité totale de données migrées, en octets|Octets|Total|Cela fournit une vue des octets correctement migrés pour un outil de migration donné|Aucune dimension|
+|TotalTransactions|Oui|Nombre total de transactions|Count|Total|Cela fournit un total cumulé des transactions de données pour lesquelles l’utilisateur peut être facturé.|Aucune dimension|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

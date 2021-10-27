@@ -1,22 +1,22 @@
 ---
 title: Contrôler le trafic entrant v1
 description: Découvrez comment contrôler le trafic entrant à destination d’un environnement ASE (App Service Environment). Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
-author: ccompy
+author: madsd
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: fe9326ea9ebd5afe981b7ba6c34b1a5d51e084b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fc4570d922da43635725f028a31b4458bf03113
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962058"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001710"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Contrôle du trafic entrant vers un environnement App Service
 ## <a name="overview"></a>Vue d’ensemble
-Un environnement App Service peut être créé **soit** dans un réseau virtuel Azure Resource Manager, **soit** dans un [réseau virtuel][virtualnetwork] de modèle de déploiement classique.  Il est possible de définir un nouveau réseau virtuel et un nouveau sous-réseau au moment de la création d'un environnement App Service. Vous pouvez autrement créer un environnement ASE dans un réseau virtuel préexistant et un sous-réseau préexistant.  Depuis juin 2016, les environnements ASE peuvent également être déployés dans les réseaux virtuels qui utilisent soit des plages d’adresses publiques, soit des espaces d’adressage RFC1918 (adresses privées).  Pour plus d’informations, consultez [Comment créer un environnement ASE (App Service Environment)][HowToCreateAnAppServiceEnvironment].
+Un environnement App Service peut être créé **soit** dans un réseau virtuel Azure Resource Manager, **soit** dans un [réseau virtuel][virtualnetwork] de modèle de déploiement classique.  Il est possible de définir un nouveau réseau virtuel et un nouveau sous-réseau au moment de la création d'un environnement App Service. Vous pouvez autrement créer un environnement ASE dans un réseau virtuel préexistant et un sous-réseau préexistant.  Depuis juin 2016, les environnements ASE peuvent également être déployés dans les réseaux virtuels qui utilisent soit des plages d’adresses publiques, soit des espaces d’adressage RFC1918 (adresses privées).  Pour plus d'informations, consultez [Comment créer un ASEv1 à partir du modèle](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 Créez toujours un environnement App Service dans un sous-réseau. Un sous-réseau procure une limite réseau qui peut être utilisée pour bloquer le trafic entrant derrière les appareils et services en amont. Avec cette configuration, seules des adresses IP en amont spécifiques sont autorisées à accepter le trafic HTTP et HTTPS.
 
@@ -131,7 +131,6 @@ Pour plus d’informations, consultez [Connexion sécurisée à des ressources d
 
 <!-- LINKS -->
 [virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
-[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
 [NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [SecurelyConnecttoBackend]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md

@@ -1,19 +1,20 @@
 ---
-title: 'Échec de la requête Azure Digital Twins avec l’état : 404 sous-domaine introuvable'
-description: 'Causes et résolutions du message « Échec de la demande de service. État : 404 sous-domaine introuvable » sur Azure Digital Twins.'
+title: 'Résolution de l’échec de demande de service : erreur 404 (Sub-Domain not found)'
+titleSuffix: Azure Digital Twins
+description: Découvrez comment diagnostiquer et résoudre les réponses d’état de l’erreur 404 (Sub-Domain not found) provenant d’Azure Digital Twins.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 4/13/2021
-ms.openlocfilehash: 774642e15b7d7371872c1ec97455c8f56f8b8789
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 9/23/2021
+ms.openlocfilehash: 91125140632d689eaab18a74b7da75fe3c69800b
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114456082"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132243"
 ---
-# <a name="service-request-failed-status-404-sub-domain-not-found"></a>Échec de la demande de service. État : 404 sous-domaine introuvable
+# <a name="troubleshooting-failed-service-request-error-404-sub-domain-not-found"></a>Résolution de l’échec de demande de service : erreur 404 (Sub-Domain not found)
 
 Cet article décrit les causes et les étapes de résolution relatives à la réception d’une erreur 404 des demandes de service à Azure Digital Twins. 
 

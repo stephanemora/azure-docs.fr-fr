@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/05/2021
-ms.openlocfilehash: ce68d4161762d47b8754cb69633a3918848085d0
-ms.sourcegitcommit: 2cff2a795ff39f7f0f427b5412869c65ca3d8515
+ms.date: 10/15/2021
+ms.openlocfilehash: 1988668640a0c9e6d60c0dd9f09e6e8831ce0809
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113593830"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132604"
 ---
 # <a name="create-plans-for-a-saas-offer"></a>Créer des plans pour une offre SaaS
 
@@ -73,6 +73,9 @@ Cette option est disponible uniquement si vous avez sélectionné un tarif forfa
 1. Dans la zone **Quantité mensuelle incluse de base**, entrez la quantité (sous la forme d’un entier) de la dimension incluse chaque mois pour les clients qui paient des frais mensuels récurrents. Pour définir une quantité illimitée, cochez la case à la place.
 1. Dans la zone **Quantité annuelle incluse de base**, entrez la quantité de la dimension incluse chaque année pour les clients qui paient des frais annuels récurrents. Pour définir une quantité illimitée, cochez la case à la place.
 1. Pour ajouter une autre dimension de mesure personnalisée, sélectionnez le lien **Ajouter une autre dimension**, puis répétez les étapes 1 à 7.
+
+> [!IMPORTANT]
+> Vous devez assurer le suivi de l’utilisation dans votre code et envoyer uniquement des événements d’utilisation à Microsoft pour l’utilisation qui se trouve au-dessus du tarif de base.
 
 ### <a name="configure-per-user-pricing"></a>Configurer la tarification par utilisateur
 

@@ -1,14 +1,14 @@
 ---
 title: Activer un bureau à distance graphique pour Linux dans Azure Lab Services | Microsoft Docs
 description: Découvrez comment activer le Bureau à distance pour les machines virtuelles Linux dans un lab dans Azure Lab Services.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 604cde661fb566851d3eacdb42dd41f4effded7a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: c870faf1f85c192f12739c17809cc9c9088ac1fd
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562756"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180321"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Activer un bureau à distance graphique pour des machines virtuelles Linux dans Azure Lab Services
 Cet article explique comment effectuer les tâches suivantes :
@@ -19,21 +19,21 @@ Cet article explique comment effectuer les tâches suivantes :
 ## <a name="set-up-graphical-remote-desktop-solution"></a>Configurer une solution de bureau à distance graphique
 Lors de la création d’un laboratoire à partir d’une image **Linux**, un accès **SSH** (Secure Shell) est automatiquement configuré pour permettre à l’enseignant de se connecter au modèle de machine virtuelle à partir de la ligne de commande à l’aide de SSH.  De même, lors de la publication du modèle de machine virtuelle, les étudiants peuvent également se connecter à leurs machines virtuelles à l’aide de SSH.
 
-Pour vous connecter à une machine virtuelle Linux à l’aide d’une **GUI** (interface graphique utilisateur), nous vous recommandons d’utiliser le protocole **RDP** ou **X2Go**.  Ces deux options requièrent que l’enseignant effectue une installation supplémentaire sur le modèle de machine virtuelle :
+Pour vous connecter à une machine virtuelle Linux à l’aide d’une **GUI** (interface graphique utilisateur), nous vous recommandons d’utiliser le protocole **RDP** ou **X2Go**.  Le reste de cet article décrit les étapes à effectuer pour configurer RDP ou X2Go sur le modèle de machine virtuelle d’un lab.
+
+> [!NOTE]
+> Linux utilise une version open source de RDP appelée [Xrdp](https://en.wikipedia.org/wiki/Xrdp).  Par souci de simplicité, nous utilisons le terme RDP tout au long de cet article.
 
 ### <a name="rdp-setup"></a>Configuration du protocole RDP
 Pour utiliser le protocole RDP, l’enseignant doit :
   - Activer une connexion Bureau à distance. Celle-ci est nécessaire pour ouvrir le port de la machine virtuelle pour le protocole RDP.
   - Installer le serveur de bureau à distance RDP.
-  - Installer un environnement de bureau graphique Linux (par exemple, XFCE, MATE, etc.).
-
-> [!WARNING]
->  Nous vous recommandons d’utiliser un environnement de bureau graphique différent de [GNOME](https://www.gnome.org/).  Évitez d’installer GNOME sur des machines virtuelles de labo, car GNOME présente un conflit avec l’agent Linux Azure qui est nécessaire pour que les machines virtuelles fonctionnent correctement dans Azure Lab Services.  Comme mentionné ci-dessus, nous vous recommandons d’utiliser un environnement de bureau graphique, tel que XFCE ou MATE.
+  - Installer un environnement de bureau graphique Linux.
 
 ### <a name="x2go-setup"></a>Configuration de X2Go
 Pour utiliser X2Go, l’enseignant doit :
 - Installer le serveur de bureau à distance X2Go.
-- Installer un environnement de bureau graphique Linux (par exemple, XFCE, MATE, etc.).
+- Installer un environnement de bureau graphique Linux.
 
 X2Go utilise le port déjà activé pour SSH.  Par conséquent, aucune configuration supplémentaire n’est requise pour ouvrir un port sur la machine virtuelle pour X2Go.
 
@@ -57,9 +57,9 @@ Cette étape n’est nécessaire que pour se connecter à l’aide de RDP.  Si v
 
 ## <a name="install-rdp-or-x2go"></a>Installer RDP ou X2Go
 
-Une fois le laboratoire créé, l’enseignant doit s’assurer qu’un environnement de bureau graphique et un serveur Bureau à distance sont installés sur le modèle de machine virtuelle.  Les enseignants doivent d’abord se connecter au modèle de machine virtuelle en utilisant SSH pour installer les packages pour :
+Une fois le laboratoire créé, l’enseignant doit s’assurer qu’un environnement de bureau graphique et un serveur Bureau à distance sont installés sur le modèle de machine virtuelle.  L’instructeur doit d’abord se connecter au modèle de machine virtuelle en utilisant SSH afin d’installer les packages pour :
 - le serveur Bureau à distance RDP ou X2Go ;
-- un environnement de bureau graphique, tel que MATE, XFCE, etc.
+- un environnement de bureau graphique comme [GNOME](https://www.gnome.org/), [MATE](https://mate-desktop.org/), [XFCE](https://www.xfce.org/), [Xubuntu](https://xubuntu.org/), etc.
 
 Une fois cette configuration terminée, l’enseignant peut se connecter au modèle de machine virtuelle en utilisant le client **Bureau à distance Microsoft (RDP)** ou le client **X2Go**.
 
@@ -75,9 +75,18 @@ Pour configurer le modèle de machine virtuelle, suivez les étapes ci-dessous 
  
     ![Chaîne de connexion SSH](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-4. Installez le protocole RDP ou X2Go, ainsi que l’environnement de bureau graphique de votre choix.  Reportez-vous aux instructions suivantes :
-    - [Installer et configurer le protocole RDP](../virtual-machines/linux/use-remote-desktop.md)
-    - [Installer et configurer le protocole X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
+4. Enfin, installez RDP ou X2Go ainsi que l’environnement de bureau graphique de votre choix.
+
+Pour des performances optimales, nous vous recommandons généralement d’utiliser le bureau graphique XFCE et conseillons aux utilisateurs de se connecter au bureau avec X2Go.  Pour configurer XFCE avec X2Go sur Ubuntu, utilisez les instructions suivantes :
+  - [Installer et configurer le protocole X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/XFCE_Xubuntu/ReadMe.md)
+
+Dans les cas où vous exigez que les utilisateurs se connectent au bureau graphique avec RDP, utilisez les instructions suivantes pour Ubuntu :
+  - [Installer et configurer le protocole RDP](../virtual-machines/linux/use-remote-desktop.md)
+
+Pour les environnements de bureau graphique GNOME et MATE, un conflit réseau peut se produire avec l’agent Linux Azure nécessaire au bon fonctionnement des machines virtuelles dans Azure Lab Services.  Par exemple, par défaut, si vous créez un lab à partir d’une image Ubuntu 18.04 LTS avec GNOME ou MATE installé, la création du lab échoue avec le message d’erreur suivant : **Impossible d’établir la communication avec l’agent de machine virtuelle.  Vérifiez que l’agent de machine virtuelle est activé et qu’il fonctionne.**  De même, ce conflit réseau entraîne le blocage de la publication lors de la tentative de configuration des machines virtuelles des étudiants.
+
+Nous vous recommandons d’utiliser les instructions suivantes pour configurer les bureaux graphiques GNOME ou MATE sur Ubuntu.  Ces instructions incluent un correctif pour le conflit réseau qui existe avec Ubuntu 18.04 LTS.  Ubuntu 20.04 LTS et 21.04 LTS sont également pris en charge :
+ - [Installer et configurer GNOME/RDP et MATE/X2go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/LinuxGraphicalDesktopSetup/GNOME_MATE/ReadMe.md)
 
 ## <a name="connect-to-the-template-vm-via-the-gui"></a>Se connecter au modèle de machine virtuelle via l’interface graphique utilisateur (GUI)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à AppNeta Performance Manager | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à AppNeta Performance Manager'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AppNeta Performance Manager.
 services: active-directory
 author: jeevansd
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: ceb7c2fcec92e89c65e03fa11db142af514090af
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 43abd1fef96a6730405fae438e3441f4982ae79c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128619853"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129995118"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-appneta-performance-manager"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AppNeta Performance Manager
+# <a name="tutorial-azure-ad-sso-integration-with-appneta-performance-manager"></a>Tutoriel : Intégration de l’authentification unique Azure AD à AppNeta Performance Manager
 
 Dans ce tutoriel, vous allez découvrir comment intégrer AppNeta Performance Manager à Azure Active Directory (Azure AD). Quand vous intégrez AppNeta Performance Manager à Azure AD, vous pouvez :
 
@@ -37,8 +37,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-- AppNeta Performance Manager prend en charge l’authentification unique lancée par le **fournisseur de services**
-- AppNeta Performance Manager prend en charge l’attribution d’utilisateurs **juste-à-temps**
+- AppNeta Performance Manager prend en charge l’authentification unique lancée par le **fournisseur de services**.
+- AppNeta Performance Manager prend en charge l’attribution d’utilisateurs **juste-à-temps**.
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -90,9 +90,9 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Capture d’écran montrant les attributs par défaut pour un jeton SAML.](./media/appneta-tutorial/edit-attribute.png)
 
-1. En plus de ce qui précède, l’application AppNeta Performance Manager s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les changer en fonction de vos besoins.
+1. En plus de ce qui précède, l’application AppNeta Performance Manager s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
-   | Name      | Attribut source       |
+   | Nom      | Attribut source       |
    | --------- | ---------------------- |
    | firstName | user.givenname         |
    | lastName  | user.surname           |
@@ -104,19 +104,27 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
    |           |                        |
 
 1. Pour passer correctement les assertions SAML « groups », vous devez configurer des rôles d’application et définir leur valeur pour qu’elle corresponde aux mappages de rôles définis dans AppNeta Performance Manager. Sous **Azure Active Directory** > **Inscriptions des applications** >  **Toutes les applications**, sélectionnez **Appneta Performance Manager**.
-1. Dans le volet de gauche, cliquez sur **Rôles d’application**.
+
+   ![Capture d’écran montrant les inscriptions des applications avec Appneta Performance Manager en bas. ](./media/appneta-tutorial/app-registrations.png)
+
+1. Dans le volet de gauche, cliquez sur **Rôles d’application**. L’écran suivant apparaît :
+
+   ![Capture d’écran montrant les rôles d’application avec Appneta Performance Manager en bas. ](./media/appneta-tutorial/app-roles.png)
+
 1. Cliquez sur **Créer un rôle d’application**.
-1. Dans le volet **Créer un rôle d’application**, procédez comme suit :
-   1. Dans **Nom d’affichage**, entrez un nom pour le rôle.
-   1. Dans **Types de membres autorisés**, sélectionnez **Utilisateurs/groupes**.
-   1. Dans **Valeur**, entrez la valeur du groupe de sécurité défini dans vos mappages de rôles AppNeta Performance Manager.
-   1. Dans **Description**, entrez une description pour le rôle.
+1. Dans l’écran **Créer un rôle d’application**, suivez ces étapes :
+   1. Dans le champ **Nom complet**, entrez un nom pour le rôle.
+   1. Dans le champ **Types de membres autorisés**, sélectionnez **Utilisateurs/groupes**.
+   1. Dans le champ **Valeur**, entrez la valeur du groupe de sécurité défini dans vos mappages de rôles AppNeta Performance Manager.
+   1. Dans le champ **Description**, entrez une description pour le rôle.
    1. Cliquez sur **Appliquer**.
 
-1. Après avoir créé les rôles, vous devez les attribuer à vos utilisateurs et groupes. Accédez à **Azure Active Directory** > **Applications d’entreprise** > **Appneta Performance manager** > **Users et groupes**.
-1. Sélectionnez un utilisateur ou un groupe, puis attribuez-lui le rôle d’application approprié.
-1. Une fois que vous avez terminé l’attribution des rôles d’application, accédez à **Azure Active Directory** > **Applications d’entreprise** > **Appneta Performance Manager** > **Authentification unique**.
-1. Dans le volet **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+   ![Capture d’écran de la boîte de dialogue Créer un rôle d’application avec les champs remplis comme décrit. ](./media/appneta-tutorial/create-app-role.png)
+
+1. Après avoir créé les rôles, vous devez les mapper à vos utilisateurs/groupes. Accédez à **Azure Active Directory** > **Applications d’entreprise** > **Appneta Performance Manager** > **Utilisateurs et groupes**.
+1. Sélectionnez un utilisateur/groupe, puis attribuez le rôle d’application souhaité (créé à l’étape précédente).
+1. Une fois que vous avez mappé les rôles d’application, accédez à **Azure Active Directory** > **Applications d’entreprise** > **Appneta Performance Manager** > **Authentification unique**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
    ![Lien Téléchargement de certificat](common/metadataxml.png)
 

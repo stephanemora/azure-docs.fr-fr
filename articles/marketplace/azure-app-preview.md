@@ -1,6 +1,6 @@
 ---
 title: Comment ajouter un public de préversion pour une offre Azure Application
-description: Ajouter un public de préversion pour une application Azure dans l’Espace partenaires (Place de marché Azure).
+description: Ajoutez un public de préversion pour une offre d’application Azure dans Espace partenaires.
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 74f270922694dd0416638b8d429eca31cebf2609
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: cc0452ca7405803c47d40659e8e629892086e24a
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111542493"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065385"
 ---
 # <a name="add-a-preview-audience-for-an-azure-application-offer"></a>Comment ajouter un public de préversion pour une offre Azure Application
 
@@ -21,7 +21,7 @@ Cet article explique comment configurer un public de préversion pour une offre 
 
 ## <a name="define-a-preview-audience"></a>Définir un public de préversion
 
-Dans la page **Public de préversion**, vous pouvez définir un public limité pouvant consulter votre offre Azure Application avant sa publication en ligne pour le public plus large de la Place de marché. Vous définissez le public de la préversion à l’aide d’ID d’abonnement Azure et d’une description facultative pour chacun. Aucun de ces champs ne peut être vu par les clients. Vous trouverez votre ID d’abonnement Azure dans la page **Abonnements** du portail Azure.
+Dans la page **Public de préversion**, vous pouvez définir un public limité pouvant consulter votre offre Azure Application avant sa publication en ligne pour le public plus large de la Place de marché. Vous définissez le public de la préversion à l’aide d’ID d’abonnement Azure et d’une description facultative pour chacun. Aucun de ces champs ne peut être vu par les clients. Vous pouvez trouver votre ID d’abonnement Azure dans la page **Abonnements** du portail Azure.
 
 Ajoutez de un à 10 ID d’abonnement Azure individuellement ou chargez un fichier CSV (jusqu’à 100 ID) pour définir qui peut accéder à la préversion votre offre avant sa publication en ligne. Si votre offre est déjà publiée, vous pouvez toujours définir un public pour la préversion en vue de test de changements ou de mises à jour futurs de l’offre.
 

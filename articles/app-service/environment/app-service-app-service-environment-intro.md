@@ -1,18 +1,18 @@
 ---
 title: Présentation d’ASE v1
 description: Découvrez les fonctionnalités d’App Service Environment v1. Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
-author: stefsch
+author: madsd
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 878cef39ade0487c03dba83c9e3631fe3c72088f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0ea6176f43a5373eb24437a42972eeced26094b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008620"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999774"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Présentation d’App Service Environment v1
 
@@ -38,7 +38,7 @@ Pour une exploration approfondie de la mise à l’échelle horizontale à l’a
 
 Pour afficher la configuration de l’architecture de sécurité illustrée dans AzureCon Deep Dive, consultez l’article sur l’implémentation d’une [architecture de sécurité en couches](app-service-app-service-environment-layered-security.md) avec les environnements App Service.
 
-L’accès aux applications qui s’exécutent sur des environnements App Service peut être contrôlé par des appareils en amont tels que les pare-feu d’applications web (WAF).  Ce scénario est traité dans l’article sur la [configuration d’un pare-feu d’application web pour les environnements App Service](app-service-app-service-environment-web-application-firewall.md) .
+L’accès aux applications qui s’exécutent sur des environnements App Service peut être contrôlé par des appareils en amont tels que les pare-feu d’applications web (WAF).  Ce scénario est traité dans l’article sur la [configuration d’un pare-feu d’application web pour les environnements App Service](integrate-with-application-gateway.md) .
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -72,7 +72,7 @@ Pour plus d’informations sur le fonctionnement des environnements App Service 
 
 ## <a name="getting-started"></a>Prise en main
 
-Pour prendre en main les environnements App Service, consultez [Comment créer un environnement App Service][HowToCreateAnAppServiceEnvironment]
+Pour prendre en main les environnements App Service Environment, consultez [Comment créer un environnement ASEv1 à partir d’un modèle](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 Pour obtenir une vue d’ensemble de l’architecture réseau de l’environnement App Service, consultez l’article [Présentation de l’architecture réseau][NetworkArchitectureOverview].
 
@@ -84,7 +84,6 @@ Pour plus d’informations sur l’utilisation d’un environnement App Service 
 [PremiumTier]: https://azure.microsoft.com/pricing/details/app-service/
 [MoreInfoOnVirtualNetworks]: ../../virtual-network/virtual-networks-faq.md
 [AppServicePlan]: ../overview-hosting-plans.md
-[HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
 [LogicApps]: ../../logic-apps/logic-apps-overview.md
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
 [GeodistributedAppFootprint]:  app-service-app-service-environment-geo-distributed-scale.md

@@ -5,65 +5,43 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 10/14/2021
 ms.author: normesta
-ms.openlocfilehash: 5e16a5c6f158b9223c3982b00daba258025f4d03
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e9cab4b65da62bddd47cdab97c6f586b07f379d4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596979"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044443"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Niveau Premium pour Azure Data Lake Storage
 
-Azure Data Lake Storage Gen2 prend désormais en charge le [niveau de performance Premium](storage-blob-performance-tiers.md#premium-performance). Le niveau de performance Premium est idéal pour les applications d’analytique Big Data et les charges de travail qui nécessitent une latence faible et cohérente, et disposent d’un grand nombre de transactions.
+Azure Data Lake Storage Gen2 prend désormais en charge les [Comptes de stockage d’objets blob de blocs Premium](storage-blob-block-blob-premium.md). Les comptes de stockage d’objets blob de blocs Premium sont idéaux pour les applications d’analytique Big Data et les charges de travail qui nécessitent une latence faible et cohérente, avec un grand nombre de transactions. Les exemples de charges de travail incluent des charges de travail interactives, IoT, l’analytique streaming, l’intelligence artificielle et le machine learning. 
 
-## <a name="workloads-that-can-benefit-from-the-premium-performance-tier"></a>Charges de travail qui peuvent tirer parti du niveau de performance Premium
+>[!TIP]
+> Pour en savoir plus sur les avantages en termes de performances et de coûts liés à l’utilisation d’un compte de stockage d’objets blob de blocs Premium, ainsi que pour découvrir comment d’autres clients Data Lake Storage Gen2 utilisent ce type de compte, consultez [Compte de stockage d’objets blob de blocs Premium](storage-blob-block-blob-premium.md).
 
-Les exemples de charges de travail incluent des charges de travail interactives, IoT, l’analytique streaming, l’intelligence artificielle et le machine learning.
+## <a name="getting-started-with-premium"></a>Bien démarrer avec Premium
 
-**Charges de travail interactives**
+Tout d’abord, vérifiez que vos fonctionnalités de Stockage Blob favorites sont compatibles avec les comptes de stockage d’objets blob de blocs Premium, puis créez le compte. 
 
-Ces charges de travail requièrent des mises à jour instantanées et des commentaires de la part des utilisateurs, comme des applications d’e-commerce et de cartographie, des applications vidéo interactives, etc. Par exemple, dans une application d’e-commerce, les éléments les moins fréquemment consultés ne sont probablement pas mis en cache. Toutefois, ils doivent être affichés instantanément au client sur demande. Autre exemple : les scientifiques des données, les analystes et les développeurs peuvent dériver des insights sensibles au facteur temps encore plus rapidement en exécutant des requêtes sur des données stockées dans un compte qui utilise le niveau de performance Premium.
+>[!NOTE]
+> Vous ne pouvez pas convertir un compte de stockage standard Usage général v2 existant en compte de stockage d’objets blob de blocs Premium. Pour migrer vers un compte de stockage d’objet blob de blocs Premium, vous devez créer un compte d’objets blob de blocs et migrer les données vers le nouveau compte. 
 
-**Analytique streaming/IoT**
+### <a name="check-for-blob-storage-feature-compatibility"></a>Vérifier la compatibilité des fonctionnalités de Stockage Blob
 
-Dans un scénario IoT, un grand nombre d’opérations d’écriture plus petites peuvent être envoyées (push) chaque seconde dans le cloud. De grandes quantités de données peuvent être ingérées et agrégées à des fins d’analyse, puis supprimées presque immédiatement. Les capacités d’ingestion élevées du niveau de performance Premium le rendent efficace pour ce type de charge de travail.
+Certaines fonctionnalités de Stockage Blob ne sont pas encore prises en charge ou elles disposent d’une prise en charge partielle dans des comptes de stockage d’objets blob de blocs Premium. Avant de choisir le niveau Premium, consultez l’article [Prise en charge des fonctionnalités de Stockage Blob dans les comptes de Stockage Azure](storage-feature-support-in-storage-accounts.md) pour déterminer si les fonctionnalités que vous avez l’intention d’utiliser sont entièrement prises en charge dans votre compte. La prise en charge des fonctionnalités est en constante évolution. Veillez donc à consulter régulièrement cet article pour découvrir les mises à jour.
 
-**Intelligence artificielle/machine learning (IA/ML)**
+### <a name="create-a-new-storage-account"></a>Créer un compte de stockage
 
-IA/ML traite de la consommation et du traitement de différents types de données, tels que les visuels, la parole et le texte. Ce type de charge de travail de calcul haute performance gère des volumes importants de données nécessitant une réponse rapide et des temps d’ingestion efficaces pour l’analyse des données.
+Créez un compte de stockage Azure. Pour obtenir des instructions complètes, consultez [Créer un compte de stockage](../common/storage-account-create.md). 
 
-## <a name="cost-effectiveness"></a>Rentabilité
-
-Le niveau de performance Premium a un coût de stockage plus élevé, mais un coût de transaction moindre par rapport au niveau de performance standard. Si vos applications et charges de travail exécutent un grand nombre de transactions, le niveau de performance Premium peut être rentable.
-
-Le tableau suivant illustre la rentabilité du niveau Premium pour Azure Data Lake Storage. Chaque colonne représente le nombre de transactions sur un mois. Chaque ligne représente le pourcentage de transactions qui sont des transactions de lecture. Chaque cellule du tableau indique le pourcentage de réduction des coûts associé à un pourcentage de transactions de lecture et au nombre de transactions exécutées.
-
-Par exemple, en supposant que votre compte se trouve dans la région USA Est 2, le nombre de transactions avec votre compte dépasse 90 M et 70 % de ces transactions sont des transactions de lecture, le niveau de performance Premium est plus rentable.
+Quand vous créez le compte, choisissez l’option de performance **Premium** et le type de compte **Objets blob de blocs**. 
 
 > [!div class="mx-imgBorder"]
-> ![emplacement de l’image](./media/premium-tier-for-data-lake-storage/premium-performance-data-lake-storage-cost-analysis-table.png)
+> ![Créer un compte de stockage d’objet blob de blocs](./media/storage-blob-block-blob-premium/create-block-blob-storage-account.png)
 
-> [!NOTE]
-> Si vous préférez évaluer la rentabilité en fonction du nombre de transactions par seconde pour chaque To de données, vous pouvez utiliser les en-têtes de colonne qui apparaissent en bas du tableau.
-
-Pour plus d’informations sur les prix, consultez la page [Tarification d’Azure Data Lake Storage Gen2](https://azure.microsoft.com/pricing/details/storage/data-lake/).
-
-## <a name="feature-availability"></a>Disponibilité des fonctionnalités
-
-Certaines fonctionnalités de stockage Blob ne sont peut-être pas disponibles ou ne prennent en charge que partiellement le niveau de performance Premium. Pour en obtenir la liste complète, consultez [Fonctionnalités de stockage Blob disponibles dans Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md). Consultez ensuite la liste des [problèmes connus](data-lake-storage-known-issues.md) pour voir si certaines fonctionnalités sont manquantes.
-
-## <a name="enabling-the-premium-performance-tier"></a>Activation du niveau de performance Premium
-
-Vous pouvez utiliser le niveau Premium pour Azure Data Lake Storage en créant un compte BlockBlobStorage avec le paramètre **Espace de noms hiérarchique** **activé**. Pour obtenir des instructions complètes, consultez [Créer un compte BlockBlobStorage](../common/storage-account-create.md).
-
-Quand vous créez le compte, veillez à choisir l’option de performance **Premium** et le type de compte **BlockBlobStorage**.
-
-> [!div class="mx-imgBorder"]
-> ![Créer un compte BlockBlobStorage](./media/premium-tier-for-data-lake-storage/create-block-blob-storage-account.png)
-
-Activez le paramètre **Espace de noms hiérarchique** sous l’onglet **Avancé** de la page **Créer un compte de stockage**. Vous devez activer ce paramètre lorsque vous créez le compte. Vous ne pourrez pas l’activer par la suite.
+Pour déverrouiller les fonctionnalités Azure Data Lake Storage Gen2, activez le paramètre **Espace de noms hiérarchique** sous l’onglet **Avancé** de la page **Créer un compte de stockage**. 
 
 L’illustration suivante montre ce paramètre dans la page **Créer un compte de stockage**.
 
@@ -72,8 +50,4 @@ L’illustration suivante montre ce paramètre dans la page **Créer un compte d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez le niveau Premium pour Azure Data Lake Storage avec votre service d’analytique favori, comme Azure Databricks, Azure HDInsight et Azure Synapse Analytics.
-
-- [Tutoriel : Azure Data Lake Storage Gen2, Azure Databricks et Spark](data-lake-storage-use-databricks-spark.md)
-- [Utilisez Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md). HDInsight prend actuellement en charge un compte qui utilise le niveau de performance Premium avec un cluster HBase sur lequel les écritures accélérées sont activées.
-- [Démarrage rapide : Créer un espace de travail Synapse](../../synapse-analytics/quickstart-create-workspace.md)
+Utilisez le niveau Premium pour Azure Data Lake Storage avec votre service d’analytique favori, comme Azure Databricks, Azure HDInsight et Azure Synapse Analytics. Consultez [Tutoriels sur l’utilisation des services Azure avec Azure Data Lake Storage Gen2](data-lake-storage-integrate-with-services-tutorials.md).

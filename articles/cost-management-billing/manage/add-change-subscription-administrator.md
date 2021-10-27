@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 06/27/2021
 ms.author: banders
-ms.openlocfilehash: b4bd2615dd99145bd75fd7c1095056961d3b2d80
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: 913ab605d17e47d5fa8f1ec751a618fe5dbfe123
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988352"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000969"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ajout ou modification des administrateurs d’abonnements Azure
 
@@ -30,17 +30,28 @@ Microsoft vous recommande de gérer l’accès aux ressources à l’aide d’Az
 
 Pour plus d'informations, consultez [Déploiement Azure Resource Manager et déploiement classique](../../azure-resource-manager/management/deployment-models.md) et [Administrateurs d'abonnements classiques Azure](../../role-based-access-control/classic-administrators.md).
 
-<a name="add-an-admin-for-a-subscription"></a>
+## <a name="determine-account-billing-administrator"></a>Déterminer l’administrateur de facturation d’un compte
+
+<a name="whoisaa"></a>
+
+L’administrateur de facturation est la personne autorisée à gérer la facturation d’un compte. Il est autorisé à accéder à la facturation sur le [portail Azure](https://portal.azure.com) et à effectuer différentes tâches liées à la facturation, comme la création d’abonnements, la consultation et le paiement des factures, ou la mise à jour des modes de paiement.
+
+Pour identifier les comptes dont vous êtes l’administrateur de facturation, consultez la page [Gestion des coûts + facturation dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Dans le volet de gauche, sélectionnez **Toutes les étendues de facturation**. La page des abonnements affiche tous les abonnements dont vous êtes l’administrateur de facturation.
+
+Si vous n’êtes pas certain de l’identité de l’administrateur de compte d’un abonnement, accédez à la [page Abonnements dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Sélectionnez ensuite l’abonnement que vous souhaitez consulter, puis regardez sous **Paramètres**. Sélectionnez **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte**.
+
 
 ## <a name="assign-a-subscription-administrator"></a>Attribuer un administrateur d’abonnement
 
-Pour qu’un utilisateur devienne administrateur d’un abonnement Azure, un administrateur existant lui attribue le rôle de [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) (un rôle Azure) au niveau de l’abonnement. Le rôle Propriétaire donne à l’utilisateur un accès total à toutes les ressources de l’abonnement, ainsi que le droit de déléguer l’accès à d’autres personnes. Ces étapes sont les mêmes que celles de n’importe quelle autre attribution de rôle.
+<a name="add-an-admin-for-a-subscription"></a>
 
-Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, procédez comme suit pour le découvrir.
+Pour qu’un utilisateur devienne administrateur d’un abonnement Azure, un administrateur de facturation existant lui attribue le rôle de [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) (un rôle Azure) au niveau de l’abonnement. Le rôle Propriétaire donne à l’utilisateur un accès total à toutes les ressources de l’abonnement, ainsi que le droit de déléguer l’accès à d’autres personnes. Ces étapes sont les mêmes que celles de n’importe quelle autre attribution de rôle.
+
+Si vous ne savez pas qui est l’administrateur de facturation de compte d’un abonnement, procédez comme suit pour le découvrir.
 
 1. Ouvrez la [page Abonnements dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres**.
-1. Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
+1. Sélectionner **Propriétés**. L’administrateur de facturation de compte de l’abonnement s’affiche dans la zone **Administrateur de compte**.
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>Pour attribuer un utilisateur en tant qu’administrateur
 

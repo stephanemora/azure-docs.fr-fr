@@ -1,23 +1,23 @@
 ---
-title: Configurer les jetons – Azure Active Directory B2C | Microsoft Docs
+title: Configurer les jetons dans Azure Active Directory B2C
 description: Découvrez comment configurer les paramètres de compatibilité des jetons et leur durée de vie dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 10/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9ca7d1b5f5e8a9958d072317bfb2d01bd7a9199e
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 70be31920e96c651285c4e77ace161b65ccd3118
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129611822"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066031"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurer les jetons dans Azure Active Directory B2C
 
@@ -158,10 +158,10 @@ Pour modifier les paramètres de compatibilité de votre jeton, définissez les 
     </ClaimType>
     ```
 
-    Dans votre élément **OutputClaims**, ajoutez l'élément suivant :
+    Dans votre [stratégie de partie de confiance](relyingparty.md), sous l’élément **OutputClaims**, ajoutez la revendication de sortie suivante :
 
     ```xml
-    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" PartnerClaimType="tfp" />
     ```
 
     Pour l’option ACR, supprimez l’élément **AuthenticationContextReferenceClaimPattern**.

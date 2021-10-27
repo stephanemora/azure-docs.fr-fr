@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: bb5382014f82854086d6ec6f07cfe7f67e80726a
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: ede3789b8e0470436612ded9a9712b7aedb8c518
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105961028"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996429"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Liaison de sortie Stockage Blob Azure pour Azure Functions
 
@@ -401,10 +401,12 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Cette propriété doit être définie sur `out` pour une liaison de type sortie. Les exceptions sont notées à la section [utilisation](#usage). |
 |**name** | n/a | Nom de la variable qui représente l’objet blob dans le code de la fonction.  La valeur doit être `$return` pour faire référence à la valeur de retour de la fonction.|
 |**path** |**BlobPath** | Chemin du conteneur d’objet blob. |
-|**connection** |**Connection**| Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>La chaîne de connexion doit être pour un compte de stockage à usage général, et non pour un [compte de stockage d’objets blob uniquement](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>Si vous utilisez la [version 5.x ou ultérieure de l’extension](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), au lieu d’une chaîne de connexion, vous pouvez fournir une référence à une section de configuration qui définit la connexion. Consultez [Connexions](./functions-reference.md#connections).|
+|**connection** |**Connection**| Nom d’un paramètre d’application ou d’une collection de paramètres d’application qui spécifie la façon de se connecter à des objets blob Azure. Consultez [Connexions](#connections).|
 |n/a | **y accéder** | Indique si vous lirez ou écrirez. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
 
 ## <a name="usage"></a>Usage
 

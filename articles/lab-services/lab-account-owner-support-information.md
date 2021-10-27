@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services – Définir les informations du support (propriétaire de compte lab)
+title: Configurer les informations de support (propriétaire du compte labo)
 description: Décrit comment un propriétaire de compte lab peut définir les informations de contact du support. Les créateurs et les utilisateurs du laboratoire peuvent afficher et utiliser ces informations pour obtenir de l’aide.
 ms.date: 06/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 17456f61352b1e26a33c042b27faa2d3aa44d73a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2143ad161dc426c26810656a5bba7d1614b67d0
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85445081"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130179618"
 ---
 # <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>Définir les informations du support (propriétaire de compte lab dans Azure Lab Services)
 Cet article explique comment vous (en tant que propriétaire de compte lab) pouvez spécifier les informations du support que les créateurs (formateurs) et les utilisateurs (étudiants) du laboratoire peuvent utiliser pour obtenir de l’aide s’ils rencontrent des problèmes techniques liés à l’utilisation du compte lab ou du laboratoire. 

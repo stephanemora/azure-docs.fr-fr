@@ -3,22 +3,22 @@ title: Configurer un flux de connexion
 titleSuffix: Azure Active Directory B2C
 description: Découvrez comment configurer un de connexion dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/24/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 78556d5f6d6a203a3d105f971cb7850109daa01a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 94845919e1b0bc171b7df831593b04daffb2213b
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570271"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064519"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configurer un flux de connexion dans Azure Active Directory B2C
 
@@ -37,7 +37,8 @@ La stratégie d’inscription permet aux utilisateurs d’effectuer les actions 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si ce n’est pas déjà fait, [inscrivez une application web dans Azure Active Directory B2C](tutorial-register-applications.md).
+- Si ce n’est pas déjà fait, [inscrivez une application web dans Azure Active Directory B2C](tutorial-register-applications.md).
+- Procédez comme indiqué à la section [Créer des flux d’utilisateurs et des stratégies personnalisées dans Azure Active Directory B2C](tutorial-create-user-flows.md).
 
 ::: zone pivot="b2c-user-flow"
 
@@ -47,7 +48,7 @@ Pour ajouter une stratégie de connexion :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez l’icône **Répertoires + Abonnements** dans la barre d’outils du portail.
-1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD B2C dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Stratégies**, sélectionnez **Flux d’utilisateurs**, puis sélectionnez **Nouveau flux d’utilisateur**.
 1. Dans la page **Créer un flux d’utilisateur**, sélectionnez le flux utilisateur **Connexion**.

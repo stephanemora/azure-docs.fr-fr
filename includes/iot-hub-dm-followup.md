@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/17/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 7f1f7d6f9ab6036fbcfcd1d19e175302bbd1a2a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 483d51ab654a67ca9c9ac59a5ae1efdd6861419b
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87298879"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130188582"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personnaliser et étendre les actions de gestion d’appareils
 
@@ -27,6 +27,6 @@ En règle générale, vous configurez des appareils pour effectuer des actions �
 
 Dans ce didacticiel, vous avez utilisé une méthode directe pour déclencher un redémarrage à distance sur un appareil. Vous avez utilisé les propriétés signalées pour indiquer le moment du dernier redémarrage de l’appareil et vous avez interrogé le jumeau d’appareil pour découvrir l’heure du dernier redémarrage de l’appareil à partir du cloud.
 
-Pour poursuivre votre découverte d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez [Mettre à jour un microprogramme](../articles/iot-hub/tutorial-firmware-update.md).
+Pour approfondir vos connaissances sur IoT Hub et les modèles de gestion des appareils, comme la mise à jour de bout en bout basée sur une image, consultez le [tutoriel relatif à la mise à jour des appareils pour Azure IoT Hub à l’aide de l’image de référence Raspberry Pi 3 B+](../articles/iot-hub-device-update/device-update-raspberry-pi.md).
 
 Pour savoir comment étendre votre solution IoT et planifier des appels de méthode sur plusieurs appareils, consultez [Planifier et diffuser des travaux](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

@@ -2,7 +2,6 @@
 title: Sécuriser l’accès hybride avec F5
 titleSuffix: Azure AD
 description: Intégration de F5 BIG-IP Access Policy Manager et Azure Active Directory pour l’accès hybride sécurisé
-services: active-directory
 author: davidmu1
 manager: martinco
 ms.service: active-directory
@@ -13,12 +12,12 @@ ms.date: 11/12/2020
 ms.author: davidmu
 ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
-ms.openlocfilehash: e5f17826d4a578f0c82a5e1e58abf54d4abac252
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 622834d3e91303f55fd4adaf2187800b2b2ce765
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620656"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164356"
 ---
 # <a name="integrate-f5-big-ip-with-azure-active-directory"></a>Intégrer F5 BIG-IP à Azure Active Directory
 
@@ -145,6 +144,8 @@ Les tutoriels suivants fournissent des instructions détaillées sur la mise en 
 - [F5 BIG-IP APM et authentification unique Azure AD dans les applications basées sur un en-tête](../saas-apps/headerf5-tutorial.md#configure-f5-single-sign-on-for-header-based-application)
 
 - [Sécurisation de F5 BIG-IP SSL-VPN avec Azure AD SHA](f5-aad-password-less-vpn.md)
+
+- [Configurer Azure AD B2C avec F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

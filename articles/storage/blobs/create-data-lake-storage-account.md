@@ -4,16 +4,16 @@ description: Découvrez comment créer un compte de stockage à utiliser avec Az
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 04/27/2021
+ms.date: 10/14/2021
 ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: a2d9c23e5a6819c9e74cea10e78caab242d5cb35
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 35761e10cecf1cb209f004f99f773c09d91dc0e5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128600320"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046864"
 ---
 # <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Créer un compte de stockage à utiliser avec Data Lake Storage Gen2
 
@@ -43,14 +43,14 @@ Pour créer un compte d’objet blob de blocs Premium, sélectionnez **Premium**
 
 ## <a name="enable-the-hierarchical-namespace"></a>Activer l’espace de noms hiérarchique
 
-Déverrouillez les fonctionnalités Data Lake Storage en sélectionnant le paramètre **Espace de noms hiérarchique** sous l’onglet **Avancé** de la page **Créer un compte de stockage**. Vous devez activer ce paramètre lorsque vous créez le compte. Vous ne pourrez pas l’activer par la suite.
+Déverrouillez les fonctionnalités Data Lake Storage en sélectionnant le paramètre **Espace de noms hiérarchique** sous l’onglet **Avancé** de la page **Créer un compte de stockage**. 
 
 L’illustration suivante montre ce paramètre dans la page **Créer un compte de stockage**.
 
 > [!div class="mx-imgBorder"]
 > ![Paramètre d’espace de noms hiérarchique](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
-Si vous disposez d’un compte de stockage que vous souhaitez utiliser avec Data Lake Storage, et si le paramètre d’espace de noms hiérarchique est désactivé, vous devez migrer les données vers un nouveau compte de stockage pour lequel le paramètre est activé.
+Pour activer les fonctionnalités de Data Lake Storage sur un compte existant, consultez [Mise à niveau du Stockage Blob Azure avec des fonctionnalités Azure Data Lake Storage Gen2](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 > [!NOTE]
 > Vous ne pouvez pas activer simultanément la **protection des données** et un espace de noms hiérarchique.
@@ -58,5 +58,5 @@ Si vous disposez d’un compte de stockage que vous souhaitez utiliser avec Data
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble du compte de stockage](../common/storage-account-overview.md)
-- [Utilisation d’Azure Data Lake Storage Gen2 pour le Big Data](data-lake-storage-data-scenarios.md)
+- [Mettre à niveau Stockage Blob Azure avec les capacités d’Azure Data Lake Storage Gen2](upgrade-to-data-lake-storage-gen2-how-to.md)
 - [Contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

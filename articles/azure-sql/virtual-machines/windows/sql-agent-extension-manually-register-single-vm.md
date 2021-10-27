@@ -3,7 +3,7 @@ title: Inscrire auprès de l’extension SQL IaaS Agent
 description: Inscrivez votre machine virtuelle Azure SQL Server auprès de l’extension SQL IaaS Agent pour activer les fonctionnalités des machines virtuelles SQL Server déployées en dehors de Place de marché Azure, ainsi que la conformité et la gestion améliorée.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: adbadram
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -12,21 +12,21 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/01/2021
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: adbadram
+ms.reviewer: mathoma
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
-ms.openlocfilehash: 3dfcfcab7421b6aa8710310fdffa08f54688c4fd
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: b66b7c86cf7ba6d23cb09c7feed1f3ced19fd531
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123219936"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160970"
 ---
 # <a name="register-sql-server-vm-with-sql-iaas-agent-extension"></a>Inscrire une machine virtuelle SQL Server auprès de l’extension SQL IaaS Agent
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Le fait d’inscrire votre machine virtuelle SQL Server auprès de [l’extension SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) déverrouille une multitude de fonctionnalités pour votre SQL Server sur une machine virtuelle Azure.
+Le fait d’inscrire votre machine virtuelle SQL Server auprès de [l’extension SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) déverrouille une multitude de fonctionnalités pour votre SQL Server sur une machine virtuelle Azure. Par défaut, les machines virtuelles Azure sur lesquelles SQL Server 2016 ou une version ultérieure est installé sont automatiquement inscrites à l’extension Agent IaaS SQL quand elles sont détectées par le [service CEIP (Programme d’amélioration du produit)](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server).  Pour plus d’informations, consultez l’[Avenant à la déclaration de confidentialité de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
 
 Cet article vous apprend à inscrire une machine virtuelle SQL Server individuelle auprès de l’extension SQL IaaS Agent. Vous pouvez également inscrire toutes les machines virtuelles SQL Server dans une inscription [automatiquement](sql-agent-extension-automatic-registration-all-vms.md) ou [plusieurs machines virtuelles scriptées en bloc](sql-agent-extension-manually-register-vms-bulk.md).
 
@@ -51,6 +51,7 @@ Pour inscrire votre machine virtuelle SQL Server auprès de l’extension, voici
 - Un [abonnement Azure](https://azure.microsoft.com/free/).
 - Une [machine virtuelle Windows Server 2008 (ou version ultérieure)](../../../virtual-machines/windows/quick-create-portal.md) de modèle de ressource Azure avec [SQL Server 2008 (ou version ultérieure)](https://www.microsoft.com/sql-server/sql-server-downloads), déployée sur le cloud public ou le cloud Azure Government.
 - La version la plus récente d’[Azure CLI](/cli/azure/install-azure-cli) ou d’[Azure PowerShell (5.0 minimum)](/powershell/azure/install-az-ps).
+- La version minimale 4.5.1 ou une version ultérieure de .NET Framework.
 
 ## <a name="register-subscription-with-rp"></a>Inscrire un abonnement auprès d’un fournisseur de ressources
 
@@ -382,4 +383,4 @@ Pour plus d’informations, consultez les articles suivants :
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Questions fréquentes (FAQ) pour SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.yml)
 * [Guide des tarifs pour SQL Server sur une machine virtuelle Windows](pricing-guidance.md)
-* [Notes de publication pour SQL Server sur une machine virtuelle Windows](../../database/doc-changes-updates-release-notes.md)
+* [Nouveautés de SQL Server sur des machines virtuelles Azure](doc-changes-updates-release-notes-whats-new.md)

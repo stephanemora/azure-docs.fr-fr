@@ -1,46 +1,33 @@
 ---
 title: Superviser votre appareil Azure Stack Edge | Microsoft Docs
-description: Décrit comment utiliser le portail Azure et l’interface utilisateur web locale pour superviser votre appareil Azure Stack Edge.
+description: Décrit comment utiliser le portail Azure et l’interface utilisateur web locale pour surveiller votre appareil Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 10/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 13a11bb23479653ccc88b6e1a2312ff8e6f33609
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 84ffadea8e8b6980b7bf311db9d2b7a2a36748b6
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110099655"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047873"
 ---
-# <a name="monitor-your-azure-stack-edge"></a>Superviser votre appareil Azure Stack Edge 
+# <a name="monitor-your-azure-stack-edge-device"></a>Superviser votre appareil Azure Stack Edge
 
 [!INCLUDE [applies-to-GPU-and-pro-r-mini-r-and-fpga-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-fpga-sku.md)]
 
-Cet article explique comment superviser votre appareil Azure Stack Edge. Pour ce faire, vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale. Utilisez le portail Azure pour voir les événements de l’appareil, configurer et gérer les alertes et voir les métriques. Utilisez l’interface utilisateur web locale sur votre appareil physique pour voir l’état des différents composants matériels de l’appareil.
+Cet article explique comment surveiller votre appareil Azure Stack Edge. Pour ce faire, vous pouvez utiliser le portail Azure ou l’interface utilisateur web locale. Utilisez le portail Azure pour voir les métrique, les événements de l’appareil, configurer et gérer les alertes. Utilisez l’interface utilisateur web locale sur votre appareil physique pour voir l’état des différents composants matériels de l’appareil.
 
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 >
-> * Afficher les événements de l’appareil et les alertes correspondantes
-> * Afficher l’état des composants matériels de l’appareil
 > * Afficher les métriques de capacité et de transaction de votre appareil
+> * Afficher l’état des composants matériels de l’appareil
 
-## <a name="view-device-events"></a>Afficher les événements de l’appareil
-
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
-
-## <a name="view-hardware-status"></a>Afficher l’état de matériel
-
-Effectuez les étapes suivantes dans l’interface utilisateur web locale pour afficher l’état des composants matériel de votre appareil.
-
-1. Connectez-vous à l’interface utilisateur web locale de votre appareil.
-2. Allez dans **Maintenance > État du matériel**. Vous pouvez afficher l’intégrité des différents composants de l’appareil.
-
-    ![Afficher l’état de matériel](media/azure-stack-edge-monitor/view-hardware-status.png)
 
 ## <a name="view-metrics"></a>Afficher les mesures
 
@@ -79,7 +66,23 @@ La liste complète des métriques est présentée dans le tableau suivant :
 |**Computing en périphérie - Utilisation de la mémoire**      |           |
 |**Computing en périphérie - Pourcentage du processeur**    |         |
 
+
+### <a name="view-device-events"></a>Afficher les événements de l’appareil
+
+[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
+
+
+## <a name="view-hardware-status"></a>Afficher l’état de matériel
+
+Effectuez les étapes suivantes dans l’interface utilisateur web locale pour afficher l’état des composants matériel de votre appareil.
+
+1. Connectez-vous à l’interface utilisateur web locale de votre appareil.
+2. Allez dans **Maintenance > État du matériel**. Vous pouvez afficher l’intégrité des différents composants de l’appareil.
+
+    ![Afficher l’état de matériel](media/azure-stack-edge-monitor/view-hardware-status.png)
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [gérer la bande passante](azure-stack-edge-manage-bandwidth-schedules.md).
-Découvrez comment [gérer les notifications d’alerte d’événement d’appareil](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).
+- Découvrez comment [gérer la bande passante](azure-stack-edge-manage-bandwidth-schedules.md).
+- Découvrez comment [gérer les notifications d’alerte](azure-stack-edge-gpu-manage-device-event-alert-notifications.md).

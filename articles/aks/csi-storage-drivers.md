@@ -3,14 +3,14 @@ title: Activer des pilotes CSI (Container Storage interface) sur Azure Kubernete
 description: Découvrez comment activer des pilotes CSI (Container Storage interface) pour des disques Azure et Azure Files dans un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/31/2021
+ms.date: 10/15/2021
 author: palma21
-ms.openlocfilehash: 0f941b612c76811ba750a06036faf48c7359bedd
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 26de8065b5f96b9fc914a824018c7c7a2028b7b9
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429848"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065442"
 ---
 # <a name="enable-container-storage-interface-csi-drivers-for-azure-disks-and-azure-files-on-azure-kubernetes-service-aks"></a>Activer des pilotes CSI (Container Storage interface) pour des disques Azure et Azure Files sur Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ La prise en charge du pilote de stockage CSI sur AKS vous permet d’utiliser en
 - La version mineure minimale Kubernetes qui prend en charge les pilotes CSI est v1.17.
 - La classe de stockage par défaut sera la classe de stockage `managed-csi`.
 
-## <a name="create-a-new-cluster-that-can-use-csi-storage-drivers"></a>Créer un cluster qui peut utiliser des pilotes de stockage CSI
+## <a name="install-csi-storage-drivers-on-a-new-cluster-with-version--121"></a>Installer des pilotes de stockage CSI sur un nouveau cluster avec une version < 1.21
 
 Créez un cluster capable d’utiliser des pilotes de stockage CSI pour les disques Azure et Azure Files à l’aide des commandes CLI suivantes. Utilisez l’indicateur `--aks-custom-headers` pour définir la fonctionnalité `EnableAzureDiskFileCSIDriver`.
 
@@ -51,7 +51,7 @@ Créez le cluster AKS avec prise en charge des pilotes de stockage CSI :
 az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure  --aks-custom-headers EnableAzureDiskFileCSIDriver=true
 ```
 
-Si vous souhaitez créer des clusters dans des pilotes de stockage dans l’arborescence au lieu de pilotes de stockage CSI, vous pouvez le faire en omettant le paramètre `--aks-custom-headers` personnalisé.
+Si vous souhaitez créer des clusters dans des pilotes de stockage dans l’arborescence au lieu de pilotes de stockage CSI, vous pouvez le faire en omettant le paramètre `--aks-custom-headers` personnalisé. À partir de Kubernetes version 1.21, Kubernetes utilise les pilotes CSI uniquement et par défaut.
 
 
 Vérifiez le nombre de volumes sur disque Azure que vous pouvez attacher à ce nœud en exécutant :
@@ -65,6 +65,10 @@ aks-nodepool1-25371499-vmss000002
 $ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocatable.count}")
 8
 ```
+
+## <a name="install-csi-storage-drivers-on-an-existing-cluster-with-version--121"></a>Installer des pilotes de stockage CSI sur un cluster existant avec une version < 1.21
+ - [Configurer le pilote Azure Disk CSI sur un cluster AKS](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/install-driver-on-aks.md)
+ - [Configurer le pilote Azure File CSI sur un cluster AKS](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/install-driver-on-aks.md)
 
 ## <a name="migrating-custom-in-tree-storage-classes-to-csi"></a>Migration vers CSI de classes de stockage personnalisées dans l’arborescence
 Si vous avez créé des classes de stockage personnalisées basées sur des pilotes de stockage dans l’arborescence, vous devez migrer ceux-ci lorsque vous avez mis à niveau votre cluster vers 1.21.x.

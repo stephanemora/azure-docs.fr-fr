@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.author: thwimmer
-ms.openlocfilehash: eb283ab73180bed43c90f57fd7ad09c045f82bc4
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: fca85673ba31b71eda9e9b4242062093ae588aed
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113763824"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046978"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’attribution automatique d’utilisateurs
 
@@ -110,11 +110,11 @@ Le service d’approvisionnement Azure AD vous permet de définir l’étendue d
 Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement d’Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans TestApp en fonction des assignations d’utilisateurs et/ou de groupes dans Azure AD.
 
 > [!NOTE]
-> Pour en savoir plus sur le point de terminaison de l’API d’annuaire G Suite, reportez-vous à l’[API Directory](https://developers.google.com/admin-sdk/directory).
+> Pour en savoir plus sur le point de terminaison de l’API d’annuaire G Suite, reportez-vous à la [documentation de référence sur l’API d’annuaire](https://developers.google.com/admin-sdk/directory).
 
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour G Suite dans Azure AD :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**. Les utilisateurs devront se connecter à portal.azure.com et ne pourront pas utiliser aad.portal.azure.com
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**. Les utilisateurs devront se connecter à `portal.azure.com` et ne pourront pas utiliser `aad.portal.azure.com`.
 
     ![Panneau Applications d’entreprise](./media/g-suite-provisioning-tutorial/enterprise-applications.png)
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 5053bda835eba508fb84f20a7a8607bf40e37134
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 684af3b73d9e7b56db5cc5d077510727bed89618
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535590"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044513"
 ---
 # <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
@@ -23,42 +23,47 @@ Certaines des fonctionnalités de la Vision par ordinateur prennent en charge pl
 
 ## <a name="optical-character-recognition-ocr"></a>Reconnaissance optique des caractères (OCR)
 
-Les API OCR de Vision par ordinateur prennent en charge plusieurs langues. L’API Read peut extraire du texte des images et des documents avec des langues mixtes, y compris sur une même ligne de texte, sans avoir besoin d’un paramètre de langue. Consultez la [Vue d’ensemble de la reconnaissance optique de caractères (OCR)](overview-ocr.md) pour plus d’informations.
+Les API OCR Vision par ordinateur prennent en charge plusieurs langues. L’API Read peut extraire du texte des images et des documents avec des langues mixtes, y compris sur une même ligne de texte, sans avoir besoin d’un paramètre de langue. Consultez la [Vue d’ensemble de la reconnaissance optique de caractères (OCR)](overview-ocr.md) pour plus d’informations.
+
 
 > [!NOTE]
-> **Paramètre de langue facultatif**
+> **Code de langue facultatif**
 >
-> L’API Read utilise des modèles de script universels pour extraire tout le texte multilingue de vos images ou documents, y compris les lignes de texte à langue mixte. Ne fournissez pas le paramètre language, sauf si vous êtes certain qu’il n’existe qu’une seule langue dans l’image ou le document. Sinon, le service pourrait retourner du texte incomplet et incorrect.
+> Les modèles universels basés sur le Deep Learning de l’OCR de Read extraient tout le texte multilingue de vos documents, y compris les lignes de texte contenant plusieurs langues, et ne nécessitent pas la spécification d’un code de langue. N’indiquez pas de code de langue en tant que paramètre, sauf si vous êtes sûr de la langue et si vous souhaitez forcer le service à appliquer uniquement le modèle approprié. Sinon, le service pourrait retourner du texte incomplet et incorrect.
 
 Consultez [Comment spécifier la version du modèle](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) pour utiliser les langages et fonctionnalités en préversion. Le modèle en préversion comprend toutes les améliorations apportées aux langues et fonctionnalités actuellement en disponibilité générale.
 
-### <a name="handwritten-text"></a>Texte manuscrit
+### <a name="handwritten-languages"></a>Langues manuscrites
+Le tableau suivant répertorie les langues manuscrites prises en charge par Read.
+
 |Langage| Code langue (facultatif) | Lire |
 |:-----|:----:|:-----|
 |Anglais|`en`|✅ |
-|Chinois (simplifié) |`zh-Hans`|✅ (préversion) |
-|Français|`fr`|✅ (préversion)|
-|Allemand |`de`|✅ (préversion) |
-|Italien|`it`|✅ (préversion) |
-|Portugais |`pt`|✅ (préversion) |
-|Espagnol |`es`|✅ (préversion) |
+|Chinois (simplifié) |`zh-Hans`|✅ préversion |
+|Français|`fr`|✅ préversion|
+|Allemand |`de`|✅ préversion |
+|Italien|`it`|✅ préversion |
+|Portugais |`pt`|✅ préversion |
+|Espagnol |`es`|✅ préversion |
 
-### <a name="print-text"></a>Texte imprimé
+### <a name="print-languages"></a>Langues d’impression
+Le tableau suivant répertorie les langues d’impression prises en charge par les API d’OCR.
+
 |Langage| Code langue (facultatif) | Lire | OCR |
 |:-----|:----:|:-----|:---:|
 |Afrikaans|`af`|✅ | |
 |Albanais |`sq`|✅ | |
 |Arabe | `ar`|  | ✅ |
 |Asturien |`ast`|✅ | |
-|Azerbaïdjanais (Latin) | `az` | ✅ (préversion) | |
+|Azerbaïdjanais (Latin) | `az` | ✅ préversion | |
 |Basque  |`eu`| ✅ | |
-|Biélorusse (cyrillique) | `be` |✅ (préversion) | |
-|Biélorusse (latin) | `be` |✅ (préversion) | |
+|Biélorusse (cyrillique) | `be` |✅ préversion | |
+|Biélorusse (latin) | `be` |✅ préversion | |
 |Bichelamar   |`bi`|✅ | |
-|Bosniaque (latin)   |`bs`|✅ (préversion) | |
+|Bosniaque (latin)   |`bs`|✅ préversion | |
 |Breton    |`br`|✅ | |
-|Bulgare |`bg`|✅ (préversion) | |
-|Buryat (cyrillique)|`bua`|✅ (préversion) | |
+|Bulgare |`bg`|✅ préversion | |
+|Buryat (cyrillique)|`bua`|✅ préversion | |
 |Catalan    |`ca`|✅ | |
 |Cebuano    |`ceb`|✅ | |
 |Chamorro  |`ch`|✅| |
@@ -67,20 +72,20 @@ Consultez [Comment spécifier la version du modèle](./Vision-API-How-to-Topics/
 |Cornique     |`kw`|✅ | |
 |Corse      |`co`|✅ | |
 |Tatar de Crimée (latin)|`crh`| ✅ | |
-|Croate |`hr`|✅ (préversion) | |
+|Croate |`hr`|✅ préversion | |
 |Tchèque | `cs` |✅ | ✅ |
 |Danois | `da` |✅ | ✅ |
 |Néerlandais | `nl` |✅ |✅ |
 |Anglais | `en` |✅ |✅|
-|Erzya (Cyrillique) |`myv`|✅ (préversion) | |
+|Erzya (Cyrillique) |`myv`|✅ préversion | |
 |Estonien  |`et`|✅ | |
-|Féroïen |`fo`|✅ (préversion) | |
+|Féroïen |`fo`|✅ préversion | |
 |Fidjien |`fj`|✅ | |
 |Filipino  |`fil`|✅ | |
 |Finnois | `fi` |✅ |✅ |
 |Français | `fr` |✅ |✅ |
 |Frioulan  | `fur` |✅ | |
-|Gagauz (Latin) |`gag`|✅ (préversion) | |
+|Gagauz (Latin) |`gag`|✅ préversion | |
 |Galicien   | `gl` |✅ | |
 |Allemand | `de` |✅ |✅ |
 |Gilbertin    | `gil` |✅ | |
@@ -88,11 +93,11 @@ Consultez [Comment spécifier la version du modèle](./Vision-API-How-to-Topics/
 |Groenlandais   | `kl` |✅ | |
 |Créole haïtien  | `ht` |✅ | |
 |Hani  | `hni` |✅ | |
-|Hawaïen |`haw`|✅ (préversion) | |
+|Hawaïen |`haw`|✅ préversion | |
 |Hmong daw (latin)| `mww` | ✅ | |
 |Hongrois | `hu` | ✅ |✅ |
-|Islandais |`is`|✅ (préversion) | |
-|Inari Sami |`smn`|✅ (préversion) | |
+|Islandais |`is`|✅ préversion | |
+|Inari Sami |`smn`|✅ préversion | |
 |Indonésien   | `id` |✅ | |
 |Interlingua  | `ia` |✅ | |
 |Inuktitut (Latin) | `iu` | ✅ | |
@@ -104,69 +109,69 @@ Consultez [Comment spécifier la version du modèle](./Vision-API-How-to-Topics/
 |Créole du Cap-Vert | `kea` |✅ | |
 |Kachin (latin) | `kac` |✅ | |
 |Kara-Kalpak (Latin) | `kaa` | ✅ | |
-|Kara-Kalpak (Cyrillique) | `kaa-cyrl` | ✅ (préversion) | |
-|Karachay-Balkar |`krc`|✅ (préversion) | |
+|Kara-Kalpak (Cyrillique) | `kaa-cyrl` | ✅ préversion | |
+|Karachay-Balkar |`krc`|✅ préversion | |
 |Cachoube | `csb` |✅ | |
-|Kazakh (Cyrillique) |`kk-cyrl`|✅ (préversion) | |
-|Kazakh (Latin) |`kk-latn`|✅ (préversion) | |
+|Kazakh (Cyrillique) |`kk-cyrl`|✅ préversion | |
+|Kazakh (Latin) |`kk-latn`|✅ préversion | |
 |Khasi  | `kha` | ✅ | |
 |Coréen | `ko` |✅ |✅ |
-|Koryak |`kpy`|✅ (préversion) | |
-|Kosrae |`kos`|✅ (préversion) | |
-|Kumyk (Cyrillique) |`kum`|✅ (préversion) | |
+|Koryak |`kpy`|✅ préversion | |
+|Kosrae |`kos`|✅ préversion | |
+|Kumyk (Cyrillique) |`kum`|✅ préversion | |
 |Kurde (latin)| `kur` |✅ | |
-|Kirghiz (cyrillique) |`ky`|✅ (préversion) | |
-|Lakota |`lkt`|✅ (préversion) | |
-|Latin|`la`|✅ (préversion) | |
-|Lituanien|`lt`|✅ (préversion) | |
-|Bas sorabe|`dsb`|✅ (préversion) | |
-|Lule Sami|`smj`|✅ (préversion) | |
+|Kirghiz (cyrillique) |`ky`|✅ préversion | |
+|Lakota |`lkt`|✅ préversion | |
+|Latin|`la`|✅ préversion | |
+|Lituanien|`lt`|✅ préversion | |
+|Bas sorabe|`dsb`|✅ préversion | |
+|Lule Sami|`smj`|✅ préversion | |
 |Luxembourgeois  | `lb` | ✅ | |
 |Malais (latin) | `ms` | ✅ | |
-|Maltais|`mt`|✅ (préversion) | |
+|Maltais|`mt`|✅ préversion | |
 |Mannois  | `gv` | ✅ | |
-|Maori|`mi`|✅ (préversion) | |
-|Mongole (cyrillique)|`mn`|✅ (préversion) | |
-|Monténégrin (cyrillique)|`cnr-cyrl`|✅ (préversion) | |
-|Montenegrin (latin)|`cnr-latn`|✅ (préversion) | |
+|Maori|`mi`|✅ préversion | |
+|Mongole (cyrillique)|`mn`|✅ préversion | |
+|Monténégrin (cyrillique)|`cnr-cyrl`|✅ préversion | |
+|Montenegrin (latin)|`cnr-latn`|✅ préversion | |
 |Napolitain   | `nap` | ✅ | |
-|Niué|`niu`|✅ (préversion) | |
-|Nogay|`nog`|✅ (préversion) | |
-|Same du Nord (latin)|`sme`|✅ (préversion) | |
+|Niué|`niu`|✅ préversion | |
+|Nogay|`nog`|✅ préversion | |
+|Same du Nord (latin)|`sme`|✅ préversion | |
 |Norvégien | `no` | ✅ | |
 |Occitan | `oc` | ✅ | |
-|Ossète|`os`|✅ (préversion) | |
+|Ossète|`os`|✅ préversion | |
 |Polonais | `pl` | ✅ |✅ |
 |Portugais | `pt` |✅ |✅ |
-|Francique ripuaire|`ksh`|✅ (préversion) | |
-|Roumain | `ro` | ✅ (préversion)| ✅|
+|Francique ripuaire|`ksh`|✅ préversion | |
+|Roumain | `ro` | ✅ préversion | ✅|
 |Romanche  | `rm` | ✅ | |
-|Russe | `ru` |✅ (préversion) |✅ |
-|Samoan (latin)|`sm`|✅ (préversion) | |
+|Russe | `ru` |✅ préversion |✅ |
+|Samoan (latin)|`sm`|✅ préversion | |
 |Scots  | `sco` | ✅ | |
 |Gaélique écossais  | `gd` |✅ | |
 |Serbe (cyrillique) | `sr-cyrl` | |✅ |
-|Serbe (latin) | `sr-latn` | ✅ (préversion) |✅ |
-|Same de Skolt|`sms`|✅ (préversion) | |
-|Slovaque | `sk` | ✅ (préversion) |✅ |
+|Serbe (latin) | `sr-latn` | ✅ préversion |✅ |
+|Same de Skolt|`sms`|✅ préversion | |
+|Slovaque | `sk` | ✅ préversion |✅ |
 |Slovène  | `slv` | ✅ ||
-|Same du Sud|`sma`|✅ (préversion) | |
+|Same du Sud|`sma`|✅ préversion | |
 |Espagnol | `es` |✅ |✅ |
 |Swahili (latin)  | `sw` |✅ | |
 |Suédois | `sv` |✅ |✅ |
-|Tadjik (cyrillique)|`tg`|✅ (préversion) | |
+|Tadjik (cyrillique)|`tg`|✅ préversion | |
 |Tatar (latin)  | `tat` | ✅ |
 |Tétoum    | `tet` |✅ |  |
-|Tonga|`to`|✅ (préversion) | |
+|Tonga|`to`|✅ préversion | |
 |Turc | `tr` |✅ | ✅ |
-|Turkmène (latin)|`tk`|✅ (préversion) | |
-|Touvain|`tyv`|✅ (préversion) | |
+|Turkmène (latin)|`tk`|✅ préversion | |
+|Touvain|`tyv`|✅ préversion | |
 |Haut sorabe  | `hsb` |✅ |  |
 |Ouzbek (cyrillique)  | `uz-cyrl` |✅ |  |
 |Ouzbek (latin)     | `uz` |✅ |  |
 |Volapük   | `vo` | ✅ | |
 |Haut-valaisan    | `wae` | ✅ | |
-|Gallois     | `cy` |✅ (préversion) |  |
+|Gallois     | `cy` |✅ préversion |  |
 |Frison occidental | `fy` | ✅ | |
 |Yucatec Maya | `yua` | ✅ | |
 |Zhuang | `za` |✅ |  |

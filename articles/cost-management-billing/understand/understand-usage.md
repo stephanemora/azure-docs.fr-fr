@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: banders
-ms.openlocfilehash: ae2d16b6164f201bae8f34c62876f66b45862cfa
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: ae265fd760a20c1e79032f2a7d0d97a459dd5c69
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855343"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999451"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprendre les termes du fichier sur l’utilisation et les frais Azure
 
@@ -86,7 +86,7 @@ ProductId<sup>1</sup> | MCA | Identificateur unique pour le produit.
 ProductOrderId | Tous | Identificateur unique de la commande du produit.
 ProductOrderName | Tous | Nom unique de la commande du produit.
 PublisherName | Tous | Éditeur pour les services de la Place de marché.
-PublisherType | Tous | Type d’éditeur (valeurs : **Azure**, **AWS**, **Place de marché**).
+PublisherType | Tous | Type d’éditeur. Décomposez les coûts de Microsoft/Azure, de Place de marché et d’AWS.  Les valeurs sont `Microsoft` pour les comptes MCA, et `Azure` pour les comptes EA et paiement à l'utilisation.|
 Quantité | Tous | Nombre d’unités achetées ou consommés.
 ID de réservation | EA, MCA | Identificateur unique de l’instance de réservation achetée.
 ReservationName | EA, MCA | Nom de l’instance de réservation achetée.
@@ -112,7 +112,7 @@ _<sup>**1**</sup> Champs utilisés pour générer un ID unique pour un enregistr
 Notez que certains champs peuvent différer par leur casse ou leur espacement d’un type de compte à l’autre.
 Les versions antérieures des fichiers sur le paiement à l’utilisation comportent des sections séparées pour le relevé et l’utilisation quotidienne.
 
-Pour les clients qui ont un contrat MCA, notez que les valeurs du champ `PublisherType` changent. Pour plus d’informations, consultez [Changements des valeurs PublisherType](../costs/group-filter.md#changes-to-publisher-type-values).
+Pour les clients qui ont un contrat MCA, notez que les valeurs du champ `PublisherType` changent. Pour plus d’informations, consultez [Changements des valeurs PublisherType](../costs/group-filter.md#publisher-type-value-changes).
 
 ### <a name="list-of-terms-from-older-apis"></a>Liste de termes des anciennes API
 Le tableau suivant établit les correspondances entre les termes utilisés dans les anciennes API et les nouveaux termes. Reportez-vous au tableau ci-dessus pour connaître ces descriptions.

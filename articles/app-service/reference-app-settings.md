@@ -3,12 +3,12 @@ title: Informations de référence sur les variables d’environnement et les pa
 description: Décrit les variables d’environnement couramment utilisées et celles qui peuvent être modifiées à l’aide des paramètres de l’application.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: d3c34f64aa4e13fe0dce371d9848f6422e7b1f63
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: 3a51f620cefef67e8e2cd2256ad6dba19b915bf4
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399809"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005126"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Variables d’environnement et paramètres d’application dans Azure App Service
 
@@ -74,8 +74,14 @@ Le tableau suivant répertorie les préfixes de variables d’environnement qu�
 | `POSTGRESQLCONNSTR_` | Désigne une chaîne de connexion PostgreSQL dans la configuration de l’application. Elle est injectée dans une application .NET en tant que chaîne de connexion. |
 | `CUSTOMCONNSTR_` | Désigne une chaîne de connexion personnalisée dans la configuration de l’application. Elle est injectée dans une application .NET en tant que chaîne de connexion. |
 | `MYSQLCONNSTR_` | Désigne une chaîne de connexion Azure SQL Database dans la configuration de l’application. Elle est injectée dans une application .NET en tant que chaîne de connexion. |
-| `AZUREFILESSTORAGE_` | Chaîne de connexion à un partage de fichiers Azure personnalisé pour une application de conteneur. |
-| `AZUREBLOBSTORAGE_` | Chaîne de connexion à un stockage Azure Blobs personnalisé pour une application de conteneur. |
+| `AZUREFILESSTORAGE_` | Chaîne de connexion à un partage personnalisé pour une application de conteneur dans Azure Files. |
+| `AZUREBLOBSTORAGE_` | Chaîne de connexion à un compte de stockage personnalisé pour une application de conteneur dans le Stockage Blob Azure. |
+| `NOTIFICATIONHUBCONNSTR_` | Désigne une chaîne de connexion à un hub de notification dans Azure Notification Hubs. |
+| `SERVICEBUSCONNSTR_` | Désigne une chaîne de connexion à une instance d’Azure Service Bus. |
+| `EVENTHUBCONNSTR_` | Désigne une chaîne de connexion à un Event Hub dans Azure Event Hubs. |
+| `DOCDBCONNSTR_` | Désigne une chaîne de connexion à une base de données dans Azure Cosmos DB. |
+| `REDISCACHECONNSTR_` | Désigne une chaîne de connexion à un cache dans Azure Cache pour Redis. |
+| `FILESHARESTORAGE_` | Désigne une chaîne de connexion à un partage de fichiers personnalisé. |
 
 ## <a name="deployment"></a>Déploiement
 

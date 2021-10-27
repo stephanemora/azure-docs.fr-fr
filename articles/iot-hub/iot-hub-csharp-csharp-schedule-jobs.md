@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: b5c068f9c6810551a768b801b065cf526e0565ff
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3ff7e7fb2ae1249bc3b5c21f7d7b194344c428a5
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532091"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178376"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Planifier et diffuser des travaux (.NET)
 
@@ -308,6 +308,6 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
 
-* Pour approfondir la prise en main d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez [Didacticiel : Mettre à jour un microprogramme](tutorial-firmware-update.md).
+* Pour approfondir l’apprentissage d’IoT Hub et les modèles de gestion des appareils, comme la mise à jour de bout en bout basée sur une image dans [Tutoriel sur le service Device Update pour IoT Hub : Utilisation de l’image de référence Raspberry Pi 3 B+](../iot-hub-device-update/device-update-raspberry-pi.md).
 
 * Pour en savoir plus sur le déploiement de l’intelligence artificielle sur des appareils de périphérie avec Azure IoT Edge, consultez [Bien démarrer avec IoT Edge](../iot-edge/quickstart-linux.md).

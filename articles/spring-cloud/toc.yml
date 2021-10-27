@@ -138,6 +138,8 @@
           href: how-to-dynatrace-one-agent-monitor.md
         - name: Nouvel agent in-process Relic Java
           href: how-to-new-relic-monitor.md
+        - name: Agent in-process AppDynamics
+          href: how-to-appdynamics-java-agent-monitor.md
         - name: Superviser les événements du cycle de vie d’une application
           href: monitor-app-lifecycle-events.md
     - name: Réseau
@@ -160,7 +162,7 @@
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Créer des rôles et des autorisations
           href: how-to-permissions.md
-        - name: Utiliser un certificat TLS/SSL
+        - name: Utiliser des certificats TLS/SSL
           href: how-to-use-tls-certificate.md
         - name: "Activer le protocole\_TLS de bout en bout"
           href: how-to-enable-end-to-end-tls.md

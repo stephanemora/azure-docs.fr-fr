@@ -3,24 +3,24 @@ title: Présentation des données d’Azure Cost Management
 description: Cet article vous aide à mieux comprendre les données ajoutées dans Azure Cost Management, et la fréquence à laquelle elles sont traitées, collectées, affichées et fermées.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2021
+ms.date: 10/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 0e67812e07229ee8dc13bcd79fc6d546a2618009
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 5025e1579f52b23c8f26de97212a695c34639285
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711318"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001045"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
 Cet article vous aide à mieux comprendre les données d’utilisation et de coût Azure ajoutées dans Azure Cost Management. Il indique la fréquence à laquelle les données sont traitées, collectées, affichées et fermées. L’utilisation d’Azure vous est facturée tous les mois. Bien que les cycles de facturation soient mensuels, les dates de début et de fin d’un cycle varient selon le type d’abonnement. La fréquence à laquelle Cost Management reçoit les données d’utilisation varie selon différents facteurs. Ces facteurs comprennent le temps nécessaire pour traiter les données et la fréquence à laquelle les services Azure envoient les données d’utilisation au système de facturation.
 
-Azure Cost Management inclut toutes les informations sur les activités et achats, y compris les réservations et les offres tierces associées aux comptes des Contrats entreprise. Les comptes des Contrats client Microsoft et les abonnements individuels avec des taux de paiement à l’utilisation portent uniquement sur l’utilisation des services de Place de marché et Azure. Les coûts du support et les autres coûts ne sont pas inclus. Les coûts font l’objet d’une estimation tant qu’aucune facture n’a été générée et ne tiennent pas compte des crédits.
+Azure Cost Management inclut toutes les informations sur les activités et achats, y compris les réservations et les offres tierces associées aux comptes des Contrats entreprise. Les comptes des Contrats client Microsoft et les abonnements individuels avec des taux de paiement à l’utilisation portent uniquement sur l’utilisation des services de Place de marché et Azure. Les coûts du support et les autres coûts ne sont pas inclus. Les coûts font l’objet d’une estimation tant qu’aucune facture n’a été générée et ne tiennent pas compte des crédits. Cost Management inclut également les coûts associés aux nouveaux produits Commerce, par exemple Microsoft 365 et Dynamics 365, qui sont facturés avec Azure. Actuellement, seuls les partenaires peuvent acheter de nouveaux produits Commerce non Azure.
 
 Si vous disposez d’un nouvel abonnement, vous ne pouvez pas utiliser les fonctionnalités de Cost Management tout de suite. Vous risquez de devoir attendre jusqu’à 48 heures avant de pouvoir utiliser toutes les fonctionnalités de Cost Management.
 
@@ -96,12 +96,15 @@ Les tableaux suivants indiquent les données qui sont comprises ou non dans Cost
 | Achats de la Place de marché<sup>5</sup>      | Crédits. Pour plus d’informations, consultez [Conditions de facturation expliquées](../understand/understand-invoice.md). |
 | Achats de réservation<sup>6</sup>      |  |
 | Amortissement des achats de réservation<sup>6</sup>      |  |
+| Nouveaux produits Commerce non-Azure (Microsoft 365 et Dynamics 365) <sup>7</sup> | |
 
 _<sup>**4**</sup> L’utilisation des services Azure est basée sur la réservation et des prix négociés._
 
 _<sup>**5**</sup> À l’heure actuelle, les achats de la Place de marché ne sont pas disponibles pour les offres MSDN et Visual Studio._
 
 _<sup>**6**</sup> Les achats de réservation sont uniquement disponibles pour les comptes Contrat Entreprise et Contrat client Microsoft à l’heure actuelle._
+
+_<sup>**7**</sup> Disponible uniquement pour les partenaires_
 
 ## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Utilisation des étiquettes dans les données de coût et d’utilisation
 

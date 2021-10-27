@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.openlocfilehash: 714dc6ac27f466c98e5c74bc16a9cfa3c5cd30cf
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 07442ce360baa152b36bcc1145e0636d73d6fedb
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129620276"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132718"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Fonctionnalités de Recherche cognitive Azure
 
@@ -33,9 +33,9 @@ Le tableau suivant récapitule les fonctionnalités par catégorie. Pour plus d�
 
 | Catégorie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Fonctionnalités |
 |-------------------|----------|
-|Traitement de l’IA pendant l’indexation | Un [**enrichissement de l’IA**](cognitive-search-concept-intro.md) à des fins d’analyse de texte et d’images peut être appliqué à un pipeline d’indexation afin d’extraire des informations textuelles à partir de contenus bruts. Parmi les [compétences intégrées](cognitive-search-predefined-skills.md), on peut citer la reconnaissance de caractères optiques (ce qui rend possible la recherche de JPEG), la reconnaissance d’entité (identifiant une organisation, un nom ou un emplacement), et la reconnaissance de phrase clé. Vous pouvez aussi [coder des compétences personnalisées](cognitive-search-create-custom-skill-example.md) à attacher au pipeline. Vous pouvez également [intégrer des compétences créées Azure Machine Learning](./cognitive-search-tutorial-aml-custom-skill.md). |
-| Stockage de contenu enrichi pour l’analyse et la consommation dans des scénarios de non-recherche | La [**base de connaissances**](knowledge-store-concept-intro.md) est une autre sortie d’un pipeline d’indexation. Au lieu d’envoyer des termes sous forme de jetons à un index, vous pouvez envoyer des documents enrichis créés par le pipeline d’indexation à une base de connaissances, résidant dans Stockage Blob Azure ou Stockage Table, selon la configuration. Les bases de connaissances sont créées à partir de l’indexation basée sur l’intelligence artificielle (ensembles de compétences). L’objectif d’une base de connaissances est de prendre en charge l’analyse ou le traitement en aval. Grâce aux nouvelles informations et structures d’une base de connaissances, vous pouvez l’associer à un processus de Machine Learning ou vous connecter à partir de Power BI pour explorer les données.<br/><br/> |
-| Contenu mis en cache | L’option [**Enrichissement incrémentiel (préversion)**](cognitive-search-incremental-indexing-conceptual.md) limite le traitement uniquement aux documents modifiés par des modifications spécifiques du pipeline, à l’aide du contenu mis en cache pour les parties du pipeline qui ne changent pas. |
+|Traitement de l’IA pendant l’indexation | L’[**enrichissement par IA**](cognitive-search-concept-intro.md) fait référence à l’image incorporée et au traitement en langage naturel dans un pipeline d’indexeur qui extrait le texte et les informations du contenu qui ne peut pas être indexé pour la recherche en texte intégral. Le traitement de l’IA est réalisé en ajoutant et en combinant des compétences dans un ensemble de compétences, attaché ensuite à un indexeur. L’intelligence artificielle peut être une [compétence intégrée](cognitive-search-predefined-skills.md) de Microsoft, par exemple la traduction de texte ou la reconnaissance optique de caractères (OCR), ou des [compétences personnalisées](cognitive-search-create-custom-skill-example.md) que vous fournissez. |
+| Stockage de contenu enrichi pour l’analyse et la consommation dans des scénarios de non-recherche | Une [**base de connaissances**](knowledge-store-concept-intro.md) est un stockage persistant d’un contenu enrichi, destiné à des scénarios de non-recherche tels que l’exploration de données et le traitement de la science des données. Une base de connaissances est définie dans un ensemble de compétences, mais créée dans Stockage Azure en tant qu’objets ou ensembles de lignes tabulaires.|
+| Enrichissements mis en cache | L’[**enrichissement incrémentiel (préversion)** ](cognitive-search-incremental-indexing-conceptual.md) fait référence aux enrichissements mis en cache qui peuvent être réutilisés lors de l’exécution d’un ensemble de compétences. La mise en cache est particulièrement utile dans les ensembles de compétences qui incluent la reconnaissance optique de caractères et l’analyse d’image, des opérations coûteuses. |
 
 ## <a name="query-and-user-experience"></a>Interrogation et expérience de l’utilisateur
 

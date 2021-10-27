@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: sajagtap
-ms.openlocfilehash: e476f6da88688cb055c741f0888001d864908bae
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 2a336955ba40c8f3beb5b1e7575bee07cc3ef170
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129812427"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997912"
 ---
 # <a name="form-recognizer-studio--preview"></a>Form Recognizer Studio | Préversion
 
@@ -41,6 +41,10 @@ Les fonctionnalités suivantes du service Form Recognizer sont disponibles dans 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Suivez notre [**Guide de migration Form Recognizer v3.0**](v3-migration-guide.md) pour découvrir les différences par rapport à la version antérieure de l’API REST.
+* Explorez nos [**guides de démarrage rapide des kits SDK (préversion)** ](quickstarts/try-v3-python-sdk.md) pour tester les fonctionnalités d’évaluation dans vos applications à l’aide des nouveaux kits SDK.
+* Consultez nos [**guides de démarrage rapide de l’API REST (préversion)** ](quickstarts/try-v3-rest-api.md) pour tester les fonctionnalités d’évaluation à l’aide de la nouvelle API REST.
+
 > [!div class="nextstepaction"]
-> [Prise en main de Form Recognizer Studio (préversion)](https://formrecognizer.appliedai.azure.com)
+> [Guide de démarrage rapide de Form Recognizer Studio (préversion)](quickstarts/try-v3-form-recognizer-studio.md)
 

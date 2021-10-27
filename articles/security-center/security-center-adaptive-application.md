@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/09/2021
 ms.author: memildin
-ms.openlocfilehash: f2ab2dfeec7522599cfb8b3eccdf9b498fdfff32
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c1638b7851ea0a7cc7484de04dad00a2b86d3d34
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713704"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042671"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utiliser des contrôles d’application adaptatifs pour réduire les surfaces d’attaque de vos machines
 
@@ -219,7 +219,7 @@ Lorsque vous déplacez une machine d’un groupe à un autre, la stratégie de c
 
 Pour gérer vos contrôles d’application adaptatifs par programmation, utilisez notre API REST. 
 
-La documentation d’API pertinente est disponible dans [la section Contrôles d’application adaptatifs de la documentation sur l’API de Security Center](/rest/api/securitycenter/adaptiveapplicationcontrols).
+La documentation d’API pertinente est disponible dans [la section Contrôles d’application adaptatifs de la documentation sur l’API Security Center](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Voici certaines des fonctions disponibles à partir de l’API REST :
 

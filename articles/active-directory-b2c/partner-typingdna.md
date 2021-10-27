@@ -3,19 +3,19 @@ title: TypingDNA avec Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Découvrez comment intégrer l’authentification Azure AD B2C à TypingDNA afin de contribuer à la vérification et la confirmation d’identités basées sur le modèle de saisie de l’utilisateur, qui forcent l’authentification multifacteur et permettent de se conformer aux normes SCA pour la directive 2 sur les services de paiement (B2C).
 author: gargi-sinha
-manager: celestedg
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: afaac48d263082a17c7ba58996f4000366de0211
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 7c580974206a5eb4186180c997a33a5be2d02090
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256546"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035787"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Didacticiel pour la configuration de TypingDNA avec Azure Active Directory B2C
 
@@ -61,7 +61,7 @@ Les appels de l’API REST sont modelés avec `validationTechnicalProfiles` dans
 
 ### <a name="sign-in"></a>Connexion
 
-Lors de la prochaine connexion, le modèle de saisie de l’utilisateur est calculé de la même manière qu’au moment de l’inscription à l’aide du [code HTML personnalisé](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Une fois que le profil de saisie se trouve dans le jeu de revendications Azure AD B2C, Azure AD B2C appellera votre API pour appeler le point de terminaison de l’API REST de TypingDNA. Le point de terminaison de l’[utilisateur de vérification](https://api.typingdna.com/index.html#api-API_Services-GetUser) est appelé pour confirmer que l’utilisateur existe. Ensuite, le point de terminaison [vérifier le modèle](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) est appelé pour retourner le `net_score`. Ce `net_score` indique à quel point le modèle de frappe était proche du modèle d’origine lors de l’inscription.
+Lors de la prochaine connexion, le modèle de saisie de l’utilisateur est calculé de la même manière qu’au moment de l’inscription à l’aide du [code HTML personnalisé](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Une fois que le profil de saisie se trouve dans le jeu de revendications Azure AD B2C, Azure AD B2C appelle votre API pour appeler le point de terminaison de l’API REST TypingDNA. Le point de terminaison de l’[utilisateur de vérification](https://api.typingdna.com/index.html#api-API_Services-GetUser) est appelé pour confirmer que l’utilisateur existe. Ensuite, le point de terminaison [vérifier le modèle](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) est appelé pour retourner le `net_score`. Ce `net_score` indique à quel point le modèle de frappe était proche du modèle d’origine lors de l’inscription.
 
 Ce modèle de saisie est modélisé avec `validationTechnicalProfiles` dans `SelfAsserted-LocalAccountSignin-Email-TDNA` :
 

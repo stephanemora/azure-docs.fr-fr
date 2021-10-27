@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
-ms.openlocfilehash: 803a70b01a39d20080a9724b6ab1780c9a81d354
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 878af265e99c1d6ea431f027e19a6b930eb1ded6
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129425408"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001444"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utiliser le package d’interprétabilité pour expliquer les modèles ML et les prédictions dans Python (préversion)
 
@@ -565,6 +565,15 @@ Vous pouvez déployer l’explicatif avec le modèle d’origine et l’utiliser
 ## <a name="troubleshooting"></a>Résolution des problèmes
 
 * **Données éparses non prises en charge** : Le tableau de bord d’explication de modèle s’interrompt/ralentit considérablement avec un grand nombre de caractéristiques. Par conséquent, nous ne prenons actuellement pas en charge le format de données éparses. En outre, des problèmes de mémoire générale surviendront avec les jeux de données volumineux et un grand nombre de caractéristiques. 
+* **Matrice des fonctionnalités d’explications prises en charge**
+
+Onglet explication prise en charge | Caractéristiques brutes (denses) | Caractéristiques brutes (éparses) | Caractéristiques développées (denses) | Caractéristiques développées (éparses)
+:----- | :--- | :--- | :---- | :---- |
+Performances du modèle   | Pris en charge (sans prévision) | Pris en charge (sans prévision)  | Prise en charge | Prise en charge |
+Explorateur de jeu de données  | Pris en charge (sans prévision)   | Non pris en charge. Étant donné que les données éparses ne sont pas chargées et que l’interface utilisateur rencontre des problèmes de rendu des données éparses. | Prise en charge | Non pris en charge. Étant donné que les données éparses ne sont pas chargées et que l’interface utilisateur rencontre des problèmes de rendu des données éparses. | 
+ Agréger l’importance d'une caractéristique | Prise en charge | Prise en charge | Prise en charge | Prise en charge |
+ Importance des caractéristiques individuelles| Pris en charge (sans prévision)   | Non pris en charge. Étant donné que les données éparses ne sont pas chargées et que l’interface utilisateur rencontre des problèmes de rendu des données éparses. | Prise en charge | Non pris en charge. Étant donné que les données éparses ne sont pas chargées et que l’interface utilisateur rencontre des problèmes de rendu des données éparses. | 
+
 
 * **Modèles de prévision non pris en charge avec les explications de modèle** : L’interprétabilité, la meilleure explication du modèle, n’est pas disponible pour les expériences de prévision AutoML, qui recommandent les algorithmes suivants comme modèle optimal : TCNForecaster, AutoArima, Prophet, ExponentialSmoothing, Moyenne, Naïf, Moyenne saisonnière et Naïf saisonnier. La prévision AutoML a des modèles de régression qui prennent en charge les explications. Toutefois, dans le tableau de bord d’explication, l’onglet « Importance des caractéristiques individuelles » n’est pas pris en charge pour la prévision en raison de la complexité des pipelines de données.
 

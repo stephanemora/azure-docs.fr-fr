@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: duau
-ms.openlocfilehash: 7f14f43fa341df40ecd35340b7311e1acd18004c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 41035593a31a854e8bb2bb325c51ba5abb8e3f72
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92204705"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069935"
 ---
 # <a name="expressroute-qos-requirements"></a>Configuration requise pour ExpressRoute QoS
 Skype Entreprise a différentes charges de travail nécessitant un traitement QoS différencié. Si vous envisagez d’utiliser des services vocaux via ExpressRoute, vous devez respecter les conditions requises décrites ci-dessous.
@@ -20,7 +20,7 @@ Skype Entreprise a différentes charges de travail nécessitant un traitement Qo
 ![Diagramme qui montre les services vocaux passant par ExpressRoute.](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
-> La configuration requise pour QoS ne s’applique qu’au peering Microsoft. Les valeurs DSCP de votre trafic réseau reçues sur le peering public Azure et le peering privé Azure seront remises à 0. 
+> La configuration requise pour QoS ne s’applique qu’au peering Microsoft. Les valeurs DSCP de votre trafic réseau reçues sur le peering privé Azure sont conservées telles quelles, mais elles ne sont pas utilisées pour classer par ordre de priorité le trafic sur le réseau de Microsoft. 
 > 
 > 
 

@@ -3,14 +3,14 @@ title: Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Eve
 description: Décrit comment livrer des événements aux points de terminaison HTTPS protégés par Azure Active Directory à l’aide d’Azure Event Grid
 ms.topic: how-to
 ms.date: 09/29/2021
-ms.openlocfilehash: ef5bbb33f738a102277870c6227813f6ce8ad257
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 18db7a5244cb498ff54999646082d3d5628468e1
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129616844"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066881"
 ---
-# <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publier des événements sur des points de terminaison protégés par Azure Active Directory
+# <a name="deliver-events-to-azure-active-directory-protected-endpoints"></a>Délivrer des événements sur des points de terminaison protégés par Azure Active Directory
 Cet article explique comment utiliser Azure Active Directory (Azure AD) pour sécuriser la connexion entre votre **abonnement aux événements** et votre **point de terminaison webhook**. Pour obtenir une vue d’ensemble des applications et des principaux de service Azure AD, consultez [Présentation de la plateforme d’identités Microsoft (v2.0)](../active-directory/develop/v2-overview.md).
 
 Cet article utilise le Portail Azure à des fins de démonstration, mais la fonctionnalité peut également être activée à l’aide de l’interface CLI, de PowerShell ou des Kits de développement logiciel (SDK).
@@ -18,7 +18,7 @@ Cet article utilise le Portail Azure à des fins de démonstration, mais la fonc
 > [!IMPORTANT]
 > Une vérification d’accès supplémentaire a été introduite dans le cadre de la création ou de la mise à jour de l’abonnement aux événements le 30 mars 2021 afin de résoudre une faille de sécurité. Le principal de service du client abonné doit être soit propriétaire, soit avoir un rôle attribué sur le principal de service de l’application de destination. Reconfigurez votre application AAD en suivant les nouvelles instructions ci-dessous.
 
-## <a name="single-tenant-events-with-azure-ad-and-webhooks"></a>Événements à un seul locataire avec Azure AD et webhooks
+## <a name="deliver-events-to-a-webhook-in-the-same-azure-ad-tenant"></a>Remettre des événements à un webhook dans le même locataire Azure AD
 
 ![Livraison sécurisée de webhooks à l’aide d’Azure AD dans Azure Event Grid](./media/secure-webhook-delivery/single-tenant-diagram.png)
 
@@ -59,7 +59,7 @@ Sur la base du diagramme ci-dessus, procédez comme suit pour configurer le loca
     4. Sous l’onglet **Fonctionnalités supplémentaires**, procédez comme suit :
         1. Sélectionnez **Utiliser l’authentification AAD**, puis configurez l’ID de locataire et l’ID d’application :
         2. Copiez l’ID de locataire Azure AD à partir de la sortie du script, puis entrez-le dans le champ **ID de locataire AAD**.
-        3. Copiez l’ID d’application Azure AD à partir de la sortie du script, puis entrez-le dans le champ **ID d’application AAD**. Vous pouvez également utiliser l’URI de l’ID d’application AAD. Pour plus d’informations sur l’URI de l’ID d’application, consultez [cet article](../app-service/configure-authentication-provider-aad.md).
+        3. Copiez l’ID d’application Azure AD à partir de la sortie du script, puis entrez-le dans le champ **ID d’application AAD**. Vous pouvez utiliser l’URI de l’ID d’application AAD au lieu d’utiliser l’ID de l’application. Pour plus d’informations sur l’URI de l’ID d’application, consultez [cet article](../app-service/configure-authentication-provider-aad.md).
     
             ![Action de webhook sécurisé](./media/secure-webhook-delivery/aad-configuration.png)
 
@@ -114,9 +114,9 @@ Sur la base du diagramme ci-dessus, procédez comme suit pour configurer le loca
     > [!NOTE]
     > À ce stade, Event Grid transmet maintenant le jeton du porteur Azure AD au client webhook dans chaque message. Vous devrez valider le jeton d’autorisation dans votre webhook.
 
-## <a name="multitenant-events-with-azure-ad-and-webhooks"></a>Événements multi-locataire avec Azure AD et webhooks
+## <a name="deliver-events-to-a-webhook-in-a-different-azure-ad-tenant"></a>Remettre des événements à un webhook dans un autre locataire Azure AD 
 
-Pour activer un abonnement webhook sécurisé sur plusieurs locataires, vous devrez effectuer cette tâche à l’aide d’une application Azure AD. Ce processus n’est pas actuellement disponible en utilisant l’utilisateur Azure AD à partir du portail.
+Pour activer un abonnement webhook sécurisé sur plusieurs locataires, vous devrez effectuer cette tâche à l’aide d’une application Azure AD. Ce processus n’est actuellement pas disponible en utilisant l’utilisateur Azure AD à partir du portail.
 
 ![Événements multi-locataire avec Azure AD et webhooks](./media/secure-webhook-delivery/multitenant-diagram.png)
 

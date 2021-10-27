@@ -1,19 +1,19 @@
 ---
-title: Comprendre l’intégrité de vos ressources
+title: 'Résolution des problèmes : Intégrité des ressources'
 titleSuffix: Azure Digital Twins
 description: Découvrez comment utiliser Azure Resource Health pour vérifier l’intégrité de votre instance Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 8/27/2021
+ms.date: 10/7/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 551193ebcddb023010f1cea1029571c99176afb9
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 9c816e613fe6f495de9abb57e2ac041960bffdbe
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123113089"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131445"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Dépannage d’Azure Digital Twins : Intégrité des ressources
 
@@ -47,7 +47,7 @@ Pour plus d’informations sur l’utilisation de Azure Service Health, consulte
 
 ## <a name="use-azure-status"></a>Utilisez l’état d’Azure
 
-Le page [état d’Azure](../service-health/azure-status-overview.md) vous présente une vue globale de l'intégrité des régions et des services Azure. Ce n’est pas aussi personnalisé que Azure Service Health ou Azure Resource Health et peut être utile pour comprendre les incidents avec un impact sur la portée du remplacement.
+Le page [état d’Azure](../service-health/azure-status-overview.md) vous présente une vue globale de l'intégrité des régions et des services Azure. Alors qu’Azure Service Health et Azure Resource Health sont personnalisés en fonction de votre ressource spécifique, l’état d’Azure a une plus grande portée et peut être utile pour comprendre les incidents ayant un large impact.
 
 Pour vérifier l’état d’Azure, accédez à la page [État d’Azure](https://status.azure.com/status/). La page affiche un tableau des services Azure, ainsi que des indicateurs d’intégrité par région. Vous pouvez afficher Azure Digital Twins en recherchant son entrée de table sur la page.
 
@@ -56,6 +56,6 @@ Pour plus d’informations sur l’utilisation de la page d’état d’Azure, c
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez d’autres façons d’analyser votre instance Azure Digital Twins dans les articles suivants :
-* [Résolution des problèmes : Afficher les métriques avec Azure Monitor](troubleshoot-metrics.md)
-* [Résolution des problèmes : Configurer les diagnostics](troubleshoot-diagnostics.md).
-* [Résolution des problèmes : Configurer des alertes](troubleshoot-alerts.md).
+* [Résolution des problèmes : Métriques](troubleshoot-metrics.md)
+* [Résolution des problèmes : Journaux de diagnostic](troubleshoot-diagnostics.md)
+* [Résolution des problèmes : Alertes](troubleshoot-alerts.md)

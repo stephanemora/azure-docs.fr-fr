@@ -7,16 +7,16 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: de8acfbf4d4930f5c029aaa71300af770a274194
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a219d04634d04e485f8dcfb7af33e19b87c53cd6
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532848"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038807"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Rechercher un emplacement à l’aide des services Search d’Azure Maps
 
-Le [service de recherche](/rest/api/maps/search) d’Azure Maps est un ensemble d’API RESTful conçu pour aider les développeurs à rechercher des adresses, des lieux et des listes d’entreprises par nom, catégorie et autre information géographique. En plus de prendre en charge le géocodage traditionnel, les services peuvent aussi géocoder en sens inverse les adresses et intersections en fonction des latitudes et longitudes. Les valeurs de latitude et de longitude renvoyées par la recherche peuvent être utilisées comme paramètres dans d’autres services d’Azure Maps, tels que les services [Itinéraire](/rest/api/maps/route) et [Météo](/rest/api/maps/weather).
+Le [service de recherche d’Azure Maps](/rest/api/maps/search) est un ensemble d’API RESTful conçu pour aider les développeurs à rechercher des adresses, des lieux et des listes d’entreprises par nom, catégorie et autre information géographique. En plus de prendre en charge le géocodage traditionnel, les services peuvent aussi géocoder en sens inverse les adresses et intersections en fonction des latitudes et longitudes. Les valeurs de latitude et de longitude renvoyées par la recherche peuvent être utilisées comme paramètres dans d’autres services d’Azure Maps, tels que les services [Itinéraire](/rest/api/maps/route) et [Météo](/rest/api/maps/weather).
 
 
 Dans cet article, vous allez apprendre à :

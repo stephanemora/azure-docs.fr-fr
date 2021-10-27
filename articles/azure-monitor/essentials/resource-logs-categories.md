@@ -2,13 +2,13 @@
 title: Catégories prises en charge pour les journaux de ressources Azure Monitor
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure Monitor.
 ms.topic: reference
-ms.date: 09/10/2021
-ms.openlocfilehash: 9c41c714d2913247a6b0d00e3b242da9c59e038e
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.date: 10/05/2021
+ms.openlocfilehash: bf7d5371a170f28e79828619aef9fc16e15a303a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457750"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006372"
 ---
 # <a name="supported-categories-for-azure-monitor-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure Monitor
 
@@ -65,6 +65,9 @@ S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire Git
 |ApplicationAuditLogs|Journaux d’audit des applications|Oui|
 |FarmManagementLogs|Journaux de gestion de la ferme|Oui|
 |FarmOperationLogs|Journaux d'exploitation de la ferme|Oui|
+|InsightLogs|Journaux d’analyse|Oui|
+|JobProcessedLogs|Journaux de travail traités|Oui|
+|ModelInferenceLogs|Journaux d’inférence de modèle|Oui|
 |ProviderAuthLogs|Journaux d’authentification du fournisseur|Oui|
 |SatelliteLogs|Journaux satellites|Oui|
 |WeatherLogs|Journaux météo|Oui|
@@ -99,6 +102,7 @@ S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire Git
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |ApplicationConsole|Application console|Non|
+|BuildLogs|Journaux de la génération|Oui|
 |IngressLogs|Journaux d’entrée|Oui|
 |SystemLogs|Journaux système|Non|
 
@@ -230,8 +234,8 @@ S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire Git
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |AuthOperational|Journaux d’authentification opérationnels|Oui|
-|CallDiagnosticsPRIVATEPREVIEW|Appeler les journaux de diagnostic - version préliminaire privée|Yes|
-|CallSummaryPRIVATEPREVIEW|Journaux de résumé des appels - version préliminaire privée|Oui|
+|CallDiagnostics|Journaux de diagnostic des appels|Oui|
+|CallSummary|Journaux de résumé des appels|Oui|
 |ChatOperational|Journaux de conversation opérationnels|Non|
 |SMSOperational|Journaux SMS opérationnels|Non|
 |Usage|Enregistrements d’utilisation|Non|
@@ -241,6 +245,7 @@ S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire Git
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
+|Audit|Journaux d’audit MCVP|Oui|
 |Journaux d’activité|Journaux MCVP|Oui|
 
 
@@ -642,6 +647,7 @@ S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire Git
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
 |AuditEvent|Journaux d’audit|Non|
+|AzurePolicyEvaluationDetails|Détails de l’évaluation de la stratégie Azure|Oui|
 
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
@@ -716,8 +722,9 @@ S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire Git
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
 |---|---|---|
-|PipelineDiagnostics|Journaux de diagnostic de pipeline|Oui|
-|PipelineOperational|Journaux des opérations de pipeline|Yes|
+|Audit|Journaux d’audit|Oui|
+|Diagnostics|Journaux de diagnostic|Oui|
+|En fonctionnement|Journaux d’activité des opérations|Yes|
 
 
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationgateways
@@ -947,6 +954,13 @@ S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire Git
 |MessagingLogs|Journaux de messagerie pour le service Azure Web PubSub.|Oui|
 
 
+## <a name="microsoftsingularityaccounts"></a>microsoft.singularity/accounts
+
+|Category|Nom d’affichage de la catégorie|Coûts d’exportation|
+|---|---|---|
+|Exécution|Journaux d’exécution|Oui|
+
+
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |Category|Nom d’affichage de la catégorie|Coûts d’exportation|
@@ -1110,7 +1124,6 @@ S’il vous manque toujours quelque chose, vous pouvez ouvrir un commentaire Git
 |AppServiceAppLogs|Journaux d’application App Service|Non|
 |AppServiceAuditLogs|Journaux d’audit d’accès|Non|
 |AppServiceConsoleLogs|Journaux de la console App Service|Non|
-|AppServiceDiagnosticToolsLogs|Journaux des Outils de diagnostic de rapports|Yes|
 |AppServiceFileAuditLogs|Journaux d’audit de modification de contenu de site|Non|
 |AppServiceHTTPLogs|Journaux HTTP|Non|
 |AppServiceIPSecAuditLogs|Journaux d’audit IPSecurity|Non|

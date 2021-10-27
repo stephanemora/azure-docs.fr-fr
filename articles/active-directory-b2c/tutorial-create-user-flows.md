@@ -2,21 +2,21 @@
 title: Tutoriel - Créer des flux d’utilisateurs et des stratégies personnalisées - Azure Active Directory B2C
 description: Suivez ce tutoriel pour découvrir comment créer des flux d’utilisateurs et des stratégies personnalisées dans le portail Azure afin de permettre l’inscription, la connexion et la modification de profil utilisateur pour vos applications dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/20/2021
-ms.author: mimart
+ms.date: 10/18/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 07c3b88bd4cb5b7c0b0121bc2b9e12b7f9d5a441
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 63af3b70ebfde53078d71955a95e55e03a6c591b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598039"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162481"
 ---
 # <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>Tutoriel : créer des flux d’utilisateurs et des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ Les [stratégies personnalisées](custom-policy-overview.md) sont des fichiers d
 
 - Si vous n’en avez pas, [créez un locataire Azure AD B2C](tutorial-create-tenant.md) qui est lié à votre abonnement Azure.
 - [Inscrivez une application web](tutorial-register-applications.md) et [activez l’octroi implicite de jeton d’ID](tutorial-register-applications.md#enable-id-token-implicit-grant).
-- [Créez une application Facebook](identity-provider-facebook.md#create-a-facebook-application). Ignorez les prérequis et le reste des étapes de l’article [Configurer l’inscription et se connecter avec un compte Facebook](identity-provider-facebook.md). Bien qu’une application Facebook ne soit pas requise pour l’utilisation de stratégies personnalisées, elle est utilisée dans cette procédure pas à pas pour illustrer l’activation de la connexion à partir de réseaux sociaux dans une stratégie personnalisée.
+
 
 ::: zone-end
 
@@ -171,16 +171,6 @@ Si vous voulez autoriser les utilisateurs à modifier leur profil dans votre app
 1. Pour **Utilisation de la clé**, sélectionnez **Chiffrement**.
 1. Sélectionnez **Create** (Créer).
 
-### <a name="create-the-facebook-key"></a>Créer la clé Facebook
-
-Ajoutez le [secret d’application](identity-provider-facebook.md) de votre application Facebook en tant que clé de stratégie. Vous pouvez utiliser le secret d’application de l’application que vous avez créée dans le cadre des conditions préalables de cet article.
-
-1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
-1. Pour **Options**, choisissez `Manual`.
-1. Pour **Nom**, entrez `FacebookSecret`. Il est possible que le préfixe `B2C_1A_` soit ajouté automatiquement.
-1. Dans **Secret**, entrez le *Secret d’application* de votre application Facebook depuis developers.facebook.com. Cette valeur correspond au secret, pas à l’ID d’application.
-1. Pour **Utilisation de la clé**, sélectionnez **Signature**.
-1. Sélectionnez **Create** (Créer).
 
 ## <a name="register-identity-experience-framework-applications"></a>Inscrire les applications de l’infrastructure d’expérience d’identité
 
@@ -226,8 +216,11 @@ Ensuite, exposez l’API en ajoutant une étendue :
 Ensuite, spécifiez que l’application doit être traitée comme un client public :
 
 1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Authentification**.
-1. Sous **Paramètres avancés**, dans la section **Autoriser les flux de clients publics**, définissez **Activer les flux mobiles et de bureau suivants** sur **Oui**. Assurez-vous que **« allowPublicClient » : true** est défini dans le manifeste de l’application. 
+1. Sous **Paramètres avancés**, dans la section **Autoriser les flux de clients publics**, définissez **Activer les flux mobiles et de bureau suivants** sur **Oui**. 
 1. Sélectionnez **Enregistrer**.
+1. Assurez-vous que **« allowPublicClient » : true** est défini dans le manifeste de l’application :
+    1. Dans le menu de gauche, sous **Gérer**, sélectionnez **Manifeste** pour ouvrir le manifeste d’application.
+    1. Recherchez la clé **allowPublicClient** et assurez-vous que sa valeur est définie sur **true**.
 
 Maintenant, accordez des autorisations à l’étendue de l’API que vous avez exposée précédemment dans l’inscription  *IdentityExperienceFramework* :
 
@@ -236,10 +229,9 @@ Maintenant, accordez des autorisations à l’étendue de l’API que vous avez 
 1. Sélectionnez l’onglet **Mes API**, puis sélectionnez l’application **IdentityExperienceFramework**.
 1. Sous **Autorisation**, sélectionnez l’étendue **user_impersonation** que vous avez définie précédemment.
 1. Sélectionnez **Ajouter des autorisations**. Comme vous l’indiquent les instructions, patientez quelques minutes avant de passer à l’étape suivante.
-1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre abonné)** .
-1. Sélectionnez le compte administrateur actuellement connecté ou connectez-vous avec un compte de votre locataire Azure AD B2C qui possède au minimum le rôle *Administrateur d’application cloud*.
-1. Sélectionnez **Accepter**.
-1. Sélectionnez **Actualiser**, puis vérifiez que le message « Accordé pour... » apparaît bien sous **Statut** pour les étendues : offline_access, openid et user_impersonation. La propagation des autorisations peut prendre quelques minutes.
+1. Sélectionnez **Accorder le consentement de l’administrateur pour *<nom de votre locataire)>***.
+1. Sélectionnez **Oui**.
+1. Sélectionnez **Actualiser**, puis vérifiez que « Accordé pour ... » apparaît sous **État** pour l’étendue.
 
 * * *
 
@@ -255,6 +247,7 @@ Les stratégies personnalisées sont un ensemble de fichiers XML que vous télé
 Chaque pack de démarrage contient :
 
 - **Ficher de base** : il n’y a que peu de modifications à apporter à la base. Exemple : *TrustFrameworkBase.xml*
+- **Fichier de localisation** : c’est sur ce fichier que sont apportés les changements de localisation. Exemple : *TrustFrameworkLocalization.xml*
 - **Fichier d’extension** : c’est sur ce fichier que portent la plupart des modifications de la configuration. Exemple : *TrustFrameworkExtensions.xml*
 - **Fichiers de partie de confiance** : sont des fichiers propres à chaque tâche, appelés par l’application. Exemples : *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
@@ -289,10 +282,11 @@ Ajoutez les ID d’applications au fichier d’extensions *TrustFrameworkExtensi
 1. Sélectionnez **Charger une stratégie personnalisée**.
 1. Dans cet ordre, téléchargez les fichiers de stratégie :
     1. *TrustFrameworkBase.xml*
-    1. *TrustFrameworkExtensions.xml*
-    1. *SignUpOrSignin.xml*
-    1. *ProfileEdit.xml*
-    1. *PasswordReset.xml*
+    2. *TrustFrameworkLocalization.xml*
+    3. *TrustFrameworkExtensions.xml*
+    4. *SignUpOrSignin.xml*
+    5. *ProfileEdit.xml*
+    6. *PasswordReset.xml*
 
 Lorsque vous chargez les fichiers, Azure ajoute le préfixe `B2C_1A_` à chacun d’eux.
 
@@ -305,14 +299,35 @@ Lorsque vous chargez les fichiers, Azure ajoute le préfixe `B2C_1A_` à chacun 
 1. Pour **sélectionner une application** dans la page de présentation de la stratégie personnalisée, sélectionnez l’application web nommée *webapp1* que vous avez inscrite précédemment.
 1. Assurez-vous que l’**URL de réponse** soit `https://jwt.ms`.
 1. Sélectionnez **Exécuter maintenant**.
-1. Inscrivez-vous au moyen d’une adresse e-mail.
+1. Inscrivez-vous au moyen d’une adresse e-mail. N’utilisez pas encore l’option **Facebook**. 
 1. Sélectionnez **Exécuter maintenant** à nouveau.
 1. Connectez-vous avec le même compte pour vérifier que votre configuration est correcte.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Ajouter Facebook en tant que fournisseur d’identité
 
-Comme indiqué dans [Conditions préalables](#prerequisites), Facebook n’est *pas* requis pour l’utilisation de stratégies personnalisées, mais il est utilisé ici pour illustrer comment vous pouvez activer la connexion fédérée à partir de réseaux sociaux dans une stratégie personnalisée.
+Le pack de démarrage **SocialAndLocalAccounts** comprend la connexion au réseau social Facebook. Facebook n’est *pas* requis pour l’utilisation de stratégies personnalisées, mais nous l’utilisons ici pour illustrer comment vous pouvez activer la connexion fédérée aux réseaux sociaux dans une stratégie personnalisée.
 
+### <a name="create-facebook-application"></a>Créer une application Facebook
+
+Suivez les étapes décrites dans [Créer une application Facebook](identity-provider-facebook.md#create-a-facebook-application) pour obtenir un *ID d’application* et un *secret d’application* Facebook. Ignorez les prérequis et le reste des étapes de l’article [Configurer l’inscription et se connecter avec un compte Facebook](identity-provider-facebook.md). 
+
+### <a name="create-the-facebook-key"></a>Créer la clé Facebook
+
+Ajoutez le [secret d’application](identity-provider-facebook.md) de votre application Facebook en tant que clé de stratégie. Vous pouvez utiliser le secret d’application de l’application que vous avez créée dans le cadre des conditions préalables de cet article.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Veillez à bien utiliser l’annuaire qui contient votre locataire Azure AD B2C. Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire AD B2C Azure dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sous **Stratégies**, sélectionnez **Identity Experience Framework**.
+1. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
+1. Pour **Options**, choisissez `Manual`.
+1. Pour **Nom**, entrez `FacebookSecret`. Il est possible que le préfixe `B2C_1A_` soit ajouté automatiquement.
+1. Dans **Secret**, entrez le *Secret d’application* de votre application Facebook depuis developers.facebook.com. Cette valeur correspond au secret, pas à l’ID d’application.
+1. Pour **Utilisation de la clé**, sélectionnez **Signature**.
+1. Sélectionnez **Create** (Créer).
+
+### <a name="update-trustframeworkextensionsxml-in-custom-policy-starter-pack"></a>Mettre à jour TrustFrameworkExtensions.xml dans le pack de démarrage de la stratégie personnalisée
 1. Dans le fichier `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** , remplacez la valeur de `client_id` par l’ID d’application Facebook :
 
    ```xml

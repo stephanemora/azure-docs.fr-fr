@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 73a30e7052faaaa644511fec65796a4575e5ab4a
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 3016fb18827c0c1323cb151024303a15a2454c5a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123259134"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177932"
 ---
 # <a name="known-issues"></a>Problèmes connus
 Cet article fournit des informations sur les limitations et problèmes connus concernant les Kits de développement logiciel (SDK) Appel pour Azure Communication Services et Automatisation des appels Azure Communication Services.
@@ -127,6 +127,8 @@ Les développeurs sont encouragés à effectuer les opérations suivantes :
 ##### <a name="possible-causes"></a>Causes possibles
 Dans certains navigateurs (par exemple, Safari), l’acquisition de votre propre flux à partir du même appareil aura pour effet secondaire de créer des conditions de concurrence. L’acquisition de flux à partir d’autres appareils peut conduire à une bande passante d’E/S USB insuffisante, et le taux sourceUnavailableError montera en flèche.  
 
+#### <a name="support-for-simulcast"></a>Prise en charge de Simulcast
+Le terme Simulcast désigne une technique par laquelle un client encode le même flux vidéo deux fois dans des résolutions et des débits différents et permet à l’infrastructure ACS de décider le flux qu’un client doit recevoir. Le kit SDK de la bibliothèque d’appels ACS pour Windows, Android ou iOS prend en charge l’envoi de flux Simulcast. Le kit SDK web ACS ne prend actuellement pas en charge l’envoi de flux Simulcast.
 
 ## <a name="azure-communication-services-call-automation-apis"></a>API d’automatisation des appels Azure Communication Services
 

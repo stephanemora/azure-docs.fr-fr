@@ -3,7 +3,7 @@ title: Interopérabilité des fonctionnalités avec les groupes de disponibilit�
 description: 'Découvrez des aspects supplémentaires à prendre en considération lors de l’utilisation de certaines fonctionnalités de SQL Server et d’un écouteur de nom de réseau distribué (distributed network name, DNN) avec un groupe de disponibilité AlwaysOn sur SQL Server sur des machines virtuelles Azure. '
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,13 +12,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/08/2020
-ms.author: mathoma
-ms.openlocfilehash: e7ff8eaaca03a2c977311c6469e06714c87ce53f
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: dd8713bcbe96c16e24305e05f693bbf15af327ab
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572349"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163045"
 ---
 # <a name="feature-interoperability-with-ag-and-dnn-listener"></a>Interopérabilité des fonctionnalités avec un groupe de disponibilité (AG) et un écouteur de DNN 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -128,6 +129,9 @@ Configurez le serveur lié à l’aide du nom et du port d’écouteur de DNN d�
 
    Oui. Le cluster lie le DNN dans le DNS aux adresses IP physiques de tous les réplicas disponibles, quel que soit le sous-réseau. Le client SQL essaie toutes les adresses IP du nom DNS, quel que soit le sous-réseau. 
 
+- L’écouteur DNN du groupe de disponibilité prend-il en charge le routage en lecture seule ? 
+
+   Oui. Le routage en lecture seule est pris en charge par l’écouteur DNN. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

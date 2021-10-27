@@ -3,7 +3,7 @@ title: Inscrire plusieurs machines virtuelles SQL dans Azure avec l’extension 
 description: Inscrivez en bloc des machines virtuelles SQL Server avec l’extension SQL IaaS Agent pour améliorer la facilité de gestion.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: adbadram
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -12,15 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: adbadram
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b2066ef94cb87a9ab9c000615c018938cbeddb1
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: bc4bfc48c9b8f6891c45730215f2c49e84467a42
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123220624"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161887"
 ---
 # <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>Inscrire plusieurs machines virtuelles SQL dans Azure avec l’extension SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -249,4 +249,4 @@ Pour plus d’informations, consultez les articles suivants :
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Questions fréquentes (FAQ) pour SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.yml)
 * [Guide des tarifs pour SQL Server sur une machine virtuelle Windows](pricing-guidance.md)
-* [Notes de publication pour SQL Server sur une machine virtuelle Windows](../../database/doc-changes-updates-release-notes.md)
+* [Nouveautés de SQL Server sur des machines virtuelles Azure](doc-changes-updates-release-notes-whats-new.md)

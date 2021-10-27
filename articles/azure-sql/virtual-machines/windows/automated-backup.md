@@ -3,7 +3,7 @@ title: Sauvegarde automatisée version 2 pour les machines virtuelles SQL Server
 description: Cet article décrit la fonctionnalité de sauvegarde automatisée pour les machines virtuelles SQL Server 2016/2017 s’exécutant sur Azure. Cet article est spécifique aux machines virtuelles utilisant Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
@@ -12,15 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a93214a8577dc298551e4e819282a58f10a72f38
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 047280e5db0ce67a80b44dee224196d2ac6668c4
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532601"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166245"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée v2 pour les machines virtuelles Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -112,8 +112,9 @@ Cela signifie que la prochaine fenêtre de sauvegarde disponible est lundi à 22
 
 Puis des sauvegardes complètes de toutes les bases de données seront relancées mardi à 22 h 00 pendant 6 heures.
 
+
 > [!IMPORTANT]
-> Lorsque vous planifiez des sauvegardes quotidiennes, il est recommandé de planifier une fenêtre de temps assez large pour s’assurer que toutes les bases de données puissent être sauvegardées durant cet intervalle. Ceci est particulièrement important dans le cas où vous avez une grande quantité de données à sauvegarder.
+> Les sauvegardes se produisent de façon séquentielle au cours de chaque intervalle. Pour les instances avec un grand nombre de bases de données, planifiez l’intervalle de sauvegarde avec suffisamment de temps pour prendre en charge toutes les sauvegardes. Si les sauvegardes ne peuvent pas se terminer dans l’intervalle donné, certaines sauvegardes peuvent être ignorées, et le temps entre les sauvegardes pour une seule base de données peut être supérieur au temps d’intervalle de sauvegarde configuré, ce qui peut avoir un impact négatif sur votre objectif de point de restauration. 
 
 ## <a name="configure-new-vms"></a>Configurer de nouvelles machines virtuelles
 

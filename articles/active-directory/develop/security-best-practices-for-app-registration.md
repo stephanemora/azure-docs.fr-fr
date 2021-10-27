@@ -12,12 +12,12 @@ ms.date: 07/8/2021
 ms.custom: template-concept
 ms.author: cchiedo
 ms.reviewer: saumadan, marsma
-ms.openlocfilehash: 55633a1a3a6f4377abbfc413d866af031f57a31c
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7c3398b6f7a2f4de99adfbdf137886278e69a007
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562951"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071714"
 ---
 # <a name="azure-ad-application-registration-security-best-practices"></a>Meilleures pratiques de sécurité pour l’inscription d’applications Azure AD
 
@@ -83,15 +83,9 @@ Bien qu’il soit pratique d’utiliser des secrets de mot de passe comme inform
 ## <a name="appid-uri-configuration"></a>Configuration de l’URI AppId
 
 Certaines applications peuvent exposer des ressources (via WebAPI) et, par conséquent, doivent définir un URI AppId qui identifie de façon unique la ressource dans un locataire. Nous vous recommandons d’utiliser l’un des schémas d’URI suivants : API ou HTTPS, et de définir l’URI AppId aux formats suivants pour éviter les collisions d’URI dans votre organisation.
+L’URI AppId fait office de préfixe pour les étendues référencées dans le code de l’API, et il doit utiliser un domaine appartenant à un client vérifié. Pour les applications mutualisées, la valeur doit aussi être globalement unique.
 
-**Schémas d’API valides :**
-
-- api:// _{appId}_
-- api:// _{tenantId}/{appId}_
-- api:// _{tenantId}/{string}_
-- https:// _{verifiedCustomerDomain}/{string}_
-- https:// _{string}.{verifiedCustomerDomain}_
-- https:// _{string}.{verifiedCustomerDomain}/{string}_
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
 ![URI d’ID d’application](media/active-directory-application-registration-best-practices/app-id-uri.png)
 
@@ -102,6 +96,7 @@ Certaines applications peuvent exposer des ressources (via WebAPI) et, par cons�
 | Éviter les collisions à l’aide de formats d’URI valides | Utiliser l’URI de l’AppId générique |
 | Utiliser un domaine vérifié dans des applications métier | URI incorrect    |
 | Inventorier vos URI AppId                    |      -----             |
+| Utiliser l’URI AppId pour exposer des WebApi dans votre organisation| Utiliser l’URI AppId pour identifier l’application, utiliser la propriété appId à la place|
 
 ## <a name="app-ownership-configuration"></a>Configuration de la propriété de l’application
 

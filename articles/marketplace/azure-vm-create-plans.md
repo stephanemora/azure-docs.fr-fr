@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 07/26/2021
-ms.openlocfilehash: 9994e37d747419bd42820bd4c3c4c5ed1e147708
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/13/2021
+ms.openlocfilehash: fd4d93b09328ad0b8de982a065567ffbadd87be3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129360171"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004385"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Créer des plans pour une offre de machine virtuelle
 
@@ -130,13 +130,13 @@ Vous pouvez proposer à vos clients un **essai gratuit** d’un mois, de trois m
 
 ### <a name="plan-visibility"></a>Visibilité du plan
 
-Vous pouvez concevoir chaque plan pour qu’il soit visible par tous les utilisateurs ou uniquement par un public présélectionné. Définissez l’appartenance à ce public restreint à l’aide des ID d’abonnement Azure.
+Vous pouvez concevoir chaque plan pour qu’il soit visible par tous les utilisateurs ou uniquement par un public présélectionné. Définissez l’appartenance à cette audience restreinte en utilisant des ID de locataire Azure, des ID d’abonnement ou les deux.
 
 **Public** : votre plan peut être consulté par tout le monde.
 
 **Privé** : votre plan ne peut être consulté que par un public présélectionné. Une fois votre plan publié en tant que plan privé, vous pouvez mettre à jour le public visé ou rendre le plan public. Une fois que vous avez rendu un plan public, il doit rester public. Vous ne pouvez pas le reconvertir en plan privé.
 
-Définissez le public qui aura accès à ce plan privé au moyen d’**ID d’abonnement Azure**. Le cas échéant, incluez une **description** de chaque ID d’abonnement Azure que vous attribuez. Ajoutez jusqu’à 10 ID d’abonnement manuellement ou jusqu’à 20 000 ID si vous importez une feuille de calcul CSV. Les ID d’abonnement Azure sont représentés par des GUID, où toutes les lettres doivent être en minuscules.
+Définissez l’audience qui aura accès à ce plan privé en utilisant des *ID de locataire Azure*, des *ID d’abonnement* ou les deux. Le cas échéant, incluez une **description** de chaque ID de locataire ou ID d’abonnement Azure que vous attribuez. Ajoutez jusqu’à dix ID d’abonnement et ID de locataire manuellement, ou importez une feuille de calcul CSV si plus de dix ID sont nécessaires.
 
 > [!NOTE]
 > Un public privé ou restreint est différent du public de préversion que vous avez défini dans le volet **Préversion**. Un public de préversion peut accéder à votre offre *avant* sa publication sur la Place de marché Azure. La sélection d’un public privé ne s’applique qu’à un plan spécifique, tandis que le public de préversion peut voir tous les plans privés et publics dans le cadre de la validation.

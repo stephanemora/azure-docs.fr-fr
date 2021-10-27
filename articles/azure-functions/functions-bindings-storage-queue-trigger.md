@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 85422b8bc587c858fc219379e553d1705e5aaabe
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 716026480ec2b6266edfc69e55d71d0bc1c303cf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564042"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997893"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Déclencheur Stockage File d’attente Azure pour Azure Functions
 
@@ -357,9 +357,11 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction**| n/a | Dans le fichier *function.json* uniquement. Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a |Nom de la variable qui contient la charge utile de l’élément de file d’attente dans le code de fonction.  |
 |**queueName** | **QueueName**| Nom de la file d’attente à interroger. |
-|**connection** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici.<br><br>Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « MyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.<br><br>Si vous utilisez la [version 5.x ou ultérieure de l’extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), au lieu d’une chaîne de connexion, vous pouvez fournir une référence à une section de configuration qui définit la connexion. Consultez [Connexions](./functions-reference.md#connections).|
+|**connection** | **Connection** |Nom d’un paramètre d’application ou d’une collection de paramètres d’application qui spécifie la façon de se connecter à des files d’attente Azure. Consultez [Connexions](#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
 
 ## <a name="usage"></a>Usage
 

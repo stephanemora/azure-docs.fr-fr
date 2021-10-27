@@ -3,24 +3,24 @@ title: 'Démarrage rapide : Analytique d’une application web Java avec Azure 
 description: 'Analyse des performances des applications pour les applications web Java à l’aide d’Application Insights. '
 ms.topic: conceptual
 ms.date: 11/22/2020
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
-ms.openlocfilehash: 043287d8a66ee6954e171dc0c09b42963f522fac
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+author: mattmccleary
+ms.author: mmcc
+ms.openlocfilehash: 53dc6c6f757c65842512ab9c215161058d451962
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110103946"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134029"
 ---
-# <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Démarrage rapide : Prise en main d'Application Insights dans un projet web Java
+# <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
 > [!CAUTION]
 > Ce document s’applique à Application Insights Java 2.x, qui n’est plus recommandé.
 >
 > Vous trouverez la documentation de la dernière version dans [Application Insights Java 3.x](./java-in-process-agent.md).
 
-Dans ce démarrage rapide, vous utilisez le Kit de développement logiciel (SDK) Application Insights pour instrumenter des requêtes, effectuer le suivi des dépendances, recueillir les compteurs de performances, diagnostiquer les problèmes de performances et les exceptions et écrire du code pour suivre l’utilisation de votre application par les utilisateurs.
+Dans ce didacticiel, vous utilisez le Kit de développement logiciel (SDK) Application Insights pour instrumenter des requêtes, effectuer le suivi des dépendances, recueillir les compteurs de performances, diagnostiquer les problèmes de performances et les exceptions et écrire du code pour suivre l’utilisation de votre application par les utilisateurs.
 
 Application Insights est un service d’analyse extensible pour développeurs web qui vous permet de comprendre les performances et l’utilisation de votre application en direct. Application Insights prend en charge les applications Java exécutées sur Linux, Unix ou Windows.
 

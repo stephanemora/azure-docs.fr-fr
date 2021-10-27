@@ -1,22 +1,22 @@
 ---
-title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
+title: RelyingParty – Azure Active Directory B2C
 description: Spécifiez l’élément RelyingParty d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/27/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 0ce866514aef703f3b79980d94fba156c83b10f5
-ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
+ms.openlocfilehash: b4344626318799a79fa668784e5674730e1731cd
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2021
-ms.locfileid: "112981463"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065487"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -221,6 +221,7 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | Description | 0:1 | Chaîne qui contient la description du profil technique. |
 | Protocol | 1:1 | Protocole utilisé pour la fédération. |
 | Métadonnées | 0:1 | Collection d’*éléments* de paires clé/valeur utilisée par le protocole pour communiquer avec le point de terminaison durant une transaction afin de configurer l’interaction entre la partie de confiance et les autres participants de la communauté. |
+| InputClaims | 1:1 | Liste de types de revendications qui sont pris comme entrée dans le profil technique. Chacun de ces éléments contient une référence à un **ClaimType** déjà défini dans la section **ClaimsSchema** ou dans une stratégie dont hérite ce fichier de stratégie. |
 | OutputClaims | 1:1 | Liste de types de revendications qui sont pris comme sortie dans le profil technique. Chacun de ces éléments contient une référence à un **ClaimType** déjà défini dans la section **ClaimsSchema** ou dans une stratégie dont hérite ce fichier de stratégie. |
 | SubjectNamingInfo | 1:1 | Nom du sujet utilisé dans les jetons. |
 
@@ -244,6 +245,21 @@ Quand le protocole est `SAML`, un élément metadata contient les éléments sui
 | WantsSignedResponses| Non | Indique si Azure AD B2C signe la section `Response` de la réponse SAML. Valeurs possibles : `true` (par défaut) ou `false`.  |
 | RemoveMillisecondsFromDateTime| Non | Indique si les millisecondes seront supprimées des valeurs de DateHeure dans la réponse SAML (notamment IssueInstant, NotBefore, NotOnOrAfter et AuthnInstant). Valeurs possibles : `false` (par défaut) ou `true`.  |
 
+### <a name="inputclaims"></a>InputClaims
+
+L’élément **InputClaims** contient l’élément suivant :
+
+| Élément | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| InputClaim | 0:n | Type de revendication d’entrée attendu. |
+
+L’élément **InputClaim** contient les attributs suivants :
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| ClaimTypeReferenceId | Oui | Référence à un **ClaimType** déjà défini dans la section **ClaimsSchema** du fichier de stratégie. |
+| DefaultValue | Non | Valeur par défaut qui peut être utilisée si la valeur de revendication est vide. |
+| PartnerClaimType | Non | Envoie la revendication sous un autre nom, tel que configuré dans la définition de ClaimType. |
 
 ### <a name="outputclaims"></a>OutputClaims
 

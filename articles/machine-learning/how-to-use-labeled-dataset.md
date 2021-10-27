@@ -9,12 +9,12 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: 2af916866aa78a081f8769322a80f4d846c89d3e
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 3af540df0629181197455d8495b774483579b2de
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424082"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984004"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Créer et explorer un jeu de données Azure Machine Learning avec des étiquettes
 
@@ -48,6 +48,8 @@ Lorsque vous terminez un projet d’étiquetage de données, vous pouvez en expo
 Vous pouvez accéder au jeu de données Azure Machine Learning exporté dans la section **Jeux de données** de votre studio Azure Machine Learning. La page **Détails** du jeu de données fournit également un exemple de code pour accéder à vos étiquettes à partir de Python.
 
 ![Jeu de données exporté](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+Une fois que vous avez exporté vos données étiquetées vers un jeu de données Azure Machine Learning, vous pouvez utiliser AutoML pour créer des modèles de vision par ordinateur formés sur vos données étiquetées. En savoir plus : [Configurer AutoML pour effectuer l’apprentissage de modèles de vision par ordinateur avec Python (préversion)](how-to-auto-train-image-models.md)
 
 ## <a name="explore-labeled-datasets"></a>Explorer les jeux de données étiquetés
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/21/2021
 ms.author: normesta
 ms.reviewer: yzheng
-ms.openlocfilehash: 8fb4583fbf04637c58795d6532dcce82ccb8168e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 1268df1aaf095fd6a965b447d48a9ef4978325d7
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624972"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046883"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage"></a>Considérations relatives au niveau de performance de NFS (Network File System) 3.0 dans Stockage Blob Azure
 
@@ -23,17 +23,17 @@ Le stockage Blob Azure prend désormais en charge le protocole NFS (Network File
 
 Le Stockage Blob Azure évolue de façon linéaire jusqu’à la limite maximale de sortie et d’entrée du compte de stockage. Par conséquent, vos applications peuvent atteindre un débit plus élevé en utilisant plus de clients. Pour voir les limites d’entrée et de sortie des comptes de stockage, consultez [Scalabilité et objectifs de niveau de performance des comptes de Stockage Standard](../common/scalability-targets-standard-account.md).
 
-Le graphe suivant montre comment la bande passante augmente lorsque d’autres clients sont ajoutés. Dans ce graphe, un client est une machine virtuelle (VM), et le compte utilise le niveau de performance standard.
+Le graphe suivant montre comment la bande passante augmente lorsque d’autres clients sont ajoutés. Dans ce graphique, un client est une machine virtuelle (VM) et avec un compte de stockage v2 standard à usage général.
 
 > [!div class="mx-imgBorder"]
 > ![Niveau de performance Standard](./media/network-file-system-protocol-support-performance/standard-performance-tier.png)
 
-Le graphe suivant révèle le même effet lorsqu’il est appliqué à un compte du niveau de performance Premium.
+Le graphique suivant montre le même effet lorsqu’il est appliqué à un compte de stockage d’objets blob de blocs Premium.
 
 > [!div class="mx-imgBorder"]
 > ![Performances Premium](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
 
-## <a name="use-premium-performance-tier-for-small-scale-applications"></a>Niveau de performance Premium pour les applications à petite échelle
+## <a name="use-premium-block-blob-storage-accounts-for-small-scale-applications"></a>Utiliser des comptes de stockage d’objets blob de blocs Premium pour des applications à petite échelle
 
 Il n’est pas possible pour toutes les applications d’effectuer un scale-up en ajoutant des clients. Dans ce cas, le [compte de stockage d’objets blob de blocs Azure Premium](../common/storage-account-create.md) offre une faible latence et des taux de transaction élevés. Il peut atteindre une bande passante maximale avec moins de threads et de clients. Par exemple, avec un client unique, il peut enregistrer **2,3 fois** plus de bande passante que la même configuration avec un compte de stockage universel v2 à niveau de performance standard.
 

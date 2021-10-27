@@ -3,12 +3,12 @@ title: Services et schémas pris en charge pour les journaux de ressources Azure
 description: Découvrez les services pris en charge et les schémas d’événement pour les journaux de ressources Azure.
 ms.topic: reference
 ms.date: 05/10/2021
-ms.openlocfilehash: 99746b8f392d8afc5df9aa14ac7e1c7f19069151
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 1ef9c5ecea1ff45c7e6b3501f7c71928a5ea60d6
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129454978"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069460"
 ---
 # <a name="common-and-service-specific-schemas-for-azure-resource-logs"></a>Schémas communs et spécifiques de services pour les journaux de ressources Azure
 
@@ -23,6 +23,9 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 
 
 ## <a name="top-level-common-schema"></a>Schéma commun de niveau supérieur
+
+> [!NOTE]
+> Le schéma décrit ici est valide lorsque des journaux de ressources sont envoyés à Stockage Azure ou à un Event Hub. Lorsque les journaux sont envoyés à un espace de travail Log Analytics, les noms des colonnes peuvent être différents. Pour plus d’informations sur les colonnes communes à toutes les tables d’un espace de travail Log Analytics et sur la [référence de données Azure Monitor](/azure/azure-monitor/reference) pour une référence de tables différentes, consultez [Colonnes standard dans les journaux Azure Monitor](../logs/log-standard-columns.md).
 
 | Nom | Obligatoire ou facultatif | Description |
 |---|---|---|

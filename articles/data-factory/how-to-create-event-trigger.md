@@ -10,12 +10,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: bea14b1630cbe5d1c4035e9abea62130cd546964
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e2621a6eea481866bb5351623065e7d113e8e9bd
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831414"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138667"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement de stockage
 
@@ -119,7 +119,7 @@ Cette section fournit des exemples de paramètres de déclencheur d’événemen
 
 Les pipelines Azure Data Factory et Synapse utilisent le contrôle d’accès en fonction du rôle (Azure RBAC) pour garantir que l’accès non autorisé pour écouter, s’abonner à des mises à jour et déclencher des pipelines liés à des événements blob, est strictement interdit.
 
-* Pour créer un déclencheur d’événements de stockage existant ou le mettre à jour, le compte Azure connecté au service doit avoir un accès approprié au compte de stockage concerné. Dans le cas contraire, l’opération échoue avec _Accès refusé_.
+* Pour créer un déclencheur d’événements de stockage existant ou le mettre à jour, le compte Azure connecté au service doit avoir un accès approprié au compte de stockage concerné. Dans le cas contraire, l’opération échouera avec le message _Accès refusé_.
 * Azure Data Factory et Azure Synapse n’ont besoin d’aucune autorisation spéciale sur votre Event Grid et vous n’avez _pas_ besoin d’attribuer une autorisation RBAC spéciale au principal de service Data Factory ou Azure Synapse pour l’opération.
 
 L’un des paramètres RBAC suivants fonctionne pour le déclencheur d’événements de stockage :

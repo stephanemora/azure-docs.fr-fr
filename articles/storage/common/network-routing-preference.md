@@ -11,12 +11,12 @@ ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: f3a665df26e504eee1c9bea77f8bf6bf5631193f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0a80fe8bc2cf2cfa86b5b8b1a9c78684d718e68f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591023"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038362"
 ---
 # <a name="network-routing-preference-for-azure-storage"></a>Préférence de routage réseau pour Stockage Azure
 
@@ -25,7 +25,7 @@ Vous pouvez configurer une [préférence de routage](../../virtual-network/routi
 La configuration d’une préférence de routage vous offre la possibilité d’optimiser votre trafic pour obtenir des performances réseau d’exception ou un coût plus avantageux. Lorsque vous configurez une préférence de routage, vous spécifiez la manière dont le trafic est acheminé vers le point de terminaison public de votre compte de stockage par défaut. Vous pouvez également publier des points de terminaison spécifiques d’un itinéraire pour votre compte de stockage.
 
 > [!NOTE]
-> Cette fonctionnalité n’est pas prise en charge dans les comptes de stockage configurés pour utiliser le niveau de performance Premium ou le stockage redondant interzone (ZRS).
+> Cette fonctionnalité n’est pas prise en charge dans les comptes de stockage de niveau de performance Premium ni dans les comptes configurés pour utiliser le stockage redondant interzone (ZRS).
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Réseau Microsoft mondial et routage Internet
 
@@ -100,7 +100,7 @@ La préférence de routage pour le service Stockage Azure est disponible dans le
 - OuJapon Est 
 - Inde Ouest
 - Australie Est 
-- Australie Sud-Est 
+- Sud-Australie Est 
 
 Les problèmes connus suivants affectent la préférence de routage pour le service Stockage Azure :
 

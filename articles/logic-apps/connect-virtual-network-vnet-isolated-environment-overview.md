@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 05/16/2021
-ms.openlocfilehash: 8e377ae50d19df3b9c86b05cbe207479c2b0597d
-ms.sourcegitcommit: aaaa6ee55f5843ed69944f5c3869368e54793b48
+ms.openlocfilehash: 6abcc030d77f9b7d06f9d5f43d32611a0670053b
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2021
-ms.locfileid: "113664176"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162363"
 ---
 # <a name="access-to-azure-virtual-networks-from-azure-logic-apps-using-an-integration-service-environment-ise"></a>Accéder à des réseaux virtuels Azure à partir d’Azure Logic Apps en utilisant un environnement de service d’intégration
 
-Vos flux de travail d’applications logiques doivent parfois accéder à des ressources sécurisées, comme des machines virtuelles et d’autres systèmes ou services, qui se trouvent à l’intérieur d’un réseau virtuel Azure ou y sont connectées. Pour accéder directement à ces ressources à partir de flux de travail qui s’exécutent généralement dans un service Azure Logic Apps mutualisé, vous pouvez créer et exécuter vos applications logiques dans un *environnement de service d’intégration* à la place. Un environnement de service d’intégration est en réalité une instance de service Azure Logic Apps qui s’exécute séparément sur des ressources dédiées, en dehors de l’environnement Azure mutualisé global.
+Vos flux de travail d’applications logiques doivent parfois accéder à des ressources sécurisées, comme des machines virtuelles et d’autres systèmes ou services, qui se trouvent à l’intérieur d’un réseau virtuel Azure ou y sont connectées. Pour accéder directement à ces ressources à partir de flux de travail qui s’exécutent généralement dans un service Azure Logic Apps mutualisé, vous pouvez créer et exécuter vos applications logiques dans un *environnement de service d’intégration* à la place. Un environnement de service d’intégration est en réalité une instance de service Azure Logic Apps qui s’exécute séparément sur des ressources dédiées, en dehors de l’environnement Azure multilocataire global, et qui [ne stocke pas, ne traite pas et ne réplique pas vos données en dehors de la région dans laquelle vous déployez l’environnement de service d’intégration](https://azure.microsoft.com/global-infrastructure/data-residency#select-geography).
 
 Par exemple, certains réseaux virtuels Azure utilisent des points de terminaison privés ([Azure Private Link](../private-link/private-link-overview.md)) pour fournir un accès à des services Azure PaaS, tels que Stockage Azure, Azure Cosmos DB ou Azure SQL Database, à des services partenaires ou à des services clients hébergés sur Azure. Si vos flux de travail d’application logique requièrent un accès à des réseaux virtuels qui utilisent des points de terminaison privés, vous disposez des options suivantes :
 

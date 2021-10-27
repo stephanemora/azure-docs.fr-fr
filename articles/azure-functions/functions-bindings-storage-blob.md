@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 9ca3471b599e9f0671cd39603d71def344f7d72c
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 8f745a3569d8d90ad1ccd7daea6a70a4574e6ddf
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660492"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069517"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Vue d’ensemble des liaisons de Stockage Blob Azure pour Azure Functions
 
@@ -36,11 +36,23 @@ Pour utiliser le déclencheur et les liaisons, vous devez référencer le packag
 
 #### <a name="storage-extension-5x-and-higher"></a>Extension Stockage 5.x et ultérieur
 
-Une nouvelle version de l’extension de liaisons de Stockage est disponible sous la forme d’un [package NuGet en préversion](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.3). Cette préversion introduit la possibilité de [se connecter à l’aide d’une identité au lieu d’un secret](./functions-reference.md#configure-an-identity-based-connection). Pour les applications .NET, elle change également les types vers lesquels vous pouvez effectuer une liaison, en remplaçant les types de `WindowsAzure.Storage` et `Microsoft.Azure.Storage` par des types plus récents de [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Pour en savoir plus sur les différences de ces nouveaux types et comment migrer vers eux, consultez le [Guide de migration Azure.Storage.Blobs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
+Une nouvelle version de l’extension de liaisons de Stockage est disponible en préversion. Elle introduit la possibilité de [se connecter à l’aide d’une identité plutôt que d’un secret](./functions-reference.md#configure-an-identity-based-connection). Pour les applications .NET, elle change également les types vers lesquels vous pouvez effectuer une liaison, en remplaçant les types de `WindowsAzure.Storage` et `Microsoft.Azure.Storage` par des types plus récents de [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Pour en savoir plus sur les différences de ces nouveaux types et comment migrer vers eux, consultez le [Guide de migration Azure.Storage.Blobs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
-> [!NOTE]
-> Le package en préversion n’étant pas inclus dans un bundle d’extensions, il doit être installé manuellement. Pour les applications .NET, ajoutez une référence au package. Pour tous les autres types d’applications, consultez [Mettre à jour vos extensions].
+Cette version de l’extension est disponible sous la forme d’un [package NuGet en préversion] ou peut être ajoutée à partir de la version 3 du bundle d’extensions en préversion en ajoutant le code suivant dans votre fichier `host.json` :
 
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+Pour en savoir plus, consultez [Mettre à jour vos extensions].
+
+[Package NuGet en préversion]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.5
 [core tools]: ./functions-run-local.md
 [Bundle d’extensions]: ./functions-bindings-register.md#extension-bundles
 [Package NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage

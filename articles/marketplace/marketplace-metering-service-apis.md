@@ -4,19 +4,22 @@ description: L’API d’événement d’utilisation vous permet d’émettre de
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/15/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: 056fd364902ccd530b1aa2d540cd7d0457e0276b
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 84e55aa971eae4c67bc6ec2dcaa4618b55c8f737
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855856"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134105"
 ---
 # <a name="marketplace-metered-billing-apis"></a>API de facturation à la consommation de la Place de marché
 
 Les API de facturation à la consommation doivent être utilisées lorsque le serveur de publication crée des dimensions de contrôle personnalisées pour une offre à publier dans l’Espace partenaires. L’intégration avec les API de facturation à la consommation est requise pour toute offre achetée ayant un ou plusieurs plans avec des dimensions personnalisées pour émettre des événements d’utilisation.
+
+> [!IMPORTANT]
+> Vous devez assurer le suivi de l’utilisation dans votre code et envoyer uniquement des événements d’utilisation à Microsoft pour l’utilisation qui se trouve au-dessus du tarif de base.
 
 Pour plus d’informations sur la création de dimensions de contrôle personnalisées pour les SaaS, consultez [Facturation à la consommation pour SaaS](partner-center-portal/saas-metered-billing.md).
 

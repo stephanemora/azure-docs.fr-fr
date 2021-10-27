@@ -3,14 +3,14 @@ title: Utiliser des pilotes CSI (Container Storage interface) pour les disques A
 description: Découvrez comment utiliser des pilotes CSI (Container Storage interface) pour les disques Azure sur un cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 10/15/2021
 author: palma21
-ms.openlocfilehash: 19606a1b529fcd7e6140d81361c5434324836198
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 687bc761d870b92f7cf753b55722fc749daaf37d
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531478"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063941"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks"></a>Utiliser les pilotes de l’interface CSI pour les disques Azure dans le Service Kubernetes Azure (AKS)
 Le disque CSI (Container Storage interface) pour Azure Files est un pilote conforme à la [spécification CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) utilisé par Azure Kubernetes Service (AKS) pour gérer le cycle de vie des disques Azure.
@@ -21,6 +21,15 @@ Pour créer un cluster AKS avec prise en charge du pilote CSI, consultez [Active
 
 > [!NOTE]
 > *Les pilotes dans l’arborescence* sont les pilotes de stockage actuels, qui font partie du code Kubernetes principal, et les nouveaux pilotes CSI, qui sont des plug-ins.
+
+## <a name="azure-disk-csi-driver-new-features"></a>Nouvelles fonctionnalités du pilote CSI Azure Disk
+Outre les fonctionnalités d’origine du pilote interne, le pilote CSI Azure Disk fournit déjà les nouvelles fonctionnalités suivantes :
+- Amélioration des performances lors de l’attachement ou du détachement de disques en parallèle
+  - Le pilote interne attache ou détache des disques en série tandis que le pilote CSI attache ou détache des disques par lot. Cela constitue une remarquable amélioration quand plusieurs disques sont attachés à un nœud.
+- Prise en charge des disques ZRS
+  - Les types de disques `Premium_ZRS` et `StandardSSD_ZRS` sont pris en charge. Consultez plus de détails sur le [stockage redondant dans une zone pour les disques managés](../virtual-machines/disks-redundancy.md).
+- [Instantané](#volume-snapshots)
+- [Clone de volume](#clone-volumes)
 
 ## <a name="use-csi-persistent-volumes-with-azure-disks"></a>Utiliser des volumes persistants CSI avec les disques Azure
 

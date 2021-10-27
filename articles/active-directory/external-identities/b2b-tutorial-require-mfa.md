@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8df6d39401165c281af2c8b1a1896f60311c1b52
-ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
+ms.openlocfilehash: b9fa2dd3ab101a340b01f3adcbdb33f8ea36595e
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2021
-ms.locfileid: "112579114"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163620"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutoriel : Appliquer l’authentification multifacteur pour les utilisateurs invités B2B
 
@@ -80,7 +80,7 @@ Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui
 4. Dans la page **Accès conditionnel**, dans la barre d’outils en haut, sélectionnez **Nouvelle stratégie**.
 5. Dans la page **Nouveau**, dans la zone de texte **Nom**, tapez **Exiger l’authentification multifacteur pour l’accès au portail B2B**.
 6. Dans la section **Affectations**, sélectionnez **Utilisateurs et groupes**.
-7. Dans la page **Utilisateurs et groupes**, choisissez **sélectionner des utilisateurs et groupes**, puis sélectionnez **Tous les utilisateurs invités (préversion)** .
+7. Dans la page **Utilisateurs et groupes**, choisissez **Sélectionner des utilisateurs et groupes** et sélectionnez **Tous les utilisateurs invités et externes**.
 
     ![Capture d’écran montrant la sélection de tous les utilisateurs invités](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9. Sélectionnez **Terminé**.

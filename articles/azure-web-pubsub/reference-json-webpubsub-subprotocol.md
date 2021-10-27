@@ -6,12 +6,12 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ms.date: 08/16/2021
-ms.openlocfilehash: 724ffa23cf533133603db717b4d01ebbd81894a1
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.openlocfilehash: 8f1710246158e953492fec23869ba91a77c78e60
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564120"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177818"
 ---
 #  <a name="azure-web-pubsub-supported-json-websocket-subprotocol"></a>Sous-protocole JSON WebSocket pris en charge par Azure Web PubSub
      
@@ -83,17 +83,18 @@ Format:
     "type": "sendToGroup",
     "group": "<group_name>",
     "ackId" : 1, // optional
+    "noEcho": true|false,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
 
 * `ackId` est facultatif, il s’agit d’un entier incrémentiel pour ce message de commande. Lorsque l’`ackId` est spécifié, le service renvoie un [message de réponse ACK](#ack-response) au client lorsque la commande est exécutée.
-
-`dataType` peut être `json`, `text` ou `binary` :
-* `json` : les `data` peuvent être de n’importe quel type pris en charge par JSON et seront publiées telles quelles. Si `dataType` n’est pas spécifié, ce sera `json` par défaut.
-* `text` : les `data` doivent être au format chaîne et les données de chaîne seront publiées ;
-* `binary` : les `data` doivent être au format base64, et les données binaires seront publiées ;
+* `noEcho` est facultatif. Si la valeur est true, ce message n’est pas renvoyé à la même connexion. Si elle n’est pas définie, la valeur par défaut est false.
+* `dataType` peut être `json`, `text` ou `binary` :
+     * `json` : les `data` peuvent être de n’importe quel type pris en charge par JSON et seront publiées telles quelles. Si `dataType` n’est pas spécifié, ce sera `json` par défaut.
+     * `text` : les `data` doivent être au format chaîne et les données de chaîne seront publiées ;
+     * `binary` : les `data` doivent être au format base64, et les données binaires seront publiées ;
 
 #### <a name="case-1-publish-text-data"></a>Cas 1 : publier des données texte :
 ```json
@@ -327,6 +328,7 @@ Les clients peuvent recevoir des messages publiés par un groupe que le client a
         "group": "<group_name>",
         "dataType": "json|text|binary",
         "data" : {} // The data format is based on the dataType
+        "fromUserId": "abc"
     }
     ```
 

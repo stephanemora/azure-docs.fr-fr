@@ -7,12 +7,12 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/29/2020
-ms.openlocfilehash: dba47073a6676b17c091af048f583ca3e7712999
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9ea679864d722306b9a7375e732a8ce90d1eed9f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87420224"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069897"
 ---
 # <a name="create-or-modify-an-offer"></a>Créer ou modifier une offre
 
@@ -275,7 +275,7 @@ L’exemple suivant illustre la création d’une offre ayant l’ID `contosovir
 
 ## <a name="uploading-artifacts"></a>Chargement des artefacts
 
-Les artefacts, tels que les images et les logos, doivent être partagées après chargement dans un emplacement accessible sur le web, puis par inclusion de chacun d’eux en tant qu’URI dans la requête PUT, comme dans l’exemple ci-dessus. Le système détecte que ces fichiers ne sont pas présents dans le stockage de la Place de marché Azure et télécharge ces fichiers dans le stockage.  Par conséquent, vous constaterez que les futures requêtes GET retourneront une URL de service de la Place de marché Azure pour ces fichiers.
+Les artefacts, tels que les images et les logos, doivent être partagées après chargement dans un emplacement accessible sur le web, puis par inclusion de chacun d’eux en tant qu’URI dans la requête PUT, comme dans l’exemple ci-dessus. Le système détecte que ces fichiers ne sont pas présents dans le stockage de la Place de marché Azure et les télécharge. Par conséquent, vous constaterez que les futures requêtes GET retourneront une URL de service de la Place de marché Azure pour ces fichiers.
 
 ## <a name="categories-and-industries"></a>Catégories et secteurs d’activité
 
@@ -392,9 +392,9 @@ Ces catégories et leurs clés respectives sont applicables pour les application
 
 ### <a name="microsoft-appsource-categories"></a>Catégories Microsoft AppSource
 
-Ces catégories et leurs clés respectives s’appliquent aux types d’offres SaaS, applications PowerBI, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement et Dynamics 365 for Operation. Les éléments en italique et gras (comme ***analytics***) sont des catégories, et les éléments de texte standard (comme advanced-analytics) sont les sous-catégories situées en dessous. Utilisez les valeurs de clé exactes, sans modifier l’espacement ou la casse.
+Ces catégories et leurs clés respectives s’appliquent aux types d’offres SaaS, application Power BI, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement et Dynamics 365 for Operations. Les éléments en italique et gras (comme ***analytics***) sont des catégories, et les éléments de texte standard (comme advanced-analytics) sont les sous-catégories situées en dessous. Utilisez les valeurs de clé exactes, sans modifier l’espacement ou la casse.
 
-| Category | Clés SaaS | Clés Dynamics 365 Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operation | Clés d’application PowerBI |
+| Category | Clés SaaS | Clés Dynamics 365 Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operation | Clés d’application Power BI |
 | --- | --- | --- | --- |
 | ***Analytics** _ | _*_analytics_*_ | _*_Analytics_*_ | _ *_Analytics_** |
 | Analytique avancée | advanced-analytics | advanced-analytics | advanced-analytics |
@@ -494,9 +494,9 @@ Ces catégories et leurs clés respectives s’appliquent aux types d’offres S
 
 ### <a name="microsoft-appsource-industries"></a>Secteurs d’activité Microsoft AppSource
 
-Ces secteurs d’activité et leurs clés respectives s’appliquent aux types d’offres SaaS, applications PowerBI, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement et Dynamics 365 for Operation. Les éléments en italique et gras (comme ***Automobile***) sont des catégories, et les éléments de texte standard (comme AutomotiveL2) sont les sous-catégories situées en dessous. Utilisez les valeurs de clé exactes, sans modifier l’espacement ou la casse.
+Ces secteurs d’activité et leurs clés respectives s’appliquent aux types d’offres SaaS, application Power BI, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement et Dynamics 365 for Operations. Les éléments en italique et gras (comme ***Automobile***) sont des catégories, et les éléments de texte standard (comme AutomotiveL2) sont les sous-catégories situées en dessous. Utilisez les valeurs de clé exactes, sans modifier l’espacement ou la casse.
 
-| Secteur d’activité | Clés SaaS, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations | Clés des applications PowerBI |
+| Secteur d’activité | Clés SaaS, Dynamics 365 Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations | Clés des applications Power BI |
 | --- | --- | --- |
 | ***Automotive** _ | _*_Automobile_*_ | _ *_automotive_** |
 | Industrie automobile | AutomotiveL2 | AutomotiveL2 |

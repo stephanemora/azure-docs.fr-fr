@@ -7,16 +7,16 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 04/16/2021
-ms.openlocfilehash: b1eb954626570d7feb2af7fe0980e4f7a10e70c6
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: 2c0ce50c1aac28b532d23ecd1203ff76f10529d4
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113279921"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130077819"
 ---
 ## <a name="generalize-the-image"></a>Généraliser l’image
 
-Toutes les images dans Azure Marketplace doivent être réutilisables de façon générale. Pour autoriser cela, le VHD du système d’exploitation doit être généralisé. Cette opération consiste à supprimer d’une machine virtuelle tous les pilotes logiciels et identificateurs propres à une instance.
+Toutes les images de la Place de marché Azure doivent être réutilisables de façon générale. Pour autoriser cela, le VHD du système d’exploitation doit être généralisé. Cette opération consiste à supprimer d’une machine virtuelle tous les pilotes logiciels et identificateurs propres à une instance.
 
 ### <a name="for-windows"></a>Pour Windows
 

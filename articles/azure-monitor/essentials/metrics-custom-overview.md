@@ -1,17 +1,17 @@
 ---
 title: Métriques personnalisées dans Azure Monitor (préversion)
 description: Découvrez les métriques personnalisées dans Azure Monitor et leur modélisation.
-author: anirudhcavale
-ms.author: ancav
+author: rboucher
+ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: a63c690f8b742638b73b5624971f5351ed8c6a2f
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 770a308fe293140b4d9c56b51c931e426aa1ac81
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129455054"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063010"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métriques personnalisées dans Azure Monitor (préversion)
 
@@ -231,15 +231,17 @@ Rappelons que cette limite ne s’applique pas à une métrique individuelle, ma
 
 **Dimensions de métriques à cardinalité élevée**. Les métriques avec un trop grand nombre de valeurs valides dans une dimension (*cardinalité élevée*) sont beaucoup plus susceptibles d’atteindre la limite de 50 000. En général, vous ne devez jamais utiliser une valeur qui change constamment dans une dimension. Le timestamp, par exemple, ne doit jamais être une dimension. Vous pouvez utiliser l’ID d’un serveur, d’un client ou d’un produit, mais uniquement si vous avez un nombre réduit de chacun de ces types. 
 
-En guise de test, demandez-vous si vous pourriez créer un graphique de ce type de données. Si vous avez 10, voire 100 serveurs, il pourrait être utile de les afficher tous sur un graphique à des fins de comparaison. En revanche, si vous en avez 1 000, le graphique résultant sera probablement difficile, voire impossible à lire. 
-
-Une meilleure pratique consiste à limiter le nombre de valeurs valides à moins de 100. Jusqu’à 300, vous êtes dans une zone délicate. Si vous avez besoin de dépasser ce nombre, utilisez plutôt des journaux personnalisés Azure Monitor.   
+En guise de test, demandez-vous si vous pourriez créer un graphique de ce type de données. Si vous avez 10, voire 100 serveurs, il pourrait être utile de les afficher tous sur un graphique à des fins de comparaison. En revanche, si vous en avez 1 000, le graphique résultant sera probablement difficile, voire impossible à lire. Une meilleure pratique consiste à limiter le nombre de valeurs valides à moins de 100. Jusqu’à 300, vous êtes dans une zone délicate. Si vous avez besoin de dépasser ce nombre, utilisez plutôt des journaux personnalisés Azure Monitor.   
 
 En cas de variable dans le nom ou de dimension à cardinalité élevée, voici ce qui peut se produire :
 - Les métriques ne sont plus fiables en raison de la limitation.
 - Metrics Explorer ne fonctionne pas.
 - Les alertes et les notifications deviennent imprévisibles.
 - Les coûts peuvent augmenter de façon inattendue. Microsoft ne facture pas les métriques personnalisées avec dimensions tant que cette fonctionnalité est en préversion publique. Cependant, lorsque les frais seront facturés à l’avenir, vous risquez d’encourir des frais inattendus. Nous prévoyons de facturer la consommation de métriques en fonction du nombre de séries chronologiques supervisées et du nombre d’appels d’API effectués.
+
+Si le nom de la métrique ou la valeur de la dimension est rempli avec un identificateur ou une dimension de cardinalité élevée par erreur, vous pouvez facilement corriger l’erreur en supprimant la partie variable.
+
+Toutefois, si une cardinalité élevée est essentielle pour votre scénario, les métriques agrégées ne sont probablement pas le bon choix. Passez à l’utilisation de journaux personnalisés (c’est-à-dire appels d’API trackMetric avec [trackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent)). Toutefois, tenez compte du fait que les journaux n’agrègent pas les valeurs, si bien que chaque entrée unique est stockée. Par conséquent, si le volume de journaux est important sur une courte période (1 million par seconde par exemple), cela peut entraîner des limitations et des retards d’ingestion. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez utiliser les métriques personnalisées à partir de différents services : 

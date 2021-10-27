@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a3c2b380160ef68655f0727f4d47280cd5cd02
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 12e86dc602e52fb96b7f9cea3a52079fc80c201b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754284"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041687"
 ---
 # <a name="security-operations-for-infrastructure"></a>Opérations de sécurité pour l’infrastructure
 
@@ -39,7 +39,7 @@ La première étape pour pouvoir détecter les événements inattendus et les at
 
 ## <a name="where-to-look"></a>Emplacement des fichiers
 
-Les fichiers journaux que vous pouvez utiliser pour investiguer et superviser sont les suivants : 
+Les fichiers journaux que vous pouvez utiliser pour l’investigation et la supervision sont les suivants : 
 
 * [Journaux d’audit Azure AD](../reports-monitoring/concept-audit-logs.md)
 
@@ -57,7 +57,7 @@ Dans le portail Azure, vous pouvez afficher les journaux d’audit Azure AD et 
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) avec intégration SIEM[ : permet d’intégrer les journaux Azure AD à d’autres systèmes SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) comme Splunk, ArcSight, QRadar et Sumo Logic grâce à l’intégration Azure Event Hub.
 
-* [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) : permet de découvrir et de gérer les applications, de gouverner toutes les applications et ressources, et de vérifier la conformité des applications cloud. 
+* [Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security) : permet de découvrir et de gérer les applications, de gouverner toutes les applications et ressources, et de vérifier la conformité des applications cloud. 
 
 Le reste de cet article comprend des recommandations concernant la supervision et les alertes, qui sont organisées par type de menace. Lorsqu’il existe des solutions prédéfinies spécifiques, vous trouverez des liens vers ceux-ci à la suite du tableau. Sinon, vous pouvez créer des alertes à l’aide des outils précédents.
 

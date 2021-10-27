@@ -4,16 +4,17 @@ description: Découvrez Azure Analysis Services, une plateforme complètement ma
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 03/29/2021
+ms.date: 10/12/2021
 ms.author: owend
 ms.reviewer: minewiskan
+recommendations: false
 ms.custom: references_regions
-ms.openlocfilehash: c3b95b92f2b76e669b4e207163f76f8cec2d3244
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 815fe276f4c44085eebfa91f33167c2428c31c1f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731681"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992865"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -129,13 +130,13 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 
 Augmentez la puissance, réduisez la puissance ou suspendez votre serveur. Utilisez le portail Azure ou obtenez le contrôle total à la volée à l’aide de PowerShell. Vous paierez uniquement pour ce que vous utiliserez.  
 
-### <a name="scale-out-resources-for-fast-query-responses"></a>Ressources de scale-out pour des réponses aux requêtes rapides
+### <a name="scale-out-resources-for-fast-query-response"></a>Effectuer un scale-out des ressources pour des réponses de requêtes rapides
 
-Grâce au scale-out, les requêtes des clients sont distribuées entre plusieurs *réplicas de requête* dans un pool de requêtes. Les réplicas de requête contiennent des copies synchronisées de vos modèles tabulaires. Grâce à la répartition de la charge de travail de requête, les temps de réponse lors de charges de travail de requête élevées peuvent être réduits. Les opérations de traitement du modèle peuvent être séparées du pool de requêtes, garantissant ainsi que les requêtes des clients ne soient pas affectées par les opérations de traitement. 
+Avec le scale-out, les requêtes des clients sont distribuées entre plusieurs *réplicas de requête* dans un pool de requêtes. Les réplicas de requête contiennent des copies synchronisées de vos modèles tabulaires. Grâce à la répartition de la charge de travail de requête, les temps de réponse lors de charges de travail de requête élevées peuvent être réduits. Les opérations de traitement du modèle peuvent être séparées du pool de requêtes, garantissant ainsi que les requêtes des clients ne soient pas affectées par les opérations de traitement. 
 
 Vous pouvez créer un pool de requêtes comportant jusqu’à sept réplicas de requête supplémentaires (pour un total de huit, votre serveur compris). Le nombre de réplicas de requête que vous pouvez avoir dans votre pool dépend du plan et de la région que vous avez choisis. Les réplicas de requête ne peuvent pas être propagés en dehors de la région de votre serveur. Les réplicas de requête sont facturés au même prix que votre serveur.
 
-Comme pour la modification des niveaux, vous pouvez effectuer un scale-out des réplicas de requête selon vos besoins. Configurez le scale-out dans le portail ou à l’aide des API REST. Pour en savoir plus, consultez [Scale-out d’Azure Analysis Services](analysis-services-scale-out.md).
+Comme pour la modification des niveaux, vous pouvez effectuer un scale-out des réplicas de requête selon vos besoins. Configurez l’évolution dans le portail ou à l’aide d’API REST. Pour en savoir plus, voir [Évolution d’Azure Analysis Services](analysis-services-scale-out.md).
 
 ## <a name="pricing"></a>Tarifs
 
@@ -147,7 +148,7 @@ Azure Analysis Services est compatible avec de nombreuses fonctionnalités d’e
 
 Les modèles tabulaires dans les modes En mémoire et DirectQuery sont pris en charge. En mode En mémoire (par défaut), les modèles tabulaires prennent en charge plusieurs sources de données. Étant donné que les données de modèle sont fortement compressées et mises en mémoire cache, ce mode offre la réponse de requête la plus rapide pour les quantités importantes de données. Il offre également la plus grande flexibilité pour les jeux de données et les requêtes complexes. 
 
-Le partitionnement permet des charges incrémentielles, augmente la parallélisation et réduit la consommation de mémoire. D’autres fonctionnalités de modélisation de données avancées incluent les tables calculées, et toutes les fonctions DAX sont prises en charge. Les modèles en mémoire doivent être actualisés (traités) pour mettre à jour les données en cache à partir de sources de données. Grâce à la prise en charge de principaux de service Azure, les opérations d’actualisation imprévues à l’aide de PowerShell, TOM, TMSL et REST offrent une flexibilité permettant de garantir que vos données de modèle sont toujours à jour. 
+Le partitionnement permet des charges incrémentielles, augmente la parallélisation et réduit la consommation de mémoire. D’autres fonctionnalités avancées de modélisation des données, comme les tables calculées et toutes les fonctions DAX, sont prises en charge. Les modèles en mémoire doivent être actualisés (traités) pour mettre à jour les données en cache à partir de sources de données. Avec la prise en charge de principaux de service Azure, les opérations d’actualisation sans assistance avec PowerShell, TOM, TMSL et REST offrent une flexibilité permettant de garantir que vos données de modèle sont toujours à jour. 
 
 Le mode DirectQuery* tire profit de la base de données relationnelle principale pour le stockage et l’exécution de la requête. Les jeux de données extrêmement volumineux de sources de données SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure Synapse Analytics, Oracle et Teradata sont pris en charge. Les jeux de données de serveur principal peuvent dépasser la mémoire de ressource serveur disponible. Des scénarios d’actualisation de modèle de données complexes ne sont pas nécessaires. Il existe également certaines restrictions, telles que des limitations des types de sources de données, des limitations liées aux formules DAX, et certaines fonctionnalités de modélisation de données avancées qui ne sont pas prises en charge. Avant de déterminer le mode vous convenant le mieux, consultez [Mode DirectQuery](/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
@@ -186,7 +187,7 @@ Vous sécurisez l’accès aux sources de données locales dans votre organisati
 
 Analysis Services utilise l’[autorisation en fonction du rôle](/analysis-services/tabular-models/roles-ssas-tabular) qui accorde l’accès au serveur et aux opérations, objets et données de base de données de modèle. Tous les utilisateurs qui accèdent à un serveur ou une base de données le font avec leur compte d’utilisateur Azure AD au sein d’un rôle assigné. Le rôle administrateur du serveur se trouve au niveau de la ressource serveur. Par défaut, le compte utilisé lors de la création d’un serveur est automatiquement inclus dans le rôle Administrateur de serveur. D’autres comptes d’utilisateur et de groupe sont ajoutés à l’aide du portail, SSMS ou PowerShell.
   
-Les utilisateurs finaux non administrateurs qui interrogent les données se voient accorder un accès via des rôles de base de données. Un rôle de bases de données est créé en tant qu’objet distinct dans la base de données et s’applique uniquement à la base de données dans laquelle il est créé. Les rôles de base de données sont définis par les autorisations Administrateur, Lecture et Lecture et traitement (base de données). Les comptes d’utilisateur et de groupe sont ajoutés à l’aide de SSMS ou PowerShell.
+Les utilisateurs non-administrateurs qui interrogent les données se voient accorder un accès via des rôles de base de données. Un rôle de bases de données est créé en tant qu’objet distinct dans la base de données et s’applique uniquement à la base de données dans laquelle il est créé. Les rôles de base de données sont définis par les autorisations Administrateur, Lecture et Lecture et traitement (base de données). Les comptes d’utilisateur et de groupe sont ajoutés à l’aide de SSMS ou PowerShell.
 
 ### <a name="row-level-security"></a>Sécurité au niveau des lignes
 
@@ -194,11 +195,11 @@ Les modèles tabulaires à tous les niveaux de compatibilité prennent en charge
 
 ### <a name="object-level-security"></a>Sécurité au niveau des objets 
 
-Les modèles tabulaires au niveau de compatibilité 1400 prennent en charge la sécurité au niveau des objets qui inclut la sécurité au niveau des tables et la sécurité au niveau des colonnes. La sécurité au niveau des objets est définie dans les métadonnées basées sur JSON dans le fichier Model.bim à l’aide de TMSL ou TOM. Pour en savoir plus, consultez [Sécurité au niveau des objets](/analysis-services/tabular-models/object-level-security).
+Les modèles tabulaires au niveau de compatibilité 1400 et supérieur prennent en charge la sécurité au niveau des objets, qui comprend la sécurité au niveau des tables et la sécurité au niveau des colonnes. La sécurité au niveau des objets est définie dans les métadonnées basées sur JSON en utilisant TMSL ou TOM. Pour en savoir plus, consultez [Sécurité au niveau des objets](/analysis-services/tabular-models/object-level-security).
 
 ### <a name="automation-through-service-principals"></a>Automatisation à l’aide de principaux de service
 
-Les principaux de service sont des ressources d’application Azure Active Directory que vous créez à l’intérieur de votre locataire pour effectuer des opérations sans assistance au niveau du service et des ressources. Les principaux du service sont utilisés avec Azure Automation, avec le mode sans assistance de PowerShell, avec des applications clientes personnalisées et avec des applications web, dans le but d’automatiser les tâches courantes telles que actualiser, monter en puissance/réduire la puissance et suspendre/reprendre. Les autorisations sont attribuées aux principaux du service via l’appartenance au rôle. Pour en savoir plus, consultez [Automatisation à l’aide de principaux de service](analysis-services-service-principal.md).
+Les principaux de service sont des ressources d’application Azure Active Directory que vous créez dans votre locataire pour effectuer des opérations sans assistance au niveau du service et des ressources. Les principaux du service sont utilisés avec Azure Automation, avec le mode sans assistance de PowerShell, avec des applications clientes personnalisées et avec des applications web, dans le but d’automatiser les tâches courantes telles que actualiser, monter en puissance/réduire la puissance et suspendre/reprendre. Les autorisations sont attribuées aux principaux du service via l’appartenance au rôle. Pour en savoir plus, consultez [Automatisation à l’aide de principaux de service](analysis-services-service-principal.md).
 
 ### <a name="azure-governance"></a>Gouvernance Azure
 

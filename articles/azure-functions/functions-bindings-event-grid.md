@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e5cc7974038ed69c745a958c682967d26545d5bc
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 4935bb8c44c2f3d6d1a17a8c1f2ba897178d1606
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113109572"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069498"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Liaisons Azure Event Grid pour Azure Functions
 
@@ -50,11 +50,23 @@ Pour utiliser le déclencheur et les liaisons, vous devez référencer le packag
 
 #### <a name="event-grid-extension-3x-and-higher"></a>Extension Event Grid 3.x et versions ultérieures
 
-Une nouvelle version de l’extension des liaisons Event Grid est disponible sous la forme d’un [package NuGet en préversion](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.2). Pour les applications .NET, elle change les types avec lesquels il est possible d’établir une liaison, en remplaçant les types `Microsoft.Azure.EventGrid.Models` par les types [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid), plus récents. Les [événements Cloud](/dotnet/api/azure.messaging.cloudevent) sont également pris en charge dans la nouvelle extension de Event Grid.
+Une nouvelle version de l’extension de liaisons Event Grid est disponible en préversion. Pour les applications .NET, elle change les types avec lesquels il est possible d’établir une liaison, en remplaçant les types `Microsoft.Azure.EventGrid.Models` par des types [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid) plus récents. Les [événements Cloud](/dotnet/api/azure.messaging.cloudevent) sont également pris en charge dans la nouvelle extension de Event Grid.
 
-> [!NOTE]
-> Le package en préversion n’étant pas inclus dans un bundle d’extensions, il doit être installé manuellement. Pour les applications .NET, ajoutez une référence au package. Pour tous les autres types d’applications, consultez [Mettre à jour vos extensions].
+Cette version de l’extension est disponible sous la forme d’un [package NuGet en préversion] ou peut être ajoutée à partir de la version 3 du bundle d’extensions en préversion en ajoutant le code suivant dans votre fichier `host.json` :
 
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+Pour en savoir plus, consultez [Mettre à jour vos extensions].
+
+[Package NuGet en préversion]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/3.0.0-beta.4
 [core tools]: ./functions-run-local.md
 [Bundle d’extensions]: ./functions-bindings-register.md#extension-bundles
 [Package NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage

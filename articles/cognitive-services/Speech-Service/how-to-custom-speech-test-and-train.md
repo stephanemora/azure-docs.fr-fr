@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/08/2021
 ms.author: pafarley
-ms.openlocfilehash: 046499f32050bf856e6eb39874f3f7b0f0fa2e51
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fa62d0e7c24c6a63c63f082333823b5e74a24cf0
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569489"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132278"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -69,7 +69,10 @@ Les fichiers doivent être regroupées par type dans un jeu de données et charg
 
 ## <a name="upload-data"></a>Charger des données
 
-Pour charger vos données, accédez au <a href="https://speech.microsoft.com/customspeech" target="_blank">portail Custom Speech </a>. Après avoir créé un projet, accédez à l’onglet **Jeux de données Speech**, puis cliquez sur **Charger des données** pour lancer l’Assistant et créer votre premier jeu de données. Sélectionnez un type de données vocal pour votre jeu de données, puis chargez vos données.
+Pour charger vos données, accédez à [Speech Studio ](https://aka.ms/speechstudio/customspeech). Après avoir créé un projet, accédez à l’onglet **Jeux de données Speech**, puis cliquez sur **Charger des données** pour lancer l’Assistant et créer votre premier jeu de données. Sélectionnez un type de données vocal pour votre jeu de données, puis chargez vos données.
+
+> [!NOTE]
+> Si la taille de fichier de votre jeu de données dépasse 128 Mo, vous ne pouvez le charger qu’en utilisant l’option *Azure Blob ou emplacement partagé*. Vous pouvez également utiliser l’[API REST de reconnaissance vocale v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) pour charger un jeu de données de [n’importe quelle taille autorisée](speech-services-quotas-and-limits.md#model-customization). Pour plus d’informations, consultez [la section suivante](#upload-data-using-speech-to-text-rest-api-v30).
 
 Tout d’abord, vous devez spécifier si le jeu de données doit être utilisé pour l’**apprentissage** ou le **test**. Il existe de nombreux types de données qui peuvent être chargés et utilisés à des fins d’**apprentissage** ou de **test**. Chaque jeu de données que vous chargez doit être correctement formaté et doit respecter les exigences associées au type de données que vous choisissez. Les exigences sont listées dans les sections suivantes.
 
@@ -78,6 +81,35 @@ Une fois que votre jeu de données est chargé, vous disposez de plusieurs optio
 * Vous pouvez accéder à l’onglet **Effectuer l’apprentissage de modèles personnalisés** pour effectuer l’apprentissage d’un modèle personnalisé.
 * Vous pouvez accéder à l’onglet **Tester des modèles** pour inspecter visuellement la qualité avec des données audio uniquement ou évaluer la précision avec des données audio + transcription étiquetée à la main.
 
+### <a name="upload-data-using-speech-to-text-rest-api-v30"></a>Charger des données à l’aide de l’API REST de reconnaissance vocale v3.0
+
+Vous pouvez utiliser l’[API REST de reconnaissance vocale v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) pour automatiser toutes les opérations liées à vos modèles personnalisés. En particulier, vous pouvez l’utiliser pour charger un jeu de données. Cette fonction est particulièrement utile lorsque le fichier de votre jeu de données dépasse 128 Mo, car les fichiers de cette taille ne peuvent pas être chargés à l’aide de l’option *Fichier local* dans Speech Studio. (Vous pouvez également utiliser l’option *Azure Blob ou emplacement partagé* dans Speech Studio dans le même but, comme décrit dans la section précédente.)
+
+Utilisez l’une des requêtes suivantes pour créer et charger un jeu de données :
+* [Créer un jeu de données](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)
+* [Créer un jeu de données à partir d’un formulaire](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm)
+
+**Jeux de données créés par l’API REST et projets Speech Studio**
+
+Un jeu de données créé avec l’API REST de reconnaissance vocale v3.0 ne sera connecté à *aucun* des projets Speech Studio, sauf si un paramètre spécial est spécifié dans le corps de la demande (voir ci-dessous). La connexion à un projet Speech Studio n’est *pas* requise pour les opérations de personnalisation de modèle si elles sont effectuées via l’API REST.
+
+Lorsque vous vous connectez à Speech Studio, son interface utilisateur vous avertit en cas de découverte d’un objet non connecté (comme des jeux de données chargés via l’API REST sans référence à un projet) et vous propose de connecter ces objets à un projet existant. 
+
+Pour connecter le nouveau jeu de données à un projet existant dans Speech Studio pendant son chargement, utilisez [Créer un jeu de données](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) ou [Créer un jeu de données à partir d’un formulaire](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm) et renseignez le corps de la demande en respectant le format suivant :
+```json
+{
+  "kind": "Acoustic",
+  "contentUrl": "https://contoso.com/mydatasetlocation",
+  "locale": "en-US",
+  "displayName": "My speech dataset name",
+  "description": "My speech dataset description",
+  "project": {
+    "self": "https://westeurope.api.cognitive.microsoft.com/speechtotext/v3.0/projects/c1c643ae-7da5-4e38-9853-e56e840efcb2"
+  }
+}
+```
+
+L’URL du projet requise pour l’élément `project` peut être obtenue à l’aide de la requête [Get Projects](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects).
 
 ## <a name="audio--human-labeled-transcript-data-for-trainingtesting"></a>Données audio + transcription étiquetée à la main pour l’apprentissage/le test
 

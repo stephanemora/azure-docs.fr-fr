@@ -385,6 +385,8 @@ items:
     items:
       - name: Options d’aide et de support
         href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
+      - name: Limites de taux RPS dans Azure Maps
+        href: azure-maps-qps-rate-limits.md
       - name: Services Azure IoT
         items:
           - name: IoT Hub

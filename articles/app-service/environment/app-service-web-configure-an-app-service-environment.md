@@ -1,18 +1,18 @@
 ---
 title: Configurer ASE v1
 description: Configuration, gestion et supervision de l’environnement App Service v1. Ce document s’adresse uniquement aux clients qui utilisent l’environnement ASE v1 hérité.
-author: ccompy
+author: madsd
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 598e43d07c213cfeb25f0ecbc7bd02b6ec54b7ed
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1d2023d0b258b0bcc2ab72bff9bb019f91f61f0
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88962585"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998786"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuration d’un environnement App Service Environment v1
 
@@ -72,7 +72,7 @@ Chaque ASE est configuré avec 500 Go de stockage. Cet espace est utilisé par t
 La base de données conserve les informations qui définissent l’environnement, ainsi que des détails sur les applications exécutées. Cela est également inclus dans l’abonnement Azure. Il ne s’agit pas d’un élément que vous avez la possibilité de manipuler directement. Si vous ajustez le routage ou la sécurité de votre réseau virtuel, vous devez autoriser l’accès à SQL Azure ; sinon, l’ASE ne fonctionnera pas.
 
 ### <a name="network"></a>Réseau
-Le réseau virtuel qui est utilisé avec votre ASE peut être un réseau que vous avez créé lors de la création de l’ASE ou un réseau que vous aviez créé au préalable. Si vous créez le sous-réseau lors de la création de l’ASE, cela force l’ASE à être dans le même groupe de ressources que le réseau virtuel. Si vous avez besoin que le groupe de ressources utilisé par votre ASE soit différent de celui de votre réseau virtuel, alors vous devez créer votre ASE à l’aide d’un modèle Resource Manager.
+Le réseau virtuel qui est utilisé avec votre ASE peut être un réseau que vous avez créé lors de la création de l’ASE ou un réseau que vous aviez créé au préalable. Si vous créez le sous-réseau lors de la création de l’ASE, cela force l’ASE à être dans le même groupe de ressources que le réseau virtuel. Si vous avez besoin que le groupe de ressources utilisé par votre ASE soit différent de celui de votre réseau virtuel, alors vous devez créer votre environnement ASE à l’aide d’un modèle Azure Resource Manager.
 
 Un réseau virtuel contient quelques restrictions utilisées pour un environnement App Service :
 
@@ -96,7 +96,7 @@ Il existe deux méthodes principales pour contrôler le trafic entrant dans votr
 
 Lorsque vous créez un ASE, une adresse IP virtuelle sera créée dans votre réseau virtuel.  Il existe deux types d’adresses IP virtuelles : internes et externes.  Lorsque vous créez un ASE avec une adresse IP virtuelle externe, les applications dans votre ASE sont accessibles via une adresse IP Internet routable. Si vous optez pour une adresse interne, votre ASE sera configuré avec un ILB et ne sera pas directement accessible par Internet.  Un ILB ASE nécessite malgré tout une adresse IP virtuelle externe, mais celle-ci est utilisée uniquement pour l’accès lié à la gestion et à la maintenance Azure.  
 
-Lors de la création de l’ILB ASE, vous indiquez le sous-domaine qu’il utilise et vous devez gérer votre propre serveur DNS pour le sous-domaine que vous spécifiez.  Étant donné que vous définissez le nom du sous-domaine, vous devez également gérer le certificat utilisé pour l’accès HTTPS.  Suite à la création d’un ASE, vous êtes invité à fournir le certificat.  Pour en savoir plus sur la création et l’utilisation d’un ILB ASE, voir [Utilisation d’un équilibreur de charge interne avec un environnement App Service][ILBASE]. 
+Lors de la création de l’ILB ASE, vous indiquez le sous-domaine qu’il utilise et vous devez gérer votre propre serveur DNS pour le sous-domaine que vous spécifiez.  Étant donné que vous définissez le nom du sous-domaine, vous devez également gérer le certificat utilisé pour l’accès HTTPS.  Suite à la création d’un ASE, vous êtes invité à fournir le certificat.  Pour en savoir plus sur la création et l’utilisation d’un environnement ASE ILB, consultez [Comment créer un environnement ASEv1 à partir d’un modèle](app-service-app-service-environment-create-ilb-ase-resourcemanager.md). 
 
 ## <a name="portal"></a>Portail
 L’interface utilisateur sur le portail Azure vous permet de gérer et surveiller votre environnement App Service. Si vous possédez un ASE, il est possible que vous voyiez le symbole App Service dans votre barre latérale. Ce symbole est utilisé pour représenter les environnements App Service dans le portail Azure :
@@ -185,7 +185,7 @@ Si vous voulez supprimer un environnement App Service, utilisez simplement l’a
 ![Interface utilisateur Supprimer un environnement App Service][9]  
 
 ## <a name="getting-started"></a>Prise en main
-Pour prendre en main les environnements App Service, consultez [Comment créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md).
+Pour le démarrage avec les environnements App Service Environment, consultez [Comment créer un environnement ASEv1 à partir d’un modèle](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
@@ -203,7 +203,6 @@ Pour prendre en main les environnements App Service, consultez [Comment créer u
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [Appserviceplans]: ../overview-hosting-plans.md
-[HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: ../../virtual-network/virtual-networks-faq.md

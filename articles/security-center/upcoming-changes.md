@@ -5,21 +5,21 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 10/10/2021
+ms.date: 10/13/2021
 ms.author: memildin
-ms.openlocfilehash: 6a98a5dfbdf47ad9e2b74415786c240b32b3b499
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: e019e0acefe8acb8bf56f829fad38c6ac2a3c1c2
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754688"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130129013"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Changements importants à venir sur Azure Security Center
 
 > [!IMPORTANT]
 > Les informations de cette page concernent des produits ou fonctionnalités en préversion, qui peuvent être modifiés de façon substantielle avant d’être commercialisés, le cas échéant. Microsoft n’offre aucun engagement ni garantie, formel ou implicite, concernant les informations contenues dans ce document.
 
-Dans cette page, vous allez découvrir les changements planifiés pour Security Center. Elle décrit les changements planifiés du produit qui peuvent avoir un impact sur votre degré de sécurisation ou vos workflows.
+Dans cette page, vous allez découvrir les changements planifiés pour Security Center. La page décrit les changements planifiés du produit qui peuvent avoir un impact sur votre degré de sécurisation ou vos workflows.
 
 Si vous recherchez les notes de publication les plus récentes, vous les trouverez dans [Nouveautés d’Azure Security Center](release-notes.md).
 
@@ -33,6 +33,7 @@ Si vous recherchez les notes de publication les plus récentes, vous les trouver
 | [Modifications apportées aux suggestions pour la gestion des solutions de protection des points de terminaison](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Novembre 2021| 
 | [L’affichage de l’inventaire des machines locales utilise un autre modèle pour le nom de ressource](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | Novembre 2021    |
 | [Changements multiples apportés aux recommandations sur l’identité](#multiple-changes-to-identity-recommendations)                                                                                          | Novembre 2021    |
+| [Modifications apportées à une alerte de sécurité provenant d’Azure Defender pour Stockage](#changes-to-a-security-alert-from-azure-defender-for-storage)  | Novembre 2021    |
 | [Améliorations apportées à la recommandation pour classer les données sensibles dans les bases de données SQL](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | PREMIER TRIMESTRE 2022    |
 |||
 
@@ -123,7 +124,7 @@ Security Center inclut plusieurs recommandations pour améliorer la gestion des 
     |---------|---------|---------|
     |Clé d’évaluation     | e52064aa-6853-e252-a11e-dffc675689c2        | Inchangé|
     |Name     |[Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2)         |Les comptes bloqués dans Active Directory et qui disposent d’autorisations de propriétaire doivent être supprimés définitivement dans les abonnements        |
-    |Description     |Les comptes d’utilisateur qui ne peuvent plus se connecter doivent être supprimés de vos abonnements.<br>Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.|Les comptes d’utilisateur dont la connexion à Active Directory a été bloquée doivent être supprimés de vos abonnements. Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.<br>Découvrez plus en détail la sécurisation du périmètre d’identité dans [Bonnes pratiques pour la sécurité du contrôle d’accès et la gestion des identités Azure](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Description     |Les comptes d’utilisateur qui ne peuvent plus se connecter doivent être supprimés de vos abonnements.<br>Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.|Les comptes d’utilisateur dont la connexion à Active Directory a été bloquée doivent être supprimés de vos abonnements. Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.<br>Découvrez plus en détail la sécurisation du périmètre d’identité dans [Bonnes pratiques pour la sécurité du contrôle d’accès et la gestion des identités Azure](/azure/security/fundamentals/identity-management-best-practices).|
     |Stratégie associée     |[Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad)         |Les comptes bloqués dans Active Directory et qui disposent d’autorisations de propriétaire doivent être supprimés définitivement dans les abonnements |
     |||
 
@@ -131,12 +132,31 @@ Security Center inclut plusieurs recommandations pour améliorer la gestion des 
     |---------|---------|---------|
     |Clé d’évaluation     | 00c6d40b-e990-6acf-d4f3-471e747a27c4        | Inchangé|
     |Name     |[Les comptes déconseillés doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Les comptes bloqués dans Active Directory et qui disposent d’autorisations en lecture et en écriture doivent être supprimés définitivement dans les abonnements|
-    |Description     |Les comptes d’utilisateur qui ne peuvent plus se connecter doivent être supprimés de vos abonnements.<br>Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.|Les comptes d’utilisateur dont la connexion à Active Directory a été bloquée doivent être supprimés de vos abonnements. Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.<br>Découvrez plus en détail la sécurisation du périmètre d’identité dans [Bonnes pratiques pour la sécurité du contrôle d’accès et la gestion des identités Azure](/azure/security/fundamentals/identity-management-best-practices.md).|
+    |Description     |Les comptes d’utilisateur qui ne peuvent plus se connecter doivent être supprimés de vos abonnements.<br>Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.|Les comptes d’utilisateur dont la connexion à Active Directory a été bloquée doivent être supprimés de vos abonnements. Ces comptes peuvent être des cibles pour les attaquants qui cherchent des moyens d’accéder à vos données sans être remarqués.<br>Découvrez plus en détail la sécurisation du périmètre d’identité dans [Bonnes pratiques pour la sécurité du contrôle d’accès et la gestion des identités Azure](/azure/security/fundamentals/identity-management-best-practices).|
     |Stratégie associée     |[Les comptes déconseillés doivent être supprimés de votre abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Les comptes bloqués dans Active Directory et qui disposent d’autorisations en lecture et en écriture doivent être supprimés définitivement dans les abonnements|
     |||
  
 
 
+
+
+### <a name="changes-to-a-security-alert-from-azure-defender-for-storage"></a>Modifications apportées à une alerte de sécurité provenant d’Azure Defender pour Stockage
+
+**Date estimée du changement :** novembre 2021
+
+L’une des alertes en préversion fournies par Azure Defender pour Stockage se divise en deux nouvelles recommandations pour offrir une plus grande clarté sur les événements suspects découverts. Cette alerte concerne uniquement Stockage Blob Azure.
+
+**Le type d’alerte change également.**
+
+- Avant la modification, l’alerte était la suivante :<br>
+    « Préversion – Analyse anonyme des conteneurs de stockage public »<br>(Storage.Blob_ContainerAnonymousScan)
+
+- À partir de ce changement, deux recommandations vont coexister :
+
+    - « Conteneurs de stockage ouverts détectés par un script ou un outil d’analyse externe »<br>(Storage.Blob_OpenContainersScanning.FailedAttempt)
+    - « Détection réussie des conteneurs de stockage ouverts par un script ou un outil d’analyse externe »<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery)
+
+D’autres informations sur ces alertes seront publiés quand la modification sera diffusée.
 
 
 ### <a name="enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases"></a>Améliorations apportées à la recommandation pour classer les données sensibles dans les bases de données SQL

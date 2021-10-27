@@ -6,13 +6,13 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 09/27/2021
-ms.openlocfilehash: 45ea054394c5f74a6a3a34b9a69df5c5b07a632f
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/18/2021
+ms.openlocfilehash: 67a2102d306f08979063867c60875798083c85a0
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129212588"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181290"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source"></a>Inscrire et analyser une source SAP S/4HANA
 
@@ -24,8 +24,10 @@ La source SAP S/4HANA prend en charge l’**Analyse complète** pour extraire l
 
 ## <a name="prerequisites"></a>Prérequis
 
-1.  Configurez le dernier [Runtime d’intégration auto-hébergé](https://www.microsoft.com/download/details.aspx?id=39717).
-    Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](../data-factory/create-self-hosted-integration-runtime.md).
+1.  Configurez le dernier [Runtime d’intégration auto-hébergé](https://www.microsoft.com/download/details.aspx?id=39717). Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](../data-factory/create-self-hosted-integration-runtime.md). 
+
+    >[!NOTE]
+    >L’analyse de SAP S/4HANA est une opération gourmande en mémoire. Il est recommandé d’installer le runtime d’intégration auto-hébergé sur un ordinateur doté d’une grande quantité de mémoire, par exemple, 128 Go.
 
 2.  Assurez-vous que [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) est installé sur la machine virtuelle où est installé le runtime d’intégration auto-hébergé.
 
@@ -102,10 +104,8 @@ Pour créer une analyse et l’exécuter, procédez comme suit :
 
     e.  **Chemin de la bibliothèque JCo** : spécifiez le chemin vers le dossier contenant les bibliothèques JCo.
 
-    f.  **Mémoire maximale disponible** : mémoire maximale (en Go) disponible sur la machine virtuelle du client pouvant être utilisée par les processus d’analyse. Elle dépend de la taille de la source SAP S/4HANA à analyser.
-    > [!Note] 
-    > En règle générale, prévoyez 1 Go de mémoire pour 1 000 tables
-
+    f.  **Mémoire maximale disponible** : Mémoire maximale (en Go) disponible sur la machine du runtime d’intégration auto-hébergé pouvant être utilisée par les processus d’analyse. Elle dépend de la taille de la source SAP S/4HANA à analyser. Il est recommandé de fournir une grande quantité de mémoire disponible, par exemple, 100.
+   
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="Analyser SAP S/4HANA" border="true":::
 
 6.  Sélectionnez **Continuer**.

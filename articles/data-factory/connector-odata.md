@@ -7,14 +7,14 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
-ms.openlocfilehash: 938693353505a7fb3d37c85234da429ed2367ad4
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c1ac63dde4dd489449db5db913aeb55f5d3de3ad
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124787885"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064961"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory-or-synapse-analytics"></a>Copier des données OData à l’aide d’Azure Data Factory ou Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -356,7 +356,7 @@ Lorsque vous copiez des données à partir d’OData, les mappages suivants sont
 
 ## <a name="copy-data-from-project-online"></a>Copier des données à partir de Project Online
 
-Pour copier des données à partir de Project Online, vous pouvez utiliser le connecteur OData et un jeton d’accès obtenu à partir d’outils tels que Postman.
+Project Online nécessite un accès OAuth basé sur l’utilisateur, qui n’est pas pris en charge par Azure Data Factory. Pour copier des données à partir de Project Online, vous pouvez utiliser le connecteur OData et un jeton d’accès obtenu à partir d’outils tels que Postman.
 
 > [!CAUTION]
 > Le jeton d’accès expire dans une heure par défaut : vous devez obtenir un nouveau jeton d’accès lorsqu’il expire.
@@ -377,7 +377,7 @@ Pour copier des données à partir de Project Online, vous pouvez utiliser le co
    1. Vous serez invité à vous connecter avec votre nom d’utilisateur et votre mot de passe.
    1. Une fois que vous avez obtenu votre jeton d’accès, copiez-le et enregistrez-le pour l’étape suivante.
    
-    [:::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-expanded.png#lightbox" alt-text="Utiliser Postman pour recevoir le jeton d’accès](./media/connector-odata/odata-project-online-postman-access-token-inline.png)":::
+    :::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-inline.png" alt-text="Capture d’écran de l’utilisation de Postman pour obtenir le jeton d’accès." lightbox="./media/connector-odata/odata-project-online-postman-access-token-expanded.png":::        
 
 1. Créez le service lié OData :
     - **Service URL** (URL du service) : Entrez `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Remplacez `<your tenant name>` par votre propre nom de locataire. 

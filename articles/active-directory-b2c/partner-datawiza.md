@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 7/07/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: a007f567b6f137f1bff225f90c3f52dfaf71c1f2
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 87cce83adcd24c9933d1d0668e4b9ce5a8fb6c2e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114228581"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036072"
 ---
 # <a name="tutorial-configure-azure-ad-b2c-with-datawiza-to-provide-secure-hybrid-access"></a>Tutoriel : Configurer Azure AD B2C avec Datawiza pour fournir un accès hybride sécurisé
 
@@ -43,7 +43,7 @@ L’intégration Datawiza inclut les composants suivants :
 
 - **Datawiza Access Broker (DAB)**  : l’utilisateur du service se connecte et transmet de manière transparente l’identité aux applications via les en-têtes HTTP.
 
-- **Datawiza Cloud Management Console (DCMC)**  : console de gestion centralisée qui gère DAB. La console DCMC fournit aux administrateurs une interface utilisateur et des API Restful pour gérer les configurations de DAB et ses stratégies de contrôle d’accès.
+- **Datawiza Cloud Management Console (DCMC)**  : console de gestion centralisée qui gère DAB. La console DCMC fournit aux administrateurs une interface utilisateur et des API RESTful pour gérer les configurations de DAB et ses stratégies de contrôle d’accès.
 
 Le diagramme d’architecture suivant illustre l’implémentation.
 

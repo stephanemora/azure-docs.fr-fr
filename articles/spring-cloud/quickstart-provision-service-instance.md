@@ -1,19 +1,19 @@
 ---
-title: Démarrage rapide - Provisionner le service Azure Spring Cloud
-description: Décrit la création d’une instance d’Azure Spring Cloud pour le déploiement d’applications.
+title: Démarrage rapide – Provisionner un service Azure Spring Cloud
+description: Décrit la création d’une instance de service Azure Spring Cloud pour le déploiement d’applications.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f96eeaaddbf49a0649cbec8737052b8d555b2681
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: ca7128cf360be3b102e7aa781afa8a270e1c3c9f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681245"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005220"
 ---
 # <a name="quickstart-provision-an-azure-spring-cloud-service"></a>Démarrage rapide : Provisionner un service Azure Spring Cloud
 
@@ -88,14 +88,14 @@ az extension add --name spring-cloud
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-Vous pouvez instancier Azure Spring Cloud en utilisant le portail Azure ou Azure CLI.  Les deux méthodes sont expliquées dans les procédures suivantes.
+Vous pouvez provisionner une instance du service Azure Spring Cloud à l’aide du portail Azure ou d’Azure CLI.  Les deux méthodes sont expliquées dans les procédures suivantes.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Installez JDK 8](/java/azure/jdk/)
+* [Installez JDK 8 ou JDK 11](/azure/developer/java/fundamentals/java-jdk-install)
 * [Souscrire à un abonnement Azure](https://azure.microsoft.com/free/)
-* (Facultatif) [Installez Azure CLI version 2.0.67 ou ultérieure](/cli/azure/install-azure-cli) et installez l’extension Azure Spring Cloud avec la commande : `az extension add --name spring-cloud`
-* (Facultatif) [Installez Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) et [connectez-vous](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+* (Facultatif) [Installez Azure CLI version 2.0.67 ou ultérieure](/cli/azure/install-azure-cli) et installez l’extension Azure Spring Cloud avec la commande : `az extension add --name spring-cloud`
+* (Facultatif) [Installez Azure Toolkit for IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) et [connectez-vous](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 ## <a name="provision-an-instance-of-azure-spring-cloud"></a>Provisionner une instance d’Azure Spring Cloud
 
@@ -118,11 +118,10 @@ La procédure suivante crée une instance d’Azure Spring Cloud en utilisant le
 5. Remplissez le formulaire sur la page **Créer** Azure Spring Cloud.  Tenez compte des recommandations suivantes :
 
     - **Abonnement**: Sélectionnez l’abonnement à facturer pour cette ressource.
-    - **Groupe de ressources** : Une bonne pratique consiste à créer des groupes de ressources pour les nouvelles ressources. Notez que ceci sera utilisé dans des étapes ultérieures en tant que **\<resource group name\>** .
+    - **Groupe de ressources** : Une bonne pratique consiste à créer des groupes de ressources pour les nouvelles ressources. Vous allez utiliser cette valeur plus tard en tant que **\<resource group name\>**.
     - **Détails/Nom du service** : Spécifiez **\<service instance name\>** .  Le nom doit comporter entre 4 et 32 caractères, et contenir uniquement des lettres minuscules, des chiffres et des traits d’union.  Le premier caractère du nom du service doit être une lettre, et le dernier doit être une lettre ou un chiffre.
     - **Emplacement** : Sélectionnez l’emplacement de votre instance de service.
-    - Sélectionnez *Standard* pour l’option **Niveau tarifaire**.
-    - Sous l’onglet **Application Insights**, sélectionnez *Oui* pour **Activer l’agent in-process Java**.
+    - Sélectionnez **Standard** pour l’option **Niveau tarifaire**.
 
     ![Démarrage du portail ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -155,7 +154,7 @@ La procédure suivante utilise l’extension Azure CLI pour provisionner une ins
 
     ```azurecli
     az group create --name <resource group name>
-    az spring-cloud create -n <service instance name> -g <resource group name> --enable-java-agent
+    az spring-cloud create -n <service instance name> -g <resource group name>
     ```
 
     Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).

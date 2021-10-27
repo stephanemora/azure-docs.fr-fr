@@ -1,6 +1,6 @@
 ---
-title: Planifier une offre Service géré pour le marketplace commercial de Microsoft
-description: Comment planifier une nouvelle offre Service géré pour Place de marché Azure à l’aide du programme de marketplace commercial dans Espace partenaires Microsoft.
+title: Planifier une offre de service managé pour la Place de marché commerciale
+description: Planifier une offre de service managée pour la Place de marché Azure dans l’Espace partenaires.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -8,16 +8,16 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: ffa7e35bed1713a5ef9e04b59a8dbdb692b9630f
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 0f167cd82c6a66a175923b3b318623ab9a2bd1cf
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790952"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070847"
 ---
-# <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Comment planifier une offre Service géré pour le marketplace commercial de Microsoft
+# <a name="plan-a-managed-service-offer"></a>Planifier une offre de service managé
 
-Cet article présente la configuration requise pour la publication d’une offre Service géré sur le marketplace commercial de Microsoft via Espace partenaires.
+Cet article présente les exigences pour la publication d’une offre de service managé sur la Place de marché commerciale via l’Espace partenaires.
 
 Les services gérés sont des offres de Place de marché Azure qui permettent une gestion multi-locataire et interlocataire avec Azure Lighthouse. Pour en savoir plus, consultez [Présentation d’Azure Lighthouse](../lighthouse/overview.md). Lorsqu'un client achète une offre Service géré, il peut déléguer un ou plusieurs abonnements ou groupes de ressources. Vous pouvez ensuite travailler sur ces ressources à l'aide des fonctionnalités de [gestion déléguée des ressources Azure](../lighthouse/concepts/architecture.md) d'Azure Lighthouse.
 
@@ -74,7 +74,7 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
 
 **Résumé des résultats de recherche** : décrivez l’objectif ou le but de votre offre en 100 caractères maximum. Ce résumé est utilisé dans les résultats de recherche de la publication sur le marketplace commercial. Il ne doit pas être identique au titre. Pensez à inclure vos principaux mots clés de SEO.
 
-**Description courte** : entrez une courte description de votre offre (256 caractères maximum). Elle sera affichée dans le référencement de votre offre sur le portail Azure.
+**Description courte** : entrez une courte description de votre offre (256 caractères maximum). Cette description sera affichée dans le référencement de votre offre sur le portail Azure.
 
 **Description** : décrivez votre offre en 3 000 caractères maximum. Cette description s’affichera dans la publication sur le marketplace commercial. Pensez à inclure une proposition de valeur, un avantage clé, des associations de catégorie ou de secteur d’activité et toute information obligatoire requise.
 
@@ -98,9 +98,9 @@ Vous pouvez également utiliser des balises HTML pour mettre en forme votre desc
 
 **Médias de marketplace – logos** : fournissez un fichier PNG pour le logo grand format de votre offre. Espace partenaires l’utilisera pour créer des logos de petite et moyenne taille. Si vous le souhaitez, vous pouvez par la suite remplacer ces logos par une autre image.
 
-* Le grand logo (d’une taille comprise entre 216 x 216 et 350 x 350 pixels) apparaît dans le référencement de votre offre dans la Place de marché Azure.
-* Le logo moyen (90 x 90 pixels) s’affiche lors de la création d’une ressource.
-* Le petit logo (48 x 48 pixels) s’affiche dans les résultats de la recherche de la Place de marché Azure.
+* Le grand logo (taille comprise entre 216 x 216 et 350 x 350 px) apparaît dans le référencement de votre offre dans la Place de marché Azure.
+* Le logo moyen (90 x 90 px) apparaît quand une ressource est créée.
+* Le petit logo (48 x 48 px) est utilisé dans les résultats de la recherche de la Place de marché Azure.
 
 Suivez ces instructions pour vos logos:
 

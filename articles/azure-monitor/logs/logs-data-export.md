@@ -3,15 +3,15 @@ title: Exportation des données de l’espace de travail Log Analytics dans Azur
 description: L’exportation de données Log Analytics vous permet d’exporter en continu des données de tables sélectionnées de votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs au fur et à mesure de leur collecte.
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-author: bwren
-ms.author: bwren
-ms.date: 05/07/2021
-ms.openlocfilehash: beb3d2374e89402795dab0480d840e291c391ec8
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+author: yossi-y
+ms.author: yossiy
+ms.date: 10/17/2021
+ms.openlocfilehash: 25d1d07edabdc8ee3d46175a51d8a20c5d9cc9eb
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811562"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133109"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Exportation des données de l’espace de travail Log Analytics dans Azure Monitor (préversion)
 L’exportation des données de l’espace de travail Log Analytics dans Azure Monitor vous permet d’exporter en continu des données de tables sélectionnées dans votre espace de travail Log Analytics vers un compte de stockage Azure ou Azure Event Hubs à mesure qu’elles sont collectées. Cet article fournit des informations détaillées sur cette fonctionnalité et les étapes à suivre pour configurer l’exportation de données dans vos espaces de travail.
@@ -90,7 +90,10 @@ Pour envoyer les données dans l’espace de stockage immuable, définissez la s
 
 Le compte de stockage doit être StorageV1 ou supérieur, et se trouver dans la même région que votre espace de travail. Si vous devez répliquer vos données vers d’autres comptes de stockage dans d’autres régions, vous pouvez utiliser l’une des [options de redondance du Stockage Azure](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region), notamment GRS et GZRS.
 
-Les données sont envoyées aux comptes de stockage à mesure qu’elles atteignent Azure Monitor, puis elles sont stockées dans des objets blob ajoutés toutes les heures. Le paramètre de règle d’exportation crée un conteneur pour chaque table du compte de stockage portant le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un conteneur nommé *am-SecurityEvent*.
+Les données sont envoyées aux comptes de stockage à mesure qu’elles atteignent Azure Monitor, puis elles sont stockées dans des objets blob ajoutés toutes les heures. Un conteneur est créé pour chaque table du compte de stockage portant le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un conteneur nommé *am-SecurityEvent*.
+
+> [!NOTE]
+> Il est recommandé d’utiliser un compte de stockage distinct pour une allocation de taux d’entrée appropriée et de réduire les événements de limitation, d’échecs et de latence.
 
 À compter du 15 octobre 2021, les objets blob sont stockés dans des dossiers de cinq minutes dans la structure de chemin suivante : *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Étant donné que les objets Blob d’ajout sont limités à 50 000 écritures dans le stockage, le nombre d’objets Blob exportés peut s’étendre si le nombre d’ajouts est élevé. Dans ce cas, le modèle de nommage pour les objets blob serait PT05M_#.json*, où # est le nombre d’objets blob incrémenté.
 
@@ -106,15 +109,14 @@ L’espace de noms de hub d’événements doit être dans la même région que 
 
 Les données sont envoyées à votre hub d’événements à mesure qu’elles atteignent Azure Monitor. Un Event Hub est créé pour chaque type de données que vous exportez avec le nom *am-* suivi du nom de la table. Par exemple, la table *SecurityEvent* serait envoyée à un Event Hub nommé *am-SecurityEvent*. Si vous souhaitez que les données exportées atteignent un Event Hub spécifique, ou si vous avez une table avec un nom qui dépasse la limite de 47 caractères, vous pouvez fournir votre propre nom Event Hub et y exporter toutes les données pour les tables définies.
 
+> [!NOTE]
+> - Le niveau de hub d’événements « De base » prend en charge une [limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) de taille d’événement inférieure, et certains journaux de votre espace de travail peuvent dépasser cette taille et être supprimés. Utilisez les niveaux « Standard », « Premium » ou « Dédié » pour la destination de l’exportation.
+> - Le volume de données exportées augmente au fil du temps et la mise à l’échelle des conséquences est nécessaire pour les taux d’entrée plus élevés. Utilisez la fonctionnalité de **majoration automatique** pour augmenter ou diminuer automatiquement le nombre d’unités de débit pour répondre aux besoins d’utilisation. Consultez [Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md).
+> - Utilisez un espace de noms Event Hub distinct pour une allocation de taux d’entrée appropriée et pour réduire les événements de limitation, d’échecs et de latence.
+> - L’exportation de données ne peut pas atteindre les ressources de hub d’événements lorsque des réseaux virtuels sont activés. Vous pouvez activer le paramètre **Autoriser les services Microsoft approuvés à contourner ce pare-feu ?** dans les Event Hubs pour accorder l’accès aux ressources de votre Event Hub.
+
 > [!IMPORTANT]
 > Le [nombre d’Event Hubs pris en charge par niveaux d’espaces de noms « De base » et « Standard » est de 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Si vous exportez plus de 10 tables, fractionnez les tables entre plusieurs règles d’exportation vers différents espaces de noms d’Event Hubs, ou indiquez le nom de l’Event Hub dans la règle d’exportation et exportez toutes les tables vers cet Event Hub.
-
-Considérations relatives à l’espace de noms de hub d’événements :
-1. La référence SKU de hub d’événements « De base » prend en charge une [limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) de taille d’événement inférieure, et certains journaux de votre espace de travail peuvent dépasser cette taille et être supprimés. Nous vous recommandons d’utiliser un Event Hub « Standard » ou « Dédié » comme destination de l’exportation.
-2. Le volume des données exportées augmente souvent dans le temps, et la mise à l’échelle du Event Hub doit être augmentée pour gérer des taux de transfert plus importants et éviter les scénarios de limitation et de latence des données. Vous devez utiliser la fonctionnalité de majoration automatique d’Event Hubs pour augmenter ou diminuer automatiquement le nombre d’unités de débit pour répondre aux besoins d’utilisation. Pour plus d’informations, consultez [Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs](../../event-hubs/event-hubs-auto-inflate.md).
-
-> [!NOTE]
-> L’exportation de données Azure Monitor ne peut pas accéder aux ressources de hub d’événements lorsque des réseaux virtuels sont activés. Vous devez activer le paramètre Autoriser les services Microsoft approuvés à contourner ce pare-feu dans Event Hub, afin que l’exportation de données Azure Monitor soit autorisée à accéder à vos ressources Event Hubs. 
 
 ## <a name="enable-data-export"></a>Activer l’exportation de données
 Les étapes suivantes doivent être effectuées pour permettre l’exportation de données Log Analytics. Pour plus d’informations sur chacune d’elles, consultez les sections suivantes.
@@ -150,38 +152,30 @@ Les destinations d’exportation de données ont des limites et doivent être su
 
 1. Utiliser un compte de stockage distinct pour l’exportation
 1. Configurez l’alerte sur la métrique ci-dessous avec les paramètres suivants : 
-   - `Operator` Supérieur à
-   - `Aggregation type` Total
-   - `Aggregation granularity (period)` 5 minutes
-   - `Frequency of evaluation` Toutes les 5 minutes
-  
+
     | Étendue | Espace de noms de métrique | Métrique | Agrégation | Seuil |
     |:---|:---|:---|:---|:---|
     | storage-name | Compte | Entrée | Sum | 80% du taux d’entrée de stockage maximal. Par exemple : 60 Gbps pour Usage général v2 dans la région USA Ouest |
   
-1. Action corrective
-    - Utiliser un espace de noms Event Hub distinct pour l’exportation
+1. Actions de correction des alertes
+    - Utiliser un compte de stockage distinct pour l’exportation
     - Les comptes standard Stockage Azure prennent en charge une limite d’entrée supérieure par demande. Pour demander une augmentation, contactez le [Support Azure](https://azure.microsoft.com/support/faq/).
     - Fractionner des tables entre des comptes de stockage supplémentaires
 
 #### <a name="recommendations-for-event-hub"></a>Recommandations pour Event Hub
 
-1. Configurez l’alerte sur la métrique ci-dessous avec les paramètres suivants : 
-   - `Operator` Supérieur à
-   - `Aggregation type` Total
-   - `Aggregation granularity (period)` 5 minutes
-   - `Frequency of evaluation` Toutes les 5 minutes
+1. Configurer les [alertes de métriques](../../event-hubs/monitor-event-hubs-reference.md) :
   
     | Étendue | Espace de noms de métrique | Métrique | Agrégation | Seuil |
     |:---|:---|:---|:---|:---|
-    | namespaces-name | Métriques standard du Event Hub | Octets entrants | Sum | 80 % de l’entrée maximale par 5 minutes. Par exemple, il s’agit de 1 Mo/s par unité de limitation |
-    | namespaces-name | Métriques standard du Event Hub | Messages entrants | Sum | 80 % du nombre maximal d’événements par 5 minutes. Par exemple, il s’agit de 1000/s par unité de limitation |
-    | namespaces-name | Métriques standard du Event Hub | Demandes de limitation | Sum | Entre 1 % et 5 % de la demande |
+    | namespaces-name | Métriques standard du Event Hub | Octets entrants | Sum | 80 % de l’entrée maximale par 5 minutes. Par exemple, il s’agit de 1 Mo/s par unité (TU ou PU) |
+    | namespaces-name | Métriques standard du Event Hub | Requêtes entrantes | Count | 80 % du nombre maximal d’événements par 5 minutes. Par exemple, il s’agit de 1 000/s par unité (TU ou PU) |
+    | namespaces-name | Métriques standard du Event Hub | Erreurs de dépassement de quota | Count | Entre 1 % et 5 % de la demande |
 
-1. Action corrective
-   - Augmenter le nombre d’unités de limitation
+1. Actions de correction des alertes
+   - Augmenter le nombre d’unités (TU ou PU)
    - Fractionner des tables entre des espaces de noms supplémentaires
-   - Utiliser le niveau Event Hub Premium pour un débit plus élevé
+   - Utiliser des niveaux « Premium » ou « Dédié » pour un débit plus élevé
 
 La règle d’exportation doit inclure les tables que vous avez dans votre espace de travail. Exécutez cette requête pour obtenir la liste des tables disponibles dans votre espace de travail.
 
@@ -191,7 +185,14 @@ find where TimeGenerated > ago(24h) | distinct Type
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-N/A
+Dans le menu de l'**espace de travail Log Analytics** du Portail Azure, sélectionnez **Exportation des données** dans la section **Paramètres**, puis cliquez sur **Nouvelle règle d’exportation** dans le haut du volet médian.
+
+![création de l’exportation](media/logs-data-export/export-create-1.png)
+
+Suivez les étapes, puis cliquez sur **Créer**. 
+
+<img src="media/logs-data-export/export-create-2.png" alt="export rule configuration" title="configuration des règles d’exportation" width="80%"/>
+
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -467,7 +468,14 @@ Utilisez la commande suivante pour créer une règle d’exportation de données
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-N/A
+Dans le menu **Espace de travail Log Analytics** du Portail Azure, sélectionnez **Exportation des données** dans la section **Paramètres**.
+
+![affichage des règles d’exportation](media/logs-data-export/export-view-1.png)
+
+Cliquez sur une règle pour l’affichage de configuration.
+
+<img src="media/logs-data-export/export-view-2.png" alt="export rule settings" title= "exporter les paramètres de règle" width="65%"/>
+
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -499,7 +507,10 @@ N/A
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-N/A
+Les règles d’exportation peuvent être désactivées pour vous permettre d’arrêter l’exportation lorsque vous n’avez pas besoin de conserver des données pendant un certain temps, par exemple lorsque des tests sont en cours. Dans le menu de l'**espace de travail Log Analytics** du Portail Azure, sélectionnez **Exportation des données** dans la section **Paramètres**, puis cliquez sur le bouton bascule d’état pour désactiver ou activer la règle d’exportation.
+
+![désactivation de la règle d’exportation](media/logs-data-export/export-disable.png)
+
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -546,7 +557,10 @@ Les règles d’exportation peuvent être désactivées pour vous permettre d’
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-N/A
+Dans le menu de l'**espace de travail Log Analytics** du Portail Azure, sélectionnez *Exportation des données* dans la section **Paramètres**, puis cliquez sur les points de suspension à droite de la règle et cliquez **Supprimer**. 
+
+![exporter la règle de suppression](media/logs-data-export/export-delete.png)
+
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -574,11 +588,15 @@ N/A
 
 ---
 
+
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Afficher toutes les règles d’exportation de données dans un espace de travail
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-N/A
+Dans le menu **Espace de travail Log Analytics** du Portail Azure, sélectionnez **Exportation des données** dans la section **Paramètres** pour afficher toutes les règles d’exportation dans l’espace de travail.
+
+![exporter des règles](media/logs-data-export/export-view.png)
+
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -605,6 +623,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 N/A
 
 ---
+
 
 ## <a name="unsupported-tables"></a>Tables non prises en charge
 Si la règle d’exportation de données comprend une table non prise en charge, la configuration échoue, mais aucune donnée n’est exportée pour cette table. Si la table est prise en charge par la suite, ses données seront exportées à ce moment-là.

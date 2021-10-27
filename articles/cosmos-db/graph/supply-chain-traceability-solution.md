@@ -1,5 +1,5 @@
 ---
-title: Solution Infosys de traçabilité de la chaîne logistique utilisant l’API Graph Azure Cosmos DB
+title: Solution Infosys de traçabilité de la chaîne logistique utilisant l’API Gremlin Azure Cosmos DB
 description: La solution graphique de traçabilité de la chaîne logistique implémentée par Infosys utilise l’API Azure Cosmos DB Gremlin et d’autres services Azure. Elle offre une capacité de suivi et de traçabilité de la chaîne logistique mondiale pour les produits finis.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 10/07/2021
 author: manishmsfte
 ms.author: mansha
-ms.openlocfilehash: 4ec236a57e9c8f24625d22f4af3f39299d118804
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 3dacf188e0a3fbf901a97ff2125788f080d6532e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716515"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003891"
 ---
-# <a name="supply-chain-traceability-solution-using-azure-cosmos-db-graph-api"></a>Solution de traçabilité de la chaîne logistique utilisant l’API Graph Azure Cosmos DB
+# <a name="supply-chain-traceability-solution-using-azure-cosmos-db-gremlin-api"></a>Solution de traçabilité de la chaîne logistique utilisant l’API Gremlin Azure Cosmos DB
 
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
@@ -30,19 +30,20 @@ Cet article portera sur les éléments suivants :
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Dans la chaîne logistique alimentaire, la traçabilité des produits est la capacité « à les suivre et à les retrouver » tout au long de la chaîne logistique, pendant tout le cycle de vie du produit. La chaîne logistique comprend l’approvisionnement, la fabrication et la distribution. La traçabilité est essentielle pour la sécurité des denrées alimentaires, la marque et l’exposition aux réglementations. Par le passé, certaines organisations n’ont pas réussi à suivre et à retrouver efficacement les produits dans leur chaîne logistique, ce qui a entraîné des rappels coûteux, des amendes et des problèmes de santé chez les consommateurs.
+Dans la chaîne logistique alimentaire, la traçabilité des produits est la capacité « à les suivre et à les retrouver » tout au long de la chaîne logistique, pendant tout le cycle de vie du produit. La chaîne logistique comprend l’approvisionnement, la fabrication et la distribution. La traçabilité est essentielle pour la sécurité des denrées alimentaires, la marque et l’exposition aux réglementations. Par le passé, certaines organisations n’ont pas réussi à suivre et à retrouver efficacement les produits dans leur chaîne logistique, ce qui a entraîné des rappels coûteux, des amendes et des problèmes de santé chez les consommateurs. Les solutions de traçabilité devaient répondre aux besoins d’harmonisation des données, d’ingestion des données à différentes vélocités et véracités et, plus important encore, suivre le cycle d’inventaire, des objectifs qui n’étaient pas possibles avec les plateformes traditionnelles.
 
 La solution de traçabilité d’Infosys, développée avec les capacités d’Azure telles que les services d’application, les services d’intégration et les services de base de données, offre des capacités essentielles pour :
 
 * Se connecter aux usines, aux entrepôts/centres de distribution.
 * Ingérer/traiter des événements parallèles de mouvements de stock.
 * Un graphique de connaissances, qui montre les connexions entre les matières premières, les lots et les palettes de produits finis, la relation parent/enfant à plusieurs niveaux des palettes, le mouvement des marchandises.
-* Un portail avec une capacité de recherche pour suivre et retrouver les palettes.
+* Portail utilisateur avec une capacité de recherche allant de la recherche par caractères génériques à la recherche par mots clés spécifiques.
 * Identifier les impacts d’un incident de qualité tels que le lot de matières premières concerné, les palettes concernées, l’emplacement des palettes.
+* Possibilité de capturer l’historique des événements sur plusieurs marchés, y compris les informations relatives aux rappels de produits.
 
 ## <a name="solution-architecture"></a>Architecture de solution
 
-La traçabilité de la chaîne logistique partage généralement des schémas dans l’ingestion des mouvements de palettes, le traitement des incidents de qualité et le suivi/l’analyse des données des magasins. Tout d’abord, ces systèmes doivent ingérer des rafales de données provenant de systèmes de gestion d’usine et d’entrepôt qui traversent les frontières géographiques. Ensuite, ces systèmes traitent et analysent les données en continu pour en déduire des relations complexes entre les matières premières, les lots de production, les palettes de produits finis et les relations complexes parent/enfant (conditionnement commun/nouveau conditionnement). Puis, le système doit stocker les relations complexes entre les matières premières, les produits finis et les palettes nécessaires à la traçabilité. Un portail utilisateur doté de capacités de recherche permet aux utilisateurs de suivre et de retrouver les produits dans le réseau de la chaîne logistique.
+La traçabilité de la chaîne logistique partage généralement des schémas dans l’ingestion des mouvements de palettes, le traitement des incidents de qualité et le suivi/l’analyse des données des magasins. Tout d’abord, ces systèmes doivent ingérer des rafales de données provenant de systèmes de gestion d’usine et d’entrepôt qui traversent les frontières géographiques. Ensuite, ces systèmes traitent et analysent les données en continu pour en déduire des relations complexes entre les matières premières, les lots de production, les palettes de produits finis et les relations complexes parent/enfant (conditionnement commun/nouveau conditionnement). Enfin, le système doit stocker des informations sur les relations complexes entre les matières premières, les produits finis et les palettes, toutes nécessaires à la traçabilité. Un portail utilisateur doté de capacités de recherche permet aux utilisateurs de suivre et de retrouver les produits dans le réseau de la chaîne logistique. Ces services permettent de créer une solution de traçabilité de bout en bout qui prend en charge des capacités natives Cloud, avec API en premier et pilotées par les données.
 
 Microsoft Azure offre de nombreux services qui peuvent être appliqués aux cas d’usage de la traçabilité, notamment Azure Cosmos DB, Azure Event Hubs, Gestion des API Azure, Azure App Service, Azure SignalR, Azure Synapse Analytics et Power BI.
 
@@ -55,7 +56,7 @@ Les différents services Azure utilisés dans cette architecture aident à réal
 * Azure Cosmos DB permet d’effectuer un scale-up ou un scale-down des performances de manière flexible. L’API Gremlin vous permet de créer et d’interroger des relations complexes entre les matières premières, les produits finis et les entrepôts.
 * Gestion des API Azure fournit des API pour les événements de mouvement de stock aux prestataires 3PL (prestataires logistiques tiers) et aux systèmes de gestion des entrepôts (WMS).  
 * Azure Event Hub permet de rassembler un grand nombre d’événements simultanés provenant des systèmes WMS et des prestataires 3PL en vue d’un traitement ultérieur.
-* Les applications Azure Function traitent les événements et ingèrent des données dans Azure Cosmos DB à l’aide de l’API Graph.
+* Les applications Azure Functions traitent les événements et ingèrent des données dans Azure Cosmos DB à l’aide de l’API Gremlin.
 * Le service Azure Search permet aux utilisateurs d’effectuer des recherches complexes et de filtrer les informations sur les palettes.
 * Azure Databricks lit les flux de modification et crée des modèles dans Synapse Analytics pour la création de rapports en libre-service pour les utilisateurs de Power BI.
 * Azure Web App et le plan App Service permettent de déployer le portail utilisateur.
@@ -90,5 +91,6 @@ Le diagramme ci-dessus donne une vue simplifiée et élémentaire d’un process
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Solution de graphique de traçabilité d’Infosys](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-traceability-knowledge-graph?tab=Overview)
+* [Infosys Integrate+ pour Azure](https://azuremarketplace.microsoft.com/marketplace/apps/infosysltd.infosys-integrate-for-azure)
 * Pour visualiser les données des graphiques, consultez les [solutions de visualisation de l’API Gremlin](graph-visualization-partners.md).
 * Pour modéliser vos données graphiques, consultez les [solutions de modélisation de l’API Gremlin](graph-modeling-tools.md).

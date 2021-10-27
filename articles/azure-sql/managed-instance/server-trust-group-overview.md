@@ -12,12 +12,12 @@ author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma
 ms.date: 10/08/2020
-ms.openlocfilehash: f66050545c2c30c592b41cb21c30394316c80711
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 4a3e96c33a0bef8e533b4f7f563c701a2c0a8044
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110692734"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042198"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Utiliser des groupes d’approbations de serveurs pour configurer et gérer l’approbation entre des instances managées SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,5 +82,5 @@ Au cours de la préversion publique, les limitations suivantes s’appliquent au
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les transactions distribuées dans Azure SQL Managed Instance, consultez [Transactions distribuées](../database/elastic-transactions-overview.md).
-* Pour obtenir les mises à jour de version et l’état des problèmes connus, consultez [Notes de publication Managed Instance](../database/doc-changes-updates-release-notes.md).
+* Pour obtenir les mises à jour de version et l’état des problèmes connus, consultez [Nouveautés](doc-changes-updates-release-notes-whats-new.md).
 * Si vous avez des demandes de fonctionnalités, ajoutez-les au [forum Managed Instance](https://feedback.azure.com/forums/915676-sql-managed-instance).

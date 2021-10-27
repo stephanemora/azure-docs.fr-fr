@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 4b660d464a8615886be9b466fd2e9de808ef3bd9
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 458e6d9b9de91dcf9f9214f2021fb780841ff7b4
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716519"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164347"
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -73,7 +73,7 @@ Vous pouvez voir la méthode d’extraction des données de facturation en essay
   * Les clés doivent apparaître au-dessus ou à gauche des valeurs, pas en dessous ni à droite.
 
 > [!NOTE]
-> L’[outil d’étiquetage des exemples](https://fott-2-1.azurewebsites.net/) ne prend pas en charge le format de fichier BMP. Il s’agit d’une limitation de l’outil et non du service Form Recognizer.
+> L'[outil d’étiquetage des exemples](https://fott-2-1.azurewebsites.net/) ne prend pas en charge le format de fichier BMP. Il s’agit d’une limitation de l’outil et non du service Form Recognizer.
 
 ## <a name="supported-languages-and-locales"></a>Langues et régions prises en charge
 
@@ -112,13 +112,31 @@ Vous pouvez voir la méthode d’extraction des données de facturation en essay
 | ServiceEndDate | Date | Date de fin de la période de service (par exemple, pour une période de service de facturation d’utilitaire) | aaaa-mm-jj|
 | PreviousUnpaidBalance | nombre | Solde précédent impayé explicite | entier |
 
+### <a name="line-items"></a>Éléments de ligne
+
+Voici les élément de ligne extraits d’une facture dans la réponse de la sortie JSON (la sortie ci-dessous utilise cet [exemple de facture](media/sample-invoice.jpg)) :
+
+|Name| Type | Description | Texte (élément de ligne no 1) | Valeur (sortie standardisée) |
+|:-----|:----|:----|:----| :----|
+| Éléments | string | Texte complet de l’élément de ligne | 04/03/2021 A123 Services de conseil 2 heures 30,00 $ 10 % 60,00 $ | |
+| Montant | nombre | Montant de l’élément de ligne | 60,00 $ | 100 |
+| Description | string | Description textuelle de l’élément de ligne de la facture | Service de conseil | Service de conseil |
+| Quantité | nombre | Quantité pour cet élément de ligne de la facture | 2 | 2 |
+| UnitPrice | nombre | Prix net ou brut (en fonction du paramètre de facturation brute de la facture) d’une unité de cet élément | 30,00 $ | 30 |
+| ProductCode | string| Code du produit, numéro de produit ou référence SKU associé à l’élément de ligne spécifique | A123 | |
+| Unité | string| L’unité de l’élément de ligne (par exemple : kg, lb, etc.) | heures | |
+| Date | date| Date correspondant à chaque élément de ligne. Il s’agit souvent de la date d’expédition de l’élément de ligne | 04/03/2021| 04-03-2021 |
+| Taxe | nombre | Taxe associée à chaque élément de ligne. Les valeurs possibles incluent le montant des taxes, le pourcentage de la taxe et la valeur d’application de la taxe (O/N) | 10 % | |
+
+Les paires clé-valeur et les éléments de ligne de facture extraits se trouvent dans la section `documentResults` de la sortie JSON. 
+
 ## <a name="form-recognizer-preview-v30"></a>Form Recognizer préversion v3.0
 
  La version préliminaire de Form Recognizer introduit plusieurs nouvelles fonctionnalités.
 
 * Suivez le [**Guide de migration de Form Recognizer v3.0**](v3-migration-guide.md) pour apprendre à utiliser la version préliminaire dans vos applications et vos flux de travail.
 
-* Découvrez notre [**API REST (préversion)** ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) pour en savoir plus sur la préversion et les nouvelles fonctionnalités.
+* Découvrez notre [**API REST (préversion)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) pour en savoir plus sur la préversion et les nouvelles fonctionnalités.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

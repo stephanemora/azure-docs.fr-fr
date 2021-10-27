@@ -8,12 +8,12 @@ ms.date: 10/15/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.openlocfilehash: 6be59e810f504e6909818a8e7ceb57b23174238b
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 88025243a379b18b5b24cb3c47caee4713b47585
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129855875"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131540"
 ---
 # <a name="join-a-teams-meeting"></a>Participer à une réunion Teams
 
@@ -30,7 +30,9 @@ Actuellement, il n’est pas possible pour un utilisateur Teams de rejoindre un 
 
 ## <a name="enabling-anonymous-meeting-join-in-your-teams-tenant"></a>Activation de la participation anonyme aux réunions dans votre locataire Teams
 
-Lorsqu’un utilisateur BYOI se joint à une réunion Teams, il est traité comme un utilisateur externe anonyme, tout comme les utilisateurs qui se joignent anonymement à une réunion Teams en utilisant l’application web Teams. La possibilité pour les utilisateurs BYOI de rejoindre des réunions Teams en tant qu’utilisateurs anonymes est contrôlée par la configuration « autoriser l’accès anonyme aux réunions » qui contrôle également l’accès anonyme aux réunions Teams. Ce paramètre peut être mis à jour dans le [Centre d’administration Teams](https://admin.teams.microsoft.com/meetings/settings) ou avec l’applet de commande PowerShell Teams [Set-CsTeamsMeetingConfiguration](/powershell/module/skype/set-csteamsmeetingconfiguration). Votre application personnalisée doit envisager l’authentification des utilisateurs et d’autres mesures de sécurité pour protéger les réunions Teams. Pensez à ce que cela implique en terme de sécurité si vous autorisez les utilisateurs anonymes à rejoindre des réunions et utilisez le [Guide sur la sécurité de Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) pour configurer les fonctionnalités disponibles pour les utilisateurs anonymes.
+Lorsqu’un utilisateur BYOI se joint à une réunion Teams, il est traité comme un utilisateur externe anonyme, tout comme les utilisateurs qui se joignent anonymement à une réunion Teams en utilisant l’application web Teams. La possibilité pour les utilisateurs BYOI de rejoindre des réunions Teams en tant qu’utilisateurs anonymes est contrôlée par la configuration « autoriser l’accès anonyme aux réunions » qui contrôle également l’accès anonyme aux réunions Teams. Ce paramètre peut être mis à jour dans le [Centre d’administration Teams](https://admin.teams.microsoft.com/meetings/settings) ou avec l’applet de commande PowerShell Teams [Set-CsTeamsMeetingConfiguration](/powershell/module/skype/set-csteamsmeetingconfiguration).  
+
+Les applications personnalisées créées avec Azure Communication Services pour se connecter à Teams et communiquer avec les utilisateurs de Teams peuvent être utilisées par des utilisateurs finaux ou par des bots, et il n’y a aucune différence dans la façon dont elles apparaissent aux utilisateurs de Teams, sauf si le développeur de l’application l’indique explicitement dans le cadre de la communication. Votre application personnalisée doit envisager l’authentification des utilisateurs et d’autres mesures de sécurité pour protéger les réunions Teams. Pensez à ce que cela implique en terme de sécurité si vous autorisez les utilisateurs anonymes à rejoindre des réunions et utilisez le [Guide sur la sécurité de Teams](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) pour configurer les fonctionnalités disponibles pour les utilisateurs anonymes.
 
 ## <a name="meeting-experience"></a>Expérience de réunion
 
@@ -48,11 +50,13 @@ Microsoft vous indique par le biais de l’API Azure Communication Services que 
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 
 - Un utilisateur BYOI peut se joindre à une réunion Teams planifiée pour un canal Teams et utiliser l’audio et la vidéo, mais il ne pourra pas envoyer ni recevoir de messages de conversation, car il n’est pas membre du canal.
-- Lorsque vous utilisez Microsoft Graph pour [dresser la liste des participants à une réunion Teams](https://docs.microsoft.com/graph/api/call-list-participants), les détails concernant les utilisateurs de Communication Services ne sont actuellement pas inclus.
+- Lorsque vous utilisez Microsoft Graph pour [dresser la liste des participants à une réunion Teams](/graph/api/call-list-participants), les détails concernant les utilisateurs de Communication Services ne sont actuellement pas inclus.
 - Les réunions Teams prennent en charge jusqu’à 1 000 participants, mais le Kit de développement logiciel (SDK) Appel d’Azure Communication Services ne prend actuellement en charge que 350 participants.
-- Avec [Cloud Video Interop pour Microsoft Teams](https://docs.microsoft.com/microsoftteams/cloud-video-interop), certains appareils ont rencontré des problèmes lorsqu’un utilisateur de Communication Services partage son écran.
+- Avec [Cloud Video Interop pour Microsoft Teams](/microsoftteams/cloud-video-interop), certains appareils ont rencontré des problèmes lorsqu’un utilisateur de Communication Services partage son écran.
 - Les fonctionnalités telles que Lever la main, le mode ensemble et les salles de pause ne sont disponibles que pour les utilisateurs de Teams.
 - Le Kit de développement logiciel (SDK) Appel ne prend actuellement pas en charge les sous-titres pour les réunions Teams.
+- Les utilisateurs de Communication Services ne peuvent pas participer aux [événements en direct Teams](/microsoftteams/teams-live-events/what-are-teams-live-events).
+- Les [événements du gestionnaire d’activités Teams](/microsoftteams/platform/bots/bot-basics?tabs=csharp) pour les bots ne se déclenchent pas lorsque les utilisateurs de Communication Services rejoignent une réunion Teams.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

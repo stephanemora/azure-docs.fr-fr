@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 936e031e72a98f2329202df4fb3b7a97e7f9d237
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3ac75e3cf3ae08d9b7d49077cf54d05fdbabdbad
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124754483"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039046"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -162,7 +162,7 @@ Oui. Toutes les interfaces réseau (NIC) attachées à une machine virtuelle dé
   - **Resource Manager** : une adresse IP privée attribuée avec la méthode statique ou dynamique reste associée à une machine virtuelle (Resource Manager) jusqu’à ce que la ressource soit supprimée. La différence est que vous sélectionnez l’adresse à attribuer lors de l’utilisation d’une méthode statique, et Azure choisit quand utiliser la méthode dynamique. 
   - **Classique** : une adresse IP privée attribuée avec la méthode dynamique peut changer lorsqu’une machine virtuelle (classique) est redémarrée après avoir été arrêtée (désallouée). Si vous devez vous assurer que l’adresse IP privée d’une ressource déployée via le modèle de déploiement classique ne change jamais, attribuez une adresse IP privée avec la méthode statique.
 
-* **Public :** attribué (facultatif) aux cartes réseau attachées aux machines virtuelles déployées via le modèle de déploiement Azure Resource Manager. L’adresse peut être attribuée à l’aide de la méthode d’allocation statique ou dynamique. Toutes les machines virtuelles et instances de rôle de services cloud déployées via le modèle de déploiement classique existent au sein d’un service cloud, qui se voit attribuer une adresse IP virtuelle publique *dynamique*. Une adresse IP *statique* publique, appelée [Adresse IP réservée](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), peut éventuellement être attribuée en tant qu’adresse IP virtuelle. Vous pouvez attribuer des adresses IP publiques à des machines virtuelles ou instances de rôle de services cloud individuelles déployées via le modèle de déploiement classique. Ces adresses sont appelées [Adresses IP publiques de niveau d’instance (ILPIP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) et elles peuvent être attribuées de manière dynamique.
+* **Public :** attribué (facultatif) aux cartes réseau attachées aux machines virtuelles déployées via le modèle de déploiement Azure Resource Manager. L’adresse peut être attribuée à l’aide de la méthode d’allocation statique ou dynamique. Toutes les machines virtuelles et instances de rôle de services cloud déployées via le modèle de déploiement classique existent au sein d’un service cloud, qui se voit attribuer une adresse IP virtuelle publique *dynamique*. Une adresse IP *statique* publique, appelée [Adresse IP réservée](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), peut éventuellement être attribuée en tant qu’adresse IP virtuelle. Vous pouvez attribuer des adresses IP publiques à des machines virtuelles ou instances de rôle de services cloud individuelles déployées via le modèle de déploiement classique. Ces adresses sont appelées [IP publiques de niveau d’instance (ILPIP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) et peuvent être attribuées de manière dynamique.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Puis-je réserver une adresse IP privée pour une machine virtuelle que je créerai ultérieurement ?
 Non. Vous ne pouvez pas réserver d’adresse IP privée. Si une adresse IP privée est disponible, elle est affectée à une machine virtuelle ou à une instance de rôle par le serveur DHCP. La machine virtuelle peut être celle à laquelle vous souhaitez attribuer l’adresse IP privée. Vous pouvez toutefois modifier l’adresse IP privée d’une machine virtuelle déjà créée et utiliser n’importe quelle adresse IP privée disponible.
@@ -194,7 +194,7 @@ Oui. Toutes les machines virtuelles et instances de rôle de services cloud dép
 Oui. Vous pouvez déployer des applications Web à l’intérieur d’un réseau virtuel à l’aide d’un environnement ASE (App Service Environment). Connectez le serveur principal de vos applications à vos réseaux virtuels avec la fonction d’intégration au réseau virtuel, puis verrouillez le trafic entrant vers votre application avec les points de terminaison de service. Pour plus d’informations, consultez les articles suivants :
 
 * [Fonctionnalités de mise en réseau App Service](../app-service/networking-features.md)
-* [Création d'applications web dans un environnement App Service](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Création d'applications web dans un environnement App Service](../app-service/environment/using.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [App Service access restriction](../app-service/app-service-ip-restrictions.md) (Restrictions d’accès dans App Service)
 
@@ -403,7 +403,7 @@ Pour atteindre le service Azure, les groupes de sécurité réseau doivent autor
 Les points de terminaison de service peuvent être configurés indépendamment sur un réseau virtuel par un utilisateur avec accès en écriture au réseau virtuel. Pour sécuriser les ressources du service Azure pour un réseau virtuel, l’utilisateur doit disposer des autorisations sur **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** pour les sous-réseaux à ajouter. Cette autorisation est incluse par défaut dans le rôle d’administrateur de service intégré et peut être modifiée en créant des rôles personnalisés. Apprenez-en davantage sur les rôles intégrés et l’affectation d’autorisations spécifiques aux [rôles personnalisés](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
-### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Puis-je filtrer le trafic de réseau virtuel vers les services Azure, en autorisant uniquement des ressources de service Azure spécifiques, sur les points de terminaison de service ? 
+### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>Puis-je filtrer le trafic du réseau virtuel vers les services Azure, en autorisant uniquement des ressources de service Azure spécifiques, sur les points de terminaison de service VNet ? 
 
 Les stratégies de points de terminaison de service de réseau virtuel permettent de filtrer le trafic de réseau virtuel vers les services Azure, en autorisant uniquement des ressources de service Azure spécifiques, sur les points de terminaison de service. Les stratégies de points de terminaison fournissent un contrôle d’accès granulaire du trafic de réseau virtuel vers les services Azure. Plus d’informations sur les stratégies de point de terminaison de service sont disponibles [ici](virtual-network-service-endpoint-policies-overview.md).
 

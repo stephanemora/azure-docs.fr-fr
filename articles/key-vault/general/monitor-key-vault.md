@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 09/21/2021
 ms.author: mbaldwin
 ms.custom: subject-monitoring
-ms.openlocfilehash: fbb92ac1d1d6992a78577a8dfc062d6730302f2d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 59fb467c2494fa6fa15c10fe9556975b87e0780e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129353351"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000002"
 ---
 # <a name="monitoring-azure-key-vault"></a>Supervision d’Azure Key Vault
 
@@ -84,7 +84,7 @@ Pour obtenir la liste des tables utilisées par les Journaux de surveillance Azu
 > [!IMPORTANT]
 > Quand vous sélectionnez **Journaux** dans le menu Key Vault, Log Analytics est ouvert avec l’étendue de requête définie sur le coffre de clés actuel. Cela signifie que les requêtes de journal n’incluront que les données de cette ressource. Si vous voulez exécuter une requête qui inclut des données provenant d’autres coffres de clé ou d’autres services Azure, sélectionnez **Journaux** dans le menu **Azure Monitor**. Pour plus d’informations, consultez [Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor](/azure/azure-monitor/log-query/scope/).
 
-Voici quelques requêtes que vous pouvez entrer dans la barre de recherche **Recherche dans les journaux** pour superviser plus facilement vos ressources Key Vault. Ces requêtes fonctionnent avec le [nouveau langage](/azure/azure-monitor/logs/log-query-overview).
+Voici quelques requêtes que vous pouvez entrer dans la barre **Recherche dans les journaux** pour superviser plus facilement vos ressources Key Vault. Ces requêtes fonctionnent avec le [nouveau langage](/azure/azure-monitor/logs/log-query-overview).
 
 * Des demandes sont-elles lentes ?
 
@@ -127,7 +127,6 @@ Voici quelques requêtes que vous pouvez entrer dans la barre de recherche **Rec
 * Quelle a été l'activité de ce KeyVault ?
 
     ```Kusto
-    //  
     // Line chart showing trend of KeyVault requests volume, per operation over time. 
     // KeyVault diagnostic currently stores logs in AzureDiagnostics table which stores logs for multiple services. 
     // Filter on ResourceProvider for logs specific to a service.
@@ -179,11 +178,11 @@ Voici quelques requêtes que vous pouvez entrer dans la barre de recherche **Rec
 
 ## <a name="alerts"></a>Alertes
 
-Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes affectant votre système avant que vos clients ne les remarquent. Vous pouvez définir des alertes sur des [métriques](../../azure-monitor/platform/alerts-metric-overview.md), sur des [journaux](../../azure-monitor/platform/alerts-unified-log.md) et sur le [journal d’activité](../../azure-monitor/platform/activity-log-alerts.md). Les différents types d’alertes présentent des avantages et des inconvénients
+Azure Monitor vous avertit de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes affectant votre système de façon préemptive. Vous pouvez définir des alertes sur des [métriques](../../azure-monitor/platform/alerts-metric-overview.md), sur des [journaux](../../azure-monitor/platform/alerts-unified-log.md) et sur le [journal d’activité](../../azure-monitor/platform/activity-log-alerts.md).  
 
-Si vous créez ou exécutez une application qui utilise Azure Key Vault, les [Insights d’application Azure Monitor](/azure/azure-monitor/overview#application-insights) peuvent vous proposer des types d’alertes supplémentaires.
+Si vous créez ou exécutez une application qui utilise Azure Key Vault, [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) peut vous proposer des types d’alertes supplémentaires.
 
-Voici quelques règles d’alerte courantes et recommandées pour Azure Key Vault.
+Voici quelques règles d’alerte courantes et recommandées pour Azure Key Vault :
 
 - La disponibilité du coffre de clés est inférieure à 100 % (seuil statique)
 - La latence du coffre de clés est supérieure à 500 ms (seuil statique)
@@ -195,7 +194,6 @@ Pour plus d’informations, consultez [Alertes pour Azure Key Vault](alert.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Félicitations, vous surveillez Azure Key Vault. Si vous souhaitez également définir des alertes, consultez [Alerte pour Azure Key Vault](alert.md).
-
 - Pour plus d’informations sur les métriques, les journaux et d’autres valeurs importantes créées par Key Vault, consultez [Surveillance des informations de référence sur les données de surveillance d’Azure Key Vault](monitor-key-vault-reference.md) .
 - Pour plus d’informations sur le monitoring des ressources Azure, voir [Monitoring des ressources Azure avec Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource).
+- Consultez [Génération d’alertes pour Azure Key Vault](alert.md)

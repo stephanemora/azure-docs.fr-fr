@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: cbe511388755e31a2d295a4cf8ed58e78c9afdc2
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 2c3dac941e766ae2d3889b3800e0b6864df16ebc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129079520"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047905"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -192,6 +192,14 @@ Actuellement, la région secondaire [RPO](azure-backup-glossary.md#rpo-recovery-
 Les [machines virtuelles épinglées à une zone Azure](../virtual-machines/windows/create-portal-availability-zone.md) peuvent être restaurées dans des [zones de disponibilité](../availability-zones/az-overview.md) de la même région.
 
 Dans le processus de restauration, l’option **Zone de disponibilité** s’affiche. Vous voyez d’abord votre zone par défaut. Pour choisir une autre zone, choisissez le numéro de la zone de votre choix. Si la zone épinglée n’est pas disponible, vous ne pouvez pas restaurer les données dans une autre zone, car les données sauvegardées ne sont pas répliquées de façon zonale. La restauration dans les zones de disponibilité n'est possible qu'à partir des points de récupération du niveau coffre.
+
+En résumé, la **zone de disponibilité** n’apparaît que lorsque
+ - La machine virtuelle source est attachée à la zone et n’est PAS chiffrée
+ - Le point de récupération est présent au niveau du coffre uniquement (les instantanés uniquement ou le niveau de l’instantané et du coffre ne sont pas pris en charge)
+ - L’option de récupération consiste à créer une nouvelle machine virtuelle ou à restaurer des disques (l’option remplacer les disques remplace les données sources et, par conséquent, l’option zone de disponibilité n’est pas applicable)
+ - Création de machines virtuelles/disques dans la même région lorsque la redondance de stockage du coffre est ZRS (ne fonctionne pas lorsque la redondance de stockage du coffre est GRS même si la machine virtuelle source est épinglée à la zone)
+ - Création de machines virtuelles/disques dans la région jumelée lorsque la redondance de stockage du coffre est activée pour la restauration inter-régions et si la région jumelée prend en charge les zones
+
 
 ![Choisir une zone de disponibilité](./media/backup-azure-arm-restore-vms/cross-zonal-restore.png)
 

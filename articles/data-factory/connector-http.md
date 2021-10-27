@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: jianleishen
-ms.openlocfilehash: c4702172923bd070ad59c4c36265e525308d82af
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7bb163d0864290962465f18b65a73236e3ff3ecb
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831743"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040414"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Cet article décrit comment utiliser l’activité de copie (Copy) dans Azure Da
 Les différences entre ce connecteur HTTP, le [connecteur REST](connector-rest.md) et le [connecteur Table Web](connector-web-table.md) sont les suivantes :
 
 - Le **connecteur REST** prend spécifiquement en charge la copie de données à partir d’API RESTful. 
-- Le **connecteur HTTP** est générique pour récupérer des données à partir de n’importe quel point de terminaison HTTP, par exemple pour télécharger un fichier. Avant que le connecteur REST soit disponible, vous utiliserez peut-être le connecteur HTTP pour copier des données à partir d’une API RESTful, ce qui est pris en charge mais moins fonctionnel comparé au connecteur REST.
+- Le **connecteur HTTP** est générique pour récupérer des données à partir de n’importe quel point de terminaison HTTP, par exemple pour télécharger un fichier. Avant que le connecteur REST soit disponible, vous pouvez utiliser le connecteur HTTP pour copier des données à partir d’API RESTful, qui est pris en charge, mais moins fonctionnel que le connecteur REST.
 - Le **connecteur Table web** extrait le contenu de tables d’une page web HTML.
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge

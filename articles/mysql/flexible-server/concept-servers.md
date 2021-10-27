@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a0ce6658168bd86188875d9d89f218ee26ef7941
-ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
+ms.openlocfilehash: c368e94d8d2b07e3d1487d1b6e505d2a87a89e91
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "122641175"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994078"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concepts de serveur dans le serveur flexible (préversion) Azure Database pour MySQL
 
@@ -51,7 +51,7 @@ Le serveur flexible Azure Database pour MySQL vous donne la possibilité d’**a
 Lorsque le serveur se trouve à l’état **Arrêté**, le calcul du serveur n’est pas facturé. Toutefois, le stockage continue à être facturé tant que le stockage du serveur est conservé pour s’assurer que les fichiers de données sont disponibles lors du redémarrage du serveur.
 
 > [!IMPORTANT]
-> Lorsque vous **arrêtez** le serveur, il reste dans cet état durant les 7 jours suivants. Si vous ne le **démarrez** pas manuellement pendant cette période, le serveur sera automatiquement démarré à la fin des 7 jours. Vous pouvez choisir de l’**arrêter** de nouveau si vous n’utilisez pas le serveur.
+> Lorsque vous **arrêtez** le serveur, il reste dans cet état durant les 30 jours suivants. Si vous ne le **démarrez** pas manuellement pendant cette période, le serveur sera automatiquement démarré à la fin des 30 jours. Vous pouvez choisir de l’**arrêter** de nouveau si vous n’utilisez pas le serveur.
 
 Pendant l’arrêt du serveur, aucune opération de gestion ne peut être effectuée sur le serveur. Afin de modifier les paramètres de configuration sur le serveur, vous devez [démarrer le serveur](how-to-stop-start-server-portal.md). Reportez-vous aux [contraintes liées à l’arrêt et au démarrage](./concepts-limitations.md#stopstart-operation).
 

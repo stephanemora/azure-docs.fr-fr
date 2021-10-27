@@ -1,22 +1,22 @@
 ---
-title: Vue d’ensemble des stratégies personnalisées Azure Active Directory B2C | Microsoft Docs
+title: Vue d’ensemble des stratégies personnalisées Azure Active Directory B2C
 description: Rubrique sur les stratégies personnalisées Azure Active Directory B2C et l’infrastructure d’expérience d’identité.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/08/2021
-ms.author: mimart
+ms.date: 10/14/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 5c27384e58a23501224e279e987115e4981ebf99
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 6da41c32b3b67cbd4e418f844ee73ff4ee85341e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633606"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130037392"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Vue d’ensemble de la stratégie personnalisée Azure AD B2C
 
@@ -35,7 +35,7 @@ Le [pack de démarrage](tutorial-create-user-flows.md?pivots=b2c-custom-policy#g
 - **SocialAndLocalAccounts** : vous permet d’utiliser à la fois des comptes locaux et des comptes sociaux. La plupart de nos exemples font référence à cette stratégie.
 - **SocialAndLocalAccountsWithMFA** : active les options social, local et authentification multifacteur.
 
-Dans [Azure AD B2C exemples de GitHub de référentiel](https://github.com/azure-ad-b2c/samples), vous trouverez des exemples pour Azure AD B2C plusieurs parcours utilisateur des identités clients personnalisés, tels que des améliorations de stratégie de compte local, des améliorations de stratégie de compte social, des améliorations de l’authentification multifacteur, des améliorations de l’interface utilisateur, des améliorations génériques, la migration d’applications, la migration des utilisateurs, un accès conditionnel, un test web et CI/CD.
+Dans le [référentiel GitHub d’exemples Azure AD B2C](https://github.com/azure-ad-b2c/samples), vous trouverez des exemples de plusieurs parcours utilisateur CIAM personnalisés Azure AD B2C améliorés. Il s’agit par exemple d’améliorations de stratégie de compte local, d’améliorations de stratégie de compte social, d’améliorations de l’authentification multifacteur, d’améliorations de l’interface utilisateur, d’améliorations génériques, de la migration d’applications, de la migration des utilisateurs, d’un accès conditionnel, d’un test web et de CI/CD.
  
 ## <a name="understanding-the-basics"></a>Compréhension des concepts de base 
 
@@ -56,7 +56,7 @@ Les [transformations de revendications](claimstransformations.md) sont des fonct
 
 ### <a name="customize-and-localize-your-ui"></a>Personnaliser et localiser votre interface utilisateur
 
-Lorsque vous souhaitez collecter des informations de vos utilisateurs en présentant une page dans leur navigateur web, utilisez le [profil technique autodéclaré](self-asserted-technical-profile.md). Vous pouvez modifier votre profil technique autodéclaré pour [ajouter des revendications et personnaliser l’entrée utilisateur](./configure-user-input.md).
+Pour collecter des informations de vos utilisateurs en présentant une page dans leur navigateur web, utilisez le [profil technique autodéclaré](self-asserted-technical-profile.md). Vous pouvez modifier votre profil technique autodéclaré pour [ajouter des revendications et personnaliser l’entrée utilisateur](./configure-user-input.md).
 
 Pour [personnaliser l’interface utilisateur](customize-ui-with-html.md) pour votre profil technique autodéclaré, vous spécifiez une URL dans l’élément [définition de contenu](contentdefinitions.md) avec du contenu HTML personnalisé. Dans le profil technique autodéclaré, vous pointez sur cet ID de définition de contenu.
 
@@ -112,8 +112,9 @@ Le diagramme suivant illustre la façon dont Azure AD B2C utilise un profil tech
 Chaque pack de démarrage comprend les fichiers suivants :
 
 - Fichier **de base** contenant la plupart des définitions. Pour faciliter la résolution des problèmes et la maintenance à long terme de vos stratégies, essayez de limiter le nombre de modifications que vous apportez à ce fichier.
-- Fichier d’**extensions** contenant les modifications de configuration propres à votre locataire. Ce fichier de stratégie est dérivé du fichier de base. Utilisez-le pour ajouter de nouvelles fonctionnalités ou remplacer des fonctionnalités existantes. Par exemple, utilisez-le pour fédérer avec de nouveaux fournisseurs d’identité.
-- Fichier de **partie de confiance** qui est le fichier centré sur une tâche unique, qui est appelé directement par une application par partie de confiance, telle que vos applications web, mobiles ou de bureau. Chaque tâche, telle que l’inscription, la connexion, la réinitialisation de mot de passe ou la modification du profil, nécessite son propre fichier de stratégie de partie de confiance. Ce fichier de stratégie est dérivé du fichier d’extensions.
+- Fichier de **localisation** qui contient les chaînes de localisation. Ce fichier de stratégie est dérivé du fichier de base. Ce fichier permet de prendre en charge différentes langues en fonction de vos besoins.
+- Fichier d’**extensions** contenant les modifications de configuration propres à votre locataire. Ce fichier de stratégie est dérivé du fichier de localisation. Utilisez-le pour ajouter de nouvelles fonctionnalités ou remplacer des fonctionnalités existantes. Par exemple, utilisez-le pour fédérer avec de nouveaux fournisseurs d’identité.
+- Fichier de **partie de confiance** qui est le fichier centré sur une tâche unique, qui est appelé directement par une application par partie de confiance, telle que vos applications web, mobiles ou de bureau. Chaque tâche, telle que l’inscription, la connexion ou la modification du profil, nécessite son propre fichier de stratégie de partie de confiance. Ce fichier de stratégie est dérivé du fichier d’extensions.
 
 Le modèle d’héritage est le suivant :
 
@@ -132,7 +133,7 @@ Le diagramme suivant montre la relation entre les fichiers de stratégie et les 
 
 Au sein d’une stratégie personnalisée Azure AD B2C, vous pouvez intégrer votre propre logique métier pour créer les expériences utilisateur dont vous avez besoin et étendre les fonctionnalités du service. Nous proposons un ensemble de meilleures pratiques et de recommandations pour commencer.
 
-- Créez votre logique dans la **stratégie d’extension** ou la **stratégie de partie de confiance**. Vous pouvez ajouter de nouveaux éléments qui remplaceront la stratégie de base en référençant le même ID. Cela vous permettra d’effectuer un scale-out de votre projet tout en facilitant la mise à niveau de la stratégie de base par la suite si Microsoft met en production de nouveaux packs de démarrage.
+- Créez votre logique dans la **stratégie d’extension** ou la **stratégie de partie de confiance**. Vous pouvez ajouter de nouveaux éléments qui remplaceront la stratégie de base en référençant le même ID. Cette approche vous permettra d’effectuer un scale-out de votre projet tout en facilitant la mise à niveau de la stratégie de base par la suite si Microsoft met en production de nouveaux packs de démarrage.
 - Dans la **stratégie de base**, nous vous recommandons vivement d’éviter d’apporter des modifications. Si nécessaire, formulez des commentaires à l’emplacement des modifications.
 - Lorsque vous remplacez un élément, tel que des métadonnées de profil technique, évitez de copier le profil technique entier à partir de la stratégie de base. Au lieu de cela, copiez uniquement la section requise de l’élément. Pour obtenir un exemple illustrant la manière d’apporter la modification, consultez [Désactiver la vérification par e-mail](./disable-email-verification.md).
 - Pour réduire la duplication des profils techniques, où les principales fonctionnalités sont partagées, utilisez une [inclusion de profil technique](technicalprofiles.md#include-technical-profile).

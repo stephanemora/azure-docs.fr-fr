@@ -1,26 +1,32 @@
 ---
-title: Règles de pare-feu – Hyperscale (Citus) – Azure Database pour PostgreSQL
-description: Cet article décrit les règles de pare-feu d’Azure Database pour PostgreSQL - Hyperscale (Citus).
+title: Accès public – Hyperscale (Citus) – Azure Database pour PostgreSQL
+description: Cet article décrit l’accès public pour Azure Database pour PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 9/12/2019
-ms.openlocfilehash: 559c5eca6fa8a6eceb37ade003d4f1983c0a1a1b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 10/15/2021
+ms.openlocfilehash: cb695514fe4fd1b3d0ed72dd70aeb8b5d6ca4253
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90902096"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072179"
 ---
-# <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Règles de pare-feu dans Azure Database pour PostgreSQL - Hyperscale (Citus)
+# <a name="public-access-in-azure-database-for-postgresql---hyperscale-citus"></a>Accès public dans Azure Database pour PostgreSQL - Hyperscale (Citus)
+
+[!INCLUDE [azure-postgresql-hyperscale-access](../../includes/azure-postgresql-hyperscale-access.md)]
+
+Cette page décrit l’option d’accès public. Pour l’accès privé, voir [ici](concepts-hyperscale-private-access.md).
+
+## <a name="firewall-overview"></a>Présentation du pare-feu
+
 Le pare-feu du serveur Azure Database pour PostgreSQL empêche tout accès à votre nœud coordinateur Hyperscale (Citus) tant que vous n’avez pas spécifié les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès au serveur en fonction de l’adresse IP d’origine de chaque demande.
 Pour configurer votre pare-feu, vous créez des règles de pare-feu qui spécifient les plages d’adresses IP acceptables. Vous pouvez créer des règles de pare-feu au niveau du serveur.
 
 **Règles de pare-feu :** ces règles permettent aux clients d’accéder à votre nœud coordinateur Hyperscale (Citus), c’est-à-dire à toutes les bases de données dans le même serveur logique. Les règles de pare-feu au niveau du serveur peuvent être configurées à l’aide du portail Azure. Pour créer des règles de pare-feu au niveau du serveur, vous devez être le propriétaire de l’abonnement ou collaborateur.
 
-## <a name="firewall-overview"></a>Présentation du pare-feu
 Par défaut, tous les accès de base de données à votre nœud coordinateur sont bloqués par le pare-feu. Pour pouvoir utiliser votre serveur à partir d’un autre ordinateur, vous devez spécifier une ou plusieurs règles de pare-feu au niveau du serveur afin de permettre l’accès à votre serveur. Utilisez les règles de pare-feu pour spécifier les plages d’adresses IP d’Internet à autoriser. L’accès au site web du Portail Azure proprement dit n’est pas affecté par les règles de pare-feu.
 Les tentatives de connexion à partir d’Internet et d’Azure doivent franchir le pare-feu pour pouvoir atteindre votre base de données PostgreSQL, comme l’illustre le diagramme suivant :
 

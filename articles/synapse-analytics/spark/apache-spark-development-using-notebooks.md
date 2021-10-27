@@ -10,12 +10,12 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 244d7b7d2ff6fe88b883b2e8adbeeaa0e7fb167e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3b1754060a84914fca9b9c7d22ee85e32717d002
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128593227"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178751"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Créer, développer et gérer des notebooks Synapse dans Azure Synapse Analytics
 
@@ -42,7 +42,6 @@ L’équipe de Synapse a introduit le nouveau composant pour notebooks dans Syna
 |Glisser-déposer pour déplacer une cellule| Non pris en charge |&#9745;|
 |Structure (Table des matières)| Non pris en charge |&#9745;|
 |Explorateur de variables| Non pris en charge |&#9745;|
-|Mettre en forme une cellule de texte avec des boutons de barre d’outils|&#9745;| Non pris en charge|
 |Commentaires des cellules de code| Non pris en charge | &#9745;|
 
 > [!NOTE]
@@ -190,7 +189,9 @@ Vous pouvez utiliser les boutons de mise en forme dans la barre d’outils des c
 
 # <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
-La barre d’outils du bouton format n’est pas encore disponible pour l’expérience de notebook en préversion. 
+Vous pouvez utiliser les boutons de mise en forme dans la barre d’outils des cellules de texte pour effectuer des actions de markdown (démarquage) courantes. Celles-ci incluent la mise en gras et en italique de texte, l’insertion de paragraphes ou d’en-têtes par le biais d’une liste déroulante, l’insertion de code, l’insertion de liste non triée, l’insertion de liste triée, l’insertion de lien hypertexte et l’insertion d’image à partir d’une URL.
+
+  ![Capture d’écran de la barre d’outils de la cellule de texte Synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar-preview.png)
 
 ---
 

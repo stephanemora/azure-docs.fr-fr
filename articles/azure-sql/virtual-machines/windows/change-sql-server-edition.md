@@ -3,7 +3,7 @@ title: Modification sur place de l’édition SQL Server
 description: Découvrez comment modifier l’édition de votre machine virtuelle SQL Server dans Azure afin de réduire les coûts ou mettre à niveau pour activer davantage de fonctionnalités.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/14/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d4e965d14c6dab3fd2bd8333b9e04dfa52a3346b
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: e4f80718d33a298aed44595019dd456411c5381a
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112078902"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164040"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Modification sur place de l’édition SQL Server sur une machine virtuelle Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -52,8 +52,9 @@ Pour mettre à niveau l’édition de SQL Server, procurez-vous le support d’i
    ![Sélection pour la mise à niveau de l’édition de SQL Server](./media/change-sql-server-edition/edition-upgrade.png)
 
 1. Sélectionnez **Suivant** jusqu'à accéder à la page **Prêt pour la mise à niveau de l'édition**, puis sélectionnez **Mettre à niveau**. La fenêtre d’installation peut cesser de répondre pendant quelques minutes, le temps que la modification prenne effet. Une page **Terminé** confirme que la mise à niveau de l’édition est terminée. 
+1. Une fois que l’édition de SQL Server est mise à niveau, modifiez la propriété d’édition de la machine virtuelle SQL Server sur le Portail Azure. Les métadonnées et la facturation associées à cette machine virtuelle sont alors mises à jour.
 
-Une fois que l’édition de SQL Server est mise à niveau, modifiez la propriété d’édition de la machine virtuelle SQL Server sur le Portail Azure. Les métadonnées et la facturation associées à cette machine virtuelle sont alors mises à jour.
+
 
 ## <a name="downgrade-an-edition"></a>Passer à une édition antérieure
 
@@ -71,8 +72,9 @@ Pour passer à une édition antérieure de SQL Server, procédez comme suit :
 1. Installez SQL Server en utilisant le support correspondant à l’édition souhaitée de SQL Server.
 1. Installez les derniers Service Packs et mises à jour cumulatives.  
 1. Remplacez les nouvelles bases de données système créées pendant l’installation par les bases de données système que vous avez déplacées antérieurement vers un autre emplacement. 
+1. Une fois que l’édition de SQL Server a été passée à une version antérieure, modifiez la propriété d’édition de la machine virtuelle SQL Server sur le Portail Azure. Les métadonnées et la facturation associées à cette machine virtuelle sont alors mises à jour. 
 
-Une fois que l’édition de SQL Server a été passée à une version antérieure, modifiez la propriété d’édition de la machine virtuelle SQL Server sur le Portail Azure. Les métadonnées et la facturation associées à cette machine virtuelle sont alors mises à jour.
+
 
 ## <a name="change-edition-in-portal"></a>Modifier l’édition dans le portail 
 
@@ -102,4 +104,4 @@ Pour plus d’informations, consultez les articles suivants :
 * [Vue d’ensemble de SQL Server sur une machine virtuelle Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Questions fréquentes (FAQ) pour SQL Server sur une machine virtuelle Windows](frequently-asked-questions-faq.yml)
 * [Guide des tarifs pour SQL Server sur une machine virtuelle Windows](pricing-guidance.md)
-* [Notes de publication pour SQL Server sur une machine virtuelle Windows](doc-changes-updates-release-notes.md)
+* [Nouveautés de SQL Server sur des machines virtuelles Azure](doc-changes-updates-release-notes-whats-new.md)

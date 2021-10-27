@@ -4,7 +4,7 @@ description: Recommandations relatives à l’utilisation d’identités managé
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
@@ -12,14 +12,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/21/2021
+ms.date: 10/15/2021
 ms.author: barclayn
-ms.openlocfilehash: dec6cb642c5a5899354912f133decde45d631406
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: e25ebb85071b6d0af2696083afda45a453c5841a
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953339"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131016"
 ---
 # <a name="managed-identity-best-practice-recommendations"></a>Recommandations relatives aux meilleures pratiques liées aux identités managées
 
@@ -82,6 +82,21 @@ Dans l’exemple ci-dessous, « Machine virtuelle 4 » possède à la fois un
 ## <a name="limits"></a>limites 
 
 Consultez les limites des [identités managées](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits) et des [rôles personnalisés et attributions de rôle](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
+
+## <a name="follow-the-principle-of-least-privilege-when-granting-access"></a>Suivre le principe du moindre privilège lors de l’octroi de l’accès
+
+Lorsque vous accordez une identité, y compris une identité managée, aux services, accordez toujours les autorisations minimales nécessaires pour effectuer les actions souhaitées. Par exemple, si une identité managée est utilisée pour lire des données à partir d’un compte de stockage, il n’est pas nécessaire d’autoriser les autorisations d’accès à écrire des données dans le compte de stockage. En accordant des autorisations supplémentaires, par exemple, en faisant de l’identité managée un contributeur sur un abonnement Azure lorsqu’il n’est pas nécessaire, augmente le rayon de sécurité associé à l’identité. L’un doit toujours réduire le rayon de sécurité pour compromettre l’identité.
+
+### <a name="consider-the-effect-of-assigning-managed-identities-to-azure-resources"></a>Considérez l’effet de l’attribution d’identités managées aux ressources Azure
+
+Il est important de noter que lorsqu’une ressource Azure, telle qu’une application logique Azure, une fonction Azure ou une machine virtuelle, etc. reçoit une identité managée, toutes les autorisations accordées à l’identité managée sont désormais disponibles pour la ressource Azure. Ceci est particulièrement important, car si un utilisateur a accès à l’installation ou à l’exécution de code sur cette ressource, il a accès à toutes les identités affectées/associées à la ressource Azure. L’objectif d’une identité managée est de permettre au code s’exécutant sur un accès aux ressources Azure d’accéder à d’autres ressources, sans que les développeurs aient besoin de gérer ou de placer directement les informations d’identification dans le code pour obtenir cet accès.
+
+Par exemple, si une identité managée (ClientId = 1234) a reçu un accès en lecture/écriture à ***StorageAccount7755** _ et qu’elle a été attribuée à _*_LogicApp3388_*_, Alice, qui n’a pas d’autorisations directes sur l’identité managée ou le compte de stockage, mais qui a l’autorisation d’exécuter du code dans _*_LogicApp3388_*_ peut également lire/écrire des données vers/à partir de _ *_StorageAccount7755_** en exécutant le code utilisant l’identité managée.
+
+:::image type="content" source="media/managed-identity-best-practice-recommendations/security-considerations.png" alt-text="scénario de sécurité":::
+
+En général, lorsqu'on accorde à un utilisateur un accès administratif à une ressource qui peut exécuter du code (comme une Logic App) et qui a une identité gérée, il faut se demander si le rôle attribué à l'utilisateur peut installer ou exécuter du code sur la ressource, et dans l’affirmative, n'attribuer ce rôle que si l'utilisateur en a vraiment besoin.
+
 
 ## <a name="maintenance"></a>Maintenance
 

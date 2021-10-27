@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a882e0e1f0a5cf0dd9ea3690453887478319268e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 0463ea748c4d82cc4c098ddd137a12c70f55afb2
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129538966"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006068"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Découverte, évaluation et analyse des dépendances - Questions courantes
 
@@ -81,6 +81,16 @@ La note de confiance pour les évaluations « En fonction des performances » 
 
 - Pour les évaluations de machines virtuelles Azure et d’AVS, peu de serveurs ont été créés après le démarrage de la découverte. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques serveurs dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouveaux serveurs ne seront pas disponibles pendant toute la durée et le classement de confiance sera faible. [En savoir plus](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 - Pour les évaluations Azure SQL, peu d’instances et de bases de données SQL ont été créées après le démarrage de la découverte. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques instances ou bases de données SQL dans l’environnement ne remonte qu’à une semaine. Dans ce cas, les données de performances pour les nouveaux serveurs ne seront pas disponibles pendant toute la durée et le classement de confiance sera faible. [En savoir plus](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## <a name="why-is-my-ram-utilization-greater-than-100"></a>Pourquoi l’utilisation de la RAM est-elle supérieure à 100 % ?
+
+Par conception, si la mémoire maximale provisionnée est inférieure aux exigences de la machine virtuelle dans Hyper-V, l’évaluation indique une utilisation de la mémoire supérieure à 100 %.
+
+## <a name="why-cant-i-see-all-azure-vm-families-in-the-azure-vm-assessment-properties"></a>Pourquoi n’est-il pas possible d’afficher toutes les familles de machines virtuelles Azure dans les propriétés d’évaluation des machines virtuelles Azure ?
+
+Deux raisons sont possibles :
+- Vous avez choisi une région Azure où une série particulière n’est pas prise en charge. Les familles de machines virtuelles Azure affichées dans les propriétés d’évaluation des machines virtuelles Azure dépendent de la disponibilité des séries de machines virtuelles dans l’emplacement Azure, le type de stockage et l’instance réservée choisis. 
+- La série de machines virtuelles n’est pas prise en charge dans l’évaluation et ne fait pas partie de la logique d’examen de l’évaluation. Actuellement, nous ne prenons pas en charge les séries de références SKU Burstable, accélérées et hautes performances de la série B. Nous essayons de maintenir la série de machines virtuelles à jour, ainsi que celles qui sont mentionnées sur notre feuille de route. 
 
 ## <a name="the-number-of-azure-vm-or-avs-assessments-on-the-discovery-and-assessment-tool-are-incorrect"></a>Le nombre d’évaluations de machines virtuelles Azure ou AVS sur l’outil de découverte et d’évaluation est incorrect
 

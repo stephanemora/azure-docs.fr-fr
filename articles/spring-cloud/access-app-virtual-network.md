@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 68cac51ba9d54abc6514cf493077740339ac56c5
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 7ede1ecbbe86f0ec5ef3a79d38b42ff58b653b0b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533026"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005350"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Accéder à votre application sur un réseau privé
 
@@ -23,6 +23,8 @@ Lorsque **Affecter un point de terminaison** pour les applications dans une inst
 ## <a name="create-a-private-dns-zone"></a>Créer une zone DNS privée
 
 La procédure suivante crée une zone DNS privée pour une application dans le réseau privé.
+
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Ouvrez le portail Azure. Dans la zone de recherche supérieure, recherchez **Zone DNS privée**, puis sélectionnez **Zones DNS privées** dans les résultats.
 
@@ -37,11 +39,39 @@ La procédure suivante crée une zone DNS privée pour une application dans le r
 
 5. Sélectionnez **Create** (Créer).
 
+#### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-CLI)
+
+1. Définissez des variables pour votre abonnement, votre groupe de ressources et votre instance Azure Spring Cloud. Personnalisez les valeurs en fonction de votre environnement réel.
+
+   ```azurecli
+   SUBSCRIPTION='subscription-id'
+   RESOURCE_GROUP='my-resource-group'
+   VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+   ```
+
+1. Connectez-vous à Azure CLI et choisissez votre abonnement actif.
+
+   ```azurecli
+   az login
+   az account set --subscription ${SUBSCRIPTION}
+   ```
+
+1. Créez la zone DNS privé. 
+
+   ```azurecli
+   az network private-dns zone create --resource-group $RESOURCE_GROUP \
+      --name private.azuremicroservices.io
+   ```
+
+---
+
 La création de la zone peut prendre plusieurs minutes.
 
 ## <a name="link-the-virtual-network"></a>Lier le réseau virtuel
 
 Pour lier la zone DNS privée au réseau virtuel, vous devez créer un lien de réseau virtuel.
+
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Sélectionnez la ressource de zone DNS privée créée ci-dessus : **<span>private.azuremicroservices.io</span>**
 
@@ -57,9 +87,25 @@ Pour lier la zone DNS privée au réseau virtuel, vous devez créer un lien de r
 
 6. Sélectionnez **OK**.
 
+#### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-CLI)
+
+Liez la zone DNS privé que vous venez de créer au réseau virtuel qui contient votre service Azure Spring Cloud.
+
+   ```azurecli
+   az network private-dns link vnet create --resource-group $RESOURCE_GROUP \
+       --name azure-spring-cloud-dns-link \
+       --zone-name private.azuremicroservices.io \
+       --virtual-network $VIRTUAL_NETWORK_NAME \
+       --registration-enabled false
+   ```
+
+---
+
 ## <a name="create-dns-record"></a>Créer un enregistrement DNS
 
 Pour utiliser la zone DNS privée pour traduire/résoudre le DNS, vous devez créer un enregistrement de type « A » dans la zone.
+
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Sélectionnez la ressource de réseau virtuel que vous avez créée en suivant la procédure décrite dans [Déployer Azure Spring Cloud dans votre réseau virtuel Azure (injection VNet)](./how-to-deploy-in-azure-virtual-network.md).
 
@@ -100,9 +146,39 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
     ![Ajouter un enregistrement de zone DNS privée](media/spring-cloud-access-app-vnet/private-dns-zone-add-record.png)
 
+#### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-CLI)
+
+1. Recherchez l’adresse IP de vos services Spring Cloud. Personnalisez la valeur du nom de votre Spring Cloud en fonction de votre environnement réel.
+
+   ```azurecli
+   SPRING_CLOUD_NAME='spring-cloud-name'
+   SERVICE_RUNTIME_RG=`az spring-cloud show --resource-group $RESOURCE_GROUP \
+       --name $SPRING_CLOUD_NAME --query \
+       "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
+       --output tsv`
+   IP_ADDRESS=`az network lb frontend-ip list --lb-name kubernetes-internal \
+       --resource-group $SERVICE_RUNTIME_RG \
+       --query "[0].privateIpAddress" \
+       --output tsv`
+   ```
+
+1. Utilisez cette adresse IP pour créer l’enregistrement A dans votre zone DNS. 
+
+   ```azurecli
+   az network private-dns record-set a add-record \
+     --resource-group $RESOURCE_GROUP \
+     --zone-name private.azuremicroservices.io \
+     --record-set-name '*' \
+     --ipv4-address $IP_ADDRESS
+   ```
+
+---
+
 ## <a name="assign-private-fqdn-for-your-application"></a>Attribuer un nom de domaine complet privé pour votre application
 
 Après avoir effectué la procédure décrite dans [Générer et déployer des applications de microservices](./how-to-deploy-in-azure-virtual-network.md), vous pouvez affecter un nom de domaine complet privé pour votre application.
+
+#### <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Sélectionnez l’instance de service Azure Spring Cloud déployée dans votre réseau virtuel, puis ouvrez l’onglet **Applications** dans le menu de gauche.
 
@@ -113,6 +189,20 @@ Après avoir effectué la procédure décrite dans [Générer et déployer des a
     ![Attribuer un point de terminaison privé](media/spring-cloud-access-app-vnet/assign-private-endpoint.png)
 
 4. Le nom de domaine complet privé (étiqueté **URL**) attribué est désormais disponible. Il n’est accessible qu’au sein du réseau privé, et pas sur Internet.
+
+#### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/azure-CLI)
+
+Mettez à jour votre application pour lui affecter un point de terminaison. Personnalisez la valeur du nom de votre application Spring en fonction de votre environnement réel.
+
+```azurecli
+SPRING_CLOUD_APP='your spring cloud app'
+az spring-cloud app update --name $SPRING_CLOUD_APP \
+    --resource-group $RESOURCE_GROUP \
+    --service $SPRING_CLOUD_NAME \
+    --assign-endpoint true
+```
+
+---
 
 ## <a name="access-application-private-fqdn"></a>Accéder au nom de domaine complet privé de l’application
 

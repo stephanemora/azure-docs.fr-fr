@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 401c9d08efd6be33d4444d34ba7a2a6c89723a6b
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: ddecc748443a6596c611fae857301e1f80f57a66
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715084"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039369"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
@@ -33,7 +33,7 @@ Le service Form Recognizer est régulièrement mis à jour. Ajoutez cette page a
 * Le modèle [**Champs étendus pour document d’identité**](concept-id-document.md) prend en charge l’extraction des approbations, des restrictions et des classifications de véhicules à partir de permis de conduire américains.
 * Le [**champ de signature**](concept-custom.md) est un nouveau type de champ dans les formulaires personnalisés pour détecter la présence d’une signature dans un champ de formulaire.
 
-* [**Expansion de langue**](language-support.md) Prise en charge de 122 langues (impression) et de 7 langues (entrées manuscrites). Avec la préversion la plus récente, Form Recognizer Layout et Custom Form étendent les [langues prises en charge](language-support.md) qui sont à présent au nombre de 122. Cela inclut l’extraction de texte pour le texte imprimé dans 49 nouvelles langues, dont le russe, le bulgare et d’autres langues cyrilliques et latines. En outre, l’extraction de texte manuscrit prend à présent en charge 7 langues, notamment l’anglais, et de nouvelles préversions pour le chinois simplifié, le français, l’allemand, l’italien, le portugais et l’espagnol.
+* [**Expansion de langue**](language-support.md) Prise en charge de 122 langues (impression) et de 7 langues (entrées manuscrites). Avec la préversion la plus récente, Form Recognizer Layout et Custom Form étendent les [langues prises en charge](language-support.md) qui sont à présent au nombre de 122. Cela inclut l’extraction de texte pour le texte imprimé dans 49 nouvelles langues, dont le russe, le bulgare et d’autres langues cyrilliques et latines. En outre, l’extraction de texte manuscrit prend à présent en charge 7 langues, notamment l’anglais, et de nouvelles préversions pour le chinois simplifié, le français, l’allemand, l’italien, le portugais et l’espagnol.
 
 * La disposition **Améliorations des tables et de l’extraction de texte** prend à présent en charge l’extraction de tables à une seule ligne également appelées tables clé-valeur. Les améliorations apportées à l’extraction de texte incluent un meilleur traitement des fichiers PDF numériques et MRZ (Machine Readable Zone) dans les documents d’identité, ainsi que les performances générales.
 
@@ -423,7 +423,7 @@ Package pip version 3.1.0b4
 
     Outre l’étiquetage des tableaux, vous pouvez désormais étiqueter les valeurs vides et les régions. Si certains documents de votre jeu d’apprentissage n’ont pas de valeurs pour certains champs, vous pouvez utiliser cette fonction pour que votre modèle sache extraire correctement les valeurs des documents analysés.
 
-* **Prise en charge de 66 nouvelles langues** : L’API de disposition et les modèles personnalisés de Form Recognizer prennent désormais en charge 73 langues.
+* **Prise en charge de 66 nouvelles langues** : l’API de disposition et les modèles personnalisés pour Form Recognizer prennent désormais en charge 73 langues.
 
   [En savoir plus sur la prise en charge linguistique de Form Recognizer](language-support.md)
 

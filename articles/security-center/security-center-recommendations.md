@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 5921ad250934121223c35012d2278165b3dcc262
-ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
+ms.openlocfilehash: 186c155ea1ec4d69abde6147997fe4659a3e833f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/16/2021
-ms.locfileid: "112237178"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003595"
 ---
 # <a name="review-your-security-recommendations"></a>Consulter vos recommandations de sécurité
 
@@ -37,13 +37,26 @@ Azure Security Center analyse l’état de sécurité de vos ressources pour id
     La page comprend les éléments suivants :
 
     1. Pour les recommandations prises en charge, la barre d’outils supérieure affiche tout ou partie des boutons suivants :
-        - **Appliquer** et **Refuser** (voir [Empêcher des configurations incorrectes à l’aide des recommandations Appliquer/Refuser](prevent-misconfigurations.md))
-        - **Afficher la définition de stratégie** pour accéder directement à l’entrée d’Azure Policy pour la stratégie sous-jacente
-        - **Ouvrir la requête** : Toutes les recommandations ont la possibilité d’afficher les informations détaillées sur les ressources affectées à l’aide de l’Explorateur Azure Resource Graph
-    1. **Indicateur de gravité**
-    1. **Intervalle d’actualisation** (le cas échéant)
-    1. **Nombre de ressources exemptées** ; si des exemptions existent pour cette recommandation, il indique le nombre de ressources qui ont été exemptées
-    1. **Description** : courte description du problème.
+        - **Appliquer** et **Refuser** (voir [Empêcher des configurations incorrectes à l’aide des recommandations Appliquer/Refuser](prevent-misconfigurations.md)).
+        - **Afficher la définition de stratégie** pour accéder directement à l’entrée d’Azure Policy pour la stratégie sous-jacente.
+        - **Ouvrir la requête** : Toutes les recommandations ont la possibilité d’afficher les informations détaillées sur les ressources concernées à l’aide d’Azure Resource Graph Explorer.
+    1. **Indicateur de gravité**.
+    1. **Intervalle d’actualisation** (le cas échéant).
+    1. **Nombre de ressources exemptées** ; si des exemptions existent pour cette recommandation, il indique le nombre de ressources qui ont été exemptées.
+    1. **Description** : Courte description du problème de sécurité.
+    1. Le cas échéant, la page de détails comprend également un tableau des **recommandations connexes** :
+
+        Les types de relations sont les suivants :
+
+        - **Condition préalable** : Recommandation qui doit être complétée avant la recommandation sélectionnée
+        - **Alternative** : Recommandation différente qui offre une autre façon d’atteindre les objectifs de la recommandation sélectionnée
+        - **Dépendante** : Recommandation pour laquelle la recommandation sélectionnée est une condition préalable
+
+        Pour chaque recommandation connexe, le nombre de ressources non saines s’affiche dans la colonne « Ressources concernées ».
+
+        > [!TIP]
+        > Si une recommandation connexe est grisée, sa dépendance n’est pas encore terminée et n’est donc pas disponible.
+
     1. **Étapes de correction** : description des étapes manuelles nécessaires pour corriger le problème de sécurité sur les ressources concernées. Pour obtenir des recommandations avec l’option **Correctif****, vous pouvez sélectionner **Afficher la logique de correction** avant d’appliquer la correction suggérée à vos ressources.
     1. **Ressources concernées** : vos ressources sont regroupées dans des onglets :
         - **Ressources saines** : ressources pertinentes qui ne sont pas touchées ou sur lesquelles vous avez déjà corrigé le problème.

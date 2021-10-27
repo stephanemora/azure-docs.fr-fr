@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: bc2bec364f8d752b7416ecccf0b00d0fbec4c8e8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 049e1e5b32953f5f72108602538a3096c077f2a2
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729789"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019087"
 ---
 Utilisez la liaison de sortie Event Hubs pour écrire des événements dans un flux d’événements du hub d’événements. Vous devez disposer de l’autorisation d’envoi à un hub d’événements pour y écrire les événements.
 
@@ -250,9 +250,11 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name** | n/a | Nom de variable utilisé dans le code de la fonction qui représente l’événement. |
 |**path** |**EventHubName** | Functions 1.x uniquement. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
 |**eventHubName** |**EventHubName** | Functions 2.x et versions ultérieures. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
-|**connection** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour [l’espace de noms](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), et non pour le hub d’événements lui-même. Cette chaîne de connexion doit disposer d’autorisations d’envoi pour envoyer le message au flux d’événements. <br><br>Si vous utilisez la [version 5.x ou ultérieure de l’extension](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), au lieu d’une chaîne de connexion, vous pouvez fournir une référence à une section de configuration qui définit la connexion. Consultez [Connexions](../articles/azure-functions/functions-reference.md#connections).|
+|**connection** |**Connection** | Nom d’un paramètre d’application ou d’une collection de paramètres qui spécifie la façon de se connecter à Event Hubs. Consultez [Connexions](#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-event-hubs-connections](./functions-event-hubs-connections.md)]
 
 ## <a name="usage"></a>Usage
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/14/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: cb19372e5b97a9f508367366faa9ae49d0d11261
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a05935f547815ffba419e2e4302c5197d1907bbf
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128596958"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045272"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -31,7 +31,7 @@ Le tableau suivant décrit les types de comptes de stockage recommandés par Mic
 | Type de compte de stockage | Services de stockage pris en charge | Options de redondance | Utilisation |
 |--|--|--|--|
 | Usage général v2 Standard | Azure Blob (notamment Data Lake Storage<sup>1</sup>), File d'attente et Stockage Table, Azure Files  | LRS/GRS/RA-GRS<br /><br />ZRS/GZRS/RA-GZRS<sup>2</sup> | Type de compte de stockage standard pour les objets blob, les partages de fichiers, les files d’attente et les tables. Recommandé pour la plupart des scénarios utilisant Stockage Azure. Notez que si vous souhaitez une prise en charge des partages de fichiers NFS dans Azure Files, utilisez le type de compte de partages de fichiers Premium. |
-| Objets blob de blocs Premium<sup>3</sup> | Stockage Blob (Data Lake Storage Storage<sup>1</sup> inclus) | LRS<br /><br />ZRS<sup>2</sup> | Type de compte de stockage Premium pour les objets blob de blocs et les objets blob d’ajout. Recommandé pour les scénarios aux taux élevés de transactions, ceux utilisant des objets plus petits ou nécessitant une latence de stockage faible. [En savoir plus sur les exemples de charges de travail.](../blobs/storage-blob-performance-tiers.md#premium-performance) |
+| Objets blob de blocs Premium<sup>3</sup> | Stockage Blob (Data Lake Storage Storage<sup>1</sup> inclus) | LRS<br /><br />ZRS<sup>2</sup> | Type de compte de stockage Premium pour les objets blob de blocs et les objets blob d’ajout. Recommandé pour les scénarios aux taux élevés de transactions, ceux utilisant des objets plus petits ou nécessitant une latence de stockage faible. [En savoir plus sur les exemples de charges de travail.](../blobs/storage-blob-block-blob-premium.md) |
 | Partages de fichiers Premium<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | Type de compte de stockage Premium pour les partages de fichiers uniquement. Recommandé pour l’entreprise ou des applications de mise à l’échelle hautes performances. Utilisez ce type de compte si vous voulez un compte de stockage qui prend en charge les partages de fichiers SMB et NFS. |
 | Objets blob de pages Premium<sup>3</sup> | Objets blob de pages uniquement | LRS | Type de compte de stockage Premium pour les objets blob de pages uniquement. [En savoir plus sur les objets blob de pages et les exemples de cas d’usage.](../blobs/storage-blob-pageblob-overview.md) |
 
@@ -39,7 +39,7 @@ Le tableau suivant décrit les types de comptes de stockage recommandés par Mic
 
 <sup>2</sup> Le stockage redondant interzone (ZRS) et le stockage géo-redondant interzone (GZRS/RA-GZRS) sont disponibles uniquement pour les comptes à usage général v2, d’objets blob de blocs premium et de partages de fichiers premium standard dans certaines régions. Pour plus d’informations, consultez [Redondance de Stockage Azure](storage-redundancy.md).
 
-<sup>3</sup> Les comptes de stockage d’un niveau de performance supérieur utilisent des disques SSD qui offrent une faible latence et un débit élevé.
+<sup>3</sup> Les comptes de stockage de niveau de performance Premium utilisent des disques SSD qui offrent une faible latence et un débit élevé.
 
 Les comptes de stockage hérités sont également pris en charge. Pour plus d’informations, consultez [Types de comptes de stockage hérités](#legacy-storage-account-types).
 

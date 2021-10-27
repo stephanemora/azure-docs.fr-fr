@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: references_regions
-ms.openlocfilehash: c5d548105b5fd749865132ae0629eaac17462da2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: a7c94118b1b1a08f4bbd7b58faec6008f9ebc0f8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818056"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002735"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Localisation des partenaires et hub virtuel Virtual WAN
 
@@ -63,7 +63,7 @@ Ces partenaires disposent d’offres **Application managée** pouvant à présen
 |[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| L’intégration de la solution SD-WAN de Cisco à Azure Virtual WAN améliore les déploiements de Cloud OnRamp for Multi-Cloud et permet de configurer le logiciel Cisco Catalyst 8000V Edge (Cisco Catalyst 8000V) en tant qu’appliance virtuelle de réseau (NVA) dans les hubs Azure Virtual WAN. [Voir le guide de configuration de Cisco SD-WAN Cloud OnRamp, Cisco IOS XE version 17.x](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) 
 |[VMware SD-WAN dans le hub Virtual WAN](https://sdwan.vmware.com/partners/microsoft) | Pour obtenir des instructions sur le déploiement de l’appliance VMware SD-WAN dans le hub Virtual WAN, consultez le [Guide de déploiement de VMware SD-WAN dans le hub Virtual WAN](https://kb.vmware.com/s/article/82746). Pour déployer, accédez à l’application managée [ici](https://azuremarketplace.microsoft.com/marketplace/apps/velocloud.vmware_sdwan_in_vwan)|
 
-Les partenaires suivants sont prêts à intégrer prochainement la NVA dans les offres de Hub virtuel : Aviatrix, Citrix et Versa Networks.
+Les partenaires suivants sont prêts à intégrer prochainement l’appliance virtuelle réseau dans les offres de hub virtuel : Aviatrix, Citrix, Versa Networks et Silver Peak.
 
 ## <a name="locations"></a><a name="locations"></a>Emplacements
 

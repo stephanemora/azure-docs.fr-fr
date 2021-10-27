@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 06/23/2021
-ms.openlocfilehash: 54a3e933cda054b8bd3f9e86f2db775fca7342f7
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.date: 10/12/2021
+ms.openlocfilehash: 300a550363b01e367931ccb34efd3dd7d7d593cc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964425"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997285"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de ressources pour les pools élastiques suivant le modèle d’achat vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -567,7 +567,9 @@ La table suivante décrit les propriétés de base de données pour les bases de
 > En outre, le paramétrage de vCores mini par base de données sur une valeur supérieure à 0 limite implicitement le nombre de bases de données qui peuvent être ajoutées au pool. Par exemple, si vous définissez les vCores mini sur 2 dans un pool de 20 vCores, cela signifie que vous ne pourrez pas ajouter plus de 10 bases de données au pool, car 2 vCores sont réservées pour chaque base de données.
 > 
 
-Même si les propriétés par base de données sont exprimées en vCores, elles régissent également la consommation d’autres types de ressources, comme les E/S de données, les E/S de journal et les threads de travail. Lorsque vous ajustez les valeurs min et max de vCores par base de données, les réservations et les limites de tous les types de ressources sont ajustées proportionnellement.
+Même si les propriétés par base de données sont exprimées en vCores, elles régissent également la consommation d’autres types de ressources, comme les E/S de données, les E/S de journal, la mémoire du pool de mémoires tampons et les threads de travail. Lorsque vous ajustez les valeurs min et max de vCores par base de données, les réservations et les limites de tous les types de ressources sont ajustées proportionnellement.
+
+Les valeurs minimales et maximales de vCores par base de données s’appliquent à la consommation de ressources par les charges de travail utilisateur, mais pas à la consommation de ressources par les processus internes. Par exemple, pour une base de données dont la valeur maximale de vCores par base de données est fixée à la moitié du nombre de vCores du pool, la charge de travail utilisateur ne peut pas consommer plus de la moitié de la mémoire du pool de mémoires tampons. Toutefois, cette base de données peut toujours tirer parti des pages du pool de mémoires tampons qui ont été chargées par des processus internes. Pour plus d’informations, consultez [Consommation de ressources par les charges de travail utilisateur et les processus internes](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes).
 
 > [!NOTE]
 > Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools qui ont la même taille de calcul (objectif de service). Par exemple, le nombre maximal de workers simultanés dans une base de données GP_Gen4_1 est de 200. Par conséquent, le nombre maximal de workers simultanés pour une base de données dans un pool GP_Gen4_1 est aussi de 200. Notez que le nombre total de workers simultanés dans le pool GP_Gen4_1 est de 210.

@@ -2,21 +2,21 @@
 title: Connexion web avec OpenID Connect – Azure Active Directory B2C
 description: Créez des applications web à l’aide du protocole d’authentification OpenID Connect dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2021
-ms.author: mimart
+ms.date: 10/05/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ab62cae223b60103043df0c9dd79acf64e552358
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7b9cb3fb0a3c856741217ffd29c963735eef028d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128588938"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130036110"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Connexion web avec OpenID Connect dans Azure Active Directory B2C
 
@@ -271,9 +271,9 @@ Les réponses d’erreur se présentent comme ceci :
 
 ## <a name="send-a-sign-out-request"></a>Envoi d’une demande de déconnexion
 
-Quand vous souhaitez déconnecter l’utilisateur de l’application, il ne suffit pas de supprimer les cookies de l’application ou d’arrêter la session de l’utilisateur. Redirigez l’utilisateur vers Azure AD B2C pour le déconnecter. Si vous n’y parvenez pas, l’utilisateur peut être en mesure de se réauthentifier auprès de votre application, sans entrer à nouveau ses informations d’identification. Pour plus d’informations, consultez [Session Azure AD B2C](session-behavior.md).
+Quand vous souhaitez déconnecter l’utilisateur de l’application, il ne suffit pas de supprimer les cookies de l’application ou d’arrêter la session de l’utilisateur. Redirigez l’utilisateur vers Azure AD B2C pour le déconnecter. Si vous n’y parvenez pas, l’utilisateur peut être en mesure de se réauthentifier auprès de votre application, sans entrer à nouveau ses informations d’identification. Pour plus d’informations, consultez [Comportement d’une session Azure AD B2C](session-behavior.md).
 
-Pour déconnecter l’utilisateur, redirigez-le vers le point de terminaison `end_session` répertorié dans le document de métadonnées OpenID Connect décrit précédemment :
+Pour déconnecter l’utilisateur, redirigez-le vers le `end_session_endpoint` répertorié dans le document de métadonnées OpenID Connect décrit précédemment :
 
 ```http
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
@@ -282,11 +282,13 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | Paramètre | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | {tenant} | Oui | Nom de votre locataire Azure AD B2C |
-| {policy} | Oui | Le flux de travail de l’utilisateur qui a été utilisé dans la demande d’autorisation. Par exemple, si l’utilisateur s’est connecté avec le `b2c_1_sign_in`flux de travail de l'utilisateur, spécifiez le `b2c_1_sign_in` dans la demande de déconnexion. |
+| {policy} | Oui | Flux d’utilisateur qui a été utilisé dans la demande d’autorisation. Par exemple, si l’utilisateur s’est connecté avec le flux d’utilisateur `b2c_1_sign_in`, spécifiez `b2c_1_sign_in` dans la demande de déconnexion. |
 | id_token_hint| Non  | Jeton d’ID émis précédemment à transmettre au point de terminaison de déconnexion en tant qu’indicateur de la session authentifiée active de l’utilisateur final avec le client. `id_token_hint` vérifie que `post_logout_redirect_uri` est une URL de réponse inscrite dans les paramètres de votre application Azure AD B2C. Pour en savoir plus, consultez [Sécuriser la redirection de déconnexion](#secure-your-logout-redirect). |
 | client_id | Non* | ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application.<br><br>\**Cela est nécessaire lors de l’utilisation de la configuration de l’authentification unique de l’isolation `Application` et _Demander le jeton d’ID_ dans la demande de déconnexion est défini sur `No`.* |
 | post_logout_redirect_uri | Non  | URL vers laquelle l’utilisateur doit être redirigé après la déconnexion. Si elle n’est pas incluse, Azure AD B2C affiche un message générique à l’utilisateur. À moins de fournir un `id_token_hint`, vous ne devez pas inscrire cette URL en tant qu’URL de réponse dans les paramètres de votre application Azure AD B2C. |
-| state | Non  | Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs `state` de la demande et de la réponse sont identiques. |
+| state | Non  | Si un paramètre `state` est inclus dans la demande d’autorisation, la même valeur sera renvoyée dans la réponse à `post_logout_redirect_uri`. L’application doit vérifier que les valeurs `state` de la demande et de la réponse sont identiques. |
+
+Lors d’une demande de déconnexion, Azure AD B2C invalide la session Azure AD B2C basée sur les cookies et tente de se déconnecter des fournisseurs d’identité fédérés. Pour plus d’informations, consultez [Déconnexion unique](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
 
 ### <a name="secure-your-logout-redirect"></a>Sécuriser la redirection de déconnexion
 

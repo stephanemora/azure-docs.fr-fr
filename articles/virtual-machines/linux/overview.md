@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 89766dd612a43a60456199ae1fdc9de35c9dd061
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b419b816de822c72e3c33acddd9d9b6c50745b7f
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774212"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047848"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Machines virtuelles Linux dans Azure
 
@@ -44,7 +44,7 @@ Il existe toujours une multitude de [considérations liées à la conception](/a
 * et les ressources liées dont a besoin la machine virtuelle.
 
 ### <a name="locations"></a>Emplacements
-Toutes les ressources créées dans Azure sont réparties sur plusieurs [régions géographiques](https://azure.microsoft.com/regions/) dans le monde. En règle générale, la région est appelée **emplacement** lorsque vous créez une machine virtuelle. Pour une machine virtuelle, l’emplacement spécifie l’endroit où les disques durs virtuels sont stockés.
+Il existe plusieurs [régions géographiques](https://azure.microsoft.com/regions/) dans le monde où vous pouvez créer des ressources Azure. En règle générale, la région est appelée **emplacement** lorsque vous créez une machine virtuelle. Pour une machine virtuelle, l’emplacement spécifie l’endroit où les disques durs virtuels seront stockés.
 
 Ce tableau présente quelques moyens d’obtenir la liste des emplacements disponibles.
 

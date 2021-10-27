@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: c322ebcbda0d123a9048e92971e20c6b7c7c5fee
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d56760b85bfca74cb18481ebf08ece2e4255d389
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064501"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178008"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Azure App Configuration – Bonnes pratiques
 
@@ -31,7 +31,7 @@ App Configuration propose deux options pour organiser les clés :
 
 Vous pouvez regrouper vos clés avec une de ces options ou les deux.
 
-Les *préfixes de clés* constituent la partie initiale des clés. Vous pouvez regrouper logiquement un ensemble de clés en ajoutant le même préfixe à leur nom. Les préfixes peuvent être constitués de plusieurs composants reliés par un délimiteur, par exemple `/`, à la manière d’un chemin d’URL, pour former un espace de noms. De telles hiérarchies sont utiles quand vous stockez des clés pour un grand nombre d’applications, de services de composants et d’environnements dans un même magasin App Configuration.
+Les *préfixes de clés* constituent la partie initiale des clés. Vous pouvez regrouper logiquement un ensemble de clés en ajoutant le même préfixe à leur nom. Les préfixes peuvent être constitués de plusieurs composants reliés par un délimiteur, par exemple `/`, à la manière d’un chemin d’URL, pour former un espace de noms. De telles hiérarchies sont utiles quand vous stockez des clés pour un grand nombre d’applications et microservices dans un même magasin App Configuration.
 
 Une chose importante à garder à l’esprit est que les clés sont ce à quoi votre code d’application fait référence pour récupérer les valeurs des paramètres correspondants. Les clés ne doivent pas changer, sans quoi vous devez modifier votre code chaque fois que cela se produit.
 
@@ -57,6 +57,14 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 La rubrique [Utilisation d’étiquettes pour permettre différentes configurations selon les environnements](./howto-labels-aspnet-core.md) fournit un exemple complet.
 
+## <a name="references-to-external-data"></a>Références à des données externes
+
+App Configuration est conçu pour stocker toutes les données de configuration que vous enregistreriez normalement dans des fichiers de configuration ou des variables d’environnement. Toutefois, certains types de données peuvent être mieux adaptés à d’autres sources. Par exemple, stockez les secrets dans Key Vault, les fichiers dans Stockage Azure, les informations d’appartenance dans les groupes Azure AD ou les listes de clients dans une base de données.
+
+Vous pouvez toujours tirer parti d’App Configuration en enregistrant une référence à des données externes dans une valeur clé. Lorsque votre application lit une référence, vous chargez les données à partir de la source référencée. Si vous modifiez l’emplacement de vos données externes, il vous suffit de mettre à jour la référence dans App Configuration au lieu de mettre à jour et de redéployer l’ensemble de votre application.
+
+La fonctionnalité [ Référence Key Vault](use-key-vault-references-dotnet-core.md) d’App Configuration est un exemple de ce cas. Elle permet aux secrets requis pour une application d’être mis à jour en fonction des besoins, tandis que les secrets sous-jacents sont conservés dans Key Vault.
+
 ## <a name="app-configuration-bootstrap"></a>Amorçage d’App Configuration
 
 Pour accéder à un magasin App Configuration, vous pouvez utiliser sa chaîne de connexion, qui est disponible sur le portail Azure. Étant donné que les chaînes de connexion contiennent des informations d’identification, elles sont considérées comme des secrets. Ces secrets doivent être stockés dans Azure Key Vault, et votre code doit s’authentifier auprès de Key Vault pour les récupérer.
@@ -65,7 +73,7 @@ Une meilleure option consiste à utiliser la fonctionnalité d’identités mana
 
 ## <a name="app-or-function-access-to-app-configuration"></a>Accès des applications ou des fonctions à App Configuration
 
-Vous pouvez fournir un accès à App Configuration pour les applications web ou les fonctions en utilisant une des méthodes suivantes :
+Vous pouvez fournir un accès à App Configuration pour Web Apps ou Azure Functions en utilisant une des méthodes suivantes :
 
 * À partir du portail Azure, entrez la chaîne de connexion à votre magasin App Configuration dans les paramètres Application d’App Service.
 * Stockez la chaîne de connexion à votre magasin App Configuration dans Key Vault et [faites-y référence dans App Service](../app-service/app-service-key-vault-references.md).
@@ -84,7 +92,7 @@ Un nombre excessif de requêtes envoyées à App Configuration peut entraîner d
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importation des données de configuration dans App Configuration
 
-App Configuration vous offre la possibilité d’[importer](./howto-import-export-data.md) en bloc vos paramètres de configuration à partir de vos fichiers config actuels à l’aide du Portail Azure ou de l’interface CLI. Vous pouvez également utiliser les mêmes options pour exporter des valeurs depuis App Configuration, par exemple entre des magasins associés. Si vous souhaitez configurer une synchronisation continu avec votre référentiel GitHub, vous pouvez utiliser notre [action GitHub](./concept-github-action.md) afin de pouvoir continuer à utiliser vos pratiques existantes de contrôle de code source tout en bénéficiant des avantages d’App Configuration.
+App Configuration vous offre la possibilité d’[importer](./howto-import-export-data.md) en bloc vos paramètres de configuration à partir de vos fichiers config actuels à l’aide du Portail Azure ou de l’interface CLI. Vous pouvez également utiliser les mêmes options pour exporter des valeurs clés depuis App Configuration, par exemple entre des magasins associés. Si vous souhaitez configurer une synchronisation continu avec votre référentiel dans GitHub ou Azure DevOps, vous pouvez utiliser notre [action GitHub](./concept-github-action.md) ou [Azure Pipeline Push Task](./push-kv-devops-pipeline.md) afin de pouvoir continuer à utiliser vos pratiques existantes de contrôle de code source tout en bénéficiant des avantages d’App Configuration.
 
 ## <a name="multi-region-deployment-in-app-configuration"></a>Déploiement multirégional dans App Configuration
 

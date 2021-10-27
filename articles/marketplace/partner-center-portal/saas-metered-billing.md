@@ -4,15 +4,15 @@ description: Découvrez les modèles de facturation flexibles pour les offres Sa
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 10/15/2021
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c84f48d7a41a43b1425663b2ceed9ba74276f3f9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 104d8665a1a7754475e0bcad14546775335c389f
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955615"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131255"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Facturation à l’usage pour SaaS à l’aide du service de mesure de la consommation de la Place de marché commerciale
 
@@ -43,9 +43,12 @@ Quand il s’agit de définir l’offre avec ses modèles de tarification, il es
     - Coût récurrent **annuel** : coût récurrent annuel forfaitaire qui est prépayé tous les ans quand l’utilisateur achète le plan.
 - Outre les coûts récurrents, un plan forfaitaire peut également inclure des dimensions personnalisées facultatives utilisées pour facturer les clients pour le dépassement d’utilisation non compris dans le forfait.  Chaque dimension représente une unité facturable que votre service communiquera à Microsoft en utilisant l’[API du service de mesure de la consommation de la Place de marché commerciale](../marketplace-metering-service-apis.md).
 
+> [!IMPORTANT]
+> Vous devez assurer le suivi de l’utilisation dans votre code et envoyer uniquement des événements d’utilisation à Microsoft pour l’utilisation qui se trouve au-dessus du tarif de base.
+
 ## <a name="sample-offer"></a>Exemple d’offre
 
-Par exemple, Contoso est un éditeur avec un service SaaS appelé Contoso Notification Services (CNS). CNS permet à ses clients d’envoyer des notifications par e-mail ou par SMS. Contoso est inscrit en tant qu’éditeur dans l’Espace partenaires pour le programme commercial de la Place de marché afin de publier des offres SaaS destinées aux clients Azure.  Il existe deux plans associés à CNS, présentés ci-dessous :
+Par exemple, Contoso est un éditeur avec un service SaaS appelé Contoso Notification Services (CNS). CNS permet à ses clients d’envoyer des notifications par e-mail ou par SMS. Contoso est inscrit en tant qu’éditeur dans l’Espace partenaires pour le programme commercial de la Place de marché afin de publier des offres SaaS destinées aux clients Azure.  Il existe trois plans associés à CNS, présentés ci-dessous :
 
 - Plan De base
     - Envoyer 10 000 e-mails et 1 000 SMS pour 0 USD/mois (tarif mensuel fixe)
@@ -71,14 +74,17 @@ En fonction du plan sélectionné, un client Azure achetant un abonnement à une
 
 ## <a name="billing-dimensions"></a>Dimensions de facturation
 
-Chaque dimension de facturation définit une unité personnalisée par laquelle l’ISV peut émettre des événements d’utilisation.  Les dimensions de facturation sont également utilisées pour indiquer au client comment il sera facturé pour l’utilisation du logiciel.  Elles sont définies comme suit :
+Chaque dimension de facturation définit une unité personnalisée par laquelle l’ISV peut émettre des événements d’utilisation.  Les dimensions de facturation sont également utilisées pour indiquer au client comment il sera facturé pour l’utilisation du logiciel. Elles sont définies comme suit :
 
 - **ID** : identificateur immuable référencé lors de l’émission d’événements d’utilisation.
 - **Nom d’affichage** : nom d’affichage associé à la dimension, par exemple, « messages SMS envoyés ».
 - **Unité de mesure** : description de l’unité de facturation, par exemple, « par SMS » ou « par 100 e-mails ».
-- **Prix unitaire en USD** : prix pour une unité de la dimension.  Il peut être égal à 0. 
+- **Prix unitaire en USD** : prix pour une unité de la dimension.  Il peut être égal à 0.
 - **Quantité mensuelle incluse de base** : quantité de la dimension incluse par mois pour les clients qui paient la redevance mensuelle récurrente ; il doit s’agir d’un entier. Il peut être égal à 0 ou illimité.
 - **Quantité annuelle incluse de base** : quantité de la dimension incluse par année pour les clients qui paient la redevance annuelle récurrente ; il doit s’agir d’un entier. Il peut être égal à 0 ou illimité.
+
+> [!IMPORTANT]
+> Vous devez assurer le suivi de l’utilisation dans votre code et envoyer uniquement des événements d’utilisation à Microsoft pour l’utilisation qui se trouve au-dessus du tarif de base.
 
 Les dimensions de facturation sont partagées entre tous les plans d’une offre.  Certains attributs s’appliquent à la dimension dans tous les plans, et les autres attributs sont spécifiques à un plan.
 
@@ -92,14 +98,14 @@ Les autres attributs d’une dimension sont spécifiques à chaque plan et peuve
 
 - Prix unitaire en USD
 - Quantité mensuelle incluse de base  
-- Quantité annuelle incluse de base  
+- Quantité annuelle incluse de base
 
 Les dimensions ont également deux concepts spéciaux, « Activé » et « Infini » :
 
 - **Activé** indique que ce plan participe à cette dimension.  Si vous créez un plan qui n’envoie pas d’événements d’utilisation basés sur cette dimension, vous pouvez ne pas activer cette option .  En outre, toutes les nouvelles dimensions ajoutées après la publication initiale d’un plan apparaissent comme « Non activées » sur le plan déjà publié.  Une dimension désactivée ne s’affiche dans aucune des listes de dimensions pour un plan visualisé par des clients.
 - **Infini**, représenté par le symbole de l’infini « ∞ », indique que ce plan participe à cette dimension, mais n’émet pas l’utilisation pour cette dimension.  Si vous voulez indiquer à vos clients que les fonctionnalités représentées par cette dimension sont incluses dans le plan, mais sans limite d’utilisation.  Une dimension dont l’utilisation est infinie apparaît dans les listes de dimensions d’un plan montrées aux clients, avec une indication établissant qu’elle n’engendrera jamais de coûts pour ce plan.
 
->[!Note] 
+>[!Note]
 >Les scénarios suivants sont explicitement pris en charge : <br> - Vous pouvez ajouter une nouvelle dimension à un nouveau plan.  La nouvelle dimension ne sera pas activée pour les plans déjà publiés. <br> - Vous pouvez publier un plan **forfaitaire** sans aucune dimension, puis ajouter un nouveau plan et configurer une nouvelle dimension pour ce plan. La nouvelle dimension ne sera pas activée pour les plans déjà publiés.
 
 ### <a name="setting-dimension-price-per-unit-per-supported-market"></a>Définition du prix de la dimension par unité par marché pris en charge
@@ -157,4 +163,4 @@ Pour comprendre les options du serveur de publication et ouvrir un ticket de sup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [API de service de mesure de la Place de marché](../marketplace-metering-service-apis.md)
+- [API de facturation à la consommation de la Place de marché](../marketplace-metering-service-apis.md)

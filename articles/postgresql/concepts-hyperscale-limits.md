@@ -6,19 +6,21 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 08/03/2021
-ms.openlocfilehash: 5bf02173d105ab81807bdc4ee68e3b8f9bc8e0a4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/15/2021
+ms.openlocfilehash: e182ea6e5e7e14777614723bc6105c73a94b848e
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532580"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073503"
 ---
 # <a name="azure-database-for-postgresql--hyperscale-citus-limits-and-limitations"></a>Limites et restrictions d’Azure Database pour PostgreSQL – Hyperscale (Citus)
 
 La section suivante décrit les limites fonctionnelles et les limites de capacités du service Hyperscale (Citus).
 
-## <a name="maximum-connections"></a>Nombre maximal de connexions
+## <a name="networking"></a>Mise en réseau
+
+### <a name="maximum-connections"></a>Nombre maximal de connexions
 
 Chaque connexion PostgreSQL (même inactive) utilise au moins 10 Mo de mémoire. Il est donc important de limiter les connexions simultanées. Voici les limites que nous avons choisies pour maintenir l’intégrité des nœuds :
 
@@ -37,23 +39,50 @@ Chaque connexion PostgreSQL (même inactive) utilise au moins 10 Mo de mémoire.
 
 Au-delà de ces limites, les tentatives de connexion échouent et génèrent une erreur. Le système réserve trois connexions pour les nœuds de surveillance. C’est pourquoi il y a trois connexions disponibles de moins pour les requêtes utilisateur que le total des connexions.
 
-### <a name="connection-pooling"></a>Regroupement de connexions
+#### <a name="connection-pooling"></a>Regroupement de connexions
 
 Vous pouvez augmenter davantage le nombre de connexions en utilisant le [regroupement de connexions](concepts-hyperscale-connection-pool.md). Hyperscale (Citus) offre un regroupeur de connexions pgBouncer managé, configuré pour jusqu’à 2 000 connexions clientes simultanées.
 
-## <a name="storage-scaling"></a>Mise à l’échelle du stockage
+### <a name="private-access-preview"></a>Accès privé (préversion)
+
+#### <a name="server-group-name"></a>Nom du groupe de serveurs.
+
+Pour être compatible avec [l’accès privé](concepts-hyperscale-private-access.md), un groupe de serveurs Hyperscale (Citus) doit avoir un nom de 40 caractères ou moins.
+
+#### <a name="regions"></a>Régions
+
+La fonctionnalité accès privé est disponible en préversion seulement dans ces régions :
+
+* Amérique
+    * USA Est
+    * USA Est 2
+    * USA Ouest 2
+* Asie-Pacifique
+    * Japon Est
+    * OuJapon Est
+    * Centre de la Corée
+* Europe
+    * Allemagne Centre-Ouest
+    * Sud du Royaume-Uni
+    * Europe Ouest
+
+## <a name="storage"></a>Stockage
+
+### <a name="storage-scaling"></a>Mise à l’échelle du stockage
 
 Il est possible d’effectuer un scale-up du stockage sur les nœuds coordinateur et Worker, mais non un scale-down.
 
-## <a name="storage-size"></a>Taille de stockage
+### <a name="storage-size"></a>Taille de stockage
 
 Les nœuds coordinateur et Worker prennent en charge jusqu’à 2 Tio de stockage. Pour connaître les tailles de cluster et de nœud, consultez [ci-dessus](concepts-hyperscale-configuration-options.md#compute-and-storage) les options de stockage disponibles et le calcul des IOPS.
 
-## <a name="database-creation"></a>Création de base de données
+## <a name="postgresql"></a>PostgreSQL
+
+### <a name="database-creation"></a>Création de base de données
 
 Le portail Azure fournit des informations d’identification pour se connecter à une seule base de données par groupe de serveurs Hyperscale (Citus), la base de données `citus`. La création d’une autre base de données n’est actuellement pas autorisée, et la commande CREATE DATABASE échoue avec une erreur.
 
-## <a name="columnar-storage"></a>Stockage en colonnes
+### <a name="columnar-storage"></a>Stockage en colonnes
 
 Hyperscale (Citus) présente actuellement ces limitations avec les [tables en colonnes](concepts-hyperscale-columnar.md) :
 

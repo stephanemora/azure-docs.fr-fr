@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.topic: reference
 ms.date: 08/12/2021
 ms.author: bagol
-ms.openlocfilehash: 3886d26c571246f42c54bb9aab45bae32e05b750
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a78ec3828e0bbcf6c864f346d632ee70ad4a7777
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129362460"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134162"
 ---
 # <a name="find-your-azure-sentinel-data-connector"></a>Rechercher votre connecteur de données Azure Sentinel
 
@@ -978,7 +978,7 @@ Ajoutez http://localhost:8081/ sous **URI de redirection autorisées** lors de l
 | --- | --- |
 | **Méthode d’ingestion des données** | **Intégration de service à service Azure : <br>[Connecter des données de Microsoft 365 Defender à Azure Sentinel](connect-microsoft-365-defender.md)** (Article du premier connecteur) |
 | **Licences requises/<br>informations de coût** | [Licence valide pour Microsoft 365 Defender](/microsoft-365/security/mtp/prerequisites)
-| **Table(s) Log Analytics** | SecurityAlert<br>SecurityIncident<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkInfo<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo |
+| **Table(s) Log Analytics** | **Alertes :**<br>SecurityAlert<br>SecurityIncident<br>**Événements Defender pour point de terminaison :**<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkInfo<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo<br>**Événements Defender pour Office 365 :**<br>EmailAttachmentInfo<br>EmailUrlInfo<br>EmailEvents<br>EmailPostDeliveryEvents |
 | **Pris en charge par** | Microsoft |
 | | |
 

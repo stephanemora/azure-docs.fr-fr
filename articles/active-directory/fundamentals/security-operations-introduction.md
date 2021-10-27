@@ -12,12 +12,12 @@ ms.date: 07/15/2021
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c219ab9c1503fdd3bbd85bf704786ef2c097d52a
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: bf83185b5c36723621ad586839d6b92260e1a99a
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129808667"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046199"
 ---
 # <a name="azure-active-directory-security-operations-guide"></a>Guide des opérations de sécurité dans Azure Active Directory
 
@@ -126,7 +126,7 @@ Dans le portail Azure, vous pouvez afficher les journaux d’audit Azure AD et 
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) avec intégration SIEM**- [Les journaux Azure AD peuvent être intégrés à d’autres SIEM](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) comme Splunk, ArcSight, QRadar et Sumo Logic via l’intégration Azure Event Hub Hub.
 
-* **[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS)** – Vous permet de découvrir et de gérer des applications, de gouverner les applications et les ressources, et de vérifier la conformité de vos applications cloud.
+* **[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security)**  : permet de découvrir et de gérer les applications, de gouverner toutes les applications et ressources, et de vérifier la conformité des applications cloud.
 
 La plupart des éléments qui font l’objet d’une supervision et d’alertes sont déterminés par vos stratégies d’accès conditionnel. Vous pouvez utiliser le [classeur Rapports et insights sur l’accès conditionnel](../conditional-access/howto-conditional-access-insights-reporting.md) pour examiner les effets d’une ou de plusieurs stratégies d’accès conditionnel sur vos connexions, ainsi que les résultats des stratégies, y compris l’état de l’appareil. Ce classeur vous permet de voir un résumé de l’impact et d’identifier l’impact sur une période de temps spécifique. Vous pouvez également utiliser le classeur pour investiguer les connexions d’un utilisateur spécifique. 
 

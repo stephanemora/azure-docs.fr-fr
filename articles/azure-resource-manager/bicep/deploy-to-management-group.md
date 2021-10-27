@@ -2,13 +2,13 @@
 title: Utilisez Bicep pour déployer des ressources dans un groupe d’administration
 description: Décrit comment créer un fichier Bicep qui déploie des ressources dans l’étendue du groupe d’administration.
 ms.topic: conceptual
-ms.date: 07/19/2021
-ms.openlocfilehash: 7c0e2f6682ff5da0e0cc2bd3b7f16b3ab23af476
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/18/2021
+ms.openlocfilehash: 8e198f923e864b0919f20cb4d0ef6579bb375ec4
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659889"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178319"
 ---
 # <a name="management-group-deployments-with-bicep-files"></a>Déploiements de groupes d’administration avec des fichiers Bicep
 
@@ -201,7 +201,7 @@ Ou vous pouvez définir l’étendue sur `/` pour certains types de ressources, 
 
 ## <a name="management-group"></a>Groupe d’administration
 
-Pour créer un groupe d’administration dans un déploiement de groupe d’administration, vous devez définir l’étendue sur `/` pour le groupe d’administration.
+Pour créer un groupe d’administration dans un déploiement de groupes d’administration, vous devez définir l’étendue sur le locataire.
 
 L’exemple suivant crée un groupe d’administration dans le groupe d’administration racine.
 
@@ -219,13 +219,12 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
 output newManagementGroup string = mgName
 ```
 
-L’exemple d’après crée un nouveau groupe d’administration dans le groupe d’administration spécifié comme parent.
+L’exemple suivant crée un nouveau groupe d’administration dans le groupe de gestion ciblé pour le déploiement. Il utilise la [fonction de groupe d’administration](bicep-functions-scope.md#managementgroup).
 
 ```bicep
 targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
-param parentMGName string
 
 resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
   scope: tenant()
@@ -233,15 +232,10 @@ resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
   properties: {
     details: {
       parent: {
-        id: parentMG.id
+        id: managementGroup().id
       }
     }
   }
-}
-
-resource parentMG 'Microsoft.Management/managementGroups@2020-05-01' existing = {
-  name: parentMGName
-  scope: tenant()
 }
 
 output newManagementGroup string = mgName

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: victorh
-ms.openlocfilehash: 15119b3196735e2358b76c1a804ca25f67b05efa
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: c44691496df3610688f13843f3c5ccbfe20f625a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809939"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004062"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Arrêt TLS avec certificats Key Vault
 
@@ -47,7 +47,7 @@ Le portail Azure prend uniquement en charge les certificats Key Vault, et non le
 
 ## <a name="certificate-settings-in-key-vault"></a>Paramètres de certificat dans Key Vault
 
-Pour la terminaison TLS, Application Gateway prend en charge les certificats au format PFX (Personal Information Exchange). Vous pouvez importer un certificat existant ou en créer un dans votre coffre de clés. Pour éviter tout échec, assurez-vous que l’état du certificat est défini sur **Activé** dans Key Vault.
+Pour la terminaison TLS, Application Gateway prend uniquement en charge les certificats au format PFX (Personal Information Exchange). Vous pouvez importer un certificat existant ou en créer un dans votre coffre de clés. Pour éviter tout échec, assurez-vous que l’état du certificat est défini sur **Activé** dans Key Vault.
 
 ## <a name="how-integration-works"></a>Fonctionnement de l’intégration
 

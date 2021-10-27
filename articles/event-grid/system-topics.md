@@ -3,12 +3,12 @@ title: Rubriques système dans Azure Event Grid
 description: Décrit les rubriques système d’Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.openlocfilehash: cb054b8085c422f56a6cf8c6cc492470aaa4be95
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 2c0bf2879ce2b137faf33f1ec00d456ab884ccf8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437028"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130035103"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Rubriques système dans Azure Event Grid
 Une rubrique système dans Event Grid représente un ou plusieurs événements publiés par les services Azure, tels que Stockage Azure et Azure Event Hubs. Par exemple, une rubrique système peut représenter **tous les événements blob** ou uniquement les événements **de création de blob** et **de suppression de blob** publiés pour un **compte de stockage spécifique**. Dans cet exemple, lorsqu’un blob est chargé sur le compte de stockage, le service Stockage Azure publie un événement **de création de blob** dans la rubrique système d’Event Grid, qui transfère ensuite l’événement aux [abonnés](event-handlers.md) de la rubrique qui reçoivent et traitent l’événement. 
@@ -57,7 +57,12 @@ Vous pouvez créer une rubrique système de deux manières :
 
 Lorsque vous utilisez [CLI](create-view-manage-system-topics-cli.md), [REST](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate) ou un [modèle Resource Manager](create-view-manage-system-topics-arm.md), vous pouvez choisir l’une des méthodes ci-dessus. Nous vous recommandons de créer d’abord une rubrique système, puis de créer un abonnement sur la rubrique, car il s’agit de la méthode la plus récente de création de rubriques système.
 
+### <a name="failure-to-create-system-topics"></a>Échec de la création des rubriques système
 La création d’une rubrique système échoue si vous avez configuré des stratégies Azure de telle sorte que le service Event Grid ne puisse pas la créer. Par exemple, vous pouvez avoir une stratégie qui autorise la création de certains types de ressources uniquement (par exemple : Stockage Azure, Azure Event Hubs, etc.) dans l’abonnement. 
+
+Dans ce cas, la fonctionnalité de workflow des événements est conservée. Toutefois, les fonctionnalités de métriques et de diagnostic des rubriques système ne seront pas disponibles.
+
+Si vous avez besoin de cette fonctionnalité, autorisez la création de ressources du type de rubrique système et créez la rubrique système manquante, comme décrit dans la section [Cycle de vie des rubriques système](#lifecycle-of-system-topics) .
 
 ## <a name="location-and-resource-group-for-a-system-topic"></a>Emplacement et groupe de ressources pour une rubrique système
 Pour les sources d’événements Azure qui se trouvent dans une région/un emplacement spécifique, la rubrique système est créée au même endroit que la source d’événements Azure. Par exemple, si vous créez un abonnement aux événements pour un stockage Blob dans USA Est, la rubrique système est créée dans la région USA Est. Pour les sources d’événements Azure globales, comme les abonnements Azure, les groupes de ressources ou les Azure Maps, Event Grid crée la rubrique système dans l’emplacement **global**. 

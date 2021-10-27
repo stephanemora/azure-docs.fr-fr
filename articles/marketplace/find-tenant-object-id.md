@@ -1,17 +1,17 @@
 ---
 title: Rechercher l’ID du locataire, l’ID de l’objet et les détails de l’association de partenaires dans la place de marché Azure
-description: Comment rechercher l’ID de locataire, l’ID d’objet et les détails d’association de partenaires d’un ID d’abonnement dans la place de marché Azure.
+description: Recherchez l’ID de locataire, l’ID d’objet et les détails d’association de partenaires d’un ID d’abonnement dans Place de marché Azure.
 ms.service: marketplace
 ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 10/09/2020
-ms.openlocfilehash: 92819c28002c79ff905174e5b2f94779050237fd
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a71a60bd4f12a46456c3a2d0725642118b2acc40
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129356716"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065290"
 ---
 # <a name="find-tenant-id-object-id-and-partner-association-details"></a>Rechercher l’ID du locataire, l’ID de l’objet et les détails de l’association de partenaires
 

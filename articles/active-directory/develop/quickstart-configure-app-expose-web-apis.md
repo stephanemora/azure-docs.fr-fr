@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 820bc7dfe9123db495c151cd5cd0ea5ae337619f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d5f4a92955aab2d920c21e73ec71bdf56bf76e9
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103972"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044343"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Démarrage rapide : Configurer une application pour exposer une API web
 
@@ -55,6 +55,8 @@ Tout d’abord, effectuez les étapes suivantes pour créer un exemple d’éten
 1. Vous êtes invité à définir un **URI d’ID d’application** si vous n’en avez pas encore configuré un.
 
    L’URI d’ID d’application, qui doit être globalement unique, fait office de préfixe pour les étendues que vous référencerez dans le code de votre API. Vous pouvez utiliser la valeur par défaut fournie, qui se présente sous la forme `api://<application-client-id>`, ou spécifier un URI plus lisible comme `https://contoso.com/api`.
+   
+   Vous trouverez plus d’informations sur les modèles d’URI d’ID d’application valides dans la [référence du manifeste de l’application Azure AD](reference-app-manifest.md).
 
 1. Spécifiez ensuite les attributs de l’étendue dans le volet **Ajouter une étendue**. Pour cette procédure pas à pas, vous pouvez utiliser les exemples de valeurs ou spécifier les vôtres.
 

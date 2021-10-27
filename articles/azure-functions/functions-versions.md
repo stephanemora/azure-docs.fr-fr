@@ -3,13 +3,13 @@ title: Vue d’ensemble des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez les différences entre elles et comment choisir celle qui vous convient.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 09/22/2021
-ms.openlocfilehash: 516bcbdd00ae4b116326e797746485c82be9c3fb
-ms.sourcegitcommit: ee5d9cdaf691f578f2e390101bf5350859d85c67
+ms.date: 10/13/2021
+ms.openlocfilehash: e04ab727e1bb7e168a4461e69b62ab049e59cacf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129740509"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003398"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
@@ -72,7 +72,7 @@ Les applications de fonction épinglées à `~2.0` continuent de s’exécuter s
 
 ## <a name="migrating-from-3x-to-4x-preview"></a><a name="migrating-from-3x-to-4x"></a>Migration de la version 3.x vers la version 4.x (préversion)
 
-Azure Functions version 4.x (préversion) offre une compatibilité descendante forte avec la version 3.x.  De nombreuses applications doivent normalement être mises à niveau sans problème vers la version 4.x, sans aucune modification du code. Veillez néanmoins à effectuer des tests intensifs avant de changer la version principale dans les applications de production.
+Azure Functions version 4.x (préversion) offre une compatibilité descendante forte avec la version 3.x. De nombreuses applications doivent être mises à niveau sans problème vers la version 4.x sans modification importante du code. Veillez néanmoins à effectuer des tests intensifs avant de changer la version principale dans les applications de production.
 
 Pour migrer une application de la version 3.x à la version 4.x, définissez le paramètre d’application `FUNCTIONS_EXTENSION_VERSION` sur `~4` à l’aide de la commande Azure CLI suivante :
 
@@ -91,32 +91,46 @@ Voici quelques changements à prendre en considération avant de mettre à nivea
 
 - Azure Functions Proxies n’est plus pris en charge dans la version 4.x. Il est recommandé d’utiliser [Gestion des API Azure](../api-management/import-function-app-as-api.md).
 
-- La journalisation vers Stockage Azure à l’aide d’*AzureWebJobsDashboard* n’est plus prise en charge dans la version 4.x. Il est recommandé d’utiliser [Application Insights](./functions-monitoring.md).
+- La journalisation vers Stockage Azure à l’aide d’*AzureWebJobsDashboard* n’est plus prise en charge dans la version 4.x. Il est recommandé d’utiliser [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 
-- Azure Functions 4.x applique des [exigences de version minimale](https://github.com/Azure/Azure-Functions/issues/1987) pour les extensions. Effectuez une mise à niveau vers la version la plus récente des extensions concernées. Pour les langages autres que .NET, [effectuez une mise à niveau](./functions-bindings-register.md#extension-bundles) vers la version 2.x ou ultérieure du pack d’extension.
+- Azure Functions 4.x applique des [exigences de version minimale](https://github.com/Azure/Azure-Functions/issues/1987) pour les extensions. Effectuez une mise à niveau vers la version la plus récente des extensions concernées. Pour les langages autres que .NET, [effectuez une mise à niveau](./functions-bindings-register.md#extension-bundles) vers la version 2.x ou ultérieure du pack d’extension. ([#1987](https://github.com/Azure/Azure-Functions/issues/1987))
 
-- Des délais d’expiration par défaut et maximum sont désormais appliqués dans les applications de fonction de consommation Linux 4.x.
+- Des délais d’expiration par défaut et maximum sont désormais appliqués dans les applications de fonction de consommation Linux 4.x. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 
-- La fonctionnalité Application Insights n’est plus incluse par défaut dans la version 4.x. Elle est désormais disponible en tant qu’extension distincte.
+- La fonctionnalité Application Insights n’est plus incluse par défaut dans la version 4.x. Elle est désormais disponible en tant qu’extension distincte. ([#2027](https://github.com/Azure/Azure-Functions/issues/2027))
     - Pour les applications .NET in-process, ajoutez le package d’extension [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) à votre application de fonction.
     - Pour les applications .NET isolées :
         - Ajoutez le package d’extension [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) à votre application de fonction.
         - Mettez à jour les packages [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) et [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) vers les versions les plus récentes.
-    - Pour les autres langages, une mise à jour future des [packs d’extension Azure Functions](functions-bindings-register.md#extension-bundles) inclura l’extension Application Insights. Votre application utilisera automatiquement le nouveau pack quand il sera disponible.
+    - Pour les autres langages, une mise à jour future des [packs d’extension Azure Functions](functions-bindings-register.md#extension-bundles) inclura l’extension Application Insights. Votre application utilisera automatiquement le nouveau pack quand il sera disponible. Tant que le bundle d’extension mis à jour n’est pas prêt, supprimez les deux paramètres d’application `APPINSIGHTS_INSTRUMENTATIONKEY` et `APPLICATIONINSIGHTS_CONNECTION_STRING` de votre application de fonction. Cela empêche l’échec du démarrage de l’hôte.
+
+- Les applications de fonction qui partagent des comptes de stockage ont un échec de démarrage si leurs noms d’hôtes calculés sont identiques. Utilisez un compte de stockage distinct pour chaque application de fonction. ([#2049](https://github.com/Azure/Azure-Functions/issues/2049))
 
 #### <a name="languages"></a>Langages
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
-Aucun n’est actuellement signalé.
+- `InvalidHostServicesException` est désormais une erreur irrécupérable. ([#2045](https://github.com/Azure/Azure-Functions/issues/2045))
+
+- `EnableEnhancedScopes` est activé par défaut. ([#1954](https://github.com/Azure/Azure-Functions/issues/1954))
+
+- Supprimer `HttpClient` en tant que serveur inscrit. ([#1911](https://github.com/Azure/Azure-Functions/issues/1911))
+
+# <a name="java"></a>[Java](#tab/java)
+
+- Utilisez le chargeur de classe unique dans Java 11. ([#1997](https://github.com/Azure/Azure-Functions/issues/1997))
+
+- Arrêtez le chargement des fichiers JAR de Worker dans Java 8. ([#1991](https://github.com/Azure/Azure-Functions/issues/1991))
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Aucun n’est actuellement signalé.
+- La sérialisation de sortie dans les applications Node.js a été mise à jour pour résoudre les incohérences précédentes. ([#2007](https://github.com/Azure/Azure-Functions/issues/2007))
 
 # <a name="python"></a>[Python](#tab/python)
 
-- Le transfert de mémoire partagée est activé par défaut dans Azure Functions 4.x.
+- Le transfert de mémoire partagée est activé par défaut. ([#1973](https://github.com/Azure/Azure-Functions/issues/1973))
+
+- Le nombre de Threads par défaut a été mis à jour. Les fonctions qui ne sont pas thread-safe ou qui présentent une utilisation élevée de la mémoire peuvent être affectées. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 
 ---
 
@@ -138,6 +152,10 @@ Lorsque vous exécutez des fonctions de la bibliothèque de classes .NET, la pr
 
 >[!NOTE]
 >En raison des problèmes de prise en charge de .NET Core 2.2, les applications de fonction épinglées à la version 2 (`~2`) s’exécutent essentiellement sur .NET Core 3.1. Pour plus d’informations, consultez [Mode de compatibilité Functions v2.x](functions-dotnet-class-library.md#functions-v2x-considerations).
+
+# <a name="java"></a>[Java](#tab/java)
+
+Aucun.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

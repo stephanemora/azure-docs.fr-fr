@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 03b89b1b8c0221795f58ff28addd4fdeaad5053e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: cc3b433b0ae36076a0442c8dc91e502020bdfd04
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532580"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063637"
 ---
 # <a name="remove-a-virtual-machine-scale-set-association-from-a-capacity-reservation-group"></a>Supprimer une association de groupe de machines virtuelles identiques d’un groupe de réservations de capacité 
 
@@ -64,6 +64,27 @@ Accédez à [stratégies de mise à niveau](#upgrade-policies) pour plus d’inf
     }
     }
     ```
+
+### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli1)
+
+1. Libérer le groupe de machines virtuelles identiques. La commande suivante permet de libérer toutes les machines virtuelles du groupe identique : 
+
+    ```azurecli-interactive
+    az vmss deallocate
+    --location eastus
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    ```
+
+1. Mettre à jour le groupe identique pour supprimer l’association avec le groupe de réservations de capacité. Affecter à la propriété `capacity-reservation-group` la valeur None supprime l’association du groupe identique au groupe de réservations de capacité : 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myresourcegroup 
+    --name myVMSS 
+    --capacity-reservation-group None
+    ```
+
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1)
 
@@ -146,6 +167,27 @@ Accédez à [stratégies de mise à niveau](#upgrade-policies) pour plus d’inf
         }
     }
     }
+    ```
+
+### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli2)
+
+1. Mettez à jour la quantité réservée à zéro :
+
+    ```azurecli-interactive
+    az capacity reservation update 
+    -g myResourceGroup 
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    --capacity 0
+    ```
+
+2. Mettez à jour le groupe identique pour supprimer l’association avec le groupe de réservations de capacité en affectant à la propriété `capacity-reservation-group` la valeur None : 
+
+    ```azurecli-interactive
+    az vmss update 
+    --resource-group myResourceGroup 
+    --name myVMSS 
+    --capacity-reservation-group None
     ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c3142fd41830487453a3cc980a87cdca72cf7213
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 1417d727565b349f9f18b0add73d443c22a4dbb3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094139"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992322"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
-Cet article décrit les étapes nécessaires pour transférer la propriété de facturation d’un abonnement Azure à un autre compte. Avant de transférer la propriété de facturation d’un abonnement, lisez [À propos du transfert de propriété de facturation pour un abonnement Azure](../understand/subscription-transfer.md).
+Cet article décrit les étapes nécessaires pour transférer la propriété de facturation d’un abonnement Azure à un autre compte. Avant de transférer la propriété de facturation d’un abonnement, lisez [À propos du transfert de propriété de facturation pour un abonnement Azure](subscription-transfer.md).
 
 Si vous souhaitez conserver votre propriété de facturation mais changer de type d’abonnement, consultez [Changer d’offre pour votre abonnement Azure](switch-azure-offer.md). Pour contrôler qui peut accéder aux ressources de l’abonnement, consultez [Rôles intégrés Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -30,7 +30,7 @@ Seul l’administrateur de facturation d’un compte peut transférer la propri�
 
 ## <a name="transfer-billing-ownership-of-an-azure-subscription"></a>Transférer la propriété de facturation d’un abonnement Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur du compte de facturation auquel est rattaché l’abonnement que vous souhaitez transférer. Si vous ignorez si vous êtes administrateur ou si vous devez déterminer qui l’est, consultez [Déterminer l’administrateur de facturation d’un compte](../understand/subscription-transfer.md#whoisaa).
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur du compte de facturation auquel est rattaché l’abonnement que vous souhaitez transférer. Si vous ignorez si vous êtes administrateur ou si vous devez déterminer qui l’est, consultez [Déterminer l’administrateur de facturation d’un compte](add-change-subscription-administrator.md#whoisaa).
 1. Recherchez **Gestion des coûts + facturation**.  
    ![Capture d’écran montrant une recherche dans le portail Azure](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
 1. Sélectionnez **Abonnements** dans le volet de gauche. Selon votre accès, vous devrez peut-être sélectionner une étendue de facturation, puis sélectionner **Abonnements** ou **Abonnements Azure**.
@@ -114,7 +114,7 @@ Le transfert d’abonnement en libre-service n’est pas disponible pour votre c
 
 ###  <a name="not-all-subscription-types-can-transfer"></a>Certains types d’abonnements ne peuvent pas opérer de transfert
 
-Tous les types d’abonnements ne prennent pas en charge le transfert de la propriété de facturation. Pour voir la liste des types d’abonnements qui prennent en charge les transferts, consultez [Types d’abonnements pris en charge](../understand/subscription-transfer.md#supported-subscription-types)
+Tous les types d’abonnements ne prennent pas en charge le transfert de la propriété de facturation. Pour voir une liste des types d’abonnements qui prennent en charge les transferts, consultez [Hub de transfert d’abonnements Azure](subscription-transfer.md).
 
 ###  <a name="access-denied-error-shown-when-trying-to-transfer-subscription-billing-ownership"></a>Erreur d’accès refusé affichée lors de la tentative de transfert de propriété de facturation d’abonnement
 

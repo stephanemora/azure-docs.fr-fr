@@ -1,6 +1,6 @@
 ---
-title: Comment configurer les détails du référencement de votre offre de service de conseil dans l’Espace partenaires Microsoft
-description: Découvrez comment configurer les détails du référencement de votre offre de service de conseil sur la Place de marché commerciale Microsoft à l’aide de l’Espace partenaires.
+title: Configurer les détails d’une annonce d’offre de service de conseil pour le marketplace commercial
+description: Configurez les détails d’une annonce d’offre de service de conseil sur le marketplace commercial de Microsoft à l’aide d’Espace partenaires.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: 2476d60cacc9690c24d7d3d2f7e21f04c6811500
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b810c78cdbee84c23cb810a4a622b2ddceb19471
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92754224"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130039065"
 ---
-# <a name="how-to-configure-your-consulting-service-offer-listing-details"></a>Comment configurer les détails de votre offre de service de conseil
+# <a name="configure-consulting-service-offer-listing-details"></a>Configurer les détails d’une annonce d’offre de service de conseil
 
 Les informations que vous fournissez sur la **page de référencement de l’offre** de l’Espace partenaires s’affichent dans les magasins en ligne de la place de marché commerciale Microsoft. Elles comprennent le nom, la description, le support et divers éléments de marketing de votre offre.
 

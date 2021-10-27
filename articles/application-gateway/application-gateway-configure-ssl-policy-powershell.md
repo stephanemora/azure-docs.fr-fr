@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 18dace708f7ded8f77e041b98c705f0f2f1aafca
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: cc6fe6933c90d4cb8eaecdf7e4386de5e7bc4bf5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108317610"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001691"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurer les versions des stratégies TLS et les suites de chiffrement sur Application Gateway
 
@@ -120,7 +120,7 @@ L'exemple suivant définit une stratégie TLS personnalisée sur une passerelle 
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> TLS_RSA_WITH_AES_256_CBC_SHA256 doit être sélectionné lors de la configuration d'une stratégie TLS personnalisée. La passerelle d’application utilise cette suite de chiffrement pour la gestion des serveurs back-end. Vous pouvez l’utiliser en combinaison avec d’autres suites, mais celle-ci doit également être sélectionnée. 
+> TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 doit être sélectionné lors de la configuration d'une stratégie TLS personnalisée. La passerelle d’application utilise cette suite de chiffrement pour la gestion des serveurs back-end. Vous pouvez l’utiliser en combinaison avec d’autres suites, mais celle-ci doit également être sélectionnée. 
 
 ```powershell
 # get an application gateway resource

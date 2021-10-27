@@ -4,12 +4,12 @@ description: Disponibilité des ressources de calcul et de mémoire pour le serv
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 69dc12c0a74855535e173868951c15a3acfcfd75
-ms.sourcegitcommit: b59e0afdd98204d11b7f9b6a3e55f5a85d8afdec
+ms.openlocfilehash: d48f9a13b24caab86b6d2cdfba039583f1b75c70
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114371523"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998539"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilité des ressources pour Azure Container Instances dans les régions Azure
 
@@ -85,60 +85,60 @@ Les régions et les ressources maximales suivantes sont accessibles aux groupes 
 ###  <a name="windows-server-2016"></a>Windows Server 2016
 
 > [!NOTE]
-> Pour plus d’informations sur les hôtes 1B, 2B et 3B, consultez [Compatibilité des versions d’hôte et de conteneur](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
+> Les hôtes 1B et 2B ont été dépréciés pour Windows Server 2016. Pour plus d’informations sur les hôtes 1B, 2B et 3B, consultez [Compatibilité des versions d’hôte et de conteneur](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
 
-| Région | Utilisation maximale de l’UC pour 1B/2B | Mémoire maximale (Go) pour 1B/2B |Utilisation maximale de l’UC pour 3B | Mémoire maximale (Go) pour 3B | Stockage (Go) |
-| -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australie Est | 2 | 8 | 2 | 8 | 20 |
-| Brésil Sud | 4 | 16 | 4 | 16 | 20 |
-| Centre du Canada | 2 | 8 | 2 | 3,5 | 20 |
-| Inde centrale | 2 | 3,5 | 2 | 3,5 | 20 |
-| USA Centre | 2 | 8 | 2 | 3,5 | 20 |
-| Asie Est | 2 | 3,5 | 2 | 3,5 | 20 |
-| USA Est | 2 | 8 | 2 | 8 | 20 |
-| USA Est 2 | 2 | 8 | 4 | 16 | 20 |
-| Japon Est | 4 | 16 | 4 | 16 | 20 |
-| Centre de la Corée | 4 | 16 | 4 | 16 | 20 |
-| Centre-Nord des États-Unis | 2 | 8 | 4 | 16 | 20 |
-| Europe Nord | 2 | 8 | 2 | 8 | 20 |
-| États-Unis - partie centrale méridionale | 2 | 8 | 2 | 8 | 20 |
-| Asie Sud-Est | N/A | N/A | 2 | 3,5 | 20 |
-| Inde Sud | 2 | 3,5 | 2 | 3,5 | 20 |
-| Sud du Royaume-Uni | 2 | 8 | 2 | 3,5 | 20 |
-| Centre-USA Ouest | 2 | 8 | 2 | 8 | 20 |
-| Europe Ouest | 4 | 16 | 4 | 16 | 20 |
-| USA Ouest | 2 | 8 | 2 | 8 | 20 |
-| USA Ouest 2 | 2 | 8 | 2 | 3,5 | 20 |
+| Région |Utilisation maximale de l’UC pour 3B | Mémoire maximale (Go) pour 3B | Stockage (Go) |
+| -------- | :----: | :-----: | :-------: |
+| Australie Est | 2 | 8 | 20 |
+| Brésil Sud | 4 | 16 | 20 |
+| Centre du Canada  | 2 | 3,5 | 20 |
+| Inde centrale | 2 | 3,5 | 20 |
+| USA Centre | 2 | 3,5 | 20 |
+| Asie Est | 2 | 3,5 | 20 |
+| USA Est | 2 | 8 | 20 |
+| USA Est 2 | 4 | 16 | 20 |
+| Japon Est | 4 | 16 | 20 |
+| Centre de la Corée | 4 | 16 | 20 |
+| Centre-Nord des États-Unis | 4 | 16 | 20 |
+| Europe Nord | 2 | 8 | 20 |
+| États-Unis - partie centrale méridionale | 2 | 8 | 20 |
+| Asie Sud-Est | 2 | 3,5 | 20 |
+| Inde Sud | 2 | 3,5 | 20 |
+| Sud du Royaume-Uni | 2 | 3,5 | 20 |
+| Centre-USA Ouest | 2 | 8 | 20 |
+| Europe Ouest | 4 | 16 | 20 |
+| USA Ouest | 2 | 8 | 20 |
+| USA Ouest 2 | 2 | 3,5 | 20 |
 
 
 ### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
 
 > [!NOTE]
-> Pour plus d’informations sur les hôtes 1B, 2B et 3B, consultez [Compatibilité des versions d’hôte et de conteneur](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
+> Les hôtes 1B et 2B ont été dépréciés pour Windows Server 2019 LTSC. Pour plus d’informations sur les hôtes 1B, 2B et 3B, consultez [Compatibilité des versions d’hôte et de conteneur](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility).
 
-| Région | Utilisation maximale de l’UC pour 1B/2B | Mémoire maximale (Go) pour 1B/2B |Utilisation maximale de l’UC pour 3B | Mémoire maximale (Go) pour 3B | Stockage (Go) |
-| -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australie Est | 4 | 16 | 4 | 16 | 20 |
-| Brésil Sud | 4 | 16 | 4 | 16 | 20 |
-| Centre du Canada | 4 | 16 | 4 | 16 | 20 |
-| Inde centrale | 4 | 16 | 4 | 16 | 20 |
-| USA Centre | 4 | 16 | 4 | 16 | 20 |
-| Asie Est | 4 | 16 | 4 | 16 | 20 |
-| USA Est | 4 | 16 | 4 | 16 | 20 |
-| USA Est 2 | 2 | 3,5 | 2 | 3,5 | 20 |
-| France Centre | 4 | 16 | 4 | 16 | 20 |
-| Japon Est | N/A | N/A | 4 | 16 | 20 |
-| Centre de la Corée | 4 | 16 | 4 | 16 | 20 |
-| Centre-Nord des États-Unis | 4 | 16 | 4 | 16 | 20 |
-| Europe Nord | 4 | 16 | 4 | 16 | 20 |
-| États-Unis - partie centrale méridionale | 4 | 16 | 4 | 16 | 20 |
-| Asie Sud-Est | 4 | 16 | 4 | 16 | 20 |
-| Inde Sud | 4 | 16 | 4 | 16 | 20 |
-| Sud du Royaume-Uni | 4 | 16 | 4 | 16 | 20 |
-| Centre-USA Ouest | 4 | 16 | 4 | 16 | 20 |
-| Europe Ouest | 4 | 16 | 4 | 16 | 20 |
-| USA Ouest | 4 | 16 | 4 | 16 | 20 |
-| USA Ouest 2 | 2 | 8 | 4 | 16 | 20 |
+| Région | Utilisation maximale de l’UC pour 3B | Mémoire maximale (Go) pour 3B | Stockage (Go) |
+| -------- | :----: | :-----: | :-------: |
+| Australie Est | 4 | 16 | 20 |
+| Brésil Sud | 4 | 16 | 20 |
+| Centre du Canada | 4 | 16 | 20 |
+| Inde centrale | 4 | 16 | 20 |
+| USA Centre | 4 | 16 | 20 |
+| Asie Est | 4 | 16 | 20 |
+| USA Est | 4 | 16 | 20 |
+| USA Est 2 | 2 | 3,5 | 20 |
+| France Centre | 4 | 16 | 20 |
+| Japon Est | 4 | 16 | 20 |
+| Centre de la Corée | 4 | 16 | 20 |
+| Centre-Nord des États-Unis | 4 | 16 | 20 |
+| Europe Nord | 4 | 16 | 20 |
+| États-Unis - partie centrale méridionale | 4 | 16 | 20 |
+| Asie Sud-Est | 4 | 16 | 20 |
+| Inde Sud | 4 | 16 | 20 |
+| Sud du Royaume-Uni | 4 | 16 | 20 |
+| Centre-USA Ouest | 4 | 16 | 20 |
+| Europe Ouest | 4 | 16 | 20 |
+| USA Ouest | 4 | 16 | 20 |
+| USA Ouest 2 | 4 | 16 | 20 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

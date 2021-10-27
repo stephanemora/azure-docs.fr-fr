@@ -1,21 +1,21 @@
 ---
-title: Ajouter une application API web - Azure Active Directory B2C | Microsoft Docs
+title: Ajouter une application API web - Azure Active Directory B2C
 description: Apprenez à ajouter une application API web à votre locataire Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
-ms.author: mimart
+author: kengaderdus
+manager: CelesteDG
+ms.author: kengaderdus
 ms.date: 08/24/2021
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b30bb973c75551fc635b5a80131190bbb36ab118
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a8a7c298c30f91d3eb2ad0f95998d9237777688e
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128570233"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038108"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Ajouter une application d'API web à votre locataire Azure Active Directory B2C
 

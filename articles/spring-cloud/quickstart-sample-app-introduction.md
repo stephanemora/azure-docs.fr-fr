@@ -5,15 +5,15 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a44558f6d0a1351c5f9c61fba6d6686757fd3292
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 2966f77bb070269e11a01303204362d3b6950207
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122014750"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005859"
 ---
 # <a name="introduction-to-the-sample-app"></a>Présentation de l’exemple d’application
 
@@ -88,7 +88,7 @@ Il existe plusieurs modèles courants dans les systèmes distribués qui prennen
 
 ## <a name="database-configuration"></a>Configuration de la base de données
 
-Dans sa configuration par défaut, **PetClinic** utilise une base de données en mémoire (HSQLDB) qui est renseignée au démarrage avec des données. Une configuration similaire est fournie pour MySql si une configuration de base de données persistante est nécessaire. La dépendance pour le Connecteur/J, le pilote JDBC MySQL, est déjà incluse dans les fichiers pom.xml.
+Dans sa configuration par défaut, **PetClinic** utilise une base de données en mémoire (HSQLDB) qui est renseignée au démarrage avec des données. Une configuration similaire est fournie pour MySql si une configuration de base de données persistante est nécessaire. Une dépendance pour le Connecteur/J, le pilote JDBC MySQL, est déjà incluse dans les fichiers pom.xml.
 
 ## <a name="sample-usage-of-petclinic"></a>Exemple d’utilisation de PetClinic
 

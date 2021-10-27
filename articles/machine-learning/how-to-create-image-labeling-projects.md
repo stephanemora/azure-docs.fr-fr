@@ -9,12 +9,12 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.custom: data4ml
-ms.openlocfilehash: e600c5d6d880a5aba0a714173897660e306aa853
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: b8681974510b6d3fbee74248aab95b33de443109
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424556"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003815"
 ---
 # <a name="create-an-image-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage d’image et exporter des étiquettes
 
@@ -59,7 +59,7 @@ Les données image peuvent être des fichiers des types suivants : .jpg, .jpeg,
 
 1. Quand vous êtes prêt à continuer, sélectionnez **Suivant**.
 
-## <a name="add-workforce-optional"></a>Ajouter des employés (facultatif)
+## <a name="add-workforce-optional"></a>Ajouter du personnel (facultatif)
 
 [!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
 
@@ -219,6 +219,8 @@ Utilisez le bouton **Exporter** de la page **Détails du projet** de votre proje
 Accédez aux jeux de données Azure Machine Learning exportés dans la section **Jeux de données** de Machine Learning. La page de détails du jeu de données fournit également un exemple de code pour accéder aux étiquettes à partir de Python.
 
 ![Jeu de données exporté](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+Une fois que vous avez exporté vos données étiquetées vers un jeu de données Azure Machine Learning, vous pouvez utiliser l’AutoML pour créer des modèles de vision par ordinateur formés sur vos données étiquetées. En savoir plus : [Configurer l’AutoML pour effectuer l’apprentissage de modèles de vision par ordinateur avec Python (préversion)](how-to-auto-train-image-models.md)
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 

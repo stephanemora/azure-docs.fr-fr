@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: fe50e8db24f0f280365e435d8a205e9b45ac6ccb
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b2fa87d140a9a86c3ced814d15a3898b34c9d4d1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124774477"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072933"
 ---
 # <a name="on-demand-capacity-reservation-preview"></a>Réservation de capacité à la demande (version préliminaire)
 
@@ -38,54 +38,6 @@ Une fois qu’Azure a accepté une demande de réservation, il peut être consom
 
 > [!NOTE]
 > La réservation de capacité est également fournie avec le contrat SLA de disponibilité Azure pour une utilisation avec des machines virtuelles. Le contrat SLA ne sera pas appliqué pendant la préversion publique et sera défini lorsque la réservation de capacité sera mise à la disposition générale.
-
-
-## <a name="register-for-capacity-reservation"></a>S’inscrire à la réservation de capacité 
-
-Avant de pouvoir utiliser la fonctionnalité Réservation de capacité, vous devez inscrire votre abonnement pour la préversion. L’inscription peut prendre plusieurs minutes. Vous pouvez utiliser Azure CLI ou PowerShell pour finaliser l’inscription de la fonctionnalité.
-
-### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli1)
-
-1. Utilisez [az feature register](/cli/azure/feature#az_feature_register) pour activer la préversion pour votre abonnement :
-
-    ```azurecli-interactive
-    az feature register --namespace Microsoft.Compute --name CapacityReservationPreview
-    ```
-
-1. L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Vérifiez l’état de l’inscription :
-
-    ```azurecli-interactive
-    az feature show --namespace Microsoft.Compute --name CapacityReservationPreview
-    ```
-
-1. Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul :
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.Compute
-    ``` 
-
-### <a name="powershell"></a>[PowerShell](#tab/powershell1)
-
-1. Utilisez le[cmdlet Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) pour activer la préversion pour votre abonnement :
-
-    ```powershell-interactive
-    Register-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
-    ``` 
-
-1. L’inscription de la fonctionnalité peut prendre jusqu’à 15 minutes. Vérifiez l’état de l’inscription :
-
-    ```powershell-interactive
-    Get-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
-    ``` 
-
-1. Une fois que la fonctionnalité a été enregistrée pour votre abonnement, effectuez le processus d’inscription en propageant la modification dans le fournisseur de ressources de calcul :
-
-    ```powershell-interactive
-    Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-    ``` 
-
---- 
-<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
 ## <a name="benefits-of-capacity-reservation"></a>Avantages de la réservation de capacité 
 
@@ -120,6 +72,18 @@ Les réservations de capacité sont facturées au même tarif que la taille de m
 Si vous déployez ensuite une machine virtuelle D2s_v3 et spécifiez la réservation comme propriété, la réservation de capacité est utilisée. Une fois en cours d’utilisation, vous payez uniquement pour la machine virtuelle et rien de plus pour la réservation de capacité. Supposons que vous déployez 5 machines virtuelles D2s_v3 sur la réservation de capacité mentionnée précédemment. Vous verrez une facture pour 5 machines virtuelles D2s_v3 et 5 réservations de capacité inutilisées, toutes deux facturées au même tarif qu’une machine virtuelle D2s_v3.    
 
 Les réservations de capacité utilisées et inutilisées sont éligibles pour les remises pour l’engagement de durée des instance de machine virtuelle réservée. Dans l’exemple ci-dessus, si vous avez des instances réservées pour 2 machines virtuelles D2s_v3 dans la même région Azure, la facturation pour 2 ressources (machine virtuelle ou réservation de capacité inutilisée) est mise à zéro et vous payez uniquement pour le reste des 8 ressources (c’est-à-dire 5 réservations de capacité inutilisées et 3 machines virtuelles D2s_v3). Dans ce cas, les remises d’engagement de durée peuvent être appliquées soit à la machine virtuelle, soit à la réservation de capacité inutilisée, qui sont toutes deux facturées au même taux de PAYG. 
+
+## <a name="difference-between-on-demand-capacity-reservation-and-reserved-instances"></a>Différence entre la réservation de capacité à la demande et les instances réservées 
+
+
+| Différences | Réservation de capacité à la demande | Instances réservées|
+|---|---|---|
+| Terme | Aucun engagement de durée n’est requis. Création et suppression selon les exigences du client | Engagement de terme fixe d’un an ou de trois ans|
+| Remise de facturation | Facturé au tarif de paiement à l’utilisation pour la taille de machine virtuelle sous-jacente* | Économies significatives par rapport au tarif de paiement à l’utilisation |
+| Contrat SLA de capacité | Offre une garantie de capacité à l’emplacement spécifié (région ou zone de disponibilité) | Ne fournit pas de garantie de capacité. Les clients peuvent choisir l’option « Priorité de la capacité » pour obtenir un meilleur accès, mais cela n’entraîne aucun contrat SLA |
+| Région ou Zones de disponibilité | Peut être déployé par région ou par zone de disponibilité | Disponible uniquement au niveau régional |
+
+*Éligible pour la remise liée aux instances réservées en cas d’achat séparé
 
 
 ## <a name="work-with-capacity-reservation"></a>Travailler avec la réservation de capacité 

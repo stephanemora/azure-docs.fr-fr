@@ -1,19 +1,19 @@
-- name: Documentation Azure Hybrid Benefit de niveau étendue
+- name: Documentation d’Azure Hybrid Benefit managé de manière centralisée
   href: index.yml?toc=/azure/cost-management-billing/scope-level/toc.json
 - name: Vue d’ensemble
   expanded: true
   items:
-    - name: "Qu’est-ce que la gestion de niveau étendue d’Azure Hybrid Benefit\_?"
+    - name: "Qu’est-ce qu’Azure Hybrid Benefit managé de manière centralisée\_?"
       href: overview-azure-hybrid-benefit-scope.md?toc=/azure/cost-management-billing/scope-level/toc.json
 - name: Tutoriels
   expanded: true
   items:
-    - name: Optimiser Azure Hybrid Benefit de niveau étendue
+    - name: Optimiser Azure Hybrid Benefit managé de manière centralisée
       href: tutorial-azure-hybrid-benefits-sql.md?toc=/azure/cost-management-billing/scope-level/toc.json
 - name: Concepts
   expanded: false
   items:
-    - name: Comment Azure applique les licences attribuées
+    - name: Comment Azure applique les licences attribuées de manière centralisée
       href: manage-licenses-centrally.md?toc=/azure/cost-management-billing/scope-level/toc.json
     - name: SQL Server HADR ou Azure Hybrid Benefit
       href: sql-server-hadr-licenses.md?toc=/azure/cost-management-billing/scope-level/toc.json
@@ -22,7 +22,7 @@
   items:
     - name: Créer des attributions de licences SQL Server
       href: create-sql-license-assignments.md?toc=/azure/cost-management-billing/scope-level/toc.json
-    - name: Passer à Azure Hybrid Benefit de niveau étendue
+    - name: Migrer vers Azure Hybrid Benefit managé de manière centralisée
       href: transition-existing.md?toc=/azure/cost-management-billing/scope-level/toc.json
 - name: Ressources
   items:

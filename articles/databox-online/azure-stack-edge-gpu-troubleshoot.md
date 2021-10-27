@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 06/10/2021
+ms.date: 10/18/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 82f8fe0574ec98c71ace2aaddda2d0bc2bc6e99f
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.openlocfilehash: e2c2bc7b34316b3d18b8f10a4f1be35e7ab52e0a
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112006344"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175842"
 ---
 # <a name="run-diagnostics-collect-logs-to-troubleshoot-azure-stack-edge-device-issues"></a>Exécuter des diagnostics et collecter des journaux pour résoudre les problèmes liés aux appareils Azure Stack Edge
 
@@ -27,9 +27,28 @@ Cet article explique comment exécuter des diagnostics, collecter un package de 
 
 Pour diagnostiquer et corriger les erreurs d’appareil, vous pouvez exécuter les tests de diagnostics. Pour exécuter ces tests, procédez comme suit dans l’interface utilisateur web locale de votre appareil.
 
-1. Dans l’interface utilisateur web locale, accédez à **Dépannage > Tests de diagnostic**. Sélectionnez le test que vous souhaitez exécuter, puis cliquez sur **Exécuter le test**. Le test diagnostique les éventuels problèmes dans vos paramètres de réseau, d’appareil, de proxy web, d’horodatage ou cloud. Vous êtes averti que des tests sont en cours d’exécution sur l’appareil.
+1. Dans l’interface utilisateur web locale, accédez à **Dépannage > Tests de diagnostic**. Sélectionnez le test que vous souhaitez exécuter, puis cliquez sur **Exécuter le test**. Vous êtes averti que des tests sont en cours d’exécution sur l’appareil. 
 
     ![Sélectionner les tests ](media/azure-stack-edge-gpu-troubleshoot/run-diag-1.png)
+
+    Voici un tableau qui décrit chacun des tests de diagnostics exécutés sur votre appareil Azure Stack Edge.
+
+    | Nom du test                        | Description        |
+    |----------------------------------|---------------------------------------------------------------------------------------------------------|
+    | Connectivité au portail Azure        |  Le test valide la connectivité entre votre appareil Azure Stack Edge et le portail Azure.      |
+    | Services d’intégrité compatibles Azure | Plusieurs services, notamment Azure Resource Manager, le fournisseur de ressources de calcul, le fournisseur de ressources réseau et le service de stockage d’objets blob, s’exécutent sur votre appareil. Ensemble, ces services fournissent une pile Azure cohérente. Le contrôle d’intégrité permet de vérifier que ces services Azure cohérents sont opérationnels. |
+    | Certificats                     | Le test vérifie la date d’expiration et l’impact de la modification du domaine DNS et de l’appareil sur les certificats. Le contrôle d’intégrité a vérifié que tous les certificats sont importés et appliqués sur tous les nœuds d’appareil.                                                                                      |
+    | Runtime Azure Edge Compute       | Le test vérifie que le service Kubernetes Azure Stack Edge fonctionne comme prévu. Il vérifie notamment l’intégrité de la machine virtuelle Kubernetes et l’état des services Kubernetes déployés par votre appareil.  |
+    | Disques                            |  Le test vérifie que tous les disques de l’appareil sont connectés et fonctionnels. Il vérifie notamment que le bon microprogramme est installé sur les disques et que BitLocker est correctement configuré. |
+    | Blocs d’alimentation                             |  Le test vérifie que toutes les alimentations sont connectées et opérationnelles.  |
+    | Interfaces réseau               | Le test vérifie que toutes les interfaces réseau sont connectées à votre appareil et que la topologie de réseau pour ce système est celle prévue.    |
+    | Processeurs                             |  Le test vérifie que les processeurs du système sont correctement configurés et opérationnels.    |
+    | Accélération du calcul             | Le test vérifie que l’accélération du calcul fonctionne comme prévu sur le plan matériel et logiciel. En fonction du modèle d’appareil, l’accélération du calcul peut être effectuée par un GPU (unité de traitement graphique), un VPU (unité de traitement de la vision) ou un FPGA (Field Programmable Gate Array).   |
+    | Paramètres réseau                 |  Ce test vérifie la configuration réseau de l’appareil.    |
+    | Connectivité Internet            |  Ce test vérifie la connectivité à Internet de l’appareil.   |
+    | Logiciels système                  |  Ce test vérifie que le stockage système et la pile logicielle fonctionnent comme prévu.   |
+    | Synchronisation de l’heure                        |  Ce test examine les paramètres d’heure de l’appareil et vérifie que le serveur de temps configuré sur l’appareil est valide et accessible.     |
+    | Préparation des mises à jour de logiciel        |  Ce test vérifie que le serveur de mise à jour configuré est valide et accessible.   |
  
 2. Une fois les tests terminés, les résultats correspondants s’affichent. 
 

@@ -3,20 +3,20 @@ title: Considérations relatives à la sécurité du Proxy d’application Azure
 description: Couvre les considérations de sécurité lors de l’utilisation du proxy d’application Azure AD
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/21/2021
 ms.author: kenwith
-ms.reviewer: japere
-ms.openlocfilehash: a6951b6d52fad3b0d2bbed41422600d5f28892f0
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.reviewer: ashishj
+ms.openlocfilehash: 96d2fac930b65ffb9bc05330e37e52bc7af3d4dc
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108185939"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130043526"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-active-directory-application-proxy"></a>Considérations relatives à la sécurité de l’accès à distance aux applications avec le Proxy d’application Azure Active Directory
 
@@ -158,9 +158,9 @@ La demande comprend des éléments de l’application, comme les en-têtes de la
 
 En fonction de la demande, le proxy d’application effectue l’une des actions suivantes :
 
-* Si la demande est une opération simple (par exemple s’il n’y a aucune donnée dans le corps comme pour une requête RESTful *GET*), le connecteur établit une connexion à la ressource interne cible et attend une réponse.
+* Si la demande est une opération simple (par exemple, le corps de la demande ne contient aucunes données, comme c’est le cas pour une requête `GET` d’API RESTful), le connecteur établit une connexion à la ressource interne cible et attend une réponse.
 
-* Si la demande possède des données associées dans le corps (par exemple une opération RESTful *POST*), le connecteur établit une connexion sortante à l’aide du certificat client vers l’instance du proxy d’application. Il établit cette connexion pour demander les données et ouvrir une connexion vers la ressource interne. Après réception de la demande à partir du connecteur, le service de proxy d’application commence à accepter le contenu de l’utilisateur et transfère les données au connecteur. Le connecteur transfère à son tour les données vers la ressource interne.
+* Si la demande possède des données associées dans le corps (par exemple, une opération `POST` d’API RESTful), le connecteur établit une connexion sortante à l’aide du certificat client vers l’instance Proxy d’application. Il établit cette connexion pour demander les données et ouvrir une connexion vers la ressource interne. Après réception de la demande à partir du connecteur, le service de proxy d’application commence à accepter le contenu de l’utilisateur et transfère les données au connecteur. Le connecteur transfère à son tour les données vers la ressource interne.
 
 #### <a name="4-the-connector-waits-for-a-response"></a>4. Le connecteur attend une réponse.
 

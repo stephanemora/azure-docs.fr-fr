@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Cerner Central | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure AD à Cerner Central'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cerner Central.
 services: active-directory
 author: jeevansd
@@ -9,112 +9,86 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 10/12/2021
 ms.author: jeedes
-ms.openlocfilehash: 6b858f126cd4b12b9d725a3558e3522aa8ac5ca2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 7793e019d5788ee182bcc16fc6d8133b65cf560f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809921"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998925"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Didacticiel : Intégration d’Azure Active Directory à Cerner Central
+# <a name="tutorial-azure-ad-sso-integration-with-cerner-central"></a>Tutoriel : Intégration de l’authentification unique Azure AD à Cerner Central
 
-Dans ce didacticiel, vous allez apprendre à intégrer Cerner Central à Azure Active Directory (Azure AD).
-L’intégration de Cerner Central à Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) à Cerner Central. Quand vous intégrez Azure AD à Cerner Central, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Cerner Central.
-* Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à Cerner Central (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
-
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Contrôler dans Azure AD qui a accès à Cerner Central.
+* Permettre à vos utilisateurs de se connecter automatiquement à Cerner Central avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Cerner Central, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
-* Abonnement Cerner Central avec l’authentification unique activée
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement Cerner Central avec l’authentification unique activée.
 
 ## <a name="scenario-description"></a>Description du scénario
 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-* Cerner Central prend en charge l’authentification unique initiée par le **SP**
-* Cerner Central prend en charge l’[**approvisionnement automatique** des utilisateurs](cernercentral-provisioning-tutorial.md)
+* Cerner Central prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
+* Cerner Central prend en charge l’[**attribution automatisée** d’utilisateurs](cernercentral-provisioning-tutorial.md).
 
-## <a name="adding-cerner-central-from-the-gallery"></a>Ajout de Cerner Central à partir de la galerie
+## <a name="add-cerner-central-from-the-gallery"></a>Ajouter Cerner Central à partir de la galerie
 
 Pour configurer l’intégration de Cerner Central à Azure AD, vous devez ajouter Cerner Central à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Cerner Central à partir de la galerie, effectuez les étapes suivantes :**
+1. Connectez-vous au portail Azure avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Cerner Central** dans la zone de recherche.
+1. Sélectionnez **Cerner Central** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
+## <a name="configure-and-test-azure-ad-sso-for-cerner-central"></a>Configurer et tester l’authentification unique (SSO) Azure AD pour Cerner Central
 
-    ![Bouton Azure Active Directory](common/select-azuread.png)
+Configurez et testez l’authentification unique Azure AD avec Cerner Central à l’aide d’un utilisateur test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur Cerner Central associé.
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
+Pour configurer et tester l’authentification unique Azure AD avec Cerner Central, effectuez les étapes suivantes :
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique de Cerner Central](#configure-cerner-central-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur test Cerner Central](#create-cerner-central-test-user)** pour avoir un équivalent de B.Simon dans Cerner Central, lié à la représentation Azure AD de l’utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-    ![Bouton Nouvelle application](common/add-new-app.png)
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-4. Dans la zone de recherche, saisissez **Cerner Central**, sélectionnez **Cerner Central** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans le portail Azure, accédez à la page d’intégration de l’application **Cerner Central**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de crayon de **Configuration SAML de base** afin de modifier les paramètres.
 
-    ![Cerner Central dans la liste des résultats](common/search-new-app.png)
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Cerner Central grâce à un utilisateur de test appelé **Britta Simon**.
-Pour que l’authentification unique fonctionne, il faut établir une relation entre l’utilisateur Azure AD et l’utilisateur Cerner Central associé.
+    a. Dans la zone de texte **Identificateur**, tapez une URL en utilisant un des modèles suivants :
 
-Pour configurer et tester l’authentification unique Azure AD avec Cerner Central, vous devez effectuer les actions essentielles suivantes :
+    | **Identificateur** |
+    |-----|
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata` |
+    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Cerner Central](#configure-cerner-central-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Cerner Central](#create-cerner-central-test-user)** pour avoir un équivalent de Britta Simon dans Cerner Central lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+    b. Dans la zone de texte **URL de réponse** , tapez une URL en utilisant un des modèles suivants :
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
-
-Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
-
-Pour configurer l’authentification unique Azure AD avec Cerner Central, procédez comme suit :
-
-1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **Cerner Central**, sélectionnez **Authentification unique**.
-
-    ![Lien Configurer l’authentification unique](common/select-sso.png)
-
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
-
-    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
-
-3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
-
-    ![Modifier la configuration SAML de base](common/edit-urls.png)
-
-4. Sur la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
-
-    ![Informations d’authentification unique relatives au domaine et aux URL Cerner Central](common/idp-intiated.png)
-
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant :
-
-    ```http
-    https://<instancename>.cernercentral.com/session-api/protocol/saml2/metadata
-    https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata
-    ```
-
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant :
-
-    ```http
-    https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso
-    https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso
-    ```
+    | **URL de réponse** |
+    |------|
+    | `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |
+    | `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/sso` |
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Cerner Central](mailto:SISupport@cbre.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -123,76 +97,46 @@ Pour configurer l’authentification unique Azure AD avec Cerner Central, procé
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
-### <a name="configure-cerner-central-single-sign-on"></a>Configurer l’authentification unique Cerner Central
-
-Pour configurer l’authentification unique côté **Cerner Central**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à l’[équipe de support technique Cerner Central](mailto:SISupport@cbre.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
-
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
-    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer**.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Cerner Central.
+Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en accordant l’accès à Cerner Central.
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Cerner Central**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **Cerner Central**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez qu’un rôle soit attribué aux utilisateurs, vous pouvez le sélectionner dans la liste déroulante **Sélectionner un rôle** . Si aucun rôle n’a été configuré pour cette application, vous voyez le rôle « Accès par défaut » sélectionné.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+## <a name="configure-cerner-central-sso"></a>Configurer l’authentification unique de Cerner Central
 
-2. Dans la liste des applications, sélectionnez **Cerner Central**.
-
-    ![Lien Cerner Central dans la liste des applications](common/all-applications.png)
-
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
-
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+Pour configurer l’authentification unique côté **Cerner Central**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à l’[équipe de support technique Cerner Central](mailto:SISupport@cbre.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-cerner-central-test-user"></a>Créer un utilisateur de test Cerner Central
 
 L’application **Cerner Central** permet l’authentification à partir de n’importe quel fournisseur d’identité fédérée. Si un utilisateur peut se connecter à la page d’accueil de l’application, il est fédéré et n’a besoin d’aucun approvisionnement manuel. Vous trouverez plus d’informations [ici](cernercentral-provisioning-tutorial.md) sur la façon de configurer l’attribution automatique d’utilisateurs.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+Dans cette section, vous allez tester votre configuration de l’authentification unique Azure AD avec les options suivantes.
 
-Cliquer sur la vignette Cerner Central dans le volet d’accès devrait automatiquement vous connecter à l’application Cerner Central pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+* Cliquez sur Tester cette application dans le portail Azure, ce qui devrait vous connecter automatiquement à l’application Cerner Central pour laquelle vous avez configuré l’authentification unique.
 
-## <a name="additional-resources"></a>Ressources supplémentaires
+* Vous pouvez utiliser Mes applications de Microsoft. Quand vous cliquez sur la vignette Cerner Central dans Mes applications, vous devriez être connecté automatiquement à l’application Cerner Central pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur Mes applications, consultez [Présentation de Mes applications](../user-help/my-apps-portal-end-user-access.md).
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](./tutorial-list.md)
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
-
-- [Configurer l’approvisionnement de l’utilisateur](cernercentral-provisioning-tutorial.md)
+Après avoir configuré Cerner Central, vous pouvez appliquer le contrôle de session, qui protège contre l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

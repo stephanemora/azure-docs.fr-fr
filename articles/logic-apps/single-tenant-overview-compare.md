@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.openlocfilehash: fa1ea33e2e7987daa79267fb197981931ce1c2fd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 46b5503e6c2c99c2c99f5cd18dc695ecb16275d1
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128606263"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166855"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Architecture monolocataire ou multilocataire et environnement de service d’intégration pour Azure Logic Apps
 
@@ -38,9 +38,9 @@ Le tableau suivant résume brièvement les différences entre le type de ressour
 
 ## <a name="logic-app-standard-resource"></a>Ressource Application logique (Standard)
 
-Le type de ressource **Application logique (Standard)** repose sur le runtime Azure Logic Apps monolocataire remanié. Ce runtime utilise le [modèle d’extensibilité d’Azure Functions](../azure-functions/functions-bindings-register.md) et est hébergé en tant qu’extension sur le runtime d’Azure Functions. Cette conception offre une portabilité, une flexibilité et des performances accrues pour vos workflows d’application logique, ainsi que d’autres fonctionnalités et avantages hérités de la plateforme Azure Functions et de l’écosystème Azure App Service.
+Le type de ressource **Application logique (Standard)** repose sur le runtime Azure Logic Apps monolocataire remanié. Ce runtime utilise le [modèle d’extensibilité d’Azure Functions](../azure-functions/functions-bindings-register.md) et est hébergé en tant qu’extension sur le runtime d’Azure Functions. Cette conception offre une portabilité, une flexibilité et des performances accrues pour vos workflows d’application logique, ainsi que d’autres fonctionnalités et avantages hérités de la plateforme Azure Functions et de l’écosystème Azure App Service. Par exemple, vous pouvez créer, déployer et exécuter des applications logiques monolocataires et leurs flux de travail dans [Azure App Service Environment v3](../app-service/environment/overview.md).
 
-Par exemple, vous pouvez exécuter des applications logiques monolocataires et leurs workflows partout où les applications de fonction Azure et leurs fonctions peuvent s’exécuter. Le type de ressource Standard introduit une structure de ressources qui peut héberger plusieurs workflows, de la même manière qu’une application de fonction Azure peut héberger plusieurs fonctions. Avec un mappage de 1 à plusieurs, les workflows dans la même application logique et le même client partagent les ressources de calcul et de traitement, ce qui améliore les performances en raison de leur proximité. Cette structure diffère de la ressource **Application logique (Consommation)** où vous avez un mappage 1 à 1 entre une ressource d’application logique et un workflow.
+Le type de ressource Standard introduit une structure de ressources qui peut héberger plusieurs workflows, de la même manière qu’une application de fonction Azure peut héberger plusieurs fonctions. Avec un mappage de 1 à plusieurs, les workflows dans la même application logique et le même client partagent les ressources de calcul et de traitement, ce qui améliore les performances en raison de leur proximité. Cette structure diffère de la ressource **Application logique (Consommation)** où vous avez un mappage 1 à 1 entre une ressource d’application logique et un workflow.
 
 Pour en savoir plus sur la portabilité, la flexibilité et les améliorations des performances, consultez les sections suivantes. Ou, pour plus d’informations sur le runtime Azure Logic Apps monolocataire et l’extensibilité d’Azure Functions, consultez la documentation suivante :
 
@@ -53,9 +53,7 @@ Pour en savoir plus sur la portabilité, la flexibilité et les améliorations d
 
 ### <a name="portability-and-flexibility"></a>Portabilité et flexibilité
 
-Lorsque vous créez des applications logiques à l’aide du type de ressource **Application logique (Standard)** , vous pouvez exécuter vos workflows partout où vous pouvez exécuter des applications de fonction Azure et leurs fonctions, et pas uniquement dans l’environnement de service monolocataire.
-
-Par exemple, lorsque vous utilisez Visual Studio Code avec l’extension **Azure Logic Apps (Standard)** , vous pouvez développer, générer et exécuter *localement* vos workflows dans votre environnement de développement sans avoir à effectuer de déploiement sur Azure. Si votre scénario requiert des conteneurs, [créez des applications logiques monolocataires utilisant des Logic Apps Azure Arc ](azure-arc-enabled-logic-apps-create-deploy-workflows.md). Pour plus d’informations, consultez [Qu’est-ce que Logic Apps avec Azure Arc ?](azure-arc-enabled-logic-apps-overview.md)
+Lorsque vous créez des applications logiques à l’aide du type de ressource **Application logique (Standard)** , vous pouvez déployer et exécuter vos flux de travail dans d’autres environnements, tels qu’[Azure App Service Environment v3](../app-service/environment/overview.md). Si vous utilisez Visual Studio Code avec l’extension **Azure Logic Apps (Standard)** , vous pouvez développer, générer et exécuter *localement* des flux de travail dans votre environnement de développement sans avoir à effectuer de déploiement sur Azure. Si votre scénario requiert des conteneurs, [créez des applications logiques monolocataires utilisant des Logic Apps Azure Arc ](azure-arc-enabled-logic-apps-create-deploy-workflows.md). Pour plus d’informations, consultez [Qu’est-ce que Logic Apps avec Azure Arc ?](azure-arc-enabled-logic-apps-overview.md)
 
 Ces fonctionnalités fournissent des améliorations majeures et des avantages substantiels par rapport au modèle mutualisé, ce qui vous oblige à développer sur une ressource en cours d’exécution existante dans Azure. En outre, le modèle multi-locataire pour automatiser le déploiement des ressources **Application logique (Consommation)** est entièrement basé sur des modèles Azure Resource Manager (modèles ARM), qui combinent et gèrent l’approvisionnement des ressources pour les applications et l’infrastructure.
 
@@ -74,6 +72,12 @@ Avec le type de ressource **Application logique (Standard)** , vous pouvez crée
 Le type de ressource **Application logique (Standard)** et le runtime Azure Logic Apps monolocataire offrent une autre amélioration significative en rendant les connecteurs managés plus populaires disponibles en tant qu’opérations intégrées. Par exemple, vous pouvez utiliser des opérations intégrées pour Azure Service Bus, Azure Event Hubs, SQL et autres. Dans le même temps, les versions du connecteur managé sont toujours disponibles et continuent de fonctionner.
 
 Lorsque vous utilisez les nouvelles opérations intégrées, vous créez des connexions appelées *connexions intégrées* ou *connexions de fournisseur de services*. Leurs équivalents en connexion managée sont appelés *connexions d’API*. Elles sont créées et exécutées séparément en tant que ressources Azure que vous devez également déployer à l’aide de modèles ARM. Les opérations intégrées et leurs connexions s’exécutent localement dans le même processus que celui qui exécute vos workflows. Les deux sont hébergées sur le runtime Azure Logic Apps monolocataire. Par conséquent, les opérations intégrées et leurs connexions offrent de meilleures performances en raison de la proximité de vos workflows. Cette conception fonctionne également bien avec les pipelines de déploiement, car les connexions du fournisseur de services sont empaquetées dans le même artefact de build.
+
+<a name="data-residency"></a>
+
+### <a name="data-residency"></a>Résidence des données
+
+Les ressources d’application logique créées avec le type de ressource **Application logique (Standard)** sont hébergées dans une instance Azure Logic Apps monolocataire, qui [ne stocke, ne traite ni ne réplique les données en dehors de la région où vous déployez ces ressources d’application logique](https://azure.microsoft.com/global-infrastructure/data-residency), ce qui signifie que les données de vos flux de travail d’applications logiques restent dans la région où vous créez et déployez leurs ressources parentes.
 
 ## <a name="create-build-and-deploy-options"></a>Options de création, de génération et de déploiement
 

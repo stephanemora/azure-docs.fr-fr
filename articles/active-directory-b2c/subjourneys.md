@@ -1,29 +1,27 @@
 ---
-title: Sous-parcours dans Azure Active Directory B2C | Microsoft Docs
+title: Sous-parcours dans Azure Active Directory B2C
 description: Spécifiez l’élément sous-parcours d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
-ms.author: mimart
+ms.date: 10/15/2021
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 8f037d4283b4b05081ef47e7223495f6e19d460e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cb3ebfbc3125e26f1b922ee43360c7527c7fb35
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97386865"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063960"
 ---
 # <a name="sub-journeys"></a>Sous-parcours
 
 Des sous-parcours peuvent être utilisés pour organiser et simplifier le déroulement des étapes d’orchestration dans un parcours utilisateur. Les [parcours utilisateur](userjourneys.md) spécifient des chemins explicites par le biais desquels une stratégie autorise une application par partie de confiance à obtenir les revendications souhaitées pour un utilisateur. L’utilisateur est guidé par ces chemins pour récupérer les revendications qui doivent être présentés à la partie de confiance. Autrement dit, les parcours utilisateur définissent la logique métier de ce par quoi passe un utilisateur final pendant que l’Infrastructure d’expérience d’identité Azure AD B2C traite la requête. Un parcours utilisateur est représenté en tant que séquence d’orchestration qui doit être suivie pour que la transaction réussisse. L’élément [ClaimsExchange](userjourneys.md#claimsexchanges) d’une étape d’orchestration est lié à un seul [profil technique](technicalprofiles.md) qui s’exécute.
 
 Un sous-parcours est un regroupement d’étapes d’orchestration qui peuvent être appelées à tout moment dans un parcours utilisateur. Vous pouvez utiliser des sous-parcours pour créer des séquences d’étapes réutilisables ou implémenter la création de branche pour mieux représenter la logique métier.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="user-journey-branching"></a>Section d’un parcours utilisateur
 

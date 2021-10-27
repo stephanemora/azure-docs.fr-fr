@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 8552cbcb79522933e0b2cf9ffe369cefdf900b79
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: 28aa7fee3ab7cf2bbc8f10d1ba2f5ea54a792cd6
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390593"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066664"
 ---
 # <a name="troubleshoot-the-dynamics-365-dataverse-common-data-service-and-dynamics-crm-connectors-in-azure-data-factory-and-azure-synapse"></a>Résoudre les problèmes liés aux connecteurs Dynamics 365, Dataverse (Common Data Service) et Dynamics CRM dans Azure Data Factory et Azure Synapse
 
@@ -148,6 +148,40 @@ Cet article fournit des suggestions pour résoudre les problèmes courants liés
 - **Cause** : Les colonnes de récepteur dans le mappage de colonne n’ont pas la propriété « type ». 
  
 - **Recommandation** : Vous pouvez ajouter la propriété « type »à ces colonnes dans le mappage de colonnes à l’aide de l’éditeur JSON sur le portail. 
+
+## <a name="the-copy-activity-from-the-dynamics-365-reads-more-rows-than-the-actual-number"></a>L’activité de copie de Dynamics 365 lit plus de lignes que le nombre réel
+
+- **Symptômes** : l’activité de copie de Dynamics 365 lit plus de lignes que le nombre réel.
+
+- **Cause** : le serveur Dynamics 365 indique toujours plus d’enregistrements disponibles. 
+
+- **Recommandation** : utilisez **XrmToolBox** pour tester le FetchXML avec la pagination. **XrmToolBox** avec certains outils installés peut obtenir le nombre d’enregistrements. Pour plus d'informations, consultez [XrmToolBox](https://www.xrmtoolbox.com/).
+
+## <a name="cannot-access-virtual-columns-from-dynamics-sources-in-the-copy-activity"></a>Impossible d’accéder aux colonnes virtuelles à partir de sources Dynamics dans l’activité de copie
+
+- **Symptômes** : impossible d’accéder aux colonnes virtuelles à partir de sources Dynamics dans l’activité de copie.
+
+- **Cause** : la colonne virtuelle n’est pas prise en charge pour le moment. 
+
+- **Recommandation** : pour la valeur Groupe d’options, suivez les options ci-dessous pour l’obtenir :
+  - Vous pouvez obtenir le code de type d’objet en vous référant à la [façon de rechercher le code de type d’objet pour une entité](https://powerobjects.com/tips-and-tricks/find-object-type-code-entity/) et au [blog Dynamics 365](https://dynamicscrmdotblog.wordpress.com/).
+  - Vous pouvez lier l’entité StringMap à votre entité cible et obtenir les valeurs associées.
+
+## <a name="the-parallel-copy-in-a-dynamics-crm-data-store"></a>Copie parallèle dans une banque de données Dynamics CRM
+
+- **Symptômes** : vous ne savez pas s’il est possible de configurer la copie parallèle dans une banque de données Dynamics CRM et vous ne connaissez pas la plage de valeurs qui peuvent être définies dans la section « Degré de parallélisme de la copie ».
+
+- **Recommandation** : la copie parallèle contrôle le parallélisme et la section « Degré de parallélisme de la copie » peut être définie sur une valeur différente de zéro. Un grand nombre peut entraîner une limitation du côté du serveur Dynamics, ce qui peut réduire le débit, mais la limitation est maintenant gérée avec le kit de développement logiciel (SDK) public.
+
+  :::image type="content" source="./media/connector-troubleshoot-guide/degree-of-copy-parallelism-section.png" alt-text="Diagramme de la section Degré de parallélisme de la copie.":::
+
+## <a name="dynamics-type-conversion"></a>Conversion de type dynamique
+
+- **Symptômes** : vous essayez de convertir le GUID en une chaîne dans la source Dynamics, mais vous rencontrez une erreur.
+
+- **Cause** : lorsque Dynamics est utilisé en tant que source, la conversion de type n’est pas prise en charge.
+
+- **Recommandation** : activez la mise en lots et réessayez.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

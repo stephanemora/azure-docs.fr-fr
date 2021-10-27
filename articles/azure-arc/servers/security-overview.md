@@ -3,14 +3,14 @@ title: Présentation de la sécurité
 description: Informations relatives à la sécurité des serveurs avec Azure Arc.
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.openlocfilehash: 0f3e093dc07c1fddb4598138078003425456c8d1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: e5fc087dac29a01f6463766c8d3b3ae0ae26596b
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124832212"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130069479"
 ---
-# <a name="azure-arc-for-servers-security-overview"></a>Vue d’ensemble de la sécurité Azure Arc pour serveurs
+# <a name="azure-arc-enabled-servers-security-overview"></a>Vue d’ensemble de référence de la sécurité des serveurs avec Azure Arc
 
 Cet article décrit la configuration et les considérations relatives à la sécurité que vous devez évaluer avant de déployer des serveurs avec Azure Arc dans votre entreprise.
 
@@ -60,6 +60,6 @@ L’agent Azure Connected Machine utilise l’authentification par clé publique
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Avant d’évaluer ou d’activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d’ensemble de l’agent Machine connectée](agent-overview.md) pour en savoir plus sur les spécifications et les détails techniques relatifs à l’agent, ainsi que sur les méthodes de déploiement.
+* Avant d’évaluer ou d’activer des serveurs avec Azure Arc sur plusieurs machines hybrides, consultez [Vue d’ensemble de l’agent Machine connectée](agent-overview.md) pour en savoir plus sur les spécifications et les détails techniques relatifs à l’agent, ainsi que sur les méthodes de déploiement.
 
 * Consultez le [Guide de planification et de déploiement](plan-at-scale-deployment.md) pour planifier le déploiement de serveurs avec Azure Arc à n’importe quelle échelle et implémenter la gestion et la supervision centralisées.

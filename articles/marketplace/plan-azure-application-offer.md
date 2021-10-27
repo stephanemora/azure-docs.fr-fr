@@ -1,6 +1,6 @@
 ---
 title: Planifier une offre Azure Application pour la Place de marché commerciale
-description: Découvrez comment planifier une offre Azure Application pour référencer ou vendre votre application sur la Place de marché Azure ou via le programme Fournisseur de solutions cloud (CSP), en utilisant le portail de la Place de marché commerciale dans l’Espace partenaires Microsoft.
+description: Planifiez une offre d’application Azure pour la Place de marché Azure à l’aide de l’Espace partenaires.
 author: aarathin
 ms.author: aarathin
 ms.reviewer: dannyevers
@@ -8,16 +8,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: bd0e89e1967842e8167c3da1fc3d2a716a5f7bd6
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: d8058181ea56fdfc7465748f7ebf519c51422f64
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122633776"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070885"
 ---
-# <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Planifier une offre Azure Application pour la Place de marché commerciale
+# <a name="plan-an-azure-application-offer"></a>Planifier une offre Azure Application
 
-Cet article explique les différentes options et exigences relatives à la publication d’une offre Azure Application sur la place de marché commerciale Microsoft.
+Cet article explique les différentes options et exigences relatives à la publication d’une offre Azure Application sur la Place de marché commerciale.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -108,7 +108,7 @@ Si vous choisissez d’utiliser le contrat standard, vous avez la possibilité d
 
 ## <a name="offer-listing-details"></a>Détails du référencement de l’offre
 
-Lorsque vous créez une nouvelle application Azure dans l’Espace partenaires, vous devez entrer du texte, des images, des vidéos facultatives et d’autres détails dans la page de référencement de l’offre. Il s’agit des informations que les clients verront quand ils découvriront le référencement de votre offre dans la Place de marché Azure, comme illustré dans l’exemple suivant.
+Lorsque vous créez une nouvelle application Azure dans l’Espace partenaires, vous devez entrer du texte, des images, des vidéos facultatives et d’autres détails dans la page de référencement de l’offre. Il s’agit des informations affichées aux clients quand ils découvrent le référencement de votre offre dans la Place de marché Azure, comme illustré dans l’exemple suivant.
 
 :::image type="content" source="media/create-new-azure-app-offer/example-azure-marketplace-app.png" alt-text="Illustre la façon dont cette offre apparaît dans la Place de marché Azure.":::
 
@@ -155,9 +155,9 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
   - **Contact d’ingénierie** : indiquez le nom, le numéro de téléphone et l’adresse e-mail de Microsoft à utiliser directement en cas de problème avec votre offre. Ces informations de contact ne sont pas répertoriées dans la place de marché commerciale.
   - **Contact du programme du fournisseur de solutions cloud** (facultatif) : indiquez le nom, le numéro de téléphone et l’adresse e-mail si vous optez pour le programme du fournisseur de solutions cloud (CSP), afin que ces partenaires puissent vous contacter pour toute question. Vous pouvez également inclure une URL pour vos documents marketing.
 - **Média – Logos** : Fournissez un fichier PNG pour le logo de **grande taille**. L'Espace partenaires l'utilisera pour créer un logo **Petit** et **Moyen**. Plus tard, vous pourrez éventuellement les remplacer par d'autres images.
-  - Grande taille (de 216 x 216 à 350 x 350 px, obligatoire)
-  - Moyen (90 x 90 px, facultatif)
-  - Petite taille (48 x 48 px, facultatif)
+  - Grand format (216 x 216 à 350 x350 px, obligatoire)
+  - Format moyen (90 x 90 px, facultatif)
+  - Petit format (48 x 48 px, facultatif)
 
   Ces logos sont utilisés à différents emplacements dans les magasins en ligne :
   - Le petit logo s’affiche dans les résultats de la recherche de la Place de marché Azure.
@@ -173,13 +173,13 @@ Pour faciliter la création de votre offre, préparez certains de ces éléments
   - Assurez-vous que le logo n’est pas étiré.
 
 - **Média - Captures d’écran** (facultatif) : Nous vous recommandons d’ajouter des captures d’écran qui illustrent le fonctionnement de votre offre. Vous pouvez ajouter jusqu’à cinq captures d’écran avec les exigences suivantes, qui illustrent le fonctionnement de votre offre :
-  - 1280 x 720 pixels
-  - Fichier .png
+  - 1280 x 720 pixels
+  - Fichier .PNG
   - Doit inclure une légende
 - **Média – Vidéos** (facultatif) : vous pouvez ajouter jusqu’à cinq vidéos avec les exigences suivantes, qui présentent votre offre :
   - Nom
   - URL : doit être hébergée sur YouTube ou Vimeo uniquement.
-  - Miniature : fichier .png 1280 x 720
+  - Miniature : fichier .PNG 1280 x 720
 
 > [!NOTE]
 > Pour être publiées sur la place de marché commerciale, votre offre doit respecter les [stratégies de certification de la place de marché commerciale](/legal/marketplace/certification-policies#100-general.md).

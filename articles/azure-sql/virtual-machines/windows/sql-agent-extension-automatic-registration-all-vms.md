@@ -1,8 +1,8 @@
 ---
 title: Inscription automatique auprès de l’extension SQL IaaS Agent
 description: Découvrez comment activer la fonctionnalité d’inscription automatique pour inscrire automatiquement toutes les machines virtuelles SQL Server passées et futures auprès de l’extension SQL IaaS Agent à l’aide du portail Azure.
-author: MashaMSFT
-ms.author: mathoma
+author: adbadram
+ms.author: adbadram
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -11,17 +11,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 9/01/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0e1193dea6826e4188a7d8f933d2c0a2637a72c1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.reviewer: mathoma
+ms.openlocfilehash: c41e2add335e423a31cc9f804bf643b45641a3d7
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128650151"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130164532"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Inscription automatique auprès de l’extension SQL IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Activez la fonctionnalité d’inscription automatique dans le portail Azure pour inscrire automatiquement toutes les instances actuelles et futures de SQL Server sur les machines virtuelles Azure auprès de [l’extension SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) en mode léger. 
+Activez la fonctionnalité d’inscription automatique dans le portail Azure pour inscrire automatiquement toutes les instances actuelles et futures de SQL Server sur les machines virtuelles Azure auprès de [l’extension SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) en mode léger. Par défaut, les machines virtuelles Azure sur lesquelles SQL Server 2016 ou une version ultérieure sont installées sont automatiquement inscrites avec l’extension Agent IaaS SQL quand elles sont détectées par le [service CEIP (Programme d’amélioration du produit)](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server). Pour plus d’informations, consultez l’[Avenant à la déclaration de confidentialité de SQL Server](/sql/sql-server/sql-server-privacy#non-personal-data).
 
 Cet article vous apprend à activer la fonctionnalité d’inscription automatique. Vous pouvez également [inscrire une seule machine virtuelle](sql-agent-extension-manually-register-single-vm.md) ou [inscrire vos machines virtuelles en bloc](sql-agent-extension-manually-register-vms-bulk.md) à l’aide de l’extension SQL IaaS Agent. 
 
@@ -33,6 +34,10 @@ Cet article vous apprend à activer la fonctionnalité d’inscription automatiq
 Le fait d’inscrire votre machine virtuelle SQL Server auprès de [l’extension SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) déverrouille un ensemble complet de fonctionnalités. 
 
 Lorsque l’inscription automatique est activée, un travail est exécuté quotidiennement pour détecter si SQL Server est installé ou non sur toutes les machines virtuelles non inscrites de l’abonnement. Pour ce faire, copiez les fichiers binaires de l’extension SQL IaaS Agent sur la machine virtuelle, puis exécutez un utilitaire ponctuel qui recherche la ruche du registre SQL Server. Si la ruche SQL Server est détectée, la machine virtuelle est inscrite auprès de l’extension en mode léger. Si aucune ruche SQL Server n’existe dans le registre, les fichiers binaires sont supprimés. L’inscription automatique peut prendre jusqu’à 4 jours pour détecter les machines virtuelles SQL Server nouvellement créées.
+
+> [!CAUTION]
+> Si la ruche SQL Server n’est pas présente dans le registre, la suppression des binaires peut être affectée si des [verrous de ressources](/azure/governance/blueprints/concepts/resource-locking#locking-modes-and-states) sont en place. 
+
 
 Une fois l’inscription automatique activée pour un abonnement, toutes les machines virtuelles actuelles et futures sur lesquelles SQL Server est installé sont inscrites auprès de l’extension SQL IaaS Agent **en mode léger, sans temps d’arrêt et sans redémarrage du service SQL Server**. Vous devez toujours [mettre à niveau manuellement vers le mode de gestion complet](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) pour tirer parti de l’ensemble complet de fonctionnalités. Le type de licence par défaut est automatiquement celui de l’image de machine virtuelle. Si vous utilisez une image assortie d’un paiement à l’utilisation pour votre machine virtuelle, votre type de licence sera `PAYG`. Sinon, votre type de licence sera `AHUB` par défaut. 
 

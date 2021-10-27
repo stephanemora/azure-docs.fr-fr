@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 0a5591ddad8410c2cea7018fa2f4d4f13a3afa86
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f3fc574e8e381f8e5c911a340ae958ee0939db8f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124735959"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073845"
 ---
 # <a name="assessment-overview-migrate-to-azure-vms"></a>Vue d’ensemble de l’évaluation (migrer vers des machines virtuelles Azure)
 
@@ -208,8 +208,13 @@ Une fois que le serveur est marqué comme prêt pour Azure, l’évaluation effe
 Si vous utilisez le dimensionnement basé sur les performances dans le cadre d’une évaluation de machine virtuelle Azure, l’évaluation effectue des recommandations de dimensionnement comme suit :
 
 - L’évaluation prend en compte l’historique des performances du serveur afin d’identifier la taille de la machine virtuelle et le type de disque dans Azure.
-- Si vous importez des serveurs à l’aide d’un fichier CSV, les valeurs que vous spécifiez sont utilisées. Cette méthode est particulièrement utile si vous avez suralloué le serveur local, que l’utilisation est faible et que vous voulez dimensionner correctement la machine virtuelle Azure afin de réduire les coûts.
+
+> [!NOTE] 
+> Si vous importez des serveurs à l’aide d’un fichier CSV, les valeurs de performances que vous spécifiez (utilisation du processeur, utilisation de la mémoire, IOPS de disque et débit) sont utilisées si vous choisissez un dimensionnement basé sur les performances. Vous ne serez pas en mesure de fournir des informations sur l’historique des performances et le centile.
+
+- Cette méthode est particulièrement utile si vous avez suralloué le serveur local, que l’utilisation est faible et que vous voulez dimensionner correctement la machine virtuelle Azure afin de réduire les coûts.
 - Si vous ne souhaitez pas utiliser les données de performances, réinitialisez les critères de dimensionnement sur un dimensionnement local tel quel, comme décrit dans la section précédente.
+
 
 #### <a name="calculate-storage-sizing"></a>Calculer le dimensionnement du stockage
 
@@ -232,7 +237,7 @@ Pour les disques Ultra, il existe une plage d’IOPS et de débits qui est autor
     - Un disque (Disque 2) capable de satisfaire les exigences en termes d’IOPS total
         - IOPS à provisionner = (débit du disque source) *1024/256
     - Un disque (Disque 3) capable de satisfaire les exigences en termes de débit total
-1. Sur les trois disques, l’un avec la taille de disque maximale est trouvé et est arrondi à la prochaine [offre de disque Ultra](../virtual-machines/disks-types.md#disk-size) disponible. Il s’agit de la taille de disque Ultra provisionnée.
+1. Sur les trois disques, l’un avec la taille de disque maximale est trouvé et est arrondi à la prochaine [offre de disque Ultra](../virtual-machines/disks-types.md#ultra-disks) disponible. Il s’agit de la taille de disque Ultra provisionnée.
 1. La valeur IOPS provisionnée est calculée à l’aide de la logique suivante :
     - Si le débit source découvert se trouve dans la plage autorisée pour la taille du disque Ultra, la valeur IOPS provisionnée est égale à la valeur IOPS du disque source
     - Sinon, la valeur IOPS provisionnée est calculée à l’aide de la valeur IOPS à provisionner (débit de disque source) *1024/256

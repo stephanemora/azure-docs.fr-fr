@@ -3,20 +3,20 @@ title: Déployer des stratégies personnalisées avec GitHub Actions
 titleSuffix: Azure AD B2C
 description: Découvrez comment déployer des stratégies personnalisées Azure AD B2C dans un pipeline CI/CD à l’aide de GitHub Actions.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 956803f14d9df49e99411eae2cb6a76db7636b03
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.openlocfilehash: 7ce060e9e251313b93930200a73dde9b747c2d75
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123187861"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130037365"
 ---
 # <a name="deploy-custom-policies-with-github-actions"></a>Déployer des stratégies personnalisées avec GitHub Actions
 
@@ -98,7 +98,7 @@ Pour créer un flux de travail, procédez comme suit :
           uses: azure-ad-b2c/deploy-trustframework-policy@v3
           with:
             folder: "./Policies"
-            files: "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml"
+            files: "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml"
             tenant: ${{ env.tenant }}
             clientId: ${{ env.clientId }}
             clientSecret: ${{ secrets.clientSecret }}
@@ -111,12 +111,13 @@ Pour créer un flux de travail, procédez comme suit :
     | `env` | `clientId` | **ID d’application (client)** de l’application que vous avez inscrite à l’étape [Inscrire une application MS Graph](#register-a-microsoft-graph-application). |
     |`env`| `tenant` | Votre [nom de locataire](tenant-management.md#get-your-tenant-name) Azure AD B2C (par exemple, contoso.onmicrosoft.com). |
     | `with`| `folder`| Dossier dans lequel sont stockés les fichiers de stratégies personnalisées, par exemple, `./Policies`.|
-    | `with`| `files` | Liste délimitée par des virgules des fichiers de stratégie à déployer, par exemple, `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.|
+    | `with`| `files` | Liste délimitée par des virgules des fichiers de stratégie à déployer, par exemple, `TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.|
     
     > [!IMPORTANT]
     > Lors de l’exécution des agents et du chargement des fichiers de stratégie, assurez-vous que ceux-ci ont été chargés dans l’ordre correct :
     >
     > 1. *TrustFrameworkBase.xml*
+    > 1. *TrustFrameworkLocalization.xml*
     > 1. *TrustFrameworkExtensions.xml*
     > 1. *SignUpOrSignin.xml*
     > 1. *ProfileEdit.xml*

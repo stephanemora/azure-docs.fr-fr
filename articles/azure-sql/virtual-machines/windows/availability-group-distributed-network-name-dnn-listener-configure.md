@@ -3,7 +3,7 @@ title: Configurer un écouteur DNN pour le groupe de disponibilité
 description: Découvrez comment configurer un écouteur de nom de réseau distribué (DNN) pour remplacer votre écouteur de nom de réseau virtuel (VNN) et acheminer le trafic vers votre groupe de disponibilité Always On sur Microsoft SQL Server sur une machine virtuelle Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
-ms.author: mathoma
-ms.reviewer: jroth
-ms.openlocfilehash: 50984f7a22caa6e1340b6ed4d927d9450eccdf9e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.author: rsetlem
+ms.reviewer: mathoma
+ms.openlocfilehash: 3ad963def4866e7528527400ff259502441c9dbf
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563333"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165637"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configurer un écouteur DNN pour un groupe de disponibilité
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,6 @@ Avec Microsoft SQL Server sur des machines virtuelles Azure, le nom de réseau d
 
 Cet article vous apprend à configurer un écouteur DNN pour remplacer l’écouteur VNN et à acheminer le trafic vers votre groupe de disponibilité avec Microsoft SQL Server sur des machines virtuelles Azure pour la haute disponibilité et la récupération d’urgence (HADR).
 
-La fonctionnalité d’écouteur DNN est actuellement uniquement disponible à partir de SQL Server 2019 CU8 sur Windows Server 2016 et versions ultérieures.
 
 Pour une autre option de connectivité, utilisez plutôt un [écouteur VNN et Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md).
 
@@ -46,12 +45,11 @@ Utilisez l’écouteur DNN pour remplacer un écouteur VNN existant, ou utilisez
 
 Avant d’effectuer les étapes décrites dans cet article, vous devez déjà disposer des éléments suivants :
 
-- Microsoft SQL Server 2019 sur CU8 ou version ultérieure, sur Serveur Windows 2016 et versions ultérieures
+- SQL Server à partir de [SQL Server 2019 CU8](https://support.microsoft.com/topic/cumulative-update-8-for-sql-server-2019-ed7f79d9-a3f0-a5c2-0bef-d0b7961d2d72) et versions ultérieures, [SQL Server 2017 CU25](https://support.microsoft.com/topic/kb5003830-cumulative-update-25-for-sql-server-2017-357b80dc-43b5-447c-b544-7503eee189e9) et versions ultérieures, ou [SQL Server 2016 SP3](https://support.microsoft.com/topic/kb5003279-sql-server-2016-service-pack-3-release-information-46ab9543-5cf9-464d-bd63-796279591c31) et versions ultérieures sur Windows Server 2016 et versions ultérieures.
 - Avoir décidé que le nom du réseau distribué est l’option de [connectivité appropriée pour votre solution HADR](hadr-cluster-best-practices.md#connectivity).
 - Avoir configuré votre [groupe de disponibilité Always On](availability-group-overview.md). 
 - Avoir installé la version la plus récente de [PowerShell](/powershell/azure/install-az-ps). 
 - Avoir identifié le seul port à utiliser pour l’écouteur DNN. Le port utilisé pour un écouteur DNN doit être unique parmi tous les réplicas du groupe de disponibilité ou de l’instance de cluster de basculement.  Aucune autre connexion ne peut partager le même port.
-- Le client qui se connecte à l’écouteur DNN doit prendre en charge le paramètre `MultiSubnetFailover=True` dans la chaîne de connexion. 
 
 
 
@@ -146,7 +144,11 @@ La valeur `1` pour `is_distributed_network_name` indique que l’écouteur est u
 
 ## <a name="update-connection-string"></a>Mettre à jour une chaîne de connexion
 
-Mettez à jour les chaînes de connexion pour les applications afin qu’elles se connectent à l’écouteur DNN. Les chaînes de connexion des écouteurs DNN doivent fournir le numéro de port DNN. Pour garantir une connectivité rapide lors du basculement, ajoutez `MultiSubnetFailover=True` à la chaîne de connexion si le client SQL le prend en charge.
+Mettez à jour la chaîne de connexion pour toutes les applications qui doivent se connecter à l’écouteur DNN. La chaîne de connexion à l’écouteur DNN doit fournir le numéro de port DNN et spécifier `MultiSubnetFailover=True` dans la chaîne de connexion. Si le client SQL ne prend pas en charge le paramètre `MultiSubnetFailover=True`, il n’est pas compatible avec un écouteur DNN.  
+
+Voici un exemple de chaîne de connexion pour le nom d’écouteur **DNN_Listener** et le port 6789 : 
+
+`DataSource=DNN_Listener,6789,MultiSubnetFailover=True`
 
 ## <a name="test-failover"></a>Test de basculement
 
@@ -173,8 +175,8 @@ Pour tester la connectivité à votre écouteur DNN, procédez comme suit :
 
 ## <a name="limitations"></a>Limites
 
-- Actuellement, un écouteur DNN pour un groupe de disponibilité est uniquement pris en charge pour Microsoft SQL Server 2019 CU8 et versions ultérieures sur le Serveur Windows 2016 et versions ultérieures. 
 - Les écouteurs DNN **DOIVENT** être configurés avec un seul port.  Le port ne doit pas être partagé avec une autre connexion sur un réplica.
+- Le client qui se connecte à l’écouteur DNN doit prendre en charge le paramètre `MultiSubnetFailover=True` dans la chaîne de connexion. 
 - Il peut y avoir plus de points à prendre en compte lorsque vous travaillez avec d’autres fonctionnalités de Microsoft SQL Server et un groupe de disponibilité avec un DNN. Pour plus d’informations, consultez [AG avec l’interopérabilité de DNN](availability-group-dnn-interoperability.md). 
 
 ## <a name="port-considerations"></a>Considérations relatives au port

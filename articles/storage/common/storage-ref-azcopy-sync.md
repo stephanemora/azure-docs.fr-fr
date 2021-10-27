@@ -8,12 +8,12 @@ ms.date: 09/01/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6acafe9f1fab42f5dde74eaaa4426f1953bf0f9b
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: b1a9f54febcd2ebf36287590cb0579f8d2dea804
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275408"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166351"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -169,7 +169,7 @@ Chaîne **--include-pattern** Inclut uniquement les fichiers dont le nom corresp
 
 **--recursive**    `True` par défaut. Examine les sous-répertoires de manière récursive lors de la synchronisation des répertoires. (par défaut `True`).
 
-**--s2s-preserve-access-tier**  Conserver le niveau d’accès lors d’une copie de service à service. Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](../blobs/access-tiers-overview.md). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut `true`).
+**--s2s-preserve-access-tier**  Conserver le niveau d’accès lors d’une copie de service à service. Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Niveaux d’accès chaud, froid et archive pour les données d’objet blob](../blobs/access-tiers-overview.md). Si la définition du niveau d’accès n’est pas prise en charge, utilisez `--s2s-preserve-access-tier=false` pour contourner la copie du niveau d’accès. (par défaut `true`).
 
 **--s2s-preserve-blob-tags** Préserve les balises d’index pendant la synchronisation service à service d’un stockage blob à un autre.
 

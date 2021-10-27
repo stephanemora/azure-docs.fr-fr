@@ -7,13 +7,13 @@ author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 08/23/2021
-ms.openlocfilehash: 921db5e082748ce814a19c96c5de4ac3061750e2
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.date: 10/14/2021
+ms.openlocfilehash: 3c14373567bf0860f59b44cd7f6042ad9aeb1adb
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219557"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130066962"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>Publication automatisée pour l’intégration et la livraison continues
 
@@ -69,6 +69,9 @@ Dans le flux de CI/CD actuel, l’expérience utilisateur est l’intermédiaire
 
 > [!NOTE]
 > Vous pouvez continuer à utiliser le mécanisme existant, qui est la branche `adf_publish`, ou vous pouvez utiliser le nouveau flux. Les deux sont pris en charge.
+
+> [!WARNING]
+> Lors de l’utilisation de la publication automatisée, la configuration **Inclure dans le modèle ARM** pour les paramètres globaux n’est pas prise en charge et entraîne la suppression de la configuration Git de la fabrique après le déploiement du modèle ARM. Utilisez plutôt la [méthode de script PowerShell](author-global-parameters.md#cicd) pour déployer des paramètres globaux dans vos pipelines Azure.
 
 ## <a name="package-overview"></a>Vue d’ensemble du package
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: ce3587d0e70c2dec04e60bed5a23f16bd6c7688b
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 3cbc6d9b0f51b939a03378c45845c50f91c4549f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129233028"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129991980"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
@@ -290,6 +290,9 @@ Pour voir les objets stockés dans votre domaine managé :
     ![Rechercher des objets dans votre domaine managé en utilisant LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
 Pour interroger directement un conteneur spécifique, dans le menu **Afficher > Arborescence**, vous pouvez spécifier un **BaseDN**, comme *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* ou *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. Pour plus d’informations sur la façon de mettre en forme et de créer des requêtes, consultez [Principes de base des requêtes LDAP][ldap-query-basics].
+
+> [!NOTE]
+> Si un certificat auto-signé est utilisé, assurez-vous qu’il a été ajouté dans les autorités de certification racines de confiance pour que LDAPS fonctionne avec LDP.exe
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

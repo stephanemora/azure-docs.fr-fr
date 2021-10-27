@@ -5,30 +5,30 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 10/15/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019, contperf-fy21q4-portal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7b12d0611f6488a9ab5475ec6488328a764434f
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: c3667740745b5e81a1a1df6439610d8def2216c1
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721056"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073275"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Authentification par envoi d’un code secret à usage unique par e-mail
 
 La fonctionnalité de code secret à usage unique envoyé par e-mail est un moyen d’authentifier les utilisateurs B2B Collaboration lorsqu’ils ne peuvent pas être authentifiés par d’autres moyens, par exemple Azure AD, un compte Microsoft (MSA) ou des fournisseurs d’identité sociale. Lorsqu’un utilisateur invité B2B tente d’accepter votre invitation ou de se connecter à vos ressources partagées, il peut demander un code secret temporaire, qui est envoyé à son adresse e-mail. Il doit ensuite saisir ce code secret pour se connecter.
 
-Vous pouvez activer cette fonctionnalité à tout moment dans le portail Azure en configurant le fournisseur d’identité Code secret à usage unique envoyé par e-mail sous les paramètres External Identities de votre locataire. Vous pouvez choisir d’activer la fonctionnalité, de la désactiver ou d’attendre une activation automatique en octobre 2021.
+Vous pouvez activer cette fonctionnalité à tout moment dans le portail Azure en configurant le fournisseur d’identité Code secret à usage unique envoyé par e-mail sous les paramètres External Identities de votre locataire. Vous pouvez choisir d’activer la fonctionnalité, de la désactiver ou d’attendre une activation automatique à partir du 1er novembre 2021.
 
 ![Diagramme de présentation de l’envoi d’un code secret à usage unique par e-mail](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> - **À compter d’octobre 2021**, la fonctionnalité d’envoi d’un code secret à usage unique par e-mail sera activée pour tous les locataires existants et sera activée par défaut pour les nouveaux locataires. Si vous ne souhaitez pas autoriser cette fonctionnalité à s’activer automatiquement, vous pouvez la désactiver. Consultez [Désactivation de l’envoi d’un code à usage unique par e-mail](#disable-email-one-time-passcode) ci-dessous.
+> - **À partir du 1er novembre 2021**, nous allons commencer à déployer un changement afin d’activer la fonctionnalité de code secret à usage unique envoyé par e-mail pour tous les locataires existants et de l’activer par défaut pour les nouveaux locataires. Si vous ne souhaitez pas autoriser cette fonctionnalité à s’activer automatiquement, vous pouvez [la désactiver](one-time-passcode.md#disable-email-one-time-passcode).
 > - Dans le portail Azure, les paramètres de code à usage unique par e-mail ont été déplacés de **Paramètres de collaboration externe** vers **Tous les fournisseurs d’identité**.
 
 > [!NOTE]
@@ -81,7 +81,7 @@ L’utilisateur invité teri@gmail.com est invité sur Fabrikam, qui n’a pas d
 
 5. Sous **Code secret à usage unique envoyé par e-mail**, sélectionnez l’une des options suivantes :
 
-   - **Activer automatiquement le code secret à usage unique envoyé par e-mail pour les invités à partir d’octobre 2021** si vous ne souhaitez pas activer la fonctionnalité immédiatement et souhaitez attendre la date d’activation automatique en octobre 2021.
+   - **Activer automatiquement le code secret à usage unique envoyé par e-mail pour les invités à partir du \<date\>** si vous ne souhaitez pas activer la fonctionnalité immédiatement et souhaitez attendre la date d’activation automatique du 1er novembre 2021.
    - **Activer dès maintenant le code secret à usage unique envoyé par e-mail pour les invités** pour activer la fonctionnalité maintenant.
    - **Oui** pour activer la fonctionnalité maintenant si vous voyez un bouton bascule Oui/Non (ce bouton apparaît si la fonctionnalité a été précédemment désactivée).
 
@@ -91,7 +91,7 @@ L’utilisateur invité teri@gmail.com est invité sur Fabrikam, qui n’a pas d
 
 ## <a name="disable-email-one-time-passcode"></a>Désactivation de l’envoi d’un code à usage unique par e-mail
 
-À compter d’octobre 2021, la fonctionnalité d’envoi d’un code secret à usage unique par e-mail sera activée pour tous les locataires existants et sera activée par défaut pour les nouveaux locataires. Microsoft ne prendra alors plus en charge l’utilisation d’invitations effectuée en créant des locataires et des comptes Azure AD non gérés (« viraux » ou « juste-à-temps ») pour les scénarios B2B Collaboration. Il s’agit en effet d’une méthode d’authentification de secours transparente pour les utilisateurs invités. Vous aurez toutefois la possibilité de désactiver cette fonctionnalité si vous choisissez de ne pas l’utiliser.
+À partir du 1er novembre 2021, nous allons commencer à déployer un changement afin d’activer la fonctionnalité de code secret à usage unique envoyé par e-mail pour tous les locataires existants et de l’activer par défaut pour les nouveaux locataires.  Microsoft ne prendra alors plus en charge l’utilisation d’invitations effectuée en créant des locataires et des comptes Azure AD non gérés (« viraux » ou « juste-à-temps ») pour les scénarios B2B Collaboration. Il s’agit en effet d’une méthode d’authentification de secours transparente pour les utilisateurs invités. Vous aurez toutefois la possibilité de désactiver cette fonctionnalité si vous choisissez de ne pas l’utiliser.
 
 > [!NOTE]
 >
@@ -117,19 +117,19 @@ L’utilisateur invité teri@gmail.com est invité sur Fabrikam, qui n’a pas d
 
 ## <a name="note-for-public-preview-customers"></a>Remarque pour les clients de la préversion publique
 
-Si vous avez déjà choisi la préversion publique de la fonctionnalité d’envoi d’un code secret à usage unique par e-mail, la date d’activation automatique de la fonctionnalité (octobre 2021) ne s’applique pas à vous. De ce fait, vos processus d’entreprise associés ne seront pas affectés. Vous ne verrez pas non plus l’option **Activer automatiquement l’envoi d’un code à usage unique par e-mail pour les invités à partir d’octobre 2021** sous les propriétés **Code à usage unique par e-mail pour les invités** sur le portail Azure. Seul le bouton bascule **Oui** ou **Non** apparaîtra :
+Si vous avez déjà choisi la préversion publique de la fonctionnalité d’envoi d’un code secret à usage unique envoyé par e-mail, la date d’activation automatique de la fonctionnalité (1er novembre 2021) ne s’applique pas à vous. De ce fait, vos processus d’entreprise associés ne seront pas affectés. Vous ne verrez pas non plus l’option **Activer automatiquement l’envoi d’un code à usage unique par e-mail pour les invités à partir du \<date\>** sous les propriétés **Code à usage unique envoyé par e-mail pour les invités** sur le portail Azure. Seul le bouton bascule **Oui** ou **Non** apparaîtra :
 
 ![Activation de la fonctionnalité d’envoi d’un code à usage unique par e-mail](media/one-time-passcode/enable-email-otp-opted-in.png)
 
-Toutefois, si vous préférez désactiver la fonctionnalité et autoriser son activation automatique en octobre 2021, vous pouvez revenir aux paramètres par défaut à l’aide du [type de ressource de configuration de la méthode d’authentification par e-mail](/graph/api/resources/emailauthenticationmethodconfiguration) de l’API Microsoft Graph. Les options suivantes seront alors disponibles sous **Envoi d’un code secret à usage unique par e-mail pour les invités** :
+Toutefois, si vous préférez désactiver la fonctionnalité et autoriser son activation automatique à partir du 1er novembre 2021, vous pouvez revenir aux paramètres par défaut à l’aide du [type de ressource de configuration de la méthode d’authentification par e-mail](/graph/api/resources/emailauthenticationmethodconfiguration) de l’API Microsoft Graph. Les options suivantes seront alors disponibles sous **Envoi d’un code secret à usage unique par e-mail pour les invités** :
 
 ![Choix de la fonctionnalité Envoi d’un code à usage unique par e-mail](media/one-time-passcode/email-otp-options.png)
 
-- **Activer automatiquement le code à usage unique par e-mail pour les invités à partir d’octobre 2021**. (Par défaut) Si la fonctionnalité d’envoi d’un code à usage unique par e-mail n’est pas encore activée pour votre locataire, elle le sera automatiquement à partir d’octobre 2021. Aucune action supplémentaire n’est nécessaire si vous souhaitez que la fonctionnalité soit activée à ce moment-là. Si vous avez déjà activé ou désactivé la fonctionnalité, cette option n’est pas disponible.
+- **Activez automatiquement le code secret à usage unique envoyé par e-mail pour les invités à partir du \<date\>** . (Par défaut) Si la fonctionnalité d’envoi d’un code à usage unique par e-mail n’est pas encore activée pour votre locataire, elle le sera automatiquement à partir du 1er novembre 2021. Aucune action supplémentaire n’est nécessaire si vous souhaitez que la fonctionnalité soit activée à ce moment-là. Si vous avez déjà activé ou désactivé la fonctionnalité, cette option n’est pas disponible.
 
 - **Activer dès maintenant l’envoi d’un code à usage unique par e-mail pour les invités** : cette option permet d’activer la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire.
 
-- **Désactiver l’envoi d’un code à usage unique par e-mail pour les invités** : cette option permet de désactiver la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire et d’empêcher qu’elle ne s’active en octobre 2021.
+- **Désactiver l’envoi d’un code à usage unique par e-mail pour les invités** : Cette option permet de désactiver la fonctionnalité d’envoi d’un code secret à usage unique par e-mail pour votre locataire et d’empêcher qu’elle ne s’active à partir du 1er novembre 2021.
 
 ## <a name="note-for-azure-us-government-customers"></a>Remarque pour les clients Azure US Government
 
@@ -150,3 +150,55 @@ Pour activer la fonctionnalité de code à usage unique par e-mail dans le cloud
 5. Sélectionnez **Enregistrer**.
 
 Pour plus d’informations sur les limitations actuelles, consultez la page sur les [clouds Azure US Government](current-limitations.md#azure-us-government-clouds).
+
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+**Pourquoi le message « Activer automatiquement le code secret à usage unique envoyé par e-mail pour les invités à partir d’octobre 2021 » est-il sélectionné dans mes paramètres de code secret à usage unique ?**
+
+En raison de nos calendriers de déploiement, nous allons commencer à déployer la modification pour activer la valeur par défaut du code secret à usage unique envoyé par e-mail à l’échelle mondiale le 1er novembre 2021. D’ici là, il est possible que le message « Activer automatiquement le code secret à usage unique envoyé par e-mail pour les invités à partir d’octobre 2021 » soit sélectionné dans les paramètres de code secret à usage unique envoyé par e-mail.
+
+**Quelle est l’expérience utilisateur pour les invités pendant le déploiement à l’échelle mondiale ?**
+
+Pendant le déploiement à l’échelle mondiale, l’expérience utilisateur pour les invités dépend de votre configuration du code secret à usage unique envoyé par e-mail et du scénario de votre invité. 
+
+Avant que la modification ne soit déployée dans votre région, les invités verront le comportement suivant.
+
+- Lorsque le code secret à usage unique envoyé par e-mail est activé :
+
+  - Si un invité possède un compte Azure AD non géré existant, il continue à se connecter avec son compte Azure AD non géré.
+  - Si un invité a déjà accepté une invitation de votre locataire à l’aide d’un compte Azure AD non géré, si vous réinitialisez son état d’acceptation et si vous le réinvitez, il continue à se connecter avec son compte Azure AD non géré.
+  - Si un invité ne dispose pas d’un compte Azure AD non géré existant, il accepte l’authentification par code secret à usage unique envoyé par e-mail.
+
+- Lorsque le code à usage unique envoyé par e-mail est désactivé :
+
+  - Si un invité possède un compte Azure AD non géré existant, il continue à se connecter avec son compte Azure AD non géré.
+  - Si un invité a déjà accepté une invitation de votre locataire à l’aide d’un compte Azure AD non géré, si vous réinitialisez son état d’acceptation et si vous le réinvitez, il continue à se connecter avec son compte Azure AD non géré.
+  - Si un invité ne dispose pas d’un compte Azure AD non géré existant, il accepte à l’aide d’un lien de code secret à usage unique envoyé par e-mail, mais une erreur de connexion peut survenir s’il n’a pas été préalablement ajouté au portail Azure.
+
+Avant que la modification ne soit déployée dans votre région, les invités verront le comportement suivant.
+
+- Lorsque le code secret à usage unique envoyé par e-mail est activé :
+
+  - Si un invité possède un compte Azure AD non géré existant, il utilise le code secret à usage unique envoyé par e-mail pour accepter et se connecter à l’avenir.
+  - Si un invité a précédemment accepté une invitation de votre locataire à l’aide d’un compte Azure AD non géré, si vous réinitialisez son état d’acceptation et si vous le réinvitez, il utilise le code secret à usage unique envoyé par e-mail pour accepter et se connecter à l’avenir.
+  - Si un invité ne possède pas de compte Azure AD non géré existant, il utilise le code secret à usage unique envoyé par e-mail pour accepter et se connecter à l’avenir.
+
+- Lorsque le code à usage unique envoyé par e-mail est désactivé :
+
+  - Si un invité possède un compte Azure AD non géré existant, il utilise un compte Microsoft pour accepter. Il finit par posséder deux comptes (le compte Azure AD non géré et le compte Microsoft). Pour éviter ce problème, nous vous encourageons vivement à activer le code secret à usage unique envoyé par e-mail.
+  - Si un invité a précédemment accepté une invitation de votre locataire à l’aide d’un compte Azure AD non géré, si vous réinitialisez son état d’acceptation et si vous le réinvitez, il utilise un compte Microsoft pour accepter. Il finit par posséder deux comptes (le compte Azure AD non géré et le compte Microsoft). Pour éviter ce problème, nous vous encourageons vivement à activer le code secret à usage unique envoyé par e-mail.
+  - Si un invité ne possède pas de compte Azure AD non géré existant, il utilise un compte Microsoft pour accepter et se connecter à l’avenir.
+
+Pour plus d’informations sur les différents processus d’acceptation, consultez [Utilisation d’une invitation B2B Collaboration](redemption-experience.md).
+
+**Cela signifie-t-il que l’option « Pas de compte ? Créez-en-un !» pour l’inscription en libre-service est en cours ?**
+
+Il est facile de confondre l’[inscription en libre-service dans le contexte d’identités externes](self-service-sign-up-overview.md) avec l’inscription en libre-service pour les utilisateurs vérifiés par e-mail, mais il s’agit de deux fonctionnalités différentes. La fonctionnalité qui va disparaître est l'[inscription en libre-service avec des utilisateurs vérifiés par e-mail](../enterprise-users/directory-self-service-signup.md), ce qui entraîne la création d’un compte Azure AD non géré par vos invités. Toutefois, l’inscription en libre-service pour les identités externes restera disponible, ce qui a pour effet que vos invités s’inscrivent auprès de votre organisation avec un [large éventail de fournisseurs d’identité](identity-providers.md).  
+
+**Que recommande Microsoft en matière de comptes Microsoft (MSA) existants ?**
+
+Lorsque nous prenons en charge la possibilité de désactiver un compte Microsoft dans les paramètres des fournisseurs d’identité (non disponible actuellement), nous vous recommandons vivement de désactiver le compte Microsoft et d’activer le code secret à usage unique envoyé par e-mail. Ensuite, vous devez réinitialiser l’état d’acceptation des invités existants avec des comptes Microsoft afin qu’ils puissent réaccepter l’authentification par code secret à usage unique envoyé par e-mail et utiliser le code secret à usage unique envoyé par e-mail pour se connecter à l’avenir.
+
+**Cette modification inclut-elle l’intégration de SharePoint et de OneDrive à Azure AD B2B ?**
+
+Non, le déploiement à l’échelle mondiale de la modification permettant d’activer par défaut le code secret à usage unique envoyé par e-mail qui commence le 1er novembre 2021 n’inclut pas l’intégration de SharePoint et de OneDrive à Azure AD B2B. Pour savoir comment activer l’intégration afin que la collaboration sur SharePoint et OneDrive utilise des fonctionnalités B2B, ou comment désactiver cette intégration, consultez [Intégration de SharePoint et OneDrive à Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration).

@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
-ms.date: 05/08/2020
+ms.date: 10/13/2021
 ms.author: cshoe
-ms.openlocfilehash: 5030b0fb4e714be221e28e590c463186ec81ad04
-ms.sourcegitcommit: d43193fce3838215b19a54e06a4c0db3eda65d45
+ms.openlocfilehash: 4565012ec824961f971f1f1fb34ab330ae11372c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122515583"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999299"
 ---
 # <a name="quotas-in-azure-static-web-apps"></a>Quotas dans Azure Static Web Apps
 
@@ -27,7 +27,8 @@ Les quotas suivants sont disponibles pour Azure Static Web Apps.
 | Taille du plan                   | Taille d’application maximale de 500 Mo pour un déploiement unique et 0,50 Go max pour tous les environnements intermédiaire et de production  | Taille d’application maximale de 500 Mo pour un déploiement unique et 2,00 Go max combiné pour tous les environnements intermédiaire et de production |
 | Environnements de pré-production | 3                | 10 |
 | Domaines personnalisés              | 2 par application        | 5 par application |
-| Autorisation (avec des rôles personnalisés et des règles de routage) | Jusqu’à 25 utilisateurs finaux pouvant appartenir à des rôles personnalisés | Jusqu’à 25 utilisateurs finaux pouvant appartenir à des rôles personnalisés |
+| Autorisation (rôles intégrés) | Nombre illimité d’utilisateurs finaux pouvant s’authentifier avec un rôle `authenticated` intégré | Nombre illimité d’utilisateurs finaux pouvant s’authentifier avec un rôle `authenticated` intégré |
+| Autorisation (rôles personnalisés) | Jusqu’à 25 utilisateurs finaux pouvant appartenir à des rôles personnalisés par le biais d’[invitations](authentication-authorization.md?tabs=invitations#role-management) | Jusqu’à 25 utilisateurs finaux pouvant appartenir à des rôles personnalisés par le biais d’[invitations](authentication-authorization.md?tabs=invitations#role-management) ou nombre illimité d’utilisateurs finaux auxquels des rôles personnalisés peuvent être attribués par le biais d’une [fonction serverless](authentication-authorization.md?tabs=function#role-management) |
 
 ## <a name="github-storage"></a>Stockage GitHub
 

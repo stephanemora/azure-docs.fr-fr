@@ -3,14 +3,14 @@ title: Clients Azure Automation Update Management pris en charge
 description: Cet article décrit les systèmes d’exploitation Windows et Linux pris en charge avec Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 07/14/2021
+ms.date: 10/12/2021
 ms.topic: conceptual
-ms.openlocfilehash: a470a3c8d4ab9ac4f390f7b18133f65f44fed096
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 790544818a207d0a7bb0453f03b890b0dbf5510f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129711634"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992802"
 ---
 # <a name="operating-systems-supported-by-update-management"></a>Systèmes d’exploitation pris en charge par Update Management
 
@@ -32,7 +32,7 @@ Tous les systèmes d’exploitation sont censés être x64. L’architecture x86
 |CentOS 6, 7 et 8       | Les agents Linux nécessitent un accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que `yum` retourne les données de sécurité que CentOS n’a pas dans ses versions RTM. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](view-update-assessments.md#linux).          |
 |Oracle Linux 6.x, 7.x, 8x | Les agents Linux nécessitent un accès à un référentiel de mise à jour.        |
 |Red Hat Enterprise 6, 7 et 8      | Les agents Linux nécessitent un accès à un référentiel de mise à jour.        |
-|SUSE Linux Enterprise Server 12, 15, 15.1 et 15.2      | Les agents Linux nécessitent un accès à un référentiel de mise à jour.     |
+|SUSE Linux Enterprise Server 12, 15 et 15.1      | Les agents Linux nécessitent un accès à un référentiel de mise à jour.     |
 |Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS et 20.04 LTS       |Les agents Linux nécessitent un accès à un référentiel de mise à jour.         |
 
 > [!NOTE]

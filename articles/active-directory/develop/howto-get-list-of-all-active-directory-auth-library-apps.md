@@ -13,12 +13,12 @@ ms.date: 07/22/2021
 ms.author: shermanouko
 ms.custom: aaddev, has-adal-ref
 ms.reviewer: aiwang, marsma
-ms.openlocfilehash: 1f4a710beba53987ce555aad5526298f81d0a43c
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: c0b54b7c7e424c8c7f645fe41d7b7b57c105ca65
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232296"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993774"
 ---
 # <a name="get-a-complete-list-of-apps-using-adal-in-your-tenant"></a>Obtenir une liste complète des applications qui utilisent ADAL dans votre locataire
 
@@ -40,9 +40,9 @@ Aucun événement de connexion survenu *avant* que vous ne configuriez Azure AD 
 
 Une fois que vous avez intégré vos journaux d’audit et de connexion Azure AD à Azure Monitor comme spécifié dans l’intégration Azure Monitor, accédez au classeur des connexions :
 
-   1. Connectez-vous au Portail Azure. 
-   1. Accédez à  **Azure Active Directory** > **Supervision** > **Classeurs**. 
-   1. Dans la section **Utilisation**, ouvrez le classeur  **Connexions**. 
+   1. Se connecter au portail Azure
+   1. Accédez à **Azure Active Directory** > **Supervision** > **Classeurs**
+   1. Dans la section **Utilisation**, ouvrez le classeur **Connexions**
 
    :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Capture d’écran de l’interface des classeurs du portail Azure Active Directory mettant en évidence le classeur des connexions.":::
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: d74cb93cd28f3dc02b37a6c29832d9e8412ef098
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: c7661f91475b85ad8d606770ff74777bb3b8abab
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129458905"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994268"
 ---
 # <a name="configure-azure-key-vault-alerts"></a>Configurer des alertes Azure Key Vault
 
@@ -85,7 +85,7 @@ Ensuite, créez une règle et configurez les seuils qui déclencheront une alert
 4. Sélectionnez les seuils qui définissent la logique de vos alertes, puis sélectionnez **Ajouter**. L’équipe de Key Vault recommande de configurer les seuils suivants : 
 
     + La disponibilité de Key Vault passe en dessous de 100 % (seuil statique)
-    + La latence de Key Vault est supérieure à 500 ms (seuil statique) 
+    + La latence de Key Vault est supérieure à 1000 ms (seuil statique) 
     + La saturation globale du coffre est supérieure à 75 % (seuil statique) 
     + La saturation globale du coffre est supérieure à la moyenne (seuil dynamique)
     + Le nombre total de codes d’erreur est supérieur à la moyenne (seuil dynamique) 
@@ -105,7 +105,7 @@ Ensuite, créez une règle et configurez les seuils qui déclencheront une alert
    + Définissez **Seuil** sur **Statique**. 
    + Définissez **Opérateur** sur **Supérieur à**.
    + Définissez **Type d’agrégation** sur **Moyenne**.
-   + Définissez **Valeur de seuil** sur **500**.
+   + Définissez **Valeur de seuil** sur **1000**.
    + Définissez **Précision d’agrégation (période)** sur **5 minutes**.
    + Définissez **Fréquence d’évaluation** sur **Toutes les minutes**.
 

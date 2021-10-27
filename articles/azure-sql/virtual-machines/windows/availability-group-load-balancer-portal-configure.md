@@ -3,7 +3,7 @@ title: Configurer des écouteurs de groupe de disponibilité et un équilibreur 
 description: Instructions pas à pas pour la création d’un écouteur pour un groupe de disponibilité AlwaysOn pour SQL Server dans des machines virtuelles Azure
 services: virtual-machines
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -12,14 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
-ms.author: mathoma
+ms.author: rsetlem
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4fe42db21a08a398f5518d794b897d7ce015fa66
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.reviewer: mathoma
+ms.openlocfilehash: 5a072b5009341809af2b209c808e6164ba0a9be3
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525412"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166195"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurer un équilibreur de charge SQL Server AlwaysOn sur des machines virtuelles Azure
 
@@ -214,7 +215,7 @@ La connexion SQLCMD se connecte automatiquement à l’instance de SQL Server qu
 
 ## <a name="create-an-ip-address-for-an-additional-availability-group"></a>Créer une adresse IP pour un groupe de disponibilité supplémentaire
 
-Chaque groupe de disponibilité utilise un écouteur distinct. Chaque écouteur possède sa propre adresse IP. Le même équilibreur de charge doit être utilisé pour conserver l’adresse IP des écouteurs supplémentaires. Après avoir créé un groupe de disponibilité, ajoutez l’adresse IP à l’équilibreur de charge, puis configurez l’écouteur.
+Chaque groupe de disponibilité utilise un écouteur distinct. Chaque écouteur possède sa propre adresse IP. Le même équilibreur de charge doit être utilisé pour conserver l’adresse IP des écouteurs supplémentaires. Ajoutez uniquement l’adresse IP principale de la machine virtuelle au pool principal de l’équilibreur de charge, car [l’adresse IP de la machine virtuelle secondaire ne prend pas en charge l’adresse IP flottante](/azure/load-balancer/load-balancer-floating-ip).
 
 Pour ajouter une adresse IP à un équilibreur de charge par le biais du portail Azure, effectuez les étapes suivantes :
 

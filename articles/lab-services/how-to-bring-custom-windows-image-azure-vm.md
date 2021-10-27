@@ -1,14 +1,14 @@
 ---
-title: Azure Lab Services - Comment récupérer une image Windows personnalisée à partir d’une machine virtuelle Azure
+title: Guide pratique pour apporter une image personnalisée Windows à partir d’une machine virtuelle Azure
 description: Décrit comment récupérer une image Windows personnalisée à partir d’une machine virtuelle Azure.
 ms.date: 07/27/2021
 ms.topic: how-to
-ms.openlocfilehash: dc946e770f719ad76fd0c46d5fe418a937f17867
-ms.sourcegitcommit: 43dbb8a39d0febdd4aea3e8bfb41fa4700df3409
+ms.openlocfilehash: b91e5dbf872c7d265871d1f2a435dde9246b5582
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123452264"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130180853"
 ---
 # <a name="bring-a-windows-custom-image-from-an-azure-virtual-machine"></a>Apporter une image personnalisée Windows à partir d’une machine virtuelle Azure
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 113dcc4de4ceb1b283f7bdeb1941ced76a9425d0
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 4656c98718d024a43096081df2ac662b38b2efb8
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714550"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163003"
 ---
 # <a name="understand-azure-files-billing"></a>Comprendre la facturation d’Azure Files
 Azure Files propose deux modèles de facturation distincts : provisionné et paiement à l’utilisation. Le modèle provisionné est disponible uniquement pour les partages de fichiers Premium, qui sont déployés dans le type de compte de stockage **FileStorage**. Le modèle de paiement à l’utilisation est disponible uniquement pour les partages de fichiers standard, qui sont déployés dans le type de compte de stockage **Usage général version 2 (GPv2)** . Cet article explique comment fonctionnent les deux modèles pour vous aider à comprendre votre facture mensuelle Azure Files.
@@ -82,8 +82,8 @@ Lorsque vous provisionnez un partage de fichiers Premium, vous spécifiez le nom
 | Taille minimale d'un partage de fichiers | 100 Gio |
 | Unité de provisionnement | 1 Gio |
 | Formule IOPS de référence | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
-| Limite de rafale | `MIN(MAX(4000, 3 * BaselineIOPS), 100000)` |
-| Lister les crédits | `BurstLimit * 3600` |
+| Limite de rafale | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` |
+| Lister les crédits | `(BurstLimit - BaselineIOPS) * 3600` |
 | Débit d’entrée | `40 MiB/sec + 0.04 * ProvisionedGiB` |
 | Débit de sortie | `60 MiB/sec + 0.06 * ProvisionedGiB` |
 
@@ -91,14 +91,14 @@ Le tableau suivant illustre quelques exemples de ces formules pour les tailles d
 
 | Capacité (Gio) | IOPS de base | IOPS en rafale | Lister les crédits | Entrée (Mio/s) | Sortie (Mio/s) |
 |-|-|-|-|-|-|
-| 100 | 500 | Jusqu’à 4 000 | 14,400,000 | 44 | 66 |
-| 500 | 900 | Jusqu’à 4 000 | 14,400,000 | 60 | 90 |
-| 1 024 | 1 424 | Jusqu’à 4 272 | 15 379 200 | 81 | 122 |
-| 5 120 | 5 520 | Jusqu’à 16 560 | 59 616 000 | 245 | 368 |
-| 10 240 | 10 640 | Jusqu’à 31 920 | 114 912 000 | 450 | 675 |
-| 33 792 | 34 192 | Jusqu’à 100 000 | 360 000 000 | 1 392 | 2 088 |
-| 51 200 | 51 600 | Jusqu’à 100 000 | 360 000 000 | 2 088 | 3 132 |
-| 102 400 | 100 000 | Jusqu’à 100 000 | 360 000 000 | 4 136 | 6 204 |
+| 100 | 500 | Jusqu’à 4 000 | 12 600 000 | 44 | 66 |
+| 500 | 900 | Jusqu’à 4 000 | 11 160 000 | 60 | 90 |
+| 1 024 | 1 424 | Jusqu’à 4 000 | 10 713 600 | 81 | 122 |
+| 5 120 | 5 520 | Jusqu’à 15 360 | 35 424 000 | 245 | 368 |
+| 10 240 | 10 640 | Jusqu’à 30 720 | 72 288 000 | 450 | 675 |
+| 33 792 | 34 192 | Jusqu’à 100 000 | 236 908 800 | 1 392 | 2 088 |
+| 51 200 | 51 600 | Jusqu’à 100 000 | 174 240 000 | 2 088 | 3 132 |
+| 102 400 | 100 000 | Jusqu’à 100 000 | 0 | 4 136 | 6 204 |
 
 Les performances réelles des partages de fichiers sont soumises aux limites du réseau des machines, à la bande passante réseau disponible, aux tailles d’e/s, au parallélisme, entre autres nombreux facteurs. Par exemple, sur la base d’un test interne avec des tailles d’e/s en lecture/écriture de 8 Kio, une seule machine virtuelle Windows sans SMB Multichannel activé, *F16s_v2 standard*, connectée au partage de fichiers Premium sur SMB pourrait atteindre 20 000 e/s par seconde en écriture et 15 000 e/s par seconde. Avec les tailles d’e/s en lecture/écriture de 512 Mio, la même machine virtuelle peut atteindre 1,1 Gio/s en sortie et 370 Mio/s de débit d’entrée. Le même client peut atteindre des \~performances trois fois supérieures si SMB Multichannel est activé sur les partages Premium. Pour obtenir une mise à l’échelle des performances maximales, [activez SMB Multichannel](files-smb-protocol.md#smb-multichannel) et répartissez la charge entre plusieurs machines virtuelles. Reportez-vous à [Performances de SMB Multichannel](storage-files-smb-multichannel-performance.md) et au [Guide de dépannage](storage-troubleshooting-files-performance.md) pour certains problèmes de performances courants et leurs solutions de contournement.
 
@@ -141,10 +141,13 @@ Les transactions sont des opérations ou des requêtes sur Azure Files pour char
 
 Il existe cinq catégories de transactions de base : écriture, liste , lecture, autre et suppression. Toutes les opérations effectuées par le biais de l’API REST ou de SMB sont classées dans l’une de ces quatre catégories comme suit :
 
-| Type d'opération | Transactions d’écriture | Transactions de liste | Transactions de lecture | Autres transactions | Transactions de suppression |
-|-|-|-|-|-|-|
-| Opérations de gestion | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`ListShares`</li></ul> | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | | <ul><li>`DeleteShare`</li></ul> |
-| Opérations de données | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul>  | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |
+| Compartiment de transaction | Opérations de gestion | Opérations de données |
+|-|-|-|
+| Transactions d’écriture | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> |
+| Transactions de liste | <ul><li>`ListShares`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
+| Transactions de lecture | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> |
+| Autres transactions | | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
+| Transactions de suppression | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |  
 
 > [!Note]  
 > NFS 4.1 est disponible uniquement pour les partages de fichiers Premium, qui utilisent le modèle de facturation provisionné. Les transactions n’affectent pas la facturation pour les partages de fichiers Premium.

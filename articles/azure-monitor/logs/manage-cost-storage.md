@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 10/17/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: febbfc5a1a3381affac50a75a29cb502c7872d69
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 1713d3091794ed95438a5e9d7944b3f5ee41f5ee
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129657216"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131787"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor    
 
@@ -69,9 +69,18 @@ Si vous n’utilisez pas encore les journaux Azure Monitor, vous pouvez utiliser
 2. **Surveillance des clusters Azure Kubernetes service (AKS) :** les détails sur les volumes de données attendus pour la surveillance d’un cluster AKS type sont disponibles [ici](../containers/container-insights-cost.md#estimating-costs-to-monitor-your-aks-cluster). Suivez ces [meilleures pratiques](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) pour contrôler les frais de surveillance du cluster AKS. 
 3. **Surveillance des applications :** la calculatrice de prix Azure Monitor comprend un estimateur de volume de données se basant sur l’utilisation de l’application et sur une analyse statistique des volumes de données Application Insights. Dans la section Application Insights de la calculatrice de prix, basculez le commutateur en regard de « Estimer le volume de données en fonction de l’activité de l’application » pour l’utiliser. 
 
-## <a name="understand-your-usage-and-estimate-costs"></a>Comprendre votre utilisation et estimer les coûts
+## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Consultation de l’utilisation de Log Analytics sur votre facture Azure 
 
-Si vous utilisez les journaux Azure Monitor, il est facile d’estimer les coûts en fonction des modèles d’utilisation récente. Pour ce faire, utilisez le tableau de bord **Utilisation et estimation des coûts de Log Analytics** pour examiner et analyser l’utilisation de données. Celui-ci montre la quantité de données collectées par chaque solution et la quantité de données conservées et fournit une estimation des coûts en fonction de la quantité de données ingérées et de toute rétention supplémentaire au-delà du montant inclus.
+Le moyen le plus simple pour afficher l’utilisation facturée d’un espace de travail Log Analytics particulier est d’accéder à la page **Présentation** de l’espace de travail et de cliquer sur **Afficher le coût** dans le coin supérieur droit de la section Essentials en haut de la page. Cette opération lance l’analyse des coûts à partir de Azure Cost Management + facturation déjà étendue à cet espace de travail.  
+
+Vous pouvez également démarrer dans le hub [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json). Vous pouvez utiliser la fonctionnalité « Analyse des coûts » pour voir vos dépenses en ressources Azure. Pour suivre vos dépenses Log Analytics, vous pouvez ajouter un filtre par « type de ressource » (microsoft.operationalinsights/workspace pour Log Analytics et microsoft.operationalinsights/cluster pour les clusters Log Analytics). Pour **Regrouper par**, sélectionnez **Catégorie du compteur** ou **Compteur**. D’autres services comme Azure Defender (Security Center) et Azure Sentinel facturent également leur utilisation en fonction des ressources de l’espace de travail Log Analytics. Pour voir la correspondance avec le nom du service, vous pouvez sélectionner la vue Tableau au lieu d’un graphique. 
+
+Pour mieux comprendre votre utilisation, vous pouvez [télécharger votre utilisation à partir du portail Azure](../../cost-management-billing/understand/download-azure-daily-usage.md). Dans la feuille de calcul téléchargée, vous pouvez voir l’utilisation par ressource Azure (par exemple, espace de travail Log Analytics) par jour. Dans cette feuille de calcul Excel, vous trouverez l’utilisation de vos espaces de travail Log Analytics en filtrant d’abord la colonne « Catégorie du compteur » pour afficher « Log Analytics », « Insight and Analytics » (utilisé par certains niveaux tarifaires hérités) et « Azure Monitor » (utilisé par les niveaux tarifaires de niveau d’engagement), puis en ajoutant sur la colonne « ID d’instance » le filtre « contient espace de travail » ou « contient cluster » (ce dernier pour inclure l’utilisation du cluster Log Analytics). L’utilisation est indiquée dans la colonne « Quantité consommée » et l’unité pour chaque entrée est affichée dans la colonne « Unité de mesure ». Pour plus d’informations, consultez [Vérifier votre facture d’abonnement Azure](../../cost-management-billing/understand/review-individual-bill.md). 
+
+## <a name="understand-your-usage-and-optimizing-your-pricing-tier"></a>Comprendre votre utilisation et optimiser votre niveau tarifaire
+<a name="understand-your-usage-and-estimate-costs"></a>
+
+Pour en savoir plus sur les tendances d’utilisation et choisir le niveau de tarification journal Analytics le plus économique, consultez **Utilisation et coûts estimés Log Analytics**. Cela montre la quantité de données collectées par chaque solution, la quantité de données conservées et une estimation de vos coûts pour chaque niveau de tarification en fonction des modèles récents d'ingestion de données. 
 
 :::image type="content" source="media/manage-cost-storage/usage-estimated-cost-dashboard-01.png" alt-text="Utilisation et estimation des coûts":::
 
@@ -82,12 +91,6 @@ Pour explorer vos données plus en détail, sélectionnez l’icône en haut à 
 La page **Utilisation et estimation des coûts** vous permet de consulter votre volume de données pour le mois en cours. Ce volume inclut toutes les données facturables reçues et conservées dans votre espace de travail Log Analytics.  
  
 Les frais liés à Log Analytics sont ajoutés à votre facture Azure. Les informations relatives à votre facture Azure sont affichées dans la section **Facturation** du portail Azure ou sur le [portail de facturation Azure](https://account.windowsazure.com/Subscriptions).  
-
-## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Consultation de l’utilisation de Log Analytics sur votre facture Azure 
-
-Azure fournit de nombreuses fonctionnalités utiles dans le hub [Azure Cost Management + facturation](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json). Par exemple, vous pouvez utiliser la fonctionnalité « Analyse des coûts » pour voir vos dépenses en ressources Azure. Pour suivre vos dépenses Log Analytics, vous pouvez ajouter un filtre par « type de ressource » (microsoft.operationalinsights/workspace pour Log Analytics et microsoft.operationalinsights/cluster pour les clusters Log Analytics). Pour **Regrouper par**, sélectionnez **Catégorie du compteur** ou **Compteur**. D’autres services comme Azure Defender (Security Center) et Azure Sentinel facturent également leur utilisation en fonction des ressources de l’espace de travail Log Analytics. Pour voir la correspondance avec le nom du service, vous pouvez sélectionner la vue Tableau au lieu d’un graphique. 
-
-Pour mieux comprendre votre utilisation, vous pouvez [télécharger votre utilisation à partir du portail Azure](../../cost-management-billing/understand/download-azure-daily-usage.md). Dans la feuille de calcul téléchargée, vous pouvez voir l’utilisation par ressource Azure (par exemple, espace de travail Log Analytics) par jour. Dans cette feuille de calcul Excel, vous trouverez l’utilisation de vos espaces de travail Log Analytics en filtrant d’abord la colonne « Catégorie du compteur » pour afficher « Log Analytics », « Insight and Analytics » (utilisé par certains niveaux tarifaires hérités) et « Azure Monitor » (utilisé par les niveaux tarifaires de niveau d’engagement), puis en ajoutant sur la colonne « ID d’instance » le filtre « contient espace de travail » ou « contient cluster » (ce dernier pour inclure l’utilisation du cluster Log Analytics). L’utilisation est indiquée dans la colonne « Quantité consommée » et l’unité pour chaque entrée est affichée dans la colonne « Unité de mesure ». Pour plus d’informations, consultez [Vérifier votre facture d’abonnement Azure](../../cost-management-billing/understand/review-individual-bill.md). 
 
 ## <a name="changing-pricing-tier"></a>Changement de niveau tarifaire
 
@@ -133,6 +136,10 @@ New-AzResourceGroupDeployment -ResourceGroupName "YourResourceGroupName" -Templa
 ```
 
 Pour définir le niveau tarifaire sur d’autres valeurs telles que Paiement à l’utilisation (appelé `pergb2018` pour la SKU), omettez la propriété `capacityReservationLevel`. En savoir plus sur la [création de modèles ARM](../../azure-resource-manager/templates/template-tutorial-create-first-template.md), [l’ajout d’une ressource à votre modèle](../../azure-resource-manager/templates/template-tutorial-add-resource.md) et l’[application de modèles](../resource-manager-samples.md). 
+
+### <a name="tracking-pricing-tier-changes"></a>Suivi des modifications du niveau tarifaire
+
+Les modifications apportées au niveau de tarification d’un espace de travail sont enregistrées dans le [Journal d’activité](../essentials/activity-log.md) avec un événement avec l’opération nommée « Créer un espace de travail ». L’onglet **Historique des modifications** de l’événement affiche les niveaux tarifaires anciens et nouveaux à la ligne `properties.sku.name`.  Cliquez sur l’option « Journal d’activité » dans votre espace de travail pour afficher les événements dont l’étendue est limitée à un espace de travail particulier. Pour surveiller la modification du niveau tarifaire, vous pouvez créer une alerte pour l’opération « Créer un espace de travail ». 
 
 ## <a name="legacy-pricing-tiers"></a>Niveaux de tarification hérités
 
@@ -289,14 +296,15 @@ Pour afficher l’effet de la limite quotidienne, il est important de tenir comp
 ```kusto
 let DailyCapResetHour=14;
 Usage
-| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| where DataType !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
 | extend TimeGenerated=datetime_add("hour",-1*DailyCapResetHour,TimeGenerated)
 | where TimeGenerated > startofday(ago(31d))
 | where IsBillable
-| summarize IngestedGbBetweenDailyCapResets=sum(Quantity)/1000. by day=bin(TimeGenerated, 1d) | render areachart  
+| summarize IngestedGbBetweenDailyCapResets=sum(Quantity)/1000. by day=bin(TimeGenerated, 1d) // Quantity in units of MB
+| render areachart  
 ```
+Ajoutez les types de données `Update` et `UpdateSummary` à la ligne `where Datatype` lorsque la solution Update Management n’est pas exécutée sur l’espace de travail ou lorsque le ciblage de solution est activé ([en savoir plus](../../security-center/security-center-pricing.md#what-data-types-are-included-in-the-500-mb-data-daily-allowance).)
 
-(Dans le type de données d’utilisation, les unités de `Quantity` sont exprimées en Mo.)
 
 ### <a name="alert-when-daily-cap-is-reached"></a>Alerte lorsque la limite quotidienne est atteinte
 

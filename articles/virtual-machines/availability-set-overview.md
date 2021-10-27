@@ -6,12 +6,12 @@ ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: ac6995a2653ea9f88a25e75f6c1b98e2446a4788
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0a3b85f7fe6a11b461e138b920bfb607bb0ebfcc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128622433"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999109"
 ---
 # <a name="availability-sets-overview"></a>Vue d’ensemble des groupes à haute disponibilité
 
@@ -24,7 +24,7 @@ Cet article fournit une vue d’ensemble des fonctionnalités de disponibilité 
 Un groupe à haute disponibilité est un regroupement logique de machines virtuelles qui permet à Azure de comprendre comment votre application est conçue, afin de garantir la redondance et la disponibilité. Il est recommandé de créer au moins deux machines virtuelles dans un groupe à haute disponibilité, de manière à fournir une application hautement disponible et à répondre aux exigences du [niveau de 99,95 % inscrit dans les contrats de niveau de service Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Le groupe à haute disponibilité proprement dit ne vous coûte rien ; vous payez uniquement pour chaque instance de machine virtuelle que vous créez.
 
 ## <a name="how-do-availability-sets-work"></a>Comment fonctionnent les groupes à haute disponibilité ?
-Chaque machine virtuelle de votre groupe à haute disponibilité se voit attribuer un **domaine de mise à jour** et un **domaine d’erreur** par la plateforme Azure sous-jacente. Chaque groupe à haute disponibilité peut être configuré avec un maximum de trois domaines d’erreur et vingt domaines de mise à jour. Les domaines de mise à jour indiquent les groupes de machines virtuelles et les équipements physiques sous-jacents pouvant être redémarrés en même temps. Dans le cas où un seul groupe à haute disponibilité comprend plus de cinq machines virtuelles, la sixième machine est placée dans le même domaine de mise à jour que la première, la septième dans le même que la deuxième, etc. Le redémarrage des domaines de mise à jour peut ne pas suivre un ordre séquentiel au cours de la maintenance planifiée, mais un seul domaine de mise à jour peut être redémarré à la fois. Un domaine de mise à jour redémarré bénéficie de 30 minutes pour récupérer avant que la maintenance ne soit lancée sur un autre domaine de mise à jour.
+Chaque machine virtuelle de votre groupe à haute disponibilité se voit attribuer un **domaine de mise à jour** et un **domaine d’erreur** par la plateforme Azure sous-jacente. Chaque groupe à haute disponibilité peut être configuré avec un maximum de trois domaines d’erreur et vingt domaines de mise à jour. Les domaines de mise à jour indiquent les groupes de machines virtuelles et les équipements physiques sous-jacents pouvant être redémarrés en même temps. Lorsque plus de cinq machines virtuelles sont configurées dans un seul groupe à haute disponibilité avec cinq domaines de mise à jour, la sixième machine est placée dans le même domaine de mise à jour que la première, la septième dans le même que la deuxième, et ainsi de suite. Le redémarrage des domaines de mise à jour peut ne pas suivre un ordre séquentiel au cours de la maintenance planifiée, mais un seul domaine de mise à jour peut être redémarré à la fois. Un domaine de mise à jour redémarré bénéficie de 30 minutes pour récupérer avant que la maintenance ne soit lancée sur un autre domaine de mise à jour.
 
 Les domaines d’erreur définissent le groupe de machines virtuelles partageant une source d’alimentation et un commutateur réseau communs. Par défaut, les machines virtuelles configurées dans votre groupe à haute disponibilité sont réparties entre trois domaines de défaillance au maximum. Le fait de placer vos machines virtuelles dans un groupe à haute disponibilité ne protège pas vos applications des défaillances du système d’exploitation ou propres aux applications, mais limite l’effet des défaillances des équipements physiques, des pannes du serveur et des coupures d’électricité.
 

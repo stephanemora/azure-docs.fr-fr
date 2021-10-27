@@ -1,34 +1,45 @@
 ---
-title: Guide pratique pour la gestion des appareils dans le portail Azure | Microsoft Docs
+title: Gérer les appareils dans Azure AD à l’aide du portail Azure
 description: Découvrez comment utiliser le portail Azure pour gérer les appareils.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 03/23/2021
+ms.date: 10/14/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ef9dca3604be281ccedf4d6f1af3e7861273e6b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ecfbb1ad70fba1444d97d70abd0a5052a91fce15
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128590719"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130040306"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gérer les identités de l’appareil à l’aide du portail Microsoft Azure
 
-Le portail Azure AD offre un emplacement central pour la gestion des identités d’appareils.
+Azure AD vous fournit un lieu central pour gérer les identités d’appareils et surveiller les informations relatives aux événements.
 
-La page **Tous les appareils** vous permet d’effectuer les opérations suivantes :
+[![Vue d’ensemble des appareils dans le portail Azure](./media/device-management-azure-portal/devices-azure-portal.png)](./media/device-management-azure-portal/devices-azure-portal.png#lightbox)
+
+Vous pouvez accéder à la vue d’ensemble des appareils en procédant comme suit :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez à **Azure Active Directory** > **Appareils**.
+
+À partir de la vue d’ensemble des appareils, vous pouvez trouver le nombre total d’appareils, les appareils obsolètes, les appareils non conformes et les appareils non gérés. Vous pouvez également accéder rapidement à des liens vers Intune, l’accès conditionnel, les clés BitLocker et l’analyse de base. 
+
+Les nombres d’appareils sur la page vue d’ensemble ne sont pas mis à jour en temps réel, les modifications doivent être reflétées toutes les quelques heures.
+
+À partir de là, vous pouvez accéder à **Tous les appareils** pour :
 
 - Identifier les appareils, à savoir :
    - appareils qui ont été joints ou inscrits dans Azure AD ;
    - appareils déployés à l’aide de [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot) ;
    - imprimantes utilisant l’[Impression universelle](/universal-print/fundamentals/universal-print-getting-started).
-- Effectuer des tâches de gestion des identités d’appareils, telles que l’activation, la désactivation, la suppression ou la gestion.
+- Terminer des tâches de gestion des identités d’appareils comme l’activation, la désactivation, la suppression ou la gestion.
    - Les [imprimantes](/universal-print/fundamentals/) et les appareils [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot) ont des options de gestion limitées dans Azure AD. Elles doivent être gérés à partir de leurs interfaces d’administration respectives.
 - Configurer les paramètres d’identité de votre appareil.
 - Activer ou désactiver Enterprise State Roaming.
@@ -37,42 +48,16 @@ La page **Tous les appareils** vous permet d’effectuer les opérations suivant
 
 [![Vue Tous les appareils dans le portail Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
-Vous pouvez accéder au portail des appareils en procédant comme suit :
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Accédez à **Azure Active Directory** > **Appareils**.
-
-## <a name="manage-devices"></a>Gérer des appareils
-
-Il existe deux emplacements pour gérer les appareils dans Azure AD :
-
-- **Portail Azure** > **Azure Active Directory** > **Appareils**
-- **Portail Azure** > **Azure Active Directory** > **Utilisateurs** > Sélectionner un utilisateur > **Appareils**
-
-Les deux options permettent aux administrateurs d’effectuer les opérations suivantes :
-
-- Rechercher des appareils.
-- Consultez les détails d’appareil, notamment :
-    - Nom du périphérique
-    - ID de périphérique
-    - Système d’exploitation et version
-    - Type de jointure
-    - Propriétaire
-    - Gestion et conformité d’appareil mobile
-    - Clé de récupération BitLocker
-- Effectuer des tâches de gestion d’identité d’appareil telles que activer, désactiver, supprimer ou gérer.
-   - Les [imprimantes](/universal-print/fundamentals/) et les appareils [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot) ont des options de gestion limitées dans Azure AD. Elles doivent être gérés à partir de leurs interfaces d’administration respectives.
-
 > [!TIP]
 > - Les appareils Windows 10 hybrides joints à Azure AD n’ont pas de propriétaire. Si vous cherchiez un appareil à l’aide de son propriétaire et ne l’avez pas trouvé, recherchez-le à l’aide de son ID.
 >
-> - Si vous voyez un appareil « joint à une version hybride d’Azure AD » avec l’état « En attente » dans la colonne REGISTERED (Inscrit), cela signifie que l’appareil a été synchronisé à partir d’Azure AD Connect et qu’il attend de terminer l’inscription à partir du client. Pour en savoir plus, consultez [Planifier votre implémentation de la jointure d’Azure AD Hybride](hybrid-azuread-join-plan.md). Pour plus d’informations, consultez le [Forum aux questions sur les appareils](faq.yml).
+> - Si vous voyez un appareil « joint à Azure AD Hybride » avec l’état « En attente » dans la colonne **Registered**, cela signifie que l’appareil a été synchronisé à partir d’Azure AD Connect et qu’il attend de terminer l’inscription à partir du client. Pour en savoir plus, consultez [Planifier votre implémentation de la jointure d’Azure AD Hybride](hybrid-azuread-join-plan.md). Pour plus d’informations, consultez le [Forum aux questions sur les appareils](faq.yml).
 >
 > - Pour certains appareils iOS, les noms d’appareils qui contiennent des apostrophes peuvent utiliser d’autres caractères qui ressemblent à des apostrophes. La recherche de ces appareils peut donc être difficile. Si les résultats que vous attendez ne s’affichent pas, vérifiez que la chaîne de recherche contient les caractères d’apostrophe attendus.
 
 ### <a name="manage-an-intune-device"></a>Gérer un appareil Intune
 
-Si vous êtes administrateur de service Intune, vous pouvez gérer les appareils où la GPM est marquée **Microsoft Intune**. Si l’appareil n’est pas inscrit auprès de Microsoft Intune, l’option « Gérer » est grisée.
+Si vous disposez des droits nécessaires pour gérer des appareils dans Intune, vous pouvez gérer les appareils sur lesquels la gestion des périphériques mobiles est marquée **Microsoft Intune**. Si l’appareil n’est pas inscrit auprès de Microsoft Intune, l’option « Gérer » est grisée.
 
 ### <a name="enable-or-disable-an-azure-ad-device"></a>Activer ou désactiver un appareil Azure AD
 
@@ -102,11 +87,11 @@ Pour supprimer un appareil, vous avez deux options :
 >    - Supprime toutes les informations associées à l’appareil, par exemple, les clés BitLocker des appareils Windows.  
 >    - Est une action irréversible et donc non recommandée, sauf si elle est absolument nécessaire.
 
-Si un appareil est géré par une autre autorité de gestion (par exemple, Microsoft Intune), vérifiez que l’appareil a été réinitialisé ou mis hors service avant de le supprimer d’Azure AD. Lisez comment [gérer des appareils obsolètes](manage-stale-devices.md) avant de supprimer des appareils.
+Si un appareil est géré par une autre autorité de gestion, comme Microsoft Intune, vérifiez que l’appareil a été effacé ou mis hors service avant de le supprimer. Lisez comment [gérer des appareils obsolètes](manage-stale-devices.md) avant de supprimer des appareils.
 
 ### <a name="view-or-copy-device-id"></a>Afficher ou copier l’ID de l’appareil
 
-Vous pouvez utiliser un ID d’appareil pour vérifier les informations d’ID de l’appareil ou utiliser PowerShell durant le dépannage. Pour accéder à l’option de copie, cliquez sur l’appareil.
+Vous pouvez utiliser un ID d’appareil pour vérifier les informations d’ID de l’appareil ou utiliser PowerShell durant le dépannage. Pour accéder à l’option de copie, sélectionnez l’appareil.
 
 ![Afficher un ID d’appareil](./media/device-management-azure-portal/35.png)
   
@@ -116,7 +101,7 @@ Vous pouvez afficher et copier les clés BitLocker pour permettre aux utilisateu
 
 ![Afficher les clés BitLocker](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
-Pour afficher ou copier les clés BitLocker, vous devez être le propriétaire de l’appareil ou un utilisateur possédant au moins l’un des rôles suivants attribués :
+Pour afficher ou copier les clés BitLocker, vous devez être le propriétaire de l’appareil ou avoir l’un des rôles suivants :
 
 - Administrateur d’appareil cloud
 - Administrateur général
@@ -144,11 +129,11 @@ Pour activer la fonctionnalité de filtrage en préversion dans la vue **Tous le
 1. Accédez à **Azure Active Directory** > **Appareils**.
 1. Sélectionnez la bannière qui indique : **Essayez les améliorations apportées au filtrage des appareils. Cliquez pour activer la préversion.**
 
-Vous avez maintenant la possibilité d’**Ajouter des filtres** à votre vue **Tous les appareils**.
+Vous pouvez désormais **ajouter des filtres** à la vue **Tous les appareils**.
 
 ### <a name="download-devices-preview"></a>Télécharger les appareils (préversion)
 
-Les administrateurs d’appareils cloud, les administrateurs Intune et les administrateurs généraux peuvent utiliser l’option **Télécharger les appareils (préversion)**  pour exporter un fichier CSV d’appareils en fonction des filtres appliqués. Si aucun filtre n’est appliqué à la liste, tous les appareils sont exportés. Une exportation peut s’exécuter pendant une période allant jusqu’à une heure 
+Les administrateurs d’appareils cloud, les administrateurs Intune et les administrateurs généraux peuvent utiliser l’option **Télécharger les appareils (préversion)**  pour exporter un fichier CSV d’appareils en fonction des filtres appliqués. Si aucun filtre n’est appliqué à la liste, tous les appareils sont exportés. Une tâche d’exportation peut durer jusqu’à une heure, selon les sélections effectuées.
 
 La liste exportée comprend les attributs d’identité d’appareil suivants :
 
@@ -183,7 +168,7 @@ Pour afficher ou gérer les paramètres d’un appareil dans le portail Azure, v
 > - Nous vous recommandons d’utiliser l’action de l’utilisateur [« Inscrire ou joindre des appareils »](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) dans l’accès conditionnel pour appliquer l’authentification multifacteur pour la jonction ou l’inscription d’un appareil. 
 > - Vous devez définir ce paramètre sur **Non** si vous utilisez la stratégie d’accès conditionnel pour exiger l’authentification multifacteur. 
 
-- **Nombre maximal d’appareils par utilisateur** : ce paramètre vous permet de sélectionner le nombre maximal d’appareils joints à Azure AD ou inscrits à Azure AD et qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne pourra pas ajouter d’autres appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés. La valeur par défaut est de **50**. Vous pouvez augmenter la valeur jusqu’à 100 et, si vous entrez une valeur supérieure à 100, Azure AD la définit sur 100. Vous pouvez également utiliser une valeur illimitée pour appliquer une limite autre que les limites de quotas existantes.
+- **Nombre maximal d’appareils par utilisateur** : ce paramètre vous permet de sélectionner le nombre maximal d’appareils joints à Azure AD ou inscrits à Azure AD et qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne peut plus ajouter d’appareils tant qu’un ou plusieurs appareils existants n’ont pas été supprimés. La valeur par défaut est de **50**. Vous pouvez augmenter la valeur jusqu’à 100 et, si vous entrez une valeur supérieure à 100, Azure AD la définit sur 100. Vous pouvez également utiliser une valeur illimitée pour appliquer une limite autre que les limites de quotas existantes.
 
 > [!NOTE]
 > Le paramètre **Nombre maximal d’appareils par utilisateur** s’applique aux appareils joints à Azure AD ou inscrits à Azure AD. Ce paramètre ne s’applique pas aux appareils hybrides joints à Azure AD.
@@ -222,12 +207,11 @@ Pour limiter les données transmises à un niveau qui vous convient, vous pouvez
 - Cible
 - Initié par (intervenant)
 
-Vous pouvez filtrer les entrées, mais également rechercher des entrées spécifiques.
+Vous pouvez également rechercher des entrées spécifiques.
 
 :::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Capture d’écran des contrôles de filtre de données d’audit, avec les champs Catégorie, Type de ressource d’activité, Activité, Plage de dates, Cible et Acteur et un champ de recherche." border="false":::
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Guide pratique pour gérer les appareils obsolètes dans Azure AD](manage-stale-devices.md)
-
-[Enterprise State Roaming](enterprise-state-roaming-overview.md)
+- [Guide pratique pour gérer les appareils obsolètes dans Azure AD](manage-stale-devices.md)
+- [Résoudre les problèmes d’état des appareils en attente](/troubleshoot/azure/active-directory/pending-devices)

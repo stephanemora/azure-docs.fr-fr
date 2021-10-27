@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 09/16/2020
-ms.openlocfilehash: 48d037e4fe18f214af0f5ecaf9eb4e9b7e3ed59e
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.date: 10/13/2021
+ms.openlocfilehash: 1bc89a91bde0cc720b56f52900c2e0b57542dfa4
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524585"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984154"
 ---
 # <a name="resource-management-in-dense-elastic-pools"></a>Gestion des ressources dans les pools élastiques denses
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,6 +37,8 @@ Cette approche permet aux clients d’utiliser des pools élastiques denses afin
 > Dans des pools denses comptant de nombreuses bases de données actives, il n’est parfois pas possible d’augmenter le nombre de bases de données composant le pool jusqu’aux valeurs maximales documentées pour les pools élastiques [DTU](resource-limits-dtu-elastic-pools.md) et [vCore](resource-limits-vcore-elastic-pools.md).
 >
 > Le nombre de bases de données pouvant être placées dans des pools denses sans occasionner de problèmes de contention de ressources et de performances dépend du nombre de bases de données actives simultanément et de la consommation de ressources par les charges de travail utilisateur dans chaque base de données. Ce nombre peut changer au fil du temps à mesure que changent les charges de travail utilisateur.
+> 
+> En outre, si le paramètre min vCores par base de données ou min DTU par base de données est défini sur une valeur supérieure à 0, le nombre maximal de bases de données dans le pool est implicitement limité. Pour plus d’informations, consultez [Propriétés de la base de données pour les bases de données vCore mises en pool](resource-limits-vcore-elastic-pools.md#database-properties-for-pooled-databases) et [Propriétés de base de données pour les bases de données DTU mises en pool](resource-limits-dtu-elastic-pools.md#database-properties-for-pooled-databases).
 
 Quand une contention de ressources se produit dans un pool très dense, les clients peuvent choisir une ou plusieurs des actions suivantes pour les atténuer :
 
@@ -75,6 +77,9 @@ En plus de ces métriques, Azure SQL Database fournit un affichage qui retourne 
 |[sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Retourne les statistiques d’utilisation du groupe de charge de travail pour les 32 dernières minutes. Chaque ligne représente un intervalle de 20 secondes. Les colonnes `delta_` retournent la modification de chaque statistique au cours de l’intervalle.|
 |||
 
+> [!TIP]
+> Pour interroger ces vues de gestion dynamique et d’autres vues à l’aide d’un principal autre que l’administrateur de serveur, ajoutez ce principal au [rôle de serveur](security-server-roles.md) `##MS_ServerStateReader##`.
+
 Ces affichages peuvent être utilisés pour surveiller l’utilisation des ressources et résoudre la contention des ressources en temps quasi-réel. La charge de travail utilisateur sur les réplicas primaires et secondaires accessibles en lecture, y compris les géoréplications, est classée dans la liste de ressources partagées `SloSharedPool1` et dans le groupe de charges de travail `UserPrimaryGroup.DBId[N]`, où `N` correspond à la valeur de l’ID de base de données.
 
 Outre la surveillance de l’utilisation actuelle des ressources, les clients qui utilisent des pools denses peuvent gérer les données d’utilisation des ressources historiques dans un magasin de données distinct. Ces données peuvent être utilisées dans une analyse prédictive pour gérer de manière proactive l’utilisation des ressources en fonction des tendances historiques et saisonnières.
@@ -104,9 +109,7 @@ Si l’espace du pool utilisé (taille totale des données de toutes les bases d
 
 **Évitez les serveurs trop denses**. Azure SQL Database [prend en charge](./resource-limits-logical-server.md) un maximum de 5 000 bases de données par serveur. Les clients qui utilisent des pools élastiques ayant des milliers de bases de données peuvent envisager de placer plusieurs pools élastiques sur un seul serveur, avec le nombre total de bases de données allant jusqu’à la limite prise en charge. Toutefois, les serveurs englobant plusieurs milliers de bases de données constituent des défis opérationnels. Les opérations qui requièrent l’énumération de toutes les bases de données sur un serveur, par exemple l’affichage de bases de données dans le portail, seront plus lentes. Les erreurs opérationnelles, telles que la modification incorrecte des connexions au niveau du serveur ou des règles de pare-feu, perturbent un plus grand nombre de bases de données. La suppression accidentelle du serveur nécessite une assistance de la part du Support Microsoft afin de récupérer les bases de données sur le serveur supprimé, ce qui entraîne une interruption prolongée pour toutes les bases de données concernées.
 
-Nous vous recommandons de limiter les bases de données par serveur à un nombre inférieur à la valeur maximale prise en charge. Dans de nombreux scénarios, l’utilisation de 1 000 à 2 000 bases de données par serveur est optimale. Afin de réduire les risques de suppression accidentelle d'un serveur, nous vous recommandons de placer un [verrou de suppression](../../azure-resource-manager/management/lock-resources.md) sur le serveur ou son groupe de ressources.
-
-Dans le passé, certains scénarios impliquant le déplacement de bases de données dans, hors ou entre des pools élastiques d'un même serveur étaient plus rapides que le déplacement de bases de données entre des serveurs. Actuellement, tous les déplacements de base de données s'exécutent à la même vitesse, quels que soient le serveur source et le serveur de destination.
+Il est recommandé de limiter les bases de données par serveur à un nombre inférieur à la valeur maximale prise en charge. Dans de nombreux scénarios, l’utilisation de 1 000 à 2 000 bases de données par serveur est optimale. Afin de réduire les risques de suppression accidentelle d'un serveur, placez un [verrou de suppression](../../azure-resource-manager/management/lock-resources.md) sur le serveur ou son groupe de ressources.
 
 ## <a name="examples"></a>Exemples
 

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: cherylmc
-ms.openlocfilehash: d1ac031b79372987561651044e81da2e3d2d2779
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fd0eeb94bb35248aababa3f3a8d9fe820d4abe7f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636480"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002868"
 ---
 # <a name="monitoring-virtual-wan"></a>Supervision de Virtual WAN
 
@@ -96,6 +96,12 @@ Les métriques suivantes sont disponibles pour les passerelles ExpressRoute Azur
 | --- | --- |
 | **BitsInPerSecond** | Bits entrant dans Azure par seconde.|
 | **BitsOutPerSecond** | Bits sortant d’Azure par seconde. |
+| **Utilisation du processeur** | Utilisation du processeur de la passerelle ExpressRoute.|
+| **Paquets par seconde** | Nombre de paquets de la passerelle ExpressRoute.|
+| **Nombre de routes publiées pour le pair**| Nombre d’itinéraires publiés sur le pair par la passerelle ExpressRoute. | 
+| **Nombre de routes apprises du pair**| Nombre d’itinéraires appris à partir du pair par la passerelle ExpressRoute.|
+| **Fréquence des routes modifiées** | Fréquence des modifications d’itinéraires dans la passerelle ExpressRoute.|
+| **Nombre de machines virtuelles dans le réseau virtuel**| Nombre de machines virtuelles qui utilisent cette passerelle ExpressRoute.|
 
 ### <a name="view-gateway-metrics"></a><a name="metrics-steps"></a>Afficher les métriques de passerelle
 

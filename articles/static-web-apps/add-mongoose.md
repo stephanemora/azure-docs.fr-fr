@@ -6,12 +6,12 @@ ms.author: chrhar
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 01/25/2021
-ms.openlocfilehash: 63bbc978f4927dc6922d92e1f339282f74e4fb4e
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: a048937226f979db58996eb4bf996b9f254d9182
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814295"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132445"
 ---
 # <a name="tutorial-access-data-in-cosmos-db-using-mongoose-with-azure-static-web-apps"></a>Tutoriel : Accéder aux données dans Cosmos DB en utilisant Mongoose avec Azure Static Web Apps
 
@@ -44,17 +44,15 @@ Commencez par créer un compte [Cosmos DB serverless](../cosmos-db/serverless.m
 3. Entrez **Azure Cosmos DB** dans la zone de recherche
 4. Cliquez sur **Azure Cosmos DB**
 5. Cliquez sur **Créer**
-6. Configurez votre compte Azure Cosmos DB avec les informations suivantes
+6. Sous **API Azure Cosmos DB pour MongoDB**, sélectionnez **Créer**
+7. Configurez votre compte Azure Cosmos DB avec les informations suivantes
     - Abonnement : choisissez l’abonnement à utiliser
     - Ressource : cliquez sur **Créer**, puis indiquez le nom **aswa-mongoose**
     - Nom du compte : une valeur unique est nécessaire
-    - API : **API Azure Cosmos DB pour MongoDB**
-    - Notebooks (préversion) : **Désactivé**
     - Localisation : **USA Ouest 2**
     - Mode de capacité : **Serverless (préversion)**
-    - Version : **3.6**
-    - Zones de disponibilité : **Désactiver**
-:::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="Créer une instance de Cosmos DB":::
+    - Version : **4.0**
+:::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="Créer une instance de Cosmos DB":::
 7. Cliquez sur **Vérifier + créer**.
 8. Cliquez sur **Créer**
 
@@ -70,7 +68,7 @@ Ce tutoriel utilise un dépôt de modèles GitHub pour vous aider à créer votr
 4. Cliquez sur **Create repository from template** (Créer un dépôt à partir du modèle)
 5. Retournez au [portail Azure](https://portal.azure.com)
 6. Cliquez sur **Créer une ressource**
-7. Tapez **Static Web Apps** dans la zone de recherche
+7. Tapez **application web statique** dans la zone de recherche
 8. Sélectionnez **Static Web App**
 9. Cliquez sur **Créer**
 10. Configurez votre application Azure Static Web Apps avec les informations suivantes
@@ -80,27 +78,26 @@ Ce tutoriel utilise un dépôt de modèles GitHub pour vous aider à créer votr
     - Région : **USA Ouest 2**
     - Cliquez sur **Se connecter avec GitHub**
     - Cliquez sur **Autoriser** si vous êtes invité à autoriser Azure Static Web Apps à créer la fonctionnalité GitHub Actions pour activer le déploiement
-    - Organisation : nom de votre compte
+    - Organisation : Nom de votre compte GitHub
     - Dépôt : **aswa-mongoose-tutorial**
     - Branche : **main**
     - Options prédéfinies de build : choisissez **Personnalisé**
     - Emplacement de l’application : **/public**
     - Emplacement de l’API : **api**
-    - Emplacement de l’artefact d’application : *laissez le champ vide*
-    :::image type="content" source="media/add-mongoose/azure-static-web-apps.png" alt-text="Formulaire Azure Static Web Apps rempli":::
+    - Emplacement de la sortie : *Laissez vide*
+    :::image type="content" source="media/add-mongoose/azure-static-web-apps.png" alt-text="Formulaire Azure Static Web Apps renseigné":::
 11. Cliquez sur **Vérifier et créer**
 12. Cliquez sur **Créer**
-
-Le processus de création prend quelques minutes, mais vous pouvez cliquer sur **Accéder à la ressource** une fois l’application provisionnée.
+13. Le processus de création prend quelques minutes. Cliquez sur **Accéder à la ressource** une fois l’application web statique provisionnée
 
 ## <a name="configure-database-connection-string"></a>Configurer la chaîne de connexion de base de données
 
-Pour permettre à l’application web de communiquer avec la base de données, la chaîne de connexion de base de données est stockée en tant que paramètre d’application. Les valeurs des paramètres sont accessibles dans Node.js à l’aide de l’objet `process.env`.
+Pour permettre à l’application web de communiquer avec la base de données, la chaîne de connexion de base de données est stockée en tant que [paramètre d’application](application-settings.md). Les valeurs des paramètres sont accessibles dans Node.js à l’aide de l’objet `process.env`.
 
 1. Cliquez sur **Accueil** dans l’angle supérieur gauche du portail Azure (ou revenez à [https://portal.azure.com](https://portal.azure.com))
 2. Cliquer sur **Groupes de ressources**
 3. Cliquez sur **aswa-mongoose**
-4. Cliquez sur le nom de votre compte de base de données. Son type est **Compte Azure Cosmos DB**
+4. Cliquez sur le nom de votre compte de base de données. Son type est **API Azure Cosmos DB pour Mongo DB**
 5. Sous **Paramètres**, cliquez sur **Chaîne de connexion**
 6. Copiez la chaîne de connexion listée sous **CHAÎNE DE CONNEXION PRINCIPALE**
 7. Dans la barre d’adresses, cliquez sur **aswa-mongoose**
@@ -119,6 +116,8 @@ Vous pouvez à présent explorer l’application web statique.
 1. Cliquez sur **Vue d’ensemble**
 1. Cliquez sur l’URL affichée dans le coin supérieur droit
     1. Elle ressemble à `https://calm-pond-05fcdb.azurestaticapps.net`
+1. Cliquez sur **Connectez-vous pour voir votre liste de tâches**
+1. Cliquez sur **Donner son consentement** pour accéder à l’application
 1. Créez une tâche en tapant un titre et en cliquant sur **Ajouter une tâche**
 1. Vérifiez que la tâche s’affiche (cela peut prendre un moment)
 1. Marquez la tâche comme étant effectuée en **cochant la case**

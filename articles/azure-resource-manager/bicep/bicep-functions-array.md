@@ -4,13 +4,13 @@ description: Décrit les fonctions à utiliser dans un fichier Bicep pour travai
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/30/2021
-ms.openlocfilehash: 69e1e3c9574d6a32663186d46c1af3dceb422f4a
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.date: 10/18/2021
+ms.openlocfilehash: f0f9132818a8708ad5ef2a3205eb2f3a497006d6
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129357622"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130160809"
 ---
 # <a name="array-functions-for-bicep"></a>Tableaux logiques pour Bicep
 
@@ -333,9 +333,121 @@ La sortie de l’exemple précédent est :
 | commonUp | tableau | [1, 2, 3] |
 | commonDown | tableau | [3, 2, 1] |
 
+## <a name="items"></a>items
+
+`items(object)`
+
+Convertit un objet dictionnaire en un tableau.
+
+Espace de noms : [sys](bicep-functions.md#namespaces-for-functions).
+
+### <a name="parameters"></a>Paramètres
+
+| Paramètre | Obligatoire | Type | Description |
+|:--- |:--- |:--- |:--- |
+| object |Oui |object |Objet dictionnaire à convertir en tableau. |
+
+### <a name="return-value"></a>Valeur retournée
+
+Tableau d’objets pour le dictionnaire converti. Chaque objet du tableau a une propriété `key` qui contient la valeur de clé du dictionnaire. Chaque objet possède également une propriété `value` qui contient les propriétés de l’objet.
+
+### <a name="example"></a>Exemple
+
+L’exemple suivant convertit un objet dictionnaire en tableau. Pour chaque objet du tableau, il crée un objet avec les valeurs modifiées.
+
+```bicep
+var entities = {
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
+  }
+  item002: {
+    enabled: false
+    displayName: 'Example item 2'
+    number: 200
+  }
+}
+
+var modifiedListOfEntities = [for entity in items(entities): {
+  key: entity.key
+  fullName: entity.value.displayName
+  itemEnabled: entity.value.enabled
+}]
+
+output modifiedResult array = modifiedListOfEntities
+```
+
+L’exemple précédent renvoie :
+
+```json
+"modifiedResult": {
+  "type": "Array",
+  "value": [
+    {
+      "fullName": "Example item 1",
+      "itemEnabled": true,
+      "key": "item001"
+    },
+    {
+      "fullName": "Example item 2",
+      "itemEnabled": false,
+      "key": "item002"
+    }
+  ]
+}
+```
+
+L’exemple suivant montre le tableau renvoyé par la fonction items.
+
+```bicep
+var entities = {
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
+  }
+  item002: {
+    enabled: false
+    displayName: 'Example item 2'
+    number: 200
+  }
+}
+
+var entitiesArray = items(entities)
+
+output itemsResult array = entitiesArray
+```
+
+L’exemple renvoie :
+
+```json
+"itemsResult": {
+  "type": "Array",
+  "value": [
+    {
+      "key": "item001",
+      "value": {
+        "displayName": "Example item 1",
+        "enabled": true,
+        "number": 300
+      }
+    },
+    {
+      "key": "item002",
+      "value": {
+        "displayName": "Example item 2",
+        "enabled": false,
+        "number": 200
+      }
+    }
+  ]
+}
+```
+
 ## <a name="last"></a>last
 
-`last (arg1)`
+`last(arg1)`
 
 Retourne le dernier élément du tableau ou le dernier caractère de la chaîne.
 

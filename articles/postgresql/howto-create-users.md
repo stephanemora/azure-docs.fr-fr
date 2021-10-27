@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2019
-ms.openlocfilehash: a91b334b5494d8db44c86352c95fd7b4d1ea2c14
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 887138730d0d023a388b3203367a45e8a677fd1e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604072"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130005973"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -31,7 +31,7 @@ Le serveur Azure Database pour PostgreSQL est créé avec les 3 rôles par défa
 
 Votre utilisateur administrateur de serveur est un membre du rôle azure_pg_admin. Toutefois, le compte d’administrateur de serveur ne fait pas partie du rôle azure_superuser. Étant donné que ce service est un service PaaS géré, seul Microsoft fait partie du rôle de super utilisateur.
 
-Le moteur PostgreSQL utilise des privilèges pour contrôler l’accès aux objets de base de données, comme indiqué dans la [documentation du produit PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html). Dans Azure Database pour PostgreSQL, l’utilisateur administrateur du serveur reçoit ces privilèges : LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
+Le moteur PostgreSQL utilise des privilèges pour contrôler l’accès aux objets de base de données, comme indiqué dans la [documentation du produit PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html). Dans Azure Database pour PostgreSQL, les privilèges suivants sont accordés à l’utilisateur administrateur de serveur : LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, REPLICATION
 
 Le compte d’utilisateur administrateur de serveur peut être utilisé pour créer des utilisateurs supplémentaires et accorder à ces utilisateurs le rôle azure_pg_admin. Le compte administrateur de serveur peut être utilisé pour créer des utilisateurs et des rôles possédant moins de privilèges et ayant accès à des schémas de base de données individuels.
 

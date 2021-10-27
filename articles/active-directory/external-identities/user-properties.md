@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 10/13/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a0cda7edf93578e95ee9a6f15cc8c3c26274b49
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: 59738b730cde40c8a792ed44ba53cdda92609650
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823713"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074130"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriétés d’un utilisateur Azure Active Directory B2B Collaboration
 
@@ -28,7 +28,7 @@ Selon les besoins de l’organisation qui émet l’invitation, un utilisateur A
 - État 1 : Hébergé dans une instance externe d’Azure AD et représenté sous la forme d’un utilisateur invité de l’organisation à l’origine de l’invitation. Dans ce cas, l’utilisateur B2B se connecte avec un compte Azure AD qui appartient au locataire invité. Même si l’organisation partenaire n’utilise pas Azure AD, l’utilisateur invité d’Azure AD est créé. Les conditions requises sont les suivantes : les utilisateurs se servent de leur invitation et Azure AD vérifie leur adresse e-mail. Cet arrangement est aussi appelé une location juste-à-temps (JIT), une location « virale » ou une location Azure AD non gérée.
 
    > [!IMPORTANT]
-   > **À compter d’octobre 2021**, Microsoft ne prendra plus en charge l’acceptation d’invitations en créant des locataires et des comptes Azure AD non gérés pour les scénarios de collaboration B2B. Dans cette optique, nous encourageons les clients à choisir l'[authentification au moyen d'un code secret à usage unique envoyé par e-mail](one-time-passcode.md), qui est maintenant en disponibilité générale.
+   > **À compter du 1er novembre 2021**, Microsoft ne prendra plus en charge l’utilisation d’invitations en créant des locataires et des comptes Azure AD non managés pour les scénarios de collaboration B2B. À cette date, nous allons commencer à déployer un changement afin d’activer la fonctionnalité de code secret à usage unique par e-mail pour tous les locataires existants et de l’activer par défaut pour les nouveaux locataires. Si vous ne voulez pas autoriser cette fonctionnalité à s’activer automatiquement, vous pouvez la [désactiver](one-time-passcode.md#disable-email-one-time-passcode).
 
 - État 2 : Hébergé dans un compte Microsoft ou autre et représenté en tant qu’utilisateur invité dans l’organisation hôte. Dans ce cas, l’utilisateur invité se connecte avec un compte Microsoft ou un compte social (google.com ou similaire). L’identité de l’utilisateur invité est créée en tant que compte Microsoft dans l’annuaire de l’organisation à l’origine de l’invitation durant l’utilisation de l’offre.
 

@@ -2,19 +2,19 @@
 title: Interroger des fichiers Delta Lake à l’aide d’un pool SQL serverless (préversion)
 description: Dans cet article, vous apprendrez comment interroger des fichiers stockés au format Apache Delta Lake à l’aide d’un pool SQL serverless.
 services: synapse analytics
-author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 04/27/2021
+ms.date: 07/15/2021
+author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick
-ms.openlocfilehash: 096cee4aca9830acf9e74d3d60d08e6a79590cb4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.reviewer: jrasnick, wiassaf
+ms.openlocfilehash: c06826fa8d08a06ed49bdd56e86c999aff849899
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532482"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002831"
 ---
 # <a name="query-delta-lake-files-preview-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Interroger des fichiers Delta Lake (préversion) à l’aide d’un pool SQL dans Azure Synapse Analytics
 
@@ -174,7 +174,8 @@ Le deuxième argument de la fonction `DeltaTable.convertToDeltaLake` représente
 
 ## <a name="limitations"></a>Limites
 
-Cette fonctionnalité est en préversion publique, et il existe quelques problèmes connus et des limitations. Consultez les problèmes connus sur la [page d’aide relative aux pools SQL serverless Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+- Cette fonctionnalité est en préversion publique, et il existe quelques problèmes connus et des limitations. Consultez les problèmes connus sur la [page d’aide relative aux pools SQL serverless Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+- À l’heure actuelle, le pool Spark et le pool SQL serverless dans Azure Synapse Analytics prennent en charge le format Delta Lake. Les pools SQL serverless ne prennent pas en charge la mise à jour des fichiers Delta Lake. Seules les tables au format Parquet sont partagées à partir des pools Spark vers un pool SQL serverless. Pour plus d’informations, consultez [Tables Spark partagées](../metadata/table.md#shared-spark-tables).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

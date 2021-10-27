@@ -6,15 +6,15 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
-ms.openlocfilehash: 1c36fa5295acafb96e57484cf34429091dd634e9
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: e5300e8c2008d99ec7757ed3850b8b31698ac8a9
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390576"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064340"
 ---
 # <a name="troubleshoot-the-azure-data-lake-storage-connectors-in-azure-data-factory-and-azure-synapse"></a>Résoudre les problèmes liés aux connecteurs Azure Data Lake Storage dans Azure Data Factory et Azure Synapse
 
@@ -100,6 +100,16 @@ Cet article fournit des suggestions pour résoudre les problèmes courants liés
             }
         }
         ```
+
+### <a name="the-copy-activity-is-not-able-to-pick-files-from-azure-data-lake-storage-gen2"></a>L’activité de copie n’est pas en mesure de sélectionner des fichiers à partir d’Azure Data Lake Storage Gen2
+
+- **Symptômes** : l’activité de copie n’est pas en mesure de sélectionner des fichiers à partir d’Azure Data Lake Storage Gen2 quand le nom de fichier est « Asset_Metadata ». Le problème se produit uniquement dans le jeu de données de type Parquet. D’autres types de jeux de données avec le même nom de fichier fonctionnent correctement.
+
+- **Cause** : pour la compatibilité descendante, `_metadata` est traité en tant que substring réservé dans le nom de fichier. 
+
+- **Recommandation** : modifiez le nom de fichier pour éviter la liste réservée pour Parquet ci-dessous : 
+    1. Le nom de fichier contient `_metadata`.
+    2. Le nom de fichier commence par `.` (point).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

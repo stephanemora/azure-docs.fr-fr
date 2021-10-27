@@ -126,6 +126,8 @@
           href: understand/mpa-overview.md
         - name: Bien démarrer dans le portail Azure EA
           href: manage/ea-portal-get-started.md
+        - name: Bien démarrer dans le portail Azure avec l’EA direct
+          href: manage/ea-direct-portal-get-started.md
         - name: Faire une demande de crédit d’impôt pour retenue à la source - Inde
           href: manage/withholding-tax-credit-india.md
     - name: Sécurité

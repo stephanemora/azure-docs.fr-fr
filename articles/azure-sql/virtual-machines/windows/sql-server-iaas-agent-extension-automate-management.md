@@ -3,7 +3,7 @@ title: Qu’est-ce que l’extension SQL Server IaaS Agent ?
 description: Cet article explique comment l’extension SQL Server IaaS Agent permet d’automatiser la gestion et des tâches d’administration spécifiques de SQL Server sur les machines virtuelles Azure. Celles-ci incluent des fonctionnalités, telles que la sauvegarde automatisée, la mise à jour corrective automatisée, l’intégration d’Azure Key Vault, la gestion des licences, la configuration du stockage et la gestion centralisée de toutes les instances de machine virtuelle SQL Server.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
+author: adbadram
 editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 9/01/2021
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: adbadram
+ms.reviewer: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e5c4dd695cb9761721386eb98e18f00ad53bdc26
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: b5a0aa73a2017323657a6e1300bc18775824b1f6
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231308"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130163729"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatiser la gestion avec l’extension SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -118,7 +118,7 @@ Il existe trois possibilités d’inscription à l’extension :
 
 ### <a name="named-instance-support"></a>Prise en charge d’une instance nommée
 
-L’extension d’agent IaaS SQL Server fonctionne avec une instance nommée de SQL Server s’il s’agit de la seule instance disponible sur la machine virtuelle. L’installation de l’extension échoue sur les machines virtuelles qui ont plusieurs instances nommées SQL Server s’il n’y a pas d’instance par défaut sur la machine virtuelle. 
+L’extension d’agent IaaS SQL Server fonctionne avec une instance nommée de SQL Server s’il s’agit de la seule instance disponible sur la machine virtuelle. Si une machine virtuelle possède plusieurs instances nommées SQL Server et aucune instance par défaut, l’extension IaaS SQL s’inscrit en mode léger et sélectionne soit l’instance avec l’édition la plus récente, soit la première instance, si toutes les instances ont la même édition. 
 
 Pour utiliser une instance nommée de SQL Server, déployez une machine virtuelle Azure, installez-y une instance SQL Server nommée unique, puis inscrivez-la à l’[extension SQL IaaS](sql-agent-extension-manually-register-single-vm.md).
 
@@ -166,6 +166,9 @@ L’extension SQL IaaS Agent prend uniquement en charge les éléments suivants�
 
 - Les machines virtuelles SQL Server déployées par le biais d’Azure Resource Manager. Les machines virtuelles SQL Server déployées via le modèle classique ne sont pas prises en charge. 
 - Les machines virtuelles SQL Server déployées sur le cloud public ou le cloud Azure Government. Les déploiements sur d’autres clouds privés ou du secteur public ne sont pas pris en charge. 
+- Instances de cluster de basculement (instances FCI) en mode léger. 
+- Instances nommées avec plusieurs instances sur une seule machine virtuelle en mode léger. 
+
 
 
 ## <a name="in-region-data-residency"></a>Résidence des données dans la région

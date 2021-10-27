@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: v-jansk
-ms.openlocfilehash: ae867a4383b5644eca2cabf2651c2c40797ed49a
-ms.sourcegitcommit: 5fabdc2ee2eb0bd5b588411f922ec58bc0d45962
+ms.openlocfilehash: 39173fbd5fd6725d8307d2e390bec6b397406cb7
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112540597"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130062687"
 ---
 # <a name="start-translation"></a>Commencer la traduction
 
@@ -25,7 +25,7 @@ Les filtres de préfixe et de suffixe (s’ils sont fournis) sont utilisés pour
 
 Des glossaires et une mémoire de traduction peuvent être inclus dans la demande, et sont appliqués par le service lorsque le document est traduit.
 
-Si le glossaire n’est pas valide ou est inaccessible lors de la traduction, une erreur est signalée dans l’état du document. S’il existe déjà un fichier du même nom dans la destination, il est remplacé. La valeur targetUrl de chaque langue cible doit être unique.
+Si le glossaire n’est pas valide ou est inaccessible lors de la traduction, une erreur est signalée dans l’état du document. Si un fichier portant le même nom existe déjà dans la destination, le travail échouera. La valeur targetUrl de chaque langue cible doit être unique.
 
 ## <a name="request-url"></a>URL de la demande
 

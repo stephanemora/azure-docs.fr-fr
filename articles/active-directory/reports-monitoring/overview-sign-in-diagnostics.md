@@ -4,7 +4,7 @@ description: Présente une vue d’ensemble du diagnostic de connexion dans Azur
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/07/2021
+ms.date: 09/30/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30ec59a2b74ffb1a9de8bbf03271bf4699c98b6b
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 99e3999eaa137a26680ff5741f38d434d2a9f618
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113552608"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998900"
 ---
 # <a name="what-is-the-sign-in-diagnostic-in-azure-ad"></a>Qu’est-ce que le diagnostic de connexion dans Azure AD ?
 
@@ -50,29 +50,39 @@ En raison de la très grande flexibilité du système qui permet de répondre à
 
 Pour démarrer et suivre le processus de diagnostic, vous devez :   
 
-1. **Identifier l’événement** : entrez les informations relatives à l’événement de connexion 
+1. **Identifier un événement**  - Démarrez le diagnostic et passez en revue les événements signalés pour lesquels les utilisateurs demandent de l’aide, ou entrez les informations sur l’événement de connexion à investiguer. 
 
-2. **Sélectionner un événement** : sélectionnez un événement en fonction des informations partagées. 
+2. **Sélectionner un événement**  - Sélectionnez un événement en fonction des informations partagées. 
 
-3. **Prendre des mesures** : examinez les résultats de diagnostic et suivez les étapes.
+3. **Prendre des mesures**  - Examinez les résultats du diagnostic et suivez les étapes. 
+
 
 
 ### <a name="identify-event"></a>Identifier l’événement 
 
-Pour identifier les événements appropriés pour vous, vous pouvez filtrer en fonction des options suivantes :
+Le diagnostic autorise deux méthodes pour rechercher les événements à investiguer :  
 
-- Nom de l’utilisateur
+- Les échecs de connexion que les utilisateurs ont [marqués d’un indicateur pour obtenir de l’aide](overview-flagged-sign-ins.md). 
+- Recherchez des événements spécifiques par utilisateur et d’autres critères. 
+
+Les connexions marquées d’un indicateur sont automatiquement présentées dans une liste qui va jusqu’à 100. Vous pouvez exécuter tout de suite un diagnostic sur un événement en cliquant dessus.  
+
+Vous pouvez rechercher un événement spécifique en sélectionnant l’onglet Rechercher, même si des connexions marquées d’un indicateur sont présentes. Lorsque vous recherchez des événements spécifiques, vous pouvez filtrer en fonction des options suivantes : 
+
+- Nom de l’utilisateur 
+
 - Application 
-- ID de corrélation ou ID de requête 
-- Date et heure
 
-![Capture d’écran montrant les filtres.](./media/overview-sign-in-diagnostics/sign-in-diagnostics.png)
+- ID de corrélation ou ID de requête 
+
+- Date et heure 
 
 
 
 ### <a name="select-event"></a>Sélectionner un événement  
 
-En fonction de vos critères de recherche, Azure AD récupère toutes les événements de connexion correspondants et les présente dans une vue Résumé de l’authentification.  
+Pour les connexions marquées d’un indicateur, ou lorsqu’une recherche a été effectuée, Azure AD récupère tous les événements de connexion correspondants et les présente en mode Liste résumant les authentifications. 
+
 
 ![Capture d’écran de la page de résumé de l’authentification.](./media/overview-sign-in-diagnostics/review-sign-ins.png)
 

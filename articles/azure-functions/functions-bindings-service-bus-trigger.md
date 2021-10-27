@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: d6685d86cb9c807db130b10a9573c3ca44ec911d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 56f0a58d1713a2ddf47734686214846c7765baf5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763791"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130137860"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Déclencheur Azure Service Bus pour Azure Functions
 
@@ -331,12 +331,14 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**queueName**|**QueueName**|Nom de la file d’attente à surveiller.  Défini uniquement en cas de surveillance d’une file d’attente, ne s’applique pas à une rubrique.
 |**topicName**|**TopicName**|Nom de la rubrique à surveiller. Défini uniquement en cas de surveillance d’une rubrique, ne s’applique pas à une file d’attente.|
 |**subscriptionName**|**SubscriptionName**|Nom de l’abonnement à surveiller. Défini uniquement en cas de surveillance d’une rubrique, ne s’applique pas à une file d’attente.|
-|**connection**|**Connection**|Nom d’un paramètre d’application comportant la chaîne de connexion Service Bus à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom. Par exemple, si vous définissez `connection` sur « MyServiceBus », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyServiceBus ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion Service Bus par défaut dans le paramètre d’application nommé « AzureWebJobsServiceBus ».<br><br>Pour obtenir une chaîne de connexion, suivez les étapes indiquées à la section [Obtenir les informations d’identification de gestion](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La chaîne de connexion doit être destinée à un espace de noms Service Bus, et non limitée à une file d’attente ou une rubrique spécifique. <br><br>Si vous utilisez la [version 5.x ou ultérieure de l’extension](./functions-bindings-service-bus.md#service-bus-extension-5x-and-higher), au lieu d’une chaîne de connexion, vous pouvez fournir une référence à une section de configuration qui définit la connexion. Consultez [Connexions](./functions-reference.md#connections).|
+|**connection**|**Connection**| Nom d’un paramètre d’application ou d’une collection de paramètres d’application qui spécifie la façon de se connecter à Service Bus. Consultez [Connexions](#connections).|
 |**accessRights**|**y accéder**|Droits d’accès de la chaîne de connexion. Les valeurs disponibles sont `manage` et `listen`. La valeur par défaut est `manage`, ce qui indique que `connection` a l'autorisation **Gérer**. Si vous utilisez une chaîne de connexion qui n’a pas l'autorisation **Gérer**, définissez `accessRights` sur « écouter ». Sinon, le runtime Functions pourrait échouer à effectuer des opérations qui nécessitent des droits de gestion. Dans Azure Functions versions 2.x et ultérieures, cette propriété n’est pas disponible parce que la version la plus récente du Kit de développement logiciel (SDK) Service Bus ne prend pas en charge les opérations de gestion.|
 |**isSessionsEnabled**|**IsSessionsEnabled**|`true` en cas de connexion à une file d’attente ou à un abonnement [prenant en charge la session](../service-bus-messaging/message-sessions.md). Sinon `false`, qui est la valeur par défaut.|
 |**autoComplete**|**AutoComplete**|`true` Indique si le déclencheur doit terminer l’appel automatiquement après le traitement, ou si le code de la fonction termine manuellement l’appel.<br><br>La définition de `false` est prise en charge uniquement dans C# .<br><br>Si la valeur est `true`, le déclencheur termine automatiquement le message si l’exécution de la fonction se termine correctement et abandonne le message dans le cas contraire.<br><br>Lorsque la valeur est `false`, il vous incombe d’appeler des méthodes [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) pour terminer, abandonner ou mettre au rebut le message. Si une exception est levée (et qu’aucune des méthodes `MessageReceiver` n’est appelée), le verrou reste. Une fois le verrou expiré, le message est de nouveau mis en file d’attente avec `DeliveryCount` incrémenté, et le verrou est automatiquement renouvelé.<br><br>Dans les fonctions non C#, les exceptions de la fonction entraînent l’appel par le runtime de `abandonAsync` en arrière-plan. Si aucune exception ne se produit, `completeAsync` est appelé en arrière-plan. Cette propriété est disponible uniquement dans Azure Functions 2.x et versions ultérieures. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-service-bus-connections](../../includes/functions-service-bus-connections.md)]
 
 ## <a name="usage"></a>Usage
 
@@ -372,11 +374,6 @@ Ces paramètres concernent Azure Functions version 1.x ; pour 2.x et ultérieur,
 Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Service Bus utilisent le type `ServiceBusReceivedMessage` dans [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) au lieu de celui de l’espace de noms [Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message). Cette version ne prend plus en charge le type hérité `Message`, mais elle prend désormais en charge les types suivants :
 
 - [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
-
-### <a name="additional-types"></a>Autres types 
-Les applications utilisant la version 5.0.0 ou ultérieure de l’extension Service Bus utilisent le type `ServiceBusReceivedMessage` dans [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage) au lieu de celui de l’espace de noms [Microsoft.Azure.Service Bus](/dotnet/api/microsoft.azure.servicebus.message). Cette version ne prend plus en charge le type hérité `Message`, mais elle prend désormais en charge les types suivants :
-
-- [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody)
 
 # <a name="java"></a>[Java](#tab/java)
 

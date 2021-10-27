@@ -7,15 +7,20 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: turao
-ms.openlocfilehash: 469dc3f87bb7c783f2c3138e2bcf592c85312006
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 2e110aeb7cf5395a9aea8d0efae9c0f97b6e74ce
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129757619"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003872"
 ---
 # <a name="prevent-rate-limiting-errors-for-azure-cosmos-db-api-for-cassandra-operations"></a>Empêcher les erreurs de limitation de débit pour les opérations de l’API Azure Cosmos DB pour Cassandra
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
+
+> [!IMPORTANT]
+> La prévention des erreurs de limitation de débit par l’activation des nouvelles tentatives côté serveur pour l’API Cosmos DB pour Cassandra est actuellement disponible en préversion publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Le coût de toutes les opérations de base de données, normalisé par Azure Cosmos DB, est exprimé en unités de requête (RU). Les unités de requête correspondent en quelque sorte à une devise de performances, faisant abstraction des ressources système (UC, IOPS, mémoire, etc.) requises pour effectuer les opérations de base de données prises en charge par Azure Cosmos DB.
 
@@ -69,8 +74,16 @@ La fonctionnalité de nouvelles tentatives côté serveur (SSR) est la plus avan
 
 Une fois la fonctionnalité SSR activée, l’application cliente doit augmenter le délai d’expiration de lecture au-delà des 60 secondes du paramètre des nouvelles tentatives du serveur. Nous vous recommandons 90 secondes pour plus de sécurité.
 
-SocketOptions setReadTimeoutMillis DefaultDriverOption.REQUEST_TIMEOUT
-
+Exemple de code de pilote3
+```java
+SocketOptions socketOptions = new SocketOptions()
+    .setReadTimeoutMillis(90000); 
+```
+Exemple de code de pilote4  
+```java
+ProgrammaticDriverConfigLoaderBuilder configBuilder = DriverConfigLoader.programmaticBuilder()
+    .withDuration(DefaultDriverOption.REQUEST_TIMEOUT, Duration.ofSeconds(90)); 
+```
 
 ### <a name="how-can-i-monitor-the-effects-of-a-server-side-retry"></a>Comment puis-je superviser les effets d’une nouvelle tentative côté serveur ?
 

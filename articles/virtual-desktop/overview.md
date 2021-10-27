@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f988fafbdd381c88a3f8da60fb48fa3320a82876
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9025b32aa2ea6fd8fefa91d89b608c0e5d26b45e
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128674449"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992902"
 ---
 # <a name="what-is-azure-virtual-desktop"></a>Qu’est-ce qu’Azure Virtual Desktop ?
 
@@ -99,7 +99,7 @@ Pour bénéficier de performances optimales, vérifiez que votre réseau remplit
 
 * La latence aller-retour entre le réseau du client et la région Azure où les pools hôtes ont été déployés doit être inférieure à 150 ms Utilisez l’[estimateur d’expérience](https://azure.microsoft.com/services/virtual-desktop/assessment) pour afficher l’intégrité de votre connexion et votre région Azure recommandée.
 * Le trafic réseau peut circuler au-delà des frontières du pays ou de la région lorsque des machines virtuelles qui hébergent des bureaux et des applications se connectent au service de gestion
-* Pour optimiser les performances du réseau, nous vous recommandons de colocaliser les machines virtuelles de l’hôte de session dans la même région Azure que le service de gestion
+* Pour optimiser les performances du réseau, nous vous recommandons de localiser les machines virtuelles de l’hôte de session dans la région Azure la plus proche de l’utilisateur.
 
 Vous pouvez consulter une configuration architecturale classique d’Azure Virtual Desktop pour l’entreprise dans notre [documentation d’architecture](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 

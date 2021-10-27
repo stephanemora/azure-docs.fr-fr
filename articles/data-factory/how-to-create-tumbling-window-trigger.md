@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 7b0af3fbd090eec36c69f784639ff401f5d80c46
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 44f41d0adebe21eaec28aced556f67e8c1aeda1d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124831443"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047225"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Créer un déclencheur qui exécute un pipeline sur une fenêtre bascule
 
@@ -25,9 +25,9 @@ Cet article décrit les étapes permettant de créer, de démarrer et d’effect
 
 Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’active à un intervalle de temps périodique à partir d’une heure de début spécifiée, tout en conservant son état. Les fenêtres bascule sont une série d’intervalles de temps contigus fixes, qui ne se chevauchent pas. Un déclencheur de fenêtre bascule a une relation un à un avec un pipeline et ne peut référencer qu’un seul pipeline. Le déclencheur de fenêtre bascule est une alternative plus lourde au déclencheur de planification qui offre une suite de fonctionnalités pour les scénarios complexes ([dépendance d’autres déclencheurs de fenêtre bascule](#tumbling-window-trigger-dependency), [réexécution d’une tâche ayant échoué](tumbling-window-trigger-dependency.md#monitor-dependencies) et [définition de nouvelle tentative utilisateur pour les pipelines](#user-assigned-retries-of-pipelines)). Pour mieux comprendre la différence entre le déclencheur de planification et le déclencheur de fenêtre bascule, rendez-vous [ici](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
-## <a name="ui-experience"></a>Expérience de l’interface utilisateur
+## <a name="azure-data-factory-and-synapse-portal-experience"></a>Expérience du portail Azure Data Factory et Synapse
 
-1. Pour créer un déclencheur de fenêtre bascule dans l’interface utilisateur, sélectionnez l’onglet **Déclencheurs**, puis **Nouveau**. 
+1. Pour créer un déclencheur de fenêtre bascule dans le portail Azure, sélectionnez l’onglet **Déclencheurs**, puis **Nouveau**. 
 1. Une fois le volet Configuration du déclencheur ouvert, sélectionnez **Fenêtre bascule**, puis définissez les propriétés du déclencheur de votre fenêtre bascule. 
 1. Quand vous avez terminé, sélectionnez **Enregistrer**.
 
@@ -199,11 +199,23 @@ Vous pouvez également réexécuter une fenêtre annulée. La réexécution pren
 
 ---
 
-## <a name="sample-for-azure-powershell"></a>Exemple pour Azure PowerShell
+## <a name="sample-for-azure-powershell-and-azure-cli"></a>Exemple pour Azure PowerShell et Azure CLI
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et effectuer le monitoring d’un déclencheur.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et effectuer le monitoring d’un déclencheur.
+### <a name="prerequisites"></a>Prérequis
+
+- **Abonnement Azure**. Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
+
+- **Azure PowerShell**. Suivez les instructions de l'article [Installer Azure PowerShell sur Windows avec PowerShellGet](/powershell/azure/install-az-ps). 
+
+- **Azure Data Factory**. Suivez les instructions dans [Créer une fabrique de données Azure à l’aide de PowerShell](/azure/data-factory/quickstart-create-data-factory-powershell) pour créer une fabrique de données et un pipeline.
+
+### <a name="sample-code"></a>Exemple de code
 
 1. Créez un fichier JSON nommé **MyTrigger.json** dans le dossier C:\ADFv2QuickStartPSH\ avec le contenu suivant :
 
@@ -219,6 +231,7 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
           "frequency": "Minute",
           "interval": "15",
           "startTime": "2017-09-08T05:30:00Z",
+          "endTime" : "2017-09-08T06:30:00Z",
           "delay": "00:00:01",
           "retryPolicy": {
             "count": 2,
@@ -241,35 +254,115 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
     }
     ```
 
-2. Créez un déclencheur avec l’applet de commande **Set-AzDataFactoryV2Trigger** :
+2. Créez un déclencheur avec l’applet de commande [Set-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/set-azdatafactoryv2trigger) :
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Vérifiez que l’état du déclencheur est **Stopped** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
+3. Vérifiez que l’état du déclencheur est **Stopped** avec l’applet de commande [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger) :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Démarrez le déclencheur avec la cmdlet **Start-AzDataFactoryV2Trigger** :
+4. Démarrez le déclencheur avec la cmdlet [Start-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/start-azdatafactoryv2trigger) :
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Vérifiez que l’état du déclencheur est **Started** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
+5. Vérifiez que l’état du déclencheur est **Started** avec l’applet de commande [Get-AzDataFactoryV2Trigger](/powershell/module/az.datafactory/get-azdatafactoryv2trigger) :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. Récupérez les exécutions du déclencheur dans Azure PowerShell avec l’applet de commande **Get-AzDataFactoryV2TriggerRun**. Pour obtenir plus d’informations sur les exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **TriggerRunStartedAfter** et **TriggerRunStartedBefore** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
+6. Récupérez les exécutions du déclencheur dans Azure PowerShell avec l’applet de commande [Get-AzDataFactoryV2TriggerRun](/powershell/module/az.datafactory/get-azdatafactoryv2triggerrun). Pour obtenir plus d’informations sur les exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **TriggerRunStartedAfter** et **TriggerRunStartedBefore** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Cette section montre comment utiliser Azure CLI pour créer, démarrer et analyser un déclencheur.
+
+### <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Suivez les instructions dans [Créer une fabrique de données Azure à l’aide d’Azure CLI](/azure/data-factory/quickstart-create-data-factory-azure-cli) pour créer une fabrique de données et un pipeline.
+
+### <a name="sample-code"></a>Exemple de code
+
+1. Dans votre répertoire de travail, créez un fichier JSON nommé **MyTrigger.json** avec les propriétés du déclencheur. Pour cet exemple, utilisez le contenu suivant :
+
+    > [!IMPORTANT]
+    > Avant d’enregistrer le fichier JSON, définissez la valeur de **referenceName** sur le nom de votre pipeline. Définissez la valeur de l’élément **startTime** sur l’heure UTC actuelle. Définissez la valeur de l’élément **endTime** sur une (1) heure après l’heure UTC actuelle.
+
+    ```json
+    {
+        "type": "TumblingWindowTrigger",
+        "typeProperties": {
+          "frequency": "Minute",
+          "interval": "15",
+          "startTime": "2017-12-08T00:00:00Z",
+          "endTime": "2017-12-08T01:00:00Z",
+          "delay": "00:00:01",
+          "retryPolicy": {
+            "count": 2,
+            "intervalInSeconds": 30
+          },
+          "maxConcurrency": 50
+        },
+        "pipeline": {
+          "pipelineReference": {
+            "type": "PipelineReference",
+            "referenceName": "DynamicsToBlobPerfPipeline"
+          },
+          "parameters": {
+            "windowStart": "@trigger().outputs.windowStartTime",
+            "windowEnd": "@trigger().outputs.windowEndTime"
+          }
+        },
+        "runtimeState": "Started"
+    }
+    ```
+
+2. Créez un déclencheur en utilisant la commande [az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create) :
+
+    > [!IMPORTANT]
+    > Pour cette étape et toutes les étapes suivantes, remplacez `ResourceGroupName` par le nom de votre groupe de ressources. Remplacez `DataFactoryName` par le nom de votre fabrique de données.
+
+    ```azurecli
+    az datafactory trigger create --resource-group "ResourceGroupName" --factory-name "DataFactoryName"  --name "MyTrigger" --properties @MyTrigger.json  
+    ```
+
+3. Vérifiez que l’état du déclencheur est **Stopped** en utilisant la commande [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) :
+
+    ```azurecli
+    az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
+    ```
+
+4. Démarrez le déclencheur en utilisant la commande [az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start) :
+
+    ```azurecli
+    az datafactory trigger start --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
+    ```
+
+5. Vérifiez que l’état du déclencheur est **Started** en utilisant la commande [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) :
+
+    ```azurecli
+    az datafactory trigger show --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --name "MyTrigger" 
+    ```
+
+6. Obtenez les exécutions du déclencheur dans Azure CLI en utilisant la commande [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory). Pour obtenir plus d’informations sur les exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **last-updated-after** et **last-updated-before** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
+
+    ```azurecli
+    az datafactory trigger-run query-by-factory --resource-group "ResourceGroupName" --factory-name "DataFactoryName" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00Z" --last-updated-before "2017-12-08T01:00:00Z"
+    ```
+---
 
 Pour effectuer la surveillance des exécutions du déclencheur et du pipeline dans le portail Azure, consultez [Surveiller des exécutions de pipelines](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 

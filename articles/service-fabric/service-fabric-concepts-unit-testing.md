@@ -3,19 +3,19 @@ title: Test unitaire des services avec état dans Azure Service Fabric
 description: Découvrez les concepts et pratiques de test unitaire des services avec état dans Service Fabric.
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8247d9c71f73f00bd9b8235778f7256af72ed27
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "75433907"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042614"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Test unitaire des services avec état dans Service Fabric
 
 Cet article aborde les concepts et pratiques de test unitaire des services avec état dans Service Fabric. Les tests unitaires dans Service Fabric méritent leurs propres considérations, eu égard au fait que le code d’application s’exécute activement sous plusieurs contextes différents. Cet article décrit les pratiques permettant de garantir la couverture du code d’application dans chacun des contextes sous lesquels il peut s’exécuter.
 
 ## <a name="unit-testing-and-mocking"></a>Tests unitaires et simulation
-Les tests unitaires dans le contexte de cet article sont des tests automatisés qui peuvent être exécutés dans le contexte d’un exécuteur de tests tel que MSTest ou NUnit. Les tests unitaires décrits dans cet article n’effectuent pas d’opérations sur une ressource distante telle qu’une base de données ou une API RESTFul. Ces ressources distantes doivent être simulées. La simulation dans le contexte de cet article simule, enregistre et contrôle les valeurs de retour pour les ressources distantes.
+Les tests unitaires dans le contexte de cet article sont des tests automatisés qui peuvent être exécutés dans le contexte d’un exécuteur de tests tel que MSTest ou NUnit. Les tests unitaires décrits dans cet article n’effectuent pas d’opérations sur une ressource distante comme une base de données ou une API RESTful. Ces ressources distantes doivent être simulées. La simulation dans le contexte de cet article simule, enregistre et contrôle les valeurs de retour pour les ressources distantes.
 
 ### <a name="service-fabric-considerations"></a>Considérations relatives à Service Fabric
 Quand vous exécutez des tests unitaires sur un service avec état Service Fabric, vous devez prendre en considération plusieurs facteurs. Tout d’abord, le code de service s’exécute sur plusieurs nœuds, mais sous différents rôles. Les tests unitaires doivent évaluer le code sous chaque rôle afin d’obtenir une couverture complète. Les différents rôles sont Principal, Secondaire actif, Secondaire inactif et Inconnu. Le rôle Aucun n’a généralement pas besoin de couverture spéciale, car Service Fabric considère que ce rôle correspond à un service vide ou nul. Ensuite, chaque nœud change son rôle à un moment donné. Pour obtenir une couverture complète, le chemin d’exécution du code doit être testé avec des changements de rôle se produisant.

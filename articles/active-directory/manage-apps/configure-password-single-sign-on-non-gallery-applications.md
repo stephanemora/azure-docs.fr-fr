@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.openlocfilehash: 6ed7241e62b037a2d0ebd5303bd18e3c859d93f0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f8b32e5adda8d09f928b6fc6b447a9363998017f
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639657"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074054"
 ---
 # <a name="add-password-based-single-sign-on-to-an-application-in-azure-active-directory"></a>Ajoutez l’authentification unique basée sur un mot de passe à une application dans le Répertoire actif Azure
 
@@ -61,7 +61,7 @@ Si la tentative d'analyse Azure AD échoue, vous pouvez configurer l’authentif
 1. Sélectionnez **Configurer les Paramètres de l’authentification unique par mot de passe de {nom de l’application}** pour afficher la page **Configurer l’authentification**.
 1. Sélectionnez **Détecter manuellement les champs de connexion**. D’autres instructions qui décrivent la détection manuelle des champs de connexion s’affichent.
 1. Sélectionnez **Capturer les champs de connexion**. Une page d’état de la capture s’ouvre dans un nouvel onglet affichant le message Capture des métadonnées en cours.
-1. Si la mention **Extension Mes applications requise** s’affiche dans un nouvel onglet, sélectionnez **Installer maintenant** pour installer l’extension de navigateur Extension de connexion sécurisée à Mes applications. (Cette extension de navigateur est compatible avec Microsoft Edge, Chrome ou Firefox.) Ensuite, installez, lancez et activez l’extension, puis actualisez la page d’état de la capture. L’extension de navigateur ouvre ensuite un nouvel onglet qui affiche l’URL entrée.
+1. Si la mention **Extension Mes applications requise** s’affiche dans un nouvel onglet, sélectionnez **Installer maintenant** pour installer l’extension de navigateur Extension de connexion sécurisée à Mes applications. (Cette extension de navigateur est compatible avec Microsoft Edge ou Chrome.) Ensuite, installez, lancez et activez l’extension, puis actualisez la page d’état de la capture. L’extension de navigateur ouvre ensuite un nouvel onglet qui affiche l’URL entrée.
 1. Dans l’onglet contenant l’URL saisie, suivez le processus de connexion. Renseignez les champs de nom d’utilisateur et de mot de passe et essayez de vous connecter. (Vous n’avez pas besoin de fournir le mot de passe correct.) Une invite vous demande d’enregistrer les champs de connexion capturés.
 1. Sélectionnez **OK**. L’extension de navigateur met à jour la page d’état de la capture avec le message **Les métadonnées ont été mises à jour pour l’application**. L'onglet du navigateur se ferme.
 1. Dans la page Azure AD Configurer l’authentification, sélectionnez **J’ai pu me connecter à l’application**.

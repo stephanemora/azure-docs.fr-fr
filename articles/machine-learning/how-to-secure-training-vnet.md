@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 38347644557b2e2e3bf76dc4412381ab52396de2
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 7f0d206b9327cad0c58cc92dbec16227c1c22644
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129658554"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000123"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -63,7 +63,7 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
     * Un cluster de calcul peut être mis à l’échelle de manière dynamique. S’il n’y a pas assez d’adresses IP non attribuées, le cluster est alloué partiellement.
     * Une instance de calcul nécessite une seule adresse IP.
 
-* Pour créer une instance de calcul [sans adresse IP publique](#no-public-ip) (fonctionnalité d’évaluation), votre espace de travail doit utiliser un point de terminaison privé pour se connecter au réseau virtuel. Pour plus d’informations, consultez [Configurer un point de terminaison privé pour un espace de travail Azure Machine Learning](how-to-configure-private-link.md).
+* Pour créer une instance ou un cluster de calcul [sans adresse IP publique](#no-public-ip) (fonctionnalité d’évaluation), votre espace de travail doit utiliser un point de terminaison privé pour se connecter au réseau virtuel. Pour plus d’informations, consultez [Configurer un point de terminaison privé pour un espace de travail Azure Machine Learning](how-to-configure-private-link.md).
 * Assurez-vous qu’il n’existe pas de stratégie ou de verrous de sécurité qui restreignent les autorisations de gérer le réseau virtuel. Lors de la vérification des stratégies ou des verrous, examinez l’abonnement et le groupe de ressources du réseau virtuel.
 * Vérifiez si vos stratégies ou verrous de sécurité sur l’abonnement ou le groupe de ressources du réseau virtuel restreignent les autorisations pour gérer le réseau virtuel. 
 * Si vous prévoyez de sécuriser le réseau virtuel en limitant le trafic, consultez la section [Accès Internet public obligatoire](#required-public-internet-access).
@@ -91,10 +91,9 @@ Dans cet article, vous découvrirez comment sécuriser les ressources de calcul 
 
 
         > [!TIP]
-        > Si votre instance de calcul n’utilise pas d’adresse IP publique (fonctionnalité d’évaluation), ces règles de groupe de sécurité réseau entrantes ne sont pas requises. Si vous utilisez également un cluster de calcul, celui-ci aura toujours besoin de ces règles.
-    * Pour les clusters de calcul, une adresse IP publique. Si vous avez des affectations Azure Policy qui interdisent la création d’adresses IP publiques, le déploiement du calcul échouera.
-
-    * Pour l’instance de calcul, il est désormais possible de supprimer l’adresse IP publique (fonctionnalité d’évaluation). Si vous avez des affectations Azure Policy qui interdisent la création d’adresses IP publiques, le déploiement du cluster/des instances échouera.
+        > Si votre instance ou un cluster de calcul n’utilise pas d’adresse IP publique (fonctionnalité d’évaluation), ces règles de groupe de sécurité réseau entrantes ne sont pas requises. 
+        
+    * Pour l’instance ou le cluster de calcul, il est désormais possible de supprimer l’adresse IP publique (fonctionnalité d’évaluation). Si vous avez des affectations Azure Policy qui interdisent la création d’adresses IP publiques, le déploiement du cluster ou de l’instance de calcul réussira.
 
     * Un seul équilibreur de charge
 
@@ -220,6 +219,31 @@ except ComputeTargetException:
 Une fois le processus de création terminé, vous pouvez entraîner votre modèle en utilisant le cluster dans le cadre d’une expérience. Pour plus d’informations, consultez [Sélectionner et utiliser une cible de calcul pour l’entraînement](how-to-set-up-training-targets.md).
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
+### <a name="no-public-ip-for-compute-clusters-preview"></a><a name="no-public-ip-amlcompute"></a>Aucune adresse IP publique pour les clusters de calcul (préversion)
+
+Lorsque vous **n’activez aucune adresse IP publique**, votre cluster de calcul n’utilise pas d’adresse IP publique pour la communication avec les dépendances. Au lieu de cela, elle communique uniquement au sein du réseau virtuel à l’aide de l’écosystème Azure Private Link, ainsi que des points de terminaison de service/privé, ce qui évite de recourir à une adresse IP publique. Aucune adresse IP publique ne supprime l’accès et la détectabilité des nœuds de cluster de calcul à partir d’Internet, ce qui élimine un vecteur de menace significatif. **Aucun cluster IP public** n’aide à se conformer aux stratégies IP publiques de nombreuses entreprises. 
+
+Un cluster de calcul pour laquelle **aucune adresse IP publique** n’est activée n’a **aucune exigence de communication entrante** provenant d’Internet public par rapport à celles du cluster de calcul IP publique. Plus précisément, aucune règle de groupe de sécurité réseau entrante (`BatchNodeManagement`, `AzureMachineLearning`) n’est requise. Vous devez toujours autoriser le trafic provenant de **VirtualNetwork** et de tout port source ainsi que le trafic à destination de **VirtualNetwork** et des ports de destination **29876, 29877**.
+
+**Aucun cluster d’adresses IP publiques** n’est dépendant de l’espace de travail [Azure Private Link](how-to-configure-private-link.md) pour Azure Machine Learning. Un cluster de calcul sans **adresse IP publique** vous oblige également à désactiver les stratégies réseau de point de terminaison privé et les stratégies réseau de service de liaison privée. Ces exigences proviennent du service Azure Private Link et des points de terminaison privés et ne sont pas spécifiques à Azure Machine Learning. Suivez les instructions de la [désactivation des stratégies réseau pour le service Private Link](../private-link/disable-private-link-service-network-policy.md) pour définir les paramètres `disable-private-endpoint-network-policies` et `disable-private-link-service-network-policies` sur le sous-réseau du réseau virtuel.
+
+Pour que les **connexions sortantes** fonctionnent, vous devez configurer un pare-feu de sortie tel que le pare-feu Azure avec des itinéraires définis par l’utilisateur. Par exemple, vous pouvez utiliser un pare-feu configuré avec la [configuration entrante/sortante](how-to-access-azureml-behind-firewall.md) et acheminer le trafic ici en définissant une table de routage sur le sous-réseau dans lequel le cluster de calcul est déployé. L’entrée de table de routage peut définir le tronçon suivant de l’adresse IP privée du pare-feu avec le préfixe d’adresse 0.0.0.0/0.
+
+Vous pouvez utiliser un point de terminaison de service ou un point de terminaison privé pour votre registre de conteneurs Azure et le stockage Azure dans le sous-réseau dans lequel le cluster est déployé.
+
+Pour créer un cluster de calcul d’adresse IP non publique (fonctionnalité d’évaluation) dans Studio, cochez la case **Aucune adresse IP publique** dans la section du réseau virtuel.
+Vous ne pouvez pas non plus créer de cluster de calcul IP publique via un modèle ARM. Dans le modèle ARM, définissez le paramètre enableNodePublicIP sur false.
+
+[!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
+
+**Dépannage**
+
+* Si vous recevez ce message d’erreur lors de la création du cluster « The specified subnet has PrivateLinkServiceNetworkPolicies or PrivateEndpointNetworkEndpoints enabled » (« PrivateLinkServiceNetworkPolicies ou PrivateEndpointNetworkEndpoints est activé pour le sous-réseau »), suivez les instructions de la rubrique [Désactiver les stratégies réseau pour le service de liaison privée](../private-link/disable-private-link-service-network-policy.md) et [Désactiver les stratégies réseau pour le point de terminaison privé](../private-link/disable-private-endpoint-network-policy.md).
+
+* Si l’exécution de la tâche échoue avec des problèmes de connexion à ACR ou à Stockage Azure, vérifiez que le client a ajouté ACR et le point de terminaison de service/les points de terminaison privés Stockage Azure au sous-réseau et que ACR/Stockage Azure autorise l’accès à partir du sous-réseau.
+
+* Pour vous assurer que vous avez créé un cluster d’adresses IP publiques, dans Studio, lorsque vous examinez les détails du cluster, vous ne voyez aucune propriété d'**adresse IP publique** définie sur **true** sous les propriétés de la ressource.
 
 ## <a name="compute-instance"></a>Instance de calcul
 

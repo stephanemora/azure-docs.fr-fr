@@ -3,22 +3,25 @@ title: Surveiller à l’aide de tests web à plusieurs étapes – Azure Applic
 description: Configuration des tests web multiétape pour surveiller vos applications web avec Azure Application Insights
 ms.topic: conceptual
 ms.date: 07/21/2021
-ms.openlocfilehash: d248340aa272a6a1fef386ca755ed46536668ad9
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6e0cbbc772b9eb2f3ad245fcb9728b047d2d7126
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114447995"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993223"
 ---
 # <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 
 Vous pouvez surveiller une séquence enregistrée d’URL et d’interactions avec un site web via des tests web à plusieurs étapes. Cet article vous guidera tout au long du processus de création d’un test web à plusieurs étapes avec Visual Studio Enterprise.
 
+> [!IMPORTANT]
+> [Les tests web multiétapes sont désormais déconseillés](https://azure.microsoft.com/updates/retirement-notice-transition-to-custom-availability-tests-in-application-insights/). Nous recommandons d’utiliser [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) pour envoyer des [tests de disponibilité personnalisés](availability-azure-functions.md) au lieu des tests web multiétapes. Avec TrackAvailability() et les tests de disponibilité personnalisés, vous pouvez exécuter des tests sur le calcul de votre choix et utiliser C# pour créer facilement de nouveaux tests.
+
 > [!NOTE]
 > Les tests web comportant plusieurs étapes **ne sont pas pris en charge** dans le cloud [Azure Government](../../azure-government/index.yml).
 
-> [!NOTE]
-> Les tests web multiétapes sont catégorisés en tant que tests classiques et se trouvent sous **Ajouter un test classique** dans le volet disponibilité.
+
+Les tests web multiétapes sont catégorisés en tant que tests classiques et se trouvent sous **Ajouter un test classique** dans le volet disponibilité.
 
 ## <a name="multi-step-webtest-alternative"></a>Autre solution de test web multiétapes
 

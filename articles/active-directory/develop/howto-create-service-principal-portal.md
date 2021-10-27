@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, subject-rbac-steps
-ms.openlocfilehash: f04dc73c6137e311b309a2009d6493414591eda5
-ms.sourcegitcommit: d2875bdbcf1bbd7c06834f0e71d9b98cea7c6652
+ms.openlocfilehash: 9bcc18a16566f63678fb739b2d453ecc6ffdf3d5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129858885"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993888"
 ---
 # <a name="use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -40,7 +40,7 @@ Vous devez disposer d’autorisations suffisantes pour inscrire une application 
 1. Sélectionnez **Azure Active Directory**.
 1. Recherchez votre rôle sous **Vue d’ensemble**->**Mon flux**. Si vous avez le rôle **Utilisateur**, vous devez vous assurer que les utilisateurs non-administrateurs peuvent inscrire des applications.
 
-   :::image type="content" source="media/howto-create-service-principal-portal/view-user-info.png" alt-text="Recherchez votre rôle. Si vous êtes un utilisateur, vérifiez que les utilisateurs non administrateurs peuvent inscrire des applications.":::
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-info.png" alt-text="Capture d’écran montrant comment trouver votre rôle.":::
 
 1. Dans le volet gauche, sélectionnez **Utilisateurs**, puis **Paramètres utilisateur**.
 1. Vérifiez le paramètre **Inscriptions d’applications**. Cette valeur peut uniquement être définie par un administrateur. Si la valeur est **Oui**, tous les utilisateurs dans le locataire Azure AD peuvent inscrire une application.
@@ -69,7 +69,7 @@ Pour vérifier vos autorisations d’abonnement :
 
 1. Sélectionnez **Attributions de rôles** pour afficher les rôles qui vous sont attribués et déterminez si vous disposez des autorisations appropriées pour attribuer un rôle à une application AD. Si ce n’est pas le cas, demandez à votre administrateur d’abonnement de vous ajouter un rôle Administrateur de l’accès utilisateur. Dans l’image suivante, le rôle Propriétaire est attribué à l’utilisateur, ce qui signifie que l’utilisateur dispose des autorisations appropriées.
 
-   :::image type="content" source="media/howto-create-service-principal-portal/view-user-role.png" alt-text="Cet exemple montre que le rôle Propriétaire est attribué à l’utilisateur":::
+   :::image type="content" source="media/howto-create-service-principal-portal/view-user-role.png" alt-text="Capture d’écran montrant que le rôle Propriétaire est attribué à l’utilisateur.":::
 
 ## <a name="register-an-application-with-azure-ad-and-create-a-service-principal"></a>Inscrire une application avec Azure AD et créer un principal de service
 

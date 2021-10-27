@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 06/04/2021
 ms.author: v-amallick
 ms.custom: include file
-ms.openlocfilehash: 36a45be18e5614371e3e29dc2907f5c25ba772b9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 234d2510f115edf646ac490126e316a7dd3369c1
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111952981"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130019130"
 ---
-L’agent MARS nécessite l’accès aux points de terminaison de service Azure Active Directory, Stockage Azure et Sauvegarde Azure. Pour obtenir les plages d’adresses IP publiques, consultez le [fichier JSON](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519&preserveview=true). Autorisez l’accès aux adresses IP correspondant à Sauvegarde Azure (AzureBackup), Stockage Azure (Storage) et Azure Active Directory (AzureActiveDirectory). En outre, selon votre version de Windows, les vérifications de la connectivité réseau du système d’exploitation auront besoin d’un accès à `www.msftconnecttest.com` ou `www.msftncsi.com`.
+L’agent MARS nécessite l’accès aux points de terminaison de service Azure Active Directory, Stockage Azure et Sauvegarde Azure. Pour obtenir les plages d’adresses IP publiques, consultez le [fichier JSON](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519&preserveview=true). Autorisez l’accès aux adresses IP correspondant à Sauvegarde Azure (`AzureBackup`), Stockage Azure (`Storage`) et Azure Active Directory (`AzureActiveDirectory`). En outre, selon votre version de Windows, les vérifications de la connectivité réseau du système d’exploitation auront besoin d’un accès à `www.msftconnecttest.com` ou `www.msftncsi.com`.
 
 Si votre machine dispose d’un accès limité à Internet, assurez-vous que les paramètres du pare-feu, du proxy et du réseau autorisent l’accès aux noms de domaine complets et aux IP publiques suivants.
 
@@ -26,24 +26,24 @@ Si votre machine dispose d’un accès limité à Internet, assurez-vous que les
 
 - `www.msftncsi.com`
 - `www.msftconnecttest.com`
-- *.microsoft.com
-- *.windowsazure.com
-- *.microsoftonline.com
-- \* .windows.net
+- `*.microsoft.com`
+- `*.windowsazure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 **Adresses IP**
 
-- 20.190.128.0/18
-- 40.126.0.0/18
+- `20.190.128.0/18`
+- `40.126.0.0/18`
 
 Si vous êtes un client du gouvernement des États-Unis, vérifiez que vous avez accès aux URL suivantes :
 
 - `www.msftncsi.com`
-- *.microsoft.com
-- *.windowsazure.us
-- *.microsoftonline.us
-- \* .windows.net
-- *.usgovcloudapi.net
+- `*.microsoft.com`
+- `*.windowsazure.us`
+- `*.microsoftonline.us`
+- `*.windows.net`
+- `*.usgovcloudapi.net`
 
 L’accès à toutes les URL et adresses IP listées ci-dessus utilise le protocole HTTPS sur le port 443.
 
@@ -69,14 +69,14 @@ Pour utiliser le Peering public, assurez-vous que les adresses et domaines suiva
 
 - `www.msftncsi.com`
 - `www.msftconnecttest.com`
-- *.microsoft.com
-- *.windowsazure.com
-- *.microsoftonline.com
-- \* .windows.net
+- `*.microsoft.com`
+- `*.windowsazure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 **Adresses IP**
-- 20.190.128.0/18
-- 40.126.0.0/18
+- `20.190.128.0/18`
+- `40.126.0.0/18`
 
 Pour utiliser le peering Microsoft, sélectionnez les services, les régions et les valeurs de communauté pertinentes suivants :
 - Azure Active Directory (12076:5060)
@@ -95,12 +95,11 @@ Vous pouvez désormais utiliser des points de terminaison privés pour sauvegard
 
 Lorsque vous utilisez l’agent MARS pour sauvegarder vos ressources locales, assurez-vous que votre réseau local (contenant vos ressources à sauvegarder) est appairé au réseau virtuel Azure qui contient un point de terminaison privé pour le coffre. Vous pouvez ensuite continuer à installer l’agent MARS et configurer la sauvegarde. Toutefois, vous devez vous assurer que toutes les communications pour la sauvegarde s’effectuent uniquement par le biais du réseau homologué.
 
-Si vous supprimez des points de terminaison privés pour le coffre après l’enregistrement d’un agent MARS, vous devez réinscrire le conteneur auprès du coffre. Vous n’avez pas besoin d’arrêter leur protection.
-En savoir plus sur les [points de terminaison privés pour Sauvegarde Azure](../articles/backup/private-endpoints.md).
+Si vous supprimez des points de terminaison privés pour le coffre après l’enregistrement d’un agent MARS, vous devez réinscrire le conteneur auprès du coffre. Vous n’avez pas besoin d’arrêter leur protection. Pour plus d’informations, consultez [Points de terminaison privés pour Sauvegarde Azure](../articles/backup/private-endpoints.md).
 
 ### <a name="throttling-support"></a>Prise en charge de la limitation
 
-**Fonctionnalité** | **Détails**
---- | ---
-Contrôle de la bande passante | Pris en charge. Dans l’agent MARS, utilisez **Changer les propriétés** pour ajuster la bande passante.
-Limitation du réseau | Non disponible pour les machines sauvegardées qui exécutent Windows Server 2008 R2, Windows Server 2008 SP2 ou Windows 7.
+| Fonctionnalité | Détails |
+|---|---|
+| Contrôle de la bande passante | Pris en charge. Dans l’agent MARS, utilisez **Changer les propriétés** pour ajuster la bande passante. |
+| Limitation du réseau | Non disponible pour les machines sauvegardées qui exécutent Windows Server 2008 R2, Windows Server 2008 SP2 ou Windows 7. |

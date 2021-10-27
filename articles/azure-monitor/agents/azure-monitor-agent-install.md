@@ -6,12 +6,12 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 13e025845dd4fbd51519f85f1879cc11c6ea102d
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 3e8430499edde638bf32cca2f9a36fb3c3583863
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706899"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178045"
 ---
 # <a name="install-the-azure-monitor-agent"></a>Installer l’agent Azure Monitor
 Cet article présente les différentes options actuellement disponibles pour installer l’[agent Azure Monitor](azure-monitor-agent-overview.md) sur les machines virtuelles Azure et les serveurs avec Azure Arc, ainsi que les options permettant de créer des [associations avec des règles de collecte de données](data-collection-rule-azure-monitor-agent.md) qui définissent les données que l’agent doit collecter.
@@ -46,7 +46,7 @@ Il est vivement recommandé d’effectuer la mise à jour vers les versions GA e
 | Juin 2021 | Disponibilité générale annoncée. <ul><li>Toutes les fonctionnalités à l’exception de la destination des métriques sont désormais en disponibilité générale</li><li>Qualité de production, sécurité et conformité</li><li>Disponibilité dans toutes les régions publiques</li><li>Améliorations des performances et de la mise à l’échelle pour l’EPS le plus élevé</li></ul> [En savoir plus](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
 | Juillet 2021 | <ul><li>Prise en charge des proxies directs</li><li>Prise en charge de la passerelle Log Analytics</li></ul> [En savoir plus](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
 | Août 2021 | Résolution du problème autorisant les métriques Azure Monitor comme seule destination | 1.1.2.0 | 1.10.9.0 (ne pas utiliser 1.10.7.0) |
-| Septembre 2021 | Résolution du problème à l’origine de la perte de données lors du redémarrage de l’agent | 1.1.3.1 | 1.12.2.0 |
+| Septembre 2021 | Résolution du problème à l’origine de la perte de données lors du redémarrage de l’agent | 1.1.3.1 (ne pas utiliser 1.1.3.1) | 1.12.2.0 |
 
 
 ## <a name="install-with-azure-portal"></a>Installer avec Portail Azure
@@ -99,8 +99,8 @@ New-AzConnectedMachineExtension -Name AMAWindows -ExtensionType AzureMonitorWind
 New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location>
 ```
 ---
-## <a name="azure-cli"></a>Azure CLI
-Vous pouvez installer l’agent Azure Monitor sur des machines virtuelles Azure et sur des serveurs avec Azure Arc à l’aide de la commande Azure CLI pour ajouter une extension de machine virtuelle. 
+## <a name="install-with-azure-cli"></a>Installer avec Azure CLI
+Vous pouvez installer l’agent Azure Monitor sur des machines virtuelles Azure et sur des serveurs Azure Arc à l’aide de la commande Azure CLI pour ajouter une extension de machine virtuelle. 
 
 ### <a name="azure-virtual-machines"></a>Machines virtuelles Azure
 Utilisez les commandes CLI suivantes pour installer l’agent Azure Monitor sur des machines virtuelles Azure.
@@ -125,6 +125,35 @@ az connectedmachine extension create --name AzureMonitorWindowsAgent --publisher
 az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
 ```
 ---
+
+
+## <a name="install-with-azure-policy"></a>Installer avec Azure Policy
+Utilisez les stratégies et les initiatives de stratégie suivantes pour installer automatiquement l’agent et l’associer à une règle de collecte de données, chaque fois que vous créez une machine virtuelle.
+
+### <a name="built-in-policy-initiatives"></a>Initiatives de stratégie intégrées
+[Consultez les prérequis de l’installation de l’agent](azure-monitor-agent-install.md#prerequisites). 
+
+Il existe des initiatives de stratégie pour les machines virtuelles Windows et Linux comportant des stratégies individuelles qui :
+
+- Installent l’extension de l’agent Azure Monitor sur la machine virtuelle.
+- Créent et déploient l’association pour lier la machine virtuelle à une règle de collecte des données.
+
+![Capture d’écran partielle des définitions Azure Policy illustrant deux initiatives de stratégie intégrée pour la configuration de l’agent Azure Monitor.](media/azure-monitor-agent-install/built-in-ama-dcr-initiatives.png)  
+
+### <a name="built-in-policies"></a>Stratégies prédéfinies 
+Vous pouvez choisir d’utiliser les stratégies individuelles venant de leurs initiatives de stratégie respectives, en fonction de vos besoins. Par exemple, si vous ne souhaitez installer automatiquement que l’agent, utilisez la première stratégie de l’initiative, comme dans l’exemple ci-dessous.  
+
+![Capture d’écran partielle de la page des définitions Azure Policy illustrant les stratégies contenues dans l’initiative pour la configuration de l’agent Azure Monitor.](media/azure-monitor-agent-install/built-in-ama-dcr-policy.png)  
+
+### <a name="remediation"></a>Correction
+Les initiatives ou les stratégies s’appliquent à chaque machine virtuelle au moment où elle est créée. Une [tâche de correction](../../governance/policy/how-to/remediate-resources.md) déploie les définitions de stratégie dans l’initiative sur les *ressources existantes*, ce qui vous permet de configurer l’agent Azure Monitor pour toutes les ressources qui ont déjà été créées. 
+
+Quand vous créez l’affectation à partir du portail Azure, vous avez la possibilité de créer une tâche de correction simultanément. Pour plus d’informations sur la correction, consultez [Corriger les ressources non conformes avec Azure Policy](../../governance/policy/how-to/remediate-resources.md).
+
+![Capture d’écran montrant la mise à jour de l’initiative pour l’agent Azure Monitor.](media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png)
+
+## <a name="diagnostic-settings"></a>Paramètres de diagnostic
+Les [paramètres de diagnostic](../essentials/diagnostic-settings.md) collectent les journaux de ressources et les métriques à partir des ressources Azure et les acheminent vers plusieurs emplacements. Un emplacement standard est un espace de travail Log Analytics qui vous permet d’analyser les données avec les [requêtes de journal](../logs/log-query-overview.md) et les [alertes de journal](../alerts/alerts-log.md). Utilisez Azure Policy pour créer automatiquement un paramètre de diagnostic chaque fois que vous créez une ressource.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

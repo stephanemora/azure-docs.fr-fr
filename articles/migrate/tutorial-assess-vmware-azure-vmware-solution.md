@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 31bf3909012231996bd340cfa4d388f0fe20a4f5
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: a2637fbfcaf1e30b1df9f0739630ea2883eba3fa
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782125"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129994198"
 ---
 # <a name="tutorial-assess-vmware-servers-for-migration-to-avs"></a>Tutoriel : Évaluer les serveurs VMware pour les migrer vers AVS
 
@@ -127,11 +127,12 @@ Exécutez une évaluation comme suit :
 
 Une évaluation AVS décrit les éléments suivants :
 
-- Préparation AVS : Si les serveurs locaux sont adaptés à la migration vers Azure VMware Solution (AVS).
-- Nombre de nœuds AVS : Estimation du nombre de nœuds AVS requis pour exécuter les serveurs.
-- Utilisation des nœuds AVS: Utilisation estimée du processeur, de la mémoire et du stockage sur tous les nœuds.
-    - L’utilisation comprend la factorisation initiale dans le cadre des opérations de gestion de cluster suivantes, par exemple vCenter Server, NSX Manager (grand), NSX Edge,HCX Manager (si HCX est déployé) et l’appliance IX, qui consomment environ 44 processeurs virtuels (11 processeurs), 75 Go de RAM et 722 Go de stockage avant compression et déduplication. 
-- Estimation des coûts mensuels : Les coûts mensuels estimés pour tous les nœuds Azure VMware Solution (AVS) exécutant les serveurs locaux.
+- **Préparation pour Azure VMware Solution (AVS)** : Si les serveurs locaux sont adaptés à la migration vers Azure VMware Solution (AVS).
+- **Nombre de nœuds Azure VMware Solution** : Nombre estimé de nœuds Azure VMware Solution nécessaires pour exécuter les serveurs.
+- **Utilisation des nœuds AVS**: Utilisation estimée du processeur, de la mémoire et du stockage sur tous les nœuds.
+    - L’utilisation comprend la factorisation initiale dans le cadre des opérations de gestion de cluster suivantes, par exemple vCenter Server, NSX Manager (grand), NSX Edge, HCX Manager (si HCX est déployé) et l’appliance IX, qui consomment environ 44 vCPU (11 processeurs), 75 Go de RAM et 722 Go de stockage avant compression et déduplication.
+    - Le facteur de limitation détermine le nombre d’hôtes/nœuds nécessaires pour prendre en charge les ressources.
+- **Estimation des coûts mensuels** : Les coûts mensuels estimés pour tous les nœuds Azure VMware Solution (AVS) exécutant les machines virtuelles locales.
 
 ## <a name="view-an-assessment"></a>Voir une évaluation
 
@@ -143,7 +144,7 @@ Pour voir une évaluation :
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="Récapitulatif de l’évaluation AVS":::
 
-1. Passez en revue le récapitulatif de l’évaluation. Vous pouvez également modifier les propriétés de l’évaluation ou recalculer celle-ci.
+1. Passez en revue le récapitulatif de l’évaluation. Vous pouvez cliquer sur les **hypothèses de dimensionnement** pour comprendre les hypothèses prises en compte dans le dimensionnement des nœuds et les calculs d’utilisation des ressources. Vous pouvez également modifier les propriétés de l’évaluation ou recalculer celle-ci.
  
 
 ### <a name="review-readiness"></a>Vérifier la préparation nécessaire
@@ -178,8 +179,6 @@ Ce résumé d’évaluation montre une estimation des coûts de calcul et de sto
 ### <a name="review-confidence-rating"></a>Examiner le niveau de confiance
 
 Server Assessment attribue un niveau de confiance aux évaluations basées sur les performances. Ce niveau est exprimé en étoiles, 1 étoile étant le plus bas niveau et 5 étoiles le plus haut.
-
-![Niveau de confiance](./media/tutorial-assess-vmware-azure-vmware-solution/confidence-rating.png)
 
 Le niveau de confiance vous permet d’estimer la fiabilité des suggestions qui sont fournies par l’évaluation concernant la taille. Le niveau de confiance est basé sur la disponibilité des points de données nécessaires pour calculer l’évaluation.
 

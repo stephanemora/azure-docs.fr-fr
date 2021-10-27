@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 10/11/2021
-ms.openlocfilehash: 07e48fba8bfb554604d875f9f4a041fed466dbe7
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 5523b04235ce386e62abc175ac498f4df34b0641
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754707"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132300"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Nouveautés d’Azure Sentinel
 
@@ -35,9 +35,14 @@ Si vous recherchez des éléments datant de plus de six mois, vous les trouverez
 
 ## <a name="october-2021"></a>Octobre 2021
 
+- [Defender pour les événements Office 365 est désormais disponible dans le connecteur M365 Defender (préversion publique)](#defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview)
 - [Modèles de playbook et galerie désormais disponibles (préversion publique)](#playbook-templates-and-gallery-now-available-public-preview)
 - [Gestion des versions des modèles pour vos règles d’analyse planifiée (préversion publique)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [Schéma de normalisation DHCP (préversion publique)](#dhcp-normalization-schema-public-preview)
+
+### <a name="defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview"></a>Defender pour les événements Office 365 est désormais disponible dans le connecteur M365 Defender (préversion publique)
+
+En plus des événements de Microsoft Defender pour point de terminaison, vous pouvez maintenant ingérer des [événements bruts de chasse avancée](/microsoft-365/security/defender/advanced-hunting-overview) de [Microsoft Defender pour Office 365](/microsoft-365/security/office-365-security/overview) via le [connecteur Microsoft 365 Defender](connect-microsoft-365-defender.md). [Plus d’informations](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection)
 
 ### <a name="playbook-templates-and-gallery-now-available-public-preview"></a>Modèles de playbook et galerie désormais disponibles (préversion publique)
 
@@ -199,7 +204,6 @@ Pour plus d'informations, consultez les pages suivantes :
 - [Watchlists en disponibilité générale](#watchlists-are-in-general-availability)
 - [Prise en charge de la résidence des données dans plus de zones géographiques](#support-for-data-residency-in-more-geos)
 - [Synchronisation bidirectionnelle dans le connecteur Azure Defender (préversion publique)](#bidirectional-sync-in-azure-defender-connector-public-preview)
-
 
 ### <a name="microsoft-threat-intelligence-matching-analytics-public-preview"></a>Analyse de correspondance Microsoft Threat Intelligence (préversion publique)
 

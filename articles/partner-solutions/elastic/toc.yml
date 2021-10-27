@@ -1,0 +1,17 @@
+- name: Documentation de l’intégration d’Elastic à Azure
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: "Qu’est-ce qu’Elastic\_?"
+      href: overview.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Créer une ressource Elastic
+      href: create.md
+- name: Procédures
+  items:
+    - name: Gérer l’intégration
+      href: manage.md
+    - name: Dépanner
+      href: troubleshoot.md

@@ -8,19 +8,16 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 09/15/2021
 ms.author: helohr
-ms.openlocfilehash: e6325c6511c6df9c3f3c021bc24a3f66b2e56c0f
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 7b4ec084b39d7efde884f0cee0235f6fd3653538
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207732"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987097"
 ---
 # <a name="deploy-azure-ad-joined-virtual-machines-in-azure-virtual-desktop"></a>Déployer des machines virtuelles jointes Azure AD dans Azure Virtual Desktop
 
 Cet article vous guide tout au long du processus de déploiement et d’accès aux machines virtuelles jointes à Azure Active Directory dans Azure Virtual Desktop. Les machines virtuelles jointes à Azure AD suppriment la nécessité de devoir contrôler la connexion entre la machine virtuelle et un contrôleur de domaine Active Directory (DC) local ou virtualisé, ou de déployer Azure AD Domain services (Azure AD DS). Dans certains cas, il évite de recourir à un contrôleur de domaine, ce qui simplifie le déploiement et la gestion de l’environnement. Ces machines virtuelles peuvent également être inscrites automatiquement dans Intune pour faciliter la gestion.
-
-> [!NOTE]
-> Les machines virtuelles jointes Azure AD ne sont actuellement prises en charge que dans le Cloud commercial Azure.
 
 ## <a name="supported-configurations"></a>Configurations prises en charge
 
@@ -50,6 +47,7 @@ Vous pouvez déployer des machines virtuelles jointes à Azure AD directement �
 > [!NOTE]
 > - Les pools hôtes doivent contenir uniquement des machines virtuelles du même type de jonction de domaine. Par exemple, les machines virtuelles jointes à Active Directory doivent uniquement être associées à d’autres machines virtuelles AD, et vice versa.
 > - Les machines virtuelles du pool hôte doivent être de type Windows 10 session unique ou multisession, version 2004 ou ultérieure.
+> - La gestion des hôtes de session d’Azure Virtual Desktop à l’aide de Microsoft Endpoint Manager (Intune) est actuellement prise en charge uniquement dans le cloud public azure.
 
 ### <a name="assign-user-access-to-host-pools"></a>Affecter l’accès utilisateur aux pools d’ordinateurs hôtes
 

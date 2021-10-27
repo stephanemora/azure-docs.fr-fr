@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 10/08/2021
 ms.author: pafarley
 ms.custom: contperf-fy21q2, references_regions
-ms.openlocfilehash: 01cd31d60306968580df5bd6d67a3136d49d2277
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 58de4dacfbd2cb75c3bbfe4a77cda79fe99ffd75
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123542158"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130004442"
 ---
 # <a name="what-is-custom-speech"></a>Qu’est-ce que Custom Speech ?
 
@@ -63,7 +63,7 @@ Si vous comptez effectuer l’entraînement d’un modèle personnalisé avec de
 
 Une fois que vous avez créé un compte Azure et un abonnement au service Speech, vous devez vous connecter à [Speech Studio](https://speech.microsoft.com/customspeech) et connecter votre abonnement.
 
-1. Connectez-vous à [Speech Studio](https://aka.ms/custom-speech).
+1. Connectez-vous à [Speech Studio](https://aka.ms/speechstudio/customspeech).
 1. Sélectionnez l’abonnement dans lequel vous devez travailler, puis créez un projet Speech.
 1. Si vous souhaitez modifier votre abonnement, sélectionnez le bouton en forme de rouage dans le menu supérieur.
 
@@ -74,7 +74,7 @@ Les contenus tels que les données, les modèles, les tests et les points de ter
 Pour créer votre premier projet, sélectionnez **Speech-to-text/Custom speech**, puis **Nouveau projet**. Suivez les instructions fournies par l’Assistant pour créer votre projet. Une fois le projet créé, vous devriez voir quatre onglets : **Data**, **Testing**, **Training** et **Deployment**. Utilisez les liens fournis dans [Étapes suivantes](#next-steps) pour savoir comment utiliser chaque onglet.
 
 > [!IMPORTANT]
-> [Speech Studio](https://aka.ms/custom-speech), qui s’appelait « portail Custom Speech », a été récemment mis à jour ! Si vous avez créé antérieurement des données, modèles, tests et points de terminaison publiés sur le portail CRIS.ai ou à l’aide d’API, vous devez créer un projet sur le nouveau portail pour vous connecter à ces anciennes entités.
+> [Speech Studio](https://aka.ms/speechstudio) (anciennement connu sous le nom « portail Custom Speech ») a été récemment mis à jour ! Si vous avez créé antérieurement des données, modèles, tests et points de terminaison publiés sur le portail CRIS.ai ou à l’aide d’API, vous devez créer un projet sur le nouveau portail pour vous connecter à ces anciennes entités.
 
 ## <a name="model-and-endpoint-lifecycle"></a>Cycle de vie des modèles et des points de terminaison
 

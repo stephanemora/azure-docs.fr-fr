@@ -11,17 +11,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/8/2021
+ms.date: 10/18/2021
 ms.author: gunnarc
-ms.openlocfilehash: 76807a8f653de9a48c91c5d6429869ae0e5c9312
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 194e425ca62cbe36fa163efaf88a75fb7e1f09f9
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728871"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130175880"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+>[!NOTE] 
+
+>Le système d’exploitation invité octobre est actuellement déployé sur les machines virtuelles du service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité octobre. Cette liste est susceptible d’être modifiée. 
+
+## <a name="october-2021-guest-os"></a>Système d’exploitation invité, octobre 2021
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 21-10 |  [5006672]  |  Dernière mise à jour cumulative (LCU) | 6.36 | 12 octobre 2021 |
+|  Version 21-10 |  [5006671]  |  Mises à jour cumulatives d’IE | 2.115, 3.102, 4.95 | 12 octobre 2021 |
+|  Version 21-10 |  [5006699]  |  Mises à jour cumulatives d’IE | 7,00 | 12 octobre 2021 |
+|  Version 21-10 |  [5006669]  |  Dernière mise à jour cumulative (LCU) | 5.60 | 12 octobre 2021 |
+|  Version 21-10 |  [4578952]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 2.115 | 16 février 2021 |
+|  Version 21-10 |  [4578955]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 2.115 | 8 juin 2021 |
+|  Version 21-10 |  [4578953]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 4.95 | 16 février 2021 |
+|  Version 21-10 |  [4578956]  |  Cumul de la sécurité et de la qualité de .NET Framework 4.5.2  | 4.95 | 16 février 2021 |
+|  Version 21-10 |  [4578950]  |  Cumul de la sécurité et de la qualité de .NET Framework 3.5  | 3.102 | 16 février 2021 |
+|  Version 21-10 |  [4578954]  |  . Correctifs cumulatifs de sécurité et de qualité de NET Framework 4.5.2  | 3.102 | 16 février 2021 |
+|  Version 21-10 |  [5004335]  |  . Mise à jour cumulative de .NET Framework 3.5 et 4.7.2  | 6.36 | 10 août 2021 |
+|  Version 21-10 |  [5006743]  |  Correctif cumulatif mensuel  | 2.115 | 14 septembre 2021 |
+|  Version 21-10 |  [5006739]  |  Correctif cumulatif mensuel  | 3.102 | 14 septembre 2021 |
+|  Version 21-10 |  [5006714]  |  Correctif cumulatif mensuel  | 4.95 | 14 septembre 2021 |
+|  Version 21-10 |  [5001401]  |  Mise à jour de la pile de maintenance  | 3.102 | 13 avril 2021 |
+|  Version 21-10 |  [5001403]  |  Mise à jour de la pile de maintenance  | 4.95 | 13 avril 2021 |
+|  Version 21-10 OOB |  [4578013]  |  Mise à jour de sécurité autonome  | 4.95 | 19 août 2020 |
+|  Version 21-10 |  [5005698]  |  Mise à jour de la pile de maintenance  | 5.60 | 14 septembre 2021 |
+|  Version 21-10 |  [5006749]  |  Mise à jour de la pile de maintenance  | 2.115 | 13 juillet 2021 |
+|  Version 21-10 |  [5005701]  |  Mise à jour de la pile de maintenance  | 6.36 | 10 août 2021 |
+|  Version 21-10 |  [4494175]  |  Microcode  | 5.60 | 1er septembre 2020 |
+|  Version 21-10 |  [4494174]  |  Microcode  | 6.36 | 1er septembre 2020 |
+
+[5006672]: https://support.microsoft.com/kb/5006672
+[5006671]: https://support.microsoft.com/kb/5006671
+[5006699]: https://support.microsoft.com/kb/5006699
+[5006669]: https://support.microsoft.com/kb/5006669
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[5004335]: https://support.microsoft.com/kb/5004335
+[5006743]: https://support.microsoft.com/kb/5006743
+[5006739]: https://support.microsoft.com/kb/5006739
+[5006714]: https://support.microsoft.com/kb/5006714
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5005698]: https://support.microsoft.com/kb/5005698
+[5006749]: https://support.microsoft.com/kb/5006749
+[5005701]: https://support.microsoft.com/kb/5005701
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+
 
 ## <a name="september-2021-guest-os"></a>Système d’exploitation invité - Septembre 2021
 
@@ -1208,7 +1263,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 10-19   |  [4516655]  |  SSU   |  [2.91]  |  10 septembre 2019  |
 |  Version 10-19   |  [4516055]  |  Non relatif à la sécurité   |  [3.78]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512939]  |  SSU   |  [3.78]  |  10 septembre 2019  |
-|  Version 10-19   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  10 septembre 2019  |
+|  Version 10-19   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  10 septembre 2019  |
 |  Version 10-19   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  10 septembre 2019  |
 |  Version 10-19   |  [4516067]  |  Non liée à la sécurité   |  [4.71]  |  10 septembre 2019  |
 |  Version 10-19   |  [4512938]  |  SSU   |  [4.71]  |  10 septembre 2019  |

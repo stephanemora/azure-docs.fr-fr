@@ -1,18 +1,19 @@
 ---
-title: Tutoriel – Émettre des justificatifs vérifiables Azure AD à partir d’une application
+title: Tutoriel – Émettre des justificatifs vérifiables Azure AD à partir d’une application (préversion)
 description: Dans ce tutoriel, vous allez apprendre à émettre des justificatifs vérifiables à l’aide d’un exemple d’application.
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: ded592a6c33ce592aae70c98c757c8262fd8a42b
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 2e0d1028efab3b157c21c90944a8bcd41be04c55
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730832"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070733"
 ---
 # <a name="issue-azure-ad-verifiable-credentials-from-an-application-preview"></a>Émettre des justificatifs vérifiables Azure AD à partir d’une application (préversion)
 
@@ -37,7 +38,7 @@ Le diagramme suivant illustre l’architecture des justificatifs vérifiables Az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Avant de commencer, il est important de [configurer un locataire pour les justificatifs vérifiables Azure AD](https://tbd-link-to-the-tenant-config-article/).
+- Avant de commencer, il est important de [configurer un locataire pour les justificatifs vérifiables Azure AD](/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant).
 - Pour cloner le dépôt qui héberge l’exemple d’application, installez [GIT](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/Download) ou un éditeur de code similaire.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)

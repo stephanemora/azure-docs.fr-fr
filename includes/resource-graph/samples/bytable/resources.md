@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 09/03/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: cabddc920971d75bc609ce5b0b736cefca6ce1d4
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 8839fb93bd04e3a26538d6753ce59f2304adbde2
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123535880"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130050809"
 ---
 ### <a name="combine-results-from-two-queries-into-a-single-result"></a>Combiner les résultats de deux requêtes en un résultat unique
 
@@ -572,7 +572,7 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ### <a name="list-all-extensions-installed-on-an-azure-arc-enabled-server"></a>Lister toutes les extensions installées sur un serveur avec Azure Arc
 
-Tout d’abord, cette requête utilise `project` sur le type de ressource de machine hybride pour obtenir l’ID en majuscules (`toupper()`), obtenir le nom d’ordinateur et le système d’exploitation en cours d’exécution sur la machine. L’obtention de l’ID de ressource en majuscules est un bon moyen de préparer une opération `join` avec une autre propriété. Ensuite, la requête utilise `join` avec **kind** comme _leftouter_ pour obtenir les extensions en établissant une correspondance avec une `substring` en majuscules de l’ID d’extension. La partie de l’ID avant `/extensions/<ExtensionName>` ayant le même format que l’ID de machine hybride, nous utilisons cette propriété pour `join`. `summarize` est ensuite utilisé avec `make_list` sur le nom de l’extension de machine virtuelle pour combiner le nom de chaque extension où _id_, _OSName_ et _ComputerName_ sont les mêmes dans une propriété monotableau. Enfin, nous effectuons un tri par _OSName_ en minuscules avec **asc**. Par défaut, `order by` est décroissant.
+Tout d’abord, cette requête utilise `project` sur le type de ressource de machine hybride pour obtenir l’ID en majuscules (`toupper()`), obtenir le nom d’ordinateur et le système d’exploitation en cours d’exécution sur la machine. L’obtention de l’ID de ressource en majuscules est un bon moyen de préparer une opération `join` avec une autre propriété. La requête utilise alors `join` avec **kind** comme _leftouter_ pour obtenir les extensions en établissant une correspondance avec une `substring` en majuscules de l’ID d’extension. La partie de l’ID avant `/extensions/<ExtensionName>` ayant le même format que l’ID de machine hybride, nous utilisons cette propriété pour `join`. `summarize` est ensuite utilisé avec `make_list` sur le nom de l’extension de machine virtuelle pour combiner le nom de chaque extension où _id_, _OSName_ et _ComputerName_ sont les mêmes dans une propriété monotableau. Pour finir, nous effectuons un tri par _OSName_ en minuscules avec **asc**. Par défaut, `order by` est décroissant.
 
 ```kusto
 Resources
@@ -757,9 +757,9 @@ Search-AzGraph -Query "ResourceContainers | where isnotempty(tags) | project tag
 
 ---
 
-### <a name="list-arc-enabled-servers-not-running-latest-released-agent-version"></a>Lister les serveurs avec Arc qui n’exécutent pas la dernière version publiée de l’agent
+### <a name="list-arc-enabled-servers-not-running-latest-released-agent-version"></a>Lister les serveurs avec Arc n’exécutant pas la dernière version de l’agent publiée
 
-Cette requête retourne tous les serveurs avec Arc qui exécutent une version obsolète de l’agent Connected Machine. Les agents dont l’état est **Expiré** sont exclus des résultats. La requête utilise _leftouter_ `join` pour réunir les recommandations Advisor en rapport avec les agents Connected Machine identifiés comme obsolètes, ainsi que sur les ordinateurs hybrides, de manière à exclure les agents qui n’ont pas communiqué avec Azure pendant une période donnée.
+Cette requête retourne tous les serveurs avec Arc exécutant une version obsolète d’Azure Connected Machine Agent. Les agents dont l’état est **Expiré** sont exclus des résultats. La requête utilise _leftouter_ `join` pour réunir les recommandations d’Advisor en rapport avec les agents Connected Machine identifiés comme obsolètes, et des machines hybrides pour filtrer tout agent qui n’a pas communiqué avec Azure pendant une période donnée.
 
 ```kusto
 AdvisorResources

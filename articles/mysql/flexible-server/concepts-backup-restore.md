@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 7564db786084964fa0aca38c6ce8b722b0f3a95a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 67a38e0d9a209c12925e54f208c8cc3a614fbe34
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562754"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065985"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Sauvegarder et restaurer dans un serveur flexible Azure Database pour MySQL (préversion)
 
@@ -32,9 +32,33 @@ Vous ne pouvez pas exporter ces fichiers de sauvegarde. Les sauvegardes sont uti
 
 Les sauvegardes sur des serveurs flexibles sont basées sur des captures instantanées. La première sauvegarde de captures instantanées est planifiée immédiatement après la création d’un serveur. Les sauvegardes de captures instantanées interviennent une fois par jour. Les sauvegardes des journaux des transactions se produisent toutes les cinq minutes.
 
+## <a name="backup-redundancy-options"></a>Options de redondance de sauvegarde
+
+Azure Database pour MySQL stocke plusieurs copies de vos sauvegardes afin que vos données soient protégées contre des événements planifiés ou non, notamment des défaillances matérielles temporaires, des pannes de réseau ou de courant, et des catastrophes naturelles majeures. Azure Database pour MySQL offre la possibilité de choisir entre le stockage de sauvegarde redondant localement, redondant interzone ou géoredondant dans les niveaux De base, Usage général et À mémoire optimisée. Par défaut, le stockage de sauvegarde de serveur Azure Database pour MySQL est redondant localement pour les serveurs avec une configuration haute disponibilité dans la même zone ou une configuration sans haute disponibilité, et redondant interzone pour les serveurs avec une configuration de haute disponibilité redondante interzone.
+
+La redondance de sauvegarde garantit que votre base de données est conforme à ses objectifs de disponibilité et de durabilité même en cas de défaillance et Azure Database pour MySQL propose trois options aux utilisateurs : 
+
+- **Stockage de sauvegarde redondant localement** : lorsque les sauvegardes sont stockées dans un stockage de sauvegarde redondant localement, plusieurs copies des sauvegardes sont stockées dans le même centre de données. Cette option protège vos données contre les défaillances de disque et de rack du serveur. Cela fournit également une durabilité d’au moins 99,999999999 % (11 9) des objets Sauvegardes sur une année donnée. Par défaut, le stockage de sauvegarde pour les serveurs avec une configuration haute disponibilité (HA) dans la même zone ou une configuration sans haute disponibilité est défini sur redondant localement.  
+
+- **Stockage de sauvegarde redondant interzone** : lorsque les sauvegardes sont stockées dans un stockage de sauvegarde redondant interzone, les copies multiples sont non seulement stockées dans la zone de disponibilité où votre serveur est hébergé, mais elles sont également répliquées dans une autre zone de disponibilité de la même région. Cette option peut être utilisée pour les scénarios qui nécessitent une haute disponibilité ou pour limiter la réplication des données au sein d’un pays ou d’une région afin de répondre aux exigences en matière de résidence des données. Cela fournit également une durabilité d’au moins 99,9999999999 % (12 9) des objets Sauvegardes sur une année donnée. Vous pouvez sélectionner l’option Haute disponibilité redondante interzone au moment de la création du serveur pour garantir un stockage de sauvegarde redondant interzone. La haute disponibilité d’un serveur peut être désactivée après la création, mais le stockage de sauvegarde restera redondant interzone.  
+
+- **Stockage de sauvegarde géoredondant** : lorsque les sauvegardes sont stockées dans un stockage de sauvegarde géoredondant, les copies multiples sont non seulement stockées dans la région où votre serveur est hébergé, mais sont également répliquées dans la région associée géographiquement. Cela permet de bénéficier d’une meilleure protection et de la possibilité de restaurer votre serveur dans une région différente en cas de sinistre. Cela fournit également une durabilité d’au moins 99,99999999999999 % (16 9) des objets Sauvegardes sur une année donnée. Vous pouvez activer l’option Géoredondance au moment de la création du serveur pour garantir un stockage de sauvegarde géoredondant. La géoredondance est prise en charge pour les serveurs hébergés dans l’une des [régions Azure appairées](../../best-practices-availability-paired-regions.md). 
+
+> [!NOTE]
+> La géoredondance et la haute disponibilité redondante interzone pour prendre en charge la redondance de zone sont actuellement exposées comme une opération au moment de la création uniquement.
+
+## <a name="moving-from-other-backup-storage-options-to-geo-redundant-backup-storage"></a>Migration à partir d’autres options de stockage de sauvegarde vers un stockage de sauvegarde géoredondant 
+
+La configuration du stockage géoredondant pour la sauvegarde est uniquement possible lors de la création du serveur. Une fois que le serveur est approvisionné, vous ne pouvez pas modifier l’option de redondance du stockage de sauvegarde. Toutefois, vous pouvez toujours déplacer votre stockage de sauvegarde existant vers un stockage géoredondant en utilisant les méthodes suggérées suivantes : 
+
+- **Migration à partir d’un stockage de sauvegarde redondant localement vers un stockage de sauvegarde géoredondant** : pour déplacer votre stockage de sauvegarde à partir d’un stockage redondant localement vers un stockage géoredondant, vous pouvez effectuer une opération de restauration à un point dans le temps et modifier la configuration du serveur Calcul + Stockage afin d’activer la géoredondance pour le serveur source redondant localement. Les serveurs HA redondants interzone peuvent également être restaurés en tant que serveur géoredondant de la même façon que le stockage de sauvegarde sous-jacent est redondant localement. 
+
+- **Migration à partir d’un stockage de sauvegarde redondant interzone vers un stockage de sauvegarde géoredondant** : Azure Database pour MySQL ne prend pas en charge la conversion de stockage redondant interzone en stockage géoredondant via la modification des paramètres Calcul + Stockage ou une opération de restauration à un point dans le temps. Pour déplacer votre stockage de sauvegarde d’un stockage redondant interzone vers un stockage géoredondant, la seule option prise en charge est la création d’un nouveau serveur et la migration des données à l’aide du [vidage et de la restauration](../concepts-migrate-dump-restore.md).
+
+
 ## <a name="backup-retention"></a>Rétention des sauvegardes
 
-Les sauvegardes de base de données sont enregistrées dans un stockage localement redondant (LRS) qui est stocké dans trois copies au sein d’une région. Les sauvegardes sont conservées en fonction du paramètre de période de rétention de sauvegarde sur le serveur. Vous pouvez sélectionner une période de rétention comprise entre 1 et 35 jours avec une période de rétention par défaut de sept jours. Vous pouvez définir la période de rétention lors de la création du serveur ou ultérieurement en mettant à jour la configuration de la sauvegarde à l’aide du portail Azure.
+Les sauvegardes sont conservées en fonction du paramètre de période de rétention de sauvegarde sur le serveur. Vous pouvez sélectionner une période de rétention comprise entre 1 et 35 jours avec une période de rétention par défaut de sept jours. Vous pouvez définir la période de rétention lors de la création du serveur ou ultérieurement en mettant à jour la configuration de la sauvegarde à l’aide du portail Azure.
 
 La période de rétention de sauvegarde détermine jusqu’à quelle date une opération de restauration à un instant dans le passé peut être effectuée, dans la mesure où elle est basée sur des sauvegardes disponibles. La période de rétention de sauvegarde peut également être traitée comme une fenêtre de récupération du point de vue de la restauration. Toutes les sauvegardes requises pour effectuer une restauration à un instant dans le passé au cours de la période de rétention de sauvegarde sont conservées dans le stockage de sauvegarde. Par exemple, si la période de conservation des sauvegardes est définie sur sept jours, la fenêtre de récupération est considérée comme les sept derniers jours. Dans ce scénario, toutes les sauvegardes nécessaires pour la restauration du serveur au cours des sept derniers jours sont conservées. Avec une fenêtre de rétention de sauvegarde de sept jours, les captures instantanées de base de données et les sauvegardes du journal des transactions sont stockées pour les huit derniers jours (1 jour avant la fenêtre).
 
@@ -42,15 +66,32 @@ La période de rétention de sauvegarde détermine jusqu’à quelle date une op
 
 Le serveur flexible fournit jusqu’à 100 % du stockage de votre serveur provisionné en stockage de sauvegarde sans coût supplémentaire. Tous les stockages de sauvegarde supplémentaires utilisés sont facturés en Go par mois. Par exemple, si vous avez configuré un serveur avec 250 Go de stockage, vous disposez de 250 Go de stockage pour les sauvegardes du serveur sans frais supplémentaires. Si l’utilisation quotidienne de la sauvegarde est de 25 Go, vous pouvez bénéficier jusqu’à 10 jours de stockage de sauvegarde gratuit. Le stockage utilisé pour les sauvegardes de plus de 250 Go est facturé conformément au [modèle de tarification](https://azure.microsoft.com/pricing/details/mysql/).
 
-Vous pouvez utiliser la métrique [Stockage de sauvegarde utilisé](./concepts-monitoring.md) dans Azure MoniTor disponible dans le portail Azure pour surveiller le stockage de sauvegarde consommé par un serveur. La métrique utilisée **Stockage de sauvegarde** représente le total du stockage consommé par l’ensemble des sauvegardes de base de données et des sauvegardes de journaux qui sont conservées en fonction de la période de conservation des sauvegardes définie pour le serveur. Une activité transactionnelle importante sur le serveur peut entraîner une augmentation de l’utilisation du stockage de sauvegarde, quelle que soit la taille totale de la base de données.
+Vous pouvez utiliser la métrique [Stockage de sauvegarde utilisé](./concepts-monitoring.md) dans Azure MoniTor disponible dans le portail Azure pour surveiller le stockage de sauvegarde consommé par un serveur. La métrique utilisée **Stockage de sauvegarde** représente le total du stockage consommé par l’ensemble des sauvegardes de base de données et des sauvegardes de journaux qui sont conservées en fonction de la période de conservation des sauvegardes définie pour le serveur. Une activité transactionnelle importante sur le serveur peut entraîner une augmentation de l’utilisation du stockage de sauvegarde, quelle que soit la taille totale de la base de données. Le stockage de sauvegarde utilisé pour un serveur géoredondant est le double de celui d’un serveur redondant localement.
 
 Le principal moyen de contrôler le coût du stockage de sauvegarde consiste à définir la période de rétention de sauvegarde appropriée. Vous pouvez sélectionner une période de rétention comprise entre 1 et  35 jours.
 
 > [!IMPORTANT]
 > Les sauvegardes à partir d’un serveur de base de données configuré dans une configuration de haute disponibilité redondante interzone se produisent à partir du serveur de base de données principal, car la surcharge est minime avec des sauvegardes de capture instantanée.
 
-> [!IMPORTANT]
-> Les sauvegardes géoredondantes ne sont pas prises en charge actuellement avec un serveur flexible.
+## <a name="restore"></a>Restaurer
+
+Dans Azure Database pour MySQL, l’exécution d’une restauration crée un serveur à partir de sauvegardes du serveur d’origine. Deux types de restauration sont disponibles : 
+
+- La restauration à un point dans le temps est disponible avec les deux options de redondance de la sauvegarde et elle crée un serveur dans la même région que votre serveur d’origine.
+- La géorestauration est disponible seulement si vous avez configuré votre serveur pour le stockage géoredondant. Elle vous permet de restaurer votre serveur dans la région associée géographiquement. La géorestauration vers d’autres régions n’est pas prise en charge actuellement. 
+
+La durée estimée pour la récupération du serveur dépend de plusieurs facteurs : 
+
+- la taille des bases de données ; 
+- le nombre de journaux d’activité de transactions impliqués ; 
+- la quantité d’activité devant être relue pour effectuer une récupération au point de restauration ; 
+- la bande passante du réseau, si la restauration s’effectue dans une autre région ; 
+- le nombre de demandes de restauration simultanées en cours de traitement dans la région cible. 
+- la présence d’une clé primaire dans les tables de la base de données. Pour accélérer la récupération, envisagez d’ajouter une clé primaire pour toutes les tables de votre base de données.  
+
+
+> [!NOTE]
+> Le serveur à haute disponibilité deviendra un serveur non HA (haute disponibilité désactivée) après la restauration pour les options Restauration à un point dans le temps et Géorestauration. 
 
 ## <a name="point-in-time-restore"></a>Restauration dans le temps
 
@@ -78,6 +119,22 @@ La durée estimée de la récupération dépend de plusieurs facteurs, notamment
 
 > [!IMPORTANT]
 > Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. À l'issue du déploiement, pour protéger les ressources du serveur d'une suppression accidentelle ou de changements inattendus, les administrateurs peuvent utiliser des [verrous de gestion](../../azure-resource-manager/management/lock-resources.md).
+
+## <a name="geo-restore"></a>La géorestauration
+
+Vous pouvez restaurer un serveur dans sa [région associée géographiquement](../../best-practices-availability-paired-regions.md) où le service est disponible si vous avez configuré votre serveur pour les sauvegardes géoredondantes. La géorestauration vers d’autres régions n’est pas prise en charge actuellement. 
+
+La géorestauration constitue l’option de récupération par défaut lorsque votre serveur est indisponible en raison d’un incident dans la région où il est hébergé. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez restaurer un serveur à partir des sauvegardes géoredondantes sur un serveur situé dans n’importe quelle autre région. La géorestauration utilise la sauvegarde la plus récente du serveur. Il peut y avoir un délai entre le moment où une sauvegarde est effectuée et celui où elle est répliquée dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données. 
+
+Lors de la géorestauration, les configurations de serveur qui peuvent être modifiées incluent uniquement la configuration de la sécurité (règles de pare-feu et paramètres de réseau virtuel). La modification d’autres configurations de serveur comme le calcul, le stockage ou le niveau tarifaire (De base, Usage général ou À mémoire optimisée) lors de la géorestauration n’est pas prise en charge. 
+
+Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. 
+
+> [!NOTE]
+> Si vous géorestaurez un serveur flexible configuré avec une haute disponibilité redondante interzone, le serveur restauré sera configuré dans la région associée géographiquement et la même zone que votre serveur principal, et déployé en tant que serveur flexible unique en mode non haute disponibilité. Pour un serveur flexible, consultez [Haute disponibilité redondante interzone](concepts-high-availability.md).
+
+> [!IMPORTANT]
+> Lorsque la région principale est hors service, il n’est pas possible de créer des serveurs géoredondants dans la région associée géographiquement, car le stockage ne peut pas être provisionné dans la région principale. Il faut attendre que la région principale soit en service pour provisionner des serveurs géoredondants dans la région associée géographiquement. Lorsque la région principale est hors service, vous pouvez toujours géorestaurer le serveur source vers la région associée géographiquement en désactivant l’option de géoredondance dans les paramètres Calcul + Stockage (Configurer le serveur) dans l’expérience du portail de restauration et restaurer en tant que serveur redondant localement pour garantir la continuité de l’activité.  
 
 ## <a name="perform-post-restore-tasks"></a>Effectuer des tâches de post-restauration
 

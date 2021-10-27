@@ -17,12 +17,12 @@ ms.date: 07/08/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c327de515699ed0d0d8b74e0c393d206864fef85
-ms.sourcegitcommit: cc099517b76bf4b5421944bd1bfdaa54153458a0
+ms.openlocfilehash: 4301caa11079604a19b8679311daf1e082b35b1f
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113553026"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993489"
 ---
 # <a name="sign-in-diagnostics-for-azure-ad-scenarios"></a>Diagnostics de connexion pour les scénarios Azure AD
 
@@ -278,7 +278,13 @@ Dans ce scénario, la stratégie de protection de l’identité bloque une tenta
 Pour plus d’informations, consultez [Comment configurer et activer les stratégies de risque](../identity-protection/howto-identity-protection-configure-risk-policies.md). 
 
 
+### <a name="pass-through-authentication"></a>Authentification directe 
 
+Étant donné que l’authentification directe est une intégration des technologies d’authentification locale et cloud, il peut être difficile de déterminer où se trouve le problème. Ce diagnostic est conçu pour rendre ces scénarios plus faciles à diagnostiquer et à résoudre. 
+
+Ce scénario de diagnostic identifie les problèmes de connexion spécifiques à l’utilisateur lorsque la méthode d’authentification utilisée est l’authentification directe (PTA, pass through authentication) et qu’il y a une erreur spécifique à cette authentification. Des erreurs liées à d’autres problèmes, même lorsque l’authentification PTA est utilisée, seront quand même diagnostiquées correctement. 
+
+Le diagnostic affiche des informations contextuelles sur l’échec et l’utilisateur qui se connecte, les raisons supplémentaires de l’échec de la connexion et les actions recommandées que l’administrateur peut entreprendre pour résoudre le problème. Pour plus d’informations, consultez [Azure AD Connect : Résolution des problèmes d’authentification directe](../hybrid/tshoot-connect-pass-through-authentication.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

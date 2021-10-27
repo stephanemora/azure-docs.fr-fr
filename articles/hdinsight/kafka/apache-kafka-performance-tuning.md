@@ -4,18 +4,18 @@ description: Fournit une vue d’ensemble des techniques pour optimiser les char
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
-ms.openlocfilehash: d24527efe6adce6f16b7c890f23c755545f5d5a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5c149499fe21940e58c795dbed2407c046ac43d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98935892"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044418"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimisation des performances pour les clusters Kafka HDInsight Apache
 
 Cet article contient des suggestions pour optimiser les performances de vos charges de travail Apache Kafka dans HDInsight. L’accent est mis sur l’optimisation de la configuration du producteur et du répartiteur. Il existe différentes façons de mesurer les performances, et les optimisations que vous appliquez dépendent de vos besoins.
 
-## <a name="architecture-overview"></a>Vue d’ensemble de l’architecture
+## <a name="architecture-overview"></a>Présentation de l'architecture
 
 Les rubriques Kafka sont utilisées pour organiser des enregistrements. Les enregistrements sont produits par des producteurs et utilisés par des consommateurs. Les producteurs envoient des enregistrements aux répartiteurs Kafka, qui stockent alors les données. Chaque nœud Worker dans votre cluster HDInsight est un répartiteur Kafka.
 
@@ -53,7 +53,7 @@ L’utilisation de la compression des données va augmenter le nombre d’enregi
 
 ## <a name="broker-settings"></a>Paramètres du répartiteur
 
-Les sections suivantes sont consacrées à certaines des propriétés les plus importantes pour optimiser les performances de vos répartiteurs Kafka. Pour obtenir une explication détaillée de tous les paramètres des répartiteurs, consultez la [documentation Apache Kafka sur les configurations de répartiteur](https://kafka.apache.org/documentation/#producerconfigs).
+Les sections suivantes sont consacrées à certaines des propriétés les plus importantes pour optimiser les performances de vos répartiteurs Kafka. Pour obtenir une explication détaillée de tous les paramètres des répartiteurs, consultez la [documentation Apache Kafka sur les configurations de répartiteur](https://kafka.apache.org/documentation/#brokerconfigs).
 
 ### <a name="number-of-disks"></a>Nombre de disques
 

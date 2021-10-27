@@ -1,21 +1,21 @@
 ---
-title: Spécifier la demande d’émission de l’API REST du service de demande
+title: Spécifier la demande d’émission de l’API REST du service de demande (préversion)
 titleSuffix: Azure Active Directory Verifiable Credentials
 description: Découvrez comment émettre des justificatifs vérifiables que vous avez émis
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: reference
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
 ms.author: barclayn
-ms.openlocfilehash: 6b1a33ee563123d5fb724f0bc29c3e7c753a86ea
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 837b42b5cb46743b7d486def32d01ab2333db54a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129811061"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006676"
 ---
 # <a name="request-service-rest-api-issuance-specification-preview"></a>Spécification d’émission de l’API REST du service de demande (préversion)
 
@@ -89,6 +89,7 @@ La charge utile de la demande d’émission contient des informations sur votre 
     },
     "issuance": {
         "type": "VerifiedCredentialExpert",
+        "manifest": "https://beta.did.msidentity.com/v1.0/12345678-0000-0000-0000-000000000000/verifiableCredential/contracts/VerifiedCredentialExpert",
         "pin": {
             "value": "3539",
             "length": 4

@@ -3,12 +3,12 @@ title: Créer des rapports d’exploration de données
 description: Générez des informations complètes et granulaires sur vos appareils réseau dans différentes couches telles que les protocoles, les versions de microprogramme ou les commandes de programmation.
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.openlocfilehash: 99754959e7a3a08b4d763b85b0b9315476969774
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: 460edc5aa21461f37bbcdf35d070ef3674d509d3
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113017533"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138124"
 ---
 # <a name="sensor-data-mining-queries"></a>Requêtes d’exploration de données de capteur
 
@@ -59,10 +59,11 @@ Vous pouvez utiliser des requêtes pour gérer un large éventail de besoins de 
 
 - **Visibilité** : Générez un rapport qui couvre tous les éléments de requête pour afficher tous les paramètres de ligne de base de votre réseau.
 
+- **Sécurité du contrôleur PLC** Améliorez la sécurité en détectant les PLC qui se trouvent dans des états non sécurisés, par exemple dans les états de programme ou les états distants.
+
 ## <a name="data-mining-storage"></a>Stockage de l’exploration de données
 
 Les informations d’exploration de données sont enregistrées et stockées en continu, sauf lorsqu’un appareil est supprimé. Les résultats d’exploration de données peuvent être exportés et stockés en externe sur un serveur sécurisé. En outre, le capteur effectue des sauvegardes quotidiennes automatiques pour garantir la continuité du système et la préservation des données.
-
 
 ## <a name="predefined-data-mining-queries"></a>Requêtes d’exploration de données prédéfinies
 

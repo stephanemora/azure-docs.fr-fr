@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 10/14/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 01fb12957a9dce42a53861daebab796047cb6f84
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: f66b5a19c6d7deff947ed3208d78c64b95e7a304
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123115942"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045310"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architectures basées sur des événements serverless avec Azure Cosmos DB et Azure Functions
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -32,7 +32,7 @@ Avec le [déclencheur Azure Functions pour Cosmos DB](../../azure-functions/func
 Pour implémenter un flux serverless basé sur des événements, vous avez besoin des éléments suivants :
 
 * **Conteneur supervisé :** le conteneur supervisé désigne le conteneur Azure Cosmos actuellement supervisé. Il stocke les données à partir desquelles le flux de modification est généré. Toutes les insertions, mises à jour apportées au conteneur supervisé sont répercutées dans le flux de modification du conteneur.
-* **Conteneur de baux** : le conteneur de baux gère l’état entre plusieurs instances de fonction Azure serverless dynamiques et permet une mise à l’échelle dynamique. Ce conteneur de bail peut être créé manuellement ou automatiquement par le déclencheur Azure Functions pour Cosmos DB. Pour créer automatiquement le conteneur de bail, définissez l'indicateur *CreateLeaseCollectionIfNotExists* dans la [configuration](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Les conteneurs de baux partitionnés sont nécessaires pour avoir une définition de clé de partition `/id`.
+* **Conteneur de baux** : le conteneur de baux gère l’état entre plusieurs instances de fonction Azure serverless dynamiques et permet une mise à l’échelle dynamique. Vous pouvez automatiquement créer le conteneur de baux avec le déclencheur Azure Functions pour Cosmos DB. Vous pouvez également créer le conteneur de baux manuellement. Pour créer automatiquement le conteneur de bail, définissez l'indicateur *CreateLeaseCollectionIfNotExists* dans la [configuration](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Les conteneurs de baux partitionnés sont nécessaires pour avoir une définition de clé de partition `/id`.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Créer votre déclencheur Azure Functions pour Cosmos DB
 

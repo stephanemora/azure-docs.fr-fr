@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
-ms.openlocfilehash: fc206254180e2b5b35f10538bfb4940970b1609e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fac788db67bd96f60a2655f10d5f0a74d02b2c01
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128560804"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130165492"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Résoudre les problèmes de latence de réplication dans Azure Database pour MySQL
 
@@ -104,7 +104,7 @@ La sortie contient un grand nombre d’informations. Normalement, vous devez vou
 |Slave_IO_Running| Indique si le thread d’E/S est en cours d’exécution. La valeur doit être `Yes`. Si la valeur est `NO`, alors la réplication est probablement rompue.|
 |Slave_SQL_Running| Indique si le thread SQL est en cours d’exécution. La valeur doit être `Yes`. Si la valeur est `NO`, alors la réplication est probablement rompue.|
 |Exec_Master_Log_Pos| Indique la position du Relay_Master_Log_File que le réplica applique. En cas de latence, cette séquence de positions doit être inférieure à Read_Master_Log_Pos.|
-|Relay_Log_Space|Indique la limite supérieure de la taille du journal de relais. Vous pouvez vérifier la taille en interrogeant `SHOW GLOBAL VARIABLES` comme `relay_log_space_limit`.|
+|Relay_Log_Space|Indique la taille cumulée totale de tous les fichiers journaux de relais existants. Vous pouvez vérifier la taille limite maximale en interrogeant `SHOW GLOBAL VARIABLES` comme `relay_log_space_limit`.|
 |Seconds_Behind_Master| Affiche la latence de réplication en secondes.|
 |Last_IO_Errno|Affiche le code d’erreur de thread d’E/S, le cas échéant. Pour plus d’informations sur ces codes, consultez la [page de référence des messages d’erreur MySQL Server](https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html).|
 |Last_IO_Error| Affiche le message d’erreur de thread d’E/S, le cas échéant.|

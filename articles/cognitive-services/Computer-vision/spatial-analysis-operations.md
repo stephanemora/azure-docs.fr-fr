@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
-ms.openlocfilehash: f408a9182727d8e4395972f8d9f7025f8342b4eb
-ms.sourcegitcommit: 9f1a35d4b90d159235015200607917913afe2d1b
+ms.openlocfilehash: 6f4625f87bddfdffca19c3a6b8ebdf7ca4586c70
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2021
-ms.locfileid: "122635147"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129997646"
 ---
 # <a name="spatial-analysis-operations"></a>Opérations d’analyse spatiale
 
@@ -33,7 +33,7 @@ Le conteneur d’analyse spatiale implémente les opérations suivantes :
 
 Toutes les opérations ci-dessus sont également disponibles dans la version `.debug`, qui permet de visualiser les images vidéo au fur et à mesure de leur traitement. Vous devrez exécuter `xhost +` sur l’ordinateur hôte pour activer la visualisation des trames et des événements vidéo.
 
-| Identificateur d'opération| Description|
+Identificateur d'opération| Description
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.debug | Compte les personnes dans une zone désignée dans le champ de vue de la caméra. <br> Émet un événement initial _personCountEvent_, puis des événements _personCountEvent_ lorsque le nombre change.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline.debug | Effectue le suivi lorsqu’une personne traverse une ligne désignée dans le champ de vue de la caméra. <br>Émet un événement _personLineEvent_ lorsque la personne traverse la ligne, et fournit des informations directionnelles. 
@@ -67,11 +67,13 @@ Il s’agit des paramètres requis par chacune de ces opérations d’analyse sp
 | VIDEO_URL| URL RTSP de la caméra (exemple : `rtsp://username:password@url`). L’analyse spatiale prend en charge les flux encodés en H.264 via RTSP, http ou mp4. Video_URL peut être fourni en tant que valeur de chaîne base64 masquée à l’aide du chiffrement AES, et si l’URL de la vidéo est masquée, `KEY_ENV` et `IV_ENV` doivent être fournis en tant que variables d’environnement. L’exemple d’utilitaire permettant de générer des clés et un chiffrement est disponible [ici](/dotnet/api/system.security.cryptography.aesmanaged). |
 | VIDEO_SOURCE_ID | Nom convivial de la caméra ou du flux vidéo. Retourné avec la sortie JSON de l’événement.|
 | VIDEO_IS_LIVE| True pour les caméras ; false pour les vidéos enregistrées.|
-| VIDEO_DECODE_GPU_INDEX| Le GPU pour décoder la trame vidéo. 0 par défaut. Doit être identique à `gpu_index` dans les autres configurations de nœud, comme `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
+| VIDEO_DECODE_GPU_INDEX| Le GPU pour décoder la trame vidéo. 0 par défaut. Doit être identique à `gpu_index` dans les autres configurations de nœud, comme `DETECTOR_NODE_CONFIG` et `CAMERACALIBRATOR_NODE_CONFIG`.|
 | INPUT_VIDEO_WIDTH | Largeur d’image de la vidéo/du flux d’entrée (par exemple, 1920). Il s’agit d’un champ facultatif. S’il est fourni, l’image est mise à l’échelle avec cette dimension, tout en préservant les proportions.|
 | DETECTOR_NODE_CONFIG | JSON indiquant le GPU sur lequel exécuter le nœud de détecteur. Il doit être au format suivant : `"{ \"gpu_index\": 0 }",`|
+| TRACKER_NODE_CONFIG | JSON indiquant s’il faut, ou non, calculer la vitesse dans le nœud de suivi. Il doit être au format suivant : `"{ \"enable_speed\": true }",`|
 | CAMERA_CONFIG | JSON indiquant les paramètres de caméra étalonnée pour plusieurs caméras. Si la compétence que vous avez utilisée nécessite un étalonnage et que vous avez déjà les paramètres de la caméra, vous pouvez utiliser cette configuration pour les fournir directement. Doit respecter le format suivant : `"{ \"cameras\": [{\"source_id\": \"endcomputer.0.persondistancegraph.detector+end_computer1\", \"camera_height\": 13.105561256408691, \"camera_focal_length\": 297.60003662109375, \"camera_tiltup_angle\": 0.9738943576812744}] }"` ; `source_id` est utilisé pour identifier chaque caméra. Il peut être obtenu à partir de la valeur `source_info` de l’événement que nous avons publié. Il ne prend effet que quand `do_calibration=false` dans `DETECTOR_NODE_CONFIG`.|
-| TRACKER_NODE_CONFIG | JSON indiquant s’il faut, ou non, calculer la vitesse dans le nœud de suivi. Il doit être au format suivant : `"{ \"enable_speed\": false }",`|
+| CAMERACALIBRATOR_NODE_CONFIG | JSON indiquant le GPU sur lequel exécuter le nœud de calibrage de la caméra et s’il faut ou non utiliser le calibrage. Il doit être au format suivant : `"{ \"gpu_index\": 0, \"do_calibration\": true, \"enable_orientation\": true}",`|
+| CALIBRATION_CONFIG | JSON indiquant les paramètres permettant de contrôler le fonctionnement du calibrage de la caméra. Il doit être au format suivant : `"{\"enable_recalibration\": true, \"quality_check_frequency_seconds\": 86400}",`|
 | SPACEANALYTICS_CONFIG | Configuration JSON pour la zone et la ligne, comme indiqué ci-dessous.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` pour activer la détection des personnes qui portent des masques dans le flux vidéo, `False` pour la désactiver. Par défaut, cette fonctionnalité est désactivée. La détection des masques nécessite que le paramètre de largeur de vidéo d’entrée soit égal à 1920 (`"INPUT_VIDEO_WIDTH": 1920`). L’attribut de masque n’est pas retourné si les personnes détectées ne font pas face à la caméra ou sont trop éloignées de celle-ci. Pour plus d’informations, consultez le guide de [positionnement de la caméra](spatial-analysis-camera-placement.md). |
 
@@ -81,7 +83,38 @@ Il s’agit d’un exemple de paramètres DETECTOR_NODE_CONFIG pour toutes les o
 ```json
 {
 "gpu_index": 0,
+"enable_breakpad": false
+}
+```
+
+| Nom | Type| Description|
+|---------|---------|---------|
+| `gpu_index` | string| Index GPU sur lequel cette opération s’exécutera.|
+| `enable_breakpad`| bool | Indique s’il faut activer la fonctionnalité breakpad, qui est utilisée pour générer le vidage sur incident à des fins de débogage. La valeur par défaut de ce paramètre est `false`. Si vous le définissez sur `true`, vous devez également ajouter `"CapAdd": ["SYS_PTRACE"]` dans la `HostConfig` partie du conteneur `createOptions`. Par défaut, le vidage sur incident est chargé sur l’application AppCenter [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) ; si vous souhaitez que les vidages sur incident soient chargés sur votre application AppCenter, vous pouvez remplacer la variable d’environnement `RTPT_APPCENTER_APP_SECRET` par le secret d’application de votre application.|
+
+### <a name="camera-calibration-node-parameter-settings"></a>Paramètres du nœud de calibrage de la caméra
+Il s’agit d’un exemple de paramètres `CAMERACALIBRATOR_NODE_CONFIG` pour toutes les opérations d’analyse spatiale.
+
+```
+{
+"gpu_index": 0,
 "do_calibration": true,
+"enable_breakpad": false,
+"enable_orientation": true
+}
+```
+
+| Nom | Type| Description|
+|---------|---------|---------|
+| `do_calibration` | string | Indique que l’étalonnage est activé. `do_calibration` doit avoir la valeur true pour que **cognitiveservices.vision.spatialanalysis-persondistance** fonctionne correctement. `do_calibration` est défini par défaut sur `True`. |
+| `enable_breakpad`| bool | Indique s’il faut activer la fonctionnalité breakpad, qui est utilisée pour générer le vidage sur incident à des fins de débogage. La valeur par défaut de ce paramètre est `false`. Si vous le définissez sur `true`, vous devez également ajouter `"CapAdd": ["SYS_PTRACE"]` dans la `HostConfig` partie du conteneur `createOptions`. Par défaut, le vidage sur incident est chargé sur l’application AppCenter [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) ; si vous souhaitez que les vidages sur incident soient chargés sur votre application AppCenter, vous pouvez remplacer la variable d’environnement `RTPT_APPCENTER_APP_SECRET` par le secret d’application de votre application.
+| `enable_orientation` | bool | Indique si vous voulez calculer, ou non, l’orientation pour les personnes détectées. `enable_orientation` est défini par défaut sur `True`. |
+
+### <a name="calibration-config"></a>Configuration du calibrage
+Il s’agit d’un exemple de paramètres `CALIBRATION_CONFIG` pour toutes les opérations d’analyse spatiale.
+
+```
+{
 "enable_recalibration": true,
 "calibration_quality_check_frequency_seconds": 86400,
 "calibration_quality_check_sample_collect_frequency_seconds": 300,
@@ -93,16 +126,12 @@ Il s’agit d’un exemple de paramètres DETECTOR_NODE_CONFIG pour toutes les o
 
 | Nom | Type| Description|
 |---------|---------|---------|
-| `gpu_index` | string| Index GPU sur lequel cette opération s’exécutera.|
-| `do_calibration` | string | Indique que l’étalonnage est activé. `do_calibration` doit avoir la valeur true pour que **cognitiveservices.vision.spatialanalysis-persondistance** fonctionne correctement. Par défaut, do_calibration a la valeur True. |
 | `enable_recalibration` | bool | Indique si le réétalonnage automatique est activé. La valeur par défaut est `true`.|
 | `calibration_quality_check_frequency_seconds` | int | Nombre minimal de secondes entre chaque contrôle de qualité pour déterminer si le réétalonnage est nécessaire. La valeur par défaut est `86400` (24 heures). Utilisé uniquement si `enable_recalibration=True`.|
 | `calibration_quality_check_sample_collect_frequency_seconds` | int | Nombre minimal de secondes entre la collecte de nouveaux échantillons de données pour le réétalonnage et le contrôle de la qualité. La valeur par défaut est `300` (5 minutes). Utilisé uniquement si `enable_recalibration=True`.|
 | `calibration_quality_check_one_round_sample_collect_num` | int | Nombre minimal de nouveaux échantillons de données à collecter par cycle de collecte d’échantillons. La valeur par défaut est `10`. Utilisé uniquement si `enable_recalibration=True`.|
 | `calibration_quality_check_queue_max_size` | int | Nombre maximal d’échantillons de données à stocker quand le modèle de caméra est étalonné. La valeur par défaut est `1000`. Utilisé uniquement si `enable_recalibration=True`.|
 | `calibration_event_frequency_seconds` | int | Fréquence de sortie (en secondes) des événements d’étalonnage de l’appareil photo. La valeur `-1` indique que l’étalonnage de l’appareil photo ne doit pas être envoyé sauf si les informations d’étalonnage de celui-ci ont été modifiées. La valeur par défaut est `-1`.|
-| `enable_breakpad`| bool | Indique si vous souhaitez activer la fonctionnalité breakpad, qui est utilisé pour générer le vidage sur incident à des fins de débogage. La valeur par défaut de ce paramètre est `false`. Si vous le définissez sur `true`, vous devez également ajouter `"CapAdd": ["SYS_PTRACE"]` dans la `HostConfig` partie du conteneur `createOptions`. Par défaut, le vidage sur incident est chargé sur l’application AppCenter [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) ; si vous souhaitez que les vidages sur incident soient chargés sur votre application AppCenter, vous pouvez remplacer la variable d’environnement `RTPT_APPCENTER_APP_SECRET` par le secret d’application de votre application.
-| `enable_orientation` | bool | Indique si vous voulez calculer, ou non, l’orientation pour les personnes détectées. `enable_orientation` est défini par défaut sur False. |
 
 
 ### <a name="camera-calibration-output"></a>Sortie d’étalonnage de l’appareil photo
@@ -195,7 +224,7 @@ Exemple de sortie d’informations de placement de zone visualisées sur une ima
 
 Les informations sur le placement des zones fournissent des suggestions pour vos configurations, mais il convient de suivre scrupuleusement les directives de [Configuration de l’appareil photo](#camera-configuration) pour obtenir les meilleurs résultats.
 
-### <a name="speed-parameter-settings"></a>Configuration des paramètres de vitesse
+### <a name="speed-parameter-settings"></a>Paramètres de vitesse
 Vous pouvez configurer le calcul de la vitesse par le biais des paramètres du nœud de suivi.
 ```
 {
@@ -204,7 +233,7 @@ Vous pouvez configurer le calcul de la vitesse par le biais des paramètres du n
 ```
 | Nom | Type| Description|
 |---------|---------|---------|
-| `enable_speed` | bool | Indique si vous voulez calculer, ou non, la vitesse pour les personnes détectées. `enable_speed` est défini par défaut sur false. Il est fortement recommandé d’activer à la fois la vitesse et l’orientation pour obtenir les meilleures valeurs estimées |
+| `enable_speed` | bool | Indique si vous voulez calculer, ou non, la vitesse pour les personnes détectées. `enable_speed` est défini par défaut sur `True`. Il est fortement recommandé d’activer à la fois la vitesse et l’orientation pour obtenir les meilleures valeurs estimées. |
 
 
 ## <a name="spatial-analysis-operations-configuration-and-output"></a>Configuration et sortie des opérations d’analyse spatiale
@@ -645,7 +674,7 @@ Exemple de code JSON pour une sortie de détections par cette opération.
 | `properties` | collection| Collection de valeurs|
 | `trackinId` | string| Identificateur unique de la personne détectée|
 | `status` | string| Direction des traversées de lignes, 'CrossLeft' ou 'CrossRight'. La direction est exprimée comme si vous étiez placé au « début » faisant face à la « fin » de la ligne. CrossRight va de gauche à droite. CrossLeft va de droite à gauche.|
-| `orientationDirection` | string| Direction d’orientation de la personne détectée après qu’elle a franchi la ligne. La valeur peut être « Left », « Right » ou « Straight ». Cette valeur est générée si `enable_orientation` a la valeur `True` dans `DETECTOR_NODE_CONFIG` |
+| `orientationDirection` | string| Direction d’orientation de la personne détectée après qu’elle a franchi la ligne. La valeur peut être « Left », « Right » ou « Straight ». Cette valeur est générée si `enable_orientation` a la valeur `True` dans `CAMERACALIBRATOR_NODE_CONFIG` |
 | `zone` | string | Le champ « Name » de la ligne qui a été franchie|
 
 | Nom du champ de détection | Type| Description|
@@ -803,7 +832,7 @@ Exemple de code JSON pour une sortie de détections par cette opération avec le
 | `side` | int| Numéro du côté du polygone traversé par la personne. Chaque côté est un bord numéroté entre les deux sommets du polygone qui représente votre zone. Le bord entre les deux premiers sommets du polygone représente le premier côté. Le « côté » est vide lorsque l’événement n’est pas associé à un côté spécifique en raison d’une occlusion. Par exemple, une sortie s’est produite quand une personne a disparu mais n’a pas été observée traversant un côté de la zone ou une entrée s’est produite quand une personne est apparue dans la zone, mais n’a pas été observée traversant un côté.|
 | `dwellTime` | float | Nombre de millisecondes qui représentent le temps passé par la personne dans la zone. Ce champ est fourni quand le type d’événement est personZoneDwellTimeEvent|
 | `dwellFrames` | int | Nombre de frames que la personne a passées à la zone. Ce champ est fourni quand le type d’événement est personZoneDwellTimeEvent|
-| `dwellTimeForTargetSide` | float | Nombre de millisecondes représentant le temps que la personne a passé dans la zone et pendant lequel elle était tournée du côté `target_side`. Ce champ est fourni quand `enable_orientation` a la valeur `True` dans `DETECTOR_NODE_CONFIG ` et que la valeur de `target_side` est définie dans `SPACEANALYTICS_CONFIG`|
+| `dwellTimeForTargetSide` | float | Nombre de millisecondes représentant le temps que la personne a passé dans la zone et pendant lequel elle était tournée du côté `target_side`. Ce champ est fourni quand `enable_orientation` a la valeur `True` dans `CAMERACALIBRATOR_NODE_CONFIG ` et que la valeur de `target_side` est définie dans `SPACEANALYTICS_CONFIG`|
 | `avgSpeed` | float| Vitesse moyenne de la personne dans la zone. L’unité est `foot per second (ft/s)`|
 | `minSpeed` | float| Vitesse minimale de la personne dans la zone. L’unité est `foot per second (ft/s)`|
 | `zone` | string | Le champ « name » du polygone qui représente la zone qui a été franchie|
@@ -993,12 +1022,12 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
                     "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"batch_size\": 7, \"do_calibration\": true}",
                 }
             },
-            "shared_detector1": {
-                "node": "PersonCrossingLineGraph.detector",
+            "shared_calibrator0": {
+                "node": "PersonCrossingLineGraph/cameracalibrator",
                 "parameters": {
-                    "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"batch_size\": 8, \"do_calibration\": true}",
+                    "CAMERACALIBRATOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"do_calibration\": true, \"enable_zone_placement\": true}",
+                    "CALIBRATION_CONFIG": "{\"enable_recalibration\": true, \"quality_check_frequency_seconds\": 86400}",
                 }
-            }
         },
         "parameters": {
             "VIDEO_DECODE_GPU_INDEX": 0,
@@ -1008,6 +1037,7 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             "1": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 1>",
@@ -1018,6 +1048,7 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             "2": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 2>",
@@ -1028,6 +1059,7 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             "3": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 3>",
@@ -1038,6 +1070,7 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             "4": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 4>",
@@ -1048,6 +1081,7 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             "5": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 5>",
@@ -1058,6 +1092,7 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             "6": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 6>",
@@ -1068,6 +1103,7 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             "7": {
                 "sharedNodeMap": {
                     "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 7>",
@@ -1077,7 +1113,8 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             },
             "8": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 8>",
@@ -1087,7 +1124,8 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             },
             "9": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 9>",
@@ -1097,7 +1135,8 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             },
             "10": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 10>",
@@ -1107,7 +1146,8 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             },
             "11": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 11>",
@@ -1117,7 +1157,8 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             },
             "12": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 12>",
@@ -1127,7 +1168,8 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             },
             "13": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 13>",
@@ -1137,7 +1179,8 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             },
             "14": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 14>",
@@ -1147,7 +1190,8 @@ Pour optimiser les performances et l’utilisation des GPU, vous pouvez déploye
             },
             "15": {
                 "sharedNodeMap": {
-                    "PersonCrossingLineGraph/detector": "shared_detector1",
+                    "PersonCrossingLineGraph/detector": "shared_detector0",
+            "PersonCrossingLineGraph/cameracalibrator": "shared_calibrator0",
                 },
                 "parameters": {
                     "VIDEO_URL": "<Replace RTSP URL for camera 15>",

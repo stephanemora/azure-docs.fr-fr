@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 4cef99adecadc73f105dfffcdc72163c8b622cc3
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 1921349be07d129e9889da3af6c72a7b25a58ff5
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208641"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074434"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Inscrire et analyser un serveur SQL local
 
@@ -93,7 +93,9 @@ Si vous souhaitez créer une connexion et un utilisateur pour pouvoir analyser v
 
    :::image type="content" source="media/register-scan-on-premises-sql-server/set-up-sql-data-source.png" alt-text="Configurer la source de données SQL.":::
 
-5. Fournissez un nom convivial et un point de terminaison de serveur, puis sélectionnez **Terminer** pour inscrire la source de données. Si, par exemple, votre nom de domaine complet SQL Server est **foobar.database.windows.net**, entrez *foobar* en tant que point de terminaison de serveur.
+1. Fournissez un nom convivial. Il s’agit d’un nom court que vous pouvez utiliser pour identifier votre serveur et le point de terminaison de serveur. 
+ 
+1. Sélectionnez **Terminer** pour inscrire la source de données.
 
 ## <a name="creating-and-running-a-scan"></a>Création et exécution d’une analyse
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f840d72698790be10630fe182f4655554ff23962
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 115b0c01fd80b3c0542ee9ef1ce152b06c880599
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124748380"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993470"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gérer des comptes d’accès d’urgence dans Azure AD
 
@@ -97,7 +97,29 @@ Les organisations doivent surveiller l’activité de connexion et du journal d�
     1. Sous **Requête de recherche**, entrez la requête suivante, en insérant les ID d’objet des deux comptes de secours.
         > [!NOTE]
         > Pour chaque compte de secours supplémentaire que vous souhaitez inclure, ajoutez une autre valeur « or UserId == "ObjectGuid" » à la requête.
-
+                
+        Exemples de requêtes :
+        ```kusto
+        // Search for a single Object ID (UserID)
+        SigninLogs
+        | project UserId 
+        | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448"
+        ```
+        
+         ```kusto
+        // Search for multiple Object IDs (UserIds)
+        SigninLogs
+        | project UserId 
+        | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448" or UserId == "0383eb26-1cbc-4be7-97fd-e8a0d8f4e62b"
+        ```
+        
+        ```kusto
+        // Search for a single UserPrincipalName
+        SigninLogs
+        | project UserPrincipalName 
+        | where UserPrincipalName == "user@yourdomain.onmicrosoft.com"
+        ```
+        
         ![Ajouter les ID d’objet des comptes de secours à une règle d’alerte](./media/security-emergency-access/query-image1.png)
 
     1. Sous **Logique d’alerte**, entrez ce qui suit :

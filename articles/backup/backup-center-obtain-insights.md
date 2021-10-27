@@ -2,13 +2,13 @@
 title: Obtenir des insights avec le Centre de sauvegarde
 description: Découvrez comment analyser des tendances historiques et obtenir des insights plus approfondis au sujet de vos sauvegardes avec le Centre de sauvegarde.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: c48173749a9b47be7eeb906e9f8eec716e0cb200
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/19/2021
+ms.openlocfilehash: 5244ba6edaac3b58550107c2519b90447ff197e0
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102506007"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130177837"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Obtenir des insights avec le Centre de sauvegarde
 
@@ -24,7 +24,7 @@ Pour analyser les tendances historiques et obtenir des insights plus approfondie
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 
-- La solution Rapports de sauvegarde n’est actuellement pas disponible pour la sauvegarde du serveur Azure Database pour PostgreSQL.
+- Les rapports de sauvegarde ne sont actuellement pas pris en charge pour les charges de travail sauvegardées à l’aide de coffres de sauvegarde.
 
 - Pour obtenir une liste détaillée des scénarios pris en charge et non pris en charge, consultez la [Matrice de prise en charge](backup-center-support-matrix.md).
 
@@ -56,7 +56,7 @@ Voici les affichages disponibles :
 
 7. **Adhésion à la stratégie** : utilisez cet onglet pour obtenir une visibilité sur le fait que chaque instance de sauvegarde a eu au moins une sauvegarde réussie par jour. [En savoir plus](./configure-reports.md#policy-adherence)
 
-Vous pouvez également configurer des e-mails pour tous ces rapports à l’aide de la fonctionnalité [Envoyer le rapport par e-mail](backup-reports-email.md).
+Vous pouvez également configurer des e-mails pour ces rapports à l’aide de la fonctionnalité [Envoyer le rapport par e-mail](backup-reports-email.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

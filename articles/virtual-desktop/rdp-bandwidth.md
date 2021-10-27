@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 1b43a76e417505d4894396503ca93fc87f508d4c
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 3153abcc4a0fa76b0ebb6c0a9715020af6a646ec
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111753158"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130181480"
 ---
 # <a name="remote-desktop-protocol-rdp-bandwidth-requirements"></a>Exigences en bande passante de RDP (Remote Desktop Protocol)
 
@@ -99,7 +99,7 @@ Dans la plupart des scénarios, il n’est pas nécessaire de limiter l’utilis
 Dans ces cas, vous pouvez limiter le trafic réseau sortant RDP en spécifiant un taux d’accélération dans la stratégie QoS.
 
   >[!NOTE]
-  > [Vérifiez que RDP Shortpath est activé](./shortpath.md) : le taux d’accélération et la limitation ne sont pas pris en charge pour le transport de connexion inverse.
+  > [Vérifiez que RDP Shortpath est activé pour les réseaux managés](./shortpath.md) : le taux d’accélération et la limitation ne sont pas pris en charge pour le transport de connexion inverse.
 
 ### <a name="implement-throttle-rate-limiting-on-session-host-using-group-policy"></a>Implémenter la limitation du taux d’accélération sur l’hôte de session à l’aide de Stratégie de groupe
 
@@ -139,10 +139,10 @@ Les nouvelles stratégies que vous avez créées ne prennent pas effet tant que 
 
 ### <a name="implement-throttle-rate-limiting-on-session-host-using-powershell"></a>Implémenter la limitation du taux d’accélération sur l’hôte de session à l’aide de PowerShell
 
-Vous pouvez définir le taux d’accélération pour RDP Shortpath à l’aide de la cmdlet PowerShell ci-dessous :
+Vous pouvez définir le taux de limitation pour RDP Shortpath pour les réseaux managés en utilisant l’applet de commande PowerShell ci-dessous :
 
 ```powershell
-New-NetQosPolicy -Name "RDP Shortpath" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390 -DSCPAction 46 -NetworkProfile All
+New-NetQosPolicy -Name "RDP Shortpath for managed networks" -AppPathNameMatchCondition "svchost.exe" -IPProtocolMatchCondition UDP -IPSrcPortStartMatchCondition 3390 -IPSrcPortEndMatchCondition 3390  -ThrottleRateActionBitsPerSecond 10mb -NetworkProfile All
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2021
 ms.author: jeedes
-ms.openlocfilehash: 851a396fe848306223f2e875ac81fc7b2fcb5da1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 94e025c3a76ac2a6722e0fa21b39718624d8645c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124803037"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042823"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex
 
@@ -91,7 +91,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     d. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://web.ciscospark.com/idb/Consumer/metaAlias/<ID>/sp`
     
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Copiez la valeur URL de réponse latérale et ajoutez cette valeur à `https://web.ciscospark.com/` pour formuler la valeur réelle d’URL de connexion.
+    > Cette valeur n’est pas la valeur réelle. Copiez la valeur de l’URL de réponse littérale et ajoutez cette valeur à `https://web.ciscospark.com/` pour formuler la valeur réelle de l’URL d’authentification.
 
 1. L’application Cisco Webex s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration de vos attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 

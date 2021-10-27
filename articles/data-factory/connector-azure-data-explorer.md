@@ -1,20 +1,20 @@
 ---
-title: Copier des données depuis ou vers Azure Data Explorer
+title: Copier et transformer des données dans Azure Data Explorer
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Découvrez comment copier des données vers ou depuis Azure Data Explorer en utilisant une activité de copie dans un pipeline Azure Data Factory ou Synapse Analytics.
+description: Découvrez comment copier ou transformer des données dans Azure Data Explorer en utilisant Data Factory ou Azure Synapse Analytics.
 ms.author: orspodek
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
-ms.openlocfilehash: 511e1d58e3abf3c44025a02059c5d6aa947809c0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 10/14/2021
+ms.openlocfilehash: a764b6e0046b399d1984f13404aae6ba1eb4d72f
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771894"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063884"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory-or-synapse-analytics"></a>Copier des données depuis/vers Azure Data Explorer en utilisant Azure Data Factory ou Synapse Analytics
 
@@ -339,6 +339,81 @@ Pour copier des données vers Azure Data Explorer, définissez la propriété ty
         ]
     }
 ]
+```
+
+## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
+
+Lors de la transformation de données dans le flux de données de mappage, vous pouvez lire et écrire dans des tables dans Azure Data Explorer. Pour plus d’informations, consultez la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans le flux de données de mappage. Vous pouvez choisir d’utiliser un jeu de données Azure Data Explorer ou un [jeu de données inlined](data-flow-source.md#inline-datasets) en tant que type de source et de récepteur.
+
+### <a name="source-transformation"></a>Transformation de la source
+
+Le tableau ci-dessous liste les propriétés prises en charge par une source Azure Data Explorer. Vous pouvez modifier ces propriétés sous l’onglet **Options de la source**.
+
+| Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Table de charge de travail | Si vous sélectionnez Table comme entrée, le flux de données extrait toutes les données de la table spécifiée dans le jeu de données Azure Data Explorer ou dans les options source lorsque vous utilisez le jeu de données inlined. | Non | String | *(pour le jeu de données inlined uniquement)*<br>tableName |
+| Requête | Requête en lecture seule au [format KQL](/azure/data-explorer/kusto/query/). Utilisez la requête KQL personnalisée en tant que référence.  | Non | String | query |
+| Délai d'expiration | Temps d’attente avant l’expiration de la demande de requête. La valeur par défaut est 172000 (2 jours).  | Non | Integer | timeout |
+
+#### <a name="azure-data-explorer-source-script-examples"></a>Exemples de scripts sources Azure Data Explorer
+
+Quand vous utilisez un jeu de données Azure Data Explorer comme type de source, le script de flux de données associé est le suivant :
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    query: 'table | take 10',
+    format: 'query') ~> AzureDataExplorerSource
+
+```
+
+Si vous utilisez un jeu de données inlined, le script de flux de données associé est le suivant :
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'table | take 10',
+    store: 'azuredataexplorer') ~> AzureDataExplorerSource
+
+```
+
+### <a name="sink-transformation"></a>Transformation du récepteur
+
+Le tableau ci-dessous liste les propriétés prises en charge par le récepteur Azure Data Explorer. Vous pouvez modifier ces propriétés sous l’onglet **Paramètres**. Lorsque vous utilisez un jeu de données inlined, vous verrez des paramètres supplémentaires qui sont les mêmes que les propriétés décrites dans la section [Propriétés du jeu de données](#dataset-properties). 
+
+| Nom | Description | Obligatoire | Valeurs autorisées | Propriété du script de flux de données |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Action table | Détermine si toutes les lignes de la table de destination doivent être recréées ou supprimées avant l’écriture.<br>- **Aucun** : Aucune action ne sera effectuée sur la table.<br>- **Recréer** : La table sera supprimée et recréée. Obligatoire en cas de création dynamique d’une nouvelle table.<br>- **Tronquer** : Toutes les lignes de la table cible seront supprimées. | Non | `true` ou `false` | recreate<br/>truncate |
+| Pré et post-scripts SQL | Spécifiez plusieurs scripts de [commandes de contrôle Kusto](/azure/data-explorer/kusto/query/#control-commands) qui s’exécutent avant (prétraitement) et après (post-traitement) l’écriture de données dans votre base de données de réception. | Non | String | preSQLs ; postSQLs |
+| Délai d'expiration | Temps d’attente avant l’expiration de la demande de requête. La valeur par défaut est 172000 (2 jours). | Non | Integer | timeout |
+
+
+#### <a name="azure-data-explorer-sink-script-examples"></a>Exemples de scripts de récepteur Azure Data Explorer
+
+Quand vous utilisez un jeu de données Azure Data Explorer comme type de récepteur, le script de flux de données associé est le suivant :
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    preSQLs:['pre SQL scripts'],
+    postSQLs:['post SQL script'],
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzureDataExplorerSink
+
+```
+
+Si vous utilisez un jeu de données inlined, le script de flux de données associé est le suivant :
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    store: 'azuredataexplorer',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> AzureDataExplorerSink
+
 ```
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup

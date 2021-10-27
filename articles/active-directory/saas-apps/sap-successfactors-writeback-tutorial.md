@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/14/2020
+ms.date: 10/11/2021
 ms.author: chmutali
-ms.openlocfilehash: 3260787dec4ae26cd6ef7cc3bd562f39db8e3655
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39bd92afa4de12eafce7bff9f73f6f43d6e18f42
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99526973"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993508"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutoriel : Configurer l’écriture différée des attributs d’Azure AD sur SAP SuccessFactors
 L’objectif de ce tutoriel est d’illustrer les étapes de l’écriture différée des attributs d’Azure AD sur SAP SuccessFactors Employee Central. 
@@ -290,6 +290,7 @@ Dans cette section, vous allez configurer le flux des données utilisateur de Su
    | 11 | mobile | cellPhoneNumber | Utilisez ce mappage pour transmettre l’attribut *telephoneNumber* d’Azure AD au numéro de téléphone professionnel SuccessFactors. |
    | 12 | 10606 | cellPhoneType | Cette valeur constante est la valeur d’ID SuccessFactors associée au téléphone portable. Mettez à jour cette valeur pour qu’elle corresponde à votre environnement SuccessFactors. Consultez la section [Récupérer la valeur constante pour phoneType](#retrieve-constant-value-for-phonetype) afin de connaître les étapes permettant de définir cette valeur. |
    | 13 | false | cellPhoneIsPrimary | Utilisez cet attribut pour définir le numéro de téléphone portable comme numéro principal. Les valeurs valides sont « true » ou « false ». |
+   | 14 | [extensionAttribute1-15] | userId | Utilisez ce mappage pour vous assurer que l’enregistrement actif dans SuccessFactors est mis à jour lorsqu’il y a plusieurs enregistrements d’emploi pour le même utilisateur. Pour plus d’informations, consultez [Activation de l’écriture différée avec UserID](../app-provisioning/sap-successfactors-integration-reference.md#enabling-writeback-with-userid). |
  
 1. Validez et vérifiez vos mappages d’attributs. 
  

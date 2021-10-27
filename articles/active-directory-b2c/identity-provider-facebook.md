@@ -3,22 +3,22 @@ title: Configurer l’inscription et la connexion avec un compte Facebook
 titleSuffix: Azure AD B2C
 description: Proposez l’inscription et la connexion aux clients disposant de comptes Facebook dans vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 6d7180b92ba4f4dbcc23f19bdc2581072446a15f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d9fb37bd05c6cddf1509d40433783692864e588d
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128574916"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137832"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Facebook à l’aide d’Azure Active Directory B2C
 
@@ -42,7 +42,7 @@ Si vous n'avez pas encore de compte Facebook, inscrivez-vous sur [https://www.fa
 
 1. Connectez-vous à [Facebook pour les développeurs](https://developers.facebook.com/apps) avec les informations d'identification de votre compte de développeur Facebook.
 1. Sélectionnez **Créer une application**.
-1. Dans le champ **Sélectionner un type d'application**, sélectionnez **Consommateur**, puis **Continuer**.
+1. Dans le champ **Sélectionner un type d’application**, sélectionnez **Consommateur**, puis **Suivant**.
 1. Entrez un **nom d'affichage** et une **adresse e-mail de contact** valide pour l'application.
 1. Sélectionnez **Créer une application**. Au cours de cette étape, vous devrez peut-être accepter les politiques de la plateforme Facebook et effectuer une vérification de sécurité en ligne.
 1. Sélectionnez **Paramètres** > **Base**.
@@ -55,7 +55,7 @@ Si vous n'avez pas encore de compte Facebook, inscrivez-vous sur [https://www.fa
 1. Au bas de la page, sélectionnez **Ajouter une plateforme**, puis sélectionnez **Site web**.
 1. Dans **URL du site**, entrez l’adresse de votre site web, par exemple `https://contoso.com`. 
 1. Sélectionnez **Enregistrer les modifications**.
-1. Dans le menu, sélectionnez le signe **plus** à côté de **PRODUITS**. Sous l’option **Ajouter des produits à votre application**, sélectionnez **Configurer** sous **Connexion Facebook**.
+1. Dans le menu, sélectionnez le signe **plus** ou le lien **Ajouter un produit** à côté de **PRODUITS**. Sous l’option **Ajouter des produits à votre application**, sélectionnez **Configurer** sous **Connexion Facebook**.
 1. Dans le menu, sélectionnez **Connexion Facebook**, puis **Paramètres**.
 1. Dans **URI de redirection OAuth valides**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Si vous utilisez un [domaine personnalisé](custom-domain.md), entrez `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Remplacez `your-tenant-name` par le nom de votre locataire et `your-domain-name` par le nom de votre domaine personnalisé. 
 1. Sélectionnez **Enregistrer les modifications** en bas de la page.

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: ef1f069dbcf932475a062b309324a77932a88809
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 5d917de831227dcfa7a9b5803f79a1cadbaf3112
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532794"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006030"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>Vue d’ensemble de l’évaluation (migrer vers Azure VMware Solution)
 
@@ -119,7 +119,7 @@ Voici le contenu d’une évaluation AVS :
 | - | - |
 | **Emplacement cible** | Spécifie l’emplacement du cloud privé AVS vers lequel vous souhaitez effectuer la migration. |
 | **Type de stockage** | Spécifie le moteur de stockage à utiliser dans AVS. AVS prend actuellement en charge uniquement le vSAN en tant que type de stockage par défaut, mais d’autres options de stockage seront proposées prochainement, conformément à la feuille de route. |
-| **Instances réservées (RI)** | Cette propriété vous permet de spécifier des instances réservées dans AVS si vous les achetez, et le terme de l’instance réservée. Permet de calculer les coûts. |
+| **Instances réservées (RI)** | Cette propriété vous permet de spécifier des instances réservées dans AVS si vous les achetez, et le terme de l’instance réservée. Permet de calculer les coûts. Cette option est actuellement désactivée et la valeur par défaut est *Aucune instance réservée*. [Azure VMware Solution prend en charge les instances réservées](../azure-vmware/reserved-instance.md) et les évaluations permettront d’activer cette propriété bientôt.|
 | **Type de nœud** | Spécifie le [type de nœud AVS](../azure-vmware/concepts-private-clouds-clusters.md) à utiliser dans Azure. Le type de nœud par défaut est AV36. D’autres types de nœuds pourront être disponibles prochainement.  Azure Migrate recommandera un nombre requis de nœuds pour les machines virtuelles à migrer vers AVS. |
 | **Paramètre FTT, niveau RAID** | Spécifie la combinaison valide d’échecs à tolérer et les combinaisons RAID. L’option FTT sélectionnée associée au niveau RAID et à la configuration de disque de machine virtuelle locale détermine le stockage vSAN total requis dans AVS. Le stockage total disponible après les calculs comprend également : a) un espace réservé aux objets de gestion tels que vCenter, et b) 25 % de marge de stockage requise pour les opérations vSAN. |
 | **Critère de dimensionnement** | Définit les critères à utiliser pour déterminer les exigences en matière de mémoire, de processeur et de stockage pour les nœuds AVS. Vous pouvez effectuer un dimensionnement *en fonction des performances* ou dimensionner les machines virtuelles *comme des machines locales* sans tenir compte de l’historique des performances. Pour une simple migration lift-and-shift, choisissez l’option locale. Pour obtenir un dimensionnement basé sur l’utilisation, choisissez l’option basée sur les performances. |
@@ -164,6 +164,10 @@ Outre les propriétés de machine virtuelle, l’évaluation examine le système
 Une fois qu’un serveur est marqué comme prêt pour AVS, l’évaluation AVS fait des recommandations en matière de dimensionnement des nœuds, ce qui implique l’identification des exigences de machine virtuelle locales appropriées et la recherche du nombre total de nœuds AVS requis. Ces suggestions varient en fonction des propriétés d’évaluation spécifiées.
 
 - Si l’évaluation utilise le *dimensionnement basé sur les performances*, Azure Migrate prend en compte l’historique des performances du serveur pour effectuer les recommandations de dimensionnement appropriées pour AVS. Cette méthode est particulièrement utile si vous avez dépassé l’allocation de la machine virtuelle locale, mais que l’utilisation est faible et que vous souhaitez dimensionner correctement la machine virtuelle dans AVS pour réduire les coûts. Cette méthode vous permet d’optimiser les tailles lors de la migration.
+
+> [!NOTE] 
+>Si vous importez des serveurs à l’aide d’un fichier CSV, les valeurs de performances que vous spécifiez (utilisation du processeur, utilisation de la mémoire, IOPS de disque et débit) sont utilisées si vous choisissez un dimensionnement basé sur les performances. Vous ne serez pas en mesure de fournir des informations sur l’historique des performances et le centile.
+
 - Si vous ne souhaitez pas prendre en compte les données de performances pour le dimensionnement des machines virtuelles et que vous souhaitez prendre les serveurs locaux tels quels dans AVS, vous pouvez définir les critères de dimensionnement de la même façon que *localement*. Ensuite, l’évaluation dimensionnera les machines virtuelles en fonction de la configuration locale sans tenir compte des données d’utilisation.
 
 ### <a name="ftt-sizing-parameters"></a>Paramètres de dimensionnement FTT

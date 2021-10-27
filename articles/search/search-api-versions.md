@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/19/2021
-ms.openlocfilehash: efb6431805d6f1e648ffad2e30087d7ab8f77d78
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 10/15/2021
+ms.openlocfilehash: 9a53eba2b46333f3be08432ce69b22cfb3d9ef9c
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114437465"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130073522"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versions d’API dans la Recherche cognitive Azure
 
@@ -74,3 +74,7 @@ Le tableau suivant fournit des liens vers des versions plus récentes du Kit de 
 |-------------|--------|------------------------------|
 | [Python azure-search-documents 11.0](https://pypi.org/project/azure-search-documents/) | Stable | Nouvelle bibliothèque de client du Kit de développement logiciel (SDK) Python Azure, publiée en juillet 2020. Cible l’API REST de recherche api-version=2019-05-06. |
 | [Python azure-mgmt-search 8.0](https://pypi.org/project/azure-mgmt-search/) | Stable | Cible l’API REST de gestion de versions 19-08-2015. |
+
+## <a name="all-azure-sdks"></a>Tous les kits SDK Azure
+
+Si vous recherchez la documentation et les bibliothèques clientes bêta, [cette page](https://azure.github.io/azure-sdk/releases/latest/index.html) contient des liens vers tous les documents, le code et les packages de bibliothèque du kit SDK Azure. 

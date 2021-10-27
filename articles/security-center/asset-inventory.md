@@ -8,27 +8,23 @@ ms.author: memildin
 ms.date: 10/07/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 4175476bc655aa0be1a5377f3fada83cb30ac37e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 29e5ec35d97210b1dfe7494ce96a5e3ecae75bdf
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715922"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130002109"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Explorer et gérer vos ressources avec l’inventaire des ressources
+# <a name="use-asset-inventory-to-manage-your-resources-security-posture"></a>Utiliser l’inventaire des ressources pour gérer l’état de sécurité de vos ressources
 
-La page d’inventaire des ressources d’Azure Security Center fournit une page unique pour visualiser la posture de sécurité des ressources que vous avez connectées à Security Center. 
+Security Center analyse périodiquement l’état de sécurité de vos ressources Azure pour identifier les vulnérabilités de sécurité potentielles. Il fournit ensuite des recommandations sur la façon de corriger ces vulnérabilités. **Lorsqu’une ressource contient des recommandations en suspens, celles-ci apparaissent dans l’inventaire.**
 
-Security Center analyse périodiquement l’état de sécurité de vos ressources Azure pour identifier les vulnérabilités de sécurité potentielles. Il fournit ensuite des recommandations sur la façon de corriger ces vulnérabilités.
-
-Lorsqu’une ressource contient des recommandations en suspens, celles-ci apparaissent dans l’inventaire.
-
-Utilisez cette vue et ses filtres pour répondre à des questions telles que les suivantes :
+Utilisez la vue de l’inventaire des ressources et ses filtres pour répondre à des questions telles que les suivantes :
 
 - Parmi mes abonnements avec Azure Defender activé, lesquels ont des recommandations en suspens ?
 - Parmi mes machines ayant la balise « Production », lesquelles n’ont pas l’agent Log Analytics ?
 - Combien de mes machines, marquées d’une balise spécifique, ont des recommandations en suspens ?
-- Combien de ressources dans un groupe de ressources spécifique ont des résultats de sécurité provenant d’un service d’évaluation des vulnérabilités ?
+- Quels ordinateurs d’un groupe de ressources spécifique présentent une vulnérabilité connue (à l’aide d’un numéro de CVE) ?
 
 Les possibilités de gestion des ressources de cet outil sont considérables et continuent à se développer. 
 

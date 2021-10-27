@@ -7,19 +7,19 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 10/13/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b8b59db6b73cdc2ecae3ca60741a892580162602
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 01261b31f1c471d030ddb095fba1fd1d7b5e2e0b
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112287751"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129998453"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Paiement de vos abonnements Azure par facture
 
-Cet article s’adresse aux clients qui ont un Contrat client Microsoft (MCA) et qui se sont inscrits à Azure via le site web Azure. [Vérifiez votre accès à un Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement). Si vous vous êtes inscrit à Azure par le biais d’un représentant Microsoft, votre mode de paiement par défaut sera déjà défini sur *Chèque ou virement bancaire*.
+Cet article s’applique aux clients ayant souscrit un Contrat client Microsoft (MCA) et aux clients inscrits auprès d’Azure via le site web Azure (pour un compte de programme Microsoft Online Services, également appelé compte de paiement à l’utilisation). [Vérifiez votre accès à un Contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement). Si vous vous êtes inscrit à Azure par le biais d’un représentant Microsoft, votre mode de paiement par défaut sera déjà défini sur *Chèque ou virement bancaire*.
 
 Si vous passez au paiement par facture, cela signifie que vous devez payer votre facture dans les 30 jours à compter de la date de facture par chèque/virement bancaire. Afin de pouvoir payer votre abonnement Azure par facture, envoyez une requête au support Azure. Une fois votre requête approuvée, vous pouvez passer au paiement par facture (chèque/virement bancaire) dans le Portail Azure.
 
@@ -68,7 +68,7 @@ Si nous avons besoin de vérifier votre solvabilité en raison du montant du cr�
 
 Une fois autorisé à payer par facture, vous pouvez passer au paiement par facture (chèque/virement bancaire) dans le portail Azure.
 
-Si vous avez un compte de programme Microsoft Online Services, vous pouvez modifier votre abonnement Azure afin de payer par chèque/virement bancaire. Avec un Contrat client Microsoft, vous pouvez modifier votre profil de facturation pour payer par chèque/virement bancaire.
+Si vous disposez d’un compte de programme Microsoft Online Services (paiement à l’utilisation), vous pouvez modifier votre abonnement Azure pour payer par chèque/virement bancaire. Avec un Contrat client Microsoft, vous pouvez modifier votre profil de facturation pour payer par chèque/virement bancaire.
 
 ### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Modifier l’abonnement Azure pour payer par chèque/virement bancaire
 

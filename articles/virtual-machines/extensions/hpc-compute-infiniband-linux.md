@@ -12,15 +12,15 @@ ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/20/2020
+ms.date: 10/14/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 18e7132d6c767ecd1a7cd085d5b563a89d6af300
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 0e063c185495c41c1ce82b7e99a8a35f00a6a94d
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446082"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047472"
 ---
 # <a name="infiniband-driver-extension-for-linux"></a>Extension du pilote InfiniBand pour Linux
 
@@ -39,8 +39,8 @@ Cette extension prend en charge les distributions suivantes de système d’expl
 | Distribution | Version |
 |---|---|
 | Linux : Ubuntu | 16.04 LTS, 18.04 LTS, 20.04 LTS |
-| Linux : CentOS | 7.4, 7.5, 7.6, 7.7, 8.1, 8.2 |
-| Linux : Red Hat Enterprise Linux | 7.4, 7.5, 7.6, 7.7, 8.1, 8.2 |
+| Linux : CentOS | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8.2 |
+| Linux : Red Hat Enterprise Linux | 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8.1, 8.2 |
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
@@ -62,7 +62,7 @@ Le JSON suivant illustre le schéma pour l’extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "InfiniBandDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -77,7 +77,7 @@ Le JSON suivant illustre le schéma pour l’extension.
 | apiVersion | 2015-06-15 | Date |
 | publisher | Microsoft.HpcCompute | string |
 | type | InfiniBandDriverLinux | string |
-| typeHandlerVersion | 1.1 | int |
+| typeHandlerVersion | 1.2 | int |
 
 
 
@@ -104,7 +104,7 @@ L’exemple suivant suppose que l’extension est imbriquée dans la ressource d
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "InfiniBandDriverLinux",
-    "typeHandlerVersion": "1.1",
+    "typeHandlerVersion": "1.2",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -122,7 +122,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "InfiniBandDriverLinux" `
     -ExtensionType "InfiniBandDriverLinux" `
-    -TypeHandlerVersion 1.1 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
@@ -135,16 +135,16 @@ az vm extension set \
   --vm-name myVM \
   --name InfiniBandDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.1 
+  --version 1.2 
 ```
 
 ### <a name="add-extension-to-a-virtual-machine-scale-set"></a>Ajouter une extension à un groupe de machines virtuelles identiques
 
-L’exemple suivant installe la version 1.1 de l’extension InfiniBandDriverLinux sur toutes les machines virtuelles RDMA d’un groupe de machines virtuelles identiques existant nommé *myVMSS* et déployé dans le groupe de ressources nommé *myResourceGroup* :
+L’exemple suivant installe la version 1.2 de l’extension InfiniBandDriverLinux sur toutes les machines virtuelles RDMA d’un groupe de machines virtuelles identiques existant nommé *myVMSS* et déployé dans le groupe de ressources nommé *myResourceGroup* :
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
-  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.1"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.2"
   Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
   Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
 ```

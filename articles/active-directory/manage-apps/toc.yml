@@ -41,10 +41,6 @@
 - name: Concepts
   expanded: true
   items:
-    - name: Bonnes pratiques sur la gestion des applications
-      href: application-management-fundamentals.md
-    - name: Scénarios courants de gestion d’applications
-      href: common-scenarios.md
     - name: Stratégie de découverte du domaine d’accueil
       href: home-realm-discovery-policy.md
     - name: Planification d’une intégration d’applications cloud
@@ -150,6 +146,8 @@
               href: f5-bigip-deployment-guide.md
             - name: "F5 BIG-IP avec Azure\_AD pour un VPN sans mot de passe"
               href: f5-aad-password-less-vpn.md
+            - name: "F5 BIG-IP avec Azure\_AD pour une authentification unique basée sur les formulaires"
+              href: f5-big-ip-forms-advanced.md
         - name: Silverfort
           href: silverfort-azure-ad-integration.md
     - name: Authentification unique

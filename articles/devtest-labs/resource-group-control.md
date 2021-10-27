@@ -1,23 +1,23 @@
 ---
-title: Spécifier un groupe de ressources pour des machines virtuelles
+title: Spécifier un groupe de ressources pour les machines virtuelles Azure dans DevTest Labs
 description: Découvrez comment spécifier un groupe de ressources pour les machines virtuelles dans Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 06/26/2020
-ms.openlocfilehash: f8800674ca7d324037d026142cff41b4fbd018d0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/18/2021
+ms.openlocfilehash: baeab2c54ae594cf9ecb70ae8c4ec7dd2b66588f
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128635429"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130178896"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Spécifier un groupe de ressources pour les machines virtuelles de labo dans Azure DevTest Labs
 
-En tant que propriétaire de labo, vous pouvez configurer les machines virtuelles de votre labo de manière à ce qu’elles soient créées dans un groupe de ressources en particulier. Cette fonctionnalité vous aide dans les scénarios suivants :
+Par défaut, Azure DevTest Labs crée un groupe de ressources chaque fois qu’une nouvelle machine virtuelle est créée. En tant que propriétaire de labo, vous pouvez configurer les machines virtuelles de votre labo de manière à ce qu’elles soient créées dans un groupe de ressources en particulier. Cette fonctionnalité vous aide dans les scénarios suivants :
 
 - Vous disposez de moins de groupes de ressources créés par les laboratoires dans votre abonnement.
 - Vos laboratoires fonctionnent au sein d’un ensemble fixe de groupes de ressources configurés par vos soins.
 - Vous contournez les restrictions et les approbations requises pour créer des groupes de ressources au sein de votre abonnement Azure.
-- Vous consolidez toutes vos ressources de laboratoire au sein d’un seul groupe de ressources pour simplifier le suivi de ces ressources et l’application de [stratégies](../governance/policy/overview.md) afin de gérer les ressources au niveau du groupe de ressources.
+- Vous combinez toutes vos ressources de laboratoire au sein d’un seul groupe de ressources pour simplifier le suivi de ces ressources et l’application de [stratégies](../governance/policy/overview.md) afin de gérer les ressources au niveau du groupe de ressources.
 
 Avec cette fonctionnalité, vous pouvez utiliser un script afin de spécifier un nouveau groupe de ressources ou un groupe de ressources existant dans votre abonnement Azure pour toutes les machines virtuelles de votre labo. Pour le moment, Azure DevTest Labs prend en charge cette fonctionnalité par le biais d’une API.
 

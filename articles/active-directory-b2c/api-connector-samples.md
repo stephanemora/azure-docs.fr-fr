@@ -1,21 +1,21 @@
 ---
-title: Exemples d’API pour la modification de vos flux d’utilisateurs Azure AD B2C | Microsoft Docs
+title: Exemples d’API pour la modification de vos flux d’utilisateurs Azure AD B2C
 description: Exemples de code pour la modification de flux d’utilisateurs avec des connecteurs d’API
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
-ms.author: mimart
+author: kengaderdus
+manager: CelesteDG
+ms.author: kengaderdus
 ms.date: 07/16/2021
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: d27bac61a7f39b50d692e579edb29da945234a27
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: d4a807d725caa224eba67ee7419b91753dcc439c
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114479572"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038039"
 ---
 # <a name="api-connector-rest-api-samples"></a>Exemples d’API REST de connecteur d’API
 

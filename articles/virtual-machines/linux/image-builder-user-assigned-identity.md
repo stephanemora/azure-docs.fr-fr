@@ -8,20 +8,20 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.openlocfilehash: 588e32e2a531f08319a3120a99ca70048c4c24b2
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: f26c60bb4c15ea04acc6b966c0e1af8eec0aeabb
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122770409"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001349"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Créer une image et utiliser une identité managée affectée par l’utilisateur pour accéder aux fichiers dans le stockage Azure 
 
 **S’applique à :** :heavy_check_mark: Machines virtuelles Linux :heavy_check_mark: Groupes identiques flexibles 
 
-Le générateur d’images Azure prend en charge l’utilisation de scripts ou la copie de fichiers à partir de plusieurs emplacements, tels que GitHub et le stockage Azure etc. Pour utiliser ces modèles, ceux-ci doivent avoir été accessibles en externe au générateur d’images Azure, toutefois vous pouvez protéger les objets Blob Azure Storage à l’aide de jetons SAS.
+Le générateur d’images Azure prend en charge l’utilisation de scripts ou la copie de fichiers à partir de plusieurs emplacements, tels que GitHub et le stockage Azure etc. Pour utiliser ces modèles, ceux-ci doivent avoir été accessibles en externe au générateur d’images Azure.
 
-Cet article montre comment créer une image personnalisée à l’aide d’Azure VM Image Builder, où le service utilise une [identité managée attribuée par l’utilisateur](../../active-directory/managed-identities-azure-resources/overview.md) pour accéder aux fichiers dans le stockage Azure pour la personnalisation de l’image, sans avoir à rendre les fichiers publiquement accessibles, ou pour la configuration de jetons SAS.
+Cet article montre comment créer une image personnalisée à l’aide d’Azure VM Image Builder, où le service utilise une [identité managée attribuée par l’utilisateur](../../active-directory/managed-identities-azure-resources/overview.md) pour accéder aux fichiers dans le stockage Azure pour la personnalisation de l’image, sans avoir à rendre les fichiers publiquement accessibles.
 
 Dans l’exemple ci-dessous, vous créez deux groupes de ressources, dont l’un est utilisé pour l’image personnalisée et l’autre héberge un compte de stockage Azure contenant un fichier de script. Cela simule un scénario réel, où vous pouvez avoir des artefacts de build, ou des fichiers image dans différents comptes de stockage, en dehors du générateur d’images. Vous allez créer une identité affectée par l’utilisateur, puis accorder ces autorisations de lecture sur le fichier de script. Toutefois, vous ne définirez pas d’accès public à ce fichier. Vous allez ensuite utiliser l’outil de personnalisation de l’interpréteur de commandes pour télécharger et exécuter ce script à partir du compte de stockage.
 

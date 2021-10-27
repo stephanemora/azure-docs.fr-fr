@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
-ms.openlocfilehash: 2e214abaa6f193c3464025014757d49349aa388c
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 1c2d35709ab512eb27579db6991567cd27b23376
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231973"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130044551"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flux d’authentification et scénarios d’applications
 
@@ -160,7 +160,7 @@ Pour plus d’informations, consultez [Application mobile qui appelle des API we
 
 ### <a name="protected-web-api"></a>API web protégée
 
-Vous pouvez utiliser le point de terminaison de la plateforme d’identités Microsoft pour sécuriser des services web, comme l’API web RESTful de votre application. Une API web protégée est appelée à l’aide d’un jeton d’accès. Le jeton aide à sécuriser les données de l’API et authentifie les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP.
+Vous pouvez utiliser le point de terminaison de la plateforme d’identités Microsoft pour sécuriser des services web, comme l’API RESTful de votre application. Une API web protégée est appelée à l’aide d’un jeton d’accès. Le jeton aide à sécuriser les données de l’API et authentifie les requêtes entrantes. L’appelant d’une API web ajoute un jeton d’accès dans l’en-tête d’autorisation d’une requête HTTP.
 
 Si vous souhaitez protéger votre API web ASP.NET ou ASP.NET Core, validez le jeton d’accès. Pour cette validation, vous utilisez le middleware JWT ASP.NET. La validation est effectuée par la bibliothèque d’[extensions IdentityModel pour .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki), non par MSAL.NET.
 

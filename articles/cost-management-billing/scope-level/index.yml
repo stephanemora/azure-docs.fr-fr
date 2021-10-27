@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Gestion de niveau étendue d’Azure Hybrid Benefit
-summary: Azure Hybrid Benefit est un avantage qui vous permet d’apporter vos licences locales SQL Server et Windows Server basées sur les cœurs avec Software Assurance (ou abonnement) active sur Azure. Il vous permet de réduire considérablement les coûts d’exécution de vos charges de travail dans le cloud. Dans le portail Azure, vous pouvez maintenant gérer Azure Hybrid Benefit pour SQL Server en attribuant des licences à l’étendue d’un abonnement Azure complet ou d’un compte de facturation global.
+title: Azure Hybrid Benefit managé de manière centralisée
+summary: Azure Hybrid Benefit est un avantage qui vous permet d’apporter vos licences locales SQL Server et Windows Server basées sur les cœurs avec Software Assurance (ou abonnement) active sur Azure. Il vous permet de réduire considérablement les coûts d’exécution de vos charges de travail dans le cloud. Dans le portail Azure, vous pouvez maintenant gérer Azure Hybrid Benefit pour SQL Server de manière centralisée, en attribuant des licences à l’étendue d’un abonnement Azure complet ou d’un compte de facturation global.
 metadata:
   title: Documentation Azure Hybrid Benefit
-  description: Azure Hybrid Benefit est un avantage qui vous permet d’apporter vos licences locales SQL Server et Windows Server basées sur les cœurs avec Software Assurance (ou abonnement) active sur Azure. Il vous permet de réduire considérablement les coûts d’exécution de vos charges de travail dans le cloud. Dans le portail Azure, vous pouvez maintenant gérer Azure Hybrid Benefit pour SQL Server en attribuant des licences à l’étendue d’un abonnement Azure complet ou d’un compte de facturation global.
+  description: Azure Hybrid Benefit est un avantage qui vous permet d’apporter vos licences locales SQL Server et Windows Server basées sur les cœurs avec Software Assurance (ou abonnement) active sur Azure. Il vous permet de réduire considérablement les coûts d’exécution de vos charges de travail dans le cloud. Dans le portail Azure, vous pouvez maintenant gérer Azure Hybrid Benefit pour SQL Server de manière centralisée, en attribuant des licences à l’étendue d’un abonnement Azure complet ou d’un compte de facturation global.
   ms.service: cost-management-billing
   ms.subservice: ahb
   ms.topic: landing-page
@@ -11,22 +11,22 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.date: 09/30/2021
-  ms.openlocfilehash: ae18a0f65423219f6ba0035c8ebe7fe6df1aeba6
-  ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+  ms.openlocfilehash: f9383ccbda8bedef23435b2b909a5025529f28c3
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/05/2021
-  ms.locfileid: "129547166"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130226599"
 landingContent:
 - title: Bien démarrer
   linkLists:
   - linkListType: overview
     links:
-    - text: Qu’est-ce que la gestion de niveau étendue ?
+    - text: Qu’est-ce que la gestion centralisée ?
       url: overview-azure-hybrid-benefit-scope.md?toc=/azure/cost-management-billing/scope-level/toc.json
   - linkListType: tutorial
     links:
-    - text: Optimiser Azure Hybrid Benefit de niveau étendue
+    - text: Optimiser Azure Hybrid Benefit managé de manière centralisée
       url: tutorial-azure-hybrid-benefits-sql.md?toc=/azure/cost-management-billing/scope-level/toc.json
   - linkListType: how-to-guide
     links:
@@ -36,7 +36,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Passer à Azure Hybrid Benefit de niveau étendue
+    - text: Migrer vers Azure Hybrid Benefit managé de manière centralisée
       url: transition-existing.md?toc=/azure/cost-management-billing/scope-level/toc.json
   - linkListType: reference
     links:

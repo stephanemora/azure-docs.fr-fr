@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/18/2021
 ms.author: duau
-ms.openlocfilehash: 378ba28eaa4b68cb1d05fa0af5c11ca95bd52a8b
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 3a56f01c210fb9b6e29294e00a1cb13715108b42
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129210323"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167545"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Questions fréquentes sur Azure Front Door Standard/Premium (préversion)
 
@@ -96,7 +96,7 @@ Autre façon de verrouiller votre application pour accepter le trafic uniquement
 
 * Configurez les ACL IP pour vos back-ends de manière à accepter le trafic en provenance uniquement de l’espace d’adressage IP back-end d’Azure Front Door et des services d’infrastructure d’Azure. Reportez-vous aux détails d’adresses IP ci-dessous afin de configurer les listes ACL pour votre back-end :
  
-    * Consultez la section *AzureFrontDoor.Backend* dans [Plage d'adresses IP Azure et Étiquettes de service](https://www.microsoft.com/download/details.aspx?id=56519) pour la plage d'adresses IP back-end IPv4 de Front Door. Vous pouvez également utiliser l’étiquette de service *AzureFrontDoor.Backend* dans vos [groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md#security-rules).
+    * Consultez la section *AzureFrontDoor.Backend* dans [Plage d'adresses IP Azure et Étiquettes de service](https://www.microsoft.com/download/details.aspx?id=56519) pour la plage d'adresses IP back-end de Front Door. Vous pouvez également utiliser l’étiquette de service *AzureFrontDoor.Backend* dans vos [groupes de sécurité réseau](../../virtual-network/network-security-groups-overview.md#security-rules).
     * [Services d’infrastructure de base](../../virtual-network/network-security-groups-overview.md#azure-platform-considerations) d’Azure par le biais des adresses IP hôte virtualisées : `168.63.129.16` et `169.254.169.254`.
 
     > [!WARNING]

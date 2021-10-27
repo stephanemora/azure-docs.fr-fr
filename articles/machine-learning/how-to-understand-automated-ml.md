@@ -3,20 +3,18 @@ title: Évaluer les résultats de l’expérience AutoML
 titleSuffix: Azure Machine Learning
 description: Apprenez à afficher et à évaluer les graphiques et les métriques pour chacune de vos exécutions d’expérience de Machine Learning automatisé.
 services: machine-learning
-author: gregorybchris
-ms.author: chgrego
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: automl
 ms.date: 12/09/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2, automl
-ms.openlocfilehash: 91c620a68d375084f8a4be6c5a8bf30b92d016c1
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 2b9384b53b1fa5ac8681f6acab4df6d923d95703
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129812201"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162891"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Évaluer les résultats de l’expérience de Machine Learning automatisé
 
@@ -72,18 +70,21 @@ Bien que chaque méthode de calcul de la moyenne présente ses avantages, il con
 
 Le tableau suivant récapitule les métriques de performances de modèle calculées par le ML automatisé pour chaque modèle de classification généré pour votre expérience. Pour plus d’informations, consultez la documentation relative à scikit-learn dans le champ **Calcul** de chaque métrique. 
 
+> [!NOTE]
+> Pour plus d’informations sur les métriques pour les modèles de classification d’images, consultez la section des [métriques d’image](#metrics-for-image-models-preview).
+
 |Métrique|Description|Calcul|
 |--|--|---|
 |AUC | « AUC » est [Area under the Receiver Operating Characteristic Curve](#roc-curve) (la zone sous la courbe caractéristique de fonctionnement du récepteur).<br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent, <li>`AUC_macro` est la moyenne arithmétique de l’AUC pour chaque classe.<li> `AUC_micro`, calculée de manière multi-étiquette. Pour chaque échantillon, chaque classe différente est traitée comme une prédiction `0/1` indépendante. La classe correcte deviendra la classe `true` et le reste sera la classe `false`. Ensuite, AUC est calculée pour la nouvelle tâche de classification binaire en combinant tous les échantillons. <li> `AUC_weighted` est la moyenne arithmétique du score pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe. <li> `AUC_binary`, valeur d’AUC en traitant une classe spécifique comme classe `true` et en combinant toutes les autres classes comme classe `false`.<br><br>|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.roc_auc_score.html) | 
 |accuracy| La précision représente le taux de prédictions qui correspondent exactement aux étiquettes de classes réelles. <br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.accuracy_score.html)|
 |average_precision|La précision moyenne résume la courbe précision-rappel comme moyenne pondérée des précisions atteintes à chaque seuil, avec l’augmentation du rappel du seuil précédent utilisé comme pondération. <br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent,<li>`average_precision_score_macro` est la moyenne arithmétique du score de précision moyen de chaque classe.<li> `average_precision_score_micro`, calculée de manière multi-étiquette. Pour chaque échantillon, chaque classe différente est traitée comme une prédiction `0/1` indépendante. La classe correcte deviendra la classe `true` et le reste sera la classe `false`. Ensuite, la précision moyenne est calculée pour la nouvelle tâche de classification binaire en combinant tous les échantillons.<li>`average_precision_score_weighted` est la moyenne arithmétique du score de précision moyen pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe. <li> `average_precision_score_binary`, valeur de la précision moyenne en traitant une classe spécifique comme classe `true` et en combinant toutes les autres classes comme classe `false`.|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.average_precision_score.html)|
 balanced_accuracy|La précision équilibrée est la moyenne arithmétique du rappel pour chaque classe.<br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
-f1_score|Le score F1 est la moyenne harmonique de la précision et du rappel. Il s’agit d’une bonne métrique équilibrée de faux positifs et de faux négatifs. Toutefois, il ne prend pas en compte les vrais négatifs. <br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent,<li>  `f1_score_macro` est la moyenne arithmétique du score F1 pour chaque classe. <li> `f1_score_micro` est calculé en comptant le total des vrais positifs, des faux négatifs et des faux positifs. <li> `f1_score_weighted` : moyenne pondérée par fréquence de classe du score F1 pour chaque classe. <li> `f1_score_binary`, valeur de F1 en traitant une classe spécifique comme classe `true` et en combinant toutes les autres classes comme classe `false`.|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.f1_score.html)|
+f1_score|Le score F1 est la moyenne harmonique de la précision et du rappel. Il s’agit d’une bonne métrique équilibrée de faux positifs et de faux négatifs. Toutefois, il ne prend pas en compte les vrais négatifs. <br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent,<li>  `f1_score_macro` est la moyenne arithmétique du score F1 pour chaque classe. <li> `f1_score_micro` est calculé en comptant le total des vrais positifs, des faux négatifs et des faux positifs. <li> `f1_score_weighted` : moyenne pondérée par fréquence de classe du score F1 pour chaque classe. <li> `f1_score_binary`, valeur de F1 en traitant une classe spécifique comme classe `true` et en combinant toutes les autres classes comme classe `false`. <br><br>Remarque : La valeur de `f1_score_micro` est toujours égale à la valeur de `accuracy`.|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.f1_score.html)|
 log_loss|Il s’agit de la fonction de perte utilisée dans la régression logistique (multinomiale) et les extensions de celle-ci, comme les réseaux neuronaux, définie comme la probabilité logarithmique négative des étiquettes réelles, étant données les prédictions d’un classifieur probabiliste. <br><br> **Objectif** : Une valeur proche de 0 est optimale <br> **Plage :** [0, inf)|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.log_loss.html)|
 norm_macro_recall| Le rappel macro normalisé représente un rappel macro moyen et normalisé, de sorte que la performance aléatoire affiche un score de 0 et la performance parfaite un score de 1. <br> <br>**Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1] |`(recall_score_macro - R)`&nbsp;/&nbsp;`(1 - R)` <br><br>où `R` est la valeur attendue de `recall_score_macro` pour les prédictions aléatoires.<br><br>`R = 0.5`&nbsp;pour la classification &nbsp;binaire&nbsp;. <br>`R = (1 / C)` pour les problèmes de classification de classe C.|
 matthews_correlation | Le coefficient de corrélation Matthews est une métrique équilibrée de précision, qui peut être utilisé même si une classe contient beaucoup plus d’échantillons qu’une autre. Un coefficient de 1 indique une prédiction parfaite, 0 une prédiction aléatoire, et-1 une prédiction inverse.<br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [-1, 1]|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.matthews_corrcoef.html)|
-précision|La précision est la capacité d’un modèle à éviter d’étiqueter des échantillons négatifs comme positifs. <br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent, <li> `precision_score_macro` est la moyenne arithmétique de la précision pour chaque classe. <li> `precision_score_micro` est calculé globalement en comptant le total des vrais positifs et des faux positifs. <li> `precision_score_weighted` est la moyenne arithmétique de la précision pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe. <li> `precision_score_binary`, valeur de la précision en traitant une classe spécifique comme classe `true` et en combinant toutes les autres classes comme classe `false`.|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.precision_score.html)|
-rappel| Le rappel est la capacité d’un modèle à détecter tous les échantillons positifs. <br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent, <li>`recall_score_macro` est la moyenne arithmétique du rappel pour chaque classe. <li> `recall_score_micro` est calculé globalement en comptant le total des vrais positifs, des faux négatifs et des faux positifs.<li> `recall_score_weighted` est la moyenne arithmétique du rappel pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe. <li> `recall_score_binary`, valeur du rappel en traitant une classe spécifique comme classe `true` et en combinant toutes les autres classes comme classe `false`.|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
+précision|La précision est la capacité d’un modèle à éviter d’étiqueter des échantillons négatifs comme positifs. <br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent, <li> `precision_score_macro` est la moyenne arithmétique de la précision pour chaque classe. <li> `precision_score_micro` est calculé globalement en comptant le total des vrais positifs et des faux positifs. <li> `precision_score_weighted` est la moyenne arithmétique de la précision pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe. <li> `precision_score_binary`, valeur de la précision en traitant une classe spécifique comme classe `true` et en combinant toutes les autres classes comme classe `false`.<br><br>Remarque : La valeur de `precision_score_micro` est toujours égale à la valeur de `accuracy`.|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.precision_score.html)|
+rappel| Le rappel est la capacité d’un modèle à détecter tous les échantillons positifs. <br><br> **Objectif** : Une valeur proche de 1 est optimale <br> **Plage :** [0, 1]<br> <br>Les noms de métriques pris en charge incluent, <li>`recall_score_macro` est la moyenne arithmétique du rappel pour chaque classe. <li> `recall_score_micro` est calculé globalement en comptant le total des vrais positifs, des faux négatifs et des faux positifs.<li> `recall_score_weighted` est la moyenne arithmétique du rappel pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe. <li> `recall_score_binary`, valeur du rappel en traitant une classe spécifique comme classe `true` et en combinant toutes les autres classes comme classe `false`.<br><br>Remarque : La valeur de `recall_score_micro` est toujours égale à la valeur de `accuracy`.|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.recall_score.html)|
 weighted_accuracy|La précision pondérée est la précision avec laquelle chaque échantillon est pondéré par le nombre total d’échantillons appartenant à la même classe. <br><br>**Objectif** : Une valeur proche de 1 est optimale <br>**Plage :** [0, 1]|[Calcul](https://scikit-learn.org/0.22/modules/generated/sklearn.metrics.accuracy_score.html)|
 
 ### <a name="binary-vs-multiclass-classification-metrics"></a>Métriques de classification binaires et multiclasses
@@ -204,9 +205,12 @@ spearman_correlation| La corrélation de Spearman est une mesure non paramétriq
 
 ### <a name="metric-normalization"></a>Normalisation des métriques
 
-ML automatisé normalise les métriques de régression et de prévision permettant une comparaison entre les modèles formés sur des données avec des plages différentes. Un modèle formé sur des données avec une plus grande plage affiche une erreur plus élevée que le même modèle formé sur des données avec une plage plus restreinte, sauf si cette erreur est normalisée.
+Le ML automatisé normalise les métriques de régression et de prévision, ce qui permet de comparer les modèles formés sur des données différentes. Un modèle formé sur des données avec une plus grande plage a généralement une erreur plus élevée que le même modèle formé sur des données avec une plage plus restreinte, sauf si cette erreur est normalisée.
 
-Bien qu’il n’existe pas de méthode standard pour normaliser les métriques d’erreur, ML automatisé adopte l’approche courante consistant à diviser l’erreur par la plage des données : `normalized_error = error / (y_max - y_min)`
+Bien qu’il n’existe pas de méthode standard pour normaliser les métriques d’erreur, le ML automatisé adopte l’approche courante consistant à diviser l’erreur par la plage des données : `normalized_error = error / (y_max - y_min)`. 
+
+> [!Note]
+> La plage de données n’est pas enregistrée avec le modèle. Si vous procédez à une inférence avec le même modèle sur un jeu de test de données d’exclusion, `y_min` et `y_max` peuvent changer en fonction des données de test, et les métriques normalisées ne peuvent pas être utilisées directement pour comparer les performances du modèle sur les jeux de formation et de test. Vous pouvez transmettre la valeur de `y_min` et `y_max` de votre jeu de formation pour rendre la comparaison équitable.
 
 Lors de l’évaluation d’un modèle de prévision sur des données de série chronologique, ML automatisé prend des mesures supplémentaires pour s’assurer que la normalisation se produit par ID de série chronologique (grain), car chaque série chronologique utilise probablement une distribution différente des valeurs cibles.
 ## <a name="residuals"></a>Résidus
@@ -234,6 +238,60 @@ Dans cet exemple, notez que le meilleur modèle comporte une ligne de prédictio
 
 ### <a name="predicted-vs-true-chart-for-a-bad-model"></a>Graphique prédit et réel pour un mauvais modèle
 ![Graphique prédit et réel pour un mauvais modèle](./media/how-to-understand-automated-ml/chart-predicted-true-bad.png)
+
+## <a name="metrics-for-image-models-preview"></a>Métriques pour les modèles d’image (préversion)
+
+Le ML automatisé utilise les images du jeu de données de validation pour évaluer les performances du modèle. Les performances du modèle sont mesurées au **niveau de l’époque** pour comprendre la progression de la formation. Une époque s’écoule lorsqu’un jeu de données entier effectue un aller-retour par le réseau neuronal exactement une fois. 
+
+### <a name="image-classification-metrics"></a>Métriques de classification d’images
+
+La principale métrique d’évaluation est l’**exactitude** pour les modèles de classification binaire et multiclasse et **IoU** ([Intersection over Union](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html#sklearn.metrics.jaccard_score)) pour les modèles de classification multiétiquette.
+Les métriques de classification pour les modèles de classification d’images sont identiques à celles définies dans la section sur les [métriques de classification](#classification-metrics). Les valeurs de perte associées à une époque sont également journalisées, ce qui permet de suivre la progression de la formation et de déterminer si le modèle est surajusté ou sous-ajusté.
+
+Chaque prédiction d’un modèle de classification est associée à un score de confiance, qui indique le niveau de confiance avec lequel la prédiction a été effectuée. Par défaut, les modèles de classification d’images multiétiquettes sont évalués avec un seuil de score de 0,5, ce qui signifie que seules les prédictions ayant au moins ce niveau de confiance seront considérées comme une prédiction positive pour la classe associée. La classification multiclasse n’utilise pas de seuil de score, mais au lieu de cela, la classe avec le score de confiance maximal est considérée comme la prédiction. 
+
+#### <a name="epoch-level-metrics-for-image-classification"></a>Métriques au niveau de l’époque pour la classification d’images
+Contrairement aux métriques de classification pour les jeux de données tabulaires, les modèles de classification d’images consignent toutes les métriques de classification au niveau de l’époque, comme indiqué ci-dessous.
+
+![Graphiques au niveau de l’époque pour la classification d’images](./media/how-to-understand-automated-ml/image-classification-accuracy.png)
+
+#### <a name="summary-metrics-for-image-classification"></a>Métriques récapitulatives pour la classification d’images
+
+Outre les métriques scalaires qui sont consignées au niveau de l’époque, le modèle de classification d’images consigne également des métriques récapitulatives telles que la [matrice de confusion](#confusion-matrix), des [graphiques de classification](#roc-curve), y compris la courbe ROC, la courbe précision-rappel et le rapport de classification pour le modèle de la meilleure époque à laquelle nous obtenons le score de la métrique principale (exactitude) le plus élevé.
+
+Le rapport de classification fournit les valeurs au niveau de la classe pour des métriques telles que precision, recall, f1-score, support, auc et average_precision avec différents niveaux de moyenne (micro, macro et pondéré) comme indiqué ci-dessous.
+Reportez-vous aux définitions de métriques de la section des [métriques de classification](#classification-metrics).
+
+![Rapport de classification pour la classification d’images](./media/how-to-understand-automated-ml/image-classification-report.png)
+
+### <a name="object-detection-and-instance-segmentation-metrics"></a>Métriques de détection d’objet et de segmentation d’instance
+
+Chaque prédiction d’un modèle de détection d’objet image ou de segmentation d’instance est associée à un score de confiance.
+Les prédictions dont le score de confiance est supérieur au seuil de score sont générées en tant que prédictions et utilisées dans le calcul de la métrique, dont la valeur par défaut est spécifique au modèle et peut être consultée sur la page [Optimisation des hyperparamètres](how-to-auto-train-image-models.md#model-specific-hyperparameters) (hyperparamètre `box_score_threshold`).
+
+Le calcul de métrique d’un modèle de détection d’objet image et de segmentation d’instance est basé sur une mesure de chevauchement définie par une métrique appelée **IoU** ([Intersection over Union](https://en.wikipedia.org/wiki/Jaccard_index)) qui est calculée en divisant l’aire de chevauchement entre la vérité de base et les prédictions par l’aire d’union de la vérité de base et des prédictions. L’IoU calculée à partir de chaque prédiction est comparée à un **seuil de chevauchement**, appelé seuil IoU, qui détermine dans quelle mesure une prédiction doit chevaucher la vérité de base annotée par l’utilisateur pour être considérée comme une prédiction positive. Si l’IoU calculée à partir de la prédiction est inférieure au seuil de chevauchement, la prédiction ne sera pas considérée comme une prédiction positive pour la classe associée.
+
+La principale métrique pour l’évaluation des modèles de détection d’objet image et de segmentation d’instance est la **précision moyenne (mAP)** . La mAP est la valeur moyenne de la précision moyenne (AP) pour toutes les classes. Les modèles de détection d’objet de ML automatisé permettent de calculer la mAP à l’aide des deux méthodes populaires suivantes.
+
+**Métriques Pascal VOC** : 
+
+La mAP de [Pascal VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/htmldoc/devkit_doc.html#SECTION00044000000000000000) est la méthode de calcul par défaut de la mAP pour les modèles de détection d’objet et de segmentation d’instance. La méthode mAP de type Pascal VOC calcule l’aire sous une version de la courbe précision-rappel. Tout d’abord, la fonction p(rᵢ), qui est la précision au rappel i, est calculée pour toutes les valeurs de rappel uniques. p(rᵢ) est ensuite remplacée par la précision maximale obtenue pour tout rappel r’ >= rᵢ. La valeur de la précision est monotone et décroissante dans cette version de la courbe. La métrique mAP Pascal VOC est évaluée par défaut avec un seuil IoU de 0,5. Une explication détaillée de ce concept est disponible dans ce [blog](https://jonathan-hui.medium.com/map-mean-average-precision-for-object-detection-45c121a31173).
+
+
+**Métriques COCO** : 
+
+La [méthode d’évaluation COCO](https://cocodataset.org/#detection-eval) utilise une méthode d’interpolation de 101 points pour calculer l’AP ainsi qu’une moyenne sur 10 seuils IoU. AP@[.5:.95] correspond à l’AP moyenne pour IoU comprise entre 0,5 et 0,95, avec un pas de 0,05. Le ML automatisé consigne l’ensemble des 12 métriques définies par la méthode COCO, y compris l’AP et l’AR (rappel moyen) à diverses échelles dans les journaux des applications, tandis que l’interface utilisateur des métriques affiche uniquement la mAP à un seuil IoU de 0,5. 
+
+> [!TIP]
+> L’évaluation du modèle de détection d’objet image peut utiliser les métriques COCO si l’hyperparamètre `validation_metric_type` est défini sur « coco », comme expliqué dans la section sur l’[optimisation des hyperparamètres](how-to-auto-train-image-models.md#task-specific-hyperparameters).
+
+#### <a name="epoch-level-metrics-for-object-detection-and-instance-segmentation"></a>Métriques au niveau de l’époque pour la détection d’objet et la segmentation d’instance
+Les valeurs de mAP, de précision et de rappel sont journalisées au niveau de l’époque pour les modèles détection d’objet image ou de segmentation d’instance. Les métriques de mAP, de précision et de rappel sont également journalisées au niveau de la classe avec le nom « per_label_metrics ». Le « per_label_metrics » doit être affiché sous la forme d’un tableau. 
+
+> [!NOTE]
+> Les métriques au niveau de l’époque pour la précision, le rappel et per_label_metrics ne sont pas disponibles lorsque la méthode « COCO » est utilisée.
+
+![Graphiques au niveau de l’époque pour la détection d’objet](./media/how-to-understand-automated-ml/image-object-detection-map.png)
 
 ## <a name="model-explanations-and-feature-importances"></a>Explications des modèles et importance des fonctionnalités
 

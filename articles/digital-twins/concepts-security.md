@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 253d763cffc8b70d134182c13678320f4ac50f4c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 59fa14f66e5fdb1424a4bac30a30cf70118149b4
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128586321"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131465"
 ---
 # <a name="secure-azure-digital-twins"></a>Sécuriser Azure Digital Twins
 
@@ -82,7 +82,7 @@ La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès a
 
 ### <a name="troubleshooting-permissions"></a>Résolution des problèmes d'autorisations
 
-Si un utilisateur tente d’effectuer une action qui n’est pas autorisée par son rôle, il peut recevoir un message d’erreur `403 (Forbidden)` de la demande de service. Si vous souhaitez en savoir plus, également sur les étapes à suivre pour le dépannage, consultez [Résolution des problèmes : échec de la requête Azure Digital Twins avec l’état : 403 (Interdit)](troubleshoot-error-403.md) .
+Si un utilisateur tente d’effectuer une action qui n’est pas autorisée par son rôle, il peut recevoir un message d’erreur `403 (Forbidden)` de la demande de service. Pour plus d’informations et pour connaître les étapes de dépannage, consultez [Résolution de l’échec de demande de service : erreur 403 (Forbidden)](troubleshoot-error-403.md).
 
 ## <a name="managed-identity-for-accessing-other-resources"></a>Identité managée pour accéder à d’autres ressources
 

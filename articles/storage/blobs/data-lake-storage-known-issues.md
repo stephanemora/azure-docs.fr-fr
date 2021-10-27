@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 10/14/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 11572f957fc2d305f5d6f17303bb8386345abc7b
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 6a612621ef316e7d4e7c248968b3cc87c04b85ae
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714064"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130046257"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -68,7 +68,7 @@ La possibilité d’appliquer les modifications aux listes ACL de manière récu
 
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Listes de contrôle d’accès (ACL) et accès en lecture anonyme
 
-Si l’[accès en lecture anonyme](./anonymous-read-access-configure.md) a été accordé à un conteneur, les listes de contrôle d’accès n’ont aucun effet sur ce conteneur ou les fichiers de ce conteneur.
+Si l’[accès en lecture anonyme](./anonymous-read-access-configure.md) a été accordé à un conteneur, les listes de contrôle d’accès n’ont aucun effet sur ce conteneur ou les fichiers de ce conteneur.  Cela affecte uniquement les demandes de lecture.  Les demandes d’écriture continuent de respecter les listes de contrôle d’accès.
 
 <a id="known-issues-tools"></a>
 
@@ -98,15 +98,11 @@ Les applications tierces qui utilisent l’API REST continueront à fonctionner 
 
 Le réglage du nombre de jours de rétention n’est pas encore pris en charge, mais vous pouvez supprimer les journaux manuellement à l’aide de n’importe quel outil pris en charge, comme Explorateur Stockage Azure, REST ou un Kit de développement logiciel (SDK).
 
-## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Stratégies de gestion du cycle de vie avec niveau Premium pour Azure Data Lake Storage
-
-Il n’est pas possible de déplacer des données stockées dans le niveau Premium entre les niveaux chaud, froid et archive. Vous pouvez toutefois copier des données du niveau Premium vers le niveau d’accès chaud dans un autre compte.
-
-## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Pilote Windows Azure Storage Blob (WASB) (non pris en charge avec Data Lake Storage Gen2)
+## <a name="windows-azure-storage-blob-wasb-driver"></a>Pilote Windows Azure Storage Blob (WASB)
 
 Actuellement, le pilote WASB, qui a été conçu pour fonctionner avec l’API Blob uniquement, rencontre des problèmes dans quelques scénarios courants. C’est le cas en particulier quand il s’agit d’un client pour un compte de stockage prenant en charge un espace de noms hiérarchique. L’accès multiprotocole sur Data Lake Storage n’atténue pas ces problèmes.
 
-Pour le moment (et probablement pour très longtemps), nous ne prenons pas en charge les utilisateurs qui utilisent le pilote WASB en tant que client pour un compte de stockage prenant en charge un espace de noms hiérarchique. Nous vous recommandons plutôt d’utiliser le pilote [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) dans votre environnement Hadoop. Si vous tentez d’effectuer une migration à partir d’un environnement Hadoop local avec une version antérieure à Hadoop Branch-3, ouvrez un ticket de support Azure pour que nous puissions vous contacter et vous indiquer la bonne direction pour vous et votre organisation.
+L’utilisation du pilote WASB comme client pour un compte de stockage prenant en charge un espace de noms hiérarchique n’est pas prise en charge. Nous vous recommandons plutôt d’utiliser le pilote [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) dans votre environnement Hadoop. Si vous tentez d’effectuer une migration à partir d’un environnement Hadoop local avec une version antérieure à Hadoop Branch-3, ouvrez un ticket de support Azure pour que nous puissions vous contacter et vous indiquer la bonne direction pour vous et votre organisation.
 
 ## <a name="soft-delete-for-blobs-capability-currently-in-preview"></a>Suppression conditionnelle pour la fonctionnalité des blobs (actuellement en préversion)
 

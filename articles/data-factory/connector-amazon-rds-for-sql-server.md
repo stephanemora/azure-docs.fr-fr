@@ -1,24 +1,24 @@
 ---
-title: Copier et transformer des données à partir d’Amazon RDS pour SQL Server
+title: Copier des données à partir d’Amazon RDS for SQL Server
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Apprenez à copier et à transformer des données depuis Amazon RDS pour une base de données SQL Server locale ou située dans une machine virtuelle Azure à l'aide de pipelines Azure Data Factory ou Azure Synapse Analytics.
+description: Découvrez comment copier des données à partir d’une base de données Amazon RDS for SQL Server locale ou située dans une machine virtuelle Azure avec des pipelines Azure Synapse Analytics ou Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/26/2021
-ms.openlocfilehash: 8c884262620784ef49a011e7f7398a0d44427b33
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.date: 10/18/2021
+ms.openlocfilehash: b75a59d758c5447cec0eb66855866e1349fbd085
+ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129084262"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130176229"
 ---
-# <a name="copy-and-transform-data-from-amazon-rds-for-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données depuis Amazon RDS pour SQL Server à l'aide d'Azure Data Factory ou d’Azure Synapse Analytics
+# <a name="copy-data-from-amazon-rds-for-sql-server-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier des données à partir d’Amazon RDS for SQL Server avec Azure Data Factory ou Azure Synapse Analytics
 
-Cet article décrit comment utiliser l’activité de copie dans des pipelines Azure Data Factory et Azure Synapse pour copier des données depuis Amazon RDS pour une base de données SQL Server. Pour en savoir plus, lisez l’article d’introduction d’[Azure Data Factory](introduction.md) ou d’[Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+Cet article décrit comment utiliser l’activité de copie dans des pipelines Azure Data Factory et Azure Synapse pour copier des données depuis Amazon RDS pour une base de données SQL Server. Pour en savoir plus, lisez l’article d’introduction pour [Azure Data Factory](introduction.md) ou [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 

@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: 70c1dcc133f01cf72392f444192d977440c55cf4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6b20305fe7e8b93adab2286e33c666458adf56f1
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866622"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042029"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Utiliser le SDK .NET pour Apache HBase
 
-[Apache HBase](apache-hbase-overview.md) fournit deux principales options pour utiliser vos données : [les requêtes Apache Hive et des appels à l’API RESTful de HBase](apache-hbase-tutorial-get-started-linux.md). Vous pouvez travailler directement avec l’API REST à l’aide de la commande `curl` ou d’un utilitaire similaire.
+[Apache HBase](apache-hbase-overview.md) fournit deux principales options pour utiliser vos données : [les requêtes Apache Hive et les appels à l’API REST de HBase](apache-hbase-tutorial-get-started-linux.md). Vous pouvez travailler directement avec l’API REST à l’aide de la commande `curl` ou d’un utilitaire similaire.
 
 Pour les applications C# et .NET, la [bibliothèque de client Microsoft HBase REST pour .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) fournit une bibliothèque de client sur l’API REST HBase.
 

@@ -1,6 +1,6 @@
 ---
 title: Conditions préalables à l’accès programmatique aux données d’analyse
-description: Découvrez les exigences qu’il vous faut respecter pour accéder par programme aux données d’analyse de la place de marché commerciale.
+description: Découvrez les exigences à respecter pour accéder programmatiquement aux données d’analytique de la Place de marché commerciale dans l’Espace partenaires.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -8,12 +8,12 @@ author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: a3c27a8e91ef1f202fbc757eb1a21eeddfc1d3d8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 842314bb514f74de73ab4eb077b09057ea914d50
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525182"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064169"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Conditions préalables à l’accès programmatique aux données d’analyse
 
@@ -34,7 +34,7 @@ L’application Azure AD que vous avez créée dans le portail Azure doit être 
 1. Connectez-vous à l’[Espace partenaires](https://go.microsoft.com/fwlink/?linkid=2165507).
 1. En haut à droite, sélectionnez l’icône d’engrenage, puis **Paramètres du compte**.
 1. Dans le menu **Paramètres du compte** , sélectionnez **Gestion des utilisateurs**.
-1. Sélectionnez **Applications Azure AD** , puis **+ Créer une application Azure AD**.
+1. Sélectionnez **Applications Azure AD**, puis **+ Créer une application Azure AD**.
 1. Sélectionnez l’application Azure AD que vous avez créée sur le portail Azure, puis **Suivant**.
 1. Sélectionnez la case à cocher **Gestionnaire (Windows)** , puis **Ajouter**.
 

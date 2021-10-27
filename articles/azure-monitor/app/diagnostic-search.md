@@ -3,16 +3,16 @@ title: Utilisation de la recherche dans Azure Application Insights | Microsoft D
 description: Recherchez et filtrez la télémétrie brute envoyée par votre application web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: 020e602ec52c40c66439df09275f7d4936a57229
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 8a025210fc399c1d36fa416c3a4795331eca2293
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112293074"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130134200"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 
-Recherche (Search) est la fonctionnalité [d’Application Insights](./app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
+Recherche de transaction est la fonctionnalité [d’Application Insights](./app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
 
 (Pour les requêtes plus complexes sur vos données, utilisez [Analytics](../logs/log-analytics-tutorial.md).)
 
@@ -20,7 +20,7 @@ Recherche (Search) est la fonctionnalité [d’Application Insights](./app-insig
 
 ### <a name="in-the-azure-portal"></a>Dans le portail Azure
 
-Vous pouvez ouvrir la recherche de diagnostic à partir de l’onglet de vue d’ensemble d’Application Insights de votre application (situé dans la barre supérieure) ou effectuer un examen sur la gauche.
+Vous pouvez ouvrir la recherche de transaction à partir de l’onglet de vue d’ensemble d’Application Insights de votre application (situé dans la barre supérieure) ou effectuer un examen sur la gauche.
 
 ![Onglet Rechercher](./media/diagnostic-search/view-custom-events.png)
 

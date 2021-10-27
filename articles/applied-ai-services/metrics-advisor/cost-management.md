@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 07/06/2021
 ms.author: mbullwin
-ms.openlocfilehash: e13aeefca9ab5b9430f1a6b591a8b8b7b415b46f
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: bc376e8bc69845af245c66c045ed345f758e410e
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114341850"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063922"
 ---
 # <a name="azure-metrics-advisor-cost-management"></a>Gestion des coûts d’Azure Metrics Advisor
 
@@ -37,7 +37,7 @@ Azure Metrics Advisor supervise les performances des moteurs de croissance de vo
 | Gratuit : 25 premières séries chronologiques | $- |
 | 26 à 1 000 séries chronologiques | 0,75 $ |
 | 1 000 à 5 000 séries chronologiques | 0,50 $ |
-| 5 000 à 10 000 séries chronologiques | 0,25 $|
+| 5 000 à 20 000 séries chronologiques | 0,25 $|
 | 20 000 à 50 000 séries chronologiques| 0,10 $|
 | >50 000 séries chronologiques | 0,05 $ |
 

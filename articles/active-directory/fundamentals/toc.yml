@@ -113,6 +113,16 @@
           href: active-directory-architecture.md
         - name: "Intégration de toutes vos applications à Azure\_AD"
           href: five-steps-to-full-application-integration-with-azure-ad.md
+        - name: Gestion multilocataire des utilisateurs
+          items:
+            - name: Présentation de la gestion multilocataire des utilisateurs
+              href: multi-tenant-user-management-introduction.md
+            - name: Scénarios courants
+              href: multi-tenant-user-management-scenarios.md
+            - name: Considérations générales
+              href: multi-tenant-common-considerations.md
+            - name: Solutions courantes
+              href: multi-tenant-common-solutions.md
         - name: Protocoles d’authentification et de provisionnement
           items:
             - name: Vue d’ensemble

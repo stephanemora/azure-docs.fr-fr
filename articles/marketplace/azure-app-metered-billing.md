@@ -4,17 +4,17 @@ description: Cette documentation est un guide pour les éditeurs de logiciels in
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/15/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 1571ae7a735f9d7cf05ce0724cfe3aeb9de70f0b
-ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+ms.openlocfilehash: a067e7bbb649adf8f184cbdee5a2a3edb4a2d962
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2021
-ms.locfileid: "113231302"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130131996"
 ---
-# <a name="managed-application-metered-billing"></a>Facturation des applications managées basée sur des mesures 
+# <a name="managed-application-metered-billing"></a>Facturation des applications managées basée sur des mesures
 
 Le service de mesure de la Place de marché vous permet de créer des plans d’applications managées pour les offres Azure Application facturées sur la base d’unités non standard. Avant de publier cette offre, vous définissez les dimensions de la facturation, comme la bande passante, ou le nombre de tickets ou d’e-mails traités. Les clients paient ensuite en fonction de leur utilisation de ces dimensions.  Votre système utilise l’API du service de mesure de la Place de marché pour informer Microsoft des événements facturables à mesure qu’ils se produisent.
 
@@ -33,9 +33,12 @@ Quand il s’agit de définir l’offre avec ses modèles de tarification, il es
 
 * Chaque offre Azure Application peut avoir un modèle de solution ou des plans d’application managée.
 * La facturation basée sur des mesures est implémentée uniquement avec des plans d’application managées.
-* Un modèle de tarification est associé à chaque plan d’application managée. 
+* Un modèle de tarification est associé à chaque plan d’application managée.
 * Le modèle de tarification entraîne des frais mensuels récurrents qui peuvent être fixés à 0.
 * En plus de frais récurrents, le plan peut inclure des dimensions facultatives utilisées pour facturer les clients pour l’utilisation non comprise dans le taux forfaitaire. Chaque dimension représente une unité facturable que votre service communiquera à Microsoft en utilisant l’[API du service de mesure de la consommation de la Place de marché](marketplace-metering-service-apis.md).
+
+    > [!IMPORTANT]
+    > Vous devez assurer le suivi de l’utilisation dans votre code et envoyer uniquement des événements d’utilisation à Microsoft pour l’utilisation qui se trouve au-dessus du tarif de base.
 
 ## <a name="sample-offer"></a>Exemple d’offre
 

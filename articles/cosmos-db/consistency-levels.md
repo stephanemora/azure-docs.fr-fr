@@ -6,17 +6,17 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/20/2021
-ms.openlocfilehash: ae45647369cde2cc0b427fe128f4fea44de79bf4
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 465d399e699f4ae4491c2964646c9c75956d0014
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129058915"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070334"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveaux de cohérence dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Les bases de données distribuées qui reposent sur la réplication afin d’offrir une haute disponibilité, une faible latence ou les deux, constituent le compromis fondamental entre la cohérence de la lecture et la disponibilité, la latence et le débit comme déterminé par le [théorème PACLC](https://en.wikipedia.org/wiki/PACELC_theorem). La linéarisabilité du modèle de cohérence fort constitue la référence en matière de programmabilité des données. Mais cela augmente considérablement le coût des latences d’écriture en raison des données qui doivent être répliquées et validées sur de grandes distances. Une cohérence forte peut également souffrir d’une disponibilité réduite (pendant les défaillances), car les données ne peuvent pas être répliquées et validées dans chaque région. La cohérence éventuelle offre une disponibilité accrue et de meilleures performances, mais il est plus difficile de programmer des applications, car les données peuvent ne pas être entièrement cohérentes dans toutes les régions.
+Les bases de données distribuées qui reposent sur la réplication afin d’offrir une haute disponibilité, une faible latence ou les deux, constituent le compromis fondamental entre la cohérence de la lecture et la disponibilité, la latence et le débit comme déterminé par le [théorème PACELC](https://en.wikipedia.org/wiki/PACELC_theorem). La linéarisabilité du modèle de cohérence fort constitue la référence en matière de programmabilité des données. Mais cela augmente considérablement le coût des latences d’écriture en raison des données qui doivent être répliquées et validées sur de grandes distances. Une cohérence forte peut également souffrir d’une disponibilité réduite (pendant les défaillances), car les données ne peuvent pas être répliquées et validées dans chaque région. La cohérence éventuelle offre une disponibilité accrue et de meilleures performances, mais il est plus difficile de programmer des applications, car les données peuvent ne pas être entièrement cohérentes dans toutes les régions.
 
 La plupart des bases de données NoSQL distribuées disponibles sur le marché offrent uniquement une cohérence forte et éventuelle. Azure Cosmos DB offre cinq niveaux bien définis. De la plus forte à la plus faible cohérence, les niveaux sont les suivants :
 
@@ -170,18 +170,18 @@ La latence exacte de la durée des boucles s’exprime en fonction de la distanc
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Niveaux de cohérence et durabilité des données
 
-Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment de l'élaboration de votre plan de continuité d'activité, vous devez identifier le délai maximal acceptable nécessaire à la récupération complète de l'application après un événement perturbateur. Ce délai s’appelle l’**objectif de délai de récupération** (**RTO**, recovery time objective). Vous devez également déterminer sur quelle période maximale l'application peut accepter de perdre les mises à jour de données récentes lors de la récupération après l'événement perturbateur. Il s’agit de l’**objectif de point de récupération** (**RPO**, recovery point objective).
+Dans un environnement de base de données globalement distribuée, il existe une relation directe entre le niveau de cohérence et la durabilité des données en situation de panne à l'échelle d'une région. Au moment d’élaborer votre plan de continuité d’activité, vous devez déterminer la période maximale de mises à jour de données récentes que l’application peut tolérer de perdre lors de la récupération après un événement perturbateur. Il s’agit de l’**objectif de point de récupération** (**RPO**, recovery point objective).
 
-Le tableau ci-dessous définit la relation entre le modèle de cohérence et la durabilité des données en situation de panne à l’échelle d’une région. Il est important de noter que dans un système distribué, même avec une cohérence forte, il s’avère impossible d’avoir une base de données distribuée avec un RPO de zéro en raison du [théorème CAP](https://en.wikipedia.org/wiki/CAP_theorem).
+Le tableau ci-dessous définit la relation entre le modèle de cohérence et la durabilité des données en situation de panne à l’échelle d’une région.
 
-|**Région(s)**|**Mode de réplication**|**Niveau de cohérence**|**RPO**|**RTO**|
-|---------|---------|---------|---------|---------|
-|1|Une ou plusieurs régions d’écriture|Tous les niveaux de cohérence|< 240 minutes|< 1 semaine|
-|>1|Région d’écriture unique|Session, Préfixe cohérent et Éventuel|< 15 minutes|< 15 minutes|
-|>1|Région d’écriture unique|Obsolescence limitée|*K* & *T*|< 15 minutes|
-|>1|Région d’écriture unique|Remarque|0|< 15 minutes|
-|>1|Régions d’écriture multiples|Session, Préfixe cohérent et Éventuel|< 15 minutes|0|
-|>1|Régions d’écriture multiples|Obsolescence limitée|*K* & *T*|0|
+|**Région(s)**|**Mode de réplication**|**Niveau de cohérence**|**RPO**|
+|---------|---------|---------|---------|
+|1|Une ou plusieurs régions d’écriture|Tous les niveaux de cohérence|< 240 minutes|
+|>1|Région d’écriture unique|Session, Préfixe cohérent et Éventuel|< 15 minutes|
+|>1|Région d’écriture unique|Obsolescence limitée|*K* & *T*|
+|>1|Région d’écriture unique|Remarque|0|
+|>1|Régions d’écriture multiples|Session, Préfixe cohérent et Éventuel|< 15 minutes|
+|>1|Régions d’écriture multiples|Obsolescence limitée|*K* & *T*|
 
 *K* = nombre de versions *« K »* (à savoir, mises à jour) d’un élément.
 

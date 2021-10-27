@@ -3,12 +3,12 @@ title: Améliorer les performances des applications Azure avec Advisor
 description: Utilisez les recommandations d’Azure Advisor en matière de performances pour optimiser la vitesse et la réactivité de vos applications stratégiques.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 7229f4a786fc0afc43793ffe730470427ca2b107
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 110501087cc42662412e6446b9859f4078252455
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129234923"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000685"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Améliorer les performances des applications Azure à l’aide d’Azure Advisor
 
@@ -180,6 +180,11 @@ En savoir plus sur le [kit SDK Lecteur immersif](../applied-ai-services/immersiv
 Advisor détecte que vous disposez d’un pool d’ordinateurs hôtes dont la profondeur est définie en premier en tant qu’algorithme d’équilibrage de charge et que la limite de session maximale de ce pool hôte est supérieure ou égale à 999999. L’équilibrage de charge en profondeur d’abord utilise la limite de session maximale pour déterminer le nombre maximal d’utilisateurs qui peuvent avoir des sessions simultanées sur un même hôte de session. Si la limite de session maximale est trop élevée, toutes les sessions utilisateur sont dirigées vers le même hôte de session, ce qui entraînera des problèmes de performances et de fiabilité. Par conséquent, lors de la définition d’un pool d’hôtes en vue d’un équilibrage de charge en profondeur d’abord, vous devez définir une limite de session maximale appropriée en fonction de la configuration de votre déploiement et de la capacité de vos machines virtuelles. 
 
 Pour en savoir plus sur l’équilibrage de charge dans le bureau virtuel Windows, consultez [Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop](../virtual-desktop/troubleshoot-set-up-overview.md).
+
+## <a name="upgrade-to-the-latest-version-of-the-azure-communication-services-sdks"></a>Effectuer une mise à niveau vers la dernière version des kits de développement logiciel (SDK) Azure Communication Services
+
+Advisor a identifié des ressources dans cet abonnement à l’aide de versions obsolètes de kits de développement logiciel (SDK) Azure Communication Sservices spécifiques. L’utilisation de la dernière version du SDK de Azure Communication Services vous offre une sécurité et des performances mises à jour ainsi qu’un ensemble étendu de fonctionnalités permettant de personnaliser et d’améliorer vos expériences de communication.
+En savoir plus sur [Azure Communication Services](../communication-services/overview.md) et l’[intégration avec Azure Advisor](../communication-services/concepts/advisor-overview.md).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans Advisor
 

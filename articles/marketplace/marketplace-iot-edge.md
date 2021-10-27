@@ -1,24 +1,24 @@
 ---
 title: Offres de module IoT Edge de la Place de marché Azure
-description: En savoir plus sur la publication d’offres de modules IoT Edge dans la Place de marché Azure.
+description: En savoir plus sur la publication d’une offre de module IoT Edge dans la Place de marché Azure.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/30/2021
-ms.openlocfilehash: 8773957a2b34851babb42c6804fc21d6a9d5112b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 3ab11ffb7779255a5b45a55d0098657834203d80
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657459"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130072971"
 ---
-# <a name="plan-an-iot-edge-modules-offer"></a>Planifier une offre de modules IoT Edge
+# <a name="plan-an-iot-edge-module-offer"></a>Planifier une offre de module IoT Edge
 
-La plateforme [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) repose sur Microsoft Azure.  Cette plateforme permet aux utilisateurs de déployer des charges de travail cloud en vue de les exécuter directement sur des appareils IoT.  Un module IoT Edge peut exécuter des charges de travail hors connexion et effectuer une analyse de données localement. Ce type d’offre permet d’économiser la bande passante, de protéger les données locales et sensibles et offre des temps de réponse à faible latence.  Vous pouvez désormais tirer parti de ces charges de travail prédéfinies. Jusqu’à présent, seules quelques solutions internes de Microsoft étaient disponibles.  Vous deviez investir du temps et des ressources dans la création de vos propres solutions IoT personnalisées.
+La plateforme [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) repose sur Microsoft Azure. Cette plateforme permet aux utilisateurs de déployer des charges de travail cloud en vue de les exécuter directement sur des appareils IoT.  Un module IoT Edge peut exécuter des charges de travail hors connexion et effectuer une analyse de données localement. Ce type d’offre permet d’économiser la bande passante, de protéger les données locales et sensibles et offre des temps de réponse à faible latence.  Vous pouvez désormais tirer parti de ces charges de travail prédéfinies. Jusqu’à présent, seules quelques solutions internes de Microsoft étaient disponibles. Vous deviez investir du temps et des ressources dans la création de vos propres solutions IoT personnalisées.
 
-Avec les [modules IoT Edge sur la Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), nous mettons à la disposition des éditeurs une destination unique pour exposer et vendre leurs solutions à l’audience IoT. Les développeurs IoT peuvent finalement trouver et acheter des fonctionnalités pour accélérer le développement de leurs solutions.  
+Avec les modules IoT Edge sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1), nous mettons à la disposition des éditeurs une destination unique pour exposer et vendre leurs solutions à l’audience IoT. Les développeurs IoT peuvent finalement trouver et acheter des fonctionnalités pour accélérer le développement de leurs solutions.  
 
 ## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Principaux avantages des modules IoT Edge sur la Place de marché Microsoft Azure
 

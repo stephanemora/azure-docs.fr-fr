@@ -4,12 +4,12 @@ ms.author: cherylmc
 ms.date: 08/30/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: ebaa86a60ae11c50658bfcfe58bbd0184bf15576
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c52c00dd8fa834775a01162e2506f1821b0dcdae
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700670"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130173297"
 ---
 1. Dans le [Portail Azure](https://portal.azure.com), accédez à la machine virtuelle à laquelle vous souhaitez vous connecter. Sur la page **Vue d’ensemble**, sélectionnez **Se connecter**, puis **Bastion** dans la liste déroulante.
 
@@ -29,4 +29,4 @@ ms.locfileid: "128700670"
 
 1. La connexion RDP à cette machine virtuelle avec Bastion s’ouvrira directement dans le portail Azure (en HTML5) via le port 443 et le service Bastion. 
 
-   L’utilisation de touches de raccourci lorsque vous êtes connecté à une machine virtuelle peut ne pas s’accompagner du même comportement que les touches de raccourci sur un ordinateur local. Par exemple, sur un ordinateur client Windows connecté à une machine virtuelle Windows, « CTRL+ALT+FIN » est le raccourci clavier pour « CTRL+ALT+SUPPR ». Sur un ordinateur client Mac connecté à une machine virtuelle Windows, le raccourci clavier est « Fn+CTRL+ALT+Retour arrière ».
+   Notez que l’utilisation des touches de raccourci lorsque vous êtes connecté à une machine virtuelle peut ne pas donner lieu au même comportement que les touches de raccourci sur un ordinateur local. Par exemple, sur un ordinateur client Windows connecté à une machine virtuelle Windows, « CTRL+ALT+FIN » est le raccourci clavier pour « CTRL+ALT+SUPPR ». Sur un ordinateur client Mac connecté à une machine virtuelle Windows, le raccourci clavier est « Fn+CTRL+ALT+Retour arrière ».

@@ -3,12 +3,12 @@ title: Changements du comportement dans PowerShell Desired State Configuration p
 description: Cet article fournit une présentation de la plateforme utilisée pour modifier la configuration de machines via Azure Policy.
 ms.date: 05/31/2021
 ms.topic: how-to
-ms.openlocfilehash: ee5165ea9e8a80fc31863389df018548859e9b20
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: b501305513e99963ec9d00a49e6e7aa1c74b3683
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123257167"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045329"
 ---
 # <a name="changes-to-behavior-in-powershell-desired-state-configuration-for-guest-configuration"></a>Changements du comportement dans PowerShell Desired State Configuration pour la configuration d’invité
 
@@ -72,6 +72,7 @@ La méthode `Get` de la fonction a des exigences particulières pour la configur
 - La table de hachage retournée doit inclure une propriété nommée **Reasons**.
 - La propriété Reasons doit être un tableau.
 - Chaque élément du tableau doit être une table de hachage avec les clés **Code** et **Phrase**.
+- Aucune autre valeur que la table de hachage ne doit être renvoyée.
 
 La propriété Reasons est utilisée par le service pour normaliser la manière dont les informations sont présentées. Vous pouvez considérer chaque élément dans la propriété Reasons comme une « raison » pour laquelle la ressource est conforme ou non. La propriété est un tableau, car une ressource peut ne pas être conforme pour plusieurs raisons.
 
@@ -93,6 +94,8 @@ return @{
     reasons = $reasons
 }
 ```
+
+Lorsque vous utilisez des outils de ligne de commande pour obtenir des informations qui seront renvoyées dans Get, vous pouvez constater que l’outil renvoie une sortie à laquelle vous ne vous attendiez pas. Même si vous capturez la sortie dans PowerShell, la sortie peut également être écrite dans une erreur standard. Pour éviter ce problème, pensez à rediriger la sortie vers la valeur Null.
 
 ### <a name="the-reasons-property-embedded-class"></a>Classe incorporée de la propriété Reasons
 
@@ -172,6 +175,8 @@ Le module `PsDscResources` dans PowerShell Gallery et le module `PSDesiredStateC
 
 - N’utilisez pas les ressources du module `PSDesiredStateConfiguration` fourni avec Windows. Au lieu de cela, passez aux `PSDscResources`.
 - N’utilisez pas les ressources `WindowsFeature` et `WindowsFeatureSet` dans `PsDscResources`. Au lieu de cela, passez aux ressources `WindowsOptionalFeature` et `WindowsOptionalFeatureSet`.
+  
+Les ressources « nx » pour Linux qui étaient incluses dans le référentiel [DSC for Linux](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers) ont été écrites dans une combinaison des langages C et Python. Comme la voie à suivre pour DSC for Linux consiste à utiliser PowerShell, les ressources « nx » existantes ne sont pas compatibles avec DSCv3. Jusqu’à ce qu’un nouveau module contenant les ressources prises en charge pour Linux soit disponible, il est nécessaire de créer des ressources personnalisées.
 
 ## <a name="coexistance-with-dsc-version-3-and-previous-versions"></a>Coexistence avec DSC version 3 et versions antérieures
 

@@ -1,20 +1,20 @@
 ---
 title: Ajouter une couche de carte thermique à une carte | Microsoft Azure Maps
 description: Découvrez comment créer une carte thermique. Découvrez comment utiliser le Kit de développement logiciel (SDK) web Azure Maps pour ajouter une couche thermique à une carte. Découvrez comment personnaliser les couches thermiques.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 07/29/2019
-ms.topic: conceptual
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/06/2021
+ms.topic: how-to
 ms.service: azure-maps
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 181cd714f85195157b767062cac99caadd32e817
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: e3827deeb1b87471f215028ac7479a83c24231fb
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123432753"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992633"
 ---
-# <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
+# <a name="add-a-heat-map-layer-to-a-map"></a>Ajouter une couche de carte thermique à une carte
 
 Les cartes thermiques, également appelées « cartes de densité de points », sont un type de visualisation de données. Elles servent à représenter la densité de données à l’aide d’une palette de couleurs et affichent les « zones réactives » des données sur une carte. Les cartes thermiques sont un excellent moyen de restituer des jeux de données dotés d’un grand nombre de points.
 
@@ -65,14 +65,14 @@ Voici l’exemple complet du code précédent.
 
 Dans l’exemple précédent, la carte thermique a été personnalisée à l’aide des options de rayon et d’opacité. La couche de carte thermique offre plusieurs options de personnalisation, dont :
 
-* `radius`: définit un rayon de pixels dans lequel restituer chaque point de données. Vous pouvez définir le rayon en tant que nombre fixe ou expression. Il est possible, avec une expression, d’adapter le rayon en fonction du niveau de zoom, pour représenter une zone spatiale cohérente sur la carte (par exemple, un rayon de 5 miles).
-* `color`: spécifie la façon dont la carte thermique est colorisée. Un dégradé de couleur est une caractéristique courante des cartes thermiques. Vous pouvez obtenir l’effet grâce à une expression `interpolate`. Vous pouvez également utiliser une expression `step` pour coloriser la carte thermique décompose visuellement la densité en plages. Elle ressemble ainsi davantage à une carte de style de contours ou de radars. Ces palettes de couleurs permettent de définir une couleur pour toutes les valeurs comprises entre la valeur minimale et la valeur maximale de densité.
+- `radius`: définit un rayon de pixels dans lequel restituer chaque point de données. Vous pouvez définir le rayon en tant que nombre fixe ou expression. Il est possible, avec une expression, d’adapter le rayon en fonction du niveau de zoom, pour représenter une zone spatiale cohérente sur la carte (par exemple, un rayon de 5 miles).
+- `color`: spécifie la façon dont la carte thermique est colorisée. Un dégradé de couleur est une caractéristique courante des cartes thermiques. Vous pouvez obtenir l’effet grâce à une expression `interpolate`. Vous pouvez également utiliser une expression `step` pour coloriser la carte thermique décompose visuellement la densité en plages. Elle ressemble ainsi davantage à une carte de style de contours ou de radars. Ces palettes de couleurs permettent de définir une couleur pour toutes les valeurs comprises entre la valeur minimale et la valeur maximale de densité.
 
   Vous spécifiez les valeurs de couleurs des cartes thermiques comme expressions de valeur `heatmap-density`. La couleur de la zone dans laquelle aucune donnée n’existe est définie au niveau de l’index 0 de l’expression « Interpolation » ou par la couleur par défaut d’une expression « en étapes ». Vous pouvez utiliser cette valeur pour définir une couleur d’arrière-plan. Souvent, cette valeur est définie sur une couleur noire transparente ou semi-transparente.
 
   Voici des exemples d’expressions de couleurs :
 
-  | Expression d’interpolation des couleurs | Expression d’échelle de couleurs | 
+  | Expression d’interpolation des couleurs | Expression d’échelle de couleurs |
   |--------------------------------|--------------------------|
   | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |
 
@@ -118,11 +118,13 @@ L’expression `zoom` peut uniquement être utilisée avec dans les expressions 
 
 > [!TIP]
 > Lorsque vous activez l’agrégation dans la source de données, les points qui sont proches les uns des autres sont regroupés pour former un point agrégé. Vous pouvez utiliser le nombre de points de chaque cluster comme expression d’épaisseur pour la carte thermique. Cela peut réduire de manière significative le nombre de points à restituer. Le nombre de points d’un cluster est stocké dans une propriété `point_count` de la fonctionnalité de point :
+>
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
 > });
 > ```
+>
 > Si le rayon de clustering n’est constitué que de quelques pixels, la différence visuelle sera légère. Un plus grand rayon regroupe plus de points dans chaque cluster et améliore les performances de la carte thermique.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -130,7 +132,7 @@ L’expression `zoom` peut uniquement être utilisée avec dans les expressions 
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
 
 > [!div class="nextstepaction"]
 > [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)

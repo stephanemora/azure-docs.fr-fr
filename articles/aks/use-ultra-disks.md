@@ -3,15 +3,15 @@ title: Activer la prise en charge de disques Ultra dans Azure Kubernetes Service
 description: Découvrez les procédure d’activation et de configuration de disques Ultra dans un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: d42834252416a2aeed40db5fe307cd97f1bbada9
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.date: 10/12/2021
+ms.openlocfilehash: 07d43fc72d10f1739fb67124feadacc9632206be
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112007298"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129984855"
 ---
-# <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Utiliser des disques Ultra Azure dans Azure Kubernetes Service (version préliminaire)
+# <a name="use-azure-ultra-disks-on-azure-kubernetes-service"></a>Utiliser des disques Azure Ultra sur Azure Kubernetes Service
 
 Les [disques Ultra Azure](../virtual-machines/disks-enable-ultra-ssd.md) permettent un stockage de disque à haut débit avec un nombre élevé d’IOPS et une faible latence homogène pour vos applications avec état. Entre autres avantages, les disques Ultra permettent de changer dynamiquement les performances des disques SSD en fonction de vos charges de travail, sans devoir redémarrer vos nœuds d’agent. Les disques Ultra sont adaptés aux charges de travail à forte intensité de données.
 
@@ -21,18 +21,6 @@ Cette fonctionnalité ne peut être définie qu’au moment de la création du c
 
 > [!IMPORTANT]
 > Les disques Ultra Azure requièrent des pools de nœuds déployés dans des zones de disponibilité et des régions qui prennent en charge ces disques, ainsi que des séries de machines virtuelles spécifiques uniquement. Consultez [**Étendue et limitations de la version en disponibilité générale des disques Ultra**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
-
-Pour créer un cluster AKS ou un pool de nœuds pouvant utiliser les disques Ultra, vous avez besoin de la dernière extension CLI *aks-preview*. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add] ou installez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-``` 
 
 ### <a name="limitations"></a>Limites
 - Consultez [**Étendue et limitations de la version en disponibilité générale des disques Ultra**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)

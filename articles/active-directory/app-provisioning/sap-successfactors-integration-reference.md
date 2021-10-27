@@ -3,20 +3,20 @@ title: Référence sur l’intégration d’Azure AD et de SAP SuccessFactors
 description: Présentation technique approfondie de l’approvisionnement piloté par les RH de SAP SuccessFactors pour Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 10/11/2021
 ms.author: kenwith
 ms.reviewer: chmutali
-ms.openlocfilehash: 7c7ba58383481e2b776b27015f98080b35f3084d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8c215c8b032fb3981771d2091b449b1934e78533
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109784932"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129990820"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Intégration de l’approvisionnement Azure Active Directory avec SAP SuccessFactors 
 
@@ -31,7 +31,7 @@ Cet article explique le fonctionnement de l’intégration et comment vous pouve
 ## <a name="establishing-connectivity"></a>Établir une connectivité 
 Le service d’approvisionnement Azure AD utilise l’authentification de base pour se connecter aux points de terminaison de l’API OData centrale de l’employé. Quand vous configurez l’application de configuration SuccessFactors, utilisez le paramètre *URL du locataire* dans la section *Informations d’identification de l’administrateur* pour configurer l’[URL du centre de données de l’API](https://apps.support.sap.com/sap/support/knowledge/en/2215682). 
 
-Pour renforcer la connectivité entre le service de provisionnement Azure AD et SuccessFactors, vous pouvez ajouter les plages d’adresses IP Azure AD dans la liste verte d’IP SuccessFactors à l’aide des étapes décrites ci-dessous :
+Pour renforcer la connectivité entre le service de provisionnement Azure AD et SuccessFactors, vous pouvez ajouter les plages d’adresses IP Azure AD dans la liste d’adresses IP autorisées de SuccessFactors en procédant comme suit :
 
 1. Téléchargez les [dernières plages IP](https://www.microsoft.com/download/details.aspx?id=56519) pour le cloud public Azure 
 1. Ouvrez le fichier et recherchez la balise **AzureActiveDirectory** 
@@ -41,7 +41,7 @@ Pour renforcer la connectivité entre le service de provisionnement Azure AD et 
 
 1. Copiez toutes les plages d’adresses IP répertoriées dans l’élément *addressPrefixes* et utilisez la plage pour créer votre liste de restrictions d’adresses IP.
 1. Traduisez les valeurs CIDR en plages d’adresses IP.  
-1. Connectez-vous au portail d’administration SuccessFactors pour ajouter des plages d’adresses IP à la liste verte. Voir la [note de support SAP n° 2253200](https://apps.support.sap.com/sap/support/knowledge/en/2253200) Vous pouvez maintenant [entrer des plages d’adresses IP](https://answers.sap.com/questions/12882263/whitelisting-sap-cloud-platform-ip-address-range-i.html) dans cet outil. 
+1. Connectez-vous au portail d’administration de SuccessFactors pour ajouter des plages d’adresses IP à la liste d’autorisation. Voir la [note de support SAP n° 2253200](https://apps.support.sap.com/sap/support/knowledge/en/2253200) Vous pouvez maintenant [entrer des plages d’adresses IP](https://answers.sap.com/questions/12882263/whitelisting-sap-cloud-platform-ip-address-range-i.html) dans cet outil. 
 
 ## <a name="supported-entities"></a>Entités prises en charge
 Pour chaque utilisateur de SuccessFactors, le service d’approvisionnement Azure AD récupère les entités suivantes. Chaque entité est développée à l’aide du paramètre de requête de l’API OData *$expand*. Reportez-vous à la colonne *Règle de récupération* ci-dessous. Certaines entités sont développées par défaut, tandis que certaines entités sont développées uniquement si un attribut spécifique est présent dans le mappage. 
@@ -72,6 +72,8 @@ Pour chaque utilisateur de SuccessFactors, le service d’approvisionnement Azur
 | 22 | EmployeeClass Picklist                 | employmentNav/jobInfoNav/employeeClassNav | Uniquement si `employeeClass` est mappé |
 | 23 | Liste déroulante EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Uniquement si `emplStatus` est mappé |
 | 24 | Liste déroulante AssignmentType                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Uniquement si `assignmentType` est mappé |
+| 25 | Position                               | employmentNav/jobInfoNav/positionNav | Uniquement si `positioNav` est mappé |
+| 26 | Utilisateur du gestionnaire                           | employmentNav/jobInfoNav/managerUserNav | Uniquement si `managerUserNav` est mappé |
 
 ## <a name="how-full-sync-works"></a>Fonctionnement de la synchronisation complète
 En fonction du mappage d’attributs, lors de la synchronisation complète du service d’approvisionnement Azure AD envoie la requête d’API OData « GET » suivante pour extraire les données effectives de tous les utilisateurs actifs. 
@@ -285,6 +287,16 @@ Lorsqu’un utilisateur dans le Centre des employés a des tâches simultanées/
 1. Sauvegardez le mappage. 
 1. Redémarrer l’approvisionnement. 
 
+### <a name="retrieving-position-details"></a>Récupération des détails de l’objet Position
+
+Le connecteur SuccessFactors prend en charge l’extension de l’objet Position. Pour développer et récupérer des attributs de l’objet Position comme les noms de position ou le niveau de travail dans une langue spécifique, vous pouvez utiliser des expressions JSONPath comme indiqué ci-dessous. 
+
+| Nom de l'attribut | Expression JSONPath |
+| -------------- | ------------------- |
+| positionJobLevel | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.jobLevel |
+| positionNameFR | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_fr_FR |
+| positionNameDE | $.employmentNav.results[0].jobInfoNav.results[0].positionNav.externalName_de_DE |
+
 ## <a name="writeback-scenarios"></a>Scénarios d'écriture différée
 
 Cette section aborde différents scénarios d’écriture différée. Elle recommande des approches de configuration basées sur la façon dont la messagerie et le numéro de téléphone sont configurés dans SuccessFactors.
@@ -302,6 +314,36 @@ Cette section aborde différents scénarios d’écriture différée. Elle recom
 * S’il n’existe aucun mappage pour le numéro de téléphone dans le mappage d’attribut d’écriture différée, seul le courrier électronique est inclus dans l’écriture différée.
 * Lors de l’intégration d’un nouvel employé dans le Centre des employés, la messagerie professionnelle et le numéro de téléphone peuvent ne pas être disponibles. Si la définition de la messagerie d’entreprise et du téléphone professionnel comme principale est obligatoire lors de l’intégration, vous pouvez définir une valeur factice pour le téléphone professionnel et la messagerie pendant la création du nouvel employé, qui sera ensuite mise à jour par l’application en écriture différée.
  
+### <a name="enabling-writeback-with-userid"></a>Activation de l’écriture différée
+
+L’application d’écriture différée SuccessFactors Writeback utilise la logique suivante pour mettre à jour les attributs d’objet utilisateur : 
+* La première étape consiste à rechercher l’attribut *userId* dans l’ensemble de modifications. S’il est présent, il utilise « UserId » pour effectuer l’appel de l’API SuccessFactors. 
+* Si *userId* n’est pas trouvé, la valeur de l’attribut *personIdExternal* est utilisée par défaut. 
+
+En général, la valeur de l’attribut *personIdExternal* dans SuccessFactors correspond à la valeur de l’attribut *userId*. Toutefois, dans des scénarios comme la réembauche et la conversion d’un employé, un employé peut avoir deux enregistrements de travail dans SuccessFactors, l’un actif et l’autre inactif. Dans de tels scénarios, pour vous assurer que l’écriture différée met à jour le profil utilisateur actif, mettez à jour la configuration des applications de provisionnement SuccessFactors comme décrit ci-dessous. Cette configuration garantit que *userId* est toujours présent dans l’ensemble de modifications visible par le connecteur et est utilisé dans l’appel de l’API SuccessFactors.
+
+1. Ouvrez SuccessFactors sur l’application d’attribution d’utilisateurs Azure AD ou SuccessFactors sur l’application d’attribution d’utilisateurs AD local. 
+1. Assurez-vous qu’un attribut extensionAttribute *(extensionAttribute1-15)* dans Azure AD stocke toujours l’identifiant *userId* de l’enregistrement d’emploi actif de chaque employé. Pour ce faire, vous pouvez mapper l’attribut *userId* de SuccessFactors à un extensionAttribute dans Azure AD. 
+    > [!div class="mx-imgBorder"]
+    > ![Mappage de l’attribut UserID entrant](./media/sap-successfactors-integration-reference/inbound-userid-attribute-mapping.png)
+1. Pour obtenir des instructions concernant les paramètres JSONPath, reportez-vous à la section [Gestion du scénario de réembauche](#handling-rehire-scenario) pour vérifier que la valeur *userId* de l’enregistrement d’emploi actif soit envoyée vers Azure AD. 
+1. Sauvegardez le mappage. 
+1. Exécutez le travail d’approvisionnement pour vous assurer que les valeurs *userId* sont transmises dans Azure AD. 
+    > [!NOTE]
+    > Si vous utilisez SuccessFactors pour l’attribution d’utilisateurs Active Directory local, configurez AAD Connect pour synchroniser la valeur de l’attribut *userId* à partir d’Active Directory local vers Azure AD.   
+1. Ouvrez l’application SuccessFactors Writeback dans le portail Azure. 
+1. Mappez l’attribut *ExtensionAttribute* souhaité qui contient la valeur userId à l’attribut *userId* de SuccessFactors.
+    > [!div class="mx-imgBorder"]
+    > ![Mappage de l’attribut UserID de Writeback](./media/sap-successfactors-integration-reference/userid-attribute-mapping.png)
+1. Sauvegardez le mappage. 
+1. Accédez à *Mappage d’attributs -> Avancé-> Passez en revue le schéma* pour ouvrir l’éditeur de schéma JSON.
+1. Téléchargez une copie du schéma en tant que sauvegarde. 
+1. Dans l’éditeur de schéma, appuyez sur Ctrl+F et recherchez le nœud JSON contenant le mappage userId, où il est mappé à un attribut de source Azure AD. 
+1. Mettez à jour l’attribut flowBehavior en remplaçant « FlowWhenChanged » par « FlowAlways », comme indiqué ci-dessous. 
+    > [!div class="mx-imgBorder"]
+    > ![Mise à jour du comportement du flux de mappage](./media/sap-successfactors-integration-reference/mapping-flow-behavior-update.png)
+1. Enregistrez le mappage et testez le scénario d’écriture différée avec le provisionnement à la demande. 
+
 ### <a name="unsupported-scenarios-for-phone-and-email-write-back"></a>Scénarios non-pris en charge pour l’écriture différée par téléphone et par courrier électronique
 
 * Dans le Centre des employés, pendant l’intégration, la messagerie et le téléphone personnel sont définis comme principaux. L’application en écriture différée ne peut pas changer ce paramètre et définir la messagerie professionnelle et le téléphone professionnel comme principal.

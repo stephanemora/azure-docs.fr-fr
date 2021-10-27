@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 425a5cb9ab332076ddd0d745bba7b914e5601917
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 913eb155820832936295a6cc9df6a22175a9bec5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707163"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130041972"
 ---
 # <a name="form-recognizer-layout-model"></a>Modèle de disposition Form Recognizer
 
@@ -128,7 +128,7 @@ Pour les documents volumineux comportant plusieurs pages, utilisez le paramètre
 
 * Suivez le [**Guide de migration de Form Recognizer v3.0**](v3-migration-guide.md) pour apprendre à utiliser la version préliminaire dans vos applications et vos flux de travail.
 
-* Découvrez notre [**API REST (préversion)** ](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) pour en savoir plus sur la préversion et les nouvelles fonctionnalités.
+* Découvrez notre [**API REST (préversion)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) pour en savoir plus sur la préversion et les nouvelles fonctionnalités.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

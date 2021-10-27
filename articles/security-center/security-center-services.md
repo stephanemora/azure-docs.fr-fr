@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/18/2021
 ms.custom: references_regions
 ms.author: memildin
-ms.openlocfilehash: 21c453da9a2e84e4e936b92f04748854cbd928d3
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 4bb46ed8146067c44f2d4a602f3c8b1831340d7a
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710738"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003531"
 ---
 # <a name="feature-coverage-for-machines"></a>Couverture des fonctionnalités pour les machines
 
@@ -93,8 +93,13 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 | Symantec v12.1.1100+                                      | Windows Server (tous)                                   | Non                           | Oui                       |
 | McAfee v10+                                               | Windows Server (tous)                                   | Non                           | Oui                       |
 | McAfee v10+                                               | Linux (préversion)                                        | Non                           | Oui                       |
+| Microsoft Defender pour point de terminaison pour Linux<sup>[1](#footnote1)</sup>  | Linux (préversion)                                        | Via l’extension                | No                        |  
 | Sophos V9+                                                | Linux (préversion)                                        | Non                           | Oui                       |
 |                                                           |                                                        |                              |                           |
+
+<sup><a name="footnote1" /></a>1</sup> Microsoft Defender pour point de terminaison ne suffit pas sur la machine Linux : la machine n’apparaîtra pas comme saine si le composant AV est actif.
+Par défaut, le composant AV est **désactivé** pour éviter tout conflit avec d’autres logiciels AV.
+
 
 
 

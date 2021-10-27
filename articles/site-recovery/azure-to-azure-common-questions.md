@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 07/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c2fb5175b077275d0c2ef5b0a37f6d4ead76b9d5
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b7b99f1a5b4c52fb07b2e58c8952eb9ace1f1567
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524278"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130138260"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
@@ -285,7 +285,7 @@ Un [plan de récupération](site-recovery-create-recovery-plans.md) dans Site Re
 
 ### <a name="how-does-sequencing-work"></a>Comment fonctionne le séquencement ?
 
-Dans un plan de récupération, vous pouvez créer plusieurs groupes de machines virtuelles pour le séquencement. Les groupes basculent un par un, afin que les machines virtuelles qui font partie du même groupe basculent ensemble. [Plus d’informations](recovery-plan-overview.md#model-apps)
+Dans un plan de récupération, vous pouvez créer jusqu’à 7 groupes de machines virtuelles pour le séquencement. Les groupes basculent un par un, afin que les machines virtuelles qui font partie du même groupe basculent ensemble. [Plus d’informations](recovery-plan-overview.md#model-apps)
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>Comment trouver l’objectif de délai de récupération d’un plan de récupération ?
 

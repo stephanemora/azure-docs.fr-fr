@@ -6,12 +6,12 @@ ms.author: v-stharr
 ms.date: 3/22/2021
 ms.topic: conceptual
 ms.service: azure-maps
-ms.openlocfilehash: 3bcf3125e09ee2023e36b3eefc5d34d4a1215c4e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 0d21b23c9b1192f2f660615079da0831c1ec92fc
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439359"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130006353"
 ---
 # <a name="azure-maps-web-sdk-best-practices"></a>Meilleures pratiques pour le kit de développement logiciel (SDK) Web Azure Maps
 
@@ -27,8 +27,11 @@ La partie la plus importante de votre application est sa sécurité. Si votre ap
 
 > [!IMPORTANT]
 > Azure Maps fournit deux méthodes d’authentification.
+>
 > * Authentification par clé d’abonnement
-> * L’authentification Azure Active Directory utilise Azure Active Directory dans toutes les applications de production.
+> * Authentification Azure Active Directory
+>
+> Utilisez Azure Active Directory dans toutes les applications de production.
 > L’authentification par clé d’abonnement est simple et est utilisée par la plupart des plateformes de mappage comme méthode légère pour mesurer l’utilisation de la plateforme à des fins de facturation. Toutefois, il ne s’agit pas d’une forme sécurisée d’authentification. Elle ne doit donc être utilisée que localement lors du développement d’applications. Certaines plateformes permettent de limiter les adresses IP et/ou les référents HTTP dans les requêtes. Toutefois, ces informations peuvent facilement être usurpées. Si vous utilisez des clés d’abonnement, veillez à [les faire pivoter régulièrement](how-to-manage-authentication.md#manage-and-rotate-shared-keys).
 > Azure Active Directory est un service d’identité d’entreprise qui offre une large sélection de fonctionnalités et de paramètres de sécurité pour toutes sortes de scénarios d’application. Microsoft recommande que toutes les applications de production utilisant Azure Maps utilisent Azure Active Directory pour l’authentification.
 > En savoir plus sur la [gestion de l’authentification dans Azure Maps](how-to-manage-authentication.md) dans ce document.
@@ -63,7 +66,7 @@ De même, lorsque le mappage se charge initialement, il est souvent souhaitable 
 
 ### <a name="lazy-load-the-azure-maps-web-sdk"></a>Chargement différé dans le kit de développement logiciel (SDK) Web Azure Maps
 
-Si le mappage n’est pas nécessaire immédiatement, chargez le kit de développement logiciel (SDK) Web Azure Maps en différé jusqu’à ce qu’il soit nécessaire. Cela retardera le chargement des fichiers JavaScript et CSS utilisés par le kit de développement logiciel (SDK) Web Azure Maps jusqu’à ce que cela soit nécessaire. Cela se produit généralement lorsque le mappage est chargé dans un onglet ou un panneau de menu volant qui n’est pas affiché lors du chargement de la page.
+Si le mappage n’est pas nécessaire immédiatement, chargez le kit de développement logiciel (SDK) Web Azure Maps en différé jusqu’à ce qu’il soit nécessaire. Cela retarde le chargement des fichiers JavaScript et CSS utilisés par le SDK web Azure Maps aussi longtemps que nécessaire. Cela se produit généralement lorsque le mappage est chargé dans un onglet ou un panneau de menu volant qui n’est pas affiché lors du chargement de la page.
 L’exemple de code suivant montre comment retarder le chargement du kit de développement logiciel (SDK) Web Azure Maps jusqu’à ce qu’un bouton soit enfoncé.
 
 <br/>
@@ -74,11 +77,11 @@ Consultez le stylet <a href='https://codepen.io/azuremaps/pen/vYEeyOv'>Chargemen
 
 ### <a name="add-a-placeholder-for-the-map"></a>Ajouter un espace réservé pour le mappage
 
-Si le mappage prend un certain temps pour se charger en raison de limitations du réseau ou d’autres priorités au sein de votre application, envisagez d’ajouter une petite image d’arrière-plan au mappage `div` en tant qu’espace réservé pour le mappage. Cela remplit l’annulation du mappage `div` pendant le chargement.
+Si le mappage prend un certain temps pour se charger en raison de limitations du réseau ou d’autres priorités au sein de votre application, envisagez d’ajouter une petite image d’arrière-plan au mappage `div` en tant qu’espace réservé pour le mappage. Cette opération remplit l’annulation de la carte `div` pendant son chargement.
 
 ### <a name="set-initial-map-style-and-camera-options-on-initialization"></a>Définir le style de mappage initial et les options de caméra lors de l’initialisation
 
-Souvent, les applications veulent charger le mappage à un emplacement ou un style spécifique. Parfois, les développeurs attendent que le mappage soit chargé (ou attendent l'événement `ready`), puis utilisent les fonctions `setCemer` ou `setStyle` du mappage. Cela prend souvent plus de temps pour atteindre l’affichage de la carte initiale souhaitée, car de nombreuses ressources finissent par être chargées par défaut avant le chargement des ressources nécessaires pour l’affichage de la carte souhaitée. Une meilleure approche consiste à passer la caméra de mappage souhaitée et les options de style dans le mappage lors de son initialisation.
+Souvent, les applications veulent charger le mappage à un emplacement ou un style spécifique. Parfois, les développeurs attendent que le mappage soit chargé (ou attendent l'événement `ready`), puis utilisent les fonctions `setCemer` ou `setStyle` du mappage. Obtenir la vue cartographique initiale souhaitée prend souvent plus de temps, car de nombreuses ressources finissent par être chargées par défaut avant que les ressources nécessaires pour la vue cartographique souhaitée soient chargées. Une meilleure approche consiste à passer la caméra de mappage souhaitée et les options de style dans le mappage lors de son initialisation.
 
 ## <a name="optimize-data-sources"></a>Optimiser les sources des données
 
@@ -130,7 +133,7 @@ Si votre jeu de données contient des fonctionnalités qui ne vont pas être uti
 * Réduit le nombre de fonctionnalités qui doivent être bouclées lors du rendu des données.
 * Peut parfois aider à simplifier ou supprimer les filtres et les expressions pilotées par les données, ce qui signifie moins de traitement nécessaire au moment de l’affichage.
 
-Lorsque les fonctionnalités possèdent un grand nombre de propriétés ou de contenu, il est beaucoup plus performant de limiter ce qui est ajouté à la source de données à celles nécessaires au rendu et de disposer d’une méthode ou d’un service distinct pour récupérer la propriété ou le contenu supplémentaire si nécessaire. Par exemple, si vous avez un mappage simple affichant des emplacements sur un mappage lorsque vous cliquez, un ensemble de contenu détaillé s’affiche. Si vous souhaitez utiliser le style piloté par les données pour personnaliser la façon dont les emplacements sont affichés sur le mappage, chargez uniquement les propriétés nécessaires dans la source de données. Lorsque vous souhaitez afficher le contenu détaillé, utilisez l’ID de la fonctionnalité pour récupérer le contenu supplémentaire séparément. Si le contenu est stocké côté serveur, un service peut être utilisé pour le récupérer de manière asynchrone, ce qui réduirait considérablement la quantité de données qui doit être téléchargée lors du chargement initial du mappage.
+Quand les fonctionnalités possèdent de nombreuses propriétés ou des contenus, il est beaucoup plus performant de limiter ce qui est ajouté à la source de données à ceux nécessaires au rendu et de disposer d’une méthode ou d’un service distinct pour récupérer la propriété ou le contenu supplémentaire en cas de besoin. Par exemple, si vous avez un mappage simple affichant des emplacements sur un mappage lorsque vous cliquez, un ensemble de contenu détaillé s’affiche. Si vous souhaitez utiliser le style piloté par les données pour personnaliser la façon dont les emplacements sont affichés sur le mappage, chargez uniquement les propriétés nécessaires dans la source de données. Lorsque vous souhaitez afficher le contenu détaillé, utilisez l’ID de la fonctionnalité pour récupérer le contenu supplémentaire séparément. Si le contenu est stocké côté serveur, un service peut être utilisé pour le récupérer de manière asynchrone, ce qui réduirait considérablement la quantité de données qui doit être téléchargée lors du chargement initial du mappage.
 
 En outre, la réduction du nombre de chiffres significatifs dans les coordonnées des fonctionnalités peut également réduire considérablement la taille des données. Il n’est pas rare que les coordonnées contiennent au moins 12 décimales ; toutefois, six décimales ont une précision d’environ 0,1, ce qui est souvent plus précis que l’emplacement représenté par la coordonnée (six décimales sont recommandées lors de l’utilisation de petites données d’emplacement, telles que les dispositions de construction intérieures). Le fait d’avoir plus de six décimales ne fera probablement aucune différence dans la façon dont les données sont affichées et ne nécessitera que l’utilisateur pour télécharger plus de données sans aucun avantage supplémentaire.
 
@@ -294,7 +297,7 @@ En savoir plus sur le [Clustering et les cartes thermiques dans ce document](clu
 
 ### <a name="keep-image-resources-small"></a>Réduire la taille des ressources d’image
 
-Des images peuvent être ajoutées au sprite d’images des mappages pour afficher des icônes dans une couche de symboles ou des modèles dans une couche de polygones. Diminuez la taille de ces images pour réduire la quantité de données qui doivent être téléchargées et la quantité d’espace qu’ils occupent dans le sprite d’images des mappages. Lorsque vous utilisez une couche de symboles qui met à l’échelle l’icône à l’aide de l’option `size`, utilisez une image qui correspond à la taille maximale d’affichage de votre plan sur le mappage et pas plus. Cela permet de s’assurer que l’icône est affichée avec une haute résolution tout en minimisant les ressources qu’elle utilise. De plus, les SVG peuvent également être utilisés sous un format de fichier plus petit pour les images d’icône simples.
+Des images peuvent être ajoutées au sprite d’images des mappages pour afficher des icônes dans une couche de symboles ou des modèles dans une couche de polygones. Diminuez la taille de ces images pour réduire la quantité de données qui doivent être téléchargées et la quantité d’espace qu’ils occupent dans le sprite d’images des mappages. Lorsque vous utilisez une couche de symboles qui met à l’échelle l’icône à l’aide de l’option `size`, utilisez une image qui correspond à la taille maximale d’affichage de votre plan sur le mappage et pas plus. Cela garantit que l’icône est affichée avec une haute résolution tout en minimisant les ressources qu’elle utilise. De plus, les SVG peuvent également être utilisés sous un format de fichier plus petit pour les images d’icône simples.
 
 ## <a name="optimize-expressions"></a>Optimiser les expressions
 
@@ -305,7 +308,7 @@ Les [expressions de style pilotées par les données](data-driven-style-expressi
 Filtre une boucle sur toutes les données d’une source de données et vérifie si chaque filtre correspond à la logique du filtre. Si les filtres deviennent complexes, cela peut entraîner des problèmes de performances. Voici quelques stratégies possibles pour y remédier.
 
 * Si vous utilisez des mosaïques vectorielles, divisez les données en différentes couches sources.
-* Si vous utilisez la classe `DataSource`, arrêtez ces données dans des sources de données distinctes. Essayez d’équilibrer le nombre de sources de données avec la complexité du filtre. Un trop grand nombre de sources de données peut entraîner des problèmes de performances. Par conséquent, vous devrez peut-être effectuer des tests pour savoir ce qui convient le mieux à votre scénario.
+* Si vous utilisez la classe `DataSource`, divisez ces données en sources de données distinctes. Essayez d’équilibrer le nombre de sources de données avec la complexité du filtre. Un trop grand nombre de sources de données peut entraîner des problèmes de performances. Par conséquent, vous devrez peut-être effectuer des tests pour savoir ce qui convient le mieux à votre scénario.
 * Lorsque vous utilisez un filtre complexe sur une couche, envisagez d’utiliser plusieurs couches avec des expressions de style pour réduire la complexité du filtre. Évitez de créer une série de couches avec des styles codés en dur lorsque les expressions de style peuvent être utilisées comme un grand nombre de couches, ce qui peut également entraîner des problèmes de performances.
 
 ### <a name="make-sure-expressions-dont-produce-errors"></a>Veillez à ce que les expressions ne produisent pas d’erreurs
@@ -361,6 +364,7 @@ Effectuez les actions suivantes :
 * Assurez-vous d’utiliser un [navigateur pris en charge](supported-browsers.md).
 
 **Toutes mes données sont affichées de l’autre côté du monde, que se passe-t-il ?**
+
 Les coordonnées, également appelées positions, des kits de développement logiciel (SDK) Azure Maps s’alignent sur le format de la norme industrielle `[longitude, latitude]`. Ce même format est également la manière dont les coordonnées sont définies dans le schéma GeoJSON ; données principales mises en forme utilisées dans les kits de développement logiciel (SDK) Azure Maps. Si vos données s’affichent de l’autre côté du monde, il est probable que les valeurs de longitude et de latitude soient inversées dans vos informations de coordonnées/positions.
 
 **Pourquoi les marqueurs HTML apparaissent-ils à un emplacement incorrect dans le contrôle web ?**
@@ -372,6 +376,7 @@ Points à vérifier :
 * Inspectez l’élément DOM du marqueur HTML pour voir si une CSS de votre application s’est ajoutée au marqueur et affecte sa position.
 
 **Pourquoi les icônes ou le texte de la couche de symboles apparaissent-ils au mauvais endroit ?**
+
 Vérifiez que les options `anchor` et `offset` sont correctement configurées pour s’aligner sur la partie de l’image ou du texte que vous souhaitez aligner avec la coordonnée du mappage.
 Si le symbole n’est simplement pas à sa place lors de la rotation du mappage, activez l'option `rotationAlignment`. Par défaut, les symboles que nous allons faire pivoter avec le point de vue des cartes s’affichent à la verticale pour l’utilisateur. Toutefois, selon votre scénario, il peut être souhaitable de verrouiller le symbole à l’orientation du mappage. Affectez à l’option `rotationAlignment` la valeur `'map'` pour effectuer cette opération.
 Si le symbole n’est simplement pas à sa place lors de l’inclinaison du mappage, vérifiez l'option `pitchAlignment`. Par défaut, les symboles restent à la hauteur du point de vue de la carte, car le mappage est incliné. Toutefois, selon votre scénario, il peut être souhaitable de verrouiller le symbole à l’inclinaison du mappage. Affectez à l’option `pitchAlignment` la valeur `'map'` pour effectuer cette opération.
@@ -387,7 +392,10 @@ Points à vérifier :
 
 **Puis-je utiliser le kit de développement logiciel (SDK) Azure Maps Web dans un iframe de bac à sable ?**
 
-Oui. Notez que [Safari présente un bogue](https://bugs.webkit.org/show_bug.cgi?id=170075) qui empêche les iframes de bac à sable d’exécuter des rôles de travail, ce qui est requis par le kit de développement logiciel (SDK) Azure Maps Web. La solution consiste à ajouter la balise `"allow-same-origin"` à la propriété de bac à sable de l’iframe.
+Oui.
+
+> [!TIP]
+> Safari présente un [bogue](https://bugs.webkit.org/show_bug.cgi?id=170075) qui empêche les iframes en mode Bac à sable (sandbox) d’exécuter des workers web, ce qui est une exigence du SDK web Azure Maps. La solution consiste à ajouter la balise `"allow-same-origin"` à la propriété de bac à sable de l’iframe.
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
@@ -395,19 +403,22 @@ Voici les différentes façons d’obtenir un support technique pour Azure Maps 
 
 **Comment faire signaler un problème de données ou un problème avec une adresse ?**
 
-Azure Maps dispose d’un outil de commentaires sur les données dans lequel les problèmes de données peuvent être signalés et suivis. [https://feedback.azuremaps.com/](https://feedback.azuremaps.com/) Chaque problème soumis génère une URL unique que vous pouvez utiliser pour suivre la progression du problème de données. Le temps nécessaire à la résolution d’un problème de données varie en fonction du type de problème et de la facilité de vérification de la modification. Une fois résolues, le service de rendu verra la mise à jour dans la mise à jour hebdomadaire, tandis que d’autres services tels que le géocodage et le routage verront la mise à jour dans la mise à jour mensuelle. Des instructions détaillées sur la façon de signaler un problème de données sont fournies dans ce [document](how-to-use-feedback-tool.md).
+Signalez les problèmes liés aux données à l’aide de l’[outil de commentaires sur les données Azure Maps](https://feedback.azuremaps.com). Des instructions détaillées sur le signalement des problèmes liés aux données sont fournies dans l’article [Fournir des commentaires sur les données à Azure Maps](how-to-use-feedback-tool.md).
+
+> [!NOTE]
+> Chaque problème soumis génère une URL unique permettant d’en effectuer le suivi. Les temps de résolution varient en fonction du type de problème et du temps nécessaire pour vérifier que le changement est correct. Les changements sont indiqués dans la mise à jour hebdomadaire des services d’affichage, tandis que d’autres services, comme le géocodage et le routage, sont mis à jour tous les mois.
 
 **Comment signaler un bogue dans un service ou une API ?**
 
-https://azure.com/support
+Signalez les problèmes dans la page [Aide et support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) d’Azure en sélectionnant le bouton **Créer une demande de support**.
 
 **Où puis-je obtenir de l’aide technique pour Azure Maps ?**
 
-En cas de lien avec le visuel Azure Maps dans Power BI : https://powerbi.microsoft.com/support/ pour tous les autres services Azure Maps : https://azure.com/support ou les forums des développeurs : [https://docs.microsoft.com/answers/topics/azure-maps.html](/answers/topics/azure-maps.html).
+* Pour les questions relatives au visuel Azure Maps dans Power BI, contactez le [support Power BI](https://powerbi.microsoft.com/support/).
 
-**Comment effectuer une demande de fonctionnalité ?**
+* Concernant tous les autres services Azure Maps, contactez le [support Azure](https://azure.com/support).
 
-Effectuer une demande de fonctionnalité sur notre site vocal utilisateur : https://feedback.azure.com/forums/909172-azure-maps
+* Concernant les questions ou commentaires sur des fonctionnalités Azure Maps spécifiques, utilisez les [forums des développeurs Azure Maps](/answers/topics/azure-maps.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

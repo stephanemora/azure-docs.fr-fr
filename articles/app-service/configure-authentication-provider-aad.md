@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: 61253ab7360253e1c6902b6a7b38c9fb53faa3eb
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 039a32d1f1ec1327ee032c17af36dc910f363eed
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129611745"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130045972"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurer votre application App Service ou Azure Functions pour utiliser une connexion Azure AD
 
@@ -70,14 +70,15 @@ Pour inscrire l’application, effectuez les étapes suivantes :
 1. Une fois l’inscription d’application créée, copiez l’**ID de l’application (client)** et l’**ID de l’annuaire (locataire)** pour plus tard.
 1. Sélectionnez **Authentification**. Sous **Octroi implicite**, activez **Jetons d’ID** pour autoriser les connexions utilisateur OpenID Connect à partir d’App Service.
 1. (Facultatif) Sélectionnez **Personnalisation**. Dans **URL de la page d’accueil**, entrez l’URL de votre application App Service, puis sélectionnez **Enregistrer**.
-1. Sélectionnez **Exposer une API** > **Définir**. Pour une application monolocataire, collez l’URL de votre application App Service et sélectionnez **Enregistrer**. Pour une application multilocataire, collez l’URL, qui est basée sur l’un des domaines vérifiés par un locataire, puis sélectionnez **Enregistrer**.
+1. Sélectionnez **Exposer une API** , puis cliquez sur **Définir** en regard de « URI d’ID d’application ». Cette valeur identifie de façon unique l’application lorsqu’elle est utilisée en tant que ressource, ce qui permet de demander des jetons qui accordent l’accès. Il est utilisé comme préfixe pour les étendues que vous créez.
 
-   > [!NOTE]
-   > Cette valeur correspond à l'**URI d'ID d'application** de votre inscription d'application. Si votre application web nécessite un accès à une API dans le cloud, vous avez besoin de l’**URI d’ID d’application** de l’application web lorsque vous configurez la ressource App Service cloud. Vous pouvez utiliser cette valeur, par exemple, si vous souhaitez que le service cloud accorde explicitement l’accès à l’application web.
+    Pour une application à locataire unique, vous pouvez utiliser la valeur par défaut, qui se présente sous la forme du formulaire `api://<application-client-id>`. Vous pouvez également spécifier un URI plus lisible comme `https://contoso.com/api` basé sur l’un des domaines vérifiés pour votre locataire. Pour une application mutualisée, vous devez fournir un URI personnalisé. Pour en savoir plus sur les formats acceptés pour les URI ID d’application, consultez les [informations de référence sur les recommandations relatives aux inscriptions d’applications](../active-directory/develop/security-best-practices-for-app-registration.md#appid-uri-configuration).
+
+    Une fois que vous avez entré la valeur, cliquez sur **Enregistrer**.
 
 1. sélectionner **Ajouter une étendue**.
    1. Dans **Nom de l’étendue**, entrez *user_impersonation*.
-   1. Dans les zones de texte, entrez le nom et la description de l’étendue de consentement que vous voulez que les utilisateurs voient dans la page de consentement. Par exemple, entrez *Accéder à mon application*.
+   1. Dans les zones de texte, entrez le nom et la description de l’étendue de consentement que vous voulez que les utilisateurs voient dans la page de consentement. Par exemple, entrez *Accéder à &lt;nom-application&gt;* .
    1. Sélectionnez **Ajouter une étendue**.
 1. (Facultatif) Pour créer une clé secrète client, sélectionnez **Certificats et secrets** > **Nouvelle clé secrète client** > **Ajouter**. Copiez la valeur de la clé secrète client qui s'affiche sur la page. Elle ne s’affichera plus.
 1. (Facultatif) Pour ajouter plusieurs **URL de réponse**, sélectionnez **Authentification**.

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 98c1dba49283cd1f7a9e1c4c748af37b9a4fac02
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 80bb6aac5d6eb80f82372fd90d77fa0c2a082957
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129219588"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130166714"
 ---
 # <a name="how-to-automatically-apply-sensitivity-labels-to-your-data-in-azure-purview"></a>Comment appliquer automatiquement des étiquettes de confidentialité à vos données dans Azure Purview
 
@@ -41,6 +41,12 @@ Les étapes suivantes étendent vos étiquettes de confidentialité et leur perm
 Par exemple :
 
 :::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-small.png" alt-text="Sélection du bouton « Activer » pour étendre les étiquettes de confidentialité à Purview" lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview.png":::
+
+:::image type="content" source="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation-small.png" alt-text="Confirmer le choix d’étendre les étiquettes de confidentialité à Purview" lightbox="media/how-to-automatically-label-your-content/extend-sensitivity-labels-to-purview-confirmation.png":::
+
+> [!TIP]
+>Si vous ne voyez pas le bouton et que vous ne savez pas si le consentement a été accordé pour étendre l’étiquetage aux ressources dans Purview, consultez [cet élément de la FAQ](sensitivity-labels-frequently-asked-questions.yml#how-can-i-determine-if-consent-has-been-granted-to-extend-labeling-to-purview) sur la manière de déterminer l’état.
+>
 
 Une fois que vous avez étendu l’étiquetage aux ressources dans Azure Purview, toutes les étiquettes de confidentialité publiées peuvent être utilisées dans Purview.
 

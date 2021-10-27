@@ -3,13 +3,13 @@ title: Intégrer Azure NetApp Files à Azure Kubernetes Service | Microsoft Docs
 description: Découvrez comment approvisionner Azure NetApp Files avec Azure Kubernetes Service.
 services: container-service
 ms.topic: article
-ms.date: 10/07/2021
-ms.openlocfilehash: f4b9c8316ff9cd77017fc49dbe6846ed840f5afb
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.date: 10/18/2021
+ms.openlocfilehash: a88f2ac33d22852f1b14be65434eb2e354c45155
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129658972"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162309"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Intégrer Azure NetApp Files à Azure Kubernetes Service
 
@@ -17,10 +17,10 @@ Un volume persistant représente un élément de stockage provisionné pour une 
 
 [Azure NetApp Files][anf] est un service de stockage de fichiers limité, hautes performances et de classe entreprise s’exécutant sur Azure. Les utilisateurs de Kubernetes ont deux options lorsqu’il s’agit d’utiliser des volumes Azure NetApp Files pour les charges de travail Kubernetes :
 
-* Créer des volumes Azure NetApp Files **de manière statique** : Dans ce scénario, la création des volumes est réalisée en dehors d’AKS ; les volumes sont créés en utilisant `az` ou l’interface utilisateur Azure et sont ensuite exposés à Kubernetes par la création d’un `PersistentVolume`. Les volumes ANF créés de manière statique présentent de nombreuses limitations (par exemple, l’impossibilité de les développer, le besoin d’être surapprovisionnés, etc.) et ne sont pas recommandés dans la plupart des cas d’usage.
+* Créer des volumes Azure NetApp Files **de manière statique** : Dans ce scénario, la création des volumes est réalisée en dehors d’AKS ; les volumes sont créés en utilisant `az` ou l’interface utilisateur Azure et sont ensuite exposés à Kubernetes par la création d’un `PersistentVolume`. Les volumes Azure NetApp Files créés de façon statique présentent de nombreuses limitations (par exemple, l’impossibilité d’être développés, la nécessité d’être surprovisionnés, etc.) et ne sont pas recommandés dans la plupart des cas d’usage.
 * Créer des volumes Azure NetApp Files **à la demande**, en les orchestrant via Kubernetes : cette méthode est le mode de fonctionnement **privilégié** pour créer plusieurs volumes directement via Kubernetes et est réalisée à l’aide d’[Astra Trident](https://docs.netapp.com/us-en/trident/index.html). Astra Trident est un orchestrateur de stockage dynamique conforme à CSI qui permet de provisionner des volumes en mode natif via Kubernetes.
 
-L’utilisation d’un pilote CSI pour consommer directement des volumes Azure NetApp Files à partir de charges de travail AKS est **fortement recommandée** pour la plupart des cas d’usage. Cette condition est remplie par Astra Trident, un orchestrateur de stockage dynamique open source pour Kubernetes. Astra Trident est un orchestrateur de stockage destiné aux entreprises, conçu spécialement pour Kubernetes et entièrement pris en charge par NetApp. Il simplifie l’accès au stockage dans les environnements Kubernetes en automatisant l’approvisionnement en stockage. Les consommateurs peuvent tirer parti du pilote CSI d’Astra Trident pour Azure NetApp Files afin de faire abstraction des détails sous-jacents et de créer, d’étendre ou de capturer des volumes à la demande.
+L’utilisation d’un pilote CSI pour consommer directement des volumes Azure NetApp Files à partir de charges de travail AKS est **fortement recommandée** pour la plupart des cas d’usage. Cette condition est remplie par Astra Trident, un orchestrateur de stockage dynamique open source pour Kubernetes. Astra Trident est un orchestrateur de stockage destiné aux entreprises, conçu spécialement pour Kubernetes et entièrement pris en charge par NetApp. Il simplifie l’accès au stockage à partir de clusters Kubernetes en automatisant le provisionnement du stockage. Vous pouvez tirer parti du pilote CSI (Container Storage Interface) d’Astra Trident pour Azure NetApp Files afin de faire abstraction des détails sous-jacents et de créer, d’étendre ou de capturer des volumes à la demande. En outre, l’utilisation d’Astra Trident vous permet d’utiliser le [service de contrôle Astra](https://cloud.netapp.com/astra-control) qui s’appuie sur Astra Trident pour sauvegarder, récupérer, déplacer et gérer le cycle de vie des données d’application de vos charges de travail AKS entre les clusters à l’intérieur de régions Azure et entre des régions Azure pour répondre aux besoins de continuité de votre activité et de votre service.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -286,7 +286,7 @@ Avant de passer à l’étape suivante, vous devez :
 Cette section vous guide tout au long de l’installation d’Astra Trident à l’aide de l’opérateur. Vous pouvez également choisir d’utiliser l’une de ses autres méthodes d’installation :
 
 * [Chart Helm](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html).
-* [tridentctl](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html).
+* [`tridentctl`](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html).
 
 Consultez la page de [déploiement de Trident](https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html) pour comprendre le fonctionnement de chaque option et identifier celle qui vous convient le mieux.
 
@@ -376,7 +376,7 @@ secret/backend-tbc-anf-secret created
 tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
 ```
 
-Avant d’exécuter la commande, vous devrez mettre à jour `backend-anf.yaml` afin d’y inclure les détails relatifs à l’abonnement Azure NetApp Files, par exemple :
+Avant d’exécuter la commande, vous devez mettre à jour `backend-anf.yaml` afin d’y inclure les détails relatifs à l’abonnement Azure NetApp Files, par exemple :
 
 * `subscriptionID` pour l’abonnement Azure avec Azure NetApp Files activé. The 
 * `tenantID`, `clientID` et `clientSecret` d’une [inscription d’application](../active-directory/develop/howto-create-service-principal-portal.md) dans Azure Active Directory (AD) avec des autorisations suffisantes pour le service Azure NetApp Files. L’inscription d’application doit porter le rôle `Owner` ou `Contributor` prédéfini par Azure.

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dfc0ca4250cc6cfefbf7c68d27996ccd81fd2857
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90563860"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993622"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronisation d’Azure AD Connect : Présentation de l’architecture
 Cette rubrique décrit l’architecture de base pour Azure AD Connect Sync. Celle-ci est similaire à ses prédécesseurs MIIS 2003, ILM 2007 et FIM 2010 et ce, sur plusieurs plans. Azure AD Connect Sync représente l’évolution de ces technologies. Si vous connaissez ces technologies plus anciennes, le contenu de cette rubrique vous sera également familier. Si vous ne connaissez pas la synchronisation, cette rubrique est pour vous. Il n’est toutefois pas nécessaire de connaître les détails de cette rubrique pour effectuer des personnalisations de Microsoft Azure AD Connect Sync (appelé « moteur de synchronisation » dans cette rubrique).
@@ -193,7 +193,7 @@ La synchronisation consiste en deux processus connexes :
 * la synchronisation entrante, lorsque le contenu du métaverse est mis à jour via les données de l’espace connecteur ;
 * la synchronisation sortante, lorsque le contenu de l’espace connecteur est mis à jour à l’aide des données du métaverse.
 
-En utilisant les informations préparées dans l’espace connecteur, le processus de synchronisation entrante crée dans le métaverse la vue intégrée des données stockées dans les sources de données connectées. Tous les objets intermédiaires, ou ceux qui sont en attente d’importation seulement, sont regroupés, selon le mode de configuration des règles.
+En utilisant les informations préparées dans l’espace connecteur, le processus de synchronisation entrante crée, dans le métaverse, une vue intégrée des données stockées dans les sources de données connectées. Tous les objets intermédiaires, ou ceux qui sont en attente d’importation seulement, sont regroupés, selon le mode de configuration des règles.
 
 Le processus de synchronisation sortante met à jour les objets d’exportation lorsque les objets métaverse sont modifiés.
 

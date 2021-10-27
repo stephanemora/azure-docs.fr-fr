@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 09/27/2021
-ms.openlocfilehash: f6730ad58491fb24dbc025eaa44fbc7d7bdade58
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 115556f2118d34fa4fd2baf3ac84d97a1b9f5962
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359812"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130071660"
 ---
 # <a name="manage-a-commercial-marketplace-account-in-partner-center"></a>Gérer un compte de marketplace commercial dans Espace partenaires
 
@@ -115,7 +115,7 @@ Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur 
 
 Nous vous recommandons de créer un GUID unique pour chaque offre et canal de distribution de chaque produit. Si vous ne souhaitez pas que les rapports soient scindés, vous pouvez choisir d'utiliser un GUID unique pour les différents canaux de distribution du produit.
 
-Si vous déployez un produit à l’aide d’un modèle et qu’il est disponible à la fois sur la Place de marché Azure et sur GitHub, vous pouvez créer et enregistrer deux GUID distincts :
+Si vous déployez un produit à l’aide d’un modèle et qu’il est disponible à la fois sur Place de marché Azure et sur GitHub, vous pouvez créer et enregistrer deux GUID distincts :
 
 - Produit A sur la Place de marché Azure
 - Produit A sur GitHub

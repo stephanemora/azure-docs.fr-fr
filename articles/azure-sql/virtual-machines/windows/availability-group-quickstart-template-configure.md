@@ -3,7 +3,7 @@ title: Configurer un groupe de disponibilité (modèle de démarrage rapide Azur
 description: Utilisez des modèles de démarrage rapide Azure pour créer le cluster de basculement Windows, y joindre des machines virtuelles SQL Server, créer l’écouteur et configurer l’équilibreur de charge interne dans Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -12,15 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/04/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: rsetlem
+ms.reviewer: mathoma
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.openlocfilehash: 0f9d98eb2a4fe09728a890af59b4c54afbed3737
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 612280242c528065c8ba74ccd745cca28e7af1bd
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112291652"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130167056"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utiliser des modèles de démarrage rapide Azure afin de configurer un groupe de disponibilité pour SQL Server sur une machine virtuelle Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +46,8 @@ Pour automatiser la configuration d’un groupe de disponibilité Always On à l
 - Un [abonnement Azure](https://azure.microsoft.com/free/).
 - Un groupe de ressources avec un contrôleur de domaine. 
 - Une ou plusieurs [machines virtuelles jointes à un domaine dans Azure qui exécutent SQL Server 2016 (ou version ultérieure) Édition Entreprise](./create-sql-vm-portal.md), qui se trouvent dans le même groupe à haute disponibilité ou la même zone de disponibilité et qui sont [inscrites auprès de l’extension SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md).  
-- Deux adresses IP disponibles (non utilisées par une entité) : une pour l’équilibreur de charge interne et une pour l’écouteur de groupe de disponibilité dans le même sous-réseau que le groupe de disponibilité. Si un équilibreur de charge existant est utilisé, une seule adresse IP disponible suffit.  
+- Un Azure Load Balancer interne et une adresse IP disponible (non utilisée par une entité) pour l’écouteur de groupe de disponibilité dans le même sous-réseau que la machine virtuelle SQL Server. 
+
 
 ## <a name="permissions"></a>Autorisations
 Les autorisations suivantes sont nécessaires pour configurer le groupe de disponibilité Always On à l’aide de modèles de démarrage rapide Azure : 
@@ -232,5 +233,5 @@ Pour en savoir plus, consultez :
 * [Vue d’ensemble des machines virtuelles SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Questions fréquentes (FAQ) sur les machines virtuelles SQL Server](frequently-asked-questions-faq.yml)
 * [Guide des tarifs pour les machines virtuelles SQL Server](pricing-guidance.md)
-* [Notes de publication pour les machines virtuelles SQL Server](../../database/doc-changes-updates-release-notes.md)
+* [Nouveautés de SQL Server sur des machines virtuelles Azure](doc-changes-updates-release-notes-whats-new.md)
 * [Changement de modèles de licence pour une machine virtuelle SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md)

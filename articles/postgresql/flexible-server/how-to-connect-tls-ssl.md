@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 065ffe56e2868cce00bd92c612beb987d9372e38
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: b547dfb51771c826f163972408f053d9320d8b1e
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129388790"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067228"
 ---
 # <a name="encrypted-connectivity-using-transport-layer-security-in-azure-database-for-postgresql---flexible-server"></a>Connectivité chiffrée à l’aide du protocole TLS dans Azure Database pour PostgreSQL - Serveur flexible
 
@@ -23,7 +23,7 @@ Azure Database pour PostgreSQL - Serveur flexible préfère connecter vos applic
 Azure Database pour PostgreSQL - Serveur flexible prend uniquement en charge les connexions chiffrées à l’aide du protocole TLS 1.2+ et toutes les connexions entrantes qui utilisent les protocoles TLS 1.0 et TLS 1.1 sont refusées. Pour tous les serveurs flexibles, l’application des connexions TLS est activée. 
 
 >[!Note]
-> Par défaut, la connectivité sécurisée entre le client et le serveur est appliquée. Si vous souhaitez désactiver TLS/SSL pour la connexion au serveur flexible, vous pouvez modifier le paramètre `require_secure_transport` du serveur sur `OFF`. 
+> Par défaut, la connectivité sécurisée entre le client et le serveur est appliquée. Si vous souhaitez désactiver TLS/SSL pour la connexion au serveur flexible, vous pouvez modifier le paramètre *require_secure_transport* du serveur sur *OFF*. Vous pouvez également définir la version TLS en configurant les paramètres de serveur *ssl_min_protocol_version* et *ssl_max_protocol_version*.
 
 ## <a name="applications-that-require-certificate-verification-for-tlsssl-connectivity"></a>Applications nécessitant la vérification du certificat pour la connectivité TSL/SSL
 Dans certains cas, les applications nécessitent un fichier de certificat local généré à partir du fichier de certificat d’une autorité de certification (AC) approuvée pour se connecter en toute sécurité. Azure Database pour PostgreSQL - Serveur flexible utilise l’*autorité de certification racine globale DigiCert*. Téléchargez ce certificat nécessaire pour communiquer par le biais du protocole SSL auprès de l’[autorité de certification racine globale DigiCert](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) et enregistrez le fichier du certificat à l’emplacement qui vous convient. Par exemple, ce tutoriel utilise `c:\ssl`.
@@ -40,7 +40,7 @@ L’exemple suivant montre comment vous connecter à votre serveur à l’aide d
  psql "sslmode=verify-full sslrootcert=c:\ssl\DigiCertGlobalRootCA.crt.pem host=mydemoserver.postgres.database.azure.com dbname=postgres user=myadmin"
 ```
 > [!Note]
-> Vérifiez que la valeur passée à `sslrootcert` correspond au chemin de fichier du certificat que vous avez enregistré.
+> Vérifiez que la valeur transmise à *sslrootcert* correspond au chemin d'accès du certificat que vous avez enregistré.
 
 ## <a name="ensure-your-application-or-framework-supports-tls-connections"></a>Vérification que votre application ou votre infrastructure prend en charge les connexions TLS
 

@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 9d3cc8cb8ed36179e2297da7c057851345e1c02e
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 839d5f7cd096b9b820e3a137f48efa8882fd3d1c
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536921"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003115"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Importation de mises à jour dans Device Update pour IoT Hub – Schéma et autres informations
 Si vous souhaitez importer une mise à jour dans Device Update pour IoT Hub, veillez à consulter d’abord les [concepts](import-concepts.md) et le [guide pratique](import-update.md). Pour des détails sur le schéma utilisé lors de la construction d’un manifeste d’importation, ainsi que des informations sur les objets associés, voir ci-dessous.
@@ -83,7 +83,7 @@ Si vous utilisez l’exemple de sortie du manifeste d’importation à partir de
 }
 ```
 
-## <a name="oauth-authorization-when-calling-import-apis"></a>Autorisation OAuth lors de l’appel des API d’importation
+## <a name="oauth-authorization-when-calling-device-update-apis"></a>Autorisation OAuth lors de l’appel des API Device Update
 
 **azure_auth**
 
@@ -93,7 +93,7 @@ URL d’autorisation : https://login.microsoftonline.com/common/oauth2/authoriz
 
 **Étendues**
 
-| Name | Description |
+| Nom | Description |
 | --- | --- |
 | `https://api.adu.microsoft.com/user_impersonation` | Emprunter l’identité de votre compte d’utilisateur |
 | `https://api.adu.microsoft.com/.default`  | Flux d’informations d’identification du client |

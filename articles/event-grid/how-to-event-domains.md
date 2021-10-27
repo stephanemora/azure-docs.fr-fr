@@ -4,12 +4,12 @@ description: Explique comment gérer de grands ensembles de rubriques dans Azure
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 34109db5d39daed14fc008be12a8785d255a9838
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 1e8187f43da38d7986c62a2c154c89f3576cf1ae
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232022"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047793"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gérer des rubriques et publier des événements à l’aide de domaines de l’événement
 

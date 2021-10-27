@@ -3,13 +3,13 @@ title: Options ou serveurs d’infrastructure Oracle BareMetal
 description: En savoir plus sur les options et les points à prendre en compte pour les serveurs d’infrastructure Oracle BareMetal.
 ms.topic: reference
 ms.subservice: baremetal-oracle
-ms.date: 04/15/2021
-ms.openlocfilehash: eb77731ad018817cf6d868cefd6a4d84b8f6d330
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 10/12/2021
+ms.openlocfilehash: 0c4442910ed40ece8147bca919039a7c4564a4f7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110578651"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999584"
 ---
 # <a name="options-for-oracle-baremetal-infrastructure-servers"></a>Options pour les serveurs d’infrastructure Oracle BareMetal
 
@@ -21,8 +21,8 @@ Data Guard offre une protection indisponible uniquement par le biais du cluster 
 
 | Mode de protection | Description |
 | --- | --- |
-| **Performances maximales** | Le mode de protection par défaut. Il fournit le niveau de protection le plus élevé sans affecter les performances de la base de données primaire. Les données sont considérées comme validées dès qu’elles ont été écrites dans le flux de restauration de la base de données primaire. Il est ensuite répliqué sur la base de données de secours de manière asynchrone. En règle générale, la base de données de secours la reçoit en l’espace de quelques secondes, mais aucune garantie n’est donnée à cet effet. En général, ce mode répond aux besoins de l’entreprise (avec une surveillance du décalage) sans nécessiter une connectivité réseau à faible latence entre les sites principal et secondaire.<br /><br />Il offre la meilleure persistance opérationnelle. Toutefois, il ne garantit aucune perte de données.   |
-| **Disponibilité maximale** | Fournit le niveau de protection le plus élevé sans affecter la disponibilité de la base de données primaire. Les données ne sont jamais considérées comme validées dans la base de données principale jusqu’à ce qu’elles aient également été validées dans au moins une base de données de secours. Si la base de données principale ne peut pas écrire les modifications de rétablissement dans au moins une base de données de secours, elle revient au mode Performances maximales au lieu de devenir indisponible. <br /><br />Elle permet au service de continuer de fonctionner si le site de secours n’est pas disponible. Si un seul site fonctionne, une seule copie des données est conservée jusqu’à ce que le deuxième site soit en ligne et que la synchronisation soit rétablie. |
+| **Performances maximales** | Le mode de protection par défaut. Il fournit le niveau de protection le plus élevé sans affecter les performances de la base de données primaire. Les données sont considérées comme validées dès qu’elles ont été écrites dans le flux de la phase de restauration par progression de la base de données primaire. Il est ensuite répliqué sur la base de données de secours de manière asynchrone. En règle générale, la base de données de secours la reçoit en l’espace de quelques secondes, mais aucune garantie n’est donnée à cet effet. En général, ce mode répond aux besoins de l’entreprise (avec une surveillance du décalage) sans nécessiter une connectivité réseau à faible latence entre les sites principal et secondaire.<br /><br />Il offre la meilleure persistance opérationnelle. Toutefois, il ne garantit aucune perte de données.   |
+| **Disponibilité maximale** | Fournit le niveau de protection le plus élevé sans affecter la disponibilité de la base de données primaire. Les données ne sont jamais considérées comme validées dans la base de données primaire tant qu’elles n’ont pas été validées dans au moins une base de données de secours. Si la base de données principale ne peut pas écrire les modifications de rétablissement dans au moins une base de données de secours, elle revient au mode Performances maximales au lieu de devenir indisponible. <br /><br />Elle permet au service de continuer de fonctionner si le site de secours n’est pas disponible. Si un seul site fonctionne, une seule copie des données est conservée jusqu’à ce que le deuxième site soit en ligne et que la synchronisation soit rétablie. |
 | **Protection maximale** | Offre un niveau de protection similaire à la disponibilité maximale. La base de données primaire s’arrête avec la fonctionnalité ajoutée s’il ne peut pas écrire les modifications de rétablissement dans au moins une base de données de secours. Cela permet de s’assurer que la perte de données ne peut pas se produire, mais au détriment d’une disponibilité plus fragile. |
 
 >[!IMPORTANT]
@@ -34,13 +34,15 @@ Oracle vous permet de configurer plusieurs destinations pour la génération de 
 
 :::image type="content" source="media/oracle-high-availability/default-data-guard-deployment.png" alt-text="Diagramme montrant le déploiement de Data Guard par défaut d’Oracle.":::
 
-Data Guard est configuré en mode de Performances maximales pour un déploiement par défaut. Cette configuration fournit une réplication des données en temps quasi réel via le transport de restauration asynchrone. La base de données de secours n’a pas besoin d’être exécutée à l’intérieur d’un déploiement RAC, mais nous vous recommandons de répondre aux demandes en matière de performances du site principal.
+Data Guard est configuré en mode de Performances maximales pour un déploiement par défaut. Cette configuration fournit une réplication des données en temps quasi réel via le transport de restauration asynchrone. La base de données de secours n’a pas besoin d’être exécutée dans un déploiement RAC. Toutefois, nous recommandons que la base de données de secours réponde aux exigences de performances du site principal.
 
-Nous recommandons un déploiement comme celui illustré dans la figure suivante pour les environnements qui nécessitent un temps d’activité strict ou un RPO de zéro. La configuration Disponibilité maximale est constituée d’une base de données de secours locale appliquant la restauration en mode synchrone et une deuxième base de données de secours s’exécutant dans une région distante.
+Nous recommandons un déploiement comme celui illustré dans la figure suivante pour les environnements qui nécessitent une durée de bon fonctionnement stricte ou un RPO de zéro. La configuration de la disponibilité maximale se compose des éléments suivants :
+- Une base de données de secours locale appliquant une phase de restauration par progression en mode synchrone.
+- Une deuxième base de données de secours s’exécutant dans une région distante.
 
 :::image type="content" source="media/oracle-high-availability/max-availability-data-guard-deployment.png" alt-text="Diagramme montrant le déploiement de Data Guard en disponibilité maximale.":::
 
-Vous pouvez créer une base de données de secours locale lorsque les performances de l’application sont affectées en exécutant la base de données et les serveurs d’applications dans des régions distinctes. Dans cette configuration, une base de données de secours locale est utilisée lorsque la maintenance planifiée ou non planifiée est nécessaire sur le cluster principal. Vous pouvez exécuter ces bases de données avec la réplication synchrone, car elles se trouvent dans la même région, ce qui garantit qu’aucune donnée n’est perdue entre elles.
+Lorsque les performances de l’application risquent de souffrir de l’exécution de la base de données et des serveurs d’applications dans des régions distinctes, vous pouvez créer une base de données de secours locale. Une base de données de secours locale est utilisée lorsque la maintenance planifiée ou non planifiée est nécessaire sur le cluster principal. Vous pouvez exécuter ces bases de données avec une réplication synchrone, car elles se trouvent dans la même région, ce qui garantit qu’aucune donnée n’est perdue entre elles.
 
 ### <a name="data-guard-configuration-considerations"></a>Considérations relatives à la configuration Data Guard
 
@@ -73,7 +75,7 @@ Le livre blanc disponible dans [https://www.oracle.com/technetwork/database/avai
 
 Veillez à sauvegarder vos bases de données. Utilisez les fonctionnalités de restauration et de récupération pour restaurer une base de données sur le même système ou un autre système, ou pour récupérer des fichiers de la base de données.
 
-Il est important de créer une stratégie de récupération de sauvegarde pour protéger les bases de données Oracle Database Appliance contre la perte de données. Une telle perte peut résulter d’un problème physique avec un disque provoquant un échec de lecture ou d’écriture sur un fichier disque nécessaire à l’exécution de la base de données. Une erreur d’utilisateur peut également entraîner une perte de données. La fonctionnalité de sauvegarde permet de **restaurer dans le temps, restaurer la base de données, récupérer le numéro de changement de système et d’accéder à la dernière récupération**. Vous pouvez créer une stratégie de sauvegarde dans l’interface utilisateur du navigateur ou à partir de l’interface de ligne de commande.
+Il est important de créer une stratégie de récupération de secours pour protéger les bases de données Oracle Database Appliance contre la perte de données. Une telle perte peut résulter d’un problème physique avec un disque provoquant un échec de lecture ou d’écriture sur un fichier disque nécessaire à l’exécution de la base de données. Une erreur d’utilisateur peut également entraîner une perte de données. La fonctionnalité de sauvegarde permet de **restaurer la base de données à un instant dans le passé (PITR), de récupérer le numéro de changement de système (SCN) et de récupérer la dernière version**. Vous pouvez créer une stratégie de sauvegarde dans l’interface utilisateur du navigateur ou à partir de l’interface de ligne de commande.
 
 Les options de sauvegarde suivantes sont disponibles :
 

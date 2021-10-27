@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/09/2021
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
-ms.openlocfilehash: 0ac1f38d65542ac6c8a892a6469cd8c9301dd463
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: f0c84e4b44218aa4f7659376251d1931ffc9516b
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532604"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063618"
 ---
 # <a name="remove-a-vm-association-from-a-capacity-reservation-group-preview"></a>Supprimer une association de machines virtuelles d’un groupe de réservations de capacité (préversion)
 
@@ -73,6 +73,27 @@ La première option est de libérer la machine virtuelle, modifier la propriét�
 1. Sélectionnez **Configuration**.
 1. Définissiez la valeur **Groupe de réservation de capacité** sur *Aucun*
     - La machine virtuelle n’est plus associée au groupe de réservations de capacité 
+
+### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli1)
+
+1. Libérez la machine virtuelle
+
+    ```azurecli-interactive
+    az vm deallocate 
+    -g myResourceGroup 
+    -n myVM
+    ```
+
+    Vous savez que votre machine virtuelle est libérée lorsque l’état passe à **Arrêté (libéré)** .
+
+1. Mettez à jour la machine virtuelle afin de supprimer l’association avec le groupe de réservations de capacité en définissant la propriété `capacity-reservation-group` sur None :
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group None
+    ```
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell1)
 
@@ -168,6 +189,28 @@ Cette option fonctionne bien lorsque la machine virtuelle ne peut pas être lib�
 1. Allez vers votre machine virtuelle, puis choisissez **Configuration**
 1. Définissiez la valeur **Groupe de réservation de capacité** sur *Aucun*
     - La machine virtuelle n’est plus associée au groupe de réservations de capacité
+
+### <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/cli2)
+
+1. Mettez à jour la quantité réservée à zéro
+
+   ```azurecli-interactive
+   az capacity reservation update 
+   -g myResourceGroup
+   -c myCapacityReservationGroup 
+   -n myCapacityReservation 
+   --capacity 0
+   ```
+
+1. Mettez à jour la machine virtuelle afin de supprimer l’association avec le groupe de réservations de capacité en définissant la propriété `capacity-reservation-group` sur None :
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group None
+    ```
+
 
 ### <a name="powershell"></a>[PowerShell](#tab/powershell2)
 

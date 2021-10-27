@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d10c64af28f6b8dacdbc28d7d29c691fe50580e2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ec39fb3ec368d315d6d9fa4a17d2cb763e49bce6
+ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128569330"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130137586"
 ---
 # <a name="create-an-azure-image-builder-template"></a>Créer un modèle de générateur d’images Azure 
 
@@ -292,7 +292,7 @@ Lorsque vous utilisez `customize` :
 La section de personnalisation est un tableau. Le générateur d’images Azure s’exécute via les personnalisateurs dans un ordre séquentiel. L’échec d’un personnalisateur entraîne un échec du processus de génération. 
 
 > [!NOTE]
-> Les commandes inline peuvent être affichées dans la définition du modèle d’image et par le Support Microsoft pour résoudre un cas de support. Les informations sensibles doivent être déplacées dans des scripts dans le Stockage Azure, où l’accès exige une authentification.
+> Les commandes inline peuvent être affichées dans la définition du modèle d’image. Les informations sensibles (notamment les mots de passe, le jeton SAS, les jetons d’authentification, etc.) doivent être déplacées dans des scripts dans le Stockage Azure, où l’accès exige une authentification.
  
 ### <a name="shell-customizer"></a>Personnalisateur de l’interpréteur de commandes
 
@@ -328,7 +328,7 @@ Propriétés de personnalisation :
     * Pour générer la somme de contrôle sha256, à l’aide d’un terminal sur Mac/Linux, exécutez la commande : `sha256sum <fileName>`
 
 > [!NOTE]
-> Les commandes inline sont stockées au sein de la définition du modèle d’image. Vous pouvez les voir lorsque vous videz la définition de l’image, et elles sont également accessibles au Support Microsoft dans le cadre de la résolution d’un cas de support. Il est fortement recommandé de déplacer les commandes et les valeurs sensibles dans des scripts et d’utiliser une identité d’utilisateur pour l’authentification auprès du Stockage Azure.
+> Les commandes inline sont stockées au sein de la définition du modèle d’image. Vous pouvez les voir quand vous videz la définition de l’image. Si vous avez des commandes et des valeurs sensibles (notamment des mots de passes, un jeton SAS, des jetons d’authentification, etc.), il est fortement recommandé de les déplacer dans des scripts et d’utiliser une identité d’utilisateur pour l’authentification auprès du Stockage Azure.
 
 #### <a name="super-user-privileges"></a>Privilèges de super utilisateur
 Pour que les commandes s’exécutent avec des privilèges de super utilisateur, elles doivent être précédées de `sudo`. Vous pouvez les ajouter dans des scripts ou utiliser des commandes inline, par exemple :
@@ -399,7 +399,7 @@ Le personnalisateur PowerShell prend en charge l’exécution de scripts PowerSh
      ], 
 ```
 
-Système d’exploitation pris en charge : Windows et Linux
+Système d’exploitation pris en charge : Windows
 
 Propriétés de personnalisation :
 

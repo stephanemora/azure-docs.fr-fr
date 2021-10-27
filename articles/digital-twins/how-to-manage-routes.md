@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 99fbf0a6ecd232ae646639e84864addd103c1f5a
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: fb27a56dcf1661a95b6c7926a3c11628f6341446
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129807776"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130133896"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Gérer les points de terminaison et les itinéraires dans Azure Digital Twins
 
@@ -476,7 +476,7 @@ Dans la page d’accueil du portail, recherchez votre instance Azure Digital Twi
 
 À partir de là, vous pouvez afficher les métriques de votre instance et créer des vues personnalisées.
 
-Pour plus d’informations sur la visualisation des métriques Azure Digital Twins, consultez [Visualiser les métriques avec Azure Monitor](troubleshoot-metrics.md).
+Pour plus d’informations sur la visualisation des métriques d’Azure Digital Twins, consultez [Résolution des problèmes : métriques](troubleshoot-metrics.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

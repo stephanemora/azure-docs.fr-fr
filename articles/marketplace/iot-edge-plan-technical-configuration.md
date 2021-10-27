@@ -7,12 +7,12 @@ ms.topic: how-to
 author: aarathin
 ms.author: aarathin
 ms.date: 05/21/2021
-ms.openlocfilehash: acae63eff8be41453c4483a2d8364531ee109f71
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 28e9bbcb4086cc9a9bd5e18ef27eb1264f086e29
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111955708"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130070296"
 ---
 # <a name="set-plan-technical-configuration-for-an-iot-edge-module-offer"></a>Définir la configuration technique d’un plan pour une offre de module IoT Edge
 
@@ -57,7 +57,7 @@ Indiquez le **nom du référentiel dans Azure Container Registry** contenant vot
 
 ## <a name="image-versions"></a>Versions d’images
 
-Quand vous publiez une mise à jour, les clients doivent être en mesure de la récupérer automatiquement de la Place de marché Azure. S’ils ne souhaitent pas effectuer de mise à jour, ils doivent être en mesure de rester sur une version spécifique de votre image. Pour ce faire, vous pouvez ajouter de nouvelles étiquettes d’image chaque fois que vous effectuez une mise à jour de l’image.
+Quand vous publiez une mise à jour, les clients doivent être en mesure de la récupérer automatiquement à partir de la Place de marché Azure. S’ils ne souhaitent pas effectuer de mise à jour, ils doivent être en mesure de rester sur une version spécifique de votre image. Pour ce faire, vous pouvez ajouter de nouvelles étiquettes d’image chaque fois que vous effectuez une mise à jour de l’image.
 
 Sélectionnez **Ajouter une version d’image** pour inclure une **balise d’image** pointant vers la dernière version de votre image sur toutes les plateformes prises en charge. Il doit également comprendre une étiquette de version (par exemple, commençant par xx.xx.xx, où xx est un nombre). Les clients doivent utiliser des [étiquettes de manifeste](https://github.com/estesp/manifest-tool) pour cibler plusieurs plateformes. Toutes les balises référencées par une balise de manifeste doivent également être ajoutées afin que nous puissions les charger. Toutes les étiquettes de manifeste (sauf l’étiquette « latest ») doivent commencer par X.Y- ou X.Y.Z, où X, Y et Z sont des entiers. Par exemple, si une étiquette « latest » pointe vers `1.0.1-linux-x64`, `1.0.1-linux-arm32` et `1.0.1-windows-arm32`, ces étiquettes doivent être ajoutées à ce champ. Pour plus d’informations sur les étiquettes et le versioning, consultez [Préparer les ressources techniques de module IoT Edge](iot-edge-technical-asset.md).
 

@@ -4,12 +4,12 @@ description: Les types de nœuds, la durabilité, la fiabilité et d’autres é
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 0b04bc99abc2f9864ed22078f809702390d9f547
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3bc3edfa2f3adf7dd29d7f6f1dfee3b95107950c
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110695452"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130064302"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 
@@ -64,7 +64,7 @@ Une autre considération pour les propriétés de votre type de nœud est le niv
 Le *niveau de durabilité* désigne les privilèges que vos VM Service Fabric ont avec l'infrastructure Azure sous-jacente. Ce privilège permet à Service Fabric de suspendre toute demande de l’infrastructure au niveau de la machine virtuelle (par exemple, un redémarrage, une réinitialisation ou une migration) qui influe sur la configuration requise du quorum Service Fabric pour les services système et vos services avec état.
 
 > [!IMPORTANT]
-> Le niveau de durabilité est défini par type de nœud. Si rien n'est spécifié, le niveau *Bronze* sera utilisé, mais il ne prévoit pas de mise à niveau automatique du système d'exploitation. Les niveaux *Argent* ou *Or* sont recommandés pour les charges de travail de production.
+> Le niveau de durabilité est défini par type de nœud. Si rien n’est spécifié, le niveau *Bronze* est utilisé. Les charges de travail de production nécessitent un niveau de durabilité Silver ou Gold pour éviter la perte de données des demandes d’infrastructure au niveau de la machine virtuelle.
 
 Le tableau ci-dessous présente les niveaux de durabilité de Service Fabric, leurs exigences et leurs prix.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
-ms.openlocfilehash: 84647ef7aef1955f03d8d5fd58f27c278c1e6247
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 68fc76ab80320a41cd9c9f0884dec8dc7771bccc
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716631"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130065271"
 ---
 # <a name="quickstart-apply-ocr-and-image-analysis-using-the-import-data-wizard"></a>Démarrage rapide : Appliquer l’OCR et l’analyse d’image à l’aide de l’Assistant Importation de données
 
@@ -55,7 +55,9 @@ Dans les étapes suivantes, configurez un conteneur d’objets blob dans Stockag
    1. [Créez un conteneur](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) nommé « signs ». Utilisez le niveau d’accès public par défaut.
    1. Dans le conteneur « signs », sélectionnez **Charger** pour charger les fichiers à partir de votre dossier **unsplash-images\jpg-signs** local.
 
-Vous devez avoir 10 fichiers contenant des photos de panneaux. Il existe un deuxième sous-dossier qui comprend des bâtiments emblématiques. Si votre service de recherche est associé au niveau De base ou un niveau supérieur, incluez le deuxième jeu de fichiers pour évaluer l’analyse d’image sur les fichiers qui n’incluent pas d’images de texte.
+Vous devez avoir 10 fichiers contenant des photos de panneaux.
+
+Il existe un deuxième sous-dossier qui comprend des bâtiments emblématiques. Si vous voulez [attacher une clé Cognitive Services](cognitive-search-attach-cognitive-services.md), vous pouvez inclure ces fichiers également pour voir comment l’analyse des images fonctionne sur des fichiers image qui n’incluent pas de texte incorporé. La clé est nécessaire pour les travaux qui dépassent l’allocation gratuite.
 
 Vous êtes maintenant prêt à passer à l’Assistant Importation de données.
 

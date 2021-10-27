@@ -3,7 +3,7 @@ title: Mise à jour corrective automatisée pour SQL Server dans Azure Virtual M
 description: Cet article décrit la fonctionnalité de mise à jour corrective automatisée pour les machines virtuelles SQL Server s’exécutant dans Azure à l’aide de Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 44dae9d8c8bc5ee3896bfc65340dfeee7679d54e
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: 689b7565acad65ec963cf28d0f1fb164446e8764
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123223180"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130162385"
 ---
 # <a name="automated-patching-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Mise à jour corrective automatisée pour SQL Server sur des machines virtuelles Azure (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -123,6 +123,10 @@ En s’appuyant sur cet exemple, le tableau suivant décrit les effets concrets 
 L’installation et la configuration de l’agent IaaS de SQL Server peuvent prendre plusieurs minutes.
 
 Pour désactiver la mise à jour corrective automatisée, exécutez le même script sans le paramètre **-Enable** pour la commande **New-AzVMSqlServerAutoPatchingConfig**. L’absence du paramètre **-Enable** indique à la commande de désactiver la fonctionnalité.
+
+> [!NOTE]
+> Il existe également plusieurs autres façons d’activer la mise à jour corrective automatique des machines virtuelles Azure, comme [Update Management](/azure/automation/update-management/overview) ou la [mise à jour corrective automatique de l’invité de machine virtuelle](/azure/virtual-machines/automatic-vm-guest-patching). Choisissez une seule option pour mettre à jour automatiquement votre machine virtuelle, car les outils qui se chevauchent peuvent entraîner des échecs de mises à jour. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les autres tâches d’automatisation disponibles, voir [Extension de l’agent IaaS SQL Server](sql-server-iaas-agent-extension-automate-management.md).

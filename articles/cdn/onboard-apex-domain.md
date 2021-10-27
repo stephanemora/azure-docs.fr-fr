@@ -7,18 +7,18 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: 8ab4f698c7149d8d57f790e221ccbe35ec090fe6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 025950ffcc264a3cfad1185ac1629c6a8fd44814
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94369772"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129992569"
 ---
 # <a name="onboard-a-root-or-apex-domain-to-an-existing-azure-cdn-endpoint"></a>Intégrer un domaine racine ou apex à un point de terminaison Azure CDN existant
 
 Azure CDN utilise des enregistrements CNAME pour valider la propriété du domaine en vue de l’intégration de domaines personnalisés. CDN n’expose pas l’adresse IP du serveur frontal associée à votre profil CDN. Vous ne pouvez pas mapper votre domaine apex à une adresse IP si vous avez l’intention de l’intégrer à Azure CDN.
 
-Le protocole DNS empêche l'attribution d'enregistrements CNAME à l'extrémité de la zone. Par exemple, si votre domaine est `contoso.com`, vous pouvez créer des enregistrements CNAME pour `somelabel.contoso.com` ; mais vous ne pouvez pas en créer pour `contoso.com` lui-même. Cette restriction pose un problème aux propriétaires d’applications qui disposent d’applications à charge équilibrée derrière Azure CDN. Dans la mesure où l’utilisation d’un profil CDN nécessite la création d’un enregistrement CNAME, il est impossible de pointer vers le profil CDN à partir de l’apex de zone.
+Le protocole DNS empêche l'attribution d'enregistrements CNAME à l'extrémité de la zone. Par exemple, si votre domaine est `contoso.com`, vous pouvez créer des enregistrements CNAME pour `somelabel.contoso.com`, mais vous ne pouvez pas créer un CNAME pour `contoso.com` lui-même. Cette restriction pose un problème aux propriétaires d’applications qui disposent d’applications à charge équilibrée derrière Azure CDN. Dans la mesure où l’utilisation d’un profil CDN nécessite la création d’un enregistrement CNAME, il est impossible de pointer vers le profil CDN à partir de l’apex de zone.
 
 Ce problème peut être résolu à l’aide d’enregistrements d’alias dans Azure DNS. Contrairement aux enregistrements CNAME, les enregistrements d’alias sont créés à l’apex de la zone. Les propriétaires d’applications peuvent l’utiliser pour pointer leur enregistrement d’apex de zone vers un profil CDN disposant de points de terminaison publics. Les propriétaires d’applications peuvent pointer vers le même profil CDN que celui utilisé pour tout autre domaine de leur zone DNS. Par exemple, `contoso.com` et `www.contoso.com` peuvent pointer vers le même profil CDN. 
 

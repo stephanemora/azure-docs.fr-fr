@@ -10,13 +10,13 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 04/09/2021
-ms.openlocfilehash: 473aa81bf28dd867bf30acef7a5b407b0e4b67a2
-ms.sourcegitcommit: cd7d099f4a8eedb8d8d2a8cae081b3abd968b827
+ms.date: 10/12/2021
+ms.openlocfilehash: 4c131b756a03622a2569f997fe427ebfdb661454
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112964749"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129999717"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -170,13 +170,13 @@ Pour chaque pool élastique, vous pouvez éventuellement spécifier le nombre mi
 
 Vous pouvez également définir un stockage maximal par base de données, par exemple pour empêcher une base de données de consommer tout le stockage du pool. Ce paramètre peut être configuré indépendamment pour chaque base de données.
 
-Le tableau suivant décrit les propriétés pour chaque base de données mise en pool. 
+La table suivante décrit les propriétés de base de données pour les bases de données mises en pool. 
 
 | Propriété | Description |
 |:--- |:--- |
 | Nombre maximal de DTU par base de données |Nombre maximal de DTU pouvant être utilisées par une des bases de données du pool en fonction du nombre de DTU utilisées par les autres bases de données du pool. Le nombre maximal de DTU par base de données n’est pas une garantie concernant l’octroi des ressources pour une base de données. Si la charge de travail de chaque base de données n’a pas besoin de toutes les ressources de pool disponibles pour s’exécuter correctement, envisagez de définir le nombre maximal de DTU par base de données pour empêcher qu’une base de données unique monopolise les ressources Une certaine allocation excessive est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d’utilisation des bases de données, dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d’utilisation. |
 | Nombre minimal de DTU par base de données |Nombre minimal de DTU réservées pour toute base de données dans le pool. Envisagez de définir un nombre minimal de DTU par base de données lorsque vous souhaitez garantir la disponibilité des ressources pour chaque base de données, quelle que soit la consommation des ressources par les autres bases de données du pool. Le nombre minimal de DTU par base de données peut être défini sur 0, qui est également la valeur par défaut. Cette propriété est définie sur une valeur comprise entre 0 et le nombre moyen de DTU utilisées par base de données.|
-| Espace de stockage maximal par base de données |La taille de base de données maximale définie par l’utilisateur pour une base de données dans un pool. Les bases de données mises en pool se partagent l’espace de stockage du pool alloué. Par conséquent, la taille qu’une base de données peut atteindre est limitée au stockage de pool minimal restant et à la taille maximale de base de données. La taille de base de données maximale fait référence à la taille maximale des fichiers de données et n’inclut pas l’espace utilisé par les fichiers journaux. |
+| Espace de stockage maximal par base de données |La taille de base de données maximale définie par l’utilisateur pour une base de données dans un pool. Les bases de données mises en pool se partagent le stockage du pool alloué. Par conséquent, la taille qu’une base de données peut atteindre est limitée au stockage de pool minimal restant et à la taille maximale de la base de données. La taille de base de données maximale fait référence à la taille maximale des fichiers de données et n’inclut pas l’espace utilisé par les fichiers journaux. |
 |||
 
 > [!IMPORTANT]
@@ -185,7 +185,9 @@ Le tableau suivant décrit les propriétés pour chaque base de données mise en
 > En outre, le paramétrage de l’option DTU min par base de données sur une valeur supérieure à 0 limite implicitement le nombre de bases de données qui peuvent être ajoutées au pool. Par exemple, si vous définissez le DTU minimal sur 100 dans un pool de 400 DTU, cela signifie que vous ne pourrez pas ajouter plus de 4 bases de données au pool, car 100 DTU sont réservées pour chaque base de données.
 > 
 
-Si les propriétés par base de données sont exprimées en DTU, elles régissent également la consommation d’autres types de ressources, comme les E/S de données, les E/S de journal et les threads Worker. Lorsque vous ajustez les valeurs min et max de DTU par base de données, les réservations et les limites de tous les types de ressources sont ajustées proportionnellement.
+Si les propriétés par base de données sont exprimées en DTU, elles régissent également la consommation d’autres types de ressources, comme les E/S de données, les E/S de journal, la mémoire du pool de mémoires tampons et les threads de travail. Lorsque vous ajustez les valeurs min et max de DTU par base de données, les réservations et les limites de tous les types de ressources sont ajustées proportionnellement.
+
+Les valeurs minimales et maximales de DTU par base de données s’appliquent à la consommation de ressources par les charges de travail utilisateur, mais pas à la consommation de ressources par les processus internes. Par exemple, pour une base de données dont la valeur maximale de DTU par base de données est fixée à la moitié du nombre d’eDTU du pool, la charge de travail utilisateur ne peut pas consommer plus de la moitié de la mémoire du pool de mémoires tampons. Toutefois, cette base de données peut toujours tirer parti des pages du pool de mémoires tampons qui ont été chargées par des processus internes. Pour plus d’informations, consultez [Consommation de ressources par les charges de travail utilisateur et les processus internes](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 2900eb3ddf1411b80920869932724f76a22c9802
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 60b4e1ac82574cab16feee9c436d9521eaf58ad4
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123453390"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130173355"
 ---
 Azure Instance Metadata Service fournit des informations sur les instances de machine virtuelle en cours d’exécution. Vous pouvez l’utiliser pour gérer et configurer vos machines virtuelles.
 Ces information comprennent la référence SKU, le stockage, les configurations réseau et les événements de maintenance à venir. Pour connaître la liste complète des données disponibles, consultez le [Résumé des catégories de points de terminaison](#endpoint-categories).
@@ -343,6 +343,8 @@ Décomposition du schéma :
 | `azEnvironment` | Environnement Azure dans lequel s’exécute la machine virtuelle | 2018-10-01
 | `customData` | Cette fonctionnalité est déconseillée et désactivée [dans IMDS](#frequently-asked-questions). Elle a été remplacée par `userData`. | 2019-02-01
 | `evictionPolicy` | Définit le mode de suppression d’une [machine virtuelle spot](../articles/virtual-machines/spot-vms.md). | 2020-12-01
+| `extendedLocation.type` | Type de l’emplacement étendu de la machine virtuelle. | 2021-03-01
+| `extendedLocation.name` | Nom de l’emplacement étendu de la machine virtuelle | 2021-03-01
 | `isHostCompatibilityLayerVm` | Indique si la machine virtuelle s’exécute sur la couche de compatibilité de l’ordinateur hôte | 2020-06-01
 | `licenseType` | Type de licence pour [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Présent seulement pour les machines virtuelles dotées d’AHB | 2020-09-01
 | `location` | Région Azure dans laquelle la machine virtuelle est en cours d’exécution | 2017-04-02
@@ -371,6 +373,7 @@ Décomposition du schéma :
 | `tagsList` | Balises mises en forme en tant que tableau JSON pour faciliter l’analyse programmatique  | 2019-06-04
 | `userData` | Jeu de données spécifié lors de la création de la machine virtuelle à utiliser pendant ou après l’approvisionnement (encodé en base64)  | 2021-01-01
 | `version` | Version de l’image de machine virtuelle | 2017-04-02
+| `virtualMachineScaleSet.id` | ID du [groupe de machines virtuelles identiques](../articles/virtual-machine-scale-sets/overview.md) dont fait partie la machine virtuelle (si applicable) | 2021-03-01
 | `vmId` | [Identificateur unique](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) de la machine virtuelle | 2017-04-02
 | `vmScaleSetName` | [Nom du groupe de machines virtuelles identiques](../articles/virtual-machine-scale-sets/overview.md) de votre groupe de machines virtuelles identiques | 2017-12-01
 | `vmSize` | [Taille de la machine virtuelle](../articles/virtual-machines/sizes.md) | 2017-04-02
@@ -646,6 +649,11 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
+    "extendedLocation": {
+      "type": "edgeZone",
+      "location": "microsoftlosangeles"
+    },
+    "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -665,6 +673,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "platformFaultDomain": "36",
     "platformUpdateDomain": "42",
+    "priority": "Regular",
     "publicKeys": [{
             "keyData": "ssh-rsa 0",
             "path": "/home/user/.ssh/authorized_keys0"
@@ -744,6 +753,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "baz:bash;foo:bar",
     "version": "15.05.22",
+    "virtualMachineScaleSet": {
+      "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+    },
     "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
     "vmScaleSetName": "crpteste9vflji9",
     "vmSize": "Standard_A3",
@@ -755,6 +767,11 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
+    "extendedLocation": {
+      "type": "edgeZone",
+      "location": "microsoftlosangeles"
+    },
+    "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -774,6 +791,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "platformFaultDomain": "36",
     "platformUpdateDomain": "42",
+    "Priority": "Regular",
     "publicKeys": [{
             "keyData": "ssh-rsa 0",
             "path": "/home/user/.ssh/authorized_keys0"
@@ -853,6 +871,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "baz:bash;foo:bar",
     "version": "15.05.22",
+    "virtualMachineScaleSet": {
+      "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+    },
     "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
     "vmScaleSetName": "crpteste9vflji9",
     "vmSize": "Standard_A3",

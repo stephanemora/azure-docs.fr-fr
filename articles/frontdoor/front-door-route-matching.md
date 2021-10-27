@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 1aaabce5dc13098d183ee595d27b5b45a3fd0caa
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 815f7500266c175585fa1b27292e593fc73fd8d7
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128586285"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003777"
 ---
 # <a name="how-requests-are-matched-to-a-routing-rule"></a>Comment les demandes sont mises en correspondance avec une règle de routage
 
@@ -74,7 +74,9 @@ Après avoir identifié l’hôte frontend spécifique et filtré les règles de
 3. Si aucune règle de routage n’est trouvée avec un chemin correspondant, la demande est rejetée et une réponse HTTP 400 : Demande incorrecte est retournée.
 
 >[!NOTE]
-> Les chemins sans caractère générique sont considérés comme des correspondances parfaites. Même si le chemin se termine par une barre oblique, il est quand même considéré comme tel.
+> * Les chemins sans caractère générique sont considérés comme des correspondances parfaites. Même si le chemin se termine par une barre oblique, il est quand même considéré comme tel.
+> * Les chemins d’accès du paramètre Modèles à mettre en correspondance ne respectent pas la casse, ce qui signifie que les chemins d’accès ayant une casse différente sont traités comme des doublons. Par exemple, vous avez le même hôte qui utilise le même protocole avec les chemins d’accès `/FOO` et `/foo`. Ces chemins d’accès sont considérés comme des doublons, ce qui n’est pas autorisé dans le paramètre Modèles à mettre en correspondance.
+> 
 
 Pour une explication plus détaillée, examinons d’autres exemples :
 

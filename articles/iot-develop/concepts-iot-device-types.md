@@ -6,12 +6,12 @@ ms.author: rywinter
 ms.service: iot-develop
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.openlocfilehash: 482acaa4fbec2991bf61f949602958b14144c2ce
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 21eea79a6a448cd65bd12cde33efb6acabd3ada5
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226891"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130003645"
 ---
 # <a name="overview-of-azure-iot-device-types"></a>Vue d’ensemble des types d’appareil Azure IoT
 Les appareils IoT existent sur une large sélection de plateformes matérielles. Cela va des petits MCU 8 bits aux processeurs x86 les plus récents, comme il est possible d’en trouver sur un ordinateur de bureau. Comme de nombreuses variables dictent le choix du matériel pour un appareil IoT, cet article décrit certaines des principales différences.
@@ -43,7 +43,7 @@ Le tableau ci-dessous présente certaines des différences qui existent entre un
 |**UC**| Less | Plus |
 |**RAM**| Less | Plus |
 |**Clignote**| Less | Plus |
-|**SE**| Non ou RTOS | Usage général |
+|**SE**| Matériel nu/RTOS | Usage général (Windows/Linux) |
 |**Difficulté de développement**| Plus difficile | Plus facile |
 |**Consommation énergétique**| Moins grand | Plus grand |
 |**Coût**| Moins grand | Plus grand |

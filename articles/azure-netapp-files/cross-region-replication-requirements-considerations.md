@@ -1,5 +1,5 @@
 ---
-title: Configuration requise et considérations relatives à l’utilisation de la réplication inter-région de volume Azure NetApp Files | Microsoft Docs
+title: Configuration requise et considérations relatives de la réplication inter-région d’Azure NetApp Files | Microsoft Docs
 description: Décrit la configuration requise et les considérations relatives à l’utilisation de la fonctionnalité de réplication inter-région de volume d’Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,22 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 6e711f3101426f59aead80b84b88350af86bbd6b
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: b098243c3f4cf160aadfb2fa001c23c4cad691bd
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129669185"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130042386"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Configuration requise et considérations pour la réplication inter-région 
 
-Notez la configuration requise et les considérations suivantes relatives à l’[utilisation de la fonctionnalité de réplication inter-région](cross-region-replication-create-peering.md) d’Azure NetApp Files :  
+Cet article décrit les exigences et les considérations suivantes relatives à l’[utilisation de la fonctionnalité de réplication inter-région](cross-region-replication-create-peering.md) d’Azure NetApp Files.
 
 ## <a name="requirements-and-considerations"></a>Conditions requises et éléments à prendre en compte 
 
-* La fonctionnalité de réplication inter-région est actuellement disponible en préversion. Vous devez soumettre une demande d’inscription à la liste d’attente pour accéder à la fonctionnalité via la [page de soumission de demande d’inscription à la liste d’attente de réplication inter-région Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Attendez de recevoir un e-mail de confirmation officiel de l’équipe Azure NetApp Files avant d’utiliser la fonctionnalité de réplication inter-région.
 * La réplication Azure NetApp Files n’est disponible que dans certaines paires de régions fixes. Voir [Paires de régions prises en charge](cross-region-replication-introduction.md#supported-region-pairs). 
 * Les volumes SMB et les volumes NFS sont pris en charge. La réplication des volumes SMB nécessite une connexion Active Directory dans les comptes NetApp source et de destination. La connexion Active Directory de destination doit avoir accès aux serveurs DNS ou aux contrôleurs de domaine ADDS qui sont accessibles à partir du sous-réseau délégué dans la région de destination. Pour plus d’informations, consultez [Configuration requise pour les connexions Active Directory](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * Le compte de destination doit se trouver dans une région différente du volume source. Vous pouvez également sélectionner un compte NetApp existant dans une autre région.  

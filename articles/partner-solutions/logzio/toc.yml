@@ -1,0 +1,25 @@
+- name: Documentation de l’intégration de Logz.io à Azure
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: "Qu’est-ce que Logz.io\_?"
+      href: overview.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Créer une ressource Logz.io
+      href: create.md
+- name: Procédures
+  items:
+    - name: Gérer
+      href: manage.md
+    - name: Configurer l’authentification unique
+      href: setup-sso.md
+    - name: Dépanner
+      href: troubleshoot.md
+- name: Informations de référence
+  items:
+    - name: Java
+      href: /java/api/overview/azure/resourcemanager-logz-readme
+    - name: Python
+      href: /python/api/overview/azure/mgmt-logz-readme

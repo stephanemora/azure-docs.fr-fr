@@ -40,16 +40,18 @@ items:
         href: use-purview-studio.md
       - name: Bonnes pratiques et conseils
         items:
+          - name: Guide des prix
+            href: concept-guidelines-pricing.md
           - name: Bonnes pratiques de déploiement
             href: deployment-best-practices.md
           - name: Architecture des comptes
             href: concept-best-practices-accounts.md
           - name: Architecture des collections
             href: concept-best-practices-collections.md
-          - name: Guide des prix
-            href: concept-guidelines-pricing.md
           - name: Architecture réseau
             href: concept-best-practices-network.md
+          - name: Bonnes pratiques d’analyse
+            href: concept-best-practices-scanning.md
       - name: Autorisations Azure Purview
         href: catalog-permissions.md
       - name: Data Map
@@ -233,8 +235,6 @@ items:
             href: classification-insights.md
           - name: Afficher des insights sur les étiquettes de confidentialité
             href: sensitivity-insights.md
-          - name: Afficher des insights sur les extensions de fichier
-            href: file-extension-insights.md
       - name: Réseau et sécurité
         items:
           - name: Instances Private Endpoint

@@ -4,12 +4,12 @@ description: Article qui montre comment effectuer certaines tâches de mise en r
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 1e04a43a7a9b2eb8b3d29be6ced0d92d8bcc8308
-ms.sourcegitcommit: abf31d2627316575e076e5f3445ce3259de32dac
+ms.openlocfilehash: 0a431abe5d32bdc59bb163f32e4c5f636c870335
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114202919"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130063036"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>Configuration d’Azure Functions avec un réseau virtuel
 
@@ -20,7 +20,7 @@ Cet article explique comment effectuer les tâches liées à la configuration de
 Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Vous pouvez remplacer ce compte de stockage par un compte sécurisé avec des points de terminaison de service ou privés. Quand vous configurez votre compte de stockage avec des points de terminaison privés, l’accès public à votre application de fonction est automatiquement désactivé et l’application n’est accessible que via le réseau virtuel. 
 
 > [!NOTE]  
-> Cette fonctionnalité opère actuellement pour toutes les références (SKU) prises en charge par les réseaux virtuels Windows dans le plan (App Service) dédié, et pour les plans Premium élastiques Windows. Elle est également prise en charge avec un DNS privé pour les références (SKU) prises en charge par les réseaux virtuels Linux. La consommation et le DNS personnalisé pour les plans Linux ne sont pas pris en charge. 
+> Cette fonctionnalité opère actuellement pour toutes les références (SKU) prises en charge par les réseaux virtuels Windows dans le plan (App Service) dédié, et pour les plans Premium élastiques Windows. ASEv3 n’est pas encore pris en charge. Elle est également prise en charge avec un DNS privé pour les références (SKU) prises en charge par les réseaux virtuels Linux. La consommation et le DNS personnalisé pour les plans Linux ne sont pas pris en charge. 
 
 Pour configurer une fonction avec un compte de stockage limité à un réseau privé :
 

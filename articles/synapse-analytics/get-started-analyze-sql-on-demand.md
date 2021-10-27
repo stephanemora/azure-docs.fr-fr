@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 04/15/2021
-ms.openlocfilehash: 8a8e8fae151b0d9be318d4dfad832ead34ef04da
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 492f8d42a072418586a6646a9beed2e750849b31
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738083"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129996983"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>Analyser des données avec un pool SQL serverless
 
@@ -58,7 +58,7 @@ En revanche, si vous approfondissez l’exploration des données, vous risquez d
 - Utilisateurs de base de données disposant des autorisations nécessaires pour accéder à des sources de données ou des objets de base de données.
 - Vues, procédures et fonctions utilitaires que vous pouvez utiliser dans les requêtes.
 
-1. Créez une base de données distincte pour utiliser ces objets. Les objets de base de données personnalisés ne peuvent pas être créés dans la base de données `master`.
+1. Utilisez la base de données `master` pour créer une base de données distincte pour les objets de base de données personnalisés. Les objets de base de données personnalisés ne peuvent pas être créés dans la base de données `master`.
 
     ```sql
     CREATE DATABASE DataExplorationDB 
@@ -76,15 +76,15 @@ En revanche, si vous approfondissez l’exploration des données, vous risquez d
     ```
 
    > [!NOTE]
-   > Une source de données externe peut être créée sans informations d’identification. Dans ce cas, l’identité de l’appelant est utilisée pour accéder à la source de données externe.
+   > Une source de données externe peut être créée sans informations d’identification. Si aucune information d’identification n’existe, l’identité de l’appelant est utilisée pour accéder à la source des données externes.
 
-3. Créez éventuellement une connexion pour un utilisateur dans `DataExplorationDB` qui accède à des données externes :
+3. Utilisez éventuellement la base de données MASTER pour créer une connexion pour un utilisateur dans `DataExplorationDB` qui va accéder aux données externes :
 
     ```sql
     CREATE LOGIN data_explorer WITH PASSWORD = 'My Very Strong Password 1234!';
     ```
 
-    Créez un utilisateur de base de données dans `DataExplorationDB` pour la connexion et octroyez-lui l’autorisation `ADMINISTER DATABASE BULK OPERATIONS`.
+    Créez ensuite un utilisateur de base de données dans `DataExplorationDB` pour la connexion et octroyez-lui l’autorisation `ADMINISTER DATABASE BULK OPERATIONS`.
     ```sql
     CREATE USER data_explorer FOR LOGIN data_explorer;
     GO

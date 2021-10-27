@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.openlocfilehash: a94abb3b2c640dbd0bcd372e83844d660af514cd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b7e418c6e8fd282bc04f7a4a95c90d085e86deae
+ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128548188"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130067076"
 ---
 # <a name="devops-deployment-for-single-tenant-azure-logic-apps"></a>Déploiement DevOps pour Azure Logic Apps monolocataire
 
@@ -43,7 +43,7 @@ Azure Logic Apps monolocataire hérite de nombreuses fonctionnalités et avantag
 
 ### <a name="local-development-and-testing"></a>Développement et test locaux
 
-Quand vous utilisez Visual Studio Code avec l’extension Azure Logic Apps (Standard), vous pouvez développer, générer et exécuter localement les workflows d’application logique monolocataire dans votre environnement de développement sans avoir à effectuer de déploiement sur Azure. Vous pouvez également exécuter vos flux de travail là où Azure Functions peut s’exécuter. Par exemple, si votre scénario nécessite des conteneurs, vous pouvez conteneuriser vos applications logiques et les déployer en tant que conteneurs.
+Quand vous utilisez Visual Studio Code avec l’extension Azure Logic Apps (Standard), vous pouvez développer, générer et exécuter localement les workflows d’application logique monolocataire dans votre environnement de développement sans avoir à effectuer de déploiement sur Azure. Si votre scénario requiert des conteneurs, vous pouvez les créer et les déployer via [Logic Apps avec Azure Arc](azure-arc-enabled-logic-apps-overview.md).
 
 Cette fonctionnalité est une amélioration majeure et procure un avantage substantiel par rapport au modèle multilocataire, ce qui vous oblige à développer sur une ressource en cours d’exécution existante dans Azure.
 
@@ -174,7 +174,7 @@ Pour appeler des fonctions créées et hébergées dans Azure Functions, vous ut
 
 ## <a name="authentication"></a>Authentification
 
-Dans Azure Logic Apps monolocataire, le modèle d’hébergement pour les workflows d’application logique est un locataire unique dans lequel vos charges de travail bénéficient d’une isolation plus grande que dans le modèle multilocataire. De plus, le runtime Azure Logic Apps monolocataire est portable, ce qui signifie que vous pouvez exécuter vos flux de travail là où Azure Functions peut s’exécuter. Toutefois, cette conception exige que les applications logiques puissent authentifier leur identité afin de pouvoir accéder à l’écosystème de connecteurs managés dans Azure. Vos applications ont également besoin des autorisations appropriées pour exécuter des opérations lors de l’utilisation de connexions managées.
+Dans Azure Logic Apps monolocataire, le modèle d’hébergement pour les workflows d’application logique est un locataire unique dans lequel vos charges de travail bénéficient d’une isolation plus grande que dans le modèle multilocataire. En outre, le runtime d’Azure Logic Apps à locataire unique est portable, ce qui signifie que vous pouvez exécuter vos workflows dans d’autres environnements, par exemple localement dans Visual Studio Code. Toutefois, cette conception exige que les applications logiques puissent authentifier leur identité afin de pouvoir accéder à l’écosystème de connecteurs managés dans Azure. Vos applications ont également besoin des autorisations appropriées pour exécuter des opérations lors de l’utilisation de connexions managées.
 
 Par défaut, chaque application logique monolocataire a une identité managée affectée par le système automatiquement activée. Cette identité diffère des informations d’identification d’authentification ou de la chaîne de connexion utilisées pour la création d’une connexion. Lors de l’exécution, votre application logique utilise cette identité pour authentifier ses connexions par le biais des stratégies d’accès Azure. Si vous désactivez cette identité, les connexions ne fonctionneront pas au moment de l’exécution.
 

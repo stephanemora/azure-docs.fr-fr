@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/28/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: it-pro,subject-rbac-steps
-ms.openlocfilehash: 175beacc486c4b59919bf20300bbd06f7b9aa1a7
-ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
+ms.openlocfilehash: 808e8e1dc5bcdcdddad490f30338c8f7a9e7ffa3
+ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2021
-ms.locfileid: "112988418"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130074263"
 ---
 # <a name="assign-azure-roles-to-external-guest-users-using-the-azure-portal"></a>Attribuer des rôles Azure à des utilisateurs invités externes à l’aide du portail Azure
 
@@ -80,25 +80,25 @@ Dans Azure RBAC, vous attribuez un rôle pour accorder un accès. Pour attribue
 
     Voici un exemple de la page Contrôle d’accès (IAM) pour un groupe de ressources.
 
-    ![Capture d’écran de la page Contrôle d’accès (IAM) d’un groupe de ressources pour une expérience en préversion.](./media/shared/rg-access-control.png)
+    ![Capture d’écran de la page Contrôle d’accès (IAM) d’un groupe de ressources.](./media/shared/rg-access-control.png)
 
 1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher les attributions de rôles pour cette étendue.
 
-1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle (préversion)** .
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle**.
 
     Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
 
-    ![Capture d’écran du menu Ajouter > Ajouter une attribution de rôle pour une expérience en préversion.](./media/shared/add-role-assignment-menu-preview.png)
+    ![Capture d’écran du menu Ajouter > Ajouter une attribution de rôle.](./media/shared/add-role-assignment-menu.png)
 
     La page Ajouter une attribution de rôle s’ouvre.
 
 1. Dans l’onglet **Rôle**, sélectionnez un rôle, tel que **Contributeur de machines virtuelles**.
 
-   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Roles pour une expérience en préversion.](./media/shared/roles.png)
+   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Rôles.](./media/shared/roles.png)
 
 1. Dans l’onglet **Membres**, sélectionnez **Utilisateur, groupe ou principal du service**.
 
-   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Membres pour une expérience en préversion.](./media/shared/members.png)
+   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Membres.](./media/shared/members.png)
 
 1. Cliquez sur **Sélectionner des membres**.
 
@@ -106,7 +106,7 @@ Dans Azure RBAC, vous attribuez un rôle pour accorder un accès. Pour attribue
 
     Vous pouvez entrer du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage ou des adresses e-mail dans l’annuaire.
 
-    ![Capture d’écran de la fenêtre Sélectionner des membres pour une expérience en préversion.](./media/role-assignments-external-users/select-members.png)
+    ![Capture d’écran du volet Sélectionner des membres.](./media/role-assignments-external-users/select-members.png)
 
 1. Cliquez sur **Sélectionner** pour ajouter l’utilisateur invité à la liste Membres.
 
@@ -130,11 +130,11 @@ Si l’utilisateur invité ne figure pas encore dans votre annuaire, vous pouvez
 
 1. Cliquez sur **Contrôle d’accès (IAM)** .
 
-1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle (préversion)** .
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle**.
 
     Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
 
-    ![Capture d’écran du menu Ajouter > Ajouter une attribution de rôle pour une expérience en préversion.](./media/shared/add-role-assignment-menu-preview.png)
+    ![Capture d’écran du menu Ajouter > Ajouter une attribution de rôle.](./media/shared/add-role-assignment-menu.png)
 
     La page Ajouter une attribution de rôle s’ouvre.
 
@@ -142,7 +142,7 @@ Si l’utilisateur invité ne figure pas encore dans votre annuaire, vous pouvez
 
 1. Dans l’onglet **Membres**, sélectionnez **Utilisateur, groupe ou principal du service**.
 
-   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Membres pour une expérience en préversion.](./media/shared/members.png)
+   ![Capture d’écran de la page Ajouter une attribution de rôle avec l’onglet Membres.](./media/shared/members.png)
 
 1. Cliquez sur **Sélectionner des membres**.
 

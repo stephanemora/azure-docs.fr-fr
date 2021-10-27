@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 0a9945a58aa6ec49ad58f3a0a0d03ea75e30f6d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d2f39d06046cd9d51baef0a2b09be00a37a35ca3
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98223616"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129993945"
 ---
 # <a name="azure-virtual-network-concepts-and-best-practices"></a>Concepts et meilleures pratiques relatifs au Réseau virtuel Azure
 
@@ -36,7 +36,7 @@ Lorsque vous créez votre réseau dans Azure, il est important de garder à l’
 - Vérifiez que les espaces d’adressage ne se chevauchent pas. Assurez-vous que votre espace d’adressage de réseau virtuel (bloc CIDR) ne chevauche pas d’autres plages réseau de votre organisation.
 - Vos sous-réseaux ne doivent pas couvrir l’espace d’adressage entier du réseau virtuel. Planifiez et réserver de l’espace d’adressage pour l’avenir.
 - Il est recommandé d’avoir un petit nombre de grands réseaux virtuels plutôt qu’un grand nombre de petits réseaux virtuels. Cela empêche la surcharge de gestion.
-- Sécurisez vos réseaux virtuels en affectant des groupes de sécurité réseau (NSG) aux sous-réseaux situés en dessous.
+- Sécurisez vos réseaux virtuels en affectant des groupes de sécurité réseau (NSG) aux sous-réseaux situés en dessous. Pour plus d’informations sur les concepts de sécurité du réseau, consultez [Vue d’ensemble de la sécurité réseau Azure](../security/fundamentals/network-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

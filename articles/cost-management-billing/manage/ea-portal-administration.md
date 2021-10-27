@@ -3,18 +3,18 @@ title: Administration du portail Azure EA
 description: Cet article présente les tâches courantes à la charge d’un administrateur dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/28/2021
+ms.date: 10/13/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: ede22b400b597c8cc474d49f65341bb5b24ea118
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: aeb817f2d76306e2c2f3e571fb4a5bc67e98d098
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216761"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130000306"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -122,7 +122,7 @@ La structure des comptes et des abonnements a un impact sur la façon dont ces �
 
 Pour ajouter un compte :
 
-1. Dans le portail Azure Enterprise, sélectionnez **Gérer** dans le volet de navigation de gauche.
+1. Dans le portail Azure Enterprise, sélectionnez **Gérer** dans le volet de navigation de gauche, puis sélectionnez une inscription.
 1. Sélectionnez l’onglet **Compte**. Dans la page **Compte**, sélectionnez **+ Ajouter un compte**.
 1. Sélectionnez un service ou laissez-le comme non attribué, puis sélectionnez le type d’authentification souhaité.
 1. Tapez un nom convivial pour identifier le compte dans les rapports.
@@ -140,6 +140,19 @@ Pour confirmer la propriété du compte :
 
    L’état doit passer de **Pending** (En attente) à **Start/End date** (Date de début/fin). La date de début/fin correspond à la date à laquelle l’utilisateur s’est connecté pour la première fois et à la date de fin du contrat.
 1. Lorsque le message **Avertissement** s’affiche, le propriétaire du compte doit sélectionner **Continuer** pour activer le compte la première fois qu’il se connecte au portail Azure Enterprise.
+
+## <a name="add-an-account-from-another-azure-ad-tenant"></a>Ajouter un compte à partir d’un autre locataire Azure AD
+
+Par défaut, une inscription est associée à un locataire Azure AD spécifique. Seuls les comptes de ce locataire peuvent être utilisés pour établir un compte d’inscription Azure. Toutefois, vous modifiez le comportement pour permettre de lier un compte à partir d’un locataire Azure AD.
+
+Pour ajouter un compte à partir de n’importe quel locataire :
+
+1.  Dans le portail Azure Enterprise, sélectionnez **Gérer** dans le volet de navigation de gauche.
+1. Sélectionnez l’abonnement approprié. Notez le paramètre actuel du **Niveau d’authentification** si vous souhaitez restaurer le paramètre ultérieurement.
+1.  S’il n’est pas déjà configuré, définissez le niveau d’authentification sur **Compte professionnel et scolaire multilocataire**.
+1. Ajoutez le compte à l’aide des informations de connexion Azure AD, comme décrit dans la section précédente.
+1.  Rétablissez le **Niveau d’authentification** sur le paramètre précédent ou définissez-le en tant que **Compte professionnel et scolaire**.
+1.  Connectez-vous à EA Portal pour vérifier que vous pouvez afficher les offres d’abonnement appropriées afin de pouvoir ajouter des abonnements dans le portail Azure.
 
 ## <a name="change-azure-subscription-or-account-ownership"></a>Changer l’abonnement Azure ou la propriété du compte
 

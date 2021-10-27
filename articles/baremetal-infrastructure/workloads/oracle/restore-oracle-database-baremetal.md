@@ -3,13 +3,13 @@ title: Restaurer la base de données Oracle
 description: Découvrez comment restaurer votre base de données Oracle sur BareMetal Infrastructure avec SnapCenter.
 ms.topic: how-to
 ms.subservice: baremetal-oracle
-ms.date: 05/07/2021
-ms.openlocfilehash: 3d7f417b6881fd44d67011d33e4fdde87ff2a6e1
-ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
+ms.date: 10/12/2021
+ms.openlocfilehash: e4acd2b0c438ebee80571360b540e235ccb2c0f8
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110576363"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "130001539"
 ---
 # <a name="restore-oracle-database"></a>Restaurer la base de données Oracle
 
@@ -70,7 +70,7 @@ Si ce n’est pas déjà fait, mettez la base de données hors connexion avant d
 
 12. Sous l’onglet **Summary** (Récapitulatif) : Vérifiez que tous les détails sont corrects. Sélectionnez **Terminer**.
 
-13. Vous pouvez voir l’état de la restauration en sélectionnant le travail de restauration dans l’écran inférieur **Activité**. Vous pouvez suivre la progression en sélectionnant les flèches vertes pour ouvrir chaque sous-section de restauration et sa progression.
+13. Vous pouvez voir l’état de la restauration en sélectionnant le travail de restauration dans l’écran inférieur **Activité**. Suivez la progression en sélectionnant les flèches vertes pour ouvrir chaque sous-section de la restauration et sa progression.
 
     :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/restore-job-details.png" alt-text="Capture d’écran montrant les détails du travail de restauration.":::
 
@@ -86,9 +86,9 @@ Le clonage de la base de données est similaire au processus de restauration. L�
 
 ### <a name="create-a-clone"></a>Créer un clone
 
-La création d’un clone est une fonctionnalité de SnapCenter qui vous permet d’utiliser un instantané comme référence dans le temps pour capturer un ensemble similaire de données entre le volume parent et le volume cloné à l’aide de pointeurs. Le volume cloné est ensuite accessible en lecture et développé uniquement au moyen d’écritures, tandis que des lectures sont toujours effectuées sur le volume parent. Cette fonctionnalité vous permet de créer un ensemble « dupliqué » de données accessibles à un hôte, sans interférer avec les données qui existent sur le volume parent. 
+SnapCenter vous permet de créer un clone, vous pouvez donc utiliser un instantané comme référence à un point dans le temps. Vous pouvez ensuite capturer un ensemble similaire de données entre le volume parent et le volume cloné à l’aide de pointeurs. Le volume cloné est accessible en lecture-écriture et développé uniquement au moyen d’écritures. Pourtant, les lectures sont toujours effectuées sur le volume parent. Cette fonctionnalité vous permet de créer un ensemble « dupliqué » de données accessibles à un hôte, sans interférer avec les données qui existent sur le volume parent. 
 
-Cette fonctionnalité est particulièrement utile pour les tests de reprise d’activité, car un système de fichiers temporaire peut être basé sur les mêmes instantanés que ceux utilisés dans une récupération réelle. Vous pouvez vérifier les données et le bon fonctionnement des applications, puis arrêter le test de reprise d’activité sans impacter les volumes de reprise d’activité ou la réplication.
+Cette fonctionnalité est particulièrement utile pour les tests de récupération d’urgence. Un système de fichiers temporaire peut être basé sur les mêmes instantanés que ceux utilisés dans une récupération réelle. Vous pouvez vérifier les données et le bon fonctionnement des applications, puis arrêter le test de reprise d’activité sans impacter les volumes de reprise d’activité ou la réplication.
 
 Voici les étapes à effectuer pour cloner une base de données. 
 
@@ -123,7 +123,7 @@ Voici les étapes à effectuer pour cloner une base de données.
 
 10. Le travail de clonage apparaît dans la fenêtre contextuelle active en bas de l’écran. Sélectionnez l’activité de clonage pour afficher les détails du travail. Une fois l’activité terminée, la page Job Details (Détails du travail) ne compte que des coches vertes et indique l’heure de fin. Le clonage prend généralement entre 7 et 10 minutes environ.
 
-11. Une fois le travail terminé, basculez vers l’hôte utilisé comme cible pour le clone et vérifiez les points de montage en utilisant cat/etc/fstab. Cette vérification garantit que les points de montage appropriés précédemment listés dans l’Assistant Clonage existent pour la base de données. Le SID de base de données entré dans l’Assistant est également mis en évidence. Dans l’exemple ci-dessous, le SID est dbsc4 (fourni par les points de montage sur l’hôte).
+11. Une fois le travail terminé, basculez vers l’hôte utilisé comme cible pour le clone et vérifiez les points de montage en utilisant cat/etc/fstab. Cette vérification garantit que les points de montage appropriés existent pour la base de données listée dans l’Assistant Clonage. Elle met également en évidence le SID de base de données entré dans l’Assistant. Dans l’exemple ci-dessous, le SID est dbsc4 (fourni par les points de montage sur l’hôte).
 
     :::image type="content" source="media/netapp-snapcenter-integration-oracle-baremetal/clone-database-switch-to-target-host.png" alt-text="Capture d’écran de la commande permettant de basculer vers l’hôte cible.":::
 
@@ -133,7 +133,7 @@ Voici les étapes à effectuer pour cloner une base de données.
 
 13. Entrez **sqlplus / as sysdba**. Étant donné que la table a été créée sous un autre utilisateur, le nom d’utilisateur et le mot de passe d’origine non valides sont entrés automatiquement. Entrez le nom d’utilisateur et le mot de passe appropriés. L’invite SQL> apparaît une fois la connexion réussie.
 
-Entrez une requête de la base de données de base pour vérifier que les données appropriées ont été reçues. Dans l’exemple suivant, nous utilisons les journaux d’archivage pour restaurer par progression la base de données. L’exemple suivant montre que les journaux d’archivage ont été correctement utilisés puisque l’entrée clonetest est créée après la création de la sauvegarde de données. Par conséquent, si les journaux d’archivage ne sont pas restaurés par progression, cette entrée n’est pas listée.
+Entrez une requête de la base de données de base pour vérifier que les données appropriées ont été reçues. Dans l’exemple suivant, nous utilisons les journaux d’archivage pour restaurer par progression la base de données. L’exemple suivant montre que les journaux d’archivage ont été correctement utilisés puisque l’entrée clone test est créée après la création de la sauvegarde de données. Par conséquent, si les journaux d’archivage ne sont pas restaurés par progression, cette entrée n’est pas listée.
 
 ```sql
 SQL> select * from acolvin.t;
@@ -201,9 +201,9 @@ Quand un clone est créé, l’onglet des ressources de cette base de données l
 
 ### <a name="split-a-clone"></a>Diviser un clone
 
-La division d’un clone crée une copie du volume parent en répliquant toutes les données du volume parent jusqu’au moment où l’instantané utilisé pour créer le clone a été créé. Ce processus sépare le volume parent du volume du clone et supprime la suspension sur l’instantané utilisé pour créer le volume du clone. L’instantané peut ensuite être supprimé dans le cadre de la stratégie de rétention.
+Le fractionnement d’un clone crée une copie du volume parent. Il réplique toutes les données du volume parent jusqu’au moment où l’instantané utilisé pour créer le clone a été créé. Ce processus sépare le volume parent du volume cloné et supprime la suspension sur l’instantané utilisé pour créer le volume cloné. L’instantané peut ensuite être supprimé dans le cadre de la stratégie de rétention.
 
-La division d’un clone est utile pour remplir les données dans l’environnement de production ou de reprise d’activité. La division permet aux nouveaux volumes de fonctionner indépendamment du volume parent.
+La division d’un clone est utile pour remplir les données dans l’environnement de production ou de reprise d’activité. Cela permet aux nouveaux volumes de fonctionner indépendamment du volume parent.
 
 >[!NOTE]
 >Le processus de division d’un clone ne peut pas être inversé ou annulé.

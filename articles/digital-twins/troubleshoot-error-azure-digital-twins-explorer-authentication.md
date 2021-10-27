@@ -1,19 +1,20 @@
 ---
-title: Erreur de l’authentification Azure Digital Twins Explorer
-description: Causes et résolutions de l’erreur « L’authentification a échoué. » dans Azure Digital Twins Explorer.
+title: Résolution des problèmes liés à l’erreur de l’authentification Azure Digital Twins Explorer
+titleSuffix: Azure Digital Twins
+description: Découvrez comment diagnostiquer et résoudre les erreurs d’authentification dans Azure Digital Twins Explorer.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 4/8/2021
-ms.openlocfilehash: ef78f1dd6089201744de19900738ebcc6e5f70db
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.date: 10/7/2021
+ms.openlocfilehash: f03c85f912271dbd5d1cb7904f159d89f4a09ba6
+ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114468669"
+ms.lasthandoff: 10/18/2021
+ms.locfileid: "130132623"
 ---
-# <a name="authentication-failed"></a>Échec de l'authentification.
+# <a name="troubleshooting-azure-digital-twins-explorer-authentication-error"></a>Résolution des problèmes liés à l’erreur de l’authentification Azure Digital Twins Explorer
 
 Cet article décrit les causes et les étapes de résolution en cas de réception de l’erreur « Échec de l’authentification » lors de l’exécution de l’exemple [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sur votre ordinateur local. 
 

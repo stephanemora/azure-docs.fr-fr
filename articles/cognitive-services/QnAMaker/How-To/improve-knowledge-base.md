@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3fe6ee8336872c04e85b732713494adf0fefa28a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f2ae3cd54f47e804b9bdd78433f96f96034d16ee
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103011440"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130047206"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accepter des questions suggérées d’apprentissage actif dans la base de connaissances
 
@@ -143,7 +143,7 @@ Lorsque l’application cliente (par exemple, un bot conversationnel) reçoit la
 
 Votre application cliente affiche les questions avec une option permettant à l’utilisateur de sélectionner _la seule question_ qui représente le mieux son intention.
 
-Une fois que l’utilisateur sélectionne l’une des questions existantes, l’application cliente envoie le choix de l’utilisateur en tant que commentaires à l’aide de l’API Train de QnA Maker. Ces commentaires terminent la boucle de commentaires de l’apprentissage actif.
+Une fois que l’utilisateur a sélectionné l’une des questions existantes, l’application cliente envoie le choix de l’utilisateur en tant que commentaires à l’aide de l’API Train de QnA Maker. Ces commentaires terminent la boucle de commentaires de l’apprentissage actif.
 
 ## <a name="train-api"></a>API Train
 

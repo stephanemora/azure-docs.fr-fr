@@ -10,15 +10,15 @@ ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/15/2021
+ms.date: 10/14/2021
 ms.author: amverma
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 220b2da56791fde38301bd1f69f5e134be77982c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 8e164fad73fd04ea2f9093e99b454f43aa441088
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114446003"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130038305"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extension du pilote GPU NVIDIA pour Windows
 
@@ -62,7 +62,7 @@ Le JSON suivant illustre le schéma pour l’extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -77,10 +77,38 @@ Le JSON suivant illustre le schéma pour l’extension.
 | apiVersion | 2015-06-15 | Date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverWindows | string |
-| typeHandlerVersion | 1.3 | int |
+| typeHandlerVersion | 1.4 | int |
 
 
 ## <a name="deployment"></a>Déploiement
+
+### <a name="azure-portal"></a>Portail Azure
+
+Vous pouvez déployer des extensions de machine virtuelle Azure NVIDIA dans le Portail Azure.
+
+1. Dans votre navigateur, accédez au [portail Azure](https://portal.azure.com).
+
+2. Connectez-vous à la machine sur laquelle vous souhaitez installer le pilote.
+
+3. Sélectionnez **Extensions** dans le menu de gauche.
+
+    :::image type="content" source="./media/nvidia-ext-portal/extensions-menu.png" alt-text="Capture d’écran montrant comment sélectionner des extensions dans le menu du portail Azure.":::
+
+4. Sélectionnez **Ajouter**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/add-extension.png" alt-text="Capture d’écran montrant comment ajouter une extension de machine virtuelle pour la machine virtuelle sélectionnée.":::
+
+5. Faites défiler et sélectionnez l’**Extension du pilote GPU NVIDIA pour Linux**, puis **Suivant**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension.png" alt-text="Capture d’écran montrant la sélection du pilote NVIDIA G P U.":::
+
+6. Sélectionnez **Vérifier + créer**, puis attendez quelques minutes pour que le pilote soit déployé.
+
+    :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension.png" alt-text="Capture d’écran montrant la sélection du bouton Vérifier + créer.":::
+  
+7. Vérifiez que l’extension est ajoutée à la liste des extensions installées.
+
+    :::image type="content" source="./media/nvidia-ext-portal/verify-extension.png" alt-text="Capture d’écran montrant la nouvelle extension dans la liste des extensions pour la machine virtuelle.":::
 
 ### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager 
 
@@ -102,7 +130,7 @@ L’exemple suivant suppose que l’extension est imbriquée dans la ressource d
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -120,7 +148,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.3 `
+    -TypeHandlerVersion 1.4 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +161,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverWindows \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
+  --version 1.4 \
   --settings '{ \
   }'
 ```
