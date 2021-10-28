@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 09/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 5f58c9c5c58b2706d0861aeef4a2dac2af64274f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 23d249bafca7b9ca89ab743d7aa1beb7ac60e868
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128605161"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233110"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Créer un hôte Azure Bastion à l’aide d’Azure PowerShell
 
@@ -61,7 +61,7 @@ Cette section vous permet de créer une ressource Azure Bastion à l’aide d’
    ```
 ## <a name="disassociate-the-vm-public-ip-address"></a>Dissocier l’IP publique de la machine virtuelle
 
-Azure Bastion n’utilise pas l’IP publique pour se connecter à la machine virtuelle cliente. Si vous n’avez pas besoin de l’IP publique de votre machine virtuelle, vous pouvez dissocier l’IP publique en suivant la procédure décrite dans cet article : [Dissocier une IP publique d’une machine virtuelle Azure](../virtual-network/remove-public-ip-address-vm.md).
+Azure Bastion n’utilise pas l’IP publique pour se connecter à la machine virtuelle cliente. Si vous n’avez pas besoin de l’IP publique de votre machine virtuelle, vous pouvez dissocier l’IP publique en suivant la procédure décrite dans cet article : [Dissocier une IP publique d’une machine virtuelle Azure](../virtual-network/ip-services/remove-public-ip-address-vm.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

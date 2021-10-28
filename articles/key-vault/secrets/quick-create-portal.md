@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0c1a3362c4f1dfd3396ccd4704933d06d2611414
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: f18174b1d3c38e571d2efaedfc41debec29f40ac
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814114"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263469"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
@@ -56,11 +56,11 @@ Pour plus d’informations sur les attributs des secrets, consultez [À propos d
 
 Si vous cliquez sur la version actuelle, vous voyez la valeur que vous avez spécifiée à l’étape précédente.
 
-![Propriétés de secret](../media/quick-create-portal/current-version-hidden.png)
+:::image type="content" source="../media/quick-create-portal/current-version-hidden.png" alt-text="Propriétés de secret":::
 
 Vous pouvez afficher la valeur masquée en cliquant sur le bouton « Afficher la valeur secrète » dans le volet de droit. 
 
-![Valeur secrète affichée](../media/quick-create-portal/current-version-shown.png)
+:::image type="content" source="../media/quick-create-portal/current-version-shown.png" alt-text="Valeur secrète affichée":::
 
 Vous pouvez également utiliser l’interface [Azure CLI]() ou [Azure PowerShell]() pour récupérer le secret créé précédemment.
 

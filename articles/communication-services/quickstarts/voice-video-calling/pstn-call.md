@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 89ceb4463a8ee7795f9cba8675c79633a22f2702
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 649af9f6dc166cd18c1adb726bf169547db8b2f1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671599"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226751"
 ---
 # <a name="quickstart-call-to-phone"></a>Démarrage rapide : Appel téléphonique
 
@@ -40,5 +40,5 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 
 Pour plus d’informations, consultez les articles suivants :
 
-- Apprenez-en davantage sur les [fonctionnalités du SDK Calling](./calling-client-samples.md)
+- Apprenez-en davantage sur les [fonctionnalités du SDK Calling](./getting-started-with-calling.md)
 - Apprenez-en davantage sur le [fonctionnement des appels](../../concepts/voice-video-calling/about-call-types.md)

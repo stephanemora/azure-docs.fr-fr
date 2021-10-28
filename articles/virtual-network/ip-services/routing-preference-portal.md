@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: allensu
-ms.openlocfilehash: 821a8e5f3211f010489717447b733c17ee61c249
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: f45784af9d1642ce4339745d3102743cdbe327bc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368294"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224837"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-the-azure-portal"></a>Configurer une préférence de routage pour une adresse IP publique à l’aide du portail Azure
 
@@ -44,7 +44,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
       ![Créez une adresse IP publique](./media/routing-preference-portal/public-ip-new.png)
 1. Dans la section **Configuration de l’adresse IP IPv4**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Abonnement | Sélectionnez votre abonnement.|
     | Resource group | Sélectionnez **Créer**, entrez *RoutingPreferenceResourceGroup* et sélectionnez **OK**. |
@@ -55,11 +55,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     > [!NOTE]
     > Les adresses IP publiques sont créées avec une adresse IPv4 et IPv6. Toutefois, actuellement, la préférence de routage ne prend en charge qu’IPV4.
 
-Vous pouvez associer l’adresse IP publique créée ci-dessus à une machine virtuelle [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Utilisez la section CLI sur la page du tutoriel : [Associez une adresse IP publique à une machine virtuelle](../../virtual-network/associate-public-ip-address-vm.md#azure-cli) pour associer l’adresse IP publique à votre machine virtuelle. Vous pouvez associer l’adresse IP publique créée ci-dessus avec un [équilibreur de charge Azure](../../load-balancer/load-balancer-overview.md) en l’assignant à la configuration **frontale** de l’équilibreur de charge. L’adresse IP publique sert d’adresse IP virtuelle (VIP) à charge équilibrée.
+Vous pouvez associer l’adresse IP publique créée ci-dessus à une machine virtuelle [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Utilisez la section CLI sur la page du tutoriel : [Associez une adresse IP publique à une machine virtuelle](./associate-public-ip-address-vm.md#azure-cli) pour associer l’adresse IP publique à votre machine virtuelle. Vous pouvez associer l’adresse IP publique créée ci-dessus avec un [équilibreur de charge Azure](../../load-balancer/load-balancer-overview.md) en l’assignant à la configuration **frontale** de l’équilibreur de charge. L’adresse IP publique sert d’adresse IP virtuelle (VIP) à charge équilibrée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur l’[adresse IP publique avec préférence de routage](routing-preference-overview.md).
-- [Configurer la préférence de routage pour une machine virtuelle](../../virtual-network/tutorial-routing-preference-virtual-machine-portal.md).
+- [Configurer la préférence de routage pour une machine virtuelle](./tutorial-routing-preference-virtual-machine-portal.md).
 - [Configurer une préférence de routage pour une adresse IP publique à l’aide de PowerShell](routing-preference-powershell.md).
 - En savoir plus sur les [adresses IP publiques](public-ip-addresses.md#public-ip-addresses) dans Azure.
 - En savoir plus sur tous les [paramètres d’adresse IP publique](virtual-network-public-ip-address.md#create-a-public-ip-address).

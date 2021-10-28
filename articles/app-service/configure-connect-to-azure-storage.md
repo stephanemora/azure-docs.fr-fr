@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/02/2021
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 77dc45d71a4a9706dd645289dd5839ee97c17314
-ms.sourcegitcommit: e8b229b3ef22068c5e7cd294785532e144b7a45a
+ms.openlocfilehash: e485efa572dd1b786b714b74b4d6df49d7a44853
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2021
-ms.locfileid: "123472017"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236447"
 ---
 # <a name="mount-azure-storage-as-a-local-share-in-a-container-app-in-app-service"></a>Monter le Stockage Azure en tant que partage local dans une application de conteneur dans App Service
 
@@ -20,7 +20,7 @@ ms.locfileid: "123472017"
 > [!NOTE]
 >Le Stockage Azure dans un conteneur Windows dans App Service est **en préversion** et **n’est pas pris en charge** pour les **scénarios de production**.
 
-Ce guide montre comment monter des fichiers Stockage Azure en tant que partage réseau dans un conteneur Windows dans App Service. Seuls les [partages de fichiers Azure](../storage/files/storage-how-to-use-files-cli.md) et [partages de fichiers Premium](../storage/files/storage-how-to-create-file-share.md) sont pris en charge. Voici les avantages du stockage monté personnalisé :
+Ce guide montre comment monter des fichiers Stockage Azure en tant que partage réseau dans un conteneur Windows dans App Service. Seuls les [partages de fichiers Azure](../storage/files/storage-how-to-use-files-portal.md) et [partages de fichiers Premium](../storage/files/storage-how-to-create-file-share.md) sont pris en charge. Voici les avantages du stockage monté personnalisé :
 
 ::: zone-end
 
@@ -39,7 +39,7 @@ Ce guide montre comment monter le Stockage Azure en tant que partage réseau dan
 
 Les fonctionnalités suivantes sont prises en charge pour les conteneurs Windows :
 
-- Accès sécurisé aux comptes de stockage avec des [liaisons privées](../storage/common/storage-private-endpoints.md) (quand l’[intégration au réseau virtuel](web-sites-integrate-with-vnet.md) est utilisée). Aucun support pour le [point de terminaison de service](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) n’est pas actuellement disponible.
+- Accès sécurisé aux comptes de stockage avec des [liaisons privées](../storage/common/storage-private-endpoints.md) (quand l’[intégration au réseau virtuel](./overview-vnet-integration.md) est utilisée). Aucun support pour le [point de terminaison de service](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) n’est pas actuellement disponible.
 - Azure Files (lecture/écriture).
 - Jusqu’à cinq points de montage par application.
 - Affectations de lettres de lecteur (`C:` à `Z:`).
@@ -50,7 +50,7 @@ Les fonctionnalités suivantes sont prises en charge pour les conteneurs Windows
 
 Les fonctionnalités suivantes sont prises en charge pour les conteneurs Linux :
 
-- Accès sécurisé aux comptes de stockage avec des [points de terminaison de service](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) et des [liaisons privées](../storage/common/storage-private-endpoints.md) (quand [l’intégration au réseau virtuel](web-sites-integrate-with-vnet.md) est utilisée).
+- Accès sécurisé aux comptes de stockage avec des [points de terminaison de service](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) et des [liaisons privées](../storage/common/storage-private-endpoints.md) (quand [l’intégration au réseau virtuel](./overview-vnet-integration.md) est utilisée).
 - Azure Files (lecture/écriture).
 - Objets blob Azure (en lecture seule).
 - Jusqu’à cinq points de montage par application.
@@ -62,7 +62,7 @@ Les fonctionnalités suivantes sont prises en charge pour les conteneurs Linux 
 ::: zone pivot="container-windows"
 
 - [Une application de conteneur Windows existante dans Azure App Service](quickstart-custom-container.md)
-- [Création d’un partage de fichiers Azure](../storage/files/storage-how-to-use-files-cli.md)
+- [Création d’un partage de fichiers Azure](../storage/files/storage-how-to-use-files-portal.md)
 - [Charger des fichiers dans un partage de fichiers Azure](../storage/files/storage-how-to-create-file-share.md)
 
 ::: zone-end
@@ -71,7 +71,7 @@ Les fonctionnalités suivantes sont prises en charge pour les conteneurs Linux 
 
 - Une [application Azure App Service sur Linux](index.yml).
 - [Compte Stockage Azure](../storage/common/storage-account-create.md?tabs=azure-cli)
-- Un [partage et répertoire de fichiers Azure](../storage/files/storage-how-to-use-files-cli.md).
+- Un [partage et répertoire de fichiers Azure](../storage/files/storage-how-to-use-files-portal.md).
 
 ::: zone-end
 
@@ -85,7 +85,7 @@ Les fonctionnalités suivantes sont prises en charge pour les conteneurs Linux 
 
 - Les montages de Stockage ne sont pas pris en charge pour les applications natives Windows (non conteneurisées).
 - Les objets blobs Azure ne sont pas pris en charge.
-- [Le pare-feu de stockage](../storage/common/storage-network-security.md) est pris en charge uniquement via des [points de terminaison privés](../storage/common/storage-private-endpoints.md) (quand [l’intégration au réseau virtuel](web-sites-integrate-with-vnet.md) est utilisée). La prise en charge du système DNS personnalisé n’est pas disponible actuellement quand le compte Stockage Azure monté utilise un point de terminaison privé.
+- [Le pare-feu de stockage](../storage/common/storage-network-security.md) est pris en charge uniquement via des [points de terminaison privés](../storage/common/storage-private-endpoints.md) (quand [l’intégration au réseau virtuel](./overview-vnet-integration.md) est utilisée). La prise en charge du système DNS personnalisé n’est pas disponible actuellement quand le compte Stockage Azure monté utilise un point de terminaison privé.
 - Accès FTP/FTPS au stockage monté non pris en charge (utilisez [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/)).
 - Les mappages `[C-Z]:\`, `[C-Z]:\home`, `/` et `/home` vers un stockage monté personnalisé ne sont pas pris en charge.
 - Les montages de Stockage ne peuvent pas être utilisés avec l’option de clonage des paramètres lors de la création de [l’emplacement de déploiement](deploy-staging-slots.md).
@@ -95,7 +95,7 @@ Les fonctionnalités suivantes sont prises en charge pour les conteneurs Linux 
 
 ::: zone pivot="container-linux"
 
-- [Le pare-feu de stockage](../storage/common/storage-network-security.md) est pris en charge uniquement par le biais des [points de terminaison de service](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) et des [points de terminaison privés](../storage/common/storage-private-endpoints.md) (quand [l’intégration au réseau virtuel](web-sites-integrate-with-vnet.md) est utilisée). La prise en charge du système DNS personnalisé n’est pas disponible actuellement quand le compte Stockage Azure monté utilise un point de terminaison privé.
+- [Le pare-feu de stockage](../storage/common/storage-network-security.md) est pris en charge uniquement par le biais des [points de terminaison de service](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) et des [points de terminaison privés](../storage/common/storage-private-endpoints.md) (quand [l’intégration au réseau virtuel](./overview-vnet-integration.md) est utilisée). La prise en charge du système DNS personnalisé n’est pas disponible actuellement quand le compte Stockage Azure monté utilise un point de terminaison privé.
 - Accès FTP/FTPS au stockage monté personnalisé non pris en charge (utilisez [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/)).
 - La prise en charge d’Azure CLI, d’Azure PowerShell et du kit Azure SDK est en préversion.
 - Le mappage `/` ou `/home` vers le stockage monté personnalisé n’est pas pris en charge.

@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: 893ed45046cef2feb10c64464952dafa34d16021
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 95b094620dd9cb3b36ce5f6de664a6aaf8c7990f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128676938"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247547"
 ---
 # <a name="record-and-download-calls-with-event-grid"></a>Enregistrer et télécharger des appels avec Event Grid
 
@@ -219,5 +219,5 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 Pour plus d’informations, consultez les articles suivants :
 
 - Consultez notre [exemple d’appel web](../../samples/web-calling-sample.md).
-- Apprenez-en davantage sur les [fonctionnalités du SDK Calling](./calling-client-samples.md?pivots=platform-web)
+- Apprenez-en davantage sur les [fonctionnalités du SDK Calling](./getting-started-with-calling.md?pivots=platform-web)
 - Apprenez-en davantage sur le [fonctionnement des appels](../../concepts/voice-video-calling/about-call-types.md)

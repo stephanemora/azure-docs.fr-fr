@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 73c91e1c4d72fce5757b0b1a0caafc22e0fbcc60
-ms.sourcegitcommit: 92dd25772f209d7d3f34582ccb8985e1a099fe62
+ms.openlocfilehash: 764f6585aab43ba1f6db29a234cc2bc554b78c58
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114230514"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236672"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge Standard public dans Azure Kubernetes Service (AKS)
 
@@ -127,7 +127,7 @@ Configuration requise pour l’utilisation de votre propre adresse IP publique o
 
 - Les adresses IP publiques personnalisées doivent être créées et détenues par l’utilisateur. Les adresses IP publiques gérées créées par AKS ne peuvent pas être réutilisées comme adresses IP personnalisées car cela peut entraîner des conflits de gestion.
 - Vous devez vérifier que l’identité de cluster AKS (principal du service ou identité managée) dispose des autorisations nécessaires pour accéder à l’adresse IP sortante. Conformément à la [liste des autorisations d’adresses IP publiques requises](kubernetes-service-principal.md#networking).
-- Assurez-vous que vous respectez les [conditions préalables et contraintes](../virtual-network/public-ip-address-prefix.md#limitations) requises pour configurer des adresses IP sortantes ou des préfixes d’adresses IP sortantes.
+- Assurez-vous que vous respectez les [conditions préalables et contraintes](../virtual-network/ip-services/public-ip-address-prefix.md#limitations) requises pour configurer des adresses IP sortantes ou des préfixes d’adresses IP sortantes.
 
 #### <a name="update-the-cluster-with-your-own-outbound-public-ip"></a>Mettre à jour le cluster avec votre propre adresse IP publique sortante
 

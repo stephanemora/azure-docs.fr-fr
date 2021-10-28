@@ -6,12 +6,12 @@ ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2021
-ms.openlocfilehash: 770a308fe293140b4d9c56b51c931e426aa1ac81
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: cacb1d9af577a90d8e9030cf00e51dda58763041
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063010"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256626"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métriques personnalisées dans Azure Monitor (préversion)
 
@@ -241,7 +241,7 @@ En cas de variable dans le nom ou de dimension à cardinalité élevée, voici c
 
 Si le nom de la métrique ou la valeur de la dimension est rempli avec un identificateur ou une dimension de cardinalité élevée par erreur, vous pouvez facilement corriger l’erreur en supprimant la partie variable.
 
-Toutefois, si une cardinalité élevée est essentielle pour votre scénario, les métriques agrégées ne sont probablement pas le bon choix. Passez à l’utilisation de journaux personnalisés (c’est-à-dire appels d’API trackMetric avec [trackEvent](/azure/azure-monitor/app/api-custom-events-metrics#trackevent)). Toutefois, tenez compte du fait que les journaux n’agrègent pas les valeurs, si bien que chaque entrée unique est stockée. Par conséquent, si le volume de journaux est important sur une courte période (1 million par seconde par exemple), cela peut entraîner des limitations et des retards d’ingestion. 
+Toutefois, si une cardinalité élevée est essentielle pour votre scénario, les métriques agrégées ne sont probablement pas le bon choix. Passez à l’utilisation de journaux personnalisés (c’est-à-dire appels d’API trackMetric avec [trackEvent](../app/api-custom-events-metrics.md#trackevent)). Toutefois, tenez compte du fait que les journaux n’agrègent pas les valeurs, si bien que chaque entrée unique est stockée. Par conséquent, si le volume de journaux est important sur une courte période (1 million par seconde par exemple), cela peut entraîner des limitations et des retards d’ingestion. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez utiliser les métriques personnalisées à partir de différents services : 

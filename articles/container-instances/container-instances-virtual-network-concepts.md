@@ -3,12 +3,12 @@ title: Scénarios d’utilisation d’un réseau virtuel
 description: Scénarios, ressources et limitations relatifs au déploiement de groupes de conteneurs sur un réseau virtuel Azure.
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 4d56ba43480182077acc114200ebc69569835bca
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 7f0e2719d6949037e2268f66bf1dce8904530992
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532365"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247491"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Ressources et scénarios relatifs aux réseaux virtuels
 
@@ -47,7 +47,7 @@ Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent le
 * En raison des ressources réseau supplémentaires impliquées, les déploiements sur un réseau virtuel sont généralement plus lents que les déploiements d’une instance de conteneur standard.
 * La connexion sortante vers le port 25 n’est pas prise en charge pour l’instant.
 * Si vous connectez votre groupe de conteneurs à un compte Stockage Azure, vous devez ajouter un [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) à cette ressource.
-* Les [adresses IPv6](../virtual-network/ipv6-overview.md) ne sont pas prises en charge pour l’instant. 
+* Les [adresses IPv6](../virtual-network/ip-services/ipv6-overview.md) ne sont pas prises en charge pour l’instant. 
 
 ## <a name="required-network-resources"></a>Ressources réseau requises
 

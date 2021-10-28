@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.openlocfilehash: 8c0fee509dabc0d7d0462dd28e14c453615af52e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: bb1c2ee770380b5f8689b1dd8f25712293a0bcb2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000521"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220210"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>Bien démarrer : Form Recognizer Studio | Préversion
 
@@ -36,14 +36,14 @@ En plus du compte Azure et d’une ressource Form Recognizer ou Cognitive Servic
 
 Un [**compte de Stockage blob Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) de **performances standard**. Vous allez créer des conteneurs pour stocker et organiser vos données d’objet blob dans votre compte de stockage. Si vous ignorez comment créer un compte de stockage Azure avec un conteneur, suivez les démarrages rapides suivants :
 
-  * [**Créer un compte de stockage**](/azure/storage/common/storage-account-create). Lorsque vous créez votre compte de stockage, veillez à sélectionner performance **Standard** dans le champ **Détails de l’instance → Performance**.
-  * [**Créer un conteneur**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). Lors de la création de votre conteneur, définissez le champ **Niveau d’accès public** sur **Conteneur** (accès en lecture anonyme pour les conteneurs et les objets blob) dans la fenêtre **Nouveau conteneur** .
+  * [**Créer un compte de stockage**](../../../storage/common/storage-account-create.md). Lorsque vous créez votre compte de stockage, veillez à sélectionner performance **Standard** dans le champ **Détails de l’instance → Performance**.
+  * [**Créer un conteneur**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). Lors de la création de votre conteneur, définissez le champ **Niveau d’accès public** sur **Conteneur** (accès en lecture anonyme pour les conteneurs et les objets blob) dans la fenêtre **Nouveau conteneur** .
 
 ### <a name="configure-cors"></a>Configuration de CORS
 
 [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) doit être configuré sur votre compte Stockage Azure pour qu’il soit accessible à partir de Form Recognizer Studio. Pour configurer CORS dans le portail Azure, vous devez accéder au panneau CORS de votre compte de stockage.
 
-:::image type="content" source="../media/quickstarts/storage-cors-example.png" alt-text="Capture d’écran montrant la configuration de CORS pour un compte de stockage.":::
+:::image type="content" source="../media/quickstarts/cors-updated-image.png" alt-text="Capture d’écran montrant la configuration de CORS pour un compte de stockage.":::
 
 1. Sélectionnez le panneau CORS pour le compte de stockage.
 2. Commencez par créer une entrée CORS dans le service BLOB.
@@ -74,7 +74,7 @@ CORS doit à présent être configuré pour utiliser le compte de stockage à pa
     :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Capture d’écran : fenêtre télécharger l’objet blob dans le portail Azure.":::
 
 > [!NOTE]
-> Par défaut, Studio utilisera uniquement les formulaires situés à la racine de votre conteneur. Toutefois, vous pouvez utiliser des données organisées en dossiers si elles sont spécifiées dans les étapes de création du projet de formulaire personnalisé. *Consultez*[**Organiser vos données dans des sous-dossiers**](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional)
+> Par défaut, Studio utilisera uniquement les formulaires situés à la racine de votre conteneur. Toutefois, vous pouvez utiliser des données organisées en dossiers si elles sont spécifiées dans les étapes de création du projet de formulaire personnalisé. *Consultez*[**Organiser vos données dans des sous-dossiers**](../build-training-data-set.md#organize-your-data-in-subfolders-optional)
 
 ## <a name="sign-into-the-form-recognizer-studio-preview"></a>Se connecter à Form Recognizer Studio (préversion)
 
@@ -211,7 +211,7 @@ Pour étiqueter pour une détection de signature :
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Suivez notre [**Guide de migration Form Recognizer v3.0**](../v3-migration-guide.md) pour découvrir les différences par rapport à la version antérieure de l’API REST.
-* Explorez nos [**guides de démarrage rapide des kits SDK (préversion)** ](try-v3-python-sdk.md) pour tester les fonctionnalités en préversion dans vos applications à l’aide des nouveaux kits SDK.
-* Consultez nos [**guides de démarrage rapide de l’API REST (préversion)** ](try-v3-rest-api.md) pour tester les fonctionnalités en préversion à l’aide de la nouvelle API REST.
+* Explorez nos [**guides de démarrage rapide des kits SDK (préversion)**](try-v3-python-sdk.md) pour tester les fonctionnalités en préversion dans vos applications à l’aide des nouveaux kits SDK.
+* Consultez nos [**guides de démarrage rapide de l’API REST (préversion)**](try-v3-rest-api.md) pour tester les fonctionnalités en préversion à l’aide de la nouvelle API REST.
 
 [Bien démarrer avec Form Recognizer Studio (préversion)](https://formrecognizer.appliedai.azure.com)

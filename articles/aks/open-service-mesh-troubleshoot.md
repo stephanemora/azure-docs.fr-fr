@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 8/26/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 397a1ff24152bf0496842971e545b3eb65e779a3
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: b73c46896c142b76e644eed9815ae4d5e76b6f85
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129533997"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227262"
 ---
 # <a name="open-service-mesh-osm-aks-add-on-troubleshooting-guides"></a>Guides de résolution des problèmes du module complémentaire Open Service Mesh (OSM) AKS
 
@@ -456,4 +456,4 @@ Vous trouverez des informations sur la façon dont OSM émet et gère les certif
 
 ### <a name="upgrading-envoy"></a>Mise à niveau d’Envoy
 
-Lorsqu’un nouveau pod est créé dans un espace de noms surveillé par le module complémentaire, OSM injecte un [proxy side-car Envoy](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) dans ce pod. Pour plus d’informations sur la mise à jour de la version d’Envoy, consultez le [guide de mise à niveau](https://docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) sur le site de documentation d’OpenServiceMesh.
+Lorsqu’un nouveau pod est créé dans un espace de noms surveillé par le module complémentaire, OSM injecte un [proxy side-car Envoy](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) dans ce pod. Pour plus d’informations sur la mise à jour de la version d’Envoy, consultez le [guide de mise à niveau](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) sur le site de documentation d’OpenServiceMesh.

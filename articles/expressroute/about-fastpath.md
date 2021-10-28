@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/10/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: b6483ef0e034f695da1e03475ca2a4b716773684
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 1fcdeaaee2ebafbfd8e97577ed87a5ef0e545cd5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532739"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226392"
 ---
 # <a name="about-expressroute-fastpath"></a>À propos d’ExpressRoute FastPath
 
@@ -33,11 +33,6 @@ Pour configurer FastPath, la passerelle de réseau virtuel doit être :
 
 * Ultra-performance
 * ErGw3AZ
-
-> [!IMPORTANT]
-> Si vous envisagez d’utiliser FastPath avec un Peering privé IPv6 sur ExpressRoute, veillez à sélectionner ErGw3AZ comme **référence (SKU)** . Notez que celle-ci n’est disponible que pour des circuits utilisant ExpressRoute Direct.
-> 
->
 
 ## <a name="limitations"></a>Limites
 

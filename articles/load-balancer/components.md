@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: a75ea7e9f3659b45e79748fdead7be9aa8ca4f94
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 32cac3156a020beebf046fff9c429a75a348ebcd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128649470"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215275"
 ---
 # <a name="azure-load-balancer-components"></a>Composants Azure Load Balancer
 
@@ -137,8 +137,8 @@ L’équilibreur de charge de base ne prend pas en charge les règles de trafic 
 
 - Pour bien démarrer avec un équilibreur de charge, consultez [Créer un équilibreur de charge standard public](quickstart-load-balancer-standard-public-portal.md).
 - En savoir plus sur [Azure Load Balancer](load-balancer-overview.md).
-- Découvrez les [adresses IP publiques](../virtual-network/virtual-network-public-ip-address.md).
-- Découvrez les [adresses IP privées](../virtual-network/private-ip-addresses.md).
+- Découvrez les [adresses IP publiques](../virtual-network/ip-services/virtual-network-public-ip-address.md).
+- Découvrez les [adresses IP privées](../virtual-network/ip-services/private-ip-addresses.md).
 - Découvrez comment utiliser [un équilibreur de charge standard et les zones de disponibilité](load-balancer-standard-availability-zones.md).
 - Découvrez les [diagnostics des équilibreurs de charge standard](load-balancer-standard-diagnostics.md).
 - En savoir plus sur la [réinitialisation TCP au terme du délai d’inactivité](load-balancer-tcp-reset.md).

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: f79e436f1fcce346304b2e88f213ff298b27aa04
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: f4b706c296c6f6d4f5921675dd87ec8f4052b9a5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300828"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256664"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 
@@ -25,7 +25,7 @@ Cet article décrit les détails de l’intégration et de l’utilisation de Se
 * L’[agent Dependency](vminsights-enable-overview.md#agents) installé sur l’ordinateur Windows ou le serveur Linux.
 
 >[!NOTE]
->Si vous avez déjà déployé Service Map, vous pouvez désormais aussi visualiser vos cartes dans VM Insights, qui inclut des fonctionnalités supplémentaires pour la surveillance de l’intégrité et des performances des machines virtuelles. Pour plus d’informations, consultez [Vue d’ensemble de VM Insights](../vm/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte de VM Insights, consultez les [questions fréquentes (FAQ)](/azure/azure-monitor/faq#vm-insights).
+>Si vous avez déjà déployé Service Map, vous pouvez désormais aussi visualiser vos cartes dans VM Insights, qui inclut des fonctionnalités supplémentaires pour la surveillance de l’intégrité et des performances des machines virtuelles. Pour plus d’informations, consultez [Vue d’ensemble de VM Insights](../vm/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte de VM Insights, consultez les [questions fréquentes (FAQ)](../faq.yml).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

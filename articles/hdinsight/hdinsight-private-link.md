@@ -4,12 +4,12 @@ description: Découvrez comment vous connecter à un cluster HDInsight à l’ai
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: d21f543d7736ee69a9c15a7b2a4bf0ccd0e877e2
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 5ed9587c0c8bdb378206db70ca459cc8cd004b45
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130165202"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215556"
 ---
 # <a name="enable-private-link-on-an-hdinsight-cluster"></a>Activer Private Link sur un cluster HDInsight
 
@@ -105,7 +105,7 @@ L’extrait de code JSON suivant comprend les deux propriétés réseau que vous
 
 ```json
 networkProperties: {
-    "resourceProviderConnection": "Inbound" | "Outbound",
+    "resourceProviderConnection": "Outbound",
     "privateLink": "Enabled"
 }
 ```

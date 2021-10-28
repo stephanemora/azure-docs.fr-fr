@@ -3,22 +3,22 @@ title: Activer des domaines personnalisés Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Découvrez comment activer des domaines personnalisés dans vos URL de redirection pour Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: ceb265ef339d39f14dbc042914e471c692ae6420
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: edddf44509e6eeff6f50b4361fe8c40a7832a8a8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128568556"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130222871"
 ---
 # <a name="enable-custom-domains-for-azure-active-directory-b2c"></a>Activer des domaines personnalisés pour Azure Active Directory B2C
 
@@ -350,7 +350,7 @@ Si vous choisissez d’utiliser l’ID de locataire au lieu du nom de locataire,
 
 ### <a name="token-issuance"></a>Émission du jeton
 
-Le nom de l’émetteur de jeton (ISS) demande des modifications en fonction du domaine personnalisé utilisé. Par exemple :
+Le nom de l’émetteur de jeton (ISS) demande des modifications en fonction du domaine personnalisé utilisé. Exemple :
 
 ```http
 https://<domain-name>/11111111-1111-1111-1111-111111111111/v2.0/
@@ -368,7 +368,7 @@ Une fois que vous avez ajouté le domaine personnalisé et configuré votre appl
 
 ::: zone-end
 
-## <a name="troubleshooting"></a>Résolution des problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="azure-ad-b2c-returns-a-page-not-found-error"></a>Azure AD B2C renvoie une erreur de page introuvable
 

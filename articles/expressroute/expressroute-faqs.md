@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: duau
-ms.openlocfilehash: 08878f4fe13c270b6da3bfb74bed88c2476ad5de
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: a9402ac0a69cff3cd2b420754aceeb452811e1a1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129399619"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246772"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -88,7 +88,7 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 
 ### <a name="microsoft-peering"></a>Peering Microsoft
 
-Si votre circuit ExpressRoute est activé pour le peering Microsoft Azure, vous pouvez accéder aux [plages d’adresses IP publiques](../virtual-network/public-ip-addresses.md#public-ip-addresses) utilisées dans Azure sur le circuit. Le peering Microsoft Azure permet d’accéder aux services actuellement hébergés sur Azure (avec des restrictions géographiques en fonction de la référence SKU de votre circuit). Pour valider la disponibilité d’un service spécifique, vous pouvez consulter la documentation de ce service pour voir si une plage réservée est publiée pour ce service. Recherchez ensuite les plages d’adresses IP du service cible et comparez-les aux plages listées dans [Plages d’adresses IP Azure et balises de service - Fichier XML cloud public](https://www.microsoft.com/download/details.aspx?id=56519). Vous pouvez également ouvrir un ticket de support pour le service en question afin de clarifier le problème.
+Si votre circuit ExpressRoute est activé pour le peering Microsoft Azure, vous pouvez accéder aux [plages d’adresses IP publiques](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses) utilisées dans Azure sur le circuit. Le peering Microsoft Azure permet d’accéder aux services actuellement hébergés sur Azure (avec des restrictions géographiques en fonction de la référence SKU de votre circuit). Pour valider la disponibilité d’un service spécifique, vous pouvez consulter la documentation de ce service pour voir si une plage réservée est publiée pour ce service. Recherchez ensuite les plages d’adresses IP du service cible et comparez-les aux plages listées dans [Plages d’adresses IP Azure et balises de service - Fichier XML cloud public](https://www.microsoft.com/download/details.aspx?id=56519). Vous pouvez également ouvrir un ticket de support pour le service en question afin de clarifier le problème.
 
 **Pris en charge :**
 

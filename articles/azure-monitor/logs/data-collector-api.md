@@ -4,13 +4,13 @@ description: L’API Collecte de données HTTP Azure Monitor permet d’ajouter 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/14/2020
-ms.openlocfilehash: e490d3a1b38c70e7d5ed7fa11ac5b5055225fb8b
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.date: 10/20/2021
+ms.openlocfilehash: 27935bdb66fae38de2943337ccac2caeb25c1f14
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059115"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248265"
 ---
 # <a name="send-log-data-to-azure-monitor-by-using-the-http-data-collector-api-preview"></a>Envoyer des données de journal à Azure Monitor à l’aide de l’API Collecte de données HTTP (préversion)
 

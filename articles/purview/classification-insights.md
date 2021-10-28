@@ -6,12 +6,12 @@ ms.author: bagol
 ms.service: purview
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 642611a680e0848208aa7e42493fee6fc16fb4d7
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: c5f0f409f009d66afd0cb6103e2018c527c0b0a2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129208841"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246058"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights relatifs aux classifications de vos données à partir d’Azure Purview
 
@@ -35,7 +35,7 @@ Avant de commencer à utiliser les insights Purview, assurez-vous d’avoir effe
 
 - Configurez vos ressources Azure et alimentez les comptes appropriés avec des données de test
 
-- Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d’informations, consultez [Gérer des sources de données dans Azure Purview](manage-data-sources.md) et [Créer un ensemble de règles d’analyse](create-a-scan-rule-set.md).
+- Configurez et terminez une analyse sur les données de test dans chaque source de données. Pour plus d'informations, consultez [Gérer des sources de données dans Azure Purview](manage-data-sources.md) et [Créer un ensemble de règles d'analyse](create-a-scan-rule-set.md).
 
 - Connecté à Purview avec un compte avec le [rôle de lecteur de données ou conservateur de données](catalog-permissions.md#roles).
 
@@ -109,6 +109,3 @@ En savoir plus sur les rapports d’insights Azure Purview
 
 > [!div class="nextstepaction"]
 > [Insights relatifs à l’étiquetage de confidentialité](./sensitivity-insights.md)
-
-> [!div class="nextstepaction"]
-> [Insights relatifs aux extensions de fichier](file-extension-insights.md)

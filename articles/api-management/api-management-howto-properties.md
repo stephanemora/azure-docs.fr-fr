@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
 ms.author: danlep
-ms.openlocfilehash: 65f45758ab00d9e549ac0e52287a198bf5734acd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 72bc12589cb63e2fcecc5568dbf628ccacb85394
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671200"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224628"
 ---
 # <a name="use-named-values-in-azure-api-management-policies"></a>Utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 
@@ -33,7 +33,7 @@ Les *valeurs nommées* représentent une collection globale de paires nom/valeur
 
 Les valeurs brutes ou les secrets peuvent contenir des [expressions de stratégie](./api-management-policy-expressions.md). Par exemple, l’expression `@(DateTime.Now.ToString())` retourne une chaîne contenant la date et l’heure actuelles.
 
-Pour plus d’informations sur les attributs de valeurs nommées, consultez les [informations de référence sur l’API REST](/rest/api/apimanagement/2020-06-01-preview/namedvalue/createorupdate) dans Gestion des API.
+Pour plus d’informations sur les attributs de valeurs nommées, consultez les [informations de référence sur l’API REST](/rest/api/apimanagement/2021-04-01-preview/named-value/create-or-update) dans Gestion des API.
 
 ## <a name="key-vault-secrets"></a>Secrets Key Vault
 
@@ -206,4 +206,3 @@ Pour supprimer une valeur nommée, sélectionnez son nom, puis choisissez **Supp
     -   [Expressions de stratégie](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
-

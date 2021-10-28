@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 26b5e7f65ca688eb1f849fa582f2f02af6e470c0
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 6a707f349d4153c7b7a5dca78e2a739625cc7db5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130131369"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232230"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -593,7 +593,7 @@ Il est possible d’attribuer des adresses IP fixes ou réservées aux machines 
 
 
 ##### <a name="secondary-ip-addresses-for-sap-hostname-virtualization"></a>Adresses IP secondaires pour la virtualisation du nom d’hôte SAP
-Plusieurs adresses IP peuvent être affectées à chaque carte d’interface réseau de la machine virtuelle Azure. L’adresse IP secondaire peut être utilisée pour les noms d’hôte virtuels SAP qui sont mappés à un enregistrement DNS A/PTR, si nécessaire. Les adresses IP secondaires doivent être affectées à la configuration IP des cartes réseau virtuelles Azure, conformément à [cet article](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md), et également configurées dans le système d’exploitation, car les adresses IP secondaires ne sont pas attribuées par le biais de DHCP. Chaque adresse IP secondaire doit provenir du même sous-réseau auquel le carte réseau virtuelle est liée. L’utilisation de l’adresse IP flottante d’Azure Load Balancer n’est [pas prise en charge](../../../load-balancer/load-balancer-multivip-overview.md#limitations) pour les configurations IP secondaires, comme les clusters Pacemaker, dans ce cas l’adresse IP de l’équilibreur de charge active le ou les noms d’hôte virtuels SAP. Consultez également la note de SAP [#962955](https://launchpad.support.sap.com/#/notes/962955) sur les conseils généraux pour les noms d’hôtes virtuels.
+Plusieurs adresses IP peuvent être affectées à chaque carte d’interface réseau de la machine virtuelle Azure. L’adresse IP secondaire peut être utilisée pour les noms d’hôte virtuels SAP qui sont mappés à un enregistrement DNS A/PTR, si nécessaire. Les adresses IP secondaires doivent être affectées à la configuration IP des cartes réseau virtuelles Azure, conformément à [cet article](../../../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md), et également configurées dans le système d’exploitation, car les adresses IP secondaires ne sont pas attribuées par le biais de DHCP. Chaque adresse IP secondaire doit provenir du même sous-réseau auquel le carte réseau virtuelle est liée. L’utilisation de l’adresse IP flottante d’Azure Load Balancer n’est [pas prise en charge](../../../load-balancer/load-balancer-multivip-overview.md#limitations) pour les configurations IP secondaires, comme les clusters Pacemaker, dans ce cas l’adresse IP de l’équilibreur de charge active le ou les noms d’hôte virtuels SAP. Consultez également la note de SAP [#962955](https://launchpad.support.sap.com/#/notes/962955) sur les conseils généraux pour les noms d’hôtes virtuels.
 
 
 ##### <a name="multiple-nics-per-vm"></a>Plusieurs cartes d’interface réseau par machine virtuelle
@@ -745,7 +745,7 @@ Pour plus d’informations sur l’installation, la configuration et l’utilisa
 
 * [Installer l’interface Azure Classic CLI][xplat-cli]
 * [Installer Azure CLI 2.0][azure-cli-install]
-* [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template)
+* [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](../../linux/create-ssh-secured-vm-from-template.md)
 * [Utiliser Azure Classic CLI pour Mac, Linux et Windows avec Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 
@@ -780,7 +780,7 @@ En raison des exigences spécifiques de correctif par rapport aux versions de vo
 ---
 > ![Logo Windows.][Logo_Windows] Windows
 >
-> Pour plus de détails, consultez [Charger un disque dur virtuel généralisé Windows et l’utiliser pour créer de nouvelles machines virtuelles dans Azure](/azure/virtual-machines/windows/upload-generalized-managed). Les paramètres de Windows (tels que le nom d’hôte et le SID Windows) doivent être extraits/généralisés sur la machine virtuelle locale via la commande sysprep.
+> Pour plus de détails, consultez [Charger un disque dur virtuel généralisé Windows et l’utiliser pour créer de nouvelles machines virtuelles dans Azure](../../windows/upload-generalized-managed.md). Les paramètres de Windows (tels que le nom d’hôte et le SID Windows) doivent être extraits/généralisés sur la machine virtuelle locale via la commande sysprep.
 >
 >
 > ![Logo Linux.][Logo_Linux] Linux

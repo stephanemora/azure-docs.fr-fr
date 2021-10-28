@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.date: 06/16/2021
 ms.topic: how-to
 ms.custom: deploy, devplatv2
-ms.openlocfilehash: 4aa55ee69b1092b7a2cb8dd207faf577ac532e32
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 83713736d68dcd019708ade16460cb369d50127d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428252"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251449"
 ---
 # <a name="deploy-a-tensorflow-model-served-with-tf-serving-using-a-custom-container-in-a-managed-online-endpoint-preview"></a>Déployer un modèle TensorFlow servi avec TF Serving en utilisant un conteneur personnalisé dans un point de terminaison en ligne managé (préversion)
 
@@ -159,5 +159,5 @@ Maintenant que vous avez réussi à établir un score de votre point de terminai
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Déploiement sûr pour les points de terminaison en ligne (préversion)](how-to-safely-rollout-managed-endpoints.md)
-- [Résolution des problèmes de déploiement de points de terminaison en ligne managés](how-to-troubleshoot-managed-online-endpoints.md)
+- [Résolution des problèmes de déploiement de points de terminaison en ligne managés](./how-to-troubleshoot-online-endpoints.md)
 - [Exemple de Torch serve](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-torchserve.sh)

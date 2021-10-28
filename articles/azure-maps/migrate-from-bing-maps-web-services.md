@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: d4dae509d65ef2d090439fe1f532f6878a2139b4
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 361eca16094f48c957437eeb5ebdbf9b701d1049
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123439467"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265228"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>Tutoriel : Migrer un service web à partir de Bing Cartes
 
@@ -58,7 +58,7 @@ Azure Maps offre plusieurs autres services web REST qui peuvent être utiles :
 -   [Mosaïques](/rest/api/maps/render/getmaptile) : accédez aux mosaïques d’imagerie et de route à partir d’Azure Maps en tant que mosaïques vectorielles et raster.
 -   [Itinéraires par lot](/rest/api/maps/route/postroutedirectionsbatchpreview) : permet d’effectuer jusqu’à 1000 requêtes d’itinéraires dans un lot unique sur une période donnée. Les itinéraires sont calculés en parallèle sur le serveur pour un traitement plus rapide.
 -   [Circulation](/rest/api/maps/traffic) : accédez aux données de circulation en temps réel à la fois sous la forme de mosaïques raster et vectorielles.
--   [API de géolocalisation (préversion)](/rest/api/maps/geolocation/getiptolocationpreview) : permet d’obtenir la localisation d’une adresse IP.
+-   [API de géolocalisation (préversion)](/rest/api/maps/geolocation/get-ip-to-location) : permet d’obtenir la localisation d’une adresse IP.
 -   [Services météo](/rest/api/maps/weather) : permet d’accéder aux données météo en temps réel et aux prévisions.
 
 Veillez également à consulter les guides de bonnes pratiques suivants :

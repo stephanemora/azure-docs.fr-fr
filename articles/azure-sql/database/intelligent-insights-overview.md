@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
-ms.date: 06/12/2020
-ms.openlocfilehash: f05770143719b616aa0e195d6b719ae28da9dcd9
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 10/18/2021
+ms.openlocfilehash: 3277952383d7a328c08a15b5958289ce322e01dd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111593046"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239449"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Utilisation de l’intelligence artificielle pour superviser et résoudre les problèmes de performances de la base de données par Intelligent Insights (préversion)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -59,11 +59,6 @@ Les détériorations des performances debases de données identifiées sont enre
 | Détections | Détection identifiée au niveau de la base de données pendant la durée d’un événement. Il existe 15 modèles de détection. Pour plus d’informations, consultez [Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligent Insights](intelligent-insights-troubleshoot-performance.md). |
 | Analyse de la cause racine | Analyse de la cause racine du problème identifié dans un format lisible. Certaines informations peuvent contenir une recommandation d’amélioration des performances lorsque cela est possible. |
 |||
-
-Pour une présentation pratique de l’utilisation d’Intelligent Insights avec Azure SQL Analytics, et des scénarios d’utilisation standard, regardez cette vidéo :
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
->
 
 Intelligent Insights excelle dans la découverte et la résolution des problèmes affectant les performances liés aux bases de données. Pour résoudre les problèmes de performances de bases de données à l’aide d’Intelligent Insights, consultez [Résoudre les problèmes de performances avec Intelligence Insights](intelligent-insights-troubleshoot-performance.md).
 

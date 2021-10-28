@@ -11,12 +11,12 @@ author: aanjusingh
 manager: daveba
 ms.reviewer: anjusingh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5b0ff9c70c84a1f3adda2e93c74ce388ceb322
-ms.sourcegitcommit: da9335cf42321b180757521e62c28f917f1b9a07
+ms.openlocfilehash: 7fd77e9a31d8ce49eeab411378726ef712040962
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122534735"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245478"
 ---
 # <a name="app-support-for-sms-based-authentication"></a>Prise en charge des applications pour l’authentification par SMS
 
@@ -35,6 +35,7 @@ L’authentification par SMS est disponible pour les applications Microsoft int�
 | Microsoft Stream | ● |   |
 | Microsoft Power Apps | ● |   |
 | Microsoft Azure | ● | ● |
+| Microsoft Authenticator |   | ● |
 | Azure Virtual Desktop | ● |  | 
 
 *_La connexion par SMS n’est pas disponible pour les applications Office, telles que Word, Excel, etc., en cas d’accès direct sur le web, mais est disponible lors d’un accès via l’[application web Office 365](https://www.office.com)_

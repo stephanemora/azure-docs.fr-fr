@@ -7,15 +7,15 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 10/20/2021
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: a8387a5732ab51add02495b03236b42f9cd4e671
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a95501462fe1db0a06e6596054d09645c86ee64f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609438"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223522"
 ---
 # <a name="control-access-to-iot-hub-by-using-azure-active-directory"></a>Contrôler l’accès à IoT Hub avec Azure Active Directory
 
@@ -106,7 +106,7 @@ Par défaut, IoT Hub prend en charge l’accès à l’API de service par le bi
 1. Accédez à votre IoT Hub dans le [Portail Azure](https://portal.azure.com).
 1. Dans le volet gauche, sélectionnez **Stratégies d’accès partagé**.
 1. Sous **Connecter à l’aide de stratégies d’accès partagé**, sélectionnez **Refuser**.
-    :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Capture d’écran montrant comment désactiver les stratégies d’accès partagé IoT Hub.":::
+    :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Capture d’écran montrant comment désactiver les stratégies d’accès partagé IoT Hub." border="true":::
 1. Lisez l’avertissement, puis sélectionnez **Enregistrer**.
 
 Vos API de service IoT Hub sont désormais accessibles uniquement par le biais d’Azure AD et de RBAC.

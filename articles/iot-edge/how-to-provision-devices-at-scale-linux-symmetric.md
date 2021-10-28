@@ -8,12 +8,12 @@ ms.date: 08/17/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c2bae93e325a36b6db28d1a9c1e6e47ee947db39
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b19990be57332df6de4ccbb45ae92c74b30041b3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700941"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226050"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-on-linux-using-symmetric-key"></a>Créer et provisionner des appareils IoT Edge à grande échelle sur Linux à l’aide de clés symétriques
 
@@ -235,7 +235,7 @@ Azure IoT Edge s’appuie sur un runtime de conteneur compatible avec OCI. Dans 
 
 Le démon de sécurité IoT Edge fournit et gère les standards de sécurité sur l’appareil IoT Edge. Le démon se lance à chaque démarrage et amorce l’appareil en démarrant le reste du runtime IoT Edge.
 
-La procédure de cette section représente le processus classique d’installation de la dernière version sur un appareil disposant d’une connexion Internet. Si vous devez installer une version spécifique, telle qu’une préversion, ou si vous devez installer en mode hors connexion, suivez les [étapes d’installation hors connexion ou propres à une version](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
+La procédure de cette section représente le processus classique d’installation de la dernière version sur un appareil disposant d’une connexion Internet. Si vous devez installer une version spécifique, telle qu’une préversion, ou si vous devez installer en mode hors connexion, suivez les [étapes d’installation hors connexion ou propres à une version](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 1. Mettez à jour les listes de packages sur votre appareil.
 
@@ -262,7 +262,7 @@ Le service IoT Edge fournit et gère les standards de sécurité sur l’apparei
 
 Le service IoT Identity a été introduit avec la version 1.2 d’IoT Edge. Ce service gère l’approvisionnement et la gestion des identités pour IoT Edge et pour d’autres composants d’appareil qui doivent communiquer avec IoT Hub.
 
-La procédure de cette section représente le processus classique d’installation de la dernière version sur un appareil disposant d’une connexion Internet. Si vous devez installer une version spécifique, telle qu’une préversion, ou si vous devez installer en mode hors connexion, suivez les [étapes d’installation hors connexion ou propres à une version](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
+La procédure de cette section représente le processus classique d’installation de la dernière version sur un appareil disposant d’une connexion Internet. Si vous devez installer une version spécifique, telle qu’une préversion, ou si vous devez installer en mode hors connexion, suivez les [étapes d’installation hors connexion ou propres à une version](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 Mettez à jour les listes de packages sur votre appareil.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0adc8638eeffedf1f8b2b31357b43fc38e67773f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 186def3e179bc5cefdb9eb93d95e852bbe35bc1b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128546330"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262923"
 ---
 # <a name="azure-security-baseline-for-azure-virtual-desktop"></a>Base de référence de sécurité Azure pour Azure Virtual Desktop
 
@@ -136,7 +136,7 @@ Azure AD prend en charge les identités externes, qui permettent aux utilisateur
 
 - [Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure AD](../active-directory/fundamentals/identity-secure-score.md)
 
-- [Rôles spécifiques nécessaires pour utiliser Azure Virtual Desktop](/azure/virtual-desktop/faq#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Rôles spécifiques nécessaires pour utiliser Azure Virtual Desktop](./faq.yml)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -254,7 +254,7 @@ Pour assurer un contrôle d’accès cohérent, tous les types de contrôle d’
 
 - [Administrateurs d’abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-- [Autorisations d’administrateur minimales requises pour gérer Azure Virtual Desktop](/azure/virtual-desktop#what-are-the-minimum-admin-permissions-i-need-to-manage-objects)
+- [Autorisations d’administrateur minimales requises pour gérer Azure Virtual Desktop](./index.yml)
 
 **Supervision Azure Security Center** : actuellement non disponible
 
@@ -300,7 +300,7 @@ Vous devez vous assurer que les informations d’identification (telles que le m
 
 - [Présentation de la gestion des droits d’utilisation Azure AD](../active-directory/governance/entitlement-management-overview.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -500,7 +500,7 @@ Transférez tous les journaux d’Azure Virtual Desktop vers votre solution d’
 
 - [Guide de référence des alertes de sécurité Azure Security Center](../security-center/alerts-reference.md)
 
-- [Créer des règles d’analytique personnalisées pour détecter des menaces](../sentinel/tutorial-detect-threats-custom.md) 
+- [Créer des règles d’analytique personnalisées pour détecter des menaces](../sentinel/detect-threats-custom.md) 
 
 - [Renseignement sur les menaces informatiques dans Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
@@ -574,7 +574,7 @@ De plus, activez et intégrez les données dans Azure Sentinel ou une solution S
 
 - [Guide pratique pour intégrer Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -618,7 +618,7 @@ Exportez vos alertes et recommandations Azure Security Center en utilisant la fo
 
 - [Comment envoyer des alertes à Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -644,7 +644,7 @@ Azure Sentinel fournit des analyses de données approfondies sur pratiquement to
 
 - [Collecte de l’image mémoire et des informations de diagnostic par le support Microsoft Azure](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Examiner les incidents avec Azure Sentinel](../sentinel/tutorial-investigate-cases.md)
+- [Examiner les incidents avec Azure Sentinel](../sentinel/investigate-cases.md)
 
 **Supervision d’Azure Security Center** : Non applicable
 
@@ -662,7 +662,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 - [Organisation des ressources Azure à l’aide de catégories](../azure-resource-manager/management/tag-resources.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -676,7 +676,7 @@ En outre, marquez les ressources à l’aide d’étiquettes et créez un systè
 
 - [Configurer des réponses automatisées aux menaces dans Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 

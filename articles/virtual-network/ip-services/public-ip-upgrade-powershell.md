@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 05/20/2021
 ms.custom: template-how-to
-ms.openlocfilehash: ca3d72ad346bf86ecf6d12a8292938aac2ac7117
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: bd34b38710bdf4cc3fe4d21c5dee8e1bb7773124
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368367"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254061"
 ---
 # <a name="upgrade-a-public-ip-address-using-azure-powershell"></a>Créer une adresse IP publique à l’aide d’Azure PowerShell
 
@@ -24,7 +24,7 @@ Dans cet article, vous allez apprendre à mettre à niveau une adresse IP publiq
 ## <a name="prerequisites"></a>Prérequis
 
 * Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Une adresse IP publique de référence SKU de base **statique** dans votre abonnement. Pour plus d’informations, consultez [Créer une adresse IP publique - Portail Azure](../../virtual-network/create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
+* Une adresse IP publique de référence SKU de base **statique** dans votre abonnement. Pour plus d’informations, consultez [Créer une adresse IP publique - Portail Azure](./create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
 * Azure PowerShell installé localement ou Azure Cloud Shell
 
 Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.4.1 ou ultérieure pour les besoins de cet article. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Connect-AzAccount` pour créer une connexion avec Azure.
@@ -76,5 +76,4 @@ Dans cet article, vous avez mis à niveau une adresse IP publique de référence
 Pour plus d’informations, sur les adresses IP publiques dans Azure, consultez :
 
 - [Adresses IP publiques dans Azure](public-ip-addresses.md)
-- [Créer une adresse IP publique - Portail Azure](../../virtual-network/create-public-ip-portal.md)
-
+- [Créer une adresse IP publique - Portail Azure](./create-public-ip-portal.md)

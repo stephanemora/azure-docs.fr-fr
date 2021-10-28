@@ -10,12 +10,12 @@ author: AlainDormehlMSFT
 ms.author: aldorme
 ms.reviewer: mathoma, wiassaf
 ms.date: 10/13/2021
-ms.openlocfilehash: 333b6faabd6603f09c4522f09a18b52c5503f357
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 443e7e20db1c2be013622b6ba34a1ac22cc9a9a4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004632"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244807"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configurer l’exportation en continu de la télémétrie de diagnostic d’Azure SQL Database et de SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -47,7 +47,7 @@ En plus d’exporter en continu le journal Intelligent Insights, vous pouvez ég
 | [Deadlocks](#deadlocks-dataset) : contient des informations sur les événements Deadlock au niveau d’une base de données. | Oui | Non |
 | [AutomaticTuning](#automatic-tuning-dataset) : contient des informations sur les recommandations de réglage automatique pour une base de données. | Oui | Non |
 | [SQLInsights](#intelligent-insights-dataset) : contient des informations Intelligent Insights relatives aux performances pour une base de données. Pour plus d’informations, consultez [Intelligent Insights](intelligent-insights-overview.md). | Oui | Oui |
-| Gestion des charges de travail : *disponible pour Azure Synapse uniquement*. Pour plus d’informations, consultez [Azure Synapse Analytics – Supervision du portail de gestion des charges de travail](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor).| Non | Non | 
+| Gestion des charges de travail : *disponible pour Azure Synapse uniquement*. Pour plus d’informations, consultez [Azure Synapse Analytics – Supervision du portail de gestion des charges de travail](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md).| Non | Non | 
 
 > [!NOTE]
 > Les paramètres de diagnostic ne peuvent pas être configurés pour les **bases de données système**, telles que les bases de données `master`, `msdb`, `model`, resource et `tempdb`.

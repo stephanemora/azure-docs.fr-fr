@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 09/13/2021
 ms.author: jukullam
 ms.custom: github-actions-azure
-ms.openlocfilehash: 01d4293b33eb0756dec8bc9ae870a972959ced89
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a63a51299cf6ffac98dd7514e79c762b2acb67bd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128701508"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236558"
 ---
 # <a name="tutorial-use-github-actions-to-deploy-to-app-service-and-connect-to-a-database"></a>Tutoriel : Utiliser GitHub Actions pour déployer sur App Service et se connecter à une base de données
 
-Découvrez comment configurer un workflow GitHub Actions visant à déployer une application ASP.NET Core avec un back-end [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) . Quand vous avez terminé, vous disposez d’une application ASP.NET s’exécutant dans Azure et connectée à SQL Database. Vous allez d’abord utiliser un [modèle ARM](/azure/azure-resource-manager/templates/overview) pour créer des ressources.
+Découvrez comment configurer un workflow GitHub Actions visant à déployer une application ASP.NET Core avec un back-end [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) . Quand vous avez terminé, vous disposez d’une application ASP.NET s’exécutant dans Azure et connectée à SQL Database. Vous allez d’abord utiliser un [modèle ARM](../azure-resource-manager/templates/overview.md) pour créer des ressources.
 
 Ce tutoriel n’utilise pas de conteneurs. Si vous souhaitez déployer sur une application ASP.NET Core conteneurisée, consultez [Utiliser GitHub Actions pour déployer sur App Service pour conteneurs et se connecter à une base de données](app-service-sql-github-actions.md).
 
@@ -89,7 +89,7 @@ Pour utiliser les [informations d’identification au niveau de l’utilisateur]
  
 ## <a name="create-azure-resources"></a>Créer des ressources Azure
 
-Le workflow de création de ressources Azure exécute un [modèle ARM](/azure/azure-resource-manager/templates/overview) pour déployer les ressources vers Azure. Le workflow :
+Le workflow de création de ressources Azure exécute un [modèle ARM](../azure-resource-manager/templates/overview.md) pour déployer les ressources vers Azure. Le workflow :
 
 - extrait le code source à l'aide de l'[action d'extraction](https://github.com/marketplace/actions/checkout) ;
 - se connecte à Azure à l'aide de l'[action de connexion à Azure](https://github.com/marketplace/actions/azure-login) et recueille des informations sur l'environnement et les ressources Azure ;

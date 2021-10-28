@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/07/2021
-ms.openlocfilehash: 9bb40b02df8de4bbd5fc7e59f55c7f31052b3480
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: cd08a4cb752ede0f958adde438cb516791f4ae76
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429886"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215132"
 ---
 # <a name="configure-a-private-endpoint-for-an-azure-machine-learning-workspace"></a>Configurer un point de terminaison privé pour un espace de travail Azure Machine Learning
 
@@ -191,11 +191,11 @@ En fonctionnalité d’évaluation, Azure Machine Learning prend en charge plusi
 * Un cluster Azure Kubernetes Service (AKS) dans un réseau virtuel distinct.
 * Autres services Azure dans un réseau virtuel distinct. Par exemple, Azure Synapse et Azure Data Factory peuvent utiliser un réseau virtuel managé par Microsoft. Dans les deux cas, un point de terminaison privé pour l’espace de travail peut être ajouté au réseau virtuel managé utilisé par ces services. Pour plus d’informations sur l’utilisation d’un réseau virtuel managé avec ces services, consultez les articles suivants :
 
-    * [Points de terminaison privés managés Synapse](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints)
-    * [Réseau virtuel managé Azure Data Factory](/azure/data-factory/managed-virtual-network-private-endpoint).
+    * [Points de terminaison privés managés Synapse](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
+    * [Réseau virtuel managé Azure Data Factory](../data-factory/managed-virtual-network-private-endpoint.md).
 
     > [!IMPORTANT]
-    > [La protection contre l’exfiltration des données de Synapse](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) n’est pas prise en charge avec Azure Machine Learning.
+    > [La protection contre l’exfiltration des données de Synapse](../synapse-analytics/security/workspace-data-exfiltration-protection.md) n’est pas prise en charge avec Azure Machine Learning.
 
 > [!IMPORTANT]
 > Chaque réseau virtuel qui contient un point de terminaison privé pour l’espace de travail doit également être en mesure d’accéder au compte de stockage Azure, à l’Azure Key Vault et à l’Azure Container Registry utilisés par l’espace de travail. Par exemple, vous pouvez créer un point de terminaison privé pour les services dans chaque réseau virtuel.

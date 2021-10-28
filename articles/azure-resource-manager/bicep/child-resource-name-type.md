@@ -5,12 +5,12 @@ author: mumian
 ms.author: jgao
 ms.topic: conceptual
 ms.date: 09/13/2021
-ms.openlocfilehash: 2d928ec83559a1bd57adde3cbae98c589bb1cd15
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: fbaf2eb104f213c6b4b071ce027b7cb6022aad97
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621996"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244613"
 ---
 # <a name="set-name-and-type-for-child-resources-in-bicep"></a>Définir le nom et le type des ressources enfants dans Bicep
 
@@ -88,7 +88,7 @@ output childAddressPrefix string = VNet1::VNet1_Subnet1.properties.addressPrefix
 
 ## <a name="outside-parent-resource"></a>En dehors de la ressource parent
 
-L’exemple suivant montre la ressource enfant en dehors de la ressource parent. Vous pouvez utiliser cette approche si la ressource parent n'est pas déployée dans le même modèle ou si souhaitez utiliser une [boucle](loop-resources.md) pour créer plusieurs ressources enfants. Spécifiez la propriété parente sur l'enfant avec la valeur définie sur le nom symbolique du parent. Avec cette syntaxe, vous devez toujours déclarer le type de ressource complet, mais le nom de la ressource enfant n'est que le nom de l'enfant.
+L’exemple suivant montre la ressource enfant en dehors de la ressource parent. Vous pouvez utiliser cette approche si la ressource parent n'est pas déployée dans le même modèle ou si souhaitez utiliser une [boucle](loops.md) pour créer plusieurs ressources enfants. Spécifiez la propriété parente sur l'enfant avec la valeur définie sur le nom symbolique du parent. Avec cette syntaxe, vous devez toujours déclarer le type de ressource complet, mais le nom de la ressource enfant n'est que le nom de l'enfant.
 
 ```bicep
 resource <parent-resource-symbolic-name> '<resource-type>@<api-version>' = {

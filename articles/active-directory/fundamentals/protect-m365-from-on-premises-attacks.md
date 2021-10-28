@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456f635e3cd7be91064a15b87c0da627678fdc45
-ms.sourcegitcommit: ee8ce2c752d45968a822acc0866ff8111d0d4c7f
+ms.openlocfilehash: 73bd6ed2c94ca696eefd4e7a3dfcf5b78cc6dd99
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113732977"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251183"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protéger Microsoft 365 des attaques locales
 
@@ -283,7 +283,7 @@ Définissez une stratégie, une conception et une implémentation du stockage et
 
    * Événements à risque 
 
-    Azure AD fournit une [intégration Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md) pour le journal des activités de connexion et les journaux d'audit. Les événements à risque peuvent être ingérés via l’[API Microsoft Graph](/graph/api/resources/identityriskevent). Vous pouvez [transmettre les journaux Azure AD en continu aux journaux d’activité Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+    Azure AD fournit une [intégration Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md) pour le journal des activités de connexion et les journaux d'audit. Les événements à risque peuvent être ingérés via l’[API Microsoft Graph](/graph/api/resources/identityprotection-root). Vous pouvez [transmettre les journaux Azure AD en continu aux journaux d’activité Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 * **Journaux de sécurité du système d’exploitation de l’infrastructure hybride** : Tous les journaux du système d’exploitation de l’infrastructure d’identité hybride doivent être archivés et soigneusement surveillés en tant que système de niveau 0, en raison des implications en termes de surface d’exposition. Incluez les éléments suivants : 
 

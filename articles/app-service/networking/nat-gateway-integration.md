@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/04/2021
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 851e1a04b7fa5ac14848c9d679118a8ebf4ada77
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e5a6f2fe52a9b74f74047a5a9512e40bb267161f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532319"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245281"
 ---
 # <a name="virtual-network-nat-gateway-integration"></a>Intégration de la passerelle NAT au réseau virtuel
 
@@ -34,8 +34,8 @@ Pour plus d’informations et connaître les prix, accédez à la [présentation
 
 Pour configurer l’intégration de la passerelle NAT avec App Service, vous devez effectuer les étapes suivantes :
 
-* Configurez l’intégration au réseau virtuel régional avec votre application, comme décrit dans [Intégrer votre application à un réseau virtuel Azure](../web-sites-integrate-with-vnet.md).
-* Assurez-vous que l’option [Tout acheminer](../web-sites-integrate-with-vnet.md#routes) est activée pour votre intégration au réseau virtuel, afin que le trafic Internet lié soit affecté par les routes dans votre réseau virtuel.
+* Configurez l’intégration au réseau virtuel régional avec votre application, comme décrit dans [Intégrer votre application à un réseau virtuel Azure](../overview-vnet-integration.md).
+* Assurez-vous que l’option [Tout acheminer](../overview-vnet-integration.md#routes) est activée pour votre intégration au réseau virtuel, afin que le trafic Internet lié soit affecté par les routes dans votre réseau virtuel.
 * Provisionnez une passerelle NAT avec une adresse IP publique et associez-la au sous-réseau d’intégration au réseau virtuel.
 
 Configurez la passerelle NAT via le portail :
@@ -84,4 +84,4 @@ La passerelle NAT prend en charge les adresses IP publiques et les préfixes d�
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la passerelle NAT, consultez la [documentation relative à la passerelle NAT](../../virtual-network/nat-gateway/nat-overview.md).
 
-Pour plus d’informations sur l’intégration au réseau virtuel, consultez la [documentation relative à l’intégration au réseau virtuel](../web-sites-integrate-with-vnet.md).
+Pour plus d’informations sur l’intégration au réseau virtuel, consultez la [documentation relative à l’intégration au réseau virtuel](../overview-vnet-integration.md).
