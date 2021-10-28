@@ -4,12 +4,12 @@ description: Instructions pour déplacer un coffre Recovery Services entre des a
 ms.topic: conceptual
 ms.date: 09/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: d206e0bf136a49b12f60079708aea6dbe39f42ff
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: edd15e6b32911c76a54bbe852af4236ba12250f5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129060529"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264766"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Déplacer un coffre Recovery Services entre des abonnements Azure et des groupes de ressources
 
@@ -23,7 +23,7 @@ Toutes les régions publiques et souveraines sont prises en charge, à l’excep
 
 - Lors du déplacement du coffre entre des groupes de ressources, les groupes de ressources source et cible sont verrouillés pour empêcher les opérations d'écriture et de suppression. Pour plus d’informations, consultez cet [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Seul l'abonnement Administrateur dispose des autorisations pour déplacer un coffre.
-- Pour déplacer des coffres entre des abonnements, il faut que l’abonnement cible se trouve dans le même locataire que l’abonnement source et son état doit être défini sur Activé. Pour déplacer un coffre vers un autre Azure AD, consultez [Transférer un abonnement vers un autre annuaire](../role-based-access-control/transfer-subscription.md) et [FAQ sur le coffre Recovery Services](/azure/backup/backup-azure-backup-faq#recovery-services-vault).
+- Pour déplacer des coffres entre des abonnements, il faut que l’abonnement cible se trouve dans le même locataire que l’abonnement source et son état doit être défini sur Activé. Pour déplacer un coffre vers un autre Azure AD, consultez [Transférer un abonnement vers un autre annuaire](../role-based-access-control/transfer-subscription.md) et [FAQ sur le coffre Recovery Services](./backup-azure-backup-faq.yml).
 - Vous devez être autorisé à effectuer des opérations d’écriture sur le groupe de ressources cible.
 - Le déplacement du coffre change seulement le groupe de ressources. Le coffre Recovery Services se trouve au même endroit et ne peut pas être changé.
 - Vous ne pouvez déplacer qu'un seul coffre Recovery Services à la fois par région.
@@ -121,7 +121,7 @@ Quand une machine virtuelle Azure protégée par un coffre Recovery Services est
 
 Avant de déplacer une machine virtuelle, veillez à remplir les prérequis suivants :
 
-1. Consultez les [prérequis associés au déplacement d’une machine virtuelle](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) et vérifiez que la machine virtuelle est éligible au déplacement.
+1. Consultez les [prérequis associés au déplacement d’une machine virtuelle](../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) et vérifiez que la machine virtuelle est éligible au déplacement.
 1. [Sélectionnez la machine virtuelle sous l’onglet **Éléments de sauvegarde**](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) du tableau de bord du coffre existant, sélectionnez **Arrêter la protection**, puis conservez ou supprimez les données selon vos besoins. Lorsque la sauvegarde des données d’une machine virtuelle est arrêtée avec conservation des données, les points de récupération restent indéfiniment et n’adhèrent à aucune stratégie. Cela garantit que vos données de sauvegarde sont toujours prêtes pour restauration.
    >[!Note]
    >La conservation des données dans l’ancien coffre entraîne des frais de sauvegarde. Si vous ne souhaitez plus conserver les données pour éviter la facturation, vous devez supprimer les données de sauvegarde conservées à l’aide de l’[option Supprimer les données](./backup-azure-manage-vms.md#delete-backup-data).
@@ -130,8 +130,8 @@ Avant de déplacer une machine virtuelle, veillez à remplir les prérequis suiv
    - Sur les machines virtuelles Windows, installez les dernières mises à jour Windows.
    - Sur les machines virtuelles Linux, suivez les conseils d’aide du distributeur pour vérifier qu’elles disposent des derniers certificats et des dernières listes de révocation de certificats.
 1. Autorisez une connexion sortante à partir des machines virtuelles :
-   - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez l’accès à ces [URL](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
-   - Si vous utilisez des règles NSG (groupe de sécurité réseau) pour contrôler la connectivité sortante, créez ces [règles d’étiquette de service](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
+   - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez l’accès à ces [URL](../resource-mover/support-matrix-move-region-azure-vm.md#url-access).
+   - Si vous utilisez des règles NSG (groupe de sécurité réseau) pour contrôler la connectivité sortante, créez ces [règles d’étiquette de service](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
 
 #### <a name="move-azure-vms"></a>Déplacer des machines virtuelles Azure
 
@@ -151,8 +151,8 @@ Le service Sauvegarde Azure offre à présent une [solution de gestion des captu
 
 Avant de déplacer le compte Stockage, vérifiez que les prérequis suivants sont remplis :
 
-1.  Consultez les [prérequis liés au déplacement du compte Stockage](/azure/storage/common/storage-account-move?tabs=azure-portal#prerequisites). 
-1. Exporter et modifier un modèle de déplacement de ressource. Pour plus d’informations, consultez [Préparer le compte Stockage à un changement de région](/azure/storage/common/storage-account-move?tabs=azure-portal#prepare).
+1.  Consultez les [prérequis liés au déplacement du compte Stockage](../storage/common/storage-account-move.md?tabs=azure-portal#prerequisites). 
+1. Exporter et modifier un modèle de déplacement de ressource. Pour plus d’informations, consultez [Préparer le compte Stockage à un changement de région](../storage/common/storage-account-move.md?tabs=azure-portal#prepare).
 
 #### <a name="move-azure-file-share"></a>Déplacer le partage de fichiers Azure
 
@@ -177,7 +177,7 @@ Lorsque vous déplacez une machine virtuelle exécutant des serveurs SQL ou SAP 
 
 Avant de déplacer SQL Server/SAP HANA s’exécutant sur une machine virtuelle vers une nouvelle région, vérifiez que les prérequis suivants sont remplis :
 
-1. Consultez les [prérequis associés au déplacement d’une machine virtuelle](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) et vérifiez que la machine virtuelle est éligible au déplacement. 
+1. Consultez les [prérequis associés au déplacement d’une machine virtuelle](../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) et vérifiez que la machine virtuelle est éligible au déplacement. 
 1. Sélectionnez la machine virtuelle sous l’onglet [Éléments de sauvegarde](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) du tableau de bord du coffre existant, puis sélectionnez les _bases de données_ dont la sauvegarde doit être arrêtée. Sélectionnez **Arrêter la protection**, puis choisissez de conserver ou supprimer les données selon vos besoins. Lorsque la sauvegarde des données est arrêtée avec conservation des données, les points de récupération restent indéfiniment et n’adhèrent à aucune stratégie. Cela garantit que vos données de sauvegarde sont toujours prêtes pour restauration.
    >[!Note]
    >La conservation des données dans l’ancien coffre entraîne des frais de sauvegarde. Si vous ne souhaitez plus conserver les données pour éviter la facturation, vous devez supprimer les données de sauvegarde conservées à l’aide de l’[option Supprimer les données](./backup-azure-manage-vms.md#delete-backup-data).
@@ -186,8 +186,8 @@ Avant de déplacer SQL Server/SAP HANA s’exécutant sur une machine virtuelle
    - Sur les machines virtuelles Windows, installez les dernières mises à jour Windows.
    - Sur les machines virtuelles Linux, suivez les conseils d’aide du distributeur pour vérifier qu’elles disposent des derniers certificats et des dernières listes de révocation de certificats.
 1. Autorisez une connexion sortante à partir des machines virtuelles :
-   - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez l’accès à ces [URL](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
-   - Si vous utilisez des règles NSG (groupe de sécurité réseau) pour contrôler la connectivité sortante, créez ces [règles d’étiquette de service](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
+   - Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, autorisez l’accès à ces [URL](../resource-mover/support-matrix-move-region-azure-vm.md#url-access).
+   - Si vous utilisez des règles NSG (groupe de sécurité réseau) pour contrôler la connectivité sortante, créez ces [règles d’étiquette de service](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
 
 #### <a name="move-sql-serversap-hana-in-azure-vm"></a>Déplacer SQL Server/SAP HANA sur une machine virtuelle Azure
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 3ac75e3cf3ae08d9b7d49077cf54d05fdbabdbad
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 2a916c83cc3249b304648d090f739e66bb6b7dd3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130039046"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245585"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -113,10 +113,10 @@ Oui. Vous pouvez ajouter, supprimer, développer ou réduire un sous-réseau si 
 Oui. Vous pouvez ajouter, supprimer et modifier les blocs CIDR utilisés par un réseau virtuel.
 
 ### <a name="if-i-am-running-my-services-in-a-vnet-can-i-connect-to-the-internet"></a>Si j’exécute mes services dans un réseau virtuel, puis-je me connecter à Internet ?
-Oui. Tous les services déployés au sein d’un réseau virtuel peuvent être connectés en sortie à Internet. Pour en savoir plus sur les connexions Internet sortantes dans Azure, consultez [Connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si vous souhaitez vous connecter en entrée à une ressource déployée par le biais de Resource Manager, la ressource doit avoir une adresse IP publique qui lui est affectée. Pour en savoir plus sur les adresses IP publiques, consultez [Adresses IP publiques](virtual-network-public-ip-address.md). Chaque service cloud Azure déployé dans Azure dispose d’une adresse IP virtuelle publiquement adressable qui lui est assignée. Vous définissez des points de terminaison d’entrée pour les points de terminaison et les rôles PaaS des machines virtuelles afin de permettre à ces services d’accepter les connexions à partir d’Internet.
+Oui. Tous les services déployés au sein d’un réseau virtuel peuvent être connectés en sortie à Internet. Pour en savoir plus sur les connexions Internet sortantes dans Azure, consultez [Connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si vous souhaitez vous connecter en entrée à une ressource déployée par le biais de Resource Manager, la ressource doit avoir une adresse IP publique qui lui est affectée. Pour en savoir plus sur les adresses IP publiques, consultez [Adresses IP publiques](./ip-services/virtual-network-public-ip-address.md). Chaque service cloud Azure déployé dans Azure dispose d’une adresse IP virtuelle publiquement adressable qui lui est assignée. Vous définissez des points de terminaison d’entrée pour les points de terminaison et les rôles PaaS des machines virtuelles afin de permettre à ces services d’accepter les connexions à partir d’Internet.
 
 ### <a name="do-vnets-support-ipv6"></a>Les réseaux virtuels prennent-ils en charge IPv6 ?
-Oui, les réseaux virtuels peuvent être IPv4 seulement ou à double pile (IPv4 + IPv6).  Pour plus d’informations, consultez [Aperçu du protocole IPv6 pour des réseaux virtuels Azure](./ipv6-overview.md).
+Oui, les réseaux virtuels peuvent être IPv4 seulement ou à double pile (IPv4 + IPv6).  Pour plus d’informations, consultez [Aperçu du protocole IPv6 pour des réseaux virtuels Azure](./ip-services/ipv6-overview.md).
 
 ### <a name="can-a-vnet-span-regions"></a>Un réseau virtuel peut-il couvrir plusieurs régions ?
 Non. Un réseau virtuel est limité à une seule région. Un réseau virtuel peut toutefois couvrir des zones de disponibilité. Pour en savoir plus sur les zones de disponibilité, consultez [Vue d’ensemble de zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez connecter des réseaux virtuels dans différentes régions à l’aide d’un peering de réseaux virtuels. Pour plus d’informations, consultez [Peering de réseaux virtuels](virtual-network-peering-overview.md)
@@ -171,7 +171,7 @@ Non. Vous ne pouvez pas réserver d’adresse IP privée. Si une adresse IP priv
 Cela dépend. Si la machine virtuelle a été déployée via Resource Manager, non, et ce, que l’adresse IP ait été attribuée avec la méthode d’allocation statique ou dynamique. Si la machine virtuelle a été déployée par le biais du modèle de déploiement classique, les adresses IP dynamiques peuvent changer quand une machine virtuelle est démarrée après avoir été arrêtée (désallouée). L’adresse est libérée d’une machine virtuelle déployée via un modèle de déploiement lorsque la machine virtuelle est supprimée.
 
 ### <a name="can-i-manually-assign-ip-addresses-to-nics-within-the-vm-operating-system"></a>Puis-je attribuer manuellement des adresses IP aux cartes réseau au sein du système d’exploitation de la machine virtuelle ?
-Oui, mais cela n’est pas recommandé, sauf si nécessaire, par exemple lors de l’affectation de plusieurs adresses IP à une machine virtuelle. Pour plus d’informations, consultez [Ajouter des adresses IP à une machine virtuelle](virtual-network-multiple-ip-addresses-portal.md#os-config). Si l’adresse IP attribuée à une carte réseau Azure jointe à une machine virtuelle fait l’objet de modifications et si l’adresse IP au sein du système d’exploitation de la machine virtuelle est différente, vous perdez la connectivité à la machine virtuelle.
+Oui, mais cela n’est pas recommandé, sauf si nécessaire, par exemple lors de l’affectation de plusieurs adresses IP à une machine virtuelle. Pour plus d’informations, consultez [Ajouter des adresses IP à une machine virtuelle](./ip-services/virtual-network-multiple-ip-addresses-portal.md#os-config). Si l’adresse IP attribuée à une carte réseau Azure jointe à une machine virtuelle fait l’objet de modifications et si l’adresse IP au sein du système d’exploitation de la machine virtuelle est différente, vous perdez la connectivité à la machine virtuelle.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>Si j’arrête un emplacement de déploiement de service cloud ou si j’arrête une machine virtuelle à partir du système d’exploitation, que se passe-t-il pour mes adresses IP ?
 Nothing. Les adresses IP (adresse IP virtuelle publique, publique et privée) restent affectées à la machine virtuelle ou à l’emplacement de déploiement de services cloud.
@@ -195,7 +195,7 @@ Oui. Vous pouvez déployer des applications Web à l’intérieur d’un réseau
 
 * [Fonctionnalités de mise en réseau App Service](../app-service/networking-features.md)
 * [Création d'applications web dans un environnement App Service](../app-service/environment/using.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Intégrer une application à un réseau virtuel Azure](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [App Service access restriction](../app-service/app-service-ip-restrictions.md) (Restrictions d’accès dans App Service)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>Puis-je déployer des services cloud avec les rôles web et de travail (PaaS) dans un réseau virtuel ?
@@ -426,8 +426,4 @@ Il n’existe aucune limite sur le nombre total de points de terminaison de serv
 |Azure Data Lake Store V1|  100|
  
 >[!NOTE]
-> Les limites sont sujettes à modifications à la discrétion du service Azure. Reportez-vous à la documentation correspondante pour en savoir plus sur chaque service. 
-
-
-
-
+> Les limites sont sujettes à modifications à la discrétion du service Azure. Reportez-vous à la documentation correspondante pour en savoir plus sur chaque service.

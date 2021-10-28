@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: dlepow
 ms.author: danlep
 ms.date: 07/12/2021
-ms.openlocfilehash: e2f56f8886a387158c148edaf9ae557deac3783f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 87684e6a4bc2c349a2b65faefe825c455be413d5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128659150"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215518"
 ---
 # <a name="azure-api-management-as-an-event-grid-source-preview"></a>Gestion des API Azure comme source Event Grid (préversion)
 
@@ -123,7 +123,7 @@ L’exemple suivant montre le schéma d’un événement de mise à jour d’une
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/apis/myapi;Rev=1",
   "data": {
-    "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
   },
   "eventType": "Microsoft.ApiManagement.APIUpdated",
   "dataVersion": "1",

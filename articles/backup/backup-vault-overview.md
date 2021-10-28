@@ -4,12 +4,12 @@ description: Une vue d’ensemble des coffres de sauvegarde.
 ms.topic: conceptual
 ms.date: 09/08/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8d617dd2d2b1fa61a797d14c709ce285dc28b9bf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: afe103e7fb6c2cb59634029c5ae9a75acadf0afc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124799470"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235883"
 ---
 # <a name="backup-vaults-overview"></a>Vue d’ensemble des coffres de sauvegarde
 
@@ -188,7 +188,7 @@ Attendez que l’opération de déplacement soit terminée pour effectuer d’au
 
 1. Dans la liste déroulante **Abonnement**, sélectionnez un abonnement existant.
 
-   Pour déplacer des coffres entre des abonnements, il faut que l’abonnement cible se trouve dans le même tenant (locataire) que l’abonnement source. Pour déplacer un coffre vers un autre tenant (locataire), consultez l’article [Transférer un abonnement Azure vers une autre instance Azure AD Directory](/azure/role-based-access-control/transfer-subscription).
+   Pour déplacer des coffres entre des abonnements, il faut que l’abonnement cible se trouve dans le même tenant (locataire) que l’abonnement source. Pour déplacer un coffre vers un autre tenant (locataire), consultez l’article [Transférer un abonnement Azure vers une autre instance Azure AD Directory](../role-based-access-control/transfer-subscription.md).
 
 1. Dans la liste déroulante **Groupe de ressources**, sélectionnez un groupe de ressources existant, ou sélectionnez **Créer** pour créer un groupe de ressources.
 

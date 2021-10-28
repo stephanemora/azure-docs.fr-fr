@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 729e02427b823550a8621380261b7f7db4ff2fe5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: fa553360085a2793dba43e91cb08fde74eebf52e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368376"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233920"
 ---
 # <a name="manage-a-public-ip-address-with-a-vpn-gateway"></a>Gérer une adresse IP publique avec une passerelle VPN
 
@@ -29,7 +29,7 @@ Cet article explique comment apprendre à créer une passerelle VPN à l’aide 
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Une adresse IP publique de référence SKU standard dans votre abonnement. L’adresse IP ne peut pas être associée à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence (SKU) Standard, consultez [Créer une adresse IP publique – Portail Azure](../../virtual-network/create-public-ip-portal.md).
+- Une adresse IP publique de référence SKU standard dans votre abonnement. L’adresse IP ne peut pas être associée à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence (SKU) Standard, consultez [Créer une adresse IP publique – Portail Azure](./create-public-ip-portal.md).
     - Pour les besoins des exemples de cet article, nommez la nouvelle adresse IP publique **myStandardPublicIP**.
 
 ## <a name="create-vpn-gateway-existing-public-ip"></a>Créer une passerelle VPN avec une adresse IP publique existante
@@ -124,5 +124,5 @@ Une passerelle VPN ne prend pas en charge la modification de l’adresse IP publ
 
 Dans cet article, vous avez appris à créer une passerelle VPN et à utiliser une adresse IP publique existante. 
 
-- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](../../virtual-network/public-ip-addresses.md).
+- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](./public-ip-addresses.md).
 - Pour en savoir plus sur les passerelles VPN, consultez [Qu’est-ce qu’une passerelle VPN ?](../../vpn-gateway/vpn-gateway-about-vpngateways.md).

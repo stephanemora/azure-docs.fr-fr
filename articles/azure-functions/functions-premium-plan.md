@@ -9,12 +9,12 @@ ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 2bbef3190a38d1c0f9b058f2c57050ecd85756e3
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c549f29e729eec4403f2943f51e8acb4a9f21b37
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984760"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248390"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
@@ -98,7 +98,7 @@ En plus du [nombre maximal d’instances du plan](#plan-and-sku-settings), vous 
 
 ## <a name="private-network-connectivity"></a>Connectivité de réseau privé
 
-Les applications de fonction déployées sur un plan Premium peuvent tirer parti de [l’intégration de réseau virtuel pour les applications web](../app-service/web-sites-integrate-with-vnet.md). Une fois configurée, votre application peut communiquer avec des ressources de votre réseau virtuel ou sécurisées via des points de terminaison de service. Des restrictions d’adresse IP sont également disponibles sur l’application pour limiter le trafic entrant.
+Les applications de fonction déployées sur un plan Premium peuvent tirer parti de [l’intégration de réseau virtuel pour les applications web](../app-service/overview-vnet-integration.md). Une fois configurée, votre application peut communiquer avec des ressources de votre réseau virtuel ou sécurisées via des points de terminaison de service. Des restrictions d’adresse IP sont également disponibles sur l’application pour limiter le trafic entrant.
 
 Lors de l’attribution d’un sous-réseau à votre Function App dans un plan Premium, vous avez besoin d’un sous-réseau avec suffisamment d’adresses IP pour chaque instance potentielle. Nous imposons un bloc d’au moins 100 adresses IP disponibles.
 
@@ -184,7 +184,7 @@ Consultez la disponibilité régionale complète de Functions sur le [site web A
 |Allemagne Centre-Ouest| 100 | 20 |
 |Japon Est| 100 | 20 |
 |OuJapon Est| 100 | 20 |
-|JIO Inde Ouest| 100 | 20 |
+|Inde Ouest Jio| 100 | 20 |
 |Centre de la Corée| 100 | 20 |
 |Corée du Sud| Non disponible | 20 |
 |Centre-Nord des États-Unis| 100 | 20 |

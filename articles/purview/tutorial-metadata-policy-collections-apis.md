@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 09/24/2021
-ms.openlocfilehash: cfb62050da2b1c72ec8e620f9a4222552f50daa2
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 79848d8f54ea1d019f2a9e6cf93a61cc8b7c49f9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129728681"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130245926"
 ---
 # <a name="tutorial-use-rest-apis-to-manage-role-based-access-control-on-azure-purview-collections"></a>Tutoriel : Utiliser des API REST pour gérer le contrôle d’accès en fonction du rôle sur les collections Azure Purview 
 
@@ -23,7 +23,7 @@ Ce tutoriel vous guide pas à pas dans l’utilisation des API de stratégie de 
 Pour plus d’informations sur les rôles intégrés dans Azure Purview, consultez le [Guide des autorisations Azure Purview](catalog-permissions.md#roles). Le guide mappe les rôles au niveau des autorisations d’accès accordées aux utilisateurs.
 
 ## <a name="metadata-policy-api-reference-summary"></a>Récapitulatif des informations de référence sur les API de stratégie de métadonnées
-Le tableau suivant fournit une vue d’ensemble des [informations de référence sur les API de stratégie de métadonnées Azure Purview](/rest/api/purview/metadatapolicydataplane/Metadata-Policy.yml). 
+Le tableau suivant fournit une vue d’ensemble des [informations de référence sur les API de stratégie de métadonnées Azure Purview](/rest/api/purview/metadatapolicydataplane/Metadata-Policy). 
 
 Remplacez {pv-acc-name} par le nom de votre compte Azure Purview avant d’exécuter ces API. Par exemple, si le nom de votre compte Azure Purview est *FabrikamPurviewAccount*, vos points de terminaison d’API deviennent *FabrikamPurviewAccount.purview.azure.com*.
 

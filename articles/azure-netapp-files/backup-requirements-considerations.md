@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: b-juche
-ms.openlocfilehash: f396904b3832403337a6fa4553e2ae4a4b8c86b4
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.openlocfilehash: 5e622f86b7b0b9d757dc32089db86c7bfca7fe63
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667950"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239749"
 ---
 # <a name="requirements-and-considerations-for-azure-netapp-files-backup"></a>Exigences et considérations relatives à la sauvegarde Azure NetApp Files 
 
@@ -60,5 +60,5 @@ Vous devez être conscient de plusieurs exigences et considérations avant d'uti
 * [Désactivation de la fonctionnalité de sauvegarde pour un volume](backup-disable.md)
 * [Supprimer des sauvegardes d’un volume](backup-delete.md)
 * [Métriques de sauvegarde d’un volume](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [FAQ sur la sauvegarde Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [FAQ sur la sauvegarde Azure NetApp Files](faq-backup.md)
 * [Comment fonctionnent les instantanés Azure NetApp Files](snapshots-introduction.md)

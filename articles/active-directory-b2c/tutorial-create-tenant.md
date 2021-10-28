@@ -11,12 +11,12 @@ ms.date: 09/25/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: ffedd73860a9ef171d592689ef7a0d8a0cde82d0
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ce5da1ae3ae87d3dbfc91b72fbda412ad179cfa9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044172"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233958"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutoriel : Créer un locataire Azure Active Directory B2C
 
@@ -50,11 +50,11 @@ Vous découvrirez comment inscrire une application dans le didacticiel suivant.
 1. Sélectionnez le répertoire qui contient votre abonnement :
     1. Sélectionnez l’icône du filtre **Annuaires + abonnements** dans la barre d’outils du portail Azure. 
     
-    ![Icône du filtre Annuaires + abonnements](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
+        ![Icône du filtre Annuaires + abonnements](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
 
     1. Recherchez l’annuaire qui contient votre abonnement et sélectionnez le bouton **Changer** à côté de ce dernier. Le changement d’annuaire permet de recharger le portail.
 
-    ![Annuaires + abonnements avec le bouton Changer](media/tutorial-create-tenant/switch-directory.png)
+        ![Annuaires + abonnements avec le bouton Changer](media/tutorial-create-tenant/switch-directory.png)
 
 1. Ajoutez **Microsoft.AzureActiveDirectory** comme fournisseur de ressources pour l’abonnement Azure que vous utilisez ([En savoir plus](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)) :
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2021
 ms.author: memildin
-ms.openlocfilehash: 3dbf8b3e15380b1e267be4f1b4af382aa9097a48
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a1581742e599c24f69e6aa56bf7caf694726ae66
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563009"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225640"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protéger vos charges de travail Kubernetes
 
@@ -91,7 +91,6 @@ Pour configurer les recommandations, installez le **module complémentaire Azure
     | Tout conteneur avec une élévation des privilèges doit être évité                       | Gérer l’accès et les autorisations            | Non                     |
     | Les clusters Kubernetes doivent désactiver le montage automatique des informations d’identification d’API             | Gérer l’accès et les autorisations            | Non                     |
     | Le système de fichiers racine immuable (en lecture seule) doit être appliqué pour les conteneurs     | Gérer l’accès et les autorisations            | Non                     |
-    | Tout conteneur avec une élévation des privilèges doit être évité                       | Gérer l’accès et les autorisations            | Non                     |
     | L’exécution des conteneurs en tant qu’utilisateur racine doit être évitée                           | Gérer l’accès et les autorisations            | Non                     |
     | Éviter les conteneurs partageant des espaces de noms d’hôte sensibles              | Gérer l’accès et les autorisations            | Non                     |
     | Les limites de mémoire et du processeur du conteneur doivent être appliquées                          | Protéger les applications contre les attaques DDoS | Non                     |

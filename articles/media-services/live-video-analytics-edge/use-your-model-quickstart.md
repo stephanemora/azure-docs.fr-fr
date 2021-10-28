@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous allez appliquer la vision 
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 685deddb9a55d024081acd0b7d4ff639d1eecd43
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 07b700e82712e9863ecbd7e77dbfa0a5426c711f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368541"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232493"
 ---
 # <a name="quickstart-analyze-live-video-with-your-own-http-model"></a>Démarrage rapide : Analyser une vidéo en direct avec votre propre modèle HTTP
 
@@ -86,4 +86,4 @@ Si vous envisagez d’essayer d’autres guides de démarrage rapide, conservez 
 Passez en revue les défis supplémentaires pour les utilisateurs expérimentés :
 
 * Utilisez une [caméra IP](https://en.wikipedia.org/wiki/IP_camera) qui prend en charge RTSP au lieu d’utiliser le simulateur RTSP. Vous pouvez rechercher les caméras IP qui prennent RTSP en charge dans la page des produits [conformes ONVIF](https://www.onvif.org/conformant-products/). Recherchez les appareils conformes aux profils G, S ou T.
-* Utilisez un appareil Linux AMD64 ou x64 plutôt qu’une machine virtuelle Linux Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Vous pouvez suivre les instructions mentionnées dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge.md). Inscrivez ensuite l’appareil auprès d’Azure IoT Hub en suivant les instructions mentionnées dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](../../iot-edge/quickstart-linux.md).
+* Utilisez un appareil Linux AMD64 ou x64 plutôt qu’une machine virtuelle Linux Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Vous pouvez suivre les instructions mentionnées dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md). Inscrivez ensuite l’appareil auprès d’Azure IoT Hub en suivant les instructions mentionnées dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](../../iot-edge/quickstart-linux.md).

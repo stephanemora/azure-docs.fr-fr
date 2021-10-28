@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/05/2021
-ms.openlocfilehash: 3b199223c7e77f31cd4bf6e99d6a170f6868848a
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 443c2abbd005c3e2517caa98c707132ad0849d3a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448693"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234319"
 ---
 # <a name="api"></a>API #
 
@@ -30,7 +30,7 @@ Pour utiliser les fonctions de l'API, vous devez avoir accès à l'objet player.
 
 Le délai nécessaire au Lecteur multimédia Azure pour configurer la vidéo et l'API varie en fonction de la technologie de lecture utilisée. HTML5 est souvent beaucoup plus rapide à charger que Flash ou Silverlight. C'est la raison pour laquelle la fonction « ready » (prêt) du lecteur doit être utilisée pour déclencher tout code nécessitant l'API du lecteur.
 
-```javacript
+```javascript
     amp("vid_1").ready(function(){
       var myPlayer = this;
 
@@ -41,7 +41,7 @@ Le délai nécessaire au Lecteur multimédia Azure pour configurer la vidéo et 
 
 OR
 
-```javacript
+```javascript
     var myPlayer = amp("vid_1", myOptions, function(){
         //this is the ready function and will only execute after the player is loaded
     });
@@ -51,7 +51,7 @@ OR
 
 Maintenant que vous avez accès à un lecteur prêt, vous pouvez contrôler la vidéo, obtenir des valeurs ou répondre à des événements vidéo. Les noms des fonctions de l'API Lecteur multimédia Azure s'inspirent de l'[API multimédia HTML5](http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html). La principale différence est que les fonctions getter/setter sont utilisées pour les propriétés vidéo.
 
-```javacript
+```javascript
     // setting a property on a bare HTML5 video element
     myVideoElement.currentTime = 120;
 
@@ -62,7 +62,7 @@ Maintenant que vous avez accès à un lecteur prêt, vous pouvez contrôler la v
 ## <a name="registering-for-events"></a>Inscription aux événements ##
 Les événements doivent être enregistrés immédiatement après l'initialisation du lecteur afin de veiller à ce que tous les événements soient correctement signalés à l'application, et cela doit être effectué en dehors de l'événement ready.
 
-```javacript
+```javascript
     var myPlayer = amp("vid_1", myOptions, function(){
         //this is the ready function and will only execute after the player is loaded
     });

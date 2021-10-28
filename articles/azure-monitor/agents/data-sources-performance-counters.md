@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/26/2021
-ms.openlocfilehash: f4bddc1666d1165d6a1e4c749fdbc96ede37747a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 380eed0d2d1c42613fbc8087bd30775555593a91
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036767"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236203"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Collecter des sources de données de performance Windows et Linux avec l’agent Log Analytics
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Azure Monitor peut non seulement collecter les compteurs de performances des agents Log Analytics à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
@@ -224,4 +224,4 @@ Le tableau suivant fournit plusieurs exemples de requêtes qui extraient des enr
 ## <a name="next-steps"></a>Étapes suivantes
 * [Collectez des compteurs de performances à partir d’applications Linux](data-sources-linux-applications.md), y compris Apache HTTP Server et MySQL.
 * Découvrez les [requêtes dans les journaux](../logs/log-query-overview.md) pour analyser les données collectées à partir de sources de données et de solutions.  
-* Exporter les données collectées vers [Power BI](../visualize/powerbi.md) à des fins d’analyse et de visualisation.
+* Exporter les données collectées vers [Power BI](../logs/log-powerbi.md) à des fins d’analyse et de visualisation.

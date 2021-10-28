@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 08/12/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 920cfa4053fac692145f46cc5cff7d53381d900b
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: a59f97e41705e222bbbca6656cd67d2e692ec5fa
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122201796"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232401"
 ---
 # <a name="tutorial-create-a-load-balancer-with-more-than-one-availability-set-in-the-backend-pool-using-the-azure-portal"></a>Tutoriel : Créer un équilibreur de charge avec plusieurs groupes à haute disponibilité dans le pool de back-ends à l’aide du portail Azure
 
@@ -159,7 +159,7 @@ Dans cette section, vous allez créer un équilibreur de charge pour les machine
 8. Sélectionnez **Adresse IP** pour **Type IP**.
 
     > [!NOTE]
-    > Pour plus d’informations sur les préfixes IP, consultez [Préfixe d’adresse IP publique Azure](../virtual-network/public-ip-address-prefix.md).
+    > Pour plus d’informations sur les préfixes IP, consultez [Préfixe d’adresse IP publique Azure](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Sélectionnez **Créer nouvelle** dans **Adresse IP publique**.
 
@@ -168,7 +168,7 @@ Dans cette section, vous allez créer un équilibreur de charge pour les machine
 11. Sélectionnez **Redondant interzone** dans la **Zone de disponibilité**.
 
     > [!NOTE]
-    > Dans les régions avec [Zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), vous avez la possibilité de sélectionner aucune zone (option par défaut), une zone spécifique ou redondant interzone. Le choix dépendra de vos exigences spécifiques en matière de défaillance de domaine. Dans les régions sans Zones de disponibilité, ce champ n’apparaît pas. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
+    > Dans les régions avec des [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), vous avez la possibilité de sélectionner aucune zone (option par défaut), une zone spécifique ou redondant dans une zone. Le choix dépendra de vos exigences spécifiques en matière de défaillance de domaine. Dans les régions sans Zones de disponibilité, ce champ n’apparaît pas. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
 
 12. Laissez la valeur par défaut **Réseau Microsoft** pour **Préférence de routage**.
 
@@ -196,9 +196,9 @@ Dans cette section, vous allez créer un équilibreur de charge pour les machine
 
 24. Dans **Ajouter une règle d’équilibrage de charge**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
-    | Nom | Entrez **myHTTPRule** |
+    | Nom | Entrez **MyHTTPRule** |
     | Version de l’adresse IP | Sélectionnez **IPv4** ou **IPv6** en fonction de vos besoins. |
     | Adresse IP du serveur frontal | Sélectionnez **LoadBalancerFrontend**. |
     | Protocol | Sélectionnez **TCP**. |
@@ -257,7 +257,7 @@ Dans cette section, vous allez créer deux groupes de disponibilité avec deux m
 
 5. Sous l’onglet **Mise en réseau**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | **Interface réseau** |   |
     | Réseau virtuel | Sélectionnez **myVNet**. |
@@ -278,7 +278,7 @@ Dans cette section, vous allez créer deux groupes de disponibilité avec deux m
 
 8. Répétez les étapes 1 à 7 pour créer la deuxième machine virtuelle du groupe. Remplacez les paramètres de la machine virtuelle par les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **myVM2**. |
     | Groupe à haute disponibilité | Sélectionnez **myAvailabilitySet1**. |
@@ -321,7 +321,7 @@ Dans cette section, vous allez créer deux groupes de disponibilité avec deux m
 
 5. Sous l’onglet **Mise en réseau**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | **Interface réseau** |   |
     | Réseau virtuel | Sélectionnez **myVNet**. |
@@ -342,7 +342,7 @@ Dans cette section, vous allez créer deux groupes de disponibilité avec deux m
 
 8. Répétez les étapes 1 à 7 pour créer la deuxième machine virtuelle du groupe. Remplacez les paramètres de la machine virtuelle par les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **myVM4**. |
     | Groupe à haute disponibilité | Sélectionnez **myAvailabilitySet2**. |
@@ -440,4 +440,3 @@ Dans ce tutoriel, vous :
 Passez à l’article suivant pour découvrir comment créer un équilibreur de charge Azure interrégional :
 > [!div class="nextstepaction"]
 > [Créer un équilibreur de charge interrégional](tutorial-cross-region-portal.md)
-

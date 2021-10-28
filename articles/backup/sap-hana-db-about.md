@@ -3,12 +3,12 @@ title: À propos de la sauvegarde de base de données SAP HANA dans les machines
 description: Cet article explique comment sauvegarder des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.openlocfilehash: 053d57518e91292105475753279e6fefec19e7a4
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 470635afee7e6b483ec9ae6e79071cd4ef9975dc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129081032"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264576"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>À propos de la sauvegarde de base de données SAP HANA dans les machines virtuelles Azure
 
@@ -35,7 +35,7 @@ Vous pouvez sauvegarder des bases de données SAP HANA s’exécutant à l’int
 
 * Le processus de sauvegarde commence par la [création d’un coffre Recovery Services](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) dans Azure. Ce coffre sera utilisé pour stocker les sauvegardes et les points de récupération créés au fil du temps.
 * La machine virtuelle Azure exécutant le serveur SAP HANA est inscrite auprès du coffre, et les bases de données à sauvegarder sont [découvertes](./tutorial-backup-sap-hana-db.md#discover-the-databases). Pour permettre au service Sauvegarde Azure de découvrir les bases de données, un [script de préinscription](https://go.microsoft.com/fwlink/?linkid=2173610) doit être exécuté sur le serveur HANA en tant qu’utilisateur racine.
-* Ce script crée l’utilisateur de base de données et/ou utilise l’utilisateur de sauvegarde personnalisé **AZUREWLBACKUPHANAUSER** que vous avez déjà créé, puis crée une clé correspondante portant le même nom dans **hdbuserstore**. [En savoir plus](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does) sur la fonctionnalité du script.
+* Ce script crée l’utilisateur de base de données et/ou utilise l’utilisateur de sauvegarde personnalisé **AZUREWLBACKUPHANAUSER** que vous avez déjà créé, puis crée une clé correspondante portant le même nom dans **hdbuserstore**. [En savoir plus](./tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sur la fonctionnalité du script.
 * Le service Sauvegarde Azure installe à présent le **plug-in Sauvegarde Azure pour HANA** sur le serveur SAP HANA inscrit.
 * L’utilisateur de base de données **AZUREWLBACKUPHANAUSER** créé par le script de pré-inscription/l’utilisateur de sauvegarde personnalisé que vous avez créé (et ajouté comme entrée au script de pré-inscription) est utilisé par le **plug-in Sauvegarde Azure pour Hana** pour effectuer toutes les opérations de sauvegarde et de restauration. Si vous tentez de configurer une sauvegarde pour des bases de données SAP HANA sans exécuter ce script, il se peut que vous receviez l’erreur **UserErrorHanaScriptNotRun**.
 * Pour [configurer une sauvegarde](./tutorial-backup-sap-hana-db.md#configure-backup) sur les bases de données découvertes, choisissez la stratégie de sauvegarde requise et activez les sauvegardes.

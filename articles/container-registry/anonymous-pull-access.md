@@ -4,18 +4,18 @@ description: Vous pouvez activer l’accès par extraction anonyme pour que le c
 ms.topic: how-to
 ms.date: 09/17/2021
 ms.custom: ''
-ms.openlocfilehash: 816e99cd5ba2ba83958a9ec7b9b0ad679e4a6550
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.openlocfilehash: e82bb43ee8865642ae7939a94291e0c9f5432198
+ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129547414"
+ms.lasthandoff: 10/19/2021
+ms.locfileid: "130161978"
 ---
 # <a name="make-your-container-registry-content-publicly-available"></a>Rendre le contenu de votre registre de conteneurs accessible publiquement
 
 La configuration d’un registre de conteneurs Azure pour l’accès par extraction anonyme (sans authentification) est une fonctionnalité facultative qui permet à tout utilisateur disposant d’un accès à Internet d’extraire du contenu du registre.
 
-L’accès par extraction anonyme est une fonctionnalité d’évaluation, disponible dans les [niveaux de service](container-registry-skus.md) Standard et Premium. Pour configurer l’accès par extraction anonyme, mettez à jour un registre à l’aide d’Azure CLI (version 2.21.0 ou ultérieure). Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](/cli/azure-install-cli).
+L’accès par extraction anonyme est une fonctionnalité d’évaluation, disponible dans les [niveaux de service](container-registry-skus.md) Standard et Premium. Pour configurer l’accès par extraction anonyme, mettez à jour un registre à l’aide d’Azure CLI (version 2.21.0 ou ultérieure). Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="about-anonymous-pull-access"></a>À propos de l’accès par extraction anonyme
 

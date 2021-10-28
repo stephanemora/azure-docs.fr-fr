@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 15bc0aa0c4a657bbb6f363a9c2786c1d4f9116ee
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 23d54c2725e48b1d587fb641c593be0c8d63958f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544431"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248637"
 ---
 # <a name="compute-platform-for-azure-api-management"></a>Plateforme de calcul pour la Gestion des API Azure
 
@@ -57,7 +57,7 @@ Créez ou mettez à jour la connexion du réseau virtuel ou la configuration de 
 
 > [!IMPORTANT]
 > Lorsque vous mettez à jour la version de la plateforme de calcul d’une instance connectée à un [réseau virtuel](virtual-network-concepts.md)Azure :
-> * Vous devez fournir une ressource d'[adresse IPv4 publique](../virtual-network/public-ip-addresses.md#standard) de référence SKU standard
+> * Vous devez fournir une ressource d'[adresse IPv4 publique](../virtual-network/ip-services/public-ip-addresses.md#standard) de référence SKU standard
 > * L’adresse ou les adresses IP virtuelle(s) de votre instance de Gestion des API seront modifiées.
 
 ## <a name="next-steps"></a>Étapes suivantes

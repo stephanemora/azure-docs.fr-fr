@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: fcba2424c457d97a45096af9a35b5f2afa4086ba
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.openlocfilehash: 419ae4e99ce5b8327ced306dea398ef82d5588db
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407244"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265109"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Redimensionner un pool de capacités ou un volume
 Vous pouvez modifier la taille d’un pool de capacités ou d’un volume si besoin, par exemple lorsqu’un volume ou pool se capacités se remplit. 
@@ -89,4 +89,4 @@ Le tableau suivant décrit le comportement de redimensionnement du volume de des
 - [Changer dynamiquement le niveau de service d’un volume](dynamic-change-volume-service-level.md) 
 - [Présentation du quota de volume](volume-quota-introduction.md)
 - [Surveiller la capacité d'un volume](monitor-volume-capacity.md)
-- [Questions fréquentes (FAQ) sur la gestion de la capacité](azure-netapp-files-faqs.md#capacity-management-faqs)
+- [Questions fréquentes (FAQ) sur la gestion de la capacité](faq-capacity-management.md)

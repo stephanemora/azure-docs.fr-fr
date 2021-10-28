@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 10/12/2021
-ms.openlocfilehash: a31e16ffd74808fb6b6232f0cbda3d447cfce513
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: c061fcd27cbafae20732f7ab1436b3a55a5a8dc0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007393"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214811"
 ---
 # <a name="azure-purview-accounts-architectures-and-best-practices"></a>Architecture et meilleures pratiques des comptes Purview  
 
@@ -64,7 +64,7 @@ Si votre organisation possède des données dans plusieurs zones géographiques 
 
 Actuellement, Purview ne prend pas en charge l’architecture mutualisée. Si vous avez des sources de données Azure distribuées sur plusieurs abonnements Azure sous différents locataires Azure Active Directory, il est recommandé de déployer des comptes Azure Purview distincts sous chaque locataire. 
 
-Une exception s’applique aux sources de données basées sur les machines virtuelles et Power BI locataires. Pour plus d’informations sur l’analyse et l’inscription d’un multilocataire Power BI dans un compte Purview unique, voir [Inscrire et analyser un multilocataire Power BI](/register-scan-power-bi-tenant#register-and-scan-a-cross-tenant-power-bi). 
+Une exception s’applique aux sources de données basées sur les machines virtuelles et Power BI locataires. Pour plus d’informations sur l’analyse et l’inscription d’un multilocataire Power BI dans un compte Purview unique, voir [Inscrire et analyser un multilocataire Power BI](/azure/purview/register-scan-power-bi-tenant#register-and-scan-a-cross-tenant-power-bi). 
 
 :::image type="content" source="media/concept-best-practices/accounts-multiple-tenants.png" alt-text="Capture d’écran montrant plusieurs comptes Azure Purview basés sur des exigences d’architecture mutualisée."lightbox="media/concept-best-practices/accounts-multiple-tenants.png"::: 
 
@@ -74,7 +74,7 @@ Passez en revue le [modèle de tarification Azure Purview](https://azure.microso
 
 Certaines organisations comptent souvent de nombreuses unités commerciales qui fonctionnent séparément et, dans certains cas, ne partagent même pas la facturation. Dans ce cas, l’organisation finit par créer une instance Purview pour chaque unité commerciale. Ce modèle n’est pas idéal, mais peut être nécessaire, en particulier parce que, souvent, les unités commerciales ne souhaitent pas partager la facturation Azure. 
 
-Pour plus d’informations sur le modèle de coût cloud computing dans les modèles Chargeback et showBack, consultez [Qu’est-ce que Cloud Accounting ?](/cloud-adoption-framework/strategy/cloud-accounting).  
+Pour plus d’informations sur le modèle de coût cloud computing dans les modèles Chargeback et showBack, consultez [Qu’est-ce que Cloud Accounting ?](/azure/cloud-adoption-framework/strategy/cloud-accounting).  
 
 ## <a name="additional-considerations-and-recommendations"></a>Considérations et recommandations supplémentaires 
 

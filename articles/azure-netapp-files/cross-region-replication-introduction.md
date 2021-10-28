@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 10/20/2021
 ms.author: b-juche
 ms.custom: references_regions
-ms.openlocfilehash: c8cef623e26882443379fff73edcc1999463ec3e
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 013b456bb3a101e29de5aaae954914615123224f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045765"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233241"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Réplication inter-région des volumes Azure NetApp Files
 
@@ -35,6 +35,7 @@ La réplication de volume Azure NetApp Files est prise en charge entre différen
 | Geography | Paire régionale A | Paire régionale B  |
 |:--- |:--- |:--- |
 | Australie | Australie Est | Sud-Australie Est |
+| Asie-Pacifique | Asie Est | Asie Sud-Est |
 | Canada | Centre du Canada | Est du Canada |
 | Europe | Europe Nord | Europe Ouest |
 | Allemagne | Allemagne Centre-Ouest | Allemagne Nord |
@@ -44,8 +45,10 @@ La réplication de volume Azure NetApp Files est prise en charge entre différen
 | Amérique du Nord | USA Est 2 | USA Centre |
 | Amérique du Nord | Centre-Nord des États-Unis | États-Unis - partie centrale méridionale|
 | Norvège | Norvège Est | Norvège Ouest |
+| Suisse | Suisse Nord | Suisse Ouest |
 | Royaume-Uni | Sud du Royaume-Uni | Ouest du Royaume-Uni |
 | Émirats Arabes Unis | Émirats arabes unis Nord | Émirats arabes unis Centre |
+| Gouvernement américain | Gouvernement des États-Unis – Arizona | Gouvernement des États-Unis – Texas |
 | Gouvernement américain | Gouvernement américain - Virginie | Gouvernement des États-Unis – Texas |
 
 ### <a name="azure-regional-non-standard-pairs"></a>Paires non standard de régions Azure
@@ -62,6 +65,7 @@ La réplication de volume Azure NetApp Files est prise en charge entre différen
 | Amérique du Nord | États-Unis - partie centrale méridionale | USA Est 2 |
 | Amérique du Nord | États-Unis - partie centrale méridionale | USA Centre |
 | Amérique du Nord | USA Ouest 2 | USA Est |
+| Gouvernement américain | Gouvernement des États-Unis – Arizona | Gouvernement américain - Virginie |
 
 ## <a name="service-level-objectives"></a>Objectifs de niveau de service
 

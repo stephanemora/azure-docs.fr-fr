@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines 
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
 ms.date: 09/27/2021
-ms.openlocfilehash: 5469c10bb62164e7feea33a1b56cef3457d46efb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 65691a2bb48c3dece51effef4fbc7b65d19d8449
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129349679"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247794"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
@@ -54,8 +54,8 @@ Le tableau suivant répertorie les différentes alternatives que vous pouvez uti
 | Balises FQDN de Pare-feu Azure          | Plus faciles à gérer, car les FQDN requis sont gérés automatiquement | Utilisabes avec Pare-feu Azure uniquement                         |
 | Autoriser l’accès aux FQDN/adresses IP du service | Aucun coût supplémentaire   <br><br>  Fonctionne avec toutes les appliances de sécurité réseau et tous les pare-feu | Il peut être nécessaire d’accéder à un large éventail d’adresses IP ou de FQDN   |
 | Utiliser un proxy HTTP                 | Un seul point d’accès Internet aux machines virtuelles                       | Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy         |
-| [Point de terminaison de service de réseau virtuel](/azure/virtual-network/virtual-network-service-endpoints-overview)    |     Peut être utilisé pour le stockage Azure (= coffre Recovery Services).     <br><br>     Offre un avantage important pour optimiser les performances du trafic du plan de données.          |         Ne peut pas être utilisé pour Azure AD, le service de sauvegarde Azure.    |
-| Appliance virtuelle réseau      |      Peut être utilisé pour le stockage Azure, Azure AD, le service de sauvegarde Azure. <br><br> **Plan de données**   <ul><li>      Stockage Azure : `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **Plan de gestion**  <ul><li>  Azure AD : autorisez l’accès aux noms de domaine complets mentionnés dans les sections 56 et 59 de [Services communs Microsoft 365 et Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Service de sauvegarde Azure : `.backup.windowsazure.com` </li></ul> <br>Apprenez-en davantage sur les [Étiquettes de service du Pare-feu Azure](/azure/firewall/fqdn-tags#:~:text=An%20FQDN%20tag%20represents%20a%20group%20of%20fully,the%20required%20outbound%20network%20traffic%20through%20your%20firewall.).       |  Ajoute une surcharge au trafic du plan de données et réduit le débit/les performances.  |
+| [Point de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)    |     Peut être utilisé pour le stockage Azure (= coffre Recovery Services).     <br><br>     Offre un avantage important pour optimiser les performances du trafic du plan de données.          |         Ne peut pas être utilisé pour Azure AD, le service de sauvegarde Azure.    |
+| Appliance virtuelle réseau      |      Peut être utilisée pour le stockage Azure, Azure AD, le service de sauvegarde Azure. <br><br> **Plan de données**   <ul><li>      Stockage Azure : `*.blob.core.windows.net`, `*.queue.core.windows.net`  </li></ul>   <br><br>     **Plan de gestion**  <ul><li>  Azure AD : autorisez l'accès aux noms de domaine complets mentionnés dans les sections 56 et 59 de [Microsoft 365 Common et Office Online](/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide&preserve-view=true#microsoft-365-common-and-office-online). </li><li>   Service de sauvegarde Azure : `.backup.windowsazure.com` </li></ul> <br>Apprenez-en davantage sur les [étiquettes de service du Pare-feu Azure](../firewall/fqdn-tags.md).       |  Ajoute une surcharge au trafic du plan de données et réduit le débit/les performances.  |
 
 De plus amples informations sur l’utilisation de ces options sont disponibles ci-dessous :
 
@@ -179,13 +179,13 @@ Voici un récapitulatif des étapes requises pour effectuer l’exécution du sc
 
 | Qui     |    Du    |    À exécuter    |    Commentaires    |
 | --- | --- | --- | --- |
-| `<sid>`adm (OS) |    Système d’exploitation HANA   | Lisez le tutoriel et téléchargez le script de pré-inscription.  |    Tutoriel : [Sauvegarder des bases de données HANA dans une machine virtuelle Azure](/azure/backup/tutorial-backup-sap-hana-db)   <br><br>    Téléchargez le [script de préinscription](https://go.microsoft.com/fwlink/?linkid=2173610). |
+| `<sid>`adm (OS) |    Système d’exploitation HANA   | Lisez le tutoriel et téléchargez le script de pré-inscription.  |    Tutoriel : [Sauvegarder des bases de données HANA dans une machine virtuelle Azure]()   <br><br>    Téléchargez le [script de préinscription](https://go.microsoft.com/fwlink/?linkid=2173610). |
 | `<sid>`adm (OS)    |    Système d’exploitation HANA    |   Démarrez HANA (HDB start)    |   Avant de configurer, assurez-vous que HANA est opérationnel.   |
 | `<sid>`adm (OS)   |   Système d’exploitation HANA  |    Exécutez la commande suivante : <br>  `hdbuserstore Set`   |  `hdbuserstore Set SYSTEM <hostname>:3<Instance#>13 SYSTEM <password>`  <br><br>   **Remarque** <br>  Veillez à utiliser le nom d’hôte au lieu de l’adresse IP ou du nom de domaine complet.   |
 | `<sid>`adm (OS)   |  Système d’exploitation HANA    |   Exécutez la commande suivante :<br> `hdbuserstore List`   |  Vérifiez si le résultat comprend le magasin par défaut, comme ci-dessous : <br><br> `KEY SYSTEM`  <br> `ENV : <hostname>:3<Instance#>13`    <br>  `USER : SYSTEM`   |
 | Root (OS)   |   Système d’exploitation HANA    |    Exécutez le [script de pré-inscription HANA de la sauvegarde Azure](https://go.microsoft.com/fwlink/?linkid=2173610).     | `./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM`    |
 | `<sid>`adm (OS)   |   Système d’exploitation HANA   |    Exécutez la commande suivante : <br> `hdbuserstore List`   |   Vérifiez si le résultat comprend de nouvelles lignes, comme indiqué ci-dessous : <br><br>  `KEY AZUREWLBACKUPHANAUSER` <br>  `ENV : localhost: 3<Instance#>13`   <br> `USER: AZUREWLBACKUPHANAUSER`    |
-| Contributeur Azure     |    Portail Azure    |   Configurez NSG, l’appliance virtuelle réseau, le pare-feu Azure, etc. pour autoriser le trafic sortant vers le service de sauvegarde Azure, Azure AD et le stockage Azure.     |    [Configurer la connectivité réseau](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)    |
+| Contributeur Azure     |    Portail Azure    |   Configurez NSG, l’appliance virtuelle réseau, le pare-feu Azure, etc. pour autoriser le trafic sortant vers le service de sauvegarde Azure, Azure AD et le stockage Azure.     |    [Configurer la connectivité réseau](#set-up-network-connectivity)    |
 | Contributeur Azure |   Portail Azure    |   Créez ou ouvrez un coffre Recovery Services, puis sélectionnez Sauvegarde HANA.   |   Recherchez toutes les machines virtuelles HANA cibles à sauvegarder.   |
 | Contributeur Azure    |   Portail Azure    |   Découvrez les bases de données HANA et configurez la stratégie de sauvegarde.   |  Par exemple : <br><br>  Sauvegarde hebdomadaire : tous les dimanches à 2:00 ; conservation des données, hebdomadaire 12 semaines, mensuelle 12 mois, annuelle 3 ans   <br>   Différentielle ou incrémentielle : tous les jours, à l’exception du dimanche    <br>   Journal : toutes les 15 minutes, conservé pendant 35 jours    |
 | Contributeur Azure  |   Portail Azure    |    Coffre Recovery Service – Éléments de sauvegarde – SAP HANA     |   Vérifiez les tâches de sauvegarde (charge de travail Azure).    |
@@ -231,9 +231,9 @@ Le coffre Recovery Services est maintenant créé.
 
 ## <a name="enable-cross-region-restore"></a>Activer la restauration inter-région
 
-Dans le coffre Recovery Services, vous pouvez activer la restauration inter-région. Vous devez activer la restauration inter-région avant de configurer et de protéger les sauvegardes sur vos bases de données HANA. Découvrez l’[activation de la restauration inter-région](/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+Dans le coffre Recovery Services, vous pouvez activer la restauration inter-région. Vous devez activer la restauration inter-région avant de configurer et de protéger les sauvegardes sur vos bases de données HANA. Découvrez [comment activer la restauration inter-région](./backup-create-rs-vault.md#set-cross-region-restore).
 
-[Apprenez-en davantage](/azure/backup/backup-azure-recovery-services-vault-overview) sur la restauration inter-région.
+[Apprenez-en davantage](./backup-azure-recovery-services-vault-overview.md) sur la restauration inter-région.
 
 ## <a name="discover-the-databases"></a>Détecter les bases de données
 

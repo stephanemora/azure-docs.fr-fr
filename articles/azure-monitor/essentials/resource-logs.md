@@ -6,17 +6,17 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
-ms.openlocfilehash: 2435e4ed16889d9d4701b6047c0a1f602ee7ae91
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac4ada3fe234428216d50edd85caa16fed10a5d2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558693"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231567"
 ---
 # <a name="azure-resource-logs"></a>Journaux de ressources Azure
 Les journaux de ressources Azure sont des [journaux de plateforme](../essentials/platform-logs-overview.md) qui fournissent des insights sur les opérations qui ont été effectuées au sein d’une ressource Azure. Le contenu des journaux de ressources varie en fonction du service Azure et du type de ressource. Les journaux d’activité de ressources ne sont pas collectées par défaut. Vous devez créer un paramètre de diagnostic pour chaque ressource Azure afin d’envoyer ses journaux de ressources vers un espace de travail Log Analytics pour les utiliser avec les [journaux Azure Monitor](../logs/data-platform-logs.md), vers Azure Event Hubs pour les transférer à l’extérieur d’Azure ou vers un stockage Azure à des fins d’archivage.
 
-Consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../essentials/diagnostic-settings.md) pour plus d’informations sur la création d’un paramètre de diagnostic et [Déployer Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md) pour plus d’informations sur l’utilisation d’Azure Policy pour créer automatiquement un paramètre de diagnostic pour chaque ressource Azure que vous créez.
+Consultez [Créer des paramètres de diagnostic pour envoyer des journaux et des métriques de plateforme à différentes destinations](../essentials/diagnostic-settings.md) pour plus d’informations sur la création d’un paramètre de diagnostic et [Déployer Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../best-practices.md) pour plus d’informations sur l’utilisation d’Azure Policy pour créer automatiquement un paramètre de diagnostic pour chaque ressource Azure que vous créez.
 
 ## <a name="send-to-log-analytics-workspace"></a>Envoyer à l’espace de travail Log Analytics
  Envoyez des journaux de ressources à un espace de travail Log Analytics pour activer les fonctionnalités des [journaux Azure Monitor](../logs/data-platform-logs.md), qui permettent notamment de :

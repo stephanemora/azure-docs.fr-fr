@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
-ms.openlocfilehash: 7c984f418ba35290f9c482efad83f3dd4d06c9b8
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: ea17d86bb4e5e4a6b5c5106c7d831c6691018b12
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823536"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214735"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
 
@@ -535,7 +535,7 @@ Les scénarios courants nécessitant une connectivité sortante explicite sont l
 - L’activation d’une machine virtuelle Windows nécessite que vous ayez défini une connectivité sortante à partir de l’instance de machine virtuelle vers le Service de gestion des clés d’activation Windows (KMS). Pour plus d’informations, consultez [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).  
 - Accédez aux comptes de stockage ou au Coffre de clés. La connectivité aux services Azure peut également être établie via une [Liaison privée](../private-link/private-link-overview.md). 
 
-Pour plus d’informations sur la définition de connexions sortantes sécurisées, consultez [Accès sortant par défaut dans Azure](https://aka.ms/defaultoutboundaccess).
+Pour plus d’informations sur la définition de connexions sortantes sécurisées, consultez [Accès sortant par défaut dans Azure](../virtual-network/ip-services/default-outbound-access.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

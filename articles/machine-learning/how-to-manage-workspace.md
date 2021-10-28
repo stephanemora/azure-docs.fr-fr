@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 04/22/2021
 ms.topic: how-to
 ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4
-ms.openlocfilehash: 9d4ad2b71d9ef5e3632344cb715926d2e5ebd343
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: a8dd26019d94cbaeca620d4dbb6e1bdf9dabdb2d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130072654"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246451"
 ---
 # <a name="manage-azure-machine-learning-workspaces-in-the-portal-or-with-the-python-sdk"></a>Gérer les espaces de travail Azure Machine Learning dans le portail ou avec le SDK Python
 
@@ -171,7 +171,7 @@ Fournie par le SDK Python Azure Machine Learning, la classe [PrivateEndpointConf
 
 # <a name="portal"></a>[Portail](#tab/azure-portal)
 
-1. La configuration réseau par défaut consiste à utiliser un __point de terminaison public__, accessible sur l’Internet public. Pour limiter l’accès de votre espace de travail à un réseau virtuel Azure que vous avez créé, vous pouvez à la place sélectionner __Point de terminaison privé__ (préversion) comme __Méthode de connectivité__, puis utiliser __+ Ajouter__ pour configurer le point de terminaison.   
+1. La configuration réseau par défaut consiste à utiliser un __point de terminaison public__, accessible sur l’Internet public. Pour limiter l’accès de votre espace de travail à un réseau virtuel Azure que vous avez créé, vous pouvez à la place sélectionner __Point de terminaison privé__ comme __Méthode de connectivité__, puis utiliser __+ Ajouter__ pour configurer le point de terminaison. 
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Sélection du point de terminaison privé":::  
 
@@ -182,10 +182,6 @@ Fournie par le SDK Python Azure Machine Learning, la classe [PrivateEndpointConf
 1. Lorsque vous avez terminé la configuration de la mise en réseau, vous pouvez sélectionner __Vérifier + créer__ ou passer à la configuration facultative __Avancé__.
 
 ---
-
-> [!IMPORTANT]  
-> L’utilisation d’un point de terminaison privé avec un espace de travail Azure Machine Learning est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.     
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="vulnerability-scanning"></a>Analyse des vulnérabilités
 

@@ -4,12 +4,12 @@ description: Découvrez comment Azure App Service vous permet d’assurer les fo
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: 77ba7e71570e235de297bd0eabc466b5ea180ece
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.openlocfilehash: 418c5077a685e8f5289644f4652638e605b6d456
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112895226"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240468"
 ---
 # <a name="move-an-app-service-app-to-another-region"></a>Déplacer une application App Service vers une autre région
 
@@ -30,7 +30,7 @@ Identifiez toutes les ressources App Service que l’application impactée util
 - [Emplacements de déploiement](deploy-staging-slots.md)
 - [Domaines personnalisés achetés dans Azure](manage-custom-dns-buy-domain.md)
 - [Certificats TLS/SSL](configure-ssl-certificate.md)
-- [Intégration de Réseau virtuel Microsoft Azure](web-sites-integrate-with-vnet.md)
+- [Intégration de Réseau virtuel Microsoft Azure](./overview-vnet-integration.md)
 - [Connexions hybrides](app-service-hybrid-connections.md)
 - [Identités managées](overview-managed-identity.md)
 - [Paramètres de sauvegarde](manage-backup.md)
@@ -47,7 +47,7 @@ Certaines ressources, telles que les certificats importés ou les connexions hyb
 
 1. Dans la page **Restaurer la sauvegarde**, configurez l’opération de restauration conformément au tableau suivant. Lorsque vous avez terminé, cliquez sur **OK**.
 
-   | Paramètre | Valeur | Description |
+   | Paramètre | Value | Description |
    |-|-|-|
    | **Capture instantanée (préversion)** | Sélectionnez une capture instantanée. | Les deux captures instantanées les plus récents sont disponibles. |
    | **Destination de la restauration** | **Application existante** | Cliquez sur la remarque ci-dessous, qui indique **Cliquez ici pour changer l’application de destination de la restauration**, puis sélectionnez l’application cible. Dans un scénario de sinistre, vous pouvez uniquement restaurer la capture instantanée dans une application se trouvant dans une autre région Azure. |

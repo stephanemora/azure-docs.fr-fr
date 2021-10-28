@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: cbc41f6e58be523b1a5dc6ad55c9e78b563d2ae8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6d7a391bcd90d54c7024da6deeef74849c178039
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144346"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232072"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -286,7 +286,7 @@ Ces bonnes pratiques sont le résultat de centaines de déploiements clients :
 
 - Les réseaux virtuels sur lesquels l’application SAP est déployée n’ont pas accès à Internet.
 - Les machines virtuelles de base de données s’exécutent dans le même réseau virtuel que la couche application, séparées dans un sous-réseau différent de la couche application SAP.
-- Les machines virtuelles du réseau virtuel ont une allocation statique de l’adresse IP privée. Pour plus d’informations, consultez [Types d’adresses IP et méthodes d’allocation dans Azure](../../../virtual-network/public-ip-addresses.md).
+- Les machines virtuelles du réseau virtuel ont une allocation statique de l’adresse IP privée. Pour plus d’informations, consultez [Types d’adresses IP et méthodes d’allocation dans Azure](../../../virtual-network/ip-services/public-ip-addresses.md).
 - Les restrictions de routage vers et depuis les machines virtuelles SGBD ne sont *pas* définies avec des pare-feu installés sur les machines virtuelles SGBD locales. À la place, le routage du trafic est défini avec des [groupes de sécurité réseau (NSG)](../../../virtual-network/network-security-groups-overview.md).
 - Pour séparer et isoler le trafic à destination des machines virtuelles SGBD, attribuez des cartes réseau distinctes aux machines virtuelles. Chaque carte réseau obtient une adresse IP différente et est attribuée à un sous-réseau virtuel différent. Chaque sous-réseau a ses propres règles NSG. L’isolation ou la séparation du trafic réseau est une méthode de routage. Elle ne permet pas de définir des quotas de débit réseau.
 

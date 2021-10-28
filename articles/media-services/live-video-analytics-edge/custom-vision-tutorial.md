@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Azure Custom Vision pour créer un mod�
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 3d9718a8c7cf6f93af32a3bd33bcf1e8c75c6aa8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 221232b69d85bb187dd952179712e336afff0906
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378263"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215332"
 ---
 # <a name="tutorial-analyze-live-video-with-azure-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutoriel : Analyser des vidéos en direct avec Azure Live Video Analytics sur IoT Edge et Azure Custom Vision
 
@@ -401,6 +401,6 @@ Si vous envisagez d’essayer les autres tutoriels ou guides de démarrage rapid
 Passez en revue les défis supplémentaires pour les utilisateurs expérimentés :
 
 * Utilisez une [caméra IP](https://en.wikipedia.org/wiki/IP_camera) qui prend en charge RTSP au lieu d’utiliser le simulateur RTSP. Vous pouvez rechercher les caméras IP qui prennent RTSP en charge dans la page des produits [conformes ONVIF](https://www.onvif.org/conformant-products/). Recherchez les appareils conformes aux profils G, S ou T.
-* Utilisez un appareil Linux AMD64 ou x64 plutôt qu’une machine virtuelle Linux Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Vous pouvez suivre les instructions mentionnées dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge.md).
+* Utilisez un appareil Linux AMD64 ou x64 plutôt qu’une machine virtuelle Linux Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Vous pouvez suivre les instructions mentionnées dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 Inscrivez ensuite l’appareil auprès d’Azure IoT Hub en suivant les instructions mentionnées dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](../../iot-edge/quickstart-linux.md).

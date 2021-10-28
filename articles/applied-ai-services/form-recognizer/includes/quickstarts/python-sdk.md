@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 1bf3f8e082a54e7f48fa43040e40cb54001b1d19
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 211fdcb9e6c92a2a6eae3e6fb9f96bfd490206ff
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715414"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287556"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
@@ -139,7 +139,7 @@ Confidence score: 1.0
 
 ## <a name="analyze-receipts"></a>Analyser les reçus
 
-Cette section montre comment analyser et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné. Pour plus d’informations sur l’analyse des tickets de caisse, consultez le [guide conceptuel des tickets de caisse](../../concept-receipts.md). Pour analyser les tickets de caisse à partir d’une URL, utilisez la méthode `begin_recognize_receipts_from_url`.
+Cette section montre comment analyser et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné. Pour plus d’informations sur l’analyse des tickets de caisse, consultez le [guide conceptuel des tickets de caisse](../../concept-receipt.md). Pour analyser les tickets de caisse à partir d’une URL, utilisez la méthode `begin_recognize_receipts_from_url`.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_receipts)]
 
@@ -170,7 +170,7 @@ Total: 1203.39 has confidence 0.774
 
 ## <a name="analyze-business-cards"></a>Analyser les cartes de visite
 
-Cette section montre comment analyser et extraire les champs courants des cartes de visite en anglais en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des cartes de visite, consultez le [guide conceptuel des cartes de visite](../../concept-business-cards.md). 
+Cette section montre comment analyser et extraire les champs courants des cartes de visite en anglais en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des cartes de visite, consultez le [guide conceptuel des cartes de visite](../../concept-business-card.md). 
 
 Pour analyser des cartes de visite à partir d’une URL, utilisez la méthode `begin_recognize_business_cards_from_url`.
 
@@ -181,7 +181,7 @@ Pour analyser des cartes de visite à partir d’une URL, utilisez la méthode `
 
 ## <a name="analyze-invoices"></a>Analyser les factures
 
-Cette section montre comment analyser et extraire les champs communs de factures de vente en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des factures, consultez le [guide conceptuel des factures](../../concept-invoices.md). 
+Cette section montre comment analyser et extraire les champs communs de factures de vente en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des factures, consultez le [guide conceptuel des factures](../../concept-invoice.md). 
 
 Pour analyser des factures à partir d’une URL, utilisez la méthode `begin_recognize_invoices_from_url`.
 
@@ -192,7 +192,7 @@ Pour analyser des factures à partir d’une URL, utilisez la méthode `begin_re
 
 ## <a name="analyze-id-documents"></a>Analyser des documents d’identité
 
-Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle d’identification prédéfini](../../concept-identification-cards.md).
+Cette section montre comment analyser et extraire des informations clés de documents d’identité gouvernementaux (passeports internationaux et permis de conduire émis aux États-Unis) à l’aide du modèle de document d’identification prédéfini Form Recognizer. Pour plus d’informations sur l’analyse des documents d’identité, consultez notre [guide conceptuel sur le modèle d’identification prédéfini](../../concept-id-document.md).
 
 Pour analyser des documents d’identité à partir d’une URL, utilisez la méthode `begin_recognize_id_documents_from_url`.
 

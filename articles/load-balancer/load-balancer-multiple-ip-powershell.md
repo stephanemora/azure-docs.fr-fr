@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 6f7073ee2c0901d1aefc1124c61ee9e2602b8070
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 154c22734bb39f5cb27232b2aaa0e4c5677a9892
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123253136"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246640"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Équilibrage de charge sur plusieurs configurations IP avec PowerShell
 
@@ -60,7 +60,7 @@ Pour accomplir le scénario décrit dans cet article, suivez les étapes ci-dess
 
     Accomplissez ensuite les étapes 6.3 à 6.8 de l’article [Créer une machine virtuelle Windows](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-5. Ajoutez une deuxième configuration IP à chacune des machines virtuelles. Suivez les instructions de l’article [Affecter plusieurs adresses IP aux machines virtuelles](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md#add). Utilisez les paramètres de configuration suivants :
+5. Ajoutez une deuxième configuration IP à chacune des machines virtuelles. Suivez les instructions de l’article [Affecter plusieurs adresses IP aux machines virtuelles](../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md#add). Utilisez les paramètres de configuration suivants :
 
     ```powershell
     $NicName = "VM1-NIC2"

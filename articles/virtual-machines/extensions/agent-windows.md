@@ -9,12 +9,12 @@ author: amjads1
 ms.collection: windows
 ms.date: 07/20/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6de81e9df2b66a27a15ff9578646aa8c6fb09c45
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 8e5118b25238a9483eba3e74a65fe97186d32168
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110663222"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236843"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 L’agent de machine virtuelle Microsoft Azure est un processus léger et sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Les extensions de machine virtuelle permettent la configuration post-déploiement de machines virtuelles, par exemple l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, vous ne pouvez pas exécuter d’extensions de machine virtuelle.
@@ -70,7 +70,7 @@ $vm | Update-AzVM
 
 - Vérifiez que votre machine virtuelle a accès à l’adresse IP 168.63.129.16. Pour plus d’informations, consultez [Qu’est-ce que l’adresse IP 168.63.129.16 ?](../../virtual-network/what-is-ip-address-168-63-129-16.md)
 
-- Vérifiez que le protocole DHCP est activé à l’intérieur de la machine virtuelle invitée. Il est nécessaire pour obtenir l’adresse de l’hôte ou de l’infrastructure à partir de DHCP pour que l’agent de machine virtuelle IaaS et les extensions fonctionnent. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via le portail Azure ou PowerShell et vérifier que l’option DHCP dans la machine virtuelle est activée. [Apprenez-en davantage](../../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sur la configuration d’une adresse IP statique avec PowerShell.
+- Vérifiez que le protocole DHCP est activé à l’intérieur de la machine virtuelle invitée. Il est nécessaire pour obtenir l’adresse de l’hôte ou de l’infrastructure à partir de DHCP pour que l’agent de machine virtuelle IaaS et les extensions fonctionnent. Si vous avez besoin d’une adresse IP privée statique, vous devez la configurer via le portail Azure ou PowerShell et vérifier que l’option DHCP dans la machine virtuelle est activée. [Apprenez-en davantage](../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md) sur la configuration d’une adresse IP statique avec PowerShell.
 
 
 ## <a name="detect-the-vm-agent"></a>Détecter l’agent de machine virtuelle

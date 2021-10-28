@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: e76a536080ffd2b4bf35de744bd34d8022458300
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 8be955312d377f871ab3d09164c23c8cfdf214b9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129725814"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265909"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -190,7 +190,7 @@ Cell has text ET.
 
 ## <a name="analyze-receipts"></a>Analyser les reçus
 
-Cette section montre comment analyser et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné. Pour plus d’informations sur l’analyse des tickets de caisse, consultez le [guide conceptuel des tickets de caisse](../../concept-receipts.md).
+Cette section montre comment analyser et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné. Pour plus d’informations sur l’analyse des tickets de caisse, consultez le [guide conceptuel des tickets de caisse](../../concept-receipt.md).
 
 Pour analyser les tickets à partir d’un URI, utilisez la méthode **beginRecognizeReceiptsFromUrl**.
 

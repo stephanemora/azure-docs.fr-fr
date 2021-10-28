@@ -13,12 +13,12 @@ ms.subservice: compliance
 ms.date: 08/18/2021
 ms.author: sama
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05633ab0a46f3aa88ab3e520b493d40527717872
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: fcf38a949d15faa896f4ac673fc53814078a087e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129809320"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231760"
 ---
 # <a name="tutorial-manage-the-lifecycle-of-your-group-based-licenses-in-azure-ad"></a>Tutoriel : Gérer le cycle de vie de vos licences basées sur des groupes dans Azure AD
  
@@ -55,7 +55,7 @@ Pour plus d’informations, consultez [Exigences des licences](entitlement-manag
 
 1. Sélectionnez **Suivant : Rôles des ressources** pour accéder à l’onglet **Rôles des ressources**.
 
-2. Sous cet onglet, sélectionnez les ressources et le rôle de ressource à inclure dans le package d’accès. Dans ce scénario, sélectionnez **Groupes et équipes** et recherchez votre groupe auquel a été affecté [Licences Office](/azure/active-directory/enterprise-users/licensing-groups-assign).
+2. Sous cet onglet, sélectionnez les ressources et le rôle de ressource à inclure dans le package d’accès. Dans ce scénario, sélectionnez **Groupes et équipes** et recherchez votre groupe auquel a été affecté [Licences Office](../enterprise-users/licensing-groups-assign.md).
 
 3. Dans la liste **Rôle**, sélectionnez **Membre**.
 
@@ -141,4 +141,4 @@ Dans cette étape, vous pouvez supprimer le package d’accès Licences Office.
 
 Découvrez comment créer des packages d’accès pour gérer l’accès à d’autres types de ressources comme les applications et les sites : 
 
-[Gérer l’accès aux ressources dans la gestion des droits d’utilisation Azure AD](/azure/active-directory/governance/entitlement-management-access-package-first)
+[Gérer l’accès aux ressources dans la gestion des droits d’utilisation Azure AD](./entitlement-management-access-package-first.md)

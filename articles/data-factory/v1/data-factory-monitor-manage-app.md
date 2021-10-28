@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.openlocfilehash: 76acbba66ccbeb18637ce0f181a702f8696148d6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/22/2021
+ms.openlocfilehash: fa6e6274bb574899c7dab6430e966002fb656c57
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128591897"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264291"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion
 > [!div class="op_single_selector"]

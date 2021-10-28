@@ -3,12 +3,12 @@ title: Tutoriel sur l’enregistrement et la lecture vidéo en continu - Azure V
 description: Dans ce tutoriel, vous allez voir comment utiliser Azure Video Analyzer pour enregistrer des vidéos en continu dans le cloud et comment lire les enregistrements.
 ms.topic: tutorial
 ms.date: 09/14/2021
-ms.openlocfilehash: 1ecba5892c3112ae12916c8b831eee994d4b5766
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: d7453761d2954ce21eff1d7030fcbf3c25360697
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128644141"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233383"
 ---
 # <a name="tutorial-continuous-video-recording-and-playback"></a>Tutoriel : Enregistrement et lecture vidéo en continu
 
@@ -274,7 +274,7 @@ Comme son nom l’indique, l’événement **RecordingStarted** est envoyé lors
 
 Cet événement indique que suffisamment de données ont été écrites dans la ressource vidéo pour que les lecteurs ou les clients commencent la lecture de la vidéo.
 
-La section subject dans applicationProperties fait référence au nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
+La section subject dans applicationProperties référence le nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
 
 La section body contient des informations sur l’emplacement de sortie. Dans ce cas, il s’agit du nom de la ressource Video Analyzer dans laquelle la vidéo est enregistrée.
 
@@ -325,4 +325,4 @@ Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Utilisez une [caméra IP](https://en.wikipedia.org/wiki/IP_camera) avec prise en charge de RTSP au lieu d’utiliser le simulateur RTSP. Vous pouvez consulter les caméras IP prenant RTSP en charge dans la [page de produits conformes ONVIF](https://www.onvif.org/conformant-products/) en recherchant les appareils conformes aux profils G, S ou T.
-* Utilisez un périphérique Linux AMD64 ou x64 (au lieu d’utiliser une machine virtuelle Linux Azure). Cet appareil doit se trouver dans le même réseau que la caméra IP. Suivez les instructions données dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge.md). Suivez ensuite les instructions données dans le démarrage rapide [Déployer votre premier module IoT Edge sur un appareil Linux virtuel](../../iot-edge/quickstart-linux.md) pour inscrire l’appareil auprès d’Azure IoT Hub.
+* Utilisez un périphérique Linux AMD64 ou x64 (au lieu d’utiliser une machine virtuelle Linux Azure). Cet appareil doit se trouver dans le même réseau que la caméra IP. Suivez les instructions données dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md). Suivez ensuite les instructions données dans le démarrage rapide [Déployer votre premier module IoT Edge sur un appareil Linux virtuel](../../iot-edge/quickstart-linux.md) pour inscrire l’appareil auprès d’Azure IoT Hub.

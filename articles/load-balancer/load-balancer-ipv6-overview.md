@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 4061a3dbf4dc92d6d412528115d46edc36d20d5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 27b1601f9cdd1ccac001e71f2e0364ee168a201f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94700683"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232512"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
 
 
 >[!NOTE] 
->Ce contenu a été remplacé par [Vue d’ensemble d’IPv6 pour les réseaux virtuels Azure](../virtual-network/ipv6-overview.md). Azure recommande que les nouveaux déploiements IPv6 utilisent les nouvelles fonctionnalités IPv6 pour Réseaux virtuels Azure.
+>Ce contenu a été remplacé par [Vue d’ensemble d’IPv6 pour les réseaux virtuels Azure](../virtual-network/ip-services/ipv6-overview.md). Azure recommande que les nouveaux déploiements IPv6 utilisent les nouvelles fonctionnalités IPv6 pour Réseaux virtuels Azure.
 
 >[!NOTE]
 >Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](./load-balancer-overview.md).

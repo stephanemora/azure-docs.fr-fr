@@ -3,12 +3,12 @@ title: Activer Container Insights | Microsoft Docs
 description: Cet article explique comment activer et configurer Container Insights afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: de7475ddb5a8057ef1b58d4ed21c55a1d10a4dd8
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: be2dcaeb088d2996df1d09e3f373e48866db3eb9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129708946"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233447"
 ---
 # <a name="enable-container-insights"></a>Activer Container Insights
 
@@ -51,7 +51,7 @@ Avant de commencer, vérifiez que vous respectez les exigences suivantes :
    
    Si vous choisissez de créer l’espace de travail vous-même, vous pouvez le créer par le biais de : 
    - [Azure Resource Manager](../logs/resource-manager-workspace.md)
-   - [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+   - [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [Portail Azure](../logs/quick-create-workspace.md) 
    
    Pour obtenir la liste des paires de mappage prises en charge à utiliser pour l’espace de travail par défaut, consultez [Mappage des régions pour Container Insights](container-insights-region-mapping.md).

@@ -10,12 +10,12 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: 44f41d0adebe21eaec28aced556f67e8c1aeda1d
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 6df2a24ca029f14a4743b28641b8ac4c2b88e851
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047225"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223780"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Créer un déclencheur qui exécute un pipeline sur une fenêtre bascule
 
@@ -213,7 +213,7 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
 
 - **Azure PowerShell**. Suivez les instructions de l'article [Installer Azure PowerShell sur Windows avec PowerShellGet](/powershell/azure/install-az-ps). 
 
-- **Azure Data Factory**. Suivez les instructions dans [Créer une fabrique de données Azure à l’aide de PowerShell](/azure/data-factory/quickstart-create-data-factory-powershell) pour créer une fabrique de données et un pipeline.
+- **Azure Data Factory**. Suivez les instructions dans [Créer une fabrique de données Azure à l’aide de PowerShell](./quickstart-create-data-factory-powershell.md) pour créer une fabrique de données et un pipeline.
 
 ### <a name="sample-code"></a>Exemple de code
 
@@ -292,7 +292,7 @@ Cette section montre comment utiliser Azure CLI pour créer, démarrer et analys
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- Suivez les instructions dans [Créer une fabrique de données Azure à l’aide d’Azure CLI](/azure/data-factory/quickstart-create-data-factory-azure-cli) pour créer une fabrique de données et un pipeline.
+- Suivez les instructions dans [Créer une fabrique de données Azure à l’aide d’Azure CLI](./quickstart-create-data-factory-azure-cli.md) pour créer une fabrique de données et un pipeline.
 
 ### <a name="sample-code"></a>Exemple de code
 

@@ -8,12 +8,12 @@ ms.service: cache
 ms.topic: how-to
 ms.date: 09/30/2021
 ms.custom: template-how-to
-ms.openlocfilehash: e62215649a79f16fcb9cbfc20cfe16bc98f2251f
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: 2662ba2f2e87f79b034ae8138bba31fc9358d8d6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129812432"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236168"
 ---
 # <a name="monitor-azure-cache-for-redis-data-using-diagnostic-settings"></a>Surveiller les données d’Azure Cache pour Redis à l’aide de paramètres de diagnostic
 
@@ -28,7 +28,7 @@ Vous pouvez activer les paramètres de diagnostic pour les instances Azure Cache
 - **Event Hub** : Les paramètres de diagnostic ne peuvent pas accéder aux ressources de l’Event Hub lorsque les réseaux virtuels sont activés. Activez le paramètre **Autoriser les services Microsoft approuvés à contourner ce pare-feu ?** dans les Event Hubs pour accorder l’accès aux ressources de votre Event Hub. L’Event Hub doit se trouver dans la même région que le cache.
 - **Compte de stockage** : Il doit se trouver dans la même région que le cache.
 
-Pour plus d’informations sur les exigences de diagnostic, consultez [Paramètres de diagnostic](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
+Pour plus d’informations sur les exigences de diagnostic, consultez [Paramètres de diagnostic](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD).
 
 Lorsque vous envoyez des journaux de diagnostic vers l’une ou l’autre destination, les tarifs de données normaux pour l’utilisation du compte de stockage et de l’Event Hub vous sont facturés. Vous êtes facturé sous Azure Monitor et non sous Azure Cache pour Redis.
 Pour plus d’informations, consultez [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
@@ -53,7 +53,7 @@ Pour plus d’informations, consultez [Tarification Azure Monitor](https://azure
 
 ## <a name="create-diagnostic-setting-via-rest-api"></a> Créer un paramètre de diagnostic via l’API REST
 
-Utilisez l’API REST Azure Monitor pour créer un paramètre de diagnostic via la console interactive. Pour plus d’informations, voir [Créer ou mettre à jour](/rest/api/monitor/diagnostic-settings/create-or-update.md).
+Utilisez l’API REST Azure Monitor pour créer un paramètre de diagnostic via la console interactive. Pour plus d’informations, voir [Créer ou mettre à jour](/rest/api/monitor/diagnostic-settings/create-or-update).
 
 ### <a name="request"></a>Requête
 

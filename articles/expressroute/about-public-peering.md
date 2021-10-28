@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: af70296b886f7e1fb736c1df1b041e2f43451327
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 5c2da05dd68951cada82fc888d54a0f423ce18c7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110701950"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242275"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Créer et gérer le peering public ExpressRoute
 
@@ -31,7 +31,7 @@ Cet article est conçu pour vous aider à créer et à gérer la configuration d
 
 ## <a name="connectivity"></a>Connectivité
 
-La connectivité est toujours initiée de votre réseau étendu vers les services Microsoft Azure. Ces derniers ne sont pas en mesure d’initier des connexions à votre réseau via ce domaine de routage. Si votre circuit ExpressRoute est activé pour le peering public Azure, vous pouvez accéder aux [plages d’adresses IP publiques dans Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) sur le circuit.
+La connectivité est toujours initiée de votre réseau étendu vers les services Microsoft Azure. Ces derniers ne sont pas en mesure d’initier des connexions à votre réseau via ce domaine de routage. Si votre circuit ExpressRoute est activé pour le peering public Azure, vous pouvez accéder aux [plages d’adresses IP publiques dans Azure](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses) sur le circuit.
 
 Une fois le peering public activé, vous êtes en mesure de vous connecter à presque tous les services Azure. Nous ne vous permettons pas de sélectionner les services pour lesquels nous publions les itinéraires.
 

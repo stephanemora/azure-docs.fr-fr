@@ -4,12 +4,12 @@ description: Exportez les données de diagnostic et les données d’utilisation
 ms.topic: conceptual
 ms.date: 02/19/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8a302717ed962971069ee56a07d78747d82b00df
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1d4a9a6e60d39b01ea1ebe99289c9bb3a1c50c2b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110455044"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233523"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
 Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code dont vous avez besoin pour les traiter.  
@@ -216,7 +216,7 @@ L’exportation continue redémarre.
 ## <a name="export-samples"></a>Exemples d’exportation
 
 * [Exporter vers SQL à l’aide de Stream Analytics][exportasa]
-* [Stream Analytics - Exemple 2](export-stream-analytics.md)
+* [Stream Analytics - Exemple 2](../../stream-analytics/app-insights-export-stream-analytics.md)
 
 À plus grande échelle, envisagez d’utiliser des clusters [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop dans le cloud. HDInsight propose de nombreuses technologies pour gérer et analyser Big Data, et vous pouvez l’utiliser pour traiter les données qui ont été exportées depuis Application Insights.
 
@@ -249,7 +249,7 @@ L’exportation continue redémarre.
 
 ## <a name="code-samples"></a>Exemples de code
 
-* [Stream Analytics - Exemple](export-stream-analytics.md)
+* [Stream Analytics - Exemple](../../stream-analytics/app-insights-export-stream-analytics.md)
 * [Exporter vers SQL à l’aide de Stream Analytics][exportasa]
 * [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](export-data-model.md)
 
@@ -268,6 +268,5 @@ Pour migrer vers l’exportation basée sur les paramètres de diagnostic :
 
 <!--Link references-->
 
-[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[exportasa]: ../../stream-analytics/app-insights-export-sql-stream-analytics.md
 [roles]: ./resources-roles-access-control.md
-

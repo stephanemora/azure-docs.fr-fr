@@ -3,12 +3,12 @@ title: Résoudre des problèmes de sauvegarde de partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 942574fafe6a68b601f3ed4c428dc74fb02719a5
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 07b3f8c6fddef10132ac15f1dc3fe076d6d29218
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129532514"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247756"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Résoudre des problèmes lors de la sauvegarde de partages de fichiers Azure
 
@@ -27,7 +27,7 @@ Cet article fournit des informations pour vous aider à résoudre des problèmes
 - Assurez-vous que le partage de fichiers ne figure pas dans un des compte de stockage non pris en charge. Pour trouver les comptes de stockage pris en charge, vous pouvez consulter la [Matrice de prise en charge pour la sauvegarde de partage de fichiers Azure](azure-file-share-support-matrix.md).
 - Assurez-vous que le compte de stockage et le coffre Recovery Services sont présents dans la même région.
 - Vérifiez que la longueur combinée du nom du compte de stockage et du nom du groupe de ressources ne dépasse pas 84 caractères en cas de nouveaux comptes de stockage, et 77 caractères dans le cas de comptes de stockage classiques.
-- Vérifiez les paramètres de pare-feu du compte de stockage pour vous assurer que l’exception « _Autoriser les services Azure de la liste des services approuvés à accéder à ce compte de stockage_ » est accordée. Vous pouvez vous reporter à [ce](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) lien pour découvrir la procédure d’accord d’exception.
+- Vérifiez les paramètres de pare-feu du compte de stockage pour vous assurer que l’exception « _Autoriser les services Azure de la liste des services approuvés à accéder à ce compte de stockage_ » est accordée. Vous pouvez vous reporter à [ce](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) lien pour découvrir la procédure d’accord d’exception.
 
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Erreur dans le portail indiquant que la découverte des comptes de stockage a échoué

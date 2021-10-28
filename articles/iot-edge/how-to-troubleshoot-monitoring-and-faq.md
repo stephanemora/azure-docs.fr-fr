@@ -9,12 +9,12 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 zone_pivot_groups: how-to-troubleshoot-monitoring-and-faq-zpg
-ms.openlocfilehash: 9d3e89ee74dd1f0274ad742cae4a9706f54b7780
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 8c4e74bbd72abdbfaf365afe720149f0eb7fe8ae
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122533015"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215388"
 ---
 # <a name="faq-and-troubleshooting"></a>FAQ et résolution des problèmes
 
@@ -38,7 +38,7 @@ Pour plus d’informations, consultez [Considérations relatives au proxy](how-t
 
 ### <a name="update-moby-engine"></a>Mettre à jour Moby-Engine
 
-Sur les hôtes Linux, assurez-vous que vous utilisez une version récente du moteur de conteneur. Nous vous recommandons d’effectuer la mise à jour vers la dernière version en suivant les [instructions d’installation](how-to-install-iot-edge.md#install-a-container-engine).
+Sur les hôtes Linux, assurez-vous que vous utilisez une version récente du moteur de conteneur. Nous vous recommandons d’effectuer la mise à jour vers la dernière version en suivant les [instructions d’installation](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
 
 ## <a name="how-do-i-collect-logs-along-with-metrics"></a>Comment collecter les journaux avec les métriques ?
 

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47f3bc4082edf64a66fbc90e4f9838040220f3f0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5c59e7b2cc1e3f10ec322ebfd65ebad2d536ed86
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124782382"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232714"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-net-sdk-v4"></a>Démarrage rapide : Bibliothèque de client de certificats Azure Key Vault pour .NET (SDK v4)
 
@@ -134,7 +134,7 @@ using Azure.Security.KeyVault.Certificates;
 
 ### <a name="authenticate-and-create-a-client"></a>Authentifier et créer un client
 
-Dans ce guide de démarrage rapide, l’utilisateur connecté est utilisé pour l’authentification auprès du coffre de clés, qui est la méthode recommandée pour le développement local. Pour les applications déployées sur Azure, l’identité managée doit être affectée à App Service ou à une machine virtuelle. Pour plus d’informations, consultez [Vue d’ensemble des identités managées](../../active-directory/managed-identities-azure-resources/overview.md
+Dans ce guide de démarrage rapide, l’utilisateur connecté est utilisé pour l’authentification auprès du coffre de clés, qui est la méthode recommandée pour le développement local. Pour les applications déployées sur Azure, l’identité managée doit être affectée à App Service ou à une machine virtuelle. Pour plus d’informations, consultez [Vue d’ensemble des identités managées](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Dans l’exemple ci-dessous, le nom de votre coffre de clés est étendu à l’URI du coffre de clés, au format « https://\<your-key-vault-name\>.vault.azure.net ». Cet exemple utilise la classe [« DefaultAzureCredential() »](/dotnet/api/azure.identity.defaultazurecredential) de la [bibliothèque Azure Identity](/dotnet/api/overview/azure/identity-readme), ce qui permet d’utiliser le même code dans différents environnements avec des options différentes pour fournir une identité. Pour plus d’informations sur l’authentification auprès du coffre de clés, consultez le [Guide du développeur](../general/developers-guide.md#authenticate-to-key-vault-in-code).
 

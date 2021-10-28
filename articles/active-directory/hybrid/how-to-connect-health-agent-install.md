@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 31dd21a7c525bd1e5dc659b611f72c2c33c6f043
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 963c2d997bd75dadbeb6a37ea80d4237ea46cc35
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531535"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240658"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l’agent Azure AD Connect Health
 
@@ -174,7 +174,7 @@ Le niveau d’audit « de base » est activé par défaut. Pour plus d’infor
 3. Sur la droite, sélectionnez **Filtrer les journaux d’activité actuels**.
 4. Dans **Sources d’événement**, sélectionnez **Audit AD FS**.
 
-    Pour plus d’informations sur les journaux d’audit, consultez [les questions relatives aux opérations](/azure/active-directory/hybrid/reference-connect-health-faq#operations-questions).
+    Pour plus d’informations sur les journaux d’audit, consultez [les questions relatives aux opérations](./reference-connect-health-faq.yml).
 
     ![Capture d’écran montrant la fenêtre Filtrer les journaux d’activité actuels. Dans le champ « Sources d’événement », « Audit AD FS » est sélectionné.](./media/how-to-connect-health-agent-install/adfsaudit.png)
 

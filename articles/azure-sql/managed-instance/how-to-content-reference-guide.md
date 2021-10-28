@@ -11,12 +11,12 @@ ms.topic: guide
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 04/16/2019
-ms.openlocfilehash: dafe702121934a1267f01a861932dc49361e5258
-ms.sourcegitcommit: 63f3fc5791f9393f8f242e2fb4cce9faf78f4f07
+ms.openlocfilehash: 2b64353da7de0b7f7d29502695c9d7ea22d6a19f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2021
-ms.locfileid: "114688551"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244677"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Référence du contenu Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Dans cet article, vous trouverez une référence du contenu des guides, des scri
 - [Créer un réseau virtuel et un sous-réseau](virtual-network-subnet-create-arm-template.md) : configurez le réseau virtuel et le sous-réseau en fonction de la [configuration réseau requise](connectivity-architecture-overview.md#network-requirements). 
 - [Configurer un réseau virtuel et un sous-réseau existants](vnet-existing-add-subnet.md) : vérifiez la configuration réseau requise et configurez votre réseau virtuel et votre sous-réseau existants pour déployer SQL Managed Instance. 
 - [Configurer un système DNS personnalisé](custom-dns-configure.md) : configurez un système DNS personnalisé pour accorder l’accès aux ressources externes à des domaines personnalisés à partir de SQL Managed Instance par le biais d’un serveur lié de profils de messagerie de base de données. 
-- [Synchroniser la configuration du réseau](azure-app-sync-network-configuration.md) : actualisez le plan de configuration réseau si vous ne parvenez pas à établir une connexion après avoir [intégré votre application à un réseau virtuel Azure](../../app-service/web-sites-integrate-with-vnet.md).
+- [Synchroniser la configuration du réseau](azure-app-sync-network-configuration.md) : actualisez le plan de configuration réseau si vous ne parvenez pas à établir une connexion après avoir [intégré votre application à un réseau virtuel Azure](../../app-service/overview-vnet-integration.md).
 - [Déterminer l’adresse IP du point de terminaison de gestion](management-endpoint-find-ip-address.md) : identifiez le point de terminaison public utilisé par SQL Managed Instance à des fins de gestion. 
 - [Vérifier la protection de pare-feu intégrée](management-endpoint-verify-built-in-firewall.md) : vérifiez que SQL Managed Instance autorise le trafic uniquement sur les ports nécessaires, et d’autres règles de pare-feu intégrées. 
 - [Connecter des applications](connect-application-instance.md) : découvrez les différents modèles de connexion des applications à SQL Managed Instance.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 5db37717356cd06b257867615623e24a1c36a335
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e9b47d3cfdb648a63156164f2341b05b4eeec4a1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524787"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234771"
 ---
 # <a name="azure-iot-edge-for-linux-on-windows-virtual-switch-creation"></a>Création d’un commutateur virtuel Azure IoT Edge pour Linux sur Windows
 Azure IoT Edge pour Linux sur Windows utilise un commutateur virtuel sur l’ordinateur hôte pour communiquer avec la machine virtuelle. Les versions Windows Desktop sont fournies avec un commutateur par défaut qui peut être utilisé, mais pas Windows Server. Avant de pouvoir déployer IoT Edge pour Linux sur Windows sur un appareil Windows Server, vous devez créer un commutateur virtuel. Par ailleurs, vous pouvez utiliser ce guide pour créer votre commutateur virtuel personnalisé, le cas échéant. 
@@ -26,7 +26,7 @@ Cet article vous explique comment créer un commutateur virtuel sur un appareil 
 
 ## <a name="prerequisites"></a>Configuration requise
 - Un appareil Windows. Pour connaître les versions de Windows prises en charge, consultez [Systèmes d’exploitation](support.md#operating-systems).
-- Rôle Hyper-V installé sur l’appareil Windows. Pour plus d’informations sur la façon d’activer Hyper-V, consultez [Installer et provisionner Azure IoT Edge pour Linux sur un appareil Windows](./how-to-install-iot-edge-on-windows.md?tabs=powershell#prerequisites).
+- Rôle Hyper-V installé sur l’appareil Windows. Pour plus d’informations sur la façon d’activer Hyper-V, consultez [Installer et provisionner Azure IoT Edge pour Linux sur un appareil Windows](./how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=powershell#prerequisites).
 
 ## <a name="create-virtual-switch"></a>Créer un commutateur virtuel 
 Les étapes suivantes de cette section sont un guide générique pour la création d’un commutateur virtuel. Vérifiez que la configuration du commutateur virtuel est compatible avec votre environnement réseau.
@@ -99,4 +99,4 @@ Les étapes suivantes de cette section sont un guide générique pour la créati
    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour configurer un appareil avec IoT Edge pour Linux sur Windows, Suivez les étapes décrites dans [installer et approvisionner Azure IoT Edge pour Linux sur un appareil Windows](how-to-install-iot-edge-on-windows.md).
+Pour configurer un appareil avec IoT Edge pour Linux sur Windows, Suivez les étapes décrites dans [installer et approvisionner Azure IoT Edge pour Linux sur un appareil Windows](how-to-provision-single-device-linux-on-windows-symmetric.md).

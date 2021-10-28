@@ -8,12 +8,12 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: edb881b10db1d617e1b1f6b1167c014d6d51020e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b0038126e72bbf059635c69c7421136d4da674af
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351010"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130288283"
 ---
 Utilisez la bibliothèque de client QnA Maker pour Ruby afin de :
 
@@ -68,7 +68,7 @@ Créez des variables pour le point de terminaison et la clé Azure de votre ress
 
 QnA Maker utilise deux modèles objet différents :
 * **[QnAMakerClient](#qnamakerclient-object-model)** est l’objet utilisé pour créer, gérer, publier et télécharger la base de connaissances.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** est l’objet utilisé pour interroger la base de connaissances avec l’API GenerateAnswer et envoyer de nouvelles questions suggérées avec l’API Train (dans le cadre de l’[apprentissage actif](../concepts/active-learning-suggestions.md)).
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** est l’objet utilisé pour interroger la base de connaissances avec l’API GenerateAnswer et envoyer de nouvelles questions suggérées avec l’API Train (dans le cadre de l’[apprentissage actif](../how-to/use-active-learning.md)).
 
 [!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
 
@@ -148,7 +148,7 @@ Créez un [QnAMakerRuntimeClient](https://github.com/Azure/azure-sdk-for-ruby/bl
 
 :::code language="ruby" source="~/cognitive-services-quickstart-code/ruby/qnamaker/sdk/quickstart.rb" id="AuthorizationQuery":::
 
-Utilisez QnAMakerRuntimeClient pour obtenir une réponse de la base de connaissances ou pour envoyer de nouvelles questions suggérées à la base de connaissances en vue de l’[apprentissage actif](../concepts/active-learning-suggestions.md).
+Utilisez QnAMakerRuntimeClient pour obtenir une réponse de la base de connaissances ou pour envoyer de nouvelles questions suggérées à la base de connaissances en vue de l’[apprentissage actif](../index.yml).
 
 ## <a name="generate-an-answer-from-the-knowledge-base"></a>Générer une réponse à partir de la base de connaissances
 

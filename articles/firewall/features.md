@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 07/30/2021
 ms.author: victorh
-ms.openlocfilehash: 5acb23767f8c766de80961fb8e76297f4b31a5c3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 348a52aaee7569a4f98a4d67b83d1d957fd89f62
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524681"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242214"
 ---
 # <a name="azure-firewall-features"></a>Fonctionnalités du Pare-feu Azure
 
@@ -102,7 +102,7 @@ Vous pouvez associer [plusieurs adresses IP publiques](deploy-multi-public-ip-po
 Cela donne accès aux scénarios suivants :
 
 - **DNAT** -Vous pouvez traduire plusieurs instances de ports standard vers vos serveurs principaux. Par exemple, si vous avez deux adresses IP publiques, vous pouvez traduire le port TCP 3389 (RDP) pour ces deux adresses IP.
-- **SNAT** - Des ports supplémentaires sont disponibles pour les connexions SNAT sortantes, réduisant ainsi le risque de pénurie de ports SNAT. À ce stade, Pare-feu Azure sélectionne aléatoirement l’adresse IP publique source à utiliser pour une connexion. Si votre réseau est doté d’un filtrage en aval, vous devez autoriser toutes les adresses IP publiques associées à votre pare-feu. Envisagez d’utiliser un [préfixe d’adresse IP publique](../virtual-network/public-ip-address-prefix.md) pour simplifier cette configuration.
+- **SNAT** - Des ports supplémentaires sont disponibles pour les connexions SNAT sortantes, réduisant ainsi le risque de pénurie de ports SNAT. À ce stade, Pare-feu Azure sélectionne aléatoirement l’adresse IP publique source à utiliser pour une connexion. Si votre réseau est doté d’un filtrage en aval, vous devez autoriser toutes les adresses IP publiques associées à votre pare-feu. Envisagez d’utiliser un [préfixe d’adresse IP publique](../virtual-network/ip-services/public-ip-address-prefix.md) pour simplifier cette configuration.
 
 ## <a name="azure-monitor-logging"></a>Journalisation d’Azure Monitor
 

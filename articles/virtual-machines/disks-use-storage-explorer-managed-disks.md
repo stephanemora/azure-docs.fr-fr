@@ -7,12 +7,12 @@ ms.date: 09/07/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: disks
-ms.openlocfilehash: 84b2ea53ebb0b6102edf5bc501e0e1b9b6f21726
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3206eb5b7092a43561cd114082ac567a63bff61b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781724"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130237925"
 ---
 # <a name="use-azure-storage-explorer-to-manage-azure-managed-disks"></a>Utiliser l’Explorateur Stockage Azure pour gérer des disques managés Azure
 
@@ -146,5 +146,5 @@ Avec Explorateur Stockage, vous pouvez copier un disque managé dans ou entre di
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une machine virtuelle à partir d’un disque dur virtuel à l’aide du portail Azure](/azure/virtual-machines/windows/create-vm-specialized-portal)
-- [Attacher un disque de données managé à une machine virtuelle Windows à l’aide du portail Azure](/azure/virtual-machines/windows/attach-managed-disk-portal)
+- [Créer une machine virtuelle à partir d’un disque dur virtuel à l’aide du portail Azure](./windows/create-vm-specialized-portal.md)
+- [Attacher un disque de données managé à une machine virtuelle Windows à l’aide du portail Azure](./windows/attach-managed-disk-portal.md)

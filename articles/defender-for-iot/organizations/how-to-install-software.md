@@ -1,20 +1,20 @@
 ---
 title: Installation de Defender pour IoT
 description: Découvrez comment installer un capteur et la console de gestion locale pour Azure Defender pour IoT.
-ms.date: 10/09/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.openlocfilehash: f23c5fe84959045ba0446ad03c9a990a7bbb2014
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 0548b1caa269431bb27a54e2dcbd297b2d4734a0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754536"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247585"
 ---
 # <a name="defender-for-iot-installation"></a>Installation de Defender pour IoT
 
 Cet article explique comment installer les composants suivants d’Azure Defender pour IoT :
 
-- **Capteur** : Les capteurs Defender pour IoT collectent le trafic de partage de connexion Internet (ICS) à l’aide de la surveillance passive (sans agent). Passifs et non intrusifs, les capteurs n’ont aucun impact sur les réseaux et appareils OT et IoT. Le capteur se connecte à un port SPAN ou à un TAP réseau et commence immédiatement à surveiller votre réseau. Les détections s’affichent dans la console du capteur. Dans cette console, vous pouvez les visualiser, les examiner et les analyser dans une carte du réseau, un inventaire des appareils et un large éventail de rapports. Les exemples incluent des rapports d’évaluation des risques, des requêtes d’exploration de données et des vecteurs d’attaque. Pour plus d’informations sur les capacités des capteurs, consultez le [guide de l’utilisateur relatif aux capteurs Defender pour IoT (téléchargement direct)](./getting-started.md).
+- **Capteur** : Les capteurs Defender pour IoT collectent le trafic de partage de connexion Internet (ICS) à l’aide de la surveillance passive (sans agent). Passifs et non intrusifs, les capteurs n’ont aucun impact sur les réseaux et appareils OT et IoT. Le capteur se connecte à un port SPAN ou à un TAP réseau et commence immédiatement à surveiller votre réseau. Les détections s’affichent dans la console du capteur. Dans cette console, vous pouvez les visualiser, les examiner et les analyser dans une carte du réseau, un inventaire des appareils et un large éventail de rapports. Les exemples incluent des rapports d’évaluation des risques, des requêtes d’exploration de données et des vecteurs d’attaque.
 
 - **Console de gestion locale** : La console de gestion locale vous permet de gérer les périphériques, les risques et les vulnérabilités. Vous pouvez également l’utiliser pour surveiller les menaces et répondre aux incidents dans l’ensemble de votre entreprise. Elle offre une vue unifiée de tous les périphériques réseau, des principaux indicateurs de risque IoT et OT et des alertes détectés dans les installations où les capteurs sont déployés. Utilisez la console de gestion locale pour visualiser et gérer les capteurs dans les réseaux hermétiques.
 

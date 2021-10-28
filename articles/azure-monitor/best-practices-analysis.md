@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
-ms.openlocfilehash: 3f4b671237c842c156e06281926be02ee3cdeb4a
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: c9f46404e1984c7f9eb4e8cea231229f31ffa8ad
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181682"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231662"
 ---
 # <a name="azure-monitor-best-practices---analyze-and-visualize-data"></a>Meilleures pratiques d’Azure Monitor : Analyser et visualiser les données
 Cet article fait partie du scénario [Recommandations pour la configuration d’Azure Monitor](best-practices.md). Il décrit les fonctionnalités intégrées d’Azure Monitor pour l’analyse des données collectées et les options de création de visualisations personnalisées pour répondre aux besoins des différents utilisateurs de votre organisation. Les visualisations telles que les diagrammes ou graphiques peuvent vous aider à analyser vos données de supervision pour explorer des problèmes en profondeur et identifier des modèles.
@@ -64,7 +64,7 @@ Pour plus d’informations sur la création d’un tableau de bord qui comprend 
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) est utile pour créer des rapports et des tableaux de bord centrés sur l’entreprise, ainsi que des rapports qui analysent les tendances d’indicateur de performance clé à long terme. Vous pouvez [importer les résultats d’une requête Log](visualize/powerbi.md) dans un jeu de données Power BI et bénéficier ainsi de ses fonctionnalités, comme la combinaison de données provenant de différentes sources et le partage de rapports sur le web et sur des appareils mobiles.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) est utile pour créer des rapports et des tableaux de bord centrés sur l’entreprise, ainsi que des rapports qui analysent les tendances d’indicateur de performance clé à long terme. Vous pouvez [importer les résultats d’une requête Log](./logs/log-powerbi.md) dans un jeu de données Power BI et bénéficier ainsi de ses fonctionnalités, comme la combinaison de données provenant de différentes sources et le partage de rapports sur le web et sur des appareils mobiles.
 
 ![Capture d’écran montrant un exemple de rapport Power BI pour les opérations IT.](media/visualizations/power-bi.png)
 
@@ -105,4 +105,4 @@ Vous pouvez ensuite créer vos propres sites web et applications personnalisés 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Consultez [Alertes et actions automatisées](best-practices-alerts.md) pour définir des alertes et des actions automatisées à partir des données Azure Monitor. 
+- Consultez [Alertes et actions automatisées](best-practices-alerts.md) pour définir des alertes et des actions automatisées à partir des données Azure Monitor.

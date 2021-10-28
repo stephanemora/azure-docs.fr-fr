@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier include
 services: azure-communication-services
 author: probableprime
@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: rifox
-ms.openlocfilehash: bf6fba4f8267c1fb52f6b6d5dbc09e033c81a99d
-ms.sourcegitcommit: 47fac4a88c6e23fb2aee8ebb093f15d8b19819ad
+ms.openlocfilehash: 767fe99e7648b5f35995530f0404e0ceab8208f2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2021
-ms.locfileid: "123078142"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287909"
 ---
 L'**exemple de bannière d'appel de groupe** Azure Communication Services illustre de quelle façon le SDK web Communication Services Calling peut être utilisé pour créer une expérience d'appel de groupe.
 
@@ -97,7 +97,7 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 
 Pour plus d’informations, consultez les articles suivants :
 
-- Familiarisez-vous avec l’[utilisation du SDK Calling](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarisez-vous avec l’[utilisation du SDK Calling](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - Apprenez-en davantage sur le [fonctionnement des appels](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Documentation supplémentaire

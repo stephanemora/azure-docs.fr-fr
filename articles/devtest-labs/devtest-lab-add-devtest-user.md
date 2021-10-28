@@ -4,12 +4,12 @@ description: Ajouter des propriétaires et des utilisateurs dans Azure DevTest L
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7c2120b1e1060e698d11ae7b2cda8189da8c8806
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e3c85ed9f38996bfa542bd5d71d19419fc2fde6b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621713"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251791"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Ajouter des propriétaires et des utilisateurs dans Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -51,7 +51,7 @@ Le tableau suivant décrit les actions pouvant être effectuées par les utilisa
 > 
 
 ## <a name="add-an-owner-or-user-at-the-lab-level"></a>Ajouter un utilisateur ou un propriétaire au niveau du laboratoire
-Les propriétaires et les utilisateurs peuvent être ajoutés au niveau du laboratoire via le portail Azure. Un utilisateur peut être un utilisateur externe avec un [compte Microsoft (MSA)](/azure/devtest-labs/devtest-lab-faq#what-is-a-microsoft-account) valide.
+Les propriétaires et les utilisateurs peuvent être ajoutés au niveau du laboratoire via le portail Azure. Un utilisateur peut être un utilisateur externe avec un [compte Microsoft (MSA)](./devtest-lab-faq.yml) valide.
 Les étapes suivantes vous guident dans le processus d’ajout d’un propriétaire ou d’un utilisateur à un laboratoire dans Azure DevTest Labs :
 
 1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).

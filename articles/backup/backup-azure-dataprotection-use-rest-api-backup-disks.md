@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment configurer, lancer et gérer l
 ms.topic: conceptual
 ms.date: 10/06/2021
 ms.assetid: 6050a941-89d7-4b27-9976-69898cc34cde
-ms.openlocfilehash: 6aeba0682839384b930dca0c2df34f109260335c
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: e01a0e528c3274ac6ddefe000311e2db7523bb5e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129621087"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264709"
 ---
 # <a name="back-up-azure-disks-using-azure-data-protection-via-rest-api"></a>Sauvegarde de disques Azure avec la protection des données Azure à l’aide d’une API REST
 
@@ -51,7 +51,7 @@ Des autorisations du coffre de sauvegarde sur le disque sont nécessaires pour p
 
 ### <a name="assign-permissions"></a>Attribuer des autorisations
 
-Vous devez affecter quelques autorisations via RBAC au coffre (représenté par le fichier MSI de coffre) et le disque approprié et/ou le RG de disque. Elles peuvent être effectuées via le portail Azure ou l’interface CLI. Pour affecter des autorisations associées, consultez les [prérequis à la configuration de la sauvegarde de disques managés](/azure/backup/backup-managed-disks-ps#assign-permissions).
+Vous devez affecter quelques autorisations via RBAC au coffre (représenté par le fichier MSI de coffre) et le disque approprié et/ou le RG de disque. Elles peuvent être effectuées via le portail Azure ou l’interface CLI. Pour affecter des autorisations associées, consultez les [prérequis à la configuration de la sauvegarde de disques managés](./backup-managed-disks-ps.md#assign-permissions).
 
 ### <a name="prepare-the-request-to-configure-backup"></a>Préparer la demande de configuration de la sauvegarde
 

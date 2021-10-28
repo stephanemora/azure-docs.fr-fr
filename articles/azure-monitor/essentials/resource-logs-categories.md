@@ -3,12 +3,12 @@ title: Catégories prises en charge pour les journaux de ressources Azure Monito
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure Monitor.
 ms.topic: reference
 ms.date: 10/05/2021
-ms.openlocfilehash: bf7d5371a170f28e79828619aef9fc16e15a303a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 11233e33d7dc5dffbdfc65acec9eac9223a96f2b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130006372"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231529"
 ---
 # <a name="supported-categories-for-azure-monitor-resource-logs"></a>Catégories prises en charge pour les journaux de ressources Azure Monitor
 
@@ -19,7 +19,7 @@ Les [journaux de ressource Azure Monitor](../essentials/platform-logs-overview.m
 
 Les journaux de ressource étaient auparavant appelés journaux de diagnostic. Le nom a été modifié en octobre 2019 parce que les types de journaux collectés par Azure Monitor ont évolué pour inclure plus que la seule ressource Azure.
 
-Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et la catégorie identifie de manière unique un schéma. Il existe un schéma commun pour tous les journaux de ressources comportant des champs propres aux services ajoutés pour différentes catégories de journaux. Pour plus d’informations, consultez [Schémas commun et propres aux services pour les journaux de ressources Azure](/azure/azure-monitor/essentials/resource-logs-schema).
+Une combinaison du type de ressource (disponible dans la propriété `resourceId`) et la catégorie identifie de manière unique un schéma. Il existe un schéma commun pour tous les journaux de ressources comportant des champs propres aux services ajoutés pour différentes catégories de journaux. Pour plus d’informations, consultez [Schémas commun et propres aux services pour les journaux de ressources Azure](./resource-logs-schema.md).
 
 ## <a name="costs"></a>Coûts
 

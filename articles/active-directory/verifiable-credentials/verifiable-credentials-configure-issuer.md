@@ -8,12 +8,12 @@ manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: 2e0d1028efab3b157c21c90944a8bcd41be04c55
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: c2f3757c62399049c1ecdc51c5ee2b873dd6c154
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070733"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130236805"
 ---
 # <a name="issue-azure-ad-verifiable-credentials-from-an-application-preview"></a>Émettre des justificatifs vérifiables Azure AD à partir d’une application (préversion)
 
@@ -38,7 +38,7 @@ Le diagramme suivant illustre l’architecture des justificatifs vérifiables Az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Avant de commencer, il est important de [configurer un locataire pour les justificatifs vérifiables Azure AD](/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant).
+- Avant de commencer, il est important de [configurer un locataire pour les justificatifs vérifiables Azure AD](./verifiable-credentials-configure-tenant.md).
 - Pour cloner le dépôt qui héberge l’exemple d’application, installez [GIT](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/Download) ou un éditeur de code similaire.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
@@ -49,11 +49,11 @@ Le diagramme suivant illustre l’architecture des justificatifs vérifiables Az
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Le service des justificatifs vérifiables Azure AD utilise le [stockage Blob Azure](/azure/storage/blobs/storage-blobs-introduction) pour stocker les fichiers de configuration des justificatifs vérifiables lors de l’émission des justificatifs vérifiables.
+Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Le service des justificatifs vérifiables Azure AD utilise le [stockage Blob Azure](../../storage/blobs/storage-blobs-introduction.md) pour stocker les fichiers de configuration des justificatifs vérifiables lors de l’émission des justificatifs vérifiables.
 
 Créez et configurez votre Stockage Blob Azure en suivant ces étapes :
 
-1. Si vous n’avez pas de compte de stockage Blob Azure, [créez un compte de stockage](/azure/storage/common/storage-account-create).
+1. Si vous n’avez pas de compte de stockage Blob Azure, [créez un compte de stockage](../../storage/common/storage-account-create.md).
 1. Après avoir créé le compte de stockage, créez un conteneur. Dans le menu de gauche du compte de stockage, faites défiler jusqu’à la section **Stockage de données**, puis sélectionnez **Conteneurs**.
 1. Sélectionnez le bouton **+ Conteneur**.
 1. Tapez un **nom** pour votre nouveau conteneur. Le nom du conteneur doit être en minuscules, commencer par une lettre ou un chiffre, et peut comporter uniquement des lettres, des chiffres et des tirets (-). Par exemple, *vc-container*.
@@ -87,7 +87,7 @@ Après avoir créé votre conteneur, accordez à l’utilisateur connecté le r�
         ![Capture d’écran montrant comment configurer la nouvelle attribution de rôle.](media/verifiable-credentials-configure-issuer/add-role-assignment-container.png)
 
 >[!IMPORTANT]
->Par défaut, les créateurs de conteneurs se voient attribuer le rôle Propriétaire. Le rôle Propriétaire n’est pas suffisant en lui-même. Votre compte doit disposer du rôle Lecteur des données blob du stockage. Pour plus d’informations, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](/azure/storage/blobs/assign-azure-role-data-access).
+>Par défaut, les créateurs de conteneurs se voient attribuer le rôle Propriétaire. Le rôle Propriétaire n’est pas suffisant en lui-même. Votre compte doit disposer du rôle Lecteur des données blob du stockage. Pour plus d’informations, consultez [Utiliser le portail Azure afin d’attribuer un rôle Azure pour l’accès aux données de blob et de file d’attente](../../storage/blobs/assign-azure-role-data-access.md).
 
 ### <a name="upload-the-configuration-files"></a>Charger les fichiers de configuration
 

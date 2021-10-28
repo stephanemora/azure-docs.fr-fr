@@ -1,17 +1,17 @@
 ---
-ms.openlocfilehash: 6b1df49ed0f2c543706d7584a1ade5dc5554a564
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 456fc1be942ce51082cf671d77f2f24f5f9d6d3e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101750952"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287975"
 ---
 Ce tutoriel nécessite les ressources Azure suivantes :
 
 * IoT Hub
 * Compte de stockage
 * Compte Azure Media Services
-* Machine virtuelle Linux dans Azure, avec le [runtime IoT Edge](../../../../../iot-edge/how-to-install-iot-edge.md) installé
+* Machine virtuelle Linux dans Azure, avec le [runtime IoT Edge](../../../../../iot-edge/how-to-provision-single-device-linux-symmetric.md) installé
 
 Pour ce guide de démarrage rapide, nous vous recommandons d’utiliser le [script d’installation des ressources Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) pour déployer les ressources nécessaires dans votre abonnement Azure. Pour ce faire, procédez comme suit :
 

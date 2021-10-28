@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 79abb40532ad4b7940ecf94552b5ee5c0727f2b6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b9291a7d69bd2aeb5a9343d88d05d42d94d080e0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128636626"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249041"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Conception de réseaux virtuels avec des ressources de passerelle NAT
 
@@ -339,10 +339,6 @@ Un port SNAT peut être réutilisé pour la même adresse IP de destination et l
 - La famille d’adresses IPv4 est prise en charge.  NAT n’interagit pas avec la famille d’adresses IPv6.  NAT ne peut pas être déployé sur un sous-réseau avec un préfixe IPv6.
 - NAT ne peut pas s’étendre sur plusieurs réseaux virtuels.
 - La fragmentation IP n’est pas prise en charge.
-
-## <a name="suggestions"></a>Suggestions
-
-Nous aimerions savoir comment nous pouvons améliorer le service. Il vous manque une fonctionnalité ? Envoyez-nous vos suggestions sur [UserVoice for NAT](https://aka.ms/natuservoice).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

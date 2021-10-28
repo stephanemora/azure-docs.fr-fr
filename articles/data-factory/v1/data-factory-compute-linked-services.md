@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.openlocfilehash: f4e92fb71afbbe0fc03e7172e19ec5b093a6f3c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/22/2021
+ms.openlocfilehash: e95aae97c197777a9eae1feb9a4622619f992678
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128604262"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218671"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Environnements Compute pris en charge par Azure Data Factory version 1
 > [!NOTE]

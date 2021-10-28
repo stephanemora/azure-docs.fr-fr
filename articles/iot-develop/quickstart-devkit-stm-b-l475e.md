@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: fe009eec23e940377e737938ea1986f515546138
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 30e64f70f713540574545200dc188342b63e2f01
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862130"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242158"
 ---
 # <a name="quickstart-connect-an-stmicroelectronics-b-l475e-iot01a-or-b-l4s5i-iot01a-discovery-kit-to-iot-central"></a>Démarrage rapide : Connecter un kit de découverte B-L475E-IOT01A ou B-L4S5I-IOT01A STMicroelectronics à Azure IoT Central
 
@@ -31,7 +31,7 @@ Vous allez effectuer les étapes suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* PC exécutant Microsoft Windows 10
+* Un PC exécutant Windows 10
 * [Git](https://git-scm.com/downloads) pour cloner le référentiel
 * Matériel
 
@@ -151,7 +151,7 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
     * **Vitesse (en bauds)**  : 115 200
     * **Port** : port auquel votre DevKit STM est connecté. Si plusieurs options de port sont disponibles dans la liste déroulante, vous pouvez trouver le port approprié à utiliser. Ouvrez le **Gestionnaire d'appareils** Windows et affichez les **Ports** pour identifier le port à utiliser.
 
-    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/termite-settings.png" alt-text="Capture d’écran des paramètres de port série dans l’application Termite":::
+    :::image type="content" source="media/quickstart-devkit-stm-b-l475e/termite-settings.png" alt-text="Capture d’écran des paramètres du port série dans l’application Termite":::
 
 1. Sélectionnez OK.
 1. Appuyez sur le bouton **Réinitialiser** de l’appareil. Le bouton est noir et libellé sur l’appareil.

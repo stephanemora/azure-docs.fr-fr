@@ -4,12 +4,12 @@ description: Découvrez comment sauvegarder des disques managés Azure avec Azur
 ms.topic: conceptual
 ms.date: 09/17/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: beb6a266a9436b7c26f5786c5f5a57f10fb9319a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4aab90bdd5a8ee4ecafd0dbfec81052da6b39f69
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128672653"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264595"
 ---
 # <a name="back-up-azure-managed-disks-using-azure-powershell"></a>Sauvegarder des disques managés Azure avec Azure PowerShell
 
@@ -159,7 +159,7 @@ L’utilisateur doit affecter peu d’autorisations via RBAC au coffre (représe
 
 Le coffre Sauvegarde utilise l’identité managée pour accéder à d’autres ressources Azure. Il est nécessaire, pour configurer la sauvegarde des disques managés, que l’identité managée du coffre Sauvegarde dispose d’un ensemble d’autorisations sur les disques sources et les groupes de ressources dans lesquels les instantanés sont créés et gérés.
 
-Une identité managée affectée par le système est limitée à une par ressource et liée au cycle de vie de celle-ci. Vous pouvez accorder des autorisations à l’identité managée à l’aide du contrôle d’accès en fonction du rôle Azure (RBAC Azure). L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Découvrez-en plus sur les [identités managées](/azure/active-directory/managed-identities-azure-resources/overview).
+Une identité managée affectée par le système est limitée à une par ressource et liée au cycle de vie de celle-ci. Vous pouvez accorder des autorisations à l’identité managée à l’aide du contrôle d’accès en fonction du rôle Azure (RBAC Azure). L’identité managée est un principal de service d’un type spécial qui ne peut être utilisé qu’avec des ressources Azure. Découvrez-en plus sur les [identités managées](../active-directory/managed-identities-azure-resources/overview.md).
 
 Pour configurer la sauvegarde des disques managés, assurez-vous que les conditions préalables suivantes sont remplies :
 

@@ -4,12 +4,12 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 08/26/2021
 ms.author: larryfr
-ms.openlocfilehash: 6ccdeea7b283ab4e4674e2a7959ead4553c43f2f
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 5d9575afdad08bed279f2f9ea3f9a455d54338a5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130078019"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241861"
 ---
 Lors de l’utilisation de l’__instance de calcul__ (avec une adresse IP publique) ou du __cluster de calcul__ d’Azure Machine Learning, autorisez le trafic entrant à partir de la gestion Azure Batch et des services Azure Machine Learning. L’instance de calcul sans adresse IP publique (préversion) ne nécessite pas cette communication entrante. Un groupe de sécurité réseau qui autorise ce trafic est créé dynamiquement pour vous, mais vous devrez peut-être également créer des itinéraires définis par l’utilisateur (UDR) si vous avez un pare-feu. Lors de la création d’un UDR pour ce trafic, vous pouvez utiliser des **adresses IP** ou des **étiquettes de service** pour router ce trafic.
 
@@ -49,4 +49,4 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 
 ---
 
-Pour plus d’informations sur la configuration de l’UDR, consultez [Définir l’itinéraire du trafic réseau à l’aide d’une table de routage](/azure/virtual-network/tutorial-create-route-table-portal).
+Pour plus d’informations sur la configuration de l’UDR, consultez [Définir l’itinéraire du trafic réseau à l’aide d’une table de routage](../articles/virtual-network/tutorial-create-route-table-portal.md).

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: dcc1b584956bb4cee2865cd264b91b389ace19e4
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 848d3264dbc31d01a767871d1e4783c8d383841d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689327"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258693"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Déplacer un équilibreur de charge externe Azure vers une autre région à l’aide d’Azure PowerShell
 
@@ -132,7 +132,7 @@ Les étapes suivantes expliquent comment préparer l’équilibreur de charge ex
                     },
          ```
 
-         Pour plus d’informations sur les différences entre les adresses IP publiques des références SKU basic et standard, consultez [Créer, modifier ou supprimer une adresse IP publique](../virtual-network/virtual-network-public-ip-address.md).
+         Pour plus d’informations sur les différences entre les adresses IP publiques des références SKU basic et standard, consultez [Créer, modifier ou supprimer une adresse IP publique](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
     * **Méthode d’allocation d’adresse IP publique** et **Délai d’inactivité** : vous pouvez changer ces deux options dans le modèle en permutant la propriété **publicIPAllocationMethod** entre les valeurs **Dynamic** et **Static**. Vous pouvez changer le délai d’inactivité en affectant la valeur souhaitée à la propriété **idleTimeoutInMinutes**.  La valeur par défaut est **4** :
 
@@ -159,7 +159,7 @@ Les étapes suivantes expliquent comment préparer l’équilibreur de charge ex
                 }            
          ```
 
-        Pour plus d’informations sur les méthodes d’allocation et les valeurs de délai d’inactivité, consultez [Créer, modifier ou supprimer une adresse IP publique](../virtual-network/virtual-network-public-ip-address.md).
+        Pour plus d’informations sur les méthodes d’allocation et les valeurs de délai d’inactivité, consultez [Créer, modifier ou supprimer une adresse IP publique](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
 
 9. Enregistrez le fichier **\<resource-group-name>.json**.
