@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/16/2021
 ms.author: allensu
-ms.openlocfilehash: 1b13a4cde0d4c0278698100cde0d5cd9993465a3
-ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+ms.openlocfilehash: 024a523939e5f03cf01aec937a646f1159f6b79b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122534800"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254643"
 ---
 # <a name="azure-load-balancer-portal-settings"></a>Paramètres du portail Azure Load Balancer
 
@@ -53,7 +53,7 @@ Si vous sélectionnez le type **Public**, les informations suivantes s’affiche
 | ------- | ------- |
 | Nom | Nom du serveur frontal qui sera ajouté à l’équilibreur de charge. |
 | Version de l’adresse IP | **IPv4** </br> **IPv6** </br> L’équilibreur de charge prend en charge les configurations d’adresses IP frontales IPv4 et IPv6. </br> Pour en savoir plus, consultez la page [Vue d’ensemble du protocole IPv6 pour Azure Load Balancer](load-balancer-ipv6-overview.md). |
-| Type IP | **Adresse IP** </br> **Préfixe IP** </br> L’équilibreur de charge prend en charge une adresse IP ou un préfixe IP pour l’adresse IP frontale. Pour en savoir plus, consultez la page [Préfixe d’adresse IP publique](../virtual-network/public-ip-address-prefix.md). |
+| Type IP | **Adresse IP** </br> **Préfixe IP** </br> L’équilibreur de charge prend en charge une adresse IP ou un préfixe IP pour l’adresse IP frontale. Pour en savoir plus, consultez la page [Préfixe d’adresse IP publique](../virtual-network/ip-services/public-ip-address-prefix.md). |
 
 :::image type="content" source="./media/manage/add-frontend-public.png" alt-text="Capture d’écran de l’ajout d’une configuration d’adresse IP frontale." border="true":::
 
@@ -67,7 +67,7 @@ Si vous sélectionnez **Adresse IP** pour **Type IP**, les informations suivante
 | Niveau | **Regional** </br> **Global** </br> Les informations affichées varient selon le type de niveau d’équilibrage de charge. Régional pour l’équilibreur de charge traditionnel, Global pour l’inter-régions. |
 | Affectation | **Statique** est sélectionné automatiquement pour le niveau Standard. </br> Les IP publiques du niveau De base ont deux types : **dynamique** et **statique**. </br> Les IP publiques dynamiques ne sont pas attribuées avant la création. </br> Les adresses IP peuvent être perdues si la ressource est supprimée. </br> L’utilisation d’adresses IP statiques est recommandée. |
 | Zone de disponibilité | Sélectionnez **Redondant interzone** pour créer un équilibreur de charge résilient. </br> Pour créer un équilibreur de charge zonal, sélectionnez une zone spécifique parmi **1**, **2** ou **3**. </br> L’équilibreur de charge standard et les IP publiques prennent en charge les zones. </br> En savoir plus sur les [équilibreurs de charge et les zones de disponibilité](load-balancer-standard-availability-zones.md). </br> Aucune sélection de zone n’est disponible pour le niveau De base. L’équilibreur de charge de base ne prend pas en charge les zones. |
-| Préférence de routage | Sélectionnez **Réseau Microsoft**. </br> Réseau Microsoft signifie que le trafic est acheminé via le réseau mondial de Microsoft. </br> Internet signifie que le trafic est acheminé via le réseau du fournisseur de services Internet. </br> En savoir plus sur les [préférences de routage](../virtual-network/routing-preference-overview.md).|
+| Préférence de routage | Sélectionnez **Réseau Microsoft**. </br> Réseau Microsoft signifie que le trafic est acheminé via le réseau mondial de Microsoft. </br> Internet signifie que le trafic est acheminé via le réseau du fournisseur de services Internet. </br> En savoir plus sur les [préférences de routage](../virtual-network/ip-services/routing-preference-overview.md).|
 
 :::image type="content" source="./media/manage/create-public-ip.png" alt-text="Capture d’écran de la création d’une adresse IP publique." border="true":::
 
@@ -222,7 +222,7 @@ Si vous souhaitez ajouter une configuration d’adresse IP frontale à votre é
 | ---------- | ---------- |
 | Nom | Nom de votre configuration d’adresse IP frontale. |
 | Version de l’adresse IP | Version de l’adresse IP que vous souhaitez avoir pour votre serveur frontal. </br> L’équilibreur de charge prend en charge les configurations d’adresses IP frontales IPv4 et IPv6. |
-| Type IP | Le type d’adresse IP détermine si une adresse IP unique est associée à votre serveur frontal ou s’il s’agit d’une plage d’adresses IP utilisant un préfixe IP. </br> Un [préfixe d’IP publique](../virtual-network/public-ip-address-prefix.md) vous aide quand vous devez vous connecter au même point de terminaison à plusieurs reprises. Le préfixe garantit qu’un nombre suffisant de ports sont fournis pour faciliter la résolution des problèmes de port SNAT. |
+| Type IP | Le type d’adresse IP détermine si une adresse IP unique est associée à votre serveur frontal ou s’il s’agit d’une plage d’adresses IP utilisant un préfixe IP. </br> Un [préfixe d’IP publique](../virtual-network/ip-services/public-ip-address-prefix.md) vous aide quand vous devez vous connecter au même point de terminaison à plusieurs reprises. Le préfixe garantit qu’un nombre suffisant de ports sont fournis pour faciliter la résolution des problèmes de port SNAT. |
 | IP publique (ou Préfixe si vous avez sélectionné Préfixe ci-dessus) | Sélectionnez ou créez une nouvelle IP publique (ou un nouveau préfixe) pour le serveur frontal de votre équilibreur de charge. |
 
 :::image type="content" source="./media/manage/frontend.png" alt-text="Page Créer une configuration d’adresse IP frontale." border="true":::

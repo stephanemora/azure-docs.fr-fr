@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.openlocfilehash: 2d1cd9053f5be915015653e1b522e82eff7b978c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/22/2021
+ms.openlocfilehash: 359b86861326cc2d0f375c95db54142c6da2fd12
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128571232"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130243863"
 ---
 # <a name="updating-ml-studio-classic-models-using-update-resource-activity"></a>Mettre à jour des modèles ML Studio (classique) à l’aide d’une Activité des ressources de mise à jour
 
@@ -48,7 +48,7 @@ Le tableau suivant décrit les services web utilisés dans cet exemple.  Pour pl
 
 L’image suivante illustre la relation entre les points de terminaison d’apprentissage et de notation dans ML Studio (classique).
 
-:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/web-services.png" alt-text="Services web":::
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/web-services.png" alt-text="SERVICES WEB":::
 
 Pour appeler le **service web d’apprentissage**, vous pouvez utiliser l’**Activité Batch Execution d’Azure Machine Learning Studio (classique)** . L’appel d’un service web d’apprentissage est similaire à l’appel d’un service web ML Studio (classique) (service web de notation) pour le scoring de données. Les sections précédentes expliquent de manière détaillée comment appeler un service web ML Studio (classique) à partir d’un pipeline Azure Data Factory. 
 

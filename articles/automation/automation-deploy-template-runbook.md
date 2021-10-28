@@ -3,19 +3,19 @@ title: Déployer un modèle Azure Resource Manager dans un runbook PowerShell Az
 description: Cet article explique comment déployer un modèle Azure Resource Manager stocké dans Stockage Azure à partir d’un runbook PowerShell.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/15/2021
+ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 12ac36645b037eb54522ecc8251501bdb6552776
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8dd1c0269b9211900a5532e7a0d9e7d119830f68
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128639600"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265628"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-automation-powershell-runbook"></a>Déployer un modèle Azure Resource Manager dans un runbook Automation PowerShell
 
-Vous pouvez écrire un [runbook Automation PowerShell](./learn/automation-tutorial-runbook-textual-powershell.md) qui déploie une ressource Azure en utilisant un [modèle Azure Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Les modèles vous permettent d’utiliser Azure Automation pour automatiser le déploiement de vos ressources Azure. Vous pouvez gérer vos modèles Resource Manager dans un emplacement central et sécurisé tel que le Stockage Azure.
+Vous pouvez écrire un [runbook Automation PowerShell](./learn/powershell-runbook-managed-identity.md) qui déploie une ressource Azure en utilisant un [modèle Azure Resource Manager](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Les modèles vous permettent d’utiliser Azure Automation pour automatiser le déploiement de vos ressources Azure. Vous pouvez gérer vos modèles Resource Manager dans un emplacement central et sécurisé tel que le Stockage Azure.
 
 Dans cet article, nous créons un runbook PowerShell qui utilise un modèle Resource Manager stocké dans le service [Stockage Azure](../storage/common/storage-introduction.md) pour déployer un nouveau compte de stockage Azure.
 
@@ -189,9 +189,15 @@ param (
 Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with user-assigned managed identity
-Connect-AzAccount -Identity
-$identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $userAssignedManagedIdentity
-Connect-AzAccount -Identity -AccountId $identity.ClientId
+$AzureContext = (Connect-AzAccount -Identity).context
+$identity = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup `
+    -Name $userAssignedManagedIdentity `
+    -DefaultProfile $AzureContext
+$AzureContext = (Connect-AzAccount -Identity -AccountId $identity.ClientId).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+    -DefaultProfile $AzureContext
 
 #Set the parameter values for the Resource Manager template
 $Parameters = @{

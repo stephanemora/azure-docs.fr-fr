@@ -10,12 +10,12 @@ author: ma77b
 ms.author: maburd
 ms.reviewer: wiassaf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fae1b6a6d2c9e697a55bbacaa11aa2736970d5a5
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 6144afdca350e8e7ff609eec273f84a39b84d2a3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002887"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228484"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de données partagée Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Les bases de données et les tables Spark, ainsi que leurs représentations sync
 
 Le principal de sécurité qui crée une base de données est considéré comme le propriétaire de cette base de données, et dispose de tous les droits sur la base de données et ses objets. L’administrateur Synapse et l’administrateur Synapse SQL disposent également de toutes les autorisations sur les objets synchronisés dans le pool SQL serverless par défaut. La création d’objets personnalisés (y compris des utilisateurs) dans des bases de données SQL synchronisées n’est pas autorisée. 
 
-Pour accorder à un principal de sécurité, tel qu’un utilisateur, une application Azure AD ou un groupe de sécurité, l’accès aux données sous-jacentes utilisées pour les tables externes, vous devez leur accorder des autorisations `read (R)` sur les fichiers (tels que les fichiers de données sous-jacents de la table) et `execute (X)` sur le dossier où les fichiers sont stockés ainsi que sur chaque dossier parent jusqu’à la racine. Pour plus d’informations sur ces autorisations, consultez la page [Listes de contrôle d’accès (ACL)](/azure/storage/blobs/data-lake-storage-access-control). 
+Pour accorder à un principal de sécurité, tel qu’un utilisateur, une application Azure AD ou un groupe de sécurité, l’accès aux données sous-jacentes utilisées pour les tables externes, vous devez leur accorder des autorisations `read (R)` sur les fichiers (tels que les fichiers de données sous-jacents de la table) et `execute (X)` sur le dossier où les fichiers sont stockés ainsi que sur chaque dossier parent jusqu’à la racine. Pour plus d’informations sur ces autorisations, consultez la page [Listes de contrôle d’accès (ACL)](../../storage/blobs/data-lake-storage-access-control.md). 
 
 Par exemple, dans `https://<storage-name>.dfs.core.windows.net/<fs>/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/`, les principaux de sécurité doivent avoir des autorisations `X` sur tous les dossiers de `<fs>` jusqu’à `myparquettable`, et des autorisations `R` sur `myparquettable` et sur les fichiers qui se trouvent dans ce dossier, pour pouvoir lire une table dans une base de données (synchronisée ou d’origine).
 

@@ -4,12 +4,12 @@ description: Dans ce tutoriel, vous allez apprendre à utiliser Azure Video Anal
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 0e2df2b89efb974e6336cf4df0ce4e06a63d528a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: aa99679102db69c64e9dc292825f262d36fb0588
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129996301"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216102"
 ---
 # <a name="tutorial-record-and-stream-inference-metadata-with-video"></a>Tutoriel : Enregistrer et streamer des métadonnées d’inférence avec une vidéo
   
@@ -340,7 +340,7 @@ Comme son nom l’indique, l’événement RecordingStarted est envoyé lorsque 
 
 Cet événement indique que suffisamment de données ont été écrites dans la ressource vidéo pour que les lecteurs ou les clients commencent la lecture de la vidéo.
 
-La section subject dans applicationProperties fait référence au nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
+La section subject dans applicationProperties référence le nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
 
 La section body contient des informations sur l’emplacement de sortie. Dans ce cas, il s’agit du nom de la ressource Video Analyzer dans laquelle la vidéo est enregistrée.
 
@@ -367,7 +367,7 @@ Quand vous désactivez le pipeline en direct, le nœud récepteur vidéo cesse d
 
 Cet événement indique que l’enregistrement s’est arrêté.
 
-La section subject dans applicationProperties fait référence au nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
+La section subject dans applicationProperties référence le nœud récepteur vidéo dans le pipeline en direct qui a généré ce message.
 
 La section body contient des informations sur l’emplacement de sortie, qui est dans ce cas le nom de la ressource Video Analyzer dans laquelle la vidéo est enregistrée.
 
@@ -394,5 +394,5 @@ Vous pouvez examiner la ressource vidéo Video Analyzer qui a été créée par 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Utilisez une [caméra IP](https://en.wikipedia.org/wiki/IP_camera) avec prise en charge de RTSP au lieu d’utiliser le simulateur RTSP. Vous pouvez consulter les caméras IP prenant RTSP en charge dans la [page de produits conformes ONVIF](https://www.onvif.org/conformant-products/) en recherchant les appareils conformes aux profils G, S ou T.
-* Utilisez un périphérique Linux AMD64 ou x64 (au lieu d’utiliser une machine virtuelle Linux Azure). Cet appareil doit se trouver dans le même réseau que la caméra IP. Suivez les instructions données dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge.md). Suivez ensuite les instructions données dans le démarrage rapide [Déployer votre premier module IoT Edge sur un appareil Linux virtuel](../../iot-edge/quickstart-linux.md) pour inscrire l’appareil auprès d’Azure IoT Hub.
+* Utilisez un périphérique Linux AMD64 ou x64 (au lieu d’utiliser une machine virtuelle Linux Azure). Cet appareil doit se trouver dans le même réseau que la caméra IP. Suivez les instructions données dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md). Suivez ensuite les instructions données dans le démarrage rapide [Déployer votre premier module IoT Edge sur un appareil Linux virtuel](../../iot-edge/quickstart-linux.md) pour inscrire l’appareil auprès d’Azure IoT Hub.
  

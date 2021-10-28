@@ -15,12 +15,12 @@ ms.date: 02/16/2017
 ms.author: rsetlem
 ms.custom: seo-lt-2019
 ms.reviewer: mathoma
-ms.openlocfilehash: 5a072b5009341809af2b209c808e6164ba0a9be3
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: d0489295cbc161f98ebe036ff79bdc2f2861877a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130166195"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250366"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurer un équilibreur de charge SQL Server AlwaysOn sur des machines virtuelles Azure
 
@@ -215,7 +215,7 @@ La connexion SQLCMD se connecte automatiquement à l’instance de SQL Server qu
 
 ## <a name="create-an-ip-address-for-an-additional-availability-group"></a>Créer une adresse IP pour un groupe de disponibilité supplémentaire
 
-Chaque groupe de disponibilité utilise un écouteur distinct. Chaque écouteur possède sa propre adresse IP. Le même équilibreur de charge doit être utilisé pour conserver l’adresse IP des écouteurs supplémentaires. Ajoutez uniquement l’adresse IP principale de la machine virtuelle au pool principal de l’équilibreur de charge, car [l’adresse IP de la machine virtuelle secondaire ne prend pas en charge l’adresse IP flottante](/azure/load-balancer/load-balancer-floating-ip).
+Chaque groupe de disponibilité utilise un écouteur distinct. Chaque écouteur possède sa propre adresse IP. Le même équilibreur de charge doit être utilisé pour conserver l’adresse IP des écouteurs supplémentaires. Ajoutez uniquement l’adresse IP principale de la machine virtuelle au pool principal de l’équilibreur de charge, car [l’adresse IP de la machine virtuelle secondaire ne prend pas en charge l’adresse IP flottante](../../../load-balancer/load-balancer-floating-ip.md).
 
 Pour ajouter une adresse IP à un équilibreur de charge par le biais du portail Azure, effectuez les étapes suivantes :
 

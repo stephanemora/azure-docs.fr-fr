@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 1f0c4f7f70dc186c29ffa5d90c6a7ea2f245f431
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: de25644e90b459991f9c2365eceba54b1cde8906
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112298076"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223421"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Déployer une solution d’équilibrage de charge sur Internet avec IPv6, à l’aide d’un modèle
 
@@ -30,7 +30,7 @@ ms.locfileid: "112298076"
 
 
 >[!NOTE] 
->Cet article décrit une fonctionnalité IPv6 qui permet aux équilibreurs de charge de base de fournir une connectivité IPv4 et IPv6. Une connectivité IPv6 complète est maintenant disponible avec [IPv6 pour les réseaux virtuels Azure](../virtual-network/ipv6-overview.md), qui intègre la connectivité IPv6 aux réseaux virtuels et inclut des fonctionnalités clés comme les règles de groupe de sécurité réseau IPv6, le routage défini par l’utilisateur IPv6, l’équilibrage de charge IPv6 de base et standard, et plus encore.  Le protocole IPv6 pour les réseaux virtuels Azure est la norme recommandée pour les applications IPv6 dans Azure. Consultez [IPv6 pour le déploiement PowerShell de réseau virtuel Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).  
+>Cet article décrit une fonctionnalité IPv6 qui permet aux équilibreurs de charge de base de fournir une connectivité IPv4 et IPv6. Une connectivité IPv6 complète est maintenant disponible avec [IPv6 pour les réseaux virtuels Azure](../virtual-network/ip-services/ipv6-overview.md), qui intègre la connectivité IPv6 aux réseaux virtuels et inclut des fonctionnalités clés comme les règles de groupe de sécurité réseau IPv6, le routage défini par l’utilisateur IPv6, l’équilibrage de charge IPv6 de base et standard, et plus encore.  Le protocole IPv6 pour les réseaux virtuels Azure est la norme recommandée pour les applications IPv6 dans Azure. Consultez [IPv6 pour le déploiement PowerShell de réseau virtuel Azure](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).  
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). L’équilibrage de charge offre une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibrage de la charge. Azure Load Balancer peut également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/01/2021
-ms.openlocfilehash: ac6a6964c738cfb970b7bd65a6d7e3b12f796b2a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 5239812bdd916b19571059aa2641eb738ef5ba09
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "128653720"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249454"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-with-azure-cli"></a>Restauration à un instant dans le passé d’un serveur flexible Azure Database pour MySQL avec l’interface Azure CLI
 
@@ -65,10 +65,10 @@ az mysql flexible-server restore --restore-time
 **Exemple :** Restaurer un serveur à partir de cet instantané de sauvegarde ```2021-03-03T13:10:00Z```.
 
 ```azurecli
-az mysql server restore \
+az mysql flexible-server restore \
 --name mydemoserver-restored \
 --resource-group myresourcegroup \
---restore-point-in-time "2021-03-03T13:10:00Z" \
+--restore-time "2021-03-03T13:10:00Z" \
 --source-server mydemoserver
 ```
 Le temps nécessaire à la restauration dépend de la taille des données stockées sur le serveur.

@@ -4,12 +4,12 @@ description: Vue d’ensemble de la sauvegarde Azure Database pour PostgreSQL (v
 ms.topic: conceptual
 ms.date: 09/28/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3740d4c7d149181638da93a3a5ad713c2c230f29
-ms.sourcegitcommit: df2a8281cfdec8e042959339ebe314a0714cdd5e
+ms.openlocfilehash: b868af4c96691c9496a0c5382d9416e784d3eb8c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129154410"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219391"
 ---
 # <a name="about-azure-database-for-postgresql-backup-preview"></a>À propos de la sauvegarde d’Azure Database pour PostgreSQL (version préliminaire)
 
@@ -18,10 +18,10 @@ Sauvegarde Azure et les services de base de données Azure constituent ensemble 
 - Sauvegarde planifiée et demande contrôlée par le client au niveau de la base de données individuelle.
 - Restaurations au niveau de la base de données sur un serveur Postgres ou directement dans le stockage d’objets blob.
 - Surveillance centralisée de toutes les opérations et de tous les travaux.
-- Les sauvegardes sont stockées dans des domaines de sécurité et d’erreur distincts. Si le serveur ou l’abonnement source est compromis dans toutes les circonstances, les sauvegardes restent sécurisées dans le[coffre de sauvegarde](/azure/backup/backup-vault-overview) (dans les comptes de stockage géré de sauvegarde Azure).
+- Les sauvegardes sont stockées dans des domaines de sécurité et d’erreur distincts. Si le serveur ou l’abonnement source est compromis dans toutes les circonstances, les sauvegardes restent sécurisées dans le[coffre de sauvegarde](./backup-vault-overview.md) (dans les comptes de stockage géré de sauvegarde Azure).
 - L’utilisation de **pg_dump** permet une plus grande flexibilité dans les restaurations. Cela vous permet de restaurer les différentes versions de base de données 
 
-Vous pouvez utiliser cette solution indépendamment ou en plus de la [solution de sauvegarde native offerte par Azure PostgreSQL](/azure/postgresql/concepts-backup), qui permet une conservation jusqu’à 35 jours. La solution native est adaptée aux récupérations d’exploitation, par exemple quand vous voulez récupérer à partir des sauvegardes les plus récentes. La solution Sauvegarde Azure vous aide à répondre à vos besoins en matière de conformité, et offre une sauvegarde et une restauration plus flexibles et plus précises.
+Vous pouvez utiliser cette solution indépendamment ou en plus de la [solution de sauvegarde native offerte par Azure PostgreSQL](../postgresql/concepts-backup.md), qui permet une conservation jusqu’à 35 jours. La solution native est adaptée aux récupérations d’exploitation, par exemple quand vous voulez récupérer à partir des sauvegardes les plus récentes. La solution Sauvegarde Azure vous aide à répondre à vos besoins en matière de conformité, et offre une sauvegarde et une restauration plus flexibles et plus précises.
 
 ## <a name="support-matrix"></a>Matrice de prise en charge
 
@@ -55,7 +55,7 @@ Azure Backup respecte les instructions de sécurité strictes définies par Azur
 
 ### <a name="key-vault-based-authentication-model"></a>Modèle d’authentification basé sur le coffre de clés
 
-Le service sauvegarde Azure doit se connecter à Azure PostgreSQL tout en effectuant chaque sauvegarde. Alors que « nom d’utilisateur + mot de passe » (ou chaîne de connexion), correspondant à la base de données, sont utilisés pour établir cette connexion, ces informations d’identification ne sont pas stockées avec la sauvegarde Azure. Au lieu de cela, ces informations d'identification doivent être stockées de manière sécurisée par l'administrateur de la base de données dans le [coffre-fort Azure en tant que secret](/azure/key-vault/secrets/about-secrets). L’administrateur de charge de travail est responsable de la gestion et de la rotation des informations d’identification. Azure Backup appelle pour obtenir les informations les plus récentes sur les secrets à partir du coffre de clés pour effectuer la sauvegarde.
+Le service sauvegarde Azure doit se connecter à Azure PostgreSQL tout en effectuant chaque sauvegarde. Alors que « nom d’utilisateur + mot de passe » (ou chaîne de connexion), correspondant à la base de données, sont utilisés pour établir cette connexion, ces informations d’identification ne sont pas stockées avec la sauvegarde Azure. Au lieu de cela, ces informations d'identification doivent être stockées de manière sécurisée par l'administrateur de la base de données dans le [coffre-fort Azure en tant que secret](../key-vault/secrets/about-secrets.md). L’administrateur de charge de travail est responsable de la gestion et de la rotation des informations d’identification. Azure Backup appelle pour obtenir les informations les plus récentes sur les secrets à partir du coffre de clés pour effectuer la sauvegarde.
  
 :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-based-authentication-model.png" alt-text="Diagramme montrant la charge de travail ou le déroulement de la base de données.":::
 
@@ -115,7 +115,7 @@ Pour accorder toutes les autorisations d’accès requises par sauvegarde Azure,
    - À l’aide de l’autorisation Azure RBAC (contrôle d’accès en fonction du rôle) (autrement dit, le modèle d’autorisation est défini sur contrôle d’accès en fonction du rôle Azure) :
 
      - Sous Contrôle d'accès, accordez à _l'utilisateur des secrets du coffre de clés_ MSI l'accès au coffre de clés. Les porteurs de ce rôle pourront lire les secrets.
-     - [Accorder à des applications l’autorisation d’accéder à un coffre de clés Azure en utilisant le RBAC Azure](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
+     - [Accorder à des applications l’autorisation d’accéder à un coffre de clés Azure en utilisant le RBAC Azure](../key-vault/general/rbac-guide.md?tabs=azure-cli).
 
    :::image type="content" source="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-inline.png" alt-text="Capture d’écran montrant l’option permettant de fournir un accès utilisateur secret." lightbox="./media/backup-azure-database-postgresql-overview/key-vault-secrets-user-access-expanded.png":::
 
@@ -124,7 +124,7 @@ Pour accorder toutes les autorisations d’accès requises par sauvegarde Azure,
    - À l’aide de stratégies d’accès (autrement dit, le modèle d’autorisation est défini sur Stratégie d’accès de coffre) :
 
      - Définissez les autorisations d’extraction et de liste sur les secrets.
-     - En savoir plus sur [Attribuer une stratégie d’accès Azure Key Vault](/azure/key-vault/general/assign-access-policy?tabs=azure-portal)
+     - En savoir plus sur [Attribuer une stratégie d’accès Azure Key Vault](../key-vault/general/assign-access-policy.md?tabs=azure-portal)
 
      :::image type="content" source="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-inline.png" alt-text="Capture d’écran montrant l’option d’octroi d’autorisation à l’aide du modèle d’autorisation est définie sur le modèle de stratégie d’accès de coffre." lightbox="./media/backup-azure-database-postgresql-overview/permission-model-is-set-to-vault-access-policy-expanded.png":::  
  

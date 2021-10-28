@@ -3,12 +3,12 @@ title: Assurer le monitoring des applications et services Azure à l’aide de G
 description: Acheminez les données Azure Monitor et Application Insights en vue de les afficher dans Grafana.
 ms.topic: conceptual
 ms.date: 10/10/2021
-ms.openlocfilehash: 691ba341369778692c92fec8ffc47cd60fac3348
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 612a65af3cfe83b96e2604d85348be03ff2b703a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002754"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252779"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Surveiller vos services Azure dans Grafana
 Vous pouvez surveiller les services et applications Azure à l’aide de [Grafana](https://grafana.com/) et de son [plug-in Azure Monitor de source de données](https://grafana.com/docs/grafana/latest/datasources/azuremonitor/) inclus. Le plug-in récupère les données de trois services Azure :
@@ -72,7 +72,7 @@ Si votre instance Grafana est hébergée sur une machine virtuelle Azure dont l�
 ### <a name="use-managed-identity"></a>Utiliser l’identité managée
 
 1. Activez l’identité managée sur votre machine virtuelle et modifiez le paramètre de prise en charge de l’identité managée du serveur Grafana sur true.
-    * Pour l’abonnement, le groupe de ressources ou les ressources que vous souhaitez visualiser dans Grafana, le [rôle Lecteur d’analyse](/azure/azure-monitor/roles-permissions-security) doit être attribué à l’identité managée de votre machine virtuelle d’hébergement.
+    * Pour l’abonnement, le groupe de ressources ou les ressources que vous souhaitez visualiser dans Grafana, le [rôle Lecteur d’analyse](../roles-permissions-security.md) doit être attribué à l’identité managée de votre machine virtuelle d’hébergement.
     * En outre, vous devrez mettre à jour le paramètre « managed_identity_enabled = true » dans la configuration du serveur Grafana. Pour plus d’informations, consultez la page [Configuration de Grafana](https://grafana.com/docs/grafana/latest/administration/configuration/). Une fois les deux étapes terminées, vous pouvez ensuite enregistrer et tester l’accès.
 
 2. Sélectionnez **Save & test** (Enregistrer et tester) pour que Grafana teste les informations d’identification. Un message similaire à celui qui suit doit s’afficher.  
@@ -82,8 +82,8 @@ Si votre instance Grafana est hébergée sur une machine virtuelle Azure dont l�
 ### <a name="or-use-app-registration"></a>Ou utiliser l’inscription d’application
 
 1. Créer un principal de service - Grafana utilise un principal de service Azure Active Directory pour se connecter à des API Azure Monitor et collecter des données. Vous devez créer un principal de service ou en utiliser un existant pour gérer l’accès à vos ressources Azure.
-    * Consultez [ces instructions](/azure/active-directory/develop/howto-create-service-principal-portal) pour créer un principal de service. Copiez et enregistrez votre ID de locataire (ID d’annuaire), ID client (ID d’application) et le secret client (valeur de la clé d’application).
-    * Consultez [Affecter l’application à un rôle](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) pour attribuer le [rôle Lecteur d’analyse](/azure/azure-monitor/roles-permissions-security) à l’application Azure Active Directory dans l’abonnement, le groupe de ressources ou la ressource que vous souhaitez superviser.
+    * Consultez [ces instructions](../../active-directory/develop/howto-create-service-principal-portal.md) pour créer un principal de service. Copiez et enregistrez votre ID de locataire (ID d’annuaire), ID client (ID d’application) et le secret client (valeur de la clé d’application).
+    * Consultez [Affecter l’application à un rôle](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) pour attribuer le [rôle Lecteur d’analyse](../roles-permissions-security.md) à l’application Azure Active Directory dans l’abonnement, le groupe de ressources ou la ressource que vous souhaitez superviser.
   
 2. Fournissez les informations de connexion que vous souhaitez utiliser.
     * Lors de la configuration du plug-in, vous pouvez indiquer quel cloud Azure vous souhaitez que le plug-in supervise (Public, Azure - US Government, Azure - Allemagne ou Azure - Chine).
@@ -133,7 +133,7 @@ Le plug-in Azure Monitor comprend plusieurs tableaux de bord prêts à l’emplo
 
      ![Grafana - Configuration du graphe pour Azure Log Analytics](./media/grafana-plugin/logs-config.png)
 
-    * Outre les requêtes de métriques et de journaux présentées ci-dessus, le plug-in Azure Monitor prend en charge les requêtes d’[Azure Resource Graph](/azure/governance/resource-graph/concepts/explore-resources).
+    * Outre les requêtes de métriques et de journaux présentées ci-dessus, le plug-in Azure Monitor prend en charge les requêtes d’[Azure Resource Graph](../../governance/resource-graph/concepts/explore-resources.md).
 
 ## <a name="advanced-grafana-features"></a>Fonctionnalités avancées de Grafana
 

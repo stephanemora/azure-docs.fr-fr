@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 667995b505339ae4db500964c1ce81bef6d9d0fa
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 6507e2367005c1f400c68f46f2ea15705205e819
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467687"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262980"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -104,7 +104,7 @@ Les articles [Centre de données virtuel Azure : une perspective réseau](/azure
 >Le trafic qui transite entre un réseau virtuel hub et un réseau virtuel spoke à l’aide du [peering de réseau virtuel Azure](../../../virtual-network/virtual-network-peering-overview.md) fait l’objet de [coûts](https://azure.microsoft.com/pricing/details/virtual-network/) supplémentaires. En fonction de ces coûts, vous devrez peut-être envisager des compromis entre l’exécution d’une conception de réseau hub and spoke stricte et la mise en place de plusieurs [passerelles Azure ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md) que vous vous connectez aux « spokes » afin de contourner le peering de réseau virtuel. Toutefois, les passerelles Azure ExpressRoute entraînent des [coûts](https://azure.microsoft.com/pricing/details/vpn-gateway/) supplémentaires également. Les logiciels tiers que vous utilisez pour la journalisation, l’audit et la surveillance du trafic réseau peuvent aussi engendrer des coûts supplémentaires. Selon les coûts induits par l’échange de données via le peering de réseau virtuel d’un côté et les coûts engendrés par les passerelles Azure ExpressRoute et les licences logicielles supplémentaires, vous pouvez opter pour la micro-segmentation au sein d’un réseau virtuel en utilisant les sous-réseaux en tant qu’unité d’isolation à la place des réseaux virtuels.
 
 
-Pour obtenir une vue d’ensemble des différentes méthodes d’attribution des adresses IP, consultez [Types d’adresses IP et méthodes d’allocation dans Azure](../../../virtual-network/public-ip-addresses.md). 
+Pour obtenir une vue d’ensemble des différentes méthodes d’attribution des adresses IP, consultez [Types d’adresses IP et méthodes d’allocation dans Azure](../../../virtual-network/ip-services/public-ip-addresses.md). 
 
 Pour les machines virtuelles qui exécutent SAP HANA, vous devez utiliser les adresses IP statiques attribuées. En effet, certains attributs de configuration pour HANA référencent des adresses IP.
 
@@ -143,7 +143,7 @@ La configuration de base d’un nœud de machine virtuelle pour le scale-out de 
 - Les autres volumes de disque ne sont pas partagés entre les différents nœuds et ne sont pas basés sur NFS. Les configurations d'installation et les étapes relatives aux installations de scale-out HANA avec **/hana/data** et **/hana/log** non partagés sont fournies plus loin dans ce document. Pour savoir si un stockage certifié HANA peut être utilisé, consultez l'article [Configurations du stockage des machines virtuelles SAP HANA Azure](./hana-vm-operations-storage.md).
 
 
-Pour le dimensionnement des volumes ou des disques, vous devez vérifier la taille requise en fonction du nombre de nœuds Worker en consultant le document [Exigences de stockage TDI SAP HANA](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Le document contient une formule que vous devez appliquer pour obtenir la capacité requise du volume
+Pour le dimensionnement des volumes ou des disques, vous devez vérifier la taille requise en fonction du nombre de nœuds Worker en consultant le document [Exigences de stockage TDI SAP HANA](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf). Le document contient une formule que vous devez appliquer pour obtenir la capacité requise du volume
 
 L'autre critère de conception illustré dans le graphique de la configuration de nœud unique pour un scale-out de machine virtuelle SAP HANA est le réseau virtuel, plus précisément la configuration du sous-réseau. SAP recommande fortement de séparer le trafic client/application des communications entre les nœuds HANA. Comme indiqué dans les graphiques, cet objectif est réalisé en attachant deux cartes réseau virtuelles différentes à la machine virtuelle. Chacune des cartes réseau virtuelles est dans un sous-réseau différent et dispose d’un adresse IP distincte. Vous contrôlez le trafic avec les règles de routage à l’aide de groupes de sécurité réseau ou d’itinéraires définis par l’utilisateur.
 

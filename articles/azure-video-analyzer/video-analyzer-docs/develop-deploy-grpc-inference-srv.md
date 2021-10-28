@@ -4,12 +4,12 @@ description: Cet article fournit des conseils d’aide sur le développement et 
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.openlocfilehash: 5d0e09bc4d1f542de0e59a7dc6da37248d2e0674
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 0456ff121df2c6a7149261ec162907b61aceb107
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114601445"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262220"
 ---
 # <a name="develop-and-deploy-grpc-inference-server"></a>Développer et déployer un serveur d’inférence gRPC
 
@@ -27,7 +27,7 @@ Cet article vous montre comment wrapper les modèles IA de votre choix dans un s
 
 * Un appareil x86-64 ou ARM64 exécutant l’un des [systèmes d’exploitation Linux pris en charge](../../iot-edge/support.md#operating-systems) ou un ordinateur Windows.
 * [Installation de Docker](https://docs.docker.com/desktop/#download-and-install) sur votre ordinateur.
-* Installation d’un [runtime IoT Edge](../../iot-edge/how-to-install-iot-edge.md?tabs=linux).
+* Installation d’un [runtime IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 ## <a name="grpc-implementation-steps"></a>Étapes d’implémentation gRPC
 

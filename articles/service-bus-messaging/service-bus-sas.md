@@ -4,12 +4,12 @@ description: Vue d’ensemble du contrôle d’accès Service Bus avec des signa
 ms.topic: article
 ms.date: 10/18/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a31ce93c603f1bc1f0765fb2de438476e1f63de
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 86da611f3d64b4b3b913dc49da7f90c69562d8fc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164965"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263303"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé
 
@@ -263,7 +263,7 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | **Règles** | | |
 | Créer une règle | Écouter |../myTopic/Subscriptions/mySubscription |
 | Supprimer une règle | Écouter |../myTopic/Subscriptions/mySubscription |
-| Énumérer des règles | Écouter |.. /myTopic/Subscriptions/mySubscription/Rules
+| Énumérer des règles | Gérer ou écouter |.. /myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Étapes suivantes
 

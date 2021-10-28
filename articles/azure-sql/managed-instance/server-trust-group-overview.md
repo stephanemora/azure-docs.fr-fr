@@ -12,12 +12,12 @@ author: sasapopo
 ms.author: sasapopo
 ms.reviewer: mathoma
 ms.date: 10/08/2020
-ms.openlocfilehash: 4a3e96c33a0bef8e533b4f7f563c701a2c0a8044
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 454b5c20c7e1e28c87e2be38662c12055f14079e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042198"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226808"
 ---
 # <a name="use-server-trust-groups-to-set-up-and-manage-trust-between-sql-managed-instances"></a>Utiliser des groupes d’approbations de serveurs pour configurer et gérer l’approbation entre des instances managées SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -66,7 +66,7 @@ La section suivante décrit le processus de suppression d’un groupe d’approb
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirmer la suppression du groupe d’approbations de serveurs":::
 
 > [!NOTE]
-> La suppression du groupe d’approbations de serveurs risque de ne pas supprimer immédiatement l’approbation entre les deux instances managées. La suppression de l’approbation peut être appliquée en appelant un [basculement](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) d’instances managées. Consultez les [Problèmes connus](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) pour obtenir les dernières mises à jour à ce sujet.
+> La suppression du groupe d’approbations de serveurs risque de ne pas supprimer immédiatement l’approbation entre les deux instances managées. La suppression de l’approbation peut être appliquée en appelant un [basculement](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) d’instances managées. Consultez les [Problèmes connus](../database/doc-changes-updates-release-notes-whats-new.md?tabs=managed-instance) pour obtenir les dernières mises à jour à ce sujet.
 
 ## <a name="limitations"></a>Limites
 

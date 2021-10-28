@@ -11,12 +11,12 @@ ms.date: 10/07/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: traitement de documents
-ms.openlocfilehash: 9c009a8d6d41d183596e5a28b1bd18f2e265ba04
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: c3b1037d4263a6565f76ffcf648e77bb692f7f34
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716655"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265780"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -213,7 +213,7 @@ Effectuez les étapes ci-dessus pour étiqueter les cinq formulaires de l’exem
 
 Choisissez l’icône d’entraînement dans le volet gauche pour ouvrir la page Training (Entraînement). Sélectionnez ensuite le bouton **Train** pour commencer l’entraînement du modèle. Une fois le processus d’entraînement terminé, les informations suivantes s’affichent :
 
-* **Model ID** : ID du modèle qui a été créé et entraîné. Chaque appel d’entraînement crée un modèle avec son propre ID. Copiez cette chaîne dans un emplacement sûr. Vous en aurez besoin si vous souhaitez effectuer des appels de prédiction via l’[API REST](./client-library.md?pivots=programming-language-rest-api) pi une [bibliothèque de client](./client-library.md).
+* **Model ID** : ID du modèle qui a été créé et entraîné. Chaque appel d’entraînement crée un modèle avec son propre ID. Copiez cette chaîne dans un emplacement sûr. Vous en aurez besoin si vous souhaitez effectuer des appels de prédiction via l’[API REST](./try-sdk-rest-api.md?pivots=programming-language-rest-api) pi une [bibliothèque de client](./try-sdk-rest-api.md).
 * **Average Accuracy** : justesse moyenne du modèle. Vous pouvez améliorer la justesse du modèle en étiquetant des formulaires supplémentaires et en effectuant un nouvel entraînement pour créer un modèle. Nous vous recommandons de commencer par étiqueter cinq formulaires en analysant et en testant les résultats, puis d’ajouter, si nécessaire, d’autres formulaires.
 * Liste des étiquettes et justesse estimée par étiquette.
 
@@ -232,4 +232,4 @@ Sélectionnez l’icône Analyser (ampoule) située à gauche pour tester votre 
 Dans ce guide de démarrage rapide, vous avez appris à utiliser l’exemple d’outil Form Recognizer qui permet de tester les modèles Layout (Disposition) et Pre-built (Prédéfini), ainsi que d’entraîner un modèle personnalisé et d’analyser un formulaire personnalisé avec des données étiquetées manuellement. Vous pouvez maintenant essayer le SDK de la bibliothèque de client ou l’API REST pour utiliser Form Recognizer.
 
 > [!div class="nextstepaction"]
-> [ explorer le SDK de la bibliothèque de client Form Recognizer ou l’API REST](client-library.md)
+> [ explorer le SDK de la bibliothèque de client Form Recognizer ou l’API REST](./try-sdk-rest-api.md)

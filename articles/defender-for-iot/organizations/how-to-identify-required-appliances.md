@@ -3,12 +3,12 @@ title: Identifier les appareils nécessaires
 description: En savoir plus sur les appliances matérielles et virtuelles pour les capteurs certifiés Defender pour IoT et la console de gestion locale.
 ms.date: 06/21/2021
 ms.topic: how-to
-ms.openlocfilehash: c124ccd69257b9a0b7a57c53b6fa6b0817d95fb6
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 22a79bc1f78536df1dd1c248b75eb3b4db8b443d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754346"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238545"
 ---
 # <a name="identify-required-appliances"></a>Identifier les appareils nécessaires
 
@@ -40,7 +40,7 @@ Cette section fournit une vue d’ensemble des modèles de capteur physique disp
 | Modèle | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
 | Ports de surveillance | jusqu’à 15 RJ45 ou 8 OPT | jusqu’à 8 RJ45 ou 6 OPT | jusqu’à 4 RJ45 | jusqu’à 5 RJ45 |
 | Bande passante maximum[1](#anchortext) | 3 Go/s | 1 Go/s | 200 Mo/s | 100 Mo/s |
-| Nombre maximal d’appareils protégés | 10 000 | 10 000 | 1 000 | 800 |
+| Nombre maximal d’appareils protégés | 12 000 | 10 000 | 1 000 | 800 |
 
 Pour plus d’informations sur le fournisseur, consultez [Spécifications des appliances](#appliance-specifications).
 
@@ -59,7 +59,7 @@ Cette section décrit les capteurs virtuels qui sont disponibles.
 | Type de déploiement | Entreprise | Enterprise | SMB |
 |--|--|--|--|
 | Bande passante maximum | 2,5 Go/s | 800 Mo/s | 160 Mo/s |
-| Nombre maximal d’appareils protégés | 10 000 | 10 000 | 800 |
+| Nombre maximal d’appareils protégés | 12 000 | 10 000 | 800 |
 
 ## <a name="on-premises-management-console-appliance"></a>Appliance de console de gestion locale
 
@@ -97,7 +97,7 @@ Cette section décrit les spécifications matérielles pour les appliances suiva
 | Circuit microprogrammé | Intel C621 |
 | Mémoire | 32 Go = 2 x DDR4 ECC UDIMM 16 Go 2 666 MT/s |
 | Stockage | 6 x Disque dur enfichable à chaud 1,2 To SAS 12G Enterprise 10K SFF (2,5 po) – RAID 5 |
-| Contrôleur de réseau | Intégré : 2 x Broadcom BCM5720 1 Go<br>Carte LOM intégrée : carte de port iDRAC 1 Go Broadcom BCM5720<br><br>Externe : 1 x Adaptateur serveur 1 Go Intel Ethernet i350 QP, profil bas |
+| Contrôleur de réseau | Intégré : 2 x 1 Go <br>Intégré : carte de ports iLO 1 Go <br>Externe : 1 x Adaptateur HPE Ethernet 366FLR 1 Go 4 ports |
 | Gestion | Licence HPE iLO Advanced |
 | Accès sur l’appareil | Deux ports USB 3.0 à l’arrière<br>Un USB 2.0 frontal<br>Un USB 3.0 interne |
 | Power | 2 x Kit d’alimentation HPE platine, à logement flexible, enfichable à chaud, faible teneur en halogène, 500 W |

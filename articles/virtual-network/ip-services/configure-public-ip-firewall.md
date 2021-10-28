@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f520b992e018b41a8adf99b87202975a4a2edd38
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a6f86fcf24316a24c36d0d42dfff4cef0c3ccaf3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368392"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217427"
 ---
 # <a name="manage-a-public-ip-address-with-azure-firewall"></a>Gérer une adresse IP publique avec Pare-feu Azure
 
@@ -25,7 +25,7 @@ Dans cet article, vous allez apprendre à créer un Pare-feu Azure à l’aide d
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Trois adresses IP publiques de référence SKU Standard dans votre abonnement. L’adresse IP ne peut pas être associée à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence SKU Standard, consultez [Créer une adresse IP publique - portail Azure](../../virtual-network/create-public-ip-portal.md).
+- Trois adresses IP publiques de référence SKU Standard dans votre abonnement. L’adresse IP ne peut pas être associée à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence SKU Standard, consultez [Créer une adresse IP publique - portail Azure](./create-public-ip-portal.md).
     - Dans le cadre des exemples de cet article, nommez les nouvelles adresses IP publiques **myStandardPublicIP-1**, **myStandardPublicIP-2** et **myStandardPublicIP-3**.
 
 ## <a name="create-azure-firewall-existing-public-ip"></a>Créer une adresse IP publique existante Pare-feu Azure
@@ -121,5 +121,5 @@ Dans cette section, vous allez ajouter une configuration d’adresse IP publique
 
 Dans cet article, vous avez appris à créer un Pare-feu Azure et à utiliser une adresse IP publique existante. Vous avez modifié l’adresse IP publique de la configuration IP par défaut. Enfin, vous avez ajouté une configuration d’adresse IP publique au pare-feu.
 
-- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](../../virtual-network/public-ip-addresses.md).
+- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](./public-ip-addresses.md).
 - Pour en savoir plus sur le Pare-feu Azure, consultez [Qu’est-ce que le Pare-feu Azure ?](../../firewall/overview.md).

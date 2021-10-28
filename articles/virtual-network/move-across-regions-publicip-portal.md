@@ -7,12 +7,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: b00fca8cf39bc44e0e53a112a332e6f6c5f0194e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6deb906d55f74cc3d418473a669a81d3d2ddf5e4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98218601"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214660"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Déplacer la configuration des adresses IP publiques Azure vers une autre région à l’aide du portail Azure
 
@@ -109,7 +109,7 @@ Les étapes suivantes montrent comment préparer l’adresse IP publique pour le
             },
         ```
 
-        Pour plus d’informations sur les différences entre les adresses IP publiques des références SKU basic et standard, consultez [Créer, modifier ou supprimer une adresse IP publique](./virtual-network-public-ip-address.md) :
+        Pour plus d’informations sur les différences entre les adresses IP publiques des références SKU basic et standard, consultez [Créer, modifier ou supprimer une adresse IP publique](./ip-services/virtual-network-public-ip-address.md) :
 
     * **Méthode d’allocation d’adresse IP publique** et **Délai d’inactivité** : vous pouvez changer ces deux options dans le modèle en permutant la propriété **publicIPAllocationMethod** entre les valeurs **Dynamic** et **Static**. Vous pouvez changer le délai d’inactivité en affectant la valeur souhaitée à la propriété **idleTimeoutInMinutes**.  La valeur par défaut est **4** :
 
@@ -135,7 +135,7 @@ Les étapes suivantes montrent comment préparer l’adresse IP publique pour le
 
         ```
 
-        Pour plus d’informations sur les méthodes d’allocation et les valeurs de délai d’inactivité, consultez [Créer, modifier ou supprimer une adresse IP publique](./virtual-network-public-ip-address.md).
+        Pour plus d’informations sur les méthodes d’allocation et les valeurs de délai d’inactivité, consultez [Créer, modifier ou supprimer une adresse IP publique](./ip-services/virtual-network-public-ip-address.md).
 
 
 13. Cliquez sur **Enregistrer** dans l’éditeur en ligne.

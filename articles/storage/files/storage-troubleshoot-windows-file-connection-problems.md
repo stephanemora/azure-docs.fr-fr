@@ -8,12 +8,12 @@ ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b1541acc9ab6871418d1cb750d74d285f3228f92
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 067d069dc06c0621f8ac6484b16cccf75e9412c2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525466"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241209"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Résoudre les problèmes liés à Azure Files sous Windows (SMB)
 
@@ -128,7 +128,7 @@ En configurant un VPN pour votre compte de stockage spécifique, le trafic passe
 Contactez votre service informatique ou ISP pour ouvrir le port 445 sortant aux [plages IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solution 4 - Utiliser les outils basés sur l’API REST, par exemple l’Explorateur Stockage/PowerShell
-Azure Files prend également en charge REST en plus de SMB. L’accès REST fonctionne sur le port 443 (tcp standard). Il existe divers outils écrits à l’aide de l’API REST qui permettent une expérience d’interface utilisateur riche. L’[Explorateur Stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) est l’un d’eux. [Téléchargez et installez l’Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/), puis connectez-vous à votre partage de fichiers grâce à Azure Files. Vous pouvez aussi utiliser [PowerShell](./storage-how-to-use-files-powershell.md) qui utilise également API REST.
+Azure Files prend également en charge REST en plus de SMB. L’accès REST fonctionne sur le port 443 (tcp standard). Il existe divers outils écrits à l’aide de l’API REST qui permettent une expérience d’interface utilisateur riche. L’[Explorateur Stockage](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) est l’un d’eux. [Téléchargez et installez l’Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/), puis connectez-vous à votre partage de fichiers grâce à Azure Files. Vous pouvez aussi utiliser [PowerShell](./storage-how-to-use-files-portal.md) qui utilise également API REST.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Cause 2 : NTLMv1 est activé
 

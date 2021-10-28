@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.date: 04/09/2021
-ms.openlocfilehash: 3ecdc0c3b39e62202c0fbdfcd0fd164519bb4e94
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 3b52a5c86310ed6e87048274835c0dfbec1b9e9c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563038"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216178"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database
 
@@ -29,11 +29,6 @@ Après avoir choisi le nombre de vCores ou de DTU, vous pouvez mettre à l’éc
 * [PowerShell](/powershell/module/az.sql/set-azsqldatabase)
 * [Azure CLI](/cli/azure/sql/db#az_sql_db_update)
 * [REST API](/rest/api/sql/databases/update)
-
-
-La vidéo suivante montre la modification dynamique du niveau de service et de la taille de calcul pour augmenter les DTU disponibles pour une base de données unique.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](file-space-manage.md).

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: cf3540f439396f3e4308eae10077693de440827f
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 06a48cd4f1a0aa0d95f1c4b5fa0faf4d7ada2ab3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213961"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238038"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights relatifs aux étiquettes de confidentialité de vos données dans Azure Purview
 
@@ -130,4 +130,3 @@ En savoir plus sur ces rapports d’insights Azure Purview :
 - [Insights relatifs aux glossaires](glossary-insights.md)
 - [Insights relatifs aux analyses](scan-insights.md)
 - [Insights relatifs aux classifications](./classification-insights.md)
-- [Insights relatifs aux extensions de fichier](file-extension-insights.md)

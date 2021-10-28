@@ -15,12 +15,12 @@ metadata:
   ms.workload: iaas-sql-server
   ms.date: 9/01/2021
   ms.author: pamela
-  ms.openlocfilehash: 0e3aeff84a7a7a8972872642b03df1b5b7c48aa2
-  ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+  ms.openlocfilehash: 47b02844b99d6f2f04f0b95446d358b90cfb478f
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/19/2021
-  ms.locfileid: "130166959"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130224102"
 title: Forum aux questions concernant SQL Server sur des machines virtuelles Azure
 summary: >
   [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -183,7 +183,7 @@ sections:
       La machine virtuelle Azure SQL déplace-t-elle ou stocke-t-elle des données client en dehors de la région ?
     answer: Non. En fait, la machine virtuelle Azure SQL et l'extension SQL IaaS Agent ne stockent aucune donnée client.
   - question: "Quelle référence SKU Azure Load Balancer doit être utilisée pour une migration intercluster d’un groupe de disponibilité ? \n"
-    answer: Pour effectuer une [migration intercluster d’un groupe de disponibilité](http://download.microsoft.com/download/d/2/0/d20e1c5f-72ea-4505-9f26-fef9550efd44/alwayson%20ag%20os%20upgrade.docx) avec SQL Server sur les machines virtuelles Azure, utilisez la [référence SKU Azure Load Balancer](/azure/load-balancer/skus).
+    answer: Pour effectuer une [migration intercluster d’un groupe de disponibilité](http://download.microsoft.com/download/d/2/0/d20e1c5f-72ea-4505-9f26-fef9550efd44/alwayson%20ag%20os%20upgrade.docx) avec SQL Server sur les machines virtuelles Azure, utilisez la [référence SKU Azure Load Balancer](../../../load-balancer/skus.md).
   - question: "Puis-je utiliser le partage de fichiers Premium Azure pour héberger mes fichiers de base de données sur une instance autonome de SQL Server ?  \n"
     answer: Oui. Les partages de fichiers Premium Azure sont pris en charge à la fois pour les instances de cluster de basculement et les instances autonomes de SQL Server via le [protocole SMB](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option).
 - name: Extension SQL Server IaaS Agent

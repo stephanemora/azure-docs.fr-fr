@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: 48dd300148cdcccc9caf754a5e5bcc69e7c5c0e7
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: a8e6133d0b4e7d0595524bb4142e51610226ad7f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129216552"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214684"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -87,7 +87,7 @@ Azure ne prend actuellement pas en charge certaines fonctionnalités qui sont pr
 | Démarrage sécurisé                         | :heavy_check_mark:  | Avec le lancement fiable (préversion)   |
 | Machine virtuelle protégée                         | :heavy_check_mark:  | :x:   |
 | vTPM                                | :heavy_check_mark:  | Avec le lancement fiable (préversion)  |
-| Sécurité basée sur la virtualisation (VBS) | :heavy_check_mark:  | Avec le lancement fiable (préversion)   |
+| Sécurité basée sur la virtualisation (VBS) | :heavy_check_mark:  | :heavy_check_mark:   |
 | Format VHDX                         | :heavy_check_mark:  | :x:   |
 
 Pour plus d’informations, consultez [Lancement fiable (préversion)](trusted-launch.md).

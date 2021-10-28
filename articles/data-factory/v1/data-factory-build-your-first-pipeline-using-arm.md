@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 236456ef88609eb98be22c1230f176d8eb06effd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6e7964a0251b7ecc958e8eb60a48c6fb63574a9c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128653454"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218823"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutoriel : Concevoir votre première fabrique de données Azure à l’aide du modèle Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Le pipeline dans ce didacticiel a une activité : **Activité HDInsight Hive**.
 > 
 > Le pipeline dans ce tutoriel a une seule activité de type : HDInsightHive. Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

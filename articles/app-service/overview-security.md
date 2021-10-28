@@ -5,12 +5,12 @@ keywords: azure app service, application web, application mobile, application d�
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 61bffcfa8b98ed666e450c344023258b752e4880
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d661781d7eea0b5627dcab13648422003c82e0a4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736103"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130220460"
 ---
 # <a name="security-in-azure-app-service"></a>Sécurité dans Azure App Service
 
@@ -76,7 +76,7 @@ Si votre application est hébergée dans un [environnement App Service](environm
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Ressources à l’intérieur d’un réseau virtuel Azure
 
-Votre application peut accéder aux ressources dans un [réseau virtuel Azure](../virtual-network/index.yml) par le biais d’une [intégration à un réseau virtuel](web-sites-integrate-with-vnet.md). L’intégration à un réseau virtuel est établie à l’aide d’un VPN de point à site. L’application peut ensuite accéder aux ressources du réseau virtuel à l’aide de leurs adresses IP privées. Toutefois, la connexion de point à site, emprunte toujours les réseaux partagés dans Azure. 
+Votre application peut accéder aux ressources dans un [réseau virtuel Azure](../virtual-network/index.yml) par le biais d’une [intégration à un réseau virtuel](./overview-vnet-integration.md). L’intégration à un réseau virtuel est établie à l’aide d’un VPN de point à site. L’application peut ensuite accéder aux ressources du réseau virtuel à l’aide de leurs adresses IP privées. Toutefois, la connexion de point à site, emprunte toujours les réseaux partagés dans Azure. 
 
 Pour isoler complètement la connectivité de vos ressources des réseaux partagés dans Azure, créez votre application dans un [environnement App Service](environment/intro.md). Dans la mesure où un environnement App Service est toujours déployé sur un réseau virtuel dédié, la connectivité entre votre application et vos ressources dans le réseau virtuel est complètement isolée. Pour plus d’informations sur d’autres aspects de la sécurité réseau dans un environnement App Service, consultez [Isolement réseau](#network-isolation).
 
@@ -85,7 +85,7 @@ Pour isoler complètement la connectivité de vos ressources des réseaux partag
 Vous pouvez accéder de manière sécurisée à des ressources locales, telles que des bases de données, de trois façons : 
 
 - [Connexions hybrides](app-service-hybrid-connections.md) : établit une connexion de point à point à votre ressource distante via un tunnel TCP. Le tunnel TCP est établi à l’aide de TLS 1.2 avec des clés de signature d’accès partagé (SAP).
-- [Intégration à un réseau virtuel](web-sites-integrate-with-vnet.md) avec VPN de site à site : comme décrit dans [Ressources à l’intérieur d’un réseau virtuel Azure](#resources-inside-an-azure-virtual-network), mais le réseau virtuel peut être connecté à votre réseau local par le biais d’un [VPN de site à site](../vpn-gateway/tutorial-site-to-site-portal.md). Dans cette topologie de réseau, votre application peut se connecter à des ressources locales telles que d’autres ressources dans le réseau virtuel.
+- [Intégration à un réseau virtuel](./overview-vnet-integration.md) avec VPN de site à site : comme décrit dans [Ressources à l’intérieur d’un réseau virtuel Azure](#resources-inside-an-azure-virtual-network), mais le réseau virtuel peut être connecté à votre réseau local par le biais d’un [VPN de site à site](../vpn-gateway/tutorial-site-to-site-portal.md). Dans cette topologie de réseau, votre application peut se connecter à des ressources locales telles que d’autres ressources dans le réseau virtuel.
 - [Environnement App Service](environment/intro.md) avec VPN de site à site : comme décrit dans [Ressources à l’intérieur d’un réseau virtuel Azure](#resources-inside-an-azure-virtual-network), mais le réseau virtuel peut être connecté à votre réseau local par le biais d’un [VPN de site à site](../vpn-gateway/tutorial-site-to-site-portal.md). Dans cette topologie de réseau, votre application peut se connecter à des ressources locales telles que d’autres ressources dans le réseau virtuel.
 
 ## <a name="application-secrets"></a>Secrets de l’application

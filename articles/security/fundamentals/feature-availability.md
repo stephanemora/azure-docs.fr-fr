@@ -6,12 +6,12 @@ ms.author: terrylan
 ms.service: security
 ms.topic: reference
 ms.date: 09/13/2021
-ms.openlocfilehash: 918743544aeaf60932f14d1d1eed609775b29efd
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 2c75831e31717b59b20b9a6e731189be0db9aa59
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129710553"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225507"
 ---
 # <a name="cloud-feature-availability-for-us-government-customers"></a>Disponibilité des fonctionnalités cloud pour les clients du secteur public américain
 
@@ -138,9 +138,9 @@ Les tableaux suivants indiquent la disponibilité actuelle des fonctionnalités 
 |- [Métriques d'audit des incidents SOC](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 |- [Watchlists](../../sentinel/watchlists.md) | GA | GA |
 | **Support Threat Intelligence** | | |
-| - [Connecteur de données Threat Intelligence – TAXII](../../sentinel/understand-threat-intelligence.md)  | GA | Non disponible |
+| - [Connecteur de données Threat Intelligence – TAXII](../../sentinel/understand-threat-intelligence.md)  | GA | GA |
 | - [Connecteur de données Threat Intelligence Platform](../../sentinel/understand-threat-intelligence.md)  | Version préliminaire publique | Non disponible |
-| - [Panneau de recherche Threat Intelligence](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | Non disponible |
+| - [Panneau de recherche Threat Intelligence](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | GA | GA |
 | - [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | Version préliminaire publique | Non disponible |
 | - [Classeur Threat Intelligence](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | Non disponible |
 |**Support lié à la détection** | | |
@@ -228,7 +228,7 @@ Les tableaux suivants indiquent la disponibilité actuelle des fonctionnalités 
 | - [Symantec VIP](../../sentinel/data-connectors-reference.md#symantec-vip-preview)                                     | Version préliminaire publique | Version préliminaire publique |
 | - [Syslog](../../sentinel/connect-syslog.md)                                           | GA             | GA             |
 | - [Threat Intelligence Platform](../../sentinel/connect-threat-intelligence-tip.md)s                   | Version préliminaire publique | Non disponible      |
-| - [Threat Intelligence TAXII](../../sentinel/connect-threat-intelligence-tip.md)                       | Version préliminaire publique | Non disponible      |
+| - [Threat Intelligence TAXII](../../sentinel/connect-threat-intelligence-tip.md)                       | GA | GA      |
 | - [Thycotic Secret Server](../../sentinel/data-connectors-reference.md#thycotic-secret-server-preview)                          | Version préliminaire publique | Version préliminaire publique |
 | - [Trend Micro Deep Security](../../sentinel/data-connectors-reference.md#trend-micro-deep-security)                       | GA             | GA             |
 | - [Trend Micro TippingPoint](../../sentinel/data-connectors-reference.md#trend-micro-tippingpoint-preview)                         | Version préliminaire publique | Version préliminaire publique |

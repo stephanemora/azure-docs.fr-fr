@@ -11,12 +11,12 @@ metadata:
   ms.date: 10/30/2018
   ms.author: genli
   ms.custom: devx-track-azurepowershell
-  ms.openlocfilehash: 825840dfe237d58f281db5e26b6090c153707195
-  ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+  ms.openlocfilehash: e6b214c5ead4be666b96992aec4c582a23e5c635
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/14/2021
-  ms.locfileid: "129992835"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130231677"
 title: FAQ sur la configuration et la gestion de Web Apps dans Azure
 summary: >
   Cet article contient des réponses aux questions fréquemment posées sur les problèmes de configuration et de gestion de la [fonctionnalité Web Apps d’Azure App Service](https://azure.microsoft.com/services/app-service/web/).
@@ -244,7 +244,7 @@ sections:
       Actuellement, vous ne pouvez pas avoir de connexion VPN point à site à un réseau virtuel connecté à ExpressRoute. Un réseau VPN de point à site et ExpressRoute ne peuvent pas coexister pour le même réseau virtuel. Pour plus d’informations, voir [Limites et limitations d’ExpressRoute et des connexions VPN site à site](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations).
   - question: >
       Comment connecter une application web App Service à un réseau virtuel disposant d’une passerelle de routage statique (basée sur une stratégie) ?
-    answer: "Actuellement, la connexion d’une application web App Service à un réseau virtuel disposant d’une passerelle de routage statique (basée sur une stratégie) n’est pas prise en charge. Si votre réseau virtuel cible existe déjà, pour que vous puissiez le connecter à une application, il doit prendre en charge le réseau VPN de point à site avec une passerelle de routage dynamique. Si votre passerelle est configurée pour un routage statique, vous ne pouvez pas activer un réseau VPN de point à site. \n\nPour plus d’informations, voir [Intégrer une application à un réseau Azure Virtual Network](web-sites-integrate-with-vnet.md).\n"
+    answer: "Actuellement, la connexion d’une application web App Service à un réseau virtuel disposant d’une passerelle de routage statique (basée sur une stratégie) n’est pas prise en charge. Si votre réseau virtuel cible existe déjà, pour que vous puissiez le connecter à une application, il doit prendre en charge le réseau VPN de point à site avec une passerelle de routage dynamique. Si votre passerelle est configurée pour un routage statique, vous ne pouvez pas activer un réseau VPN de point à site. \n\nPour plus d’informations, voir [Intégrer une application à un réseau Azure Virtual Network](./overview-vnet-integration.md).\n"
   - question: >
       Pourquoi y a-t-il des délais d’attente quand j’essaie de créer un App Service Environment ?
     answer: >

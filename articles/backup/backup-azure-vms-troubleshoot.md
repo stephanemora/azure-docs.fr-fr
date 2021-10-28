@@ -4,18 +4,18 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 06/02/2021
-ms.openlocfilehash: d3afc24f11400a5d2e7e099690ba9312e9b25ae7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 33525dbe53a385418cce78b135d6c11b5dc78dce
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599864"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130244556"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations ci-dessous :
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Sauvegarde
 
 Cette section traite de l’échec d’opération de sauvegarde d’une machine virtuelle Azure.
 
@@ -423,4 +423,4 @@ Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de 
 Pour obtenir plus d’informations sur la configuration d’une adresse IP statique via PowerShell :
 
 * [Ajout d’une adresse IP interne statique à une machine virtuelle existante](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
-* [Modifier la méthode d’allocation pour une adresse IP privée affectée à une interface réseau](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
+* [Modifier la méthode d’allocation pour une adresse IP privée affectée à une interface réseau](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md)

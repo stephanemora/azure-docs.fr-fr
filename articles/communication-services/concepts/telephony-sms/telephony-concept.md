@@ -9,18 +9,18 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.openlocfilehash: 66e39f0ec9beea775c18f0c1619cc8517e9b80a8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9cda3c4f91c3e70d19c33d4fa06343d26f6ff6ee
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128609647"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130218993"
 ---
 # <a name="telephony-concepts"></a>Concepts de la téléphonie
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Les kits SDK Appel Azure Communication Services peuvent être utilisés pour ajouter la téléphonie et le RTCP à vos applications. Cette page récapitule les concepts et les fonctionnalités clés de la téléphonie. Pour plus d’informations sur les langages et les fonctionnalités spécifiques du kit SDK, consultez [bibliothèque d’appel](../../quickstarts/voice-video-calling/calling-client-samples.md).
+Les kits SDK Appel Azure Communication Services peuvent être utilisés pour ajouter la téléphonie et le RTCP à vos applications. Cette page récapitule les concepts et les fonctionnalités clés de la téléphonie. Pour plus d’informations sur les langages et les fonctionnalités spécifiques du kit SDK, consultez [bibliothèque d’appel](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
 ## <a name="overview-of-telephony"></a>Vue d’ensemble de la téléphonie
 Chaque fois que vos utilisateurs interagissent avec un numéro de téléphone traditionnel, les appels sont facilités par les appels vocaux RTCP (réseau téléphonique commuté public). Pour émettre et recevoir des appels RTPC, vous devez ajouter des fonctionnalités de téléphonie à votre ressource Azure Communication Services. Dans ce cas, la signalisation et le contenu multimédia utilisent une combinaison de technologies basées sur IP et RTPC pour connecter vos utilisateurs. Communication Services offre deux moyens discrets d’atteindre le réseau RTC : les appels vocaux (RTC) et le routage direct Azure.

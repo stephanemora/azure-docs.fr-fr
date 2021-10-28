@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ba229ed81cd5ece4a6013654a11c21740c00c844
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 9f7e3aaff497968419285464f361a1d3ad237d3c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254063"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263208"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
@@ -100,7 +100,7 @@ Les instantanés de partage assurent uniquement une protection au niveau des fic
 ## <a name="next-steps"></a>Étapes suivantes
 - Utilisation des instantanés de partage dans :
     - [Sauvegarde des partages de fichiers Azure](../../backup/azure-file-share-backup-overview.md)
-    - [PowerShell](storage-how-to-use-files-powershell.md)
-    - [INTERFACE DE LIGNE DE COMMANDE](storage-how-to-use-files-cli.md)
+    - [PowerShell](./storage-how-to-use-files-portal.md)
+    - [INTERFACE DE LIGNE DE COMMANDE](./storage-how-to-use-files-portal.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [Forum aux questions sur les instantanés de partage](storage-files-faq.md#share-snapshots)

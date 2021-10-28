@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.openlocfilehash: 658d8c8c43bd2795a6a25730ff85ffb6bbd3a63c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 500ec9c14dea994b528528389ed03d2b561c1a56
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128598172"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241817"
 ---
 # <a name="secure-traffic-between-virtual-networks-and-single-tenant-workflows-in-azure-logic-apps-using-private-endpoints"></a>Sécuriser le trafic entre réseaux virtuels et flux de travail monolocataires dans Azure Logic Apps à l’aide de points de terminaison privés
 
@@ -124,7 +124,7 @@ Pour plus d’informations, consultez [Créer des flux de travail d’applicatio
 
 Pour sécuriser le trafic sortant de votre application logique, vous pouvez intégrer votre application logique avec un réseau virtuel. Par défaut, le trafic sortant de votre application logique est uniquement affecté par les groupes de sécurité réseau et les itinéraires définis par l’utilisateur (UDR) quand vous accédez à une adresse privée, telle que `10.0.0.0/8`, `172.16.0.0/12` et `192.168.0.0/16`.
 
-Si vous utilisez votre propre serveur de noms de domaine (DNS) avec votre réseau virtuel, définissez le paramètre d’application `WEBSITE_DNS_SERVER` de votre ressource d’application logique sur l’adresse IP de votre DNS. Si vous avez un DNS secondaire, ajoutez un autre paramètre d’application nommé `WEBSITE_DNS_ALT_SERVER` et définissez la valeur sur l’adresse IP de votre DNS. Par ailleurs, mettez à jour vos enregistrements DNS pour faire pointer vos points de terminaison privés vers votre adresse IP interne. Les points de terminaison privés envoient la recherche DNS à l’adresse privée, et non à l’adresse publique de la ressource spécifique. Pour en savoir plus, consultez [Points de terminaison privés – Intégrer votre application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
+Si vous utilisez votre propre serveur de noms de domaine (DNS) avec votre réseau virtuel, définissez le paramètre d’application `WEBSITE_DNS_SERVER` de votre ressource d’application logique sur l’adresse IP de votre DNS. Si vous avez un DNS secondaire, ajoutez un autre paramètre d’application nommé `WEBSITE_DNS_ALT_SERVER` et définissez la valeur sur l’adresse IP de votre DNS. Par ailleurs, mettez à jour vos enregistrements DNS pour faire pointer vos points de terminaison privés vers votre adresse IP interne. Les points de terminaison privés envoient la recherche DNS à l’adresse privée, et non à l’adresse publique de la ressource spécifique. Pour en savoir plus, consultez [Points de terminaison privés – Intégrer votre application à un réseau virtuel Azure](../app-service/overview-vnet-integration.md#private-endpoints).
 
 > [!IMPORTANT]
 > Pour que le runtime Azure Logic Apps fonctionne, vous devez disposer d’une connexion ininterrompue au stockage principal. Pour que les connecteurs gérés hébergés par Azure fonctionnent, vous devez disposer d’une connexion ininterrompue au service de l’API managée.
@@ -135,7 +135,7 @@ La configuration de l’intégration du réseau virtuel ne concerne que le trafi
 
 Pour plus d’informations, consultez la documentation suivante :
 
-- [Intégrer votre application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md)
+- [Intégrer votre application à un réseau virtuel Azure](../app-service/overview-vnet-integration.md)
 
 - [Groupes de sécurité réseau](../virtual-network/network-security-groups-overview.md)
 
@@ -170,7 +170,7 @@ Vous pouvez restreindre l’accès au compte de stockage pour que seules les res
 
    1. Pour accéder aux données de flux de travail de votre application logique sur le réseau virtuel, dans les paramètres de votre ressource d’application logique, définissez le paramètre `WEBSITE_CONTENTOVERVNET` sur `1`.
 
-   Si vous utilisez votre propre serveur de noms de domaine (DNS) avec votre réseau virtuel, définissez le paramètre d’application `WEBSITE_DNS_SERVER` de votre ressource d’application logique sur l’adresse IP de votre DNS. Si vous avez un DNS secondaire, ajoutez un autre paramètre d’application nommé `WEBSITE_DNS_ALT_SERVER` et définissez la valeur sur l’adresse IP de votre DNS. Par ailleurs, mettez à jour vos enregistrements DNS pour faire pointer vos points de terminaison privés vers votre adresse IP interne. Les points de terminaison privés envoient la recherche DNS à l’adresse privée, et non à l’adresse publique de la ressource spécifique. Pour en savoir plus, consultez [Points de terminaison privés – Intégrer votre application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
+   Si vous utilisez votre propre serveur de noms de domaine (DNS) avec votre réseau virtuel, définissez le paramètre d’application `WEBSITE_DNS_SERVER` de votre ressource d’application logique sur l’adresse IP de votre DNS. Si vous avez un DNS secondaire, ajoutez un autre paramètre d’application nommé `WEBSITE_DNS_ALT_SERVER` et définissez la valeur sur l’adresse IP de votre DNS. Par ailleurs, mettez à jour vos enregistrements DNS pour faire pointer vos points de terminaison privés vers votre adresse IP interne. Les points de terminaison privés envoient la recherche DNS à l’adresse privée, et non à l’adresse publique de la ressource spécifique. Pour en savoir plus, consultez [Points de terminaison privés – Intégrer votre application à un réseau virtuel Azure](../app-service/overview-vnet-integration.md#private-endpoints).
 
 1. Après avoir appliqué ces paramètres d’application, vous pouvez supprimer l’accès public de votre compte de stockage.
 

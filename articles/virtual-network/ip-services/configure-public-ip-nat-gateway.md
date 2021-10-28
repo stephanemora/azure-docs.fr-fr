@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 2fd41f3459469474c100657747c4873ee99dc057
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: b87947aa265e5a92abf033fffd28ab3424785bb5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368499"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217389"
 ---
 # <a name="manage-a-public-ip-address-with-a-nat-gateway"></a>Gérer une adresse IP publique avec une passerelle NAT
 
@@ -31,9 +31,9 @@ Enfin, vous allez modifier la configuration IP à partir d’une adresse IP publ
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Deux IP publiques du niveau tarifaire Standard dans votre abonnement. Les adresses IP ne peuvent pas être associées à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence SKU standard, consultez [Créer une adresse IP publique - Portail Azure](../../virtual-network/create-public-ip-portal.md).
+- Deux IP publiques du niveau tarifaire Standard dans votre abonnement. Les adresses IP ne peuvent pas être associées à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence SKU standard, consultez [Créer une adresse IP publique - Portail Azure](./create-public-ip-portal.md).
     - Pour les besoins des exemples de cet article, nommez les nouvelles IP publiques **myStandardPublicIP-1** et **myStandardPublicIP-2**.
-- Un préfixe d’IP publique dans votre abonnement. Pour plus d’informations sur la création d’un préfixe d’adresse IP publique, consultez [Créer une adresse IP publique à l’aide du Portail Azure](../../virtual-network/create-public-ip-prefix-portal.md).
+- Un préfixe d’IP publique dans votre abonnement. Pour plus d’informations sur la création d’un préfixe d’adresse IP publique, consultez [Créer une adresse IP publique à l’aide du Portail Azure](./create-public-ip-prefix-portal.md).
     - Dans le cadre de l’exemple de cet article, nommez le nouveau préfixe d’adresse IP publique **myPublicIPPrefixNAT**.
 
 ## <a name="create-nat-gateway-existing-public-ip"></a>Créer une adresse IP publique existante de la passerelle NAT
@@ -149,4 +149,4 @@ Dans cette section, vous allez modifier la configuration IP sortante pour utilis
 Dans cet article, vous avez appris à créer une passerelle NAT de chargement et à utiliser une adresse IP publique existante. Vous avez remplacé l’adresse IP dans une configuration IP sortante de passerelle NAT. Enfin, vous avez modifié une configuration IP sortante pour utiliser un préfixe d’adresse IP publique.
 
 - Pour plus d’informations sur le service NAT de réseau virtuel Azure, consultez [Qu’est-ce que le service NAT de réseau virtuel ?](../nat-gateway/nat-overview.md)
-- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](../../virtual-network/public-ip-addresses.md).
+- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](./public-ip-addresses.md).

@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 29826aba135c2d409a99489aeb9e2c71f6d6a7c4
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 3a9d7f4f6c3413fe82cd1dde52ebde866d77eedf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111754706"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262904"
 ---
 # <a name="identify-and-diagnose-issues-in-azure-virtual-desktop-classic"></a>Identifier et diagnostiquer les problèmes dans Azure Virtual Desktop (classique)
 
 >[!IMPORTANT]
->Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../diagnostics-role-service.md).
+>Ce contenu s’applique à Azure Virtual Desktop (classique), qui ne prend pas en charge les objets Azure Virtual Desktop pour Azure Resource Manager. Si vous essayez de gérer des objets Azure Virtual Desktop pour Azure Resource Manager, consultez [cet article](../troubleshoot-set-up-overview.md).
 
 Azure Virtual Desktop offre une fonctionnalité de diagnostic qui permet à l’administrateur d’identifier les problèmes via une seule interface. Les rôles Azure Virtual Desktop journalisent une activité de diagnostic à chaque fois qu’un utilisateur interagit avec le système. Chaque journal contient des informations importantes telles que les rôles Azure Virtual Desktop impliqués dans la transaction, les messages d’erreur, les informations d’abonnés, et les informations d’utilisateurs. Les activités de diagnostics sont créées par des actions de l’administrateur et de l’utilisateur, et peuvent être divisées en trois catégories principales :
 

@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/07/2021
 ms.author: pafarley
-ms.openlocfilehash: 72d2acd25381af654fb098d81a7cdc4ec0bbce22
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: c234aa457c6aa77ff16f8297ca5861a66a5e05aa
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700700"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264519"
 ---
 # <a name="azure-role-based-access-control-in-speech-studio"></a>Contrôle d’accès en fonction du rôle Azure dans Speech Studio 
 
-Speech Studio prend en charge le contrôle d’accès en fonction du rôle Azure (Azure RBAC), système d’autorisation pour la gestion des accès individuels aux ressources Azure. En utilisant Azure RBAC, vous pouvez affecter des niveaux d’autorisations différents pour vos opérations Speech Studio à différents membres de l’équipe. Pour plus d’informations sur Azure RBAC, consultez la [documentation Azure RBAC](/azure/role-based-access-control/overview).
+Speech Studio prend en charge le contrôle d’accès en fonction du rôle Azure (Azure RBAC), système d’autorisation pour la gestion des accès individuels aux ressources Azure. En utilisant Azure RBAC, vous pouvez affecter des niveaux d’autorisations différents pour vos opérations Speech Studio à différents membres de l’équipe. Pour plus d’informations sur Azure RBAC, consultez la [documentation Azure RBAC](../../role-based-access-control/overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -29,7 +29,7 @@ Speech Studio prend en charge le contrôle d’accès en fonction du rôle Azure
 
 Pour accorder l’accès à une ressource Azure Speech, vous ajoutez une attribution de rôle via l’outil Azure RBAC dans le portail Azure. 
 
-Au bout de quelques minutes, le rôle sélectionné est attribué à la cible dans l’étendue sélectionnée. Pour recevoir del’aide relative à ces étapes, consultez [Attribuer des rôles Azure à l’aide du Portail Azure](/azure/role-based-access-control/role-assignments-portal?tabs=current).
+Au bout de quelques minutes, le rôle sélectionné est attribué à la cible dans l’étendue sélectionnée. Pour recevoir del’aide relative à ces étapes, consultez [Attribuer des rôles Azure à l’aide du Portail Azure](../../role-based-access-control/role-assignments-portal.md?tabs=current).
 
 ## <a name="supported-built-in-roles-in-speech-studio"></a>Rôles intégrés pris en charge dans Speech Studio
 
@@ -45,7 +45,7 @@ Une définition de rôle est un ensemble d’autorisations. Utilisez les rôles 
 |**Utilisateur du service cognitif Speech** |Non |Peut visualiser les projets/ jeux de données / modèles / points de terminaison ; ne peut pas créer, modifier supprimer |Peut visualiser les projets/ jeux de données / modèles / points de terminaison ; ne peut pas créer, modifier supprimer |Accès total |
 |**Lecteur de données Cognitive Services (préversion)** |Non |Peut visualiser les projets/ jeux de données / modèles / points de terminaison ; ne peut pas créer, modifier supprimer |Peut visualiser les projets/ jeux de données / modèles / points de terminaison ; ne peut pas créer, modifier supprimer |Accès total |
 
-Vous pouvez aussi [créer une définition de rôle personnalisé](/azure/role-based-access-control/custom-roles). Par exemple, vous pouvez créer un rôle personnalisé avec l’autorisation de charger des jeux de données vocaux personnalisés, mais sans avoir la possibilité de déployer un modèle vocal personnalisé sur un point de terminaison.
+Vous pouvez aussi [créer une définition de rôle personnalisé](../../role-based-access-control/custom-roles.md). Par exemple, vous pouvez créer un rôle personnalisé avec l’autorisation de charger des jeux de données vocaux personnalisés, mais sans avoir la possibilité de déployer un modèle vocal personnalisé sur un point de terminaison.
 
 > [!NOTE]
 > Speech Studio prend en charge l’authentification basée sur des clés. Les rôles qui ont l’autorisation de lister les clés des ressources (`Microsoft.CognitiveServices/accounts/listKeys/action`) seront tout d’abord authentifiés avec une clé de ressource et auront un accès complet aux opérations de Speech Studio, à condition que l’authentification par clé soit activée dans le portail Azure. Si l’authentification par clé est désactivée par l’administrateur du service, ces rôles perdent tous les accès à Studio.
@@ -55,4 +55,4 @@ Vous pouvez aussi [créer une définition de rôle personnalisé](/azure/role-ba
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le [Chiffrement des données au repos du service Speech](/azure/cognitive-services/speech-service/speech-encryption-of-data-at-rest).
+En savoir plus sur le [Chiffrement des données au repos du service Speech](./speech-encryption-of-data-at-rest.md).

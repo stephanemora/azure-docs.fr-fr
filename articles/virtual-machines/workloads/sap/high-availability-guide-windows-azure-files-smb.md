@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/13/2021
 ms.author: stmuelle
-ms.openlocfilehash: d1e01f51d4d83254031407a125c3578fb3feb718
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 458c63f27e9e17d71b9af97eda0de56f8f935a25
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602461"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251354"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-files-premium-smb-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sous Windows avec Azure Files Premium SMB pour les applications SAP
 
@@ -58,7 +58,7 @@ Conditions préalables à l’installation de systèmes à haute disponibilité 
 * Les serveurs SAP doivent être joints à un domaine Active Directory.
 * Le domaine Active Directory contenant les serveurs SAP doit être répliqué dans Azure Active Directory à l’aide d’Azure AD Connect.
 * Il est fortement recommandé de disposer d’au moins un contrôleur de domaine Active Directory dans le paysage Azure pour éviter de traverser l’itinéraire ExpressRoute pour contacter les contrôleurs de domaine locaux.
-* L’équipe du support Azure consulter la documentation relative à l’[intégration d’Azure Files SMB à Active Directory](/azure/storage/files/storage-files-identity-auth-active-directory-enable#videos). *La vidéo présente des options de configuration supplémentaires qui ont été modifiées (DNS) et ignorées (DFS-N) par souci de simplification.* Il s’agit néanmoins d’options de configuration valides. 
+* L’équipe du support Azure consulter la documentation relative à l’[intégration d’Azure Files SMB à Active Directory](../../../storage/files/storage-files-identity-auth-active-directory-enable.md#videos). *La vidéo présente des options de configuration supplémentaires qui ont été modifiées (DNS) et ignorées (DFS-N) par souci de simplification.* Il s’agit néanmoins d’options de configuration valides. 
 * L’utilisateur qui exécute le script Azure Files PowerShell doit avoir l’autorisation de créer des objets dans Active Directory.
 * **SWPM 1.0 SP32 et SWPM 2.0 SP09 ou une version ultérieure sont requis. Le patch SAPInst doit être la version 749.0.91 ou ultérieure.**
 * Une version à jour de PowerShell doit être installée sur le serveur Windows sur lequel le script est exécuté. 
@@ -85,7 +85,7 @@ Conditions préalables à l’installation de systèmes à haute disponibilité 
      1. Créer le partage de fichiers **sapmnt** avec une taille appropriée.  La taille suggérée est de 256 Go, ce qui offre 650 IOPS, 75 Mo/sec en sortie et 50 Mo/sec en entrée.
          ![create-storage-account-5](media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png)Capture d’écran du portail Azure pour la définition du partage SMB. 
       
-     1. Télécharger le contenu [Azure Files GitHub](/azure/storage/files/storage-files-identity-ad-ds-enable#download-azfileshybrid-module) et exécuter le [script](/azure/storage/files/storage-files-identity-ad-ds-enable#run-join-azstorageaccountforauth).   
+     1. Télécharger le contenu [Azure Files GitHub](../../../storage/files/storage-files-identity-ad-ds-enable.md#download-azfileshybrid-module) et exécuter le [script](../../../storage/files/storage-files-identity-ad-ds-enable.md#run-join-azstorageaccountforauth).   
      Ce script crée un compte d’ordinateur ou un compte de service dans Active Directory.  L’utilisateur qui exécute le script doit avoir les propriétés suivantes : 
          * L’utilisateur qui exécute le script doit avoir l’autorisation de créer des objets dans le domaine Active Directory contenant les serveurs SAP. En règle générale, un compte d’administrateur de domaine est utilisé, par exemple : **SAPCONT_ADMIN@SAPCONTOSO.local** . 
          * Avant d’exécuter le script, vérifiez que ce compte d’utilisateur de domaine Active Directory est synchronisé avec Azure Active Directory (AAD).  Par exemple, vous pouvez ouvrir le portail Azure, accéder aux utilisateurs AAD, vérifier que l’utilisateur **SAPCONT_ADMIN@SAPCONTOSO.local** existe et vérifier le compte d’utilisateur AAD **SAPCONT_ADMIN@SAPCONTOSO.onmicrosoft.com** .

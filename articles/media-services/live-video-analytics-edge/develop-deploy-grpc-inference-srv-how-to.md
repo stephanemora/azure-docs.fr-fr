@@ -3,12 +3,12 @@ title: Développer et déployer un serveur d’inférence gRPC avec Live Video A
 description: Cet article explique comment développer et déployer un serveur d’inférence gRPC avec Live Video Analytics.
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: d7d636803ac49d78aae78dad256598d9de3e7448
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1e685a4c363a58e19295da8f5d563114db84df9b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371571"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232344"
 ---
 # <a name="develop-and-deploy-a-grpc-inference-server-with-live-video-analytics"></a>Développer et déployer un serveur d’inférence gRPC avec Live Video Analytics
 
@@ -30,7 +30,7 @@ Cet article explique comment vous pouvez encapsuler le ou les modèles IA de vot
 
 * Un appareil x86-64 ou ARM64 exécutant l’un des [systèmes d’exploitation Linux pris en charge](../../iot-edge/support.md#operating-systems) ou un ordinateur Windows.
 * [Installation de Docker](https://docs.docker.com/desktop/#download-and-install) sur votre ordinateur.
-* Installation d’un [runtime IoT Edge](../../iot-edge/how-to-install-iot-edge.md?tabs=linux).
+* Installation d’un [runtime IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 ## <a name="grpc-implementation-steps"></a>Étapes d’implémentation gRPC
 

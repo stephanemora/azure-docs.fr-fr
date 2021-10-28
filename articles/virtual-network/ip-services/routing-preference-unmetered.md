@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: allensu
-ms.openlocfilehash: 5d459c4a61518aae349184773561448148877afc
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: e4a1fcc508b83eae0d016fec02808047dfc79009
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368495"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224870"
 ---
 # <a name="what-is-routing-preference-unmetered"></a>Qu’est-ce qu’une préférence de routage non mesuré ?
 
@@ -32,7 +32,7 @@ Le trafic réseau sortant de l’origine dans Azure, et destiné au fournisseur 
 
 Pour tirer parti de la préférence de routage non mesuré, vos fournisseurs CDN doivent faire partie de ce programme. Si votre fournisseur CDN ne fait pas partie du programme, contactez-le.
 
-Ensuite, configurez la préférence de routage pour vos ressources et définissez le type de préférence de routage sur **Internet**. Vous pouvez configurer la préférence de routage lors de la création d’une adresse IP publique, en associant ensuite cette IP publique à des ressources telles que des machines virtuelles, des équilibreurs de charge accessibles sur Internet, etc. [Apprenez à configurer la préférence de routage d’une adresse IP publique à l’aide du portail Azure](../../virtual-network/routing-preference-portal.md)
+Ensuite, configurez la préférence de routage pour vos ressources et définissez le type de préférence de routage sur **Internet**. Vous pouvez configurer la préférence de routage lors de la création d’une adresse IP publique, en associant ensuite cette IP publique à des ressources telles que des machines virtuelles, des équilibreurs de charge accessibles sur Internet, etc. [Apprenez à configurer la préférence de routage d’une adresse IP publique à l’aide du portail Azure](./routing-preference-portal.md)
 
 Vous pouvez également activer la préférence de routage de votre compte de stockage, et publier un deuxième point de terminaison à utiliser par le fournisseur CDN pour extraire des données de l’origine du stockage. Par exemple, la publication d’un point de terminaison propre à la route Internet pour le compte de stockage *StorageAccountA* publie le deuxième point de terminaison pour vos services de stockage, comme indiqué ci-dessous :
 
@@ -41,6 +41,6 @@ Vous pouvez également activer la préférence de routage de votre compte de sto
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure PowerShell](../../virtual-network/configure-routing-preference-virtual-machine-powershell.md)
-* [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure CLI](../../virtual-network/configure-routing-preference-virtual-machine-cli.md)
+* [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure PowerShell](./configure-routing-preference-virtual-machine-powershell.md)
+* [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure CLI](./configure-routing-preference-virtual-machine-cli.md)
 * [Configurer la préférence de routage de votre compte de stockage](../../storage/common/network-routing-preference.md)

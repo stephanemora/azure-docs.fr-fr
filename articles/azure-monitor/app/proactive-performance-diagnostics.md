@@ -4,12 +4,12 @@ description: La détection intelligente analyse les données de télémétrie de
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 0090171b83a25618b862e766ccd2ef39a4adb970
-ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
+ms.openlocfilehash: 4bcbac5aa9d02aa7e996951b1d1bb334be5b2c9d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111536720"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227024"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente – Anomalies de performances
 
@@ -74,7 +74,7 @@ Les e-mails relatifs aux anomalies de performances de la détection intelligente
 
   * Pas encore, mais vous pouvez :
     * [configurer des alertes](../alerts/alerts-log.md) qui vous indiquent qu'une métrique dépasse un seuil ;
-    * [exporter la télémétrie](./export-telemetry.md) vers une [base de données](./code-sample-export-sql-stream-analytics.md) ou vers [Power BI](./export-power-bi.md), où vous pouvez les analyser vous-même.
+    * [exporter la télémétrie](./export-telemetry.md) vers une [base de données](../../stream-analytics/app-insights-export-sql-stream-analytics.md) ou vers [Power BI](./export-power-bi.md), où vous pouvez les analyser vous-même.
 * *À quelle fréquence l’analyse est-elle réalisée ?*
 
   * Nous exécutons l’analyse tous les jours sur la télémétrie du jour précédent (jour complet en heure UTC).

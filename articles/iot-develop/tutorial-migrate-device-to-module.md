@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-develop
 services: iot-develop
-ms.openlocfilehash: 44dca3cd3cd7803271fba6abae72de5c54782c1f
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: a0a5402f4947da149609f9563c7f28c6581cd14a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457408"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259446"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutoriel : Connecter un module IoT Plug-and-Play (C#)
 
@@ -229,7 +229,7 @@ Pour convertir cet exemple de sorte qu’il fonctionne en tant que module IoT Ed
 Pour savoir comment déployer votre module conteneurisé, consultez :
 
 * [Exécuter Azure IoT Edge sur des machines virtuelles Ubuntu](../iot-edge/how-to-install-iot-edge-ubuntuvm.md).
-* [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](../iot-edge/how-to-install-iot-edge.md).
+* [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 Vous pouvez utiliser l’explorateur Azure IoT pour voir ce qui suit :
 

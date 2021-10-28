@@ -3,12 +3,12 @@ title: Gérer les disques managés Azure
 description: Apprenez-en davantage sur la gestion de disque managé Azure à partir du Portail Azure.
 ms.topic: conceptual
 ms.date: 09/23/2021
-ms.openlocfilehash: 4b40a71a71ce543c66bf347ec745fea6ae384779
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 38f131d9656f604ee4d53b5d1de0f16ffa56b9ba
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708910"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215988"
 ---
 # <a name="manage-azure-managed-disks"></a>Gérer les disques managés Azure
 
@@ -96,7 +96,7 @@ Utiliser les étapes suivantes :
 Si vous choisissez d’arrêter tous les travaux de sauvegarde planifiés, et de supprimer toutes les sauvegardes existantes, utilisez **Supprimer l’instance de sauvegarde**.
 
 >[!Note]
->La suppression d’une instance de sauvegarde échoue si le groupe de ressources d’instantané est supprimé manuellement ou si l’autorisation d’accès à l’identité managée du coffre de sauvegarde est révoquée. En cas de défaillance, créez temporairement le groupe de ressources d’instantané (avec le même nom) et fournissez à l’identité managée du coffre de sauvegarde les autorisations de rôle requises, comme indiqué [ici](/azure/backup/backup-managed-disks-ps#assign-permissions). Vous trouverez le nom du groupe de ressources d’instantané dans l’onglet **Informations de base** de l’écran **Instance de sauvegarde**. 
+>La suppression d’une instance de sauvegarde échoue si le groupe de ressources d’instantané est supprimé manuellement ou si l’autorisation d’accès à l’identité managée du coffre de sauvegarde est révoquée. En cas de défaillance, créez temporairement le groupe de ressources d’instantané (avec le même nom) et fournissez à l’identité managée du coffre de sauvegarde les autorisations de rôle requises, comme indiqué [ici](./backup-managed-disks-ps.md#assign-permissions). Vous trouverez le nom du groupe de ressources d’instantané dans l’onglet **Informations de base** de l’écran **Instance de sauvegarde**. 
 
 Pour supprimer une instance de sauvegarde de disque, procédez comme suit :
 

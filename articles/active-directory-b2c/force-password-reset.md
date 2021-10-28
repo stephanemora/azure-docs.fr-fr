@@ -3,21 +3,21 @@ title: Configurer un flux de réinitialisation forcée du mot de passe dans Azur
 titleSuffix: Azure AD B2C
 description: Découvrez comment configurer un flux de réinitialisation forcée du mot de passe dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: bff08cb924e33090b80f44dd908e2b9964290d5c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7c350c04071dd5f01804aaea57dd7390dc00bad5
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128572400"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130236710"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Configurer un flux de réinitialisation forcée du mot de passe dans Azure Active Directory B2C
 

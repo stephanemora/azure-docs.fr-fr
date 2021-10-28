@@ -11,12 +11,12 @@ ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/21/2021
-ms.openlocfilehash: 89adb496452a0aa0351c5ac1f544a415c7cf9efc
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 59147dd6037e5eb2f4565ec135d04f3a1c242cc3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178630"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247926"
 ---
 # <a name="whats-new-in-azure-sql-managed-instance"></a>Nouveautés d’Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,11 +52,11 @@ Le tableau suivant liste les fonctionnalités d’Azure SQL Managed Instance act
 
 Le tableau suivant liste les fonctionnalités d’Azure SQL Managed Instance qui sont passées de la préversion à la disponibilité générale (GA) au cours des 12 derniers mois : 
 
-| Fonctionnalité | Mois de disponibilité générale | Détails |
+| Fonctionnalité | Mois en GA | Détails |
 | ---| --- |--- |
 | [Machine Learning Service](machine-learning-services-overview.md) | Mars 2021 | Machine Learning Services est une fonctionnalité d’Azure SQL Managed Instance qui fournit un apprentissage automatique en base de données prenant en charge les scripts Python et R. La fonctionnalité inclut les packages Microsoft Python et R pour l’analyse prédictive haute performance et l’apprentissage automatique. |
 | [Autorisations précises pour le masquage dynamique des données](../database/dynamic-data-masking-overview.md)| Mars 2021 | Le masquage dynamique des données permet d’empêcher les accès non autorisés à des données sensibles. Pour cela, les clients peuvent indiquer la quantité de données sensibles à exposer avec un impact minimal sur la couche Application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête sur des champs de base de données désignés (les données dans la base de données ne sont pas modifiées). Il est désormais possible d’attribuer des autorisations précises pour les données qui ont été masquées dynamiquement. Pour plus d’informations, consultez [Masquage dynamique des données](../database/dynamic-data-masking-overview.md#permissions). |
-| [Opérations de gestion d’audit](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  Mars 2021 | Les capacités d’audit d’Azure SQL vous permettent d’auditer les opérations effectuées par les ingénieurs du support de Microsoft quand ils accèdent à vos ressources SQL lors d’une demande de support, améliorant ainsi la transparence avec vos employés. | 
+| [Opérations de gestion d’audit](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  Mars 2021 | Les fonctionnalités d’audit d’Azure SQL vous permettent d’auditer les opérations effectuées par les ingénieurs du support technique de Microsoft quand ils accèdent à vos ressources SQL au cours d’une demande de support, améliorant ainsi la transparence avec vos employés. | 
 ||| 
 
 ## <a name="documentation-changes"></a>Modifications apportées à la documentation
@@ -67,7 +67,7 @@ Découvrez les modifications importantes apportées à la documentation d’Azur
 
 | Modifications | Détails |
 | --- | --- |
-|**Répartition des nouveautés** | L’article regroupant précédemment les **nouveautés** a été divisé par produit : [Nouveautés de SQL Database](../database/doc-changes-updates-release-notes-whats-new.md) et [Nouveautés de SQL Managed Instance](doc-changes-updates-release-notes-whats-new.md). Vous pouvez identifier plus facilement les fonctionnalités actuellement en préversion et celles en disponibilité générale, ainsi que les modifications importantes apportées à la documentation. De plus, les [problèmes connus dans SQL Managed Instance](doc-changes-updates-known-issues.md) ont désormais leur propre page.  | 
+|**Répartition des nouveautés** | L’article regroupant précédemment les **nouveautés** a été divisé par produit : [Nouveautés d’Azure SQL Database](../database/doc-changes-updates-release-notes-whats-new.md) et [Nouveautés de SQL Managed Instance](doc-changes-updates-release-notes-whats-new.md). Vous pouvez identifier plus facilement les fonctionnalités actuellement en préversion et celles en disponibilité générale, ainsi que les modifications importantes apportées à la documentation. De plus, les [problèmes connus dans SQL Managed Instance](doc-changes-updates-known-issues.md) ont désormais leur propre page.  | 
 
 
 ### <a name="june-2021"></a>Juin 2021
@@ -98,7 +98,7 @@ Découvrez les modifications importantes apportées à la documentation d’Azur
 | **Log Replay Service** | Il est désormais possible de migrer des bases de données de SQL Server vers Azure SQL Managed Instance à l’aide du service LRS (Log Replay Service). Pour en savoir plus, consultez [Migrer à l’aide de Log Replay Service](log-replay-service-migrate.md). Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. | 
 | **Rétention des sauvegardes à long terme** | Prise en charge de la conservation des sauvegardes à long terme jusqu’à 10 ans sur Azure SQL Managed Instance. Pour en savoir plus, consultez [Rétention des sauvegardes à long terme](long-term-backup-retention-configure.md).|
 | **Disponibilité générale de Machine Learning Services** | Machine Learning Services pour Azure SQL Managed Instance est désormais en disponibilité générale (GA). Pour en savoir plus, consultez [Machine Learning Services pour SQL Managed Instance](machine-learning-services-overview.md).| 
-| **Fenêtre de maintenance** | Cette fonctionnalité actuellement en préversion vous permet de configurer une planification de maintenance pour votre instance gérée Azure SQL. Pour plus d’informations, consultez [Fenêtre de maintenance](/database/maintenance-window.md).|
+| **Fenêtre de maintenance** | Cette fonctionnalité actuellement en préversion vous permet de configurer une planification de maintenance pour votre instance gérée Azure SQL. Pour plus d’informations, consultez [Fenêtre de maintenance](../database/maintenance-window.md).|
 | **Échange de messages de Service Broker** | Le composant Service Broker d’Azure SQL Managed Instance vous permet de composer vos applications à partir de services indépendants et autonomes, en fournissant la prise en charge native d’un échange de messages fiable et sécurisé entre les bases de données attachées au service. Actuellement en préversion. Pour en savoir plus, consultez [Service Broker](/sql/database-engine/configure-windows/sql-server-service-broker).
 | **Insights SQL** | SQL Insights est une solution complète de surveillance de tout produit de la famille SQL Azure. SQL Insights utilise des vues de gestion dynamique pour exposer les données dont vous avez besoin pour surveiller l’intégrité, diagnostiquer les problèmes et optimiser les performances. Pour plus d’informations, consultez [SQL Insights](../../azure-monitor/insights/sql-insights-overview.md). | 
 ||| 

@@ -10,45 +10,26 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/24/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1c6cca640d8607a355e0ffca36e3af502df5052c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: f7db6c26dbc80e104bd9fbd85468b54fc4877dec
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815501"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217812"
 ---
 # <a name="quickstart-set-and-retrieve-a-key-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer une clé dans Azure Key Vault avec le portail Azure
 
 Azure Key Vault est un service cloud qui fonctionne comme un magasin sécurisé contenant des secrets. Vous pouvez stocker des clés, des mots de passe, des certificats et d’autres secrets en toute sécurité. Vous pouvez créer et gérer des coffres de clés Azure grâce au portail Azure. Dans ce guide de démarrage rapide, vous créez un coffre de clés, puis l’utilisez pour stocker une clé. Pour plus d’informations sur Key Vault, consultez la [présentation](../general/overview.md).
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+## <a name="prerequisites"></a>Prérequis
+
+Pour accéder à Azure Key Vault, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+Tout accès aux secrets s’effectue par le biais d’Azure Key Vault. Pour ce guide de démarrage rapide, créez un coffre de clés à l’aide du [portail Azure](../general/quick-create-portal.md), de l’interface [Azure CLI](../general/quick-create-cli.md) ou d’[Azure PowerShell](../general/quick-create-powershell.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur https://portal.azure.com.
-
-## <a name="create-a-vault"></a>Création d'un coffre
-
-1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
-2. Dans la zone de recherche, entrez **Key Vault**.
-3. Dans la liste des résultats, choisissez **Key Vault**.
-4. Dans la section Key Vault, choisissez **Créer**.
-5. Dans la section **Créer un coffre de clés**, renseignez les informations suivantes :
-    - **Name** : un nom unique est obligatoire. Pour ce guide de démarrage rapide, nous utilisons **Example-Vault**. 
-    - **Abonnement**: Choisissez un abonnement.
-    - Sous **Groupe de ressources**, choisissez **Créer** et entrez le nom du groupe de ressources.
-    - Dans le menu déroulant **Emplacement**, choisissez un emplacement.
-    - Conservez les valeurs par défaut des autres options.
-6. Après avoir renseigné les informations ci-dessus, sélectionnez **Créer**.
-
-Notez les deux propriétés ci-dessous :
-
-* **Nom du coffre** : dans l’exemple, il s’agit d’**Example-Vault**. Vous allez utiliser ce nom pour les autres étapes.
-* **URI du coffre** : dans l’exemple, il s’agit de https://example-vault.vault.azure.net/. Les applications qui utilisent votre coffre via son API REST doivent utiliser cet URI.
-
-À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
-
-![Sortie après la création du coffre de clés](../media/keys/quick-create-portal/vault-properties.png)
 
 ## <a name="add-a-key-to-key-vault"></a>Ajouter une clé à Key Vault
 
@@ -61,10 +42,9 @@ Pour ajouter une clé au coffre, vous devez effectuer deux autres opérations. D
     - **Name** : ExampleKey.
     - Conservez les valeurs par défaut des autres options. Cliquez sur **Créer**.
 
-Lorsque vous recevez le message confirmant la création de la clé, vous pouvez cliquer dessus dans la liste. Certaines propriétés s’affichent. Si vous cliquez sur la version actuelle, vous voyez la valeur que vous avez spécifiée à l’étape précédente.
+Lorsque vous recevez le message confirmant la création de la clé, vous pouvez cliquer dessus dans la liste. Certaines propriétés s’affichent. 
 
-![Propriétés de la clé](../media/keys/quick-create-portal/current-version-hidden.png)
-
+:::image type="content" source="../media/keys/quick-create-portal/current-version-hidden.png" alt-text="Propriétés de la clé":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

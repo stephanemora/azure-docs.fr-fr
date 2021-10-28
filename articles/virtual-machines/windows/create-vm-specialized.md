@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2a10d58dc36304afdbd37c3fd1c3c41dd819d022
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 650065e45afa3b03098c948b8636ed2943b22140
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122693453"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222985"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé à l’aide de PowerShell
 
@@ -201,7 +201,7 @@ $nsg = New-AzNetworkSecurityGroup `
 Pour plus d’informations sur les points de terminaison et les règles NSG, consultez [Ouverture de ports sur une machine virtuelle dans Azure avec PowerShell](nsg-quickstart-powershell.md).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Créer une adresse IP publique et une carte réseau
-Pour établir la communication avec la machine virtuelle dans le réseau virtuel, vous avez besoin d’une [adresse IP publique](../../virtual-network/public-ip-addresses.md) et d’une interface réseau.
+Pour établir la communication avec la machine virtuelle dans le réseau virtuel, vous avez besoin d’une [adresse IP publique](../../virtual-network/ip-services/public-ip-addresses.md) et d’une interface réseau.
 
 1. Créez l’adresse IP publique. Dans cet exemple, le nom d’adresse IP publique est défini sur *myIP*.
    

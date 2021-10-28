@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 616d1f5cf4fc2806d56c34335e66418452c7684b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 73fce933d81daca78d538b9a169a53d2a99c9869
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562654"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226995"
 ---
 # <a name="azure-monitor-logs-overview"></a>Vue d’ensemble de Journaux d’activité Azure Monitor
 Les journaux Azure Monitor sont une fonctionnalité Azure Monitor qui collecte et organise les données de performances et de journal issues de [ressources supervisées](../monitor-reference.md). Les données de plusieurs sources peuvent être consolidées dans un espace de travail unique. Ces sources comprennent :
@@ -36,7 +36,7 @@ Le tableau suivant décrit certaines méthodes pour utiliser les journaux Azure 
 |:---|:---|
 | **Analyser** | Utiliser [Log Analytics](./log-analytics-tutorial.md) dans le portail Azure pour écrire des [requêtes de journal](./log-query-overview.md) et analyser de manière interactive des données de journal à l’aide d’un puissant moteur d’analyse. |
 | **Alert** | Configurer une [règle d’alerte de journal](../alerts/alerts-log.md) qui envoie une notification ou prend une [action de façon automatique](../alerts/action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique. |
-| **Visualiser** | Épingler les résultats de requête affichés sous forme de tableaux ou de graphiques dans un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).<br>Créer un [classeur](../visualize/workbooks-overview.md) à combiner avec plusieurs jeux de données dans un rapport interactif. <br>Exporter les résultats d’une requête vers [Power BI](../visualize/powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs en dehors d’Azure.<br>Exporter les résultats d’une requête vers [Grafana](../visualize/grafana-plugin.md) pour utiliser ses tableaux de bord et les combiner avec d’autres sources de données.|
+| **Visualiser** | Épingler les résultats de requête affichés sous forme de tableaux ou de graphiques dans un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).<br>Créer un [classeur](../visualize/workbooks-overview.md) à combiner avec plusieurs jeux de données dans un rapport interactif. <br>Exporter les résultats d’une requête vers [Power BI](./log-powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs en dehors d’Azure.<br>Exporter les résultats d’une requête vers [Grafana](../visualize/grafana-plugin.md) pour utiliser ses tableaux de bord et les combiner avec d’autres sources de données.|
 | **Obtenir des informations** | Prendre en charge des [insights](../monitor-reference.md#insights-and-core-solutions) qui offrent une expérience de supervision personnalisée pour des applications et services spécifiques.  |
 | **Récupérer** | Accédez aux résultats de requête de journal à partir d’une ligne de commande à l’aide de l’interface [Azure CLI](/cli/azure/monitor/log-analytics).<br>Accédez aux résultats de requête de journal à partir d’une ligne de commande à l’aide de [cmdlets PowerShell](/powershell/module/az.operationalinsights).<br>Accédez aux résultats de requête de journal à partir d’une application personnalisée à l’aide de [l’API REST](https://dev.loganalytics.io/). |
 | **Export** | Configurez [l’exportation automatisée des données de journal](./logs-data-export.md) vers le compte de stockage Azure ou Azure Event Hubs.<br>Générez un flux de travail pour récupérer des données de journal et copiez-les vers un emplacement externe à l’aide [d’Azure Logic Apps](./logicapp-flow-connector.md). |

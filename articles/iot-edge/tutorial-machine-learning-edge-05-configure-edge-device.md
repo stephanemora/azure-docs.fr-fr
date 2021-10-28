@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 445163b0d33f404845a66b7d885815d6336dac46
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 103a3004f6bf4ec6e536d87b7fe72484f2bff974
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121726365"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259109"
 ---
 # <a name="tutorial-configure-an-azure-iot-edge-device"></a>Tutoriel : Configurer un appareil Azure IoT Edge
 
@@ -142,7 +142,7 @@ Vous pouvez déployer la machine virtuelle à l’aide du portail Azure ou d’A
    | **Groupe de ressources** | Groupe de ressources existant ou nouvellement créé pour contenir la machine virtuelle et ses ressources associées. |
    | **DNS Label Prefix** | Valeur obligatoire de votre choix, utilisée pour préfixer le nom d’hôte de la machine virtuelle. |
    | **Nom de l’utilisateur administrateur** | Nom de l’utilisateur qui sera doté de privilèges root sur le déploiement. |
-   | **Chaîne de connexion de l’appareil** | [Chaîne de connexion d’appareil](./how-to-register-device.md) pour un appareil créé dans votre [IoT Hub](../iot-hub/about-iot-hub.md) prévu. |
+   | **Chaîne de connexion de l’appareil** | [Chaîne de connexion d’appareil](./how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information) pour un appareil créé dans votre [IoT Hub](../iot-hub/about-iot-hub.md) prévu. |
    | **Taille de machine virtuelle** | [Taille](../cloud-services/cloud-services-sizes-specs.md) de la machine virtuelle à déployer
    | **Version du système d’exploitation Ubuntu** | Version du système d’exploitation Ubuntu à installer sur la machine virtuelle de base. |
    | **Lieu** | [Région géographique](https://azure.microsoft.com/global-infrastructure/locations/) dans laquelle déployer la machine virtuelle. Par défaut, il s’agit de l’emplacement du groupe de ressources sélectionné. |

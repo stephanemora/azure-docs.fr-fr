@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/17/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0e0d3c131f5cd53684580d0035c8836a2537d780
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 8f485ef5d49ff2f0b9bfec4c6abc6db1b78c3826
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070816"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130288335"
 ---
 Les seules options de redondance d’infrastructure disponibles pour les disques Ultra sont les zones de disponibilité. Les machines virtuelles utilisant d’autres options de redondance ne peuvent pas attacher un disque Ultra.
 
@@ -24,9 +24,9 @@ Le tableau suivant présente les régions où les disques Ultra sont disponibles
 
 | Options de redondance | Régions |
 |--------------------|---------|
-| **Machines virtuelles individuelles** | Centre de l’Australie<br/>Brésil Sud<br/>Inde centrale<br/>Asie Est<br/>Allemagne Centre-Ouest<br/>Centre de la Corée<br/>USA Centre Nord, USA Centre Sud, USA Ouest<br/>US Gov Arizona, US Gov Virginie, US Gov Texas<br/> |
-| **Deux zones de disponibilité** | Australie Est<br/>Centre du Canada<br/>Europe Nord, Europe Ouest<br/>Japon Est<br/>Asie Sud-Est<br/>Sud du Royaume-Uni<br/>USA Centre, USA Est, USA Est 2, USA Ouest 2|
-| **Trois zones de disponibilité** | France Centre |
+| **Machines virtuelles individuelles** | Centre de l’Australie<br/>Brésil Sud<br/>Inde centrale<br/>Asie Est<br/>Allemagne Centre-Ouest<br/>Centre de la Corée<br/>USA Centre Nord, USA Centre Sud, USA Ouest<br/>US Gov Arizona, US Gov Virginie, US Gov Texas |
+| **Deux zones de disponibilité** | France Centre |
+| **Trois zones de disponibilité** | Australie Est<br/>Centre du Canada<br/>Europe Nord, Europe Ouest<br/>Japon Est<br/>Asie Sud-Est<br/>Sud du Royaume-Uni<br/>USA Centre, USA Est, USA Est 2, USA Ouest 2 |
 
 Toutes les tailles de machines virtuelles ne sont pas disponibles dans toutes les régions prises en charge avec des disques Ultra. Le tableau suivant répertorie les séries de machines virtuelles compatibles avec les disques Ultra.
 

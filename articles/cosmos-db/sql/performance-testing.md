@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/26/2021
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 257fba85685c8c47a323c5ba671aa2bbbf59d572
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: d655edd485de3b446ce4db758cf8722b551eee10
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123115899"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219038"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -27,7 +27,7 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 * Où trouver un exemple d’application cliente .NET pour tester les performances d’Azure Cosmos DB ? 
 * Comment faire pour atteindre de hauts niveaux de débit avec Azure Cosmos DB à partir de mon application cliente ?
 
-Pour commencer avec le code, téléchargez le projet à partir de l’[exemple de test des performances Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark). 
+Pour commencer avec le code, téléchargez le projet à partir de l’[exemple de test des performances Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Tools/Benchmark). 
 
 > [!NOTE]
 > L’objectif de cette application est de montrer comment obtenir les meilleures performances d’Azure Cosmos DB avec un petit nombre d’ordinateurs clients. L’objectif de l’exemple n’est pas d’atteindre la capacité de débit de pointe d’Azure Cosmos DB (qui peut évoluer sans aucune limite).
@@ -37,7 +37,7 @@ Si vous recherchez des options de configuration côté client pour améliorer le
 ## <a name="run-the-performance-testing-application"></a>Exécution de l’application de test des performances
 Le moyen le plus rapide de commencer est de compiler et exécuter l’exemple .NET, comme décrit dans la procédure ci-dessous. Vous pouvez aussi examiner le code source et implémenter des configurations similaires dans vos propres applications clientes.
 
-**Étape 1 :** téléchargez le projet à partir de l’[exemple de test de performances Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark) ou dupliquez (fork) le dépôt GitHub.
+**Étape 1 :** téléchargez le projet à partir de l’[exemple de test de performances Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Tools/Benchmark) ou dupliquez (fork) le dépôt GitHub.
 
 **Étape 2 :** modifiez les paramètres pour EndpointUrl, AuthorizationKey, CollectionThroughput et DocumentTemplate (facultatif) dans App.config.
 
@@ -97,10 +97,10 @@ Une fois l’application exécutée, vous pouvez tester des [stratégies d’ind
 
 Dans cet article, nous avons vu comment effectuer des tests de performances et de mise à l’échelle avec Azure Cosmos DB en utilisant une application console .NET. Pour plus d’informations, consultez les articles suivants :
 
-* [Exemple de test des performances Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/documentdb-benchmark)
+* [Exemple de test des performances Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Tools/Benchmark)
 * [Options de configuration côté client permettant d’améliorer les performances d’Azure Cosmos DB](performance-tips.md)
 * [Guide de partitionnement et de mise à l’échelle dans Azure Cosmos DB](../partitioning-overview.md)
 * Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
-    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
     * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
 

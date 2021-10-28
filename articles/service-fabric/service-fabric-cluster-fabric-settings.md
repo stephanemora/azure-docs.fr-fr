@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 5d6f15f4178b9f026be7205832a1f40c3dc01bab
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.openlocfilehash: 28355bfac8d052c847cf2f08770f5aa869c5a786
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114720677"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130237944"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -567,7 +567,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |MoveExistingReplicaForPlacement | Valeur booléenne (valeur par défaut : true) |Dynamique|Paramètre déterminant si le réplica doit être déplacé pendant le placement. |
 |MovementPerPartitionThrottleCountingInterval | Durée en secondes (valeur par défaut : 600) |statique| Spécifiez la durée en secondes. Indiquez la durée de l’intervalle écoulé pendant lequel effectuer le suivi des mouvements de réplica pour chaque partition (utilisée avec MovementPerPartitionThrottleThreshold). |
 |MovementPerPartitionThrottleThreshold | Valeur Uint (valeur par défaut : 50) |Dynamique| Aucun mouvement d’équilibrage n’est effectué pour une partition si le nombre d’équilibrages des réplicas de cette partition a atteint ou dépassé la valeur MovementPerFailoverUnitThrottleThreshold pendant la période écoulée spécifiée par MovementPerPartitionThrottleCountingInterval. |
-|MoveParentToFixAffinityViolation | Valeur booléenne (valeur par défaut : false) |Dynamique| Paramètre déterminant si les réplicas parents peuvent être déplacés pour corriger les contraintes d’affinité.|
+|MoveParentToFixAffinityViolation | Valeur booléenne (valeur par défaut : true) |Dynamique| Paramètre déterminant si les réplicas parents peuvent être déplacés pour corriger les contraintes d’affinité.|
 |NodeTaggingEnabled | Valeur booléenne (valeur par défaut : false) |Dynamique| Si la valeur est true, la fonctionnalité NodeTagging est activée. |
 |NodeTaggingConstraintPriority | Entier (valeur par défaut : 0) |Dynamique| Priorité configurable du marquage de nœud. |
 |PartiallyPlaceServices | Valeur booléenne (valeur par défaut : true) |Dynamique| Détermine si tous les réplicas de service dans le cluster seront placés selon le principe du « tout ou rien », en fonction du nombre limité de nœuds appropriés pour eux.|

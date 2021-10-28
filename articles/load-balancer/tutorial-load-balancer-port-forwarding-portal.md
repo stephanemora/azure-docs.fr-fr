@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 8/26/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 0d36be9f0ba0fc9e1b29e3fdaf0b3f9857db2204
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 73dba00fa24eb42c32b0991381ad90a93f038d95
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123112097"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223269"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-azure-portal"></a>Tutoriel : Configurer la redirection de port dans Azure Load Balancer à l’aide du portail Azure
 
@@ -123,21 +123,21 @@ Dans cette section, vous allez créer une passerelle NAT pour l’accès Interne
     | Zone de disponibilité | Sélectionnez **Aucun**. |
     | Délai d’inactivité (minutes) | Entrez **15**. |
 
-4. Sélectionnez l’onglet **IP sortante** ou le bouton **Suivant : IP sortante** situé au bas de la page.
+4. Sélectionnez l’onglet **IP sortante** ou le bouton **Suivant : IP sortante** situé en bas de la page.
 
-5. Dans **IP sortante**, sélectionnez **Créer une adresse IP publique** à côté d’**Adresses IP publiques**.
+5. Dans **IP sortante**, sélectionnez **Créer une adresse IP publique** à côté d’**Adresses IP publiques**.
 
 6. Entrez **myNATGatewayIP** pour le **Nom** dans **Ajouter une adresse IP publique**.
 
 7. Sélectionnez **OK**.
 
-8. Sélectionnez l’onglet **Sous-réseau** ou le bouton **Suivant : Sous-réseau** situé au bas de la page.
+8. Sélectionnez l’onglet **Sous-réseau** ou le bouton **Suivant : Sous-réseau** situé en bas de la page.
 
 9. Dans **Réseau virtuel**, dans l’onglet **Sous-réseau**, sélectionnez **myVNet**.
 
 10. Sélectionnez **myBackendSubnet** sous **Nom du sous-réseau**.
 
-11. Sélectionnez le bouton bleu **Vérifier + créer** au bas de la page, ou l’onglet **Vérifier + créer**.
+11. Sélectionnez le bouton bleu **Vérifier + créer** en bas de la page, ou l’onglet **Vérifier + créer**.
 
 12. Sélectionnez **Create** (Créer).
 
@@ -178,7 +178,7 @@ Vous allez créer un équilibreur de charge dans cette section. L’adresse IP d
 8. Sélectionnez **Adresse IP** pour **Type IP**.
 
     > [!NOTE]
-    > Pour plus d’informations sur les préfixes IP, consultez [Préfixe d’adresse IP publique Azure](../virtual-network/public-ip-address-prefix.md).
+    > Pour plus d’informations sur les préfixes IP, consultez [Préfixe d’adresse IP publique Azure](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Sélectionnez **Créer nouvelle** dans **Adresse IP publique**.
 
@@ -195,7 +195,7 @@ Vous allez créer un équilibreur de charge dans cette section. L’adresse IP d
 
 14. Sélectionnez **Ajouter**.
 
-15. Sélectionnez **Suivant : Pools de back-ends** au bas de la page.
+15. Sélectionnez **Suivant : Pools de back-end** au bas de la page.
 
 16. Sous l’onglet **Pools de back-ends**, sélectionnez **+ Ajouter un pool de back-end**.
 

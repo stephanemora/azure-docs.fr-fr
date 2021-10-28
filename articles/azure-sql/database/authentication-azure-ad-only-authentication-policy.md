@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 09/22/2021
-ms.openlocfilehash: 672a46b39a726d5fd21a8c2d740008e169cf1e2c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/19/2021
+ms.openlocfilehash: 7f95dc74c4346e1053e963ba6d4ad458881df727
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700523"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255854"
 ---
 # <a name="azure-policy-for-azure-active-directory-only-authentication-with-azure-sql"></a>Azure Policy pour l’authentification Azure Active Directory uniquement avec Azure SQL
 
@@ -32,15 +32,15 @@ Deux nouvelles stratégies intégrées ont été introduites dans Azure Policy�
 - Azure SQL Database doit avoir uniquement l’authentification Azure Active Directory activée
 - Azure SQL Managed Instance doit avoir uniquement l’authentification Azure Active Directory activée
 
-Pour plus d’informations sur Azure Policy, consultez [Présentation d’Azure Policy](/azure/governance/policy/overview) et [Structure de définition Azure Policy](/azure/governance/policy/concepts/definition-structure).
+Pour plus d’informations sur Azure Policy, consultez [Présentation d’Azure Policy](../../governance/policy/overview.md) et [Structure de définition Azure Policy](../../governance/policy/concepts/definition-structure.md).
 
 ## <a name="permissions"></a>Autorisations
 
-Pour obtenir une vue d’ensemble des autorisations nécessaires à la gestion d’Azure Policy, consultez [Autorisations Azure RBAC dans Azure Policy](/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy).
+Pour obtenir une vue d’ensemble des autorisations nécessaires à la gestion d’Azure Policy, consultez [Autorisations Azure RBAC dans Azure Policy](../../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 ### <a name="actions"></a>Actions
 
-Si vous utilisez un rôle personnalisé pour gérer Azure Policy, les [actions](/azure/role-based-access-control/role-definitions#actions) suivantes sont nécessaires.
+Si vous utilisez un rôle personnalisé pour gérer Azure Policy, les [actions](../../role-based-access-control/role-definitions.md#actions) suivantes sont nécessaires.
 
 - */read
 - Microsoft.Authorization/policyassignments/*
@@ -49,7 +49,7 @@ Si vous utilisez un rôle personnalisé pour gérer Azure Policy, les [actions]
 - Microsoft.Authorization/policysetdefinitions/*
 - Microsoft.PolicyInsights/*
 
-Pour plus d’informations sur les rôles personnalisés, consultez [Rôles personnalisés Azure](/azure/role-based-access-control/custom-roles).
+Pour plus d’informations sur les rôles personnalisés, consultez [Rôles personnalisés Azure](../../role-based-access-control/custom-roles.md).
 
 ## <a name="manage-azure-policy-for-azure-ad-only-authentication"></a>Gérer Azure Policy pour l’authentification Azure AD uniquement
 
@@ -77,7 +77,6 @@ La stratégie Azure peut empêcher la création d’un serveur logique ou d’un
 
 ## <a name="limitations"></a>Limites
 
-- Actuellement, vous ne pouvez pas créer de serveur logique ou d’instance managée dans le portail Azure avec l’authentification Azure AD uniquement activée. Vous pouvez créer un serveur logique ou une instance managée avec l’authentification Azure AD uniquement activée à l’aide de l’API REST, d’Azure CLI, de PowerShell ou d’un modèle ARM. Pour plus d’informations, consultez [Créer un serveur avec l’authentification Azure AD uniquement activée dans Azure SQL](authentication-azure-ad-only-authentication-create-server.md).
 - Azure Policy applique l’authentification Azure AD uniquement lors de la création du serveur logique ou de l’instance managée. Une fois le serveur créé, les utilisateurs Azure AD autorisés disposant de rôles spéciaux (par exemple Gestionnaire de sécurité SQL) peuvent désactiver la fonctionnalité d’authentification Azure AD uniquement. La stratégie Azure le permet, mais dans ce cas le serveur ou l’instance managée est listé(e) comme `Non-compliant` dans le rapport de conformité, et celui-ci indique le nom du serveur ou de l’instance managée.  
 - Pour plus d’informations sur les problèmes connus et les autorisations nécessaires, consultez [Authentification Azure AD uniquement](authentication-azure-ad-only-authentication.md).
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b95b3cfdf8fea6e31015d945566803569b4ba064
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64aa913f6c9c5041356f193dcf0c9945deb852fb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98222919"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257781"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Déployer le plug-in CLI Réseau virtuel Azure
 
@@ -95,9 +95,9 @@ Procédez comme suit pour installer le plug-in sur chaque machine virtuelle Azur
 1. [Téléchargez et installez le plug-in](#download-and-install-the-plug-in).
 2. Préallouez un pool d’adresses IP de réseau virtuel sur chaque machine virtuelle à partir duquel des adresses IP seront attribuées aux pods. Chaque machine virtuelle Azure est fournie avec une adresse IP privée de réseau virtuel principale sur chaque interface réseau. Le pool d’adresses IP pour les pods est ajouté en tant qu’adresses secondaires (*ipconfigs*) sur l’interface réseau de machine virtuelle, à l’aide d’une des options suivantes :
 
-   - **CLI** : [attribuer plusieurs adresses IP à l’aide d’Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell** : [attribuer plusieurs adresses IP à l’aide de PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-   - **Portail** : [attribuer plusieurs adresses IP à l’aide du portail Azure](virtual-network-multiple-ip-addresses-portal.md)
+   - **CLI** : [attribuer plusieurs adresses IP à l’aide d’Azure CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell** : [attribuer plusieurs adresses IP à l’aide de PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)
+   - **Portail** : [attribuer plusieurs adresses IP à l’aide du portail Azure](./ip-services/virtual-network-multiple-ip-addresses-portal.md)
    - **Modèle Azure Resource Manager** : [attribuer plusieurs adresses IP à l’aide de modèles](./template-samples.md)
 
    Veillez à ajouter suffisamment d’adresses IP pour tous les pods que vous envisagez d’ajouter à la machine virtuelle.

@@ -3,12 +3,12 @@ title: Mappage de codes géographiques
 description: Découvrez les codes géographiques mappés aux régions respectives.
 ms.topic: sample
 ms.date: 09/17/2021
-ms.openlocfilehash: a214d45a974308422cb57840c3eb04d55c53c5b2
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: 1192336476d25f5c0cc180e67d22c2db18015b36
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128709110"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130264557"
 ---
 # <a name="geo-code-mapping"></a>Mappage de codes géographiques
 
@@ -152,4 +152,4 @@ Cet exemple de code XML vous fournit un aperçu des codes géographiques mappés
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Apprenez](/azure/backup/private-endpoints) à créer et à ajouter des zones DNS pour les points de terminaison privés de la sauvegarde Azure à l’aide de codes géographiques.
+[Apprenez](../private-endpoints.md) à créer et à ajouter des zones DNS pour les points de terminaison privés de la sauvegarde Azure à l’aide de codes géographiques.

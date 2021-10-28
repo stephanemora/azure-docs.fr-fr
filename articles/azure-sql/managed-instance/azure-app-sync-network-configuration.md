@@ -12,17 +12,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova
 ms.date: 12/13/2018
-ms.openlocfilehash: 76391ab62852c4c3d3fa6ef3ae5dc25c1e70ad57
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: d1421b84c9156862f25c6dcf35b70b42dd8f2862
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531396"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130239357"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan-with-azure-sql-managed-instance"></a>Synchroniser la configuration de mise en réseau pour le plan d’hébergement Azure App Service avec Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Il peut arriver que, bien que [votre application soit intégrée à un réseau virtuel Azure](../../app-service/web-sites-integrate-with-vnet.md), vous ne pouvez pas établir de connexion vers SQL Managed Instance. L’actualisation, ou synchronisation, de la configuration de mise en réseau de votre plan de service peut résoudre ce problème. 
+Il peut arriver que, bien que [votre application soit intégrée à un réseau virtuel Azure](../../app-service/overview-vnet-integration.md), vous ne pouvez pas établir de connexion vers SQL Managed Instance. L’actualisation, ou synchronisation, de la configuration de mise en réseau de votre plan de service peut résoudre ce problème. 
 
 ## <a name="sync-network-configuration"></a>Synchroniser la configuration du réseau 
 

@@ -8,12 +8,12 @@ ms.subservice: common
 ms.topic: reference
 ms.date: 03/10/2021
 ms.author: banders
-ms.openlocfilehash: 24fbf52c8fd0338537862a54e15e8a249541a701
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 3c3ee4673f196adc94684fe80ca0237f7b7a32bd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102635788"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260300"
 ---
 # <a name="migrate-from-enterprise-reporting-to-azure-resource-manager-apis"></a>Migrer les API de rapports d’entreprise vers les API Azure Resource Manager
 
@@ -65,7 +65,7 @@ Consultez le tableau ci-dessous pour identifier les API EA dont vous vous servez
 | --- | --- | --- |
 | Récapitulatif du solde | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) |[Microsoft.Consumption/balances](/rest/api/consumption/balances/getbybillingaccount) |
 | Price Sheet | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | [Microsoft.Consumption/pricesheets/default](/rest/api/consumption/pricesheet) – utiliser pour les prix négociés <p> [API Prix de vente au détail](/rest/api/cost-management/retail-prices/azure-retail-prices) – utiliser pour les prix de vente au détail |
-| Informations détaillées sur l’instance réservée | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.CostManagement/generateReservationDetailsReport](/rest/api/cost-management/generatereservationdetailsreport) |
+| Informations détaillées sur l’instance réservée | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.CostManagement/generateReservationDetailsReport](/azure/cost-management-billing/reservations/reservation-utilization) |
 | Récapitulatif de l’instance réservée | [/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries/list#reservationsummariesdailywithbillingaccountid) |
 | Recommendations sur l’instance réservée | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation)<p>[/SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
 | Frais de l’instance réservée | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | [Microsoft.Consumption/reservationTransactions](/rest/api/consumption/reservationtransactions/list) |

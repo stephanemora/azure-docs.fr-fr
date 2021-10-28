@@ -7,12 +7,12 @@ ms.date: 06/17/2021
 author: ThomasWeiss
 ms.author: thweiss
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fa99ba28bacd2132191679c614c2be73fc0a80a8
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 4925120adc86eb193e4b031ee7cebb23e7a71f45
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123107851"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130247566"
 ---
 # <a name="azure-role-based-access-control-in-azure-cosmos-db"></a>Contrôle d’accès en fonction du rôle Azure dans Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -70,7 +70,7 @@ Ce paramètre empêche toute modification de ressources Cosmos provenant d’un 
 
 - Modification des procédures stockées, des déclencheurs ou des fonctions définies par l’utilisateur.
 
-Si vos applications (ou les utilisateurs qui passent par le portail Azure) effectuent l’une de ces actions, il sera nécessaire de les migrer pour qu’elles s’exécutent par le biais de [modèles Resource Manager](sql/manage-with-templates.md), [PowerShell](sql/manage-with-powershell.md), [Azure CLI](sql/manage-with-cli.md), REST ou la [bibliothèque de gestion Azure](https://github.com/Azure-Samples/cosmos-management-net). Notez que la gestion Azure est disponible dans [plusieurs langues](/azure/?product=featured#languages-and-tools).
+Si vos applications (ou les utilisateurs qui passent par le portail Azure) effectuent l’une de ces actions, il sera nécessaire de les migrer pour qu’elles s’exécutent par le biais de [modèles Resource Manager](sql/manage-with-templates.md), [PowerShell](sql/manage-with-powershell.md), [Azure CLI](sql/manage-with-cli.md), REST ou la [bibliothèque de gestion Azure](https://github.com/Azure-Samples/cosmos-management-net). Notez que la gestion Azure est disponible dans [plusieurs langues](../index.yml?product=featured).
 
 ### <a name="set-via-arm-template"></a>Définition au moyen d’un modèle ARM
 

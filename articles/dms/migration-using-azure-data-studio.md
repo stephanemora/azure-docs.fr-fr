@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/01/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7a6b1099ea81c7a4a50692496ee044fe4a72bd24
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 832ae975a19fa7765666acd791c7dfec05a55c3c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124742947"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235031"
 ---
 # <a name="migrate-databases-with-azure-sql-migration-extension-for-azure-data-studio-preview"></a>Migrer des bases de données avec l’extension de migration Azure SQL pour Azure Data Studio (version préliminaire)
 
@@ -83,7 +83,7 @@ Les conditions préalables associées à Azure Database Migration Service commun
     > Si vos fichiers de sauvegarde de base de données sont déjà fournis dans un compte de stockage Azure, l’IR auto-hébergé n’est pas requis pendant le processus de migration.
 
 * Lorsque vous utilisez l’IR auto-hébergé, assurez-vous que l’ordinateur sur lequel le runtime est installé peut se connecter à l’instance SQL Server et au partage de fichiers réseau source où se trouvent les fichiers de sauvegarde. Le port de sortie 445 doit être activé pour autoriser l’accès au partage de fichiers réseau.
-* Si vous utilisez l’Azure Database Migration Service pour la première fois, assurez-vous que le fournisseur de ressources Microsoft.DataMigration est inscrit dans votre abonnement. Vous pouvez suivre les étapes pour [inscrire le fournisseur de ressources](/azure/dms/quickstart-create-data-migration-service-portal#register-the-resource-provider)
+* Si vous utilisez l’Azure Database Migration Service pour la première fois, assurez-vous que le fournisseur de ressources Microsoft.DataMigration est inscrit dans votre abonnement. Vous pouvez suivre les étapes pour [inscrire le fournisseur de ressources](./quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
 ### <a name="recommendations-for-using-self-hosted-integration-runtime-for-database-migrations"></a>Recommandations pour l’utilisation de l’IR auto-hébergé pour les migrations de base de données
 - Utilisez un seul IR auto-hébergé pour plusieurs bases de données de SQL Server sources.

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ae5dcbee8ef2240ddffdfaa6c7a837e083d5648f
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 7e09a94270ee440f462e538492a13bde263c6163
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122689672"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234054"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Connexion à une machine virtuelle Azure exécutant Windows
 
@@ -45,7 +45,7 @@ Pour vous connecter à une machine virtuelle Windows à partir d’un Mac, vous 
 
 
    > [!TIP]
-   > Si le bouton **Connecter** du portail est grisé et que vous n’êtes pas connecté à Azure via une connexion [Express Route](../../expressroute/expressroute-introduction.md) ou [VPN de site à site](../../vpn-gateway/tutorial-site-to-site-portal.md), vous devez créer une adresse IP publique et l’attribuer à votre machine virtuelle pour pouvoir utiliser le protocole RDP. Pour plus d’informations, consultez [Adresses IP publiques dans Azure](../../virtual-network/public-ip-addresses.md).
+   > Si le bouton **Connecter** du portail est grisé et que vous n’êtes pas connecté à Azure via une connexion [Express Route](../../expressroute/expressroute-introduction.md) ou [VPN de site à site](../../vpn-gateway/tutorial-site-to-site-portal.md), vous devez créer une adresse IP publique et l’attribuer à votre machine virtuelle pour pouvoir utiliser le protocole RDP. Pour plus d’informations, consultez [Adresses IP publiques dans Azure](../../virtual-network/ip-services/public-ip-addresses.md).
    > 
    > 
 

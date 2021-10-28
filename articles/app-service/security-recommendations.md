@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2021
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 452c0479834ab7929696af2c95454662adfecfab
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 5c8a6974778e76afc6f2ca7018e034ad5655690c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538324"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262524"
 ---
 # <a name="security-recommendations-for-app-service"></a>Suggestions en matière de sécurité pour App Service
 
@@ -49,7 +49,7 @@ Cet article contient des recommandations de sécurité pour Azure App Service. M
 |-|-|
 | Utiliser les restrictions d’adresses IP statiques | Azure App Service sur Windows permet de définir une liste d’adresses IP pouvant accéder à votre application. La liste autorisée peut inclure des adresses IP individuelles ou une plage d’adresses IP définie par un masque de sous-réseau. Pour plus d’informations, consultez [Restrictions d’adresse IP statique avec Azure App Service](app-service-ip-restrictions.md).  |
 | Utiliser le niveau tarifaire isolé | À la différence du niveau tarifaire Isolé, tous les niveaux exécutent vos applications sur l’infrastructure réseau partagée dans Azure App Service. Le niveau Isolé vous procure un isolement réseau complet en exécutant vos applications à l’intérieur d’un [environnement App Service dédié](environment/intro.md). Un environnement App Service s’exécute dans votre propre instance de [Réseau virtuel Azure](../virtual-network/index.yml).|
-| Utiliser des connexions sécurisées lors de l’accès aux ressources locales | Vous pouvez utiliser des [connexions hybrides](app-service-hybrid-connections.md), [l’intégration au réseau virtuel](web-sites-integrate-with-vnet.md) ou [l’environnement App Service](environment/intro.md) pour vous connecter à des ressources locales. |
+| Utiliser des connexions sécurisées lors de l’accès aux ressources locales | Vous pouvez utiliser des [connexions hybrides](app-service-hybrid-connections.md), [l’intégration au réseau virtuel](./overview-vnet-integration.md) ou [l’environnement App Service](environment/intro.md) pour vous connecter à des ressources locales. |
 | Limiter l’exposition au trafic réseau entrant | Les groupes de sécurité réseau vous permettent de restreindre l’accès réseau et de contrôler le nombre de points de terminaison exposés. Pour plus d’informations, consultez [Contrôle du trafic entrant vers un environnement App Service](environment/app-service-app-service-environment-control-inbound-traffic.md). |
 
 ## <a name="monitoring"></a>Surveillance

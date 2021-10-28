@@ -9,12 +9,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: e3e4add97b63dc7ed6e375f90eb3d5d48a81ffef
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 0164d0ed578ea3f20392f333408553fa60f4d165
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123038984"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238583"
 ---
 # <a name="tutorial-develop-iot-edge-modules-using-windows-containers"></a>Tutoriel : Développer des modules IoT Edge avec des conteneurs Windows
 
@@ -49,7 +49,7 @@ Une machine de développement :
 
 Un appareil Azure IoT Edge sur Windows :
 
-* [Installer et gérer Azure IoT Edge avec des conteneurs Windows](how-to-install-iot-edge-windows-on-windows.md).
+* [Installer et gérer Azure IoT Edge avec des conteneurs Windows](how-to-provision-single-device-windows-symmetric.md).
 * Nous vous déconseillons d’exécuter IoT Edge sur votre machine de développement ; utilisez un appareil distinct à la place dans la mesure du possible. Cette distinction entre machine de développement et appareil IoT Edge reflète plus fidèlement un scénario de déploiement réel et aide à assimiler les différents concepts.
 
 Ressources cloud :

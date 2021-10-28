@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/08/2019
-ms.openlocfilehash: 7c949579d23e3acfbecde3111534209151ed61ac
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2718816adfeaa8fa98c93ea1ed394c6634b5cb7b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314550"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250442"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>Utiliser Azure SQL Managed Instance en toute sécurité avec des points de terminaison publics
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -50,7 +50,7 @@ Pour garantir que le trafic vers l’instance gérée provient de sources approu
 
 Lorsque les clients doivent établir une connexion à partir d’un réseau local, assurez-vous que l’adresse d’origine est traduite en un ensemble d’adresses IP bien connu. Si ce n’est pas possible (par exemple, dans le scénario classique d’un personnel mobile), nous vous recommandons d’utiliser [des connexions VPN point à site et un point de terminaison privé](point-to-site-p2s-configure.md).
 
-Si les connexions sont établies à partir d’Azure, il est recommandé que le trafic provienne d’une [adresse IP virtuelle](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) affectée bien connue (par exemple, une machine virtuelle). Pour faciliter la gestion des adresses IP virtuelles, vous pouvez utiliser [des préfixes d’adresse IP publique](../../virtual-network/public-ip-address-prefix.md).
+Si les connexions sont établies à partir d’Azure, il est recommandé que le trafic provienne d’une [adresse IP virtuelle](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) affectée bien connue (par exemple, une machine virtuelle). Pour faciliter la gestion des adresses IP virtuelles, vous pouvez utiliser [des préfixes d’adresse IP publique](../../virtual-network/ip-services/public-ip-address-prefix.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

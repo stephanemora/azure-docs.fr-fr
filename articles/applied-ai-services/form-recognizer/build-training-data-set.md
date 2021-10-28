@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/27/2021
 ms.author: lajanuar
-ms.openlocfilehash: 47695a2445e0b61f972f6481471305ed5219b5d7
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: 397f3c05d42837ffb5e9bb4fdb465a4aee352fbd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122563905"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233674"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Créer un jeu de données d’apprentissage pour un modèle personnalisé
 
@@ -72,7 +72,7 @@ Si vous ajoutez le contenu suivant au corps de la demande, l’API sera entraîn
 
 Maintenant que vous avez appris à créer un jeu de données d’apprentissage, suivez un guide de démarrage rapide pour entraîner un modèle Form Recognizer personnalisé et commencer à l’utiliser sur vos formulaires.
 
-* [Entraîner un modèle et extraire des données de formulaire avec la bibliothèque de client ou l’API REST](./quickstarts/client-library.md)
+* [Entraîner un modèle et extraire des données de formulaire avec la bibliothèque de client ou l’API REST](./quickstarts/try-sdk-rest-api.md)
 * [Entraînement avec des étiquettes à l’aide de l’outil Exemple d’étiquetage](label-tool.md)
 
 ## <a name="see-also"></a>Voir aussi

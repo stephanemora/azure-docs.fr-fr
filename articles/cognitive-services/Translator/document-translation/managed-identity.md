@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.topic: how-to
 ms.date: 09/09/2021
 ms.author: lajanuar
-ms.openlocfilehash: 688fd2391d12f74b46a16954706b3c9e0ee1fb8a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b6a25b832c3acc65d6a7b343901cf23cdd17f98a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124771823"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255784"
 ---
 # <a name="create-and-use-managed-identity"></a>Créer et utiliser une identité managée
 
@@ -48,7 +48,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
   * Dans la fenêtre principale, sélectionnez **Autoriser l’accès à partir de réseaux sélectionnés**.
   :::image type="content" source="../media/managed-identities/firewalls-and-virtual-networks.png" alt-text="Capture d’écran : case d’option Réseaux sélectionnés activée.":::
 
-  * Dans la page Réseaux sélectionnés, accédez à la catégorie **Exceptions** et assurez-vous que la case à cocher [**Autoriser les services Azure de la liste des services approuvés à accéder à ce compte de stockage**](/azure/storage/common/storage-network-security?tabs=azure-portal#manage-exceptions) est activée.
+  * Dans la page Réseaux sélectionnés, accédez à la catégorie **Exceptions** et assurez-vous que la case à cocher [**Autoriser les services Azure de la liste des services approuvés à accéder à ce compte de stockage**](../../../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) est activée.
 
     :::image type="content" source="../media/managed-identities/allow-trusted-services-checkbox-portal-view.png" alt-text="Capture d’écran : case à cocher Autoriser les services approuvés, vue du portail":::
 

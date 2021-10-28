@@ -4,19 +4,19 @@ ms.service: machine-learning
 ms.topic: include
 ms.date: 09/14/2021
 ms.author: larryfr
-ms.openlocfilehash: 757179959035c6bfce77b1feaaf5bfeff5aab001
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 71810ecc6526364e37fe9a578d1e88d334db0d20
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128621588"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238326"
 ---
 > [!IMPORTANT]
 > Cette instance de Cosmos DB est créée dans un groupe de ressources managées par Microsoft dans __votre abonnement__. Les services suivants sont également créés dans ce groupe de ressources et sont utilisés par la configuration de clé gérée par le client :
 > * Compte Stockage Azure
 > * Recherche Azure
 >
-> Étant donné que ces services sont créés dans votre abonnement Azure, cela signifie que vous êtes facturé pour ces instances de service. Si votre abonnement ne dispose pas d’un quota suffisant pour le service Azure Cosmos DB, une défaillance se produit. Pour plus d’informations sur les quotas, consultez les [quotas du service Azure Cosmos DB](/azure/cosmos-db/concepts-limits).
+> Étant donné que ces services sont créés dans votre abonnement Azure, cela signifie que vous êtes facturé pour ces instances de service. Si votre abonnement ne dispose pas d’un quota suffisant pour le service Azure Cosmos DB, une défaillance se produit. Pour plus d’informations sur les quotas, consultez les [quotas du service Azure Cosmos DB](../articles/cosmos-db/concepts-limits.md).
 >
 > Le groupe de ressources managée est nommé au format `<AML Workspace Resource Group Name><GUID>`. Si votre espace de travail Azure Machine Learning utilise un point de terminaison privé, un réseau virtuel est également créé dans ce groupe de ressources. Ce réseau virtuel est utilisé pour sécuriser la communication entre les services de ce groupe de ressources et votre espace de travail Azure Machine Learning.
 > 

@@ -3,12 +3,12 @@ title: Configurer des clusters Kubernetes hybrides avec Container Insights | Mi
 description: Cet article explique comment configurer Container Insights afin de surveiller les clusters Kubernetes hébergés sur Azure Stack ou dans un autre environnement.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 90a4c14397df8e70fc8f3d88bc339f826bb1ccc9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f9fe3e20ec7486d9c6f18d1494ec3bedbdc17e86
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767020"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130231548"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-container-insights"></a>Configurer des clusters Kubernetes hybrides avec Container Insights
 
@@ -38,7 +38,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 - Un [espace de travail Log Analytics](../logs/design-logs-deployment.md).
 
-    Container Insights prend en charge un espace de travail Log Analytics dans les régions répertoriées dans [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Pour créer votre propre espace de travail, vous pouvez utiliser [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../logs/quick-create-workspace.md).
+    Container Insights prend en charge un espace de travail Log Analytics dans les régions répertoriées dans [Produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Pour créer votre propre espace de travail, vous pouvez utiliser [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../logs/quick-create-workspace.md).
 
     >[!NOTE]
     >L’analyse de plusieurs clusters avec le même nom de cluster dans le même espace de travail Log Analytics n’est pas prise en charge. Les noms de cluster doivent être uniques.

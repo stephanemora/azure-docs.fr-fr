@@ -4,12 +4,12 @@ description: Découvrez comment restaurer les sauvegardes d’Azure Database pou
 ms.topic: how-to
 ms.date: 10/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a5de8e74fb05eea45e5cb730515b3280c4952951
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: df48d37f61b910dd9e8396fb8460d98479186f9c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359503"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224027"
 ---
 # <a name="restore-azure-database-for-postgresql-backups-preview"></a>Restaurer les sauvegardes d’Azure Database pour PostgreSQL (préversion)
 
@@ -24,7 +24,7 @@ Vous pouvez restaurer une base de données sur n’importe quel serveur Azure Po
 
    :::image type="content" source="./media/restore-azure-database-postgresql/select-database-for-restore-inline.png" alt-text="Capture d’écran montrant le processus de sélection et de restauration d’une base de données." lightbox="./media/restore-azure-database-postgresql/select-database-for-restore-expanded.png":::
 
-   Vous pouvez également accéder à cette page à partir du [Centre de sauvegarde](/azure/backup/backup-center-overview).   
+   Vous pouvez également accéder à cette page à partir du [Centre de sauvegarde](./backup-center-overview.md).    
   
 1. Sur la page **Sélectionner un point de restauration**, sélectionnez un point de récupération dans la liste de toutes les sauvegardes complètes disponibles pour l’instance de sauvegarde sélectionnée. Le dernier point de récupération est sélectionné par défaut.
 

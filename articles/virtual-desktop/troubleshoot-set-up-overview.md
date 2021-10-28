@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 10/14/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: f8abe1cc793b5e7e5528d377ee0a7226d5415909
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 435f26a7fba7939ffc7ac370c648f6aae0d7a67f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045291"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234034"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-azure-virtual-desktop"></a>Vue d’ensemble de la résolution des problèmes, des commentaires et du support pour Azure Virtual Desktop
 
@@ -34,7 +34,7 @@ Quand vous demandez de l’aide ou que vous proposez une nouvelle fonctionnalit�
 
 Avant de passer à autre chose, veillez à consulter la [page des états Azure](https://status.azure.com/status) et [Azure Service Health](https://azure.microsoft.com/features/service-health/) pour vérifier que votre service Azure fonctionne correctement.
 
-Référez-vous au tableau suivant pour identifier et résoudre les problèmes que vous pouvez rencontrer quand vous configurez un environnement avec le client Bureau à distance. Une fois votre environnement configuré, vous pouvez utiliser notre nouveau [service Diagnostics](diagnostics-role-service.md) pour identifier les problèmes pour les scénarios courants.
+Référez-vous au tableau suivant pour identifier et résoudre les problèmes que vous pouvez rencontrer quand vous configurez un environnement avec le client Bureau à distance. Une fois votre environnement configuré, vous pouvez utiliser notre nouveau [service Diagnostics]() pour identifier les problèmes pour les scénarios courants.
 
 | **Problème**                                                            | **Solution suggérée**  |
 |----------------------------------------------------------------------|-------------------------------------------------|

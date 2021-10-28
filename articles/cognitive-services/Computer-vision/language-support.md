@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 684af3b73d9e7b56db5cc5d077510727bed89618
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: f2ded17ed86a550ca781fbad792e89bfc4d7809d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044513"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215931"
 ---
 # <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
@@ -119,7 +119,7 @@ Le tableau suivant répertorie les langues d’impression prises en charge par l
 |Koryak |`kpy`|✅ préversion | |
 |Kosrae |`kos`|✅ préversion | |
 |Kumyk (Cyrillique) |`kum`|✅ préversion | |
-|Kurde (latin)| `kur` |✅ | |
+|Kurde (latin)| `ku` |✅ | |
 |Kirghiz (cyrillique) |`ky`|✅ préversion | |
 |Lakota |`lkt`|✅ préversion | |
 |Latin|`la`|✅ préversion | |
@@ -154,13 +154,13 @@ Le tableau suivant répertorie les langues d’impression prises en charge par l
 |Serbe (latin) | `sr-latn` | ✅ préversion |✅ |
 |Same de Skolt|`sms`|✅ préversion | |
 |Slovaque | `sk` | ✅ préversion |✅ |
-|Slovène  | `slv` | ✅ ||
+|Slovène  | `sl` | ✅ ||
 |Same du Sud|`sma`|✅ préversion | |
 |Espagnol | `es` |✅ |✅ |
 |Swahili (latin)  | `sw` |✅ | |
 |Suédois | `sv` |✅ |✅ |
 |Tadjik (cyrillique)|`tg`|✅ préversion | |
-|Tatar (latin)  | `tat` | ✅ |
+|Tatar (latin)  | `tt` | ✅ |
 |Tétoum    | `tet` |✅ |  |
 |Tonga|`to`|✅ préversion | |
 |Turc | `tr` |✅ | ✅ |

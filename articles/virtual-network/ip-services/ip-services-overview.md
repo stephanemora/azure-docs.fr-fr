@@ -8,12 +8,12 @@ ms.subService: ip-services
 ms.topic: overview
 ms.date: 10/01/2021
 ms.custom: template-overview
-ms.openlocfilehash: 4215fb4682e29a06a7003e30ae53656e09f6f246
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 7b9c1eb8e1e0a067da2f0ed29762ef14ce365690
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129369151"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257687"
 ---
 # <a name="what-is-azure-virtual-network-ip-services"></a>Que sont les services IP de réseau virtuel Azure ?
 
@@ -45,7 +45,7 @@ Une adresse IP publique est une ressource disposant de ses propres propriétés.
 * Pare-feu Azure
 * Hôte Bastion
 
-Pour plus d’informations sur les adresses IP publiques, consultez [Adresses IP publiques](../../virtual-network/public-ip-addresses.md) et [Créer, modifier ou supprimer une adresse IP publique Azure](../../virtual-network/virtual-network-public-ip-address.md).
+Pour plus d’informations sur les adresses IP publiques, consultez [Adresses IP publiques](./public-ip-addresses.md) et [Créer, modifier ou supprimer une adresse IP publique Azure](./virtual-network-public-ip-address.md).
 
 ## <a name="public-ip-address-prefixes"></a>Préfixes d’adresse IP publique
 
@@ -62,7 +62,7 @@ La taille de préfixe est spécifiée en tant que taille de masque CIDR (Classle
 
 Il n’existe pas de limites quant au nombre de préfixes créés dans un abonnement. Par conséquent, le nombre de plages que vous créez ne peut pas dépasser le nombre d’adresses IP publiques statiques autorisées dans votre abonnement. Pour plus d'informations, consultez [Limites Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Pour plus d’informations sur les préfixes d’adresse IP publique, consultez [Préfixe d’adresse IP publique](../../virtual-network/public-ip-address-prefix.md) et [Créer, modifier ou supprimer une adresse IP publique](../../virtual-network/manage-public-ip-address-prefix.md).
+Pour plus d’informations sur les préfixes d’adresse IP publique, consultez [Préfixe d’adresse IP publique](./public-ip-address-prefix.md) et [Créer, modifier ou supprimer une adresse IP publique](./manage-public-ip-address-prefix.md).
 
 ## <a name="private-ip-addresses"></a>Adresses IP privées
 
@@ -75,7 +75,7 @@ Voici quelques-unes des ressources auxquelles vous pouvez associer une adresse I
 * Passerelles d’application
 * Instances Private Endpoint
 
-Pour plus d’informations sur les adresses IP privées, consultez [Adresses IP privées](../../virtual-network/private-ip-addresses.md).
+Pour plus d’informations sur les adresses IP privées, consultez [Adresses IP privées](./private-ip-addresses.md).
 
 ## <a name="routing-preference"></a>Préférence de routage
 
@@ -87,7 +87,7 @@ Les préférences de routage sont les suivantes :
 
 * **Internet public (réseau de fournisseur de services Internet)** – Internet, le nouveau choix de routage, minimise le trajet sur le réseau Microsoft mondial et utilise le réseau de transit du fournisseur de services Internet pour acheminer votre trafic. Ce routage est également connu sous l’appellation *routage selon le principe de la patate chaude*.
 
-Pour plus d’informations sur la préférence de routage, consultez la section [Qu’est-ce qu’une préférence de routage (préversion) ?](../../virtual-network/routing-preference-overview.md).
+Pour plus d’informations sur la préférence de routage, consultez la section [Qu’est-ce qu’une préférence de routage (préversion) ?](./routing-preference-overview.md).
 
 ## <a name="routing-preference-unmetered"></a>Préférence de routage non mesurée
 
@@ -99,13 +99,13 @@ Le trafic réseau sortant de l’origine dans Azure, et destiné au fournisseur 
 
 * La connexion directe entre le fournisseur CDN et l’origine dans Azure offre des performances optimales, car il n’y a pas de sauts entre les deux. Cette connexion tire profit de la charge de travail CDN qui extrait fréquemment des données de l’origine.
 
-Pour plus d’informations sur la préférence de routage non mesurée, consultez la section [Qu’est-ce qu’une préférence de routage non mesurée ?](../../virtual-network/routing-preference-unmetered.md)
+Pour plus d’informations sur la préférence de routage non mesurée, consultez la section [Qu’est-ce qu’une préférence de routage non mesurée ?](./routing-preference-unmetered.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Commencez à créer des ressources des services IP :
 
-- [Créer une adresse IP publique à l’aide du portail Azure](../../virtual-network/create-public-ip-portal.md).
-- [Créer un préfixe d’adresse IP publique à l’aide du portail Azure](../../virtual-network/create-public-ip-prefix-portal.md).
-- [Configurer une adresse IP privée pour une machine virtuelle à l’aide du portail Azure](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).
-- [Configurer une préférence de routage pour une adresse IP publique à l’aide du portail Azure](../../virtual-network/routing-preference-portal.md).
+- [Créer une adresse IP publique à l’aide du portail Azure](./create-public-ip-portal.md).
+- [Créer un préfixe d’adresse IP publique à l’aide du portail Azure](./create-public-ip-prefix-portal.md).
+- [Configurer une adresse IP privée pour une machine virtuelle à l’aide du portail Azure](./virtual-networks-static-private-ip-arm-pportal.md).
+- [Configurer une préférence de routage pour une adresse IP publique à l’aide du portail Azure](./routing-preference-portal.md).

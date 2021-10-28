@@ -3,12 +3,12 @@ title: Utiliser des points de terminaison privés pour intégrer Azure Functions
 description: Ce tutoriel pas à pas vous montre comment connecter une fonction à un réseau virtuel Azure et le verrouiller avec des points de terminaison privés.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: 8007fde1d4aaf52a98bf924f607450462a993c1d
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: ee6fb79176b0188533725347c3b47369ce050706
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708431"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252974"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutoriel : intégrer des Azure Functions à un réseau virtuel Azure à l’aide de points de terminaison privés
 
@@ -323,8 +323,7 @@ Pour utiliser votre application de fonction avec des réseaux virtuels, vous dev
     | **WEBSITE_CONTENTSHARE** | files | Le nom du partage de fichiers que vous avez créé dans le compte de stockage. Utilisez ce paramètre avec WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. |
     | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Créez ce paramètre d’application pour la chaîne de connexion de votre Service Bus. Cette chaîne de connexion de stockage provient de la section [Obtenir la chaîne de connexion Service Bus](#get-a-service-bus-connection-string).|
     | **WEBSITE_CONTENTOVERVNET** | 1 | Créez ce paramètre d’application. La valeur 1 permet à votre application de fonction de se mettre à l’échelle lorsque votre compte de stockage est limité à un réseau virtuel. |
-    | **WEBSITE_DNS_SERVER** | 168.63.129.16 | Créez ce paramètre d’application. Lorsque votre application s’intègre à un réseau virtuel, elle utilise le même serveur DNS que le réseau virtuel. Votre application de fonction a besoin de ce paramètre pour pouvoir fonctionner avec des zones privées Azure DNS. Elle est requise lorsque vous utilisez des points de terminaison privés. Ce paramètre et WEBSITE_VNET_ROUTE_ALL enverront tous les appels sortants de votre application à votre réseau virtuel. |
-    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Créez ce paramètre d’application. Lorsque votre application s’intègre à un réseau virtuel, elle utilise le même serveur DNS que le réseau virtuel. Votre application de fonction a besoin de ce paramètre pour pouvoir fonctionner avec des zones privées Azure DNS. Elle est requise lorsque vous utilisez des points de terminaison privés. Ce paramètre et WEBSITE_DNS_SERVER enverront tous les appels sortants de votre application à votre réseau virtuel. |
+    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Créez ce paramètre d’application. Lorsque votre application s’intègre à un réseau virtuel, elle utilise le même serveur DNS que le réseau virtuel. Votre application de fonction a besoin de ce paramètre pour pouvoir fonctionner avec des zones privées Azure DNS. Elle est requise lorsque vous utilisez des points de terminaison privés. |
 
 1. Dans l’affichage **Configuration**, sélectionnez l’onglet **Paramètres du runtime de fonction**.
 

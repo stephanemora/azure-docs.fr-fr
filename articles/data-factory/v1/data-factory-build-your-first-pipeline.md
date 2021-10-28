@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.openlocfilehash: 06d5821fd6841f0fce5b657a49ecbca6fe232be1
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/22/2021
+ms.openlocfilehash: fe6b364d7616bef8901f6623615c473dee56f98a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128557790"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260034"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Didacticiel : Générer votre premier pipeline pour transformer les données à l’aide du cluster Hadoop
 > [!div class="op_single_selector"]

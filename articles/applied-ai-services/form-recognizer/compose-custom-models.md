@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 55e3d529b0f0e713be1c19e9f2ae4736d9b6a9ca
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: ef5514b44ad2d35870674a85958c28f5f780c308
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130177514"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233693"
 ---
 # <a name="how-to-use-custom-and-composed-models"></a>Guide pratique : Utiliser des modèles personnalisés et composés
 
@@ -25,7 +25,7 @@ Form Recognizer utilise la technologie de Machine Learning avancée pour détect
 
 * **Modèles composés**. Un modèle composé est créé sur la base d’une collection de modèles personnalisés qui sont affectés à un modèle unique englobant les types de formulaire. Quand un document est soumis à un modèle composé, le service effectue une étape de classification pour déterminer le modèle personnalisé qui représente précisément le formulaire présenté pour l’analyse.
 
-Dans cet article, nous allons examiner la création de modèles personnalisés et composés de Form Recognizer à l’aide de notre [outil d’étiquetage des exemples Form Recognizer](label-tool.md), nos [API REST](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model) ou nos [Kits de développement logiciel (SDK) de bibliothèque de client](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
+Dans cet article, nous allons examiner la création de modèles personnalisés et composés de Form Recognizer à l’aide de notre [outil d’étiquetage des exemples Form Recognizer](label-tool.md), nos [API REST](./quickstarts/try-sdk-rest-api.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model) ou nos [Kits de développement logiciel (SDK) de bibliothèque de client](./quickstarts/try-sdk-rest-api.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
 
 ## <a name="try-it-sample-labeling-tool"></a>Essayer : Outil d’étiquetage des exemples
 
@@ -71,7 +71,7 @@ Vous devez [charger votre jeu de données d’apprentissage](build-training-data
 
 ## <a name="train-your-custom-model"></a>Effectuer l’apprentissage de votre modèle personnalisé
 
-Vous pouvez [entraîner votre modèle](quickstarts/client-library.md#train-a-custom-model) avec des jeux de données étiquetés ou sans. Les jeux de données sans étiquette reposent uniquement sur [l’API de disposition](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) pour détecter et identifier les informations clés, sans intervention humaine supplémentaire. Les jeux de données étiquetés s’appuient également sur l’API de disposition, mais une autre intervention humaine est incluse, comme vos étiquettes spécifiques et l’emplacement des champs. Pour utiliser à la fois des données avec et sans étiquettes, commencez avec au moins cinq formulaires remplis du même type pour les données d’apprentissage avec étiquettes, puis ajoutez des données sans étiquettes au jeu de données requis.
+Vous pouvez [entraîner votre modèle](./quickstarts/try-sdk-rest-api.md#train-a-custom-model) avec des jeux de données étiquetés ou sans. Les jeux de données sans étiquette reposent uniquement sur [l’API de disposition](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) pour détecter et identifier les informations clés, sans intervention humaine supplémentaire. Les jeux de données étiquetés s’appuient également sur l’API de disposition, mais une autre intervention humaine est incluse, comme vos étiquettes spécifiques et l’emplacement des champs. Pour utiliser à la fois des données avec et sans étiquettes, commencez avec au moins cinq formulaires remplis du même type pour les données d’apprentissage avec étiquettes, puis ajoutez des données sans étiquettes au jeu de données requis.
 
 ### <a name="train-without-labels"></a>Effectuer l’entraînement sans étiquettes
 
@@ -113,13 +113,13 @@ Quand vous effectuez l’apprentissage des modèles à l’aide de [**l’outil 
 
 ### <a name="rest-api"></a>[**API REST**](#tab/rest-api)
 
-[**L’API REST**](quickstarts/client-library.md?pivots=programming-language-rest-api#train-a-custom-model) retourne une `201 (Success)` réponse avec en-tête **Emplacement**. La valeur du dernier paramètre dans cet en-tête est l’ID de modèle pour le modèle dont l’apprentissage vient d’être réalisé :
+[**L’API REST**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#train-a-custom-model) retourne une `201 (Success)` réponse avec en-tête **Emplacement**. La valeur du dernier paramètre dans cet en-tête est l’ID de modèle pour le modèle dont l’apprentissage vient d’être réalisé :
 
 :::image type="content" source="media/model-id.png" alt-text="Capture d’écran : en-tête d’emplacement retourné contenant l’ID de modèle.":::
 
 ### <a name="client-library-sdks"></a>[**Kits SDK de bibliothèque de client**](#tab/sdks)
 
- Les kits [**SDK de bibliothèque de client**](quickstarts/client-library.md?pivots=programming-language-csharp#train-a-custom-model) retournent un objet de modèle pouvant être interrogé pour retourner l’ID de modèle entraîné :
+ Les kits [**SDK de bibliothèque de client**](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-csharp#train-a-custom-model) retournent un objet de modèle pouvant être interrogé pour retourner l’ID de modèle entraîné :
 
 * C\#  | [Classe CustomFormModel](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet&preserve-view=true#properties "Kit SDK Azure pour .NET")
 
@@ -205,11 +205,11 @@ Utilisation du langage de programmation de votre choix pour analyser un formulai
 
 ---
 
-Testez les modèles dont l’apprentissage vient d’être réalisé en [analysant les formulaires](quickstarts/client-library.md#analyze-forms-with-a-custom-model) qui ne faisaient pas partie du jeu de données d’apprentissage. Selon la justesse signalée, vous souhaiterez peut-être effectuer d’autres entraînements pour améliorer le modèle. Vous pouvez poursuivre l’apprentissage pour [améliorer les résultats](label-tool.md#improve-results).
+Testez les modèles dont l’apprentissage vient d’être réalisé en [analysant les formulaires](./quickstarts/try-sdk-rest-api.md#analyze-forms-with-a-custom-model) qui ne faisaient pas partie du jeu de données d’apprentissage. Selon la justesse signalée, vous souhaiterez peut-être effectuer d’autres entraînements pour améliorer le modèle. Vous pouvez poursuivre l’apprentissage pour [améliorer les résultats](label-tool.md#improve-results).
 
 ## <a name="manage-your-custom-models"></a>Gérer vos modèles personnalisés
 
-Vous pouvez [gérer vos modèles personnalisés](quickstarts/client-library.md#manage-custom-models) tout au long de leur cycle de vie en affichant une [liste de tous les modèles personnalisés](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModels) sous votre abonnement, en récupérant des informations sur [un modèle personnalisé spécifique](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel) et en [supprimant des modèles personnalisés](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel) de votre compte.
+Vous pouvez [gérer vos modèles personnalisés](./quickstarts/try-sdk-rest-api.md#manage-custom-models) tout au long de leur cycle de vie en affichant une [liste de tous les modèles personnalisés](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModels) sous votre abonnement, en récupérant des informations sur [un modèle personnalisé spécifique](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetCustomModel) et en [supprimant des modèles personnalisés](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/DeleteCustomModel) de votre compte.
 
 Très bien ! Vous avez découvert les étapes permettant de créer des modèles personnalisés et composés, puis de les utiliser dans vos projets et applications Form Recognizer.
 
@@ -220,4 +220,3 @@ Pour en savoir plus sur la bibliothèque de client Form Recognizer, explorez not
 > [!div class="nextstepaction"]
 > [Informations de référence sur l’API Form Recognizer](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
 >
-

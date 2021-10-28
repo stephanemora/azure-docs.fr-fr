@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2021
 ms.author: aldomel
-ms.openlocfilehash: f7a7ab456fd28e8ba244a29238590da22885c318
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: fd73fe3246d9d1c485154be9a4e8f9b051d5c95f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524330"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228146"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -80,7 +80,7 @@ Vous pouvez spécifier les types suivants de tronçon suivants lors de la créat
 
 * **Appliance virtuelle** : une appliance virtuelle réseau est une machine virtuelle qui exécute une application réseau telle qu’un pare-feu. Pour en savoir plus sur une panoplie d’appliances virtuelles réseau préconfigurées que vous pouvez déployer dans un réseau virtuel, voir [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Lorsque vous créez un itinéraire avec le **appliance virtuelle** type de tronçon, vous également spécifiez les adresses IP de tronçon suivant. L’adresse IP peut être :
 
-    * L’[adresse IP privée](./private-ip-addresses.md) d’une interface réseau attachée à une machine virtuelle. L’option *Activer le transfert IP* doit être activée pour toute interface réseau attachée à une machine virtuelle qui transfère le trafic réseau vers une adresse autre que celle qui lui appartient. Le paramètre désactive la vérification de la source et de destination pour une interface réseau par Azure. En savoir plus sur la façon d’[activer le transfert IP pour une interface réseau](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Bien que le paramètre *Activer le transfert IP* soit un paramètre Azure, il se peut qu’il soit également nécessaire d’activer le transfert IP au sein du système d’exploitation de la machine virtuelle pour que l’appliance transfère le trafic entre les adresses IP privées et les interfaces réseau Azure. Si l’appliance doit acheminer le trafic vers une adresse IP publique, elle doit l’acheminer par proxy ou bien traduire l’adresse réseau de l’adresse IP privée originale vers sa propre adresse IP privée, qu’Azure traduit alors vers une adresse IP publique, avant d’envoyer le trafic sur Internet. Pour déterminer les paramètres requis pour la machine virtuelle, consultez la documentation de votre système d’exploitation ou application réseau. Pour comprendre les connexions sortantes dans Azure, consultez [Comprendre les connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
+    * L’[adresse IP privée](./ip-services/private-ip-addresses.md) d’une interface réseau attachée à une machine virtuelle. L’option *Activer le transfert IP* doit être activée pour toute interface réseau attachée à une machine virtuelle qui transfère le trafic réseau vers une adresse autre que celle qui lui appartient. Le paramètre désactive la vérification de la source et de destination pour une interface réseau par Azure. En savoir plus sur la façon d’[activer le transfert IP pour une interface réseau](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Bien que le paramètre *Activer le transfert IP* soit un paramètre Azure, il se peut qu’il soit également nécessaire d’activer le transfert IP au sein du système d’exploitation de la machine virtuelle pour que l’appliance transfère le trafic entre les adresses IP privées et les interfaces réseau Azure. Si l’appliance doit acheminer le trafic vers une adresse IP publique, elle doit l’acheminer par proxy ou bien traduire l’adresse réseau de l’adresse IP privée originale vers sa propre adresse IP privée, qu’Azure traduit alors vers une adresse IP publique, avant d’envoyer le trafic sur Internet. Pour déterminer les paramètres requis pour la machine virtuelle, consultez la documentation de votre système d’exploitation ou application réseau. Pour comprendre les connexions sortantes dans Azure, consultez [Comprendre les connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
 
       > [!NOTE]
       > Déployez une appliance virtuelle dans un sous-réseau autre que celui dans lequel les ressources de routage par l’intermédiaire de l’appliance virtuelle sont déployées. Le déploiement de l’appliance virtuelle dans le même sous-réseau, puis l’application d’une table de routage au sous-réseau qui achemine le trafic via l’appliance virtuelle, peut entraîner des boucles de routage, où le trafic ne quitte jamais le sous-réseau.

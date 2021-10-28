@@ -10,12 +10,12 @@ author: ma77b
 ms.author: maburd
 ms.reviewer: wiassaf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7dd442c981b4a3d9ac04716d123269457f24bf9e
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 7bb66b9fedb0f1e906a522f393ffde32ee9e2e3e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130002773"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263170"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tables de métadonnées partagées Azure Synapse Analytics
 
@@ -69,7 +69,7 @@ Les tables Spark fournissent des types de données différents de ceux des moteu
 |---|---|---|
 | `LongType`, `long`, `bigint`                | `bigint`              | **Spark** : *LongType* représente des nombres entiers signés de 8 octets.<BR>**SQL** : Consultez [int, bigint, smallint et tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
 | `BooleanType`, `boolean`                    | `bit` (Parquet), `varchar(6)` (CSV)  | **Spark** : Booléen.<BR>**SQL** : Consultez [/sql/t-sql/data-types/bit-transact-sql).|
-| `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark** : *DecimalType* représente des nombres décimaux entiers de précision arbitraire. Soutenu en interne par java.math.BigDecimal. Un BigDecimal est constitué d’une valeur entière de précision arbitraire non mise à l’échelle et d’une échelle d’entier 32 bits. <br> **SQL** : nombres de précision et d’échelle fixes. Lorsque la précision maximale est utilisée, les valeurs valides sont comprises entre - 10^38 +1 et 10^38 - 1. Les synonymes ISO de decimal sont dec et dec(p, s) . numeric est fonctionnellement identique à decimal. Consultez [decimal et numeric](/sql/t-sql/data-types/decimal-and-numeric-transact-sql]). |
+| `DecimalType`, `decimal`, `dec`, `numeric`  | `decimal`             | **Spark** : *DecimalType* représente des nombres décimaux entiers de précision arbitraire. Soutenu en interne par java.math.BigDecimal. Un BigDecimal est constitué d’une valeur entière de précision arbitraire non mise à l’échelle et d’une échelle d’entier 32 bits. <br> **SQL** : nombres de précision et d’échelle fixes. Lorsque la précision maximale est utilisée, les valeurs valides sont comprises entre - 10^38 +1 et 10^38 - 1. Les synonymes ISO de decimal sont dec et dec(p, s) . numeric est fonctionnellement identique à decimal. Consultez [decimal et numeric](/sql/t-sql/data-types/decimal-and-numeric-transact-sql). |
 | `IntegerType`, `Integer`, `int`             | `int`                 | **Spark** : *IntegerType* représente des nombres entiers signés de 4 octets. <BR>**SQL** : Consultez [int, bigint, smallint et tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
 | `ByteType`, `Byte`, `tinyint`               | `smallint`            | **Spark** : *ByteType* représente des nombres entiers signés de un octet [de -128 à 127] et ShortType représente des nombres entiers signés de deux octets [de -32768 à 32767]. <br> **SQL** : Tinyint représente des nombres entiers signés de un octet [0, 255] et smallint représente des nombres entiers signés de deux octets [-32768, 32767]. Consultez [int, bigint, smallint et tinyint](/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql).|
 | `ShortType`, `Short`, `smallint`            | `smallint`            | Identique à ce qui précède. |
@@ -197,5 +197,3 @@ id | name | birthdate
 
 - [Apprenez-en davantage sur les métadonnées partagées Azure Synapse Analytics](overview.md)
 - [En savoir plus sur la base de données de métadonnées partagées Azure Synapse Analytics](database.md)
-
-

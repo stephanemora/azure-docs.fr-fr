@@ -7,12 +7,12 @@ ms.date: 10/08/2021
 ms.author: helohr
 ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: c81fb82695d534864fa96d8a5bfff9b3cebd4a4e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 29a86a476737df6f5a2787748c5551953984f6b6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129705294"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261592"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutoriel : Créer un pool d’hôtes pour valider les mises à jour de service
 
@@ -23,7 +23,7 @@ Les pools d’hôtes consistent en une collection d’une ou plusieurs machines 
 
 Pour veiller à ce que vos applications fonctionnent avec les dernières mises à jour, le pool d’hôtes de validation doit également être aussi semblable que possible aux pools d’hôtes de votre environnement non validé. Les utilisateurs sont invités à se connecter aussi fréquemment au pool d’hôtes de validation qu’au pool d’hôtes standard. Si vous disposez de tests automatisés sur votre pool d’hôtes, vous devez inclure ces tests au pool d’hôtes de validation.
 
-Vous pouvez déboguer les problèmes du pool d’hôtes de validation avec la [fonctionnalité de diagnostic](diagnostics-role-service.md) ou les [articles de résolution des problèmes Azure Virtual Desktop](troubleshoot-set-up-overview.md).
+Vous pouvez déboguer les problèmes du pool d’hôtes de validation avec la [fonctionnalité de diagnostic](./troubleshoot-set-up-overview.md) ou les [articles de résolution des problèmes Azure Virtual Desktop](troubleshoot-set-up-overview.md).
 
 >[!NOTE]
 > Nous vous recommandons d'utiliser le pool d’hôtes de validation pour tester toutes les mises à jour à venir.

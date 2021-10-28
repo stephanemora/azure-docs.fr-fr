@@ -3,12 +3,12 @@ title: Exporter vers Power BI à partir d’Azure Application Insights | Micros
 description: Les requêtes Analytics peuvent être affichées dans Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: e0644a083021956316595d299a69a69b321a87d9
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 0d1c5d58b668a23618b482bbc3ce82897ad760dd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108164126"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256966"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
 
@@ -17,7 +17,7 @@ ms.locfileid: "108164126"
 Pour exporter des données d’Application Insights vers Power BI, il existe trois méthodes :
 
 * [**Exporter des requêtes Analytics**](#export-analytics-queries). Ceci est la méthode privilégiée. Écrivez une requête et exportez-la vers Power BI. Vous pouvez placer cette requête sur un tableau de bord, avec d’autres données.
-* [**Exportation continue et Azure Stream Analytics**](./export-stream-analytics.md). Cette méthode est utile si vous souhaitez stocker vos données pendant de longues périodes. Si vous n’avez pas d’exigence concernant une conservation étendue des données, utilisez la méthode Exporter une requête Analytics. Exportation continue et Stream Analytics : implique un travail supplémentaire de configuration et des frais de stockage supplémentaires.
+* [**Exportation continue et Azure Stream Analytics**](../../stream-analytics/app-insights-export-stream-analytics.md). Cette méthode est utile si vous souhaitez stocker vos données pendant de longues périodes. Si vous n’avez pas d’exigence concernant une conservation étendue des données, utilisez la méthode Exporter une requête Analytics. Exportation continue et Stream Analytics : implique un travail supplémentaire de configuration et des frais de stockage supplémentaires.
 * **Adaptateur Power BI**. L’ensemble de graphiques est prédéfini, mais vous pouvez ajouter vos propres requêtes à partir d’autres sources.
 
 > [!NOTE]

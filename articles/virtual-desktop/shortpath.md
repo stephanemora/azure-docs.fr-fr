@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 10/18/2021
 ms.author: denisgun
-ms.openlocfilehash: 39a3cc7086bb0778768187ef2deb49b91d5b9e46
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: d24c1b3bdc6da07b844638157a0ecdfc9eb18843
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130181449"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225224"
 ---
 # <a name="azure-virtual-desktop-rdp-shortpath-for-managed-networks"></a>Azure Virtual Desktop RDP Shortpath pour les réseaux managés
 
@@ -58,7 +58,7 @@ Pour prendre en charge RDP Shortpath, le client Azure Virtual Desktop a besoin d
 - Utiliser [le peering privé ExpressRoute](../expressroute/expressroute-circuit-peerings.md)
 - Utiliser un [réseau privé virtuel site à site (basé sur IPsec)](../vpn-gateway/tutorial-site-to-site-portal.md)
 - Utiliser un [VPN point à site (basé sur IPsec)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-- Utiliser une [affectation d’adresses IP publiques](../virtual-network/virtual-network-public-ip-address.md)
+- Utiliser une [affectation d’adresses IP publiques](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 
 Si vous utilisez d’autres types de VPN pour vous connecter à Azure, nous vous recommandons d’utiliser un VPN basé sur le protocole UDP (User Datagram Protocol). Bien que la plupart des solutions VPN basées sur le protocole TCP (Transmission Control Protocol) prennent en charge le protocole UDP imbriqué, elles ajoutent une surcharge héritée du contrôle de congestion TCP, ce qui ralentit les performances de RDP.
 

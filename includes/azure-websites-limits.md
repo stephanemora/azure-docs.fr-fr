@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/17/2020
 ms.author: msangapu
-ms.openlocfilehash: fccfd7e0abd328e2284357aac72a22ded513bfc4
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8e787aab95da883f5a448ee250eb542fb10e45f6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110163283"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287710"
 ---
 | Ressource | Gratuit | Partagé | De base | standard | Premium (v1 à v3) | Isolé </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -30,7 +30,7 @@ ms.locfileid: "110163283"
 | Domaines personnalisés par application</a> |0 (sous-domaine azurewebsites.net uniquement)|500 |500 |500 |500 |500 |
 | domaines personnalisés [Prise en charge SSL](../articles/app-service/configure-ssl-certificate.md) |Non pris en charge, certificat avec caractères génériques pour \*.azurewebsites.net disponible par défaut|Non pris en charge, certificat avec caractères génériques pour \*.azurewebsites.net disponible par défaut|Nombre illimité de connexions SNI SSL |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses | Connexions SSL SNI illimitées et 1 connexion IP SSL incluses|
 | [Connexions hybrides](../articles/app-service/app-service-hybrid-connections.md) | | | 5 par plan | 25 par plan | 220 par application | 220 par application |
-| [Intégration du réseau virtuel](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
+| [Intégration du réseau virtuel](../articles/app-service/overview-vnet-integration.md) | | |   |  X |  X  |  X  |
 | [Points de terminaison privés](../articles/app-service/networking/private-endpoint.md) | | |   |   |  100 par application  |    |
 | Équilibreur de charge intégré | |X |X |X |X |X<sup>10</sup> |
 | [Restrictions de l’accès](../articles/app-service/networking-features.md#access-restrictions) | 512 règles par application | 512 règles par application | 512 règles par application | 512 règles par application | 512 règles par application | 512 règles par application |

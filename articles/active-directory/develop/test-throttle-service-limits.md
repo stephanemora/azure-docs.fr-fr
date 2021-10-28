@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2021
 ms.author: ryanwi
 ms.reviewer: arcrowe
-ms.openlocfilehash: 35f7694dbdf3d7c4f3065f19dc89bac7d7b1915e
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: f0594994593dbb9505ca7fea24a11a5c5bc7a4eb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368333"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262790"
 ---
 # <a name="throttling-and-service-limits-to-consider-for-testing"></a>Limitation et limites de service à prendre en compte pour les tests
 En tant que développeur, vous souhaitez tester votre application avant de la mettre en production. Lorsque vous testez des applications protégées par la plateforme d’identités Microsoft, vous devez configurer un environnement Azure Active Directory (Azure AD) et un locataire à utiliser pour le test.  
@@ -29,7 +29,7 @@ Afin de garantir une utilisation fiable des services par tous les clients, Azure
 Azure AD, Microsoft Graph et d’autres services Azure limitent également le nombre d’appels simultanés à un service ou limitent la quantité de charge de calcul par client afin d’éviter une utilisation excessive des ressources. Il s’agit d’une pratique connue sous le nom de limitation, et elle garantit que les services Azure peuvent gérer l’utilisation et les demandes entrantes sans interruption de service. La limitation peut se produire au niveau de l’application, du locataire ou de l’ensemble du service. La limitation se produit généralement lorsqu’une application a un grand nombre de requêtes dans ou entre des locataires.  Au moment de l’exécution, votre application peut lire ou mettre à jour les objets d’annuaire Azure AD par le biais de Microsoft Graph dans le cadre de sa logique métier. Par exemple, lire ou définir des attributs utilisateur, mettre à jour le calendrier d’un utilisateur ou envoyer des e-mails pour le compte de l’utilisateur.  Lors de son exécution, votre application peut également déployer, accéder à, mettre à jour et supprimer des ressources Azure. Pendant le test, votre application peut atteindre ces limitations au moment de l’exécution et les limites de service mentionnées précédemment lors du déploiement de ressources ou d’objets d’annuaire.
 
 ## <a name="azure-ad-service-limits-relevant-to-testing"></a>Limites de service Azure AD applicables au test
-Vous trouverez [ici](/azure/active-directory/enterprise-users/directory-service-limits-restrictions) les contraintes générales relatives à l’utilisation d’Azure AD et les limites du service.  Pour plus d’informations générales sur les abonnements Azure et limites, quotas et contraintes de service, consultez [ceci](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Vous trouverez [ici](../enterprise-users/directory-service-limits-restrictions.md) les contraintes générales relatives à l’utilisation d’Azure AD et les limites du service.  Pour plus d’informations générales sur les abonnements Azure et limites, quotas et contraintes de service, consultez [ceci](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 Le tableau suivant répertorie limites du service Azure AD à prendre en compte lors de la configuration d’un environnement de test ou de l’exécution de tests. 
 
@@ -69,4 +69,3 @@ Lorsque vous dépassez une limite, vous recevez le code d’état HTTP `429 Too 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [configurer un environnement de test](test-setup-environment.md).
-

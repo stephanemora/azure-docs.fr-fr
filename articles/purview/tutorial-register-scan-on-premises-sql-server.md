@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 09/27/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 0054b41fdf12efa4bbd3f1bf34e66023b7ea2d75
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 5fc1369c20130d8c689abe853e321fc1507fa414
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129213145"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249568"
 ---
 # <a name="tutorial-register-and-scan-an-on-premises-sql-server"></a>Tutoriel : Inscrire et analyser un serveur SQL Server local
 
@@ -33,7 +33,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Un [coffre de clés Azure](../key-vault/certificates/quick-create-portal.md#create-a-vault) actif.
+- Un [coffre de clés Azure](../key-vault/general/quick-create-portal.md) actif.
 - Un compte Azure Purview. Si vous n’en avez pas déjà un, vous pouvez [suivre notre guide de démarrage rapide pour en créer un](create-catalog-portal.md).
 - Un [serveur SQL Server local](https://www.microsoft.com/sql-server/sql-server-downloads).
 

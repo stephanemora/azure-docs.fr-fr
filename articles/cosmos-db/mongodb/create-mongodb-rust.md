@@ -8,18 +8,19 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 08/26/2021
-ms.openlocfilehash: 8fab3b577177c66e8999c5e7c594b165a310276a
-ms.sourcegitcommit: 03f0db2e8d91219cf88852c1e500ae86552d8249
+ms.openlocfilehash: 4831c5f695baf923b5e687c3e3c0649262a9e361
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123033693"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130232996"
 ---
 # <a name="quickstart-connect-a-rust-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Démarrage rapide : Connecter une application Rust à l’API Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.JS](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)
@@ -321,9 +322,9 @@ fn delete_todo(self, todo_id: &str) {
 
 Dans ce guide de démarrage rapide, vous avez appris à créer un compte d’API Azure Cosmos DB MongoDB à l’aide d’Azure Cloud Shell, et à créer puis exécuter une application de ligne de commande Rust pour gérer des éléments `todo`. Vous pouvez maintenant importer des données supplémentaires dans votre compte Azure Cosmos DB.
 
-Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser à cette fin les informations de votre cluster de bases de données existant.
-* Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existant, consultez [Estimation des unités de requête avec des vCore ou des processeurs virtuels](../convert-vcore-to-request-unit.md). 
-* Si vous connaissez les taux de requêtes typiques de la charge de travail actuelle des bases de données, consultez [Estimation des unités de requête avec Azure Cosmos DB Capacity Planner](estimate-ru-capacity-planner.md).
+Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+* Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 > [Importer des données MongoDB dans Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

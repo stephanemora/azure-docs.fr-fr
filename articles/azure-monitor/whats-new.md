@@ -3,12 +3,12 @@ title: Nouveautés dans la documentation Azure Monitor
 description: Nouveautés dans la documentation Azure Monitor
 ms.topic: conceptual
 ms.date: 09/07/2021
-ms.openlocfilehash: 735c94026695e6eb89005c6e1bbc4bbdbe46f64b
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 3c7a433ed3c13e7853cab9a72bdd6b7a447bb3a0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178687"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219886"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Nouveautés dans la documentation Azure Monitor
 
@@ -19,7 +19,7 @@ Cet article répertorie les modifications importantes apportées à la documenta
 
 **Articles mis à jour**
 
-- [Déployer Azure Monitor à grande échelle à l’aide d’Azure Policy](deploy-scale.md)
+- [Déployer Azure Monitor à grande échelle à l’aide d’Azure Policy](./best-practices.md)
 - [Intégrations partenaires d’Azure Monitor](partners.md)
 - [Exemples de modèle Resource Manager pour Azure Monitor](resource-manager-samples.md)
 - [Rôles, autorisations et sécurité dans Azure Monitor](roles-permissions-security.md)
@@ -173,7 +173,7 @@ Cet article répertorie les modifications importantes apportées à la documenta
 **Articles mis à jour**
 
 - [Questions fréquemment posées sur Azure Monitor](faq.yml)
-- [Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy](deploy-scale.md)
+- [Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy](./best-practices.md)
 
 ### <a name="agents"></a>Agents
 
@@ -349,4 +349,3 @@ Cet article répertorie les modifications importantes apportées à la documenta
 
 - [Résoudre des problèmes d’intégrité de l’invité de VM Insights (préversion)](vm/vminsights-health-troubleshoot.md)
 - [Créer des rapports interactifs VM Insights avec des classeurs](vm/vminsights-workbooks.md)
-

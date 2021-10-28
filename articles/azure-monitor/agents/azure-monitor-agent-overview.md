@@ -6,18 +6,18 @@ author: bwren
 ms.author: bwren
 ms.date: 09/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8eb9a6ad285bea2a5ac6e69ebb5ebef48b135899
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 50ab3c65abd6fe57941f18f58ff277de6822389c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713125"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216482"
 ---
 # <a name="azure-monitor-agent-overview"></a>Vue d’ensemble de l’agent Azure Monitor
 L’agent Azure Monitor (AMA) collecte des données de supervision auprès du système d’exploitation invité des machines virtuelles Azure et les délivre à Azure Monitor. Cet article fournit une vue d’ensemble de l’agent Azure Monitor et inclut des informations sur la façon de l’installer et de configurer la collecte des données.
 
 ## <a name="relationship-to-other-agents"></a>Relation avec les autres agents
-L’agent Azure Monitor remplace les agents hérités suivants qui sont actuellement utilisés par Azure Monitor pour collecter des données d’invités auprès des machines virtuelles ([voir les lacunes connues](/azure/azure-monitor/faq#is-the-new-azure-monitor-agent-at-parity-with-existing-agents)) :
+L’agent Azure Monitor remplace les agents hérités suivants qui sont actuellement utilisés par Azure Monitor pour collecter des données d’invités auprès des machines virtuelles ([voir les lacunes connues](../faq.yml)) :
 
 - [Agent Log Analytics](./log-analytics-agent.md) : Envoie des données à un espace de travail Log Analytics et prend en charge les insights de machine virtuelle et les solutions de supervision.
 - [Extension Diagnostics](./diagnostics-extension-overview.md) : Envoie des données aux métriques Azure Monitor (Windows uniquement), à Azure Event Hubs et au Stockage Azure.
@@ -54,7 +54,7 @@ L’agent Azure Monitor remplace les [agents hérités pour Azure Monitor](agent
 - **Configuration requise pour l’environnement :** L’agent Azure Monitor prend actuellement en charge [ces systèmes d’exploitation](./agents-overview.md#supported-operating-systems). La prise en charge de versions futures des systèmes d’exploitation, la prise en charge de l’environnement et les exigences réseau seront probablement fournies dans ce nouvel agent. 
  
   Évaluez si votre environnement est pris en charge par l’agent Azure Monitor. Si ce n’est pas le cas, il peut être nécessaire de conserver l’agent actuel. Si l’agent Azure Monitor prend en charge votre environnement actuel, envisagez une transition vers celui-ci.
-- **Exigences actuelles et nouvelles en matière de fonctionnalités :** L’agent Azure Monitor introduit plusieurs nouvelles fonctionnalités, telles que le filtrage, l’étendue et l’hébergement multiple. Toutefois, il n’est pas encore sur un pied d’égalité avec les agents actuels pour d’autres fonctionnalités, telles que la collecte de journaux personnalisés et l’intégration à toutes les solutions. ([Consultez les solutions en préversion](/azure/azure-monitor/faq#which-log-analytics-solutions-are-supported-on-the-new-azure-monitor-agent).) 
+- **Exigences actuelles et nouvelles en matière de fonctionnalités :** L’agent Azure Monitor introduit plusieurs nouvelles fonctionnalités, telles que le filtrage, l’étendue et l’hébergement multiple. Toutefois, il n’est pas encore sur un pied d’égalité avec les agents actuels pour d’autres fonctionnalités, telles que la collecte de journaux personnalisés et l’intégration à toutes les solutions. ([Consultez les solutions en préversion](../faq.yml).) 
  
   La plupart des nouvelles capacités d’Azure Monitor ne seront disponibles qu’avec l’agent Azure Monitor. Au fil du temps, des fonctionnalités supplémentaires seront disponibles uniquement dans le nouvel agent. Déterminez si l’agent Azure Monitor dispose des fonctionnalités dont vous avez besoin et si vous pouvez vous passer temporairement de certaines fonctionnalités pour obtenir d’autres fonctionnalités importantes dans le nouvel agent. 
   

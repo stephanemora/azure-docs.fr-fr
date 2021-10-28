@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: c5684a3e3949ca2bf119a4c81d7096726a441da6
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: f4d035355be5381109c1bc5f620bade22ba6f579
+ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129390137"
+ms.lasthandoff: 10/14/2021
+ms.locfileid: "129987211"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Événements en direct et sorties en direct dans Media Services
 
@@ -31,7 +31,7 @@ Azure Media Services vous permet de transmettre des événements en direct aupr�
 
 ## <a name="live-events"></a>Événements en direct
 
-Les [événements en direct](/rest/api/media/liveevents) sont chargés de la réception et du traitement des flux vidéo en direct. Quand vous créez un événement en direct, un point de terminaison d’entrée primaire et secondaire est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. L’encodeur live à distance envoie le flux de contribution à ce point de terminaison d’entrée par le biais du protocole d’entrée [RTMP](https://www.adobe.com/devnet/rtmp.html) ou [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (MP4 fragmenté). Pour le protocole de réception RTMP, le contenu peut être envoyé en clair (`rtmp://`) ou chiffré pour plus de sécurité sur la connexion filaire (`rtmps://`). Pour le protocole de réception Smooth Streaming, les schémas d’URL pris en charge sont `http://` ou `https://`.  
+Les [événements en direct](/rest/api/media/liveevents) sont chargés de la réception et du traitement des flux vidéo en direct. Quand vous créez un événement en direct, un point de terminaison d’entrée primaire et secondaire est également créé. Vous pouvez utiliser ce point de terminaison pour envoyer un signal en direct à partir d’un encodeur à distance. L’encodeur live à distance envoie le flux de contribution à ce point de terminaison d’entrée par le biais du protocole d’entrée [RTMP](https://helpx.adobe.com/adobe-media-server/dev/stream-live-media-rtmp.html) ou [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (MP4 fragmenté). Pour le protocole de réception RTMP, le contenu peut être envoyé en clair (`rtmp://`) ou chiffré pour plus de sécurité sur la connexion filaire (`rtmps://`). Pour le protocole de réception Smooth Streaming, les schémas d’URL pris en charge sont `http://` ou `https://`.  
 
 ## <a name="live-event-types"></a>Types d’événements en direct
 

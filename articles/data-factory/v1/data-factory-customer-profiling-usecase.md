@@ -7,13 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.openlocfilehash: f763c2ca499d68808c70318d2e3651c99b5b09af
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/22/2021
+ms.openlocfilehash: a8cd46fa12b1641f9ff3dd79dc8e3f077b8e3ad8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128664204"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130242857"
 ---
 # <a name="use-case---customer-profiling"></a>Cas d’utilisation - Profilage des utilisateurs
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Pour plus d’informations sur Cortana Intelligence, consultez [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Dans ce document, nous décrivons un cas d'utilisation simple pour vous aider à comprendre comment Azure Data Factory permet de résoudre les problèmes d'analyse courants.

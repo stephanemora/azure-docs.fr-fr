@@ -11,12 +11,12 @@ ms.subservice: automl
 ms.date: 09/27/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
-ms.openlocfilehash: 473cf460460bf6fb13353587d49509cb192219b7
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 159452c18418508cb0640e909a49474e77ca3ce9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130044646"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130246413"
 ---
 # <a name="set-up-automl-training-with-python"></a>Configurer l’apprentissage AutoML avec Python
 
@@ -35,7 +35,7 @@ Pour cet article, vous avez besoin des éléments suivants :
     Pour installer le kit de développement logiciel (SDK), vous pouvez : 
     * Créer une instance de calcul, qui installe automatiquement le kit de développement logiciel (SDK) et est préconfigurée pour les flux de travail ML. Consultez [Créer et gérer une instance de calcul Azure Machine Learning](how-to-create-manage-compute-instance.md) pour plus d’informations. 
 
-    * [Installez vous-même le package `automl`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), qui comprend l’[installation par défaut](/python/api/overview/azure/ml/install#default-install) du Kit de développement logiciel (SDK).
+    * [Installez vous-même le package `automl`](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), qui comprend l’[installation par défaut](/python/api/overview/azure/ml/install#default-install) du Kit de développement logiciel (SDK).
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
     
@@ -189,7 +189,7 @@ classification ; | régression ; | Prévision de séries chronologiques
 [Arbre de décision](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[Arbre de décision](https://scikit-learn.org/stable/modules/tree.html#regression)* |[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
 [K plus proches voisins](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K plus proches voisins](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* | [Gradient Boosting](https://scikit-learn.org/stable/modules/ensemble.html#regression)
 [Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* | [Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
-[Support Vector Classification (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* | [Decision Tree](https://scikit-learn.org/stable/modules/tree.html#regression)
+[Support Vector Classification (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* | Arimax
 [Forêt aléatoire](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* | [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests) | [LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
 [Arborescences extrêmement aléatoires](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [Arborescences extrêmement aléatoires](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* | [Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
@@ -200,7 +200,6 @@ classification ; | régression ; | Prévision de séries chronologiques
 ||| Average
 ||| SeasonalAverage
 ||| [ExponentialSmoothing](https://www.statsmodels.org/v0.10.2/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html)
-||| Arimax
 
 ### <a name="primary-metric"></a>Métrique principale
 

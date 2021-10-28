@@ -11,12 +11,12 @@ ms.date: 05/11/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: traitement de documents
-ms.openlocfilehash: 43e7da4eea864bf0ac2767718ff8ed04ed58c54e
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 23f525449edfa8d37a7bd8e3ebeff1fb9cdff601
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715180"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224495"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -254,7 +254,7 @@ Une fois que vous avez défini votre étiquette de table, étiquetez les valeurs
 
 Choisissez l’icône d’entraînement dans le volet gauche pour ouvrir la page Training (Entraînement). Sélectionnez ensuite le bouton **Train** pour commencer l’entraînement du modèle. Une fois le processus d’entraînement terminé, les informations suivantes s’affichent :
 
-* **Model ID** : ID du modèle qui a été créé et entraîné. Chaque appel d’entraînement crée un modèle avec son propre ID. Copiez cette chaîne dans un emplacement sécurisé. Vous en aurez besoin si vous voulez effectuer des appels de prédiction par le biais de l’[API REST](quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1) ou du [guide de la bibliothèque de client](quickstarts/client-library.md).
+* **Model ID** : ID du modèle qui a été créé et entraîné. Chaque appel d’entraînement crée un modèle avec son propre ID. Copiez cette chaîne dans un emplacement sécurisé. Vous en aurez besoin si vous voulez effectuer des appels de prédiction par le biais de l’[API REST](./quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api&tabs=preview%2cv2-1) ou du [guide de la bibliothèque de client](./quickstarts/try-sdk-rest-api.md).
 * **Average Accuracy** : justesse moyenne du modèle. Vous pouvez améliorer la justesse du modèle en étiquetant des formulaires supplémentaires et en effectuant un nouvel entraînement pour créer un modèle. Nous vous recommandons de commencer par étiqueter cinq formulaires et d’ajouter des formulaires en fonction des besoins.
 * Liste des étiquettes et justesse estimée par étiquette.
 
@@ -314,4 +314,4 @@ Dans ce guide de démarrage rapide, vous avez appris à utiliser l’outil d’�
 > [Effectuer un entraînement avec des étiquettes à l’aide de Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 
 * [Qu’est-ce que Form Recognizer ?](overview.md)
-* [Démarrage rapide Form Recognizer](quickstarts/client-library.md)
+* [Démarrage rapide Form Recognizer](./quickstarts/try-sdk-rest-api.md)

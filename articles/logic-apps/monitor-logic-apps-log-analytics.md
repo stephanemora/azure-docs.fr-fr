@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
-ms.openlocfilehash: d1c095be1d0525cc843c04a3b83e14bb4211b175
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5375649d8bf5bdf1a6a24babc6f05d30d40c93b9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101721257"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215181"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurer les journaux d'activité Azure Monitor et collecter des données de diagnostic pour Azure Logic Apps
 
@@ -178,7 +178,7 @@ Avec les journaux Azure Monitor, vous pouvez étendre le mode d’utilisation de
 * [Archiver des journaux de ressources Azure sur un compte de stockage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 * [Diffuser en continu les journaux de plateforme Azure vers Azure Event Hubs](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
-Vous pouvez ensuite obtenir une surveillance en temps réel en utilisant les ressources de télémétrie et d’analyse d’autres services, tels que [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) et [Power BI](../azure-monitor/visualize/powerbi.md). Par exemple :
+Vous pouvez ensuite obtenir une surveillance en temps réel en utilisant les ressources de télémétrie et d’analyse d’autres services, tels que [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) et [Power BI](../azure-monitor/logs/log-powerbi.md). Par exemple :
 
 * [Diffuser les données d’Event Hubs vers Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyser les données de diffusion avec Stream Analytics et créer un tableau de bord analytique en temps réel dans Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

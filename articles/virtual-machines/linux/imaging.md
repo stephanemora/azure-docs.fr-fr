@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 4da68df884eae4e0ae0f8e929d5ee58d4e782db8
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 0378c3a8859092f65dca2b8e8147f9be6889e3e6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122691741"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251296"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Intégration et création d’images Linux dans Azure
 
@@ -28,7 +28,7 @@ Cet article aborde les conditions et les points de décision relatifs aux images
 ## <a name="difference-between-managed-disks-and-images"></a>Différence entre les disques managés et les images
 
 
-Azure vous permet d’intégrer un disque dur virtuel à la plateforme, à utiliser en tant que [disque managé](/azure/virtual-machines/faq-for-disks#managed-disks) ou source pour une image. 
+Azure vous permet d’intégrer un disque dur virtuel à la plateforme, à utiliser en tant que [disque managé](../faq-for-disks.yml) ou source pour une image. 
 
 Les disques managés Azure sont des disques durs virtuels uniques. Vous pouvez soit utiliser un disque dur virtuel existant et créer un disque managé à partir de celui-ci, soit créer un disque managé vide à partir de zéro. Vous pouvez créer des machines virtuelles à partir de disques managés en associant le disque à la machine virtuelle, mais vous pouvez uniquement utiliser un disque dur virtuel avec une seule machine virtuelle. Vous ne pouvez pas modifier les propriétés du système d’exploitation. Azure tente simplement d’activer la machine virtuelle et de démarrer à l’aide de ce disque. 
 

@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 10/18/2021
 ms.author: alkohli
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: e2c2bc7b34316b3d18b8f10a4f1be35e7ab52e0a
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 4d66d325d3484f61ebee70d430e9a81b2da3a974
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130175842"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235408"
 ---
 # <a name="run-diagnostics-collect-logs-to-troubleshoot-azure-stack-edge-device-issues"></a>Exécuter des diagnostics et collecter des journaux pour résoudre les problèmes liés aux appareils Azure Stack Edge
 
@@ -35,20 +35,20 @@ Pour diagnostiquer et corriger les erreurs d’appareil, vous pouvez exécuter l
 
     | Nom du test                        | Description        |
     |----------------------------------|---------------------------------------------------------------------------------------------------------|
-    | Connectivité au portail Azure        |  Le test valide la connectivité entre votre appareil Azure Stack Edge et le portail Azure.      |
+    | Connectivité au portail Azure        | Le test valide la connectivité entre votre appareil Azure Stack Edge et le portail Azure.      |
     | Services d’intégrité compatibles Azure | Plusieurs services, notamment Azure Resource Manager, le fournisseur de ressources de calcul, le fournisseur de ressources réseau et le service de stockage d’objets blob, s’exécutent sur votre appareil. Ensemble, ces services fournissent une pile Azure cohérente. Le contrôle d’intégrité permet de vérifier que ces services Azure cohérents sont opérationnels. |
     | Certificats                     | Le test vérifie la date d’expiration et l’impact de la modification du domaine DNS et de l’appareil sur les certificats. Le contrôle d’intégrité a vérifié que tous les certificats sont importés et appliqués sur tous les nœuds d’appareil.                                                                                      |
     | Runtime Azure Edge Compute       | Le test vérifie que le service Kubernetes Azure Stack Edge fonctionne comme prévu. Il vérifie notamment l’intégrité de la machine virtuelle Kubernetes et l’état des services Kubernetes déployés par votre appareil.  |
-    | Disques                            |  Le test vérifie que tous les disques de l’appareil sont connectés et fonctionnels. Il vérifie notamment que le bon microprogramme est installé sur les disques et que BitLocker est correctement configuré. |
-    | Blocs d’alimentation                             |  Le test vérifie que toutes les alimentations sont connectées et opérationnelles.  |
+    | Disques                            | Le test vérifie que tous les disques de l’appareil sont connectés et fonctionnels. Il vérifie notamment que le bon microprogramme est installé sur les disques et que BitLocker est correctement configuré. |
+    | Blocs d’alimentation                             | Le test vérifie que toutes les alimentations sont connectées et opérationnelles.  |
     | Interfaces réseau               | Le test vérifie que toutes les interfaces réseau sont connectées à votre appareil et que la topologie de réseau pour ce système est celle prévue.    |
-    | Processeurs                             |  Le test vérifie que les processeurs du système sont correctement configurés et opérationnels.    |
+    | Processeurs                             | Le test vérifie que les processeurs du système sont correctement configurés et opérationnels.    |
     | Accélération du calcul             | Le test vérifie que l’accélération du calcul fonctionne comme prévu sur le plan matériel et logiciel. En fonction du modèle d’appareil, l’accélération du calcul peut être effectuée par un GPU (unité de traitement graphique), un VPU (unité de traitement de la vision) ou un FPGA (Field Programmable Gate Array).   |
-    | Paramètres réseau                 |  Ce test vérifie la configuration réseau de l’appareil.    |
-    | Connectivité Internet            |  Ce test vérifie la connectivité à Internet de l’appareil.   |
-    | Logiciels système                  |  Ce test vérifie que le stockage système et la pile logicielle fonctionnent comme prévu.   |
-    | Synchronisation de l’heure                        |  Ce test examine les paramètres d’heure de l’appareil et vérifie que le serveur de temps configuré sur l’appareil est valide et accessible.     |
-    | Préparation des mises à jour de logiciel        |  Ce test vérifie que le serveur de mise à jour configuré est valide et accessible.   |
+    | Paramètres réseau                 | Ce test vérifie la configuration réseau de l’appareil.    |
+    | Connectivité Internet            | Ce test vérifie la connectivité à Internet de l’appareil.   |
+    | Logiciels système                  | Ce test vérifie que le stockage système et la pile logicielle fonctionnent comme prévu.   |
+    | Synchronisation de l’heure                        | Ce test examine les paramètres d’heure de l’appareil et vérifie que le serveur de temps configuré sur l’appareil est valide et accessible.     |
+    | Préparation des mises à jour de logiciel        | Ce test vérifie que le serveur de mise à jour configuré est valide et accessible.   |
  
 2. Une fois les tests terminés, les résultats correspondants s’affichent. 
 

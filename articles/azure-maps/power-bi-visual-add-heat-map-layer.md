@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: eriklind
 ms.custom: ''
-ms.openlocfilehash: 95d35c3f0ed7ab70ca64249323b22a11eca8f5a9
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 37b03d96e67016bb9a250cd889da93fb30578d54
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007401"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240183"
 ---
 # <a name="add-a-heat-map-layer-to-the-azure-maps-visual-for-power-bi"></a>Ajouter un calque de carte thermique au visuel Azure Maps pour Power BI
 
@@ -32,8 +32,8 @@ Une carte thermique est utile lorsque les utilisateurs souhaitent visualiser de 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Prise en main du visuel Azure Maps pour Power BI](/power-bi-visual-getting-started.md).
-- [Présentation des calques dans le visuel Azure Maps pour Power BI](/power-bi-visual-understanding-layers.md).
+- [Prise en main du visuel Azure Maps pour Power BI](/azure/azure-maps/power-bi-visual-getting-started).
+- [Présentation des calques dans le visuel Azure Maps pour Power BI](/azure/azure-maps/power-bi-visual-understanding-layers).
 
 ## <a name="add-the-heat-map-layer"></a>Ajouter le calque de carte thermique
 

@@ -4,13 +4,13 @@ description: Le portail OMS devient caduque et toutes ses fonctionnalités migre
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/22/2019
-ms.openlocfilehash: fc9da5c9bc6c9f1b5afd0dbcd74b19d13fe42222
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 10/20/2021
+ms.openlocfilehash: 40c9b2947577a7b48132eb1d9c3e94809ad5607f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102032056"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219998"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Migration du portail OMS vers Azure
 

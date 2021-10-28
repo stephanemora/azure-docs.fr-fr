@@ -1,5 +1,5 @@
 ---
-title: fichier descriptif
+title: Fichier include
 description: Fichier include
 services: virtual-machines
 author: msmbaldwin
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1e0ec6d37990fbddcdebf7a1d2efd063cd9e4ea6
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a12e81e00b58206a7220b436128167df448ff174
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128909607"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287618"
 ---
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -151,7 +151,7 @@ Azure Disk Encryption ne prend pas en charge l’intégration de numéros de por
 Utilisez la commande Azure CLI [az keyvault key create](/cli/azure/keyvault/key#az_keyvault_key_create) pour générer une nouvelle clé KEK et la stocker dans votre coffre de clés.
 
 ```azurecli-interactive
-az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA
+az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA --size 4096
 ```
 
 Au lieu de cela, vous pouvez importer une clé privée à l’aide de la commande Azure CLI [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import) :
@@ -167,7 +167,7 @@ az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-key
 Utilisez la cmdlet Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) pour générer une nouvelle clé KEK et la stocker dans votre coffre de clés.
 
  ```powershell-interactive
-Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM"
+Add-AzKeyVaultKey -Name "myKEK" -VaultName "<your-unique-keyvault-name>" -Destination "HSM" -Size 4096
 ```
 
 Au lieu de cela, vous pouvez importer une clé privée à l’aide de la commande Azure PowerShell [az keyvault key import](/cli/azure/keyvault/key#az_keyvault_key_import).

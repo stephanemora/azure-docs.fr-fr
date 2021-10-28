@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: cfbca90fe4c0053816421ff392f0af93938ff5ee
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: e9496d3139861c41bbcc3467c8169e2350e5414b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123254166"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249777"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -342,7 +342,7 @@ De même, vous pouvez utiliser l’interface de ligne de commande Azure pour dé
 
 ### <a name="access-and-security-for-virtual-machines"></a>Accès et sécurité des machines virtuelles
 
-L’accès à une machine virtuelle depuis Internet nécessite que l’interface du réseau associé, ou le cas échéant de l’équilibreur de charge, soit configuré avec une adresse IP publique. L’adresse IP publique inclut un nom DNS qui se résout sur la machine virtuelle ou l’équilibreur de charge. Pour plus d’informations, consultez [Adresses IP dans Azure](../../virtual-network/public-ip-addresses.md).
+L’accès à une machine virtuelle depuis Internet nécessite que l’interface du réseau associé, ou le cas échéant de l’équilibreur de charge, soit configuré avec une adresse IP publique. L’adresse IP publique inclut un nom DNS qui se résout sur la machine virtuelle ou l’équilibreur de charge. Pour plus d’informations, consultez [Adresses IP dans Azure](../../virtual-network/ip-services/public-ip-addresses.md).
 
 Vous gérez l’accès à la machine virtuelle sur l’adresse IP publique à l’aide d’une ressource de groupe de sécurité réseau. Un groupe de sécurité réseau (NSG, Network Security Group) agit comme un pare-feu et autorise ou refuse le trafic via l’interface réseau ou le sous-réseau sur un ensemble de ports définis. Par exemple, pour créer une session Bureau à distance avec une machine virtuelle Azure, vous devez configurer le NSG de manière à autoriser le trafic entrant sur le port 3389. Pour plus d’informations, consultez [Ouverture de ports sur une machine virtuelle dans Azure à l’aide du portail Azure](../../virtual-machines/windows/nsg-quickstart-portal.md).
 

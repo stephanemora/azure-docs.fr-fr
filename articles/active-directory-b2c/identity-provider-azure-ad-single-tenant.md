@@ -3,22 +3,22 @@ title: Configurer la connexion pour une organisation Azure AD
 titleSuffix: Azure AD B2C
 description: Configurez la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f3296d1c2d04111985bada09486315d72997b88d
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 27353b62255e22f342ce0648a3a9ebde4bd5eb30
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128571865"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "130227846"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurer la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C
 
@@ -49,7 +49,7 @@ Depuis novembre 2020, les inscriptions de nouvelles applications s’affichent 
 Pour autoriser la connexion des utilisateurs avec un compte Azure AD d’une organisation Azure AD spécifique, dans Azure Active Directory B2C (Azure AD B2C), vous devez créer une application via le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez [Inscrire une application auprès de la plateforme d’identités Microsoft](../active-directory/develop/quickstart-register-app.md).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Veillez à utiliser le répertoire qui contient votre locataire organisationnel Azure AD (par exemple, Contoso). Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
+1. Veillez à utiliser le répertoire qui contient votre locataire Azure AD de l’organisation (par exemple, Contoso). Sélectionnez l’icône **Répertoires + abonnements** dans la barre d’outils du portail.
 1. Sur la page **Paramètres du portail | Répertoires + abonnements**, recherchez votre répertoire Azure AD dans la liste **Nom de répertoire**, puis sélectionnez **Basculer**.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Nouvelle inscription**.

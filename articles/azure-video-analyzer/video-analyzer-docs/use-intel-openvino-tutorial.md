@@ -5,12 +5,12 @@ ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 06/01/2021
 titleSuffix: Azure
-ms.openlocfilehash: a36de6ac835b3ed9f4188b6f8d2bf3b5178be087
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 9be96267e6380a93b9cda6dfb43f4324a9da2f32
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114604721"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260452"
 ---
 # <a name="tutorial-analyze-live-video-using-openvino-model-server--ai-extension-from-intel"></a>Tutoriel : Analyser une vidéo en direct avec l’extension IA Intel OpenVINO™ Model Server 
 
@@ -294,4 +294,4 @@ Si vous envisagez d’essayer d’autres guides de démarrage rapide ou tutoriel
 Passez en revue les défis supplémentaires pour les utilisateurs expérimentés :
 
 * Utilisez une [caméra IP](https://en.wikipedia.org/wiki/IP_camera) qui prend en charge RTSP au lieu d’utiliser le simulateur RTSP. Vous pouvez rechercher les caméras IP qui prennent RTSP en charge dans la page des produits [conformes ONVIF](https://www.onvif.org/conformant-products/). Recherchez les appareils conformes aux profils G, S ou T.
-* Utilisez un appareil Linux x64 local plutôt qu’une machine virtuelle Linux Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Vous pouvez suivre les instructions mentionnées dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-install-iot-edge.md). Inscrivez ensuite l’appareil auprès d’Azure IoT Hub en suivant les instructions mentionnées dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](../../iot-edge/quickstart-linux.md).
+* Utilisez un appareil Linux x64 local plutôt qu’une machine virtuelle Linux Azure. Cet appareil doit se trouver dans le même réseau que la caméra IP. Vous pouvez suivre les instructions mentionnées dans [Installer le runtime Azure IoT Edge sur Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md). Inscrivez ensuite l’appareil auprès d’Azure IoT Hub en suivant les instructions mentionnées dans [Déployer votre premier module IoT Edge sur un appareil virtuel Linux](../../iot-edge/quickstart-linux.md).

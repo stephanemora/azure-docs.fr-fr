@@ -5,15 +5,15 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 10/01/2017
+ms.date: 10/22/2021
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: e136ec96cc2a698f0b0e794830403dcbc284341c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f9d2b2d6b516434f19aa6e38e92ee8be064fb5a9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128554237"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250005"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.

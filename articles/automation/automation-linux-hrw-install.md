@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 09/24/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6702fb96b616c59b539ce72f8da0bfec2feeec97
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 9eff8a0605f3cebce7f85f9c6edb2a3009ec4901
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129707065"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240392"
 ---
 # <a name="deploy-an-agent-based-linux-hybrid-runbook-worker-in-automation"></a>Déployer un Runbook Worker hybride Linux basé sur un agent dans Automation
 
@@ -27,7 +27,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants.
 
 ### <a name="a-log-analytics-workspace"></a>Un espace de travail Log Analytics
 
-Le rôle Runbook Worker hybride dépend d’un espace de travail Azure Monitor Log Analytics pour l’installation et la configuration du rôle. Vous pouvez le créer en utilisant [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json) ou le [portail Azure](../azure-monitor/logs/quick-create-workspace.md).
+Le rôle Runbook Worker hybride dépend d’un espace de travail Azure Monitor Log Analytics pour l’installation et la configuration du rôle. Vous pouvez le créer en utilisant [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json) ou le [portail Azure](../azure-monitor/logs/quick-create-workspace.md).
 
 Si vous n’avez pas d’espace de travail Azure Monitor Log Analytics, consultez le [guide de conception des journaux Azure Monitor](../azure-monitor/logs/design-logs-deployment.md) avant de créer l’espace de travail.
 
@@ -143,7 +143,7 @@ Pour installer et configurer un runbook Worker hybride pour Linux, effectuez les
 
     - Pour les machines virtuelles Azure, installez l’agent Log Analytics pour Linux à l’aide de l’[extension de machine virtuelle pour Linux](../virtual-machines/extensions/oms-linux.md). L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Vous pouvez utiliser un modèle Azure Resource Manager, l’interface de ligne de commande Azure ou Azure Policy pour attribuer la définition de stratégie intégrée [Déployer l’agent Log Analytics pour les machines virtuelles *Linux* ou *Windows*](../governance/policy/samples/built-in-policies.md#monitoring). Une fois l’agent installé, la machine peut être ajoutée à un groupe de Runbook Workers hybrides dans votre compte Automation.
 
-    - Pour les ordinateurs non Azure, vous pouvez installer l’agent Log Analytics à l’aide de [serveurs avec Azure Arc](../azure-arc/servers/overview.md). Les serveurs avec Azure Arc prennent en charge le déploiement de l’agent Log Analytics à l’aide des méthodes suivantes :
+    - Pour les ordinateurs non Azure, vous pouvez installer l’agent Log Analytics à l’aide de [serveurs avec Azure Arc](../azure-arc/servers/overview.md). Les serveurs Azure Arc prennent en charge le déploiement de l’agent Log Analytics à l’aide des méthodes suivantes :
 
       - Utilisation de l’infrastructure des extensions de machine virtuelle.
 

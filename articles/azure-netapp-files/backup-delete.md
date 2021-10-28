@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: c63fc37000fbd6cf376dd5a80b392e87466e9ce3
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: e1d59d336d331a41bf5f82e650d80d7843ab3977
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095037"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250575"
 ---
 # <a name="delete-backups-of-a-volume"></a>Supprimer des sauvegardes d’un volume 
 
@@ -44,7 +44,7 @@ Vous ne pouvez pas supprimer la dernière sauvegarde.
 * [Configuration des sauvegardes manuelles](backup-configure-manual.md)
 * [Gestion des stratégies de sauvegarde](backup-manage-policies.md)
 * [Recherche dans les sauvegardes](backup-search.md)
-* [Restauration d’une sauvegarde sur un nouveau volume](backup-restore-new-volume.md)
+* [Restaurer une sauvegarde sur un nouveau volume](backup-restore-new-volume.md)
 * [Désactivation de la fonctionnalité de sauvegarde pour un volume](backup-disable.md)
 * [Métriques des sauvegardes de volume](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [FAQ sur la sauvegarde Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [FAQ sur la sauvegarde Azure NetApp Files](faq-backup.md)
