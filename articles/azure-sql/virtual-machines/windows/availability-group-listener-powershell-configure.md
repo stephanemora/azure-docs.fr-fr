@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: rsetlem
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.reviewer: mathoma
-ms.openlocfilehash: c7b2bff6f4c927090dfdff92f324b4957b645644
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: bcf48bf068d48420c162effa563c4225baf7b990
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167721"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219637"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
 
@@ -138,7 +138,7 @@ foreach($VMName in $VMNames)
 
 ## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a><a name="Add-IP"></a> Exemple de script : Ajouter une adresse IP à un équilibreur de charge existant à l’aide de PowerShell
 
-Pour utiliser plusieurs groupes de disponibilité, ajoutez une adresse IP supplémentaire à l’équilibreur de charge. Chaque adresse IP nécessite une règle d’équilibrage de charge, un port de sonde et un port frontal propres. Ajoutez uniquement l’adresse IP principale de la machine virtuelle au pool principal de l’équilibreur de charge, car [l’adresse IP de la machine virtuelle secondaire ne prend pas en charge l’adresse IP flottante](/azure/load-balancer/load-balancer-floating-ip).
+Pour utiliser plusieurs groupes de disponibilité, ajoutez une adresse IP supplémentaire à l’équilibreur de charge. Chaque adresse IP nécessite une règle d’équilibrage de charge, un port de sonde et un port frontal propres. Ajoutez uniquement l’adresse IP principale de la machine virtuelle au pool principal de l’équilibreur de charge, car [l’adresse IP de la machine virtuelle secondaire ne prend pas en charge l’adresse IP flottante](../../../load-balancer/load-balancer-floating-ip.md).
 
 Le port frontal est le port que les applications utilisent pour se connecter à l’instance SQL Server. Les adresses IP de groupes de disponibilité différents peuvent utiliser le même port frontal.
 

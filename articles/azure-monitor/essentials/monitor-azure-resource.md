@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2021
-ms.openlocfilehash: fa5a417ef79cf0e11fa50c280dfea768d5e61f40
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 32c1b2d6cd2d5574e03cdb6ad65900d8df598b2b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064264"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252760"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -31,7 +31,7 @@ Aucun coût n’est associé à l’analyse des données de supervision collect�
 - Collecte du journal d’activité et analyse de ce dernier dans le Portail Azure.
 - Création d’une règle d’alerte du journal d’activité.
 
-Aucun coût Azure Monitor ne s’applique à la collecte et à l’exportation des métriques. L’exportation de certaines catégories de journaux de ressources peut entraîner des coûts, comme indiqué dans la liste [Catégories de journal de ressource prises en charge](/azure/azure-monitor/essentials/resource-logs-categories). Des coûts associés liés à la destination que vous choisissez pour les métriques et les journaux peuvent s’appliquer :
+Aucun coût Azure Monitor ne s’applique à la collecte et à l’exportation des métriques. L’exportation de certaines catégories de journaux de ressources peut entraîner des coûts, comme indiqué dans la liste [Catégories de journal de ressource prises en charge](./resource-logs-categories.md). Des coûts associés liés à la destination que vous choisissez pour les métriques et les journaux peuvent s’appliquer :
 
 - Coûts associés à l’ingestion et à la conservation des données lors de la collecte des métriques et des journaux dans l’espace de travail Log Analytics. Consultez [Tarification Azure Monitor pour Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
 - Coûts associés au stockage des données lors de la collecte des métriques et des journaux dans un compte de stockage Azure. Consultez [Tarification du Stockage Azure pour le stockage des objets blob](https://azure.microsoft.com/pricing/details/storage/blobs/).

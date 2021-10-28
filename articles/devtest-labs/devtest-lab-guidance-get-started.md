@@ -4,12 +4,12 @@ description: Cet article décrit les principaux scénarios d’utilisation d’A
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: fc4c7ca1cdbc8e503ad6c0d94fcec2d9697baae4
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9daf32e5094616a98b6fcd6b1f337eadf2d7ee82
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128657478"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130235012"
 ---
 # <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Scénarios courants d’utilisation d’Azure DevTest Labs
 Selon les besoins d’une entreprise, DevTest Labs peut être configuré pour répondre à différentes exigences.  Cet article présente les scénarios courants. Chaque scénario expose les avantages apportés par l’utilisation de DevTest Labs et les ressources à utiliser pour implémenter ces scénarios.  
@@ -27,7 +27,7 @@ Les développeurs ont souvent des exigences distinctes concernant les ordinateur
 - Les développeurs peuvent provisionner rapidement leurs machines de développement à la demande ou [demander une machine préconfigurée existante](devtest-lab-add-claimable-vm.md).
 - Les développeurs peuvent provisionner des ressources en libre-service sans avoir besoin d’autorisations de niveau abonnement.
 - Les informaticiens ou les administrateurs peuvent [prédéfinir la topologie réseau](devtest-lab-configure-vnet.md), et les développeurs peuvent l’utiliser directement, de manière simple et intuitive, sans accès spécial.
-- Les développeurs peuvent facilement [personnaliser](devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) leurs machines de développement selon leurs besoins.
+- Les développeurs peuvent facilement [personnaliser](devtest-lab-add-vm.md#add-artifacts-after-installation) leurs machines de développement selon leurs besoins.
 - Les administrateurs peuvent contrôler les coûts en s’assurant que :
     - Les développeurs [ne peuvent pas obtenir plus de machines virtuelles](devtest-lab-set-lab-policy.md#set-virtual-machines-per-user) que nécessaire pour le développement.
     - [Les machines virtuelles sont arrêtées](devtest-lab-set-lab-policy.md#set-auto-shutdown) quand elles ne sont pas utilisées.
@@ -60,7 +60,7 @@ Un labo dans Azure DevTest Labs est un conteneur de choix pour les activités 
 - Des [stratégies](devtest-lab-set-lab-policy.md) garantissent que les participants obtiennent seulement le nombre de ressources dont ils ont besoin, comme des machines virtuelles.
 - Les machines préconfigurées et créées sont [demandées](devtest-lab-add-claimable-vm.md) en une seule action du participant.
 - Les labos sont partagés avec les participants via l’accès à une [URL du labo](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab).
-- Des [dates d’expiration](devtest-lab-add-vm.md#steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs) sur les machines virtuelles garantissent que les machines sont supprimées une fois qu’elles ne sont plus nécessaires.
+- Des [dates d’expiration](devtest-lab-add-vm.md#create-and-add-virtual-machines) sur les machines virtuelles garantissent que les machines sont supprimées une fois qu’elles ne sont plus nécessaires.
 - Il est facile de [supprimer un labo](devtest-lab-delete-lab-vm.md#delete-a-lab) et toutes les [ressources associées](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) quand la formation terminée.
 
 Pour plus d’informations, consultez [Utiliser Azure DevTest Labs à des fins de formation](devtest-lab-training-lab.md).  

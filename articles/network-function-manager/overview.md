@@ -1,18 +1,18 @@
 ---
 title: À propos d’Azure Network Function Manager
 description: En savoir plus sur Gestionnaire de fonctions réseau Azure, un service d’orchestration natif cloud complètement managé qui vous permet de déployer et de configurer des fonctions réseau sur Azure Stack Edge Pro avec GPU pour une expérience hybride cohérente à l’aide du Portail Azure.
-author: cherylmc
+author: prmitt
 ms.service: network-function-manager
 ms.topic: overview
 ms.date: 06/16/2021
-ms.author: cherylmc
+ms.author: prmitt
 ms.custom: references_regions
-ms.openlocfilehash: df063a5b19e9287e1275683719d2d41a13200b5e
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.openlocfilehash: c64dd8ca25ee4b39533022e83e572442cc7529c5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113128927"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263341"
 ---
 # <a name="what-is-azure-network-function-manager-preview"></a>Présentation d’Azure Network Function Manager (Préversion)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: dba8ecd9bbeca9c0b48f312d9c6c4ab27b52c9e7
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 46e70166fffba7c938ea6784db6eda18e69a043f
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111745310"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130214754"
 ---
 # <a name="azure-monitor-for-azure-virtual-desktop-glossary"></a>Glossaire d’Azure Monitor pour Azure Virtual Desktop
 
@@ -57,7 +57,7 @@ Lorsqu’une erreur ou une alerte apparaît dans Azure Monitor pour Azure Virt
 
      - Les erreurs signalées comme « service » ou « ServiceError = TRUE » se sont produites dans le service Azure Virtual Desktop.
      - Les erreurs marquées « deployment » ou « ServiceError = FALSE » sont survenues en dehors du service Azure Virtual Desktop.
-     - Pour plus d’informations sur la balise ServiceError, consultez [Scénarios d’erreur courants](diagnostics-role-service.md#common-error-scenarios).
+     - Pour plus d’informations sur la balise ServiceError, consultez [Scénarios d’erreur courants](./troubleshoot-set-up-overview.md).
 
 - Source : cette catégorie donne une description plus précise de l’endroit où l’erreur s’est produite.
 
@@ -71,7 +71,7 @@ Lorsqu’une erreur ou une alerte apparaît dans Azure Monitor pour Azure Virt
 
      - Client : logiciel s’exécutant sur l’ordinateur de l’utilisateur final qui fournit l’interface du service Azure Virtual Desktop. Il affiche la liste des ressources publiées et héberge la connexion Bureau à distance une fois que vous avez effectué une sélection.
 
-Chaque problème ou erreur de diagnostic comprend un message expliquant la cause du problème. Pour plus d’informations sur la résolution des erreurs, consultez [Identification et diagnostic des problèmes liés à Azure Virtual Desktop](diagnostics-role-service.md).
+Chaque problème ou erreur de diagnostic comprend un message expliquant la cause du problème. Pour plus d’informations sur la résolution des erreurs, consultez [Identification et diagnostic des problèmes liés à Azure Virtual Desktop](./troubleshoot-set-up-overview.md).
 
 ## <a name="input-delay"></a>Délai d’entrée
 

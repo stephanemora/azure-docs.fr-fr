@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: allensu
-ms.openlocfilehash: fb979643b3ff3efeac6df6f6fe664599360a1276
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 73bb9748fa13b6b5209bbbcd8c4332c28249aecc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368391"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233939"
 ---
 # <a name="what-is-routing-preference"></a>Qu’est-ce qu’une préférence de routage ?
 
@@ -76,5 +76,5 @@ La différence de prix entre les deux options est reflétée dans la tarificatio
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [En savoir plus sur l’optimisation de la connectivité à vos services Microsoft Azure sur Internet – Vidéo](https://www.youtube.com/watch?v=j6A_Mbpuh6s&list=PLLasX02E8BPA5V-waZPcelhg9l3IkeUQo&index=12) 
-* [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure PowerShell](../../virtual-network/configure-routing-preference-virtual-machine-powershell.md)
-* [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure CLI](../../virtual-network/configure-routing-preference-virtual-machine-cli.md)
+* [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure PowerShell](./configure-routing-preference-virtual-machine-powershell.md)
+* [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure CLI](./configure-routing-preference-virtual-machine-cli.md)

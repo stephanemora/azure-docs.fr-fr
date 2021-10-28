@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d3180ba6e8c19714759563eb79a8488929efe940
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ca7503127342a5eceac43a8f5a2bfce578eb21e6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110675852"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257800"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle
 
@@ -175,9 +175,9 @@ Si vous utilisez le [portail](#diagnose-using-azure-portal) Azure, [PowerShell](
 | Source port ranges      | Quelconque                                                                                |
 | Destination             | L’adresse IP de la machine virtuelle, une plage d’adresses IP ou toutes les adresses dans le sous-réseau. |
 | Plages de ports de destination | 80                                                                                 |
-| Protocol                | TCP                                                                                |
-| Action                  | Allow                                                                              |
-| Priorité                | 100                                                                                |
+| Protocole                | TCP                                                                                |
+| Action                  | Autoriser                                                                              |
+| Priority                | 100                                                                                |
 | Name                    | Allow-HTTP-All                                                                     |
 
 Après avoir créé la règle, le port 80 autorise le trafic entrant à partir d’internet, étant donné que la priorité de la règle est supérieure à la règle de sécurité par défaut nommée *DenyAllInBound*, qui interdit le trafic. Apprenez à [créer une règle de sécurité](manage-network-security-group.md#create-a-security-rule). Si différents groupes de sécurité réseau sont associés à l’interface réseau et au sous-réseau, vous devez créer la même règle dans chaque groupe de sécurité réseau.
@@ -193,7 +193,7 @@ Lors de la résolution de problèmes de connectivité, considérez les points su
 * Des règles de sécurité par défaut bloquent l’accès entrant à partir d’internet et n’autorisent que le trafic entrant à partir du réseau virtuel. Pour autoriser le trafic entrant à partir d’internet, ajoutez des règles de sécurité avec une priorité plus élevée que les règles par défaut. En savoir plus sur les [règles de sécurité par défaut](./network-security-groups-overview.md#default-security-rules), ou comment [ajouter une règle de sécurité](manage-network-security-group.md#create-a-security-rule).
 * Si vous avez des réseaux virtuels homologues, par défaut, la balise de service **VIRTUAL_NETWORK** s’étend automatiquement pour inclure les préfixes des réseaux virtuels homologues. Pour résoudre des problèmes liés au peering de réseau virtuel, vous pouvez consulter les préfixes dans la liste **ExpandedAddressPrefix**. En savoir plus sur le [peering de réseaux virtuels](virtual-network-peering-overview.md) et les [balises de service](./network-security-groups-overview.md#service-tags).
 * Les règles de sécurité effectives sont uniquement affichées pour une interface réseau s’il existe un groupe de sécurité réseau associé à l’interface réseau de la machine virtuelle et/ ou au sous-réseau, et si la machine virtuelle est en cours d’exécution.
-* Si aucun groupe de sécurité réseau n’est associé à la carte réseau ou au sous-réseau, et si une [adresse IP publique](virtual-network-public-ip-address.md) est affectée à une machine virtuelle, tous les ports sont ouverts pour les accès entrants et sortants pour toutes les destinations. Si la machine virtuelle possède une adresse IP publique, nous vous recommandons d’appliquer un groupe de sécurité réseau au sous-réseau de l’interface réseau.
+* Si aucun groupe de sécurité réseau n’est associé à la carte réseau ou au sous-réseau, et si une [adresse IP publique](./ip-services/virtual-network-public-ip-address.md) est affectée à une machine virtuelle, tous les ports sont ouverts pour les accès entrants et sortants pour toutes les destinations. Si la machine virtuelle possède une adresse IP publique, nous vous recommandons d’appliquer un groupe de sécurité réseau au sous-réseau de l’interface réseau.
 
 ## <a name="additional-diagnosis"></a>Diagnostic supplémentaire
 

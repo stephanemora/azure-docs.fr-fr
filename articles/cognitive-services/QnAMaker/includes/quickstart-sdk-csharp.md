@@ -3,12 +3,12 @@ title: 'Démarrage rapide : Bibliothèque de client QnA Maker pour .NET'
 description: Ce guide de démarrage rapide montre comment bien démarrer avec la bibliothèque cliente QnA Maker pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.  QnA Maker vous permet de mettre en place un service de questions-réponses à partir de votre contenu semi-structuré, comme des documents de questions fréquentes (FAQ), des URL et des manuels de produit.
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.openlocfilehash: e59f2137af303242ef2747e2b3430dd9e081c6aa
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 65b0ec019061f0cd2fc38983441fec12edd50b99
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110486381"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287389"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/version-1)
 
@@ -346,7 +346,7 @@ Créez un [QnAMakerRuntimeClient](/dotnet/api/microsoft.azure.cognitiveservices.
 
 Utilisez QnAMakerRuntimeClient pour :
 * obtenir une réponse de la base de connaissances
-* envoyer de nouvelles questions suggérées à la base de connaissances pour l’[apprentissage actif](../concepts/active-learning-suggestions.md).
+* envoyer de nouvelles questions suggérées à la base de connaissances pour l’[apprentissage actif](../index.yml).
 
 ## <a name="generate-an-answer-from-the-knowledge-base"></a>Générer une réponse à partir de la base de connaissances
 

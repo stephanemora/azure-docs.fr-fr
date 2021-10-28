@@ -11,12 +11,12 @@ ms.author: jhirono
 author: jhirono
 ms.date: 09/24/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
-ms.openlocfilehash: 7f0d206b9327cad0c58cc92dbec16227c1c22644
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d41c6537d597e34c826a4f0e7e6fecc75684d9a4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130000123"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130241862"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Sécuriser un environnement d’entraînement Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -261,6 +261,10 @@ Une instance de calcul sans **adresse IP publique** vous oblige également à d�
 
 Pour créer une instance de calcul d’adresse IP non publique (fonctionnalité d’évaluation) dans Studio, cochez la case **Aucune adresse IP publique** dans la section du réseau virtuel.
 Vous ne pouvez pas non plus créer d’instance de calcul IP publique via un modèle ARM. Dans le modèle ARM, définissez le paramètre enableNodePublicIP sur false.
+
+Étapes suivantes :
+* [Utiliser le DNS personnalisé](how-to-custom-dns.md)
+* [Utiliser un pare-feu](how-to-access-azureml-behind-firewall.md)
 
 [!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
 

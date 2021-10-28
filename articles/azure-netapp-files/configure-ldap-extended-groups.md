@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4b4c1e159fcd62d1d9d57b907edbfa4e5f0bfc24
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 90a87c85bace64c7c1cfc4a171c5fcbdb8d263c9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576819"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256359"
 ---
 # <a name="configure-adds-ldap-with-extended-groups-for-nfs-volume-access"></a>Configurer ADDS LDAP avec des groupes étendus pour l’accès au volume NFS
 
@@ -111,4 +111,4 @@ Cet article explique les considérations et les étapes à suivre pour activer l
 
 * [Créer un volume NFS pour Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Créer et gérer des connexions Active Directory](create-active-directory-connections.md)
-* [Résoudre les problèmes liés au volume LDAP](troubleshoot-ldap-volumes.md)
+* [Résoudre les erreurs liées au volume pour Azure NetApp Files](troubleshoot-volumes.md)

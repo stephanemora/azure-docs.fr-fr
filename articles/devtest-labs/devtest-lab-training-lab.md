@@ -3,12 +3,12 @@ title: Utiliser Azure DevTest Labs à des fins de formation
 description: Cet article fournit des instructions détaillées que vous pouvez suivre pour configurer un lab de formation dans Azure DevTest Labs.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: d72d87cf2108a5e6d372edbf698e6adc7b100618
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: b7de17f89e5e7a23290e00402e13c7035df03578
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128629253"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228993"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Utiliser Azure DevTest Labs à des fins de formation
 Azure DevTest Labs peut être utilisé pour implémenter de nombreux scénarios clés en plus du développement et du test. Un de ces scénarios consiste à mettre en place un laboratoire à des fins de formation. Azure DevTest Labs vous permet de créer un laboratoire où vous pouvez fournir des modèles personnalisés utilisables par chaque participant pour créer des environnements de formation identiques et isolés. Vous pouvez appliquer des stratégies pour vous assurer que les environnements de formation sont à la disposition des participants uniquement lorsque ces derniers en ont besoin et qu’ils contiennent suffisamment de ressources (telles que des machines virtuelles) pour la formation. Enfin, vous pouvez facilement partager le laboratoire avec les participants, qui peuvent y accéder en un seul clic.
@@ -68,10 +68,10 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    | Tâche | Contenu |
    | --- | --- |
    | [Définir des stratégies de laboratoire](devtest-lab-set-lab-policy.md) |Contrôlez les coûts en mettant en place des stratégies dans le laboratoire. |
-   | [Supprimer toutes les machines virtuelles de laboratoire à l’aide d’un script PowerShell](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Supprimez tous les laboratoires en une seule opération une fois la formation terminée. |
+   | [Supprimer toutes les machines virtuelles de laboratoire à l’aide d’un script PowerShell](./devtest-lab-faq.yml) |Supprimez tous les laboratoires en une seule opération une fois la formation terminée. |
 5. **Partager le laboratoire avec chaque participant**
    
-    Les laboratoires sont directement accessibles à l’aide d’un lien que vous partagez avec les participants. Les participants n’ont même pas besoin d’avoir de compte Azure, à condition qu’ils aient un [compte Microsoft](/azure/devtest-labs/devtest-lab-faq#what-is-a-microsoft-account). Les participants ne voient pas les machines virtuelles créées par les autres participants.  
+    Les laboratoires sont directement accessibles à l’aide d’un lien que vous partagez avec les participants. Les participants n’ont même pas besoin d’avoir de compte Azure, à condition qu’ils aient un [compte Microsoft](./devtest-lab-faq.yml). Les participants ne voient pas les machines virtuelles créées par les autres participants.  
    
     Pour en savoir plus, cliquez sur les liens du tableau suivant :
    
@@ -79,7 +79,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    | --- | --- |
    | [Ajouter un participant à un laboratoire dans Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Utilisez le portail Azure pour ajouter des participants à votre laboratoire de formation. |
    | [Ajouter des participants au laboratoire à l’aide d’un script PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Utilisez PowerShell pour automatiser l’ajout de participants à votre laboratoire de formation. |
-   | [Obtenir un lien vers le laboratoire](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab) |Découvrez comment rendre un laboratoire directement accessible via un lien hypertexte. |
+   | [Obtenir un lien vers le laboratoire](./devtest-lab-faq.yml) |Découvrez comment rendre un laboratoire directement accessible via un lien hypertexte. |
 6. **Réutiliser le laboratoire à l’infini** 
    
     Vous pouvez automatiser la création de laboratoires, y compris les paramètres personnalisés, en créant un modèle Resource Manager qui vous permettra de mettre en place des laboratoires identiques à l’infini. 
@@ -88,6 +88,6 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    
    | Tâche | Contenu |
    | --- | --- |
-   | [Créer un laboratoire à l’aide d’un modèle Resource Manager](/azure/devtest-labs/devtest-lab-faq#how-do-i-create-a-lab-from-a-resource-manager-template) |Créez des laboratoires dans Azure DevTest Labs à l’aide de modèles Resource Manager. |
+   | [Créer un laboratoire à l’aide d’un modèle Resource Manager](./devtest-lab-faq.yml) |Créez des laboratoires dans Azure DevTest Labs à l’aide de modèles Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
