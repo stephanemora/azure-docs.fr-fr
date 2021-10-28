@@ -6,12 +6,12 @@ metadata:
   ms.service: azure-functions
   ms.date: 4/11/2019
   ms.reviewer: glenga
-  ms.openlocfilehash: 2fd3a00ef0ee01c5d7f535fcdb5021f831ff20d3
-  ms.sourcegitcommit: 05dd6452632e00645ec0716a5943c7ac6c9bec7c
+  ms.openlocfilehash: c75cd261eae3e5756162570c899b239ff954e679
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/17/2021
-  ms.locfileid: "122253824"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130260710"
 title: Questions fréquentes concernant les réseaux dans Azure Functions
 summary: >
   Cet article liste les questions fréquentes concernant les réseaux dans Azure Functions. Pour obtenir une présentation plus complète, consultez [Options de réseau dans Azure Functions](functions-networking-options.md).
@@ -58,4 +58,4 @@ sections:
 
 
       Si vous avez seulement besoin d’un accès unidirectionnel aux ressources d’un réseau virtuel ou d’un isolement réseau moins complet, consultez [Vue d’ensemble des réseaux Azure Functions](functions-networking-options.md).
-additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nPour en savoir plus sur les réseaux et les fonctions : \n        \n* [Tutoriel pour bien démarrer avec l’intégration de réseau virtuel](./functions-create-vnet.md)\n* [En savoir plus sur les options de réseau dans Azure Functions](./functions-networking-options.md)\n* [En savoir plus sur l’intégration de réseau virtuel avec App Service et Functions](../app-service/web-sites-integrate-with-vnet.md)\n* [En savoir plus sur les réseaux virtuels dans Azure](../virtual-network/virtual-networks-overview.md)\n* [Activer davantage de fonctionnalités de réseau et plus de contrôle avec Azure App Service Environment](../app-service/environment/intro.md)\n"
+additionalContent: "\n## <a name=\"next-steps\"></a>Étapes suivantes\n\nPour en savoir plus sur les réseaux et les fonctions : \n        \n* [Tutoriel pour bien démarrer avec l’intégration de réseau virtuel](./functions-create-vnet.md)\n* [En savoir plus sur les options de réseau dans Azure Functions](./functions-networking-options.md)\n* [En savoir plus sur l’intégration de réseau virtuel avec App Service et Functions](../app-service/overview-vnet-integration.md)\n* [En savoir plus sur les réseaux virtuels dans Azure](../virtual-network/virtual-networks-overview.md)\n* [Activer davantage de fonctionnalités de réseau et plus de contrôle avec Azure App Service Environment](../app-service/environment/intro.md)\n"

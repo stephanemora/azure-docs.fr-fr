@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/13/2021
-ms.openlocfilehash: b3e6e4336a86b71fe3bfb096cbfc8e1ddc65a186
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 6a8bb7c24b7d2713286141cbd160f2ff400f0a1b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063124"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252917"
 ---
 # <a name="configure-data-persistence-for-a-premium-azure-cache-for-redis-instance"></a>Configurer la persistance des données pour une instance Azure Cache pour Redis Premium
 
@@ -63,7 +63,7 @@ La persistance écrit des données Redis dans un compte Stockage Azure que vous 
    | Paramètre      | Valeur suggérée  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Fréquence de sauvegarde** | Utilisez la liste déroulante et sélectionnez un intervalle de sauvegarde. Vous avez le choix entre **15 minutes**, **30 minutes**, **60 minutes**, **6 heures**, **12 heures** et **24 heures**. | Cet intervalle débute au moment où l’opération de sauvegarde précédente s’est terminée correctement. Une fois le délai écoulé, une nouvelle sauvegarde démarre. |
-   | **Compte de stockage** | Dans la liste déroulante, sélectionnez votre compte de stockage. | Choisissez un compte de stockage situé dans la même région et le même abonnement que le cache. Un compte **Stockage Premium** est recommandé, car il présente un débit plus élevé. En outre, l’utilisation de la fonctionnalité de suppression réversible sur le compte de stockage peut entraîner des coûts de stockage plus élevés. Pour plus d’informations, consultez [Tarification et facturation](/azure/storage/blobs/soft-delete-blob-overview). |
+   | **Compte de stockage** | Dans la liste déroulante, sélectionnez votre compte de stockage. | Choisissez un compte de stockage situé dans la même région et le même abonnement que le cache. Un compte **Stockage Premium** est recommandé, car il présente un débit plus élevé. En outre, l’utilisation de la fonctionnalité de suppression réversible sur le compte de stockage peut entraîner des coûts de stockage plus élevés. Pour plus d’informations, consultez [Tarification et facturation](../storage/blobs/soft-delete-blob-overview.md). |
    | **Clé de stockage** | Dans la liste déroulante, choisissez la **clé primaire** ou la **clé secondaire** à utiliser. | Si la clé de stockage pour votre compte de persistance est régénérée, vous devez reconfigurer la clé dans la liste déroulante **Clé de stockage**. |
 
     La première sauvegarde démarre une fois que l’intervalle de fréquence de sauvegarde est écoulé.
@@ -75,7 +75,7 @@ La persistance écrit des données Redis dans un compte Stockage Azure que vous 
 
    | Paramètre      | Valeur suggérée  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Premier compte de stockage** | Dans la liste déroulante, sélectionnez votre compte de stockage. | Choisissez un compte de stockage situé dans la même région et le même abonnement que le cache. Un compte **Stockage Premium** est recommandé, car il présente un débit plus élevé. En outre, l’utilisation de la fonctionnalité de suppression réversible sur le compte de stockage peut entraîner des coûts de stockage plus élevés. Pour plus d’informations, consultez [Tarification et facturation](/azure/storage/blobs/soft-delete-blob-overview). |
+   | **Premier compte de stockage** | Dans la liste déroulante, sélectionnez votre compte de stockage. | Choisissez un compte de stockage situé dans la même région et le même abonnement que le cache. Un compte **Stockage Premium** est recommandé, car il présente un débit plus élevé. En outre, l’utilisation de la fonctionnalité de suppression réversible sur le compte de stockage peut entraîner des coûts de stockage plus élevés. Pour plus d’informations, consultez [Tarification et facturation](../storage/blobs/soft-delete-blob-overview.md). |
    | **Première clé de stockage** | Dans la liste déroulante, choisissez la **clé primaire** ou la **clé secondaire** à utiliser. | Si la clé de stockage pour votre compte de persistance est régénérée, vous devez reconfigurer la clé dans la liste déroulante **Clé de stockage**. |
    | **Second compte de stockage** | (Facultatif) Dans la liste déroulante, sélectionnez votre compte de stockage secondaire. | Vous pouvez éventuellement configurer un autre compte de stockage. Si un deuxième compte de stockage est configuré, les opérations d’écriture dans le cache de réplica sont enregistrées dans ce deuxième compte de stockage. |
    | **Seconde clé de stockage** | (Facultatif) Dans la liste déroulante, choisissez la **clé primaire** ou la **clé secondaire** à utiliser. | Si la clé de stockage pour votre compte de persistance est régénérée, vous devez reconfigurer la clé dans la liste déroulante **Clé de stockage**. |
@@ -154,7 +154,7 @@ Oui, vous serez facturé pour le stockage utilisé selon le modèle de tarificat
 
 ### <a name="how-frequently-does-rdb-and-aof-persistence-write-to-my-blobs-and-should-i-enable-soft-delete"></a>Quelle est la fréquence d’écriture de la persistance RDB et AOF dans mes objets blob et dois-je activer la suppression réversible ?
 
-La suppression réversible n’est pas recommandée. La persistance RDB et AOF peut écrire dans vos objets blobs à une fréquence de quelques heures, de quelques minutes ou d’une seconde. En outre, l’activation de la suppression réversible sur un compte de stockage signifie qu’Azure Cache pour Redis ne peut pas réduire les coûts de stockage en supprimant les données de sauvegarde anciennes. La suppression réversible peut rapidement s’avérer coûteuse avec les tailles de données typiques d’un cache et les opérations d’écriture chaque seconde. Pour plus d’informations sur les coûts liés à la suppression réversible, consultez [Tarification et facturation](/azure/storage/blobs/soft-delete-blob-overview).
+La suppression réversible n’est pas recommandée. La persistance RDB et AOF peut écrire dans vos objets blobs à une fréquence de quelques heures, de quelques minutes ou d’une seconde. En outre, l’activation de la suppression réversible sur un compte de stockage signifie qu’Azure Cache pour Redis ne peut pas réduire les coûts de stockage en supprimant les données de sauvegarde anciennes. La suppression réversible peut rapidement s’avérer coûteuse avec les tailles de données typiques d’un cache et les opérations d’écriture chaque seconde. Pour plus d’informations sur les coûts liés à la suppression réversible, consultez [Tarification et facturation](../storage/blobs/soft-delete-blob-overview.md).
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Puis-je modifier la fréquence de sauvegarde RDB après avoir créé le cache ?
 

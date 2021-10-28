@@ -6,12 +6,12 @@ ms.date: 07/23/2021
 ms.topic: article
 author: mayurigupta13
 ms.author: mayg
-ms.openlocfilehash: 16e13238ffd471678eab9bdd0245aa708b7c4419
-ms.sourcegitcommit: 7bd48cdf50509174714ecb69848a222314e06ef6
+ms.openlocfilehash: d09bed41ff7553e79a4d05e616e07fabf85d71a9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129389358"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227128"
 ---
 # <a name="azure-arc-enabled-open-service-mesh-preview"></a>Open Service Mesh avec Azure Arc (préversion)
 
@@ -369,7 +369,7 @@ Vous trouverez [ici](https://docs.openservicemesh.io/docs/guides/app_onboarding/
 
 ### <a name="configure-osm-with-service-mesh-interface-smi-policies"></a>Configurer OSM avec les stratégies Service Mesh Interface (SMI)
 
-Vous pouvez commencer par une [application de démonstration](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) ou utiliser votre environnement de test pour tester les stratégies SMI.
+Vous pouvez commencer par une [application de démonstration](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) ou utiliser votre environnement de test pour tester les stratégies SMI.
 
 > [!NOTE] 
 > Assurez-vous que la version de l’application Bookstore que vous exécutez correspond à la version de l’extension OSM installée sur votre cluster. Par exemple, si vous utilisez la v0.8.4 de l’extension OSM, utilisez la démonstration Bookstore de la branche release-v0.8 de l’espace de stockage en amont d’OSM.

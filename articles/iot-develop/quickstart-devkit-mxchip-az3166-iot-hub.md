@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/09/2021
-ms.openlocfilehash: aea20a9f8a6f0725220a60e425b48e22c6aa8794
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: 36e4a46cbe71b39550c1a6c066670be6008ab1c2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121862119"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259465"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-hub"></a>Démarrage rapide : Connecter un Devkit MXCHIP AZ3166 à IoT Hub
 
@@ -34,7 +34,7 @@ Vous allez effectuer les tâches suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* PC exécutant Microsoft Windows 10
+* Un PC exécutant Windows 10
 * Si vous n’avez pas d’abonnement Azure, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 * [Git](https://git-scm.com/downloads) pour cloner le référentiel
 * Azure CLI. Vous avez le choix entre deux options pour exécuter les commandes Azure CLI dans ce guide de démarrage rapide :
@@ -249,7 +249,7 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
     * **Vitesse (en bauds)**  : 115 200
     * **Port** : port auquel votre DevKit MXCHIP est connecté. Si plusieurs options de port sont disponibles dans la liste déroulante, vous pouvez trouver le port approprié à utiliser. Ouvrez le **Gestionnaire d'appareils** Windows et affichez les **Ports** pour identifier le port à utiliser.
 
-    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/termite-settings.png" alt-text="Capture d’écran des paramètres de port série dans l’application Termite":::
+    :::image type="content" source="media/quickstart-devkit-mxchip-az3166-iot-hub/termite-settings.png" alt-text="Capture d’écran des paramètres du port série dans l’application Termite":::
 
 1. Sélectionnez OK.
 1. Appuyez sur le bouton **Réinitialiser** de l’appareil. Le bouton est étiqueté sur l’appareil et situé près du connecteur micro USB.

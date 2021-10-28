@@ -3,12 +3,12 @@ title: Déployer Azure Live Video Analytics sur un appareil IoT Edge
 description: Cet article indique les étapes à suivre pour déployer Azure Live Video Analytics sur votre appareil IoT Edge. C’est utile si, par exemple, vous disposez d’un accès à un ordinateur local Linux et que vous avez déjà crée un compte Azure Media Services.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 75b91855ff8e46a45fac96e90be08a272ef52dfb
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cf4dbd55314bae73d9082c8b45bfe728cb4c235a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367454"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225734"
 ---
 # <a name="deploy-azure-live-video-analytics-on-an-iot-edge-device"></a>Déployer Azure Live Video Analytics sur un appareil IoT Edge
 
@@ -25,8 +25,8 @@ Cet article répertorie les étapes permettant de déployer Live Video Analytics
 * Un appareil x86-64 ou ARM64 exécutant l’un des [systèmes d’exploitation Linux pris en charge](../../iot-edge/support.md#operating-systems)
 * Abonnement Azure dans lequel vous disposez des [privilèges de propriétaire](../../role-based-access-control/built-in-roles.md#owner)
 * [Créer et configurer IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* [Enregistrer un appareil IoT Edge](../../iot-edge/how-to-register-device.md)
-* [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](../../iot-edge/how-to-install-iot-edge.md)
+* [Enregistrer un appareil IoT Edge](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device)
+* [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)
 * [Créer un compte Azure Media Services](../latest/account-create-how-to.md)
 
     * Utilisez l’une de ces régions : USA Est 2, USA Est, USA Centre, USA Centre Nord, Japon Est, USA Ouest, USA Ouest 2, USA Centre-Ouest, Canada Est, Royaume-Uni Sud, France Centre, France Sud, Suisse Nord, Suisse Ouest et Japon Ouest.

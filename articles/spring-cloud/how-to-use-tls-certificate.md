@@ -8,14 +8,14 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/08/2021
 ms.custom: devx-track-java
-ms.openlocfilehash: 44ea16782bb3bfdd51e89fd140f123f34fe4b44d
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 9a8671e6a52210bc7f49b6654383e12fd3090b63
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067467"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258104"
 ---
-# <a name="use-a-tlsssl-certificate-in-your-application-in-azure-spring-cloud"></a>Utilisation d’un certificat TLS/SSL dans une application dans Azure Spring Cloud
+# <a name="use-tlsssl-certificates-in-your-application-in-azure-spring-cloud"></a>Utilisation de certificats TLS/SSL dans une application dans Azure Spring Cloud
 
 Cet article vous explique comment utiliser des certificats publics dans Azure Spring Cloud pour votre application. Votre application peut jouer le rôle d’un client et accéder à un service externe qui exige une authentification par certificat. Elle peut également être amenée à effectuer des tâches de chiffrement.  
 

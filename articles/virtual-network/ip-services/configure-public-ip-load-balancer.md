@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 68c400b2ec8ef85db494b85a04f8e70c32e0b6cb
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 1d3f8f07412e55da49c8502fde57b9e45dc4a786
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368500"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217408"
 ---
 # <a name="manage-a-public-ip-address-with-a-load-balancer"></a>Gérer une IP publique avec un équilibreur de charge
 
@@ -38,9 +38,9 @@ Enfin, l’article passe en revue les aspects uniques de l’utilisation des IP�
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Deux IP publiques du niveau tarifaire Standard dans votre abonnement. Les adresses IP ne peuvent pas être associées à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence SKU standard, consultez [Créer une adresse IP publique - Portail Azure](../../virtual-network/create-public-ip-portal.md).
+- Deux IP publiques du niveau tarifaire Standard dans votre abonnement. Les adresses IP ne peuvent pas être associées à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence SKU standard, consultez [Créer une adresse IP publique - Portail Azure](./create-public-ip-portal.md).
     - Pour les besoins des exemples de cet article, nommez les nouvelles IP publiques **myStandardPublicIP-1** et **myStandardPublicIP-2**.
-- Un préfixe d’IP publique dans votre abonnement. Pour plus d’informations sur la création d’un préfixe d’IP publique, consultez [Créer un préfixe d’IP publique à l’aide du portail Azure](../../virtual-network/create-public-ip-prefix-portal.md).
+- Un préfixe d’IP publique dans votre abonnement. Pour plus d’informations sur la création d’un préfixe d’IP publique, consultez [Créer un préfixe d’IP publique à l’aide du portail Azure](./create-public-ip-prefix-portal.md).
     - Pour les besoins de l’exemple de cet article, nommez le nouveau préfixe d’IP publique **myPublicIPPrefixOutbound**.
 
 ## <a name="create-load-balancer-existing-public-ip"></a>Créer un équilibreur de charge pour l’IP publique existante
@@ -143,7 +143,7 @@ Dans cette section, vous allez modifier la configuration de serveur frontal util
 
 10. Dans **Configuration d’adresses IP frontales**, confirmez que le préfixe d’adresse IP a été ajouté à la configuration du serveur frontal de sortie.
 
-## <a name="more-information"></a>Informations complémentaires
+## <a name="more-information"></a>Autres informations
 
 * Les équilibreurs de charge inter-régions sont un type spécial d’équilibreur de charge public Standard qui peut couvrir plusieurs régions. Le serveur frontal d’un équilibreur de charge inter-région peut uniquement être utilisé avec l’option de niveau global des IP publiques du niveau tarifaire Standard. Le trafic envoyé à l’adresse IP frontale d’un équilibreur de charge inter-région est distribué entre les équilibreurs de charge publics régionaux. Les adresses IP frontales régionales sont contenues dans le pool principal de l’équilibreur de charge inter-région. Pour plus d’informations, consultez [Équilibreur de charge inter-région](../../load-balancer/cross-region-overview.md).
 
@@ -155,7 +155,7 @@ Dans cette section, vous allez modifier la configuration de serveur frontal util
 
 ## <a name="caveats"></a>Mises en garde
 
-* Les équilibreurs de charge publics standard peuvent utiliser des adresses IPv6 comme adresses IP publiques frontales ou préfixes d’adresses IP publiques.  Chaque déploiement doit être à double pile avec des serveurs frontaux IPv4 et IPv6. La traduction NAT64 n’est pas disponible. Pour plus d’informations, consultez [Déployer une application double pile IPv6 dans Azure – PowerShell](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)  (Notez que les équilibreurs de charge publics de base peuvent utiliser des adresses IPv6 dynamiques de SKU de base comme adresses IP publiques frontales).
+* Les équilibreurs de charge publics standard peuvent utiliser des adresses IPv6 comme adresses IP publiques frontales ou préfixes d’adresses IP publiques.  Chaque déploiement doit être à double pile avec des serveurs frontaux IPv4 et IPv6. La traduction NAT64 n’est pas disponible. Pour plus d’informations, consultez [Déployer une application double pile IPv6 dans Azure – PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)  (Notez que les équilibreurs de charge publics de base peuvent utiliser des adresses IPv6 dynamiques de SKU de base comme adresses IP publiques frontales).
 
 * Lorsque plusieurs serveurs frontaux sont attribués à un équilibreur de charge public, aucune méthode ne permet d’attribuer des flux d’instances de serveur principal particulières à la sortie sur une adresse IP spécifique.  Pour plus d’informations, consultez [Serveurs frontaux multiples dans Azure Load Balancer](../../load-balancer/load-balancer-multivip-overview.md).
 ## <a name="next-steps"></a>Étapes suivantes
@@ -167,4 +167,4 @@ Vous avez remplacé l’adresse IP dans une configuration de serveur frontal d�
 Enfin, vous avez modifié une configuration de serveur frontal sortant pour utiliser un préfixe d’IP publique.
 
 - Pour plus d’informations sur Azure Load Balancer, consultez [Qu’est-ce qu’Azure Load Balancer ?](../../load-balancer/load-balancer-overview.md).
-- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](../../virtual-network/public-ip-addresses.md).
+- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](./public-ip-addresses.md).

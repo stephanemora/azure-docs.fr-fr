@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 05/25/2021
-ms.openlocfilehash: 3c819367f35cb4a8174abaac1380eb439ace206a
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.openlocfilehash: 6682c5301861732189d532641060e136250957b9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122769704"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261478"
 ---
 # <a name="deploy-red-hat-jboss-enterprise-platform-eap-on-azure-vms-and-virtual-machine-scale-sets-using-the-azure-marketplace-offer"></a>Déployer Red Hat JBoss Enterprise Application Platform (EAP) sur des machines virtuelles Azure et des groupes de machines virtuelles identiques à l’aide de l’offre de la Place de marché Azure
 
@@ -111,7 +111,7 @@ Ces plans d’offre créent toutes les ressources de calcul Azure requises pour 
 ## <a name="after-a-successful-deployment"></a>Après un déploiement réussi
 
 1. [Créez une machine virtuelle Jump avec peering de réseaux virtuels](../../windows/quick-create-portal.md#create-virtual-machine) dans un autre réseau virtuel, accédez au serveur et exposez l’application à l’aide du [peering de réseaux virtuels](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
-2. [Créez une IP publique](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) pour accéder au serveur et à l’application.
+2. [Créez une IP publique](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) pour accéder au serveur et à l’application.
 3. [Créez une machine virtuelle Jump dans le même réseau virtuel (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) dans un sous-réseau différent (nouveau sous-réseau) dans le même réseau virtuel, et accédez au serveur via une machine virtuelle Jump. La machine virtuelle Jump peut être utilisée pour exposer l’application.
 4. Exposez l’application à l’aide d’une [passerelle applicative](../../../application-gateway/quick-create-portal.md#create-an-application-gateway).
 5. Exposez l’application à l’aide d’un équilibreur de charge externe (ELB).
@@ -128,7 +128,7 @@ Ces plans d’offre créent toutes les ressources de calcul Azure requises pour 
 
 ### <a name="2-create-a-public-ip-to-access-the-rhel-vm-and-jboss-eap-admin-console"></a>2. Créer une IP publique pour accéder à la machine virtuelle RHEL et à la console d’administration JBoss EAP
 
-1. Aucune IP publique n’est associée à la machine virtuelle RHEL que vous avez créée. Vous pouvez [créer une IP publique](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) pour accéder à la machine virtuelle et [associer l’IP publique à la machine virtuelle](../../../virtual-network/associate-public-ip-address-vm.md). La création d’une IP publique peut être effectuée à l’aide des commandes du portail Azure ou d’[Azure PowerShell](/powershell/) ou des commandes [Azure CLI](/cli/azure/install-azure-cli).
+1. Aucune IP publique n’est associée à la machine virtuelle RHEL que vous avez créée. Vous pouvez [créer une IP publique](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) pour accéder à la machine virtuelle et [associer l’IP publique à la machine virtuelle](../../../virtual-network/ip-services/associate-public-ip-address-vm.md). La création d’une IP publique peut être effectuée à l’aide des commandes du portail Azure ou d’[Azure PowerShell](/powershell/) ou des commandes [Azure CLI](/cli/azure/install-azure-cli).
 2. Obtenez l’IP publique d’une machine virtuelle – Accédez à la page de détails de la machine virtuelle et copiez l’IP publique. Utilisez l’IP publique pour accéder à la machine virtuelle et à la console d’administration JBoss EAP.
 3. Consultez la page web JBoss EAP sur Azure – Ouvrez un navigateur web et accédez à *http://<PUBLIC_HOSTNAME>:8080/* pour voir la page d’accueil EAP par défaut.
 4. Connectez-vous à la console d’administration JBoss EAP – Ouvrez un navigateur web et accédez à *http://<PUBLIC_HOSTNAME>:9990*. Entrez le nom d’utilisateur et le mot de passe JBoss EAP pour vous connecter.

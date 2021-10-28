@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/22/2021
 ms.author: oldoll
-ms.openlocfilehash: 1d6710500cbe18fe74d06aa324023486a7ec5c4e
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 8e723e39364207e1075d66eeafcdf12b74e16624
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130067463"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261383"
 ---
 # <a name="standard-version-of-azure-vm-extension-for-sap-solutions"></a>Version standard de l’extension de machine virtuelle Azure pour les solutions SAP
 [new-extension]:vm-extension-for-sap-new.md (Nouvelle version de l’extension de machine virtuelle Azure pour les solutions SAP)
@@ -56,7 +56,7 @@ ms.locfileid: "130067463"
 
 > [!NOTE]
 > Instruction générale de support : La prise en charge de l’extension Azure pour SAP est assurée par le biais des canaux de support SAP.
-> Si vous avez besoin d’aide sur l’extension de machine virtuelle Azure pour solutions SAP, veuillez ouvrir un dossier de support auprès du support SAP.
+> Si vous avez besoin d’aide sur l’extension de machine virtuelle Azure pour solutions SAP, veuillez ouvrir un dossier de support auprès du support SAP
   
 > [!NOTE]
 > Veillez à désinstaller l’extension de machine virtuelle avant de basculer entre la version standard et la nouvelle version de l’extension Azure pour SAP.
@@ -272,7 +272,7 @@ Si l’une de ces vérifications échoue ou pour savoir comment redéployer l’
 
 ## <a name="health-checks"></a><a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Contrôles d'intégrité
 
-Si certaines des données de l’infrastructure ne sont pas livrées correctement, comme l’indiquent les tests décrits à la section [Vérification de la préparation][readiness-check], exécutez les contrôles d’intégrité décrits dans ce chapitre pour vérifier si l’infrastructure Azure et l’extension Azure pour SAP sont configurées correctement.
+Si certaines des données d’infrastructure ne sont pas fournies correctement, comme indiqué par le test décrit dans [Vérification de la disponibilité][readiness-check], exécutez les contrôles d’intégrité repris dans ce chapitre pour tester si l’infrastructure Azure et l’extension Azure pour SAP sont correctement configurées.
 
 ### <a name="health-checks-using-powershell"></a>Contrôles d’intégrité à l’aide de PowerShell
 
@@ -464,7 +464,7 @@ Toutefois, si votre image de système d’exploitation généralisée et prépar
 
 La machine virtuelle Microsoft Azure exécutant l’extension Azure pour SAP a besoin d’un accès à Internet. Si elle fait partie d’un réseau virtuel Azure ou d’un domaine local, vérifiez que les paramètres de proxy nécessaires sont définis. Ces paramètres doivent également être valides pour que le compte LocalSystem puisse accéder à Internet. Suivez le chapitre [Configuration du proxy][configure-proxy] de ce guide.
 
-En outre, si vous devez définir une adresse IP statique pour votre machine virtuelle Azure, ne la définissez pas manuellement dans la machine virtuelle Azure, mais avec [Azure PowerShell](../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md), [Azure CLI](../../../virtual-network/virtual-networks-static-private-ip-arm-cli.md) ou le [Portail Azure](../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). L’adresse IP statique est propagée via le service DHCP Azure.
+En outre, si vous devez définir une adresse IP statique pour votre machine virtuelle Azure, ne la définissez pas manuellement dans la machine virtuelle Azure, mais avec [Azure PowerShell](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md), [Azure CLI](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md) ou le [Portail Azure](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md). L’adresse IP statique est propagée via le service DHCP Azure.
 
 Il n’est pas possible de définir manuellement une adresse IP statique à l’intérieur de la machine virtuelle Azure, car cela pourrait poser problème avec l’extension Azure pour SAP.
 

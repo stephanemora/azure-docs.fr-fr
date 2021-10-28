@@ -3,12 +3,12 @@ title: Solutions de sauvegarde pour les machines virtuelles Azure VMware Solutio
 description: Découvrez les principales solutions de sauvegarde et de restauration pour vos machines virtuelles Azure VMware Solution.
 ms.topic: how-to
 ms.date: 04/21/2021
-ms.openlocfilehash: 76231aaed4b363daf20abe54a78f84a9e0740da4
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 4febf70d473f74b28356310a7c6704c41e3cb1b9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113431624"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252285"
 ---
 # <a name="backup-solutions-for-azure-vmware-solution-virtual-machines-vms"></a>Solutions de sauvegarde pour les machines virtuelles (VM) Azure VMware Solution
 
@@ -19,7 +19,7 @@ Nos partenaires de sauvegarde disposent des meilleures solutions de sauvegarde e
 Le trafic de sauvegarde entre les machines virtuelles Azure VMware Solution et le référentiel de sauvegarde dans Azure circule via une liaison à faible latence et à bande passante élevée. Le trafic de réplication entre les régions circule sur le réseau interne de fond de panier Azure, ce qui réduit les coûts de bande passante pour les utilisateurs.
 
 >[!NOTE]
->Pour obtenir des réponses à des questions courantes, consultez le [FAQ sur les solutions de sauvegarde tierces](/azure/azure-vmware/faq#third-party-backup-and-recovery).
+>Pour obtenir des réponses à des questions courantes, consultez le [FAQ sur les solutions de sauvegarde tierces](./faq.yml).
 
 
 

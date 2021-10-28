@@ -15,12 +15,12 @@ ms.date: 07/30/2019
 ms.author: pamela
 ms.reviewer: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d35912c6edafed201a037c8c865746fb299cb1d7
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: 00b2b42090e88d375f12daccdae37ad0b2ba28b9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130163801"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219372"
 ---
 # <a name="move-a-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery"></a>Déplacer une machine virtuelle SQL Server vers une autre région au sein d’Azure à l’aide d’Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -66,7 +66,7 @@ Préparez la machine virtuelle SQL Server source et la région cible pour le dé
 - Pour créer les ressources réseau courantes dont vous avez besoin, en fonction de la configuration de la machine virtuelle source, consultez la documentation suivante : 
     - [Groupes de sécurité réseau](../../../virtual-network/tutorial-filter-network-traffic.md) 
     - [Équilibreur de charge](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
-    - [Adresse IP publique](../../../virtual-network/virtual-network-public-ip-address.md)
+    - [Adresse IP publique](../../../virtual-network/ip-services/virtual-network-public-ip-address.md)
     - Pour tous les autres composants réseau, consultez la [documentation sur les réseaux](../../../virtual-network/virtual-networks-overview.md).
 - Créez manuellement un réseau hors production dans la région cible si vous voulez tester la configuration avant d’effectuer le déplacement final vers la région cible. Nous recommandons cette étape car elle garantit une interférence minimale avec le réseau de production. 
 

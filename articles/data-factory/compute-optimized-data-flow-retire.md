@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 06/29/2021
-ms.openlocfilehash: 2ef5e68f9629feab42a4417b4e08697038947495
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 781841ff8a65d36a9ed712efa5d0bdf8480995bf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128661827"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229367"
 ---
 # <a name="retirement-of-data-flow-compute-optimized-option"></a>Mise hors service de l’option de flux de données Optimisé pour le calcul
 
@@ -38,5 +38,5 @@ De maintenant jusqu’au 31 août 2024, vos flux de données optimisés pour le 
 | Flux de données optimisés pour le calcul (dépréciés) | Non recommandé pour les charges de travail de production |
 
 * [Visitez la page de tarification d’Azure Data Factory pour connaître les derniers tarifs disponibles pour les flux de données à usage général et à mémoire optimisée](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
-* [Vous trouverez plus d’informations sur la FAQ des flux de données ici](/azure/data-factory/frequently-asked-questions#mapping-data-flows)  
+* [Vous trouverez plus d’informations sur la FAQ des flux de données ici](./frequently-asked-questions.yml#mapping-data-flows)  
 * [Posez des questions et trouvez des réponses sur les flux de données sur Microsoft Q&A](https://aka.ms/datafactoryqa)

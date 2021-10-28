@@ -9,12 +9,12 @@ ms.subservice: flexible-scale-sets
 ms.date: 10/14/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: c92a573bfa2f17fcf053f9f1d7599e1e802c8c12
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: b6cdeff69c1d9a919651d68b937af1c7b328edbe
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130167793"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257952"
 ---
 # <a name="migrate-deployments-and-resources-to-virtual-machine-scale-sets-in-flexible-orchestration"></a>Effectuer la migration de déploiements et de ressources vers des groupes de machines virtuelles identiques dans une orchestration Flexible 
 
@@ -102,7 +102,7 @@ Les scénarios courants nécessitant une connectivité sortante explicite sont l
 - L’activation d’une machine virtuelle Windows nécessite que vous ayez défini une connectivité sortante à partir de l’instance de machine virtuelle vers le Service de gestion des clés d’activation Windows (KMS). Pour plus d’informations, consultez [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems).  
 - Accédez aux comptes de stockage ou au Coffre de clés. La connectivité aux services Azure peut également être établie via une [Liaison privée](../private-link/private-link-overview.md). 
 
-Pour plus d’informations sur la définition de connexions sortantes sécurisées, consultez [Accès sortant par défaut dans Azure](https://aka.ms/defaultoutboundaccess).
+Pour plus d’informations sur la définition de connexions sortantes sécurisées, consultez [Accès sortant par défaut dans Azure](../virtual-network/ip-services/default-outbound-access.md).
 
 > [!IMPORTANT]
 > Vérifiez que vous disposez d’une connectivité réseau sortante explicite. Consultez [Réseaux virtuels et machines virtuelles dans Azure](../virtual-network/network-overview.md) pour en savoir plus à ce sujet, et veillez à suivre les [bonnes pratiques](../virtual-network/concepts-and-best-practices.md) Azure concernant les réseaux. 

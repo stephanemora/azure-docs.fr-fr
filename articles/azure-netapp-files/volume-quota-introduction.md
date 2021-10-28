@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: d648630e02cbf8c1e7c771f77a3d2342fd9731f7
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ffcc36cecc4dbba32a8f3927ab88a5632018a9bb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293976"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130219751"
 ---
 # <a name="understand-volume-quota"></a>Présentation du quota de volume
 
@@ -44,4 +44,4 @@ Cet article fournit une vue d'ensemble du quota de volume pour Azure NetApp File
 * [Modèle de coût pour Azure NetApp Files](azure-netapp-files-cost-model.md)
 * [Surveiller la capacité d'un volume](monitor-volume-capacity.md)
 * [Redimensionner le pool de capacité ou un volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)
-* [Questions fréquentes (FAQ) sur la gestion de la capacité](azure-netapp-files-faqs.md#capacity-management-faqs)
+* [Questions fréquentes (FAQ) sur la gestion de la capacité](faq-capacity-management.md)

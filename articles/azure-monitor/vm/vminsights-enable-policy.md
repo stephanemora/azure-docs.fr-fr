@@ -5,20 +5,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 63e68a247dd9d38cffe1555806ab23391c38f1fa
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 6b3cdddcc07df6961cc6493404583e6cb7da96e4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130177437"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224457"
 ---
 # <a name="enable-vm-insights-by-using-azure-policy"></a>Activer VM Insights à l’aide d’Azure Policy
 Cet article explique comment activer VM Insights pour des machines virtuelles Azure ou une machine virtuelle hybride connectée avec Azure Arc (préversion) à l’aide d’Azure Policy. Azure Policy vous permet d’attribuer des définitions de stratégie qui installent les agents requis pour VM Insights dans votre environnement Azure et activent automatiquement la surveillance des machines virtuelles à mesure qu’elles sont créées. VM Insights offre une fonctionnalité permettant de découvrir et corriger les machines virtuelles non conformes dans votre environnement. Utilisez cette fonctionnalité au lieu d’utiliser directement Azure Policy.
 
-Si vous n’êtes pas familiarisé avec Azure Policy, consultez la brève introduction de l’article [Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md).
+Si vous n’êtes pas familiarisé avec Azure Policy, consultez la brève introduction de l’article [Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../best-practices.md).
 
 > [!NOTE]
-> Pour utiliser Azure Policy avec des groupes de machines virtuelles identiques Azure ou pour utiliser directement Azure Policy pour activer des machines virtuelles Azure, consultez [Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../deploy-scale.md#vm-insights).
+> Pour utiliser Azure Policy avec des groupes de machines virtuelles identiques Azure ou pour utiliser directement Azure Policy pour activer des machines virtuelles Azure, consultez [Déployer les fonctionnalités Azure Monitor à la bonne échelle à l’aide d’Azure Policy](../best-practices.md).
 
 ## <a name="vm-insights-initiatives"></a>Initiatives VM Insights
 VM Insights fournit des définitions de stratégie intégrées pour l’installation de l’agent Log Analytics et de l’agent de dépendances sur les machines virtuelles Azure. Les initiatives intégrées suivantes installent les deux agents pour activer la surveillance complète. Attribuez ces initiatives à un groupe d’administration, un abonnement ou un groupe de ressources pour installer automatiquement les agents sur toutes les machines virtuelles Windows ou Linux de cette étendue.

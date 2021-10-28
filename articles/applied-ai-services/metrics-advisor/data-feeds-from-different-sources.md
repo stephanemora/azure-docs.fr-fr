@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: mbullwin
-ms.openlocfilehash: 2bb387863baffdd014eedb20d94ea1273860b8c4
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 9d5d111e86623b3de63bc9aa5d77f5a14c37fabd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524376"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216767"
 ---
 # <a name="how-to-connect-different-data-sources"></a>Guide pratique : Connecter différentes sources de données
 
@@ -185,7 +185,7 @@ Les sections suivantes spécifient les paramètres requis pour tous les types d�
         Data Source=<URI Server>;Initial Catalog=<Database>
         ```
 
-    * **Identité managée** : L’identité managée pour les ressources Azure peut autoriser l’accès aux données de blob et de file d’attente. L’identité managée utilise les informations d’identification Azure AD des applications qui s’exécutent dans les machines virtuelles Azure, les applications de fonction, les groupes de machines virtuelles identiques et d’autres services. En utilisant une identité managée pour ressources Azure et l’authentification Azure AD, vous pouvez éviter de stocker des informations d’identification avec les applications qui s’exécutent dans le cloud. Découvrez comment [autoriser avec une identité managée](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+    * **Identité managée** : L’identité managée pour les ressources Azure peut autoriser l’accès aux données de blob et de file d’attente. L’identité managée utilise les informations d’identification Azure AD des applications qui s’exécutent dans les machines virtuelles Azure, les applications de fonction, les groupes de machines virtuelles identiques et d’autres services. En utilisant une identité managée pour ressources Azure et l’authentification Azure AD, vous pouvez éviter de stocker des informations d’identification avec les applications qui s’exécutent dans le cloud. Découvrez comment [autoriser avec une identité managée](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
     
         Vous pouvez créer une identité managée dans le portail Azure pour votre instance Azure Data Explorer (Kusto). Sélectionnez **Autorisations** > **Ajouter**. Le type de rôle suggéré est : **administrateur/lecteur**.
         
@@ -413,7 +413,7 @@ Les journaux d’activité Azure Monitor proposent les types d’authentificati
         ```
     
         > [!NOTE]
-        > Le `MI Name` est le nom de l’identité managée dans Metrics Advisor (pour le principal de service, il doit être remplacé par le nom de principal du service). Pour plus d’informations, consultez [Autoriser avec une identité managée](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+        > Le `MI Name` est le nom de l’identité managée dans Metrics Advisor (pour le principal de service, il doit être remplacé par le nom de principal du service). Pour plus d’informations, consultez [Autoriser avec une identité managée](../../storage/blobs/authorize-managed-identity.md#enable-managed-identities-on-a-vm). 
             
         Voici un exemple de chaîne de connexion : 
        

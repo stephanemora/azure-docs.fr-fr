@@ -8,12 +8,12 @@ manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 10/08/2021
-ms.openlocfilehash: d480696acf10586f41aa9c5c70a8dcf6e2c7651f
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 7f5ad896307466363845c66c89136879e4f92a96
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070011"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227470"
 ---
 # <a name="configure-your-tenant-for-azure-ad-verifiable-credentials-preview"></a>Configurer votre locataire pour les justificatifs vérifiables Azure AD (préversion)
 
@@ -67,7 +67,7 @@ Pour créer le principal de service :
 
 ## <a name="step-2-create-a-key-vault"></a>Étape 2. Créer un coffre de clés
 
-[Azure Key Vault](/azure/key-vault/general/basic-concepts) est un service cloud qui permet l’accès et le stockage sécurisés des secrets et des clés. Votre service des justificatifs vérifiables stocke les clés publiques et privées dans Azure Key Vault. Ces clés sont utilisées pour signer et vérifier les justificatifs.
+[Azure Key Vault](../../key-vault/general/basic-concepts.md) est un service cloud qui permet l’accès et le stockage sécurisés des secrets et des clés. Votre service des justificatifs vérifiables stocke les clés publiques et privées dans Azure Key Vault. Ces clés sont utilisées pour signer et vérifier les justificatifs.
 
 Si vous n’avez pas d’instance d’Azure Key Vault, procédez comme suit pour créer un coffre de clés à l’aide du portail Azure.
 
@@ -78,7 +78,7 @@ Si vous n’avez pas d’instance d’Azure Key Vault, procédez comme suit pour
 
 Après avoir intégré le service de justificatifs vérifiables Azure, le service génère un jeu de clés utilisé pour assurer la sécurité des messages. Ces clés sont stockées dans le coffre de clés. Dans le cadre d’une émission ou d’une vérification, un jeu de clés est encore utilisé pour la signature, la mise à jour et la récupération des justificatifs vérifiables.
 
-Une [stratégie d’accès](/azure/key-vault/general/assign-access-policy) Key Vault détermine si un principal de sécurité donné, peut effectuer des opérations sur des clés et des secrets Key Vault. Définissez des stratégies d’accès dans votre coffre Azure Key Vault pour le compte d’administrateur du service de justificatifs vérifiables Azure AD et pour le principal d’API Request Service que vous avez créé.
+Une [stratégie d’accès](../../key-vault/general/assign-access-policy.md) Key Vault détermine si un principal de sécurité donné, peut effectuer des opérations sur des clés et des secrets Key Vault. Définissez des stratégies d’accès dans votre coffre Azure Key Vault pour le compte d’administrateur du service de justificatifs vérifiables Azure AD et pour le principal d’API Request Service que vous avez créé.
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez au **coffre de clés** que vous utilisez pour ce tutoriel.
 

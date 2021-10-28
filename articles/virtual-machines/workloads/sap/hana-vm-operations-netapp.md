@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4683b38ba6a59b0a50f7e0ea4165657407b59b69
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: bb96e0da4e9e724220492821f1418f3d587b63e8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124823181"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222909"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 sur Azure NetApp Files pour SAP HANA
 
@@ -40,7 +40,7 @@ Lorsque vous envisagez d’utiliser Azure NetApp Files pour SAP Netweaver et SAP
 - Il est important que les machines virtuelles soient déployées à proximité du stockage Azure NetApp pour des raisons de faible latence.  
 - Le réseau virtuel sélectionné doit avoir un sous-réseau délégué à Azure NetApp Files.
 - Vérifiez que la latence entre le serveur de base de données et le volume ANF est mesurée et inférieure à 1 milliseconde.
-- Le débit d’un volume NetApp Azure est une fonction du quota de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Lors du dimensionnement de volumes HANA Azure NetApp, assurez-vous que le débit obtenu répond à la configuration système requise pour HANA. Vous pouvez également envisager d’utiliser un [pool de capacité QoS manuel](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md) dans lequel la capacité et le débit du volume peuvent être configurés et mis à l’échelle indépendamment (pour découvrir des exemples spécifiques relatifs à la plateforme SAP Hana, consultez [ce document](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md))
+- Le débit d’un volume NetApp Azure est une fonction du quota de volume et du niveau de service, comme décrit dans [Niveau de service pour Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Lors du dimensionnement de volumes HANA Azure NetApp, assurez-vous que le débit obtenu répond à la configuration système requise pour HANA. Vous pouvez également envisager d’utiliser un [pool de capacité QoS manuel](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) dans lequel la capacité et le débit du volume peuvent être configurés et mis à l’échelle indépendamment (pour découvrir des exemples spécifiques relatifs à la plateforme SAP Hana, consultez [ce document](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type))
 - Essayez de « consolider » les volumes pour obtenir des performances plus élevées dans un volume plus grand ; par exemple, utilisez un volume pour /sapmnt, /usr/sap/trans, … dans la mesure du possible.  
 - Azure NetApp Files propose une [stratégie d’exportation](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md) : vous pouvez contrôler les clients autorisés, le type d’accès (lecture et écriture, lecture seule, etc.). 
 - La fonctionnalité Azure NetApp Files ne tient pas encore compte des zones. Actuellement, la fonctionnalité Azure NetApp Files n’est pas déployée dans toutes les zones de disponibilité d’une région Azure. Méfiez-vous de l’impact potentiel sur les temps de latence dans certaines régions Azure.   
@@ -92,7 +92,7 @@ Lorsque vous concevez l’infrastructure pour SAP dans Azure, vous devez connaî
 | Écriture du volume de données | 250 Mo/s | 4 To | 2 To |
 | Lecture du volume de données | 400 Mo/s | 6,3 To | 3,2 To |
 
-Étant donné que les trois KPI sont exigés, le volume **/hana/data** doit être dimensionné vers la plus grande capacité afin de respecter les exigences de lecture minimales. Lorsque vous utilisez des pools de capacité QoS manuels, la taille et le débit des volumes peuvent être définis indépendamment. Étant donné que la capacité et le débit sont établis à partir du même pool de capacité, le niveau de service et la taille du pool doivent être suffisamment importants pour fournir les performances totales attendues (voir l’exemple [ici](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md))
+Étant donné que les trois KPI sont exigés, le volume **/hana/data** doit être dimensionné vers la plus grande capacité afin de respecter les exigences de lecture minimales. Lorsque vous utilisez des pools de capacité QoS manuels, la taille et le débit des volumes peuvent être définis indépendamment. Étant donné que la capacité et le débit sont établis à partir du même pool de capacité, le niveau de service et la taille du pool doivent être suffisamment importants pour fournir les performances totales attendues (voir l’exemple [ici](../../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type))
 
 Pour les systèmes HANA, qui ne nécessitent pas de bande passante élevée, le débit du volume ANF peut être réduit d’une taille de volume inférieure ou, en cas de QoS manuelle, en ajustant le débit directement. Dans le cas où un système HANA nécessite un débit plus élevé, le volume peut être adapté en redimensionnant la capacité en ligne. Aucun KPI n’est défini pour les volumes de sauvegarde. Toutefois, le débit du volume de sauvegarde est essentiel pour un environnement performant. Les performances des volumes de journal et de données doivent être conçues afin de répondre aux attentes des clients.
 

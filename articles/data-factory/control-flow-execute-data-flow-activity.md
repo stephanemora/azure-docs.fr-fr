@@ -9,12 +9,12 @@ ms.custom: synapse
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 09/09/2021
-ms.openlocfilehash: 14fa6484a3cba97602d33cf2b302d62bf6ef2871
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: c42ba6008f80f3fe625d9716c6a6d62f3fb60d2a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743892"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260281"
 ---
 # <a name="data-flow-activity-in-azure-data-factory-and-azure-synapse-analytics"></a>Activité de flux de données dans Azure Data Factory et Azure Synapse Analytics
 
@@ -107,11 +107,11 @@ La fonctionnalité de regroupement dans le flux de données vous permet de confi
 
 Le comportement par défaut des récepteurs de flux de données consiste à exécuter chaque récepteur de manière séquentielle, en série, et à faire échouer le flux de données quand une erreur est détectée dans le récepteur. En outre, tous les récepteurs sont définis par défaut dans le même groupe, sauf si vous accédez aux propriétés du flux de données et définissez des priorités différentes pour les récepteurs.
 
+:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Propriétés du récepteur":::
+
 ### <a name="first-row-only"></a>Première ligne uniquement
 
 Cette option n'est disponible que pour les flux de données dont les récepteurs de cache sont activés pour la « Sortie vers l'activité ». La sortie du flux de données qui est injectée directement dans votre pipeline est limitée à 2 Mo. Le paramètre « Première ligne uniquement » vous permet de limiter la sortie de données du flux de données lorsque vous injectez la sortie de l'activité de flux de données directement dans votre pipeline.
-
-:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Propriétés du récepteur":::
 
 ## <a name="parameterizing-data-flows"></a>Paramétrage de flux de données
 

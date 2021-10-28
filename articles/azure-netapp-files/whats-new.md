@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 78f8b282e701e181dd3a2c137ba254227651b048
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 0d733117cd9e1d4ac45dede368153bb77098fad5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130036851"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252456"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Nouveautés d’Azure NetApp Files
 
@@ -88,7 +88,7 @@ Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les 
 
     Les **modules complémentaires NetApp** constituent la première catégorie des modules complémentaires introduits dans **Modules complémentaires du service de stockage**. Elle permet d’accéder à **NetApp Cloud Compliance**. Cliquez sur la vignette **NetApp Cloud Compliance** pour ouvrir un nouveau navigateur et accéder à la page d’installation du module complémentaire. 
 
-* Le [pool de capacités de QoS manuelle](manual-qos-capacity-pool-introduction.md) est désormais en disponibilité générale (GA)   
+* Le [pool de capacités de QoS manuelle](azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) est désormais en disponibilité générale (GA)   
 
     La fonctionnalité de pool de capacités de QoS manuelle est désormais en disponibilité générale. Il n’est plus nécessaire de l’inscrire pour pouvoir l’utiliser. 
 
@@ -189,7 +189,7 @@ Azure NetApp Files est régulièrement mis à jour. Cet article récapitule les 
 
   Azure NetApp Files prend désormais en charge la réplication inter-région. Grâce à cette nouvelle fonctionnalité de récupération d’urgence, vous pouvez répliquer vos volumes Azure NetApp Files d’une région Azure vers une autre de façon rapide et économique, ce qui protège vos données contre les défaillances régionales imprévisibles. La réplication inter-région Azure NetApp Files tire parti de la technologie NetApp SnapMirror®. Seuls les blocs modifiés sont envoyés sur le réseau dans un format compressé. Cette technologie propriétaire limite le volume de données nécessaire à la réplication dans les différentes régions, réduisant ainsi le coût de transfert des données. Elle réduit également le temps de réplication, ce qui vous permet d’obtenir un objectif de point de restauration (RPO) inférieur.
 
-* [Pool de capacités QoS manuel](manual-qos-capacity-pool-introduction.md) (préversion)  
+* [Pool de capacités QoS manuel](azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) (préversion)  
 
     Au sein d’un pool de capacités QoS manuel, vous pouvez affecter la capacité et le débit d’un volume de manière indépendante. Le débit total de tous les volumes créés avec un pool de capacités de QoS manuel est limité par le débit total du pool. Il est déterminé par la combinaison de la taille du pool et du débit au niveau du service. Autre possibilité, le [type QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) d’un pool de capacités peut être automatique, ce qui correspond au paramètre par défaut. Dans un pool de capacités QoS automatique, le débit est affecté automatiquement aux volumes du pool, proportionnelementl au quota de taille alloué aux volumes.
 

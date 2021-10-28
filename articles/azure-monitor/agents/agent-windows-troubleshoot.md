@@ -4,23 +4,18 @@ description: Décrit les symptômes, les causes et les solutions aux problèmes 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/21/2019
-ms.openlocfilehash: 7ab67602ebba2ae5446ecc0052ef4b03bba1e1bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 10/21/2021
+ms.openlocfilehash: 691bc47fbeeedfb5a2256520552ccb4f81f642cf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952981"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262562"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Windows 
 
 Cet article fournit une assistance sur les erreurs que vous pourriez rencontrer avec l’agent Log Analytics pour Windows dans Azure Monitor et suggère des solutions possibles pour les résoudre.
 
-Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont également disponibles :
-
-* Les clients bénéficiant d’un support Premier peuvent ouvrir une demande de support auprès du [Support Premier](https://premier.microsoft.com/).
-* Les clients titulaires d’un contrat de support Azure peuvent ouvrir une demande de support [sur le portail Azure](https://azure.microsoft.com/support/options/).
-* Visitez la page de commentaires de Log Analytics pour consulter les idées et bogues soumis sur [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou en partager de nouveaux. 
 
 ## <a name="log-analytics-troubleshooting-tool"></a>Outil de résolution des problèmes Log Analytics
 

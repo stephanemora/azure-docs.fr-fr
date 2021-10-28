@@ -5,12 +5,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2019
-ms.openlocfilehash: 02a568d48ca99a58778adfd4068c359b4748ab43
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 639386e1a64ff40375fac5baafc10b6a3a1cb84d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178448"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227052"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -121,7 +121,7 @@ Les [classeurs](visualize/workbooks-overview.md) fournissent un canevas flexible
 ![Exemple de classeurs](media/overview/workbooks.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) est un service d’analytique métier qui fournit des visualisations interactives pour diverses sources de données. Il est idéal pour mettre des données à la disposition d’autres personnes internes ou externes à votre organisation. Vous pouvez configurer Power BI pour [importer automatiquement les données de journal à partir d’Azure Monitor](./visualize/powerbi.md) afin de tirer parti de ces visualisations supplémentaires.
+[Power BI](https://powerbi.microsoft.com) est un service d’analytique métier qui fournit des visualisations interactives pour diverses sources de données. Il est idéal pour mettre des données à la disposition d’autres personnes internes ou externes à votre organisation. Vous pouvez configurer Power BI pour [importer automatiquement les données de journal à partir d’Azure Monitor](./logs/log-powerbi.md) afin de tirer parti de ces visualisations supplémentaires.
 
 
 ![Power BI](media/overview/power-bi.png)

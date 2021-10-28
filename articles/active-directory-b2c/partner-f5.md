@@ -10,12 +10,12 @@ ms.subservice: B2C
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/15/2021
-ms.openlocfilehash: 23db323f2fe34646f02fd82963f89bee085e3216
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 1db63555d2bf0ad8cfedcdfe90ba2ebae14292ee
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071489"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253915"
 ---
 # <a name="tutorial-extend-azure-active-directory-b2c-to-protect-on-premises-applications-using-f5-big-ip"></a>Tutoriel : Étendre Azure Active Directory B2C pour protéger les applications locales à l’aide de F5 BIG-IP
 
@@ -146,7 +146,7 @@ Ce tutoriel est basé sur Guided Configuration v.7/8, mais il peut également s
 ### <a name="ssl-profiles"></a>Profils SSL
 
 La configuration de votre instance BIG-IP avec un profil SSL client vous permettra de sécuriser le trafic côté client via TLS. Pour ce faire, vous devez importer un certificat correspondant au nom de domaine utilisé par l’URL publique de votre application. Dans la mesure du possible, nous vous recommandons d’utiliser une autorité de certification publique, mais les certificats auto-signés BIG-IP intégrés peuvent également être utilisés lors des tests.
-[Ajoutez et gérez des certificats](https://techdocs.f5.com/kb/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-0-0.html) dans BIG-IP VE.
+[Ajoutez et gérez des certificats](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-0-0.html) dans BIG-IP VE.
 
 ## <a name="guided-configuration"></a>Configuration guidée
 
@@ -427,4 +427,4 @@ Les journaux de votre application peuvent alors vous aider à comprendre si elle
   
   5. Enfin, sélectionnez l’option jaune **Apply Access Policy (Appliquer la stratégie d’accès)** dans le coin supérieur gauche, située à côté du logo F5. Appliquez ces paramètres, puis sélectionnez à nouveau **Apply (Appliquer)** pour actualiser la liste des profils d’accès.
 
-Consultez l’aide fournie par F5 pour connaître d’autres [astuces de dépannage du client OAuth et du serveur de ressources](https://techdocs.f5.com/bigip-16-1-0/big-ip-access-policy-manager-oauth-configuration/apm-oauth-client-and-resource-server.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2).
+Consultez l’aide fournie par F5 pour connaître d’autres [astuces de dépannage du client OAuth et du serveur de ressources](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-oauth-configuration-14-1-0/apm-oauth-client-and-resource-server.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2).

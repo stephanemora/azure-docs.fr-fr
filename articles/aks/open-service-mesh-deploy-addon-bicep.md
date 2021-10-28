@@ -6,20 +6,20 @@ ms.topic: article
 ms.date: 9/20/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
-ms.openlocfilehash: 2096176c64781e99161188ce66b7dd87d226278e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f479a05fb305887d5e901ca236cb0183d4a2d87b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602478"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227299"
 ---
 # <a name="deploy-open-service-mesh-osm-azure-kubernetes-service-aks-add-on-using-bicep"></a>Déployer le module complémentaire Open Service Mesh (OSM) Azure Kubernetes Service (AKS) à l’aide de Bicep
 
-Cet article explique comment déployer le module complémentaire OSM sur AKS à l’aide d’un modèle [Bicep](/azure/azure-resource-manager/bicep/).
+Cet article explique comment déployer le module complémentaire OSM sur AKS à l’aide d’un modèle [Bicep](../azure-resource-manager/bicep/index.yml).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-[Bicep](/azure/azure-resource-manager/bicep/overview) est un langage spécifique à un domaine (DSL) qui utilise la syntaxe déclarative pour déployer des ressources Azure. Bicep peut être utilisé à la place de la création de modèles [ARM](/azure/azure-resource-manager/templates/overview) pour déployer vos ressources Azure infrastructure-as-code.
+[Bicep](../azure-resource-manager/bicep/overview.md) est un langage spécifique à un domaine (DSL) qui utilise la syntaxe déclarative pour déployer des ressources Azure. Bicep peut être utilisé à la place de la création de modèles [ARM](../azure-resource-manager/templates/overview.md) pour déployer vos ressources Azure infrastructure-as-code.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -28,7 +28,7 @@ Cet article explique comment déployer le module complémentaire OSM sur AKS à 
 - OSM, version 1.9.0 ou ultérieure
 - Une clé publique SSH utilisée pour le déploiement d’AKS
 - [Visual Studio Code](https://code.visualstudio.com/) utilisant un terminal Bash
-- L’[extension Bicep](/azure/azure-resource-manager/bicep/install) pour Visual Studio Code
+- L’[extension Bicep](../azure-resource-manager/bicep/install.md) pour Visual Studio Code
 
 ## <a name="install-the-aks-preview-extension"></a>Installer l’extension aks-preview
 
@@ -66,7 +66,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="install-the-osm-aks-add-on-for-a-new-aks-cluster-using-bicep"></a>Installer le module complémentaire OSM AKS pour un nouveau cluster AKS à l’aide de Bicep
 
-Pour le scénario de déploiement d’un nouveau cluster AKS, commencez par un tout nouveau déploiement de cluster AKS avec le module complémentaire OSM activé lors de l’opération de création du cluster. Les instructions suivantes utilisent un modèle Bicep générique qui déploie un cluster AKS en utilisant des disques éphémères, en utilisant le CNI [`kubenet`](/azure/aks/configure-kubenet) et en activant le module complémentaire AKS OSM. Pour des scénarios de déploiement plus avancés, consultez la documentation de [Bicep](/azure/azure-resource-manager/bicep/overview).
+Pour le scénario de déploiement d’un nouveau cluster AKS, commencez par un tout nouveau déploiement de cluster AKS avec le module complémentaire OSM activé lors de l’opération de création du cluster. Les instructions suivantes utilisent un modèle Bicep générique qui déploie un cluster AKS en utilisant des disques éphémères, en utilisant le CNI [`kubenet`](./configure-kubenet.md) et en activant le module complémentaire AKS OSM. Pour des scénarios de déploiement plus avancés, consultez la documentation de [Bicep](../azure-resource-manager/bicep/overview.md).
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 

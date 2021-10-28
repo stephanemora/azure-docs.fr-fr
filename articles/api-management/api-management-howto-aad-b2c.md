@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: how-to
 ms.date: 09/28/2021
 ms.author: danlep
-ms.openlocfilehash: 553f7ce69d63ceebcdaacc3b29b0abc2a01987f7
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 3fa10f238b3047b97e5d4d4c8c472010cfff883b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984551"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222530"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory B2C dans Gestion des API Azure
 
@@ -116,7 +116,7 @@ Le widget **Formulaire d’inscription : OAuth** représente un formulaire util
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 > [!NOTE]
-> Pour intégrer correctement B2C à l’ancien portail des développeurs, utilisez les flux d’utilisateurs **standard v1** avec la [réinitialisation de mot de passe](/azure/active-directory-b2c/user-flow-self-service-password-reset) avant l’inscription/la connexion à un compte de développeur via Azure Active Directory B2C. 
+> Pour intégrer correctement B2C à l’ancien portail des développeurs, utilisez les flux d’utilisateurs **standard v1** avec la [réinitialisation de mot de passe](../active-directory-b2c/add-password-reset-policy.md) avant l’inscription/la connexion à un compte de développeur via Azure Active Directory B2C. 
 
 1. Ouvrez une nouvelle fenêtre de navigateur et accédez à l’ancien portail des développeurs. Cliquez sur le bouton **S’inscrire**.
 

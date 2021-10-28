@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2021
 ms.author: allensu
-ms.openlocfilehash: 380fc6e56cab49056e148a3ca14c8973a0539c6d
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a076c0af631a6f75dbab788cd3aac82ecd9722b7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368387"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251240"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configurer une préférence de routage pour une adresse IP publique à l’aide d’Azure CLI
 
@@ -64,9 +64,9 @@ az network public-ip create \
 > [!NOTE]
 >  La préférence de routage ne prend actuellement en charge que les adresses IP publiques IPV4.
 
-Vous pouvez associer l’adresse IP publique créée ci-dessus à une machine virtuelle [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Utilisez la section CLI sur la page du tutoriel : [Associez une adresse IP publique à une machine virtuelle](../../virtual-network/associate-public-ip-address-vm.md#azure-cli) pour associer l’adresse IP publique à votre machine virtuelle. Vous pouvez associer l’adresse IP publique créée ci-dessus avec un [équilibreur de charge Azure](../../load-balancer/load-balancer-overview.md) en l’assignant à la configuration **frontale** de l’équilibreur de charge. L’adresse IP publique sert d’adresse IP virtuelle (VIP) à charge équilibrée.
+Vous pouvez associer l’adresse IP publique créée ci-dessus à une machine virtuelle [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Utilisez la section CLI sur la page du tutoriel : [Associez une adresse IP publique à une machine virtuelle](./associate-public-ip-address-vm.md#azure-cli) pour associer l’adresse IP publique à votre machine virtuelle. Vous pouvez associer l’adresse IP publique créée ci-dessus avec un [équilibreur de charge Azure](../../load-balancer/load-balancer-overview.md) en l’assignant à la configuration **frontale** de l’équilibreur de charge. L’adresse IP publique sert d’adresse IP virtuelle (VIP) à charge équilibrée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur la [préférence de routage dans les adresses IP publiques](routing-preference-overview.md). 
-- [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure CLI](../../virtual-network/configure-routing-preference-virtual-machine-cli.md).
+- [Configurer la préférence de routage pour une machine virtuelle à l’aide d’Azure CLI](./configure-routing-preference-virtual-machine-cli.md).

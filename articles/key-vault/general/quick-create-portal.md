@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 12/08/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 93c0c77ad36be82802fd53e4130e48ac431b0280
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 592d97c832f950bbf5a90e4c5b97c25598e71d58
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819283"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228604"
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Démarrage rapide : Créer un coffre de clés avec le portail Azure
 
@@ -52,7 +52,7 @@ Notez les deux propriétés ci-dessous :
 
 À ce stade, votre compte Azure est le seul autorisé à effectuer des opérations sur ce nouveau coffre.
 
-![Sortie après la création du coffre de clés](../media/quick-create-portal/vault-properties.png)
+:::image type="content" source="../media/quick-create-portal/vault-properties.png" alt-text="Sortie après la création du coffre de clés":::
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

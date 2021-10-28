@@ -5,12 +5,12 @@ author: joshuawaddell
 ms.author: jowaddel
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.openlocfilehash: e9ec55ac41cb30a902b337184cc75a4f976700bf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 9afa64e394c9b7daee4d81a3d995f1b383a02fc7
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128700952"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216349"
 ---
 # <a name="migrate-to-bicep"></a>Migrer vers Bicep
 
@@ -46,7 +46,7 @@ La phase de migration se compose de trois étapes, que vous effectuez dans l’o
 
 1. **Copier chaque ressource depuis votre modèle décompilé.** Copiez chaque ressource individuellement depuis le fichier Bicep converti vers le nouveau fichier Bicep. Ce processus vous aide à résoudre les éventuels problèmes pour chaque ressource et à éviter toute confusion quand la taille de votre modèle s’accroît.
 
-1. **Identifier et recréer les ressources manquantes.** Tous les types de ressources Azure ne peuvent pas être exportés via le portail Azure, Azure CLI ou Azure PowerShell. Par exemple, les extensions de machine virtuelle, comme DependencyAgentWindows et MMAExtension (Microsoft Monitoring Agent), ne sont pas des types de ressources pris en charge pour l’exportation. Pour les ressources qui n’ont pas été exportées, comme les extensions de machine virtuelle, vous devez recréer ces ressources dans votre nouveau fichier Bicep. Il existe plusieurs outils et approches que vous pouvez utiliser pour recréer des ressources, notamment [Azure Resource Explorer](/azure/azure-resource-manager/templates/view-resources?azure-portal=true#use-resource-explorer), la [documentation de référence sur les modèles Bicep et ARM](/azure/templates/?azure-portal=true) et le site [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates?azure-portal=true).
+1. **Identifier et recréer les ressources manquantes.** Tous les types de ressources Azure ne peuvent pas être exportés via le portail Azure, Azure CLI ou Azure PowerShell. Par exemple, les extensions de machine virtuelle, comme DependencyAgentWindows et MMAExtension (Microsoft Monitoring Agent), ne sont pas des types de ressources pris en charge pour l’exportation. Pour les ressources qui n’ont pas été exportées, comme les extensions de machine virtuelle, vous devez recréer ces ressources dans votre nouveau fichier Bicep. Il existe plusieurs outils et approches que vous pouvez utiliser pour recréer des ressources, notamment [Azure Resource Explorer](../templates/export-template-portal.md?azure-portal=true), la [documentation de référence sur les modèles Bicep et ARM](/azure/templates/?azure-portal=true) et le site [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates?azure-portal=true).
 
 ## <a name="phase-3-refactor"></a>Phase 3 : Refactorisation
 

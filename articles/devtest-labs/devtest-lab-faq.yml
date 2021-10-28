@@ -6,12 +6,12 @@ metadata:
   ms.service: azure
   ms.date: 07/17/2020
   ms.custom: devx-track-azurepowershell, references_regions
-  ms.openlocfilehash: 55a8c385479b5a14407e07288d61ff9cd1eb21a5
-  ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+  ms.openlocfilehash: 1bd63686c5dc726a238723991132e93c1b13863c
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/24/2021
-  ms.locfileid: "128650455"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130226411"
 title: FAQ d’Azure DevTest Labs
 summary: "\nObtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.\n\n## <a name=\"blog-post\"></a>Billet de blog\nNotre blog de l'équipe DevTest Labs est fermé depuis 20 mars 2019. \n\n### <a name=\"where-can-i-track-feature-updates-from-now-on\"></a>Où puis-je suivre les mises à jour des fonctionnalités à présent ?\nÀ partir de maintenant, nous publierons des mises à jour de fonctionnalités et des billets de blog informatifs sur le blog Azure et le site Mises à jour Azure. Ces billets de blog contiendront également des liens vers notre documentation si nécessaire.\n        \nAbonnez-vous au [Blog Azure DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) et aux mises à jour [Azure DevTest Labs](https://azure.microsoft.com/updates/?product=devtest-lab) pour rester informé sur les nouvelles fonctionnalités dans DevTest Labs.\n        \n### <a name=\"what-happens-to-the-existing-blog-posts\"></a>Qu’advidendra-t-il des billets de blog existants ?\nNous travaillons actuellement sur la migration des billets de blog existants (à l’exclusion des informations relatives aux pannes et autres défaillances) vers notre [Documentation DevTest Labs](devtest-lab-overview.md). Lorsque le blog MSDN sera obsolète, il redirigera vers la documentation DevTest Labs. Une fois redirigé, vous pouvez rechercher le titre de l’article de votre choix en utilisant le champ « Filtrer par titre ». Nous n’avons pas encore migré tous les billets pour le moment, mais nous devrions avoir terminé cette opération d’ici la fin du mois. \n        \n### <a name=\"where-do-i-see-outage-updates\"></a>Où voir les informations relatives aux pannes et autres défaillances ?\nDésormais, nous publierons ces informations sur notre compte Twitter. Suivez-nous sur Twitter pour obtenir les dernières informations relatives aux pannes et autres défaillances connues.\n\n### <a name=\"twitter\"></a>Twitter\nNotre compte Twitter : [@azlabservices](https://twitter.com/azlabservices)\n"
 sections:
@@ -215,7 +215,7 @@ sections:
 
       - Vous pouvez utiliser [l’extension Azure DevOps Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-      - Vous pouvez [générer un modèle Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) quand vous créez une machine virtuelle et [déployer le modèle Resource Manager à partir de Windows PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
+      - Vous pouvez [générer un modèle Resource Manager](devtest-lab-add-vm.md#create-and-add-virtual-machines) quand vous créez une machine virtuelle et [déployer le modèle Resource Manager à partir de Windows PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
       - Vous pouvez également spécifier plusieurs instances d'une machine à créer pendant la création d’une machine virtuelle. Pour en savoir plus sur la création de plusieurs instances de machines virtuelles, consultez la documentation sur la [Création d’une machine virtuelle de laboratoire](devtest-lab-add-vm.md).
   - question: >

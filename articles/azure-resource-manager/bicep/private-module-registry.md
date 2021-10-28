@@ -2,13 +2,13 @@
 title: Créer un registre privé pour le module Bicep
 description: Découvrez comment configurer un registre de conteneurs Azure pour les modules Bicep privés
 ms.topic: conceptual
-ms.date: 10/14/2021
-ms.openlocfilehash: ccdb8685fe230f19e31ce2802f7c9fc54a33a8a0
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.date: 10/22/2021
+ms.openlocfilehash: 1f14b29fb9d6740d661f74328c82758a74427355
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138718"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224065"
 ---
 # <a name="create-private-registry-for-bicep-modules-preview"></a>Créer un registre privé pour les modules Bicep (préversion)
 
@@ -73,5 +73,5 @@ Vous êtes maintenant prêt à référencer le fichier dans le registre à parti
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur les modules, consultez [Modules Bicep](modules.md).
-* Pour configurer des alias pour un registre de module, consultez [Ajouter des paramètres personnalisés dans le fichier de configuration Bicep](private-module-registry.md).
+* Pour configurer des alias pour un registre de module, consultez [Ajouter des paramètres personnalisés dans le fichier de configuration Bicep](bicep-config.md).
 * Pour plus d’informations sur la publication et la restauration des modules, consultez [Commandes CLI Bicep](bicep-cli.md).

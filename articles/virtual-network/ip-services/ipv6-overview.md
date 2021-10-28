@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: allensu
-ms.openlocfilehash: 372953e9a2a11cbb614cc6afd6ccde629344e0c2
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: beaa5df1d0a8e8537574e6e1e6284272d3a8a294
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130132775"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130261231"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ?
 
@@ -51,17 +51,17 @@ IPv6 pour les réseaux virtuels Azure inclut les fonctionnalités suivantes :
     - Et les protections de déni de service distribué (DDoS) de la plateforme Azure sont étendues aux adresses IP publiques accessibles sur Internet
 - Possibilité de personnaliser le routage du trafic IPv6 dans votre réseau virtuel avec des itinéraires définis par l’utilisateur, en particulier lorsque vous utilisez des appliances virtuelles réseau pour augmenter votre application.
 - Les machines virtuelles Linux et Windows peuvent toutes utiliser le protocole IPv6 pour les réseaux virtuels Azure
-- Prise en charge de l'[équilibreur de charge public IPv6 standard](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) pour créer des applications extensibles résilientes, à savoir :
+- Prise en charge de l'[équilibreur de charge public IPv6 standard](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) pour créer des applications extensibles résilientes, à savoir :
     - Sonde d’intégrité IPv6 en option pour déterminer quelles instances de pool back-end sont intègres et donc en état de recevoir de nouveaux flux.
     - Règles de trafic sortant fournissant un contrôle déclaratif complet sur la connectivité sortante pour mettre à l’échelle et adapter cette fonctionnalité en fonction de vos besoins spécifiques.
     - Configurations front-end facultatives qui permettent à un même équilibreur de charge d’utiliser plusieurs adresses IP publiques IPv6. Les mêmes protocole et port frontal peuvent être réutilisés pour plusieurs adresses front-end.
     - Les ports IPv6 facultatifs peuvent être réutilisés sur des instances principales à l’aide de la fonctionnalité *IP flottante* des règles d’équilibrage de charge 
     - Remarque : L’équilibrage de charge n’effectue aucune traduction de protocole (pas de NAT64). 
-- [L'équilibreur de charge interne IPv6 Standard](../../virtual-network/ipv6-dual-stack-standard-internal-load-balancer-powershell.md) prend en charge la création d'applications multiniveau résilientes dans des réseaux virtuels Azure.   
+- [L'équilibreur de charge interne IPv6 Standard](../../load-balancer/ipv6-dual-stack-standard-internal-load-balancer-powershell.md) prend en charge la création d'applications multiniveau résilientes dans des réseaux virtuels Azure.   
 - Prise en charge de l'équilibreur de charge public IPv6 De base pour assurer la compatibilité avec des déploiements hérités
 - [Les adresses et plages d’adresses IP publiques IPv6 réservées](public-ip-address-prefix.md) fournissent des adresses IPv6 stables et prévisibles qui facilitent le filtrage de vos applications hébergées par Azure pour votre entreprise et vos clients.
 - Une adresse IP publique de niveau d’instance fournit une connectivité Internet IPv6 directement aux machines virtuelles individuelles.
-- [Ajouter IPv6 à des déploiements uniquement IPv4 existants](../../virtual-network/ipv6-add-to-existing-vnet-powershell.md) : cette fonctionnalité vous permet d’ajouter facilement une connectivité IPv6 à des déploiements uniquement IPv4 existants sans avoir à recréer de déploiements.  Le trafic réseau IPv4 n’étant pas affecté au cours de ce processus, en fonction de votre application et du système d’exploitation, vous pouvez ajouter le protocole IPv6 même à des services en direct.    
+- [Ajouter IPv6 à des déploiements uniquement IPv4 existants](../../load-balancer/ipv6-add-to-existing-vnet-powershell.md) : cette fonctionnalité vous permet d’ajouter facilement une connectivité IPv6 à des déploiements uniquement IPv4 existants sans avoir à recréer de déploiements.  Le trafic réseau IPv4 n’étant pas affecté au cours de ce processus, en fonction de votre application et du système d’exploitation, vous pouvez ajouter le protocole IPv6 même à des services en direct.    
 - Accordez aux clients Internet un accès fluide à votre application à double pile à l’aide du protocole de leur choix avec la prise en charge d’Azure DNS pour les enregistrements (AAAA) IPv6. 
 - Créez des applications double pile dont l’échelle s’adapte automatiquement à votre charge à l’aide de groupes de machines virtuelles identiques avec IPv6.
 - Un [appairage de réseaux virtuels](../../virtual-network/virtual-network-peering-overview.md), tant au sein d’une région qu’à l’échelle globale, vous permet de connecter sans problème des réseaux virtuels double pile. Les points de terminaison IPv4 et IPv6 sur les machines virtuelles dans les réseaux appairés pourront communiquer entre eux. Vous pouvez même effectuer un appairage double pile avec des réseaux virtuels uniquement IPv4 lorsque vous opérez la transition de vos déploiements vers le mode double pile. 
@@ -87,6 +87,6 @@ Les ressources et la bande passante du protocole IPv6 Azure sont facturées au m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [déployer une application double pile IPv6 dans Azure PowerShell](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
-- Découvrez comment [déployer une application double pile IPv6 à l’aide d’Azure CLI](../../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
-- Découvrez comment [déployer une application IPv6 double pile à l’aide de modèles de Gestionnaire des ressources (JSON)](../../virtual-network/ipv6-configure-standard-load-balancer-template-json.md)
+- Découvrez comment [déployer une application double pile IPv6 dans Azure PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
+- Découvrez comment [déployer une application double pile IPv6 à l’aide d’Azure CLI](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).
+- Découvrez comment [déployer une application IPv6 double pile à l’aide de modèles de Gestionnaire des ressources (JSON)](../../load-balancer/ipv6-configure-standard-load-balancer-template-json.md)

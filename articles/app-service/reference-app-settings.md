@@ -3,12 +3,12 @@ title: Informations de référence sur les variables d’environnement et les pa
 description: Décrit les variables d’environnement couramment utilisées et celles qui peuvent être modifiées à l’aide des paramètres de l’application.
 ms.topic: article
 ms.date: 06/14/2021
-ms.openlocfilehash: 3a51f620cefef67e8e2cd2256ad6dba19b915bf4
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: d945b34eb4803da8d94f4cdcfc8a998212e24afa
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005126"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224353"
 ---
 # <a name="environment-variables-and-app-settings-in-azure-app-service"></a>Variables d’environnement et paramètres d’application dans Azure App Service
 
@@ -270,7 +270,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 | Nom du paramètre| Description | Exemple |
 |-|-|-|
-| `WEBSITE_DNS_SERVER` | Adresse IP du serveur DNS principal pour les connexions sortantes (par exemple, vers un service principal). Le serveur DNS par défaut pour App Service est Azure DNS, dont l’adresse IP est `168.63.129.16`. Si votre application utilise l’[intégration au réseau virtuel](web-sites-integrate-with-vnet.md) ou se trouve dans un [environnement App Service](environment/intro.md), elle hérite par défaut de la configuration du serveur DNS du réseau virtuel. | `10.0.0.1` |
+| `WEBSITE_DNS_SERVER` | Adresse IP du serveur DNS principal pour les connexions sortantes (par exemple, vers un service principal). Le serveur DNS par défaut pour App Service est Azure DNS, dont l’adresse IP est `168.63.129.16`. Si votre application utilise l’[intégration au réseau virtuel](./overview-vnet-integration.md) ou se trouve dans un [environnement App Service](environment/intro.md), elle hérite par défaut de la configuration du serveur DNS du réseau virtuel. | `10.0.0.1` |
 | `WEBSITE_DNS_ALT_SERVER` | Adresse IP du serveur DNS de secours pour les connexions sortantes. Consultez `WEBSITE_DNS_SERVER`. | |
 
 <!-- 
@@ -429,14 +429,14 @@ NEGOTIATE_CLIENT_CERT
 
 ## <a name="networking"></a>Mise en réseau
 
-Les variables d’environnement suivantes sont liées aux [connexions hybrides](app-service-hybrid-connections.md) et à l’[intégration au réseau virtuel](web-sites-integrate-with-vnet.md).
+Les variables d’environnement suivantes sont liées aux [connexions hybrides](app-service-hybrid-connections.md) et à l’[intégration au réseau virtuel](./overview-vnet-integration.md).
 
 | Nom du paramètre | Description |
 |-|-|
 | `WEBSITE_RELAYS` | Lecture seule. Données nécessaires à la configuration de la connexion hybride, notamment les points de terminaison et les données du bus de service. |
 | `WEBSITE_REWRITE_TABLE` | Lecture seule. Utilisé lors de l’exécution pour effectuer les recherches et réécrire les connexions de manière appropriée. | 
-| `WEBSITE_VNET_ROUTE_ALL` | Par défaut, si vous utilisez l’[intégration au réseau virtuel régional](web-sites-integrate-with-vnet.md#regional-vnet-integration), votre application achemine uniquement le trafic RFC1918 vers votre réseau virtuel. Définissez la valeur `1` pour acheminer tout le trafic sortant vers votre réseau virtuel et être soumis aux mêmes groupes de sécurité réseau et itinéraires définis par l’utilisateur. Ce paramètre vous permet d’accéder à des points de terminaison non RFC1918 via votre réseau virtuel, de sécuriser tout le trafic sortant quittant votre application et de forcer le tunneling de tout le trafic sortant vers une appliance réseau de votre choix. |
-| `WEBSITE_PRIVATE_IP` | Lecture seule. Adresse IP associée à l’application lorsqu’elle est [intégrée à un réseau virtuel](web-sites-integrate-with-vnet.md). Pour l’intégration au réseau virtuel régional, la valeur est une adresse IP de la plage d’adresses du sous-réseau délégué et, pour l’intégration au réseau virtuel avec passerelle obligatoire, la valeur est une adresse IP de la plage d’adresses du pool d’adresses point à site configuré sur la passerelle de réseau virtuel. Cette adresse IP est utilisée par l’application pour se connecter aux ressources via le réseau virtuel. Elle peut également changer dans la plage d’adresses décrite. |
+| `WEBSITE_VNET_ROUTE_ALL` | Par défaut, si vous utilisez l’[intégration au réseau virtuel régional](./overview-vnet-integration.md#regional-vnet-integration), votre application achemine uniquement le trafic RFC1918 vers votre réseau virtuel. Définissez la valeur `1` pour acheminer tout le trafic sortant vers votre réseau virtuel et être soumis aux mêmes groupes de sécurité réseau et itinéraires définis par l’utilisateur. Ce paramètre vous permet d’accéder à des points de terminaison non RFC1918 via votre réseau virtuel, de sécuriser tout le trafic sortant quittant votre application et de forcer le tunneling de tout le trafic sortant vers une appliance réseau de votre choix. |
+| `WEBSITE_PRIVATE_IP` | Lecture seule. Adresse IP associée à l’application lorsqu’elle est [intégrée à un réseau virtuel](./overview-vnet-integration.md). Pour l’intégration au réseau virtuel régional, la valeur est une adresse IP de la plage d’adresses du sous-réseau délégué et, pour l’intégration au réseau virtuel avec passerelle obligatoire, la valeur est une adresse IP de la plage d’adresses du pool d’adresses point à site configuré sur la passerelle de réseau virtuel. Cette adresse IP est utilisée par l’application pour se connecter aux ressources via le réseau virtuel. Elle peut également changer dans la plage d’adresses décrite. |
 | `WEBSITE_PRIVATE_PORTS` | Lecture seule. Dans l’intégration au réseau virtuel, indique les ports que l’application peut utiliser pour communiquer avec d’autres nœuds. |
 
 <!-- | WEBSITE_SLOT_POLL_WORKER_FOR_CHANGE_NOTIFICATION | Poll worker before pinging the site to detect when change notification has been processed. |

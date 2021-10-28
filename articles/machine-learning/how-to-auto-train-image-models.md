@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.custom: automl
 ms.date: 10/06/2021
-ms.openlocfilehash: 944bab251d8e98da94a8d2e9d13418478e2dd46c
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 312eea28371de6726bca5d1a89e305024e552dad
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007370"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254362"
 ---
 # <a name="set-up-automl-to-train-computer-vision-models-with-python-preview"></a>Configurer AutoML pour entraîner des modèles de vision par ordinateur avec Python (préversion)
 
@@ -63,7 +63,7 @@ automl_image_config = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETECTION)
 
 ## <a name="training-and-validation-data"></a>Données de formation et de validation
 
-Pour générer des modèles de vision par ordinateur, vous devez apporter les données d’image étiquetées comme entrées pour l’entraînement de modèles sous la forme d’un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) Azure Machine Learning. Vous pouvez utiliser soit un `TabularDataset` que vous avez [exporté à partir d’un projet d’étiquetage de données](how-to-create-labeling-projects.md#export-the-labels), soit créer un nouveau `TabularDataset` avec vos données d’entraînement étiquetées. 
+Pour générer des modèles de vision par ordinateur, vous devez apporter les données d’image étiquetées comme entrées pour l’entraînement de modèles sous la forme d’un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) Azure Machine Learning. Vous pouvez utiliser soit un `TabularDataset` que vous avez [exporté à partir d’un projet d’étiquetage de données](./how-to-create-image-labeling-projects.md#export-the-labels), soit créer un nouveau `TabularDataset` avec vos données d’entraînement étiquetées. 
 
 Si vos données d’entraînement sont dans un autre format (par exemple, pascal VOC ou COCO), vous pouvez appliquer les scripts d’assistance inclus avec les exemples de notebook pour convertir les données en JSONL. En savoir plus sur la [préparation des données pour les tâches de vision par ordinateur avec le ML automatisé](how-to-prepare-datasets-for-automl-images.md). 
 
@@ -513,4 +513,4 @@ Passez en revue les exemples de code détaillé et les cas d’usage disponibles
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Tutoriel : Entraîner un modèle de détection d’objet (préversion) avec AutoML et Python](tutorial-auto-train-image-models.md).
-* [Résoudre les problèmes d’expériences de ML automatisé](how-to-troubleshoot-auto-ml.md). 
+* [Résoudre les problèmes d’expériences de ML automatisé](how-to-troubleshoot-auto-ml.md).

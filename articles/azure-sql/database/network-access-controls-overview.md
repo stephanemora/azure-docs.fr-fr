@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 1640cfae4925c1ef3699ea72778e392e4249db9b
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: 970e20135fab85cbcc6c67a7add1ca7527cefba6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110666598"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260433"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Azure Synapse Analytics
 
@@ -131,7 +131,7 @@ Apprenez à connaître les termes de réseau suivants d’Azure Networking quand
 
 Le pare-feu Azure SQL Database permet de spécifier des plages d’adresses IP à partir desquelles les communications sont acceptées dans SQL Database. Cette approche est indiquée pour les adresses IP stables qui se trouvent en dehors du réseau privé Azure. Toutefois, les machines virtuelles à l’intérieur du réseau privé Azure sont configurées avec des adresses IP *dynamiques*. Les adresses IP dynamiques peuvent changer lorsque votre machine virtuelle est redémarrée et ainsi invalider la règle de pare-feu basée sur IP. Spécifier une adresse IP dynamique dans une règle de pare-feu au sein d’un environnement de production serait inimaginable.
 
-Vous pouvez contourner cette limitation en obtenant une adresse IP *statique* pour votre machine virtuelle. Pour plus de détails, consultez [Créer une machine virtuelle avec une adresse IP publique statique à partir du portail Azure](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md). L’approche des IP statiques peut toutefois devenir difficile à gérer, et s’avère coûteuse quand elle est appliquée à grande échelle.
+Vous pouvez contourner cette limitation en obtenant une adresse IP *statique* pour votre machine virtuelle. Pour plus de détails, consultez [Créer une machine virtuelle avec une adresse IP publique statique à partir du portail Azure](../../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md). L’approche des IP statiques peut toutefois devenir difficile à gérer, et s’avère coûteuse quand elle est appliquée à grande échelle.
 
 Les règles de réseau virtuel constituent une alternative plus facile pour établir et gérer l’accès à partir d’un sous-réseau spécifique qui contient vos machines virtuelles.
 

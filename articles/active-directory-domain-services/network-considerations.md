@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/12/2021
 ms.author: justinha
-ms.openlocfilehash: 533d663b478ddd362ef18f81528afbe1b9393095
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: 841d3b0db01938f42f56931bb370e25afe1651a6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122563443"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216955"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure Active Directory Domain Services
 
@@ -94,7 +94,7 @@ Un domaine managé crée des ressources réseau au cours du déploiement. Ces re
 | Ressource Azure                          | Description |
 |:----------------------------------------|:---|
 | Cartes d'interface réseau                  | Azure AD DS héberge le domaine managé sur deux contrôleurs de domaine (DC) qui s’exécutent sur Windows Server en tant que machines virtuelles Azure. Chaque machine virtuelle dispose d’une interface réseau virtuelle qui se connecte à votre sous-réseau de réseau virtuel. |
-| Adresse IP publique standard dynamique      | Azure AD DS communique avec le service de synchronisation et de gestion à l’aide d’une adresse IP publique de référence SKU standard. Pour plus d’informations sur les adresse IP publique, consultez la page [Types d’adresses IP et méthodes d’allocation dans Azure](../virtual-network/public-ip-addresses.md). |
+| Adresse IP publique standard dynamique      | Azure AD DS communique avec le service de synchronisation et de gestion à l’aide d’une adresse IP publique de référence SKU standard. Pour plus d’informations sur les adresse IP publique, consultez la page [Types d’adresses IP et méthodes d’allocation dans Azure](../virtual-network/ip-services/public-ip-addresses.md). |
 | Azure Standard Load Balancer            | Azure AD DS utilise un équilibreur de charge de référence SKU standard pour la traduction d’adresses réseau (NAT) et l’équilibrage de charge (en cas d’utilisation avec le protocole LDAP sécurisé). Pour plus d’informations sur les équilibreurs de charge Azure, consultez [Qu’est-ce que Azure Load Balancer ?](../load-balancer/load-balancer-overview.md) |
 | Règles de traduction d’adresses réseau (NAT) | Azure AD DS crée et utilise les règles NAT de trafic entrant sur l’équilibreur de charge pour une communication à distance PowerShell sécurisée. Si un équilibreur de charge de référence SKU standard est utilisé, il aura également une règle NAT sortante. Pour l’équilibreur de charge de référence SKU de base, aucune règle NAT sortante n’est requise. |
 | Règles d'équilibrage de charge                     | Quand un domaine managé est configuré pour le LDAP sécurisé sur le port TCP 636, trois règles sont créées et utilisées sur un équilibreur de charge pour répartir le trafic. |

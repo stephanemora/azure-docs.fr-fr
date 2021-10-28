@@ -8,12 +8,12 @@ ms.date: 07/16/2021
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c6e66487211ed3928f393bb028ae9f4c06e3b0eb
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.openlocfilehash: b4274144e8437bd47adad0854fec5c3ed9550ffb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129403163"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229405"
 ---
 # <a name="virtual-network-configuration-for-an-azure-ssis-integration-runtime"></a>Configuration de réseau virtuel pour un runtime d’intégration Azure-SSIS
 
@@ -69,7 +69,7 @@ Si vous voulez apporter vos propres adresses IP publiques statiques pour Azure-S
 
 - Vous devez en fournir exactement deux non utilisées qui ne soient pas déjà associées à d’autres ressources Azure. L’adresse supplémentaire est utilisée lors de la mise à niveau régulière de votre Azure-SSIS IR. Notez qu’une adresse IP publique ne peut pas être partagée parmi vos instances Azure-SSIS IR actives.
 
-- Il doit s’agir de deux adresses statiques de type standard. Pour plus d’informations, reportez-vous à [SKU d’adresse IP publique](../virtual-network/public-ip-addresses.md#sku).
+- Il doit s’agir de deux adresses statiques de type standard. Pour plus d’informations, reportez-vous à [SKU d’adresse IP publique](../virtual-network/ip-services/public-ip-addresses.md#sku).
 
 - Toutes deux doivent avoir un nom DNS. Si vous n’avez pas fourni de nom DNS lors de leur création, vous pouvez le faire sur le portail Azure.
 
@@ -273,4 +273,3 @@ Pour plus d’informations sur le runtime d’intégration Azure-SSIS IR, voir l
 - [Créez un runtime d’intégration Azure-SSIS IR](create-azure-ssis-integration-runtime.md). Cet article s’appuie sur le didacticiel. Il fournit des instructions sur l’utilisation d’Azure SQL Database avec des points de terminaison de service de réseau virtuel ou SQL Managed Instance dans un réseau virtuel pour héberger le catalogue SSIS. Il explique comment joindre votre runtime d’intégration Azure-SSIS IR à un réseau virtuel. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Surveiller le runtime d’intégration Azure-SSIS). Cet article vous montre comment obtenir des informations sur votre runtime d’intégration Azure-SSIS IR. Il fournit des descriptions sur l’état des informations renvoyées. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer votre Azure-SSIS IR. Il vous montre également comment effectuer un scale-out du runtime d’intégration Azure-SSIS en lui ajoutant des nœuds.
-

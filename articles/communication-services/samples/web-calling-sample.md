@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.openlocfilehash: da09d05650c231abf2e8a6e30440ba17982ae248
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 394181c73b2282dfa5b4cada49a0ba31cedc5ae9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671561"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130255733"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Bien démarrer avec l’exemple d’appel web
 
@@ -84,7 +84,7 @@ Cet exemple fournit également des extraits de code pour les fonctionnalités su
 
 Pour plus d’informations, consultez les articles suivants :
 
-- Familiarisez-vous avec l’[utilisation du SDK Calling](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarisez-vous avec l’[utilisation du SDK Calling](../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - Apprenez-en davantage sur le [fonctionnement des appels](../concepts/voice-video-calling/about-call-types.md)
 - Lire la [documentation de référence sur les API](/javascript/api/azure-communication-services/@azure/communication-calling/)
 - Consultez l’exemple [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app).

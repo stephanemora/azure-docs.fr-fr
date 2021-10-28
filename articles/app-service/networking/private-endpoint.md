@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: da26939d6973792c237c84777daf2254ae27699d
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 8bd454d7f49b0dce46ba827c8cc5c133c56ad0d3
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105630"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227242"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilisation de points de terminaison privés pour une application web Azure
 
@@ -140,7 +140,7 @@ Nous améliorons régulièrement la fonctionnalité de liaison privée et le poi
 <!--Links-->
 [serviceendpoint]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [privatelink]: ../../private-link/private-link-overview.md
-[vnetintegrationfeature]: ../web-sites-integrate-with-vnet.md
+[vnetintegrationfeature]: ../overview-vnet-integration.md
 [disablesecuritype]: ../../private-link/disable-private-endpoint-network-policy.md
 [accessrestrictions]: ../app-service-ip-restrictions.md
 [tcpproxy]: ../../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2

@@ -12,12 +12,12 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
 zone_pivot_groups: runtime-version-programming-functions
-ms.openlocfilehash: 5ae176c8f9ebe77a40619a65464594236b94671b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 8f2c243d2dac0f223a49aacc20f988b954199fa1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128559876"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130260832"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-from-the-command-line"></a>Démarrage rapide : Créer une fonction C# dans Azure à partir de la ligne de commande
 
@@ -103,14 +103,14 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
 
     # <a name="in-process"></a>[In-process](#tab/in-process) 
 
-    ```csharp
+    ```console
     func init LocalFunctionProj --dotnet
     ```
 
     # <a name="isolated-process"></a>[Processus isolé](#tab/isolated-process)
 
-    ```csharp
-    func init LocalFunctionProj --dotnet-isolated
+    ```console
+    func init LocalFunctionProj --worker-runtime dotnet-isolated
     ```
     ---
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: 75adda39e2a36bcbe03ccc72216f274264624deb
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 188cfe09aa75d79ef4e67b705ada0a1eec549231
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128671663"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229633"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>Démarrage rapide : Ajouter l’appel vocal à votre application
 
@@ -49,5 +49,5 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 Pour plus d’informations, consultez les articles suivants :
 
 - Consultez notre [exemple de bannière d’appel](../../samples/calling-hero-sample.md).
-- Apprenez-en davantage sur les [fonctionnalités du SDK Calling](./calling-client-samples.md)
+- Apprenez-en davantage sur les [fonctionnalités du SDK Calling]()
 - Apprenez-en davantage sur le [fonctionnement des appels](../../concepts/voice-video-calling/about-call-types.md)

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 72050ff4887642ba16d52948c1c1253ca01443c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ce308871a14ee972290fca47bda8f2f677ebf0c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102473710"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217604"
 ---
 * La conversion redémarre la machine virtuelle. Par conséquent, planifiez la migration de vos machines virtuelles pendant une fenêtre de maintenance préexistante. 
 
@@ -19,6 +19,6 @@ ms.locfileid: "102473710"
 
 * Veillez à la tester. Migrez une machine virtuelle de test avant d’effectuer la migration en production.
 
-* Lors de la conversion, vous libérez la machine virtuelle. Celle-ci reçoit une nouvelle adresse IP lorsqu’elle est démarrée après la conversion. Si nécessaire, vous pouvez [affecter une adresse IP statique](../articles/virtual-network/public-ip-addresses.md) à la machine virtuelle.
+* Lors de la conversion, vous libérez la machine virtuelle. Celle-ci reçoit une nouvelle adresse IP lorsqu’elle est démarrée après la conversion. Si nécessaire, vous pouvez [affecter une adresse IP statique](../articles/virtual-network/ip-services/public-ip-addresses.md) à la machine virtuelle.
 
 * Vérifiez la version minimale nécessaire pour que l’agent de machine virtuelle Azure prenne en charge le processus de conversion. Pour savoir comment vérifier et mettre à jour la version de l’agent, consultez la page [Prise en charge de version minimale pour les agents de machine virtuelle dans Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).

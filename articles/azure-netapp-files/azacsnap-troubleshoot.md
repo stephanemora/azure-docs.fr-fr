@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/17/2021
 ms.author: phjensen
-ms.openlocfilehash: 0fb0b0fc0734cc05952457e0e6fc6dc5ff5151b2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: f44ad9257f6fbc6b8ca232964f9bee29cea57384
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614331"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256486"
 ---
 # <a name="troubleshoot-azure-application-consistent-snapshot-tool"></a>Dépanner l'outil Azure Application Consistent Snapshot
 
@@ -68,7 +68,7 @@ Vous pouvez tester la configuration correcte du Principal du service à l’aide
 
 **Solution :**
 
-1. Ouvrez une session [Cloud Shell](/azure/cloud-shell/overview) dans votre portail Azure. 
+1. Ouvrez une session [Cloud Shell](../cloud-shell/overview.md) dans votre portail Azure. 
 1. Créez un répertoire de test (par exemple `mkdir azacsnap`)
 1. Accédez au répertoire azacsnap et téléchargez la dernière version de l’outil azacsnap.
     

@@ -7,12 +7,12 @@ ms.author: dahellem
 ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: be6d4dd328d3b8cd0f02bede7bcba7b6a4e32ae9
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 41ae76350ef5483323edd0a5b244c3b64e08c674
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129534536"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130263917"
 ---
 # <a name="ingesting-opc-ua-data-with-azure-digital-twins"></a>Ingestion de données OPC UA avec Azure Digital Twins
 
@@ -61,7 +61,7 @@ Cette section vous explique comment configurer chacun de ces composants.
 
 Pour plus d’informations sur l’installation de chaque composant, consultez les ressources suivantes :
 * [Guide pas à pas pour installer OPC Publisher sur Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
-* [Installer IoT Edge sur Linux](../iot-edge/how-to-install-iot-edge.md) 
+* [Installer IoT Edge sur Linux](../iot-edge/how-to-provision-single-device-linux-symmetric.md) 
 * [OPC Publisher sur GitHub](https://github.com/Azure/iot-edge-opc-publisher)
 * [Configurer OPC Publisher](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 
@@ -163,7 +163,7 @@ Dans le [portail Azure](https://portal.azure.com), créez une machine virtuelle 
 
 #### <a name="install-iot-edge-container"></a>Installer le conteneur IoT Edge
 
-Suivez les instructions pour [installer IOT Edge sur Linux](../iot-edge/how-to-install-iot-edge.md).
+Suivez les instructions pour [installer IOT Edge sur Linux](../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 Une fois l’installation terminée, exécutez la commande suivante pour vérifier l’état de votre installation :
 
@@ -436,7 +436,7 @@ Dans cet article, vous avez configuré un flux de données complet pour transmet
 Ensuite, utilisez les ressources suivantes pour en savoir plus sur les outils et processus pris en charge qui ont été utilisés dans cet article :
 
 * [Guide pas à pas pour installer OPC Publisher sur Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
-* [Installer IoT Edge sur Linux](../iot-edge/how-to-install-iot-edge.md) 
+* [Installer IoT Edge sur Linux](../iot-edge/how-to-provision-single-device-linux-symmetric.md) 
 * [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher)
 * [Configurer OPC Publisher](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 * [UANodeSetWebViewer](https://github.com/barnstee/UANodesetWebViewer) 

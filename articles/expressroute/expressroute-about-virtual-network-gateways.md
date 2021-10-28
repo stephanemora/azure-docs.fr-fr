@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 04/23/2021
 ms.author: duau
-ms.openlocfilehash: 672fac2b33ef1d8fd9be1948d0c7da332f8ce43b
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 719ad0681e9d66828fc0e030394a2c910017a3ad
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562550"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259558"
 ---
 # <a name="about-expressroute-virtual-network-gateways"></a>À propos des passerelles de réseau virtuel ExpressRoute
 
@@ -109,11 +109,6 @@ Les passerelles redondantes interzone utilisent de nouvelles références SKU sp
 * ErGw3AZ
 
 Les nouvelles références SKU de passerelle prennent également en charge les autres options de déploiement pour mieux répondre à vos besoins. Lorsque vous créez une passerelle de réseau virtuel avec les nouvelles références SKU de passerelle, vous avez également la possibilité de déployer la passerelle dans une zone spécifique. Il s’agit alors d’une passerelle zonale. Lorsque vous déployez une passerelle zonale, les deux instances de la passerelle sont déployées dans la même zone de disponibilité.
-
-> [!IMPORTANT]
-> Si vous envisagez d’utiliser un Peering privé IPv6 sur ExpressRoute, veillez à sélectionner une référence (SKU) AZ pour la passerelle que vous déployez dans un sous-réseau de passerelle à double pile.
-> 
->
 
 ## <a name="fastpath"></a><a name="fastpath"></a>FastPath
 

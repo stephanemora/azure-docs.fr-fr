@@ -3,12 +3,12 @@ title: Créer une image personnalisée Azure DevTest Labs à partir d’un fichi
 description: Apprenez à créer une image personnalisée dans Azure DevTest Labs à partir d’un fichier de disque dur virtuel à l’aide du portail Azure
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 821a429b19218d8bb813be7519dd124cd025b3bf
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bf363d59aaeafa9e6b9b11394c846325835c1696
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128587893"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226526"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Créer une image personnalisée à partir d’un fichier de disque dur virtuel
 
@@ -69,7 +69,7 @@ Après quelques minutes, l’image personnalisée est créée et stockée dans l
 
 ## <a name="related-blog-posts"></a>Billets de blog connexes
 
-- [Custom images or formulas? (Images personnalisées ou formules ?)](/azure/devtest-labs/devtest-lab-faq#blog-post)
+- [Custom images or formulas? (Images personnalisées ou formules ?)](./devtest-lab-faq.yml#blog-post)
 - [Copying Custom Images between Azure DevTest Labs (Copie d’images personnalisées entre plusieurs Azure DevTest Labs)](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Étapes suivantes

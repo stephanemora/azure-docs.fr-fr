@@ -3,12 +3,12 @@ title: Langages pris en charge dans Azure Functions
 description: Découvrez les langues prises en charge (GA) et celles qui sont en préversion, ainsi que les méthodes d’extension du développement des fonctions dans d’autres langages.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: d0db327a1f5b4189f9715687e3efa8fbe5b668db
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 91dcd26895ad41d79606458287f6aabab9594f79
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599934"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224302"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Langages pris en charge dans Azure Functions
 
@@ -21,6 +21,8 @@ Cet article explique les niveaux de prise en charge offerts pour les langages qu
 [Plusieurs versions du runtime Azure Functions](functions-versions.md) sont disponibles. Le tableau suivant montre les langages qui sont pris en charge dans chaque version du runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
+
+[!INCLUDE [functions-portal-language-support](../../includes/functions-portal-language-support.md)]
 
 ### <a name="language-major-version-support"></a>Prise en charge de la version principale de langage
 

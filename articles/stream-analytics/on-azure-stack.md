@@ -6,12 +6,12 @@ author: an-emma
 ms.author: raan
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.openlocfilehash: 544abb1e39710330d8d2529a83349c8669deae40
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0e632298c616c124cdd10b7a35672661bcde2d91
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128638251"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258142"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack"></a>Exécuter Azure Stream Analytics sur Azure Stack
 
@@ -41,8 +41,8 @@ En plus de disposer d’un accès réseau aux ressources Azure Stack Hub, l’
 
 Les articles suivants montrent comment configurer le runtime IoT Edge sur votre appareil ou machine virtuelle :
 
-* [Installer le runtime Azure IoT Edge sur Windows](../iot-edge/how-to-install-iot-edge.md)
-* [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](../iot-edge/how-to-install-iot-edge.md)
+* [Installer le runtime Azure IoT Edge sur Windows](../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md)
+* [Installer le runtime Azure IoT Edge sur des systèmes Linux Debian](../iot-edge/how-to-provision-single-device-linux-symmetric.md)
 
 
 ## <a name="create-an-azure-stream-analytics-edge-job"></a>Créer un travail de périphérie Azure Stream Analytics

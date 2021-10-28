@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
-ms.openlocfilehash: 9a509d878729648ee2768d536d9cca586604662e
-ms.sourcegitcommit: 0af634af87404d6970d82fcf1e75598c8da7a044
+ms.openlocfilehash: bc87e79df3a581e667926ab61cb3c3b40c908f7b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/15/2021
-ms.locfileid: "112122017"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130259503"
 ---
 # <a name="quickstart-connect-a-renesas-starter-kit-for-rx65n-2mb-to-iot-central"></a>Démarrage rapide : Connecter un starter kit+ Renesas pour RX65N-2MB à IoT Central
 
@@ -31,7 +31,7 @@ Vous allez effectuer les étapes suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* PC exécutant Microsoft Windows 10
+* Un PC exécutant Windows 10
 * [Git](https://git-scm.com/downloads) pour cloner le référentiel
 * Matériel
 
@@ -175,7 +175,7 @@ Vous pouvez utiliser l’application **Termite** pour surveiller la communicatio
     * **Vitesse (en bauds)**  : 115 200
     * **Port**: port auquel votre RX65N Renesas est connecté. Si plusieurs options de port sont disponibles dans la liste déroulante, vous pouvez trouver le port approprié à utiliser. Ouvrez le **Gestionnaire d'appareils** Windows et affichez les **Ports** pour identifier le port à utiliser.
 
-    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/termite-settings.png" alt-text="Capture d’écran des paramètres de port série dans l’application Termite":::
+    :::image type="content" source="media/quickstart-devkit-renesas-rx65n-2mb/termite-settings.png" alt-text="Capture d’écran des paramètres du port série dans l’application Termite":::
 
 1. Sélectionnez OK.
 1. Appuyez sur le bouton **Réinitialiser** de l’appareil.

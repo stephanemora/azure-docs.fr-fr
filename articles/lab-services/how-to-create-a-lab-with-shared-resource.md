@@ -5,12 +5,12 @@ author: emaher
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 6436a157c91c7594cd328be53dfaf6e0856412dd
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: efd33b95bd1a32c73712c7f094107717b4e5b973
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130180663"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225772"
 ---
 # <a name="how-to-create-a-lab-with-a-shared-resource-in-azure-lab-services"></a>Guide pratique pour créer un labo avec une ressource partagée dans Azure Lab Services
 
@@ -38,7 +38,7 @@ L’une des ressources partagées les plus courantes est le serveur de licences.
 Le serveur de licences doit être connecté au réseau virtuel qui est appairé au labo. Il doit donc se trouver dans la même région que le compte du labo.
 
 #### <a name="static-private-ip-and-mac-address"></a>Adresse MAC et IP privée statique
-Les machines virtuelles ont une adresse IP privée dynamique par défaut. [Avant de configurer un logiciel, définissez l’adresse IP privée sur statique](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Cela permet de définir l’adresse IP privée et l’adresse MAC comme des adresses statiques.  
+Les machines virtuelles ont une adresse IP privée dynamique par défaut. [Avant de configurer un logiciel, définissez l’adresse IP privée sur statique](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md). Cela permet de définir l’adresse IP privée et l’adresse MAC comme des adresses statiques.  
 
 #### <a name="control-access"></a>Contrôler l’accès
 Il est essentiel de contrôler l’accès au serveur de licences.  Une fois la machine virtuelle configurée, l’accès sera toujours nécessaire pour la maintenance, la résolution des problèmes et la mise à jour.  Voici les différentes manières de le faire.

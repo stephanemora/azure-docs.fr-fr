@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 3e820abf824a9593c265fd7d9d4c6ccd9be5cb38
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 9e7986a0e040d0d8241fd33a2990d8bd82e51a4e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047586"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130230232"
 ---
 # <a name="azure-netapp-files-for-azure-government"></a>Azure NetApp Files pour Azure Government 
 
@@ -46,7 +46,7 @@ Les utilisateurs d’Azure Government peuvent accéder à Azure NetApp Files en
 
 À partir du portail Microsoft Azure Government, vous pouvez accéder à Azure NetApp Files de la même façon que vous le feriez dans le portail Azure.Par exemple, vous pouvez entrer **Azure NetApp Files** dans la zone Rechercher des ressources du portail, puis sélectionner **Azure NetApp Files** dans la liste qui s’affiche.  
 
-Vous pouvez suivre la documentation d’[Azure NetApp Files](/azure/azure-netapp-files/) pour en savoir plus sur l’utilisation du service.
+Vous pouvez suivre la documentation d’[Azure NetApp Files](./index.yml) pour en savoir plus sur l’utilisation du service.
 
 ## <a name="azure-cli-access"></a>Accès à Azure CLI
 

@@ -4,12 +4,12 @@ description: Découvrez comment déplacer des ressources App Service d’une ré
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: ea789504476473bec2615180e76e671b06b85758
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.openlocfilehash: 67a3b0c8f5fd6a78ef65bdffe5f201ae42f90efe
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112895172"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216672"
 ---
 # <a name="move-an-app-service-resource-to-another-region"></a>Déplacer une ressource App Service vers une autre région
 
@@ -34,7 +34,7 @@ Identifiez toutes les ressources App Service que vous utilisez actuellement. Par
 - [Emplacements de déploiement](deploy-staging-slots.md)
 - [Domaines personnalisés achetés dans Azure](manage-custom-dns-buy-domain.md)
 - [Certificats TLS/SSL](configure-ssl-certificate.md)
-- [Intégration de Réseau virtuel Microsoft Azure](web-sites-integrate-with-vnet.md)
+- [Intégration de Réseau virtuel Microsoft Azure](./overview-vnet-integration.md)
 - [Connexions hybrides](app-service-hybrid-connections.md)
 - [Identités managées](overview-managed-identity.md)
 - [Paramètres de sauvegarde](manage-backup.md)

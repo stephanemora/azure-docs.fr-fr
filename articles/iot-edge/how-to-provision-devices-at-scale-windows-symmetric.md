@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 0796716e61c900d475a961277e969e57b994805f
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 2f892af6b876d81d9312e1f93785265e55f960a2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602691"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130226012"
 ---
 # <a name="create-and-provision-iot-edge-devices-at-scale-on-windows-using-symmetric-keys"></a>Créer et approvisionner des appareils IoT Edge à grande échelle sur Windows à l’aide de clés symétriques
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
-Cet article fournit des instructions de bout en bout pour l’approvisionnement automatique d’un ou plusieurs appareils IoT Edge Windows à l’aide de clés symétriques. Vous pouvez approvisionner automatiquement des appareils IoT Edge Azure à l’aide du [Service de provisionnement des appareils Azure IoT Hub](../iot-dps/index.yml) (DPS). Si vous ne connaissez pas le processus de provisionnement automatique, consultez la[ présentation du provisionnement](../iot-dps/about-iot-dps.md#provisioning-process) avant de poursuivre.
+Cet article fournit des instructions de bout en bout pour l’approvisionnement automatique d’un ou plusieurs appareils IoT Edge Windows à l’aide de clés symétriques. Vous pouvez approvisionner automatiquement des appareils IoT Edge Azure à l’aide du [Service de provisionnement des appareils Azure IoT Hub](../iot-dps/index.yml) (DPS). Si vous ne connaissez pas le processus de provisionnement automatique, consultez la présentation du [provisionnement](../iot-dps/about-iot-dps.md#provisioning-process) avant de poursuivre.
 
 Voici les tâches à effectuer :
 
-1. Créer une **inscription individuelle** pour un appareil unique ou une **inscription de groupe** pour un ensemble d’appareils.
+1. Création d’une **inscription individuelle** pour un appareil unique ou d’une **inscription de groupe** pour un ensemble d’appareils
 1. Installation du runtime IoT Edge et de la connexion à IoT Hub.
 
 L’attestation de clé symétrique est une approche simple pour authentifier un appareil avec une instance du service Device Provisioning. Cette méthode d’attestation représente une expérience « Hello world » pour les développeurs qui découvrent le provisionnement d’appareils ou n’ont pas d’exigences de sécurité strictes. L’attestation d’appareil avec un [Module de plateforme sécurisée (TPM)](../iot-dps/concepts-tpm-attestation.md) ou un [certificat X.509](../iot-dps/concepts-x509-attestation.md) est plus sécurisée, et doit être utilisée lorsque les exigences de sécurité sont plus strictes. <!-- note links here; they will break -->
@@ -35,16 +35,16 @@ L’attestation de clé symétrique est une approche simple pour authentifier un
 * Un appareil Windows physique ou virtuel faisant office d’appareil IoT Edge.
   * Vous devrez définir un **ID d’inscription***unique* pour identifier chaque appareil. Vous pouvez utiliser l’adresse MAC, le numéro de série ou toute information unique provenant de l’appareil. Dans cet exemple, vous pouvez utiliser une combinaison d’une adresse MAC et d’un numéro de série, forment la chaîne suivante pour un ID d’inscription : `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`. Les caractères valides sont les caractères alphanumériques minuscules et les tirets (`-`).
 * Une instance du service IoT Hub Device Provisioning dans Azure, liée à votre hub IoT.
-  * Si vous ne disposez pas d’une instance du Service Device Provisioning, vous pouvez suivre les instructions fournies dans les sections [Créer un nouveau service Device Provisioning du IOT Hub](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) et [Lier le Hub IOT et votre service Device Provisioning](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) du guide de démarrage rapide du Service Device Provisioning du IOT Hub.
+  * Si vous ne disposez pas d’une instance du service Device Provisioning, vous pouvez suivre les instructions fournies dans les sections [Créer un service IoT Hub Device Provisioning](../iot-dps/quick-setup-auto-provision.md#create-a-new-iot-hub-device-provisioning-service) et [Lier le hub IoT et votre service Device Provisioning](../iot-dps/quick-setup-auto-provision.md#link-the-iot-hub-and-your-device-provisioning-service) du guide de démarrage rapide du service IoT Hub Device Provisioning.
   * Après avoir lancé l’exécution du service Device Provisioning, copiez la valeur de **Étendue de l’ID** à partir de la page de présentation. Vous utilisez cette valeur lorsque vous configurez le runtime IoT Edge.
 
 ## <a name="create-a-dps-enrollment"></a>Créer une inscription au service Device Provisioning
 
-Créez une inscription pour approvisionner un ou plusieurs appareils via DPS.
+Créez une inscription pour provisionner un ou plusieurs appareils via le service Device Provisioning.
 
-Si vous envisagez d’approvisionner un seul appareil IoT Edge, créez une **inscription individuelle**. Si vous avez besoin d’approvisionner plusieurs appareils, suivez les étapes de création d’une **inscription de groupe** DPS.
+Si vous envisagez de provisionner un seul appareil IoT Edge, créez une **inscription individuelle**. Si vous avez besoin de provisionner plusieurs appareils, suivez les étapes de création d’une **inscription de groupe** DPS.
 
-Lorsque vous créez une inscription auprès du service Device Provisioning, vous avez la possibilité de déclarer un **état initial du jumeau d’appareil**. Dans le jumeau d’appareil, vous pouvez définir des balises pour regrouper les appareils en fonction des métriques dont vous avez besoin dans votre solution, comme la région, l’environnement, l’emplacement ou le type d’appareil. Ces balises sont utilisées pour créer [des déploiements automatiques](how-to-deploy-at-scale.md).
+Lorsque vous créez une inscription dans le service Device Provisioning, vous avez la possibilité de déclarer un **état initial du jumeau d’appareil**. Dans le jumeau d’appareil, vous pouvez définir des balises pour regrouper les appareils en fonction des métriques dont vous avez besoin dans votre solution, comme la région, l’environnement, l’emplacement ou le type d’appareil. Ces balises sont utilisées pour créer [des déploiements automatiques](how-to-deploy-at-scale.md).
 
 Pour plus d’informations sur les inscriptions dans le service Device Provisioning, consultez [Guide pratique pour gérer les inscriptions d’appareils](../iot-dps/how-to-manage-enrollments.md).
 
@@ -53,7 +53,7 @@ Pour plus d’informations sur les inscriptions dans le service Device Provision
 ### <a name="create-a-dps-individual-enrollment"></a>Créer une inscription individuelle dans le service Device Provisioning
 
 > [!TIP]
-> Bien que les étapes décrites dans cet article concernent le portail Azure, vous pouvez également créer des inscriptions individuelles à l’aide de l’interface CLI Azure. Pour plus d’informations, consultez la section relative à [az iot dps enrollment](/cli/azure/iot/dps/enrollment). Dans la commande CLI, utilisez l’indicateur **edge-enabled** pour spécifier que l’inscription concerne un appareil IoT Edge.
+> Bien que les étapes décrites dans cet article concernent le portail Azure, vous pouvez également créer des inscriptions individuelles à l’aide d’Azure CLI. Pour plus d’informations, consultez la section relative à [az iot dps enrollment](/cli/azure/iot/dps/enrollment). Dans la commande CLI, utilisez l’indicateur **edge-enabled** pour spécifier que l’inscription concerne un appareil IoT Edge.
 
 1. Dans le [Portail Microsoft Azure](https://portal.azure.com), accédez à votre instance du service IoT Hub Device Provisioning.
 
@@ -93,7 +93,7 @@ Maintenant qu’une inscription existe pour cet appareil, le runtime IoT Edge pe
 ### <a name="create-a-dps-group-enrollment"></a>Créer une inscription de groupe dans le service Device Provisioning
 
 > [!TIP]
-> Bien que les étapes décrites dans cet article concernent le portail Azure, vous pouvez également créer des inscriptions individuelles à l’aide de l’interface CLI Azure. Pour plus d’informations, consultez la section relative à [az iot dps enrollment-group](/cli/azure/iot/dps/enrollment-group). Dans la commande CLI, utilisez l’indicateur **edge-enabled** pour spécifier que l’inscription concerne des appareils IoT Edge. Pour une inscription de groupe, tous les appareils doivent être de IoT Edge, ou aucun d’entre eux ne peut l’être.
+> Bien que les étapes décrites dans cet article concernent le portail Azure, vous pouvez également créer des inscriptions de groupe à l’aide d’Azure CLI. Pour plus d’informations, consultez la section relative à [az iot dps enrollment-group](/cli/azure/iot/dps/enrollment-group). Dans la commande CLI, utilisez l’indicateur **edge-enabled** pour spécifier que l’inscription concerne des appareils IoT Edge. Pour une inscription de groupe, tous les appareils doivent être de IoT Edge, ou aucun d’entre eux ne peut l’être.
 
 1. Dans le [Portail Microsoft Azure](https://portal.azure.com), accédez à votre instance du service IoT Hub Device Provisioning.
 
@@ -124,7 +124,7 @@ Maintenant qu’une inscription existe pour cet appareil, le runtime IoT Edge pe
 
 1. Copiez la valeur de **clé primaire** du groupe d’inscriptions à utiliser lors de la création de clés d’appareil à utiliser avec une inscription de groupe.
 
-Maintenant qu’un groupe d’inscription existe, le runtime IoT Edge peut provisionner automatiquement des appareils lors de l’installation.
+Maintenant qu’il existe un groupe d’inscriptions, le runtime IoT Edge peut provisionner automatiquement des appareils lors de l’installation.
 
 #### <a name="derive-a-device-key"></a>Dériver une clé d’appareil
 
@@ -166,7 +166,7 @@ Dans cette section, vous allez préparer votre machine virtuelle ou votre appare
 
 Le démon de sécurité IoT Edge fournit et gère les standards de sécurité sur l’appareil IoT Edge. Le démon se lance à chaque démarrage et amorce l’appareil en démarrant le reste du runtime IoT Edge.
 
-La procédure de cette section représente le processus classique d’installation de la dernière version sur un appareil disposant d’une connexion Internet. Si vous devez installer une version spécifique, telle qu’une version préliminaire, ou si vous devez installer en mode hors connexion, suivez les [étapes d’installation hors connexion ou version spécifique](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
+La procédure de cette section représente le processus classique d’installation de la dernière version sur un appareil disposant d’une connexion Internet. Si vous devez installer une version spécifique, telle qu’une version préliminaire, ou si vous devez installer en mode hors connexion, suivez les [étapes d’installation hors connexion ou version spécifique](how-to-provision-single-device-windows-symmetric.md#offline-or-specific-version-installation-optional).
 
 1. Exécutez PowerShell ISE en tant qu’administrateur.
 
@@ -229,7 +229,7 @@ Vous pouvez vérifier que l’inscription individuelle que vous avez créée dan
 
 # <a name="group-enrollment"></a>[Inscription de groupe](#tab/group-enrollment)
 
-Vous pouvez vérifier que l’inscription individuelle que vous avez créée dans le service Device Provisioning a été utilisée. Dans le Portail Azure, accédez à l’instance du service Device Provisioning. Ouvrez les détails de l’inscription pour l’inscription de groupe que vous avez créée. Accédez à l’onglet **Enregistrements d’inscription** pour afficher tous les appareils enregistrés dans ce groupe.
+Vous pouvez vérifier que l’inscription de groupe que vous avez créée dans le service Device Provisioning a été utilisée. Dans le Portail Azure, accédez à l’instance du service Device Provisioning. Ouvrez les détails de l’inscription de groupe que vous avez créée. Accédez à l’onglet **Enregistrements d’inscription** pour afficher tous les appareils enregistrés dans ce groupe.
 
 ---
 

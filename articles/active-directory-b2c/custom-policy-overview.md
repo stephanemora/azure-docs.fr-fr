@@ -11,12 +11,12 @@ ms.date: 10/14/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 6da41c32b3b67cbd4e418f844ee73ff4ee85341e
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 51ed0b6bd0f5bd5eabf76c6789ab36a922653fd1
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130037392"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130222833"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Vue d’ensemble de la stratégie personnalisée Azure AD B2C
 
@@ -160,7 +160,7 @@ Vous commencez avec une stratégie personnalisée Azure AD B2C :
 
 1. [Créer un client Azure AD B2C](tutorial-create-tenant.md)
 1. [Inscrivez une application web](tutorial-register-applications.md) sur le Portail Azure pour pouvoir tester votre stratégie.
-1. Ajoutez les [clés de stratégie](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys) nécessaires et [inscrivez les applications Identity Experience Framework](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-identity-experience-framework-applications).
+1. Ajoutez les [clés de stratégie](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications) nécessaires et [inscrivez les applications Identity Experience Framework](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-identity-experience-framework-applications).
 1. [Procurez-vous le pack de démarrage de stratégie Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) et chargez-le sur votre locataire. 
 1. Après avoir chargé le pack de démarrage, [testez votre stratégie d’inscription ou de connexion](tutorial-create-user-flows.md?pivots=b2c-custom-policy#test-the-custom-policy).
 1. Nous vous recommandons de télécharger et d’installer [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Visual Studio Code est un éditeur de code source léger mais puissant. Il s’exécute sur un poste de travail et est disponible pour Windows, macOS et Linux. Vous pouvez parcourir et modifier rapidement vos fichiers XML de stratégie personnalisée Azure AD B2C en installant [l’extension Azure AD B2C pour VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c).

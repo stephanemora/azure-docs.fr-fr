@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 76f65bffb2762735424084561dc0098f128bb7a2
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 4dd60b3cf5a0e4ff6398a4f8304d24a1d910ad46
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128548672"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252741"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>Surveiller vos déploiements SQL avec SQL Insights (préversion)
 SQL Insights est une solution complète de surveillance de tout produit de la [famille SQL Azure](../../azure-sql/index.yml). SQL Insights utilise des [vues de gestion dynamique](../../azure-sql/database/monitoring-with-dmvs.md) pour exposer les données dont vous avez besoin pour surveiller l’intégrité, diagnostiquer les problèmes et optimiser les performances.  
@@ -126,4 +126,4 @@ Les tableaux contiennent les colonnes suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour consulter les questions fréquemment posées sur SQL Insights, Consultez le [Forum aux questions](/azure/azure-monitor/faq#sql-insights-preview).
+- Pour consulter les questions fréquemment posées sur SQL Insights, Consultez le [Forum aux questions](../faq.yml).

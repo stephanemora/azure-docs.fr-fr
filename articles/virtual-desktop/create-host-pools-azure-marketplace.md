@@ -7,12 +7,12 @@ ms.custom: references_regions
 ms.date: 08/06/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 8e33c165cd249b578bd4cba9ef4f25446287d7ec
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: cf379d2eb5c20c8f8922631d5a467e961ea8f800
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124766442"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130228465"
 ---
 # <a name="tutorial-create-a-host-pool"></a>Tutoriel : créer un pool d’hôtes
 
@@ -155,7 +155,7 @@ Pour configurer votre machine virtuelle durant le processus de configuration du 
 
 3. Choisissez l’**emplacement de machine virtuelle** où vous souhaitez créer les machines virtuelles. Elle peut être identique ou différente de la région que vous avez sélectionnée pour le pool d’hôtes. N’oubliez pas que les prix des machines virtuelles varient selon la région et que les emplacements des machines virtuelles doivent être proches de leurs utilisateurs si possible pour optimiser les performances. En savoir plus sur les [Emplacements de données pour Azure Virtual Desktop](data-locations.md).
    
-4. Ensuite, choisissez l’option de disponibilité qui correspond le mieux à vos besoins. Pour en découvrir plus sur l’option qui vous convient, consultez [Options de disponibilité pour les machines virtuelles dans Azure](../virtual-machines/availability.md) et [notre Forum aux questions](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me).
+4. Ensuite, choisissez l’option de disponibilité qui correspond le mieux à vos besoins. Pour en découvrir plus sur l’option qui vous convient, consultez [Options de disponibilité pour les machines virtuelles dans Azure](../virtual-machines/availability.md) et [notre Forum aux questions](./faq.yml#which-availability-option-is-best-for-me-).
    
    > [!div class="mx-imgBorder"]
    > ![Capture d’écran du menu déroulant des options de disponibilité. L’option « Zone de disponibilité » est mise en évidence.](media/availability-zone.png)
@@ -182,7 +182,7 @@ Pour configurer votre machine virtuelle durant le processus de configuration du 
 
     - Si vous choisissez **Objet blob de stockage**, vous pouvez utiliser votre propre build d’image via Hyper-V ou sur une machine virtuelle Azure. Il vous suffit d’entrer l’emplacement de l’image dans l’objet blob de stockage sous la forme d’un URI.
    
-   L’emplacement de l’image est indépendant de l’option de disponibilité, mais la résilience de zone de l’image détermine si cette image peut être utilisée avec une zone de disponibilité. Si vous sélectionnez une zone de disponibilité lors de la création de votre image, veillez à utiliser une image de la galerie avec la résilience de zone activée. Pour en découvrir plus sur l’option de résilience de zone que vous devez utiliser, consultez le [Forum aux questions](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me).
+   L’emplacement de l’image est indépendant de l’option de disponibilité, mais la résilience de zone de l’image détermine si cette image peut être utilisée avec une zone de disponibilité. Si vous sélectionnez une zone de disponibilité lors de la création de votre image, veillez à utiliser une image de la galerie avec la résilience de zone activée. Pour en découvrir plus sur l’option de résilience de zone que vous devez utiliser, consultez le [Forum aux questions](./faq.yml#which-availability-option-is-best-for-me-).
 
 6. Ensuite, choisissez la **taille de machine virtuelle** que vous souhaitez utiliser. Vous pouvez soit conserver la taille par défaut, soit sélectionner **Modifier la taille** pour changer de taille. Si vous sélectionnez **Modifier la taille**, dans la fenêtre qui s’affiche, choisissez la taille de la machine virtuelle adaptée à votre charge de travail. Pour en savoir plus sur les tailles de machine virtuelle et la taille que vous devez choisir, consultez les [Instructions de dimensionnement de machine virtuelle](/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context).
 

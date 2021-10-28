@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.topic: article
 ms.date: 8/26/2021
 ms.custom: subject-terraform
-ms.openlocfilehash: 33aea508bd636ebb1b37cd2c9120d9fdb863460d
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: d41b61252abd3e914239a28e78564128a4fbf32d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059152"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130227147"
 ---
 # <a name="create-app-service-app-using-a-terraform-template"></a>Créer une application App Service à l’aide d’un modèle Terraform
 
@@ -146,10 +146,10 @@ Terraform fournit de nombreuses fonctionnalités pour la gestion, la génératio
 Lorsque vous n’en avez plus besoin, [supprimez le groupe de ressources](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group) ou revenez à votre ligne de commande/terminal et exécutez `terraform destroy` pour supprimer toutes les ressources associées à ce démarrage rapide.
 
 > [!NOTE]
-> Vous trouverez d’autres exemples de modèles Azure App ServiceTerraform [ici](/azure/app-service/samples-terraform). Vous trouverez d’autres exemples de Terraform sur tous les services Azure [ici](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples).
+> Vous trouverez d’autres exemples de modèles Azure App ServiceTerraform [ici](./samples-terraform.md). Vous trouverez d’autres exemples de Terraform sur tous les services Azure [ici](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples).
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"] 
 > [En savoir plus sur l’utilisation de Terraform dans Azure](/azure/terraform)
 > [!div class="nextstepaction"] 
-> [Exemples Terraform pour Azure App Service](/azure/app-service/samples-terraform)
+> [Exemples Terraform pour Azure App Service](./samples-terraform.md)

@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: shpathak
-ms.openlocfilehash: 02b5c4bd42abc9c36ef971b053979d590d1e602d
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: dd7bb63204ccaa38379b49cfe3946372319dfc44
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129808838"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252898"
 ---
 # <a name="connection-resilience"></a>Résilience des connexions
 
@@ -64,7 +64,7 @@ Si le `command timeout` est trop court, il se peut que la connexion semble insta
 Si vous reconnectez de nombreuses instances clientes, envisagez d’échelonner les nouvelles connexions afin d’éviter un pic abrupt du nombre de clients connectés.
 
 > [!NOTE]
-> Si vous utilisez la bibliothèque de client `StackExchange.Redis`, définissez `abortConnect` sur `false` dans votre chaîne de connexion.  Nous vous recommandons de laisser le `ConnectionMultiplexer` gérer la reconnexion. Pour plus d’informations, consultez [Meilleures pratiques StackExchange.Redis](/azure/azure-cache-for-redis/cache-management-faq#stackexchangeredis-best-practices).
+> Si vous utilisez la bibliothèque de client `StackExchange.Redis`, définissez `abortConnect` sur `false` dans votre chaîne de connexion.  Nous vous recommandons de laisser le `ConnectionMultiplexer` gérer la reconnexion. Pour plus d’informations, consultez [Meilleures pratiques StackExchange.Redis](./cache-management-faq.yml#stackexchangeredis-best-practices).
 
 ## <a name="avoid-leftover-connections"></a>Éviter les connexions inutilisées
 

@@ -3,12 +3,12 @@ title: Gérer les sauvegardes de partage de fichiers Azure
 description: Cet article décrit les tâches courantes de gestion et de supervision des partages de fichiers Azure sauvegardés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 10/08/2021
-ms.openlocfilehash: e955ed1cf01c055ea72218076799d7da31d096b7
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 421162387b28777acf1c4f86288796d8066468a6
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129714315"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216045"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gérer les sauvegardes de partage de fichiers Azure
 
@@ -30,7 +30,7 @@ Pour ouvrir la page **Travaux de sauvegarde** :
 
 ## <a name="monitor-using-azure-backup-reports"></a>Surveiller à l’aide des rapports de Sauvegarde Azure
 
-La Sauvegarde Azure offre une solution de création de rapports qui utilise les [journaux Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) et les [classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). Ces ressources vous aident à obtenir des insights enrichis dans vos sauvegardes. Vous pouvez tirer parti de ces rapports pour obtenir une visibilité sur les éléments de sauvegarde Azure Files, les travaux au niveau de l’élément et les détails des stratégies actives. La fonctionnalité Rapport par e-mail disponible dans Rapports de sauvegarde vous permet de créer des tâches automatisées pour recevoir régulièrement des rapports par e-mail. [En savoir plus](/azure/backup/configure-reports#get-started) sur la configuration et l’affichage des rapports de Sauvegarde Azure.
+La Sauvegarde Azure offre une solution de création de rapports qui utilise les [journaux Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) et les [classeurs Azure](../azure-monitor/visualize/workbooks-overview.md). Ces ressources vous aident à obtenir des insights enrichis dans vos sauvegardes. Vous pouvez tirer parti de ces rapports pour obtenir une visibilité sur les éléments de sauvegarde Azure Files, les travaux au niveau de l’élément et les détails des stratégies actives. La fonctionnalité Rapport par e-mail disponible dans Rapports de sauvegarde vous permet de créer des tâches automatisées pour recevoir régulièrement des rapports par e-mail. [En savoir plus](./configure-reports.md#get-started) sur la configuration et l’affichage des rapports de Sauvegarde Azure.
 
 ## <a name="create-a-new-policy"></a>Créer une nouvelle stratégie
 

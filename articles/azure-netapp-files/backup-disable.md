@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: 1254a9884063fce100152f370a434c55ec2ae207
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 1555a1c42f6365202787750f149b345ccd0cd55c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095078"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224140"
 ---
 # <a name="disable-backup-functionality-for-a-volume"></a>Désactiver la fonctionnalité de sauvegarde pour un volume 
 
@@ -51,5 +51,5 @@ Si un volume est supprimé mais que la stratégie de sauvegarde n’a pas été 
 * [Restaurer une sauvegarde sur un nouveau volume](backup-restore-new-volume.md)
 * [Supprimer des sauvegardes d’un volume](backup-delete.md)
 * [Métriques de sauvegarde d’un volume](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [FAQ sur la sauvegarde Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [FAQ sur la sauvegarde Azure NetApp Files](faq-backup.md)
 

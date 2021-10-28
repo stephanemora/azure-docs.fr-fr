@@ -5,15 +5,15 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 02b51ff93b14adcbf0dc4c628421a7521fdc49c7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 67a66e618206b182983ada474b1f0d3788526e1e
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128599807"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223858"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -206,14 +206,14 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
     8. Cliquez sur **Suivant**.
         :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-properties-page.png" alt-text="Outil de copie - Page Propriétés":::
 3. Dans la page **Source data store** (Magasin de données source), cliquez sur la vignette **Stockage d’objets blob Azure**. Cette page sert à spécifier le magasin de données source pour la tâche de copie. Vous pouvez utiliser un service lié de magasin de données existant (ou) spécifier un nouveau magasin de données. Pour utiliser un service lié existant, vous devez sélectionner **FROM EXISTING LINKED SERVICES** (À PARTIR DES SERVICES LIÉS EXISTANTS) et le service lié approprié.
-    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png" alt-text="Outil de copie - Page Banque de données sources":::
+    :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png" alt-text="Outil de copie - page Source data store (Magasin de données source)":::
 4. Dans la page **Specify the Azure Blob storage account** (Spécifier le compte de stockage d’objets blob Azure) :
     1. Conservez le nom généré automatiquement comme **Nom de la connexion**. Le nom de la connexion est le nom du service lié de type Stockage Azure.
     2. Vérifiez que l’option **À partir des abonnements** est sélectionnée pour **Account selection method** (Méthode de sélection du compte).
     3. Sélectionnez votre abonnement Azure ou conservez **Sélectionner tout** pour l’option **Abonnement Azure**.
     4. Sélectionnez un **compte de stockage Azure** dans la liste des comptes de stockage Azure disponibles dans l’abonnement sélectionné. Vous pouvez également choisir d’entrer manuellement les paramètres du compte de stockage en sélectionnant l’option **Entrer manuellement** dans **Account selection method** (Méthode de sélection de compte).
     5. Cliquez sur **Suivant**.  
-        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png" alt-text="Outil de copie - Spécifier le compte de stockage Blob Azure":::
+        :::image type="content" source="./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png" alt-text="Outil de copie - spécifiez le compte de stockage d’objets blob Azure":::
 5. Dans la page **Choose the input file or folder** (Choisir le fichier ou le dossier d’entrée) :
     1. Double-cliquez sur **adfblobcontainer**.
     2. Sélectionnez **input**, puis cliquez sur **Choisir**. Dans cette procédure pas à pas, vous sélectionnez le dossier d’entrée. Vous pouvez également sélectionner à la place le fichier emp.txt dans le dossier.

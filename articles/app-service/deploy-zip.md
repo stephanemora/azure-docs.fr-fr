@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/13/2021
 ms.reviewer: sisirap
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: a73d03d97e2b5d5d743b1db3980c8e587a0f454b
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.openlocfilehash: be58de78ba82c3c5e99475b00649e2a7ebfdf5e4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123225428"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216936"
 ---
 # <a name="deploy-files-to-app-service"></a>Déployer des fichiers sur le Service d’application
 
@@ -93,7 +93,7 @@ Télécharger le package ZIP que vous avez créé dans [Créer un package ZIP de
 
 Lorsque le déploiement est en cours, une icône dans le coin supérieur droit vous indique la progression en pourcentage. La page affiche également des messages détaillés concernant l’opération sous la zone de l’explorateur. Lorsqu’elle est terminée, le dernier message de déploiement doit indiquer `Deployment successful`.
 
-Le point de terminaison ci-dessus ne fonctionne pas pour App Services Linux. Envisagez plutôt d’utiliser FTP ou l’[API de déploiement ZIP](/azure/app-service/faq-app-service-linux#continuous-integration-and-deployment).
+Le point de terminaison ci-dessus ne fonctionne pas pour App Services Linux. Envisagez plutôt d’utiliser FTP ou l’[API de déploiement ZIP](./faq-app-service-linux.yml).
 
 -----
 

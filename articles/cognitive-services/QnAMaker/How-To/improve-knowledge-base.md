@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f2ae3cd54f47e804b9bdd78433f96f96034d16ee
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: e5625907b0401919940a514586a86b34867b8e57
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130047206"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130252209"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accepter des questions suggérées d’apprentissage actif dans la base de connaissances
 
@@ -22,7 +22,7 @@ L’apprentissage actif modifie la base de connaissances ou Search Service aprè
 
 ## <a name="turn-on-active-learning"></a>Activation de l’apprentissage actif
 
-Pour consulter les questions suggérées, vous devez [activer l'apprentissage actif](../concepts/active-learning-suggestions.md) pour votre ressource QnA Maker.
+Pour consulter les questions suggérées, vous devez [activer l'apprentissage actif](../index.yml) pour votre ressource QnA Maker.
 
 ## <a name="view-suggested-questions"></a>Afficher les questions suggérées
 

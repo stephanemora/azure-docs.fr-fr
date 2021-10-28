@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 10/19/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11428df3662bb03d7d74decbd7230be0fdffa44f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4a34bda9f5f25d31dec881bd6ea1e00442fbfafc
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124742658"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130217162"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installer l’agent de provisionnement Azure AD Connect
 Cet article vous guide tout au long du processus d’installation de l’agent d’approvisionnement Azure Active Directory (Azure AD) Connecte, et explique comment le configurer au départ dans le portail Azure.
@@ -32,7 +32,7 @@ Pour consulter plus d’informations et un exemple, regardez la vidéo suivante.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWK5mR]
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
-Un compte de service managé de groupe (gMSA) est un compte de domaine managé qui fournit la gestion automatique des mots de passe, la gestion simplifiée du nom de principal du service (SPN) et la possibilité de déléguer la gestion à d’autres administrateurs. Il étend également cette fonctionnalité sur plusieurs serveurs. La synchronisation cloud Azure AD Connect prend en charge et recommande l’utilisation d’un compte de service géré de groupe pour l’exécution de l’agent. Pour plus d’informations sur un groupe Compte de service géré, voir [Groupe Comptes de service géré](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+Un compte de service managé de groupe (gMSA) est un compte de domaine managé qui fournit la gestion automatique des mots de passe, la gestion simplifiée du nom de principal du service (SPN) et la possibilité de déléguer la gestion à d’autres administrateurs. Il étend également cette fonctionnalité sur plusieurs serveurs. La synchronisation cloud Azure AD Connect prend en charge et recommande l’utilisation d’un compte de service géré de groupe pour l’exécution de l’agent. Pour plus d’informations sur un groupe Compte de service géré, voir [Groupe Comptes de service géré](how-to-prerequisites.md#group-managed-service-accounts).
 
 
 ### <a name="upgrade-an-existing-agent-to-use-the-gmsa"></a>Mettre à niveau un agent existant pour utiliser gMSA

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: redhat
 ms.assetid: 9b37b2c4-5927-4271-85c7-19adf33d838b
 ms.date: 06/08/2021
-ms.openlocfilehash: 188e40f9bc3d2d23035549578cdc6440af60a3e5
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: ab19ecb14f3aa7701205e038fe59b92e297decbd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129359231"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130262961"
 ---
 # <a name="how-to-migrate-java-applications-to-jboss-eap-on-azure-vms-and-virtual-machine-scale-sets"></a>Découvrez comment migrer des applications Java vers JBoss EAP sur des groupes de machines virtuelles identiques et des machines virtuelles Azure.
 
@@ -237,7 +237,7 @@ Une fois la migration terminée, examinez les fichiers de configuration de serve
 
 Vous pouvez exposer l’application à l’aide des méthodes suivantes, qui sont adaptées à votre environnement.
 
-* [Créez une IP publique](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) pour accéder au serveur et à l’application.
+* [Créez une IP publique](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) pour accéder au serveur et à l’application.
 * [Créez une machine virtuelle Jump dans le même réseau virtuel (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) dans un sous-réseau différent (nouveau sous-réseau) dans le même réseau virtuel, et accédez au serveur via une machine virtuelle Jump. Cette machine virtuelle Jump peut être utilisée pour exposer l’application.
 * [Créez une machine virtuelle Jump avec peering de réseaux virtuels](../../windows/quick-create-portal.md#create-virtual-machine) dans un autre réseau virtuel, accédez au serveur et exposez l’application à l’aide du [peering de réseaux virtuels](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
 * Exposez l’application à l’aide d’une [passerelle applicative](../../../application-gateway/quick-create-portal.md#create-an-application-gateway).

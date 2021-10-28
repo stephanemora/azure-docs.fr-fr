@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
 ms.author: b-juche
-ms.openlocfilehash: c3f440899e53125b6a7e6ef7986d74e4f1d0977d
-ms.sourcegitcommit: 61e7a030463debf6ea614c7ad32f7f0a680f902d
+ms.openlocfilehash: 71f5c09fed1a733b4e04664aade5a69c3a99aae0
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2021
-ms.locfileid: "129095053"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130229972"
 ---
 # <a name="manage-backup-policies-for-azure-netapp-files"></a>Gérer les stratégies de sauvegarde pour Azure NetApp Files 
 
@@ -77,11 +77,11 @@ Une stratégie de sauvegarde peut être interrompue pour ne pas effectuer de nou
 * [Configuration de sauvegardes basées sur une stratégie](backup-configure-policy-based.md)
 * [Configuration des sauvegardes manuelles](backup-configure-manual.md)
 * [Recherche dans les sauvegardes](backup-search.md)
-* [Restauration d’une sauvegarde sur un nouveau volume](backup-restore-new-volume.md)
+* [Restaurer une sauvegarde sur un nouveau volume](backup-restore-new-volume.md)
 * [Désactivation de la fonctionnalité de sauvegarde pour un volume](backup-disable.md)
 * [Supprimer des sauvegardes d’un volume](backup-delete.md)
-* [Métriques des sauvegardes de volume](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [FAQ sur la sauvegarde Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Métriques de sauvegarde d’un volume](azure-netapp-files-metrics.md#volume-backup-metrics)
+* [FAQ sur la sauvegarde Azure NetApp Files](faq-backup.md)
 
 
 

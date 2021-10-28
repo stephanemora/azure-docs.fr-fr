@@ -13,12 +13,12 @@ ms.subservice: compliance
 ms.date: 08/18/2021
 ms.author: sama
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a68a523a2a5ce14c9fccd2750eb9523b4c5281d
-ms.sourcegitcommit: 54e7b2e036f4732276adcace73e6261b02f96343
+ms.openlocfilehash: e1b7574e38146f9f175a124928c23dfb0187bb71
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2021
-ms.locfileid: "129807232"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257363"
 ---
 # <a name="tutorial---onboard-external-users-to-azure-ad-through-an-approval-process"></a>Tutoriel : Intégrer des utilisateurs externes à Azure AD via un processus d’approbation
 
@@ -130,4 +130,4 @@ Dans cette étape, vous pouvez supprimer le package d’accès au **package des 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment créer des packages d’accès pour gérer l’accès à d’autres types de ressources comme les applications et les sites. [Tutoriel : Gérer l’accès aux ressources dans la gestion des droits d’utilisation Azure AD](/azure/active-directory/governance/entitlement-management-access-package-first)
+Découvrez comment créer des packages d’accès pour gérer l’accès à d’autres types de ressources comme les applications et les sites. [Tutoriel : Gérer l’accès aux ressources dans la gestion des droits d’utilisation Azure AD](./entitlement-management-access-package-first.md)
