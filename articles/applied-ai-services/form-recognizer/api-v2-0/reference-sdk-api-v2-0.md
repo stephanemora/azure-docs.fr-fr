@@ -12,18 +12,18 @@ ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ms.custom: devx-track-js, devx-track-csharp
 keywords: traitement des formulaires, traitement de données automatisé
-ms.openlocfilehash: 32dcfb1ba1e413e666e6a3d27ef9f03dbce81978
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: cba7378dcc504e675e449dda4243149419e2726a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128641751"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265866"
 ---
 # <a name="reference-azure-form-recognizer-client-library-v300-and-rest-api-v20"></a>Informations de référence : Bibliothèque de client Azure Form Recognizer v3.0.0 et API REST v2.0
 
 >[!IMPORTANT]
 >
-> * Ce guide est basé sur le SDK Azure Form Recognizer v 3.0.0 et l’API REST v2.0. Vous trouverez la documentation et des exemples de code pour la version la plus récente dans notre article **[Démarrages rapides](../quickstarts/client-library.md)** .
+> * Ce guide est basé sur le SDK Azure Form Recognizer v 3.0.0 et l’API REST v2.0. Vous trouverez la documentation et des exemples de code pour la version la plus récente dans notre article **[Démarrages rapides](../quickstarts/try-sdk-rest-api.md)** .
 >
 >* Par souci de simplicité, le code indiqué dans cet article utilise des méthodes synchrones et un stockage non sécurisé des informations d’identification. En production, utilisez des méthodes sécurisées pour stocker vos informations d’identification et y accéder. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services/cognitive-services-security.md) de Cognitive Services.
 

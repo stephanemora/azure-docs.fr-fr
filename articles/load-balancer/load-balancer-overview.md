@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: 3d3c1d9937382080ea5a735e3f67e9767919366f
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 800d52ca0cbc574add0640c8acf41713ed401071
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124740781"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130215237"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -63,7 +63,7 @@ Voici les principaux scénarios que vous pouvez gérer avec Azure Standard Load 
 
 - Utiliser le **[réacheminement de port](./tutorial-load-balancer-port-forwarding-portal.md)** pour accéder aux machines virtuelles d’un réseau virtuel via une adresse IP publique et un port
 
-- Activer la prise en charge de l’ **[équilibrage de charge](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** de **[IPv6](../virtual-network/ipv6-overview.md)**
+- Activer la prise en charge de l’ **[équilibrage de charge](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** de **[IPv6](../virtual-network/ip-services/ipv6-overview.md)**
 
 - L’équilibreur de charge Standard fournit des métriques multidimensionnelles via [Azure Monitor](../azure-monitor/overview.md).  Ces métriques peuvent être filtrées, regroupées et réparties pour une dimension donnée.  Elles fournissent des analyses en cours et historiques sur les performances et l’intégrité de votre service. [Insights pour Azure Load Balancer](./load-balancer-insights.md) offre un tableau de bord préconfiguré avec des visualisations utiles pour ces métriques.  Resource Health est également pris en charge. Pour plus d’informations, consultez **[Diagnostics des équilibreurs de charge standard](load-balancer-standard-diagnostics.md)** .
 

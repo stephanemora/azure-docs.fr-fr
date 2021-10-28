@@ -10,12 +10,12 @@ ms.author: justinha
 author: calui
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 0e925e520b5136750dc7ef9151d7e5741176525c
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7cee43e911c2713b13f7e8e729a00b4c2379ce22
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128595614"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251088"
 ---
 # <a name="sign-in-to-azure-ad-with-email-as-an-alternate-login-id-preview"></a>Se connecter à Azure AD avec un e-mail comme autre ID de connexion (préversion)
 
@@ -64,7 +64,6 @@ Dans la préversion actuelle, les limitations suivantes s’appliquent à l’ut
     * [Appareils joints Azure AD hybrides](../devices/concept-azure-ad-join-hybrid.md)
     * [Appareils joints Azure AD](../devices/concept-azure-ad-join.md)
     * [Appareils inscrits sur Azure AD](../devices/concept-azure-ad-register.md)
-    * [Authentification unique fluide](../hybrid/how-to-connect-sso.md)
     * [Applications à l’aide des informations d’identification de mot de passe du propriétaire de la ressource (ROPC)](../develop/v2-oauth-ropc.md)
     * Applications à l’aide de l’authentification héritée telle que POP3 et SMTP
     * Skype Entreprise

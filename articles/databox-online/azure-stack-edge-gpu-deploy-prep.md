@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/06/2021
 ms.author: alkohli
-ms.openlocfilehash: b223d428daf1a7080478f4f80b6a997fb97cd7a0
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.openlocfilehash: d87c0221bc5d6bfc8aa4eb308417234bca9f7b14
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122322530"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249948"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutoriel : Préparer le déploiement d'Azure Stack Edge Pro avec GPU 
 
@@ -71,7 +71,7 @@ Avant de commencer, assurez-vous que :
 - Vous disposez d’un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Azure Stack Edge Pro, IoT Hub et Stockage Azure.
 
     - Pour créer une ressource Azure Stack Edge, vous devez disposer d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. 
-    - Vous devez aussi vérifier que les fournisseurs de ressources `Microsoft.DataBoxEdge` et `MicrosoftKeyVault` sont inscrits. Pour créer une ressource IoT Hub, le fournisseur `Microsoft.Devices` doit être inscrit. 
+    - Vous devez aussi vérifier que les fournisseurs de ressources `Microsoft.DataBoxEdge` et `Microsoft.KeyVault` sont inscrits. Pour créer une ressource IoT Hub, le fournisseur `Microsoft.Devices` doit être inscrit. 
         - Pour inscrire un fournisseur de ressources, dans le portail Azure, accédez à **Accueil > Abonnements -> votre-abonnement -> Fournisseurs de ressources**. 
         - Recherchez le fournisseur de ressources spécifique, par exemple, `Microsoft.DataBoxEdge`, puis inscrivez-le. 
     - Pour créer une ressource de compte de stockage, là encore, vous avez besoin d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Par défaut, le stockage Azure est un fournisseur de ressources inscrit.
@@ -150,14 +150,14 @@ Pour créer une ressource Azure Stack Edge via le service Azure Stack Edge, suiv
 
 8. Sous l’onglet **Bases**, entrez ou sélectionnez les **détails du projet** suivants.
     
-    |Paramètre  |Valeur  |
+    |Paramètre  |Value  |
     |---------|---------|
     |Abonnement    |L’abonnement est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
     |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
 
 9. Entrez ou sélectionnez les **détails de l’instance** suivants.
 
-    |Paramètre  |Valeur  |
+    |Paramètre  |Value  |
     |---------|---------|
     |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom peut comporter entre 2 et 50 caractères, dont des lettres, des chiffres et des traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
     |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|

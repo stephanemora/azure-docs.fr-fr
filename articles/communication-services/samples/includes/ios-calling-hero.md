@@ -1,5 +1,5 @@
 ---
-title: Fichier Include
+title: Fichier include
 description: Fichier include
 services: azure-communication-services
 author: ddematheu2
@@ -10,12 +10,12 @@ ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: 287c7c2cdc709f4026ddd4dfa744119568b7950c
-ms.sourcegitcommit: 9339c4d47a4c7eb3621b5a31384bb0f504951712
+ms.openlocfilehash: 2cf3875eef9dcad7ba85bcf12c52f03aa7103aca
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "114201139"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287369"
 ---
 L'**exemple de bannière d'appel de groupe pour iOS** d'Azure Communication Services illustre de quelle façon le SDK iOS Communication Services Calling peut être utilisé pour créer une expérience d'appels vocaux et vidéo. Dans cet exemple de démarrage rapide, vous allez apprendre à configurer et à exécuter l’exemple. Une vue d’ensemble de l’exemple est fournie ci-après pour le contexte.
 
@@ -101,7 +101,7 @@ Si vous voulez nettoyer et supprimer un abonnement Communication Services, vous 
 
 Pour plus d’informations, consultez les articles suivants :
 
-- Familiarisez-vous avec l’[utilisation du SDK Calling](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarisez-vous avec l’[utilisation du SDK Calling](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - Apprenez-en davantage sur le [fonctionnement des appels](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Documentation supplémentaire

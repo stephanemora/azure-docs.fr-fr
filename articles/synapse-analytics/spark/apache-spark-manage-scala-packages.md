@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: bed5c6b1b1cf21de0105e0eeb2096d359177c115
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 952e0b325fe37345db42d1dcd8d6c521f8235366
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814997"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225395"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Gérer des packages Scala et Java pour Apache Spark dans Azure Synapse Analytics
 
@@ -82,7 +82,7 @@ Pour mettre à jour un pool Spark ou y ajouter des bibliothèques :
 >
 > Si ce paramètre est désactivé, vous devez attendre que la session Spark en cours se termine ou l’arrêter manuellement. Une fois la session terminée, vous devez laisser le pool redémarrer.
 
-#### <a name="track-installation-progress-preview"></a>Vérifier la progression de l’installation (préversion)
+#### <a name="track-installation-progress"></a>Vérifier la progression de l’installation 
 Un travail Spark réservé au système démarre chaque fois qu’un pool est mis à jour avec un nouvel ensemble de bibliothèques. Ce travail Spark permet de surveiller l’état de l’installation de la bibliothèque. En cas d’échec de l’installation suite à des conflits avec la bibliothèque ou à d’autres problèmes, l’état précédent ou l’état par défaut du pool Spark est rétabli. 
 
 De plus, les utilisateurs peuvent consulter les journaux d’installation pour identifier les conflits de dépendance ou vérifier quelles bibliothèques ont été installées lors de la mise à jour du pool.

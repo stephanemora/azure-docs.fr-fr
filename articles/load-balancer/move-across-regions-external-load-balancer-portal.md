@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: da37816b68e9984fdf801e3e84d50a57bf290e96
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: b9eabb4f49a533c97177dc0598e425ab63b20ec5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129273549"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130258712"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Déplacer un équilibreur de charge externe vers une autre région à l’aide du portail Azure
 
@@ -110,7 +110,7 @@ Les procédures suivantes montrent comment préparer l’équilibreur de charge 
             },
         ```
 
-        Pour plus d’informations sur les différences entre les adresses IP publiques des références SKU basic et standard, consultez [Créer, modifier ou supprimer une adresse IP publique](../virtual-network/virtual-network-public-ip-address.md).
+        Pour plus d’informations sur les différences entre les adresses IP publiques des références SKU basic et standard, consultez [Créer, modifier ou supprimer une adresse IP publique](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
     * **Méthode d’allocation des adresses IP publiques** et **Délai d’inactivité**. Vous pouvez modifier la méthode d’allocation des adresses IP publiques en changeant la valeur de la propriété **publicIPAllocationMethod** de **Dynamic** à **Static** ou de **Static** à **Dynamic**. Vous pouvez modifier le délai d’inactivité en indiquant la valeur souhaitée dans la propriété **idleTimeoutInMinutes**. La valeur par défaut est **4**.
 
@@ -136,7 +136,7 @@ Les procédures suivantes montrent comment préparer l’équilibreur de charge 
 
         ```
 
-        Pour plus d’informations sur les méthodes d’allocation et les valeurs de délai d’inactivité, consultez [Créer, modifier ou supprimer une adresse IP publique](../virtual-network/virtual-network-public-ip-address.md).
+        Pour plus d’informations sur les méthodes d’allocation et les valeurs de délai d’inactivité, consultez [Créer, modifier ou supprimer une adresse IP publique](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
  
 13. Sélectionnez **Enregistrer** dans l’éditeur en ligne.

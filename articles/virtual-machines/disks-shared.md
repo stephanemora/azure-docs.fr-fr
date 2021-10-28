@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 56ba97d5a13744ee034024f510eac70d4f343877
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: f66c1528058fd2d03098c00a54928fb0fbbd4057
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129052801"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225151"
 ---
 # <a name="share-an-azure-managed-disk"></a>Partager Étendre un disque managé Azure
 
@@ -161,7 +161,7 @@ Les disques partagés Ultra sont facturés en fonction de la capacité approvisi
 
 **Q : Dans quelles régions les disques partagés sont pris en charge ?**
 
-**R :** Pour obtenir des informations régionales, consultez notre [article conceptuel](/azure/virtual-machines/disks-shared).
+**R :** Pour obtenir des informations régionales, consultez notre [article conceptuel]().
 
 **Q : Les disques partagés peuvent-ils être utilisés comme disque de système d’exploitation ?**
 
@@ -169,7 +169,7 @@ Les disques partagés Ultra sont facturés en fonction de la capacité approvisi
 
 **Q : Quelles tailles de disque prennent en charge les disques partagés ?**
 
-**R :** Pour connaître les tailles prises en charge, consultez notre [article conceptuel](/azure/virtual-machines/disks-shared).
+**R :** Pour connaître les tailles prises en charge, consultez notre [article conceptuel]().
 
 **Q : Est-il possible d’activer la fonctionnalité de disques partagés sur un disque existant ?**
 

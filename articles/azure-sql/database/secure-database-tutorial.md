@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: ''
 ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: af829349ba5fe4b6ad2bf9e443eb780e926da565
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: a5f17382c651d0eb07978ae84531d9511e6737cd
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121751280"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216273"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutoriel : Sécuriser une base de données dans Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ Pour connaître toutes les étapes du tutoriel, connectez-vous au [portail Azure
 
 Les bases de données dans SQL Database sont protégées par des pare-feu dans Azure. Par défaut, toutes les connexions au serveur et à la base de données sont rejetées. Pour en savoir plus, consultez [Règles de pare-feu au niveau du serveur et de la base de données](firewall-configure.md).
 
-Affectez au paramètre **Autoriser l’accès aux services Azure** la valeur **DÉSACTIVER** pour définir la configuration la plus sécurisée. Ensuite, créez une [adresse IP réservée (déploiement classique)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) pour la ressource à connecter, par exemple une machine virtuelle Azure ou un service cloud, puis autorisez uniquement l’accès de cette adresse IP à travers le pare-feu. Si vous utilisez le modèle de déploiement [Resource Manager](../../virtual-network/public-ip-addresses.md), une adresse IP publique dédiée est nécessaire pour chaque ressource.
+Affectez au paramètre **Autoriser l’accès aux services Azure** la valeur **DÉSACTIVER** pour définir la configuration la plus sécurisée. Ensuite, créez une [adresse IP réservée (déploiement classique)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) pour la ressource à connecter, par exemple une machine virtuelle Azure ou un service cloud, puis autorisez uniquement l’accès de cette adresse IP à travers le pare-feu. Si vous utilisez le modèle de déploiement [Resource Manager](../../virtual-network/ip-services/public-ip-addresses.md), une adresse IP publique dédiée est nécessaire pour chaque ressource.
 
 > [!NOTE]
 > SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter au serveur, à moins que votre administrateur n’ouvre le port 1433.

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 5c9df61e7f4430a623f354294863b2a1bc06b7c8
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.openlocfilehash: b9cd899516188dbac4671addd11d9c6cd05fc843
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130164276"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130216653"
 ---
 # <a name="language-support-for-form-recognizer"></a>Prise en charge linguistique pour Form Recognizer
 
@@ -32,7 +32,7 @@ Les listes suivantes couvrent les langues en GA (disponibilité générale) dans
 >
 > Les modèles universels basés sur le deep learning de Form Recognizer extraient tout le texte multilingue de vos documents, notamment les lignes de texte contenant plusieurs langues, et ne nécessitent pas la spécification d’un code de langue. N’indiquez pas de code de langue en tant que paramètre, sauf si vous êtes sûr de la langue et si vous souhaitez forcer le service à appliquer uniquement le modèle approprié. Sinon, le service pourrait retourner du texte incomplet et incorrect.
 
-Pour utiliser les langues en préversion dans les modèles de disposition et les modèles personnalisés, consultez le [guide de migration de l’API REST v3.0](/v3-migration-guide.md#changes-to-the-rest-api-endpoints) afin de comprendre les différences par rapport à l’API v2.1 en GA, puis accédez aux [guides de démarrage rapide du kit SDK v3.0 (préversion)](quickstarts/try-v3-python-sdk.md) et au [guide de démarrage rapide de l’API REST (préversion)](quickstarts/try-v3-rest-api.md).
+Pour utiliser les langues en préversion dans les modèles de disposition et les modèles personnalisés, consultez le [guide de migration de l’API REST v3.0](/rest/api/media/#changes-to-the-rest-api-endpoints) afin de comprendre les différences par rapport à l’API v2.1 en GA, puis accédez aux [guides de démarrage rapide du kit SDK v3.0 (préversion)](quickstarts/try-v3-python-sdk.md) et au [guide de démarrage rapide de l’API REST (préversion)](quickstarts/try-v3-rest-api.md).
 
 ### <a name="handwritten-languages"></a>Langues manuscrites
 Le tableau suivant liste les langues manuscrites prises en charge par les fonctionnalités des modèles personnalisés et des modèles de disposition de Form Recognizer.
@@ -118,7 +118,7 @@ Le tableau suivant liste les langues d’impression prises en charge par les fon
 |Koryak |`kpy`| preview |
 |Kosrae |`kos`| preview |
 |Kumyk (Cyrillique) |`kum`| preview |
-|Kurde (latin)| `kur` | |
+|Kurde (latin)| `ku` | |
 |Kirghiz (cyrillique) |`ky`| preview |
 |Lakota |`lkt`| preview |
 |Latin|`la`| preview |
@@ -152,13 +152,13 @@ Le tableau suivant liste les langues d’impression prises en charge par les fon
 |Serbe (latin) | `sr-latn` | preview |
 |Same de Skolt|`sms`| preview |
 |Slovaque | `sk` | preview |
-|Slovène  | `slv` | |
+|Slovène  | `sl` | |
 |Same du Sud|`sma`| preview |
 |Espagnol | `es` | |
 |Swahili (latin)  | `sw` | |
 |Suédois | `sv` | |
 |Tadjik (cyrillique)|`tg`| preview |
-|Tatar (latin)  | `tat` | |
+|Tatar (latin)  | `tt` | |
 |Tétoum    | `tet` |  |
 |Tonga|`to`|(préversion) |
 |Turc | `tr` | |

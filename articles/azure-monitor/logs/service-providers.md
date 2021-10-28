@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: d2e0dcb7d973a4e4b2b6f4438aab5f08187ae44b
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 076574173f0bfd4daff4845ab354e730ec0844d9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111953117"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233260"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Journaux Azure Monitor pour les fournisseurs de services
 
@@ -76,7 +76,7 @@ Il existe deux options pour implémenter des journaux dans un emplacement centra
 
 1. Espace de travail central : le fournisseur de services peut créer un espace de travail dans son locataire et utiliser un script qui utilise [l’API de requête](https://dev.loganalytics.io/) avec [l’API de collecte de données](../logs/data-collector-api.md) pour importer les données des différents espaces de travail dans l’emplacement central. Une autre option (autre que le script) consiste à utiliser une [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
-2. Power BI comme emplacement central : Power BI peut servir d’emplacement central quand les différents espaces de travail exportent des données vers lui en utilisant l’intégration entre l’espace de travail Log Analytics et [Power BI](../visualize/powerbi.md).
+2. Power BI comme emplacement central : Power BI peut servir d’emplacement central quand les différents espaces de travail exportent des données vers lui en utilisant l’intégration entre l’espace de travail Log Analytics et [Power BI](./log-powerbi.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -86,6 +86,6 @@ Il existe deux options pour implémenter des journaux dans un emplacement centra
 
 * Utiliser [Alertes](../alerts/alerts-overview.md) pour intégrer les espaces de travail aux systèmes existants
 
-* Générer des rapports de synthèse à l’aide de [Power BI](../visualize/powerbi.md)
+* Générer des rapports de synthèse à l’aide de [Power BI](./log-powerbi.md)
 
 * Intégrer des clients à la [gestion déléguée des ressources Azure](../../lighthouse/concepts/architecture.md)

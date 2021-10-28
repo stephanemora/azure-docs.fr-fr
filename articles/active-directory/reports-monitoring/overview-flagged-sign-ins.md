@@ -1,28 +1,23 @@
 ---
 title: Que sont les connexions marquées d’un indicateur dans Azure Active Directory ?
 description: Présente une vue d’ensemble des connexions marquées d’un indicateur dans Azure Active Directory.
-services: active-directory
-documentationcenter: ''
 author: MarkusVi
 manager: karenhoran
-editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 09/28/2021
 ms.author: markvi
 ms.reviewer: tspring
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d2d830a5aa60418625698eb97cad9a0b3f79650
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 8c40295803d9389bfa1534880aa6cbb4bb0426d2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007586"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233731"
 ---
 # <a name="what-are-flagged-sign-ins-in-azure-active-directory"></a>Que sont les connexions marquées d’un indicateur dans Azure Active Directory ?
 
@@ -77,7 +72,7 @@ Vous pouvez trouver les connexions marquées d’un indicateur avec une requête
  
 `https://graph.microsoft.com/beta/auditlogs/signins?&$filter=(flaggedForReview eq true)`
 
-Pour plus d’informations sur l’utilisation de l’API Graph de connexions, consultez [Type de ressource signIn](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true).
+Pour plus d’informations sur l’utilisation de l’API Graph de connexions, consultez [Type de ressource signIn](/graph/api/resources/signin?view=graph-rest-1.0&preserve-view=true).
 
 
 

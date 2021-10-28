@@ -4,12 +4,12 @@ description: Découvrez comment intégrer des fichiers ou des bibliothèques tie
 ms.date: 4/6/2020
 ms.topic: article
 zone_pivot_groups: bring-third-party-dependency-programming-functions
-ms.openlocfilehash: 3cd1139e8c733650acc879bf1d0d5d9efb2f6fb4
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: be01f07a9906da58d080060185104aef29f78b77
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716345"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265302"
 ---
 # <a name="bring-dependencies-or-third-party-library-to-azure-functions"></a>Intégrer des dépendances et des bibliothèques tierces dans Azure Functions
 
@@ -205,7 +205,7 @@ D’autres commandes de modification/suppression de la configuration du partage 
 
 ### <a name="uploading-the-dependencies-to-azure-files"></a>Charger les dépendances dans Azure Files
 
-L’une des options permettant de charger votre dépendance dans Azure Files consiste à utiliser le portail Azure. Consultez ce [guide](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) pour obtenir des instructions relatives au chargement des dépendances à l’aide du portail. Parmi les autres options de chargement des dépendances dans Azure Files figurent également [Azure CLI](../storage/files/storage-how-to-use-files-cli.md#upload-a-file) et [PowerShell](../storage/files/storage-how-to-use-files-powershell.md#upload-a-file).
+L’une des options permettant de charger votre dépendance dans Azure Files consiste à utiliser le portail Azure. Consultez ce [guide](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) pour obtenir des instructions relatives au chargement des dépendances à l’aide du portail. Parmi les autres options de chargement des dépendances dans Azure Files figurent également [Azure CLI](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) et [PowerShell](../storage/files/storage-how-to-use-files-portal.md#upload-a-file).
 
 
 ### <a name="accessing-the-dependencies-in-your-code"></a>Accéder aux dépendances dans votre code

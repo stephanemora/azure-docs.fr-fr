@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.date: 09/23/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: bed6b3e8d40beab403b8295b9c17fc8b6f6eefbe
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 70ab13f1ca1eee2d5c01d3aa1af6255bc06aeb3d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129659257"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233655"
 ---
 # <a name="generate-sas-tokens-for-storage-containers"></a>Créer des jetons SAS pour les conteneurs de stockage
 
@@ -47,8 +47,8 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 * Une ressource [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ou [multiservice Cognitive Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) dans le portail Azure.
 * Un [compte de Stockage Blob Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) de **performances standard**. Vous allez créer des conteneurs pour stocker et organiser vos données d’objet blob dans votre compte de stockage. Si vous ignorez comment créer un compte de stockage Azure avec un conteneur, suivez les démarrages rapides suivants :
 
-  * [Créer un compte de stockage](/azure/storage/common/storage-account-create). Lorsque vous créez votre compte de stockage, sélectionnez les performances **Standard** dans le champ **Détails de l’instance** > **Performance**.
-  * [Créer un conteneur](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). Lors de la création de votre conteneur, définissez le champ **Niveau d’accès public** sur **Conteneur** (accès en lecture anonyme pour les conteneurs et les blobs) dans la fenêtre **Nouveau conteneur**.
+  * [Créer un compte de stockage](../../storage/common/storage-account-create.md). Lorsque vous créez votre compte de stockage, sélectionnez les performances **Standard** dans le champ **Détails de l’instance** > **Performance**.
+  * [Créer un conteneur](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). Lors de la création de votre conteneur, définissez le champ **Niveau d’accès public** sur **Conteneur** (accès en lecture anonyme pour les conteneurs et les blobs) dans la fenêtre **Nouveau conteneur**.
 
 ## <a name="upload-your-documents"></a>Charger les documents
 
@@ -67,7 +67,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Capture d’écran illustrant la fenêtre Charger l’objet blob dans le portail Azure.":::
 
 > [!NOTE]
-> Par défaut, l’API REST utilise des formulaires situés à la racine de votre conteneur. Vous pouvez aussi utiliser des données organisées en sous-dossiers si cela est spécifié dans l’appel de l’API. Pour plus d’informations, consultez [Organiser vos données dans des sous-dossiers](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional).
+> Par défaut, l’API REST utilise des formulaires situés à la racine de votre conteneur. Vous pouvez aussi utiliser des données organisées en sous-dossiers si cela est spécifié dans l’appel de l’API. Pour plus d’informations, consultez [Organiser vos données dans des sous-dossiers](./build-training-data-set.md#organize-your-data-in-subfolders-optional).
 
 ## <a name="create-a-shared-access-signature-with-the-azure-portal"></a>Créer une signature d’accès partagé avec le portail Azure
 
@@ -94,8 +94,8 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
     >
     >     :::image type="content" source="media/sas-tokens/need-permissions.png" alt-text="Capture d’écran illustrant l’avertissement lié à l’absence d’autorisations.":::
     >
-     > * Le [contrôle d’accès en fonction du rôle Azure](/azure/role-based-access-control/overview) (Azure RBAC) est le système d’autorisation utilisé pour gérer l’accès aux ressources Azure. Azure RBAC vous permet de gérer l’accès et les autorisations pour vos ressources Azure.
-    > * Le guide [Attribuer un rôle Azure pour accéder au données blob](/azure/role-based-access-control/role-assignments-portal?tabs=current) vous montre comment attribuer un rôle qui accorde les autorisations de lecture, d’écriture et de suppression pour votre conteneur de stockage Azure. Par exemple, consultez [Contributeur aux données Stockage Blob Azure](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor).
+     > * Le [contrôle d’accès en fonction du rôle Azure](../../role-based-access-control/overview.md) (Azure RBAC) est le système d’autorisation utilisé pour gérer l’accès aux ressources Azure. Azure RBAC vous permet de gérer l’accès et les autorisations pour vos ressources Azure.
+    > * Le guide [Attribuer un rôle Azure pour accéder au données blob](../../role-based-access-control/role-assignments-portal.md?tabs=current) vous montre comment attribuer un rôle qui accorde les autorisations de lecture, d’écriture et de suppression pour votre conteneur de stockage Azure. Par exemple, consultez [Contributeur aux données Stockage Blob Azure](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor).
 
 1. Spécifiez les heures de **début** et d’**expiration** de la clé signée. La valeur de l’heure d’expiration est un maximum de sept jours à partir du début de la signature d’accès partagé.
 
@@ -122,7 +122,7 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 1. Les autorisations prises en charge pour une signature SAS sur un conteneur incluent Ajouter (a), Créer (c), Supprimer (d), Répertorier (l), Lire (r) et Écrire (w). Assurez-vous que **r**, **w**, **d** et **l** sont inclus dans les paramètres des autorisations.
 
-1. Lorsque vous créez une signature SAS de délégation utilisateur avec une interface CLI Azure, l’intervalle maximal pendant lequel la clé de délégation d’utilisateur est valide est de sept jours à partir de la date de début. Spécifiez un délai d’expiration pour la signature d’accès partagé qui se situe dans les sept jours suivants l’heure de début. Pour plus d’informations, consultez [Créer une signature SAS de délégation d’utilisateur pour un conteneur ou un blob avec l’interface CLI Azure](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
+1. Lorsque vous créez une signature SAS de délégation utilisateur avec une interface CLI Azure, l’intervalle maximal pendant lequel la clé de délégation d’utilisateur est valide est de sept jours à partir de la date de début. Spécifiez un délai d’expiration pour la signature d’accès partagé qui se situe dans les sept jours suivants l’heure de début. Pour plus d’informations, consultez [Créer une signature SAS de délégation d’utilisateur pour un conteneur ou un blob avec l’interface CLI Azure](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md#use-azure-ad-credentials-to-secure-a-sas).
 
 ### <a name="example"></a> Exemple
 

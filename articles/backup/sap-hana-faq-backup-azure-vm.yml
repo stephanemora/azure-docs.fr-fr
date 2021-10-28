@@ -5,12 +5,12 @@ metadata:
   ms.topic: article
   ms.service: backup
   ms.date: 09/27/2021
-  ms.openlocfilehash: 2b1a7e39c1cf4a7e6c5b1da6f748c7e143608104
-  ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+  ms.openlocfilehash: fd2fee68735686a15720c87bc4fb1f3ce9f410b5
+  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/27/2021
-  ms.locfileid: "129080683"
+  ms.lasthandoff: 10/22/2021
+  ms.locfileid: "130244241"
 title: Forum aux questions – Sauvegarde de bases de données SAP HANA sur des machines virtuelles Azure
 summary: Cet article fournit des réponses à des questions courantes sur la sauvegarde de bases de données SAP HANA avec le service Sauvegarde Microsoft Azure.
 sections:
@@ -35,7 +35,7 @@ sections:
       Les travaux de sauvegarde réussis ne génèrent pas d’alertes. Les alertes ne sont envoyées qu’en cas d’échec de la sauvegarde. [Découvrez comment](backup-azure-monitoring-built-in-monitor.md) utiliser le portail Azure pour afficher les alertes de sauvegarde.
   - question: >
       Comment vérifier si ma sauvegarde (planifiée/à la demande) est exécutée avec succès ?
-    answer: "Vous pouvez vérifier l’état de vos sauvegardes (planifiées/à la demande) à partir de l’un des emplacements suivants :\n\n1. **Travaux de sauvegarde** : Sauvegarde Azure affiche tous les travaux déclenchés manuellement dans la section Travaux de sauvegarde sur le portail Azure.  <br><br>   Les travaux que vous voyez dans le portail Azure incluent des opérations de découverte, d’inscription, de sauvegarde et de restauration de base de données. Les travaux planifiés, notamment les sauvegardes de fichiers journaux, n’apparaissent pas dans cette section. Les sauvegardes déclenchées manuellement à partir des clients natifs SAP HANA (Studio/Cockpit/DBA Cockpit) ne sont pas non plus indiquées ici.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png\" alt-text=\"Capture d’écran montrant des travaux déclenchés manuellement dans la section Travaux de sauvegarde du portail Azure.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png\" alt-text=\"Capture d’écran montrant des travaux, dont des opérations de découverte, d’inscription, de sauvegarde et de restauration de base de données.\":::\n \n1. **Alertes de sauvegarde** : les alertes vous aident à surveiller les sauvegardes des bases de données SAP HANA. Elles vous aident à vous concentrer sur les événements requis, vous épargnant ainsi l’effort de vérification fréquente de la multitude d’événements qu’une sauvegarde génère. Pour plus d’informations, consultez [Afficher les alertes de sauvegarde](/azure/backup/sap-hana-db-manage#view-backup-alerts).\n\n1. **Rapports de sauvegarde** : les rapports constituent une autre manière d’afficher l’état de vos travaux de sauvegarde. Vous rapports se présenteront comme suit :\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports.png\" alt-text=\"Capture d’écran montrant un type de rapport dans le portail Azure.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png\" alt-text=\"Capture d’écran montrant l’autre type de rapport dans le portail Azure.\":::\n\n   Découvrez [Comment configurer des rapports de sauvegarde Azure](/azure/backup/configure-reports).\n\n1. **Clients natifs SAP Hana** : si vous êtes un client de SAP Hana, vous pouvez également utiliser HANA Studio, l’un des clients HANA les plus courants. Dans ce client, accédez à **Console de sauvegarde** -> **Catalogue de sauvegarde** pour voir l’**état de la sauvegarde**.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png\" alt-text=\"Capture d’écran montrant des rapports dans des clients natifs SAP HANA.\":::\n"
+    answer: "Vous pouvez vérifier l’état de vos sauvegardes (planifiées/à la demande) à partir de l’un des emplacements suivants :\n\n1. **Travaux de sauvegarde** : Sauvegarde Azure affiche tous les travaux déclenchés manuellement dans la section Travaux de sauvegarde sur le portail Azure.  <br><br>   Les travaux que vous voyez dans le portail Azure incluent des opérations de découverte, d’inscription, de sauvegarde et de restauration de base de données. Les travaux planifiés, notamment les sauvegardes de fichiers journaux, n’apparaissent pas dans cette section. Les sauvegardes déclenchées manuellement à partir des clients natifs SAP HANA (Studio/Cockpit/DBA Cockpit) ne sont pas non plus indiquées ici.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/manually-triggered-jobs.png\" alt-text=\"Capture d’écran montrant des travaux déclenchés manuellement dans la section Travaux de sauvegarde du portail Azure.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png\" alt-text=\"Capture d’écran montrant des travaux, dont des opérations de découverte, d’inscription, de sauvegarde et de restauration de base de données.\":::\n \n1. **Alertes de sauvegarde** : les alertes vous aident à surveiller les sauvegardes des bases de données SAP HANA. Elles vous aident à vous concentrer sur les événements requis, vous épargnant ainsi l’effort de vérification fréquente de la multitude d’événements qu’une sauvegarde génère. Pour plus d’informations, consultez [Afficher les alertes de sauvegarde](./sap-hana-db-manage.md#view-backup-alerts).\n\n1. **Rapports de sauvegarde** : les rapports constituent une autre manière d’afficher l’état de vos travaux de sauvegarde. Vous rapports se présenteront comme suit :\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports.png\" alt-text=\"Capture d’écran montrant un type de rapport dans le portail Azure.\":::\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png\" alt-text=\"Capture d’écran montrant l’autre type de rapport dans le portail Azure.\":::\n\n   Découvrez [Comment configurer des rapports de sauvegarde Azure](./configure-reports.md).\n\n1. **Clients natifs SAP Hana** : si vous êtes un client de SAP Hana, vous pouvez également utiliser HANA Studio, l’un des clients HANA les plus courants. Dans ce client, accédez à **Console de sauvegarde** -> **Catalogue de sauvegarde** pour voir l’**état de la sauvegarde**.\n\n   :::image type=\"content\" source=\"./media/sap-hana-faq-backup-azure-vm/sap-hana-native-client-reports.png\" alt-text=\"Capture d’écran montrant des rapports dans des clients natifs SAP HANA.\":::\n"
   - question: >
       Les travaux de sauvegarde planifiés sont-ils affichés dans le menu Travaux de sauvegarde ?
     answer: >
@@ -172,16 +172,16 @@ sections:
   - question: >
       Quelles sont les performances en matière de débit de sauvegarde et de restauration fournies par le service Sauvegarde Azure et comment configurer mon système HANA pour utiliser ce débit maximal ?
     answer: >
-      Reportez-vous aux [performances de débit de sauvegarde et de restauration](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) qu’offre le service Sauvegarde Azure pour les charges de travail HANA. <br><br> Pour configurer votre système HANA afin de tirer parti des performances améliorées, utilisez les ressources suivantes :
+      Reportez-vous aux [performances de débit de sauvegarde et de restauration](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) qu’offre le service Sauvegarde Azure pour les charges de travail HANA. <br><br> Pour configurer votre système HANA afin de tirer parti des performances améliorées, utilisez les ressources suivantes :
 
-       - [Sélectionner un type de disque pour les machines virtuelles Azure IaaS - disques managés](/azure/virtual-machines/disks-types#premium-ssd)
-       - [Niveaux de performance des disques managés Azure](/azure/virtual-machines/disks-change-performance)
-       - [Série M](/azure/virtual-machines/m-series)
-       - [Configurations du stockage des machines virtuelles SAP HANA Azure](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+       - [Sélectionner un type de disque pour les machines virtuelles Azure IaaS - disques managés](../virtual-machines/disks-types.md)
+       - [Niveaux de performance des disques managés Azure](../virtual-machines/disks-change-performance.md)
+       - [Série M](../virtual-machines/m-series.md)
+       - [Configurations du stockage des machines virtuelles SAP HANA Azure](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
 
       >[!Note]
 
-      >Vous pouvez également limiter les performances de débit de sauvegarde. [Plus d’informations](/azure/backup/tutorial-backup-sap-hana-db#limiting-backup-throughput-performance)
+      >Vous pouvez également limiter les performances de débit de sauvegarde. [Plus d’informations](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance)
 - name: Restaurer
   questions:
   - question: >

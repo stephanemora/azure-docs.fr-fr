@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-ms.openlocfilehash: 927b672aa4bd17efcfa491b0ec0092db9a2118c0
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 625a49930b68f2f5d76110a3548ad6e422ebf451
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429791"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251544"
 ---
 # <a name="data-wrangling-with-apache-spark-pools-preview"></a>Data wrangling avec des pools Apache Spark (préversion) 
 
@@ -96,7 +96,7 @@ env.register(workspace=ws)
 Pour démarrer la préparation des données avec le pool Apache Spark et votre environnement personnalisé, spécifiez le nom du pool Apache Spark et l’environnement à utiliser pendant la session Apache Spark. En outre, vous pouvez fournir votre ID d’abonnement, le groupe de ressources de l’espace de travail Machine Learning et le nom de l’espace de travail Machine Learning.
 
 >[!IMPORTANT]
-> Veillez à ce que l’option [Autoriser les packages de niveau session](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages-preview) soit activée dans l’espace de travail Synapse lié.
+> Veillez à ce que l’option [Autoriser les packages de niveau session](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages) soit activée dans l’espace de travail Synapse lié.
 >
 >![activer les packages de niveau session](media/how-to-data-prep-synapse-spark-pool/enable-session-level-package.png)
 

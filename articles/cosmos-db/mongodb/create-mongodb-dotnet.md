@@ -9,18 +9,19 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 8/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2aadb79f306165543c7b8e7c6935b9ff066681e4
-ms.sourcegitcommit: 851b75d0936bc7c2f8ada72834cb2d15779aeb69
+ms.openlocfilehash: b528804385b9b47f6c586b49f2a33a4c688753b2
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123307765"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250195"
 ---
 # <a name="quickstart-build-a-net-web-api-using-azure-cosmos-dbs-api-for-mongodb"></a>Démarrage rapide : Générer une API web .NET à l’aide de l’API d’Azure Cosmos DB pour MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.JS](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)
@@ -223,8 +224,8 @@ Entrez tous les paramètres nécessaires, puis sélectionnez « Exécuter ».
 
 Dans ce guide de démarrage rapide, vous avez appris à créer un compte d’API pour MongoDB, à créer une base de données et une collection avec du code, puis à exécuter une application API web. Vous pouvez maintenant importer des données supplémentaires dans votre base de données. 
 
-Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
-* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existantes, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
+Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+* Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](../convert-vcore-to-request-unit.md) 
 * Si vous connaissez les taux de requêtes typiques de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-capacity-planner.md)
 
 > [!div class="nextstepaction"]

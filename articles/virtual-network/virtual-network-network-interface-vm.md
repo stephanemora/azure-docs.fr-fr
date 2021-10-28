@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 847f8dbd2d8f4064f12333348a4f03e5c5fcc611
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: fcdc5c86c1b5cf39fb4140afc1db661db8ead11d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774248"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224825"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Ajouter ou supprimer des interfaces réseau pour des machines virtuelles
 
 Découvrez comment ajouter une interface réseau existante quand vous créez une machine virtuelle Azure, et également comment ajouter ou supprimer des interfaces réseau d’une machine virtuelle existante à l’état arrêté (désalloué). Une interface réseau permet à une machine virtuelle Azure de communiquer avec des ressources sur Internet, sur Azure et locales. Une machine virtuelle a une ou plusieurs interfaces réseau. 
 
-Si vous avez besoin d’ajouter, de modifier ou de supprimer des adresses IP pour une interface réseau, consultez la section sur la [gestion des adresses IP des interfaces réseau](virtual-network-network-interface-addresses.md). Pour créer, modifier ou supprimer des interfaces réseau, consultez [Gérer des interfaces réseau](virtual-network-network-interface.md).
+Si vous avez besoin d’ajouter, de modifier ou de supprimer des adresses IP pour une interface réseau, consultez la section sur la [gestion des adresses IP des interfaces réseau](./ip-services/virtual-network-network-interface-addresses.md). Pour créer, modifier ou supprimer des interfaces réseau, consultez [Gérer des interfaces réseau](virtual-network-network-interface.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -96,7 +96,7 @@ Vous pouvez afficher les interfaces réseau actuellement attachées à une machi
 
 3. Dans la barre de menus de la machine virtuelle, sélectionnez **Réseau**.
 
-Pour plus d’informations sur les paramètres d’interface réseau et leur modification, consultez [Gérer les interfaces réseau](virtual-network-network-interface.md). Pour savoir comment ajouter, modifier ou supprimer des adresses IP pour une interface réseau, consultez la section sur la [gestion des adresses IP des interfaces réseau](virtual-network-network-interface-addresses.md).
+Pour plus d’informations sur les paramètres d’interface réseau et leur modification, consultez [Gérer les interfaces réseau](virtual-network-network-interface.md). Pour savoir comment ajouter, modifier ou supprimer des adresses IP pour une interface réseau, consultez la section sur la [gestion des adresses IP des interfaces réseau](./ip-services/virtual-network-network-interface-addresses.md).
 
 ### <a name="commands"></a>Commandes
 
@@ -147,7 +147,7 @@ Pour plus d’informations sur les paramètres d’interface réseau et leur mod
 
 - Vous pouvez connecter des interfaces réseau dans la même machine virtuelle à différents sous-réseaux au sein d’un réseau virtuel. Toutefois, les interfaces réseau doivent toutes être connectées au même réseau virtuel.
 
-- Vous pouvez ajouter n’importe quelle adresse IP pour n’importe quelle configuration IP d’une interface réseau principale ou secondaire à un pool principal Azure Load Balancer. Auparavant, seule l’adresse IP principale de l’interface réseau principale pouvait être ajoutée à un pool principal. Pour en savoir plus sur les configurations et les adresses IP, consultez [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md).
+- Vous pouvez ajouter n’importe quelle adresse IP pour n’importe quelle configuration IP d’une interface réseau principale ou secondaire à un pool principal Azure Load Balancer. Auparavant, seule l’adresse IP principale de l’interface réseau principale pouvait être ajoutée à un pool principal. Pour en savoir plus sur les configurations et les adresses IP, consultez [Ajouter, modifier ou supprimer des adresses IP](./ip-services/virtual-network-network-interface-addresses.md).
 
 - La suppression d’une machine virtuelle n’a pas pour effet de supprimer les interfaces réseau qui y sont attachées. Lorsque vous supprimez une machine virtuelle, les interfaces réseau sont détachées de la machine virtuelle. Vous pouvez attacher ces interfaces réseau à différentes machines virtuelles, ou les supprimer.
 
@@ -162,5 +162,5 @@ Pour créer une machine virtuelle avec plusieurs interfaces réseau ou adresses 
 |Tâche|Outil|
 |---|---|
 |Créer une machine virtuelle avec plusieurs cartes d’interface réseau|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Créer une machine virtuelle à carte réseau unique avec plusieurs adresses IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+|Créer une machine virtuelle à carte réseau unique avec plusieurs adresses IPv4|[CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md), [PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)|
 |Créer une machine virtuelle à carte réseau unique avec une adresse IPv6 privée (derrière Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [modèle Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|

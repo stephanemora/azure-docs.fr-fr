@@ -3,15 +3,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox
 ms.topic: include
-ms.date: 09/08/2021
+ms.date: 10/21/2021
 ms.author: alkohli
 ms.custom: contperf-fy22q1
-ms.openlocfilehash: 6f784c075d24fe26b7ec1ea9d5921dfb460e5298
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d5b7294a54db4e89e80ad577a87fda74c66b3695
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743332"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130288129"
 ---
 Effectuez les étapes suivantes dans le portail Azure pour commander un appareil :
 
@@ -46,7 +46,7 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
 6. Dans **Commande**, accédez à l’onglet **Informations de base**. Entrez ou sélectionnez les informations suivantes. Ensuite, sélectionnez **Suivant : Destination des données>** .
 
-    |Paramètre  |Valeur  |
+    |Paramètre  |Value  |
     |---------|---------|
     |Abonnement      | L’abonnement est automatiquement renseigné en fonction de la sélection antérieure.|
     |Resource group    | Groupe de ressources que vous avez sélectionné précédemment. |
@@ -76,7 +76,7 @@ Effectuez les étapes suivantes dans le portail Azure pour commander un appareil
 
     ![Capture d’écran montrant l’onglet Destination des données pour une commande Data Box avec comme destination Disques managés. L’onglet Destination des données, l’option Disques managés et le bouton Suivant : Sécurité sont mis en évidence.](media/data-box-order-portal/data-box-import-07.png)
 
-    Le compte de stockage spécifié pour les disques managés est utilisé comme compte de stockage intermédiaire. Le service Data Box charge les disques durs virtuels en tant qu’objets blob de pages sur le compte de stockage intermédiaire avant de convertir celui-ci en disques managés et de le déplacer vers les groupes de ressources. Pour plus d’informations, voir [Vérifier le chargement des données dans Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure-8).
+    Le compte de stockage spécifié pour les disques managés est utilisé comme compte de stockage intermédiaire. Le service Data Box charge les disques durs virtuels en tant qu’objets blob de pages sur le compte de stockage intermédiaire avant de convertir celui-ci en disques managés et de le déplacer vers les groupes de ressources. Pour plus d’informations, voir [Vérifier le chargement des données dans Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
    > [!NOTE]
    > Si un objet blob de pages n’est pas correctement converti en disque managé, il reste dans le compte de stockage et des frais de stockage vous sont facturés.

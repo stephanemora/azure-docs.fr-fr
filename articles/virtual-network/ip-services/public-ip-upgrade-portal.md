@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 05/20/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f436cd2d113909a65b62891f9fbfb5965d06a981
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a40806f6328c513fe6a835ca3a81b46ad962b86d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368514"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224946"
 ---
 # <a name="upgrade-a-public-ip-address-using-the-azure-portal"></a>Mettre à niveau une adresse IP publique à l'aide du portail Azure
 
@@ -24,7 +24,7 @@ Dans cet article, vous allez apprendre à mettre à niveau l'adresse IP publiqu
 ## <a name="prerequisites"></a>Prérequis
 
 * Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Une adresse IP publique de référence SKU de base statique dans votre abonnement. Pour plus d'informations, consultez [Créer une adresse IP publique - Portail Azure](../../virtual-network/create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
+* Une adresse IP publique de référence SKU de base statique dans votre abonnement. Pour plus d'informations, consultez [Créer une adresse IP publique - Portail Azure](./create-public-ip-portal.md#create-a-basic-sku-public-ip-address).
 
 ## <a name="upgrade-public-ip-address"></a>Mettre à niveau une adresse IP publique
 
@@ -73,5 +73,4 @@ Dans cet article, vous avez mis à niveau l'adresse IP publique d'une référen
 Pour plus d'informations, sur les adresses IP publiques dans Azure, consultez :
 
 - [Adresses IP publiques dans Azure](public-ip-addresses.md)
-- [Créer une adresse IP publique - Portail Azure](../../virtual-network/create-public-ip-portal.md)
-
+- [Créer une adresse IP publique - Portail Azure](./create-public-ip-portal.md)

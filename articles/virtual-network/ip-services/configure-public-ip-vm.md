@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: a21b734ee1825a86c9276a2e603d04d723bd8d46
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: d7c1f9faeb196f73fd6b336421591cfd895407fe
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368480"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248998"
 ---
 # <a name="manage-a-public-ip-address-with-an-azure-virtual-machine"></a>Gérer une adresse IP publique avec une machine virtuelle Azure
 
@@ -29,9 +29,9 @@ Dans cet article, vous allez apprendre à créer une machine virtuelle Azure à 
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Deux adresses IP publiques de référence SKU standard dans votre abonnement. L’adresse IP ne peut pas être associée à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence SKU standard, consultez [Créer une adresse IP publique - Portail Azure](../../virtual-network/create-public-ip-portal.md).
+- Deux adresses IP publiques de référence SKU standard dans votre abonnement. L’adresse IP ne peut pas être associée à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence SKU standard, consultez [Créer une adresse IP publique - Portail Azure](./create-public-ip-portal.md).
     - Pour les exemples de cet article, nommez les nouvelles adresses IP publiques **myStandardPublicIP-1** et **myStandardPublicIP-2**.
-- Une adresse IP publique de SKU standard avec la préférence de routage **Internet** dans votre abonnement. Pour plus d’informations sur la création d’une adresse IP publique avec la préférence de routage **Internet**, consultez [Configurer une préférence de routage pour une adresse IP publique à l’aide du portail Azure](../../virtual-network/routing-preference-portal.md).
+- Une adresse IP publique de SKU standard avec la préférence de routage **Internet** dans votre abonnement. Pour plus d’informations sur la création d’une adresse IP publique avec la préférence de routage **Internet**, consultez [Configurer une préférence de routage pour une adresse IP publique à l’aide du portail Azure](./routing-preference-portal.md).
     - Pour l’exemple de cet article, nommez la nouvelle adresse IP publique **myStandardPublicIP-3**.
 ## <a name="create-virtual-machine-existing-public-ip"></a>Créer une machine virtuelle avec une IP publique existante
 
@@ -71,7 +71,7 @@ Dans cette section, vous allez créer une machine virtuelle. Vous allez sélecti
 
 7. Sous l’onglet **Mise en réseau**, entrez ou sélectionnez les informations suivantes.
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | **Interface réseau** |   |
     | Réseau virtuel | Conservez la valeur par défaut de **(nouveau) myResourceGroupVM-vnet**. |
@@ -120,9 +120,9 @@ Dans cette section, vous allez modifier l’adresse IP publique associée à la 
 
 Dans cette section, vous allez ajouter une configuration d’IP publique à la machine virtuelle. 
 
-Pour plus d’informations sur l’ajout de plusieurs adresses IP, consultez [Attribuer plusieurs adresses IP à des machines virtuelles à l’aide du portail Azure](../../virtual-network/virtual-network-multiple-ip-addresses-portal.md). 
+Pour plus d’informations sur l’ajout de plusieurs adresses IP, consultez [Attribuer plusieurs adresses IP à des machines virtuelles à l’aide du portail Azure](./virtual-network-multiple-ip-addresses-portal.md). 
 
-Pour plus d’informations sur l’utilisation des deux types de préférences de routage, consultez [Configurer les options de préférence de routage pour une machine virtuelle](../../virtual-network/routing-preference-mixed-network-adapter-portal.md).
+Pour plus d’informations sur l’utilisation des deux types de préférences de routage, consultez [Configurer les options de préférence de routage pour une machine virtuelle](./routing-preference-mixed-network-adapter-portal.md).
 
 1. Dans la zone de recherche située en haut du portail, entrez **Machine virtuelle**.
 
@@ -178,4 +178,4 @@ Dans cette section, vous allez supprimer l’adresse IP publique de l’interfac
 
 Dans cet article, vous avez appris à créer une machine virtuelle et à utiliser une IP publique existante. Vous avez modifié l’adresse IP publique de la configuration IP par défaut. Vous avez finalement ajouté une configuration d’IP publique au pare-feu à l’aide de la préférence de routage Internet.
 
-- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](../../virtual-network/public-ip-addresses.md).
+- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](./public-ip-addresses.md).

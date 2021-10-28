@@ -4,12 +4,12 @@ description: Tutoriel pas à pas qui montre comment configurer la traduction d�
 ms.topic: tutorial
 ms.author: kyburns
 ms.date: 2/26/2021
-ms.openlocfilehash: 9b91ccd725fbd6ae1e3a974ecb70b4c01201adb4
-ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+ms.openlocfilehash: 0223ebe7401745fc9dfff9b3935b5f2252cfa39d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113432263"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130265404"
 ---
 # <a name="tutorial-control-azure-functions-outbound-ip-with-an-azure-virtual-network-nat-gateway"></a>Tutoriel : Contrôler l’adresse IP sortante Azure Functions avec une passerelle NAT de réseau virtuel Azure
 
@@ -30,7 +30,7 @@ Le diagramme suivant représente l’architecture de la solution que vous créez
 
 ![Interface utilisateur pour l’intégration de la passerelle NAT](./media/functions-how-to-use-nat-gateway/topology.png)
 
-Les fonctions qui s’exécutent dans le plan Premium ont les mêmes fonctionnalités d’hébergement que les applications web dans Azure App Service, ce qui inclut la fonctionnalité d’intégration de réseau virtuel. Pour en savoir plus sur l’intégration d’un réseau virtuel, y compris la résolution des problèmes et la configuration avancée, consultez [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md).
+Les fonctions qui s’exécutent dans le plan Premium ont les mêmes fonctionnalités d’hébergement que les applications web dans Azure App Service, ce qui inclut la fonctionnalité d’intégration de réseau virtuel. Pour en savoir plus sur l’intégration d’un réseau virtuel, y compris la résolution des problèmes et la configuration avancée, consultez [Intégrer une application à un réseau virtuel Azure](../app-service/overview-vnet-integration.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,7 +46,7 @@ Si vous avez déjà suivi le tutoriel d’[intégration de fonctions avec un ré
 
 1. Dans **Créer un réseau virtuel**, entrez ou sélectionnez les paramètres spécifiés comme indiqué dans le tableau suivant :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Abonnement | Sélectionnez votre abonnement.|
     | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |

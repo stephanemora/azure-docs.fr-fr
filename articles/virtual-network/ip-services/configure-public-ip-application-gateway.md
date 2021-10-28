@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 06/28/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8139d6c6309bf971ed9a955f5ef02f0c674b152b
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: c700ca1bdd1e596d3c393f1a857adba81116b576
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368358"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130248979"
 ---
 # <a name="manage-a-public-ip-address-with-an-azure-application-gateway"></a>Gérer une adresse IP publique avec une instance Azure Application Gateway
 
@@ -27,7 +27,7 @@ Dans cet article, vous allez apprendre à créer une Application Gateway à l’
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Deux IP publiques du niveau tarifaire Standard dans votre abonnement. Les adresses IP ne peuvent pas être associées à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence SKU standard, consultez [Créer une adresse IP publique - Portail Azure](../../virtual-network/create-public-ip-portal.md).
+- Deux IP publiques du niveau tarifaire Standard dans votre abonnement. Les adresses IP ne peuvent pas être associées à des ressources. Pour plus d’informations sur la création d’une adresse IP publique de référence SKU standard, consultez [Créer une adresse IP publique - Portail Azure](./create-public-ip-portal.md).
     - Dans le cadre des exemples de cet article, nommez les nouvelles adresses IP publiques **myStandardPublicIP-1** et **myStandardPublicIP-2**.
 
 ## <a name="create-application-gateway-existing-public-ip"></a>Créer une IP publique existante pour une Application Gateway
@@ -118,4 +118,4 @@ La passerelle applicative ne prend pas en charge la modification de l’adresse 
 Dans cet article, vous avez appris à créer une Application Gateway et à utiliser une adresse IP publique existante. 
 
 - Pour plus d’informations sur le service NAT de réseau virtuel Azure, consultez [Qu’est-ce que le service NAT de réseau virtuel ?](../nat-gateway/nat-overview.md)
-- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](../../virtual-network/public-ip-addresses.md).
+- Pour en savoir plus sur les adresses IP publiques dans Azure, consultez [Adresses IP publiques](./public-ip-addresses.md).

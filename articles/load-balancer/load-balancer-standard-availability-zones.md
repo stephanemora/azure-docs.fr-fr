@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 06b8e193f48a4e1d3956c8c40ee03dfd11a4a088
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: d53ae804fa628c5fcf89fa61d5e9d153abd225cb
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129276016"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225753"
 ---
 # <a name="load-balancer-and-availability-zones"></a>Load Balancer et zones de disponibilité
 
@@ -59,7 +59,7 @@ Pour un équilibreur de charge frontend interne, ajoutez un paramètre **zones**
 
 ## <a name="non-zonal"></a>Non zonal
 
-Les équilibreurs de charge peuvent également être créés dans une configuration non zonale à l’aide d’un front-end « sans zone » (adresse IP publique ou préfixe d’adresse IP publique).  Cette option n’offre pas de garantie de redondance. Notez que toutes les adresses IP publiques [mises à niveau](../virtual-network/public-ip-upgrade-portal.md) seront de type « sans zone ».
+Les équilibreurs de charge peuvent également être créés dans une configuration non zonale à l’aide d’un front-end « sans zone » (adresse IP publique ou préfixe d’adresse IP publique).  Cette option n’offre pas de garantie de redondance. Notez que toutes les adresses IP publiques [mises à niveau](../virtual-network/ip-services/public-ip-upgrade-portal.md) seront de type « sans zone ».
 
 ## <a name="design-considerations"></a><a name="design"></a> Remarques relatives à la conception
 

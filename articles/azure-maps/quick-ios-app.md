@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: eriklind
-ms.openlocfilehash: e2f1f8fff5869cc8d2eb942e45fe40e59d050b4c
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a486f8e2f2505470b54c0b0f646794a7789afc09
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130045100"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130256871"
 ---
 # <a name="create-an-ios-app-public-preview"></a>Créer une application iOS (préversion publique)
 
@@ -66,7 +66,7 @@ Une fois le compte Maps créé, récupérez la clé principale qui vous permet d
 >[!NOTE]
 > Ce guide de démarrage rapide utilise l’approche basée sur l’authentification par [clé partagée](azure-maps-authentication.md#shared-key-authentication) à des fins de démonstration. Toutefois, l’approche recommandée pour tout environnement de production est celle de l’authentification [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication).
 <!--
-> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](/azure/key-vault/secrets/tutorial-rotation-dual)
+> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 -->
 ![Obtenir la clé d’abonnement.](./media/ios-sdk/quick-ios-app/get-key.png)
 

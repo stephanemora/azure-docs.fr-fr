@@ -3,12 +3,12 @@ title: Déployer sur un appareil IoT Edge pour Linux sur Windows avec Live Video
 description: Cet article explique comment déployer sur un appareil IoT Edge pour Linux sur Windows avec Live Video Analytics.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: c504ecf2bb7405ee49d6e9ee94f069336924f5c0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 315501540e38340285e113dace2b68a46c3f6493
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378092"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225715"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device-with-live-video-analytics"></a>Déployer sur un appareil IoT Edge pour Linux sur Windows (EFLOW) avec Live Video Analytics
 
@@ -31,7 +31,7 @@ Le diagramme suivant illustre le flux d’ensemble du document ; en cinq étape
 
 :::image type="content" source="./media/deploy-iot-edge-linux-on-windows/eflow.png" alt-text="Diagramme d’IoT Edge pour Linux sur Windows (EFLOW)":::
 
-1. [Installez EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) sur votre appareil Windows. 
+1. [Installez EFLOW](../../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md) sur votre appareil Windows. 
 
     1. Si vous utilisez votre PC Windows, dans la page d’accueil de [Windows Admin Center](/windows-server/manage/windows-admin-center/overview), dans la liste des connexions figure une connexion d’hôte local représentant le PC sur lequel vous exécutez Windows Admin Center. 
     1. Les autres serveurs, ordinateurs ou clusters que vous gérez s’affichent également ici.

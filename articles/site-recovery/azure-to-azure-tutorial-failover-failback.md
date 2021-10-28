@@ -4,12 +4,12 @@ description: Tutoriel expliquant comment basculer et reprotéger des machines vi
 ms.topic: tutorial
 ms.date: 11/05/2020
 ms.custom: mvc
-ms.openlocfilehash: 99263c83d25542073d63c1cba394a147bd5b2170
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 692b6645b2446fa55233506a0479b95b0743b029
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93392735"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223155"
 ---
 # <a name="tutorial-fail-over-azure-vms-to-a-secondary-region"></a>Tutoriel : Basculer des machines virtuelles Azure vers une région secondaire
 
@@ -84,9 +84,6 @@ Avant de commencer ce tutoriel, vous devez :
 8. Supervisez la progression de la validation dans les notifications.
 
     ![Notification de la progression de la validation](./media/azure-to-azure-tutorial-failover-failback/notification-commit-start.png) ![Notification de la réussite de la validation](./media/azure-to-azure-tutorial-failover-failback/notification-commit-finish.png)    
-
-9. Site Recovery ne nettoie pas la machine virtuelle source après le basculement. Vous devez le faire manuellement.
-
 
 ## <a name="reprotect-the-vm"></a>Reprotéger la machine virtuelle
 

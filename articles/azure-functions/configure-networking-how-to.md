@@ -4,12 +4,12 @@ description: Article qui montre comment effectuer certaines tâches de mise en r
 ms.topic: conceptual
 ms.date: 3/13/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0a431abe5d32bdc59bb163f32e4c5f636c870335
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 6465a1c5e9b39bcef29fb28ebf2e19c7203da648
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063036"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257040"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>Configuration d’Azure Functions avec un réseau virtuel
 
@@ -49,7 +49,6 @@ Pour configurer une fonction avec un compte de stockage limité à un réseau pr
     | `WEBSITE_CONTENTSHARE` | Partage de fichiers | Nom du partage de fichiers créé dans le compte de stockage sécurisé où résident les fichiers de déploiement du projet. |
     | `WEBSITE_CONTENTOVERVNET` | 1 | Nouveau paramètre |
     | `WEBSITE_VNET_ROUTE_ALL` | 1 | Force tout le trafic sortant via le réseau virtuel. Obligatoire lorsque le compte de stockage utilise des connexions de point de terminaison privé. |
-    | `WEBSITE_DNS_SERVER` | `168.63.129.16` | Serveur DNS utilisé par l’application. Obligatoire lorsque le compte de stockage utilise des connexions de point de terminaison privé. |
 
 1. Sélectionnez **Enregistrer** pour enregistrer les paramètres de l’application. La modification des paramètres de l’application entraîne le redémarrage de l’application.  
 

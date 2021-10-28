@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/09/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: a25c35971d341c9ea6bce716931a76d682027e79
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 59bd93cf5c17675e99a14484d8a13821e287047a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121732847"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234564"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base public pour équiper la charge de machines virtuelles en utilisant le portail Azure
 
@@ -38,9 +38,9 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
 
-1. Dans la zone de recherche située en haut du portail, entrez **Réseau virtuel**. Dans les résultats de recherche, sélectionnez **Réseaux virtuels**.
+1. Dans la zone de recherche située en haut du portail, entrez **Réseau virtuel**. Dans les résultats de la recherche, sélectionnez **Réseaux virtuels**.
 
-2. Dans **Réseaux virtuels**, sélectionnez **+ Créer**.
+2. Dans **Réseaux virtuels**, sélectionnez **+ Créer**.
 
 3. Dans **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes sous l’onglet **Général** :
 
@@ -89,11 +89,11 @@ Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
 
 ## <a name="create-nat-gateway"></a>Créer une passerelle NAT
 
-Dans cette section, vous allez créer une passerelle NAT pour l’accès Internet sortant pour les ressources dans le réseau virtuel. 
+Dans cette section, vous allez créer une passerelle NAT pour l’accès Internet sortant des ressources dans le réseau virtuel. 
 
 1. Dans la zone de recherche située en haut du portail, entrez **Passerelle NAT**. Sélectionnez **Passerelle NAT** dans les résultats de la recherche.
 
-2. Dans **Passerelles NAT**, sélectionnez **+ Créer**.
+2. Dans **Passerelles NAT**, sélectionnez **+ Créer**.
 
 3. Dans **Créer une passerelle NAT (traduction d’adresses réseau)** , entrez ou sélectionnez les informations suivantes :
 
@@ -107,7 +107,7 @@ Dans cette section, vous allez créer une passerelle NAT pour l’accès Interne
     | Zone de disponibilité | Sélectionnez **Aucun**. |
     | Délai d’inactivité (minutes) | Entrez **15**. |
 
-4. Sélectionnez l’onglet **IP sortante**, ou sélectionnez le bouton **Suivant : IP sortante** situé au bas de la page.
+4. Sélectionnez l’onglet **IP sortante** ou le bouton **Suivant : IP sortante** situé en bas de la page.
 
 5. Dans **IP sortante**, sélectionnez **Créer une adresse IP publique** à côté d’**Adresses IP publiques**.
 
@@ -115,13 +115,13 @@ Dans cette section, vous allez créer une passerelle NAT pour l’accès Interne
 
 7. Sélectionnez **OK**.
 
-8. Sélectionnez l’onglet **Sous-réseau**, ou sélectionnez le bouton **Suivant : Sous-réseau** situé au bas de la page.
+8. Sélectionnez l’onglet **Sous-réseau** ou le bouton **Suivant : Sous-réseau** situé en bas de la page.
 
 9. Dans **Réseau virtuel**, dans l’onglet **Sous-réseau**, sélectionnez **myVNet**.
 
 10. Sélectionnez **myBackendSubnet** sous **Nom du sous-réseau**.
 
-11. Sélectionnez le bouton bleu **Vérifier + créer** au bas de la page, ou l’onglet **Vérifier + créer**.
+11. Sélectionnez le bouton bleu **Vérifier + créer** en bas de la page, ou l’onglet **Vérifier + créer**.
 
 12. Sélectionnez **Create** (Créer).
 
@@ -155,30 +155,30 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Capture d’écran de l’onglet Général de Créer un Standard Load Balancer." border="true":::
 
-4. Sélectionnez **Suivant : Configuration IP frontale** au bas de la page.
+4. Sélectionnez **Suivant : configuration de l’adresse IP front-end** au bas de la page.
 
-5. Dans **Configuration IP frontale**, sélectionnez **+ Ajouter une IP frontale**.
+5. Dans **Configuration de l’adresse IP front-end**, sélectionnez **+ Ajouter une adresse IP front-end**.
 
-6. Entrez **LoadBalancerFrontEnd** dans **Nom**.
+6. Entrez **LoadBalancerFrontend** dans **Nom**.
 
-7. Sélectionnez **IPv4** ou **IPv6** comme **Version IP**.
-
-    > [!NOTE]
-    > IPv6 n’est actuellement pas pris en charge avec la préférence de routage ou l’équilibrage de charge inter-régions (niveau global).
-
-8. Sélectionnez **Adresse IP** pour le **Type d’IP**.
+7. Sélectionnez **IPv4** ou **IPv6** pour la **Version IP**.
 
     > [!NOTE]
-    > Pour plus d’informations sur les préfixes IP, consultez [Préfixe d’adresse IP publique Azure](../virtual-network/public-ip-address-prefix.md).
+    > IPv6 n’est actuellement pas pris en charge avec la Préférence de routage ou l’équilibrage de charge Inter-régions (niveau Global).
 
-9. Sélectionnez **Créer** dans **Adresse IP publique**.
+8. Sélectionnez **Adresse IP** pour **Type IP**.
+
+    > [!NOTE]
+    > Pour plus d’informations sur les préfixes IP, consultez [Préfixe d’adresse IP publique Azure](../virtual-network/ip-services/public-ip-address-prefix.md).
+
+9. Sélectionnez **Créer nouvelle** dans **Adresse IP publique**.
 
 10. Dans **Ajouter une adresse IP publique**, entrez **myPublicIP** pour **Nom**.
 
-11. Sélectionnez **Redondant interzone** dans **Zone de disponibilité**.
+11. Sélectionnez **Zone-redondante** dans la **Zone de disponibilité**.
 
     > [!NOTE]
-    > Dans les régions avec des [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), vous avez la possibilité de sélectionner Aucune zone (option par défaut), une zone spécifique ou une zone redondante. Le choix dépend de vos exigences spécifiques en matière de défaillance de domaine. Dans les régions sans zones de disponibilité, ce champ n’apparaît pas. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
+    > Dans les régions avec des [zones de disponibilité](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), vous avez la possibilité de sélectionner aucune zone (option par défaut), une zone spécifique ou redondant dans une zone. Le choix dépendra de vos exigences spécifiques en matière de défaillance de domaine. Dans les régions sans Zones de disponibilité, ce champ n’apparaît pas. </br> Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](../availability-zones/az-overview.md).
 
 12. Laissez la valeur par défaut **Réseau Microsoft** pour **Préférence de routage**.
 
@@ -186,27 +186,27 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 
 14. Sélectionnez **Ajouter**.
 
-15. Sélectionnez **Suivant : Pools de back-ends** en bas de la page.
+15. Sélectionnez **Suivant : Pools de back-end** au bas de la page.
 
-16. Sous l’onglet **Pools de back-ends**, sélectionnez **+ Ajouter un pool de back-ends**.
+16. Sous l’onglet **Pools de back-end**, sélectionnez **+ Ajouter un pool de back-end**.
 
-17. Entrez **myBackendPool** comme **Nom** dans **Ajouter un pool de back-ends**.
+17. Entrez **myBackendPool** comme **Nom** dans **Ajouter un pool de back-end**.
 
 18. Sélectionnez **myVNet** dans **Réseau virtuel**.
 
-19. Sélectionnez la **Carte réseau** ou l’**Adresse IP** pour la **Configuration du pool principal**.
+19. Sélectionnez **Carte d’interface réseau** ou **Adresse IP** pour la **Configuration du pool de back-end**.
 
-20. Sélectionnez **IPv4** ou **IPv6** comme **Version IP**.
+20. Sélectionnez **IPv4** ou **IPv6** pour la **Version IP**.
 
 21. Sélectionnez **Ajouter**.
 
-22. Sélectionnez le bouton **Suivant : Règles entrantes** au bas de la page.
+22. Sélectionnez le bouton **Suivant : Règles de trafic entrant** au bas de la page.
 
-23. Dans **Règle d’équilibrage de charge** sous l’onglet **Règles de trafic entrant**, sélectionnez **+ Ajouter une règle d’équilibrage de charge**.
+23. Dans **Règle d’équilibrage de la charge** sous l’onglet **Règles de trafic entrant**, sélectionnez **+ Ajouter une règle d’équilibrage de charge**.
 
-24. Entrez ou sélectionnez les informations suivantes dans **Ajouter une règle d’équilibrage de charge** :
+24. Dans **Ajouter une règle d’équilibrage de charge**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule** |
     | Version de l’adresse IP | Sélectionnez **IPv4** ou **IPv6** en fonction de vos besoins. |
@@ -224,13 +224,13 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 
 25. Sélectionnez **Ajouter**.
 
-26. Cliquez sur le bouton bleu **Vérifier + créer** au bas du panneau.
+26. Sélectionnez le bouton bleu **Vérifier + créer** au bas de la page.
 
 27. Sélectionnez **Create** (Créer).
 
     > [!NOTE]
-    > Dans cet exemple, nous avons créé une passerelle NAT pour fournir un accès Internet sortant. L’onglet Règles de trafic sortant dans la configuration est ignoré, car il n’est pas obligatoire avec la passerelle NAT. Pour plus d’informations sur le service de passerelle NAT Azure, consultez [Qu’est-ce que le service NAT de réseau virtuel Azure ?](../virtual-network/nat-gateway/nat-overview.md)
-    > Pour plus d’informations sur les connexions sortantes dans Azure, consultez [SNAT (Source Network Address Translation) pour les connexions sortantes](../load-balancer/load-balancer-outbound-connections.md)
+    > Dans cet exemple, nous avons créé une passerelle NAT pour fournir un accès Internet sortant. L’onglet Règles de trafic sortant dans la configuration est ignoré, car il n’est pas obligatoire avec la passerelle NAT. Pour plus d’informations sur la passerelle NAT Azure, consultez [Présentation de NAT de réseau virtuel Azure ?](../virtual-network/nat-gateway/nat-overview.md)
+    > Pour plus d’informations sur les connexions sortantes dans Azure, consultez [SNAT (Traduction d'adresses réseau source) pour les connexions sortantes](../load-balancer/load-balancer-outbound-connections.md)
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
@@ -244,7 +244,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
    
 3. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Valeur                                          |
+    | Paramètre | Value                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -268,7 +268,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
   
 5. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |
@@ -306,9 +306,9 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
 
 Dans cette section, vous allez créer un réseau virtuel et un sous-réseau.
 
-1. Dans la zone de recherche située en haut du portail, entrez **Réseau virtuel**. Dans les résultats de recherche, sélectionnez **Réseaux virtuels**.
+1. Dans la zone de recherche située en haut du portail, entrez **Réseau virtuel**. Dans les résultats de la recherche, sélectionnez **Réseaux virtuels**.
 
-2. Dans **Réseaux virtuels**, sélectionnez **+ Créer**.
+2. Dans **Réseaux virtuels**, sélectionnez **+ Créer**.
 
 3. Dans **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes sous l’onglet **Général** :
 
@@ -367,7 +367,7 @@ Les trois machines virtuelles vont être ajoutées à un groupe à haute disponi
    
 3. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Valeur                                          |
+    | Paramètre | Value                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -391,7 +391,7 @@ Les trois machines virtuelles vont être ajoutées à un groupe à haute disponi
   
 5. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | Sélectionnez **myVNet** |
@@ -406,7 +406,7 @@ Les trois machines virtuelles vont être ajoutées à un groupe à haute disponi
 
 7. Sous l’onglet **Gestion**, sélectionnez ou entrez :
     
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |---|---|
     | **Surveillance** | |
     | Diagnostics de démarrage | Sélectionnez **Désactivé** |
@@ -456,9 +456,9 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
  
 4. Sélectionnez **Suivant : Configuration IP frontale** au bas de la page.
 
-5. Dans **Configuration IP frontale**, sélectionnez **+ Ajouter une IP frontale**.
+5. Dans **Configuration de l’adresse IP front-end**, sélectionnez **+ Ajouter une adresse IP front-end**.
 
-6. Entrez **LoadBalancerFrontEnd** dans **Nom**.
+6. Entrez **LoadBalancerFrontend** dans **Nom**.
 
 7. Sélectionnez **IPv4** ou **IPv6** comme **Version IP**.
 
@@ -472,11 +472,11 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 
 12. Sélectionnez **Ajouter**.
 
-13. Sélectionnez **Suivant : Pools de back-ends** en bas de la page.
+13. Sélectionnez **Suivant : Pools de back-end** au bas de la page.
 
-14. Sous l’onglet **Pools de back-ends**, sélectionnez **+ Ajouter un pool de back-ends**.
+14. Sous l’onglet **Pools de back-end**, sélectionnez **+ Ajouter un pool de back-end**.
 
-15. Entrez **myBackendPool** comme **Nom** dans **Ajouter un pool de back-ends**.
+15. Entrez **myBackendPool** comme **Nom** dans **Ajouter un pool de back-end**.
 
 16. Sélectionnez **myVNet** dans **Réseau virtuel**.
 
@@ -494,11 +494,11 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 
 23. Sélectionnez le bouton **Suivant : Règles entrantes** au bas de la page.
 
-24. Dans **Règle d’équilibrage de charge** sous l’onglet **Règles de trafic entrant**, sélectionnez **+ Ajouter une règle d’équilibrage de charge**.
+24. Dans **Règle d’équilibrage de la charge** sous l’onglet **Règles de trafic entrant**, sélectionnez **+ Ajouter une règle d’équilibrage de charge**.
 
-25. Entrez ou sélectionnez les informations suivantes dans **Ajouter une règle d’équilibrage de charge** :
+25. Dans **Ajouter une règle d’équilibrage de charge**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule** |
     | Version de l’adresse IP | Sélectionnez **IPv4** ou **IPv6** en fonction de vos besoins. |
@@ -514,7 +514,7 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 
 26. Sélectionnez **Ajouter**.
 
-27. Cliquez sur le bouton bleu **Vérifier + créer** au bas du panneau.
+27. Sélectionnez le bouton bleu **Vérifier + créer** au bas de la page.
 
 28. Sélectionnez **Create** (Créer).
 

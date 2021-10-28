@@ -7,14 +7,14 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 09/27/2021
-ms.openlocfilehash: 72505a4e3c9003032c29b55e8cfa2152617bc928
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 764875272975e6a7698b6dafc452e597c8195000
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080096"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130225696"
 ---
-# <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Créer une offre Dynamics 365 for Customer Engagement et PowerApps
+# <a name="create-a-dynamics-365-for-customer-engagement--power-apps-offer"></a>Créer une offre Dynamics 365 for Customer Engagement et Power Apps
 
 Cet article décrit comment créer une offre Dynamics 365 pour Customer Engagement et Power Apps. Toutes les offres pour Dynamics 365 passent par notre processus de certification. Cette expérience d’essai permet aux utilisateurs de déployer votre solution dans un environnement Dynamics 365 en ligne.
 
@@ -31,7 +31,7 @@ Examinez [Planifier une offre Dynamics 365](marketplace-dynamics-365.md). Cet a
 #### <a name="workspaces-view"></a>[Vues d’espaces de travail](#tab/workspaces-view)
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
-1. Dans la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
 
     [ ![Illustre la vignette des offres de la Place de marché dans la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 

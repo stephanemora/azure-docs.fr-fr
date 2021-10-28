@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
 ms.author: b-juche
-ms.openlocfilehash: 546f3ad04a371277903f9b11f6d62bba50794051
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: 738e3d6cb3b27180cd8337e09a72fbe3a0639edf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536240"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130240050"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -171,6 +171,6 @@ Vous pouvez définir des autorisations pour un fichier ou un dossier à l’aide
 * [Configurer ADDS LDAP sur TLS pour Azure NetApp Files](configure-ldap-over-tls.md) 
 * [Activer la disponibilité continue sur des volumes SMB existants](enable-continuous-availability-existing-SMB.md)
 * [Chiffrement SMB](azure-netapp-files-smb-performance.md#smb-encryption)
-* [Résoudre les problèmes des volumes SMB ou à deux protocoles](troubleshoot-dual-protocol-volumes.md)
+* [Résoudre les erreurs liées au volume pour Azure NetApp Files](troubleshoot-volumes.md)
 * [En savoir plus sur l’intégration d’un réseau virtuel pour les services Azure](../virtual-network/virtual-network-for-azure-services.md)
 * [Installation d’une nouvelle forêt Active Directory à l’aide d’Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

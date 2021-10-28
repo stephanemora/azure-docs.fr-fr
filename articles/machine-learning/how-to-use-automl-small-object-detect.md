@@ -7,12 +7,12 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
 ms.date: 10/13/2021
-ms.openlocfilehash: 2fb5dfc77a15e1f9fcd5b90a058e2cc03f81b910
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 7800399be259dddf2782c47696ce014442d8bf55
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130007452"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130234450"
 ---
 # <a name="train-a-small-object-detection-model-with-automl-preview"></a>Entraîner un modèle de détection de petits objets avec AutoML (préversion)
 
@@ -34,8 +34,6 @@ Lors de la mise en mosaïque, chaque image est divisée en une grille de vignett
 * Un espace de travail Azure Machine Learning. Pour créer l’espace de travail, voir [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
 * Cet article suppose que vous disposez de certaines connaissances sur la façon de configurer une [expérience de Machine Learning automatisé pour les tâches de vision par ordinateur](how-to-auto-train-image-models.md). 
-
-[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
 ## <a name="supported-models"></a>Modèles pris en charge
 

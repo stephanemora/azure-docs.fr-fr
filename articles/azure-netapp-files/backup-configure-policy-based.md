@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/13/2021
 ms.author: b-juche
-ms.openlocfilehash: 06d7e334205de142b60f73d1e98f0c4167c65b7d
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 3ecb9926a03efe792f4a62e7a1cf5477e1e62269
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129993147"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130224177"
 ---
 # <a name="configure-policy-based-backups-for-azure-netapp-files"></a>Configurer des sauvegardes basées sur les stratégies pour les fichiers NetApp Azure 
 
@@ -161,6 +161,6 @@ Pour activer la fonctionnalité de sauvegarde pour un volume :
 * [Désactivation de la fonctionnalité de sauvegarde pour un volume](backup-disable.md)
 * [Supprimer des sauvegardes d’un volume](backup-delete.md)
 * [Métriques de sauvegarde d’un volume](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [FAQ sur la sauvegarde Azure NetApp Files](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [FAQ sur la sauvegarde Azure NetApp Files](faq-backup.md)
 
 

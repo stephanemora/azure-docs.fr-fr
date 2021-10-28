@@ -4,12 +4,12 @@ description: Découvrez comment gérer et surveiller les sauvegardes de l’agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/05/2021
-ms.openlocfilehash: 525bdff82c224b02b941354983276747b483ae56
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.openlocfilehash: db7bd057cc2f781b1a55b62f28170fe462b11f39
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129535116"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233560"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
@@ -170,7 +170,7 @@ Une phrase secrète est utilisée pour chiffrer et déchiffrer les données lors
 
 ## <a name="validate-passphrase"></a>Valider la phrase secrète
 
-À partir de l’agent MARS version 2.0.9190.0 et versions ultérieures, vous devez valider votre phrase secrète pour vous assurer qu’elle répond aux [exigences mises à jour](/azure/backup/backup-azure-file-folder-backup-faq#what-characters-are-allowed-for-the-passphrase-).
+À partir de l’agent MARS version 2.0.9190.0 et versions ultérieures, vous devez valider votre phrase secrète pour vous assurer qu’elle répond aux [exigences mises à jour](./backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-).
 
 Pour valider votre phrase secrète, procédez comme suit :
 

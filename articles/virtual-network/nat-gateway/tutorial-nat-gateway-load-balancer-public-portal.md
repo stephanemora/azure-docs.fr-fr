@@ -9,12 +9,12 @@ ms.subservice: nat
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 5ef476f5de715d1f80823bf6d61316c1af406737
-ms.sourcegitcommit: 47491ce44b91e546b608de58e6fa5bbd67315119
+ms.openlocfilehash: ffc5b04928842b940a369ef00807bf0a2e1b0230
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2021
-ms.locfileid: "122202057"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130249017"
 ---
 # <a name="tutorial-integrate-a-nat-gateway-with-a-public-load-balancer-using-the-azure-portal"></a>Tutoriel : Intégrer une passerelle NAT à un équilibreur de charge public à l’aide du portail Azure
 
@@ -132,7 +132,7 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 8. Sélectionnez **Adresse IP** pour **Type IP**.
 
     > [!NOTE]
-    > Pour plus d’informations sur les préfixes IP, consultez [Préfixe d’adresse IP publique Azure](../../virtual-network/public-ip-address-prefix.md).
+    > Pour plus d’informations sur les préfixes IP, consultez [Préfixe d’adresse IP publique Azure](../ip-services/public-ip-address-prefix.md).
 
 9. Sélectionnez **Créer nouvelle** dans **Adresse IP publique**.
 
@@ -169,7 +169,7 @@ Lors de la création de l’équilibreur de charge, vous allez configurer les é
 
 24. Dans **Ajouter une règle d’équilibrage de charge**, entrez ou sélectionnez les informations suivantes :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     | ------- | ----- |
     | Nom | Entrez **MyHTTPRule** |
     | Version de l’adresse IP | Sélectionnez **IPv4** ou **IPv6** en fonction de vos besoins. |
@@ -201,7 +201,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Valeur                                          |
+    | Paramètre | Value                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |
@@ -225,7 +225,7 @@ Ces machines virtuelles sont ajoutées au pool de back-ends de l’équilibreur 
   
 4. Sous l’onglet Réseau, sélectionnez ou entrez :
 
-    | Paramètre | Valeur |
+    | Paramètre | Value |
     |-|-|
     | **Interface réseau** |  |
     | Réseau virtuel | **myVNet** |

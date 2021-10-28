@@ -11,12 +11,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 3f0e2baa7ac30e0e75167dc603de73fdd1df8d73
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: b495476a93d3cef76c866b3927aa4bfacdb98477
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215357"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130238724"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil Windows
 
@@ -61,7 +61,7 @@ Assurez-vous que votre appareil IoT Edge répond à la configuration requise sui
   * Espace disque disponible minimal : 10 Go
 
 >[!NOTE]
->Ce démarrage rapide utilise PowerShell pour créer un déploiement d’IoT Edge pour Linux sur Windows. Vous pouvez également utiliser Windows Admin Center. Si vous souhaitez utiliser Windows Admin Center pour créer votre déploiement, suivez les étapes décrites dans le guide pratique sur [l’installation et l’approvisionnement d’Azure IoT Edge pour Linux sur un appareil Windows](how-to-install-iot-edge-on-windows.md?tabs=windowsadmincenter).
+>Ce démarrage rapide utilise PowerShell pour créer un déploiement d’IoT Edge pour Linux sur Windows. Vous pouvez également utiliser Windows Admin Center. Si vous souhaitez utiliser Windows Admin Center pour créer votre déploiement, suivez les étapes décrites dans le guide pratique sur [l’installation et l’approvisionnement d’Azure IoT Edge pour Linux sur un appareil Windows](how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=windowsadmincenter).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -151,7 +151,7 @@ Exécutez les commandes PowerShell suivantes sur l’appareil cible sur lequel v
 
 1. Entrez « O » ou « R » pour activer ou désactiver les **données de diagnostic facultatives** à votre convenance. Voici l’illustration d’un déploiement réussi.
 
-   ![Un déploiement réussi indique « Déploiement réussi » à la fin des messages](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment-2.png)
+   ![Un déploiement réussi indique « Déploiement réussi » à la fin des messages](./media/quickstart/successful-powershell-deployment.png)
 
 1. Approvisionnez votre appareil à l’aide de la chaîne de connexion de l’appareil que vous avez récupérée dans la section précédente. Remplacez le texte de l’espace réservé par votre propre valeur.
 

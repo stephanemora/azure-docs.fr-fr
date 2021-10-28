@@ -2,17 +2,17 @@
 title: 'Tutoriel : Déployer des fonctions réseau sur Azure Stack Edge'
 titleSuffix: Azure Network Function Manager
 description: Dans ce tutoriel, apprenez à déployer une fonction réseau en tant qu’application gérée.
-author: cherylmc
+author: prmitt
 ms.service: network-function-manager
 ms.topic: tutorial
 ms.date: 06/16/2021
-ms.author: cherylmc
-ms.openlocfilehash: af82a3b51da76e181c2e5856458d553051b0c409
-ms.sourcegitcommit: 695a33a2123429289ac316028265711a79542b1c
+ms.author: prmitt
+ms.openlocfilehash: 0e45f8db150505b323f45cd79eed40215b3a44f8
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2021
-ms.locfileid: "113128999"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223326"
 ---
 # <a name="tutorial-deploy-network-functions-on-azure-stack-edge-preview"></a>Tutoriel : Déployer des fonctions réseau sur Azure Stack Edge (préversion)
 

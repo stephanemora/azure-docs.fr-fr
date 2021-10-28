@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, vanto
 ms.date: 08/20/2021
-ms.openlocfilehash: 3acd77d986d22af08ac7042da751a6aa8c7fc24b
-ms.sourcegitcommit: 0ede6bcb140fe805daa75d4b5bdd2c0ee040ef4d
+ms.openlocfilehash: a1cb62bce41ce0003628ce4223fe06e6587317f5
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2021
-ms.locfileid: "122607578"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130250497"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Connecter votre application à Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -84,9 +84,9 @@ Une fois que vous avez configuré l’infrastructure de base, vous devez modifie
 
 ## <a name="connect-azure-app-service"></a>Connexion d’Azure App Service 
 
-Vous pouvez également connecter une application hébergée par Azure App Service. Afin d’y accéder depuis Azure App Service en passant par un réseau virtuel, vous devez d’abord établir une connexion entre l’application et le réseau virtuel SQL Managed Instance. Consultez [Intégrer une application à un réseau virtuel Azure](../../app-service/web-sites-integrate-with-vnet.md). Pour accéder aux données de votre instance gérée à partir de l’extérieur d’un réseau virtuel, consultez [Configurer un point de terminaison public dans Azure SQL Managed Instance](./public-endpoint-configure.md). 
+Vous pouvez également connecter une application hébergée par Azure App Service. Afin d’y accéder depuis Azure App Service en passant par un réseau virtuel, vous devez d’abord établir une connexion entre l’application et le réseau virtuel SQL Managed Instance. Consultez [Intégrer une application à un réseau virtuel Azure](../../app-service/overview-vnet-integration.md). Pour accéder aux données de votre instance gérée à partir de l’extérieur d’un réseau virtuel, consultez [Configurer un point de terminaison public dans Azure SQL Managed Instance](./public-endpoint-configure.md). 
 
-Pour résoudre les problèmes d’accès à Azure App Service en passant par un réseau virtuel, consultez la section [Dépannage de la page Intégrer votre application à un réseau virtuel Azure](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting). Si aucune connexion ne peut être établie, essayez de [synchroniser la configuration de la mise en réseau](azure-app-sync-network-configuration.md).
+Pour résoudre les problèmes d’accès à Azure App Service en passant par un réseau virtuel, consultez la section [Dépannage de la page Intégrer votre application à un réseau virtuel Azure](../../app-service/overview-vnet-integration.md#troubleshooting). Si aucune connexion ne peut être établie, essayez de [synchroniser la configuration de la mise en réseau](azure-app-sync-network-configuration.md).
 
 L’intégration d’Azure App Service à un réseau homologué avec un réseau virtuel SQL Managed Instance constitue un cas spécial de connexion entre Azure App Service et le réseau virtuel SQL Managed Instance. Ce cas nécessite la configuration suivante :
 
@@ -143,7 +143,7 @@ Pour résoudre les problèmes de connectivité, lisez ce qui suit :
 
 - Si vous utilisez le peering de réseaux virtuels, suivez les instructions concernant la configuration des options [Autoriser le transit par passerelle et Utiliser des passerelles distantes](#connect-from-on-premises).
 
-- Si vous utilisez le peering de réseaux virtuels pour connecter une application hébergée Azure App Service et que le réseau virtuel SQL Managed Instance a une plage d’IP publiques, assurez-vous que les paramètres de votre application hébergée autorisent le routage du trafic sortant vers des réseaux IP publics. Suivez les instructions de la section [Intégration au réseau virtuel régional](../../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
+- Si vous utilisez le peering de réseaux virtuels pour connecter une application hébergée Azure App Service et que le réseau virtuel SQL Managed Instance a une plage d’IP publiques, assurez-vous que les paramètres de votre application hébergée autorisent le routage du trafic sortant vers des réseaux IP publics. Suivez les instructions de la section [Intégration au réseau virtuel régional](../../app-service/overview-vnet-integration.md#regional-vnet-integration).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versions exigées de pilotes et d’outils
 

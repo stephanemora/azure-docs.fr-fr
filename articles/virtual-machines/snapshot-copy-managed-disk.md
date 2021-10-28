@@ -8,12 +8,12 @@ ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.openlocfilehash: b2dadea22326f8b4bf2af6a55d90e392feea8c7a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 0a63e0f346fedac9b7178f25a19177a9908bc6a4
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624763"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130223004"
 ---
 # <a name="create-a-snapshot-of-a-virtual-hard-disk"></a>Créer un instantané d’un disque dur virtuel
 
@@ -32,8 +32,8 @@ Pour créer un instantané à l’aide du portail Azure, effectuez ces étapes.
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**.
 1. Recherchez et sélectionnez **Capture instantanée**.
 1. Dans la fenêtre **Capture instantanée**, sélectionnez **Créer**. La fenêtre **Créer une capture instantanée** s’affiche.
-1. Dans **Groupe de ressources**, sélectionnez un [groupe de ressources](/azure/azure-resource-manager/management/overview#resource-groups) existant ou entrez le nom d’un nouveau groupe.
-1. Entrez un **nom**, puis sélectionnez une **région** et un **type d’instantané** pour le nouvel instantané. Si vous voulez stocker votre instantané dans le stockage résilient interzone, vous avez besoin de sélectionner une région qui prend en charge des [zones de disponibilité](/azure/availability-zones/az-overview). Pour obtenir la liste des régions compatibles, consultez [Régions Azure avec zones de disponibilité](/azure/availability-zones/az-region#azure-regions-with-availability-zones).
+1. Dans **Groupe de ressources**, sélectionnez un [groupe de ressources](../azure-resource-manager/management/overview.md#resource-groups) existant ou entrez le nom d’un nouveau groupe.
+1. Entrez un **nom**, puis sélectionnez une **région** et un **type d’instantané** pour le nouvel instantané. Si vous voulez stocker votre instantané dans le stockage résilient interzone, vous avez besoin de sélectionner une région qui prend en charge des [zones de disponibilité](../availability-zones/az-overview.md). Pour obtenir la liste des régions compatibles, consultez [Régions Azure avec zones de disponibilité](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 1. Dans **Abonnement source**, sélectionnez l’abonnement qui contient le disque managé à sauvegarder.
 1. Dans **Disque source**, sélectionnez le disque managé dont vous souhaitez obtenir une capture instantanée.
 1. Dans **Type de stockage**, sélectionnez **HDD Standard**, sauf si vous avez besoin d’un stockage redondant interzone ou d’un stockage haute performance pour votre instantané.
@@ -74,7 +74,7 @@ Tout d’abord, vous allez utiliser l’applet de commande [New-AzSnapshotConfig
        -CreateOption copy
    ```
 
-   Si vous voulez stocker votre instantané dans un stockage résilient interzone, vous devez créer l’instantané dans une région qui prend en charge des [zones de disponibilité](/azure/availability-zones/az-overview et inclure le paramètre `-SkuName Standard_ZRS`. Pour obtenir la liste des régions qui prennent en charge des zones de disponibilité, consultez [Régions Azure avec zones de disponibilité](/azure/availability-zones/az-region#azure-regions-with-availability-zones).
+   Si vous voulez stocker votre instantané dans un stockage résilient interzone, vous devez créer l’instantané dans une région qui prend en charge des [zones de disponibilité](/azure/availability-zones/az-overview et inclure le paramètre `-SkuName Standard_ZRS`. Pour obtenir la liste des régions qui prennent en charge des zones de disponibilité, consultez [Régions Azure avec zones de disponibilité](../availability-zones/az-region.md#azure-regions-with-availability-zones).
 
 1. Prenez la capture instantanée.
 
@@ -117,7 +117,7 @@ Effectuez les étapes suivantes pour prendre un instantané avec la commande `az
         --name osDisk-backup
     ```
 
-    Si vous voulez stocker votre instantané dans le stockage résilient interzone, vous devez le créer dans une région qui prend en charge des [zones de disponibilité](/azure/availability-zones/az-overview) et inclure le paramètre `--sku Standard_ZRS` facultatif. La liste des [zones de disponibilité](/azure/availability-zones/az-region#azure-regions-with-availability-zones) se trouve ici.
+    Si vous voulez stocker votre instantané dans le stockage résilient interzone, vous devez le créer dans une région qui prend en charge des [zones de disponibilité](../availability-zones/az-overview.md) et inclure le paramètre `--sku Standard_ZRS` facultatif. La liste des [zones de disponibilité](../availability-zones/az-region.md#azure-regions-with-availability-zones) se trouve ici.
     
 1. Utilisez [az snapshot list](/cli/azure/snapshot#az_snapshot_list) pour vérifier que votre instantané existe.
     

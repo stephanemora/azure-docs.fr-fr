@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2021
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 9d021eb435eb74612f7716fb6d790e6878b9d9d5
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 364487d697aee69215e9ca9f080e4aa6a1a83468
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544441"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130253361"
 ---
 # <a name="use-a-virtual-network-with-azure-api-management"></a>Utiliser un réseau virtuel avec la Gestion des API Azure
 
@@ -55,7 +55,7 @@ Voici les exigences en matière de ressources de réseau virtuel pour la Gestion
 ### <a name="stv2"></a>[stv2](#tab/stv2)
 
 * Un réseau virtuel du Gestionnaire de ressource Azure est requis.
-* Vous devez fournir une [adresse IPv4 publique](../virtual-network/public-ip-addresses.md#standard) de référence SKU standard en plus de spécifier un réseau virtuel et un sous-réseau.
+* Vous devez fournir une [adresse IPv4 publique](../virtual-network/ip-services/public-ip-addresses.md#standard) de référence SKU standard en plus de spécifier un réseau virtuel et un sous-réseau.
 * Le sous-réseau utilisé pour se connecter à l’instance Gestion des API peut contenir d’autres types de ressources Azure.
 * Le service de Gestion des API, le réseau virtuel et le sous-réseau, ainsi que la ressource de l’adresse IP publique doivent se trouver dans la même région et le même abonnement.
 * Pour les déploiements de Gestion des API dans plusieurs régions, vous configurez les ressources de réseau virtuel séparément pour chaque emplacement.
@@ -123,7 +123,7 @@ Certaines limitations varient en fonction de la version (`stv2` ou `stv1`) de la
 
 Pour en savoir plus :
 
-* [Connexion d’un réseau virtuel au serveur principal à l’aide de la passerelle VPN](../vpn-gateway/design.md#s2smulti)
+* [Connexion d’un réseau virtuel à un back-end à l’aide de la passerelle VPN](../vpn-gateway/design.md#s2smulti)
 * [Connexion d’un réseau virtuel à partir de modèles de déploiement différents](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Questions fréquentes (FAQ) sur le réseau virtuel](../virtual-network/virtual-networks-faq.md)
 

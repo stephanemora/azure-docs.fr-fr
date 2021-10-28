@@ -8,12 +8,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 48d8747883bfb3d47368d96cc2d4e52d07c599d9
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 927711935c6aaea56ca2e2a26d38c5d619b7320c
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715473"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130287479"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -38,7 +38,7 @@ ms.locfileid: "129715473"
 * L’URL d’une **image de ticket de caisse**. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg).
 * L’URL d’une **image de carte de visite**. Pour ce guide de démarrage rapide, vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg).
 * L’URL d’une **image de facture**. Vous pouvez utiliser un [exemple de document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) pour ce guide de démarrage rapide.
-* L’URL d’une **image de document d’identité**. Vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg).
+* L’URL d’une **image de document d’identité**. Vous pouvez utiliser un [exemple d’image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png).
 
 ## <a name="analyze-layout"></a>Analyser la disposition
 
@@ -218,7 +218,7 @@ Cette sortie a été raccourcie à des fins de simplicité. Consultez l’[exemp
 
 ## <a name="analyze-receipts"></a>Analyser les reçus
 
-Cette section montre comment analyser et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné. Pour plus d’informations sur l’analyse des tickets de caisse, consultez le [guide conceptuel des tickets de caisse](../../concept-receipts.md). Pour commencer à analyser un reçu, appelez l’API **[Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync)** (Analyser le reçu) en utilisant la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
+Cette section montre comment analyser et extraire les champs communs de tickets de caisse émis aux États-Unis à l’aide d’un modèle de ticket préentraîné. Pour plus d’informations sur l’analyse des tickets de caisse, consultez le [guide conceptuel des tickets de caisse](../../concept-receipt.md). Pour commencer à analyser un reçu, appelez l’API **[Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync)** (Analyser le reçu) en utilisant la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{your receipt URL}` par l’adresse URL d’une image de ticket de caisse.
@@ -597,7 +597,7 @@ Cette sortie a été raccourcie pour une meilleure lisibilité. Consultez l’[e
 
 ## <a name="analyze-business-cards"></a>Analyser les cartes de visite
 
-Cette section montre comment analyser et extraire les champs courants des cartes de visite en anglais en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des cartes de visite, consultez le [guide conceptuel des cartes de visite](../../concept-business-cards.md). Pour commencer à analyser une carte de visite, appelez l’API **[Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)** (Analyser la carte de visite) à l’aide de la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
+Cette section montre comment analyser et extraire les champs courants des cartes de visite en anglais en utilisant un modèle préentraîné. Pour plus d’informations sur l’analyse des cartes de visite, consultez le [guide conceptuel des cartes de visite](../../concept-business-card.md). Pour commencer à analyser une carte de visite, appelez l’API **[Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)** (Analyser la carte de visite) à l’aide de la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{your business card URL}` par l’adresse URL d’une image de ticket de caisse.
@@ -760,7 +760,7 @@ Le script imprime les réponses dans la console tant que l’opération **Analyz
 
 ## <a name="analyze-invoices"></a>Analyser les factures
 
-Vous pouvez utiliser Form Recognizer pour extraire le texte des champs et les valeurs sémantiques d’une facture donnée.  Pour commencer l’analyse d’une facture, utilisez la commande cURL ci-dessous. Pour plus d’informations sur l’analyse des factures, consultez le [guide conceptuel des factures](../../concept-invoices.md). Pour commencer l’analyse d’une facture, appelez l’API **[Analyser une facture](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)** à l’aide de la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
+Vous pouvez utiliser Form Recognizer pour extraire le texte des champs et les valeurs sémantiques d’une facture donnée.  Pour commencer l’analyse d’une facture, utilisez la commande cURL ci-dessous. Pour plus d’informations sur l’analyse des factures, consultez le [guide conceptuel des factures](../../concept-invoice.md). Pour commencer l’analyse d’une facture, appelez l’API **[Analyser une facture](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)** à l’aide de la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{your invoice URL}` par l’adresse URL d’un document de facture.
@@ -970,7 +970,7 @@ Ce contenu JSON a été raccourci pour une meilleure lisibilité. Consultez l’
 
 ## <a name="analyze-identity-id-documents"></a>Analyse de pièces d’identité
 
-Pour commencer l’analyse d’un document d’identification, utilisez la commande cURL ci-dessous. Pour plus d’informations sur l’analyse des documents d’identité, consultez le [Guide conceptuel des documents d’identité](../../concept-identification-cards.md). Pour commencer l’analyse d’un document d’identité, appelez l’API **[Analyser un document d’identité](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** avec la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
+Pour commencer l’analyse d’un document d’identification, utilisez la commande cURL ci-dessous. Pour plus d’informations sur l’analyse des documents d’identité, consultez le [Guide conceptuel des documents d’identité](../../concept-id-document.md). Pour commencer l’analyse d’un document d’identité, appelez l’API **[Analyser un document d’identité](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** avec la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{your ID document URL}` par l’adresse URL d’une image de ticket de caisse.
@@ -1017,7 +1017,7 @@ Vous recevez une réponse `200 (Success)` avec une sortie JSON. Le premier champ
 
 Voici un exemple de document d’identité et sa sortie JSON correspondante
 
-* :::image type="content" source="https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg" alt-text="exemple de permis de conduire":::
+* :::image type="content" source="https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png" alt-text="exemple de permis de conduire":::
 
 #### <a name="response-body"></a>Response body
 
@@ -1576,4 +1576,3 @@ Dans ce guide de démarrage rapide, vous avez utilisé l’API REST Form Recogni
 
 > [!div class="nextstepaction"]
 > [Documentation de référence sur l’API REST](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
-

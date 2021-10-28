@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: e8bc2d0ed29cbac171e1d03bc9a6806b1ef64f1f
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: b69ed57ec67b7f08ef7beec8df73f1da20c06a0b
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112465309"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130254878"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutoriel : Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -52,11 +52,6 @@ Les étapes de cette tâche utilisent un réseau virtuel basé sur les valeurs f
 | Nom de configuration IP de passerelle | *gwipconf* |
 | Type | *ExpressRoute* |
 | Nom d’IP publique de passerelle  | *gwpip* |
-
-> [!IMPORTANT]
-> La prise en charge du protocole IPv6 pour le peering privé est actuellement en **préversion publique**. Si vous souhaitez connecter votre réseau virtuel à un circuit ExpressRoute avec un peering privée IPv6 configuré, assurez-vous que votre réseau virtuel est en double pile et respecte les recommandations décrites [ici](../virtual-network/ipv6-overview.md).
-> 
-> 
 
 ## <a name="add-a-gateway"></a>Ajout d’une passerelle
 

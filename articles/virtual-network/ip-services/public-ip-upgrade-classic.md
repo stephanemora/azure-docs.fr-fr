@@ -9,12 +9,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 05/20/2021
 ms.custom: template-how-to
-ms.openlocfilehash: dd29aea9d2522b772c10f56db86a1563cd8a0210
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: a07f18f0bb340b095f8b3d2b3392824e6a7bbf1d
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129368397"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251126"
 ---
 # <a name="migrate-a-classic-reserved-ip-address-to-a-public-ip-address"></a>Migrer une adresse IP réservée classique vers une adresse IP publique
 
@@ -76,5 +76,4 @@ Un nouveau groupe de ressources dans Azure Resource Manager est créé à l’ai
 Pour plus d’informations, sur les adresses IP publiques dans Azure, consultez :
 
 - [Adresses IP publiques dans Azure](public-ip-addresses.md)
-- [Créer une adresse IP publique - Portail Azure](../../virtual-network/create-public-ip-portal.md)
-
+- [Créer une adresse IP publique - Portail Azure](./create-public-ip-portal.md)

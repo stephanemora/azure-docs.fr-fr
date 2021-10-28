@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 10/21/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a38361355c48021b6145552071593056a2a3caa6
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4dadaa832e065163186ef590989c22c0f7e7700a
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124759735"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233901"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app"></a>Activer la connexion sans mot de passe avec l’application Microsoft Authenticator 
 
@@ -37,11 +37,6 @@ Les personnes qui ont activé la connexion par téléphone à partir de l’appl
 Pour utiliser la connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator, les prérequis suivants doivent être satisfaits :
 
 - Azure AD Multi-Factor Authentication, avec notifications Push autorisées en tant que méthode de vérification. Les notifications Push envoyées sur votre smartphone ou votre tablette aident l’application Authenticator à empêcher tout accès non autorisé aux comptes et à arrêter les transactions frauduleuses. L’application Authenticator génère automatiquement des codes lorsqu’elle est configurée pour envoyer des notifications Push, afin que l’utilisateur dispose d’une méthode de connexion de secours, même si son appareil n’a pas de connectivité. 
-  
-  Le connecteur Azure Multifactor Authentication doit être activé pour permettre aux utilisateurs de s’inscrire aux notifications Push pour la connexion par téléphone.
-
-  ![Capture d’écran du connecteur Azure Multifactor Authentication activé.](media/howto-authentication-passwordless-phone/connector.png)
-
 - Installation de la dernière version de Microsoft Authenticator sur des appareils exécutant iOS 8.0 ou une version ultérieure, ou Android 6.0 ou une version ultérieure.
 - L’appareil sur lequel l’application Microsoft Authenticator est installée doit être inscrit dans le locataire Azure AD pour un utilisateur individuel. 
 
@@ -51,10 +46,6 @@ Pour utiliser la connexion par téléphone sans mot de passe avec l’applicatio
 ## <a name="enable-passwordless-authentication-methods"></a>Activer les méthodes d’authentification sans mot de passe
 
 Pour utiliser l’authentification sans mot de passe dans Azure AD, activez tout d’abord l’expérience d’inscription combinée, puis activez les utilisateurs pour la méthode sans mot de passe.
-
-### <a name="enable-the-combined-registration-experience"></a>Activer l’expérience d’inscription combinée
-
-Les fonctionnalités d’inscription pour les méthodes d’authentification sans mot de passe s’appuient sur la fonctionnalité d'inscription combinée. Pour permettre aux utilisateurs d’effectuer eux-mêmes l’inscription combinée, suivez les étapes pour [activer l’inscription combinée des informations de sécurité](howto-registration-mfa-sspr-combined.md).
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Activer les méthodes d’authentification sans mot de passe par téléphone
 

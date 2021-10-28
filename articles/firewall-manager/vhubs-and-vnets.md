@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: article
 ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 36c43448abba82ef084a16e13e70700ddf12bdc2
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: a7aebbe0b454c1db49e001bb4caaab96c2903090
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130042010"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130251639"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Quelles sont les options d’architecture d’Azure Firewall Manager ?
 
@@ -38,7 +38,7 @@ Le tableau suivant compare ces deux options d’architecture et peut vous aider 
 |**Connectivité automatisée des branches à l’aide de SDWAN**      |Non pris en charge|Prise en charge|
 |**Hubs par région**     |Plusieurs réseaux virtuels par région|Plusieurs hubs virtuels par région|
 |**Pare-feu Azure - Adresses IP publiques multiples**      |Fourni par le client|Généré automatiquement|
-|**Zones de disponibilité du pare-feu Azure**     |Prise en charge|Pas encore disponible|
+|**Zones de disponibilité du pare-feu Azure**     |Prise en charge|Prise en charge|
 |**Sécurité Internet avancée avec la sécurité tierce comme partenaires de services**     |Connectivité VPN managée et établie par le client au service partenaire de votre choix|Automatisé par le biais du flux Fournisseur partenaire de sécurité et de l’expérience de gestion du partenaire|
 |**Gestion centralisée des routes pour router le trafic vers le hub**     |Route définie par l’utilisateur et gérée par le client|Pris en charge à l’aide de BGP|
 |**Prise en charge de plusieurs fournisseurs de sécurité**|Prise en charge du tunneling forcé configuré manuellement pour les pare-feu tiers|Prise en charge automatisée de deux fournisseurs de sécurité : Pare-feu Azure pour le filtrage du trafic privé et tiers pour le filtrage Internet|

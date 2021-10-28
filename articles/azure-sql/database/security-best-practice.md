@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: da47d07b804dfee46299ef75e81261171880ea76
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 725b483d4da7ce55b3ae9e866aa60a09226be7e9
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129232068"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130233282"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Playbook pour répondre aux exigences de sécurité courantes avec Azure SQL Database et Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -576,7 +576,7 @@ Dans SQL Managed Instance :
 
 - Pour une application web simple, la connexion via un point de terminaison public requiert l’activation de l’option **Autoriser les services Azure**.
 
-- [Intégrez votre application à un réseau virtuel Azure](../../app-service/web-sites-integrate-with-vnet.md) pour la connectivité du chemin d’accès aux données privées à une instance gérée. Vous pouvez également déployer une application web avec [Azure App Service Environment](../../app-service/environment/intro.md).
+- [Intégrez votre application à un réseau virtuel Azure](../../app-service/overview-vnet-integration.md) pour la connectivité du chemin d’accès aux données privées à une instance gérée. Vous pouvez également déployer une application web avec [Azure App Service Environment](../../app-service/environment/intro.md).
 
 - Pour une application web avec App Service Environment ou intégrée à un réseau virtuel qui se connecte à une base de données dans SQL Database, vous pouvez utiliser des [points de terminaison de service de réseau virtuel et des règles de pare-feu de réseau virtuel](vnet-service-endpoint-rule-overview.md) pour limiter l’accès à partir d’un réseau virtuel et d’un sous-réseau spécifiques. Désactivez ensuite l’option **Autoriser les services Azure**. Vous pouvez également connecter App Service Environment à une instance managée dans SQL Managed Instance sur un chemin de données privé.  
 

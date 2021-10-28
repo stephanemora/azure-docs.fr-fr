@@ -5,24 +5,24 @@ author: seligj95
 ms.author: msangapu
 ms.topic: article
 ms.date: 8/26/2021
-ms.openlocfilehash: ff9136889a475e8e98406476ea503982025d298d
-ms.sourcegitcommit: 48500a6a9002b48ed94c65e9598f049f3d6db60c
+ms.openlocfilehash: 764a44a79ce6f892f0715dde6d657755a3048acf
+ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2021
-ms.locfileid: "129059225"
+ms.lasthandoff: 10/22/2021
+ms.locfileid: "130257192"
 ---
 # <a name="create-app-service-app-using-bicep"></a>Créer une application App Service à l’aide de Bicep
 
-Commencez à utiliser [Azure App Service](overview.md) en déployant une application sur le cloud à l’aide d’un fichier [Bicep](/azure/azure-resource-manager/bicep/) et d’[Azure CLI](/cli/azure/get-started-with-azure-cli) dans Cloud Shell. Comme vous utilisez un niveau App Service gratuit, vous pouvez suivre ce guide de démarrage rapide gratuitement.
+Commencez à utiliser [Azure App Service](overview.md) en déployant une application sur le cloud à l’aide d’un fichier [Bicep](../azure-resource-manager/bicep/index.yml) et d’[Azure CLI](/cli/azure/get-started-with-azure-cli) dans Cloud Shell. Comme vous utilisez un niveau App Service gratuit, vous pouvez suivre ce guide de démarrage rapide gratuitement.
 
-Bicep est un langage spécifique à un domaine (DSL) qui utilise la syntaxe déclarative pour déployer des ressources Azure. Il fournit une syntaxe concise, une cohérence des types fiable et une prise en charge de la réutilisation du code. Vous pouvez utiliser Bicep au lieu de JSON pour développer vos modèles Azure Resource Manager ([modèles ARM](/azure/azure-resource-manager/templates/overview)). La syntaxe JSON pour la création d’un modèle ARM peut être détaillée et nécessiter une expression complexe. La syntaxe Bicep réduit cette complexité et améliore l’expérience de développement. Bicep est une abstraction transparente sur un modèle ARM JSON et ne perd aucune des fonctionnalités de modèle JSON. Pendant le déploiement, Bicep CLI transforme un fichier Bicep en JSON de modèle ARM.
+Bicep est un langage spécifique à un domaine (DSL) qui utilise la syntaxe déclarative pour déployer des ressources Azure. Il fournit une syntaxe concise, une cohérence des types fiable et une prise en charge de la réutilisation du code. Vous pouvez utiliser Bicep au lieu de JSON pour développer vos modèles Azure Resource Manager ([modèles ARM](../azure-resource-manager/templates/overview.md)). La syntaxe JSON pour la création d’un modèle ARM peut être détaillée et nécessiter une expression complexe. La syntaxe Bicep réduit cette complexité et améliore l’expérience de développement. Bicep est une abstraction transparente sur un modèle ARM JSON et ne perd aucune des fonctionnalités de modèle JSON. Pendant le déploiement, Bicep CLI transforme un fichier Bicep en JSON de modèle ARM.
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Pour créer efficacement des ressources avec Bicep, vous devez configurer un [environnement de développement](/azure/azure-resource-manager/bicep/install) Bicep. L’extension Bicep pour [Visual Studio Code](https://code.visualstudio.com/) fournit la prise en charge du langage et la saisie semi-automatique des ressources. L’extension vous aide à créer et à valider des fichiers Bicep. Elle est recommandée pour les développeurs appelés à créer des ressources à l’aide de Bicep après avoir pris connaissance de ce guide de démarrage rapide.
+Pour créer efficacement des ressources avec Bicep, vous devez configurer un [environnement de développement](../azure-resource-manager/bicep/install.md) Bicep. L’extension Bicep pour [Visual Studio Code](https://code.visualstudio.com/) fournit la prise en charge du langage et la saisie semi-automatique des ressources. L’extension vous aide à créer et à valider des fichiers Bicep. Elle est recommandée pour les développeurs appelés à créer des ressources à l’aide de Bicep après avoir pris connaissance de ce guide de démarrage rapide.
 
 ## <a name="review-the-template"></a>Vérifier le modèle
 
@@ -91,7 +91,7 @@ Ce modèle contient plusieurs paramètres prédéfinis par souci pratique. Consu
 
 Copiez et collez le modèle dans votre éditeur/IDE préféré, puis enregistrez le fichier dans votre répertoire de travail local.
 
-Azure CLI est utilisé ici pour déployer le modèle. Vous pouvez également utiliser le portail Azure, Azure PowerShell ou l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Commandes de déploiement Bicep](/azure/azure-resource-manager/bicep/deploy-cli).
+Azure CLI est utilisé ici pour déployer le modèle. Vous pouvez également utiliser le portail Azure, Azure PowerShell ou l’API REST. Pour découvrir d’autres méthodes de déploiement, consultez [Commandes de déploiement Bicep](../azure-resource-manager/bicep/deploy-cli.md).
 
 Le code suivant crée un groupe de ressources, un plan App Service et une application web. Un groupe de ressources, un plan App Service et une localisation par défaut ont été définis pour vous. Remplacez `<app-name>` par un nom d’application global unique (les caractères valides sont `a-z`, `0-9` et `-`).
 
@@ -126,6 +126,6 @@ Quand il n’est plus nécessaire, [supprimez le groupe de ressources](../azure-
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Documentation Bicep](/azure/azure-resource-manager/bicep/)
+> [Documentation Bicep](../azure-resource-manager/bicep/index.yml)
 > [!div class="nextstepaction"]
-> [Exemples Bicep pour Azure App Service](/azure/app-service/samples-bicep)
+> [Exemples Bicep pour Azure App Service](./samples-bicep.md)
