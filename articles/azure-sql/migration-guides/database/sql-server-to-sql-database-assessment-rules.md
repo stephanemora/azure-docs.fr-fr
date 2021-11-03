@@ -3,19 +3,19 @@ title: Règles d’évaluation pour la migration de SQL Server vers Azure SQL 
 description: Règles d’évaluation pour identifier les problèmes liés à l’instance SQL Server source qui doivent être résolus avant la migration vers Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
-ms.custom: ''
+ms.custom: ignite-fall-2021
 ms.devlang: ''
 ms.topic: how-to
 author: rajeshsetlem
 ms.author: rsetlem
 ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: 17b3cd2c0257989a220be6b35e93d88db7225188
-ms.sourcegitcommit: 557ed4e74f0629b6d2a543e1228f65a3e01bf3ac
+ms.openlocfilehash: 88c90896cd8c480f828116c479a4dc5d0a3ee99f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129457465"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069498"
 ---
 # <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Règles d’évaluation pour la migration de SQL Server vers Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -217,7 +217,7 @@ La transaction distribuée SQL BEGIN DISTRIBUTED TRANSACTION démarrée par Tran
 **Recommandation**   
 Examinez la section Objets affectés dans Azure Migrate pour voir tous les objets utilisant la transaction BEGIN DISTRUBUTED TRANSACTION. Envisagez de migrer les bases de données participantes vers Azure SQL Database où les transactions distribuées sur plusieurs instances sont prises en charge (actuellement en préversion). Vous pouvez également migrer vers SQL Server sur une machine virtuelle Azure.
 
-Informations supplémentaires : [Transactions sur plusieurs serveurs pour Azure SQL Database ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
+Informations supplémentaires : [Transactions sur plusieurs serveurs pour Azure SQL Database ](../../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance)
 
 
 ## <a name="openrowset-bulk"></a>OPENROWSET (en bloc)<a id="OpenRowsetWithNonBlobDataSourceBulk"></a>

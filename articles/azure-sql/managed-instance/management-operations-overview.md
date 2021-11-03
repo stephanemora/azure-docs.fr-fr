@@ -5,19 +5,19 @@ description: Découvrez la durée des opérations de gestion Azure SQL Managed I
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: ''
+ms.custom: ignite-fall-2021
 ms.devlang: ''
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
 ms.date: 08/20/2021
-ms.openlocfilehash: 2131f5549c026afdfde1d0ec14a27608a2ffaae8
-ms.sourcegitcommit: f53f0b98031cd936b2cd509e2322b9ee1acba5d6
+ms.openlocfilehash: f48197e7f59718f0843708a9ef0013c26bf48757
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123215218"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131062242"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Vue d’ensemble des opérations de gestion Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -64,7 +64,7 @@ Les tableaux suivants récapitulent les opérations et les durées globales habi
 |Opération  |Segment de longue durée  |Durée estimée  |
 |---------|---------|---------|
 |Première instance sur un sous-réseau vide|Création de cluster virtuel|90 % des opérations se terminent dans les 4 heures.|
-|Première instance d’une autre génération de matériel sur un sous-réseau non vide (par exemple, première instance de Génération 5 sur un sous-réseau avec des instances de Génération 4)|Création de cluster virtuel<sup>1</sup>|90 % des opérations se terminent dans les 4 heures.|
+|Première instance d’une autre génération de matériel dans un sous-réseau non vide (par exemple, première instance Gen5 dans un sous-réseau avec des instances Gen4)|Création de cluster virtuel<sup>1</sup>|90 % des opérations se terminent dans les 4 heures.|
 |Création d’instance suivante sur le sous-réseau non vide (2e instance, 3e instance, et ainsi de suite.)|Redimensionnement de cluster virtuel|90 % des opérations se terminent dans les deux heures trente.|
 | | | 
 

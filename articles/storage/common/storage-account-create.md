@@ -10,12 +10,12 @@ ms.date: 05/18/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a843952e05d71a13a26d56e1588fd10bea0e50c8
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.openlocfilehash: 4d9fa14246832f339b6a38b6a4128cf3f73c607b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129275864"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054929"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
@@ -129,7 +129,7 @@ Le tableau suivant décrit les champs de l’onglet **Informations de base**.
 | Détails du projet | Groupe de ressources | Obligatoire | Créez un groupe de ressources pour ce compte de stockage ou sélectionnez-en un existant. Pour plus d’informations, consultez [Groupes de ressources](../../azure-resource-manager/management/overview.md#resource-groups). |
 | Détails de l’instance | Nom du compte de stockage | Obligatoire | Fournissez un nom unique pour votre compte de stockage. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. |
 | Détails de l’instance | Région | Obligatoire | Sélectionnez la région de votre compte de stockage. Pour plus d'informations, consultez [Régions et zones de disponibilité dans Azure](../../availability-zones/az-overview.md).<br /><br />Toutes les régions ne sont pas prises en charge pour tous les types de comptes de stockage ou toutes les configurations de redondance. Pour plus d’informations, consultez [Redondance de Stockage Azure](storage-redundancy.md).<br /><br />Le choix de la région peut avoir un impact sur la facturation. Pour plus d’informations, consultez [Facturation des comptes de stockage](storage-account-overview.md#storage-account-billing). |
-| Détails de l’instance | Performances | Obligatoire | Sélectionnez les performances **Standard** pour les comptes de stockage v2 à usage général (par défaut). Ce type de compte est recommandé par Microsoft pour la plupart des scénarios. Pour plus d’informations, consultez [Types de comptes de stockage](storage-account-overview.md#types-of-storage-accounts).<br /><br />Sélectionnez **Premium** pour les scénarios nécessitant une faible latence. Après avoir sélectionné **Premium**, sélectionnez le type de compte de stockage Premium à créer. Voici les types de comptes Stockage Premium qui sont disponibles : <ul><li>[Objets blob de blocs](../blobs/storage-blob-performance-tiers.md)</li><li>[Partages de fichiers](../files/storage-files-planning.md#management-concepts)</li><li>[Objets blob de pages](../blobs/storage-blob-pageblob-overview.md)</li></ul> |
+| Détails de l’instance | Performances | Obligatoire | Sélectionnez les performances **Standard** pour les comptes de stockage v2 à usage général (par défaut). Ce type de compte est recommandé par Microsoft pour la plupart des scénarios. Pour plus d’informations, consultez [Types de comptes de stockage](storage-account-overview.md#types-of-storage-accounts).<br /><br />Sélectionnez **Premium** pour les scénarios nécessitant une faible latence. Après avoir sélectionné **Premium**, sélectionnez le type de compte de stockage Premium à créer. Voici les types de comptes Stockage Premium qui sont disponibles : <ul><li>[Objets blob de blocs](./storage-account-overview.md)</li><li>[Partages de fichiers](../files/storage-files-planning.md#management-concepts)</li><li>[Objets blob de pages](../blobs/storage-blob-pageblob-overview.md)</li></ul> |
 | Détails de l’instance | Redondance | Obligatoire | Sélectionnez la configuration de redondance de votre choix. Toutes les options de redondance ne sont pas disponibles pour tous les types de comptes de stockage dans toutes les régions. Pour plus d’informations sur les configurations de redondance, consultez [Redondance du stockage Azure](storage-redundancy.md).<br /><br />Si vous sélectionnez une configuration géo-redondante (GRS ou GZRS), vos données sont répliquées dans un centre de données dans une autre région. Pour un accès en lecture aux données dans la région secondaire, sélectionnez **Permettre l’accès en lecture aux données disponibles en cas d’indisponibilité régionale**. |
 
 L’illustration suivante montre une configuration standard pour un nouveau compte de stockage.

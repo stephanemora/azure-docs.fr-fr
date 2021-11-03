@@ -4,23 +4,24 @@ description: La liste organisée des questions fréquentes concernant le service
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
-ms.date: 11/09/2020
-ms.openlocfilehash: d9050b0b414ef6ca49f9376e20498b14a8952480
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1ce9b19e84d62959d76e7d8a3505b14a3f99e310
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112072574"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020499"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Résolution des problèmes pour QnA Maker
 
 La liste organisée des questions fréquentes concernant le service QnA Maker vous aidera à adopter le service plus rapidement et avec de meilleurs résultats.
 
+[!INCLUDE [Custom question answering](./includes/new-version.md)]
+
 <a name="how-to-get-the-qnamaker-service-hostname"></a>
 
 ## <a name="manage-predictions"></a>Gérer les prédictions
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 <details>
 <summary><b>Comment améliorer les performances de débit pour les prédictions de requête ?</b></summary>
@@ -49,21 +50,7 @@ Apprenez-en davantage sur les [niveaux tarifaires](Concepts/azure-resources.md).
 
 </details>
 
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-<details>
-<summary><b>Comment améliorer les performances de débit pour les prédictions de requête ?</b></summary>
-
-**Réponse** : Les problèmes de performances de débit indiquent que vous devez effectuer un scale-up de votre Recherche cognitive. Envisagez d’ajouter un réplica à votre recherche cognitive pour améliorer les performances.
-
-Apprenez-en davantage sur les [niveaux tarifaires](Concepts/azure-resources.md).
-</details>
-
----
-
 ## <a name="manage-the-knowledge-base"></a>Gestion de la base de connaissances
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 <details>
 <summary><b>J’ai accidentellement supprimé une partie de mon QnA Maker, que dois-je faire ?</b></summary>
@@ -105,7 +92,7 @@ Toutes les suppressions sont définitives et s’appliquent notamment aux paires
 <details>
 <summary><b>Est-il possible de partager une base de connaissances avec un contributeur qui ne se trouve pas dans le même locataire AAD, dans le but de la modifier ?</b></summary>
 
-**Réponse** : Le partage est basé sur le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Si vous pouvez partager _n’importe quelle_ ressource dans Azure avec un autre utilisateur, vous pouvez également partager QnA Maker.
+**Réponse** : Le partage est basé sur le contrôle d’accès en fonction du rôle Azure. Si vous pouvez partager _n’importe quelle_ ressource dans Azure avec un autre utilisateur, vous pouvez également partager QnA Maker.
 
 </details>
 
@@ -123,7 +110,7 @@ Toutes les suppressions sont définitives et s’appliquent notamment aux paires
 - Accédez à votre ressource App Service dans le portail Azure
 
 ![appservice qnamaker](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
-- Cliquez sur l’option **Paramètres**
+- Sélectionnez l’option **Paramètres**.
 
 ![paramètres d’appservice qnamaker](./media/qnamaker-faq/qnamaker-appservice-settings.png)
 - Modifiez la valeur du paramètre **DefaultAnswer**
@@ -131,7 +118,6 @@ Toutes les suppressions sont définitives et s’appliquent notamment aux paires
 
 ![redémarrer appservice qnamaker](./media/qnamaker-faq/qnamaker-appservice-restart.png)
 
-
 </details>
 
 <details>
@@ -144,7 +130,7 @@ Toutes les suppressions sont définitives et s’appliquent notamment aux paires
 <details>
 <summary><b>Les mises à jour apportées à ma base de connaissances ne sont pas reflétées lors de la publication. Pourquoi ?</b></summary>
 
-**Réponse** : Toute opération de modification, qu’elle soit effectuée dans une mise à jour de table, un test ou un paramètre, doit être enregistrée avant d’être publiée. Veillez à cliquer sur le bouton **Enregistrer et entraîner** après chaque opération de modification.
+**Réponse** : Toute opération de modification, qu’elle soit effectuée dans une mise à jour de table, un test ou un paramètre, doit être enregistrée avant d’être publiée. Veillez à sélectionner le bouton **Enregistrer et effectuer l’apprentissage** après chaque opération de modification.
 
 </details>
 
@@ -172,95 +158,8 @@ Une fois que les paires de Q/R sont dans la base de connaissances, vous pouvez m
 Si vous avez du contenu dans plusieurs langues, veillez à créer un service distinct pour chaque langue.
 
 </details>
-
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-<details>
-<summary><b>Pourquoi mes URL/mes fichiers n’extraient-ils pas les paires de question-réponse ?</b></summary>
-
-**Réponse** : Il est possible que QnA Maker ne puisse pas extraire automatiquement du contenu question-réponse (QnA) à partir des URL de FAQ valides. Dans ce cas, vous pouvez coller le contenu QnA dans un fichier .txt et voir si l’outil peut l’ingérer. Vous pouvez également ajouter manuellement du contenu à votre base de connaissances par le biais du [portail QnA Maker](https://qnamaker.ai).
-
-</details>
-
-<details>
-<summary><b>Quelle taille maximale peut avoir une base de connaissances ?</b></summary>
-
-**Réponse** : La taille de la base de connaissances dépend de la référence SKU de Recherche Azure que vous choisissez lors de la création du service QnA Maker. Lisez plus d’informations [ici](./concepts/azure-resources.md).
-
-</details>
-
-<details>
-<summary><b>Pourquoi rien ne s’affiche dans la liste déroulante quand j’essaie de créer une base de connaissances ?</b></summary>
-
-**Réponse** : Vous n’avez encore jamais créé de services QnA Maker dans Azure. Lisez [cet article](./How-To/set-up-qnamaker-service-azure.md) pour apprendre à le faire.
-
-</details>
-
-<details>
-<summary><b>Comment partager une base de connaissances avec d’autres utilisateurs ?</b></summary>
-
-**Réponse** : Le partage fonctionne au niveau d’un service QnA Maker, autrement dit, toutes les bases de connaissances dans le service seront partagées. Lisez [ici](./index.yml) comment collaborer sur une base de connaissances.
-
-</details>
-
-<details>
-<summary><b>Est-il possible de partager une base de connaissances avec un contributeur qui ne se trouve pas dans le même locataire Azure Active Directory, dans le but de la modifier ?</b></summary>
-
-**Réponse** : Le partage est basé sur le contrôle d’accès en fonction du rôle Azure (Azure RBAC). Si vous pouvez partager _n’importe quelle_ ressource dans Azure avec un autre utilisateur, vous pouvez également partager QnA Maker.
-
-</details>
-
-<details>
-<summary><b>Est-il possible d’attribuer des droits de lecture/écriture à 5 utilisateurs différents afin que chacun d’eux ne puisse accéder qu’à une seule base de connaissances QnAMaker ?</b></summary>
-
-**Réponse** : Vous pouvez partager l’ensemble d’un service QnAMaker, mais pas des bases de connaissances individuelles.
-
-</details>
-
-<details>
-<summary><b>Pourquoi mon lien SharePoint n’est-il pas extrait ?</b></summary>
-
-**Réponse** : Pour plus d’informations, consultez la section [Emplacements des sources de données](./concepts/data-sources-and-content.md#data-source-locations).
-
-</details>
-
-<details>
-<summary><b>Les mises à jour apportées à ma base de connaissances ne sont pas reflétées lors de la publication. Pourquoi ?</b></summary>
-
-**Réponse** : Toute opération de modification, qu’elle soit effectuée dans une mise à jour de table, un test ou un paramètre, doit être enregistrée avant d’être publiée. Veillez à cliquer sur le bouton **Enregistrer et entraîner** après chaque opération de modification.
-
-</details>
-
-<details>
-<summary><b>La base de connaissances prend-elle en charge les données enrichies ou le contenu multimédia ?</b></summary>
-
-**Réponse** :
-
-#### <a name="multimedia-auto-extraction-for-files-and-urls"></a>Extraction automatique de contenu multimédia pour les fichiers et URL
-
-* URL - Fonctionnalités de conversion HTML en Markdown limitées.
-* Fichiers - Non pris en charge
-
-#### <a name="answer-text-in-markdown"></a>Texte de réponse dans Markdown
-Une fois que les paires de Q/R sont dans la base de connaissances, vous pouvez modifier le texte Markdown d’une réponse de manière à inclure des liens vers des médias disponibles depuis des URL publiques.
-
-
-</details>
-
-<details>
-<summary><b>QnA Maker prend-il en charge les langues autres que l’anglais ?</b></summary>
-
-**Réponse** : Affichez plus d’informations sur les [langues prises en charge](./overview/language-support.md).
-
-Si vous avez du contenu dans plusieurs langues, veillez à créer un service distinct pour chaque langue.
-
-</details>
-
----
 
 ## <a name="manage-service"></a>Gérer le service
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 <details>
 <summary><b>Quand dois-je redémarrer mon instance d’App Service ?</b></summary>
@@ -286,7 +185,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 <details>
 <summary><b>Je reçois l’erreur suivante : Vérifiez si les paramètres CORS du service d’application QnA Maker autorisent https://www.qnamaker.ai ou s’il existe des restrictions réseau spécifiques à l’organisation. Comment la résoudre ?</b></summary>
 
-**Réponse** : Dans la section API du panneau du service d’application, mettez à jour le paramètre CORS avec * ou "https://www.qnamaker.ai". Si cela ne résout pas le problème, recherchez d’éventuelles restrictions spécifiques à l’organisation.
+**Réponse** : Dans la section API du volet du service d’application, remplacez le paramètre CORS par * ou « https://www.qnamaker.ai ». Si cela ne résout pas le problème, recherchez d’éventuelles restrictions spécifiques à l’organisation.
 
 </details>
 
@@ -300,7 +199,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 <details>
 <summary><b>Puis-je utiliser la même ressource Recherche cognitive Azure pour des bases de connaissances utilisant plusieurs langues ?</b></summary>
 
-**Réponse** : Pour utiliser plusieurs langues et plusieurs bases de connaissances, l’utilisateur doit créer une ressource QnA Maker pour chaque langue. Cette opération crée un service de recherche Azure distinct par langue. La combinaison de bases de connaissances en différentes langues dans un même service de recherche Azure entraîne une détérioration de la pertinence des résultats.
+**Réponse** : Pour pouvoir utiliser plusieurs langues et plusieurs bases de connaissances, l’utilisateur doit créer une ressource QnA Maker pour chaque langue. Cette opération crée un service de recherche Azure distinct par langue. La combinaison de bases de connaissances en différentes langues dans un même service de recherche Azure entraîne une détérioration de la pertinence des résultats.
 
 </details>
 
@@ -335,7 +234,7 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 <details>
 <summary><b>Pourquoi Application Insights ne fonctionne pas ?</b></summary>
 
-**Réponse** : Vérifiez les étapes ci-dessous et apportez les mises à jour nécessaires pour corriger le problème :
+**Réponse** : Vérifiez la procédure ci-dessous et effectuez les mises à jour nécessaires pour corriger le problème :
 
 1. Dans Service d’application -> groupe Paramètres -> section Configuration -> Paramètres de l’application -> Nom, vérifiez que le paramètre « UserAppInsightsKey » est configuré correctement et défini sur le GUID (« clé d’Instrumentation ») sous l’onglet de vue d’ensemble d’Application Insights. 
 
@@ -356,43 +255,8 @@ Si vous avez du contenu dans plusieurs langues, veillez à créer un service dis
 
 </details>
 
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-
-<details>
-<summary><b>J’ai supprimé mon service de recherche existant. Comment puis-je résoudre ce problème ?</b></summary>
-
-**Réponse** : Si vous supprimez un index Recherche cognitive Azure, l’opération est définitive et l’index ne peut pas être récupéré.
-
-</details>
-
-<details>
-<summary><b>J’ai supprimé l’index `testkbv2` de mon service de recherche. Comment puis-je résoudre ce problème ?</b></summary>
-
-**Réponse** : Si vous avez supprimé l’index `testkbv2` dans votre service Search, vous pouvez restaurer les données à partir de la dernière base de connaissances publiée. Utilisez l’outil de récupération [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) disponible sur GitHub. 
-
-</details>
-
-<details>
-<summary><b>Puis-je utiliser la même ressource Recherche cognitive Azure pour des bases de connaissances utilisant plusieurs langues ?</b></summary>
-
-**Réponse** : Pour utiliser plusieurs langues et plusieurs bases de connaissances, l’utilisateur doit créer une ressource QnA Maker pour chaque langue. Cette opération crée un service de recherche Azure distinct par langue. La combinaison de bases de connaissances en différentes langues dans un même service de recherche Azure entraîne une détérioration de la pertinence des résultats.
-
-</details>
-
-<details>
-<summary><b>Comment changer le nom de la ressource Recherche cognitive Azure utilisée par QnA Maker ?</b></summary>
-
-**Réponse** : Le nom de la ressource Recherche cognitive Azure est le nom de ressource QnA Maker avec des lettres aléatoires ajoutées à la fin. De ce fait, il est difficile de faire la distinction entre plusieurs ressources de recherche pour QnA Maker. Créez un service de recherche distinct (en le nommant comme vous le souhaitez), puis connectez-le à votre service QnA. La procédure est similaire à celle que vous devez effectuer pour [mettre à niveau une Recherche Azure](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service).
-
-</details>
-
----
-
 ## <a name="integrate-with-other-services-including-bots"></a>Intégration aux autres services tels que les bots
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
-
 <details>
 <summary><b>Dois-je utiliser Bot Framework pour pouvoir utiliser QnA Maker ?</b></summary>
 
@@ -425,7 +289,7 @@ La clé de point de terminaison de la base de connaissances est étiquetée `QnA
 <details>
 <summary><b>Plusieurs applications clientes peuvent-elles partager une même base de connaissances ?</b></summary>
 
-**Réponse** : Oui, la base de connaissances peut être interrogée par un nombre quelconque de clients. Si la réponse de la base de connaissances est lente ou expire, envisagez s’élever niveau du service d’application associé à la base de connaissances.
+**Réponse** : Oui, la base de connaissances peut être interrogée par un nombre quelconque de clients. Si la réponse de la base de connaissances est lente ou a expiré, envisagez de passer au niveau de service supérieur pour le service d’application associé à la base de connaissances.
 
 </details>
 
@@ -438,60 +302,9 @@ La clé de point de terminaison de la base de connaissances est étiquetée `QnA
 2. Activez la conversation web en suivant [ces](/azure/bot-service/bot-service-channel-connect-webchat) étapes
 
 </details>
-
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-
-<details>
-<summary><b>Dois-je utiliser Bot Framework pour pouvoir utiliser QnA Maker ?</b></summary>
-
-**Réponse** : Non, vous n’avez pas besoin d’utiliser [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans [Azure Bot Service](/azure/bot-service/). Bot Service permet le développement rapide de bot intelligent via Microsoft Bot Framework et s’exécute dans un environnement serverless.
-
-</details>
-
-<details>
-<summary><b>Comment puis-je créer un bot avec QnA Maker ?</b></summary>
-
-**Réponse** : Suivez les instructions de [cette](./Quickstarts/create-publish-knowledge-base.md) documentation pour créer votre bot avec Azure Bot Service.
-
-</details>
-
-<details>
-<summary><b>Comment faire pour utiliser une base de connaissances différente avec un Azure Bot Service existant ?</b></summary>
-
-**Réponse** : Vous devez disposer des informations suivantes concernant votre base de connaissances :
-
-* ID de la base de connaissances.
-* Nom de sous-domaine personnalisé du point de terminaison publié de la base de connaissances, appelé `host` et présent dans la page **Paramètres** après la publication.
-* Clé de point de terminaison publié de la base de connaissances : affiché sur la page **Paramètres** après la publication.
-
-Avec ces informations, accédez au service d’application de votre bot sur le portail Azure. Sous **Paramètres -> Configuration -> paramètre d’application**, modifiez les valeurs suivantes.
-
-La clé de point de terminaison de la base de connaissances est étiquetée `QnAAuthkey` dans le service ABS.
-
-</details>
-
-<details>
-<summary><b>Plusieurs applications clientes peuvent-elles partager une même base de connaissances ?</b></summary>
-
-**Réponse** : Oui, la base de connaissances peut être interrogée par un nombre quelconque de clients. Si la réponse de la base de connaissances est lente ou expire, envisagez s’élever niveau du service d’application associé à la base de connaissances.
-
-</details>
-
-<details>
-<summary><b>Comment incorporer le service QnA Maker dans mon site web ?</b></summary>
-
-**Réponse** : Procédez comme suit pour incorporer le service QnA Maker en tant que contrôle de conversation web dans votre site web :
-
-1. Créez votre bot de FAQ en suivant les instructions [ici](./Quickstarts/create-publish-knowledge-base.md).
-2. Activez la conversation web en suivant [ces](/azure/bot-service/bot-service-channel-connect-webchat) étapes
-
----
 
 ## <a name="data-storage"></a>Stockage des données
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
-
 <details>
 <summary><b>Où se trouve l’emplacement de stockage et quelles données sont stockées ?</b></summary>
 
@@ -500,16 +313,3 @@ La clé de point de terminaison de la base de connaissances est étiquetée `QnA
 Lorsque vous avez créé votre service QnA Maker, vous avez sélectionné une région Azure. Vos bases de connaissances et vos fichiers journaux sont stockés dans cette région.
 
 </details>
-
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-<details>
-<summary><b>Où se trouve l’emplacement de stockage et quelles données sont stockées ?</b></summary>
-
-**Réponse** :
-
-Lorsque vous avez créé votre service QnA Maker, vous avez sélectionné une région Azure. Vos bases de connaissances et vos fichiers journaux sont stockés dans cette région.
-
-</details>
-
----

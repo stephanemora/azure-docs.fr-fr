@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: d5511d2a04bcb40b267ccef15799b870ea96842a
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 88472c8f0915d721da3b7fe5af4a4cfc86729a8f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134067"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045574"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -87,7 +87,7 @@ Le suivi distribué basé sur W3C TraceContext est activé par défaut dans tou
 
 #### <a name="java-30-agent"></a>Agent Java 3.0
 
-  L’agent Java 3.0 prend en charge W3C prêt à l'emploi et aucune configuration supplémentaire n’est requise. 
+  L’agent Java 3.0 prend en charge W3C prêt à l'emploi et aucune configuration supplémentaire n’est requise.
 
 #### <a name="java-sdk"></a>Kit de développement logiciel (SDK) Java
 - **Configuration d’entrée**
@@ -143,7 +143,7 @@ Ajouter la configuration suivante :
   ```
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Pour afficher toutes les configurations requises pour activer la corrélation, consultez la [documentation relative à la corrélation JavaScript](./javascript.md#enable-correlation).
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Corrélation de télémétrie dans OpenCensus Python
@@ -254,7 +254,6 @@ with tracer.span(name='hello'):
    function_1(tracer)
 logger.warning('After the span')
 
-
 # module2.py
 
 import logging
@@ -292,10 +291,10 @@ Le kit de développement logiciel (SDK) .NET d’Application Insights utilise `D
 [L’agent Java](./java-in-process-agent.md) prend en charge la corrélation automatique des données de télémétrie. Il renseigne automatiquement `operation_id` pour toutes les données de télémétrie (comme les traces, les exceptions et les événements personnalisés) émises dans l’étendue d’une requête. Il propage aussi les en-têtes de corrélation (décrits plus haut) pour les appels entre les services via le protocole HTTP si l’[agent du SDK Java](java-2x-agent.md) est configuré.
 
 > [!NOTE]
-> L’agent Java Application Insights collecte automatiquement les demandes et les dépendances pour JMS, Kafka, net/webflux et bien plus. Pour le Kit de développement logiciel (SDK) Java, seuls les appels effectués via Apache HttpClient sont pris en charge pour la fonctionnalité de corrélation. La propagation automatique de contexte entre les technologies de messagerie (comme Kafka, RabbitMQ et Azure Service Bus) n’est pas prise en charge dans le Kit de développement logiciel (SDK). 
+> L’agent Java Application Insights collecte automatiquement les demandes et les dépendances pour JMS, Kafka, net/webflux et bien plus. Pour le Kit de développement logiciel (SDK) Java, seuls les appels effectués via Apache HttpClient sont pris en charge pour la fonctionnalité de corrélation. La propagation automatique de contexte entre les technologies de messagerie (comme Kafka, RabbitMQ et Azure Service Bus) n’est pas prise en charge dans le Kit de développement logiciel (SDK).
 
 > [!NOTE]
-> Pour collecter des données de télémétrie personnalisées, vous devez instrumenter l’application à l'aide du kit de développement logiciel (SDK) Java 2.6. 
+> Pour collecter des données de télémétrie personnalisées, vous devez instrumenter l’application à l'aide du kit de développement logiciel (SDK) Java 2.6.
 
 ### <a name="role-names"></a>Nom des rôles
 
@@ -314,7 +313,7 @@ Vous pouvez personnaliser la façon dont les noms des composants sont affichés 
 
 - Avec Application Insights Java SDK 2.5.0 et ultérieur, vous pouvez spécifier `cloud_RoleName` en ajoutant `<RoleName>` à votre fichier ApplicationInsights.xml :
 
-  ```XML
+  ```xml
   <?xml version="1.0" encoding="utf-8"?>
   <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
      <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>

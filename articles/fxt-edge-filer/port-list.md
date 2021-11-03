@@ -1,17 +1,17 @@
 ---
 title: Liste des ports pour Azure FXT Edge Filer
 description: Liste des ports TCP/UDP utilisés par les environnements de cluster FXT
-author: ekpgh
-ms.author: v-erkel
+author: femila
+ms.author: femila
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.openlocfilehash: 28de9732f6a22f730059c08b5be939c23e52ebaa
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: 3f95f58d123463cf527d1176c5e6c0d49ea8f48e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414817"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005306"
 ---
 # <a name="required-network-ports"></a>Ports réseau requis
 
@@ -19,7 +19,7 @@ Cette liste affiche les ports TCP/UDP requis par les environnements de cluster F
 
 Les exigences spécifiques de votre système varient en fonction du type de stockage principal que vous utilisez.
 
-Pour plus d'informations, contactez le Support technique de Microsoft.
+Pour plus d’informations, contactez le Support technique de Microsoft.
 
 ## <a name="api-ports"></a>Ports d’API
 
@@ -27,7 +27,7 @@ Pour plus d'informations, contactez le Support technique de Microsoft.
 |-----------|------|-------------|----------|
 | Trafic entrant   | TCP  | 22          | SSH      |
 | Règle de trafic sortant  | TCP  | 80          | HTTP     |
-| Trafic entrant/sortant  | TCP  | 443         | HTTPS    |
+| Entrant et sortant  | TCP  | 443         | HTTPS    |
 
 ## <a name="nfs-ports"></a>Ports NFS
 
@@ -56,10 +56,10 @@ Certains trafics NFS sortants des nœuds FXT utilisent des ports éphémères. L
 
 | Sens | Type | Numéro de port | Protocol |
 |-----------|------|-------------|----------|
-| Trafic entrant/sortant  | UDP  | 137         | NetBIOS  |
+| Entrant et sortant  | UDP  | 137         | NetBIOS  |
 | Trafic entrant   | UDP  | 138         | NetBIOS  |
-| Trafic entrant/sortant  | TCP  | 139         | SMB      |
-| Trafic entrant/sortant  | TCP  | 445         | SMB      |
+| Entrant et sortant  | TCP  | 139         | SMB      |
+| Entrant et sortant  | TCP  | 445         | SMB      |
 
 <!--| Outbound  | UDP  | 137         | NetBIOS  | 
 | Outbound  | TCP  | 139         | SMB      |

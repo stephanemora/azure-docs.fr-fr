@@ -11,12 +11,12 @@ ms.author: ssambare
 author: shivanissambare
 ms.reviewer: peterlu
 ms.date: 05/25/2021
-ms.openlocfilehash: 764532fd06a26810dcee7c9d348aaf04abc037a4
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: d195ce6019f200b3cd3b264aacf09a8cbdb30c5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129428860"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057587"
 ---
 # <a name="create-and-use-managed-online-endpoints-preview-in-the-studio"></a>Créer et utiliser des points de terminaison en ligne managés (préversion) dans le studio
 
@@ -169,6 +169,6 @@ Dans cet article, vous avez appris à utiliser des points de terminaison en lign
 - [Guide pratique pour déployer des points de terminaison en ligne managés avec Azure CLI](how-to-deploy-managed-online-endpoints.md)
 - [Déployer des modèles avec REST (préversion)](how-to-deploy-with-rest.md)
 - [Guide pratique pour superviser des points de terminaison en ligne managés](how-to-monitor-online-endpoints.md)
-- [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](./how-to-troubleshoot-online-endpoints.md)
 - [Afficher les coûts d’un point de terminaison en ligne managé Azure Machine Learning (préversion)](how-to-view-online-endpoints-costs.md)
 - [Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

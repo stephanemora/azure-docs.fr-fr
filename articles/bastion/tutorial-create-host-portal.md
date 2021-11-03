@@ -5,14 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 09/07/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: 0bac9ef5d9a636fb4772352c93de537d21483139
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3765b1abb6996e364ed3f7004e56f323fe256450
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130179296"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017038"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm"></a>Tutoriel : Configurer Bastion et se connecter à une machine virtuelle Windows
 
@@ -96,7 +97,7 @@ Cette section vous aide à créer l’objet bastion dans votre réseau virtuel. 
 
 * **Région** : région publique Azure dans laquelle est créée la ressource. Choisissez la région dans laquelle réside votre réseau virtuel.
 
-* **Niveau :** également appelé **Référence SKU**. Pour ce tutoriel, nous sélectionnons la référence SKU **Standard** dans la liste déroulante. La sélection de la référence SKU Standard vous permet de configurer le nombre d’instances pour la mise à l’échelle de l’hôte. La référence SKU De base ne prend pas en charge la mise à l’échelle de l’hôte. Pour plus d’informations, consultez [Paramètres de configuration – Références SKU](configuration-settings.md#skus). La référence SKU Standard est disponible en préversion.
+* **Niveau :** également appelé **Référence SKU**. Pour ce tutoriel, nous sélectionnons la référence SKU **Standard** dans la liste déroulante. La sélection de la référence SKU Standard vous permet de configurer le nombre d’instances pour la mise à l’échelle de l’hôte. La référence SKU De base ne prend pas en charge la mise à l’échelle de l’hôte. Pour plus d’informations, consultez [Paramètres de configuration – Références SKU](configuration-settings.md#skus).
 
 * **Nombre d’instances :** paramètre de la **mise à l’échelle de l’hôte**, configuré en incréments d’unités d’échelle. Utilisez le curseur pour configurer le nombre d’instances. Si vous avez spécifié la référence SKU de niveau De base, vous ne pouvez pas configurer ce paramètre. Pour plus d’informations, consultez [Paramètres de configuration - Mise à l’échelle de l’hôte](configuration-settings.md#instance). Dans ce tutoriel, vous pouvez sélectionner le nombre d’instances que vous préférez, en gardant à l’esprit les considérations relatives aux [tarifs](https://azure.microsoft.com/pricing/details/azure-bastion) des unités d’échelle.
 

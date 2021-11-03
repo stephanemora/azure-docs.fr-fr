@@ -50,7 +50,7 @@
             - name: Latence du réseau Azure
               href: azure-network-latency.md
             - name: Préférence de routage Internet dans Azure
-              href: ../virtual-network/routing-preference-overview.md
+              href: ../virtual-network/ip-services/routing-preference-overview.md
         - name: Sécurité
           items:
             - name: Contrôles de sécurité par Azure Policy

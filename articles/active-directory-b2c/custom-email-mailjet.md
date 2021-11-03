@@ -3,21 +3,21 @@ title: Vérification des e-mails personnalisée avec Mailjet
 titleSuffix: Azure AD B2C
 description: Découvrez comment intégrer avec Mailjet pour personnaliser les e-mails de vérification envoyés à vos clients lorsqu'ils s'inscrivent pour utiliser vos applications Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c8b7a30cfa47634aeb2eace9ee1c8d3ad2d388c9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: a0a7f91b540e06ba0b973bf5aeb9f790a58410ad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128564245"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007417"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Vérification des e-mails personnalisée avec Mailjet
 
@@ -37,15 +37,14 @@ La vérification d’e-mails personnalisée nécessite l’utilisation d'un four
 
 ## <a name="create-a-mailjet-account"></a>Créer un compte Mailjet
 
-Si vous ne disposez pas encore d’un compte, commencez par configurer un compte Mailjet (les clients Azure peuvent débloquer 6 000 e-mails avec une limite de 200 e-mails/jour). 
+Si vous ne disposez pas encore d’un compte, commencez par configurer un compte Mailjet (les clients Azure peuvent débloquer 6 000 e-mails avec une limite de 200 e-mails/jour).
 
 1. Suivez les instructions de configuration dans [Créer un compte de Mailjet](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
 1. Pour pouvoir envoyer des e-mails, [inscrire et valider](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) l’adresse e-mail ou le domaine de l’expéditeur.
-2. Accédez à la [page Gestion des clés de l’API](https://app.mailjet.com/account/api_keys). Enregistrez la **Clé API** et la **Clé secrète** pour l'utiliser à une étape ultérieure. Les deux clés sont générées automatiquement lorsque votre compte est créé.  
+2. Accédez à la [page Gestion des clés de l’API](https://app.mailjet.com/account/api_keys). Enregistrez la **Clé API** et la **Clé secrète** pour l'utiliser à une étape ultérieure. Les deux clés sont générées automatiquement lorsque votre compte est créé.
 
 > [!IMPORTANT]
 > Mailjet offre aux clients la possibilité d’envoyer des e-mails à partir d’adresses IP partagées et [dédiées](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP). Lorsque vous utilisez des adresses IP dédiées, vous devez établir votre propre réputation correctement à l’aide d’un échauffement d’adresse IP. Pour plus d’informations, consultez [Comment effectuer l’échauffement de mon adresse IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
-
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Créer une clé de stratégie Azure AD B2C
 
@@ -156,7 +155,6 @@ Avec un compte Mailjet créé et une Clé API Mailjet stockée dans une clé de 
                        <td width="24" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
                        <td id="PageFooterContainer" width="585" valign="top" colspan="6" style="border-bottom:1px solid #e3e3e3;padding:0px;">
 
-
                        </td>
 
                        <td width="29" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
@@ -180,14 +178,13 @@ Avec un compte Mailjet créé et une Clé API Mailjet stockée dans une clé de 
 1. Dans le coin supérieur droit, sélectionnez **Enregistrer et publier**, puis **Oui, publier les modifications**
 1. Enregistrez l’**ID du modèle** que vous avez créé pour l'utiliser à une étape ultérieure. Vous spécifiez cet ID lorsque vous [ajoutez la transformation de revendications](#add-the-claims-transformation).
 
-
 ## <a name="add-azure-ad-b2c-claim-types"></a>Ajouter des types de revendications Azure AD B2C
 
 Dans votre stratégie, ajoutez les types de revendications suivants à l'élément `<ClaimsSchema>` dans `<BuildingBlocks>`.
 
 Ces types de revendications sont nécessaires pour générer et vérifier l’adresse e-mail à l'aide d'un code de mot de passe à usage unique (OTP).
 
-```XML
+```xml
 <!--
 <BuildingBlocks>
   <ClaimsSchema> -->
@@ -222,7 +219,7 @@ Ajoutez la transformation de revendications suivante à l'élément `<ClaimsTran
 * Mettez à jour la valeur de l'adresse `Messages.0.From.Email`. Utilisez une adresse e-mail valide pour éviter que l’e-mail de vérification ne soit considéré comme un courrier indésirable.
 * Mettez à jour la valeur du paramètre de saisie de la ligne d’objet `Messages.0.Subject` avec une ligne d’objet appropriée pour votre organisation.
 
-```XML
+```xml
 <!-- 
 <BuildingBlocks>
   <ClaimsTransformations> -->
@@ -256,7 +253,7 @@ Ajoutez la transformation de revendications suivante à l'élément `<ClaimsTran
 
 Sous les transformations de revendications dans `<BuildingBlocks>`, ajoutez l’élément [ContentDefinition](contentdefinitions.md) suivant pour faire référence à l’URI de données de la version 2.1.2 :
 
-```XML
+```xml
 <!--
 <BuildingBlocks> -->
   <ContentDefinitions>
@@ -286,7 +283,7 @@ Cet exemple de contrôle d'affichage est configuré pour :
 
 Sous les définitions de contenu, toujours dans `<BuildingBlocks>`, ajoutez à votre stratégie l’élément [DisplayControl](display-controls.md) suivant de type [VerificationControl](display-control-verification.md).
 
-```XML
+```xml
 <!--
 <BuildingBlocks> -->
   <DisplayControls>
@@ -326,7 +323,7 @@ Le profil technique `GenerateOtp` génère un code pour l’adresse e-mail. Le p
 
 Ajoutez les profils techniques suivants à l'élément `<ClaimsProviders>`.
 
-```XML
+```xml
 <!--
 <ClaimsProviders> -->
   <ClaimsProvider>
@@ -374,7 +371,7 @@ Ce profil technique API REST génère le contenu de l’e-mail (en utilisant le 
 
 Comme pour les profils techniques OTP, ajoutez les profils techniques suivants à l'élément `<ClaimsProviders>`.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
@@ -408,7 +405,7 @@ Dans l'étape finale, ajoutez une référence à l’élément DisplayControl qu
 
 Pour plus d'informations, voir [Profil technique autodéclaré](restful-technical-profile.md) et [DisplayControl](display-controls.md).
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -454,7 +451,7 @@ Pour localiser l’e-mail, vous devez envoyer des chaînes localisées à Mailje
 1. Modifiez la transformation de revendications `GenerateEmailRequestBody` pour utiliser des revendications d’entrée avec l’extrait de code XML suivant.
 1. Mettez à jour votre modèle Mailjet pour utiliser des paramètres dynamiques à la place de toutes les chaînes qui seront localisées par Azure AD B2C.
 
-    ```XML
+    ```xml
     <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
@@ -550,12 +547,12 @@ Pour localiser l’e-mail, vous devez envoyer des chaînes localisées à Mailje
       <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
     </InputClaimsTransformations>
     ```
-    
+
 ## <a name="optional-localize-the-ui"></a>[Facultatif] Localiser l’interface utilisateur
 
-L’élément Localization vous permet de prendre en charge plusieurs paramètres régionaux ou langues dans la stratégie pour les parcours utilisateur. La prise en charge de la localisation dans les stratégies vous permet de fournir des chaînes spécifiques à la langue à la fois pour les [Éléments de l’interface utilisateur du contrôle de l’affichage de vérification](localization-string-ids.md#verification-display-control-user-interface-elements) et les [Messages d’erreur du mot de passe à usage unique](localization-string-ids.md#one-time-password-error-messages). Ajoutez la LocalizedString suivante à vos LocalizedResources. 
+L’élément Localization vous permet de prendre en charge plusieurs paramètres régionaux ou langues dans la stratégie pour les parcours utilisateur. La prise en charge de la localisation dans les stratégies vous permet de fournir des chaînes spécifiques à la langue à la fois pour les [Éléments de l’interface utilisateur du contrôle de l’affichage de vérification](localization-string-ids.md#verification-display-control-user-interface-elements) et les [Messages d’erreur du mot de passe à usage unique](localization-string-ids.md#one-time-password-error-messages). Ajoutez la LocalizedString suivante à vos LocalizedResources.
 
-```XML
+```xml
 <LocalizedResources Id="api.custom-email.en">
   <LocalizedStrings>
     ...

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 0bcbe35fc6d9f104325bec8a3404ad57a6376cf2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a0e795d6e6c2fa189682931f60b792e4588d1278
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94518122"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131047683"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastructure de sécurité : Données sensibles | Atténuation des risques 
 | Produit/Service | Article |
@@ -83,7 +83,7 @@ ms.locfileid: "94518122"
 | **Étapes** | Les navigateurs peuvent stocker des informations à des fins de mise en cache et d’historique. Ces fichiers mis en cache sont stockés dans un dossier, comme le dossier Fichiers Internet temporaires d’Internet Explorer. Lorsque ces pages sont de nouveau consultées, le navigateur les affiche à partir du cache. Si l’utilisateur peut voir des informations sensibles (par exemple, adresse, numéro de carte de crédit, numéro de sécurité sociale ou nom d’utilisateur), ces informations sont peut-être stockées dans le cache du navigateur et peuvent par conséquent être récupérées en examinant le cache du navigateur ou en appuyant simplement sur le bouton Précédent du navigateur. Définissez la valeur d’en-tête de réponse cache-control sur « no-store » pour toutes les pages. |
 
 ### <a name="example"></a>Exemple
-```XML
+```xml
 <configuration>
   <system.webServer>
    <httpProtocol>

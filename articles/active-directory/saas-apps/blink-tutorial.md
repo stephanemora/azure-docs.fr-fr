@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2021
 ms.author: jeedes
-ms.openlocfilehash: 2d05eab0bb43fcfeb727556b002405e830fc4ae7
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: bcc11f74a5d6d6816286fc21bda983f338f5c22d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128624365"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059054"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-blink"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Blink
 
@@ -77,16 +77,16 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant un des modèles suivants :
-    
+    1. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant un des modèles suivants :
+
     | URL de connexion|
     |------------|
     | `https://app.joinblink.com` |
     | `https://<SUBDOMAIN>.joinblink.com` |
-    |
-    
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://api.joinblink.com/saml/o-<TENANTID>`
+    2. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant :
+
+    `https://api.joinblink.com/saml/o-<TENANTID>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de Blink](https://help.joinblink.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -104,17 +104,17 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     |   email       | user.mail |
     | | |
 
-    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
+    1. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
+    1. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
 
-    c. Laissez le champ **Espace de noms** vide.
+    1. Laissez le champ **Espace de noms** vide.
 
-    d. Sélectionnez Source comme **Attribut**.
+    1. Sélectionnez Source comme **Attribut**.
 
-    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
+    1. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **Enregistrer**.
+    1. Cliquez sur **Enregistrer**.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-ms.openlocfilehash: d5928cf93aed6e1a887be07f2befd27df9a8e276
-ms.sourcegitcommit: f3f2ec7793ebeee19bd9ffc3004725fb33eb4b3f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ba1dd4cd4b3552466db55723432f5e9c79593070
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129407833"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055178"
 ---
 # <a name="azure-sentinel-file-event-normalization-schema-reference-public-preview"></a>Informations de référence sur le schéma de normalisation des événements de fichier Azure Sentinel (préversion publique)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Le schéma de normalisation des événements de fichier est utilisé pour décrire les activités de fichier, telles que la création, la modification ou la suppression de fichiers ou de documents. Ces événements sont signalés par les systèmes d’exploitation, les systèmes de stockage de fichiers tels qu’Azure Files et les systèmes de gestion de documents tels que Microsoft SharePoint.
 
@@ -81,11 +83,11 @@ Les champs suivants sont générés par Log Analytics pour chaque enregistrement
 | ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | <a name="timegenerated"></a>**TimeGenerated** | DATETIME | Heure à laquelle l’événement a été généré par l’appareil de création de rapports.|
 | **_ResourceId**   | guid     | ID de ressource Azure de l’appareil ou du service de création de rapports, ou l’ID de ressource de redirecteur de journal pour les événements transférés avec Syslog, CEF ou WEF. |
-| **Type** | String | La table d’origine à partir de laquelle l’enregistrement a été récupéré. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, et ont les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
+| **Type** | String | Table d’origine à partir de laquelle l’enregistrement a été extrait. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, et ont les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
 | | | |
 
 > [!NOTE]
-> Log Analytics ajoute également d’autres champs qui sont moins pertinents pour les cas d’usage de sécurité. Pour plus d’informations, consultez [Colonnes standard dans les journaux Azure Monitor](../azure-monitor/logs/log-standard-columns.md).
+> Log Analytics ajoute également d’autres champs qui sont moins pertinents pour les cas d’usage de sécurité. Pour plus d’informations, consultez [Colonnes standard dans les journaux d’Azure Monitor](../azure-monitor/logs/log-standard-columns.md).
 >
 
 ## <a name="event-fields"></a>Champs de l’événement
@@ -204,6 +206,6 @@ Pour plus d'informations, consultez les pages suivantes :
 - [Normalisation dans Azure Sentinel](normalization.md)
 - [Informations de référence sur le schéma de normalisation de l’authentification Azure Sentinel (préversion publique)](authentication-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation du DNS Azure Sentinel](dns-normalization-schema.md)
-- [Informations de référence sur le schéma de normalisation du réseau Azure Sentinel](normalization-schema.md)
+- [Informations de référence sur le schéma de normalisation du réseau Azure Sentinel](./network-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation des événements de processus Azure Sentinel (préversion publique)](process-events-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation d’événement du registre Azure Sentinel (préversion publique)](registry-event-normalization-schema.md)

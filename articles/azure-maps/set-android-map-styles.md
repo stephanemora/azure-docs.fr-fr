@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: c6d9eaedbd4a257a60fa0ba3dc7f41857173207e
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 1d16131c51527ead525bf17143892d15229658d2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123431565"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072424"
 ---
 # <a name="set-map-style-android-sdk"></a>Définition d’un style de carte (Android SDK)
 
@@ -24,7 +24,7 @@ Cet article vous présente deux façons de définir des styles de carte à l’a
 
 Veillez à suivre la procédure du document [Démarrage rapide : Création d’une application Android](quick-android-map.md).
 
->[!important]
+>[!IMPORTANT]
 >Un compte Azure Maps du niveau tarifaire Gen1 ou Gen2 est nécessaire pour suivre la procédure de cette section. Pour plus d’informations sur les niveaux tarifaires, consultez [Choix du bon niveau tarifaire dans Azure Maps](choose-pricing-tier.md).
 
 
@@ -32,7 +32,7 @@ Veillez à suivre la procédure du document [Démarrage rapide : Création d’
 
 Vous pouvez définir un style de carte dans le fichier de disposition de votre classe d’activité lorsque vous ajoutez le contrôle de carte. Le code suivant définit l’emplacement du centre, le niveau de zoom et le style de carte.
 
-```XML
+```xml
 <com.azure.android.maps.control.MapControl
     android:id="@+id/mapcontrol"
     android:layout_width="match_parent"

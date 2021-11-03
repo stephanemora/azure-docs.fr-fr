@@ -6,12 +6,12 @@ ms.date: 3/14/2019
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 26addfdcd7b7b2d9ec3b049040e5d387d7c5bb86
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: 0170a0075d9f5eea7088a82e884b02241713210a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130133953"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078918"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrer la télémétrie dans votre application web Java
 
@@ -38,7 +38,7 @@ Les filtres prêts à l’emploi incluent :
 Dans ApplicationInsights.xml, ajoutez une section `TelemetryProcessors` comme dans cet exemple :
 
 
-```XML
+```xml
 
     <ApplicationInsights>
       <TelemetryProcessors>
@@ -91,7 +91,7 @@ Dans ApplicationInsights.xml, ajoutez une section `TelemetryProcessors` comme da
 
 ### <a name="metric-telemetry-filter"></a>Filtre Télémétrie des mesures
 
-```XML
+```xml
 
            <Processor type="MetricTelemetryFilter">
                   <Add name="NotNeeded" value="metric1,metric2"/>
@@ -103,7 +103,7 @@ Dans ApplicationInsights.xml, ajoutez une section `TelemetryProcessors` comme da
 
 ### <a name="page-view-telemetry-filter"></a>Filtre Télémétrie d’affichage de page
 
-```XML
+```xml
 
            <Processor type="PageViewTelemetryFilter">
                   <Add name="DurationThresholdInMS" value="500"/>
@@ -120,7 +120,7 @@ Dans ApplicationInsights.xml, ajoutez une section `TelemetryProcessors` comme da
 ### <a name="request-telemetry-filter"></a>Filtre Télémétrie des demandes
 
 
-```XML
+```xml
 
            <Processor type="RequestTelemetryFilter">
                   <Add name="MinimumDurationInMS" value="500"/>
@@ -138,7 +138,7 @@ Exclut toutes les données de télémétrie présentant des valeurs dans la prop
 Exclure les données de télémétrie pour toutes les demandes synthétiques :
 
 
-```XML
+```xml
 
            <Processor type="SyntheticSourceFilter" />
 ```
@@ -146,7 +146,7 @@ Exclure les données de télémétrie pour toutes les demandes synthétiques :
 Exclure les données de télémétrie pour des sources synthétiques spécifiques :
 
 
-```XML
+```xml
 
            <Processor type="SyntheticSourceFilter" >
                   <Add name="NotNeeded" value="source1,source2"/>
@@ -160,7 +160,7 @@ Exclure les données de télémétrie pour des sources synthétiques spécifique
 Filtre les événements personnalisés (consignés à l’aide de [TrackEvent()](./api-custom-events-metrics.md#trackevent)).
 
 
-```XML
+```xml
 
            <Processor type="TelemetryEventFilter" >
                   <Add name="NotNeededNames" value="event1, event2"/>
@@ -175,7 +175,7 @@ Filtre les événements personnalisés (consignés à l’aide de [TrackEvent()]
 
 Filtre les traces de journaux (consignés à l’aide de [TrackTrace()](./api-custom-events-metrics.md#tracktrace) ou d’un [collecteur framework de journalisation](java-2x-trace-logs.md)).
 
-```XML
+```xml
 
            <Processor type="TraceTelemetryFilter">
                   <Add name="FromSeverityLevel" value="ERROR"/>
@@ -235,7 +235,7 @@ Dans votre code, créez une classe qui implémente `TelemetryProcessor`:
 
 Dans ApplicationInsights.xml :
 
-```XML
+```xml
 
 
     <ApplicationInsights>

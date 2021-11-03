@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/25/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 68eaef6943bea96261e73abc141c87362071665d
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: fddb35cd2b610280440ac01fe5ffc9027a59a2b7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991942"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021882"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problèmes et solutions connus relatifs à la conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD
 
@@ -55,14 +55,14 @@ Utilisez l’URL suivante pour mettre à jour le comportement des PATCH et garan
 - Demandes effectuées pour ajouter un attribut de chaîne à valeur unique
 - Demandes effectuées pour remplacer plusieurs attributs
 - Demandes effectuées pour supprimer un membre du groupe        
-                                                                                     
+
 Ce comportement est actuellement disponible uniquement lorsque vous utilisez l’indicateur, mais il deviendra le comportement par défaut au cours des prochains mois. Notez que cet indicateur de fonctionnalité ne fonctionne actuellement pas avec l’approvisionnement à la demande. 
   * **URL (conforme à SCIM) :** aadOptscim062020
   * **Références RFC SCIM :** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2    
 
 Vous trouverez ci-dessous des exemples de requêtes pour vous aider à décrire ce que le moteur de synchronisation envoie par rapport aux requêtes envoyées une fois l’indicateur de fonctionnalité activé. 
-                           
+
 **Demandes effectuées pour désactiver des utilisateurs :**
 
 **Sans indicateur de fonctionnalité**
@@ -237,18 +237,18 @@ Vous trouverez ci-dessous des exemples de requêtes pour vous aider à décrire 
 
 
   * **URL de rétrogradation :** Une fois que le nouveau comportement conforme à SCIM devient celui par défaut sur l’application ne figurant pas dans la galerie, vous pouvez utiliser l’URL suivante pour revenir à l’ancien comportement conforme non SCIM : AzureAdScimPatch2017
-  
+
 
 
 ## <a name="upgrading-from-the-older-customappsso-job-to-the-scim-job"></a>Mise à niveau de l’ancien travail customappsso en travail SCIM
 Les étapes ci-dessous ont pour effet de supprimer votre travail customappsso existant et créer un nouveau travail scim. 
- 
+
 1. Connectez-vous au portail Azure à l’adresse https://portal.azure.com.
 2. Dans la section **Azure Active Directory > Applications d’entreprise** du portail Azure, localisez et sélectionnez votre application SCIM existante.
 3. Dans la section **Propriétés** de votre application SCIM existante, copiez l’**ID objet**.
 4. Dans une nouvelle fenêtre de navigateur web, accédez à https://developer.microsoft.com/graph/graph-explorer et connectez-vous en tant qu’administrateur pour le locataire Azure AD où votre application est ajoutée.
 5. Dans l’Explorateur graphique, exécutez la commande suivante pour rechercher l’ID de votre travail d’approvisionnement. Remplacez « [object-id] » par l’ID du principal de service (ID d’objet) copié à partir de la troisième étape.
- 
+
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
    ![Obtenir les travaux](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obtenir les travaux") 
@@ -256,21 +256,21 @@ Les étapes ci-dessous ont pour effet de supprimer votre travail customappsso ex
 
 6. Dans les résultats, copiez la chaîne « ID » complète qui commence par « customappsso » ou « scim ».
 7. Exécutez la commande ci-dessous pour récupérer la configuration du mappage des attributs, afin de pouvoir effectuer une sauvegarde. Utilisez le même [object-id] qu’auparavant et remplacez [job-id] par l’ID du travail approvisionnement copié à partir de la dernière étape.
- 
+
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
- 
+
    ![Obtenir le schéma](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obtenir le schéma") 
 
 8. Copiez la sortie JSON de la dernière étape et enregistrez-la dans un fichier texte. Le code JSON contient les mappages d’attributs personnalisés que vous avez ajoutés à votre ancienne application et doit contenir quelques milliers de lignes.
 9. Exécutez la commande ci-dessous pour supprimer le travail d’approvisionnement :
- 
+
    `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
 10. Exécutez la commande ci-dessous pour créer un nouveau travail d’approvisionnement avec les derniers correctifs de service.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
  `{   "templateId": "scim"   }`
-   
+
 11. Dans les résultats de la dernière étape, copiez la chaîne « ID » complète qui commence par « scim ». Si vous le souhaitez, réappliquez vos anciens mappages d’attributs en exécutant la commande ci-dessous, en remplaçant [new-job-id] par le nouvel ID de travail que vous avez copié, et en entrant la sortie JSON de l’étape n° 7 en tant que corps de la demande.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
@@ -291,7 +291,7 @@ Les étapes ci-dessous ont pour effet de supprimer votre travail customappsso ex
 
    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
    `{   templateId: "customappsso"   }`
- 
+
 6. Revenez à la première fenêtre du navigateur Web et sélectionnez l’onglet **Approvisionnement** de votre application.
 7. Complétez la configuration d’approvisionnement utilisateur comme vous le feriez normalement.
 

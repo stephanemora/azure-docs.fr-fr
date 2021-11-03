@@ -4,12 +4,12 @@ description: Effectuer une recherche dans les journaux d’activité générés 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: 8b956c0e63f96dbfbcf3204c260952ccf2f2c22a
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: 2836dfabbc2370ed6200030564e2b559cb656f8b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112552871"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079184"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Découvrir les journaux des traces .NET/.NET Core et Python dans Application Insights
 
@@ -22,7 +22,7 @@ Envoyez des journaux de suivi de diagnostic pour votre application ASP.NET/ASP.N
 ## <a name="install-logging-on-your-app"></a>Installation de la journalisation sur votre application
 Installez le framework de journalisation de votre choix dans votre projet, ce qui générera une entrée dans app.config ou web.config.
 
-```XML
+```xml
  <configuration>
   <system.diagnostics>
     <trace>
@@ -116,7 +116,7 @@ Pour chaque DiagnosticSource à tracer, ajoutez une entrée avec l’attribut **
 ## <a name="use-etw-events"></a>Utiliser les événements ETW
 Vous pouvez configurer les événements du suivi d’événements pour Windows (ETW, Event Tracing for Windows) à envoyer à Application Insights en tant que traces. D’abord, installez le package NuGet `Microsoft.ApplicationInsights.EtwCollector`. Ensuite, modifiez la section « TelemetryModules » du fichier [ApplicationInsights.config](./configuration-with-applicationinsights-config.md).
 
-> [!NOTE] 
+> [!NOTE]
 > Les événements ETW peuvent uniquement être collectés si le processus hébergeant le Kit de développement logiciel (SDK) s’exécute sous une identité membre des Utilisateurs ou Administrateurs du journal de performances.
 
 ```xml
@@ -188,7 +188,7 @@ Vous pouvez par exemple :
 * Enregistrer la configuration d’une page en tant que favori
 
 > [!NOTE]
->Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel (SDK) Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité *d’échantillonnage adaptatif* peut fonctionner et transmettre uniquement une portion de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](./sampling.md)
+> Si votre application envoie des données en grand nombre et si vous utilisez le Kit de développement logiciel (SDK) Application Insights pour ASP.NET version 2.0.0-beta3 ou ultérieure, la fonctionnalité *d’échantillonnage adaptatif* peut fonctionner et transmettre uniquement une portion de vos données de télémétrie. [En savoir plus sur l'échantillonnage.](./sampling.md)
 >
 
 ## <a name="troubleshooting"></a>Dépannage
@@ -233,4 +233,3 @@ Si votre application envoie de grandes quantités de données et si vous utilise
 [portal]: https://portal.azure.com/
 [qna]: ../faq.yml
 [start]: ./app-insights-overview.md
-

@@ -4,14 +4,14 @@ description: Découvrez comment créer un groupe d’actions à l’aide d’un 
 author: dkamstra
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/19/2021
+ms.date: 10/18/2021
 ms.author: dukek
-ms.openlocfilehash: fe28498f677c2025cea9da329a3b029cda04a199
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 1680ff8d209fc2680b19d3d3afe8c2b6aded9678
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949382"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044226"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Créer un groupe d’actions avec un modèle Resource Manager
 Cet article vous explique comment utiliser un [modèle Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) pour configurer les groupes d’action. À l’aide de modèles, vous pouvez configurer automatiquement des groupes d’actions qui peuvent être réutilisés dans certains types d’alertes. Ces groupes d’actions vous assurent que toutes les parties concernées sont averties lorsqu’une alerte est déclenchée.
@@ -49,7 +49,7 @@ Le premier modèle explique comment créer un modèle Resource Manager pour un g
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2021-09-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -89,6 +89,15 @@ Le premier modèle explique comment créer un modèle Resource Manager pour un g
           {
             "name": "contosoHook2",
             "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
+          }
+        ],
+        "eventHubReceivers": [
+          {
+            "name": "contosoeventhub1",
+            "subscriptionId": "replace with subscription id GUID",
+            "eventHubNameSpace": "contosoeventHubNameSpace",
+            "eventHubName": "contosoeventHub",
             "useCommonAlertSchema": true
           }
         ]
@@ -137,7 +146,7 @@ Le premier modèle explique comment créer un modèle Resource Manager pour un g
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2019-03-01",
+      "apiVersion": "2021-09-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {

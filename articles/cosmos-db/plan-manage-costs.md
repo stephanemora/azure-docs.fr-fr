@@ -3,16 +3,16 @@ title: Planifier et gérer les coûts pour Azure Cosmos DB
 description: Découvrez comment planifier et gérer les coûts pour Azure Cosmos DB avec l’analyse des coûts dans le portail Azure.
 author: SnehaGunda
 ms.author: sngun
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, ignite-fall-2021
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.openlocfilehash: f954be4b5ce82bf84bc99fcdab253c48fccf9933
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.date: 10/08/2021
+ms.openlocfilehash: 3004cd93eb9222ef1e8163584c03d762bb0c85e1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123226980"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080153"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planifier et gérer les coûts pour Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -37,7 +37,7 @@ Azure Cosmos DB est disponible en deux modes de capacité différents : débit 
 
 ### <a name="capacity-planning"></a>planification de la capacité
 
-Pour vous aider à estimer les coûts, il peut être utile d’effectuer la planification de capacité d’une migration vers Azure Cosmos DB. Si vous planifiez une migration à partir d’un cluster de bases de données existant vers Azure Cosmos DB, vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de capacité.
+Pour vous aider à estimer les coûts, il peut être utile d’effectuer la planification de capacité d’une migration vers Azure Cosmos DB. Si vous planifiez une migration d’un cluster de bases de données existant vers Azure Cosmos DB, vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de capacité.
 * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
 
 ![Migrer un jeu de réplicas avec 3 réplicas d’une référence SKU à quatre cœurs vers Azure Cosmos DB](media/convert-vcore-to-request-unit/one-replica-set.png)
@@ -49,6 +49,9 @@ Pour vous aider à estimer les coûts, il peut être utile d’effectuer la plan
 Si vous envisagez d’utiliser Azure Cosmos DB en mode débit approvisionné, utilisez la [calculatrice de capacité d’Azure Cosmos DB](https://cosmos.azure.com/capacitycalculator/) pour estimer les coûts avant de créer les ressources dans un compte Azure Cosmos. La calculatrice de capacité permet d’estimer le débit nécessaire et le coût de votre charge de travail. La calculatrice de capacité est actuellement disponible pour l’API SQL, l’API Cassandra et l’API pour MongoDB uniquement.
 
 Pour optimiser les coûts et les performances, il est essentiel de configurer vos bases de données et vos conteneurs Azure Cosmos avec la quantité appropriée de débit provisionné, ou [Unités de requête par seconde (RU/s)](request-units.md), pour votre charge de travail. Vous devez entrer des informations comme le type d’API, le nombre de régions, la taille des éléments, les demandes de lecture/écriture par seconde et la quantité totale des données stockées pour obtenir une estimation des coûts. Pour découvrir plus d’informations sur la calculatrice de capacité, consultez l’article [Estimer](estimate-ru-with-capacity-planner.md).
+
+> [!TIP]
+> Pour veiller à ne jamais dépasser le débit provisionné que vous avez budgété, [limitez le débit total provisionné de votre compte](./limit-total-account-throughput.md).
 
 La capture d’écran suivante montre le débit et l’estimation des coûts à l’aide de la calculatrice de capacité :
 
@@ -160,8 +163,8 @@ Voici quelques-unes des meilleures pratiques que vous pouvez utiliser pour rédu
 
 Consultez les articles suivants pour en savoir plus sur le fonctionnement des prix dans Azure Cosmos DB :
 
-* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existantes pour la planification de la capacité.
-    * Si vous ne connaissez que le nombre de vCore et de serveurs présents dans votre cluster de bases de données existant, lisez l’article sur l’[estimation des unités de requête à l’aide de vCore ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
+* Vous tentez d’effectuer une planification de la capacité pour une migration vers Azure Cosmos DB ? Vous pouvez utiliser les informations sur votre cluster de bases de données existant pour la planification de la capacité.
+    * Si vous ne connaissez que le nombre de vCores et de serveurs présents dans votre cluster de bases de données existant, lisez [Estimation des unités de requête à l’aide de vCores ou de processeurs virtuels](convert-vcore-to-request-unit.md) 
     * Si vous connaissez les taux de requêtes types de votre charge de travail de base de données actuelle, lisez la section concernant l’[estimation des unités de requête à l’aide du planificateur de capacité Azure Cosmos DB](estimate-ru-with-capacity-planner.md)
 * [Modèle de prix dans Azure Cosmos DB](how-pricing-works.md)
 * Découvrez [comment optimiser votre investissement cloud avec Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

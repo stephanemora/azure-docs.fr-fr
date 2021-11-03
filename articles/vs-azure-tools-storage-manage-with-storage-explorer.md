@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 969e2d2424b9f9af1dcd921a1cebfa9407e313eb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: f08d1c38965121564c21dee7053ae0c152b82814
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114438381"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021977"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
@@ -124,7 +124,7 @@ L’Explorateur Stockage vous permet de vous connecter à des ressources individ
 | Partages de fichiers      | Non       | Non                   | Oui (URL)                      | Non                 |
 | Files d’attente           | Oui      | Non                   | Oui (URL)                      | Non                 |
 | Tables           | Non       | Non                   | Oui (URL)                      | Non                 |
- 
+
 L’Explorateur Stockage peut également se connecter à un [émulateur de stockage local](#local-storage-emulator) à l’aide des ports configurés de l’émulateur.
 
 Pour vous connecter à une ressource individuelle, sélectionnez le bouton **Connecter** dans la barre d’outils de gauche. Suivez ensuite les instructions pour le type de ressource auquel vous souhaitez vous connecter.
@@ -146,7 +146,7 @@ L’Explorateur Stockage peut utiliser votre compte Azure pour vous connecter au
 * Conteneurs Azure Data Lake Storage Gen2
 * Répertoires Azure Data Lake Storage Gen2
 * Files d’attente
- 
+
 Azure AD est l’option recommandée si vous disposez d’un accès à la couche de données de votre ressource, mais pas d’un accès à la couche de gestion.
 
 1. Connectez-vous à au moins un compte Azure à l’aide des [étapes décrites ci-dessus](#sign-in-to-azure).

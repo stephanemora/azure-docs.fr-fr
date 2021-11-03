@@ -4,12 +4,12 @@ description: Découvrez comment développer et tester Azure Functions à l’aid
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.openlocfilehash: 2cd702286b2f35fcbc725af5ee231e1ab4b78284
-ms.sourcegitcommit: 6c6b8ba688a7cc699b68615c92adb550fbd0610f
+ms.openlocfilehash: a8be86708f2f3a8394b1e6e17d70a9d9038dc6e2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122532986"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039275"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -184,6 +184,7 @@ Comme avec les déclencheurs, les liaisons d’entrée et de sortie sont ajouté
         }
     }
     ```
+
    La connexion au stockage de file d’attente est obtenue à partir du paramètre `AzureWebJobsStorage`. Pour plus d’informations, consultez l’article de référence pour la liaison spécifique. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]

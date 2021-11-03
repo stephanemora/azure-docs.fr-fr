@@ -5,20 +5,23 @@ keywords: Azure, intelligence artificielle, ia, traitement en langage naturel, t
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 05/17/2021
-ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d48d80170e3f1b9db83e12b34610a8b6736f42ca
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 10/20/2021
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
+ms.openlocfilehash: 1595831e4da756e16df257ce93d28b03bb7c6eab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095821"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069251"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+> [!NOTE]
+> Une version plus récente des fonctionnalités Language Understanding est maintenant disponible dans le cadre d’Azure Cognitive Service for Language. Pour plus d’informations, consultez [Documentation Azure Cognitive Service for Language](../language-service/index.yml). Pour obtenir des fonctionnalités de compréhension du langage dans le service de langage, consultez [Compréhension du langage courant](../language-service/conversational-language-understanding/overview.md), [Reconnaissance d’entité nommée personnalisée](../language-service/custom-named-entity-recognition/overview.md) et [Classification personnalisée](../language-service/custom-classification/overview.md).
 
 Language Understanding (LUIS) est un service d’IA conversationnelle qui applique une intelligence de machine learning personnalisée au texte en langage naturel des conversations d’un utilisateur afin d’en prédire le sens général et d’en extraire des informations détaillées pertinentes. LUIS fournit un accès par le biais de son [portail personnalisé](https://www.luis.ai), des [API][endpoint-apis] et des [bibliothèques de client du SDK](client-libraries-rest-api.md).
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Les utilisateurs qui se connectent pour la première fois doivent effectuer les étapes de [connexion au portail LUIS](sign-in-luis-portal.md "se connecter au portail LUIS"). Pour démarrer, vous pouvez essayer une [application de domaine prédéfini](luis-get-started-create-app.md) LUIS.
 

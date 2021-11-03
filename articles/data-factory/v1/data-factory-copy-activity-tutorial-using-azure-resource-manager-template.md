@@ -5,16 +5,16 @@ author: linda33wj
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: 259a2e2e263f022b4cb91824aba9921f14cc1069
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 7fc2c038ea9f0c873979b3863e498611b6642e42
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128614823"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067550"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutoriel : utiliser un modèle Azure Resource Manager pour créer un pipeline Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
@@ -313,24 +313,28 @@ Créez un fichier JSON nommé **ADFCopyTutorialARM-Parameters** contient les par
 
 ## <a name="create-data-factory"></a>Créer une fabrique de données
 1. Démarrez **Azure PowerShell** et exécutez la commande suivante :
+
    * Exécutez la commande suivante, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure.
    
-    ```PowerShell
-    Connect-AzAccount       
-    ```  
+     ```powershell
+     Connect-AzAccount
+     ```
+
    * Exécutez la commande suivante pour afficher tous les abonnements de ce compte.
    
-    ```PowerShell
-    Get-AzSubscription
-    ```   
+     ```powershell
+     Get-AzSubscription
+     ```
+
    * Exécutez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser.
     
-    ```PowerShell
-    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-    ```    
+     ```powershell
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```
+
 2. Exécutez la commande suivante pour déployer des entités Data Factory à l’aide du modèle Resource Manager que vous avez créé à l’étape 1.
 
-    ```PowerShell   
+    ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
     ```
 
@@ -582,17 +586,19 @@ Vous définissez un pipeline qui copie les données du jeu de données d’objet
 ```
 
 ## <a name="reuse-the-template"></a>Réutiliser le modèle
-Dans ce didacticiel, vous avez créé un modèle pour définir des entités Data Factory et un modèle pour transmettre les valeurs des paramètres. Le pipeline copie les données d’un compte Stockage Azure vers le service Azure SQL Database spécifié par le biais de paramètres. Pour utiliser le même modèle afin de déployer des entités Data Factory dans des environnements différents, vous créez un fichier de paramètres pour chaque environnement et l’utiliser lors du déploiement de cet environnement.     
+Dans ce didacticiel, vous avez créé un modèle pour définir des entités Data Factory et un modèle pour transmettre les valeurs des paramètres. Le pipeline copie les données d’un compte Stockage Azure vers le service Azure SQL Database spécifié par le biais de paramètres. Pour utiliser le même modèle afin de déployer des entités Data Factory dans des environnements différents, vous créez un fichier de paramètres pour chaque environnement et l’utiliser lors du déploiement de cet environnement.
 
-Exemple :  
+Exemple :
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Dev.json
 ```
-```PowerShell
+
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Test.json
 ```
-```PowerShell
+
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFCopyTutorialARM.json -TemplateParameterFile ADFCopyTutorialARM-Parameters-Production.json
 ```
 

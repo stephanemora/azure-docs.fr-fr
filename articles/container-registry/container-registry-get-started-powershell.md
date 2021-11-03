@@ -3,13 +3,13 @@ title: Démarrage rapide – Création d’un registre – PowerShell
 description: Apprenez rapidement à créer un registre de conteneurs Docker privé dans Azure Container Registry avec PowerShell.
 ms.date: 06/03/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell - mvc - devx-track-azurepowershell - mode-api
-ms.openlocfilehash: b774e75c5df86b35efb466bfffcb8f9afa1961d6
-ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
+ms.custom: devx-track-azurepowershell, mvc, mode-api
+ms.openlocfilehash: 448b692adb603c884f1034bf5d7234e459ce5f66
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2021
-ms.locfileid: "112893818"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131043487"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Démarrage rapide : Créer un registre de conteneurs privé avec Azure PowerShell
 

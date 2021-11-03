@@ -16,10 +16,10 @@ items:
     items:
       - name: "Form Recognizer\_v2.1"
         items:
-          - name: Outil d’étiquetage Form Recognizer
+          - name: Outil d’étiquetage d’exemples
             href: quickstarts/try-sample-label-tool.md
           - name: Bibliothèques de client et API REST
-            href: quickstarts/try-sdk-rest-api.md
+            href: quickstarts/get-started-sdk-rest-api.md
       - name: "Form Recognizer\_v3.0 | Préversion"
         items:
           - name: Form Recognizer Studio (préversion)
@@ -28,8 +28,58 @@ items:
             href: quickstarts/try-v3-rest-api.md
           - name: Kit SDK C# (préversion)
             href: quickstarts/try-v3-csharp-sdk.md
+          - name: Kit SDK Java (préversion)
+            href: quickstarts/try-v3-java-sdk.md
+          - name: Kit SDK JavaScript (préversion)
+            href: quickstarts/try-v3-javascript-sdk.md
           - name: Kit SDK Python (préversion)
             href: quickstarts/try-v3-python-sdk.md
+  - name: Guides pratiques
+    items:
+      - name: "Migrer vers Form Recognizer\_v3.0 (préversion)"
+        href: v3-migration-guide.md
+      - name: Utiliser les kits SDK et l’API REST
+        href: how-to-guides/try-sdk-rest-api.md
+      - name: Générer des jetons SAS pour les conteneurs Blob Azure
+        href: generate-sas-tokens.md
+      - name: Modèles personnalisés
+        items:
+          - name: Créer et entraîner des modèles personnalisés
+            items:
+              - name: Assembler un jeu de données d’entraînement
+                href: build-training-data-set.md
+              - name: Déployer l’outil d’étiquetage d’exemples
+                href: deploy-label-tool.md
+              - name: Entraîner un modèle personnalisé avec l’outil d’étiquetage d’exemples
+                href: label-tool.md
+              - name: Utiliser des étiquettes de table pour entraîner votre modèle personnalisé
+                href: supervised-table-tags.md
+          - name: Composer des modèles personnalisés
+            href: compose-custom-models.md
+      - name: Sauvegarder et récupérer des modèles
+        href: disaster-recovery.md
+      - name: Utiliser des conteneurs
+        items:
+          - name: Installer et exécuter des conteneurs
+            displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+            href: containers/form-recognizer-container-install-run.md
+          - name: Configurer des conteneurs
+            href: containers/form-recognizer-container-configuration.md
+            displayName: 'docker, container, run, billing, apikey, logging'
+          - name: Étiquettes des images conteneur
+            href: containers/form-recognizer-container-image-tags.md
+          - name: Utiliser des instances de conteneur
+            href: ../../cognitive-services/containers/azure-container-instance-recipe.md
+      - name: Préparation pour l’entreprise
+        items:
+          - name: Configurer des réseaux virtuels
+            href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
+          - name: Créer et utiliser une identité managée
+            href: managed-identity-byos.md
+          - name: Utiliser des clés gérées par le client
+            href: encrypt-data-at-rest.md
+          - name: "Utiliser l’authentification Azure\_AD"
+            href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
   - name: Exemples
     items:
       - name: C#/.NET
@@ -52,48 +102,6 @@ items:
         href: /legal/cognitive-services/form-recognizer/fr-guidance-integration-responsible-use?context=/azure/applied-ai-services/form-recognizer/context/context
       - name: 'Données, confidentialité et sécurité'
         href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context
-  - name: Guides pratiques
-    items:
-      - name: "Migrer vers Form Recognizer\_v3.0 (préversion)"
-        href: v3-migration-guide.md
-      - name: Générer des jetons SAS pour les conteneurs Blob Azure
-        href: generate-sas-tokens.md
-      - name: Créer et entraîner un modèle personnalisé
-        items:
-          - name: Assembler un jeu de données d’entraînement
-            href: build-training-data-set.md
-          - name: Déployer l’outil d’étiquetage des exemples
-            href: deploy-label-tool.md
-          - name: Entraîner un modèle personnalisé avec l’exemple d’outil d’étiquetage
-            href: label-tool.md
-          - name: Utiliser des étiquettes de table pour entraîner votre modèle personnalisé
-            href: supervised-table-tags.md
-      - name: Composer des modèles personnalisés
-        href: compose-custom-models.md
-      - name: Utiliser des conteneurs
-        items:
-          - name: Installer et exécuter des conteneurs
-            displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
-            href: containers/form-recognizer-container-install-run.md
-          - name: Configurer des conteneurs
-            href: containers/form-recognizer-container-configuration.md
-            displayName: 'docker, container, run, billing, apikey, logging'
-          - name: Étiquettes des images conteneur
-            href: containers/form-recognizer-container-image-tags.md
-          - name: Utiliser des instances de conteneur
-            href: ../../cognitive-services/containers/azure-container-instance-recipe.md
-      - name: Sauvegarder et récupérer des modèles
-        href: disaster-recovery.md
-      - name: Préparation pour l’entreprise
-        items:
-          - name: Configurer des réseaux virtuels
-            href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
-          - name: Créer et utiliser une identité managée
-            href: managed-identity-byos.md
-          - name: Utiliser des clés gérées par le client
-            href: encrypt-data-at-rest.md
-          - name: "Utiliser l’authentification Azure\_AD"
-            href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
   - name: Concepts
     items:
       - name: Vue d’ensemble des modèles
@@ -116,19 +124,19 @@ items:
         href: concept-custom.md
   - name: Tutoriels
     items:
-      - name: Utiliser Azure Form Recognizer avec AI Builder
+      - name: "Workflows Azure Form Recognizer et AI\_Builder"
         expanded: true
         items:
-          - name: Worflow de traitement de formulaire personnalisé
+          - name: Custom
             href: /ai-builder/create-form-processing-model?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
-          - name: Worflow de traitement de carte de visite
-            href: /ai-builder/flow-business-card-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
-          - name: Workflow de traitement de pièce d’identité
-            href: /ai-builder/id-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/cognitive-services/applied-ai-services/breadcrumb/toc.json
-          - name: Worflow de traitement de facture
+          - name: Facture
             href: /ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
-          - name: Workflow de traitement de reçu
+          - name: Réception
             href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
+          - name: Document d’identité
+            href: /ai-builder/id-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/cognitive-services/applied-ai-services/breadcrumb/toc.json
+          - name: Carte de visite
+            href: /ai-builder/flow-business-card-reader?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
       - name: Utiliser Azure Form Recognizer avec la Recherche cognitive
         href: ../../search/cognitive-search-custom-skill-form.md
       - name: Utiliser Azure Form Recognizer avec Azure Functions

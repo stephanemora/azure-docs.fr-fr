@@ -12,12 +12,12 @@ manager: karenhoran
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0842de3ef0d3bc154193413987ae2a57d87ead38
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6ec984ebaa6b12019b1f1942d2849f7e9efaf288
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128631530"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049783"
 ---
 # <a name="login-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory
 
@@ -405,7 +405,7 @@ Si vous n’avez pas déployé Windows Hello Entreprise et si ce n’est pas pos
 > [!NOTE]
 > L’authentification par code confidentiel Windows Hello Entreprise avec le Bureau à distance a été prise en charge par Windows 10 pour plusieurs versions, mais la prise en charge de l’authentification biométrique avec le Bureau à distance a été ajoutée dans Windows 10 version 1809. L’authentification Windows Hello Entreprise lors de l’utilisation du Bureau à distance n’est disponible que pour les déploiements qui utilisent le modèle approuvé de certificat et qui ne sont actuellement pas disponibles pour le modèle approuvé de clé.
  
-Partagez vos commentaires sur cette fonctionnalité ou signalez des problèmes lors de son utilisation sur le [forum de commentaires d’Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+Partagez vos commentaires sur cette fonctionnalité ou signalez des problèmes lors de son utilisation sur le [forum de commentaires d’Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

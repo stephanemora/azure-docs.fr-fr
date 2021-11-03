@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: fcc18d235be771044e67a6ffda43effb475f1655
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 0f311645f29f5daaaf65474a60031ee8cceff688
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130068890"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063667"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -29,7 +29,7 @@ Machines virtuelles de série Mv2 dotées de la technologie Hyper-Threading d’
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 2<br>
 [Accélérateur d’écriture](./how-to-enable-write-accelerator.md) : Pris(e) en charge<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 <br>
 
 |Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau | Bande passante réseau attendue (Mbit/s) |

@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/07/2020
 ms.author: v-jawe
-ms.custom: references_regions
-ms.openlocfilehash: a651fe0ddb25fb44de518c794264133f16879982
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 6b167c24aeaa5acc97f1c071d7b0ae8f5c0cbc71
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129378366"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069125"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir les modèles de conception de base pour la reconnaissance de l’orateur à l’aide du SDK de reconnaissance vocale, notamment :
 
@@ -18,11 +18,11 @@ Dans ce guide de démarrage rapide, vous allez découvrir les modèles de concep
 * Identification de l’orateur pour identifier un échantillon vocal parmi un groupe de voix
 * Suppression de profils vocaux
 
-Pour obtenir une vue d’ensemble des concepts de reconnaissance vocale, consultez l’article de [présentation](../../../speaker-recognition-overview.md).
+Pour obtenir une vue d’ensemble des concepts de reconnaissance vocale, consultez l’article de [présentation](../../../speaker-recognition-overview.md). Voir le nœud de référence dans le menu de gauche pour une liste des plateformes prises en charge.
 
 ## <a name="skip-to-samples-on-github"></a>Passer aux exemples sur GitHub
 
-Si vous souhaitez passer directement à l’exemple de code, consultez les [exemples de démarrage rapide JavaScript](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/fa6428a0837779cbeae172688e0286625e340942/quickstart/javascript/node/speaker-recognition) sur GitHub.
+Si vous souhaitez passer directement à l’exemple de code, consultez les [exemples de démarrage rapide JavaScript](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition) sur GitHub.
 
 ## <a name="prerequisites"></a>Prérequis
 

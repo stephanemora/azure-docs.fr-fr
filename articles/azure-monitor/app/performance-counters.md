@@ -4,12 +4,12 @@ description: Surveillez les compteurs de performances système et .NET personnal
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 423e17ef2b44286c28b464836075284929d8644c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2b0ddb84430ccccf5da7f44909f1f2ce0459aaa9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031359"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044301"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 
@@ -55,7 +55,7 @@ Si le compteur de performances que vous souhaitez n’est pas inclus dans la lis
    * Si vous avez ajouté Application Insights à votre application pendant le développement, modifiez ApplicationInsights.config dans votre projet, puis redéployez-le sur vos serveurs.
 3. Modifiez la directive du collecteur de performances :
 
-    ```XML
+    ```xml
 
         <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
           <Counters>
@@ -78,7 +78,6 @@ Si vous spécifiez une instance, elle est collectée en tant que dimension « C
 
 ### <a name="collecting-performance-counters-in-code-for-aspnet-web-applications-or-netnet-core-console-applications"></a>Collecte des compteurs de performance en code pour les applications web ASP.NET ou les applications de console .NET/.NET Core
 Pour collecter les compteurs de performances système et les envoyer à Application Insights, vous pouvez adapter l’extrait de code ci-dessous :
-
 
 ```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
@@ -120,17 +119,17 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ## <a name="performance-counters-in-analytics"></a>Compteurs de performances dans Analytics
 Vous pouvez rechercher et afficher des rapports de compteur de performances dans [Analytics](../logs/log-query-overview.md).
 
-Le schéma **compteur de performances** expose les noms `category`, `counter` et `instance` nom de chaque compteur de performance.  Dans les données de télémétrie de chaque application, vous voyez uniquement les compteurs de cette application. Par exemple, pour voir les compteurs disponibles : 
+Le schéma **compteur de performances** expose les noms `category`, `counter` et `instance` nom de chaque compteur de performance.  Dans les données de télémétrie de chaque application, vous voyez uniquement les compteurs de cette application. Par exemple, pour voir les compteurs disponibles :
 
 ![Compteurs de performances dans Application Insights Analytics](./media/performance-counters/analytics-performance-counters.png)
 
 (« Instance » fait ici référence à l’instance de compteur de performances, pas à l’instance de rôle ou de machine serveur. Le nom d’instance de compteur de performances segmente généralement les compteurs comme le temps processeur par le nom du processus ou de l’application.)
 
-Pour obtenir un graphique présentant la mémoire disponible sur une période récente : 
+Pour obtenir un graphique présentant la mémoire disponible sur une période récente :
 
 ![Graphique temporel dans Application Insights Analytics](./media/performance-counters/analytics-available-memory.png)
 
-Comme les autres données de télémétrie, **performanceCounters** possède également une colonne `cloud_RoleInstance` qui indique l’identité de l’instance de serveur hôte sur lequel votre application est en cours d’exécution. Par exemple, pour comparer les performances de votre application sur des ordinateurs différents : 
+Comme les autres données de télémétrie, **performanceCounters** possède également une colonne `cloud_RoleInstance` qui indique l’identité de l’instance de serveur hôte sur lequel votre application est en cours d’exécution. Par exemple, pour comparer les performances de votre application sur des ordinateurs différents :
 
 ![Performances segmentées par instances de rôle d’Application Insights Analytics](./media/performance-counters/analytics-metrics-role-instance.png)
 
@@ -140,7 +139,7 @@ Comme les autres données de télémétrie, **performanceCounters** possède ég
 
 * *taux d’exceptions* est un compteur de performances système. Le CLR compte l’ensemble des exceptions gérées et non gérées qui sont levées et divise le total d’un intervalle d'échantillonnage par la longueur de cet intervalle. Le Kit de développement logiciel (SDK) Application Insights collecte ce résultat et l’envoie au portail.
 
-* *Exceptions* représente le nombre de rapports TrackException reçus par le portail au cours de l’intervalle d’échantillonnage du graphique. Il comprend uniquement les exceptions gérées pour lesquelles vous avez écrit des appels TrackException dans votre code et n’inclut pas toutes les [exceptions non gérées](./asp-net-exceptions.md). 
+* *Exceptions* représente le nombre de rapports TrackException reçus par le portail au cours de l’intervalle d’échantillonnage du graphique. Il comprend uniquement les exceptions gérées pour lesquelles vous avez écrit des appels TrackException dans votre code et n’inclut pas toutes les [exceptions non gérées](./asp-net-exceptions.md).
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Compteurs de performance pour applications exécutés dans Azure Web Apps
 
@@ -162,4 +161,3 @@ Comme d’autres mesures, vous pouvez [définir une alerte](../alerts/alerts-log
 
 * [Suivi des dépendances](./asp-net-dependencies.md)
 * [Suivi des exceptions](./asp-net-exceptions.md)
-

@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 08/05/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
-ms.openlocfilehash: 3be025d57553bd56088cdc15a75cae25d5b9e15c
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: b8dfb926a1c878893142998bea0091d9d8162e0f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129427340"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131032655"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>Déploiement sécurisé pour les points de terminaison en ligne (préversion)
 
@@ -155,5 +155,5 @@ Si vous ne prévoyez pas d’utiliser le déploiement, vous devez le supprimer a
 - [Gérer et augmenter les quotas pour les ressources avec Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
 - [Afficher les coûts d’un point de terminaison en ligne managé Azure Machine Learning (préversion)](how-to-view-online-endpoints-costs.md)
 - [Liste des références SKU pour les points de terminaison en ligne managés (préversion)](reference-managed-online-endpoints-vm-sku-list.md)
-- [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](./how-to-troubleshoot-online-endpoints.md)
 - [Informations de référence YAML sur les points de terminaison en ligne managés (préversion)](reference-yaml-endpoint-managed-online.md)

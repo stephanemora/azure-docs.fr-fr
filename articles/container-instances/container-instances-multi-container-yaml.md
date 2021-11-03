@@ -3,12 +3,12 @@ title: Didacticiel - déployer un groupe de plusieurs conteneurs - YAML
 description: Dans ce didacticiel, vous découvrez comment déployer un groupe multiconteneur dans Azure Container Instances à l’aide d’Azure CLI et d’un fichier YAML.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 74269440357ee2d7ae36661618a31293346fa712
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: dbd29d94aef06b60bf09639feb2215c5e9751ecd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771260"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024483"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Tutoriel : Déployer un groupe multiconteneur à l’aide d’un fichier YAML
 
@@ -45,7 +45,7 @@ code deploy-aci.yaml
 
 Ce fichier YAML définit un groupe de conteneurs nommé « myContainerGroup », qui comprend deux conteneurs, une adresse IP publique et deux ports exposés. Les conteneurs sont déployés à partir d’images publiques de Microsoft. Le premier conteneur du groupe exécute une application web accessible sur Internet. Le second conteneur, le side-car, envoie régulièrement des requêtes HTTP à l’application web en cours d’exécution dans le premier conteneur par le biais du réseau local du groupe de conteneurs.
 
-```YAML
+```yaml
 apiVersion: 2019-12-01
 location: eastus
 name: myContainerGroup
@@ -82,7 +82,7 @@ type: Microsoft.ContainerInstance/containerGroups
 
 Pour utiliser un registre d’images conteneur privé, ajoutez la propriété `imageRegistryCredentials` au groupe de conteneurs en modifiant les valeurs pour votre environnement :
 
-```YAML
+```yaml
   imageRegistryCredentials:
   - server: imageRegistryLoginServer
     username: imageRegistryUsername

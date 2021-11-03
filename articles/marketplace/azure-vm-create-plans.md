@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/13/2021
-ms.openlocfilehash: fd4d93b09328ad0b8de982a065567ffbadd87be3
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 0a7ca14a797ef2680527cd6992ff9a7a1d6ea115
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004385"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084897"
 ---
 # <a name="create-plans-for-a-virtual-machine-offer"></a>Créer des plans pour une offre de machine virtuelle
 
@@ -167,7 +167,7 @@ Voici quelques raisons courantes de réutiliser les paramètres de configuration
 2. Pour réutiliser la configuration technique d’un plan public pour un plan privé avec un prix différent. 
 3. Votre solution se comporte différemment selon le plan que l’utilisateur choisit de déployer. Par exemple, le logiciel est le même, mais les fonctionnalités varient selon le plan.
 
-Tirez parti d’[Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service) (IMDS) pour identifier le plan dans lequel votre solution est déployée afin de valider la licence ou l’activation des fonctionnalités appropriées.
+Tirez parti d’[Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) (IMDS) pour identifier le plan dans lequel votre solution est déployée afin de valider la licence ou l’activation des fonctionnalités appropriées.
 
 Si vous décidez ultérieurement de publier des modifications différentes entre vos plans, vous pouvez les détacher. Pour détacher le plan qui réutilise la configuration technique, désélectionnez cette option pour le plan en question. Une fois détaché, votre plan aura les mêmes paramètres de configuration technique à la place de votre dernier paramètre, et la configuration de vos plans pourra varier. Un plan qui a été publié indépendamment par le passé ne peut pas réutiliser une configuration technique par la suite. 
 

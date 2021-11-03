@@ -6,15 +6,16 @@ author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/07/2020
+ms.date: 11/02/2021
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 392d457ead16d0bcfc057282886669a01e24ff3e
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c87f8d7b2beaa0ad77e5fa9740910bcdd1a019e5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129730372"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131018865"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Comment utiliser OPENROWSET avec le pool SQL serverless dans Azure Synapse Analytics
 
@@ -82,7 +83,8 @@ OPENROWSET
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ] 
     FORMAT = 'CSV'
-    [ <bulk_options> ] }  
+    [ <bulk_options> ]
+    [ , <reject_options> ] }  
 )  
 WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })  
 [AS] table_alias(column_alias,...n)
@@ -99,6 +101,13 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 [ , DATAFILETYPE = { 'char' | 'widechar' } ]
 [ , CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' } ]
 [ , ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
+
+<reject_options> ::=  
+{  
+    | MAXERRORS = reject_value,  
+    | ERRORFILE_DATA_SOURCE = <data source name>,
+    | ERRORFILE_LOCATION = '/REJECT_Directory'
+}  
 ```
 
 ## <a name="arguments"></a>Arguments
@@ -256,6 +265,40 @@ Indique la page de codes des données dans le fichier. La valeur par défaut est
 ROWSET_OPTIONS = '{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}'
 
 Cette option désactive la vérification des modifications de fichier au moment de l’exécution de la requête, et lit les fichiers mis à jour durant l’exécution de la requête. Il s’agit d’une option utile quand vous devez lire des fichiers pour ajout uniquement qui sont ajoutés durant l’exécution de la requête. Dans les fichiers annexes, le contenu existant n'est pas mis à jour, et seules de nouvelles lignes sont ajoutées. Par conséquent, la probabilité de résultats incorrects est réduite par rapport aux fichiers avec modification des données. Cette option peut vous permettre de lire les fichiers auxquels des données sont fréquemment ajoutées sans gérer les erreurs. Pour plus d’informations, consultez la section relative à l’[interrogation de fichiers CSV pouvant être ajoutés](query-single-csv-file.md#querying-appendable-files).
+
+Options REJECT 
+
+> [!NOTE]
+> La fonctionnalité de lignes rejetées est en préversion publique.
+> Notez que la fonctionnalité de lignes rejetées marche avec des fichiers texte délimités et PARSER_VERSION 1.0.
+
+
+Vous pouvez spécifier les paramètres REJECT qui déterminent la façon dont le service traite les enregistrements *incorrects* qu’il récupère de la source de données externe. Un enregistrement de données est considéré comme « incorrect » si les types de données actuels ne correspondent pas aux définitions de colonne de la table externe.
+
+Si vous ne spécifiez pas ou ne modifiez pas les options Rejeter, le service utilise les valeurs par défaut. Le service utilisera les options Rejeter pour déterminer le nombre de lignes qui peuvent être rejetées avant l’échec de la requête réelle. La requête retourne des résultats (partiels) jusqu’à ce que le seuil de rejet soit dépassé. Ensuite, elle échoue avec le message d’erreur correspondant.
+
+
+MAXERRORS = *reject_value* 
+
+Spécifie le nombre de lignes pouvant être rejetées avant l’échec de la requête. MAXERRORS doit être un entier compris entre 0 et 2 147 483 647.
+
+ERRORFILE_DATA_SOURCE = *source de données*
+
+Spécifie la source de données dans laquelle les lignes rejetées et le fichier d’erreur correspondant doivent être écrits.
+
+ERRORFILE_LOCATION = *Emplacement du répertoire*
+
+Spécifie le répertoire dans DATA_SOURCE ou ERROR_FILE_DATASOURCE, si spécifié, dans lequel les lignes rejetées et le fichier d’erreur correspondant doivent être écrits. Si le chemin spécifié n’existe pas, le service en crée un en votre nom. Un répertoire enfant est créé sous le nom « _rejectedrows ». Le caractère «_   » garantit que le répertoire est placé dans une séquence d’échappement pour le traitement d’autres données, sauf s’il est explicitement nommé dans le paramètre d’emplacement. Dans ce répertoire figure un dossier qui est créé d’après l’heure de soumission du chargement au format AnnéeMoisJour - HeureMinuteSeconde_IDInstruction (par exemple, 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). Vous pouvez utiliser l’ID d’instruction pour corréler le dossier avec la requête qui l’a généré. Dans ce dossier, deux fichiers sont écrits : le fichier error.json et le fichier de données. 
+
+Le fichier error.json contient un tableau json avec des erreurs rencontrées qui sont liées aux lignes rejetées. Chaque élément représentant une erreur contient les attributs suivants :
+
+| Attribut | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| Error     | Raison pour laquelle la ligne est rejetée.                                  |
+| Ligne       | Nombre ordinal de lignes rejetées dans le fichier.                         |
+| Colonne    | Nombre ordinal de colonnes rejetées.                              |
+| Value     | Valeur des colonnes rejetées. Si la valeur est supérieure à 100 caractères, seuls les 100 premiers caractères seront affichés. |
+| Fichier      | Chemin d’accès au fichier auquel la ligne appartient.                            |
 
 ## <a name="fast-delimited-text-parsing"></a>Analyse rapide du texte délimité
 
@@ -426,6 +469,24 @@ WITH (
     [population] bigint 'strict $.population' -- this one works as column name casing is valid
     --,[population2] bigint 'strict $.POPULATION' -- this one fails because of wrong casing and strict path mode
 )
+AS [r]
+```
+
+### <a name="specify-multiple-filesfolders-in-bulk-path"></a>Spécifier plusieurs fichiers/dossiers dans le chemin d’accès BULK
+
+L’exemple suivant montre comment vous pouvez utiliser plusieurs chemins d’accès de fichier/dossier dans le paramètre BULK :
+
+```sql
+SELECT 
+    TOP 10 *
+FROM  
+    OPENROWSET(
+        BULK (
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2000/*.parquet',
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet',
+        ),
+        FORMAT='PARQUET'
+    )
 AS [r]
 ```
 

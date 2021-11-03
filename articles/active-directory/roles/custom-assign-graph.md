@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2913665d2cc834bd3b88f23ce81b46ca7a7dfbbe
-ms.sourcegitcommit: 5c136a01bddfccb2cc9f7e7e7741e2cf2651ddbe
+ms.openlocfilehash: e5ec368b0bc53cb70dd948669d855670ee603b12
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/03/2021
-ms.locfileid: "111352747"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057397"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Assigner des rôles d’administrateur personnalisés à l’aide de l’API Microsoft Graph dans Azure Active Directory 
 
@@ -28,7 +28,7 @@ Vous pouvez automatiser la manière dont vous attribuez des rôles aux comptes d
 
 - Licence Azure AD Premium P1 ou P2
 - Administrateur de rôle privilégié ou Administrateur général
-- Consentement administrateur (avec l'Afficheur Graph pour l'API Microsoft Graph)
+- Consentement administrateur lors de l’utilisation de l’Afficheur Graph pour l’API Microsoft Graph
 
 Pour plus d'informations, consultez [Prérequis pour utiliser PowerShell ou de l'Afficheur Graph](prerequisites.md).
 
@@ -308,6 +308,7 @@ Nous empêchons les utilisateurs de supprimer leur propre rôle d’administrate
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* N’hésitez pas à nous donner votre avis sur le [forum des rôles d’administrateur Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+* N’hésitez pas à nous donner votre avis sur le [forum des rôles d’administrateur Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 * Pour plus d'informations sur les autorisations associées aux rôles, consultez [Rôles intégrés Azure AD](permissions-reference.md)
 * Pour plus d'informations sur les autorisations utilisateur par défaut, consultez la [comparaison des autorisations par défaut d'un utilisateur invité et d'un membre](../fundamentals/users-default-permissions.md).
+

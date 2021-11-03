@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 02/18/2021
-ms.openlocfilehash: 9b1592f76917975e06e7d8a36cb618cbe3abadcf
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 17af8eafed3ebd2cade812b50af1f69d5e3da9bd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124757778"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016527"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Charger de façon incrémentielle les données depuis Azure SQL Database dans un stockage Blob Azure à l’aide de PowerShell
 
@@ -145,9 +145,10 @@ END
 ```
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
+
 1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/management/overview.md) entre des guillemets doubles, puis exécutez la commande. par exemple `"adfrg"`. 
    
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 

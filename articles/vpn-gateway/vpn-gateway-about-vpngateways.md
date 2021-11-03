@@ -7,15 +7,13 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 07/08/2021
 ms.author: cherylmc
-ms.custom:
-- contperf-fy21q1
-- e2e-hybrid
-ms.openlocfilehash: ae7c9ee5357e09dcf7c33cd2ae3111cce15b6641
-ms.sourcegitcommit: bb1c13bdec18079aec868c3a5e8b33ef73200592
+ms.custom: contperf-fy21q1, e2e-hybrid
+ms.openlocfilehash: fc0b86b7174472bd4f246396b294ffede69eaf45
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114721197"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131036558"
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 
@@ -85,4 +83,3 @@ Abonnez-vous au flux RSS et consultez les dernières mises à jour des fonctionn
 - [Tutoriel : Créer et gérer une passerelle VPN](tutorial-create-gateway-portal.md).
 - [Module Learn : Connecter votre réseau local à Azure avec une passerelle VPN](/learn/modules/connect-on-premises-network-with-vpn-gateway/).
 - [Limites du service et de l’abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
-

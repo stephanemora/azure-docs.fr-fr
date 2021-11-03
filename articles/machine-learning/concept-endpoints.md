@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.custom: devplatv2
-ms.date: 06/17/2021
-ms.openlocfilehash: 4a4cc34b3f3bb77e0c2405d3b0a29b40fa1cd616
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.custom: devplatv2, ignite-fall-2021
+ms.date: 10/21/2021
+ms.openlocfilehash: 02c927b55812e4b309e53679cf3548d889bdc12f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129426998"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079412"
 ---
 # <a name="what-are-azure-machine-learning-endpoints-preview"></a>Que sont les points de terminaison Azure Machine Learning (préversion) ? 
 
@@ -29,7 +29,7 @@ Cet article porte sur les points suivants :
 > * Points de terminaison
 > * Déploiements
 > * Points de terminaison en ligne managés
-> * Points de terminaison en ligne Azure Kubernetes Service (AKS)
+> * Points de terminaison en ligne Kubernetes
 > * Points de terminaison d’inférence par lot
 
 ## <a name="what-are-endpoints-and-deployments-preview"></a>Que sont les points de terminaison et les déploiements (préversion) ?
@@ -95,7 +95,7 @@ Découvrez comment effectuer un [déploiement sûr vers des points de terminaiso
 
 Tous les points de terminaison en ligne s’intègrent à Application Insights. Ils permettent ainsi de superviser les Contrats de niveau de service et de diagnostiquer les problèmes. 
 
-Cependant, les [points de terminaison en ligne managés](#managed-online-endpoints-vs-aks-online-endpoints-preview) incluent également l’intégration standard aux journaux et métriques Azure.
+Cependant, les [points de terminaison en ligne managés](#managed-online-endpoints-vs-kubernetes-online-endpoints-preview) incluent également l’intégration standard aux journaux et métriques Azure.
 
 ### <a name="security"></a>Sécurité
 
@@ -104,25 +104,25 @@ Cependant, les [points de terminaison en ligne managés](#managed-online-endpoin
 - SSL par défaut pour l’appel de point de terminaison
 
 
-## <a name="managed-online-endpoints-vs-aks-online-endpoints-preview"></a>Points de terminaison en ligne managés et points de terminaison en ligne AKS (préversion)
+## <a name="managed-online-endpoints-vs-kubernetes-online-endpoints-preview"></a>Points de terminaison en ligne managés et points de terminaison en ligne Kubernetes (préversion)
 
-Il existe deux types de points de terminaison en ligne : les **points de terminaison en ligne managés** (préversion) et les **points de terminaison en ligne AKS** (préversion). Le tableau suivant met en évidence certaines différences importantes.
+Il existe deux types de points de terminaison en ligne : les **points de terminaison en ligne managés** (préversion) et les **points de terminaison en ligne Kubernetes** (préversion). Le tableau suivant met en évidence certaines différences importantes.
 
-|  | Points de terminaison en ligne managés | Points de terminaison en ligne AKS |
+|  | Points de terminaison en ligne managés | Points de terminaison en ligne Kubernetes |
 |-|-|-|
-| **Utilisateurs concernés** | Utilisateurs qui souhaitent un déploiement de modèle managé et une expérience MLOps améliorée | Utilisateurs qui préfèrent AKS (Azure Kubernetes Service) et peuvent autogérer les exigences d’infrastructure |
+| **Utilisateurs concernés** | Utilisateurs qui souhaitent un déploiement de modèle managé et une expérience MLOps améliorée | Utilisateurs qui préfèrent Kubernetes et peuvent autogérer les exigences d’infrastructure |
 | **Gestion de l’infrastructure** | Provisionnement de calcul, mise à l’échelle, mises à jour de l’image du système d’exploitation hôte et durcissement de la sécurité managés | Responsabilité de l’utilisateur |
-| **Type de capacité de calcul** | Managé (AmlCompute) | AKS |
+| **Type de capacité de calcul** | Managé (AmlCompute) | Cluster Kubernetes (Kubernetes) |
 | **Supervision standard** | [Surveillance Azure](how-to-monitor-online-endpoints.md) <br> (comprend des métriques clés telles que la latence et le débit) | Non pris en charge |
-| **Journalisation standard** | [Journaux Azure et Log Analytics au niveau du point de terminaison](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Configuration manuelle au niveau du cluster |
+| **Journalisation standard** | [Journaux Azure et Log Analytics au niveau du point de terminaison](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Prise en charge |
 | **Application Insights** | Pris en charge | Pris en charge |
-| **Identité gérée** | [Pris en charge](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Non pris en charge |
-| **Réseau virtuel (VNet)** | Non pris en charge (préversion publique) | Configuration manuelle au niveau du cluster |
+| **Identité gérée** | [Pris en charge](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Prise en charge |
+| **Réseau virtuel (VNet)** | Non pris en charge (préversion publique) | Prise en charge |
 | **Visualisation des coûts** | [Au niveau du point de terminaison et du déploiement](how-to-view-online-endpoints-costs.md) | Au niveau du cluster |
 
 ### <a name="managed-online-endpoints"></a>Points de terminaison en ligne managés
 
-Les points de terminaison en ligne managés peuvent contribuer à simplifier votre processus de déploiement. Les points de terminaison en ligne managés offrent les avantages suivants par rapport aux points de terminaison en ligne AKS :
+Les points de terminaison en ligne managés peuvent contribuer à simplifier votre processus de déploiement. Les points de terminaison en ligne managés offrent les avantages suivants par rapport aux points de terminaison en ligne Kubernetes :
 
 - Infrastructure managée
     - Provisionne automatiquement le calcul et héberge le modèle (vous devez simplement spécifier les paramètres de type de machine virtuelle et de mise à l’échelle) 

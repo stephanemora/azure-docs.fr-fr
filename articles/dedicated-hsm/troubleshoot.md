@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 18746da524c4b045471031af2330d9daba4bfcc0
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 10ae4e5711d6ec238d73a6b401f6f3fc4498fdd8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111949350"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040696"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Résolution des problèmes du service Azure Dedicated HSM
 
@@ -29,7 +29,7 @@ Le service Azure Dedicated HSM remplit deux fonctions distinctes : d’une part
 
 ## <a name="hsm-registration"></a>Inscription auprès de HSM
 
-Dedicated HSM n’est pas disponible gratuitement, car il fournit des ressources matérielles dans le cloud et constitue donc une ressource précieuse qui doit être protégée. Nous utilisons par conséquent un processus de liste d’autorisation par e-mail avec HSMrequest@microsoft.com. 
+Dedicated HSM n’est pas disponible gratuitement, car il fournit des ressources matérielles dans le cloud et constitue donc une ressource précieuse qui doit être protégée. Nous utilisons donc un processus de mise en liste d’autorisation par le biais de l’adresse e-mail en utilisant `HSMrequest@microsoft.com`.
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Accès à Dedicated HSM
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: a1f4d4a3bb78da82753d651e1a73cf244096d5df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e89d80d26cd9a967bd4651828104c4b00a0d367
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94518099"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131047627"
 ---
 # <a name="security-frame-session-management"></a>Infrastructure de sécurité : Gestion des sessions
 | Produit/Service | Article |
@@ -205,7 +205,7 @@ Le paramètre est appliqué même en cas d’utilisation du protocole HTTP pour 
 
 ### <a name="example"></a>Exemple
 Toutes les applications basées sur HTTP qui utilisent des cookies doivent spécifier l’attribut HttpOnly dans la définition des cookies en implémentant la configuration suivante dans le fichier web.config :
-```XML
+```xml
 <system.web>
 .
 .
@@ -226,7 +226,7 @@ Toutes les applications basées sur HTTP qui utilisent des cookies doivent spéc
 
 ### <a name="example"></a>Exemple 
 L’exemple de code ci-après définit l’attribut requireSSL dans le fichier web.config.
-```XML
+```xml
 <authentication mode="Forms">
   <forms loginUrl="member_login.aspx" cookieless="UseCookies" requireSSL="true"/>
 </authentication>
@@ -243,7 +243,7 @@ L’exemple de code ci-après définit l’attribut requireSSL dans le fichier w
 
 ### <a name="example"></a>Exemple
 Le code ci-après présente la configuration appropriée :
-```XML
+```xml
 <federatedAuthentication>
 <cookieHandler mode="Custom"
                        hideFromScript="true"
@@ -382,7 +382,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Étapes** | Un événement d’expiration de session survient lorsqu’un utilisateur n’exécute aucune action sur un site web au cours d’un intervalle de temps donné (défini par le serveur web). Côté serveur, cet événement redéfinit l’état de la session utilisateur comme non valide (par exemple, « plus utilisé ») et demande au serveur web de détruire la session (en supprimant toutes les données qu’elle contient). L’exemple de code ci-après définit l’attribut d’expiration de session sur 15 minutes dans le fichier web.config.|
 
 ### <a name="example"></a>Exemple
-```XML 
+```xml
 <configuration>
   <system.web>
     <sessionState mode="InProc" cookieless="true" timeout="15" />
@@ -402,7 +402,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Étapes** | Définissez le délai d’expiration du cookie du ticket d’authentification par formulaire sur 15 minutes.|
 
 ### <a name="example"></a>Exemple
-```XML
+```xml
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>
 ```
@@ -417,7 +417,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Étapes** | Quand l’application web est la partie de confiance et qu’ADFS est le service STS, la durée de vie des cookies d’authentification (jetons FedAuth) peut être définie par la configuration suivante dans le fichier web.config :|
 
 ### <a name="example"></a>Exemple
-```XML
+```xml
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->

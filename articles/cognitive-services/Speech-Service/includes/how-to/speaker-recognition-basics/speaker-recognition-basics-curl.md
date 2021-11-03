@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
-ms.custom: references_regions
-ms.openlocfilehash: 3a32946e10e8a81394b54fc44e4c92e8625e7ad6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 11e93561a0f78ad1fb62d1cab1f3e8d8f3f3b293
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95015478"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069126"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir les modèles de conception de base pour la reconnaissance de l’orateur à l’aide du SDK de reconnaissance vocale, notamment :
 
@@ -18,7 +18,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir les modèles de concep
 * Identification de l’orateur pour identifier un échantillon vocal parmi un groupe de voix
 * Suppression de profils vocaux
 
-Pour obtenir une vue d’ensemble des concepts de reconnaissance vocale, consultez l’article de [présentation](../../../speaker-recognition-overview.md).
+Pour obtenir une vue d’ensemble des concepts de reconnaissance vocale, consultez l’article de [présentation](../../../speaker-recognition-overview.md). Voir le nœud de référence dans le menu de gauche pour une liste des plateformes prises en charge.
 
 ## <a name="prerequisites"></a>Prérequis
 

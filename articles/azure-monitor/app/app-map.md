@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: db8c84334bfce52d34b9fadf73bb2b070fa93a70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01fc0be9a2ce8db89bbbcc032bbf90652d5627b8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100007106"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079393"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -18,7 +18,7 @@ La mise en correspondance d’applications vous permet d’identifier les baisse
 
 ## <a name="what-is-a-component"></a>Qu’est un composant ?
 
-Les composants sont des parties pouvant être déployées de manière indépendante de votre application distribuée/de microservices. Les développeurs et équipes d’opérations disposent d’une visibilité au niveau du code ou d’un accès à la télémétrie générée par ces composants d’application. 
+Les composants sont des parties pouvant être déployées de manière indépendante de votre application distribuée/de microservices. Les développeurs et équipes d’opérations disposent d’une visibilité au niveau du code ou d’un accès à la télémétrie générée par ces composants d’application.
 
 * Les composants sont différents des dépendances externes « observées » telles que SQL, EventHub, etc., auxquelles votre équipe/organisation peut ne pas avoir accès (code ou télémétrie).
 * Les composants s’exécutent sur un nombre quelconque d’instances de serveur/rôle/conteneur.
@@ -26,9 +26,9 @@ Les composants sont des parties pouvant être déployées de manière indépenda
 
 ## <a name="composite-application-map"></a>Cartographie d’application composite
 
-Vous pouvez afficher la topologie complète des applications sur plusieurs niveaux des composants d’application associés. Les composants peuvent représenter différentes ressources Application Insights, ou différents rôles d’une seule ressource. La mise en correspondance d’applications trouve les composants en suivant les appels de dépendance HTTP effectués entre les serveurs sur lesquels le kit SDK Application Insights est installé. 
+Vous pouvez afficher la topologie complète des applications sur plusieurs niveaux des composants d’application associés. Les composants peuvent représenter différentes ressources Application Insights, ou différents rôles d’une seule ressource. La mise en correspondance d’applications trouve les composants en suivant les appels de dépendance HTTP effectués entre les serveurs sur lesquels le kit SDK Application Insights est installé.
 
-Cette expérience démarre la découverte progressive des composants. Lorsque vous chargez la cartographie d’application pour la première fois, un ensemble de requêtes est déclenché pour découvrir les composants liés à ce composant. Un bouton dans le coin supérieur gauche permet de mettre à jour le nombre de composants de votre application dès qu’ils sont détectés. 
+Cette expérience démarre la découverte progressive des composants. Lorsque vous chargez la cartographie d’application pour la première fois, un ensemble de requêtes est déclenché pour découvrir les composants liés à ce composant. Un bouton dans le coin supérieur gauche permet de mettre à jour le nombre de composants de votre application dès qu’ils sont détectés.
 
 Lorsque vous cliquez sur « Update map components » (Mettre à jour les composants de cartographie), la carte est actualisée avec tous les composants détectés. Selon la complexité de votre application, le chargement peut prendre une minute.
 
@@ -142,7 +142,7 @@ Une autre méthode pour les applications web ASP.NET consiste à instancier l’
 ```
 
 > [!NOTE]
-> Ajouter l’initialiseur en utilisant `ApplicationInsights.config` ou `TelemetryConfiguration.Active` n’est pas valide pour les applications ASP.NET Core. 
+> Ajouter l’initialiseur en utilisant `ApplicationInsights.config` ou `TelemetryConfiguration.Active` n’est pas valide pour les applications ASP.NET Core.
 
 **Applications ASP.NET Core : Charger l’initialiseur dans la configuration TelemetryConfiguration**
 
@@ -177,7 +177,7 @@ Vous pouvez également définir le nom de rôle cloud à l'aide de la variable d
 
 Si vous utilisez le kit de développement logiciel (SDK) Java Application Insights 2.5.0, vous pouvez spécifier le nom du rôle cloud en ajoutant `<RoleName>` à votre fichier `ApplicationInsights.xml` :
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
    <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
@@ -231,7 +231,7 @@ Pour Python, des [processeurs de télémétrie OpenCensus Python](api-filtering-
 ```python
 def callback_function(envelope):
    envelope.tags['ai.cloud.role'] = 'new_role_name'
-   
+
 # AzureLogHandler
 handler.add_telemetry_processor(callback_function)
 
@@ -246,7 +246,7 @@ En matière de **nom de rôle cloud**, il peut être utile d’examiner une cart
 
 ![Capture d’écran de la cartographie d’application](media/app-map/cloud-rolename.png)
 
-Dans la cartographie d'application ci-dessus, les noms présents dans les zones vertes correspondent à des valeurs de nom de rôle cloud pour différents aspects de cette application distribuée. Ainsi, pour cette application, les rôles sont les suivantes : `Authentication`, `acmefrontend`, `Inventory Management` et `Payment Processing Worker Role`. 
+Dans la cartographie d'application ci-dessus, les noms présents dans les zones vertes correspondent à des valeurs de nom de rôle cloud pour différents aspects de cette application distribuée. Ainsi, pour cette application, les rôles sont les suivantes : `Authentication`, `acmefrontend`, `Inventory Management` et `Payment Processing Worker Role`.
 
 Dans le cas de cette application, chaque nom de rôle cloud représente également une ressource Application Insights unique avec ses propres clés d’instrumentation. Le propriétaire de cette application ayant accès aux quatre ressources Application Insights distinctes, la cartographie d’application peut constituer une représentation des relations sous-jacentes.
 
@@ -256,7 +256,7 @@ Pour les [définitions officielles](https://github.com/Microsoft/ApplicationInsi
    [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
     [MaxStringLength("256")]
     705: string      CloudRole = "ai.cloud.role";
-    
+
     [Description("Name of the instance where the application is running. Computer name for on-premises, instance name for Azure.")]
     [MaxStringLength("256")]
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";

@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/18/2021
-ms.openlocfilehash: dca6beedfe8fa3d57674323490c2d79cf5aa048f
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9cd48e8537f46ce9580b1b2e573e12bb5e12e455
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122525654"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013989"
 ---
 # <a name="azure-sentinel-sample-workspace-designs"></a>Exemples de conceptions d’espace de travail Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article décrit des modèles d’espace de travail suggérés pour les organisations avec les exemples d’exigences suivants :
 

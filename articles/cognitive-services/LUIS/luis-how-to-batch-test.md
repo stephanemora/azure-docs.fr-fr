@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/18/2021
-ms.openlocfilehash: b6d007d3020d3fa2b001178bd23d721ea6a6aa6b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 0039f84305233f9894c31ba6210a2d531c567498
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110067831"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005952"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
 
@@ -187,10 +187,10 @@ N’oubliez pas d’ajouter votre clé LUIS à `Ocp-Apim-Subscription-Key` dans 
 Démarrez un test par lot à l’aide d’un ID de version de l’application ou d’un emplacement de publication. Envoyez une demande de **publication** à l’un des formats de point de terminaison suivants. Incluez votre fichier de commandes dans le corps de la demande.
 
 Emplacement de publication
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
 
 ID de version de l’application
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
 
 Ces points de terminaison retournent un ID d’opération que vous allez utiliser pour vérifier l’état et obtenir des résultats. 
 
@@ -200,20 +200,20 @@ Ces points de terminaison retournent un ID d’opération que vous allez utilise
 Utilisez l’ID d’opération du test par lot que vous avez démarré pour connaître son état à partir des formats de point de terminaison suivants : 
 
 Emplacement de publication
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 ID de version de l’application
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 ### <a name="get-the-results-from-a-batch-test"></a>Obtenir les résultats d’un test par lot
 
 Utilisez l’ID d’opération du test par lot que vous avez démarré pour obtenir ses résultats à partir des formats de point de terminaison suivants : 
 
 Emplacement de publication
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 ID de version de l’application
-* `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
+* `<YOUR-PREDICTION-ENDPOINT>/luis/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 
 ### <a name="batch-file-of-utterances"></a>Fichier de commandes des énoncés

@@ -8,14 +8,13 @@ ms.author: rohink
 ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: dns
-ms.custom:
-- mode-portal
-ms.openlocfilehash: f72dd2be2277754100693c2ebb1ef8658ca6f39a
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.custom: mode-portal
+ms.openlocfilehash: f29b63398cf01320c6d46085139183edcf0e5f4b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949401"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033073"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Démarrage rapide : Créer une zone et un enregistrement Azure DNS à partir du portail Azure
 

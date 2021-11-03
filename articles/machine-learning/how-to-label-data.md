@@ -8,13 +8,13 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
-ms.custom: data4ml
-ms.openlocfilehash: d07a48267effa51a721d1b64c79bc0a6ba7d439f
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.custom: data4ml, ignite-fall-2021
+ms.openlocfilehash: 3fae9f8f6e5c0e54d42751456b693a4bc094771c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129429639"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079374"
 ---
 # <a name="labeling-images-and-text-documents"></a>Étiquetage des images et des documents texte
 
@@ -52,13 +52,19 @@ Dans toutes les tâches d’étiquetage des données, vous devez choisir une ou 
 
 Des algorithmes de Machine Learning peuvent être déclenchés pendant l’étiquetage. Si ces algorithmes sont activés dans votre projet, vous pouvez constater ce qui suit :
 
-* Dans le cas des images, il peut arriver, une fois qu’un certain volume de données ont été étiquetées, que **Tâches regroupées** s’affiche en haut de l’écran à côté du nom du projet.  Cela signifie que les images similaires sont regroupées sur une même page.  Si c’est le cas, basculez vers l’une des vues d’images regroupées pour tirer parti de leur regroupement.  
+* Images
 
-* Plus tard, **Tasks prelabeled** (Tâches préétiquetées) peut s’afficher en regard du nom du projet.  Les éléments s’affichent alors avec une suggestion d’étiquette qui provient d’un modèle de classification Machine Learning. Aucun modèle Machine Learning n’est fiable à 100 %. Seules sont utilisées des données pour lesquelles le modèle est fiable, ce qui n’empêche pas un préétiquetage incorrect.  Si c’est le cas, corrigez les étiquettes erronées avant d’envoyer la page.  
+    * Après l’étiquetage d’un certain volume de données, vous pouvez voir apparaître **Tâches en cluster** en haut de l’écran à côté du nom du projet.  Cela signifie que les images similaires sont regroupées sur une même page.  Si c’est le cas, basculez vers l’une des vues d’images regroupées pour tirer parti de leur regroupement.  
+    
+    * Plus tard, **Tasks prelabeled** (Tâches préétiquetées) peut s’afficher en regard du nom du projet.  Les éléments s’affichent alors avec une suggestion d’étiquette qui provient d’un modèle de classification Machine Learning. Aucun modèle Machine Learning n’est fiable à 100 %. Seules sont utilisées des données pour lesquelles le modèle est fiable, ce qui n’empêche pas un préétiquetage incorrect.  Si c’est le cas, corrigez les étiquettes erronées avant d’envoyer la page.  
+    
+    * Pour les modèles d’identification d’objets, vous pouvez voir des étiquettes et des cadres englobants déjà présents.  Corrigez ceux qui sont incorrects avant d’envoyer la page.
+    
+    * Pour les modèles de segmentation, vous pouvez voir des polygones et des étiquettes déjà présents.  Corrigez ceux qui sont incorrects avant d’envoyer la page. 
 
-* Pour les modèles d’identification d’objets, vous pouvez voir des étiquettes et des cadres englobants déjà présents.  Corrigez ceux qui sont incorrects avant d’envoyer la page.
-
-* Pour les modèles de segmentation, vous pouvez voir des polygones et des étiquettes déjà présents.  Corrigez ceux qui sont incorrects avant d’envoyer la page. 
+* Texte
+    
+    * À un moment donné, **Tâches préétiquetées** peut apparaître en regard du nom du projet.  Les éléments s’affichent alors avec une suggestion d’étiquette qui provient d’un modèle de classification Machine Learning. Aucun modèle Machine Learning n’est fiable à 100 %. Seules sont utilisées des données pour lesquelles le modèle est fiable, ce qui n’empêche pas un préétiquetage incorrect.  Si c’est le cas, corrigez les étiquettes erronées avant d’envoyer la page.
 
 Au tout début d’un projet d’étiquetage, en particulier, un modèle Machine Learning peut n’être capable de préétiqueter correctement qu’un petit sous-ensemble d’images. Une fois ces images étiquetées, le projet d’étiquetage retourne à l’étiquetage manuel afin de collecter plus de données pour le prochain cycle d’entraînement du modèle. Au fil du temps, le modèle sera davantage fiable pour un plus grand nombre d’images, ce qui augmentera le nombre de tâches de préétiquettage plus tard dans le projet.
 
@@ -195,5 +201,3 @@ Une fois l’étiquetage terminé, sélectionnez votre nom dans le coin supérie
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez à [effectuer l’apprentissage de modèles de classification d’image dans Azure](./tutorial-train-models-with-aml.md)
-
-

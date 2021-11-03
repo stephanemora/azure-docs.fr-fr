@@ -6,14 +6,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.openlocfilehash: d9f3d2c8f30f3b5d249aae0789a7e2fee282e867
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9e9504220ac6aa001314c8ebf78bdb11a6cd011a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128677812"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071588"
 ---
 # <a name="quickstart-configure-azure-bastion-from-vm-settings"></a>Démarrage rapide : Configurer Azure Bastion à partir des paramètres de la machine virtuelle
 
@@ -95,8 +96,8 @@ Il existe différentes manières de configurer un hôte bastion. Dans les étape
 1. Une fois le sous-réseau créé, la page passe automatiquement à l’**étape 3**. Pour l’étape 3, utilisez les valeurs suivantes :
 
    * **Nom :** nommez l’hôte bastion.
-   * **Niveau :** le niveau désigne la référence SKU. Pour cet exercice, sélectionnez **Standard** dans la liste déroulante. La sélection de la référence SKU Standard vous permet de configurer le nombre d’instances pour la mise à l’échelle de l’hôte. La référence SKU De base ne prend pas en charge la mise à l’échelle de l’hôte. Pour plus d’informations, consultez [Paramètres de configuration – Références SKU](configuration-settings.md#skus). La référence SKU Standard est disponible en préversion.
-   * **Nombre d’instances :** il s’agit du paramètre de mise à l’échelle de l’hôte. Utilisez le curseur pour le configurer. Si vous spécifiez la référence SKU De base, vous êtes limité à deux instances et ne pouvez pas configurer ce paramètre. Pour plus d’informations, consultez [Paramètres de configuration – Mise à l’échelle de l’hôte](configuration-settings.md#instance). Le nombre d’instances est en préversion et s’appuie sur la référence SKU Standard. Dans ce démarrage rapide, vous pouvez sélectionner le nombre d’instances de votre choix, en gardant à l’esprit les considérations relatives à la [tarification](https://azure.microsoft.com/pricing/details/azure-bastion) des unités d’échelle.
+   * **Niveau :** le niveau désigne la référence SKU. Pour cet exercice, sélectionnez **Standard** dans la liste déroulante. La sélection de la référence SKU Standard vous permet de configurer le nombre d’instances pour la mise à l’échelle de l’hôte. La référence SKU De base ne prend pas en charge la mise à l’échelle de l’hôte. Pour plus d’informations, consultez [Paramètres de configuration – Références SKU](configuration-settings.md#skus).
+   * **Nombre d’instances :** il s’agit du paramètre de mise à l’échelle de l’hôte. Utilisez le curseur pour le configurer. Si vous spécifiez la référence SKU De base, vous êtes limité à deux instances et ne pouvez pas configurer ce paramètre. Pour plus d’informations, consultez [Paramètres de configuration – Mise à l’échelle de l’hôte](configuration-settings.md#instance). Le nombre d’instances repose sur la référence SKU Standard. Dans ce démarrage rapide, vous pouvez sélectionner le nombre d’instances de votre choix, en gardant à l’esprit les considérations relatives à la [tarification](https://azure.microsoft.com/pricing/details/azure-bastion) des unités d’échelle.
    * **Adresse IP publique** : sélectionnez **Créer**.
    * **Nom de l’IP publique :** nom de la ressource d’IP publique.
    * **SKU de l’IP publique :** préconfigurée sur **Standard**.

@@ -8,12 +8,13 @@ ms.service: api-management
 ms.topic: article
 ms.date: 07/19/2021
 ms.author: danlep
-ms.openlocfilehash: c593d9d9f2d957564eed5be98f3f92f29ce79a27
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 950684fdbaa1553447b818c0751b13f4a8e26f34
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128551096"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131031762"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
 Cette section est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).
@@ -84,7 +85,9 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
 . 
     - [Valider les paramètres](validation-policies.md#validate-parameters) : valide les paramètres d’en-tête de requête, de la requête ou du chemin par rapport au schéma d’API.
     - [Valider les en-têtes](validation-policies.md#validate-headers) : valide les en-têtes de réponse par rapport au schéma API.
-    - [Valider le code d’état](validation-policies.md#validate-status-code) : valide les codes d’état HTTP dans les réponses par rapport au schéma d’API.
+    - [Valider le code d’état](validation-policies.md#validate-status-code) : valide les codes d’état HTTP dans les réponses par rapport au schéma API.
+- [Stratégie de validation GraphQL](graphql-validation-policies.md)
+    - [Valider la demande GraphQL](graphql-validation-policies.md#validate-graphql-request) - Valide et autorise une demande à une API GraphQL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur l’utilisation de stratégies, consultez les pages :

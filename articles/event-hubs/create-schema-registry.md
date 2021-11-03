@@ -1,21 +1,20 @@
 ---
 title: Créer un registre de schémas Azure Event Hubs
 description: Cet article explique comment créer un registre de schémas dans un espace de noms Azure Event Hubs.
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 06/01/2021
-ms.custom: references_regions
-ms.openlocfilehash: 360f81157f5431a6e6e70a25ef33e707c57cc91a
-ms.sourcegitcommit: c27f71f890ecba96b42d58604c556505897a34f3
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: f15327c6e5f35dcdd37ee45222f351257c846f5f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129536607"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070818"
 ---
-# <a name="create-an-azure-event-hubs-schema-registry--preview"></a>Créer un registre de schémas Azure Event Hubs (préversion)
+# <a name="create-an-azure-event-hubs-schema-registry"></a>Créer un registre de schémas Azure Event Hubs
 Cet article explique comment créer un groupe de schémas avec des schémas dans un registre de schémas hébergé par Azure Event Hubs. Pour obtenir une vue d’ensemble de la fonctionnalité Registre de schémas d’Azure Event Hubs, consultez [Azure Schema Registry dans Event Hubs](schema-registry-overview.md).
 
 > [!NOTE]
-> - La fonctionnalité **Registre de schémas** est actuellement en **préversion** et n’est pas recommandée pour les charges de travail de production.
 > - La fonctionnalité n’est pas disponible au niveau **de base**.
 > - Si l'instance d'Event Hub se trouve dans un **réseau virtuel**, vous ne pouvez pas créer de schémas sur le portail Azure, sauf si vous accédez au portail à partir d'une machine virtuelle du même réseau virtuel. 
 
@@ -47,24 +46,24 @@ Dans cette section, vous allez ajouter un schéma au groupe de schémas à l’a
 
 1. Dans la page **Groupe de schémas**, sélectionnez **+ Schéma** dans la barre d’outils. 
 1. Dans la page **Créer un schéma**, procédez comme suit :
-    1. Entrez un **nom** pour le schéma.
+    1. Pour **Nom**, entrez **orderschema**.
     1. Entrez le **schéma** suivant dans la zone de texte. Vous pouvez également sélectionner un fichier avec le schéma.
     
         ```json
         {
-            "type": "record",
-            "name": "AvroUser",
-            "namespace": "com.azure.schemaregistry.samples",
-            "fields": [
-                {
-                    "name": "name",
-                    "type": "string"
-                },
-                {
-                    "name": "favoriteNumber",
-                    "type": "int"
-                }
-            ]
+          "namespace": "com.azure.schemaregistry.samples",
+          "type": "record",
+          "name": "Order",
+          "fields": [
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "amount",
+              "type": "double"
+            }
+          ]
         }
         ```
     1. Sélectionnez **Create** (Créer). 
@@ -78,7 +77,7 @@ Dans cette section, vous allez ajouter un schéma au groupe de schémas à l’a
 
 ## <a name="create-a-new-version-of-schema"></a>Créer une nouvelle version du schéma
 
-1. Mettez à jour le schéma dans la zone de texte, puis sélectionnez **Valider**. Dans l’exemple suivant, un nouveau champ `id` a été ajouté au schéma. 
+1. Mettez à jour le schéma dans la zone de texte, puis sélectionnez **Valider**. Dans l’exemple suivant, un nouveau champ `description` a été ajouté au schéma. 
 
     :::image type="content" source="./media/create-schema-registry/update-schema.png" alt-text="Image montrant la page Mettre à jour le schéma":::    
     
@@ -93,4 +92,3 @@ Dans cette section, vous allez ajouter un schéma au groupe de schémas à l’a
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur le registre de schémas, consultez [Azure Schema Registry dans Event Hubs](schema-registry-overview.md).
-

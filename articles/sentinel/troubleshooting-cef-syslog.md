@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2021
 ms.author: bagol
-ms.openlocfilehash: 9f6585cec5c52dd2255fca2a31e2f92853954370
-ms.sourcegitcommit: 613789059b275cfae44f2a983906cca06a8706ad
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9d25b3e448fdf450001120d0c9fabf48f0e23b97
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129279010"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022908"
 ---
 # <a name="troubleshoot-your-cef-or-syslog-data-connector"></a>Résoudre les problèmes liés à votre connecteur de données CEF ou Syslog
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article décrit les méthodes courantes de vérification et de dépannage d’un connecteur de données CEF ou Syslog pour Azure Sentinel.
 

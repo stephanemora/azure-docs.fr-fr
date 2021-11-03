@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dc58b73a317bdab85b63c947f07d2755b96f2fcd
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 4e2a3cd3dbd8e79d2d672b5b0433926639c5a2fd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112280425"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070619"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combiner ScaleR et SparkR dans HDInsight
 
@@ -20,8 +20,6 @@ ms.locfileid: "112280425"
 Ce document montre comment prévoir des retards d’arrivée de vol à l’aide d’un modèle de régression logistique **ScaleR**. L’exemple utilise des données météorologiques et de retards de vol associées via **SparkR**.
 
 Bien que les deux packages s’exécutent sur le moteur d’exécution de Spark d’Apache Hadoop, le partage des données en mémoire est bloqué pour eux, car ils requièrent chacun leur propre session Spark respective. En attendant que ce problème soit résolu dans une prochaine version de ML Server, la solution de contournement consiste à gérer des sessions Spark qui ne se recouvrent pas et à échanger les données via des fichiers intermédiaires. Les instructions fournies ici montrent que ces exigences sont faciles à obtenir.
-
-Cet exemple a été initialement partagé lors d’une intervention de Mario Inchiosa et Roni Burd dans le cadre de la conférence Strata 2016. Vous pouvez retrouver cette intervention sur la page [Building a Scalable Data Science Platform with R](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop) (Création d’une plateforme de science de données évolutive avec R).
 
 Le code a été écrit à l’origine pour ML Server s’exécutant sur Spark dans un cluster HDInsight sur Azure. Mais le concept de l’utilisation combinée de SparkR et de ScaleR dans un seul script est également valide dans le contexte d’environnements locaux.
 

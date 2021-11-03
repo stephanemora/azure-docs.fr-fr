@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 78ec9d84e6982a925e4eb5b1baa60881f89369b8
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 003e3b9978b15e7af2280175575051028cb13035
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121784371"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057834"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Démarrage rapide : Générer une application Cassandra avec le SDK .NET et Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -92,30 +92,30 @@ Cette étape est facultative. Si vous voulez savoir comment le code crée les re
 
 * Créez une table.
 
-   ```csharp
+  ```csharp
   session.Execute("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)");
-   ```
+  ```
 
 * Insérez des entités utilisateur à l’aide de l’objet IMapper avec une nouvelle session qui se connecte à l’espace de clés uprofile.
 
-    ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
-    ```
+  ```csharp
+  mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+  ```
     
 * Faites une requête pour obtenir les informations de tous les utilisateurs.
 
-    ```csharp
-   foreach (User user in mapper.Fetch<User>("Select * from user"))
-   {
-      Console.WriteLine(user);
-   }
-    ```
-    
+  ```csharp
+  foreach (User user in mapper.Fetch<User>("Select * from user"))
+  {
+     Console.WriteLine(user);
+  }
+  ```
+
 * Faites une requête pour obtenir les informations d’un seul utilisateur.
 
-    ```csharp
-    mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
-    ```
+  ```csharp
+  mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
+  ```
 
 ## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
 

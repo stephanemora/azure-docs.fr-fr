@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 9afdbef418f9397cb4f13d4eb51220e6fc5573ab
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3bc6d92d0992c44cd0cb9bb0f874b9ea1952a211
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124779081"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058993"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-evidencecom"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Evidence.com
 
@@ -75,12 +75,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<yourtenant>.evidence.com`
+    1. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<yourtenant>.evidence.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<yourtenant>.evidence.com`
+    1. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<yourtenant>.evidence.com`
 
-    c. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<your tenant>.evidence.com/?class=UIX&proc=Login`
-    
+    1. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<your tenant>.evidence.com/?class=UIX&proc=Login`
+
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Evidence.com](https://communities.taser.com/support/SupportContactUs?typ=LE). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 

@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: f18fa1af869f0335214cff5725bbc7e6dc1293ea
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 93b00212bda4f02b6a31c151856639b1f461cac1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991657"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131050828"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionnement d’application en état de quarantaine
 
@@ -30,7 +30,7 @@ Lors de la mise en quarantaine :
 ## <a name="how-do-i-know-if-my-application-is-in-quarantine"></a>Comment puis-je savoir si mon application est en quarantaine ?
 
 Vous avez trois façons de vérifier si une application est en quarantaine :
-  
+
 - Dans le Portail Azure, accédez à **Azure Active Directory** > **Applications d’entreprise** > &lt;*nom de l’application*&gt; > **Provisionnement** et vérifiez le message de mise en quarantaine dans la barre de progression.   
 
   ![Barre d’état de provisionnement présentant un état de quarantaine](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
@@ -88,7 +88,7 @@ Une fois que vous avez résolu le problème, redémarrez le travail de provision
 - Utilisez le portail Azure pour redémarrer le travail de provisionnement. Dans la page **Approvisionnement** de l’application, sélectionnez **Redémarrer l’approvisionnement**. Cette action redémarre complètement le service de provisionnement, ce qui peut prendre un certain temps. Un cycle initial complet se réexécute, ce qui permet de supprimer les entiercements, de sortir l’application de quarantaine et d’effacer tous les filigranes. Le service réévalue ensuite tous les utilisateurs du système source et détermine s’ils sont dans l’étendue de provisionnement. Cela peut être utile quand votre application est placée sous contrôle, tel qu’indiqué dans cet article, ou que vous devez apporter un changement à vos mappages d’attributs. Notez que le cycle initial met plus de temps à s’effectuer que le cycle incrémentiel classique en raison du nombre d’objets à évaluer. Pour en savoir plus sur les performances des cycles initiaux et incrémentiels, cliquez [ici](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 - Utilisez Microsoft Graph pour [redémarrer le travail de provisionnement](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). Vous bénéficiez d’un contrôle total sur ce que vous redémarrez. Vous pouvez choisir d’effacer les entiercements (pour redémarrer le compteur d’entiercements qui augmente jusqu’à l’état de quarantaine), de supprimer la quarantaine (pour sortir l’application de quarantaine) ou d’effacer les filigranes. Utilisez la requête suivante :
- 
+
 ```microsoft-graph
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```

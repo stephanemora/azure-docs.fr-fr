@@ -1,17 +1,17 @@
 ---
 title: Comment arrêter une unité de serveur Microsoft Azure FXT Edge Filer
 description: Découvrez les procédures sécurisées de démarrage et d’arrêt d’un nœud Azure FXT Edge Filer à l’aide du logiciel du panneau de configuration du cluster.
-author: ekpgh
+author: femila
 ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 07/01/2019
-ms.author: v-erkel
-ms.openlocfilehash: 062a5ff1c335b64e8e9cd3fc2eba54c186599034
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.author: femila
+ms.openlocfilehash: c3b9f9c317de7ff1bdf2801d1348769882cb777b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414903"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024236"
 ---
 # <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Comment mettre hors tension en toute sécurité le matériel Azure FXT Edge Filer
 
