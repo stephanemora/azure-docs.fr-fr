@@ -3,71 +3,84 @@
 - name: Vue d’ensemble
   expanded: true
   items:
-    - name: Bienvenue dans l’informatique confidentielle Azure
+    - name: "Qu’est-ce que l’informatique confidentielle\_?"
       href: overview.md
+    - name: Informatique confidentielle dans Azure
+      href: overview-azure-products.md
     - name: Cas d'utilisation et scénarios
       href: use-cases-scenarios.md
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Machines virtuelles
+    - name: Machines virtuelles confidentielles avec enclaves
       items:
-        - name: Créer dans le portail Azure
-          href: quick-create-portal.md
-        - name: Créer avec la Place de marché
-          href: quick-create-marketplace.md
-    - name: Azure Kubernetes Services (AKS)
+        - name: Déployer Intel SGX
+          items:
+            - name: Créer une machine virtuelle Intel SGX avec le portail Azure
+              href: quick-create-portal.md
+            - name: Créer une machine virtuelle Intel SGX avec la Place de marché
+              href: quick-create-marketplace.md
+    - name: Conteneurs confidentiels avec enclaves
       items:
-        - name: Vue d’ensemble des nœuds confidentiels AKS
-          href: confidential-nodes-aks-overview.md
-        - name: Nœuds confidentiels avec Azure CLI
-          href: confidential-nodes-aks-get-started.md
-        - name: Questions fréquentes (FAQ) relatives aux nœuds confidentiels sur AKS
-          href: confidential-nodes-aks-faq.yml
+        - name: Créer un conteneur AKS Intel SGX avec l’interface CLI
+          href: confidential-enclave-nodes-aks-get-started.md
 - name: Concepts
   expanded: true
   items:
-    - name: Machines virtuelles
+    - name: Création de solutions d’informatique confidentielle
+      href: confidential-computing-solutions.md
+    - name: Déploiement de solutions sur l’informatique confidentielle
+      href: confidential-computing-deployment-models.md
+    - name: Machines virtuelles confidentielles
       items:
-        - name: Machines virtuelles reconnaissant les enclaves
-          href: confidential-computing-enclaves.md
-        - name: Solutions sur les machines virtuelles
-          href: virtual-machine-solutions.md
-        - name: Questions fréquentes (FAQ) sur les machines virtuelles d’informatique confidentielle
-          href: faq.yml
-    - name: Compute conteneur
-      expanded: true
+        - name: Créer avec des enclaves
+          items:
+            - name: Vue d’ensemble des enclaves
+              href: confidential-computing-enclaves.md
+            - name: Développement d’applications d’enclave
+              items:
+                - name: Vue d’ensemble du développement d’enclave
+                  href: application-development.md
+                - name: Projets open source pour le développement
+                  href: enclave-development-oss.md
+                - name: Attestation des enclaves d’application
+                  href: attestation.md
+            - name: Déploiement de machines virtuelles Intel SGX
+              href: virtual-machine-solutions-sgx.md
+            - name: FAQ sur les machines virtuelles d’enclave d’application
+              href: faq-application-enclaves.yml
+    - name: Conteneurs confidentiels
       items:
-        - name: Conteneurs confidentiels
+        - name: Vue d’ensemble des solutions de conteneur
+          href: confidential-containers.md
+        - name: Choix de l’offre de conteneur appropriée
+          href: choose-confidential-containers-offerings.md
+        - name: Déployer des conteneurs
           items:
-            - name: Prise en main
-              href: confidential-containers.md
-        - name: Conteneurs reconnaissant les enclaves
-          items:
-            - name: Prise en main
+            - name: Conteneurs reconnaissant les enclaves
               href: enclave-aware-containers.md
-    - name: Attestation
-      href: attestation.md
-    - name: Développement d’applications
-      href: application-development.md
+            - name: Nœuds d’enclave confidentiels sur AKS
+              href: confidential-nodes-aks-overview.md
+            - name: Extension AKS
+              href: confidential-nodes-aks-addon.md
+            - name: FAQ sur les nœuds d’enclave confidentiels
+              href: confidential-nodes-aks-faq.yml
 - name: Procédure
   items:
-    - name: Fortanix Confidential Computing Manager
-      href: how-to-fortanix-confidential-computing-manager.md
-    - name: Fortanix Confidential Computing Manager Node Agent
-      href: how-to-fortanix-confidential-computing-manager-node-agent.md
-- name: Références
-  items:
-    - name: Fonctionnalité d’assistance SGX Quote
-      href: confidential-nodes-out-of-proc-attestation.md
+    - name: Solutions du partenaire
+      items:
+        - name: Fortanix
+          items:
+            - name: Fortanix Confidential Computing Manager
+              href: how-to-fortanix-confidential-computing-manager.md
+            - name: Fortanix Confidential Computing Manager Node Agent
+              href: how-to-fortanix-confidential-computing-manager-node-agent.md
 - name: Ressources
   items:
     - name: Feedback sur l’informatique confidentielle
       href: 'https://feedback.azure.com/forums/919792-azure-confidential-compute'
     - name: Stackoverflow
       href: 'https://stackoverflow.com/questions/tagged/azure-confidential-computing'
-    - name: Ouvrir le kit SDK des enclaves
-      href: 'https://aka.ms/oesdkGitHubRepo'
     - name: Consortium sur l’informatique confidentielle
       href: 'https://confidentialcomputing.io/'
     - name: Machines virtuelles sur Azure

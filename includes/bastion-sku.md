@@ -1,17 +1,17 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 08/27/2021
+ms.date: 10/20/2021
 ms.service: bastion
 ms.topic: include
-ms.openlocfilehash: 880f91a9078a5f4bacd8d403d9b023ccaa4a9e33
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 71d47e8552af42af7e0802a4517811573005463b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128910485"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087062"
 ---
-| Fonctionnalité | Référence SKU De base | Référence SKU standard (préversion) |
+| Fonctionnalité | Référence SKU De base | Référence SKU standard |
 |---|---|---|
 | Se connecter pour cibler les machines virtuelles dans les réseaux virtuels appairés | Disponible | Disponible |
 | Accéder aux clés privées des machines virtuelles Linux dans Azure Key Vault (AKV) | Disponible | Disponible |

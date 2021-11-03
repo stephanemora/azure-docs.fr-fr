@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 10/12/2021
 ms.author: normesta
-ms.openlocfilehash: 3f6b82e447fec4ce4e1c2e9b1f700f9b976d6a3d
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: ecf0988069bf023225354b4ad864537737999094
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129994381"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008705"
 ---
 #  <a name="upgrade-azure-blob-storage-with-azure-data-lake-storage-gen2-capabilities"></a>Mettre à niveau le Stockage Blob Azure avec les fonctionnalités de Azure Data Lake Storage Gen2
 
@@ -269,7 +269,7 @@ az storage account hns-migration stop -n <storage-account-name> -g <resource-gro
 
 ## <a name="migrate-data-workloads-and-applications"></a>Migrer les données, les charges de travail et les applications 
 
-1. Configurez [des services dans vos charges de travail](data-lake-storage-integrate-with-azure-services.md) pour qu’ils pointent vers le point de terminaison du **service BLOB** ou le point de terminaison de **Data Lake Storage** .
+1. Configurez [des services dans vos charges de travail](./data-lake-storage-supported-azure-services.md) pour qu’ils pointent vers le point de terminaison du **service BLOB** ou le point de terminaison de **Data Lake Storage** .
 
    > [!div class="mx-imgBorder"]
    > ![Points de terminaison de compte](./media/upgrade-to-data-lake-storage-gen2-how-to/storage-endpoints.png)

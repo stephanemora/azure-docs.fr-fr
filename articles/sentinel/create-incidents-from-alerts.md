@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 621e2829f8c28ced39c3ed70b1dee974a5fcd36d
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.openlocfilehash: 350adddd3ab31265ce0a1b07e131a828c5998a8c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123251422"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004394"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Créer automatiquement des incidents à partir d’alertes de sécurité Microsoft
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Les alertes déclenchées dans des solutions de sécurité Microsoft qui sont connectées à Azure Sentinel, comme Microsoft Cloud App Security et Microsoft Defender pour Identity (anciennement Azure ATP), ne créent pas automatiquement des incidents dans Azure Sentinel. Par défaut, quand vous connectez une solution Microsoft à Azure Sentinel, toute alerte générée dans ce service est stockée sous la forme de données brutes dans Azure Sentinel, dans la table des alertes de sécurité de votre espace de travail Azure Sentinel. Vous pouvez ensuite utiliser ces données comme n’importe quelle autre donnée brute que vous connectez à Azure Sentinel.
 

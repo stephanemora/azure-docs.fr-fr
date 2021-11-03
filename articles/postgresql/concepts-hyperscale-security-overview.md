@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/15/2021
-ms.openlocfilehash: eedad96af5baa6fe588788247c4f8a3a44bee0a0
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: dd3d359143185eb4d33ddce6396b7c69288fe841
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130075091"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084328"
 ---
 # <a name="security-in-azure-database-for-postgresql--hyperscale-citus"></a>Sécurité dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -40,6 +40,6 @@ Consultez la page sur [les limites et les limitations](concepts-hyperscale-limit
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment [activer et gérer l’accès privé](howto-hyperscale-private-access.md) (préversion)
-* En savoir plus sur les [points de terminaison privés](/azure/private-link/private-endpoint-overview)
-* En savoir plus sur les [réseaux virtuels](/azure/virtual-network/concepts-and-best-practices)
-* En savoir plus sur les [zones DNS privées](/azure/dns/private-dns-overview)
+* En savoir plus sur les [points de terminaison privés](../private-link/private-endpoint-overview.md)
+* En savoir plus sur les [réseaux virtuels](../virtual-network/concepts-and-best-practices.md)
+* En savoir plus sur les [zones DNS privées](../dns/private-dns-overview.md)

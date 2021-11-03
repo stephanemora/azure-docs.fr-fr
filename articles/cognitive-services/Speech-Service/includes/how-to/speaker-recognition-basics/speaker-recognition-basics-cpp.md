@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
-ms.custom: references_regions
-ms.openlocfilehash: 655c5d80f1fb4e047a3cd9cc751a853815a70a68
-ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: 68e088b088c461b29311a1289e1867c4df9e5b1a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2021
-ms.locfileid: "114671182"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069127"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir les modèles de conception de base pour la reconnaissance de l’orateur à l’aide du SDK de reconnaissance vocale, notamment :
 
@@ -18,7 +18,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir les modèles de concep
 * Identification de l’orateur pour identifier un échantillon vocal parmi un groupe de voix
 * Suppression de profils vocaux
 
-Pour obtenir une vue d’ensemble des concepts de reconnaissance vocale, consultez l’article de [présentation](../../../speaker-recognition-overview.md).
+Pour obtenir une vue d’ensemble des concepts de reconnaissance vocale, consultez l’article de [présentation](../../../speaker-recognition-overview.md). Voir le nœud de référence dans le menu de gauche pour une liste des plateformes prises en charge.
 
 ## <a name="skip-to-samples-on-github"></a>Passer aux exemples sur GitHub
 
@@ -29,7 +29,7 @@ Si vous souhaitez passer directement à l’exemple de code, consultez les [exem
 Cet article part du principe que vous disposez d’un compte Azure et d’un abonnement au service Speech. Si vous n’avez pas de compte et d’abonnement, [essayez le service Speech gratuitement](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
-> La fonctionnalité Reconnaissance de l’orateur est actuellement *uniquement* prise en charge dans les ressources Azure Speech créées dans la région `westus`.
+> Microsoft limite l’accès à la Reconnaissance de l’orateur. Demandez à l'utiliser par le biais de l'examen d'accès limité d'[Azure Cognitive Services Speaker Recognition](https://aka.ms/azure-speaker-recognition). Après approbation, vous pouvez accéder aux API de reconnaissance des locuteurs. 
 
 ## <a name="install-the-speech-sdk"></a>Installer le Kit de développement logiciel (SDK) Speech
 
@@ -91,10 +91,7 @@ Ensuite, [SpeechRecognizer::RecognizeOnceAsync](/cpp/cognitive-services/speech/s
 
 ## <a name="text-independent-verification"></a>Vérification indépendante du texte
 
-Contrairement à la vérification **dépendante du texte**, la vérification **indépendante du texte** :
-
-* Ne nécessite pas la lecture d’une phrase secrète. Le texte à prononcer est choisi par l’utilisateur.
-* Ne nécessite pas trois échantillons audio, mais *nécessite* 20 secondes d’audio en tout.
+Contrairement à la vérification **dépendante du texte**, la vérification **indépendante du texte** ne nécessite pas trois échantillons audio, mais elle *nécessite* 20 secondes de l’audio total.
 
 ### <a name="textindependentverification-function"></a>Fonction TextIndependentVerification
 

@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 07/23/2021
 ms.author: vvasic
 ms.reviewer: jrasnick, wiassaf
-ms.openlocfilehash: 50464db5c62ffa0b5f6c48a323a9a23a43b06315
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e06c0924cb028736d7a6313aa7950ac8d389b490
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129994021"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013154"
 ---
 # <a name="create-and-use-native-external-tables-using-sql-pools-in-azure-synapse-analytics"></a>Créer et utiliser des tables externes natives à l’aide de pools SQL dans Azure Synapse Analytics
 
@@ -178,7 +179,7 @@ CREATE EXTERNAL TABLE Covid (
 );
 ```
 
-Delta Lake est en préversion publique, et il existe quelques problèmes connus et des limitations. Consultez les problèmes connus sur la [page d’aide relative aux pools SQL serverless Synapse](resources-self-help-sql-on-demand.md#delta-lake).
+Les tables externes ne peuvent pas être créées sur un dossier partitionné. Découvrez les autres problèmes connus dans la [page d’aide autonome sur les pools SQL serverless Synapse](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## <a name="use-an-external-table"></a>Utilisation d’une table externe
 

@@ -7,12 +7,12 @@ ms.date: 5/19/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-ms.openlocfilehash: 7f3fbec3fd393bb354f7ea5df1614cf1c53bfbe2
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: db5bebce41e8fd13cf0796e02fc0bfe91d63a6c9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121733435"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060012"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutoriel : Utiliser le Créateur pour créer des cartes d’intérieur
 
@@ -79,7 +79,7 @@ Pour charger le package de dessin :
 
 12. Sélectionnez **Envoyer**.
 
-13. Dans la fenêtre de réponse, sélectionnez l’onglet **En-têtes**.
+13. Dans la fenêtre de réponse, sélectionnez l’onglet **Headers** (En-têtes).
 
 14. Copiez la valeur de la clé **Operation-Location**, qui correspond à `status URL`. Nous allons utiliser `status URL` pour vérifier l’état du chargement du package de dessin.
 
@@ -91,9 +91,9 @@ Pour vérifier l’état du package de dessin et récupérer son ID unique (`udi
 
 1. Dans l’application Postman, sélectionnez **New** (Nouveau).
 
-2. Dans la fenêtre **Créer**, sélectionnez **Requête HTTP**.
+2. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP).
 
-3. Entrez un **Nom de requête** pour la requête, par exemple *État chargement données GET*.
+3. Entrez un **Request name** (Nom de demande) pour la demande, par exemple *GET Data Upload Status*.
 
 4. Sélectionnez la méthode HTTP **GET**.
 
@@ -105,7 +105,7 @@ Pour vérifier l’état du package de dessin et récupérer son ID unique (`udi
 
 6. Sélectionnez **Envoyer**.
 
-7. Dans la fenêtre de réponse, sélectionnez l’onglet **En-têtes**.
+7. Dans la fenêtre de réponse, sélectionnez l’onglet **Headers** (En-têtes).
 
 8. Copiez la valeur de la clé **Resource-Location**, qui correspond à `resource location URL`. `resource location URL` contient l’identificateur unique (`udid`) de la ressource de package de dessin.
 
@@ -119,7 +119,7 @@ Pour récupérer les métadonnées de contenu :
 
 1. Dans l’application Postman, sélectionnez **New** (Nouveau).
 
-2. Dans la fenêtre **Créer**, sélectionnez **Requête HTTP**.
+2. Dans la fenêtre **Create New** (Créer), sélectionnez **HTTP Request** (Requête HTTP).
 
 3. Entrez un **Request name** (Nom de requête) pour la requête, par exemple *GET Data Upload Metadata*.
 
@@ -128,7 +128,7 @@ Pour récupérer les métadonnées de contenu :
 5. Entrez le `resource Location URL` que vous avez copié dans [Vérifier l’état du chargement du package de dessin](#check-the-drawing-package-upload-status). La requête doit ressembler à l’URL suivante (remplacez `{Azure-Maps-Primary-Subscription-key}` par votre clé d’abonnement principale) :
 
     ```http
-   https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Sélectionnez **Envoyer**.
@@ -168,7 +168,7 @@ Pour convertir un package de dessin :
 
 6. Sélectionnez **Envoyer**.
 
-7. Dans la fenêtre de réponse, sélectionnez l’onglet **En-têtes**. 
+7. Dans la fenêtre de réponse, sélectionnez l’onglet **Headers** (En-têtes). 
 
 8. Copiez la valeur de la clé **Operation-Location**, qui correspond à `status URL`. Nous allons utiliser `status URL` pour vérifier l’état de la conversion.
 
@@ -196,7 +196,7 @@ Pour vérifier l’état du processus de conversion et récupérer le `conversio
 
 6. Sélectionnez **Envoyer**.
 
-7. Dans la fenêtre de réponse, sélectionnez l’onglet **En-têtes**. 
+7. Dans la fenêtre de réponse, sélectionnez l’onglet **Headers** (En-têtes). 
 
 8. Copiez la valeur de la clé **Resource-Location**, qui correspond à `resource location URL`. `resource location URL` contient l’identificateur unique (`conversionId`), qui peut être utilisé par d’autres API pour accéder aux données de carte converties.
 
@@ -253,7 +253,7 @@ Pour créer un jeu de données :
 
 6. Sélectionnez **Envoyer**.
 
-7. Dans la fenêtre de réponse, sélectionnez l’onglet **En-têtes**. 
+7. Dans la fenêtre de réponse, sélectionnez l’onglet **Headers** (En-têtes). 
 
 8. Copiez la valeur de la clé **Operation-Location**, qui correspond à `status URL`. Nous allons utiliser `status URL` pour vérifier l’état du jeu de données.
 
@@ -307,7 +307,7 @@ Pour créer un tileset :
 
 6. Sélectionnez **Envoyer**.
 
-7. Dans la fenêtre de réponse, sélectionnez l’onglet **En-têtes**. 
+7. Dans la fenêtre de réponse, sélectionnez l’onglet **Headers** (En-têtes). 
 
 8. Copiez la valeur de la clé **Operation-Location**, qui correspond à `status URL`. Nous allons utiliser `status URL` pour vérifier l’état du tileset.
 
@@ -413,7 +413,7 @@ Pour interroger la collection unit dans votre jeu de données :
 
 7. Une fois la réponse retournée, copiez l’`id` de l’une des caractéristiques `unit`. Dans l’exemple suivant, l’`id` de caractéristique est « UNIT26 ». Dans ce tutoriel, nous allons utiliser « UNIT26 » comme `id` de caractéristique dans la section suivante.
 
-     ```json
+    ```json
     {
         "type": "FeatureCollection",
         "features": [

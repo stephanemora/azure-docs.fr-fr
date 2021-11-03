@@ -2,17 +2,17 @@
 title: Configurer une connexion à Azure SQL Database à l’aide d’une identité managée
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.openlocfilehash: c0bff947d0f5b58a956d05959dd49bbea1f942ab
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 1b8386cac5c17f775f6719bdf8ab67243731179b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533352"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037679"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurer une connexion d’indexeur à Azure SQL Database à l’aide d’une identité managée
 
@@ -45,12 +45,12 @@ Si vous n’avez pas encore créé d’identité managée affectée par l’util
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Sélectionnez **+ Créer une ressource**.
-1. Dans la barre de recherche « Rechercher dans les services et la Place de marché », recherchez « Identité managée affectée par l’utilisateur », puis sélectionnez **Créer**.
+1. Dans la barre de recherche « Services de recherche et marketplace », recherchez « Identité managée affectée par l’utilisateur », puis sélectionnez **Créer**.
 1. Donnez à l’identité un nom descriptif.
 
-Affectez ensuite l’identité managée affectée par l’utilisateur au service de recherche. Pour ce faire, vous pouvez utiliser l’[API de gestion en préversion du 01/04/2021](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+Ensuite, attribuez l’identité managée affectée par l’utilisateur au service de recherche. Pour ce faire, vous pouvez utiliser l’[API de gestion en préversion du 01/04/2021](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
-La propriété d’identité accepte un type et une ou plusieurs identités complètes affectées par l’utilisateur :
+La propriété d’identité prend un type et une ou plusieurs identités affectées par l’utilisateur complètes :
 
 * **type** représente le type de l’identité. Les valeurs valides sont « SystemAssigned » ou « UserAssigned », ou « SystemAssigned, UserAssigned » si vous souhaitez utiliser les deux. La valeur « None » permet d’effacer du service de recherche toutes les identités affectées.
 * **userAssignedIdentities** comprend les détails de l’identité managée affectée par l’utilisateur.

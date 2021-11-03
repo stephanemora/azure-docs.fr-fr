@@ -11,12 +11,12 @@ ms.author: seramasu
 ms.date: 08/05/2021
 ms.reviewer: laobri
 ms.custom: devplatv2
-ms.openlocfilehash: f4f6cb9941bfa9bd1a2711a25222fcbfe036951e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 9cb3718a0e4ac8ef322fafd16236dfab0fa6f6fc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130232382"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131087587"
 ---
 # <a name="deploy-models-with-rest-preview"></a>Déployer des modèles avec REST (préversion)
 
@@ -157,7 +157,7 @@ Si vous n’envisagez pas d’utiliser le déploiement, vous devez le supprimer 
 
 * Découvrez comment déployer votre modèle [à l’aide d’Azure CLI](how-to-deploy-managed-online-endpoints.md).
 * Découvrez comment déployer votre modèle [à l’aide du studio](how-to-use-managed-online-endpoint-studio.md).
-* Découvrez comment [résoudre les problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](how-to-troubleshoot-managed-online-endpoints.md).
+* Découvrez comment [résoudre les problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](./how-to-troubleshoot-online-endpoints.md).
 * Découvrez comment [accéder aux ressources Azure avec un point de terminaison en ligne managé et une identité managée par le système (préversion)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md).
 * Découvrez comment [superviser les points de terminaison en ligne](how-to-monitor-online-endpoints.md).
 * Découvrez [Déploiement sécurisé pour les points de terminaison en ligne (préversion)](how-to-safely-rollout-managed-endpoints.md).

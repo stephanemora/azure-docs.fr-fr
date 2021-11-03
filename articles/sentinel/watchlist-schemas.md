@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 08/04/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: e263c742ae31a665eb428ad2cbeca72f73562b8a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f531b18dfe94027948f1411372ff72e68b01c933
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524391"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054967"
 ---
 # <a name="azure-sentinel-built-in-watchlist-template-schemas-public-preview"></a>Schémas de modèle Watchlist Azure Sentinel intégrés (version préliminaire publique)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article détaille les schémas utilisés dans chaque modèle Watchlist intégré fourni par Azure Sentinel. Pour plus d’informations, consultez [créer un nouveau Watchlist à l’aide d’un modèle (version préliminaire publique)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview).
 

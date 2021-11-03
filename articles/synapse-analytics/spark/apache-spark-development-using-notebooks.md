@@ -10,12 +10,12 @@ ms.date: 05/08/2021
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b1754060a84914fca9b9c7d22ee85e32717d002
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: de703ea3f85025657b4c71089f158b7d1db2189d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178751"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013597"
 ---
 # <a name="create-develop-and-maintain-synapse-notebooks-in-azure-synapse-analytics"></a>Créer, développer et gérer des notebooks Synapse dans Azure Synapse Analytics
 
@@ -30,22 +30,7 @@ Avec un notebook Synapse, vous pouvez :
 
 Cet article explique comment utiliser des notebooks dans Synapse Studio.
 
-## <a name="preview-of-the-new-notebook-experience"></a>Aperçu de la nouvelle expérience de notebook
-L’équipe de Synapse a introduit le nouveau composant pour notebooks dans Synapse Studio afin d’offrir une expérience cohérente aux clients de Microsoft et de maximiser la détectabilité, la productivité, le partage et la collaboration. La nouvelle expérience du notebook est prête à être présentée en préversion. Cochez le bouton **Fonctionnalités d’évaluation** dans la barre d’outils du notebook pour l’activer. Le tableau ci-dessous capture la comparaison des fonctionnalités entre un notebook existant (appelé « notebook classique ») et le nouvel disponible en préversion.  
 
-|Fonctionnalité|Notebook classique|Notebook en préversion|
-|--|--|--|
-|%run| Non pris en charge | &#9745;|
-|%history| Non pris en charge |&#9745;|
-|%load| Non pris en charge |&#9745;|
-|%%html| Non pris en charge |&#9745;|
-|Glisser-déposer pour déplacer une cellule| Non pris en charge |&#9745;|
-|Structure (Table des matières)| Non pris en charge |&#9745;|
-|Explorateur de variables| Non pris en charge |&#9745;|
-|Commentaires des cellules de code| Non pris en charge | &#9745;|
-
-> [!NOTE]
-> L’Explorateur de variables ne prend en charge que Python.
 ## <a name="create-a-notebook"></a>Créer un notebook
 
 Il existe deux façons de créer un bloc-notes. Vous pouvez créer un notebook ou en importer un dans un espace de travail Synapse à partir de l’**Explorateur d’objets**. Les notebooks Synapse reconnaissent les fichiers IPYNB Jupyter Notebook standard.
@@ -75,21 +60,6 @@ Nous proposons des opérations riches pour développer des notebooks :
 <h3 id="add-a-cell">Ajouter une cellule</h3>
 
 Il existe plusieurs façons d’ajouter une cellule à un bloc-notes.
-
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-1. Développez le bouton supérieur gauche **+ Cellule**, puis sélectionnez **Ajouter une cellule de code** ou **Ajouter une cellule de texte**.
-
-    ![Capture d’écran de add-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
-
-2. Pointez sur l’espace entre deux cellules, puis sélectionnez **Ajouter du code** ou **Ajouter du texte**.
-
-    ![Capture d’écran de add-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
-
-3. Utilisez les [touches de raccourci en mode de commande](#shortcut-keys-under-command-mode). Appuyez sur **A** pour insérer une cellule au-dessus de la cellule active. Appuyez sur **B** pour insérer une cellule en dessous de la cellule active.
-
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 1. Placez le curseur sur l’espace entre deux cellules et sélectionnez **Code** ou **Démarque**.
     ![Capture d’écran de add-azure-notebook-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
@@ -128,7 +98,7 @@ L’image suivante illustre la façon d’écrire une requête PySpark avec la c
    ![Capture d’écran des commandes magic de Synapse Spark](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 
-<h3 id="use-temp-tables-to-reference-data-across-languages&quot;>Utiliser des tables temporaires pour référencer des données dans plusieurs langages</h3>
+<h3 id="use-temp-tables-to-reference-data-across-languages">Utiliser des tables temporaires pour référencer des données dans plusieurs langages</h3>
 
 Vous ne pouvez pas référencer des données ou variables directement dans différents langages dans un notebook Synapse. Dans Spark, une table temporaire peut être référencée dans plusieurs langages. Voici un exemple de lecture d’une tramedonnées `Scala` en `PySpark` et `SparkSQL` en utilisant une table temporaire Spark comme solution de contournement.
 
@@ -136,7 +106,7 @@ Vous ne pouvez pas référencer des données ou variables directement dans diff�
 
    ```scala
    %%spark
-   val scalaDataFrame = spark.read.sqlanalytics(&quot;mySQLPoolDatabase.dbo.mySQLPoolTable")
+   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 
@@ -181,14 +151,6 @@ Les extraits de code apparaissent dans [Touches de raccourci d’IntelliSense st
 
 <h3 id="format-text-cell-with-toolbar-buttons">Mettre en forme une cellule de texte avec des boutons de barre d’outils</h3>
 
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Vous pouvez utiliser les boutons de mise en forme dans la barre d’outils des cellules de texte pour effectuer des actions de markdown (démarquage) courantes. Celles-ci incluent la mise en gras et en italique de texte, l’insertion d’extraits de code, l’insertion de liste non triée, l’insertion de liste triée et l’insertion d’image à partir d’une URL.
-
-  ![Capture d’écran de la barre d’outils de la cellule de texte Synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
-
 Vous pouvez utiliser les boutons de mise en forme dans la barre d’outils des cellules de texte pour effectuer des actions de markdown (démarquage) courantes. Celles-ci incluent la mise en gras et en italique de texte, l’insertion de paragraphes ou d’en-têtes par le biais d’une liste déroulante, l’insertion de code, l’insertion de liste non triée, l’insertion de liste triée, l’insertion de lien hypertexte et l’insertion d’image à partir d’une URL.
 
   ![Capture d’écran de la barre d’outils de la cellule de texte Synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar-preview.png)
@@ -196,14 +158,6 @@ Vous pouvez utiliser les boutons de mise en forme dans la barre d’outils des c
 ---
 
 <h3 id="undo-redo-cell-operation">Opération d’annulation/de rétablissement de cellule</h3>
-
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Sélectionnez le bouton **Annuler** / **Restaurer** ou appuyez sur **Ctrl+Z** / **Ctrl+Y** pour révoquer les opérations de cellule les plus récentes. Vous pouvez désormais annuler/restaurer jusqu’aux 20 dernières opérations sur cellule. 
-
-   ![Capture d’écran des cellules d’annulation de Synapse](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 Sélectionnez le bouton **Annuler** / **Restaurer** ou appuyez sur **Z** / **Maj+Z** pour révoquer les opérations de cellule les plus récentes. Vous pouvez désormais annuler/restaurer jusqu’aux 10 dernières opérations sur cellule.
 
@@ -224,14 +178,6 @@ Opérations de cellule d’annulation prises en charge :
 
 <h3 id="Code-cell-commenting">Commentaires des cellules de code</h3>
 
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Non pris en charge.
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
-
-Nous prenons en charge les commentaires sur la cellule de code dans le notebook Preview pour l’instant.
-
 1. Sélectionnez le bouton **Commentaires** dans la barre d’outils du notebook pour ouvrir le volet **Commentaires**.
 
    ![Capture d’écran du bouton de commentaire Synapse](./media/apache-spark-development-using-notebooks/synapse-comments-button.png)
@@ -246,18 +192,7 @@ Nous prenons en charge les commentaires sur la cellule de code dans le notebook 
 
 ---
 
-
 <h3 id="move-a-cell">Déplacer une cellule</h3>
-
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Sélectionnez les points de suspension (...) pour accéder au menu des autres actions sur cellule tout à fait à droite. Sélectionnez ensuite **Déplacer la cellule vers le haut** ou **Déplacer la cellule vers le bas** pour déplacer la cellule active. 
-
-Vous pouvez également utiliser des [touches de raccourci en mode de commande](#shortcut-keys-under-command-mode). Appuyez sur **Ctrl + Alt + ↑** pour déplacer la cellule active vers le haut. Appuyez sur **Ctrl + Alt + ↓** pour déplacer la cellule active vers le bas.
-
-   ![Capture d’écran de move-a-cell](./media/apache-spark-development-using-notebooks/synapse-move-cells.png)
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 Cliquez sur le côté gauche d’une cellule et faites-la glisser vers la position de votre choix. 
     ![GIF animé de Synapse déplacer des cellules](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-drag-drop-cell.gif)
@@ -265,16 +200,6 @@ Cliquez sur le côté gauche d’une cellule et faites-la glisser vers la positi
 ---
 
 <h3 id="delete-a-cell">Supprimer une cellule</h3>
-
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Pour supprimer une cellule, sélectionnez les points de suspension (...) pour accéder au menu des autres actions sur cellule tout à fait à droite, puis choisissez **Supprimer la cellule**. 
-
-Vous pouvez également utiliser des [touches de raccourci en mode de commande](#shortcut-keys-under-command-mode). Appuyez sur **D, D** pour supprimer la cellule active.
-  
-   ![Capture d’écran de delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 Pour supprimer une cellule, sélectionnez le bouton Supprimer à droite de la cellule. 
 
@@ -286,14 +211,6 @@ Vous pouvez également utiliser des [touches de raccourci en mode de commande](#
 
 <h3 id="collapse-a-cell-input">Réduire une entrée de cellule</h3>
 
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Sélectionnez le bouton fléché en bas de la cellule active pour la réduire. Pour la développer, sélectionnez le bouton fléché quand elle est réduite.
-
-   ![GIF animé de collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
-
 Sélectionnez **Plus d’ellipses de commandes** (…) dans la barre d’outils de la cellule et **Cacher l’entrée** pour réduire l’entrée de la cellule active. Pour la développer, sélectionnez **Afficher l’entrée** quand la cellule est réduite.
 
    ![GIF animé de azure-notebook-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
@@ -301,14 +218,6 @@ Sélectionnez **Plus d’ellipses de commandes** (…) dans la barre d’outils 
 ---
 
 <h3 id="collapse-a-cell-output">Réduire une sortie de cellule</h3>
-
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Sélectionnez le bouton **Réduire la sortie** en haut à gauche de la sortie de cellule active pour la réduire. Pour la développer, sélectionnez **Afficher la sortie de cellule** quand la sortie de cellule est réduite.
-
-   ![Image GIF animée de collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 Sélectionnez **Plus d’ellipses de commandes** (…) dans la barre d’outils de la cellule et **Cacher la sortie** pour réduire la sortie de la cellule active. Pour la développer, sélectionnez **Afficher la sortie** quand la sortie de la cellule est réduite.
 
@@ -318,12 +227,6 @@ Sélectionnez **Plus d’ellipses de commandes** (…) dans la barre d’outils 
 ---
 
 <h3 id="notebook-outline">Structure du notebook</h3>
-
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Non pris en charge.
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 La Structure (Table des matières) présente le premier en-tête Markdown d'une cellule Markdown sur une barre latérale pour une navigation rapide. La barre latérale de la Structure est redimensionnable et réductible pour s'adapter au mieux à l'écran. Vous pouvez sélectionner le bouton **Structure** de la barre de commandes du notebook pour ouvrir ou masquer la barre latérale.
 
@@ -356,14 +259,6 @@ Sélectionnez le bouton **Exécuter tout** pour exécuter toutes les cellules du
 
 ### <a name="run-all-cells-above-or-below"></a>Exécuter toutes les cellules au-dessus ou en dessous
 
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Pour accéder au menu des autres actions sur cellule tout à fait à droite, sélectionnez les points de suspension ( **...** ). Ensuite, sélectionnez **Exécuter les cellules au-dessus** pour exécuter toutes les cellules situées au-dessus de la cellule active dans l’ordre. Sélectionnez **Exécuter les cellules en dessous** pour exécuter toutes les cellules sous la cellule active dans l’ordre.
-
-   ![Capture d’écran de run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
-
 Développez la liste déroulante du bouton **Exécuter tout**, puis sélectionnez **Exécuter les cellules ci-dessus** pour exécuter dans l’ordre toutes les cellules au-dessus de la cellule actuelle. Sélectionnez **Exécuter les cellules en dessous** pour exécuter toutes les cellules sous la cellule active dans l’ordre.
 
    ![Capture d’écran de azure-notebook-run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
@@ -372,26 +267,12 @@ Développez la liste déroulante du bouton **Exécuter tout**, puis sélectionne
 
 ### <a name="cancel-all-running-cells"></a>Annuler toutes les cellules en cours d’exécution
 
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-Sélectionnez le bouton **Annuler tout** pour annuler les cellules en cours d’exécution ou les cellules dans la file d’attente. 
-   ![Capture d’écran de cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
-
 Sélectionnez le bouton **Annuler tout** pour annuler les cellules en cours d’exécution ou les cellules dans la file d’attente. 
    ![Capture d’écran de azure-notebook-cancel-all-cells](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
-
-
 ### <a name="notebook-reference"></a>Référence de notebook
-
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Non pris en charge.
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 Vous pouvez utiliser la commande magic ```%run <notebook path>``` pour référencer un autre notebook dans le contexte du notebook actuel. Toutes les variables définies dans le notebook de référence sont disponibles dans le notebook actuel. La commande magic ```%run``` prend en charge les appels imbriqués, mais pas les appels récursifs. Vous recevrez une exception si la profondeur de l’instruction est supérieure à **cinq**.  
 
@@ -410,18 +291,14 @@ La référence de notebook fonctionne en mode interactif et en pipeline Synapse.
 
 ### <a name="variable-explorer"></a>Explorateur de variables
 
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Non pris en charge.
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
-
 Synapse Notebook fournit un explorateur de variables qui vous permet de voir la liste des noms, des types, des longueurs et des valeurs des variables dans la session Sparkle en cours pour les cellules PySpark (Python). D'autres variables apparaissent automatiquement à mesure qu'elles seront définies dans les cellules de code. Un clic sur chaque en-tête de colonne permet de trier les variables de la table.
 
 Vous pouvez sélectionner le bouton **Variables** de la barre des commandes du notebook pour ouvrir ou masquer l'Explorateur de variables.
 
 ![Capture d’écran de azure-notebook-variable-explorer](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-variable-explorer.png)
 
+> [!NOTE]
+> L’Explorateur de variables ne prend en charge que Python.
 
 ---
 
@@ -527,13 +404,6 @@ Vous pouvez accéder aux données directement dans le compte de stockage princip
 
 ## <a name="ipython-widgets"></a>Widgets IPython
 
-
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Non pris en charge.
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
-
 Les widgets sont des objets Python avec événement qui ont une représentation dans le navigateur, souvent sous forme de contrôle tel qu’un curseur, une zone de texte, etc. Les widgets IPython fonctionnent uniquement dans un environnement Python ; ils ne sont pas pris en charge dans d’autres langages (par exemple, Scala, SQL, C#). 
 
 ### <a name="to-use-ipython-widget"></a>Pour utiliser un widget IPython
@@ -619,23 +489,26 @@ Dans les propriétés du bloc-notes, vous pouvez éventuellement configurer l’
 
    ![Capture d’écran de notebook-properties](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
+<!--
+## Export a notebook
+You can Export your notebook to other standard formats. Synapse notebook supports to be exported into: 
+
++ Standard Notebook file(.ipynb) that is usually used for Jupyter notebooks. 
++ HTML file(.html) that can be opened from browser directly.  
++ Python file(.py).  
++ Latex file(.tex).  
+
+   ![Screenshot of notebook-export](./media/apache-spark-development-using-notebooks/synapse-notebook-export.png)
+
+-->
+
 ## <a name="magic-commands"></a>Commandes magic
 Vous pouvez utiliser des commandes magic Jupyter connues dans les notebooks Synapse. Vérifiez la liste suivante des commandes magic actuellement disponibles. Parlez-nous de [vos cas d’usage sur GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) pour nous permettre de continuer à créer des commandes magic supplémentaires afin de répondre à vos besoins.
 
 > [!NOTE]
 > Seules les commandes magic suivantes sont prises en charge dans le pipeline Synapse : %%pyspark, %%spark, %%csharp, %%sql. 
 >
->
 
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Commandes magic de ligne disponibles : [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
-
-Commandes magic de cellule disponibles : [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%configure](#spark-session-config-magic-command)
-
-
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 Commandes magic de ligne disponibles : [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
@@ -652,14 +525,6 @@ Sélectionnez le bouton **Ajouter au pipeline** dans le coin supérieur droit po
 ![Capture d’écran de l’ajout du bloc-notes au pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
 ### <a name="designate-a-parameters-cell"></a>Désigner une cellule de paramètres
-
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Pour paramétrer votre notebook, sélectionnez les points de sélection (…) pour accéder au menu des autres actions sur cellule à l’extrême droite. Sélectionnez ensuite **Activer/désactiver la cellule Paramètres** pour désigner la cellule comme cellule de paramètre.
-
-![Capture d’écran du paramètre basculer](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 Pour paramétrer votre notebook, sélectionnez le bouton de sélection (…) pour accéder au menu **Plus de commandes** au niveau de la barre d’outils de la cellule. Sélectionnez ensuite **Activer/désactiver la cellule Paramètres** pour désigner la cellule comme cellule de paramètre.
 
@@ -693,27 +558,6 @@ Tout comme les notebooks Jupyter, les notebooks Synapse disposent d’une interf
    ![Capture d’écran de edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode-2.png)
 
 ### <a name="shortcut-keys-under-command-mode"></a>Touches de raccourci en mode de commande
-
-# <a name="classical-notebook"></a>[Notebook classique](#tab/classical)
-
-Les raccourcis clavier suivants vous permettent de parcourir et d’exécuter plus facilement du code dans les notebooks Synapse.
-
-| Action |Raccourcis de notebook Synapse  |
-|--|--|
-|Exécuter la cellule active et sélectionner la cellule en dessous | Maj + Entrée |
-|Exécuter la cellule active et insérer en dessous | Alt + Entrée |
-|Sélectionner la cellule au-dessus| Haut |
-|Sélectionner la cellule en dessous| Descendre |
-|Insérer une cellule au-dessus| Un |
-|Insérer une cellule en dessous| B |
-|Étendre les cellules sélectionnées au-dessus| Maj + Haut |
-|Étendre les cellules sélectionnées en dessous| Maj + Bas|
-|Déplacer la cellule vers le haut| Ctrl + Alt + ↑ |
-|Déplacer la cellule vers le bas| Ctrl + Alt + ↓ |
-|Supprimer les cellules sélectionnées| D, D |
-|Basculer en mode d’édition| Entrez |
-
-# <a name="preview-notebook"></a>[Notebook en préversion](#tab/preview)
 
 | Action |Raccourcis de notebook Synapse  |
 |--|--|

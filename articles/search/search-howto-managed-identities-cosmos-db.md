@@ -2,17 +2,17 @@
 title: Configurer une connexion à un compte Cosmos DB à l’aide d’une identité managée
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment configurer une connexion d’indexeur à un compte Cosmos DB à l’aide d’une identité managée
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.openlocfilehash: 38709d7799d09e38fdebc8eebd7484504ce4ebd2
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: 0815f9c039a77c3589cb5bab0265288202f4b3d3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533164"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010628"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configurer une connexion d’indexeur à une base de données Cosmos DB à l’aide d’une identité managée
 
@@ -27,9 +27,9 @@ Avant d’en apprendre plus sur cette fonctionnalité, il est recommandé de com
 
 ## <a name="1---set-up-a-managed-identity"></a>1\. Configurer une identité managée
 
-Configurez l’[identité managée](../active-directory/managed-identities-azure-resources/overview.md) en utilisant l’une des options suivantes.
+Configurez l’[identité managée](../active-directory/managed-identities-azure-resources/overview.md) à l’aide de l’une des options suivantes.
 
-### <a name="option-1---turn-on-system-assigned-managed-identity"></a>Option 1 : Activer une identité managée affectée par le système
+### <a name="option-1---turn-on-system-assigned-managed-identity"></a>Option 1 – Activer l’identité managée affectée par le système
 
 Quand une identité managée affectée par le système est activée, Azure crée une identité pour votre service de recherche qui peut être utilisée pour vous authentifier auprès d’autres services Azure au sein du même locataire et du même abonnement. Vous pouvez ensuite utiliser cette identité dans les attributions de contrôle d’accès en fonction du rôle Azure (Azure RBAC) qui autorisent l’accès aux données pendant l’indexation.
 
@@ -39,20 +39,20 @@ Après avoir sélectionné **Enregistrer**, vous verrez un ID d’objet qui a é
 
 ![ID d’objet](./media/search-managed-identities/system-assigned-identity-object-id.png "ID de l'objet")
  
-### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>Option 2 : Attribuer une identité managée affectée par l’utilisateur au service de recherche (préversion)
+### <a name="option-2---assign-a-user-assigned-managed-identity-to-the-search-service-preview"></a>Option 2 – Affecter une identité managée affectée par l’utilisateur au service de recherche (préversion)
 
-Si vous n’avez pas encore créé d’identité managée affectée par l’utilisateur, vous devez en créer une. Une identité managée affectée par l’utilisateur est une ressource sur Azure.
+Si vous n’avez pas encore créé d’identité managée affectée par l’utilisateur, vous devez en créer une. Une identité managée affectée par l’utilisateur est une ressource Azure.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Sélectionnez **+ Créer une ressource**.
 1. Dans la barre de recherche « Services de recherche et marketplace », recherchez « Identité managée affectée par l’utilisateur », puis sélectionnez **Créer**.
-1. Donnez un nom descriptif à l’identité.
+1. Donnez à l’identité un nom descriptif.
 
-Ensuite, attribuez l’identité managée affectée par l’utilisateur au service de recherche. Cela peut être fait à l’aide de l’[API de gestion 2021-04-01-preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+Ensuite, attribuez l’identité managée affectée par l’utilisateur au service de recherche. Pour ce faire, vous pouvez utiliser l’[API de gestion en préversion du 01/04/2021](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
 La propriété d’identité prend un type et une ou plusieurs identités affectées par l’utilisateur complètes :
 
-* **type** est le type d’identité. Les valeurs valides sont « SystemAssigned », « UserAssigned » ou « SystemAssigned, UserAssigned » si vous souhaitez utiliser les deux. La valeur « None » effacera du service de recherche toutes les identités affectées précédemment.
+* **type** représente le type de l’identité. Les valeurs valides sont « SystemAssigned » ou « UserAssigned », ou « SystemAssigned, UserAssigned » si vous souhaitez utiliser les deux. La valeur « None » permet d’effacer du service de recherche toutes les identités affectées.
 * **userAssignedIdentities** comprend les détails de l’identité managée affectée par l’utilisateur.
     * Format de l’identité managée affectée par l’utilisateur : 
         * /subscriptions/**ID d’abonnement**/resourcegroups/**nom du groupe de ressources**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**nom de l’identité managée**
@@ -94,7 +94,7 @@ Dans cette étape, vous allez accorder à votre service Recherche cognitive Az
 
 4. Sélectionner le **rôle Lecteur de compte Cosmos DB**
 5. Laissez **Attribuer l’accès à** sur **Utilisateur, groupe ou principal de service Azure AD**.
-6. Si vous utilisez une identité managée affectée par le système, recherchez votre service de recherche, puis sélectionnez-le. Si vous utilisez une identité managée affectée par l’utilisateur, recherchez le nom de l’identité managée affectée par l’utilisateur, puis sélectionnez-le. Sélectionnez **Enregistrer**.
+6. Si vous utilisez une identité managée affectée par le système, recherchez votre service de recherche, puis sélectionnez-le. Si vous utilisez une identité managée affectée par l’utilisateur, recherchez le nom de l’identité managée affectée par l’utilisateur, puis sélectionnez-la. Sélectionnez **Enregistrer**.
 
     Exemple pour Cosmos DB utilisant une identité managée affectée par le système :
 
@@ -102,7 +102,7 @@ Dans cette étape, vous allez accorder à votre service Recherche cognitive Az
 
 ## <a name="3---create-the-data-source"></a>3 – Créer la source de données
 
-Créez la source de données et fournissez soit une identité managée affectée par le système, soit une identité managée affectée par l’utilisateur (préversion). Notez que vous n’utilisez plus l’API REST de gestion dans les étapes ci-dessous.
+Créez la source de données et indiquez une identité managée affectée par le système ou une identité managée affectée par l’utilisateur (préversion). Notez que vous n’utilisez plus l’API REST de gestion dans les étapes ci-dessous.
 
 ### <a name="option-1---create-the-data-source-with-a-system-assigned-managed-identity"></a>Option 1 : Créer la source de données avec une identité managée affectée par le système
 
@@ -142,7 +142,7 @@ Le corps de la requête contient la définition de la source de données, qui do
 
 ### <a name="option-2---create-the-data-source-with-a-user-assigned-managed-identity"></a>Option 2 : Créer la source de données avec une identité managée affectée par l’utilisateur
 
-L’API REST 2021-04-30-preview prend en charge l’utilisation d’une identité managée affectée par l’utilisateur. Voici un exemple de création d’une source de données pour indexer des données à partir d’un compte de stockage à l’aide de l’[API REST](/rest/api/searchservice/create-data-source), d’une chaîne de connexion d’identité managée et de l’identité managée affectée par l’utilisateur.
+L’API REST en préversion du 30/04/2021 prend en charge l’identité managée affectée par l’utilisateur. Voici un exemple de création d’une source de données pour indexer des données à partir d’un compte de stockage à l’aide de l’[API REST](/rest/api/searchservice/create-data-source), d’une chaîne de connexion d’identité managée et de l’identité managée affectée par l’utilisateur.
 
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-preview

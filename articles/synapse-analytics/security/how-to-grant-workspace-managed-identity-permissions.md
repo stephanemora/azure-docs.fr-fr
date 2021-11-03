@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: mesrivas
 ms.reviewer: jrasnick
 ms.custom: subject-rbac-steps
-ms.openlocfilehash: 10244038ca2dee9551def5e0abcd102d42daa235
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 03c5d976010e136ab5b91efc632594253eedca1c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531708"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054663"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity"></a>Octroyer des autorisations à une identité managée de l’espace de travail
 
@@ -22,14 +22,6 @@ Cet article vous explique comment octroyer des autorisations pour l’identité 
 
 >[!NOTE]
 >Cette identité managée de l’espace de travail sera appelée « identité managée » dans le reste de ce document.
-
-## <a name="grant-managed-identity-permissions-to-the-dedicated-sql-pool"></a>Accorder des autorisations d’identité managée au pool SQL dédié
-
-L’identité managée octroie des autorisations aux pools SQL dédiés de l’espace de travail. Une fois les autorisations octroyées, vous pouvez orchestrer des pipelines qui effectuent des activités en lien avec les pools SQL dédiés. Lorsque vous créez un espace de travail Azure Synapse à l’aide du portail Azure, vous pouvez accorder les autorisations CONTROL d’identité managée sur les pools SQL dédiés.
-
-Sélectionnez **Sécurité** lors de la création de votre espace de travail Azure Synapse. Sélectionnez ensuite **Allow pipelines (running as workspace's system assigned identity) to access SQL pools** (Autoriser les pipelines [s’exécutant en tant qu’identité affectée par le système de l’espace de travail] pour accéder aux pools SQL).
-
-![Autorisation CONTROL sur les pools SQL dédiés](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Octroyer les autorisations de l'identité managée au compte de stockage ADLS Gen2
 
@@ -83,9 +75,9 @@ Sélectionnez le même conteneur ou système de fichiers pour octroyer le rôle 
     
     | Paramètre | Valeur |
     | --- | --- |
-    | Role | Contributeur à Stockage Blob |
+    | Role | Contributeur du Stockage Blob |
     | Attribuer l’accès à | MANAGEDIDENTITY |
-    | Membres | nom de l’identité managée  |
+    | Membres | Nom de l’identité managée  |
 
     > [!NOTE]
     > Le nom de l’identité managée correspond également au nom de l’espace de travail.

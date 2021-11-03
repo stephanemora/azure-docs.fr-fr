@@ -4,12 +4,13 @@ description: Vous pouvez utiliser Azure Video Analyzer pour un enregistrement vi
 ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 09/08/2021
-ms.openlocfilehash: 68eb62e126065a6c39b5fd6648afb4b96accbd2d
-ms.sourcegitcommit: 03e84c3112b03bf7a2bc14525ddbc4f5adc99b85
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 9359d51e1767793e1d838777cb76a3af04f30c6d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2021
-ms.locfileid: "129401918"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073684"
 ---
 # <a name="tutorial-real-time-visualization-of-ai-inference-events-with-power-bi"></a>Tutoriel : Visualisation en temps réel des événements d’inférence IA avec Power BI
 
@@ -18,7 +19,7 @@ Azure Video Analyzer offre la possibilité de capturer, enregistrer et analyser 
 Les tableaux de bord constituent un outil intelligent pour superviser votre activité et visualiser toutes vos métriques importantes en un clin d’œil. Vous pouvez visualiser les événements d’inférence IA générés par Video Analyzer à l’aide de [Microsoft Power BI](https://powerbi.microsoft.com/) par le biais d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#overview) de sorte à obtenir rapidement des insights et à partager des tableaux de bord avec vos collègues au sein de votre organisation.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/tutorial-block-diagram.png" alt-text="Schéma fonctionnel de connexion d’Azure Video Analyzer à Microsoft Power BI par le biais d’Azure Stream Analytics.":::
+> :::image type="content" source="./media/power-bi/tutorial-block-diagram.svg" alt-text="Schéma fonctionnel de connexion d’Azure Video Analyzer à Microsoft Power BI par le biais d’Azure Stream Analytics.":::
 
 Ce didacticiel présente les procédures suivantes :
 

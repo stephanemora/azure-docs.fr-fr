@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 0781d627052eaef14583739bba612d6c56aca56c
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: 749d807f15419445ff82f8e4b621efca034885a7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129715796"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074229"
 ---
 # <a name="log-analytics-agent-overview"></a>Présentation de l’agent Log Analytics
 
@@ -26,7 +26,7 @@ Les principales différences à prendre en compte sont les suivantes :
 
 - L’extension Diagnostics Azure peut être utilisée uniquement avec des machines virtuelles Azure. L’agent Log Analytics peut être utilisé avec des machines virtuelles dans Azure, dans d’autres clouds et en local.
 - L’extension Diagnostics Azure envoie des données à Stockage Azure, à [Azure Monitor Metrics](../essentials/data-platform-metrics.md) (Windows uniquement) et à Event Hubs. L’agent Log Analytics envoie des données aux [journaux Azure Monitor](../logs/data-platform-logs.md).
-- L’agent Log Analytics est requis pour les [solutions](../monitor-reference.md#insights-and-core-solutions), [VM Insights](../vm/vminsights-overview.md) et d’autres services tels qu’[Azure Security Center](../../security-center/index.yml).
+- L’agent Log Analytics est requis pour les [solutions](../monitor-reference.md#insights-and-curated-visualizations), [VM Insights](../vm/vminsights-overview.md) et d’autres services tels qu’[Azure Security Center](../../security-center/index.yml).
 
 ## <a name="costs"></a>Coûts
 

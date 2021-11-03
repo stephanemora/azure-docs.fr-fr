@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: 9de59b4510642ab70540c4217ef074347a34ac89
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f0d8822800ffba5da90f1ffdd68e0d0331963d44
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124764181"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045232"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données dans Stockage Blob Azure à l’aide d’Azure Data Factory ou d’Azure Synapse Analytics
 
@@ -347,7 +347,7 @@ Pour des informations générales sur l’authentification de Stockage Azure, co
     - **En tant que source**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Lecteur des données blob du stockage**.
     - **En tant que récepteur**, dans **Contrôle d’accès (IAM)** , accordez au moins le rôle **Contributeur aux données Blob du stockage**.
      
-2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique de données et [créez des informations d’identification](data-factory-service-identity.md#credentials) pour chaque identité managée affectée par l’utilisateur. 
+2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique de données et [créez des informations d’identification](credentials.md) pour chaque identité managée affectée par l’utilisateur. 
 
 
 Les propriétés prises en charge pour un service lié de Stockage Blob Azure sont les suivantes :

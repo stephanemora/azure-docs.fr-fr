@@ -7,12 +7,12 @@ ms.service: notification-hubs
 ms.topic: how-to
 ms.date: 09/07/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 0de15ab1f16ab5bc234ad6430eae5f65e608753e
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: ae1f52ea007746ab162f13edf77f34fe8c8157c1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128602548"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131004974"
 ---
 # <a name="move-resources-between-azure-regions"></a>Déplacer des ressources entre les régions Azure
 
@@ -54,7 +54,7 @@ Après avoir terminé l’exportation de l’inscription de votre ancien espace 
 
 Les articles suivants présentent des exemples d’autres services qui ont mis en place un déplacement entre régions.
 
-- [Déplacer des groupes de sécurité réseau vers une autre région](/azure/virtual-network/move-across-regions-nsg-portal)
-- [Déplacer des IP publiques vers une autre région](/azure/virtual-network/move-across-regions-publicip-portal)
-- [Déplacer un compte de stockage vers une autre région](/azure/storage/common/storage-account-move?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
-- [Déplacer des ressources entre régions (à partir d’un groupe de ressources)](/azure/resource-mover/move-region-within-resource-group#:~:text=1%20In%20the%20Azure%20portal%2C%20open%20the%20relevant,you%20want%20to%20move.%20...%20More%20items...%20)
+- [Déplacer des groupes de sécurité réseau vers une autre région](../virtual-network/move-across-regions-nsg-portal.md)
+- [Déplacer des IP publiques vers une autre région](../virtual-network/move-across-regions-publicip-portal.md)
+- [Déplacer un compte de stockage vers une autre région](../storage/common/storage-account-move.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Déplacer des ressources entre régions (à partir d’un groupe de ressources)](../resource-mover/move-region-within-resource-group.md)

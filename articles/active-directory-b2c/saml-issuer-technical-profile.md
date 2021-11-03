@@ -3,20 +3,20 @@ title: Définir un profil technique pour un émetteur SAML dans une stratégie p
 titleSuffix: Azure AD B2C
 description: Définissez un profil technique pour un émetteur de jeton SAML (Security Assertion Markup Language) dans une stratégie personnalisée d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/12/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 54869c14cf7c5a7e43f34102f5c95e37689dfee8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 03e67143c0eb0e4a6d57d928d65becc519271f4b
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095338"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131044396"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique pour un émetteur de jeton SAML dans une stratégie personnalisée Azure Active Directory B2C
 

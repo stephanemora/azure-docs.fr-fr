@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 045178a30088ccfd8b76d70d210e29c5a9253ac1
-ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 093db947b30444b4d7c3614126c83977fd45e3de
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2021
-ms.locfileid: "114294376"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083951"
 ---
 # <a name="use-triggers-and-actions-in-azure-sentinel-playbooks"></a>Utilisation de déclencheurs et d’actions dans les playbooks Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Ce document explique les types de déclencheurs et d’actions du [connecteur Logic Apps Azure Sentinel](/connectors/azuresentinel/) que les playbooks peuvent utiliser pour interagir avec Azure Sentinel et les informations contenues dans les tables de votre espace de travail. Il vous montre également comment accéder à des types spécifiques d’informations Azure Sentinel dont vous aurez probablement besoin.
 
@@ -33,7 +36,7 @@ Pour connaître la spécification complète du connecteur Azure Sentinel, consul
 
 ## <a name="permissions-required"></a>Autorisations requises
 
-| Rôles/composants du connecteur | Déclencheurs | Actions « Get » | Mettre à jour l’incident,<br>ajouter un commentaire |
+| Rôles/Composants du connecteur | Déclencheurs | Actions « Get » | Mettre à jour l’incident,<br>ajouter un commentaire |
 | ------------- | :-----------: | :------------: | :-----------: |
 | **[Lecteur Azure Sentinel](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)** | &#10003; | &#10003; | &#10007; |
 | **[Répondeur](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)/[Contributeur](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) Azure Sentinel** | &#10003; | &#10003; | &#10003; |

@@ -1,17 +1,17 @@
 ---
 title: Équilibrer la charge des connexions clientes vers Azure HPC Cache
 description: Comment configurer un serveur DNS pour l’équilibrage de charge par tourniquet (Round Robin) pour Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: v-erkel
-ms.openlocfilehash: 2a8c35db125b80223cbb4f07e8c01ca45428a3a8
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.author: femila
+ms.openlocfilehash: d1346a6060fe1093d7dec37f6fbefb43bee800ab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130004936"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019967"
 ---
 # <a name="load-balance-hpc-cache-client-traffic"></a>Équilibrer la charge du trafic client de HPC Cache
 

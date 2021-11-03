@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 631330195ec9f38f3a059b0515d4f6255cd23677
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: a9dd37d74a12f262584f1cf41955b1444134a7ec
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130262182"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065301"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -414,20 +414,19 @@ Cette section fournit des informations supplémentaires concernant le code dans 
     {
     // Get the list of input blobs from the input storage client object.
     BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
-
-                         true,
-                                   BlobListingDetails.Metadata,
-                                   null,
-                                   continuationToken,
-                                   null,
-                                   null);
+                                    true,
+                                    BlobListingDetails.Metadata,
+                                    null,
+                                    continuationToken,
+                                    null,
+                                    null);
     // Return a string derived from parsing each blob.
 
      output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
     } while (continuationToken != null);
-
     ```
+
    Pour plus d’informations, consultez la documentation de la méthode [ListBlobsSegmented](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented).
 
 1. Le code permettant de parcourir l’ensemble d’objets blob s’inscrit logiquement dans la boucle do-while. Dans la méthode **Execute**, la boucle do-while transmet la liste d’objets blob à une méthode nommée **Calculate**. La méthode renvoie une variable de chaîne nommée **output** , qui correspond au résultat de l’itération dans tous les objets blob du segment.
@@ -448,7 +447,8 @@ Cette section fournit des informations supplémentaires concernant le code dans 
     ```csharp
     folderPath = GetFolderPath(outputDataset);
     ```
-   La méthode GetFolderPath effectue un cast de l’objet DataSet en un AzureBlobDataSet, qui comporte une propriété nommée FolderPath.
+
+    La méthode GetFolderPath effectue un cast de l’objet DataSet en un AzureBlobDataSet, qui comporte une propriété nommée FolderPath.
 
     ```csharp
     AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
@@ -735,8 +735,6 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
 > [!IMPORTANT]
 > Si vous n’avez pas chargé le fichier **file.txt** dans les dossiers d’entrée du conteneur d’objets blob, faites-le avant de créer le pipeline. La propriété **isPaused** étant réglée sur false dans le fichier JSON, le pipeline s’exécute immédiatement, car la date de **début** est passée.
->
->
 
 1. Dans Data Factory Editor, sélectionnez **Nouveau pipeline** dans la barre de commandes. Si vous ne voyez pas la commande, sélectionnez le symbole de points de suspension pour l’afficher.
 
@@ -785,6 +783,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
       }
     }
     ```
+
    Notez les points suivants :
 
    * Le pipeline ne contient qu’une seule activité de type **DotNetActivity**.
@@ -830,9 +829,10 @@ Au cours de cette étape, vous testez le pipeline en déposant des fichiers dans
 
    Cinq tranches de sortie sont indiquées, une pour chaque tranche d’entrée. Chaque fichier de sortie a un contenu similaire à ce qui suit :
 
-    ```
+    ```output
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
     ```
+
    Le diagramme suivant illustre comment les tranches Data Factory sont mappées à des tâches dans Azure Batch. Dans cet exemple, une tranche n’est exécutée qu’une seule fois.
 
    :::image type="content" source="./media/data-factory-data-processing-using-batch/image16.png" alt-text="Schéma de mappage de tranche":::
