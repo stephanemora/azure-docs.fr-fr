@@ -10,18 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
-ms.openlocfilehash: cf0580c96f5bf78f0444b2bb39088f2a417fd658
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 6fe1739006f3f5b9943076c917cc2e3ef5dc2efa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025059"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024559"
 ---
 # <a name="how-to-configure-a-microphone-array"></a>Guide pratique pour configurer un réseau de microphones
 
-Dans cet article, vous allez apprendre à configurer un [réseau de microphones](./speech-devices-sdk-microphone.md). Cela inclut la définition de l’angle de travail et le mode de sélection du microphone utilisé pour le SDK Speech Devices.
+Dans cet article, vous allez apprendre à configurer un [réseau de microphones](./speech-sdk-microphone.md). Cela inclut la définition de l’angle de travail et le mode de sélection du microphone utilisé pour le SDK Speech Devices.
 
-Le fonctionnement du SDK Speech Devices est optimal avec un réseau de microphones conçu conformément à [nos instructions](./speech-devices-sdk-microphone.md). La configuration d’un réseau de microphones peut être fournie par le système d’exploitation ou obtenue par le biais de l’une des méthodes suivantes.
+Le fonctionnement du SDK Speech Devices est optimal avec un réseau de microphones conçu conformément à [nos instructions](./speech-sdk-microphone.md). La configuration d’un réseau de microphones peut être fournie par le système d’exploitation ou obtenue par le biais de l’une des méthodes suivantes.
 
 Le SDK Speech Devices prenait initialement en charge les réseaux de microphones en sélectionnant une configuration parmi un ensemble fixe de configurations.
 

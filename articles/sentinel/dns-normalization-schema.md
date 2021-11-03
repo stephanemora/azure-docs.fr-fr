@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/15/2021
 ms.author: bagol
-ms.openlocfilehash: 4bdb65fddfe7f72407c432fd03cce0558637ab39
-ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f2aae24d6a3e4fff70443107d769f0e23c82bfbc
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129419009"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046980"
 ---
 # <a name="azure-sentinel-dns-normalization-schema-reference-public-preview"></a>Informations de référence de schéma de normalisation DNS Azure Sentinel (préversion publique)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Le modèle d’informations DNS est utilisé pour décrire les événements signalés par un serveur DNS ou un système de sécurité DNS, et il est utilisé par Azure Sentinel pour activer l’analytique indépendante de la source.
 
@@ -60,7 +62,7 @@ imDNS | where SrcIpAddr != "127.0.0.1" and EventSubType == "response"
 
 Pour utiliser les analyseurs indépendants de la source qui unifient tous les analyseurs intégrés, et vérifier que votre analyse s’exécute sur toutes les sources configurées, utilisez les fonctions KQL suivantes comme nom de table dans votre requête :
 
-| Name | Description | Instructions d’utilisation |
+| Nom | Description | Instructions d’utilisation |
 | --- | --- | --- |
 | **imDNS** | Analyseur d’agrégation qui utilise *union* pour inclure des événements normalisés de toutes les sources DNS. |– Mettez à jour cet analyseur si vous souhaitez ajouter ou supprimer des sources de l’analytique indépendante de la source. <br><br>– Utilisez cette fonction dans vos requêtes indépendantes de la source.|
 | **ASimDNS** | Similaire à la fonction `imDns`, mais sans prise en charge des paramètres et, par conséquent, ne force pas le sélecteur d’heure de page **Journaux** à utiliser la value `custom`. |– Mettez à jour cet analyseur si vous souhaitez ajouter ou supprimer des sources de l’analytique indépendante de la source.<br><br>- Utilisez cette fonction dans vos requêtes indépendantes de la source si vous n’envisagez pas d’utiliser de paramètres.|
@@ -93,7 +95,7 @@ Les analyseurs `im` et `vim*` prennent en charge les [paramètres de filtrage](n
 
 Les paramètres de filtrage suivants sont disponibles :
 
-| Name     | Type      | Description |
+| Nom     | Type      | Description |
 |----------|-----------|-------------|
 | **starttime** | DATETIME | Filtrez uniquement les requêtes DNS qui ont été exécutées à ce moment-là ou après. |
 | **endtime** | DATETIME | Filtrez uniquement les requêtes DNS dont l’exécution s’est terminée à ce moment-là ou avant. |
@@ -156,7 +158,7 @@ Les champs suivants sont générés par Log Analytics pour chaque enregistremen
 | --- | --- | --- |
 | <a name=timegenerated></a>**TimeGenerated** | Date/heure | Heure à laquelle l’événement a été généré par l’appareil de création de rapports. |
 | **\_ResourceId** | guid | ID de ressource Azure de l’appareil ou du service de création de rapports, ou l’ID de ressource de redirecteur de journal pour les événements transférés avec Syslog, CEF ou WEF. |
-| **Type** | String | La table d’origine à partir de laquelle l’enregistrement a été récupéré. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, et ont les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
+| **Type** | String | Table d’origine à partir de laquelle l’enregistrement a été extrait. Ce champ est utile lorsque le même événement peut être reçu via plusieurs canaux vers différentes tables, et ont les mêmes valeurs EventVendor et EventProduct.<br><br>Par exemple, un événement Sysmon peut être collecté dans la table Event ou dans la table WindowsEvent. |
 | | | |
 
 > [!NOTE]
@@ -324,7 +326,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 - [Normalisation dans Azure Sentinel](normalization.md)
 - [Informations de référence sur le schéma de normalisation de l’authentification Azure Sentinel (préversion publique)](authentication-normalization-schema.md)
-- [Référence de schéma de normalisation des données Azure Sentinel](normalization-schema.md)
+- [Référence de schéma de normalisation des données Azure Sentinel](./network-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation des événements de fichier Azure Sentinel (préversion publique)](file-event-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation des événements de processus Azure Sentinel](process-events-normalization-schema.md)
 - [Informations de référence sur le schéma de normalisation des événements du registre Azure Sentinel (préversion publique)](registry-event-normalization-schema.md)

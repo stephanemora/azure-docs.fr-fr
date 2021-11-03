@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 1244959bac7a2c530444e3d4b36691d4f760529a
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2d618dacc14c188c188f92be41de3fba20eabe38
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531766"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014217"
 ---
 # <a name="automate-incident-handling-in-azure-sentinel-with-automation-rules"></a>Automatiser la gestion des incidents dans Azure Sentinel à l’aide de règles d’automatisation
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article explique les règles d’automatisation d’Azure Sentinel et la manière de les utiliser pour implémenter vos opérations d’orchestration, d’automatisation et de réponse en matière de sécurité (Security Orchestration, Automation and Response, SOAR), en renforçant l’efficacité de votre SOC et en vous permettant d’économiser du temps et des ressources.
 

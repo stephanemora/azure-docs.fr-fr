@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 4aed4ab38db9f8d8b95647b6662245c93778afed
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: c527c80b540f38102792f1e2da27c25e55c7fb77
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107520154"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003976"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Vue d’ensemble des clusters Service Fabric sur Azure
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou machine virtuelle faisant partie d’un cluster est appelée un nœud de cluster. Les clusters peuvent être mis à l’échelle pour des milliers de nœuds. Si vous ajoutez des nœuds au cluster, Service Fabric rééquilibre les réplicas de partition du service et les instances sur le nombre de nœuds augmenté. Les performances globales de l’application s’améliorent tandis que le conflit d’accès à la mémoire diminue. Si les nœuds du cluster ne sont pas utilisés efficacement, vous pouvez diminuer le nombre de nœuds dans le cluster. Service Fabric rééquilibre à nouveau les réplicas de partition et les instances sur le nombre réduit de nœuds afin de mieux utiliser le matériel sur chaque nœud.
@@ -46,9 +46,9 @@ Vous pouvez utiliser des groupes identiques pour déployer et gérer une collect
 Pour plus d’informations, consultez [Types de nœuds Service Fabric et groupes de machines virtuelles identiques](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Les instances de machine virtuelle sont jointes derrière un [équilibreur de charge Azure](../load-balancer/load-balancer-overview.md), qui est associé à une [adresse IP publique](../virtual-network/public-ip-addresses.md) et à des étiquette DNS.  Quand vous configurez un cluster avec *&lt;nom_cluster&gt;* , le nom DNS, *&lt;nom_cluster&gt;.&lt;emplacement&gt;.cloudapp.azure.com* est l’étiquette DNS associée à l’équilibreur de charge placé devant le groupe identique.
+Les instances de machine virtuelle sont jointes derrière un [équilibreur de charge Azure](../load-balancer/load-balancer-overview.md), qui est associé à une [adresse IP publique](../virtual-network/ip-services/public-ip-addresses.md) et à des étiquette DNS.  Quand vous configurez un cluster avec *&lt;nom_cluster&gt;* , le nom DNS, *&lt;nom_cluster&gt;.&lt;emplacement&gt;.cloudapp.azure.com* est l’étiquette DNS associée à l’équilibreur de charge placé devant le groupe identique.
 
-Les machines virtuelles d’un cluster ont seulement des [adresses IP privées](../virtual-network/private-ip-addresses.md).  Le trafic de gestion et le trafic de service sont routés par le biais de l’équilibreur de charge public.  Le trafic réseau est routé vers ces machines à l’aide de règles NAT (les clients se connectent à des instances/nœuds spécifiques) ou de règles d’équilibrage de charge (le trafic est dirigé vers des machines virtuelles par tourniquet (Round Robin)).  Un équilibreur de charge a une adresse IP publique associée avec un nom DNS au format suivant : *&lt;nom_cluster&gt;.&lt;emplacement&gt;.cloudapp.azure.com*.  Une adresse IP publique est une autre ressource Azure dans le groupe de ressources.  Si vous définissez plusieurs types de nœuds dans un cluster, un équilibreur de charge est créé pour chaque type de nœud/groupe identique. Vous pouvez aussi configurer un seul équilibreur de charge pour plusieurs types de nœuds.  Le type de nœud principal a l’étiquette DNS *&lt;nom_cluster&gt;.&lt;emplacement&gt;.cloudapp.azure.com*. Les autres types de nœuds ont l’étiquette DNS *&lt;nom_cluster&gt;-&lt;type_nœud&gt;.&lt;emplacement&gt;.cloudapp.azure.com*.
+Les machines virtuelles d’un cluster ont seulement des [adresses IP privées](../virtual-network/ip-services/private-ip-addresses.md).  Le trafic de gestion et le trafic de service sont routés par le biais de l’équilibreur de charge public.  Le trafic réseau est routé vers ces machines à l’aide de règles NAT (les clients se connectent à des instances/nœuds spécifiques) ou de règles d’équilibrage de charge (le trafic est dirigé vers des machines virtuelles par tourniquet (Round Robin)).  Un équilibreur de charge a une adresse IP publique associée avec un nom DNS au format suivant : *&lt;nom_cluster&gt;.&lt;emplacement&gt;.cloudapp.azure.com*.  Une adresse IP publique est une autre ressource Azure dans le groupe de ressources.  Si vous définissez plusieurs types de nœuds dans un cluster, un équilibreur de charge est créé pour chaque type de nœud/groupe identique. Vous pouvez aussi configurer un seul équilibreur de charge pour plusieurs types de nœuds.  Le type de nœud principal a l’étiquette DNS *&lt;nom_cluster&gt;.&lt;emplacement&gt;.cloudapp.azure.com*. Les autres types de nœuds ont l’étiquette DNS *&lt;nom_cluster&gt;-&lt;type_nœud&gt;.&lt;emplacement&gt;.cloudapp.azure.com*.
 
 ### <a name="storage-accounts"></a>Comptes de stockage
 Chaque type de nœud de cluster est pris en charge par un [compte de stockage Azure](../storage/common/storage-introduction.md) et des disques managés.

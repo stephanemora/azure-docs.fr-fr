@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/28/2021
 ms.author: kuthapar
-ms.openlocfilehash: fa0fc899453c11858d518ed5f224b6eb94e218f4
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: aa4b870a76d9d346116a48633bf3baddc7c44ef4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116324"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056687"
 ---
 # <a name="kafka-connect-for-azure-cosmos-db---sink-connector"></a>Kafka Connect pour Azure Cosmos DB – Connecteur du récepteur
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -22,9 +22,9 @@ Kafka Connect pour Azure Cosmos DB est un connecteur permettant de lire et d’�
 ## <a name="prerequisites"></a>Prérequis
 
 * Partez de la [configuration de plateforme Confluent](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md), qui offre un environnement complet. Si vous ne souhaitez pas utiliser la plateforme Confluent, vous devrez installer et configurer vous-même ZooKeeper, Apache Kafka et Kafka Connect. Il vous faudra également installer et configurer manuellement les connecteurs Azure Cosmos DB.
-* Créez un compte Azure Cosmos DB et un conteneur ([guide de configuration](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md)).
-* Munissez-vous d’un interpréteur de commandes Bash, testé sur GitHub Codespaces, Mac, Ubuntu et Windows avec WSL2. Cet interpréteur de commandes ne fonctionne pas dans Cloud Shell ou WSL1.
-* Téléchargez [Java 11 (ou version ultérieure)](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html).
+* Créez un compte Azure Cosmos DB et un conteneur ([guide de configuration](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md))
+* Munissez-vous d'un interpréteur de commandes Bash, testé sur GitHub Codespaces, Mac, Ubuntu et Windows avec WSL2. Cet interpréteur de commandes ne fonctionne pas dans Cloud Shell ou WSL1.
+* Télécharger [Java 11 (ou version ultérieure)](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 * Téléchargez [Maven](https://maven.apache.org/download.cgi).
 
 ## <a name="install-sink-connector"></a>Installation du connecteur du récepteur
@@ -106,7 +106,7 @@ Pour plus d’informations sur chacune de ces propriétés de configuration, con
 }
 ```
 
-Une fois que toutes les valeurs sont remplies, enregistrez le fichier JSON en local. Vous pourrez l’utiliser pour créer le connecteur à l’aide de l'API REST.
+Une fois que toutes les valeurs sont remplies, enregistrez le fichier JSON en local. Vous pourrez l'utiliser pour créer le connecteur à l'aide de l'API REST.
 
 ### <a name="create-connector-using-control-center"></a>Création d’un connecteur avec le centre de contrôle
 
@@ -172,7 +172,7 @@ Le connecteur du récepteur Azure Cosmos DB convertit l’enregistrement du réc
 | Type de schéma | Type de données JSON |
 | :--- | :--- |
 | Array | Array |
-| Booléen | Booléen |
+| Boolean | Booléen |
 | Float32 | Nombre |
 | Float64 | Nombre |
 | Int8 | Nombre |
@@ -295,7 +295,7 @@ org.apache.kafka.common.errors.SerializationException: Unknown magic byte!
 
 Kafka Connect prend en charge une structure spéciale de messages JSON contenant à la fois la charge utile et le schéma.
 
- ```json
+```json
 {
   "schema": {
     "type": "struct",

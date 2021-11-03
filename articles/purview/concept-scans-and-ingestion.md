@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 08/18/2021
-ms.openlocfilehash: 42162519e9e8f3835498d8955adbd7c254775dd9
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: af12878750c6976a3ce3b459d9cf1ff6b262c112
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129211712"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024028"
 ---
 # <a name="scans-and-ingestion-in-azure-purview"></a>Analyses et ingestion dans Azure Purview
 
@@ -38,7 +39,7 @@ Chaque fois que cela est possible, une identité gérée est la méthode d’aut
 
 Lorsque vous analysez une source, vous avez la possibilité d’analyser l’intégralité de la source de données ou de choisir uniquement des entités spécifiques (dossiers/tables) à analyser. Les options disponibles dépendent de la source que vous scannez et peuvent être définies pour des analyses ponctuelles et planifiées.
 
-Par exemple, lors de la [création et de l’exécution d’une analyse pour une Azure SQL Database](register-scan-azure-sql-database.md#creating-and-running-a-scan), vous pouvez choisir les tables à analyser ou sélectionner l’intégralité de la base de données.
+Par exemple, lors de la [création et de l’exécution d’une analyse pour une Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan), vous pouvez choisir les tables à analyser ou sélectionner l’intégralité de la base de données.
 
 ### <a name="scan-rule-set"></a>Ensemble de règles d’analyse
 
@@ -74,5 +75,5 @@ Les métadonnées techniques ou les classifications identifiées par le processu
 Pour plus d’informations ou pour obtenir des instructions spécifiques pour l’analyse des sources, suivez les liens ci-dessous.
 
 * Pour comprendre les ensembles de ressources, consultez notre [article sur les ensembles de ressources](concept-resource-sets.md).
-* [Comment inscrire et analyser une base de données Azure SQL Database](register-scan-azure-sql-database.md#creating-and-running-a-scan)
+* [Comment inscrire et analyser une base de données Azure SQL Database](register-scan-azure-sql-database.md#creating-the-scan)
 * [Lignage dans Azure Purview](catalog-lineage-user-guide.md)

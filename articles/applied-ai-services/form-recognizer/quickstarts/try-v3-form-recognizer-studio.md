@@ -9,17 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.openlocfilehash: bb1c2ee770380b5f8689b1dd8f25712293a0bcb2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: a14cd140d2bb0d2768c85fa2addca2140ccb1ffa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130220210"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026730"
 ---
 # <a name="get-started-form-recognizer-studio--preview"></a>Bien démarrer : Form Recognizer Studio | Préversion
 
 >[!NOTE]
-> Form Recognizer Studio est actuellement en préversion publique. Certaines fonctionnalités risquent de ne pas être prises en charge ou d’avoir des capacités limitées. 
+> Form Recognizer Studio est actuellement en préversion publique. Certaines fonctionnalités peuvent ne pas être prises en charge ou avoir des capacités limitées. 
 
 [Form Recognizer Studio (préversion)](https://formrecognizer.appliedai.azure.com/) est un outil en ligne permettant d’explorer, de comprendre et d’intégrer visuellement des fonctionnalités du service Form Recognizer dans vos applications. Commencez à explorer les modèles préentraînés avec des exemples de documents ou vos propres documents. Créez des projets pour générer des modèles de formulaire personnalisés et référencez ces modèles dans vos applications à l’aide du [kit SDK Python (préversion)](try-v3-python-sdk.md) et d’autres guides de démarrage rapide.
 
@@ -106,6 +107,14 @@ En mode Mise en page :
 
 ## <a name="prebuilt-models"></a>Modèles prédéfinis
 
+Vous avez le choix entre plusieurs modèles prédéfinis, chacun ayant son propre ensemble de champs pris en charge. Le modèle à utiliser pour l’opération d’analyse dépend du type de document à analyser. Voici les modèles prédéfinis actuellement pris en charge par le service Form Recognizer :
+
+* [🆕 **Document général**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document) – Analysez et extrayez le texte, les tableaux, la structure, les paires clé-valeur et les entités nommées.|
+* [**Facture**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice) : extrait le texte, les marques de sélection, les tableaux, les paires clé-valeur et les informations clés des factures.
+* [**Reçu**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt) : extrait le texte et les informations clés des reçus.
+* [**Document d’identité**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument) : extrait le texte et les informations clés des permis de conduire et des passeports internationaux.
+* [**Carte de visite**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard) : extrait le texte et les informations clés des cartes de visite.
+
 Dans la vue Prédéfinis :
 
 1. Dans la page d’accueil de Studio, sélectionnez l’un des modèles prédéfinis. Dans cet exemple, nous utilisons le modèle Facture.
@@ -126,7 +135,7 @@ Dans la vue Prédéfinis :
 
 Pour créer des modèles personnalisés, vous commencez par configurer votre projet :
 
-1. Dans la page d’accueil de Studio, sélectionnez le projet Formulaire personnalisé pour ouvrir la page d’accueil Formulaire personnalisé.
+1. Dans la page d’accueil de Studio, sélectionnez le [projet Formulaire personnalisé](https://formrecognizer.appliedai.azure.com/studio/customform/projects) pour ouvrir la page d’accueil Formulaire personnalisé.
 
 1. Utilisez la commande « Créer un projet » pour démarrer l’Assistant Nouvelle configuration de projet.
 

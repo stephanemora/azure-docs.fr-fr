@@ -47,6 +47,8 @@
       href: manage-permissions.md
     - name: Engager une réponse rapide DDoS (DRR)
       href: ddos-rapid-response.md
+    - name: Protection DDoS L7 incluse avec la passerelle Load Balancer et le partenaire NVA
+      href: inline-protection-glb.md
     - name: Intégrer des partenaires
       href: ddos-protection-partner-onboarding.md
 - name: Informations de référence

@@ -4,15 +4,15 @@ description: Découvrez comment créer et gérer une offre SaaS sur Microsoft Ap
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 10/08/2021
+ms.date: 10/25/2021
 author: saasguide
 ms.author: souchak
-ms.openlocfilehash: c420a2fd947e32acb0cce9a6ce4a73ddd1d2a3bd
-ms.sourcegitcommit: 216b6c593baa354b36b6f20a67b87956d2231c4c
+ms.openlocfilehash: 2defbfba47f40780be507636e300a4d0859f4864
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129729137"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048315"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API de traitement SaaS version 2 sur la Place de marché commerciale
 
@@ -39,14 +39,16 @@ Pour la création du compte :
 
 Un exemple de ce type d’appel est `https://contoso.com/signup?token=<blob>`, tandis que l’URL de la page d’arrivée de cette offre SaaS dans l’Espace partenaires est configurée comme `https://contoso.com/signup`. Ce jeton fournit à l’éditeur un ID qui identifie de façon unique l’achat SaaS et le client.
 
->[!NOTE]
->L’éditeur n’est pas informé de l’achat SaaS tant que le client n’a pas lancé le processus de configuration côté Microsoft.
+[!INCLUDE [pound-sign-note](../includes/pound-sign-note.md)]
 
 L’URL de la page d’arrivée doit être disponible 24 h/24 et 7 j/7, et prête à recevoir à tout moment de nouveaux appels de Microsoft. Si la page d’accueil n’est plus disponible, les clients ne pourront pas s’inscrire au service SaaS et commencer à l’utiliser.
 
 Ensuite, l’éditeur doit renvoyer le *jeton* à Microsoft en appelant l’[API Résolution SaaS](#resolve-a-purchased-subscription) et en entrant le jeton comme valeur du paramètre d’en-tête `x-ms-marketplace-token header`. Suite à l’appel de l’API Résolution, le jeton est échangé contre les détails de l’achat SaaS, notamment l’ID unique de l’achat, l’ID de l’offre achetée et l’ID du plan acheté.
 
 Dans la page d’arrivée, le client doit être connecté au compte SaaS nouveau ou existant par le biais de l’authentification unique Azure AD (Azure Active Directory).
+
+>[!NOTE]
+>L’éditeur n’est pas informé de l’achat SaaS tant que le client n’a pas lancé le processus de configuration côté Microsoft.
 
 L’éditeur doit implémenter l’authentification unique pour fournir l’expérience utilisateur requise par Microsoft pour ce flux. Veillez à utiliser l’application Azure AD multilocataire et à autoriser les comptes professionnels et scolaires ou les comptes Microsoft personnels lors de la configuration de l’authentification unique. Cette exigence s’applique uniquement à la page d’arrivée et aux utilisateurs redirigés vers le service SaaS lorsqu’ils sont déjà connectés avec des informations d’identification Microsoft. L’authentification unique n’est pas nécessaire pour toutes les connexions au service SaaS.
 

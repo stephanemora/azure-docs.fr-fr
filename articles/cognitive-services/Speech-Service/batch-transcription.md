@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/17/2021
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8b201b3717d3ba82882131d49add020a8e6b2a9
-ms.sourcegitcommit: 7f3ed8b29e63dbe7065afa8597347887a3b866b4
+ms.openlocfilehash: f5f8533c5962b21ad1c23e3b618b66fae73bb8ab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525493"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056720"
 ---
 # <a name="how-to-use-batch-transcription"></a>Guide d’utilisation de la transcription par lots
 
@@ -299,7 +299,7 @@ La sortie d’une transcription avec diarisation activée contient une entrée `
 
 Pour demander la diarisation, définissez la propriété `diarizationEnabled` sur `true` comme le montre la requête HTTP ci-dessous.
 
- ```json
+```json
 {
   "contentUrls": [
     "<URL to an audio file to transcribe>",

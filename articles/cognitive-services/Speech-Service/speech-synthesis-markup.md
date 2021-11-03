@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a43758b1c20b3983b4b2c0920481549ddccb0328
-ms.sourcegitcommit: 3ef5a4eed1c98ce76739cfcd114d492ff284305b
+ms.openlocfilehash: d6a4278c1d44a0b2bf6b67b1b375169fefd2913b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128708849"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048479"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Améliorer la synthèse avec le langage de balisage de synthèse vocale (SSML, Speech Synthesis Markup Language)
 
@@ -88,7 +88,7 @@ L’élément `voice` est obligatoire. Il spécifie la voix utilisée pour la sy
 > [!NOTE]
 > Cet exemple utilise la voix `en-US-ChristopherNeural`. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech).
 
-```XML
+```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-ChristopherNeural">
         This is the text that is spoken.
@@ -452,14 +452,14 @@ L’élément `s` peut contenir du texte et les éléments suivants : `audio`, 
 
 **Syntaxe**
 
-```XML
+```xml
 <p></p>
 <s></s>
 ```
 
 **Exemple**
 
-```XML
+```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-ChristopherNeural">
         <p>
@@ -485,7 +485,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 **Syntaxe**
 
-```XML
+```xml
 <phoneme alphabet="string" ph="string"></phoneme>
 ```
 
@@ -535,7 +535,7 @@ Parfois, le service de synthèse vocale ne peut pas prononcer un mot de façon c
 
 **Syntaxe**
 
-```XML
+```xml
 <lexicon uri="string"/>
 ```
 
@@ -591,7 +591,8 @@ Il est important de noter que vous ne pouvez pas définir directement la prononc
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
   </lexeme>
 ```
-> [!Note]
+
+> [!NOTE]
 > La limite de syllabe est « . » dans l’alphabet phonétique international.
 
 Vous pouvez également fournir directement l’`alias` attendu pour l’acronyme ou le terme abrégé. Par exemple :
@@ -671,7 +672,7 @@ L’élément `prosody` est utilisé pour spécifier des modifications apportée
 
 **Syntaxe**
 
-```XML
+```xml
 <prosody pitch="value" contour="value" range="value" rate="value" duration="value" volume="value"></prosody>
 ```
 
@@ -754,7 +755,7 @@ Les modifications de ton peuvent s’appliquer aux voix standard au niveau de la
 
 **Syntaxe**
 
-```XML
+```xml
 <say-as interpret-as="string" format="digit string" detail="string"> <say-as>
 ```
 
@@ -791,7 +792,7 @@ L’élément `say-as` peut uniquement contenir du texte.
 
 Le moteur de synthèse vocale prononce l’exemple ci-dessous comme suit : « Votre première requête portait sur une chambre le dix-neuf octobre deux mille dix, avec une arrivée à douze heure trente-cinq. »
 
-```XML
+```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-ChristopherNeural">
         <p>
@@ -853,7 +854,7 @@ Un seul fichier audio en arrière-plan est autorisé par document SSML. Toutefoi
 
 **Syntaxe**
 
-```XML
+```xml
 <mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
 ```
 

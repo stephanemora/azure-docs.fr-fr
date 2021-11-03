@@ -9,12 +9,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: JenCook
-ms.openlocfilehash: 72c3f523ebc3cfef43709153c09c416d32e0b1b8
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2f74c34f9c0b2e854a23753b755a9d83f93d6bf0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114469597"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024470"
 ---
 # <a name="run-an-application-by-using-fortanix-confidential-computing-manager"></a>Exécuter une application en utilisant Fortanix Confidential Computing Manager
 
@@ -125,7 +126,7 @@ La création d’un agent nœud Fortanix déploiera une machine virtuelle, une i
 1. Sur cette page, vous allez entrer les informations nécessaires au déploiement d’une machine virtuelle. Il s’agit d’une machine virtuelle Intel compatible SGX de la série DCsv2 d’Azure sur laquelle le logiciel Fortanix Node Agent est installé. L’agent de nœud permettra à votre image convertie de s’exécuter avec une sécurité accrue sur les nœuds Intel SGX dans Azure. Sélectionnez l'abonnement et le groupe de ressources dans lesquels vous souhaitez déployer la machine virtuelle et les ressources associées.
 
    > [!NOTE]
-   > Des contraintes s’appliquent lorsque vous déployez des machines virtuelles de la série DCsv2 dans Azure. Vous devrez peut-être demander un quota pour bénéficier de cœurs supplémentaires. Pour plus d'informations, consultez [Solutions informatiques confidentielles sur les machines virtuelles Azure](./virtual-machine-solutions.md).
+   > Des contraintes s’appliquent lorsque vous déployez des machines virtuelles de la série DCsv2 dans Azure. Vous devrez peut-être demander un quota pour bénéficier de cœurs supplémentaires. Pour plus d'informations, consultez [Solutions informatiques confidentielles sur les machines virtuelles Azure](./virtual-machine-solutions-sgx.md).
 
 1. Sélectionnez une région disponible.
 1. Dans la zone **Nom du nœud**, entrez un nom pour votre machine virtuelle.
@@ -175,7 +176,7 @@ Pour supprimer le compte Fortanix Confidential Computing Manager que vous avez c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez utilisé les outils Fortanix pour convertir l’image de votre application afin qu’elle s’exécute sur une machine virtuelle de l’informatique confidentielle. Pour plus d’informations sur les machines virtuelles d’informatique confidentielle sur Azure, consultez [Solutions sur les machines virtuelles](virtual-machine-solutions.md).
+Dans ce tutoriel, vous avez utilisé les outils Fortanix pour convertir l’image de votre application afin qu’elle s’exécute sur une machine virtuelle de l’informatique confidentielle. Pour plus d’informations sur les machines virtuelles d’informatique confidentielle sur Azure, consultez [Solutions sur les machines virtuelles](virtual-machine-solutions-sgx.md).
 
 Pour en savoir plus sur les offres d’Azure en matière d’informatique confidentielle, consultez [Vue d’ensemble de l’informatique confidentielle Azure](overview.md).
 

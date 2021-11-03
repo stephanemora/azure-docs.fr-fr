@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
-ms.openlocfilehash: 54d7c997ce17c927a692e84f6094e3a08f707af7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8d846682062effff84aed263b312e3e3c2c3f72d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608636"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037288"
 ---
 # <a name="security-orchestration-automation-and-response-soar-in-azure-sentinel"></a>Orchestration, automatisation et réponse aux incidents de sécurité (SOAR) dans Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article décrit les fonctionnalités d’orchestration, d’automatisation et de réponse aux incidents de sécurité (SOAR) d’Azure Sentinel, et montre comment l’utilisation de règles d’automatisation et de playbooks en réponse aux menaces de sécurité augmente l’efficacité de votre SOC et vous fait gagner du temps et des ressources.
 
@@ -38,7 +40,7 @@ Azure Sentinel, en plus d’être un système d’informations de sécurité et 
 
 ## <a name="automation-rules"></a>Règles d’automatisation
 
-Les règles d’automatisation sont un concept nouveau dans Azure Sentinel. Cette fonctionnalité permet aux utilisateurs de gérer de manière centralisée l’automatisation de la gestion des incidents. En plus de vous permettre d’affecter des playbooks aux incidents (pas seulement aux alertes comme auparavant), les règles d’automatisation vous permettent également d’automatiser les réponses pour plusieurs règles d’analyse à la fois, d’étiqueter, d’attribuer ou de fermer automatiquement des incidents sans nécessiter de playbooks, et de contrôler l’ordre des actions exécutées. Les règles d’automatisation simplifient l’utilisation de l’automatisation dans Azure Sentinel et vous permettent de simplifier des flux de travail complexes pour vos processus d’orchestration d’incident.
+Les règles d’automatisation sont un concept nouveau dans Azure Sentinel. Cette fonctionnalité permet aux utilisateurs de gérer de manière centralisée l’automatisation de la gestion des incidents. En plus de vous permettre d’attribuer des playbooks aux incidents (pas seulement aux alertes comme auparavant), les règles d’automatisation vous permettent d’automatiser les réponses pour plusieurs règles d’analytique à la fois, d’étiqueter, d’attribuer ou de fermer automatiquement des incidents sans avoir besoin de playbooks, ainsi que de contrôler l’ordre des actions exécutées. Les règles d’automatisation simplifient l’utilisation de l’automatisation dans Azure Sentinel et vous permettent de simplifier des flux de travail complexes pour vos processus d’orchestration d’incident.
 
 Pour en savoir plus, consultez cette [explication complète sur les règles d’automatisation](automate-incident-handling-with-automation-rules.md).
 

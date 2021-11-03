@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4bccc2922cf20262149ef54fbe2a1a821d9551ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 99a0c2e765d725731e24b680a135b1ecab1a9bad
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97673499"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006693"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles
 
@@ -156,11 +156,12 @@ Si votre application s’exécute dans Azure Service Fabric, le service cloud, d
 2. Incluez le package NuGet [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application.
 
 3. Des captures instantanées sont collectées uniquement sur des exceptions signalées à Application Insights. Il se peut que vous deviez modifier votre code pour les signaler. Le code de gestion des exceptions dépend de la structure de votre application, mais en voici un exemple :
-    ```csharp
-   TelemetryClient _telemetryClient = new TelemetryClient();
 
-   void ExampleRequest()
-   {
+    ```csharp
+    TelemetryClient _telemetryClient = new TelemetryClient();
+
+    void ExampleRequest()
+    {
         try
         {
             // TODO: Handle the request.
@@ -172,7 +173,7 @@ Si votre application s’exécute dans Azure Service Fabric, le service cloud, d
 
             // TODO: Rethrow the exception if desired.
         }
-   }
+    }
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes

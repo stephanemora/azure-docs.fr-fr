@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0a2fd5f134cd97348fb23a88e6b40dcfbf46a275
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d1290d5d89c4e48c8e2e875bae5e64959f6f2c36
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122523984"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037223"
 ---
 # <a name="create-custom-analytics-rules-to-detect-threats"></a>Créer des règles d’analytique personnalisées pour détecter des menaces
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Une fois que vous avez [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, créez des règles d'analytique personnalisées pour faciliter la détection des menaces et comportements anormaux au sein de votre environnement.
 
@@ -292,7 +295,7 @@ Les gestionnaires SOC doivent régulièrement rechercher la présence de règles
 
 Lorsque vous utilisez des règles d’analytique pour détecter les menaces d’Azure Sentinel, veillez à activer toutes les règles associées à vos sources de données connectées afin de garantir une protection complète de votre environnement. La méthode la plus efficace pour activer les règles d’analytique est directement à partir de la page connecteur de données, qui répertorie toutes les règles associées. Pour plus d’informations, consultez [Connecter des sources de données](connect-data-sources.md).
 
-Vous pouvez également transmettre des règles à Azure Sentinel via l’[API](/rest/api/securityinsights/) et [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), bien que cela demande davantage d’effort. Lorsque vous utilisez l’API ou PowerShell, vous devez d’abord exporter les règles vers JSON avant d’activer les règles. L’API ou PowerShell peut être utile lors de l’activation de règles dans plusieurs instances d’Azure Sentinel avec des paramètres identiques dans chaque instance.
+Vous pouvez également transmettre des règles à Azure Sentinel via l’[API](/rest/api/securityinsights/) et [PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0), bien que cela demande davantage d’effort. Lorsque vous utilisez l’API ou PowerShell, vous devez d’abord exporter les règles vers JSON avant de les activer. L’API ou PowerShell peut être utile lors de l’activation de règles dans plusieurs instances d’Azure Sentinel avec des paramètres identiques dans chaque instance.
 
 Pour plus d'informations, consultez les pages suivantes :
 

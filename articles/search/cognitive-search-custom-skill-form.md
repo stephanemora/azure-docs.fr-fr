@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: b5074e3d07a1df199e189dfb906190c82bde6905
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 466e01a874e75221beeb12624199911136b9d5e1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124796587"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048137"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exemple : Créer une compétence personnalisée Form Recognizer
 
@@ -30,7 +30,7 @@ Dans cet exemple d’ensemble de compétences de la Recherche cognitive Azure, v
 
 ## <a name="train-your-model"></a>Entraîner votre modèle
 
-Vous devez entraîner un modèle Form Recognizer avec vos formulaires d’entrée avant d’utiliser cette compétence. Suivez le [guide de démarrage rapide cURL](../applied-ai-services/form-recognizer/quickstarts/client-library.md?pivots=programming-language-rest-api) pour savoir comment entraîner un modèle. Vous pouvez utiliser les exemples de formulaire fournis dans ce guide de démarrage rapide ou utiliser vos propres données. Une fois le modèle entraîné, copiez sa valeur d’ID dans un emplacement sécurisé.
+Vous devez entraîner un modèle Form Recognizer avec vos formulaires d’entrée avant d’utiliser cette compétence. Suivez le [guide de démarrage rapide cURL](../applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api) pour savoir comment entraîner un modèle. Vous pouvez utiliser les exemples de formulaire fournis dans ce guide de démarrage rapide ou utiliser vos propres données. Une fois le modèle entraîné, copiez sa valeur d’ID dans un emplacement sécurisé.
 
 ## <a name="set-up-the-custom-skill"></a>Configurer la compétence personnalisée
 

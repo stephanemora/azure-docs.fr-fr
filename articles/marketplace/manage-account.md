@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 09/27/2021
-ms.openlocfilehash: 115556f2118d34fa4fd2baf3ac84d97a1b9f5962
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 40ea8110ddf9a8f81395dea86beb656dba736cf7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071660"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024331"
 ---
 # <a name="manage-a-commercial-marketplace-account-in-partner-center"></a>Gérer un compte de marketplace commercial dans Espace partenaires
 
@@ -234,7 +234,7 @@ L’adresse de facturation est préremplie avec votre entité légale et vous po
 
 ## <a name="multi-user-account-management"></a>Gestion des comptes multi-utilisateurs
 
-L’Espace partenaires utilise [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) pour l’accès aux comptes multi-utilisateurs et la gestion de ceux-ci. L’Azure AD de votre organisation est automatiquement associé à votre compte Espace partenaires dans le cadre du processus d’inscription.
+L’Espace partenaires utilise [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) pour l’accès aux comptes multi-utilisateurs et la gestion de ceux-ci. L’Azure AD de votre organisation est automatiquement associé à votre compte Espace partenaires dans le cadre du processus d’inscription.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

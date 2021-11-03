@@ -7,12 +7,12 @@ ms.author: normesta
 ms.date: 10/06/2021
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1c1849117b2e27198d7fb0c76590cb1cf14f0891
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: e25a4210e41505d6b8af2c5c530bdb806609f3db
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129619347"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131013533"
 ---
 # <a name="tutorials-that-use-azure-services-with-azure-data-lake-storage-gen2"></a>Tutoriels sur l’utilisation des services Azure avec Azure Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ Cet article contient des liens vers des tutoriels qui montrent comment utiliser 
 | Recherche cognitive Azure | [Indexer et parcourir des documents Azure Data Lake Storage Gen2 (préversion)](../../search/search-howto-index-azure-data-lake-storage.md) |
 
 > [!NOTE]
-> Ce tableau n’est pas une liste exhaustive des services Azure qui prennent en charge Data Lake Storage Gen2. Pour voir la liste des services Azure pris en charge, leur niveau de support, consultez [Services Azure qui prennent en charge Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md). Pour voir comment les services sont organisés en catégories, par exemple, ingestion, téléchargement, traitement et visualisation, consultez [Ingestion, traitement et analyse](data-lake-storage-data-scenarios.md#ingest-process-and-analyze).
+> Ce tableau n’est pas une liste exhaustive des services Azure qui prennent en charge Data Lake Storage Gen2. Pour voir la liste des services Azure pris en charge, leur niveau de support, consultez [Services Azure qui prennent en charge Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md). Pour voir comment les services sont organisés en catégories, par exemple, ingestion, téléchargement, traitement et visualisation, consultez [Ingestion, traitement et analyse](./data-lake-storage-best-practices.md#ingest-process-and-analyze).
 
 ## <a name="see-also"></a>Voir aussi
 

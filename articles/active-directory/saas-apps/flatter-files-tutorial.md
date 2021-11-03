@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 34372fe7d623041c46d33b97e58740612adeb87a
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 26ce0b43047596426c2a3a708dd336d9ca33b0c5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124834802"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Didacticiel : Intégration d’Azure Active Directory à Flatter Files
 
@@ -124,12 +124,12 @@ Pour configurer l’authentification unique Azure AD avec Flatter Files, effect
     ![Capture d’écran montrant « DASHBOARD » sélectionné dans l’application « Flatter Files ».](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Cliquez sur **Settings**, puis procédez comme suit dans l’onglet **Company** : 
-   
+
     ![Capture d’écran montrant l’onglet « Company » avec l’option « Use SAML 2.0 for Authentication » activée et le bouton « Configure SAML » sélectionné.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+
+    1. Sélectionnez **Use SAML 2.0 for Authentication**.
     
-    a. Sélectionnez **Use SAML 2.0 for Authentication**.
-    
-    b. Cliquez sur **Configure SAML**.
+    1. Cliquez sur **Configure SAML**.
 
 4. Dans la boîte de dialogue **SAML Configuration** , procédez comme suit : 
    

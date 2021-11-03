@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: 7044414d47f685062331bc4aceb1b538d6f9a062
-ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+ms.openlocfilehash: 54c2594e823e2e78f7a3fd62afba1d0d023ff347
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112461588"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048118"
 ---
 # <a name="modify-destination-settings"></a>Modifier les paramètres de destination
 
@@ -42,7 +42,7 @@ Les paramètres de configuration que vous pouvez modifier sont résumés dans le
 **Jeu de chiffrement de disque** | Jeu de chiffrement de disque associé si la machine virtuelle utilise une clé gérée par le client pour le chiffrement côté serveur.
 **Groupe de ressources** | Groupe de ressources dans lequel la machine virtuelle de destination sera placée.
 **Ressources réseau** | Options pour les interfaces réseau, les réseaux virtuels et les groupes de sécurité/interfaces réseau :<br/><br/> - Créer une nouvelle ressource sous le même nom dans la région de destination<br/><br/> - Créer une nouvelle ressource sous un nom différent dans la région de destination<br/><br/> - Utiliser une ressource réseau existante dans la région de destination<br/><br/> Si vous créez une nouvelle ressource de destination, mis à part les paramètres que vous modifiez, elle hérite des mêmes paramètres que la ressource source.
-**Nom, référence SKU et zone de l’adresse IP publique** | Nom, [référence SKU](../virtual-network/public-ip-addresses.md#sku) et [zone](../virtual-network/public-ip-addresses.md#standard) des adresses IP publiques standard.<br/><br/> Si vous voulez qu’il soit redondant interzone, définissez-le comme étant **Redondant interzone**.
+**Nom, référence SKU et zone de l’adresse IP publique** | Nom, [référence SKU](../virtual-network/ip-services/public-ip-addresses.md#sku) et [zone](../virtual-network/ip-services/public-ip-addresses.md#standard) des adresses IP publiques standard.<br/><br/> Si vous voulez qu’il soit redondant interzone, définissez-le comme étant **Redondant interzone**.
 **Nom, référence SKU et zone de l’équilibreur de charge** | Nom, référence SKU (De base ou Standard) et zone de l’équilibreur de charge.<br/><br/> Nous vous recommandons d’utiliser la référence SKU Standard.<br/><br/> Si vous voulez qu’il soit redondant interzone, spécifiez **Redondant interzone**.
 **Dépendances des ressources** | Options pour chaque dépendance :<br/><br/>- La ressource utilise des ressources dépendantes de la source qui seront déplacées vers la région de destination.<br/><br/> - La ressource utilise d'autres ressources dépendantes situées dans la région de destination. Dans ce cas, vous pouvez effectuer un choix parmi des ressources similaires dans la région de destination.
 
