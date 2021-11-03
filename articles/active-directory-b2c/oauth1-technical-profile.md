@@ -3,20 +3,20 @@ title: Définir un profil technique OAuth1 dans une stratégie personnalisée
 titleSuffix: Azure AD B2C
 description: Définir un profil technique OAuth 1.0 dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 7a2cbca8c02dcbfc0e59d31040d1fca7a790cd35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b8fa42195a7752ce3ff1708a9a414d0284c63ac
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96936656"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131028136"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth1 dans une stratégie personnalisée Azure Active Directory B2C
 

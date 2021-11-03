@@ -8,12 +8,12 @@ ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: eca02cf776eb1f6fa690ecefd865dadbc3d9be78
-ms.sourcegitcommit: 10029520c69258ad4be29146ffc139ae62ccddc7
+ms.openlocfilehash: 916013d7bde10e63985324d736a755183200bf3e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2021
-ms.locfileid: "129080058"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079355"
 ---
 # <a name="create-a-power-bi-visual-offer"></a>Créer une offre de visuels Power BI
 
@@ -33,7 +33,7 @@ Consultez [Planifier une offre de visuels Power BI](marketplace-power-bi-visual
 
 1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard/home).
 
-1. Dans la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
+1. Sur la page d’accueil, sélectionnez la vignette **Offres de la Place de marché**.
 
     [ ![Illustre la vignette des offres de la Place de marché dans la page d’accueil de l’Espace partenaires.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
 
@@ -73,7 +73,7 @@ Sélectionnez **Créer** pour générer l’offre. Espace partenaires ouvre la p
 
 Pour les **achats supplémentaires**, indiquez si votre offre nécessite ou non des achats de services ou des achats intégrés supplémentaires.
 
-Pour la **certification Power BI** (facultatif), lisez attentivement la description. Si vous souhaitez demander la certification Power BI, cochez la case. Les visuels Power BI [certifiés](https://aka.ms/PBIvisualcertification) répondent à certains impératifs de code spécifiques, que l’équipe de Microsoft Power BI a testés et approuvés. Nous vous recommandons de soumettre et de publier votre visuel Power BI *avant* de demander une certification, car le processus de certification nécessite un délai supplémentaire, ce qui peut retarder la publication de votre offre.
+Pour la **certification Power BI** (facultatif), lisez attentivement la description. Si vous souhaitez demander la certification Power BI, cochez la case. Les visuels Power BI [certifiés](/power-bi/developer/visuals/power-bi-custom-visuals-certified) répondent à certains impératifs de code spécifiques, que l’équipe de Microsoft Power BI a testés et approuvés. Nous vous recommandons de soumettre et de publier votre visuel Power BI *avant* de demander une certification, car le processus de certification nécessite un délai supplémentaire, ce qui peut retarder la publication de votre offre.
 
 ## <a name="customer-leads"></a>Prospects
 

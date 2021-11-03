@@ -4,12 +4,12 @@ description: Détails de la base de référence Windows sur Azure implémentée 
 ms.date: 08/24/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: c69a15fc97a605e1166a1721cb9e2fef9ce21ab7
-ms.sourcegitcommit: 28cd7097390c43a73b8e45a8b4f0f540f9123a6a
+ms.openlocfilehash: b523a239c591d94f733a4d6339964dfb24eec8b1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122779168"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016242"
 ---
 # <a name="windows-security-baseline"></a>Base de référence de sécurité Windows
 
@@ -201,7 +201,7 @@ Pour plus d’informations, consultez [Configuration Invité d’Azure Policy](
 |Nom<br /><sub>(ID)</sub> |Détails |Valeur attendue<br /><sub>(Type)</sub> |severity |
 |---|---|---|---|
 |Auditer l’activité Plug-and-Play<br /><sub>(AZ-WIN-00182)</sub> |**Description** : ce paramètre de stratégie vous permet d’auditer quand la fonctionnalité Plug-and-Play détecte un périphérique externe. L’état recommandé pour ce paramètre est : `Success`. **Remarque :** Un système d’exploitation Windows 10, Server 2016 ou version ultérieure est requis pour accéder à cette valeur et la définir dans une stratégie de groupe.<br />**Chemin de la clé** : {0CCE9248-69AE-11D9-BED3-505054503030}<br />**Système d’exploitation** : WS2016<br />**Type de serveur** : contrôleur de domaine, membre de domaine, membre de groupe de travail |\>\= Réussite<br /><sub>(Audit)</sub> |Critique |
-|Auditer la création du processus<br /><sub>(CCE-36059-4)</sub> |**Description** : cette sous-catégorie signale la création d’un processus et le nom du programme ou de l’utilisateur qui l’a créé. Les événements de cette sous-catégorie sont notamment :-4688 : un nouveau processus a été créé. -4696 : un jeton principal a été assigné au processus. Pour obtenir les informations les plus récentes sur ce paramètre, reportez-vous à l’article de la base de connaissances Microsoft 947226 [Description des événements de sécurité dans Windows Vista et dans Windows Server 2008](https://support.microsoft.com/en-us/kb/947226). L’état recommandé pour ce paramètre est : `Success`.<br />**Chemin de la clé** : {0CCE922B-69AE-11D9-BED3-505054503030}<br />**Système d’exploitation** : WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**Type de serveur** : contrôleur de domaine, membre de domaine, membre de groupe de travail |\>\= Réussite<br /><sub>(Audit)</sub> |Critique |
+|Auditer la création du processus<br /><sub>(CCE-36059-4)</sub> |**Description** : cette sous-catégorie signale la création d’un processus et le nom du programme ou de l’utilisateur qui l’a créé. Les événements de cette sous-catégorie sont notamment :-4688 : un nouveau processus a été créé. -4696 : un jeton principal a été assigné au processus. L’état recommandé pour ce paramètre est : `Success`.<br />**Chemin de la clé** : {0CCE922B-69AE-11D9-BED3-505054503030}<br />**Système d’exploitation** : WS2008, WS2008R2, WS2012, WS2012R2, WS2016<br />**Type de serveur** : contrôleur de domaine, membre de domaine, membre de groupe de travail |\>\= Réussite<br /><sub>(Audit)</sub> |Critique |
 
 ## <a name="system-audit-policies---logon-logoff"></a>Stratégies d’audit système - Connexion-Déconnexion
 

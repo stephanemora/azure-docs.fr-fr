@@ -3,20 +3,20 @@ title: Predicates et PredicateValidations
 titleSuffix: Azure AD B2C
 description: Empêchez l’ajout de données mal mises en forme à votre locataire Azure AD B2C en utilisant des stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/30/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: d5317edcf7ef00c6d82c1799582ad2a92005b7cb
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 52b4f376e26ffaef5e1ab6ef7ec0e43a9a3f07b4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161624"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131044434"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
 

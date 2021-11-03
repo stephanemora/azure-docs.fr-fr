@@ -1,17 +1,17 @@
 ---
 title: Vue d’ensemble de Microsoft Azure FXT Edge Filer
 description: Décrit le cache de stockage hybride Azure FXT Edge Filer, une solution active d’accélérateur d’accès aux archives et aux fichiers pour les tâches de calcul haute performance.
-author: ekpgh
+author: femila
 ms.service: fxt-edge-filer
 ms.topic: overview
 ms.date: 07/01/2019
-ms.author: v-erkel
-ms.openlocfilehash: 7332a71ef3292cbc6575ba14ae642be171d5772d
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.author: femila
+ms.openlocfilehash: ad0a530f5453060ede34059e3265b9e784e9810f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111414813"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085940"
 ---
 # <a name="what-is-azure-fxt-edge-filer-hybrid-storage-cache"></a>Qu’est-ce que cache de stockage hybride Azure FXT Edge Filer ?
 

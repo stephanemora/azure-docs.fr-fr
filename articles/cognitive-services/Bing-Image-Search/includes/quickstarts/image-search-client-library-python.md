@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: 338e4f0c1c47a7786e21ad98bb3e56a1505f9bb2
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: c9dd8bdfb9af1d20433a083b48ee1b7e14658438
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104558"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253271"
 ---
 Utilisez ce guide de démarrage rapide pour effectuer votre première recherche d’images à l’aide de la bibliothèque de client Recherche d’images Bing, qui est un wrapper de l’API et contient les mêmes fonctionnalités. Cette application Python simple envoie une requête de recherche d’image, analyse la réponse JSON et affiche l’URL de la première image retournée.
 
@@ -52,14 +52,16 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
     ```python
     client = ImageSearchClient(endpoint=subscription_endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
+
 1. Envoyez une requête de recherche à l’API Recherche d’images Bing :
+
     ```python
     image_results = client.images.search(query=search_term)
     ```
-   ## <a name="process-and-view-the-results"></a>Traiter et afficher les résultats
+
+## <a name="process-and-view-the-results"></a>Traiter et afficher les résultats
 
 Analysez les résultats d’image retournés par la réponse.
-
 
 Si la réponse contient des résultats de recherche, stockez le premier résultat et imprimez ses détails, tels qu’une URL de miniature, l’URL d’origine, ainsi que le nombre total d’images retournées.  
 

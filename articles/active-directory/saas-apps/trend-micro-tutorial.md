@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2021
 ms.author: jeedes
-ms.openlocfilehash: 05831b88c492051b2b8d48071702335b3aac76b9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 15f03bddb1537cfd8e447e00e91f262544ba3bf6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062488"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045973"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Trend Micro Web Security (TMWS)
 
@@ -94,8 +94,8 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     
     | Nom | Attribut source|
     | --------------- | --------- |
-    | sAMAccountName | user.onpremisessamaccountname |
-    | uPN | user.userprincipalname |
+    | `sAMAccountName` | `user.onpremisessamaccountname` |
+    | `upn` | `user.userprincipalname` |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** . Sélectionnez le lien **Télécharger** à côté de ce nom de certificat pour télécharger le certificat et l’enregistrer sur votre ordinateur :
 

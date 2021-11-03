@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1fbd4d57b3daa073d506fbaf371b379030a810
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 348f862c97b62ed4f1bab8bcf6aa418aaa43e7da
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124776459"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057302"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Assigner des rôles personnalisés avec une étendue de ressources à l’aide de PowerShell dans Azure Active Directory
 
@@ -147,6 +147,6 @@ Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Faites-nous part de vos commentaires sur le [Forum consacré aux rôles d'administration Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+- Faites-nous part de vos commentaires sur le [Forum consacré aux rôles d'administration Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 - Pour plus d'informations sur les rôles et les attributions de rôles d'administrateur Azure AD, consultez [Attribuer des rôles d'administrateur](permissions-reference.md).
 - Pour plus d'informations sur les autorisations utilisateur par défaut, consultez la [comparaison des autorisations par défaut d'un utilisateur invité et d'un membre](../fundamentals/users-default-permissions.md).

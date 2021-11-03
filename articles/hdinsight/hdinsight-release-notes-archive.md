@@ -3,16 +3,14 @@ title: Notes de publication archivées pour Azure HDInsight
 description: Notes de publication archivées pour Azure HDInsight. Obtenez des conseils et détails concernant le développement pour Hadoop, Spark, R Server, Hive et bien plus.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom:
-- hdinsightactive
-- references_regions
+ms.custom: hdinsightactive, references_regions
 ms.date: 07/27/2021
-ms.openlocfilehash: e7e3442f397b4d3cfbb79f2f852269affdf3badc
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 732d7ee085fdb7ff91ffe4e90ce8d996b9299b6c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525076"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073032"
 ---
 # <a name="archived-release-notes"></a>Notes de publication archivées
 

@@ -8,12 +8,12 @@ author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 027450a2e5e2a0c749c2f4b02148ffe849f2a182
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: fba44d9c7ce64f82785ec4f8cbb47ad7d3f292b5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122823938"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071379"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-classic-application-with-azure-diagnostics"></a>Assurer le suivi du flux dans une application Cloud Services (classique) avec Diagnostics Azure
 
@@ -36,29 +36,31 @@ Avant d’exécuter la procédure suivante, vous devez initialiser le moniteur d
 Notez que si vous utilisez les modèles fournis par Visual Studio, la configuration de l’écouteur est automatiquement ajoutée pour vous.
 
 ### <a name="add-a-trace-listener"></a>Ajouter un écouteur de suivi
+
 1. Ouvrez le fichier web.config ou app.config correspondant à votre rôle.
+
 2. Ajoutez le code suivant au fichier. Modifiez l’attribut de version pour utiliser le numéro de version de l’assembly que vous référencez. La version d’assembly ne change pas nécessairement avec chaque version du Kit de développement logiciel (SDK) Azure sauf s’il existe des mises à jour.
-   
-    ```
-    <system.diagnostics>
-        <trace>
-            <listeners>
-                <add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
-                  Microsoft.WindowsAzure.Diagnostics,
-                  Version=2.8.0.0,
-                  Culture=neutral,
-                  PublicKeyToken=31bf3856ad364e35"
-                  name="AzureDiagnostics">
-                    <filter type="" />
-                </add>
-            </listeners>
-        </trace>
-    </system.diagnostics>
-    ```
+
+   ```xml
+   <system.diagnostics>
+       <trace>
+           <listeners>
+               <add type="Microsoft.WindowsAzure.Diagnostics.DiagnosticMonitorTraceListener,
+                 Microsoft.WindowsAzure.Diagnostics,
+                 Version=2.8.0.0,
+                 Culture=neutral,
+                 PublicKeyToken=31bf3856ad364e35"
+                 name="AzureDiagnostics">
+                   <filter type="" />
+               </add>
+           </listeners>
+       </trace>
+   </system.diagnostics>
+   ```
+
    > [!IMPORTANT]
    > Assurez-vous de disposer d’une référence de projet à l’assembly Microsoft.WindowsAzure.Diagnostics. Mettre à jour le numéro de version dans le document xml ci-dessus pour correspondre à la version de l’assembly Microsoft.WindowsAzure.Diagnostics référencé.
-   > 
-   > 
+
 3. Enregistrez le fichier de configuration.
 
 Pour plus d’informations sur les écouteurs, consultez [Suivi des écouteurs](/dotnet/framework/debug-trace-profile/trace-listeners).

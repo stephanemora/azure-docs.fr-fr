@@ -3,15 +3,13 @@ title: Démarrage rapide Azure – Création d’un compte Batch – Modèle Az
 description: Ce guide de démarrage rapide montre comment créer un compte Batch à l’aide d’un modèle ARM.
 ms.date: 05/25/2021
 ms.topic: quickstart
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: d28a60fd3476877bf79fa8ea542db074c565fc89
-ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+ms.custom: subject-armqs, mode-arm
+ms.openlocfilehash: fcc0876bc9a165b06705e4c57090b084205dd0c2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112005678"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086827"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Démarrage rapide : Créer un compte Batch à l’aide d’un modèle ARM
 

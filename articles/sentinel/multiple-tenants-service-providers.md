@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: yelevin
-ms.openlocfilehash: cf2a9380b404876ef9c963d54d9069ebd66fef56
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 3e5c431c8795f464e3ab83e0f6dff47028fdb5a4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524139"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131019777"
 ---
 # <a name="manage-multiple-tenants-in-azure-sentinel-as-an-mssp"></a>Gérer plusieurs locataires dans Azure Sentinel en tant que MSSP
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Si vous êtes un fournisseur de services de sécurité gérée (MSSP, managed security service provider) et que vous utilisez [Azure Lighthouse](../lighthouse/overview.md) pour offrir des services de centre d’opérations de sécurité à vos clients, vous pouvez gérer les ressources Azure Sentinel de vos clients directement depuis votre propre locataire Azure, sans avoir à vous connecter au locataire du client. 
 
@@ -55,4 +58,3 @@ Si vous êtes un fournisseur de services de sécurité gérée (MSSP, managed se
 Ce document vous a permis d’apprendre à gérer plusieurs locataires Azure Sentinel en toute transparence. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
-

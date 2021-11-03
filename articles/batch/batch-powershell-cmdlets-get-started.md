@@ -4,12 +4,12 @@ description: Brève présentation des applets de commande Azure PowerShell à ut
 ms.topic: how-to
 ms.date: 01/21/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 2b51a2a7852df82625fb342bbbbc4a3a1cbf72a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b08fcf7a0e3a4580141d1b79aba43a04f808894a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98685508"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051360"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gérer les ressources Batch avec les applets de commande PowerShell
 
@@ -58,7 +58,7 @@ New-AzBatchAccount –AccountName <account_name> –Location "Central US" –Res
 
 **Get-AzBatchAccountKeys** affiche les clés d’accès associées à un compte Azure Batch. Par exemple, exécutez la commande suivante pour obtenir les clés primaires et secondaires du compte que vous avez créé.
 
- ```powershell
+```powershell
 $Account = Get-AzBatchAccountKeys –AccountName <account_name>
 
 $Account.PrimaryAccountKey

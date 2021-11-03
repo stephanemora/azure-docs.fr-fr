@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp
-ms.openlocfilehash: f3156439d4f1ece7f2e63509328d4b17f0d91ad7
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.custom: devx-track-csharp, ignite-fall-2021
+ms.openlocfilehash: eb5d842d5934a46b98a7707b6f567c26445df70e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544194"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253868"
 ---
 Ce guide montre comment installer le [kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour [Xamarin](/xamarin/get-started/what-is-xamarin), une plateforme open source pour la création d’applications modernes et performantes pour iOS, Android et Windows avec .NET. Si vous voulez simplement le nom du package pour commencer seul, exécutez `Install-Package Microsoft.CognitiveServices.Speech` dans la console NuGet.
 
@@ -29,7 +29,7 @@ Ce guide montre comment installer le [kit de développement logiciel (SDK) Speec
 
 Ce démarrage rapide nécessite :
 
-* Sur Windows, vous avez besoin de [Microsoft Redistributable Visual C++ pour Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) pour votre plateforme. La première installation peut demander i, redémarrage.
+* Sur Windows, vous avez besoin de [Microsoft Redistributable Visual C++ pour Visual Studio 2019](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) pour votre plateforme. La première installation peut demander i, redémarrage.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Créer un projet Visual Studio et installer le Kit de développement logiciel (SDK) Speech

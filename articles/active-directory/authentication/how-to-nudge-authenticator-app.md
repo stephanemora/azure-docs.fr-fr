@@ -10,12 +10,12 @@ ms.author: justinha
 author: mjsantani
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c83c4c60028c77033227411d68aeb576a9b43a46
-ms.sourcegitcommit: e6de87b42dc320a3a2939bf1249020e5508cba94
+ms.openlocfilehash: cd27eb5e55b679d8cfd1589857cc88d7f27917d1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2021
-ms.locfileid: "114707869"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054359"
 ---
 # <a name="how-to-nudge-users-to-set-up-microsoft-authenticator-preview---microsoft-authenticator-app"></a>Encourager les utilisateurs à installer Microsoft Authenticator (préversion) - Application Microsoft Authenticator
 
@@ -92,7 +92,7 @@ Le tableau suivant liste les propriétés de la section **authenticationMethodsR
 
 | Nom | Valeurs possibles | Description |
 |------|-----------------|-------------|
-| state |   "enabled" (activé)<br>"disabled" (désactivé)<br>« valeur par défaut » | Vous permet d’activer ou de désactiver la fonctionnalité.<br>La valeur par défaut est utilisée si la configuration n’a pas été explicitement définie ; la valeur par défaut Azure AD est utilisée pour ce paramètre. Correspond actuellement à "disabled".<br>Change les états à "enabled" ou "disabled" selon le cas.  |
+| state | "enabled" (activé)<br>"disabled" (désactivé)<br>« valeur par défaut » | Vous permet d’activer ou de désactiver la fonctionnalité.<br>La valeur par défaut est utilisée si la configuration n’a pas été explicitement définie ; la valeur par défaut Azure AD est utilisée pour ce paramètre. Correspond actuellement à "disabled".<br>Change les états à "enabled" ou "disabled" selon le cas.  |
 | snoozeDurationInDays | Plage : 0 – 14 | Définit le nombre de jours après lequel l’utilisateur recevra une nouvelle notification d’encouragement.<br>Si la valeur est 0, l’utilisateur est encouragé à chacune de ses tentatives d’authentification MFA.<br>Par défaut : 1 jour |
 | includeTargets | N/A | Vous permet d’inclure les différents utilisateurs et groupes pour lesquels vous souhaitez activer la fonctionnalité. |
 | excludeTargets | N/A | Vous permet d’exclure les différents utilisateurs et groupes pour lesquels vous ne souhaitez pas activer la fonctionnalité. Si un utilisateur est membre à la fois d’un groupe qui est exclu et d’un groupe qui est inclus, il est exclu de la fonctionnalité.|
@@ -156,7 +156,7 @@ Voici quelques exemples JSON utiles pour commencer.
                     "targetType": "group",
                     "targetedAuthenticationMethod": "microsoftAuthenticator"
                 },
-        {
+                {
                     "id": "*********PLEASE ENTER GUID***********",
                     "targetType": "user",
                     "targetedAuthenticationMethod": "microsoftAuthenticator"
@@ -181,7 +181,7 @@ Voici quelques exemples JSON utiles pour commencer.
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "group"
                   },
-        {
+                {
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "user"
                   }
@@ -192,7 +192,7 @@ Voici quelques exemples JSON utiles pour commencer.
                       "targetType": "group",
                       "targetedAuthenticationMethod": "microsoftAuthenticator"
                   },
-        {
+                  {
                       "id": "*********PLEASE ENTER GUID***********",
                       "targetType": "user",
                       "targetedAuthenticationMethod": "microsoftAuthenticator"

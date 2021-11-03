@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.openlocfilehash: f126fd6322be95329b7c0952740afea54027eda2
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 696c0029a238fe08d8792dfb4fb171f6be833d8b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990175"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068224"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
 
@@ -113,7 +113,7 @@ Il y a quatre aspects à prendre en compte au niveau du proxy sortant :
 
 Autorisez l'accès aux URL suivantes :
 
-| URL | Port |  Utilisation |
+| URL | Port | Utilisation |
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Communication entre le connecteur et le service cloud Proxy d'application |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | Le connecteur utilise ces URL pour vérifier les certificats. |

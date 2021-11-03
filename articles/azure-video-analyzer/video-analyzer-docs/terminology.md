@@ -3,13 +3,14 @@ title: Terminologie d’Azure Video Analyzer
 description: Cette article fournit une vue d’ensemble de la terminologie d’Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 06/01/2021
-ms.openlocfilehash: 1b9de2608d3b6ccb3922636f8cd473e79eff5e00
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.date: 11/01/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 4ef39c92891012a62d42399a12aaa2717be33bfa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070239"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073754"
 ---
 # <a name="azure-video-analyzer-terminology"></a>Terminologie d’Azure Video Analyzer
 
@@ -23,28 +24,37 @@ Une [topologie de pipeline](pipeline.md) vous permet de définir l’emplacement
 
 [RTSP](https://tools.ietf.org/html/rfc2326) (Real-Time Streaming Protocol) fait référence au protocole de streaming en temps réel. Il s’agit d’un protocole au niveau de l’application pour contrôler la remise des données avec des propriétés en temps réel. Le protocole RTSP fournit un cadre extensible qui permet une remise contrôlée à la demande de données en temps réel, comme des données audio et vidéo. Video Analyzer [prend en charge](pipeline.md#rtsp-source) la capture, l’analyse et l’enregistrement de vidéos à partir de caméras IP prenant en charge le protocole RTSP.
 
+## <a name="vms"></a>VMS
+
+[VMS](https://en.wikipedia.org/wiki/Video_management_system) (Video Management System) fait référence à un système de gestion vidéo. De tels systèmes sont utilisés pour configurer et contrôler des caméras de vidéosurveillance, ainsi que pour capturer et enregistrer des vidéos à partir de ces caméras. Ces systèmes fournissent également des applications clientes pour lire les vidéos enregistrées.
 
 ## <a name="recording"></a>Enregistrement
 
 Dans le contexte d’un système de gestion vidéo pour caméras de sécurité, l’enregistrement vidéo fait référence au processus de capture de vidéos à partir des caméras, et à leur stockage afin de les regarder ultérieurement via des applications mobiles et de navigateur. L’enregistrement vidéo peut être classé dans la catégorie de l’[enregistrement vidéo en continu](continuous-video-recording.md) et l’[enregistrement vidéo basé sur des événements](event-based-video-recording-concept.md). Ces catégories sont expliquées plus en détail dans la page relative au concept d’[enregistrement vidéo](video-recording.md).
 
+## <a name="streaming"></a>Diffusion en continu
+
+Vous pouvez utiliser le service Video Analyzer pour diffuser en continu des enregistrements vidéo à des clients, en utilisant des protocoles de diffusion multimédia en continu basés sur HTTP, comme [HTTP Live Streaming (TLS)](https://developer.apple.com/streaming/) et [MPEG-DASH](https://dashif.org/about/). Vous pouvez utiliser les [widgets du lecteur Azure Video Analyzer](https://github.com/Azure/video-analyzer/blob/main/widgets/readme.md) (composants web) pour lire des ressources vidéo. Par ailleurs, HLS est pris en charge par des lecteurs web comme [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Shaka Player de Google](https://github.com/google/shaka-player), et vous pouvez effectuer un rendu en mode natif dans des applications mobiles avec [Exoplayer](https://github.com/google/ExoPlayer) d’Android et [AV Foundation](https://developer.apple.com/av-foundation/) d’iOS. MPEG-DASH est également pris en charge par [une série de clients mentionnés sur cette page](https://dashif.org/tools/clients/).
+
+## <a name="exporting"></a>Exportation
+
+Dans le contexte d’une machine virtuelle pour les caméras de sécurité, l’exportation vidéo se réfère au processus qui consiste à prendre une ou plusieurs parties sélectionnées d’un enregistrement vidéo et à créer un fichier distinct, en général un fichier [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14), qui peut ensuite être partagé en externe. Par exemple, l’enregistrement vidéo peut contenir une séquence dans laquelle l’action rapide du personnel a empêché un incident de sécurité. Cette partie de l’enregistrement peut être exportée vers un fichier MP4 pour être utilisée dans les sessions de formation ultérieures.
+
 ## <a name="video"></a>Vidéo
 
-Lorsque vous créez un compte Video Analyzer, vous devez y associer un compte de stockage Azure. Vous pouvez utiliser le service Video Analyzer pour enregistrer la vidéo en direct d’une caméra et conserver ces données sur un disque ou un stockage cloud. Dans ce cas, les données sont stockées en tant que blobs dans un conteneur du compte de stockage. Les vidéos sont des ressources dans votre compte Video Analyzer, qui sont mappées à de tels conteneurs d’objets blob. Tout le contenu associé à de telles ressources vidéo est stocké sous la forme d’objets blob dans les conteneurs correspondants, tandis que Video Analyzer contient les métadonnées (telles qu’un nom, une description, une heure de création).
+Les vidéos sont des ressources de votre compte Video Analyzer qui activent des fonctionnalités de machines virtuelles telles que l’enregistrement, la lecture, la diffusion en continu et l’exportation. Les vidéos peuvent être enregistrées à partir de caméras RTSP ou créées en exportant des parties d’une vidéo enregistrée existante. Les vidéos enregistrées peuvent être diffusées en continu et affichées à l’aide du widget de lecteur Video Analyzer ou d’autres lecteurs compatibles. Les vidéos exportées peuvent être téléchargées sous forme de fichiers MP4.
 
-Vous pouvez utiliser le service Video Analyzer pour créer des ressources vidéo et ajouter des données à des vidéos existantes. Cela rend possible les scénarios d’enregistrement et lecture vidéo en continu basés sur des événements (avec capture vidéo sur l’appareil périphérique, enregistrement dans Video Analyzer et lecture via les fonctionnalités de diffusion en continu de Video Analyzer).
+Lorsque vous utilisez Video Analyzer pour l’enregistrement à partir d’une caméra RTSP, vous devez associer cette ressource vidéo à cette caméra. Vous pouvez enregistrer en continu la vidéo à partir de la caméra vers la ressource vidéo, ou vous pouvez enregistrer sporadiquement en fonction des événements : Video Analyzer prend en charge l’ajout de données à une ressource vidéo existante. Il faut que les propriétés de la caméra RTSP (résolution, fréquence d’images, etc.) restent inchangées. Si vous avez besoin de modifier les paramètres de la caméra, vous devez passer à l’enregistrement dans une nouvelle ressource vidéo.
+
+Lorsque vous créez un compte Video Analyzer, vous devez y associer un compte de stockage Azure. Les vidéos enregistrées et exportées sont stockées en tant qu’objets BLOB dans un conteneur du compte de stockage. Tout le contenu associé à de telles ressources vidéo est stocké sous la forme d’objets blob dans les conteneurs correspondants, tandis que Video Analyzer contient les métadonnées (telles qu’un nom, une description, une heure de création).
 
 ## <a name="grpc"></a>gRPC
 
 [gRPC](https://grpc.io/docs/guides/) est un Framework d’appel de procédure distante (RPC) indépendant du langage et de haute performance. Il utilise des schémas structurés basés sur une session via [Protocol Buffers 3](https://developers.google.com/protocol-buffers/docs/proto3) en tant que format d’échange de messages sous-jacent pour la communication.
 
-## <a name="streaming"></a>Diffusion en continu
+## <a name="low-latency-streaming"></a>Diffusion en continu à faible latence
 
-Vous pouvez utiliser le service Video Analyzer pour diffuser en continu des enregistrements vidéo à des clients, en utilisant des protocoles de diffusion multimédia en continu basés sur HTTP, comme [HTTP Live Streaming (TLS)](https://developer.apple.com/streaming/) et [MPEG-DASH](https://dashif.org/about/). Vous pouvez utiliser les [widgets du lecteur Azure Video Analyzer](https://github.com/Azure/video-analyzer/blob/main/widgets/readme.md) (composants web) pour lire des ressources vidéo. Par ailleurs, HLS est pris en charge par des lecteurs web comme [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Shaka Player de Google](https://github.com/google/shaka-player), et vous pouvez effectuer un rendu en mode natif dans des applications mobiles avec [Exoplayer](https://github.com/google/ExoPlayer) d’Android et [AV Foundation](https://developer.apple.com/av-foundation/) d’iOS. MPEG-DASH est également pris en charge par [une série de clients mentionnés sur cette page](https://dashif.org/members/).
-
-## <a name="vms"></a>VMS
-
-[VMS](https://en.wikipedia.org/wiki/Video_management_system) (Video Management System) fait référence à un système de gestion vidéo. De tels systèmes sont utilisés pour configurer et contrôler des caméras de vidéosurveillance, ainsi que pour capturer et enregistrer des vidéos à partir de ces caméras. Ces systèmes fournissent également des applications clientes pour lire les vidéos enregistrées.
+La diffusion vidéo en continu à faible latence est une fonctionnalité utile d’un système de machines virtuelles. Video Analyzer peut diffuser des vidéos en direct avec un délai d’environ 2 secondes. La latence signifie le délai entre le moment où un événement se produit avant l’appareil photo et le moment où cet événement se produit sur un périphérique de lecture.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

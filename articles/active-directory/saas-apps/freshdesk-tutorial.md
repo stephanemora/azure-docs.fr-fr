@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 53ab7bcc6944d3f7650018238bd326037c5fff41
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: da17ca007d47624c9d0bf5b233451b7a131696cd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124746949"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Didacticiel : Intégration d’Azure Active Directory à FreshDesk
 
@@ -73,12 +73,12 @@ Pour configurer et tester l’authentification unique Azure AD avec FreshDesk, e
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant le modèle `https://<tenant-name>.freshdesk.com` ou toute autre valeur suggérée par FreshDesk.
+    1. Dans la zone de texte **URL de connexion**, tapez une URL en utilisant le modèle `https://<tenant-name>.freshdesk.com` ou toute autre valeur suggérée par FreshDesk.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant le modèle `https://<tenant-name>.freshdesk.com`, ou toute autre valeur suggérée par FreshDesk.
+    1. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une URL en utilisant le modèle `https://<tenant-name>.freshdesk.com`, ou toute autre valeur suggérée par FreshDesk.
      
-    c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<tenant-name>.freshdesk.com/login/saml`
-    
+    1. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<tenant-name>.freshdesk.com/login/saml`
+
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’identificateur et l’URL de réponse réels. Contactez [l’équipe de support FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
@@ -127,21 +127,21 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Authentification unique](./media/freshdesk-tutorial/configure-1.png "Authentification unique")
   
-    a. Pour **Single Sign On** (Authentification unique), sélectionnez **On** (Activé).
+    1. Pour **Single Sign On** (Authentification unique), sélectionnez **On** (Activé).
 
-    b. Dans **Login Method** (Méthode de connexion), sélectionnez **SAML SSO**.
+    1. Dans **Login Method** (Méthode de connexion), sélectionnez **SAML SSO**.
 
-    c. Dans la zone de texte **Entity ID provided by the IdP** (ID d’entité fourni par le fournisseur d’identité), collez la valeur **ID d’entité** que vous avez copiée sur le portail Azure.
+    1. Dans la zone de texte **Entity ID provided by the IdP** (ID d’entité fourni par le fournisseur d’identité), collez la valeur **ID d’entité** que vous avez copiée sur le portail Azure.
 
-    d. Dans la zone de texte **URL d’authentification unique SAML**, collez la valeur d’**URL de connexion** que vous avez copiée à partir du portail Azure.
+    1. Dans la zone de texte **URL d’authentification unique SAML**, collez la valeur d’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
-    e. Dans **Signing Options** (Options de signature), sélectionnez **Only Signed Assertions** (Uniquement les assertions signées) dans la liste déroulante.
+    1. Dans **Signing Options** (Options de signature), sélectionnez **Only Signed Assertions** (Uniquement les assertions signées) dans la liste déroulante.
 
-    f. Dans la zone de texte **Logout URL** (URL de déconnexion), collez l’**URL de déconnexion** que vous avez copiée sur le portail Azure.
+    1. Dans la zone de texte **Logout URL** (URL de déconnexion), collez l’**URL de déconnexion** que vous avez copiée sur le portail Azure.
 
-    g. Dans la zone de texte **Security Certificate** (Certificat de sécurité), collez la valeur de **Certificat (en base64)** que vous avez obtenue précédemment.
+    1. Dans la zone de texte **Security Certificate** (Certificat de sécurité), collez la valeur de **Certificat (en base64)** que vous avez obtenue précédemment.
   
-    h. Cliquez sur **Enregistrer**.
+    1. Cliquez sur **Enregistrer**.
 
 ## <a name="create-freshdesk-test-user"></a>Créer un utilisateur de test FreshDesk
 

@@ -9,12 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 05/18/2021
-ms.openlocfilehash: 2fa7a60b4f0cbc7e72304c1b01444bf9a9f6a842
-ms.sourcegitcommit: bee590555f671df96179665ecf9380c624c3a072
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d5a67a12d6dbdb72625ab0459767eb8be92a8241
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129667627"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131035976"
 ---
 # <a name="azure-sql-managed-instance---compute-hardware-in-the-vcore-service-tier"></a>Azure SQL Managed Instance - Matériel de calcul dans le niveau de Service vCore
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -23,7 +24,7 @@ Cet article passe en revue le modèle d’achat vCore pour [Azure SQL Managed In
 
 Le modèle d’achat vCore utilisé par Azure SQL Managed Instance présente les caractéristiques suivantes :
 
-- contrôle de la génération du matériel pour mieux répondre aux besoins de calcul et de mémoire de la charge de travail ;
+- contrôle de la génération du matériel pour mieux répondre aux besoins de calcul et de mémoire de la charge de travail ;
 - remises sur le tarif [d’Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) et de [l’Instance réservée (RI)](../database/reserved-capacity-overview.md) ;
 - plus grande transparence des informations sur le matériel qui fait tourner les calculs, ce qui facilite la planification des migrations à partir de déploiements locaux.
 - La [tarification des instances réservées](../database/reserved-capacity-overview.md) est disponible uniquement pour le modèle d’achat vCore. 
@@ -35,7 +36,7 @@ Les options de niveau de service du modèle d’achat vCore sont les suivantes 
 |**Cas d’usage**|**Usage général**|**Critique pour l’entreprise**|
 |---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques. |Offre aux applications métier la résilience la plus élevée aux défaillances en utilisant plusieurs réplicas isolés et assure les meilleures performances d’E/S.|
-|Stockage|Utilise le stockage à distance. 32 Go - 8 To </br> 16 To (préversion) en fonction du nombre de cœurs, Gen5 uniquement |Utilise le stockage SSD local. 32 Go - 4 To |
+|Stockage|Utilise le stockage à distance. 32 Go à 16 To selon le nombre de cœurs |Utilise le stockage SSD local. <BR>- **Série Standard (Gen5) :** 32 Go à 4 To <BR>- **Série Premium :** 32 Go à 5,5 To <BR>- **Série Premium à mémoire optimisée :** 32 Go à 16 To |
 |IOPS et débit (approximatif)|Consultez [Vue d’ensemble des limites de ressources Azure SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics).|Consultez [Vue d’ensemble des limites de ressources Azure SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics).|
 |Disponibilité|1 réplica, réplicas sans échelle lecture|4 réplicas au total, 1 [réplica avec échelle lecture](../database/read-scale-out.md),<br/> 2 réplicas haute disponibilité (HA)|
 |Sauvegardes|[Stockage géoredondant avec accès en lecture (RA-GRS)](../../storage/common/geo-redundant-design.md), 1 à 35 jours (7 jours par défaut)|[RA-GRS](../../storage/common/geo-redundant-design.md), 1 à 35 jours (7 jours par défaut)|
@@ -55,16 +56,11 @@ Le calcul SQL Managed Instance fournit une quantité spécifique de ressources d
 
 ## <a name="hardware-generations"></a>Génération du matériel
 
-Les options de génération de matériel du modèle vCore incluent la série Gen 5. La génération du matériel définit généralement les limites de calcul et de mémoire, ainsi que d’autres caractéristiques qui ont un impact sur les performances de la charge de travail.
+Les options de génération de matériel du modèle vCore incluent la série Standard (Gen5), la série Premium et la série Premium à mémoire optimisée. La génération du matériel définit généralement les limites de calcul et de mémoire, ainsi que d’autres caractéristiques qui ont un impact sur les performances de la charge de travail.
 
-### <a name="compute-and-memory-specifications"></a>Spécifications de calcul et de mémoire
+Pour plus d’informations sur les spécificités et les limitations des générations de matériel, consultez [Caractéristiques des générations de matériel](resource-limits.md#hardware-generation-characteristics).
 
-|Génération du matériel  |Calcul  |Mémoire  |
-|:---------|:---------|:---------|
-|Gen4     |- Processeurs Intel&reg; E5-2673 v3 (Haswell) 2,4 GHz<br>- Provisionnement dans la limite de 24 vCore (1 vCore = 1 cœur physique)  |- 7 Go par vCore<br>- Provisionnement dans la limite de 168 Go|
-|Gen5     |- Processeurs Intel&reg; E5-2673 v4 (Broadwell) 2,3 GHz, Intel&reg; SP-8160 (Skylake)\* et Intel&reg; 8272CL (Cascade Lake) 2,5 GHz\*<br>- Provisionnement dans la limite de 80 vCore (1 vCore = 1 hyper-thread)|5,1 Go par vCore<br>- Provisionnement dans la limite de 408 Go|
-
-\* Dans la vue de gestion dynamique [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la génération de matériel pour les instances utilisant des processeurs Intel&reg; SP-8160 (Skylake) apparaît comme Gen6, tandis que la génération de matériel pour les instances utilisant des processeurs Intel&reg; 8272CL (Cascade Lake) apparaît comme Gen7. Les limites de ressources pour toutes les instances Gen5 sont identiques, quel que soit le type de processeur (Broadwell, Skylake ou Cascade Lake).
+ Dans la vue de gestion dynamique [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la génération de matériel pour les instances utilisant des processeurs Intel&reg; SP-8160 (Skylake) apparaît comme Gen6, tandis que la génération de matériel pour les instances utilisant des processeurs Intel&reg; 8272CL (Cascade Lake) apparaît comme Gen7. Les processeurs Intel&reg; 8370C (Ice Lake) utilisés par les générations de matériel des séries Premium et Premium à mémoire optimisée apparaissent sous le nom de Gen8. Les limites de ressources pour toutes les instances de la série Standard (Gen5) sont identiques, quel que soit le type de processeur (Broadwell, Skylake ou Cascade Lake).
 
 ### <a name="selecting-a-hardware-generation"></a>Choisir une génération de matériel
 
@@ -112,11 +108,15 @@ Pour plus d’informations, consultez la rubrique relative à la commande [az sq
 
 ### <a name="hardware-availability"></a>Disponibilité matérielle
 
-#### <a name="gen4gen5"></a><a id="gen4gen5-1"></a> Gen4/Gen5
+#### <a name="gen4"></a><a id="gen4gen5-1"></a> Gen4
 
-Le matériel Gen4 est [en cours de retrait](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) et n’est plus disponible pour les nouveaux déploiements. Toutes les nouvelles instances doivent être déployées sur le matériel Gen5.
+Le matériel Gen4 est [en cours de retrait](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) et n’est plus disponible pour les nouveaux déploiements. Toutes les nouvelles instances doivent être déployées sur des générations de matériel plus récentes.
 
-Gen5 est disponible dans toutes les régions publiques du monde entier.
+#### <a name="standard-series-gen5-and-premium-series"></a>Série Standard (Gen5) et série Premium
+
+Le matériel de la série Standard (Gen5) est disponible dans toutes les régions publiques du monde.
+  
+Le matériel des séries Premium et Premium à mémoire optimisée est en préversion, et sa disponibilité régionale est limitée. Pour plus d’informations, consultez [Limites des ressources d’Azure SQL Managed Instance](../managed-instance/resource-limits.md#hardware-generation-characteristics).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

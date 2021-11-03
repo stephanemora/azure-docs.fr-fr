@@ -2,19 +2,19 @@
 title: Tutoriel C# sur l’utilisation de l’IA sur des objets blob Azure
 titleSuffix: Azure Cognitive Search
 description: Parcourez un exemple d’extraction de texte et de traitement en langage naturel sur du contenu dans Stockage Blob en utilisant C# et le SDK .NET de Recherche cognitive Azure.
+author: nitinme
+ms.author: nitinme
 manager: nitinme
-author: MarkHeff
-ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a25f2a83fe03b8510e6ec56eb6bdcfedbb0098d8
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: b483279322510939af420d25f189435449ec3462
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123538072"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014839"
 ---
 # <a name="tutorial-use-net-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Didacticiel : utiliser .NET et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 

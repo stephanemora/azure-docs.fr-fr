@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.custom: devx-track-csharp
 ms.reviewer: olegan
-ms.openlocfilehash: e1ea1a1e02b4b09e64054e9369caee4202a0b1b5
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: 4e788d84e7f030b4b3067203434061ad017d1468
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129235684"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045536"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuration du kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml
 Le kit de développement logiciel (SDK) .NET Application Insights se compose d’un certain nombre de packages NuGet. Le [package principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fournit l'API pour l'envoi des données télémétriques à Application Insights. Des [packages supplémentaires](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fournissent les *modules* et les *initialiseurs* de télémétrie pour le suivi télémétrique automatique de votre application et de son contexte. La modification du fichier config permet d’activer ou de désactiver les modules et initialiseurs de télémétrie, et de définir les paramètres pour certains d’entre eux.
@@ -78,13 +78,13 @@ Indique le [temps de réponse et le code résultant](../../azure-monitor/app/asp
 `EventSourceTelemetryModule` vous permet de configurer les événements EventSource à envoyer à Application Insights en tant que traces. Pour plus d’informations sur le suivi des événements EventSource, consultez [Utilisation d’événements EventSource](./asp-net-trace-logs.md#use-eventsource-events).
 
 * `Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule`
-* [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener) 
+* [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener)
 
 ### <a name="etw-event-tracking"></a>Suivi des événements ETW
 `EtwCollectorTelemetryModule` vous permet de configurer les événements provenant des fournisseurs ETW à envoyer à Application Insights en tant que traces. Pour plus d’informations sur le suivi des événements ETW, consultez [Utilisation d’événements ETW](../../azure-monitor/app/asp-net-trace-logs.md#use-etw-events).
 
 * `Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule`
-* [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
+* [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector)
 
 ### <a name="microsoftapplicationinsights"></a>Microsoft.ApplicationInsights
 Le package Microsoft.ApplicationInsights fournit l’[API de base](/dotnet/api/microsoft.applicationinsights) du Kit de développement logiciel (SDK). Les autres modules de télémétrie l’utilisent. Vous pouvez également [l’utiliser pour définir votre propre télémétrie](./api-custom-events-metrics.md).
@@ -96,7 +96,7 @@ Le package Microsoft.ApplicationInsights fournit l’[API de base](/dotnet/api/m
 Le [canal de télémétrie](telemetry-channels.md) gère la mise en mémoire tampon et la transmission de la télémétrie au service Application Insights.
 
 * `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` est le canal par défaut des applications web. Il met les données en mémoire tampon, et emploie des mécanismes de nouvelle tentative et de stockage de disque local pour fournir des données de télémétrie plus fiables.
-* `Microsoft.ApplicationInsights.InMemoryChannel` est un canal de télémétrie léger, qui est utilisé si aucun autre canal n’est configuré. 
+* `Microsoft.ApplicationInsights.InMemoryChannel` est un canal de télémétrie léger, qui est utilisé si aucun autre canal n’est configuré.
 
 ## <a name="telemetry-initializers-aspnet"></a>Initialiseurs de télémétrie (ASP.NET)
 Les initialiseurs de télémétrie définissent les propriétés de contexte envoyées avec chaque élément de télémétrie.
@@ -155,7 +155,7 @@ Le paramètre fournit la cible que l'algorithme essaie d'atteindre. Chaque insta
 #### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Processeur de télémétrie d’échantillonnage à taux fixe (à partir de 2.0.0-beta1)
 Il existe également un [processeur de télémétrie d’échantillonnage](./api-filtering-sampling.md) standard (à partir de 2.0.1) :
 
-```XML
+```xml
 
     <TelemetryProcessors>
      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
@@ -184,7 +184,7 @@ using Microsoft.ApplicationInsights;
         TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
         configuration.InstrumentationKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
         var telemetryClient = new TelemetryClient(configuration);
-   
+
 ```
 
 Si vous souhaitez simplement envoyer un ensemble spécifique d’événements à une autre ressource, vous pouvez définir la clé pour un TelemetryClient spécifique :
@@ -199,8 +199,6 @@ Si vous souhaitez simplement envoyer un ensemble spécifique d’événements à
 ```
 
 Pour obtenir une nouvelle clé, [créez une ressource dans le portail Application Insights][new].
-
-
 
 ## <a name="applicationid-provider"></a>Fournisseur ApplicationId
 
@@ -218,7 +216,6 @@ public interface IApplicationIdProvider
     bool TryGetApplicationId(string instrumentationKey, out string applicationId);
 }
 ```
-
 
 Nous fournissons deux implémentations dans le kit de développement logiciel (SDK) [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) : `ApplicationInsightsApplicationIdProvider` et `DictionaryApplicationIdProvider`.
 
@@ -281,9 +278,6 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationI
     }
 };
 ```
-
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur l’API][api].

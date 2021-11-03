@@ -6,20 +6,21 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 08/20/2021
+ms.date: 10/21/2021
 ms.author: danlep
-ms.openlocfilehash: 57bb68352f04b356ec7a60f9e354993404c46abd
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ee6eb475dc94407a774f4b22bd3afd676cbe83da
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128658946"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065586"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Stratégies Gestion des API pour valider les demandes et les réponses
 
 Cet article est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](./api-management-policies.md).
 
-Utilisez des stratégies de validation pour valider les demandes et réponses d’API par rapport à un schéma OpenAPI et établir une protection contre les vulnérabilités telles que l’injection d’en-têtes ou de charge utile. Bien qu’il ne s’agisse pas d’un remplacement d’un pare-feu d’applications web, les stratégies de validation offrent la flexibilité nécessaire pour répondre à une classe supplémentaire de menaces non couvertes par des produits de sécurité qui reposent sur des règles statiques prédéfinies.
+Utilisez des stratégies de validation pour valider les demandes et réponses d’API par rapport à un schéma OpenAPI et établir une protection contre les vulnérabilités telles que l’injection d’en-têtes ou de charge utile. Bien qu’elles ne remplacent pas un pare-feu d’applications web, les stratégies de validation offrent la flexibilité nécessaire pour répondre à une autre classe de menaces non couvertes par des produits de sécurité qui reposent sur des règles statiques prédéfinies.
 
 ## <a name="validation-policies"></a>Stratégies de validation
 
@@ -39,9 +40,9 @@ Actions disponibles :
 
 | Action         | Description          |                                                                                                                         
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| ignore | Ignorer la validation. |
-| empêcher | Bloque le traitement de la demande ou de la réponse, journalise l’[erreur de validation](#validation-errors) détaillée et retourne une erreur. Le traitement est interrompu lorsque le premier ensemble d’erreurs est détecté. 
-| détecter | Journalise les [erreurs de validation](#validation-errors), sans interrompre le traitement de la demande ou de la réponse. |
+| `ignore` | Ignorer la validation. |
+| `prevent` | Bloque le traitement de la demande ou de la réponse, journalise l’[erreur de validation](#validation-errors) détaillée et retourne une erreur. Le traitement est interrompu lorsque le premier ensemble d’erreurs est détecté. 
+| `detect` | Journalise les [erreurs de validation](#validation-errors), sans interrompre le traitement de la demande ou de la réponse. |
 
 ## <a name="logs"></a>Journaux d’activité
 
@@ -87,20 +88,20 @@ Dans l’exemple suivant, la charge utile JSON dans les demandes et les réponse
 
 | Nom         | Description                                                                                                                                   | Obligatoire |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-content | Élément racine.                                                                                                                               | Oui      |
-| contenu | Ajoutez un ou plusieurs de ces éléments pour valider le type de contenu dans la demande ou la réponse, puis exécutez l’action spécifiée.  | Non |
+| `validate-content` | Élément racine.                                                                                                                               | Oui      |
+| `content` | Ajoutez un ou plusieurs de ces éléments pour valider le type de contenu dans la demande ou la réponse, puis exécutez l’action spécifiée.  | Non |
 
 ### <a name="attributes"></a>Attributs
 
 | Nom                       | Description                                                                                                                                                            | Obligatoire | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| unspecified-content-type-action | [Action](#actions) à effectuer pour les demandes ou les réponses avec un type de contenu qui n’est pas spécifié dans le schéma API. |  Oui     | N/A   |
-| max-size | Longueur maximale, en octets, du corps de la demande ou de la réponse, vérifiée par rapport à l'en-tête `Content-Length`. Si le corps de la demande ou le corps de la réponse est compressé, cette valeur est la longueur décompressée. Valeur maximale autorisée : 102 400 octets (100 Ko). (Contactez le [support](https://azure.microsoft.com/support/options/) si vous devez augmenter cette limite). | Oui       | N/A   |
-| size-exceeded-action | [Action](#actions) à effectuer pour les demandes ou les réponses dont le corps dépasse la taille spécifiée dans `max-size`. |  Oui     | N/A   |
-| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
-| type | Type de contenu pour lequel exécuter la validation du corps, vérifié par rapport à l’en-tête `Content-Type`. La valeur ne respecte pas la casse. S’il est vide, il s’applique à chaque type de contenu spécifié dans le schéma API. |   Non    |  N/A  |
-| validate-as | Moteur de validation à utiliser pour la validation du corps d’une demande ou d’une réponse avec un type de contenu correspondant. Actuellement, la seule valeur possible est « json ».   |  Oui     |  N/A  |
-| action | [Action](#actions) à effectuer pour les demandes ou les réponses dont le corps ne correspond pas au type de contenu spécifié.  |  Oui      | N/A   |
+| `unspecified-content-type-action` | [Action](#actions) à effectuer pour les demandes ou les réponses avec un type de contenu qui n’est pas spécifié dans le schéma API. |  Oui     | N/A   |
+| `max-size` | Longueur maximale, en octets, du corps de la demande ou de la réponse, vérifiée par rapport à l'en-tête `Content-Length`. Si le corps de la demande ou le corps de la réponse est compressé, cette valeur est la longueur décompressée. Valeur maximale autorisée : 102 400 octets (100 Ko). (Contactez le [support](https://azure.microsoft.com/support/options/) si vous devez augmenter cette limite). | Oui       | N/A   |
+| `size-exceeded-action` | [Action](#actions) à effectuer pour les demandes ou les réponses dont le corps dépasse la taille spécifiée dans `max-size`. |  Oui     | N/A   |
+| `errors-variable-name` | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
+| `type` | Type de contenu pour lequel exécuter la validation du corps, vérifié par rapport à l’en-tête `Content-Type`. La valeur ne respecte pas la casse. S’il est vide, il s’applique à chaque type de contenu spécifié dans le schéma API. |   Non    |  N/A  |
+| `validate-as` | Moteur de validation à utiliser pour la validation du corps d’une demande ou d’une réponse avec un type de contenu correspondant. Actuellement, la seule valeur possible est « json ».   |  Oui     |  N/A  |
+| `action` | [Action](#actions) à effectuer pour les demandes ou les réponses dont le corps ne correspond pas au type de contenu spécifié.  |  Oui      | N/A   |
 
 ### <a name="usage"></a>Usage
 
@@ -153,21 +154,21 @@ Dans cet exemple, tous les paramètres de requête et de chemin d’accès sont 
 
 | Nom         | Description                                                                                                                                   | Obligatoire |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-parameters | Élément racine. Spécifie les actions de validation par défaut pour tous les paramètres dans les demandes.                                                                                                                              | Oui      |
-| headers | Ajoutez cet élément pour remplacer les actions de validation par défaut des paramètres dans les demandes.   | Non |
-| query | Ajoutez cet élément pour remplacer les actions de validation par défaut des paramètres de requête dans les demandes.  | Non |
-| path | Ajoutez cet élément pour remplacer les actions de validation par défaut des paramètres de chemin d’accès d’URL dans les demandes.  | Non |
-| paramètre | Ajoutez un ou plusieurs éléments pour les paramètres nommés pour remplacer la configuration de niveau supérieur des actions de validation. | Non |
+| `validate-parameters` | Élément racine. Spécifie les actions de validation par défaut pour tous les paramètres dans les demandes.                                                                                                                              | Oui      |
+| `headers` | Ajoutez cet élément pour remplacer les actions de validation par défaut des paramètres dans les demandes.   | Non |
+| `query` | Ajoutez cet élément pour remplacer les actions de validation par défaut des paramètres de requête dans les demandes.  | Non |
+| `path` | Ajoutez cet élément pour remplacer les actions de validation par défaut des paramètres de chemin d’accès d’URL dans les demandes.  | Non |
+| `parameter` | Ajoutez un ou plusieurs éléments pour les paramètres nommés pour remplacer la configuration de niveau supérieur des actions de validation. | Non |
 
 ### <a name="attributes"></a>Attributs
 
 | Nom                       | Description                                                                                                                                                            | Obligatoire | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| specified-parameter-action | [Action](#actions) à effectuer pour les paramètres de demande spécifiés dans le schéma API. <br/><br/> Lorsqu’il est fourni dans un élément `headers`, `query` ou `path`, la valeur se substitue à la valeur de `specified-parameter-action` dans l’élément `validate-parameters`.  |  Oui     | N/A   |
-| unspecified-parameter-action | [Action](#actions) à effectuer pour les paramètres de demande non spécifiés dans le schéma API. <br/><br/>Lorsqu’il est fourni dans un élément `headers` ou `query`, la valeur se substitue à la valeur de `unspecified-parameter-action` dans l’élément `validate-parameters`. |  Oui     | N/A   |
-| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
-| name | Nom du paramètre pour lequel remplacer l’action de validation. La valeur ne respecte pas la casse.  | Oui | N/A |
-| action | [Action](#actions) à effectuer pour le paramètre avec le nom correspondant. Si le paramètre est spécifié dans le schéma API, cette valeur remplace la configuration `specified-parameter-action` de niveau supérieur. Si le paramètre n’est pas spécifié dans le schéma API, cette valeur remplace la configuration `unspecified-parameter-action` de niveau supérieur.| Oui | N/A | 
+| `specified-parameter-action` | [Action](#actions) à effectuer pour les paramètres de demande spécifiés dans le schéma API. <br/><br/> Lorsqu’il est fourni dans un élément `headers`, `query` ou `path`, la valeur se substitue à la valeur de `specified-parameter-action` dans l’élément `validate-parameters`.  |  Oui     | N/A   |
+| `unspecified-parameter-action` | [Action](#actions) à effectuer pour les paramètres de demande non spécifiés dans le schéma API. <br/><br/>Lorsqu’il est fourni dans un élément `headers` ou `query`, la valeur se substitue à la valeur de `unspecified-parameter-action` dans l’élément `validate-parameters`. |  Oui     | N/A   |
+| `errors-variable-name` | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
+| `name` | Nom du paramètre pour lequel remplacer l’action de validation. La valeur ne respecte pas la casse.  | Oui | N/A |
+| `action` | [Action](#actions) à effectuer pour le paramètre avec le nom correspondant. Si le paramètre est spécifié dans le schéma API, cette valeur remplace la configuration `specified-parameter-action` de niveau supérieur. Si le paramètre n’est pas spécifié dans le schéma API, cette valeur remplace la configuration `unspecified-parameter-action` de niveau supérieur.| Oui | N/A | 
 
 ### <a name="usage"></a>Usage
 
@@ -201,18 +202,18 @@ La stratégie `validate-headers` valide les en-têtes de réponse par rapport au
 
 | Nom         | Description                                                                                                                                   | Obligatoire |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-headers | Élément racine. Spécifie les actions de validation par défaut pour tous les en-têtes dans les réponses.                                                                                                                              | Yes      |
-| en-tête | Ajoutez un ou plusieurs éléments pour que les en-têtes nommés remplacent les actions de validation par défaut pour les en-têtes de réponse. | Non |
+| `validate-headers` | Élément racine. Spécifie les actions de validation par défaut pour tous les en-têtes dans les réponses.                                                                                                                              | Yes      |
+| `header` | Ajoutez un ou plusieurs éléments pour que les en-têtes nommés remplacent les actions de validation par défaut pour les en-têtes de réponse. | Non |
 
 ### <a name="attributes"></a>Attributs
 
 | Nom                       | Description                                                                                                                                                            | Obligatoire | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| specified-header-action | [Action](#actions) à effectuer pour les en-têtes de réponse spécifiés dans le schéma API.  |  Oui     | N/A   |
-| unspecified-header-action | [Action](#actions) à effectuer pour les en-têtes de réponse non spécifiés dans le schéma API.  |  Oui     | N/A   |
-| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
-| name | Nom de l’en-tête pour lequel remplacer l’action de validation. La valeur ne respecte pas la casse. | Oui | N/A |
-| action | [Action](#actions) à effectuer pour l’en-tête portant le nom correspondant. Si l’en-tête est spécifié dans le schéma API, cette valeur remplace la valeur de `specified-header-action` dans l’élément `validate-headers`. Sinon, elle remplace la valeur de `unspecified-header-action` dans l’élément validate-headers. | Oui | N/A | 
+| `specified-header-action` | [Action](#actions) à effectuer pour les en-têtes de réponse spécifiés dans le schéma API.  |  Oui     | N/A   |
+| `unspecified-header-action` | [Action](#actions) à effectuer pour les en-têtes de réponse non spécifiés dans le schéma API.  |  Oui     | N/A   |
+| `errors-variable-name` | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
+| `name` | Nom de l’en-tête pour lequel remplacer l’action de validation. La valeur ne respecte pas la casse. | Oui | N/A |
+| `action` | [Action](#actions) à effectuer pour l’en-tête portant le nom correspondant. Si l’en-tête est spécifié dans le schéma API, cette valeur remplace la valeur de `specified-header-action` dans l’élément `validate-headers`. Sinon, elle remplace la valeur de `unspecified-header-action` dans l’élément validate-headers. | Oui | N/A | 
 
 ### <a name="usage"></a>Usage
 
@@ -244,17 +245,17 @@ La stratégie `validate-status-code` valide les codes d’état HTTP dans les r�
 
 | Nom         | Description                                                                                                                                   | Obligatoire |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-status-code | Élément racine.                                                                                                | Oui      |
-| status-code | Ajoutez un ou plusieurs éléments pour les codes d’état HTTP pour remplacer l’action de validation par défaut pour les codes d’état dans les réponses. | Non |
+| `validate-status-code` | Élément racine.                                                                                                | Oui      |
+| `status-code` | Ajoutez un ou plusieurs éléments pour les codes d’état HTTP pour remplacer l’action de validation par défaut pour les codes d’état dans les réponses. | Non |
 
 ### <a name="attributes"></a>Attributs
 
 | Nom                       | Description                                                                                                                                                            | Obligatoire | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| unspecified-status-code-action | [Action](#actions) à effectuer pour les codes d’état HTTP dans les réponses qui ne sont pas spécifiés dans le schéma API.  |  Oui     | N/A   |
-| errors-variable-name | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
-| code | Code d’état HTTP pour lequel remplacer l’action de validation. | Oui | N/A |
-| action | [Action](#actions) à effectuer pour le code d’état correspondant, qui n’est pas spécifié dans le schéma API. Si le code d’état est spécifié dans le schéma API, ce remplacement n’entre pas en vigueur. | Oui | N/A | 
+| `unspecified-status-code-action` | [Action](#actions) à effectuer pour les codes d’état HTTP dans les réponses qui ne sont pas spécifiés dans le schéma API.  |  Oui     | N/A   |
+| `errors-variable-name` | Nom de la variable dans `context.Variables` dans laquelle enregistrer les erreurs de validation.  |   Non    | N/A   |
+| `code` | Code d’état HTTP pour lequel remplacer l’action de validation. | Oui | N/A |
+| `action` | [Action](#actions) à effectuer pour le code d’état correspondant, qui n’est pas spécifié dans le schéma API. Si le code d’état est spécifié dans le schéma API, ce remplacement n’entre pas en vigueur. | Oui | N/A | 
 
 ### <a name="usage"></a>Usage
 
@@ -271,7 +272,7 @@ Le tableau suivant répertorie toutes les erreurs possibles des stratégies de v
 * **Détails** : peut être utilisé pour examiner les erreurs. Non destiné à être partagé publiquement.
 * **Réponse publique** : erreur retournée au client. Ne divulgue pas les détails de l’implémentation.
 
-Quand une stratégie de validation spécifie l’action `prevent` et génère une erreur, la réponse de la gestion des API comprend un code d’état HTTP : 400 lorsque la stratégie est appliquée dans la section entrante, et 502 lorsque la stratégie est appliquée dans la section sortante.
+Quand une stratégie de validation spécifie l’action `prevent` et génère une erreur, la réponse de la gestion des API comprend un code d’état HTTP : 400 lorsque la stratégie est appliquée dans la section entrante, et 502 lorsque la stratégie est appliquée dans la section sortante.
 
 
 | **Nom**   | **Type**                                                        | **Règle de validation** | **Détails**                                                                                                                                       | **Réponse publique**                                                                                                                       | **Action**           |

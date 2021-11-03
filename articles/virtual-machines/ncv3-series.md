@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 9118070756dec9a4d8d7f8ef20e5c7ba589c6797
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: fb6e1baa35b8136e12e151f0b49d1ccb72a18acd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073579"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063636"
 ---
 # <a name="ncv3-series"></a>Série NCv3
 
@@ -27,7 +27,7 @@ Les machines virtuelles de série NCv3 sont optimisées par les GPU NVIDIA Tesla
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 1 et 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Non pris en charge<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge ([en préversion](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge<br>
 Interconnexion Nvidia/NVLink : Non pris en charge<br>
 
 > [!IMPORTANT]

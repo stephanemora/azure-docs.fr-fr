@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 02/18/2021
-ms.openlocfilehash: 38f98ab557738031e4c3933a4bc914b31c42cd91
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 484b05483119914003f4d8ff28967cad262e8542
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124814842"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086440"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Tutoriel : Copier des données d’une base de données SQL Server vers un stockage Blob Azure
 
@@ -187,7 +187,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 1. Créez une variable pour le nom du runtime d’intégration. Utilisez un nom unique, et notez-le. Vous l’utiliserez ultérieurement dans ce tutoriel.
 
     ```powershell
-   $integrationRuntimeName = "ADFTutorialIR"
+    $integrationRuntimeName = "ADFTutorialIR"
     ```
 
 1. Créez un runtime d’intégration auto-hébergé.
@@ -210,7 +210,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 1. Exécutez la commande suivante pour récupérer l’état du runtime d’intégration créé :
 
     ```powershell
-   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+    Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
     ```
 
     Voici l'exemple de sortie :

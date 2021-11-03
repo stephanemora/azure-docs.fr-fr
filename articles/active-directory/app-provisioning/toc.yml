@@ -82,6 +82,8 @@
       items:
         - name: "Configuration du connecteur\_SQL générique"
           href: on-premises-sql-connector-configure.md
+        - name: "Configuration du connecteur\_LDAP générique"
+          href: on-premises-ldap-connector-configure.md
         - name: Provisionnement d’applications local sur des applications compatibles SCIM
           href: on-premises-scim-provisioning.md
         - name: Migrer le connecteur depuis la synchronisation MIM
@@ -111,7 +113,7 @@
     - name: Options d’aide et de support pour les développeurs
       href: ../develop/developer-support-help-options.md
     - name: Forum de commentaires Azure
-      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+      href: 'https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789'
     - name: Page de questions Microsoft Q&A
       href: /answers/topics/azure-active-directory.html
     - name: Tarifs

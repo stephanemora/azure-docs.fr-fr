@@ -1,17 +1,17 @@
 ---
 title: Scénarios relatifs à Azure HPC Cache
 description: Permet de déterminer si votre travail informatique est compatible avec Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/29/2021
-ms.author: v-erkel
-ms.openlocfilehash: 84d5948cd4d3fbf69c3e8e983dedc280f1f7d950
-ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
+ms.author: femila
+ms.openlocfilehash: 40434634fde18a9ff9e63f9e2174cd412182b500
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113585732"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131078557"
 ---
 # <a name="is-your-job-a-good-fit-for-azure-hpc-cache"></a>Votre travail est-il adapté à Azure HPC Cache ?
 

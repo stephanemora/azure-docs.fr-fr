@@ -2,13 +2,13 @@
 title: Clusters managés Service Fabric
 description: Les clusters managés Service Fabric sont une évolution du modèle de ressource de cluster Azure Service Fabric qui simplifie le déploiement et la gestion de cluster.
 ms.topic: overview
-ms.date: 5/10/2021
-ms.openlocfilehash: 12f5c7bd16e8738aaadfb8ca9aeed491bab5b8e0
-ms.sourcegitcommit: 7854045df93e28949e79765a638ec86f83d28ebc
+ms.date: 10/22/2021
+ms.openlocfilehash: 2b0b0b79899acaf0b4be3b05f52fceadf8acf54d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122866915"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055043"
 ---
 # <a name="service-fabric-managed-clusters"></a>Clusters managés Service Fabric
 
@@ -61,7 +61,7 @@ Les clusters managés Service Fabric sont disponibles la fois dans les SKU de ba
 
 | Fonctionnalité | De base | standard |
 | ------- | ----- | -------- |
-| Ressource réseau (SKU pour [Load Balancer](../load-balancer/skus.md), [adresse IP publique](../virtual-network/public-ip-addresses.md)) | De base | standard |
+| Ressource réseau (SKU pour [Load Balancer](../load-balancer/skus.md), [adresse IP publique](../virtual-network/ip-services/public-ip-addresses.md)) | De base | standard |
 | Nombre minimal de nœuds (instance de machine virtuelle) | 3 | 5 |
 | Nombre maximal de nœuds par type de nœud | 100 | 1 000 |
 | Nombre maximal de types de nœuds | 1 | 20 |
@@ -74,7 +74,7 @@ Les fonctionnalités des clusters managés vont continuer à évoluer. Actuellem
 
 * [Déploiement d’applications à l’aide de modèles ARM](how-to-managed-cluster-app-deployment-template.md)
 * [Secrets de l’application](how-to-managed-cluster-application-secrets.md)
-* [Mises à niveau automatiques de l’image du système d’exploitation](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Mises à niveau automatiques de l’image du système d’exploitation](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades)
 * [Répartition des zones de disponibilité](how-to-managed-cluster-availability-zones.md)
 * Sélection du [chiffrement de disque](how-to-enable-managed-cluster-disk-encryption.md) et du [type de disque managé](how-to-managed-cluster-managed-disk.md)
 * Prise en charge des identités managées pour les [types de nœuds](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) de cluster managés et l’[authentification des applications](how-to-managed-cluster-application-managed-identity.md)

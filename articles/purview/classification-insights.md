@@ -6,12 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: c5f0f409f009d66afd0cb6103e2018c527c0b0a2
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 80929cb469d4d60c649786c955e8f92906794185
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130246058"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011084"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Insights relatifs aux classifications de vos données à partir d’Azure Purview
 
@@ -20,7 +21,7 @@ Ce guide pratique explique comment accéder aux rapports Purview « Insights re
 > [!IMPORTANT]
 > Les insights Azure Purview sont actuellement disponibles en PRÉVERSION. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
-Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API SQL), Azure Synapse Analytics (anciennement SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, compartiments Amazon S3.
+Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (API SQL), Azure Synapse Analytics (anciennement SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, compartiments Amazon S3, et les bases de données Amazon RDS (préversion publique).
 
 Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivantes :
 

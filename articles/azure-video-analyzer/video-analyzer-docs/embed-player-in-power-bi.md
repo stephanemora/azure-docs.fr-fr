@@ -4,21 +4,23 @@ description: Vous pouvez utiliser Azure Video Analyzer pour un enregistrement vi
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 08/06/2021
-ms.openlocfilehash: 38fcd60352fe151637e0e7f8fa4dfe9159b12915
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fb6014649e6fe71a2d2de5e4d7adb72ba9b66a37
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128620708"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012153"
 ---
 # <a name="embed-player-widget-in-power-bi"></a>Incorporer un widget de lecteur dans Power BI
+
 
 Azure Video Analyzer vous permet d’[enregistrer](detect-motion-record-video-clips-cloud.md) de la vidéo et les métadonnées d’inférence associées dans votre ressource cloud Video Analyzer. Video Analyzer possède un [widget de lecteur](player-widget.md), c’est-à-dire, un widget facile à incorporer qui permet aux applications clientes de lire la vidéo et les métadonnées d’inférence.
 
 Les tableaux de bord sont un moyen utile pour superviser votre activité et voir vos métriques les plus importantes en un clin d’œil. Un tableau de bord Power BI est un outil puissant pour combiner la vidéo avec plusieurs sources de données, dont la télémétrie à partir d’IoT Hub. Dans ce tutoriel, vous allez apprendre à ajouter un ou plusieurs widgets de lecteur à un tableau de bord à l’aide du service web [Microsoft Power BI](https://powerbi.microsoft.com/).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/embed-block-diagram.png" alt-text="Diagramme de bloc pour incorporer le widget du lecteur Azure Video Analyzer dans Microsoft Power BI.":::
+> :::image type="content" source="./media/power-bi/embed-block-diagram.svg" alt-text="Diagramme de bloc pour incorporer le widget du lecteur Azure Video Analyzer dans Microsoft Power BI.":::
 
 ## <a name="suggested-pre-reading"></a>Lecture préalable suggérée
 

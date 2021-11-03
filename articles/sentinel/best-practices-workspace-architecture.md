@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.openlocfilehash: 591d248bed623a31d9c120ae669615efa5c5544d
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 81407a3f705668abe03f7cfbdc03fa205d19e108
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124763250"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060806"
 ---
 # <a name="azure-sentinel-workspace-architecture-best-practices"></a>Meilleures pratiques pour l’architecture de l’espace de travail Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Lorsque vous planifiez le déploiement de votre espace de travail Azure Sentinel, vous devez également concevoir votre architecture d’espace de travail Log Analytics. Les décisions relatives à l’architecture de l’espace de travail sont généralement régies par des exigences techniques et commerciales. Cet article passe en revue les principaux facteurs de décision pour vous aider à déterminer l’architecture d’espace de travail adaptée à vos organisations, notamment :
 

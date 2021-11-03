@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: a0706962ea783e55eb92f8918b53ff5c355e1e6f
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 60b60a0dcd8e7578f9adbde1e6a509516815e8c6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121785364"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045251"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Démarrage rapide : Générer une application Cassandra avec .NET Core et Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
@@ -105,30 +105,30 @@ Cette étape est facultative. Si vous voulez savoir comment le code crée les re
 
 * Créez une table.
 
-   ```csharp
+  ```csharp
   await session.ExecuteAsync(new SimpleStatement("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)"));
-   ```
+  ```
 
 * Insérez des entités utilisateur à l’aide de l’objet IMapper avec une nouvelle session qui se connecte à l’espace de clés uprofile.
 
-    ```csharp
-    await mapper.InsertAsync<User>(new User(1, "LyubovK", "Dubai"));
-    ```
+  ```csharp
+  await mapper.InsertAsync<User>(new User(1, "LyubovK", "Dubai"));
+  ```
 
 * Faites une requête pour obtenir les informations de tous les utilisateurs.
 
-    ```csharp
-    foreach (User user in await mapper.FetchAsync<User>("Select * from user"))
-    {
-        Console.WriteLine(user);
-    }
-    ```
+  ```csharp
+  foreach (User user in await mapper.FetchAsync<User>("Select * from user"))
+  {
+      Console.WriteLine(user);
+  }
+  ```
 
 * Faites une requête pour obtenir les informations d’un seul utilisateur.
 
-    ```csharp
-    mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
-    ```
+  ```csharp
+  mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
+  ```
 
 ## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
 

@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: bagol
-ms.openlocfilehash: 3aefed370606b80249eabeac35123223b2ad5255
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 20bc5a35aa9afc3aced8818809a701f2080c245c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524337"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075445"
 ---
 # <a name="collaborate-in-microsoft-teams-public-preview"></a>Collaborer dans Microsoft Teams (préversion publique)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel prend en charge une intégration directe à [Microsoft Teams](/microsoftteams/), ce qui vous permet d’accéder directement au travail d’équipe sur des incidents spécifiques.
 

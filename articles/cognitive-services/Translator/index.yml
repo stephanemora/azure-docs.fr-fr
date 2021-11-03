@@ -6,20 +6,20 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Translator est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte via un simple appel d’API REST. Le service utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de Translator qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec Translator ou les services de reconnaissance vocale de Microsoft.
   services: cognitive-services
-  author: erhopf
+  author: laujan
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: translator-text
   ms.topic: landing-page
   ms.date: 10/14/2019
-  ms.author: erhopf
+  ms.author: lajanuar
   ms.custom: contperf-fy21q2
-  ms.openlocfilehash: 98e67bace94a4680b3f19fe64d77882ec87551ce
-  ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+  ms.openlocfilehash: feea685e567c9a5d4867b3d4a47a200cc7a02117
+  ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/13/2021
-  ms.locfileid: "121750032"
+  ms.lasthandoff: 11/02/2021
+  ms.locfileid: "131073431"
 landingContent:
 - title: Convertisseur
   linkLists:

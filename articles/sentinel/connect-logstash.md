@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: 5f6765d4e6fc60a4b1d34846b1279456e1e8dca7
-ms.sourcegitcommit: af303268d0396c0887a21ec34c9f49106bb0c9c2
+ms.openlocfilehash: 11002a4d66728373e674c1b1522fbc9122bb3bfd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2021
-ms.locfileid: "129754289"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014103"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Utiliser Logstash pour connecter des sources de données à Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > La fonctionnalité d'ingestion de données à l'aide du plug-in de sortie Logstash est actuellement en préversion publique. Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

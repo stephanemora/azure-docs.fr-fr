@@ -8,13 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
-ms.openlocfilehash: b91dac0889da88b81d4306dff6eda4c45bcb6080
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 96f0f011382fb631416665cad58ca7d7324fcb24
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129713402"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076608"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?
 
@@ -99,7 +100,7 @@ Pour en savoir plus sur les séries prises en charge et les restrictions, consul
 | [HBv2](../virtual-machines/hbv2-series.md) | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
 | [HBv3](../virtual-machines/hbv3-series.md) | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
 | [HC](../virtual-machines/hc-series.md) | Nécessite une approbation. |  Calcul haute performance | Clusters et instance de calcul |
-| [LSv2](../virtual-machines/lsv2-series.md) | Aucun. |  Stockage optimisé | Clusters et instance de calcul |
+| [LSv2](../virtual-machines/lsv2-series.md) | Aucun. |  Optimisé pour le stockage | Clusters et instance de calcul |
 | [M](../virtual-machines/m-series.md) | Nécessite une approbation. | Mémoire optimisée | Clusters et instance de calcul |
 | [NC](../virtual-machines/nc-series.md) | Aucun. |  GPU | Clusters et instance de calcul |
 | [NC Promo](../virtual-machines/nc-series.md) | Aucun. | GPU | Clusters et instance de calcul |

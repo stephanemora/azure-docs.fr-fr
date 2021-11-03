@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 03/11/2021
-ms.openlocfilehash: 787a0e4990988f35ca8e2c98eab1d9c77bea9c1b
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 476b77cd2f319e5c082235ade3468ddb2fd34d44
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128576332"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069441"
 ---
 # <a name="tutorial-create-a-serverless-real-time-chat-app-with-azure-functions-and-azure-web-pubsub-service"></a>Tutoriel : Créer une application de conversation serverless avec Azure Functions et le service Azure Web PubSub
 
@@ -73,21 +73,25 @@ Dans ce tutoriel, vous allez apprendre à :
 
 1. Installez le package d’extension de fonction `Microsoft.Azure.WebJobs.Extensions.WebPubSub` explicitement.
 
-   a. Supprimez la section `extensionBundle` dans `host.json` pour activer l’installation d’un package d’extension spécifique à l’étape suivante. Ou rendez simplement l’hôte json aussi simple que ci-dessous.
-    ```json
-    {
+   1. Supprimez la section `extensionBundle` dans `host.json` pour activer l’installation d’un package d’extension spécifique à l’étape suivante. Ou rendez simplement l’hôte json aussi simple que ci-dessous.
+
+      ```json
+      {
         "version": "2.0"
-    }
-    ```
-   b. Exécutez la commande pour installer un package d’extension de fonction spécifique.
-    ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
-    ```
+      }
+      ```
+
+   1. Exécutez la commande pour installer un package d’extension de fonction spécifique.
+
+      ```bash
+      func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+      ```
 
 1. Créez une fonction `index` pour lire et héberger une page web statique pour les clients.
     ```bash
     func new -n index -t HttpTrigger
     ```
+
    # <a name="javascript"></a>[JavaScript](#tab/javascript)
    - Mettez à jour `index/function.json` et copiez les codes json suivants.
         ```json

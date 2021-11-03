@@ -4,12 +4,12 @@ description: Découvrez comment déployer un groupe de conteneurs sur un réseau
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: f107b5b04726047bea4d7c05a6c031d921f26547
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: da24d64ba4615ff6d06ca2617e8e9c45a4dbff9f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112300162"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080210"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -141,7 +141,7 @@ Exemple de sortie :
 
 Une fois que vous avez l’ID du profil réseau, copiez le fichier YAML suivant dans un nouveau fichier nommé *vnet-deploy-aci.yaml*. Sous `networkProfile`, remplacez la valeur `id` par l’ID que vous venez de récupérer, puis enregistrez le fichier. Ce fichier YAML crée un groupe de conteneurs nommé *appcontaineryaml* dans votre réseau virtuel.
 
-```YAML
+```yaml
 apiVersion: '2019-12-01'
 location: westus
 name: appcontaineryaml

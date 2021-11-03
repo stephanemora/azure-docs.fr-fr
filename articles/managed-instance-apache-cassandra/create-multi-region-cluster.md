@@ -5,22 +5,18 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 09/08/2021
-ms.openlocfilehash: b40a2a2a8aaff878fa514ddd0d5b56eb9d5e10a3
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 236b2d1b34c04c387e8cc5dd83e886bcea0a8b52
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124736228"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084953"
 ---
-# <a name="quickstart-create-a-multi-region-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Démarrage rapide : Créer un cluster multirégion avec Azure Managed Instance pour Apache Cassandra (préversion)
+# <a name="quickstart-create-a-multi-region-cluster-with-azure-managed-instance-for-apache-cassandra"></a>Démarrage rapide : Créer un cluster multirégion avec Azure Managed Instance pour Apache Cassandra
 
 Azure Managed Instance pour Apache Cassandra offre des opérations de déploiement et de mise à l’échelle automatisées pour les centres de données Apache Cassandra open source managés. Ce service vous aide à accélérer les scénarios hybrides et à réduire la maintenance en cours.
-
-> [!IMPORTANT]
-> Azure Managed Instance pour Apache Cassandra est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ce guide de démarrage rapide montre comment utiliser les commandes Azure CLI pour configurer un cluster multirégion dans Azure.  
 

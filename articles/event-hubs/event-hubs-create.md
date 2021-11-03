@@ -2,13 +2,14 @@
 title: Démarrage rapide Azure - Créer un Event Hub à l'aide du portail Azure
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un hub d’événements Azure à l’aide du portail Azure.
 ms.topic: quickstart
-ms.date: 05/25/2021
-ms.openlocfilehash: 6a483981f1461c738f087c6f9401006319fd0135
-ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
+ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: b08ea54d7f408f35c9a584d9608848638dead827
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110617136"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081331"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Démarrage rapide : Créer un hub d’événements avec le portail Azure
 Azure Event Hubs est une plateforme de streaming Big Data et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).

@@ -4,14 +4,14 @@ description: Découvrez comment configurer l’authentification unique pour l’
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 08/17/2021
+ms.date: 10/25/2021
 ms.author: tomfitz
-ms.openlocfilehash: 04a2616e46f526e9601e102c8ecb4104b6595164
-ms.sourcegitcommit: 1deb51bc3de58afdd9871bc7d2558ee5916a3e89
+ms.openlocfilehash: 86ef7f781e3093b2daa78a393963b9053c9f5982
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122564024"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057568"
 ---
 # <a name="set-up-logzio-single-sign-on"></a>Configurer l’authentification unique de Logz.io
 

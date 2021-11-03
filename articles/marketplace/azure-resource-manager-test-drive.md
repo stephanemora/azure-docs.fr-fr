@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: trkeya
 author: trkeya
 ms.date: 09/09/2021
-ms.openlocfilehash: 7825dff873afaf223cab7b86c73083027caccc72
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 7415e01f79c7982b2e56e1bb02fc84be13174388
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129363610"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065149"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation Azure Resource Manager
 
@@ -309,7 +309,7 @@ La dernière section à effectuer vise à permettre le déploiement automatique 
 3. Approvisionnez l’application Microsoft Test-Drive sur votre locataire. Nous utiliserons cette application pour effectuer des opérations sur vos ressources de version d’évaluation.
     1. Si ce n’est pas déjà fait, installez le [module Azure Az PowerShell](/powershell/azure/install-az-ps).
     1. Ajoutez le principal de service pour l’application Microsoft Test-Drive.
-        1. Exécutez `Connect-AzAccount` et fournissez les informations d’identification requises pour vous connecter à votre compte Azure, ce qui nécessite le [rôle intégré](/azure/active-directory/roles/permissions-reference#global-administrator) **Administrateur général** d’Azure Active Directory. 
+        1. Exécutez `Connect-AzAccount` et fournissez les informations d’identification requises pour vous connecter à votre compte Azure, ce qui nécessite le [rôle intégré](../active-directory/roles/permissions-reference.md#global-administrator) **Administrateur général** d’Azure Active Directory. 
         1. Créez un nouveau principal de service : `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment`.
         1. Assurez-vous que le principal de service a été créé : `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
       ![Affiche le code permettant de vérifier le principal de service](media/test-drive/commands-to-verify-service-principal.png)

@@ -7,15 +7,13 @@ ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: javascript
-ms.custom:
-- devx-track-js
-- mode-api
-ms.openlocfilehash: fa3c4405bd2c62642e5d61dad10b078695fb32cd
-ms.sourcegitcommit: 8000045c09d3b091314b4a73db20e99ddc825d91
+ms.custom: devx-track-js, mode-api
+ms.openlocfilehash: 8dd69eb071275b1ae54b6d381cc7d7f0371ca118
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2021
-ms.locfileid: "122444672"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069555"
 ---
 # <a name="quickstart-use-javascript-to-create-an-app-showing-github-star-count-with-azure-functions-and-signalr-service"></a>Démarrage rapide : Utiliser JavaScript pour créer une application qui indique le nombre d’étoiles GitHub avec Azure Functions et SignalR Service
 

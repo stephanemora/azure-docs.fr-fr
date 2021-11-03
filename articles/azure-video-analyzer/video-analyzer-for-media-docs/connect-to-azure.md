@@ -1,21 +1,35 @@
 ---
-title: Créer un compte Azure Video Analyzer for Media (anciennement Video Indexer) connecté à Azure
+title: Créez un compte Azure Video Analyzer for Media (anciennement Video Indexer) connecté à Azure
 description: Découvrez comment créer un compte Azure Video Analyzer for Media (anciennement Video Indexer) connecté à Azure.
 ms.topic: tutorial
-ms.date: 01/14/2021
-ms.author: juliako
-ms.openlocfilehash: 13bf5c4eb6fc34848e90b80eb7cd242abf8824c9
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/19/2021
+ms.author: itnorman
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 55a0a203bb359ca0d5cad44b5e773cee0f65edef
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128662133"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016961"
 ---
 # <a name="create-a-video-analyzer-for-media-account"></a>Créer un compte Video Analyzer for Media
 
-Lorsque vous créez un compte Azure Video Analyzer for Media (anciennement Video Indexer), vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limité par le quota). Avec un essai gratuit, Azure Video Analyzer for Media fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Analyzer for Media connecté à votre abonnement Azure. Vous payez pour les minutes indexées ; pour plus d’informations, consultez [Tarification Media Services](https://azure.microsoft.com/pricing/details/media-services/).
+Lorsque vous créez un compte Azure Video Analyzer for Media (anciennement Video Indexer), vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limité par le quota). Avec une version d’évaluation gratuite, Video Analyzer for Media offre jusqu’à 600 minutes d’indexation gratuite aux utilisateurs et de 2400 minutes d’indexation gratuite aux utilisateurs qui s’abonnent à l’API Video Analyzer sur le [portail des développeurs](https://aka.ms/avam-dev-portal). Avec les options payantes, l’analyseur vidéo Azure pour les médias offre deux types de comptes : les comptes classiques (disponibilité générale) et les comptes ARM (préversion publique). La principale différence entre les deux est la plateforme de gestion des comptes. Bien que les comptes classiques soient basés sur la gestion des API, la gestion des comptes ARM repose sur Azure, permet à d’appliquer le contrôle d’accès à tous les services avec le contrôle d’accès en fonction du rôle (Azure RBAC) en mode natif.
 
-Cet article explique comment créer un compte Video Analyzer for Media connecté à un abonnement Azure et un compte Azure Media Services. Cette rubrique indique les étapes permettant de se connecter à Azure via le flux automatique (par défaut). Elle explique également comment se connecter à Azure manuellement (option avancée).
+* Vous pouvez créer un analyseur vidéo pour le compte Media **Classic** par le biais de notre [API](https://aka.ms/avam-dev-portal).
+
+* Vous pouvez créer un analyseur vidéo pour un compte Media **ARM** à l’aide d’un des éléments suivants :
+
+  1.  [Analyseur vidéo pour portail média](https://aka.ms/vi-portal-link)
+
+  2.  [Azure portal](https://ms.portal.azure.com/#home)
+
+  3.  [Démarrage rapide des modèles ARM](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account)
+
+### <a name="to-read-more-on-how-to-create-a-new-arm-based-video-analyzer-for-media-account-read-this-article"></a>Pour en savoir plus sur la création d’un nouvel analyseur vidéo **ARM** pour le compte multimédia, lisez cet [article](create-video-analyzer-for-media-account.md)
+
+## <a name="how-to-create-classic-accounts"></a>Comment créer des comptes classiques
+Cet article explique comment créer un analyseur vidéo pour un compte Media Classic. Cette rubrique indique les étapes permettant de se connecter à Azure via le flux automatique (par défaut). Elle explique également comment se connecter à Azure manuellement (option avancée).
 
 Si vous passez d’un compte Video Analyzer for Media en *version d’essai* à la *version payante*, vous pouvez choisir de copier toutes les vidéos et la personnalisation du modèle sur le nouveau compte, comme indiqué dans la section [Importer votre contenu à partir du compte d’essai](#import-your-content-from-the-trial-account).
 
@@ -55,43 +69,6 @@ L’article aborde également [Liaison d’un compte Video Analyzer for Media à
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="create-a-new-account-on-azure"></a>Créer un nouveau compte dans Azure 
-
-> [!NOTE]
-> Si votre abonnement Azure utilise l’authentification multifacteur basée sur des certificats, il est essentiel d’effectuer les opérations suivantes sur un appareil sur lequel les certificats requis sont installés.
-
-1. Accédez au site web [Video Analyzer for Media](https://www.videoindexer.ai/) et connectez-vous.
-1. Sélectionnez le bouton **Créer un compte illimité** :
-
-    ![Créer un compte Video Analyzer for Media](./media/create-account/create-unlimited-account.png)
-1. Lorsque la liste des abonnements s’affiche, sélectionnez l’abonnement que vous souhaitez utiliser.
-
-    ![Connecter Video Analyzer for Media à Azure](./media/create-account/new-account-on-azure-subscription.png)
-1. Sélectionnez une région Azure parmi les lieux pris en charge : USA Ouest 2, Europe Nord et Asie-Pacifique.
-1. Sous **Compte Azure Media Services**, choisissez une des options suivantes :
-
-    * Pour créer un compte Media Services, sélectionnez **Créer un groupe de ressources**. Indiquez le nom de votre groupe de ressources.
-
-        Azure crée ce compte dans votre abonnement, y compris un compte de stockage Azure.  
-    * Pour utiliser un compte Media Services existant, sélectionnez **Utiliser une ressource existante**. Dans la liste des comptes, sélectionnez votre compte.
-
-        Votre compte Media Services doit avoir la même région que votre compte Video Analyzer for Media.
-
-        > [!NOTE]
-        > Pour réduire la durée d’indexation et améliorer le débit, il est fortement recommandé d’ajuster le type et le nombre [d’unités réservées](../../media-services/previous/media-services-scale-media-processing-overview.md ) sur **10 unités réservées S3** dans votre compte Media Services. Consultez [Modification du type d’unité réservée](../../media-services/previous/media-services-portal-scale-media-processing.md). Les unités réservées sont facturées pour votre compte, voir [Détails de la tarification](https://azure.microsoft.com/pricing/details/media-services/#analytics).
-    * Pour configurer manuellement votre connexion, sélectionnez le lien **Basculer vers la configuration manuelle**.
-
-        Pour plus d’informations, consultez la section [Se connecter à Azure manuellement](#connect-to-azure-manually-advanced-option) (option avancée) ci-dessous.
-1. Lorsque vous êtes prêt, choisissez **Créer**. Cette opération peut prendre quelques minutes.
-
-    Une fois que vous êtes connecté à Azure, votre nouveau compte Video Analyzer for Media apparaît dans la liste des comptes :
-
-    ![Nouveau compte](./media/create-account/new-account.png)
-1. Assurez-vous que le point de terminaison de streaming du compte Media Services est en cours d’exécution avant de pouvoir lire vos vidéos dans l’application web Video Analyzer for Media (appuyez sur Démarrer si elle est dans l’état arrêté).
-
-> [!TIP]
-> Pour fournir un nom d’affichage convivial à votre compte, accédez à **Paramètres**.
-
 ## <a name="connect-to-azure-manually-advanced-option"></a>Se connecter à Azure manuellement (option avancée)
 
 En cas d’échec de la connexion à Azure, vous pouvez tenter de résoudre le problème en vous connectant manuellement.
@@ -114,9 +91,7 @@ En cas d’échec de la connexion à Azure, vous pouvez tenter de résoudre le p
 
     > [!NOTE]
     > Veillez à noter les noms de ressource et de compte Media Services. Vous en aurez besoin lors des étapes de la prochaine section.
-1. Ajustez le type et le nombre [d’unités réservées](../../media-services/previous/media-services-scale-media-processing-overview.md ) sur **10 unités réservées S3** dans le compte Media Services que vous avez créé. Consultez [Modification du type d’unité réservée](../../media-services/previous/media-services-portal-scale-media-processing.md).
 
-    Les unités réservées sont facturées pour votre compte, voir [Détails de la tarification](https://azure.microsoft.com/pricing/details/media-services/#analytics).
 1. Avant de pouvoir lire vos vidéos dans l’application web de Video Analyzer for Media, vous devez démarrer le **point de terminaison de streaming** par défaut du nouveau compte Media Services.
 
     Dans le nouveau compte Media Services, sélectionnez **Points de terminaison de streaming**. Sélectionnez ensuite le point de terminaison de streaming, puis cliquez sur Démarrer.
@@ -153,12 +128,27 @@ Dans la boîte de dialogue, indiquez les informations suivantes :
 
 ### <a name="import-your-content-from-the-trial-account"></a>Importer votre contenu à partir du compte d’*essai*
 
-Quand vous créez un compte, vous avez la possibilité d’importer votre contenu à partir du compte d’*essai* dans le nouveau compte. Si vous activez l’option d’*importation* dans la boîte de dialogue **Créer un compte sur un abonnement Azure**, toutes les personnalisations de modèle de contenu et de fichier multimédia sont copiées à partir du compte d’*essai* dans le nouveau compte.
+Lors de la création d'un nouveau compte **basé sur l'ARM**, vous avez la possibilité d'importer gratuitement votre contenu du compte d'*essai* dans le nouveau compte **basé sur l'ARM**.
+> [!NOTE]
+> * L'importation à partir d'une version d'essai ne peut être effectuée qu'une seule fois par compte d'essai.
+> * Le compte cible basé sur ARM doit être créé et disponible avant l'affectation de l'importation.  
+> * Le compte basé sur ARM cible doit être un compte vide (n'ayant jamais indexé de fichiers média).
 
-La possibilité d’importer le contenu est valide pour les approches automatisée et manuelle décrites ci-dessus.
+Pour importer vos données, procédez comme suit :
+ 1. Accédez au [Portail Azure Video Analyzer for Media](https://aka.ms/vi-portal-link)
+ 2. Sélectionnez votre compte d’évaluation et accédez à la page *paramètres du compte*
+ 3. Cliquez sur *Importer le contenu vers un compte ARM*
+ 4. Dans le menu déroulant, choisissez le compte ARM sur lequel vous souhaitez importer les données.
+   * Si l’ID de compte n’est pas affiché, vous pouvez copier et coller l’ID de compte à partir de Portail Azure ou la liste des comptes, dans le panneau latéral de l’analyseur de vidéo Azure pour le portail multimédia.
+ 5. Cliquez sur **Importer le contenu**  
+
+![importer](./media/create-account/import-steps.png)
+
+
+Toutes les personnalisations de modèle de contenu et de support seront copiées à partir du compte *d’essai* dans le nouveau compte ARM.
+
 
 > [!NOTE]
-> Le contenu ne peut être importé qu’une seule fois à partir de chaque compte.
 >
 > Le compte d’*évaluation gratuite* n’est pas disponible sur le cloud Azure Government.
 

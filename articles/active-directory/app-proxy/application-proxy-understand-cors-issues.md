@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2021
 ms.author: kenwith
 ms.reviewer: ashishj
-ms.openlocfilehash: dc8a48c52c6312c3fcdf9e450a8aa609dc7090d7
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 8d779fc111727b7e57163e57f6672f51ebbb8756
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129988579"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059449"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Comprendre et résoudre les problèmes CORS dans le proxy d’application Azure Active Directory
 
@@ -93,18 +93,20 @@ Ajoutez un en-tête de réponse HTTP personnalisé sur le service web pour étab
 
 Cette modification ne nécessite aucune modification de code. Vous pouvez la vérifier dans les traces Fiddler :
 
-**Publier l’ajout de l’en-tête**\
+```output
+**Post the Header Addition**\
 HTTP/1.1 200 OK\
-Cache-Control : no-cache\
+Cache-Control: no-cache\
 Pragma: no-cache\
 Content-Type: text/plain; charset=utf-8\
 Expires: -1\
 Vary: Accept-Encoding\
-Serveur :  Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
+Server: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
 **Access-Control-Allow-Origin: https\://corswebclient-contoso.msappproxy.net**\
 X-AspNet-Version: 4.0.30319\
 X-Powered-By: ASP.NET\
 Content-Length: 17
+```
 
 ### <a name="option-4-modify-the-app"></a>Option 4 : Modifier l’application
 

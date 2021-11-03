@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21d59036677a9a62d366e03bcdedb3a2f5d44abe
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: dc0495e4ddd3e266b375a9d6a137497f457803da
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129351703"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131049251"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health : Historique de publication des versions
 L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect Health avec de nouvelles fonctions et fonctionnalités. Cet article répertorie les versions et les fonctionnalités qui ont été publiées.  
@@ -30,7 +30,7 @@ L’équipe Azure Active Directory met régulièrement à jour Azure AD Connect 
 > Les agents Connect Health sont mis à jour automatiquement lorsqu’une nouvelle version est publiée. Vérifiez que les paramètres de mise à niveau automatique sont activés à partir du portail Azure.
 >
 
-Azure AD Connect Health pour la synchronisation est intégré à l’installation d’Azure AD Connect. Vous trouverez ici plus d’informations sur l’[historique des versions d’Azure AD Connect](./reference-connect-version-history.md). Pour nous donner un feedback sur les fonctionnalités, votez sur le [canal User Voice Connect Health](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+Azure AD Connect Health pour la synchronisation est intégré à l’installation d’Azure AD Connect. Vous trouverez ici plus d’informations sur l’[historique des versions d’Azure AD Connect](./reference-connect-version-history.md). Pour nous donner un feedback sur les fonctionnalités, votez sur le [canal User Voice Connect Health](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
 ## <a name="september-2021"></a>Septembre 2021
 **Mise à jour de l’agent**

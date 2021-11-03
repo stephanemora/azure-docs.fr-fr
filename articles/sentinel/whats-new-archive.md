@@ -8,14 +8,17 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/02/2021
-ms.openlocfilehash: 07a0848de708f3d01cc081130a02ffa6e11f07db
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 603b4a083de5a71a29456fc1128b7a53a40c8782
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124818886"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064085"
 ---
 # <a name="archive-for-whats-new-in-azure-sentinel"></a>Archives pour les nouveautés d’Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 La page principale des notes de publication [Nouveautés d’Azure Sentinel](whats-new.md) a trait aux mises à jour des six derniers mois, tandis que celle-ci a trait à des mises à jour plus anciennes.
 

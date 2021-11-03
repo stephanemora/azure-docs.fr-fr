@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1a7ebf7be5cad441ea6a37fec108cdb01c0428aa
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: de15d5b8db4dac535b4e4bd66817142ac2be4bcd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "121731542"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068855"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Démarrage rapide : Créer une fabrique de données Azure avec PowerShell
 
@@ -66,7 +66,7 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 
 1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/management/overview.md) entre des guillemets doubles, puis exécutez la commande. Par exemple : `"ADFQuickStartRG"`.
 
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFQuickStartRG";
     ```
 

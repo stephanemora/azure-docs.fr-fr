@@ -32,6 +32,8 @@
       href: how-tos/local-mode-with-azure-client.md
     - name: "Guide pratique\_: Écrire un TokenProvider avec une fonction Azure"
       href: how-tos/azure-function-token-provider.md
+    - name: Guide pratique pour déployer des applications Fluid avec Azure Static Web Apps
+      href: how-tos/deploy-fluid-static-web-apps.md
     - name: "Guide pratique\_: Utiliser des jetons JWT"
       href: how-tos/fluid-json-web-token.md
     - name: "Guide pratique\_: Utiliser l’automatisation des tests avec Relais Azure Fluid"

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-java
-ms.openlocfilehash: 761bbd26ac20b4fad6f6ccb444504e4f2cfd1bac
-ms.sourcegitcommit: d90cb315dd90af66a247ac91d982ec50dde1c45f
+ms.openlocfilehash: 3d8c75f49f332361c0e1dcaefa30dda36ee7e1fa
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2021
-ms.locfileid: "113285743"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039028"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Démarrage rapide : Effectuer une recherche d’actualités à l'aide de Java et l’API REST Recherche d'actualités Bing
 
@@ -121,7 +121,7 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
 3. Dans la méthode principale de votre application, appelez la méthode de recherche et affichez les résultats.
 
     ```java
-   public static void main (String[] args) {
+    public static void main (String[] args) {
        System.out.println("Searching the Web for: " + searchTerm);
        SearchResults result = SearchNews(searchTerm);
     

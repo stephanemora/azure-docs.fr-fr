@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: d405d08f7050da3b3767c23b37f8c71c2f499282
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 58167006a1925ee1110f9d7468a66d580545f336
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129998653"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039294"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Déclencheur Stockage Blob Azure pour Azure Functions
 
@@ -266,7 +266,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
 
   Vous pouvez définir la propriété `Connection` pour spécifier le compte de stockage à utiliser, comme indiqué dans l’exemple suivant :
 
-   ```csharp
+  ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
       [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
@@ -274,7 +274,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
   {
       ....
   }
-   ```
+  ```
 
   Pour obtenir un exemple complet, consultez [Exemple de déclencheur](#example).
 

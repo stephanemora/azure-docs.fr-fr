@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
-ms.openlocfilehash: 8cf8ecaaafa9697286dcaa0ae61d00853d53a311
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b5bb939c787af16ca3affdf8ba131ea640f25ed4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124743486"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040962"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copie delta à partir d’une base de données avec une table de contrôle
 
@@ -50,44 +50,44 @@ Le modèle définit les paramètres suivants :
 
 1. Explorez la table source que vous souhaitez charger, et définissez la colonne de limite supérieure qui peut être utilisée pour identifier les lignes nouvelles ou mises à jour. Le type de cette colonne peut être *datetime*, *INT* ou un type similaire. La valeur de cette colonne augmente à mesure que de nouvelles lignes sont ajoutées. À partir de l’exemple de table de source suivant (data_source_table), nous pouvons utiliser la colonne *LastModifytime* en tant que colonne de limite supérieure.
 
-    ```sql
-            PersonID    Name    LastModifytime
-            1   aaaa    2017-09-01 00:56:00.000
-            2   bbbb    2017-09-02 05:23:00.000
-            3   cccc    2017-09-03 02:36:00.000
-            4   dddd    2017-09-04 03:21:00.000
-            5   eeee    2017-09-05 08:06:00.000
-            6   fffffff 2017-09-06 02:23:00.000
-            7   gggg    2017-09-07 09:01:00.000
-            8   hhhh    2017-09-08 09:01:00.000
-            9   iiiiiiiii   2017-09-09 09:01:00.000
+    ```output
+    PersonID    Name            LastModifytime
+    1           aaaa            2017-09-01 00:56:00.000
+    2           bbbb            2017-09-02 05:23:00.000
+    3           cccc            2017-09-03 02:36:00.000
+    4           dddd            2017-09-04 03:21:00.000
+    5           eeee            2017-09-05 08:06:00.000
+    6           fffffff         2017-09-06 02:23:00.000
+    7           gggg            2017-09-07 09:01:00.000
+    8           hhhh            2017-09-08 09:01:00.000
+    9           iiiiiiiii       2017-09-09 09:01:00.000
     ```
-    
+
 2. Créez une table de contrôle dans SQL Server ou Azure SQL Database pour stocker la valeur limite supérieure pour le chargement de données delta. Dans l’exemple suivant, le nom de la table de contrôle est *watermarktable*. Dans ce tableau, *WatermarkValue* est la colonne qui stocke la valeur limite supérieure, et son type est *datetime*.
 
     ```sql
-            create table watermarktable
-            (
-            WatermarkValue datetime,
-            );
-            INSERT INTO watermarktable
-            VALUES ('1/1/2010 12:00:00 AM')
+    create table watermarktable
+    (
+    WatermarkValue datetime,
+    );
+    INSERT INTO watermarktable
+    VALUES ('1/1/2010 12:00:00 AM')
     ```
-    
+
 3. Créez une procédure stockée dans la même instance SQL Server ou Azure SQL Database que celle utilisée pour créer la table de contrôle. La procédure stockée sert à écrire la nouvelle valeur limite supérieure dans la table de contrôle externe pour la prochaine opération de chargement de données delta.
 
     ```sql
-            CREATE PROCEDURE update_watermark @LastModifiedtime datetime
-            AS
+    CREATE PROCEDURE update_watermark @LastModifiedtime datetime
+    AS
 
-            BEGIN
+    BEGIN
 
-                UPDATE watermarktable
-                SET [WatermarkValue] = @LastModifiedtime 
+        UPDATE watermarktable
+        SET [WatermarkValue] = @LastModifiedtime 
 
-            END
+    END
     ```
-    
+
 4. Accédez au modèle **Copie delta à partir d’une base de données**. Créez une **nouvelle** connexion à la base de données source à partir de laquelle vous copiez des données.
 
     :::image type="content" source="media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable4.png" alt-text="Créer une connexion à la table source":::
@@ -125,11 +125,11 @@ Le modèle définit les paramètres suivants :
 13. Vous pouvez créer des lignes dans votre table source. Voici un exemple en langage SQL pour créer des lignes :
 
     ```sql
-            INSERT INTO data_source_table
-            VALUES (10, 'newdata','9/10/2017 2:23:00 AM')
+    INSERT INTO data_source_table
+    VALUES (10, 'newdata','9/10/2017 2:23:00 AM')
 
-            INSERT INTO data_source_table
-            VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
+    INSERT INTO data_source_table
+    VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
 
 14. Pour réexécuter le pipeline, sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.

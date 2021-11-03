@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: risverma
-ms.openlocfilehash: b6a7efc543af12cbcac575a0b6fedfe9caba7833
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 10cbec1c0d304ccb1e1fb1dee9ef1daa197ae1e5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130073560"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074438"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tailles de machines virtuelles modulables Série B
 
@@ -30,7 +30,7 @@ La série B est disponible dans les tailles de machines virtuelles suivantes :
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Pris(e) en charge<br>
 [Prise en charge de la génération de machine virtuelle](generation-2.md) : Générations 1 et 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge \*\*<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Non pris en charge <br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge <br>
 
 \* Les machines virtuelles de la série B sont Burstables et, par conséquent, les nombres ACU varient en fonction des charges de travail et de l’utilisation des cœurs.<br>
 **Les performances réseau accélérées sont uniquement prises en charge pour *Standard_B12ms*, *Standard_B16ms* et *Standard_B20ms*.

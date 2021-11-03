@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 07/05/2021
-ms.openlocfilehash: 738c60663f80fd036f50c7bd354ca0e3b1d9284e
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 3b15a1f75c985516337b89df96f519caf429b8b9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124757817"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016622"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Charger de façon incrémentielle les données depuis Azure SQL Database dans le stockage Blob Azure par le biais du portail Azure
 
@@ -78,24 +78,25 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     );
 
     INSERT INTO data_source_table
-    (PersonID, Name, LastModifytime)
+        (PersonID, Name, LastModifytime)
     VALUES
-    (1, 'aaaa','9/1/2017 12:56:00 AM'),
-    (2, 'bbbb','9/2/2017 5:23:00 AM'),
-    (3, 'cccc','9/3/2017 2:36:00 AM'),
-    (4, 'dddd','9/4/2017 3:21:00 AM'),
-    (5, 'eeee','9/5/2017 8:06:00 AM');
+        (1, 'aaaa','9/1/2017 12:56:00 AM'),
+        (2, 'bbbb','9/2/2017 5:23:00 AM'),
+        (3, 'cccc','9/3/2017 2:36:00 AM'),
+        (4, 'dddd','9/4/2017 3:21:00 AM'),
+        (5, 'eeee','9/5/2017 8:06:00 AM');
     ```
+
     Dans ce didacticiel, vous allez utiliser LastModifytime comme colonne de filigrane. Les données contenues dans le magasin de source de données sont indiquées dans le tableau suivant :
 
     ```
     PersonID | Name | LastModifytime
     -------- | ---- | --------------
-    1 | aaaa | 2017-09-01 00:56:00.000
-    2 | bbbb | 2017-09-02 05:23:00.000
-    3 | cccc | 2017-09-03 02:36:00.000
-    4 | dddd | 2017-09-04 03:21:00.000
-    5 | eeee | 2017-09-05 08:06:00.000
+    1        | aaaa | 2017-09-01 00:56:00.000
+    2        | bbbb | 2017-09-02 05:23:00.000
+    3        | cccc | 2017-09-03 02:36:00.000
+    4        | dddd | 2017-09-04 03:21:00.000
+    5        | eeee | 2017-09-05 08:06:00.000
     ```
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Créer une autre table dans la base de données SQL pour stocker la valeur de filigrane supérieure
@@ -314,9 +315,11 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
     Voici la sortie :
 
+    ```output
     | TableName | WatermarkValue |
     | --------- | -------------- |
     | data_source_table | 2017-09-05    8:06:00.000 |
+    ```
 
 ## <a name="add-more-data-to-source"></a>Ajouter plus de données à la source
 
@@ -371,15 +374,17 @@ PersonID | Name | LastModifytime
     ```sql
     Select * from watermarktable
     ```
+
     Exemple de sortie :
 
+    ```output
     | TableName | WatermarkValue |
-    | --------- | --------------- |
+    | --------- | -------------- |
     | data_source_table | 2017-09-07 09:01:00.000 |
-
-
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans ce tutoriel, vous avez effectué les étapes suivantes :
 
 > [!div class="checklist"]

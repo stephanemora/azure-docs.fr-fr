@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/07/2021
 ms.reviewer: arvinh
-ms.openlocfilehash: 6c790baf2dfc7c08306bdf96598e33e8bdc6b9c6
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 76789c36e935e03a2677054e9a318291ebd149f9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129991220"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028022"
 ---
 # <a name="known-issues-for-application-provisioning-in-azure-active-directory"></a>Problèmes connus liés au provisionnement d’applications dans Azure Active Directory
 Cet article décrit les problèmes connus à prendre en compte lorsque vous utilisez l’approvisionnement d’applications. Pour formuler des commentaires sur le service d’approvisionnement d’applications sur UserVoice, voir [UserVoice pour l’approvisionnement d’applications Azure Active Directory (Azure AD)](https://aka.ms/appprovisioningfeaturerequest). Nous surveillons le service UserVoice de près pour améliorer le service.
@@ -105,7 +105,7 @@ Les applications et annuaires suivants ne sont pas encore pris en charge.
 
 #### <a name="active-directory-domain-services-user-or-group-writeback-from-azure-ad-by-using-the-on-premises-provisioning-preview"></a>Active Directory Domain Services (écriture différée d’utilisateur ou de groupe à partir d’Azure AD à l’aide de la version préliminaire de l’approvisionnement local)
    - Quand un utilisateur est managé par Azure AD Connect, la source d’autorité est l’Azure AD local. Il n’est donc pas possible de modifier les attributs de l’utilisateur dans Azure AD. Cette préversion ne modifie pas la source d’autorité pour les utilisateurs managés par Azure AD Connect.
-   - Toute tentative d’utilisation d’Azure AD Connect et de l’approvisionnement local pour approvisionner des groupes ou des utilisateurs dans Active Directory Domain Services peut entraîner la création d’une boucle, où Azure AD Connect peut remplacer une modification apportée par le service d’approvisionnement dans le cloud. Microsoft travaille sur une fonctionnalité dédiée à l’écriture différée de groupe ou d’utilisateur. Votez pour les commentaires UserVoice sur [ce site web](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure) afin de suivre l’état de la préversion. Vous pouvez également utiliser [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) pour l’écriture différée d’utilisateur ou de groupe d’Azure AD à Active Directory.
+   - Toute tentative d’utilisation d’Azure AD Connect et de l’approvisionnement local pour approvisionner des groupes ou des utilisateurs dans Active Directory Domain Services peut entraîner la création d’une boucle, où Azure AD Connect peut remplacer une modification apportée par le service d’approvisionnement dans le cloud. Microsoft travaille sur une fonctionnalité dédiée à l’écriture différée de groupe ou d’utilisateur. Votez pour les commentaires UserVoice sur [ce site web](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789/) afin de suivre l’état de la préversion. Vous pouvez également utiliser [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) pour l’écriture différée d’utilisateur ou de groupe d’Azure AD à Active Directory.
 
 #### <a name="connectors-other-than-sql"></a>Connecteurs autres que SQL
 

@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-insights
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.openlocfilehash: 06a48cd4f1a0aa0d95f1c4b5fa0faf4d7ada2ab3
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 1fd89f44552e8a986e4ccffb55836c0d4db3d8d2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130238038"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015026"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Insights relatifs aux étiquettes de confidentialité de vos données dans Azure Purview
 
@@ -21,7 +22,7 @@ Ce guide pratique explique comment accéder aux insights relatifs à la sécurit
 > [!IMPORTANT]
 > Les aperçus d'étiquettes de confidentialité Azure Purview sont actuellement disponibles en PRÉVERSION. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
-Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, compartiments Amazon S3.
+Les sources de données prises en charge sont les suivantes : Stockage Blob Azure, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, compartiments Amazon S3, bases de données Amazon RDS (préversion publique).
 
 Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivantes :
 

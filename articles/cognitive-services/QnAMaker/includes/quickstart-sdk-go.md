@@ -8,12 +8,13 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: 1ca800574f4a1c370d953c90ea5abad1a64f47b2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: d5615896926d7b4ec86b9b6f7a6e703aafd6832f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351006"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131071244"
 ---
 Utilisez la bibliothèque de client QnA Maker pour Go afin de :
 
@@ -35,7 +36,7 @@ Utilisez la bibliothèque de client QnA Maker pour Go afin de :
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/cognitive-services)
 * [Go](https://golang.org/)
 * Une fois en possession de votre abonnement Azure, créez une [ressource QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) sur le portail Azure pour obtenir vos clé et point de terminaison de création. À la fin du déploiement, sélectionnez **Accéder à la ressource**.
-    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API QnA Maker. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans le guide de démarrage rapide.
+    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API QnA Maker. Collez votre clé et votre point de terminaison dans le code ci-dessous, plus loin dans le guide de démarrage rapide.
     * Vous pouvez utiliser le niveau tarifaire Gratuit (`F0`) pour tester le service, puis passer par la suite à un niveau payant pour la production.
 
 ## <a name="setting-up"></a>Configuration
@@ -59,7 +60,7 @@ Créez des variables pour le point de terminaison et la clé Azure de votre ress
 
 QnA Maker utilise deux modèles objet différents :
 * **[QnAMakerClient](#qnamakerclient-object-model)** est l’objet utilisé pour créer, gérer, publier et télécharger la base de connaissances.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** est l’objet utilisé pour interroger la base de connaissances avec l’API GenerateAnswer et envoyer de nouvelles questions suggérées avec l’API Train (dans le cadre de l’[apprentissage actif](../concepts/active-learning-suggestions.md)).
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** est l’objet utilisé pour interroger la base de connaissances avec l’API GenerateAnswer et envoyer de nouvelles questions suggérées avec l’API Train (dans le cadre de l’[apprentissage actif](../how-to/use-active-learning.md)).
 
 [!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
 
@@ -79,7 +80,7 @@ Une base de connaissances stocke des paires de questions et réponses pour l’o
 
 * Pour le **contenu éditorial**, utilisez l'objet [QnADTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#QnADTO).
     * Pour utiliser les métadonnées et les invites de suivi, utilisez le contexte éditorial, car cette donnée est ajoutée au niveau de chaque paire question/réponse.
-* Pour les **fichiers**, utilisez l'objet [FileDTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#FileDTO). FileDTO contient le nom de fichier ainsi que l’URL publique d’accès au fichier.
+* Pour les **fichiers**, utilisez l'objet [FileDTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#FileDTO). FileDTO contient le nom de fichier et l’URL publique d’accès au fichier.
 * Pour les **URL**, utilisez une liste de chaînes pour représenter les URL disponibles publiquement.
 
 Appelez la méthode [create](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#KnowledgebaseClient.Create), puis passez la propriété `operationId` de l’opération retournée à la méthode [getDetails](#get-status-of-an-operation) pour interroger l’état.
@@ -90,7 +91,7 @@ La dernière ligne du code suivant retourne l’ID de la base de connaissances.
 
 ## <a name="update-a-knowledge-base"></a>Mettre à jour une base de connaissances
 
-Vous pouvez mettre à jour une base de connaissances en appelant [update](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#KnowledgebaseClient.Update), puis en passant l’ID de la base de connaissances et un objet [UpdateKbOperationDTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#UpdateKbOperationDTO). Cet objet peut à son tour contenir :
+Vous pouvez mettre à jour une base de connaissances en appelant [update](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#KnowledgebaseClient.Update), et en passant l’ID de la base de connaissances et un objet [UpdateKbOperationDTO](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#UpdateKbOperationDTO). Cet objet peut à son tour contenir :
 - [add](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#UpdateKbOperationDTOAdd)
 - [update](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#UpdateKbOperationDTOUpdate)
 - [delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#UpdateKbOperationDTODelete)

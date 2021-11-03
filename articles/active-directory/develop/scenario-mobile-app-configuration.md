@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 54a750fc8418d48afcffdc8260322ca27382372b
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 00eeda0b831f58ed0a739521cff95133f2a24bd1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124786557"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131017974"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurer une application mobile qui appelle des API web
 
@@ -245,10 +245,9 @@ Pour inscrire le schéma d’URL de votre application, procédez comme suit :
 
    Ici, `BundleId` identifie de façon unique votre appareil. Par exemple, si `BundleId` est `yourcompany.xforms`, votre schéma d’URL est `msauth.com.yourcompany.xforms`.
 
-  
       Ce schéma d’URL fera partie de l’URI de redirection qui identifie de façon unique votre application lorsqu’il reçoit la réponse du répartiteur.
 
-   ```XML
+   ```xml
     <key>CFBundleURLTypes</key>
        <array>
          <dict>
@@ -270,7 +269,7 @@ MSAL utilise `–canOpenURL:` pour vérifier si le répartiteur est installé su
 
 Ajoutez `msauthv2` à la section `LSApplicationQueriesSchemes` du fichier `Info.plist`, comme dans l’exemple de code suivant :
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
@@ -326,7 +325,7 @@ Pour inscrire un schéma pour votre application :
 
     Ce schéma d’URL fera partie de l’URI de redirection qui identifie de façon unique votre application lorsqu’il reçoit la réponse du répartiteur. Assurez-vous que l’URI de redirection au format `msauth.(BundleId)://auth` est inscrit pour votre application dans le [Portail Azure](https://portal.azure.com).
 
-   ```XML
+   ```xml
    <key>CFBundleURLTypes</key>
    <array>
        <dict>
@@ -347,7 +346,7 @@ Ajoutez `LSApplicationQueriesSchemes` pour autoriser les appels à l’applicati
 
 Voici un exemple d’ajout de `LSApplicationQueriesSchemes` :
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
   <string>msauthv2</string>

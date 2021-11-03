@@ -5,17 +5,19 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 07/21/2021
 ms.subservice: azure-sentinel
-ms.openlocfilehash: a1511581e3cc80d5f2f71bb82dc1bcb0ba639acb
-ms.sourcegitcommit: deb5717df5a3c952115e452f206052737366df46
+ms.openlocfilehash: 15f057dbbc402ba42f5cdf15342827f14eb3895d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122681504"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064237"
 ---
 # <a name="azure-sentinel-sap-solution-logs-reference-public-preview"></a>Informations de référence sur les journaux de la solution SAP Azure Sentinel (préversion publique)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article décrit les journaux SAP disponibles à partir du connecteur de données SAP Azure Sentinel, y compris les noms des tables dans Azure Sentinel, les objectifs des journaux et les schémas de journalisation détaillés. Les descriptions des champs de schéma sont basées sur les descriptions des champs de la [documentation SAP pertinente](https://help.sap.com/).
 
@@ -623,4 +625,4 @@ Pour plus d'informations, consultez les pages suivantes :
 - [Déployer le connecteur de données SAP Azure Sentinel avec SNC](sap-solution-deploy-snc.md)
 - [Options de configuration pour experts, déploiement local et sources de journaux SAPControl](sap-solution-deploy-alternate.md)
 - [Solution SAP Azure Sentinel : contenu de sécurité intégré](sap-solution-security-content.md)
-- [Résolution des problèmes liés à votre déploiement de solution SAP Azure Sentinel](sap-deploy-troubleshoot.md)
+- [Résolution des problèmes de déploiement de la solution SAP Azure Sentinel](sap-deploy-troubleshoot.md)

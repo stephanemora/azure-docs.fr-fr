@@ -8,17 +8,19 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 0daa44f0d901dc14541785f764d5ccf8f96fc737
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
+ms.openlocfilehash: ba2b39a854dd7d70690aea943f7365bc50bc8804
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376671"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131038781"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api"></a>Obtenir une réponse avec l’API GenerateAnswer
 
 Pour obtenir la réponse prédite à la question d’un utilisateur, utilisez l’API GenerateAnswer. Lorsque vous publiez une Base de connaissances, vous pouvez voir des informations sur l’utilisation de cette API dans la page **Publier**. Vous pouvez également configurer l’API pour filtrer les réponses en fonction des balises de métadonnées, et tester la Base de connaissances à partir du point de terminaison avec le paramètre de chaîne de requête de test.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="generateanswer-api"></a>
 
@@ -38,15 +40,7 @@ Pour obtenir les détails de votre point de terminaison :
     ![Capture d’écran de My knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Examinez les détails de votre point de terminaison GenerateAnswer.
 
-    # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
-
     ![Capture d’écran des détails du point de terminaison](../media/qnamaker-how-to-metadata-usage/view-code.png)
-
-    # <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
-
-    ![Capture d’écran des détails du point de terminaison managés](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
-
-    ---
 
 Vous pouvez également obtenir les détails de votre point de terminaison à partir de l’onglet **Settings** (Paramètres) de votre base de connaissances.
 
@@ -176,47 +170,7 @@ Le JSON précédent a demandé uniquement des réponses à 30 % ou plus par rap
 
 ## <a name="get-precise-answers-with-generateanswer-api"></a>Obtenir des réponses précises avec l’API GenerateAnswer
 
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
-
 Nous proposons la fonctionnalité de réponse précise uniquement dans la version managée de QnA Maker.
-
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (en préversion)](#tab/v2)
-
-L’utilisateur peut activer des [réponses précises](../reference-precise-answering.md) lors de l’utilisation de la ressource Analyse de texte avec la fonctionnalité de réponse à une question personnalisée. Le paramètre answerSpanRequest doit être mis à jour pareillement.
-
-```json
-{
-    "question": "How long it takes to charge surface pro 4?",
-    "top": 3,
-    "answerSpanRequest": {
-        "enable": true,
-        "topAnswersWithSpan": 1
-    }
-}
-```
-
-De la même façon, les utilisateurs peuvent choisir de désactiver les réponses précises en ne définissant pas le paramètre answerSpanRequest.
-
-```json
-{
-    "question": "How long it takes to charge surface pro 4?",
-    "top": 3
-}
-```
-### <a name="bot-settings"></a>Paramètres de bot
-
-Si vous souhaitez configurer des paramètres de réponse précise pour votre service bot, accédez à la ressource App Service pour votre bot. Ensuite, mettez à jour les configurations en ajoutant le paramètre suivant.
-
-- EnablePreciseAnswer
-- DisplayPreciseAnswerOnly
-
-|Configuration de l'affichage|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
-|:--|--|--|
-|Réponses précises uniquement|true|true|
-|Réponses longues uniquement|false|false|
-|Réponses longues et précises|true|false|
-
----
 
 ## <a name="common-http-errors"></a>Erreurs HTTP courantes
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 67a66e618206b182983ada474b1f0d3788526e1e
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: cd797c58edb1d6918c8681f9cadffecdba8ef827
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130223858"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011462"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -272,14 +272,16 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
 4. La liste **FENÊTRES D’ACTIVITÉ** doit contenir cinq fenêtres d’activité. Les heures **WindowStart** doivent couvrir tous les jours, de l’heure de début du pipeline à son heure de fin.
 5. Cliquez plusieurs fois sur le bouton **Actualiser** correspondant à la liste **FENÊTRES D’ACTIVITÉ** jusqu’à ce que le statut de toutes les fenêtres d’activité soit défini sur Prêt.
 6. À présent, vérifiez que les fichiers de sortie sont générés dans le dossier de sortie du conteneur adfblobconnector. Vous devez voir la structure des dossiers suivante dans le dossier de sortie :
-    ```
+
+    ```output
     2017/04/21
     2017/04/22
     2017/04/23
     2017/04/24
     2017/04/25
     ```
-   Pour plus d’informations sur la surveillance et la gestion des fabriques de données, consultez l’article [Monitor and manage Data Factory pipeline (Surveiller et gérer le pipeline Data Factory)](data-factory-monitor-manage-app.md).
+
+    Pour plus d’informations sur la surveillance et la gestion des fabriques de données, consultez l’article [Monitor and manage Data Factory pipeline (Surveiller et gérer le pipeline Data Factory)](data-factory-monitor-manage-app.md).
 
 ### <a name="data-factory-entities"></a>Entités Data Factory
 À présent, revenez dans l’onglet contenant la page d’accueil Data Factory. Notez qu’il existe désormais deux services liés, deux jeux de données et un pipeline dans votre fabrique de données.

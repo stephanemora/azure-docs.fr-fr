@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 09/30/2021
+ms.date: 10/25/2021
 ms.author: jasteppe
-ms.openlocfilehash: 23908c8ab910324cda4cd2802158447a1c97db4e
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.openlocfilehash: 08edb99de13e0102597c7a078adbcb4225e28d15
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129354602"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131085958"
 ---
 # <a name="export-iot-connector-metrics-through-diagnostic-settings"></a>Exporter les métriques du connecteur IoT via les paramètres de diagnostic
 
@@ -36,7 +36,7 @@ Dans cet article, vous allez apprendre à exporter les journaux de métriques du
 5. Sélectionnez la méthode que vous souhaitez utiliser pour accéder à vos journaux de diagnostic :
 
     1. **Archivez les journaux dans un compte de stockage** pour les auditer ou les inspecter manuellement. Le compte de stockage que vous souhaitez utiliser doit déjà être créé.
-    2. **Envoyez les journaux à Event Hub** pour ingestion par un service tiers ou une solution d’analytique personnalisée. Vous devez créer un espace de noms et une stratégie Event Hub pour pouvoir configurer cette étape.
+    2. **Diffuser vers Event Hub** pour l’ingestion d’un service tiers ou d’une solution d’analyse personnalisée. Vous devez créer un espace de noms Event Hub et une stratégie de hub d’événements avant de pouvoir configurer cette étape.
     3. **Envoyez les journaux vers l’espace de travail Log Analytics** dans Azure Monitor. Vous devrez créer votre espace de travail Logs Analytics avant de pouvoir sélectionner cette option.
 
 6. Sélectionnez les **Erreurs, le trafic et la latence pour le** connecteur IOT.  Sélectionnez les catégories de métriques supplémentaires que vous souhaitez capturer pour le service FHIR.
@@ -58,6 +58,6 @@ L’accès aux journaux de métriques est essentiel pour la supervision et la r�
 Consultez les questions fréquemment posées sur le connecteur IoT.
 
 >[!div class="nextstepaction"]
->[FAQ sur le connecteur IoT](../fhir/fhir-faq.md)
+>[FAQ sur le connecteur IoT](iot-connector-faqs.md)
 
 (FHIR&#174;) est une marque déposée de HL7 qui est utilisée avec l’autorisation de HL7.

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 91ed308ecbeeb839dfddb78c0151e2c8aafd0d3b
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: e90438e0987f26aa57264825cd2b2bae24f1c12e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123122751"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253756"
 ---
 Ce démarrage rapide explique comment démarrer un appel vidéo à deux avec le Kit de développement logiciel (SDK) Appel d’Azure Communication Services pour Windows.
 
@@ -35,7 +35,7 @@ Accédez à `Package.appxmanifest`, puis cliquez sur `Capabilities`.
 Cochez la case `Internet (Client & Server)` pour obtenir un accès entrant et sortant à Internet. Cochez la case `Microphone` pour accéder au flux audio du microphone. Cochez la case `WebCam` pour accéder à la caméra de l’appareil. 
 
 Ajoutez le code suivant à votre `Package.appxmanifest` en cliquant avec le bouton droit et en sélectionnant Afficher le code. 
-```XML
+```xml
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
 <InProcessServer>

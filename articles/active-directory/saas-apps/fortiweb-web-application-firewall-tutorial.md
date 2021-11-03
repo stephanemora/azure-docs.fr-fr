@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/24/2020
 ms.author: jeedes
-ms.openlocfilehash: c8e79373a4a3823ec616adec4a5c29d782b60913
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 288efa59cfd423baf83d1f15c817381db8033c72
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124747075"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067997"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortiweb-web-application-firewall"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à FortiWeb Web Application Firewall
 
@@ -76,13 +76,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-   a. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://www.<CUSTOMER_DOMAIN>.com`
+    1. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://www.<CUSTOMER_DOMAIN>.com`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://www.<CUSTOMER_DOMAIN>.com/<FORTIWEB_NAME>/saml.sso/SAML2/POST`
+    1. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://www.<CUSTOMER_DOMAIN>.com/<FORTIWEB_NAME>/saml.sso/SAML2/POST`
 
-    c. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://www.<CUSTOMER_DOMAIN>.com`
+    1. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://www.<CUSTOMER_DOMAIN>.com`
 
-    d. Dans la zone de texte **URL de déconnexion**, tapez une URL au format suivant : `https://www.<CUSTOMER_DOMAIN>.info/<FORTIWEB_NAME>/saml.sso/SLO/POST`
+    1. Dans la zone de texte **URL de déconnexion**, tapez une URL au format suivant : `https://www.<CUSTOMER_DOMAIN>.info/<FORTIWEB_NAME>/saml.sso/SLO/POST`
  
     > [!NOTE]
     > `<FORTIWEB_NAME>` est l’identificateur de nom qui sera utilisé par la suite quand la configuration sera communiquée à FortiWeb.
@@ -91,7 +91,6 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
-
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

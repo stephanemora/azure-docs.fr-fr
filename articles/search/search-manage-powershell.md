@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/03/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 65df8c53522bb971bcd089967047f8a86de55f44
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: b0dea6bebd20ca5071a4c1395d5835f31c80e90c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525241"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048099"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gérer votre service Recherche cognitive Azure avec PowerShell
 > [!div class="op_single_selector"]
@@ -241,7 +241,7 @@ New-AzSearchService -ResourceGroupName <resource-group-name> `
 
 ## <a name="create-a-service-with-a-private-endpoint"></a>Créer un service avec un point de terminaison privé
 
-Les [points de terminaison privés](../private-link/private-endpoint-overview.md)de Recherche cognitive Azure permettent à un client d’un réseau virtuel d’accéder en toute sécurité aux données d’un index de recherche grâce à une [liaison privée](../private-link/private-link-overview.md). Ils utilisent une adresse IP de [l’espace d’adressage du réseau virtuel](../virtual-network/private-ip-addresses.md) pour votre service Search. Le trafic entre le client et le service Search traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine l’exposition sur l’Internet public. Pour plus d’informations, consultez [Création d’un point de terminaison privé pour la Recherche cognitive Azure](service-create-private-endpoint.md).
+Les [points de terminaison privés](../private-link/private-endpoint-overview.md)de Recherche cognitive Azure permettent à un client d’un réseau virtuel d’accéder en toute sécurité aux données d’un index de recherche grâce à une [liaison privée](../private-link/private-link-overview.md). Ils utilisent une adresse IP de [l’espace d’adressage du réseau virtuel](../virtual-network/ip-services/private-ip-addresses.md) pour votre service Search. Le trafic entre le client et le service Search traverse le réseau virtuel et une liaison privée sur le réseau principal de Microsoft, ce qui élimine l’exposition sur l’Internet public. Pour plus d’informations, consultez [Création d’un point de terminaison privé pour la Recherche cognitive Azure](service-create-private-endpoint.md).
 
 L’exemple suivant montre comment créer un service de recherche avec un point de terminaison privé. 
 

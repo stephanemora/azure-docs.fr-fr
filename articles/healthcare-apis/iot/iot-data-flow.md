@@ -8,19 +8,19 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 10/12/2021
 ms.author: jasteppe
-ms.openlocfilehash: 41ad8d284636e431b74c43006bb544f737ce1f47
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 51c5303c86c83c93e6ec38064a6b7eea74cc7bc6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005500"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068474"
 ---
 # <a name="iot-connector-data-flow"></a>Workflow de données du connecteur IoT
 
 > [!IMPORTANT]
 > Les API Azure Healthcare sont actuellement en version préliminaire. L’[Avenant aux conditions d’utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) contient des conditions légales supplémentaires qui s’appliquent aux fonctionnalités Azure en version bêta, en préversion ou pas encore en disponibilité générale.
 
-Cet article fournit une vue d’ensemble du connecteur IoT. Vous en apprendrez davantage sur les différentes étapes de traitement des données dans IoT Connector qui transforment les données des appareils en ressources d' [observation](https://www.hl7.org/fhir/observation.html) FHIR&#174;) rapides.
+Cet article fournit une vue d’ensemble du processus de données du connecteur IoT. Vous en apprendrez plus sur les différentes étapes de traitement des données dans IoT Connector qui transforment les données des appareils en ressources d' [observation](https://www.hl7.org/fhir/observation.html) FHIR&#174;) rapides.
 
 Voici les différentes étapes que les données passent une fois reçues par le connecteur IoT.
 
@@ -33,10 +33,14 @@ La réception est la première étape où les données de l’appareil sont reç
 ## <a name="normalize"></a>Normaliser
 Normalize est l’étape suivante dans laquelle les données de l’appareil sont récupérées à partir du hub d’événements Azure ci-dessus et traitées à l’aide du mappage de l’appareil. Ce processus de mappage entraîne une transformation des données d’appareils en un schéma normalisé. 
 
-Le processus de normalisation non seulement simplifie le traitement des données à des étapes ultérieures, mais aussi permet de projeter un message d’entrée vers plusieurs messages normalisés. Par exemple, un appareil pourrait envoyer plusieurs signes vitaux pour la température du corps, la fréquence cardiaque, la pression artérielle et la fréquence respiratoire dans un message unique. Ce message d’entrée crée quatre ressources FHIR distinctes. Chaque ressource représente un signe vital différent, avec le message d’entrée projeté dans quatre messages normalisés différents.
+Le processus de normalisation simplifie non seulement le traitement des données à des étapes ultérieures, mais il offre également la possibilité de projeter un message d’entrée en plusieurs messages normalisés. Par exemple, un appareil pourrait envoyer plusieurs signes vitaux pour la température du corps, la fréquence cardiaque, la pression artérielle et la fréquence respiratoire dans un message unique. Ce message d’entrée crée quatre ressources FHIR distinctes. Chaque ressource représente un signe vital différent, avec le message d’entrée projeté dans quatre messages normalisés différents.
 
 ## <a name="group"></a>Grouper
-Le groupement est l’étape suivante dans laquelle les messages normalisés disponibles de l’étape précédente sont groupés sur la base de trois paramètres différents : identité de l’appareil, type de mesure et période.
+Le groupe est l’étape suivante dans laquelle les messages normalisés disponibles à partir de l’étape précédente sont regroupés à l’aide de trois paramètres différents :
+
+* Identité d’appareil
+* Type de mesure 
+* Période
 
 Lee groupements par identité de l’appareil et types de mesure permettent d’utiliser le type de mesure [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData). Ce type fournit un moyen concis de représenter une série de mesures basées sur le temps d’un appareil dans FHIR. Et la période de temps contrôle la latence à laquelle les ressources d’observation générées par le connecteur IoT sont écrites dans le service FHIR.
 
@@ -61,9 +65,9 @@ Une fois la ressource FHIR d’observation générée à l’étape de transform
 Découvrez comment créer des mappages de destination appareil et FHIR.
 
 > [!div class="nextstepaction"]
-> [Mappage d’appareil](how-to-use-device-mapping-iot.md)
+> [Mappages d’appareils](how-to-use-device-mapping-iot.md)
 
 > [!div class="nextstepaction"]
-> [Mappage de destination FHIR](how-to-use-fhir-mapping-iot.md)
+> [Mappages de destination FHIR](how-to-use-fhir-mapping-iot.md)
 
 (FHIR&#174;) est une marque déposée de [HL7](https://hl7.org/fhir/) qui est utilisée avec l’autorisation de HL7.

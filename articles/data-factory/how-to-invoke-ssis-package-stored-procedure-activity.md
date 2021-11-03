@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e8176095bb50f4ead8337997669f4856de4b5873
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 6ce4cb52ed3748abf06daab1685fc121f225de67
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124811586"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131033301"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité de procédure stockée dans Azure Data Factory
 
@@ -154,9 +154,9 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 ### <a name="create-a-data-factory"></a>Créer une fabrique de données
 Vous pouvez utiliser la fabrique de données qui a le runtime d’intégration Azure-SSIS ou créer une fabrique de données distincte. La procédure suivante décrit les étapes permettant de créer une fabrique de données. Vous créez un pipeline avec une activité de procédure stockée dans cette fabrique de données. L’activité de procédure stockée exécute une procédure stockée dans la base de données SSISDB pour exécuter votre package SSIS. 
 
-1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/management/overview.md) entre des guillemets doubles, puis exécutez la commande. Par exemple : `"adfrg"`. 
+1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/management/overview.md) entre des guillemets doubles, puis exécutez la commande. Par exemple : `"adfrg"`.
    
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 

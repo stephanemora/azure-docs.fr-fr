@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 09/22/2021
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
-ms.openlocfilehash: 61e5bda5722d343aae2fc6be80312f13a21c415a
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.openlocfilehash: 12c405c31c1918e917c2db7dca85a74128724b26
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129658180"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057739"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Sécuriser un espace de travail Azure Machine Learning à l’aide de réseaux virtuels
 
@@ -119,7 +119,7 @@ Azure Machine Learning prend en charge les comptes de stockage configurés pour 
     > Lors de la configuration d’un compte de stockage qui n’est **pas** le stockage par défaut, sélectionnez le type de **sous-ressource cible** correspondant au compte de stockage que vous souhaitez ajouter.
 
 1. Après avoir créé les points de terminaison privés pour les sous-ressources, sélectionnez l’onglet __Pare-feu et réseaux virtuels__ sous __Mise en réseau__ pour le compte de stockage.
-1. Choisissez __Réseaux sélectionnés__, puis, sous __Instances de ressource__, sélectionnez `Microsoft.MachineLearningServices/Workspace` comme __Type de ressource__. Sélectionnez votre espace de travail à l’aide du __nom de l’instance__. Pour plus d’informations, consultez [Accès approuvé basé sur l’identité managée affectée par le système](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+1. Choisissez __Réseaux sélectionnés__, puis, sous __Instances de ressource__, sélectionnez `Microsoft.MachineLearningServices/Workspace` comme __Type de ressource__. Sélectionnez votre espace de travail à l’aide du __nom de l’instance__. Pour plus d’informations, consultez [Accès approuvé basé sur l’identité managée affectée par le système](../storage/common/storage-network-security.md#trusted-access-based-on-system-assigned-managed-identity).
 
     > [!TIP]
     > Vous pouvez également sélectionner __Autoriser les services Azure de la liste des services approuvés à accéder à ce de stockage__ afin d’autoriser plus largement l’accès à partir de services de confiance. Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -142,7 +142,7 @@ Azure Machine Learning prend en charge les comptes de stockage configurés pour 
     > [!IMPORTANT]
     > Le compte de stockage doit se trouver dans les mêmes réseau virtuel et sous-réseau que les instances de calcul ou clusters utilisés pour l'apprentissage ou l'inférence.
 
-1. Sous __Instances de ressources__, sélectionnez `Microsoft.MachineLearningServices/Workspace` comme __type de ressource__, puis votre espace de travail à l’aide du __nom d’instance__. Pour plus d’informations, consultez [Accès approuvé basé sur l’identité managée affectée par le système](/azure/storage/common/storage-network-security#trusted-access-based-on-system-assigned-managed-identity).
+1. Sous __Instances de ressources__, sélectionnez `Microsoft.MachineLearningServices/Workspace` comme __type de ressource__, puis votre espace de travail à l’aide du __nom d’instance__. Pour plus d’informations, consultez [Accès approuvé basé sur l’identité managée affectée par le système](../storage/common/storage-network-security.md#trusted-access-based-on-system-assigned-managed-identity).
 
     > [!TIP]
     > Vous pouvez également sélectionner __Autoriser les services Azure de la liste des services approuvés à accéder à ce de stockage__ afin d’autoriser plus largement l’accès à partir de services de confiance. Pour plus d’informations, consultez [Configurer Pare-feu et réseaux virtuels dans Stockage Azure](../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -170,7 +170,7 @@ Le coffre de clés Azure peut être configuré pour utiliser un point de termina
 
 # <a name="private-endpoint"></a>[Point de terminaison privé](#tab/pe)
 
-Pour plus d’informations sur l’utilisation d’un point de terminaison privé avec Azure Key Vault, consultez [Intégrer Key Vault avec Azure Private Link](/azure/key-vault/general/private-link-service#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
+Pour plus d’informations sur l’utilisation d’un point de terminaison privé avec Azure Key Vault, consultez [Intégrer Key Vault avec Azure Private Link](../key-vault/general/private-link-service.md#establish-a-private-link-connection-to-key-vault-using-the-azure-portal).
 
 
 # <a name="service-endpoint"></a>[Point de terminaison de service](#tab/se)
@@ -186,7 +186,7 @@ Pour plus d’informations sur l’utilisation d’un point de terminaison priv�
 
     :::image type="content" source="./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png" alt-text="Section Pare-feux et réseaux virtuels du volet Key Vault":::
 
-Pour plus d’informations, consultez [Configurer les paramètres réseau Azure Key Vault](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+Pour plus d’informations, consultez [Configurer les paramètres réseau Azure Key Vault](../key-vault/general/how-to-azure-key-vault-network-security.md).
 
 ---
 
@@ -247,11 +247,11 @@ Le tableau suivant liste les services pour lesquels vous devez ignorer la valida
 | Service | Omission nécessaire de la validation ? |
 | ----- |:-----:|
 | Stockage Blob Azure | Oui |
-| Partage de fichiers Azure | Yes |
-| Azure Data Lake Store Gen1 | No |
+| Partage de fichiers Azure | Oui |
+| Azure Data Lake Store Gen1 | Non |
 | Azure Data Lake Store Gen2 | Non |
 | Azure SQL Database | Oui |
-| PostgreSQL | Yes |
+| PostgreSQL | Oui |
 
 > [!NOTE]
 > Azure Data Lake Store Gen1 et Azure Data Lake Store Gen2 ignorent la validation par défaut ; vous n’avez donc rien à faire.

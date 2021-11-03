@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/26/2021
 ms.author: jasteppe
-ms.openlocfilehash: a0cc7037ca95fe4262b6c10dc9cb260a971f7c31
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: ef22404d96599768ad55c3c3687e3df9fb4bbf35
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130005536"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040468"
 ---
 # <a name="how-to-use-device-mapping"></a>Utilisation du mappage des appareils
 
@@ -27,6 +27,9 @@ Les deux types de mappages sont composés dans un document JSON en fonction de l
 
 > [!NOTE]
 > Les mappages sont stockés dans un stockage d’objets BLOB sous-jacent et chargés à partir d’un objet BLOB par exécution de calcul. Une fois mis à jour, ils doivent prendre effet immédiatement. 
+
+> [!TIP]
+> Consultez l’outil [Mappeur de données du connecteur IoMT](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) pour la modification, le test et la résolution des problèmes des mappages de destination FHIR et des appareils IOT Connector. Exportez les mappages de chargement vers le connecteur IoT dans le Portail Azure ou utilisez avec la [version open source](https://github.com/microsoft/iomt-fhir) du connecteur IOT.
 
 ## <a name="device-mapping"></a>Mappage d’appareil
 
@@ -451,6 +454,6 @@ IotCentralJsonPathContentTemplate ne nécessite pas non plus DeviceIdExpression 
 ## <a name="next-steps"></a>Étapes suivantes
 
 >[!div class="nextstepaction"]
->[Utilisation du mappage de destination FHIR](how-to-use-fhir-mapping-iot.md)
+>[Utilisation des mappages de destination FHIR](how-to-use-fhir-mapping-iot.md)
 
 (FHIR&#174;) est une marque déposée de [HL7](https://hl7.org/fhir/) qui est utilisée avec l’autorisation de HL7.

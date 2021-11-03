@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 585e31ab566cc990af2819fcf9cdde0506560208
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 678ff6595f99d634a84b338f9b4b52de09a1d67a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107780170"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059068"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurer des identités managées sur un groupe de machines virtuelles identiques en utilisant des appels d’API REST
 
@@ -653,7 +653,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    Par exemple, si des identités managées affectées par le système et par l’utilisateur `ID1` sont actuellement attribuées à votre groupe de machines virtuelles identiques, et si vous souhaitez ajouter l’identité managée affectée par l’utilisateur `ID2` à celui-ci :
 
-    ```bash
+   ```bash
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 

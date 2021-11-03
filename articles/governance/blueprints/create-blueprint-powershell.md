@@ -3,14 +3,13 @@ title: 'Démarrage rapide : Créer un blueprint avec PowerShell'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec PowerShell.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-- mode-api
-ms.openlocfilehash: 5d7ec20ef744358fc393da42cd356bb30cf5579d
-ms.sourcegitcommit: 5f659d2a9abb92f178103146b38257c864bc8c31
+ms.custom: mode-api
+ms.openlocfilehash: 2891c46929dde7509950f86b35840e36d175fee9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2021
-ms.locfileid: "122323027"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131081255"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec PowerShell
 

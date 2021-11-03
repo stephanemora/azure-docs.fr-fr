@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 94845919e1b0bc171b7df831593b04daffb2213b
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 5177d06ce6507f23dfbc31b9825ce38d85422bb6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130064519"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008159"
 ---
 # <a name="set-up-a-sign-in-flow-in-azure-active-directory-b2c"></a>Configurer un flux de connexion dans Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ ms.locfileid: "130064519"
 
 ## <a name="sign-in-flow-overview"></a>Vue d’ensemble du flux de connexion
 
-La stratégie d’inscription permet aux utilisateurs d’effectuer les actions suivantes : 
+La stratégie d’inscription permet aux utilisateurs d’effectuer les actions suivantes :
 
 * Les utilisateurs peuvent se connecter avec un compte Azure AD B2C local
 * Inscription ou connexion avec un compte social
@@ -78,7 +78,7 @@ Pour ajouter une stratégie de connexion :
 
 ## <a name="remove-the-sign-up-link"></a>Supprimer le lien d’inscription
 
-Le profil technique **LocalAccountSignUpWithLogonEmail** est [autodéclaré](self-asserted-technical-profile.md). Il est appelé pendant le flux d’inscription ou de connexion. Pour supprimer le lien d’inscription, définissez les métadonnées `setting.showSignupLink` sur `false`. Remplacez les profils techniques SelfAsserted-LocalAccountSignin-Email dans le fichier d’extension. 
+Le profil technique **LocalAccountSignUpWithLogonEmail** est [autodéclaré](self-asserted-technical-profile.md). Il est appelé pendant le flux d’inscription ou de connexion. Pour supprimer le lien d’inscription, définissez les métadonnées `setting.showSignupLink` sur `false`. Remplacez les profils techniques SelfAsserted-LocalAccountSignin-Email dans le fichier d’extension.
 
 1. Ouvrez le fichier d’extensions de votre stratégie. Par exemple _`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**_.
 1. Recherchez l’élément `ClaimsProviders`. Si l’élément n’existe pas, ajoutez-le.
@@ -103,7 +103,7 @@ Le profil technique **LocalAccountSignUpWithLogonEmail** est [autodéclaré](sel
 
 1. Dans l’élément `<BuildingBlocks>`, ajoutez la [ContentDefinition](contentdefinitions.md) suivante pour faire référence à la version 1.2.0 ou à une URI de données plus récent :
 
-    ```XML
+    ```xml
     <!-- 
     <BuildingBlocks> 
       <ContentDefinitions>-->

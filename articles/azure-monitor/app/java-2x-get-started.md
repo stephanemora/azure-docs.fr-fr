@@ -6,12 +6,12 @@ ms.date: 11/22/2020
 ms.custom: devx-track-java
 author: mattmccleary
 ms.author: mmcc
-ms.openlocfilehash: 53dc6c6f757c65842512ab9c215161058d451962
-ms.sourcegitcommit: 147910fb817d93e0e53a36bb8d476207a2dd9e5e
+ms.openlocfilehash: a73bfa9ab247cafff4c99ed481134974fd1715ac
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130134029"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131079013"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Prise en main d'Application Insights dans un projet web Java
 
@@ -50,7 +50,7 @@ Si votre projet est déjà configuré pour être généré avec Maven, fusionnez
 
 Actualisez ensuite les dépendances du projet pour télécharger les fichiers binaires.
 
-```XML
+```xml
     <dependencies>
       <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -92,7 +92,7 @@ Ajoutez *ApplicationInsights.xml* dans le dossier de ressources de votre projet 
 
 Remplacez la clé d’instrumentation par celle que vous avez obtenue sur le Portail Azure.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
@@ -220,7 +220,7 @@ Ouvrez **Examiner**, **Métriques** afin d’afficher un ensemble de compteurs d
 ### <a name="customize-performance-counter-collection"></a>Personnaliser la collecte des compteurs de performances
 Pour désactiver la collecte du jeu standard de compteurs de performances, ajoutez le code suivant sous le nœud racine du fichier *ApplicationInsights.xml* :
 
-```XML
+```xml
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
@@ -231,7 +231,7 @@ Vous pouvez spécifier d'autres compteurs de performances à collecter.
 
 #### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>Compteurs JMX (exposés par la machine virtuelle Java)
 
-```XML
+```xml
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
@@ -251,7 +251,7 @@ Vous pouvez spécifier d'autres compteurs de performances à collecter.
 #### <a name="windows-performance-counters"></a>Compteurs de performances Windows
 Chaque [compteur de performances Windows](/windows/win32/perfctrs/performance-counters-portal) est un membre d'une catégorie (de la même façon qu'un champ est un membre d'une classe). Les catégories peuvent être globales ou peuvent avoir des instances numérotées ou nommées.
 
-```XML
+```xml
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />

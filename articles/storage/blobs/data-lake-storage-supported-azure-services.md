@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/06/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 1fbd0c7a3c2a6edc2ffb0f6a5a4124979fc27225
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.openlocfilehash: 284971b1b9a54d21f29cf3c3c81c194be1f5071c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129612405"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131022490"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Services Azure qui prennent en charge Azure Data Lake Storage Gen2
 
@@ -47,7 +47,7 @@ Ce tableau répertorie les services Azure que vous pouvez utiliser avec Azure Da
 |Azure SQL Database|Pas encore pris en charge|Non applicable|Non applicable|[Qu’est-ce qu’Azure SQL Database ?](../../azure-sql/database/sql-database-paas-overview.md)|
 
 > [!TIP]
-> Pour voir comment les services sont organisés en catégories, par exemple, ingestion, téléchargement, traitement et visualisation, consultez [Ingestion, traitement et analyse](data-lake-storage-data-scenarios.md#ingest-process-and-analyze).
+> Pour voir comment les services sont organisés en catégories, par exemple, ingestion, téléchargement, traitement et visualisation, consultez [Ingestion, traitement et analyse](./data-lake-storage-best-practices.md#ingest-process-and-analyze).
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -8,16 +8,18 @@ ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 07/11/2021
-ms.openlocfilehash: be35be9211ce9d183ab19d768d504798b7150a33
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: ef2afe833af9d5beb1351c6306493e5aed55f907
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122563522"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131083818"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Utiliser les Watchlists Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Les Watchlists Azure Sentinel activent la collecte de données à partir de sources de données externes pour la corrélation avec les événements dans votre environnement Azure Sentinel. Une fois créées, vous pouvez utiliser les Watchlists dans vos playbooks de recherche, de détection, de recherche de menace et de réponse. Les Watchlists sont stockées dans votre espace de travail Azure Sentinel en tant que paires nom-valeur et sont mis en cache pour des performances de requête optimales et une faible latence.
 

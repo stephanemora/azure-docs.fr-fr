@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-js
-ms.openlocfilehash: 8cd1cd820583a177ec65c9b63066119399e4bba0
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: 512eff61d6195ad0ff21a4d22bc4a9e633f7d109
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123435147"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131006712"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Utiliser le module des services Azure Maps
 
@@ -26,19 +26,19 @@ Le Kit de développement logiciel (SDK) web Azure Maps fournit un *module des se
 1. Chargez le module des services Azure Maps. Vous pouvez le faire de deux façons :
     - Utiliser la version d’Azure Content Delivery Network du module des services Azure Maps hébergée globalement. Ajoutez une référence de script à l’élément `<head>` du fichier :
 
-        ```html
-        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
-        ```
+    ```html
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+    ```
 
     - Vous pouvez également charger le module de services pour le code source du kit SDK web d’Azure Maps localement à l’aide du package npm [azure-maps-control](https://www.npmjs.com/package/azure-maps-rest), puis l’héberger avec votre application. Ce package inclut aussi des définitions de TypeScript. Utilisez la commande suivante :
-    
-        > **npm install azure-maps-rest**
-    
-        Ensuite, ajoutez une référence de script à l’élément `<head>` du fichier :
 
-         ```html
-        <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
-         ```
+      `npm install azure-maps-rest`
+
+      Ensuite, ajoutez une référence de script à l’élément `<head>` du fichier :
+
+      ```html
+      <script src="node_modules/azure-maps-rest/dist/atlas-service.min.js"></script>
+      ```
 
 1. Créez un pipeline d’authentification. Pour pouvoir initialiser un point de terminaison de client d’URL du service, il est nécessaire que le pipeline soit créé au préalable. Pour authentifier un client du service Recherche Azure Maps, utilisez votre propre clé de compte Azure Maps ou vos informations d’identification Azure Active Directory (Azure AD). Dans cet exemple, le client d’URL du service Recherche est créé. 
 

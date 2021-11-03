@@ -5,12 +5,12 @@ keywords: azure app service, application web, application mobile, application d�
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: d661781d7eea0b5627dcab13648422003c82e0a4
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: c4c69ba78460f8a629848717da6bb76a782d1aa2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130220460"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045555"
 ---
 # <a name="security-in-azure-app-service"></a>Sécurité dans Azure App Service
 
@@ -55,7 +55,7 @@ Le module d’autorisation et d’authentification App Service prend en charge p
 
 Quand l’authentification est effectuée par rapport à un service backend, App Service fournit deux mécanismes différents selon vos besoins :
 
-- **Identité de service** : se connecter à la ressource distante à l’aide de l’identité de l’application proprement dite. App Service vous permet de créer facilement une [identité managée](overview-managed-identity.md) que vous pouvez utiliser pour vous authentifier auprès d’autres services, par exemple [Azure SQL Database](/azure/sql-database/) ou [Azure Key Vault](../key-vault/index.yml). Pour un tutoriel de bout en bout sur cette approche, voir [Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée](app-service-web-tutorial-connect-msi.md).
+- **Identité de service** : se connecter à la ressource distante à l’aide de l’identité de l’application proprement dite. App Service vous permet de créer facilement une [identité managée](overview-managed-identity.md) que vous pouvez utiliser pour vous authentifier auprès d’autres services, par exemple [Azure SQL Database](/azure/sql-database/) ou [Azure Key Vault](../key-vault/index.yml). Pour un tutoriel de bout en bout sur cette approche, voir [Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée](tutorial-connect-msi-sql-database.md).
 - **Pour le compte de** : effectuer l’accès délégué aux ressources distantes pour le compte de l’utilisateur. Avec Azure Active Directory comme fournisseur d’authentification, votre application App Service peut effectuer une connexion déléguée à un service distant, tel que l’[API Microsoft Graph](../active-directory/develop/microsoft-graph-intro.md), ou à une application API distante dans App Service. Pour suivre un tutoriel de bout en bout sur cette approche, consultez [Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service](tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Connectivité aux ressources distantes

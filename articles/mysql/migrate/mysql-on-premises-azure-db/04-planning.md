@@ -9,12 +9,12 @@ ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom: ''
 ms.date: 06/21/2021
-ms.openlocfilehash: 86dca0c57b473ca759c7dd2a685707c09dd11f05
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: e1ef403583082f1fff631392d7a4467fe253a516
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122525163"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024180"
 ---
 # <a name="migrate-mysql-on-premises-to-azure-database-for-mysql-planning"></a>Migrer MySQL local vers Azure Database pour MySQL : Planification
 
@@ -66,7 +66,7 @@ L’emplacement de l’outil de migration détermine les exigences en matière d
 
 D’autres considérations relatives à la mise en réseau sont à prendre en compte :
 
-- Le service DMS situé dans un réseau virtuel se voit attribuer une [IP publique dynamique](/azure/dms/faq#setup). Au moment de la création, vous pouvez placer le service à l’intérieur d’un réseau virtuel qui dispose d’une connectivité via une connexion [ExpressRoute](../../../expressroute/expressroute-introduction.md) ou sur [un VPN site à site](../../../vpn-gateway/tutorial-site-to-site-portal.md).
+- Le service DMS situé dans un réseau virtuel se voit attribuer une [IP publique dynamique](../../../dms/faq.yml). Au moment de la création, vous pouvez placer le service à l’intérieur d’un réseau virtuel qui dispose d’une connectivité via une connexion [ExpressRoute](../../../expressroute/expressroute-introduction.md) ou sur [un VPN site à site](../../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 - Si vous utilisez une machine virtuelle Azure pour exécuter les outils de migration, attribuez-lui une IP publique et autorisez-la uniquement à se connecter à l’instance MySQL locale.
 

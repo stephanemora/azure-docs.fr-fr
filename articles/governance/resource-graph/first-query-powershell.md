@@ -3,14 +3,13 @@ title: 'Démarrage rapide : Votre première requête PowerShell'
 description: Dans ce guide de démarrage rapide, vous suivez les étapes pour activer le module Resource Graph pour Azure PowerShell et vous exécutez votre première requête.
 ms.date: 07/09/2021
 ms.topic: quickstart
-ms.custom:
-- mode-api
-ms.openlocfilehash: 20b595a52b238d701b8ec54bdec99d07e7f57fcb
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.custom: mode-api
+ms.openlocfilehash: abc8e808328fadc82cc735eb1b849bcd0d6792b9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114463430"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131051094"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide d’Azure PowerShell
 

@@ -10,14 +10,17 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 47ccfea5b666e3c600454fec5d2e8dc801b78bc2
-ms.sourcegitcommit: 87de14fe9fdee75ea64f30ebb516cf7edad0cf87
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: f8f4dc553bcb9750199d38c640c70012b73bf4bf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2021
-ms.locfileid: "129358101"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055100"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Ressources utiles lorsque vous travaillez avec Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article répertorie les ressources qui peuvent vous aider à obtenir plus d’informations sur l’utilisation d’Azure Sentinel.
 
@@ -43,7 +46,7 @@ Le tableau suivant décrit les différences entre les playbooks, les classeurs e
 | Category |Playbooks  |Workbooks  |Notebooks  |
 |---------|---------|---------|---------|
 |**Rôles**     |   <ul><li>Ingénieurs du SOC</li><li>Analystes de tous les niveaux</li></ul>      | <ul><li> Ingénieurs du SOC</li><li>Analystes de tous les niveaux</li></ul>       | <ul><li>Chasseurs de menaces et analystes de niveau 2 ou 3</li><li>Enquêteurs sur les incidents</li><li>Scientifiques des données</li><li>Chercheurs en sécurité</li></ul>       |
-|**Utilisations**     | Automatisation des tâches simples et reproductibles :<ul><li>Ingestion de données externes </li><li>Enrichissement de données avec TI, recherches GeoIP et plus encore </li><li> Investigation </li><li>Correction </li></ul>       | <ul><li>Visualisation</li></ul>        |   <ul><li>Interrogation des données Azure Sentinel et des données externes </li><li>Enrichissement de données avec TI, recherches GeoIP, recherches WhoIs et plus encore </li><li> Investigation </li><li> Visualisation </li><li> Chasse </li><li>Machine Learning et analytique du Big Data </li></ul>      |
+|**Utilisations**     | Automatisation des tâches simples et reproductibles :<ul><li>Ingestion de données externes </li><li>Enrichissement de données avec TI, recherches GeoIP et plus encore </li><li> Examen </li><li>Correction </li></ul>       | <ul><li>Visualisation</li></ul>        |   <ul><li>Interrogation des données Azure Sentinel et des données externes </li><li>Enrichissement de données avec TI, recherches GeoIP, recherches WhoIs et plus encore </li><li> Examen </li><li> Visualisation </li><li> Chasse </li><li>Machine Learning et analytique du Big Data </li></ul>      |
 |**Avantages**     |<ul><li> Idéal pour les tâches uniques et reproductibles </li><li>Aucune connaissance en codage n’est requise  </li></ul>      |<ul><li>Idéal pour une vue élémentaire des données Azure Sentinel </li><li>Aucune connaissance en codage n’est requise</li></ul>       | <ul><li>Idéal pour les chaînes complexes de tâches reproductibles </li><li>Contrôle ad hoc, plus procédural</li><li>Ajout plus facile d’un tableau croisé dynamique grâce aux fonctionnalités interactives </li><li>Bibliothèques Python riches pour la manipulation et la visualisation des données </li><li>Machine Learning et analyse personnalisée </li><li>Facilité de documentation et de partage des preuves d’analyse </li></ul>       |
 |**Défis**     | <ul><li>Non adapté aux chaînes ad hoc et complexes de tâches </li><li>Ne convient pas à la documentation et au partage de preuves</li></ul>        |   <ul><li>Intégration impossible à des données externes </li></ul>     |    <ul><li> La courbe d’apprentissage est élevée et nécessite des connaissances en codage </li></ul>   |
 |  **Plus d’informations**   | [Automatiser la réponse aux menaces à l’aide de playbooks dans Azure Sentinel](automate-responses-with-playbooks.md)        | [Visualiser les données collectées](get-visibility.md)        | [Utiliser des notebooks Jupyter pour repérer des menaces de sécurité](notebooks.md)        |

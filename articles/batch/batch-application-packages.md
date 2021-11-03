@@ -3,16 +3,13 @@ title: Déployer des packages d’application sur des nœuds de calcul
 description: Utilisez la fonctionnalité de packages d’applications d’Azure Batch pour gérer facilement plusieurs applications et versions pour l’installation sur des nœuds de calcul Batch.
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.custom:
-- H1Hack27Feb2017
-- devx-track-csharp
-- contperf-fy21q1
-ms.openlocfilehash: 9c4b40f0e99475fc0b19ec94a14f67af131e5f59
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.custom: H1Hack27Feb2017, devx-track-csharp, contperf-fy21q1
+ms.openlocfilehash: 6ffa06f284c3406ebe62c1f62fc0c9c487cede3d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389381"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086922"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 

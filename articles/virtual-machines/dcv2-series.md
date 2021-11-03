@@ -7,12 +7,13 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 89714a766dfd4ddc2c952554ab12068121543044
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 54ae1665d34093fcb2ba44d0b5eb0f4f4a9bb0f7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130070771"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008467"
 ---
 # <a name="dcsv2-series"></a>série DCsv2
 
@@ -41,7 +42,7 @@ Exemples de cas d’usage confidentiels : bases de données, blockchain, analys
 
 ## <a name="technical-specifications"></a>Spécifications techniques
 
-| Taille             | Cœurs physiques | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) | Mémoire EPC (Mio) |
+| Taille             | Cœurs physiques | Mémoire Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) | Mémoire EPC Mio |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
 | Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
 | Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |

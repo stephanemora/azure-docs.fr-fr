@@ -9,12 +9,12 @@ author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: b5b877d27e04aa81e710b518d3923d438fe0afd2
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: d802b911a462ef077fa69d62d524e763ab13efc2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124805965"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016584"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory-and-synapse-analytics"></a>Transformer des données à l'aide d'une activité Spark dans Azure Data Factory et Synapse Analytics
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -129,5 +129,4 @@ Consultez les articles suivants qui expliquent comment transformer des données 
 * [Activité de diffusion en continu Hadoop](transform-data-using-hadoop-streaming.md)
 * [Activité Spark](transform-data-using-spark.md)
 * [Activité personnalisée .NET](transform-data-using-dotnet-custom-activity.md)
-* [Activité Batch Execution ML Studio (classique)](transform-data-using-machine-learning.md)
 * [Activité de procédure stockée](transform-data-using-stored-procedure.md)

@@ -7,16 +7,16 @@ ms.subservice: conditional-access
 ms.topic: overview
 ms.date: 09/15/2021
 ms.custom: project-no-code
-ms.author: mimart
-author: msmimart
-manager: celested
+ms.author: kengaderdus
+author: kengaderdus
+manager: CelesteDG
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 54229ff68cf9e4ac749fb1396282d9c881f52806
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: e4f1bf6bdb46bd87fb24fe5564a1d53204477a5d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128572668"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008006"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Ajouter l’accès conditionnel à des flux d’utilisateurs dans Azure Active Directory B2C
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
@@ -26,7 +26,7 @@ L’accès conditionnel peut être ajouté à vos flux d’utilisateurs Azure Ac
 Azure AD B2C évalue chaque événement de connexion et s’assure que toutes les conditions requises sont remplies avant d’accorder l’accès à l’utilisateur. Durant cette phase d’**évaluation**, le service d’accès conditionnel évalue les signaux collectés par les détections de risques Identity Protection lors des événements de connexion. Le résultat de ce processus d’évaluation correspond à un ensemble de revendications indiquant si la connexion doit être accordée ou bloquée. La stratégie Azure AD B2C utilise ces revendications pour agir au sein du workflow de l’utilisateur. Par exemple, pour bloquer l’accès ou amener l’utilisateur à opter pour une correction spécifique comme l’authentification multifacteur (MFA). Le blocage de l’accès prévaut sur tous les autres paramètres.
 ::: zone pivot="b2c-custom-policy"
 L’exemple suivant présente un profil technique d’accès conditionnel utilisé pour évaluer la menace de connexion.
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -45,7 +45,7 @@ La correction peut aussi se produire par le biais d’autres canaux, par exemple
 > Pour corriger correctement le risque dans le parcours, vérifiez que le profil technique *Correction* est appelé après l’exécution du profil technique *Évaluation*. Si *Évaluation* est appelé sans *Correction*, l’état du risque est *Risqué*.
 Quand la recommandation du profil technique *Évaluation* retourne `Block`, l’appel du profil technique *Évaluation* n’est pas nécessaire. L’état du risque est défini sur *Risqué*.
 L’exemple suivant présente un profil technique d’accès conditionnel utilisé pour corriger la menace identifiée :
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessRemediation">
   <DisplayName>Conditional Access Remediation</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
@@ -351,7 +351,7 @@ Pour activer l’accès conditionnel pour un flux d’utilisateur, assurez-vous 
 1. Téléchargez les fichiers de stratégie.
 ### <a name="configure-claim-other-than-phone-number-to-be-used-for-mfa"></a>Configurer une revendication autre que le numéro de téléphone à utiliser pour l’authentification multifacteur
 Dans la stratégie d’accès conditionnel ci-dessus, la méthode de transformation de revendication `DoesClaimExist` vérifie si une revendication contient une valeur, par exemple si la revendication `strongAuthenticationPhoneNumber` contient un numéro de téléphone. La transformation des revendications ne se limite pas à la revendication `strongAuthenticationPhoneNumber`. Selon le scénario, vous pouvez utiliser n’importe quelle autre revendication. Dans l’extrait de code XML suivant, c’est la revendication `strongAuthenticationEmailAddress` qui est plutôt vérifiée. La revendication que vous choisissez doit avoir une valeur valide, sans quoi la revendication `IsMfaRegistered`est définie sur `False`. Quand sa valeur est `False`, l’évaluation de la stratégie d’accès conditionnel retourne un type d’autorisation `Block`, ce qui empêche l’utilisateur d’accomplir le flux d’utilisateur.
-```XML
+```xml
  <ClaimsTransformation Id="IsMfaRegisteredCT" TransformationMethod="DoesClaimExist">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="strongAuthenticationEmailAddress" TransformationClaimType="inputClaim" />

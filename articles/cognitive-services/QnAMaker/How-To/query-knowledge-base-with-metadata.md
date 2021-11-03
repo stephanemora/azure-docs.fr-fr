@@ -8,17 +8,19 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2fde10090312956e6f9e5332d5827ac0de07be87
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
+ms.openlocfilehash: e38baa47d22ebb1fbdd5127cbd415afc3027d8a4
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110792269"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016848"
 ---
 # <a name="filter-responses-with-metadata"></a>Filtrer les réponses à l’aide de métadonnées
 
 Avec QnA Maker, vous pouvez ajouter des métadonnées, sous la forme de paires clé-valeur, à vos paires question/réponse. Vous pouvez ensuite utilise ces informations pour filtrer des résultats de requêtes d’utilisateurs et pour stocker des informations supplémentaires utilisables dans des conversations de suivi.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="qna-entity"></a>
 

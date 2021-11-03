@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 7d7666e82970114cad352c702cdf13e29c4f86f6
-ms.sourcegitcommit: 37cc33d25f2daea40b6158a8a56b08641bca0a43
+ms.openlocfilehash: 80f96605069e2bfdc7596831018a81c09a0c7a9a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130071964"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131060418"
 ---
 # <a name="updated-ndv2-series"></a>Série NDv2 mise à jour
 
@@ -42,7 +42,7 @@ Il est essentiel que NDv2 soit conçu pour répondre à la fois à des charges d
 [Mises à jour avec préservation de la mémoire](maintenance-and-updates.md) : Non pris en charge<br>
 [Génération de machine virtuelle prise en charge](generation-2.md) : Génération 2<br>
 [Performances réseau accélérées](../virtual-network/create-vm-accelerated-networking-cli.md) : Pris en charge<br>
-[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge ([en préversion](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
+[Disques de système d’exploitation éphémères](ephemeral-os-disks.md) : Pris en charge<br>
 Infiniband Prise en charge<br>
 Interconnexion Nvidia/NVLink : Pris en charge<br>
 <br>

@@ -2,21 +2,20 @@
 title: Interroger une base de connaissances – QnA Maker
 description: Une base de connaissances doit être publiée. Une fois publiée, la base de connaissances est interrogée au point de terminaison de prédiction du runtime à l’aide de l’API generateAnswer.
 ms.topic: conceptual
-ms.date: 11/09/2020
-ms.openlocfilehash: 4d36e1feb0279eec638a3602c5188e8af1cb7c17
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: bc1ef09e05b118c2f0a8b5b69cec38f2c38f7fb8
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369300"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086789"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Interroger la base de connaissances pour obtenir des réponses
 
 Une base de connaissances doit être publiée. Une fois publiée, la base de connaissances est interrogée au point de terminaison de prédiction du runtime à l’aide de l’API generateAnswer. La requête comprend le texte de la question et d’autres paramètres pour aider QnA Maker à sélectionner la meilleure correspondance possible à une réponse.
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Comment QnA Maker traite une requête de l’utilisateur pour sélectionner la meilleure réponse
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (version stable)](#tab/v1)
 
 Le base de connaissances QnA Maker entraînée et [publiée](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) reçoit une requête de l’utilisateur, à partir d’un robot ou d’une autre application cliente, au niveau de l’[API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). Le diagramme suivant illustre le processus enclenché lors de la réception de la requête de l’utilisateur.
 
@@ -39,31 +38,8 @@ Le processus est expliqué dans le tableau suivant.
 
 Les fonctionnalités utilisées incluent notamment la sémantique au niveau des mots, l’importance des termes dans un corpus et les modèles sémantiques ayant fait l’objet d’un apprentissage profond pour déterminer la similarité et la pertinence entre deux chaînes de texte.
 
-# <a name="custom-question-answering-preview-release"></a>[Réponses aux questions personnalisées (préversion)](#tab/v2)
-
-Le base de connaissances QnA Maker entraînée et [publiée](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) reçoit une requête de l’utilisateur, à partir d’un robot ou d’une autre application cliente, au niveau de l’[API GenerateAnswer](../how-to/metadata-generateanswer-usage.md). Le diagramme suivant illustre le processus enclenché lors de la réception de la requête de l’utilisateur.
-
-![Processus de modèle de classement par ordre de priorité pour une requête de l’utilisateur (préversion)](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
-
-### <a name="ranker-process"></a>Processus de classement
-
-Le processus est expliqué dans le tableau suivant.
-
-|Étape|Objectif|
-|--|--|
-|1|L’application cliente envoie la requête de l’utilisateur vers l’[API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
-|2|QnA Maker prétraite la requête de l’utilisateur avec détection de la langue, vérificateurs d’orthographe et analyseurs lexicaux.|
-|3|Ce prétraitement modifie la requête utilisateur afin d’offrir des résultats de recherche optimaux.|
-|4|Cette requête modifiée est envoyée à l’Index de Recherche cognitive Azure qui reçoit `top` résultats. Si la réponse correcte n’est pas dans ces résultats, augmentez légèrement la valeur de `top`. En règle générale, une valeur de 10 pour `top` fonctionne dans 90 % des requêtes. Les filtres de recherche Azure [arrêtent les mots](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) dans cette étape.|
-|5|QnA Maker utilise un modèle basé sur un transformateur de pointe pour déterminer la similarité entre la requête utilisateur et les résultats QnA candidats extraits de Recherche cognitive Azure. Le modèle basé sur un transformateur est un modèle multilingue de deep learning, qui fonctionne horizontalement pour toutes les langues afin de déterminer les scores de confiance et le nouvel ordre de classement.|
-|6|Les nouveaux résultats sont renvoyés vers l’application cliente selon l’ordre de classement.|
-|||
-
-Le ranker travaille sur toutes les autres questions et réponses pour trouver les paires QnA les plus adaptées à la requête utilisateur. Les utilisateurs ont la possibilité de configurer le ranker pour qu’il ne travaille que sur les questions. 
-
----
-
 ## <a name="http-request-and-response-with-endpoint"></a>Requête et réponse HTTP avec point de terminaison
+
 Lorsque vous publiez votre base de connaissance, le service crée un point de terminaison HTTP basé sur REST pouvant être intégré dans votre application, généralement un bot conversationnel.
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>Demande de requête de l’utilisateur pour générer une réponse
@@ -84,6 +60,7 @@ Une requête utilisateur est la question que l’utilisateur final pose à la ba
     "userId": "sd53lsY="
 }
 ```
+
 Vous contrôlez la réponse en définissant des propriétés telles que[scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), et [strictFilters](../how-to/query-knowledge-base-with-metadata.md).
 
 Utilisez [le contenu de la conversation](../how-to/query-knowledge-base-with-metadata.md) avec [la fonctionnalité multitour](../how-to/multiturn-conversation.md) pour que la conversation se poursuive afin d’affiner les questions et les réponses pour trouver la réponse correcte et définitive.
@@ -119,7 +96,6 @@ La réponse HTTP est la réponse extraite de la base de données. Il s’agit de
     ]
 }
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -76,8 +76,6 @@
           href: template-tutorial-deploy-vm-extensions.md
         - name: Déployer des extensions SQL
           href: template-tutorial-deploy-sql-extensions-bacpac.md
-        - name: Résoudre les problèmes de déploiement de modèles
-          href: template-tutorial-troubleshoot.md
     - name: Parcours d’apprentissage Microsoft Learn sur les modèles
       href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Exemples - Services Azure
@@ -447,40 +445,6 @@
           href: update-visual-studio-deployment-script.md
         - name: IntelliJ IDEA
           href: create-templates-use-intellij.md
-    - name: Résoudre les problèmes de déploiement
-      items:
-        - name: Résoudre les erreurs de déploiement
-          href: common-deployment-errors.md
-        - name: AccountNameInvalid
-          href: error-storage-account-name.md
-        - name: DeploymentQuotaExceeded
-          href: deployment-quota-exceeded.md
-        - name: InvalidTemplate
-          href: error-invalid-template.md
-        - name: JobSizeExceeded
-          href: error-job-size-exceeded.md
-        - name: Problèmes de déploiement Linux
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-linux
-        - name: NoRegisteredProviderFound
-          href: error-register-resource-provider.md
-        - name: NotFound
-          href: error-not-found.md
-        - name: ParentResourceNotFound
-          href: error-parent-resource.md
-        - name: Problèmes de provisionnement et d’allocation pour Linux
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux
-        - name: Problèmes de provisionnement et d’allocation pour Windows
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows
-        - name: RequestDisallowedByPolicy
-          href: error-policy-requestdisallowedbypolicy.md
-        - name: ReservedResourceName
-          href: error-reserved-resource-name.md
-        - name: ResourceQuotaExceeded
-          href: error-resource-quota.md
-        - name: SkuNotAvailable
-          href: error-sku-not-available.md
-        - name: Problèmes de déploiement Windows
-          href: /troubleshoot/azure/virtual-machines/troubleshoot-deploy-vm-windows
 - name: Informations de référence
   items:
     - name: Informations de référence sur les modèles

@@ -2,19 +2,19 @@
 title: Comment préparer du contenu HTML pour un Lecteur immersif
 titleSuffix: Azure Applied AI Services
 description: Découvrez comment lancer le Lecteur immersif en utilisant HTML, JavaScript, Python, Android ou iOS. Lecteur immersif utilise des techniques éprouvées pour améliorer la compréhension de la lecture pour les apprenants d’une langue, les lecteurs débutants et les étudiants présentant des différences d’apprentissage.
-author: erhopf
+author: nitinme
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 03/04/2021
-ms.author: erhopf
-ms.openlocfilehash: 4efadfaed4980afd035f36d530f87a971eeb4964
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.author: nitinme
+ms.openlocfilehash: 505151c22c095f1168ccad4a84870c430b3dd586
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524127"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026521"
 ---
 # <a name="how-to-prepare-html-content-for-immersive-reader"></a>Comment préparer du contenu HTML pour un Lecteur immersif
 

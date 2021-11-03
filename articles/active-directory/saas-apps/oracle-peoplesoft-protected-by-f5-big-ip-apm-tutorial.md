@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: c60b8f605fea83ef0eccab140f1d9f460be78701
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 2583397a34635d54fa7982656019433442e2e96b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124778948"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058876"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
@@ -294,9 +294,17 @@ Si vous souhaitez ajouter la prise en charge de la déconnexion unique pour tous
 
     * Accédez à **Local Traffic > iRule** (Trafic local > iRule), cliquez sur **Create** (Créer), fournissez les informations suivantes, puis cliquez sur **Finished** (Terminé).
 
-        Nom : `<Name>`  
-        Définition :  
-                    _when HTTP_REQUEST { switch -glob -- [HTTP::uri] { `/psp/ps/?cmd=logout` { HTTP::redirect `/my.logout.php3` } } }_
+      ```text
+      Name: `<Name>`
+      Definition:
+                  _when HTTP_REQUEST {
+                      switch -glob -- [HTTP::URI] {
+                          `/psp/ps/?cmd=logout` {
+                              HTTP::redirect `/my.logout.php3`
+                          }
+                      }
+                  }_
+      ```
 
 1. Affecter au serveur virtuel la règle iRule créée
 

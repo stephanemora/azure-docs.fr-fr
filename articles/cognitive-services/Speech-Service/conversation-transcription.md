@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: pafarley
-ms.openlocfilehash: abef7e44ad2e15bda230d28e8dae74a3fd949f88
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 993cc1105c476f3581fd996be5c1aa6aa7c0c590
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129706326"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056698"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>Qu’est-ce que la transcription de conversation (préversion) ?
 
@@ -54,7 +55,7 @@ Il s’agit d’une vue d’ensemble détaillée du fonctionnement de la transcr
 
 ## <a name="expected-inputs"></a>Entrées attendues
 
-- **Flux audio multicanal** - Pour obtenir des détails sur les spécifications et la conception, consultez [Microphones pour le SDK Microsoft Speech Devices](./speech-devices-sdk-microphone.md). Pour obtenir des informations complémentaires ou pour acheter un kit de développement, consultez [Obtenir le SDK Microsoft Speech Devices](./get-speech-devices-sdk.md).
+- **Flux audio multicanal** - Pour obtenir des détails sur les spécifications et la conception, consultez [Microphones pour le SDK Microsoft Speech Devices](./speech-sdk-microphone.md). Pour obtenir des informations complémentaires ou pour acheter un kit de développement, consultez [Obtenir le SDK Microsoft Speech Devices](./get-speech-devices-sdk.md).
 - **Exemples de voix d’utilisateur** : la transcription de conversation a besoin de profils utilisateur avant la conversation pour pouvoir identifier les orateurs. Vous devrez collecter des enregistrements audio de chaque utilisateur puis envoyer les enregistrements au [service de génération de signatures](https://aka.ms/cts/signaturegenservice) pour valider le contenu audio et générer des profils utilisateur.
 
 > [!NOTE]

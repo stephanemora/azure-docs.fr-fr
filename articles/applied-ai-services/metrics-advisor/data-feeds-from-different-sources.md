@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 05/26/2021
 ms.author: mbullwin
-ms.openlocfilehash: 9d5d111e86623b3de63bc9aa5d77f5a14c37fabd
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 005886c0399a89fe2e58aa669a8f7c0d33821cd3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130216767"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131026635"
 ---
 # <a name="how-to-connect-different-data-sources"></a>Guide pratique : Connecter différentes sources de données
 
@@ -199,13 +199,13 @@ Les sections suivantes spécifient les paramètres requis pour tous les types d�
      
 * **Requête** : Pour obtenir et formuler des données dans des données de séries chronologiques multidimensionnelles, consultez [Langage de la requête Kusto](/azure/data-explorer/kusto/query). Vous pouvez utiliser les variables `@IntervalStart` et `@IntervalEnd` dans votre requête. Elles doivent utiliser le format suivant : `yyyy-MM-ddTHH:mm:ssZ`.
 
-    Exemple de requête :
+  Exemple de requête :
     
-    ``` Kusto
-   [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
-   ```
+  ```kusto
+  [TableName] | where [TimestampColumn] >= datetime(@IntervalStart) and [TimestampColumn] < datetime(@IntervalEnd);    
+  ```
 
-    Pour plus d’informations, référez-vous au [tutoriel sur l’écriture d’une requête valide](tutorials/write-a-valid-query.md).
+  Pour plus d’informations, référez-vous au [tutoriel sur l’écriture d’une requête valide](tutorials/write-a-valid-query.md).
 
 ## <a name="span-idadlazure-data-lake-storage-gen2span"></a><span id="adl">Azure Data Lake Storage Gen2</span>
 

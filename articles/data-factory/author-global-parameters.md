@@ -4,16 +4,16 @@ description: Définir des paramètres globaux pour chacun de vos environnements 
 ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
-author: minhe-msft
-ms.author: hemin
+author: jasonwhowell
+ms.author: jasonh
 ms.date: 05/12/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f57b33f94bff98714969639e935ae5010a5762cd
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.openlocfilehash: 25c63c51278a747206b0b2dab90f967ebd9248e6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129218146"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024402"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Paramètres globaux dans Azure Data Factory
 

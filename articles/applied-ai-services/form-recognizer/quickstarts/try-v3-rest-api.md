@@ -7,25 +7,27 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/07/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
-ms.openlocfilehash: 6ee2aca6eb48b87a1d773d8d713b954eeb08beca
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 097387d1a84aa02e6d81292a65404ca2e837ed98
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240430"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020993"
 ---
-# <a name="get-started-form-recognizer-rest-api---preview"></a>Bien démarrer : API REST Form Recognizer | Préversion
+# <a name="quickstart-rest-api---preview"></a>Démarrage rapide : API REST | Préversion
 
 >[!NOTE]
-> Form Recognizer v3.0 est actuellement en préversion publique. Certaines fonctionnalités risquent de ne pas être prises en charge ou d’avoir des capacités limitées. 
+> Form Recognizer v3.0 est actuellement en préversion publique. Certaines fonctionnalités peuvent ne pas être prises en charge ou avoir des capacités limitées.
 
 | [API REST Form Recognizer](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) | [Informations de référence de l’API REST Azure](/rest/api/azure/) |
 
-Azure Cognitive Services Form Recognizer est un service cloud qui utilise le machine learning pour extraire et analyser les champs de formulaire, le texte et les tableaux de vos documents. Vous pouvez facilement appeler des modèles Form Recognizer en intégrant les kits SDK de notre bibliothèque de client dans vos workflows et applications.
+Bien démarrer avec Azure Form Recognizer en utilisant le langage de programmation C#. Azure Form Recognizer est un service Azure Applied AI Service qui utilise le machine learning pour extraire et analyser les champs de formulaire, le texte et les tableaux de vos documents. Vous pouvez facilement appeler des modèles Form Recognizer en intégrant les kits SDK de notre bibliothèque de client dans vos workflows et applications. Nous vous recommandons d’utiliser le service gratuit pendant que vous apprenez la technologie. N’oubliez pas que le nombre de pages gratuites est limité à 500 par mois.
 
-### <a name="form-recognizer-models"></a>Modèles Form Recognizer
+Pour en savoir plus sur les fonctionnalités Form Recognizer et les options de développement, visitez notre page de [présentation](../overview.md#form-recognizer-features-and-development-options).
+## <a name="form-recognizer-models"></a>Modèles Form Recognizer
 
  L’API REST prend en charge les modèles et les fonctionnalités suivants :
 
@@ -37,13 +39,35 @@ Azure Cognitive Services Form Recognizer est un service cloud qui utilise le mac
 * Documents d’identité – Analysez et extrayez les champs courants des documents d’identité, tels que les passeports ou les permis de conduire, en utilisant un modèle de pièce d’identité préentraîné.
 * Cartes de visite – Analysez et extrayez les champs courants des cartes de visite en utilisant un modèle de carte de visite préentraîné.
 
+## <a name="analyze-document"></a>Analyser le document
+
+Form Recognizer v 3.0 consolide les opérations d’analyse de document et d’obtention des résultats d’analyse (GET) pour la disposition, les modèles prédéfinis et les modèles personnalisés dans une seule paire d’opérations en attribuant  `modelIds` aux opérations POST et GET :
+
+```http
+POST /documentModels/{modelId}:analyze
+
+GET /documentModels/{modelId}/analyzeResults/{resultId}
+```
+
+Le tableau suivant illustre les mises à jour apportées aux appels de l’API REST.
+
+|Fonctionnalité| v2.1 | v3.0|
+|-----|-----|----|
+|Document général | n/a |`/documentModels/prebuilt-document:analyze` |
+|Layout |`/layout/analyze` | ``/documentModels/prebuilt-layout:analyze``|
+|Facture | `/prebuilt/invoice/analyze` | `/documentModels/prebuilt-invoice:analyze` |
+|Réception | `/prebuilt/receipt/analyze` | `/documentModels/prebuilt-receipt:analyze` |
+|Document d’identité| `/prebuilt/idDocument/analyze` | `/documentModels/prebuilt-idDocument:analyze`|
+|Carte de visite| `/prebuilt/businessCard/analyze`  | `/documentModels/prebuilt-businessCard:analyze` |
+|Custom| `/custom/{modelId}/analyze` |`/documentModels/{modelId}:analyze`|
+
 Dans ce guide de démarrage rapide, vous allez utiliser les fonctionnalités suivantes pour analyser et extraire les données et les valeurs de formulaires et de documents :
 
-* [**Document général**](#try-it-general-document-model)
+* [🆕 **Document général**](#try-it-general-document-model) – Analysez et extrayez le texte, les tableaux, la structure, les paires clé-valeur et les entités nommées.|
 
-* [**Layout**](#try-it-layout-model)
+* [**Disposition**](#try-it-layout-model) – Analysez et extrayez les tableaux, les lignes, les mots et les marques de sélection telles que les cases d’option et les cases à cocher dans des formulaires, sans avoir besoin d’entraîner un modèle.
 
-* [**Facture prédéfinie**]#try-it-prebuilt-invoice-model)
+* [**Modèle prédéfini**](#try-it-prebuilt-model): analysez et extrayez les données à partir de types de documents communs, à l’aide d’un modèle pré-formé.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -58,9 +82,21 @@ Dans ce guide de démarrage rapide, vous allez utiliser les fonctionnalités sui
 > [!TIP]
 > Créez une ressource Cognitive Services si vous envisagez d’accéder à plusieurs services Cognitive Services sous un seul point de terminaison/clé. Pour l’accès à Form Recognizer uniquement, créez une ressource Form Recognizer. Notez que vous avez besoin d’une ressource monoservice si vous avez l’intention d’utiliser l’[authentification Azure Active Directory](../../../active-directory/authentication/overview-authentication.md).
 
-* Une fois que votre ressource est déployée, cliquez sur **Accéder à la ressource**. Vous avez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Form Recognizer. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans ce guide de démarrage rapide :
+* Après le déploiement de votre ressource, sélectionnez **Accéder à la ressource**. Vous avez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Form Recognizer. Vous collerez votre clé et votre point de terminaison dans le code ci-dessous plus loin dans ce guide de démarrage rapide :
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Capture d’écran : clés et emplacement du point de terminaison dans le portail Azure":::
+
+### <a name="select-a-code-sample-to-copy-and-paste-into-your-application"></a>Sélectionnez un exemple de code à copier-coller dans votre application :
+
+* [**Document général**](#try-it-general-document-model)
+
+* [**Layout**](#try-it-layout-model)
+
+* [**Modèle prédéfini**](#try-it-prebuilt-model)
+
+> [!IMPORTANT]
+>
+> N’oubliez pas de supprimer la clé de votre code une fois que vous avez terminé, et ne la postez jamais publiquement. En production, utilisez des méthodes sécurisées pour stocker vos informations d’identification et y accéder. Pour plus d’informations, consultez l’article sur la [sécurité](../../../cognitive-services/cognitive-services-security.md) de Cognitive Services.
 
 ## <a name="try-it-general-document-model"></a>**Essayez** : modèle de document général
 
@@ -361,11 +397,13 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout
 
 Vous recevez une réponse `200 (Success)` avec une sortie JSON. Le premier champ, `"status"`, indique l’état de l’opération. Si l’opération n’est pas terminée, la valeur de `"status"` sera `"running"` ou `"notStarted"`, et vous devez rappeler l’API, manuellement ou via un script. Nous vous recommandons d’attendre une seconde ou plus entre chaque appel.
 
-## <a name="try-it-prebuilt-invoice-model"></a>**Essayez** : modèle de facture prédéfinie
+## <a name="try-it-prebuilt-model"></a>**Essayez** : Modèle prédéfini
+
+Cet exemple montre comment analyser les données de certains types de documents courants avec un modèle préentraîné, à l’aide d’une facture à titre d’exemple.
 
 > [!div class="checklist"]
 >
-> * Pour cet exemple, vous aurez besoin d’un **fichier de facture au niveau d’un URI**. Vous pouvez utiliser notre [exemple de facture](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) pour ce guide de démarrage rapide.
+> * Pour cet exemple, nous analysons un document de facture à l’aide d’un modèle prédéfini. Vous pouvez utiliser notre [exemple de facture](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) pour ce guide de démarrage rapide.
 
 ### <a name="choose-the-invoice-prebuilt-model-id"></a>Choisir l’ID de modèle de facture prédéfinie
 
@@ -380,12 +418,15 @@ Avant d’exécuter la commande, apportez les modifications suivantes :
 
 1. Remplacez `{endpoint}` par le point de terminaison que vous avez obtenu avec votre abonnement Form Recognizer.
 1. Remplacez `{subscription key}` par la clé d’abonnement que vous avez copiée à l’étape précédente.
-1. Remplacez `\"{your-document-url}` par l’un des exemples d’URL.
+1. Remplacez `\"{your-document-url}` par un exemple d’URL de facture :
+
+    ```http
+    https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf
+    ```
 
 #### <a name="request"></a>Requête
 
 ```bash
-bash
  curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview&api-version=2021-09-30-preview HTTP/1.1" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'source': '{your-document-url}'}"
 ```
 
@@ -393,7 +434,7 @@ bash
 
 Vous recevrez une réponse `202 (Success)` incluant un en-tête **Operation-Location**. La valeur de cet en-tête contient un ID de résultats qui vous permet d’interroger l’état de l’opération asynchrone et d’obtenir les résultats :
 
-https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
+https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/ **{resultId}** ?api-version=2021-07-30-preview
 
 ### <a name="get-invoice-results"></a>Obtenir les résultats de la facture
 
@@ -422,7 +463,7 @@ Vous recevez une réponse `200 (Success)` avec une sortie JSON. Le premier champ
 
 ### <a name="get-a-list-of-models"></a>Obtenir la liste des modèles
 
-La demande   [Lister les modèles](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels) de la préversion v3.0 retourne une liste paginée de modèles prédéfinis, en plus des modèles personnalisés. Seuls les modèles avec l’état réussi sont inclus. Les modèles en cours ou ayant échoué peuvent être énumérés via la demande [Lister les opérations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations). Utilisez la propriété nextLink pour accéder à la page suivante de modèles, le cas échéant. Pour obtenir plus d’informations sur chaque modèle retourné, y compris la liste des documents pris en charge et de leurs champs, transmettez modelId à la demande  [Obtenir un modèle](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations). 
+La demande   [Lister les modèles](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels) de la préversion v3.0 retourne une liste paginée de modèles prédéfinis, en plus des modèles personnalisés. Seuls les modèles avec l’état réussi sont inclus. Les modèles en cours ou ayant échoué peuvent être énumérés via la demande [Lister les opérations](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations). Utilisez la propriété nextLink pour accéder à la page suivante de modèles, le cas échéant. Pour obtenir plus d’informations sur chaque modèle retourné, y compris la liste des documents pris en charge et de leurs champs, transmettez modelId à la demande  [Obtenir un modèle](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperations).
 
 ```bash
 curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=2021-07-30-preview"
@@ -430,10 +471,10 @@ curl -v -X GET "https://{endpoint}/formrecognizer/documentModels?api-version=202
 
 ### <a name="get-a-specific-model"></a>Obtenir un modèle spécifique
 
-La demande [Obtenir un modèle](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModel) de la préversion v3.0 récupère les informations relatives à un modèle spécifique avec un état réussi. Pour les modèles en cours ou ayant échoué, utilisez la demande [Obtenir une opération](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperation) pour suivre l’état des opérations de création de modèle et toutes les erreurs résultantes.
+La demande [Obtenir un modèle](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModel) de la préversion v3.0 récupère les informations relatives à un modèle spécifique avec un état réussi. Pour les modèles en cours ou ayant échoué, utilisez l’[opération GET](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetOperation) pour suivre l’état des opérations de création de modèle et toutes les erreurs résultantes.
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-07-30-preview" 
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/{modelId}?api-version=2021-07-30-preview"
 ```
 
 ### <a name="delete-a-model"></a>Supprimer un modèle

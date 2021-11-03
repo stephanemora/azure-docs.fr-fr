@@ -3,12 +3,12 @@ title: Déployer une instance de conteneur compatible GPU
 description: Découvrez comment déployer des instances de conteneur Azure pour exécuter des applications de conteneur nécessitant beaucoup de ressources système à l’aide de ressources GPU.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: fd9441f0ba92f4753271df4daba88ed690c9ee30
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 8950858ff822a28272c17d18de8869d3e03d673d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123108376"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131057872"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Déployer des instances de conteneur qui utilisent des ressources GPU
 
@@ -77,7 +77,7 @@ Une façon d’ajouter des ressources GPU est de déployer un groupe de conteneu
  > [!NOTE]
   > L’exemple suivant utilise une image conteneur publique. Pour améliorer la fiabilité, importez et gérez l’image dans un registre de conteneurs Azure privé et mettez à jour votre fichier YAML pour qu’il utilise votre image de base gérée en privé. [En savoir plus sur l’utilisation des images publiques](../container-registry/buffer-gate-public-content.md).
 
-```YAML
+```yaml
 additional_properties: {}
 apiVersion: '2019-12-01'
 name: gpucontainergroup

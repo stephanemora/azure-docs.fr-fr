@@ -6,14 +6,17 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 06/08/2021
-ms.openlocfilehash: 0e877439b18d4c7ff6c4b21baa18b3b0fd1586b3
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 558d6d979321148923f8a10bc2f92bb13eedd746
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531442"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023041"
 ---
 # <a name="tutorial-create-a-power-bi-report-from-azure-sentinel-data"></a>Tutoriel : Créer un rapport Power BI depuis des données Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Power BI](https://powerbi.microsoft.com/) est une plateforme de création de rapports et d’analyse qui transforme les données en visualisations interactives, cohérentes et immersives. Power BI vous permet de vous connecter facilement à des sources de données, de visualiser et de découvrir des relations et de partager des insights avec qui vous voulez.
 
@@ -206,5 +209,5 @@ Actualisez votre rapport Power BI selon une planification, afin que les données
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Importation de données de journal Azure Monitor dans Power BI](../azure-monitor/visualize/powerbi.md)
+- [Importation de données de journal Azure Monitor dans Power BI](../azure-monitor/logs/log-powerbi.md)
 - [Langage de formule Power Query M](/powerquery-m/)

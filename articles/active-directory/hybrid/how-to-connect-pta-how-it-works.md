@@ -16,12 +16,12 @@ ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c159842ca1693803286a164541fa631ee0537185
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 7d864e0334d4ecc4178ad45c7977ead421e2bcd5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105594"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063325"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Authentification directe Azure Active Directory : Présentation technique approfondie
 Cet article propose une vue d’ensemble du fonctionnement de l’authentification directe Azure Active directory (Azure AD). Pour en savoir plus sur la sécurité et accéder à d’autres détails techniques, consultez l’article [Présentation approfondie des fonctions de sécurité](how-to-connect-pta-security-deep-dive.md).
@@ -59,5 +59,5 @@ Le schéma suivant illustre tous les composants et les étapes impliquées dans 
 - [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : apprenez à résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
 - [Présentation approfondie de la sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques détaillées sur la fonctionnalité d’authentification directe.
 - [Authentification unique fluide Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.
 

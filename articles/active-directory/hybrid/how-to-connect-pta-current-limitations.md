@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3aadcb1ccb4ff3a88c5fae7286f2655e41e3195
-ms.sourcegitcommit: 5361d9fe40d5c00f19409649e5e8fed660ba4800
+ms.openlocfilehash: 8dc639c5dd2098871e05e6ce39bfac3c529d2694
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2021
-ms.locfileid: "130138730"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063268"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : Limites actuelles
 
@@ -60,4 +60,4 @@ Les scénarios suivants ne sont _pas_ pris en charge :
 - [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : apprenez à résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
 - [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques détaillées sur la fonctionnalité d’authentification directe.
 - [Authentification unique fluide Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.

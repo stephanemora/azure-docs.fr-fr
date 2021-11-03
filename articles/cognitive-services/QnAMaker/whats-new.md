@@ -8,16 +8,19 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 341ce0d0400bb1b56f96182e13d526da32d9729e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 959a6d5c5ed4b606c5a5850264422b6e460eb8f5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369265"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020442"
 ---
 # <a name="whats-new-in-qna-maker"></a>Nouveautés de QnA Maker
 
 Découvrir les nouveautés du service. Ces éléments peuvent publier des notes, des vidéos, des billets de blog et tout autre type d’informations. Marquez cette page pour rester aux faits des nouveautés du service.
+
+[!INCLUDE [Custom question answering](./includes/new-version.md)]
 
 ## <a name="release-notes"></a>Notes de publication
 

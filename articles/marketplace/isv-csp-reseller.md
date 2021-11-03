@@ -8,12 +8,12 @@ author: emerb19
 ms.author: emerb
 ms.date: 10/07/2021
 robots: noindex
-ms.openlocfilehash: 28f14cf4414266e6395ec60432c6d2e106a1a69a
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.openlocfilehash: bb663f42be1e7d1c798420ef483cf52c34c84aff
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129716071"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048289"
 ---
 # <a name="isv-to-cloud-reseller-private-offers"></a>Offres privées fournisseur ISV à revendeur cloud
 
@@ -33,7 +33,7 @@ En tant que partenaire CSP, vous pouvez découvrir toutes les marges disponibles
 :::image type="content" source="media/isv-csp-cloud/csp-private-offer-experience.png" alt-text="Montre la progression de l’expérience d’offre privée CSP.":::
 
 > [!NOTE]
-> Si vous publiez uniquement votre offre sur Microsoft AppSource (elle n’est donc pas disponible sur la place de marché Azure) et que vous avez choisi de la vendre via des partenaires dans le programme Fournisseur de solutions Cloud (CSP), il est possible que votre offre s’affiche avec un certain retard comme étant disponible à la vente sur le portail des partenaires CSP. Veuillez contacter le [support](/azure/marketplace/support) si vous pensez que votre offre n’est pas disponible pour les transactions pour votre partenaire CSP.
+> Si vous publiez uniquement votre offre sur Microsoft AppSource (elle n’est donc pas disponible sur la place de marché Azure) et que vous avez choisi de la vendre via des partenaires dans le programme Fournisseur de solutions Cloud (CSP), il est possible que votre offre s’affiche avec un certain retard comme étant disponible à la vente sur le portail des partenaires CSP. Veuillez contacter le [support](./support.md) si vous pensez que votre offre n’est pas disponible pour les transactions pour votre partenaire CSP.
 
 ## <a name="prerequisites-to-create-a-private-offer-for-cloud-resellers"></a>Prérequis pour la création d’une offre privée pour les revendeurs cloud
 
@@ -188,4 +188,4 @@ Le montant du paiement et les frais d’agence que Microsoft facture sont basés
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Questions fréquentes (FAQ) ](/azure/marketplace/isv-csp-faq) sur la configuration des offres privées ISV à revendeur cloud dans l’Espace partenaires
+- [Questions fréquentes (FAQ) ](./isv-csp-faq.yml) sur la configuration des offres privées ISV à revendeur cloud dans l’Espace partenaires

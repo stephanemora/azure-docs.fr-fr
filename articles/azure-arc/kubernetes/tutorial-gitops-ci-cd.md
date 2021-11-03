@@ -1,18 +1,16 @@
 ---
 title: 'Tutoriel : Implémenter une CI/CD avec GitOps à l’aide de clusters Kubernetes avec Azure Arc'
 description: Ce tutoriel vous guide dans la configuration d’une solution CI/CD à l’aide de GitOps avec des clusters Kubernetes avec Azure Arc. Pour une interprétation conceptuelle de ce workflow, consultez l’article Workflow CI/CD à l’aide de GitOps – Kubernetes avec Azure Arc.
-author: tcare
-ms.author: tcare
 ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: a325f248a4f634657d9b73e3d4b7929e0614a023
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: b73cc2a6b04d5e851611841f01890a60de71daab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124820729"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039731"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutoriel : Implémenter une CI/CD avec GitOps à l’aide de clusters Kubernetes avec Azure Arc
 

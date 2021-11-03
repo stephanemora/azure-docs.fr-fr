@@ -2,21 +2,21 @@
 title: Configurer l’authentification dans un exemple d’application monopage à l’aide d’Azure Active Directory B2C
 description: Cet article explique comment utiliser Azure Active Directory B2C pour inscrire et connecter des utilisateurs dans une application monopage.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2021
-ms.author: mimart
+ms.date: 10/25/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 1ea2ae3644ae22fd06a5bae650fa3f5beb955aba
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 620afdfbcc62c3ce8e07c1572dd4ec20634ebd64
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128572508"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131007876"
 ---
 # <a name="configure-authentication-in-a-sample-single-page-application-by-using-azure-ad-b2c"></a>Configurer l’authentification dans un exemple d’application monopage à l’aide d’Azure AD B2C
 
@@ -138,8 +138,8 @@ Maintenant que vous avez obtenu l’exemple d’application monopage, mettez à 
 |policies.js| noms| Le flux d’utilisateurs ou la stratégie personnalisée que vous avez créés à l’[étape 1](#step-1-configure-your-user-flow).|
 |policies.js|authorities|Le [nom de locataire](tenant-management.md#get-your-tenant-name) de votre locataire Azure AD B2C (par exemple, `contoso.onmicrosoft.com`). Ensuite, remplacez par les flux d’utilisateur ou la stratégie personnalisée que vous avez créés à l’[étape 1](#step-1-configure-your-user-flow) (par exemple, `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`).|
 |policies.js|authorityDomain|Le [nom de locataire](tenant-management.md#get-your-tenant-name) de votre locataire Azure AD B2C (par exemple, `contoso.onmicrosoft.com`).|
-|apiConfig.js|b2cScopes|Les étendues de l’API web que vous avez créées à l’[étape 2.2](#step-22-configure-scopes) (par exemple, `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`).|
-|apiConfig.js|webApi|L’URL de l’API web, `http://localhost:5000/tasks`.|
+|authConfig.js|b2cScopes|Les étendues de l’API web que vous avez créées à l’[étape 2.2](#step-22-configure-scopes) (par exemple, `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`).|
+|authConfig.js|webApi|L’URL de l’API web, `http://localhost:5000/tasks`.|
 | | | |
 
 Le code obtenu doit ressembler à l’exemple suivant :

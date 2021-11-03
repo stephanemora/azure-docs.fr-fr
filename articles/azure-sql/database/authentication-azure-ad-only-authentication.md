@@ -8,20 +8,18 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/31/2021
-ms.openlocfilehash: 95a3d04ce8af0e83072e214e2b3fac72c78b28c0
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 74b02577e6bb59481182afda881216ebff0544cf
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128669585"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131044035"
 ---
 # <a name="azure-ad-only-authentication-with-azure-sql"></a>Authentification Azure AD uniquement avec Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
-> [!NOTE]
-> La fonctionnalité **d’authentification avec Azure AD uniquement** présentée dans cet article est en version **préliminaire publique**. 
 
 L’authentification avec Azure AD uniquement est une fonction dans [Azure SQL](../azure-sql-iaas-vs-paas-what-is-overview.md) qui permet au service de ne prendre en charge que l’authentification Azure AD. Elle est prise en charge pour [Azure SQL Database](sql-database-paas-overview.md) et [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). L’authentification SQL est désactivée lors de l’activation de l’authentification Azure AD uniquement dans l’environnement Azure SQL, y compris les connexions des administrateurs de serveur SQL, les connexions et les utilisateurs du serveur. Seuls les utilisateurs se servant de l’[authentification Azure AD](authentication-aad-overview.md) sont autorisés à se connecter au serveur ou à la base de données.
 
@@ -29,12 +27,9 @@ L’authentification Azure AD uniquement peut être activée ou désactivée via
 
 Pour plus d’informations sur l’authentification Azure SQL, consultez [Authentification et autorisation](logins-create-manage.md#authentication-and-authorization).
 
-> [!IMPORTANT]
-> Actuellement, vous ne pouvez pas gérer l’authentification Azure AD uniquement dans le portail Azure pour Azure SQL Managed Instance. Pour obtenir un didacticiel sur les différentes méthodes d’activation de l’authentification Azure AD uniquement, consultez [Didacticiel : activer l’authentification Azure Active Directory uniquement avec Azure SQL](authentication-azure-ad-only-authentication-tutorial.md).
-
 ## <a name="feature-description"></a>Description de la fonctionnalité
 
-Lors de l’activation de l’authentification Azure AD uniquement, l’[l’authentification SQL](logins-create-manage.md#authentication-and-authorization) est désactivée au niveau du serveur et empêche toute authentification basée sur les informations d’identification d’authentification SQL. Les utilisateurs de l’authentification SQL ne pourront pas se connecter au [serveur logique](logical-servers.md) pour Azure SQL Database, y compris toutes ses bases de données. Bien que l’authentification SQL soit désactivée, de nouvelles connexions et utilisateurs d’authentification SQL peuvent toujours être créés par les comptes Azure AD disposant des autorisations appropriées. Les comptes d’authentification SQL récemment créés ne sont pas autorisés à se connecter au serveur. L’activation de l’authentification Azure AD uniquement ne supprime pas les comptes d’utilisateur et de connexion d’authentification SQL existants. La fonctionnalité empêche uniquement ces comptes de se connecter au serveur et à toute base de données créée pour ce serveur.
+Lors de l’activation de l’authentification Azure AD uniquement, l’[authentification SQL](logins-create-manage.md#authentication-and-authorization) est désactivée au niveau du serveur ou de l’instance managée et empêche toute authentification basée sur les informations d’identification d’authentification SQL. Les utilisateurs de l’authentification SQL ne pourront pas se connecter au [serveur logique](logical-servers.md) pour Azure SQL Database ni à une instance managée, y compris toutes ses bases de données. Bien que l’authentification SQL soit désactivée, de nouvelles connexions et utilisateurs d’authentification SQL peuvent toujours être créés par les comptes Azure AD disposant des autorisations appropriées. Les comptes d’authentification SQL récemment créés ne sont pas autorisés à se connecter au serveur. L’activation de l’authentification Azure AD uniquement ne supprime pas les comptes d’utilisateur et de connexion d’authentification SQL existants. La fonctionnalité empêche uniquement ces comptes de se connecter au serveur et à toute base de données créée pour ce serveur.
 
 Vous pouvez également forcer la création de serveurs avec l’authentification Azure AD uniquement activée à l’aide d’Azure Policy. Pour plus d’informations, consultez [Azure Policy pour l’authentification Azure AD uniquement](authentication-azure-ad-only-authentication-policy.md).
 
@@ -400,10 +395,28 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 - Les utilisateurs Azure AD disposant des autorisations appropriées peuvent emprunter l’identité des utilisateurs SQL existants.
     - L’emprunt d’identité continue de fonctionner entre les utilisateurs de l’authentification SQL même lorsque la fonctionnalité d’authentification Azure AD uniquement est activée.
 
-## <a name="known-issues"></a>Problèmes connus
+### <a name="limitations-for-azure-ad-only-authentication-in-sql-database"></a>Limitations relatives à l’authentification Azure AD uniquement dans SQL Database
 
-- Lorsque l’authentification Azure AD uniquement est activée, le mot de passe de l’administrateur du serveur ne peut pas être réinitialisé. Actuellement, l’opération de renvoi du mot de passe réussit sur le portail, mais échoue dans le moteur de SQL. L’échec est indiqué dans le journal d’activité du serveur. Afin de réinitialiser le mot de passe d’administrateur du serveur, la fonctionnalité d’authentification Azure AD uniquement doit être désactivée.
+Quand l’authentification Azure AD uniquement est activée pour SQL Database, les fonctionnalités suivantes ne sont pas prises en charge :
 
+- [Rôles serveur Azure SQL Database](security-server-roles.md)
+- [Tâches élastiques](job-automation-overview.md)
+- [Synchronisation des données SQL](sql-data-sync-data-sql-server-sql-database.md)
+- [Capture des changements de données (CDC)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server)
+- [Réplication transactionnelle](/azure/azure-sql/managed-instance/replication-transactional-overview) - Dans la mesure où l’authentification SQL est nécessaire pour établir la connectivité entre les participants à la réplication, lorsque l’authentification Azure AD uniquement est activée, la réplication transactionnelle n’est pas prise en charge pour SQL Database dans les scénarios où elle est utilisée pour envoyer (push) les modifications apportées à une instance managée Azure SQL, un serveur SQL local ou une instance SQL de machine virtuelle Azure à une base de données dans Azure SQL Database.
+- [Insights SQL](/azure/azure-monitor/insights/sql-insights-overview)
+- Instruction EXEC AS pour les comptes de membres de groupe Azure AD
+
+### <a name="limitations-for-azure-ad-only-authentication-in-managed-instance"></a>Limitations relatives à l’authentification Azure AD uniquement dans Managed Instance
+
+Quand l’authentification Azure AD uniquement est activée pour Managed Instance, les fonctionnalités suivantes ne sont pas prises en charge :
+
+- [Réplication transactionnelle](/azure/azure-sql/managed-instance/replication-transactional-overview) 
+- Les [travaux SQL Agent dans Managed Instance](../managed-instance/job-automation-managed-instance.md) prennent en charge l’authentification Azure AD uniquement. Toutefois, l’utilisateur Azure AD qui est membre d’un groupe Azure AD ayant accès à l’instance managée ne peut pas posséder de travaux SQL Agent.
+- [Insights SQL](/azure/azure-monitor/insights/sql-insights-overview)
+- Instruction EXEC AS pour les comptes de membres de groupe Azure AD
+
+Pour connaître les autres limitations, consultez [Différences T-SQL entre SQL Server et Azure SQL Managed Instance](../managed-instance/transact-sql-tsql-differences-sql-server.md#logins-and-users).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

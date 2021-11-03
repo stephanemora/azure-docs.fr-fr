@@ -11,19 +11,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2021
 ms.author: bagol
-ms.openlocfilehash: da901a0beb5a90981293b4cae1f620a0668c7e0e
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: b21bb010755e8f618cba2ae40db14d12aa3b28df
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533170"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023022"
 ---
 # <a name="protecting-mssp-intellectual-property-in-azure-sentinel"></a>Protection de la propriété intellectuelle des MSSP dans Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article décrit les méthodes que les fournisseurs de services de sécurité gérée (MSSP) peuvent utiliser pour protéger la propriété intellectuelle qu’ils ont développée dans Azure Sentinel, par exemple les règles d’analyse, les requêtes de chasse, les playbooks et les classeurs d’Azure Sentinel.
 
@@ -127,7 +129,7 @@ Exporter votre classeur vers Power BI :
 - **Facilite le partage des visualisations du classeur**. Vous pouvez envoyer au client un lien vers le tableau de bord Power BI, où il peut afficher les données rapportées, sans avoir besoin des autorisations d’accès Azure.
 - **Permet la planification**. Configurez Power BI pour qu’il envoie régulièrement des e-mails contenant un instantané du tableau de bord pour cette période.
 
-Pour plus d’informations, consultez [Importation de données de journal Azure Monitor dans Power BI](../azure-monitor/visualize/powerbi.md).
+Pour plus d’informations, consultez [Importation de données de journal Azure Monitor dans Power BI](../azure-monitor/logs/log-powerbi.md).
 
 ### <a name="playbooks"></a>Playbooks
 

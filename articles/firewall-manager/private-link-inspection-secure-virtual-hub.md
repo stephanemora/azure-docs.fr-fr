@@ -2,17 +2,17 @@
 title: Sécuriser le trafic destiné aux points de terminaison privés dans Azure Virtual WAN
 description: Découvrez comment utiliser les règles de réseau et les règles d’application pour sécuriser le trafic destiné aux points de terminaison privés dans Azure Virtual WAN
 services: firewall-manager
-author: jocortems
+author: KumudD
 ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 04/02/2021
-ms.author: jocorte
-ms.openlocfilehash: 7322bab635d398fc7a5335546ba6fef327ff24b2
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.author: kumud
+ms.openlocfilehash: 58dd59bc47c15dd5f6b04588b441297b9fbb7968
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107259351"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068681"
 ---
 # <a name="secure-traffic-destined-to-private-endpoints-in-azure-virtual-wan"></a>Sécuriser le trafic destiné aux points de terminaison privés dans Azure Virtual WAN
 
