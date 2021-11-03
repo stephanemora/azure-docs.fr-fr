@@ -3,20 +3,20 @@ title: Définir un profil technique de facteur téléphone dans une stratégie p
 titleSuffix: Azure AD B2C
 description: Définissez un profil technique de facteur téléphone dans une stratégie personnalisée d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/12/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 322e4b78fbfb38f1822fb7a7cdcdbfcc0738b303
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17e21c28961346cd10b436adaa5eab8c8160bcd4
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91950395"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131012735"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de facteur téléphone dans une stratégie personnalisée Azure Active Directory B2C
 

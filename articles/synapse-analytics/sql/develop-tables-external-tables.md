@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 07/23/2021
 ms.author: maburd
 ms.reviewer: wiassaf
-ms.openlocfilehash: a229bd769afa30b93cae9ca0f2073ad8a0621cdd
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 14341d2c623ab465e054c83b7b47a100a52f8ece
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130001387"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054625"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utiliser des tables externes avec Synapse SQL
 
@@ -290,7 +291,7 @@ La commande CREATE EXTERNAL TABLE crée une table externe pour Synapse SQL afin 
 
 ### <a name="syntax-for-create-external-table"></a>Syntaxe de CREATE EXTERNAL TABLE
 
-```sql
+```syntaxsql
 CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table_name | table_name }
     ( <column_definition> [ ,...n ] )  
     WITH (
@@ -298,12 +299,21 @@ CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table
         DATA_SOURCE = external_data_source_name,  
         FILE_FORMAT = external_file_format_name
         [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
-    )  
-[;]  
+        [, <reject_options> [ ,...n ] ] 
+    )
+[;] 
 
 <column_definition> ::=
 column_name <data_type>
     [ COLLATE collation_name ]
+
+<reject_options> ::=  
+{  
+    | REJECT_TYPE = value,  
+    | REJECT_VALUE = reject_value,  
+    | REJECT_SAMPLE_VALUE = reject_sample_value,
+    | REJECTED_ROW_LOCATION = '/REJECT_Directory'
+}   
 ```
 
 ### <a name="arguments-create-external-table"></a>Arguments de CREATE EXTERNAL TABLE
@@ -317,11 +327,10 @@ Nom (composé d’une à trois parties) de la table à créer. Pour une table ex
 CREATE EXTERNAL TABLE prend en charge la possibilité de configurer le nom de colonne, le type de données et le classement. Vous ne pouvez pas utiliser DEFAULT CONSTRAINT sur des tables externes.
 
 >[!IMPORTANT]
->Les définitions de colonne, notamment les types de données et le nombre de colonnes, doivent correspondre aux données des fichiers externes. En cas de non-correspondance, les lignes du fichier sont rejetées lors de l’interrogation des données réelles.
+>Les définitions de colonne, notamment les types de données et le nombre de colonnes, doivent correspondre aux données des fichiers externes. En cas de non-correspondance, les lignes du fichier sont rejetées lors de l’interrogation des données réelles. Consultez les options REJECT pour contrôler le comportement des lignes rejetées.
 
 Lors de la lecture à partir de fichiers Parquet, vous pouvez spécifier uniquement les colonnes que vous souhaitez lire et ignorer le reste.
 
-#### <a name="location"></a>LOCALISATION
 
 LOCATION = '*folder_or_filepath*'
 
@@ -330,14 +339,61 @@ Spécifie le dossier, ou le chemin et le nom du fichier, où se trouvent les don
 ![Données récursives pour les tables externes](./media/develop-tables-external-tables/folder-traversal.png)
 
 Contrairement aux tables externes Hadoop, les tables externes natives ne retournent pas de sous-dossiers, sauf si vous spécifiez /** à la fin du chemin. Dans cet exemple, si LOCATION='/webdata/', une requête de pool SQL serverless retourne des lignes de mydata.txt. Il ne retourne pas mydata2.txt et mydata3.txt, car ces fichiers se trouvent dans un sous-dossier. Les tables Hadoop retournent tous les fichiers de tous les sous-dossiers.
- 
+
 Les tables externes Hadoop et natives ignorent les fichiers dont le nom commence par un trait de soulignement (_) ou un point (.).
 
-#### <a name="data_source"></a>DATA_SOURCE
 
-DATA_SOURCE = *external_data_source_name* - Spécifie le nom de la source de données externe qui contient l’emplacement des données externes. Pour créer une source de données externe, utilisez [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
+DATA_SOURCE = *external_data_source_name*
 
-FILE_FORMAT = *external_file_format_name* - Spécifie le nom de l’objet de format de fichier externe qui stocke le type de fichier et la méthode de compression des données externes. Pour créer un format de fichier externe, utilisez [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+Spécifie le nom de la source de données externe contenant l’emplacement des données externes. Pour créer une source de données externe, utilisez [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
+
+
+FILE_FORMAT = *external_file_format_name*
+
+Spécifie le nom de l’objet de format de fichier externe qui stocke le type de fichier et la méthode de compression pour les données externes. Pour créer un format de fichier externe, utilisez [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+
+Options REJECT 
+
+> [!NOTE]
+> La fonctionnalité de lignes rejetées est en préversion publique.
+> Notez que la fonctionnalité de lignes rejetées marche avec des fichiers texte délimités et PARSER_VERSION 1.0.
+
+Vous pouvez spécifier les paramètres REJECT qui déterminent la façon dont le service traite les enregistrements *incorrects* qu’il récupère de la source de données externe. Un enregistrement de données est considéré comme « incorrect » si les types de données actuels ne correspondent pas aux définitions de colonne de la table externe.
+
+Si vous ne spécifiez pas ou ne changez pas les options REJECT, le service utilise les valeurs par défaut. Ces informations sur les paramètres REJECT sont stockées en tant que métadonnées supplémentaires lorsque vous créez une table externe avec l’instruction CREATE EXTERNAL TABLE. Quand une prochaine instruction SELECT ou SELECT INTO SELECT sélectionne des données dans la table externe, le service utilise les options REJECT pour déterminer le nombre de lignes pouvant être rejetées avant de provoquer l’échec de la requête. La requête retourne des résultats (partiels) jusqu’à ce que le seuil de rejet soit dépassé. Ensuite, elle échoue avec le message d’erreur correspondant.
+
+
+REJECT_TYPE = **value** 
+
+Il s’agit de la seule valeur prise en charge pour le moment. Clarifie que l’option REJECT_VALUE est spécifiée en tant que valeur littérale.
+
+value 
+
+REJECT_VALUE est une valeur littérale. La requête échoue lorsque le nombre de lignes rejetées dépasse la valeur *reject_value*.
+
+Par exemple, si REJECT_VALUE = 5 et REJECT_TYPE = value, la requête SELECT échoue après le rejet de cinq lignes.
+
+
+REJECT_VALUE = *reject_value* 
+
+Spécifie le nombre de lignes pouvant être rejetées avant l’échec de la requête.
+
+Pour REJECT_TYPE = value, *reject_value* doit être un entier compris entre 0 et 2 147 483 647.
+
+
+REJECTED_ROW_LOCATION = *Emplacement de répertoire*
+
+Spécifie le répertoire dans la Source de données externe dans lequel les lignes rejetées et le fichier d’erreur correspondant doivent être écrits. Si le chemin spécifié n’existe pas, le service en crée un en votre nom. Un répertoire enfant est créé sous le nom « _rejectedrows ». Le caractère «_   » garantit que le répertoire est placé dans une séquence d’échappement pour le traitement d’autres données, sauf s’il est explicitement nommé dans le paramètre d’emplacement. Dans ce répertoire figure un dossier qui est créé d’après l’heure de soumission du chargement au format AnnéeMoisJour - HeureMinuteSeconde_IDInstruction (par exemple, 20180330-173205-559EE7D2-196D-400A-806D-3BF5D007F891). Vous pouvez utiliser l’ID d’instruction pour corréler le dossier avec la requête qui l’a généré. Dans ce dossier, deux fichiers sont écrits : le fichier error.json et le fichier de données. 
+
+Le fichier error.json contient un tableau json avec des erreurs rencontrées qui sont liées aux lignes rejetées. Chaque élément représentant une erreur contient les attributs suivants :
+
+| Attribut | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| Error     | Raison pour laquelle la ligne est rejetée.                                  |
+| Ligne       | Nombre ordinal de lignes rejetées dans le fichier.                         |
+| Colonne    | Nombre ordinal de colonnes rejetées.                              |
+| Value     | Valeur des colonnes rejetées. Si la valeur est supérieure à 100 caractères, seuls les 100 premiers caractères seront affichés. |
+| Fichier      | Chemin du fichier auquel la ligne appartient.                            |
 
 #### <a name="table_options"></a>TABLE_OPTIONS
 

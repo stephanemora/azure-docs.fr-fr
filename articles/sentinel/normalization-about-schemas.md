@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,20 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-ms.openlocfilehash: dabb12e5c0e6bd95ebe1a8025b431ec57e42745b
-ms.sourcegitcommit: 1d56a3ff255f1f72c6315a0588422842dbcbe502
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c57b1db016ded00f813bd947d8b4226b751c3666
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2021
-ms.locfileid: "129615369"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075362"
 ---
 # <a name="azure-sentinel-information-model-asim-schemas-public-preview"></a>Schémas du modèle Azure Sentinel Information Model (ASIM) | Microsoft Docs (Préversion publique)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Un schéma [ASIM](normalization.md) est un ensemble de champs qui représentent une activité. L’utilisation des champs d’un schéma normalisé dans une requête garantit que la requête fonctionnera avec toutes les sources normalisées.
 
 Les références de schéma présentent les champs qui composent chaque schéma. ASIM définit actuellement les schémas suivants :
 
- - [Session réseau](normalization-schema.md)
+ - [Session réseau](./network-normalization-schema.md)
  - [Activité DNS](dns-normalization-schema.md)
  - [Activité DHCP](dhcp-normalization-schema.md)
  - [Événement de processus](process-events-normalization-schema.md)

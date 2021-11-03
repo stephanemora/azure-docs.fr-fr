@@ -15,14 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 4378065a8d1a91f9051c04dbb71a90e2a4ab862c
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 27e4d3cd795d612ee9ef75160dc7a466a1dfdaab
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124777390"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075421"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Auditer les requêtes et les activités Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Cet article explique comment vous pouvez afficher les données d’audit pour les requêtes exécutées et les activités effectuées dans votre espace de travail Azure Sentinel, par exemple, en lien avec les exigences de conformité internes et externes dans votre espace de travail Opérations de sécurité (SOC).
 

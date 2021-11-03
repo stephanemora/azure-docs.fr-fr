@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: bagol
-ms.openlocfilehash: 5a7df5ba2de5b3d12e39b403be6a9e336734d144
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 02ffb7089ac0888fe918ca8f11898f479f273234
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261154"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131014065"
 ---
 # <a name="deploy-a-log-forwarder-to-ingest-syslog-and-cef-logs-to-azure-sentinel"></a>Déployer un redirecteur de journal pour ingérer des journaux Syslog et CEF dans Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Pour ingérer des journaux Syslog et CEF dans Azure Sentinel, provenant en particulier d’appareils et d’appliances sur lesquels vous ne pouvez pas installer directement l’agent Log Analytics, vous devez désigner et configurer une machine Linux qui collecte les journaux de vos appareils et les transfère à votre espace de travail Azure Sentinel. Cet ordinateur peut être une machine physique ou virtuelle dans votre environnement local, une machine virtuelle Azure ou une machine virtuelle dans un autre cloud. 
 

@@ -2,17 +2,17 @@
 title: Configurer une connexion à un compte de stockage à l’aide d’une identité managée
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment configurer une connexion d’indexeur à un compte Stockage Azure à l’aide d’une identité managée
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.openlocfilehash: 139fa020459804571129d63819a0e82e3f1737e2
-ms.sourcegitcommit: 079426f4980fadae9f320977533b5be5c23ee426
+ms.openlocfilehash: 20669c08b00e75ed7e1ec87b67f3f12269512e3b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129418648"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131056126"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurer une connexion à un compte Stockage Azure à l’aide d’une identité managée
 
@@ -51,13 +51,13 @@ Si vous n’avez pas encore créé d’identité managée affectée par l’util
 
 1. Sélectionnez **+ Créer une ressource**.
 
-1. Dans la barre de recherche « Rechercher dans les services et la Place de marché », recherchez « Identité managée affectée par l’utilisateur », puis sélectionnez **Créer**.
+1. Dans la barre de recherche « Services de recherche et marketplace », recherchez « Identité managée affectée par l’utilisateur », puis sélectionnez **Créer**.
 
 1. Donnez à l’identité un nom descriptif.
 
-Affectez ensuite l’identité managée affectée par l’utilisateur au service de recherche. Pour ce faire, vous pouvez utiliser l’[API de gestion en préversion du 01/04/2021](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
+Ensuite, attribuez l’identité managée affectée par l’utilisateur au service de recherche. Pour ce faire, vous pouvez utiliser l’[API de gestion en préversion du 01/04/2021](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update).
 
-La propriété d’identité accepte un type et une ou plusieurs identités complètes affectées par l’utilisateur :
+La propriété d’identité prend un type et une ou plusieurs identités affectées par l’utilisateur complètes :
 
 * **type** représente le type de l’identité. Les valeurs valides sont « SystemAssigned », « UserAssigned » ou « SystemAssigned, UserAssigned » pour les deux. La valeur « None » permet d’effacer du service de recherche toutes les identités affectées.
 

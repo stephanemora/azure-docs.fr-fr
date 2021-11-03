@@ -3,18 +3,18 @@ title: la journalisation des diagnostics.
 titleSuffix: Azure Cognitive Services
 description: Ce guide fournit des instructions pas à pas pour activer la journalisation des diagnostics pour un service Azure Cognitive Services. Ces journaux fournissent des informations riches et fréquentes sur l’exploitation d’une ressource et permettent l’identification et le débogage des problèmes.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.author: erhopf
-ms.openlocfilehash: 804d56309cf7f97c93b2f404b1f7a11360c26fd0
-ms.sourcegitcommit: e82ce0be68dabf98aa33052afb12f205a203d12d
+ms.author: pafarley
+ms.openlocfilehash: 4c621fb7abc494247c9d736639766e6b7c095d8e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2021
-ms.locfileid: "129660131"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080495"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Activer la journalisation des diagnostics pour Azure Cognitive Services
 

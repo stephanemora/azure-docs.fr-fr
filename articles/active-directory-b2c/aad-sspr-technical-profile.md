@@ -3,20 +3,20 @@ title: Profils techniques Azure AD SSPR dans les stratégies personnalisées
 titleSuffix: Azure AD B2C
 description: Informations de référence sur les stratégies personnalisées pour les profils techniques Azure AD SSPR dans Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/23/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 3e6fcf956639d827a8654c5ee80e7cab8cadf930
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c1bac41a0c70a2d9dff2a8ce1ac5544ad687fe5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85383595"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131008367"
 ---
 # <a name="define-an-azure-ad-sspr-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Définir un profil technique Azure AD SSPR dans une stratégie personnalisée Azure AD B2C
 
@@ -27,7 +27,7 @@ Azure AD B2C (Azure Active Directory B2C) prend en charge la vérification d’u
 Ce profil technique :
 
 - Ne fournit pas d’interface permettant d’interagir avec l’utilisateur. Au lieu de cela, l’interface utilisateur est appelée à partir d’un profil technique [autodéclaré](self-asserted-technical-profile.md) ou d’un [contrôle d’affichage](display-controls.md) en tant que [profil technique de validation](validation-technical-profile.md).
-- Utilise le service Azure AD SSPR pour générer et envoyer un code à une adresse e-mail, puis vérifie le code.  
+- Utilise le service Azure AD SSPR pour générer et envoyer un code à une adresse e-mail, puis vérifie le code.
 - Valide une adresse e-mail au moyen d’un code de vérification.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
@@ -42,7 +42,7 @@ Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, C
 
 L’exemple suivant montre un profil technique Azure AD SSPR :
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-SendCode">
   <DisplayName>Send Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -60,7 +60,6 @@ L’élément **InputClaims** contient la liste des revendications à envoyer à
 | ClaimReferenceId | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | emailAddress | Oui | Identificateur de l’utilisateur propriétaire de l’adresse e-mail. La propriété `PartnerClaimType` de la revendication d’entrée doit être définie sur `emailAddress`. |
-
 
 L’élément **InputClaimsTransformations** peut contenir une collection d’éléments **InputClaimsTransformation** utilisés pour modifier les revendications d’entrée ou en générer de nouvelles avant l’envoi au service Azure AD SSPR.
 
@@ -85,12 +84,11 @@ Les métadonnées suivantes peuvent être utilisées pour configurer les message
 | UserMessageIfInternalError | Non | Message d’erreur utilisateur si le serveur a rencontré une erreur interne. |
 | UserMessageIfThrottled| Non | Message d’erreur utilisateur si une requête a été limitée.|
 
-
 ### <a name="example-send-an-email"></a>Exemple : envoyer un e-mail
 
 L’exemple suivant montre l’utilisation d’un profil technique Azure AD SSPR pour envoyer un code par e-mail.
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-SendCode">
   <DisplayName>Send Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -146,7 +144,7 @@ Les métadonnées suivantes peuvent être utilisées pour configurer les message
 
 L’exemple suivant montre l’utilisation d’un profil technique Azure AD SSPR pour vérifier le code.
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-VerifyCode">
   <DisplayName>Verify Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

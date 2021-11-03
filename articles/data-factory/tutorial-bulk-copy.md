@@ -8,12 +8,12 @@ ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 692ec1db6e897774e3fe662e59d24339de55e723
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: f09d05d5b3dab08aab0aa55a5b25e3bebbc1e8f7
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124805909"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067581"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copier plusieurs tables en bloc en utilisant Azure Data Factory avec PowerShell
 
@@ -488,25 +488,25 @@ Ce pipeline exécute deux étapes :
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
-                Write-Host "Pipeline run details:" -foregroundcolor "Yellow"
+                Write-Host "Pipeline run finished. The status is: " $run.Status -ForegroundColor "Yellow"
+                Write-Host "Pipeline run details:" -ForegroundColor "Yellow"
                 $run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Host  "Pipeline is running...status: InProgress" -ForegroundColor "Yellow"
         }
 
         Start-Sleep -Seconds 15
     }
 
     $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
-    Write-Host "Activity run details:" -foregroundcolor "Yellow"
+    Write-Host "Activity run details:" -ForegroundColor "Yellow"
     $result
     ```
 
     Voici la sortie de l’exemple d’exécution :
 
-    ```console
+    ```output
     Pipeline run details:
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
@@ -553,7 +553,7 @@ Ce pipeline exécute deux étapes :
 3. Vous pouvez obtenir l’ID d’exécution du pipeline « **IterateAndCopySQLTables** », puis vérifier le résultat détaillé de l’exécution d’activité comme suit.
 
     ```powershell
-    Write-Host "Pipeline 'IterateAndCopySQLTables' run result:" -foregroundcolor "Yellow"
+    Write-Host "Pipeline 'IterateAndCopySQLTables' run result:" -ForegroundColor "Yellow"
     ($result | Where-Object {$_.ActivityName -eq "TriggerCopy"}).Output.ToString()
     ```
 
@@ -573,6 +573,7 @@ Ce pipeline exécute deux étapes :
 3. Connectez-vous à votre récepteur Azure Synapse Analytics et vérifiez que les données ont bien été copiées à partir d’Azure SQL Database.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Dans ce tutoriel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]
@@ -584,5 +585,6 @@ Dans ce tutoriel, vous avez effectué les étapes suivantes :
 > * Surveiller les exécutions de pipeline et d’activité.
 
 Passez au tutoriel suivant pour découvrir comment copier des données de manière incrémentielle d’une source vers une destination :
+
 > [!div class="nextstepaction"]
->[Copier des données de façon incrémentielle](tutorial-incremental-copy-powershell.md)
+> [Copier des données de façon incrémentielle](tutorial-incremental-copy-powershell.md)

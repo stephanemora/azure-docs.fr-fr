@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 888f5d195cde3b226e4a25c5e46ed916e654c0b0
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: 4b333a8910277236c4d4f5f7f044f21f6ee03f74
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124809210"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131067046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Didacticiel : Intégration d’Azure Active Directory à itslearning
 
@@ -78,24 +78,21 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    
-    a. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `urn:mace:saml2v2.no:services:com.itslearning`
+    1. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL suivante : `urn:mace:saml2v2.no:services:com.itslearning`
 
-    b. Dans la zone de texte **URL de réponse**, tapez l’une des URL suivantes :
-    
-    | URL de réponse |
-    |-------------|
-    | `https://www.itsltest.com/elogin/AssertionConsumerService.aspx` |
-    | `https://www.itslearning.com/elogin/AssertionConsumerService.aspx` |
-    | 
-    
-    c. Dans la zone de texte **Sign on URL** (URL d’authentification), tapez l’une des URL suivantes :
-    
-    | URL d’authentification |
-    |-------------|
-    | `https://www.itslearning.com/index.aspx` |
-    | `https://us1.itslearning.com/index.aspx` |
-    |
+    1. Dans la zone de texte **URL de réponse**, tapez l’une des URL suivantes :
+
+       | URL de réponse |
+       |-------------|
+       | `https://www.itsltest.com/elogin/AssertionConsumerService.aspx` |
+       | `https://www.itslearning.com/elogin/AssertionConsumerService.aspx` |
+
+    1. Dans la zone de texte **Sign on URL** (URL d’authentification), tapez l’une des URL suivantes :
+
+       | URL d’authentification |
+       |-------------|
+       | `https://www.itslearning.com/index.aspx` |
+       | `https://us1.itslearning.com/index.aspx` |
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 

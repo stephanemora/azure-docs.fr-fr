@@ -10,16 +10,14 @@ ms.service: virtual-network
 ms.workload: infrastructure
 ms.tgt_pltfrm: virtual-network
 ms.devlang: na
-tags:
-- azure-resource-manager
-ms.custom:
-- mode-portal
-ms.openlocfilehash: 43c45b43084656a45d2509ee2c7a4376cdc7c052
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+tags: azure-resource-manager
+ms.custom: mode-portal
+ms.openlocfilehash: 1ba52ed17f5eddafe4489ddf9d4277ac301c3e15
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531177"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074248"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Démarrage rapide : Créer un réseau virtuel au moyen du portail Azure
 
@@ -86,7 +84,7 @@ Créez deux machines virtuelles dans le réseau virtuel :
    
 2. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs sous l’onglet **De base** :
 
-    | Paramètre | Valeur                                          |
+    | Paramètre | Value                                          |
     |-----------------------|----------------------------------|
     | **Détails du projet** |  |
     | Abonnement | Sélectionner votre abonnement Azure |

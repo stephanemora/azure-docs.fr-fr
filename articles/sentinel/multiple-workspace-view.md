@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 59550287dfa749e22334f9f238efa5be70b70252
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c2063356b62a3b91bf3bf04453ea05f28788cab5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531497"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131009374"
 ---
 # <a name="work-with-incidents-in-many-workspaces-at-once"></a>Utiliser les incidents dans plusieurs espaces de travail simultanément 
 
- Pour tirer pleinement parti des fonctionnalités d’Azure Sentinel, Microsoft recommande l’utilisation d’un environnement avec un seul espace de travail. Toutefois, il existe certains cas qui nécessitent plusieurs espaces de travail, par exemple, dans le cas d’un[ fournisseur de services de sécurité gérés (MSSP)](./multiple-tenants-service-providers.md) et de ses clients, sur plusieurs locataires. **L’affichage de plusieurs espaces de travail** vous permet de voir et de travailler avec les incidents de sécurité sur plusieurs espaces de travail en même temps, même sur plusieurs locataires, ce qui vous permet de conserver une visibilité et un contrôle complets de la réactivité de la sécurité de votre organisation.
+ [!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+Pour tirer pleinement parti des fonctionnalités d’Azure Sentinel, Microsoft recommande l’utilisation d’un environnement avec un seul espace de travail. Toutefois, il existe certains cas qui nécessitent plusieurs espaces de travail, par exemple, dans le cas d’un[ fournisseur de services de sécurité gérés (MSSP)](./multiple-tenants-service-providers.md) et de ses clients, sur plusieurs locataires. **L’affichage de plusieurs espaces de travail** vous permet de voir et de travailler avec les incidents de sécurité sur plusieurs espaces de travail en même temps, même sur plusieurs locataires, ce qui vous permet de conserver une visibilité et un contrôle complets de la réactivité de la sécurité de votre organisation.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -58,4 +61,3 @@ Dans l’**affichage de plusieurs espaces de travail**, seul l’écran **Incide
 Dans ce document, vous avez appris comment consulter et utiliser les incidents dans plusieurs espaces de travail Azure Sentinel simultanément. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](detect-threats-built-in.md).
-

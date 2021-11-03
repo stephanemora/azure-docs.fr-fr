@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 8224ae4a48bb4915492240c414b90edb86a4c258
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52b467401cfffeef4908750caea9c6d3ee88eb1b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93393130"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075027"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Déplacer des machines virtuelles Azure vers des zones de disponibilité
 
@@ -81,7 +81,7 @@ Si vous avez déployé vos machines virtuelles en tant qu’*instance unique* da
 
     - [Groupes de sécurité réseau](../virtual-network/manage-network-security-group.md)
     - [Équilibreurs de charge](../load-balancer/index.yml)
-    - [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
+    - [Adresse IP publique](../virtual-network/ip-services/virtual-network-public-ip-address.md)
     
    Pour tous les autres composants réseau, reportez-vous à la [documentation](../index.yml?pivot=products&panel=network) sur la mise en réseau.
 

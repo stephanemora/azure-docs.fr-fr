@@ -1,36 +1,30 @@
 ---
-title: 'Tutoriel : créer une ressource d’appareil pour Azure Network Function Manager'
-description: Dans ce tutoriel, découvrez comment créer une ressource d’appareil pour Azure Network Function Manager.
+title: 'Démarrage rapide : créer une ressource d’appareil pour Azure Network Function Manager'
+description: Dans ce démarrage rapide, découvrez comment créer une ressource d’appareil pour Azure Network Function Manager.
 author: prmitt
 ms.service: network-function-manager
-ms.topic: tutorial
-ms.date: 06/30/2021
+ms.topic: quickstart
+ms.date: 11/02/2021
 ms.author: prmitt
-ms.openlocfilehash: 41347c5afe8664955fd5b298330f4299244edb6a
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 2ab440166ba7e5b27f07880c5ac0cb7fef27466a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130263322"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070245"
 ---
-# <a name="tutorial-create-a-network-function-manager-device-resource-preview"></a>Tutoriel : créer une ressource d’appareil de Network Function Manager (préversion)
+# <a name="quickstart-create-a-network-function-manager-device-resource"></a>Démarrage rapide : créer une ressource d’appareil de Network Function Manager
 
-Dans ce tutoriel, vous allez créer une ressource d’**appareil** pour Azure Network Function Manager (NFM). La ressource d’appareil de Network Function Manager est liée à la ressource Azure Stack Edge. La ressource de l’appareil regroupe toutes les fonctions réseau déployées sur Azure Stack Edge et fournit des services courants pour le déploiement, la surveillance, la résolution des problèmes et les opérations de gestion cohérente pour toutes les fonctions réseau déployées sur Azure Stack Edge. Vous devez créer la ressource d’appareil de Network Function Manager avant de pouvoir déployer des fonctions réseau sur Azure Stack Edge.
-
-Dans ce tutoriel, vous allez :
-
-> [!div class="checklist"]
-> * Vérifier les prérequis
-> * Créer une ressource d’appareil
-> * Obtenir une clé d'inscription
-> * Inscrire l’appareil
+Dans ce démarrage rapide, vous allez créer une ressource d’**appareil** pour Azure Network Function Manager (NFM). La ressource d’appareil de Network Function Manager est liée à la ressource Azure Stack Edge. La ressource de l’appareil regroupe toutes les fonctions réseau déployées sur Azure Stack Edge et fournit des services courants pour le déploiement, la surveillance, la résolution des problèmes et les opérations de gestion cohérente pour toutes les fonctions réseau déployées sur Azure Stack Edge. Vous devez créer la ressource d’appareil de Network Function Manager avant de pouvoir déployer des fonctions réseau sur Azure Stack Edge.
 
 ## <a name="prerequisites"></a><a name="pre"></a>Configuration requise
 
 Vérifier les conditions préalables :
 
-* Vous avez rempli toutes les conditions préalables indiquées dans l’article [Vue d’ensemble](overview.md#prereq).
-* Les autorisations appropriées sont affectées. Pour plus d’informations, consultez [Inscription et autorisations du fournisseur de ressources](overview.md#permissions).
+* Veillez à disposer d’un compte Azure avec un abonnement actif. Si avez besoin d’un Azure, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Vous respectez toutes les conditions préalables indiquées dans l’article conditions [Prérequis et configuration requise](requirements.md).
+* Les autorisations appropriées sont affectées. Pour plus d’informations, consultez [Inscription et autorisations du fournisseur de ressources](resources-permissions.md).
 * Passez en revue la section  [Disponibilité de la région](overview.md#regions)  avant de créer une ressource d’appareil.
 * Vérifiez que vous pouvez vous connecter à distance à partir d’un client Windows au GPU Pro d’Azure Stack Edge via PowerShell. Pour plus d’informations, découvrez comment [Se connecter à l’interface PowerShell](../databox-online/azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
@@ -40,7 +34,7 @@ Si vous disposez d’une ressource d’appareil Azure Network Function Manager e
 
 Pour créer une ressource d'**appareil**, procédez comme suit.
 
-1. Connectez-vous au [portail Azure en version préliminaire](https://aka.ms/AzureNetworkFunctionManager) à l’aide de vos informations d’identification Microsoft Azure.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de vos informations d’identification Microsoft Azure.
 
 1. Sous l’onglet **Informations de base**, configurez les paramètres **Détails du projet** et **Détails de l’instance** de l’appareil.
    :::image type="content" source="./media/create-device/device-settings.png" alt-text="Capture d’écran des paramètres des appareils.":::
@@ -62,7 +56,7 @@ Pour créer une ressource d'**appareil**, procédez comme suit.
 ## <a name="get-the-registration-key"></a><a name="key"></a>Recevoir la clé d’inscription
 
 1. Une fois votre appareil correctement approvisionné, accédez au groupe de ressources dans lequel la ressource d’appareil est déployée.
-1. Cliquez sur la ressource de l'**appareil**. Pour obtenir la clé d’inscription, cliquez sur **Obtenir la clé d’inscription**. Vérifiez que vous disposez des autorisations appropriées pour générer une clé d’inscription. Pour plus d’informations, consultez [Autorisations](overview.md#permissions).
+1. Cliquez sur la ressource de l'**appareil**. Pour obtenir la clé d’inscription, cliquez sur **Obtenir la clé d’inscription**. Vérifiez que vous disposez des autorisations appropriées pour générer une clé d’inscription. Pour plus d’informations, consultez l’article [Inscription et autorisations du fournisseur de ressources](resources-permissions.md).
 
    :::image type="content" source="./media/create-device/register-device.png" alt-text="Capture d’écran de la clé d’inscription." lightbox="./media/create-device/register-device.png":::
 1. Prenez note de la clé d’inscription de l’appareil, qui sera utilisée dans les étapes suivantes.

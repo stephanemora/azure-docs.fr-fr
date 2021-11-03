@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.author: jingwang
-ms.openlocfilehash: b4d3ef9979fc53ebd4e1dce6c56ee4974399cd90
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 7f6b574bd24d7bd284d985aeb9a129d2143819e1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130218558"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131016508"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Appeler un package SSIS à l’aide de l’activité de procédure stockée dans Azure Data Factory
 Cet article décrit comment appeler un package SSIS à partir d’un pipeline Azure Data Factory à l’aide d’une activité de procédure stockée. 
@@ -40,18 +40,21 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
 La procédure suivante décrit les étapes permettant de créer une fabrique de données. Vous créez un pipeline avec une activité de procédure stockée dans cette fabrique de données. L’activité de procédure stockée exécute une procédure stockée dans la base de données SSISDB pour exécuter votre package SSIS.
 
 1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../../azure-resource-manager/management/overview.md) entre des guillemets doubles, puis exécutez la commande. Par exemple : `"adfrg"`. 
-   
-     ```powershell
+
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 
     Si le groupe de ressources existe déjà, vous pouvez ne pas le remplacer. Affectez une valeur différente à la variable `$ResourceGroupName` et exécutez à nouveau la commande
+
 2. Pour créer le groupe de ressources Azure, exécutez la commande suivante : 
 
     ```powershell
     $ResGrp = New-AzResourceGroup $resourceGroupName -location 'eastus'
     ``` 
-    Si le groupe de ressources existe déjà, vous pouvez ne pas le remplacer. Affectez une valeur différente à la variable `$ResourceGroupName` et exécutez à nouveau la commande. 
+
+    Si le groupe de ressources existe déjà, vous pouvez ne pas le remplacer. Affectez une valeur différente à la variable `$ResourceGroupName` et exécutez à nouveau la commande.
+
 3. Définissez une variable pour le nom de la fabrique de données. 
 
     > [!IMPORTANT]
@@ -63,7 +66,7 @@ La procédure suivante décrit les étapes permettant de créer une fabrique de 
 
 5. Pour créer la fabrique de données, exécutez la cmdlet suivante **New-AzDataFactory**, à l’aide des propriétés Location et ResourceGroupName à partir de la variable $ResGrp : 
     
-    ```powershell       
+    ```powershell
     $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
     ```
 

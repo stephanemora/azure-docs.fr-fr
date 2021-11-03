@@ -8,12 +8,12 @@ ms.subservice: v1
 ms.topic: conceptual
 ms.date: 10/22/2021
 robots: noindex
-ms.openlocfilehash: 90fd10d9ccde297989f6c372562bc088240783a7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: ac9b0d0105ed28847fbf0db4d7ba8cc420fa2328
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130264253"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059639"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
 > [!NOTE]
@@ -187,7 +187,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Préparation du serveur SQL Server local pour le didacticiel
 1. Dans la base de données que vous avez spécifiée pour le service lié SQL Server (**SqlServerLinkedService**), utilisez le script SQL suivant pour créer la table **emp** dans la base de données.
 
-    ```SQL   
+    ```sql
     CREATE TABLE dbo.emp
     (
         ID int IDENTITY(1,1) NOT NULL,
@@ -197,9 +197,10 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
     )
     GO
     ```
+
 2. Insérer des exemples dans la table :
 
-    ```SQL
+    ```sql
     INSERT INTO emp VALUES ('John', 'Doe')
     INSERT INTO emp VALUES ('Jane', 'Doe')
     ```
@@ -207,10 +208,11 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 ### <a name="create-input-dataset"></a>Créer le jeu de données d’entrée
 
 1. Dans **Data Factory Editor**, cliquez sur **... Plus**, dans la barre de commande, cliquez sur **Nouveau jeu de données**, puis sur **Table SQL Server**.
+
 2. Remplacez le code JSON du volet droit par le texte suivant :
 
-    ```JSON   
-    {        
+    ```json
+    {
         "name": "EmpOnPremSQLTable",
         "properties": {
             "type": "SqlServerTable",
@@ -231,8 +233,9 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
                 }
             }
         }
-    }     
-    ```       
+    }
+    ```
+
    Notez les points suivants :
 
    * Le **type** est défini sur **SqlServerTable**.
@@ -241,14 +244,15 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
    * Pour un jeu de données d’entrée non généré par un autre pipeline dans Azure Data Factory, vous devez définir **external** sur **true**. Cela signifie que les données d’entrée sont produites à l’extérieur du service Azure Data Factory. Vous pouvez éventuellement spécifier des stratégies de données externes à l’aide de l’élément **externalData** dans la section **Policy**.    
 
    Pour plus de détails sur les propriétés JSON, voir [Déplacer des données vers/à partir SQL Server](data-factory-sqlserver-connector.md).
-3. Cliquez sur **Déployer** dans la barre de commandes pour déployer le jeu de données.  
+
+3. Cliquez sur **Déployer** dans la barre de commandes pour déployer le jeu de données.
 
 ### <a name="create-output-dataset"></a>Créer un jeu de données de sortie
 
 1. Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données** dans la barre de commandes, puis sur **Stockage Blob Azure**.
 2. Remplacez le code JSON du volet droit par le texte suivant :
 
-    ```JSON   
+    ```json
     {
         "name": "OutputBlobTable",
         "properties": {
@@ -266,8 +270,9 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
                 "interval": 1
             }
         }
-     }
-    ```   
+    }
+    ```
+
    Notez les points suivants :
 
    * **type** est défini sur **AzureBlob**.
@@ -344,11 +349,10 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
          "isPaused": false
        }
      }
-    ```   
+    ```
+
    > [!IMPORTANT]
    > Remplacez la valeur de la propriété **start** par le jour actuel et la valeur **end**, par le jour suivant.
-   >
-   >
 
    Notez les points suivants :
 

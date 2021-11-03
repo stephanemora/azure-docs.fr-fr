@@ -3,14 +3,17 @@ title: Présentation du service pour les fabricants d’appareils
 description: Découvrez les services et les fonctionnalités de Defender pour IoT, puis comprenez comment Defender pour IoT offre une sécurité IoT complète.
 ms.topic: overview
 ms.date: 07/08/2021
-ms.openlocfilehash: 03601eebde5a4da400f760cbdcbe44afb45c202e
-ms.sourcegitcommit: 555ea0d06da38dea1de6ecbe0ed746cddd4566f5
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fe233733a217ff4294e72b67406eed3f7f2addce
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113516553"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131080000"
 ---
 # <a name="welcome-to-azure-defender-for-iot-for-device-builders"></a>Bienvenue dans Azure Defender pour IoT pour les fabricants d’appareils
+
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 La sécurité est une préoccupation quasi-universelle pour les responsables de l’implémentation de l’IoT. Les appareils IoT ont des besoins uniques en matière de surveillance des points de terminaison, de gestion de la posture de sécurité et de détection des menaces, le tout avec des exigences de performances très spécifiques. 
 

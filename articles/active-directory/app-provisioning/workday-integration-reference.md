@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 06/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
-ms.openlocfilehash: 1a1b0dfbdad6aaea91ca8e3fe7d11d74b1aa2967
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 0f0e3532960196b3c52279343de3bb04d5cb8535
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129990346"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068243"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Comment de l’approvisionnement Azure Active Directory s’intègre avec Workday
 
@@ -61,7 +61,7 @@ Cette stratégie de limitation de l’accès à l’aide de groupes de sécurit�
 
 Pour tester la connectivité à Workday, Azure AD envoie la demande de services web Workday *Get_Workers* suivante. 
 
-```XML
+```xml
 <!-- Test connection query tries to retrieve one record from the first page -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
 <!-- Replace timestamps below with the UTC time corresponding to the test connection event -->
@@ -96,7 +96,7 @@ La **synchronisation complète** dans le contexte de l’approvisionnement pilot
 
 Azure AD envoie la demande de services web Workday *Get_Workers* suivante pour récupérer les données d’employés. La requête recherche dans le journal des transactions de Workday toutes les entrées d’employés avec date d’effet à compter de l’heure correspondant à l’exécution de la synchronisation complète. 
 
-```XML
+```xml
 <!-- Workday full sync query -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
 <!-- Replace timestamps below with the UTC time corresponding to full sync run -->
@@ -156,7 +156,7 @@ Certaines valeurs d’indicateur spécifiées dans le nœud *Response_Group* son
 
 La réponse de Workday à la demande *Get_Workers* pour la requête ci-dessus inclut le nombre d’enregistrements d’employés et le nombre de pages.
 
-```XML
+```xml
   <wd:Response_Results>
     <wd:Total_Results>509</wd:Total_Results>
     <wd:Total_Pages>17</wd:Total_Pages>
@@ -166,7 +166,7 @@ La réponse de Workday à la demande *Get_Workers* pour la requête ci-dessus in
 ```
 Pour récupérer la page suivante du jeu de résultats, la requête *Get_Workers* suivante spécifie le numéro de page en tant que paramètre dans le *Response_Filter*.
 
-```XML
+```xml
   <p1:Response_Filter>
     <p1:As_Of_Effective_Date>2021-01-19T02:29:16.0094202Z</p1:As_Of_Effective_Date>
     <p1:As_Of_Entry_DateTime>2021-01-19T02:29:16.0094202Z</p1:As_Of_Entry_DateTime>

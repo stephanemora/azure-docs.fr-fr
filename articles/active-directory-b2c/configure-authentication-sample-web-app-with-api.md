@@ -2,21 +2,21 @@
 title: Configurer l’authentification dans un exemple d’application web qui appelle une API web à l’aide d’Azure Active Directory B2C
 description: Cet article décrit l’utilisation d’Azure Active Directory B2C pour connecter et inscrire des utilisateurs dans une application web ASP.NET qui appelle une API web.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
-ms.openlocfilehash: 9c417d3eda3a9d037855a43736362d45f96b09ff
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: f2f0f00bfc3b5f551d60817e3ea52924c78d98d8
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122641328"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131007779"
 ---
 # <a name="configure-authentication-in-a-sample-web-app-that-calls-a-web-api-by-using-azure-ad-b2c"></a>Configurer l’authentification dans un exemple d’application web qui appelle une API web à l’aide d’Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Cet article utilise un exemple d’application web ASP.NET qui appelle une API w
 > [!IMPORTANT]
 > L’exemple d’application web ASP.NET référencé dans cet article est utilisé pour appeler une API web avec un jeton du porteur. Pour une application web qui n’appelle pas d’API web, consultez [Configurer l’authentification dans un exemple d’application web à l’aide d’Azure AD B2C](configure-authentication-sample-web-app.md).  
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 OpenID Connect (OIDC) est un protocole d’authentification basé sur OAuth 2.0. Vous pouvez utiliser OIDC pour connecter de façon sécurisée un utilisateur à une application. Cet exemple d’application web utilise [Microsoft Identity Web](https://www.nuget.org/packages/Microsoft.Identity.Web). Microsoft Identity Web est un ensemble de bibliothèques ASP.NET Core qui simplifie l’ajout d’une prise en charge de l’authentification et de l’autorisation aux applications web qui peuvent appeler une API web sécurisée. 
 
@@ -102,7 +102,7 @@ Pour créer l’inscription de l’application web, procédez comme suit :
 1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Sous **Nom**, entrez un nom pour l’application (par exemple, *webapp1*).
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un fournisseur d’identité ou annuaire organisationnel (pour authentifier les utilisateurs avec des flux d’utilisateurs)** . 
-1. Sous **URI de redirection**, sélectionnez **Web**, puis entrez `https://localhost:5000/signin-oidc` dans la zone de texte de l’URL.
+1. Sous **URI de redirection**, sélectionnez **Web**, puis entrez `https://localhost:5000/signin-oidc` dans la zone d’URL.
 1. Sous **Autorisations**, cochez la case **Accorder le consentement administrateur aux autorisations openid et offline access**.
 1. Sélectionnez **Inscription**.
 1. Une fois l’inscription de l’application terminée, sélectionnez **Vue d’ensemble**.
@@ -184,8 +184,8 @@ Dans le dossier racine du projet, ouvrez le fichier `appsettings.json`. Ce fichi
 
 | Section | Clé | Valeur |
 | --- | --- | --- |
-| AzureAdB2C | Instance | Première partie du [nom de locataire](tenant-management.md#get-your-tenant-name) Azure AD B2C (par exemple `https://contoso.b2clogin.com`).|
-|AzureAdB2C|Domain| [Nom complet du locataire](tenant-management.md#get-your-tenant-name) Azure AD B2C (par exemple `contoso.onmicrosoft.com`).|
+| AzureAdB2C | Instance | La première partie du [nom de locataire](tenant-management.md#get-your-tenant-name) Azure AD B2C (par exemple `https://contoso.b2clogin.com`).|
+|AzureAdB2C|Domain| [Nom du locataire](tenant-management.md#get-your-tenant-name) complet Azure AD B2C (par exemple `contoso.onmicrosoft.com`).|
 |AzureAdB2C|ClientId| L’ID d’application web de l’[étape 2.3](#step-23-register-the-web-app).|
 |AzureAdB2C | ClientSecret | Le secret de l’application web de l’[étape 2.4](#step-24-create-a-web-app-client-secret). | 
 |AzureAdB2C|SignUpSignInPolicyId|Le flux d’utilisateurs ou la stratégie personnalisée que vous avez créés à l’[étape 1](#step-1-configure-your-user-flow).|
@@ -216,7 +216,7 @@ Votre fichier config final doit ressembler au JSON suivant :
 ## <a name="step-6-run-the-sample-web-app"></a>Étape 6 : Exécuter l’exemple d’application web
 
 1. Générez et exécutez le projet.
-1. Accédez à [https://localhost:5000](https://localhost:5000) . 
+1. Accédez à `https://localhost:5000`. 
 1. Terminez le processus d’inscription ou de connexion.
 
 Une fois l’authentification réussie, votre nom d’affichage s’affiche dans la barre de navigation. Pour afficher les revendications que le jeton d’Azure AD B2C renvoie à votre application, sélectionnez **TodoList**.

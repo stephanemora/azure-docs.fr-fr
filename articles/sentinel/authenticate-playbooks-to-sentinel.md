@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 6c3e4de61d59841f2856af2194ec22a63b407b5c
-ms.sourcegitcommit: ef448159e4a9a95231b75a8203ca6734746cd861
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 8ac52d1c861ec41600ae882a4e12becb56619595
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123185432"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075483"
 ---
 # <a name="authenticate-playbooks-to-azure-sentinel"></a>Authentifier les playbooks auprès d’Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 De la façon dont Logic Apps fonctionne, il doit se connecter séparément et s’authentifier indépendamment auprès de chaque ressource de chaque type avec lequel il interagit, dont Azure Sentinel lui-même. Logic Apps utilise des [connecteurs spécialisés](/connectors/connector-reference/) à cet effet, chaque type de ressource ayant son propre connecteur. Ce document décrit les types de connexion et d’authentification dans le [connecteur Logic Apps Azure Sentinel](/connectors/azuresentinel/), que les playbooks peuvent utiliser pour interagir avec Azure Sentinel afin d’accéder aux informations contenues dans les tables de votre espace de travail.
 

@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
-ms.openlocfilehash: e0380c4d1b4fe9c82d6e9b82922b1a509f7dcdf4
-ms.sourcegitcommit: 57b7356981803f933cbf75e2d5285db73383947f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: c5057290f21a87a2a8c599de7d3fdd2c8b76ebb6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129545600"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046543"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>Aide autonome pour le pool SQL serverless
 
@@ -400,6 +401,10 @@ FROM
     AS [result]
 ```
 
+### <a name="incorrect-syntax-near-not"></a>Syntaxe incorrecte près de 'NOT'
+
+Cette erreur indique qu’il existe des tables externes avec des colonnes contenant la contrainte `NOT NULL` dans la définition de colonne. Mettez à jour la table pour supprimer `NOT NULL` de la définition de colonne.
+
 ## <a name="configuration"></a>Configuration
 
 ### <a name="query-fails-with-please-create-a-master-key-in-the-database-or-open-the-master-key-in-the-session-before-performing-this-operation"></a>La requête échoue avec le message : Créez une clé principale dans la base de données ou ouvrez la clé principale dans la session avant d’effectuer cette opération.
@@ -492,6 +497,10 @@ Azure Synapse SQL retourne `NULL` à la place des valeurs que vous voyez dans le
 
 La valeur spécifiée dans la clause `WITH` ne correspond pas aux types Cosmos DB sous-jacents dans le stockage analytique et ne peut pas être convertie de façon implicite. Utilisez le type `VARCHAR` dans le schéma.
 
+### <a name="resolving-cosmosdb-path-has-failed"></a>La résolution du chemin CosmosDB a échoué
+
+Si vous obtenez l’erreur : `Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation.'`, assurez-vous d’utiliser des points de terminaison privés dans Cosmos DB. Pour permettre à SQL serverless d’accéder à un magasin analytique avec un point de terminaison privé, vous devez [configurer des points de terminaison privés pour un magasin analytique Azure Cosmos DB](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
+
 ### <a name="cosmosdb-performance-issues"></a>Problème de performances de CosmosDB
 
 Si vous rencontrez des problèmes de performances inattendus, assurez-vous que vous avez appliqué les meilleures pratiques, notamment :
@@ -502,7 +511,7 @@ Si vous rencontrez des problèmes de performances inattendus, assurez-vous que v
 
 ## <a name="delta-lake"></a>Delta Lake
 
-La prise en charge de Delta Lake est actuellement disponible en préversion publique dans les pools SQL serverless. Certains problèmes connus peuvent survenir pendant la préversion.
+Il existe des limitations et des problèmes connus que vous risquez de constater dans la prise en charge de Delta Lake dans les pools SQL serverless.
 - Assurez-vous que vous référencez le dossier racine Delta Lake dans la fonction [OPENROWSET](./develop-openrowset.md) ou l’emplacement de la table externe.
   - Le dossier racine doit contenir un sous-dossier nommé `_delta_log`. La requête échoue en l’absence de dossier `_delta_log`. Si vous ne voyez pas ce dossier, vous référencez des fichiers Parquet bruts qui doivent être [convertis au format Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) à l’aide de pools Apache Spark.
   - Ne spécifiez pas de caractères génériques pour décrire le schéma de partition. La requête Delta Lake identifie automatiquement les partitions Delta Lake. 
@@ -732,7 +741,7 @@ Certaines contraintes générales système peuvent affecter votre charge de trav
 | Nombre maximal d’objets de bases de données par base de données | La somme du nombre de tous les objets d’une base de données ne peut pas dépasser 2 147 483 647 (voir [Limitations relatives au moteur de base de données SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects)) |
 | Longueur maximale de l’identificateur maximale (en caractères) | 128 (voir [Limitations relatives au moteur de base de données SQL Server](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects))|
 | Durée maximale de la requête | 30 min |
-| Taille maximale du jeu de résultats | 80 Go (partagés entre toutes les requêtes simultanées en cours d’exécution) |
+| Taille maximale du jeu de résultats | jusqu’à 200 Go (partagés entre les requêtes simultanées) |
 | Concurrence maximale | Non limitée et basée sur la complexité des requêtes et le volume de données analysées. Un pool de SQL serverless peut simultanément gérer 1 000 sessions actives qui exécutent des requêtes légères, mais ce nombre diminue si les requêtes sont plus complexes ou analysent un plus grand volume de données. |
 
 ## <a name="next-steps"></a>Étapes suivantes

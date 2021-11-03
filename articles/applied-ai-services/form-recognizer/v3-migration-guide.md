@@ -10,12 +10,13 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: vikurpad
 recommendations: false
-ms.openlocfilehash: 11010ebe6a4afa8698491dacfb495625a8445779
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fd0c9c1ebaf177f6f10698631b96e2c27825603f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130240411"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131020822"
 ---
 # <a name="form-recognizer-v30-migration--preview"></a>Migration Form Recognizer v3.0 | Préversion
 
@@ -104,6 +105,7 @@ Le nouveau format de réponse est plus compact et la sortie complète est toujou
 ## <a name="changes-to-analyze-result"></a>Modifications du résultat d’analyse
 
 L’analyse de la réponse a été refactorisée aux résultats de haut niveau suivants pour prendre en charge les éléments multipages.
+
 * pages
 * dans des tables
 * keyValuePairs
@@ -246,9 +248,10 @@ L’analyse de la réponse a été refactorisée aux résultats de haut niveau s
 
 ```
 
-## <a name="build-or-train-model"></a>Créer un modèle ou effectuer l’apprentissage d’un modèle
+## <a name="build-or-train-model"></a>Créer un modèle ou effectuer l'apprentissage d’un modèle
 
 L’objet de modèle fait l’objet de deux mises à jour dans la nouvelle API :
+
 * ```modelId``` est désormais une propriété qui peut être définie sur un modèle pour un nom lisible par l’utilisateur.
 * ```modelName``` a été renommé en ```description```
 
@@ -268,6 +271,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build
   }
 }
 ```
+
 ## <a name="changes-to-compose-model"></a>Modifications apportées au modèle de composition
 
 Le modèle de composition est maintenant limité à un seul niveau d’imbrication. Les modèles composés sont désormais cohérents avec les modèles personnalisés grâce à l’ajout des propriétés ```modelId``` et ```description```.
@@ -298,7 +302,8 @@ Les seules modifications apportées à la fonction du modèle de copie sont les 
 * L’action HTTP sur ```authorizeCopy``` est désormais une requête POST.
 * La charge utile d’autorisation contient toutes les informations nécessaires pour envoyer la demande de copie.
 
-Autorisez la copie.
+***Autoriser la copie***
+
 ```json
 POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-version=2021-09-30-preview
 {
@@ -306,6 +311,7 @@ POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-versio
   "description": "{targetModelDescription}",
 }
 ```
+
 Utilisez le corps de réponse de l’action d’autorisation pour construire la demande de copie.
 
 ```json
@@ -324,7 +330,7 @@ POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?
 
 Les modèles de liste ont été étendus et renvoient désormais des modèles prédéfinis et personnalisés. Tous les noms de modèles prédéfinis commencent par ```prebuilt-```. Seuls les modèles dont l’état est réussi sont renvoyés. Pour répertorier les modèles qui ont échoué ou qui sont en cours d’utilisation, consultez la section [Opérations de liste](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetModels).
 
-Exemple de demande de modèles de liste
+***Exemple de demande de modèles de liste***
 
 ```json
 GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2021-09-30-preview
@@ -339,12 +345,15 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{model
 ```
 
 ## <a name="new-get-info-operation"></a>Nouvelle opération Get info
+
 L’opération ```info``` sur le service renvoie le nombre de modèles personnalisés et la limite de modèles personnalisés.
 
 ```json
 GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=2021-09-30-preview
 ```
-Exemple de réponse
+
+***Exemple de réponse***
+
 ```json
 {
   "customDocumentModels": {

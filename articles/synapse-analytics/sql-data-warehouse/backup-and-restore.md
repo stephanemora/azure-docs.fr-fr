@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: d17f370739acf5280850beb1eb14ad8cdc0268a6
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.openlocfilehash: 28a26537090dc2913ee83027c66ddc3c3416d03e
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129424933"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131063686"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Sauvegarde et restauration dans un pool SQL dédié Azure Synapse
 
@@ -48,7 +48,7 @@ order by run_id desc
 Cette fonctionnalité vous permet de déclencher manuellement des captures instantanées pour créer des points de restauration de votre entrepôt de données avant et après des modifications importantes. Cette fonctionnalité garantit que les points de restauration sont logiquement cohérents, ce qui renforce la protection des données en cas d’interruptions de la charge de travail ou d’erreurs d’utilisateur pendant le temps de récupération rapide. Les points de restauration définis par l’utilisateur sont disponibles pendant sept jours et sont automatiquement supprimés pour votre compte. Vous ne pouvez pas changer la période de conservation des points de restauration définis par l’utilisateur. **42 points de restauration définis par l’utilisateur** sont garantis à un instant donné. Ils doivent donc être [supprimés](/powershell/module/azurerm.sql/remove-azurermsqldatabaserestorepoint) avant qu’un autre point de restauration soit créé. Vous pouvez déclencher des captures instantanées pour créer des points de restauration définis par l’utilisateur par le biais de [PowerShell](/powershell/module/az.sql/new-azsqldatabaserestorepoint?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsont#examples) ou du portail Azure.
 
 > [!NOTE]
-> Si vous avez besoin de points de restauration de plus de 7 jours, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Vous pouvez également créer un point de restauration défini par l’utilisateur et effectuer une restauration à partir du point de restauration nouvellement créé dans un nouvel entrepôt de données. Une fois la restauration effectuée, vous avez le pool SQL dédié en ligne et vous pouvez le suspendre indéfiniment pour réduire les coûts de calcul. La base de données en pause entraîne des frais de stockage au tarif de stockage d'Azure Synapse. Si vous avez besoin d’une copie active de l’entrepôt de données restauré, vous pouvez reprendre, ce qui ne doit prendre que quelques minutes.
+> Si vous avez besoin de points de restauration de plus de 7 jours, votez pour cette fonctionnalité [ici](https://feedback.azure.com/d365community/idea/4c446fd9-0b25-ec11-b6e6-000d3a4f07b8). Vous pouvez également créer un point de restauration défini par l’utilisateur et effectuer une restauration à partir du point de restauration nouvellement créé dans un nouvel entrepôt de données. Une fois la restauration effectuée, vous avez le pool SQL dédié en ligne et vous pouvez le suspendre indéfiniment pour réduire les coûts de calcul. La base de données en pause entraîne des frais de stockage au tarif de stockage d'Azure Synapse. Si vous avez besoin d’une copie active de l’entrepôt de données restauré, vous pouvez reprendre, ce qui ne doit prendre que quelques minutes.
 
 ### <a name="restore-point-retention"></a>Conservation des points de restauration
 
@@ -74,7 +74,7 @@ Une géosauvegarde est créée une fois par jour dans un [centre de données ass
 Si vous n’avez pas besoin de géosauvegardes pour votre pool SQL dédié, vous pouvez les désactiver et économiser sur les coûts de stockage de la récupération d’urgence. Pour ce faire, reportez-vous à [Guide pratique : Désactiver les géosauvegardes pour un pool SQL dédié (anciennement SQL DW)](disable-geo-backup.md). Notez que si vous désactivez les géosauvegardes, vous ne pourrez pas récupérer votre pool SQL dédié dans votre région Azure associée si votre centre de données Azure principal n’est pas disponible. 
 
 > [!NOTE]
-> Si vous avez besoin d’un objectif de point de récupération (RPO) plus court pour les géosauvegardes, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse). Vous pouvez également créer un point de restauration défini par l’utilisateur et effectuer une restauration à partir du point de restauration nouvellement créé dans un nouvel entrepôt de données se trouvant dans une autre région. Une fois la restauration effectuée, vous retrouvez l’entrepôt de données en ligne que vous pouvez mettre en pause indéfiniment pour réduire les coûts de calcul. La base de données en pause entraîne des frais de stockage aux tarifs du Stockage Premium Azure. Un autre modèle courant pour un point de récupération plus rapide consiste à ingérer des données dans des instances principales et secondaires d’un entrepôt de données en parallèle. Dans ce scénario, les données sont ingérées à partir d’une source (ou de sources) et sont conservées dans deux instances distinctes de l’entrepôt de données (primaire et secondaire). Pour réaliser des économies sur les coûts de calcul, vous pouvez suspendre l’instance secondaire de l’entrepôt. Si vous avez besoin d’une copie active de l’entrepôt de données, vous pouvez reprendre, ce qui ne doit prendre que quelques minutes.
+> Si vous avez besoin d’un objectif de point de récupération (RPO) plus court pour les géosauvegardes, votez pour cette fonctionnalité [ici](https://feedback.azure.com/d365community/idea/dc4975e5-0b25-ec11-b6e6-000d3a4f07b8). Vous pouvez également créer un point de restauration défini par l’utilisateur et effectuer une restauration à partir du point de restauration nouvellement créé dans un nouvel entrepôt de données se trouvant dans une autre région. Une fois la restauration effectuée, vous retrouvez l’entrepôt de données en ligne que vous pouvez mettre en pause indéfiniment pour réduire les coûts de calcul. La base de données en pause entraîne des frais de stockage aux tarifs du Stockage Premium Azure. Un autre modèle courant pour un point de récupération plus rapide consiste à ingérer des données dans des instances principales et secondaires d’un entrepôt de données en parallèle. Dans ce scénario, les données sont ingérées à partir d’une source (ou de sources) et sont conservées dans deux instances distinctes de l’entrepôt de données (primaire et secondaire). Pour réaliser des économies sur les coûts de calcul, vous pouvez suspendre l’instance secondaire de l’entrepôt. Si vous avez besoin d’une copie active de l’entrepôt de données, vous pouvez reprendre, ce qui ne doit prendre que quelques minutes.
 
 ## <a name="data-residency"></a>Résidence des données 
 
@@ -104,7 +104,7 @@ Si vous devez restaurer un entrepôt de données supprimé ou suspendu, vous pou
 
 ## <a name="cross-subscription-restore"></a>Restauration avec plusieurs abonnements
 
-Si vous devez effectuer une restauration directe dans plusieurs abonnements, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Procédez à la restauration sur un autre serveur et [« déplacez »](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) le serveur entre les abonnements pour effectuer une restauration inter-abonnements.
+Si vous devez effectuer une restauration directe dans plusieurs abonnements, votez pour cette fonctionnalité [ici](https://feedback.azure.com/d365community/idea/dea9ea22-0a25-ec11-b6e6-000d3a4f07b8). Procédez à la restauration sur un autre serveur et [« déplacez »](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) le serveur entre les abonnements pour effectuer une restauration inter-abonnements.
 
 ## <a name="geo-redundant-restore"></a>Restauration géoredondante
 

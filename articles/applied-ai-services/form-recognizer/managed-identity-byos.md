@@ -9,12 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
-ms.openlocfilehash: 8d076b43e2a6ea1c21394569b56a7e689a1ab5fc
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: e1ccf10041c36b26b70bf5c4e5a107c0f6bf19ac
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130250879"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131021616"
 ---
 # <a name="create-and-use-managed-identity-for-your-form-recognizer-resource"></a>Créer et utiliser une identité managée pour votre ressource Form Recognizer
 
@@ -33,7 +34,7 @@ L’identité managée prend en charge les comptes de stockage Blob Azure access
 
 > [!NOTE]
 >
-> * Si vous envisagez d’analyser vos données de stockage à l’aide de l’[**outil d’étiquetage des exemples Form Recognizer (FOTT)**](https://fott-2-1.azurewebsites.net/), vous devez déployer l’outil derrière votre réseau virtuel ou votre pare-feu.
+> * Si vous envisagez d’analyser vos données de stockage à l’aide de l’outil [**Form Recognizer Sample Labeling (FOTT)**](https://fott-2-1.azurewebsites.net/), vous devez déployer l’outil derrière votre réseau virtuel ou votre pare-feu.
 >
 > * Les API [**Analyser le reçu**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Analyser la carte de visite**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Analyser la facture**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**Analyser le document d’identité**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) et [**Analyser le formulaire personnalisé**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) peuvent extraire les données d’un seul document en publiant les demandes sous forme de contenu binaire brut. Dans ces scénarios, aucune information d’identification d’identité managée n’est requise.
 

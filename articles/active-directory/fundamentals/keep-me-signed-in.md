@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e27ac47426e8c3d8ff7b4b02fcdbfcf06d3a3453
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: e89eb124b9cfb4100ddfca0d949331508fce398f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231289"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131052386"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configurer « Restez connecté ? » invite pour les comptes Azure AD
 
@@ -28,7 +28,7 @@ Le diagramme suivant montre le déroulement de la connexion de l’utilisateur p
 :::image type="content" source="./media/keep-me-signed-in/kmsi-workflow.png" alt-text="Diagramme montrant le flux de connexion de l’utilisateur pour un locataire géré ou fédéré":::
 
 > [!NOTE]
-> La configuration de l’option de maintien la connexion vous oblige à utiliser les éditions Premium 1, Premium 2 ou de base de Azure Active Directory (Azure AD), ou à disposer d’une licence Microsoft 365. Pour plus d’informations sur les licences et les éditions, consultez [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md).<br><br>Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure AD à l’aide de l’instance mondiale d’Azure AD. Actuellement, les éditions De base et Premium d’Azure AD ne sont pas prises en charge dans le service Azure géré par 21Vianet en Chine. Pour plus d’informations, contactez-nous sur le [forum Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> La configuration de l’option de maintien la connexion vous oblige à utiliser les éditions Premium 1, Premium 2 ou de base de Azure Active Directory (Azure AD), ou à disposer d’une licence Microsoft 365. Pour plus d’informations sur les licences et les éditions, consultez [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md).<br><br>Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure AD à l’aide de l’instance mondiale d’Azure AD. Actuellement, les éditions De base et Premium d’Azure AD ne sont pas prises en charge dans le service Azure géré par 21Vianet en Chine. Pour plus d’informations, contactez-nous sur le [forum Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## <a name="configure-kmsi"></a>Configurer KMSI
 

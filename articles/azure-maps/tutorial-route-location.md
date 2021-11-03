@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 222f54157732013309532a1ab38f3f2f8747908e
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: cf5377c872c086675136f5b1a52ceb15c8b3b461
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326522"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131039142"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutoriel : Comment afficher les directions de route à l’aide du service Route Azure Maps et du contrôle de carte
 
@@ -89,20 +89,20 @@ Les étapes suivantes vous montrent comment créer et afficher le contrôle de c
 
 3. Ajoutez le code JavaScript suivant à la fonction `GetMap`. Remplacez la chaîne `<Your Azure Maps Key>` par la clé primaire copiée à partir de votre compte Maps.
 
-    ```JavaScript
-   //Instantiate a map object
-   var map = new atlas.Map("myMap", {
+    ```javascript
+    //Instantiate a map object
+    var map = new atlas.Map("myMap", {
         //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
         authOptions: {
            authType: 'subscriptionKey',
            subscriptionKey: '<Your Azure Maps Key>'
         }
-   });
-   ```
+    });
+    ```
 
 4. Enregistrez le fichier et ouvrez-le dans votre navigateur. Un modèle s’affiche.
 
-     :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="Rendu de la carte de base du contrôle de carte":::
+    :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="Rendu de la carte de base du contrôle de carte":::
 
 ## <a name="define-route-display-rendering"></a>Définir le rendu de l’affichage de l’itinéraire
 

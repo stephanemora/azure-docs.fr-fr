@@ -1,0 +1,400 @@
+items:
+  - name: Vue d’ensemble des commandes de contrôle
+    displayName: Management
+    href: /azure/data-explorer/kusto/management/index?context=/azure/synapse-analytics/context/context
+  - name: Groupes de charges de travail
+    items:
+      - name: Vue d’ensemble des groupes de charges de travail
+        href: /azure/data-explorer/kusto/management/workload-groups?context=/azure/synapse-analytics/context/context
+      - name: Gestion des groupes de charges de travail
+        href: /azure/data-explorer/kusto/management/workload-groups-commands?context=/azure/synapse-analytics/context/context
+      - name: Stratégie de classification des demandes
+        items:
+          - name: Stratégie de classification des demandes
+            href: /azure/data-explorer/kusto/management/request-classification-policy?context=/azure/synapse-analytics/context/context
+          - name: Commandes de stratégie de classification des demandes
+            href: /azure/data-explorer/kusto/management/request-classification-policy-commands?context=/azure/synapse-analytics/context/context
+      - name: Stratégie de limites des demandes
+        href: /azure/data-explorer/kusto/management/request-limits-policy?context=/azure/synapse-analytics/context/context
+      - name: Stratégie de limites de taux de demandes
+        href: /azure/data-explorer/kusto/management/request-rate-limit-policy?context=/azure/synapse-analytics/context/context
+      - name: Stratégie d’application des limites de taux de demandes
+        href: /azure/data-explorer/kusto/management/request-rate-limits-enforcement-policy?context=/azure/synapse-analytics/context/context
+      - name: Stratégie de mise en file d’attente des demandes
+        href: /azure/data-explorer/kusto/management/request-queuing-policy?context=/azure/synapse-analytics/context/context
+  - name: schéma
+    items:
+      - name: Bonnes pratiques pour la gestion de schémas
+        href: /azure/data-explorer/kusto/management/management-best-practices?context=/azure/synapse-analytics/context/context
+      - name: Bases de données
+        href: /azure/data-explorer/kusto/management/databases?context=/azure/synapse-analytics/context/context
+        items:
+          - name: .show databases
+            href: /azure/data-explorer/kusto/management/show-databases?context=/azure/synapse-analytics/context/context
+          - name: .show database
+            href: /azure/data-explorer/kusto/management/show-database?context=/azure/synapse-analytics/context/context
+          - name: .show cluster databases
+            href: /azure/data-explorer/kusto/management/show-cluster-database?context=/azure/synapse-analytics/context/context
+          - name: .alter database prettyname
+            href: /azure/data-explorer/kusto/management/alter-database?context=/azure/synapse-analytics/context/context
+          - name: .show database(s) schema
+            href: /azure/data-explorer/kusto/management/show-schema-database?context=/azure/synapse-analytics/context/context
+          - name: .execute database script
+            href: /azure/data-explorer/kusto/management/execute-database-script?context=/azure/synapse-analytics/context/context
+      - name: Tables
+        items:
+          - name: Gestion des tables
+            href: /azure/data-explorer/kusto/management/tables?context=/azure/synapse-analytics/context/context
+          - name: .alter-merge table
+            href: /azure/data-explorer/kusto/management/alter-merge-table-command?context=/azure/synapse-analytics/context/context
+          - name: .alter table
+            href: /azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context
+          - name: .alter table docstring
+            href: /azure/data-explorer/kusto/management/alter-table-docstring-command?context=/azure/synapse-analytics/context/context
+          - name: .alter table folder
+            href: /azure/data-explorer/kusto/management/alter-table-folder-command?context=/azure/synapse-analytics/context/context
+          - name: .alter ingestion mapping
+            href: /azure/data-explorer/kusto/management/alter-ingestion-mapping-command?context=/azure/synapse-analytics/context/context
+          - name: .create ingestion mapping
+            href: /azure/data-explorer/kusto/management/create-ingestion-mapping-command?context=/azure/synapse-analytics/context/context
+          - name: .drop ingestion mapping
+            href: /azure/data-explorer/kusto/management/drop-ingestion-mapping-command?context=/azure/synapse-analytics/context/context
+          - name: .show ingestion mapping
+            href: /azure/data-explorer/kusto/management/show-ingestion-mapping-command?context=/azure/synapse-analytics/context/context
+          - name: .create table
+            href: /azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context
+          - name: .create table based-on
+            href: /azure/data-explorer/kusto/management/create-table-based-on-command?context=/azure/synapse-analytics/context/context
+          - name: .create tables
+            href: /azure/data-explorer/kusto/management/create-tables-command?context=/azure/synapse-analytics/context/context
+          - name: .create-merge table
+            href: /azure/data-explorer/kusto/management/create-merge-table-command?context=/azure/synapse-analytics/context/context
+          - name: .create-merge tables
+            href: /azure/data-explorer/kusto/management/create-merge-tables-command?context=/azure/synapse-analytics/context/context
+          - name: .drop table(s)
+            href: /azure/data-explorer/kusto/management/drop-table-command?context=/azure/synapse-analytics/context/context
+          - name: .rename table(s)
+            href: /azure/data-explorer/kusto/management/rename-table-command?context=/azure/synapse-analytics/context/context
+          - name: .show tables
+            href: /azure/data-explorer/kusto/management/show-tables-command?context=/azure/synapse-analytics/context/context
+          - name: .undo drop table
+            href: /azure/data-explorer/kusto/management/undo-drop-table-command?context=/azure/synapse-analytics/context/context
+          - name: .show table details
+            href: /azure/data-explorer/kusto/management/show-table-details-command?context=/azure/synapse-analytics/context/context
+          - name: .show table schema
+            href: /azure/data-explorer/kusto/management/show-table-schema-command?context=/azure/synapse-analytics/context/context
+          - name: .clear table data
+            href: /azure/data-explorer/kusto/management/clear-table-data-command?context=/azure/synapse-analytics/context/context
+      - name: Tables externes
+        items:
+          - name: Créer et modifier des tables externes Stockage Azure
+            href: /azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake?context=/azure/synapse-analytics/context/context
+          - name: Créer et modifier des tables externes SQL Server
+            href: /azure/data-explorer/kusto/management/external-sql-tables?context=/azure/synapse-analytics/context/context
+          - name: .drop external table
+            href: /azure/data-explorer/kusto/management/drop-external-table?context=/azure/synapse-analytics/context/context
+          - name: .show external table
+            href: /azure/data-explorer/kusto/management/show-external-tables?context=/azure/synapse-analytics/context/context
+          - name: .show external table schema
+            href: /azure/data-explorer/kusto/management/show-external-table-schema?context=/azure/synapse-analytics/context/context
+      - name: Vues matérialisées
+        items:
+          - name: Vue d’ensemble des vues matérialisées
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-overview?context=/azure/synapse-analytics/context/context
+          - name: .create materialized-view
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-create?context=/azure/synapse-analytics/context/context
+          - name: .alter materialized-view
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-alter?context=/azure/synapse-analytics/context/context
+          - name: .create-or-alter materialized-view
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-create-or-alter?context=/azure/synapse-analytics/context/context
+          - name: .alter materialized-view docstring
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-alter-docstring?context=/azure/synapse-analytics/context/context
+          - name: .alter materialized-view folder
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-alter-folder?context=/azure/synapse-analytics/context/context
+          - name: .alter materialized-view lookback
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-alter-lookback?context=/azure/synapse-analytics/context/context
+          - name: .alter materialized-view autoUpdateSchema
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-alter-autoUpdateSchema?context=/azure/synapse-analytics/context/context
+          - name: .show materialized-view commands
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-show-commands?context=/azure/synapse-analytics/context/context
+          - name: .drop materialized-view
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-drop?context=/azure/synapse-analytics/context/context
+          - name: Effacer les données de la vue matérialisée
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-clear-data?context=/azure/synapse-analytics/context/context
+          - name: .disable | .enable materialized-view
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-enable-disable?context=/azure/synapse-analytics/context/context
+          - name: Stratégies de vues matérialisées
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-policies?context=/azure/synapse-analytics/context/context
+          - name: Vidage des données de vues matérialisées
+            href: /azure/data-explorer/kusto/management/materialized-views/materialized-view-purge?context=/azure/synapse-analytics/context/context
+      - name: Résultats de requête stockés
+        displayName: '.set stored query, .show stored query, .drop stored query'
+        href: /azure/data-explorer/kusto/management/stored-query-results?context=/azure/synapse-analytics/context/context
+      - name: Colonnes
+        items:
+          - name: Gestion des colonnes
+            href: /azure/data-explorer/kusto/management/columns?context=/azure/synapse-analytics/context/context
+          - name: .alter column
+            href: /azure/data-explorer/kusto/management/alter-column?context=/azure/synapse-analytics/context/context
+          - name: .alter-merge table column-docstrings
+            href: /azure/data-explorer/kusto/management/alter-merge-table-column?context=/azure/synapse-analytics/context/context
+          - name: .drop column
+            href: /azure/data-explorer/kusto/management/drop-column?context=/azure/synapse-analytics/context/context
+          - name: .rename column(s)
+            href: /azure/data-explorer/kusto/management/rename-column?context=/azure/synapse-analytics/context/context
+      - name: Mappages des données
+        href: /azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context
+      - name: Fonctions
+        items:
+          - name: Vue d’ensemble de la gestion des fonctions stockées
+            href: /azure/data-explorer/kusto/management/functions?context=/azure/synapse-analytics/context/context
+          - name: .alter function
+            href: /azure/data-explorer/kusto/management/alter-function?context=/azure/synapse-analytics/context/context
+          - name: .alter function docstring
+            href: /azure/data-explorer/kusto/management/alter-docstring-function?context=/azure/synapse-analytics/context/context
+          - name: .alter function folder
+            href: /azure/data-explorer/kusto/management/alter-folder-function?context=/azure/synapse-analytics/context/context
+          - name: .create function
+            href: /azure/data-explorer/kusto/management/create-function?context=/azure/synapse-analytics/context/context
+          - name: .create-or-alter function
+            href: /azure/data-explorer/kusto/management/create-alter-function?context=/azure/synapse-analytics/context/context
+          - name: .drop function
+            href: /azure/data-explorer/kusto/management/drop-function?context=/azure/synapse-analytics/context/context
+          - name: .show functions
+            href: /azure/data-explorer/kusto/management/show-function?context=/azure/synapse-analytics/context/context
+  - name: Stratégies
+    items:
+      - name: Suppression automatique
+        items:
+          - name: Stratégie de suppression automatique
+            href: /azure/data-explorer/kusto/management/auto-delete-policy?context=/azure/synapse-analytics/context/context
+          - name: Commande de la stratégie de suppression automatique
+            href: /azure/data-explorer/kusto/management/auto-delete-policy-command?context=/azure/synapse-analytics/context/context
+      - name: Traitement par lot de l’ingestion
+        items:
+          - name: Stratégie de traitement par lot de l’ingestion
+            href: /azure/data-explorer/kusto/management/batchingpolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande de stratégie de traitement par lot de l’ingestion
+            href: /azure/data-explorer/kusto/management/batching-policy?context=/azure/synapse-analytics/context/context
+      - name: Cache
+        items:
+          - name: Stratégie de cache (cache chaud et froid)
+            href: /azure/data-explorer/kusto/management/cachepolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande de stratégie de cache
+            href: /azure/data-explorer/kusto/management/cache-policy?context=/azure/synapse-analytics/context/context
+      - name: Légende
+        href: /azure/data-explorer/kusto/management/calloutpolicy?context=/azure/synapse-analytics/context/context
+      - name: Capacité
+        items:
+          - name: Stratégie de capacité
+            href: /azure/data-explorer/kusto/management/capacitypolicy?context=/azure/synapse-analytics/context/context
+          - name: Commandes de stratégie de capacité
+            href: /azure/data-explorer/kusto/management/capacity-policy?context=/azure/synapse-analytics/context/context
+      - name: Moment de l’ingestion
+        items:
+          - name: Stratégie sur le moment de l’ingestion
+            href: /azure/data-explorer/kusto/management/ingestiontimepolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande sur le moment de l’ingestion
+            href: /azure/data-explorer/kusto/management/ingestiontime-policy?context=/azure/synapse-analytics/context/context
+      - name: Fusionner
+        items:
+          - name: Stratégie de fusion
+            href: /azure/data-explorer/kusto/management/mergepolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande de stratégie de fusion
+            href: /azure/data-explorer/kusto/management/merge-policy?context=/azure/synapse-analytics/context/context
+      - name: Partitionnement
+        items:
+          - name: Stratégie de partitionnement
+            href: /azure/data-explorer/kusto/management/partitioningpolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande de stratégie de partitionnement
+            href: /azure/data-explorer/kusto/management/partitioning-policy?context=/azure/synapse-analytics/context/context
+      - name: Rétention
+        items:
+          - name: Stratégie de rétention
+            href: /azure/data-explorer/kusto/management/retentionpolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande sur la stratégie de rétention
+            href: /azure/data-explorer/kusto/management/retention-policy?context=/azure/synapse-analytics/context/context
+      - name: Rétention des balises d’étendue
+        items:
+          - name: Stratégie de rétention des balises d’étendue
+            href: /azure/data-explorer/kusto/management/extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
+          - name: Afficher la stratégie de rétention des balises d’étendue
+            href: /azure/data-explorer/kusto/management/show-extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
+          - name: Supprimer la stratégie de rétention des balises d’étendue
+            href: /azure/data-explorer/kusto/management/delete-extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
+          - name: Modifier la stratégie de rétention des balises d’étendue
+            href: /azure/data-explorer/kusto/management/alter-extent-tags-retention-policy?context=/azure/synapse-analytics/context/context
+      - name: Accès avec vue limitée
+        items:
+          - name: Stratégie d’accès avec vue limitée
+            href: /azure/data-explorer/kusto/management/restrictedviewaccesspolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande de stratégie restricted_view_access
+            href: /azure/data-explorer/kusto/management/restrictedviewaccess-policy?context=/azure/synapse-analytics/context/context
+      - name: Sécurité au niveau des lignes
+        items:
+          - name: Stratégie de sécurité au niveau des lignes
+            href: /azure/data-explorer/kusto/management/rowlevelsecuritypolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande de stratégie row_level_security
+            href: /azure/data-explorer/kusto/management/row-level-security-policy?context=/azure/synapse-analytics/context/context
+      - name: Roworder
+        items:
+          - name: Stratégie Roworder
+            href: /azure/data-explorer/kusto/management/roworderpolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande de stratégie roworder
+            href: /azure/data-explorer/kusto/management/roworder-policy?context=/azure/synapse-analytics/context/context
+      - name: Bac à sable
+        items:
+          - name: Utilisation des bacs à sable
+            href: /azure/data-explorer/kusto/concepts/sandboxes?context=/azure/synapse-analytics/context/context
+          - name: Stratégie de bac à sable
+            href: /azure/data-explorer/kusto/management/sandboxpolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande de stratégie de bac à sable
+            href: /azure/data-explorer/kusto/management/sandbox-policy?context=/azure/synapse-analytics/context/context
+      - name: Partitionnement
+        items:
+          - name: Stratégie de partitionnement
+            href: /azure/data-explorer/kusto/management/shardingpolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande de stratégie de sharding
+            href: /azure/data-explorer/kusto/management/sharding-policy?context=/azure/synapse-analytics/context/context
+      - name: Ingestion de streaming
+        items:
+          - name: Stratégie d’ingestion de streaming
+            href: /azure/data-explorer/kusto/management/streamingingestionpolicy?context=/azure/synapse-analytics/context/context
+          - name: Commande de stratégie streamingingestion
+            href: /azure/data-explorer/kusto/management/streamingingestion-policy?context=/azure/synapse-analytics/context/context
+      - name: Update
+        items:
+          - name: Mettre à jour la stratégie
+            href: /azure/data-explorer/kusto/management/updatepolicy?context=/azure/synapse-analytics/context/context
+          - name: commandes de stratégie de mise à jour
+            href: /azure/data-explorer/kusto/management/update-policy?context=/azure/synapse-analytics/context/context
+      - name: Cohérence faible des requêtes
+        items:
+          - name: Stratégie de cohérence faible des requêtes
+            href: /azure/data-explorer/kusto/management/query-weak-consistency-policy?context=/azure/synapse-analytics/context/context
+          - name: .modifier la stratégie de cohérence faible des requêtes
+            href: /azure/data-explorer/kusto/management/alter-query-weak-consistency-policy?context=/azure/synapse-analytics/context/context
+          - name: .afficher la stratégie de cohérence faible des requêtes
+            href: /azure/data-explorer/kusto/management/show-query-weak-consistency-policy?context=/azure/synapse-analytics/context/context
+  - name: Rôles de sécurité
+    href: /azure/data-explorer/kusto/management/security-roles?context=/azure/synapse-analytics/context/context
+  - name: Ingestion de données
+    items:
+      - name: Ingestion à partir du stockage
+        href: /azure/data-explorer/kusto/management/data-ingestion/ingest-from-storage?context=/azure/synapse-analytics/context/context
+      - name: Ingestion à partir d’une requête
+        href: /azure/data-explorer/kusto/management/data-ingestion/ingest-from-query?context=/azure/synapse-analytics/context/context
+      - name: Ingestion inline
+        href: /azure/data-explorer/kusto/management/data-ingestion/ingest-inline?context=/azure/synapse-analytics/context/context
+      - name: Ingestion de streaming
+        items:
+          - name: Ingestion de streaming et changements de schéma
+            href: /azure/data-explorer/kusto/management/data-ingestion/streaming-ingestion-schema-changes?context=/azure/synapse-analytics/context/context
+          - name: Effacer le cache de schéma pour l’ingestion de streaming
+            href: /azure/data-explorer/kusto/management/data-ingestion/clear-schema-cache-command?context=/azure/synapse-analytics/context/context
+  - name: Exportation de données
+    href: /azure/data-explorer/kusto/management/data-export/index?context=/azure/synapse-analytics/context/context
+    items:
+      - name: Vers le stockage cloud
+        href: /azure/data-explorer/kusto/management/data-export/export-data-to-storage?context=/azure/synapse-analytics/context/context
+      - name: Vers une table SQL
+        href: /azure/data-explorer/kusto/management/data-export/export-data-to-sql?context=/azure/synapse-analytics/context/context
+      - name: Vers une table externe
+        href: /azure/data-explorer/kusto/management/data-export/export-data-to-an-external-table?context=/azure/synapse-analytics/context/context
+      - name: Exportation de données continue
+        items:
+          - name: Vue d’ensemble de l’exportation de données continue
+            href: /azure/data-explorer/kusto/management/data-export/continuous-data-export?context=/azure/synapse-analytics/context/context
+          - name: Créer ou modifier une exportation continue
+            href: /azure/data-explorer/kusto/management/data-export/create-alter-continuous?context=/azure/synapse-analytics/context/context
+          - name: Désactiver ou activer une exportation continue
+            href: /azure/data-explorer/kusto/management/data-export/disable-enable-continuous?context=/azure/synapse-analytics/context/context
+          - name: Supprimer une exportation continue
+            href: /azure/data-explorer/kusto/management/data-export/drop-continuous-export?context=/azure/synapse-analytics/context/context
+          - name: Afficher une exportation continue
+            href: /azure/data-explorer/kusto/management/data-export/show-continuous-export?context=/azure/synapse-analytics/context/context
+          - name: Afficher les artefacts d’une exportation continue
+            href: /azure/data-explorer/kusto/management/data-export/show-continuous-artifacts?context=/azure/synapse-analytics/context/context
+          - name: Afficher les échecs d’une exportation continue
+            href: /azure/data-explorer/kusto/management/data-export/show-continuous-failures?context=/azure/synapse-analytics/context/context
+  - name: Curseurs de base de données
+    href: /azure/data-explorer/kusto/management/databasecursor?context=/azure/synapse-analytics/context/context
+  - name: Commandes de plug-in
+    items:
+      - name: .show plugins
+        href: /azure/data-explorer/kusto/management/show-plugins?context=/azure/synapse-analytics/context/context
+      - name: .enable plugin
+        href: /azure/data-explorer/kusto/management/enable-plugin?context=/azure/synapse-analytics/context/context
+      - name: .disable plugin
+        href: /azure/data-explorer/kusto/management/disable-plugin?context=/azure/synapse-analytics/context/context
+  - name: Cache des résultats de requête
+    href: /azure/data-explorer/kusto/management/query-results-cache-commands?context=/azure/synapse-analytics/context/context
+    items:
+      - name: Montrer le cache
+        displayName: show database cache query results
+        href: /azure/data-explorer/kusto/management/show-query-results-cache-command?context=/azure/synapse-analytics/context/context
+      - name: Effacer le cache
+        displayName: clear query results cache
+        href: /azure/data-explorer/kusto/management/clear-query-results-cache-command?context=/azure/synapse-analytics/context/context
+  - name: Informations système
+    href: /azure/data-explorer/kusto/management/systeminfo?context=/azure/synapse-analytics/context/context
+    items:
+      - name: Diagnostics
+        href: /azure/data-explorer/kusto/management/diagnostics?context=/azure/synapse-analytics/context/context
+      - name: Journal
+        href: /azure/data-explorer/kusto/management/journal?context=/azure/synapse-analytics/context/context
+      - name: Requêtes
+        href: /azure/data-explorer/kusto/management/queries?context=/azure/synapse-analytics/context/context
+      - name: Commandes
+        href: /azure/data-explorer/kusto/management/commands?context=/azure/synapse-analytics/context/context
+      - name: Commandes et requêtes
+        href: /azure/data-explorer/kusto/management/commands-and-queries?context=/azure/synapse-analytics/context/context
+      - name: Opérations
+        href: /azure/data-explorer/kusto/management/operations?context=/azure/synapse-analytics/context/context
+  - name: Contrôle d’accès
+    href: /azure/data-explorer/kusto/management/access-control/index?context=/azure/synapse-analytics/context/context
+    items:
+      - name: Identities
+        href: /azure/data-explorer/kusto/management/access-control/principals-and-identity-providers?context=/azure/synapse-analytics/context/context
+      - name: Azure Active Directory
+        displayName: 'AAD, Azure AD'
+        href: /azure/data-explorer/kusto/management/access-control/aad?context=/azure/synapse-analytics/context/context
+      - name: Rôles du principal
+        href: /azure/data-explorer/kusto/management/access-control/role-based-authorization?context=/azure/synapse-analytics/context/context
+      - name: Autoriser les requêtes et les commandes interlocataires
+        href: /azure/data-explorer/kusto/../cross-tenant-query-and-commands?context=/azure/synapse-analytics/context/context
+      - name: Procédure d’authentification Azure Active Directory
+        displayName: 'AAD, Azure AD'
+        href: /azure/data-explorer/kusto/management/access-control/how-to-authenticate-with-aad?context=/azure/synapse-analytics/context/context
+  - name: Gestion avancée des données
+    items:
+      - name: Étendues (partitions de données)
+        items:
+          - name: Vue d’ensemble des étendues
+            href: /azure/data-explorer/kusto/management/extents-overview?context=/azure/synapse-analytics/context/context
+          - name: Commandes d’étendues
+            items:
+              - name: .alter extent
+                href: /azure/data-explorer/kusto/management/alter-extent?context=/azure/synapse-analytics/context/context
+              - name: .drop extents
+                href: /azure/data-explorer/kusto/management/drop-extents?context=/azure/synapse-analytics/context/context
+              - name: .drop extent tags
+                href: /azure/data-explorer/kusto/management/drop-extent-tags?context=/azure/synapse-analytics/context/context
+              - name: .move extents
+                href: /azure/data-explorer/kusto/management/move-extents?context=/azure/synapse-analytics/context/context
+              - name: .replace extents
+                href: /azure/data-explorer/kusto/management/replace-extents?context=/azure/synapse-analytics/context/context
+              - name: .show extents
+                href: /azure/data-explorer/kusto/management/show-extents?context=/azure/synapse-analytics/context/context
+          - name: Commandes de nettoyage de conteneurs d’étendue
+            href: /azure/data-explorer/kusto/management/clean-extent-containers?context=/azure/synapse-analytics/context/context
+      - name: Abonné aux clusters
+        href: /azure/data-explorer/kusto/management/cluster-follower?context=/azure/synapse-analytics/context/context
+      - name: Vidage des données
+        href: /azure/data-explorer/kusto/concepts/data-purge?context=/azure/synapse-analytics/context/context
+  - name: Erreurs et défaillances
+    items:
+      - name: Codes d’erreur d’ingestion
+        href: /azure/data-explorer/kusto/../error-codes?context=/azure/synapse-analytics/context/context
+      - name: Échecs d’ingestion
+        href: /azure/data-explorer/kusto/management/ingestionfailures?context=/azure/synapse-analytics/context/context

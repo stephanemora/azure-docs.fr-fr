@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 5a50a51d68154654d204149a5e76e5aa94e57683
-ms.sourcegitcommit: 58d82486531472268c5ff70b1e012fc008226753
+ms.openlocfilehash: 1118fb9d41ace11adb55adedc4b3700c3c34e50a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2021
-ms.locfileid: "122697739"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131003444"
 ---
 # <a name="deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Déployer votre application sur des machines virtuelles Linux dans Azure à l’aide d’Azure DevOps Services et d’Azure Pipelines
 
@@ -147,7 +147,7 @@ Vous aurez besoin d’un pipeline de build d’intégration continue (CI) pour p
 
 Sélectionnez le modèle de **démarrage**, puis copiez l’extrait de code YAML ci-dessous qui permet de générer votre projet Java et d’exécuter les tests avec Apache Maven :
 
-```YAML
+```yaml
 jobs:
 - job: Build
   displayName: Build Maven Project
@@ -172,7 +172,7 @@ Pour plus d’informations, suivez les étapes mentionnées dans [Générer votr
 
 Sélectionnez le modèle de **démarrage**, puis copiez l’extrait de code YAML ci-dessous qui permet de générer un projet Node.js général avec npm.
 
-```YAML
+```yaml
 - stage: Build
   displayName: Build stage
   jobs:  
@@ -213,7 +213,7 @@ Pour plus d’informations, suivez les étapes mentionnées dans [Générer votr
 
 1. Modifiez le fichier YAML pour le pipeline ci-dessus en y ajoutant un [travail de déploiement](/azure/devops/pipelines/process/deployment-jobs), puis en référençant l’environnement et les ressources de machine virtuelle dont vous disposez à l’aide de la syntaxe YAML ci-dessous :
 
-   ```YAML
+   ```yaml
    jobs:  
    - deployment: VMDeploy
      displayName: web
@@ -230,7 +230,7 @@ Le schéma YAML complet du travail de déploiement se trouve [ici](/azure/devop
    `runOnce` est la stratégie de déploiement la plus simple, dans laquelle tous les hooks de cycle de vie, à savoir `preDeploy` `deploy`, `routeTraffic` et `postRouteTraffic`, sont exécutés une seule fois. Ensuite, `on:` `success` ou `on:` `failure` est exécuté.
 
    Voici l’exemple d’extrait de code YAML de `runOnce` :
-   ```YAML
+   ```yaml
    jobs:
    - deployment: VMDeploy
      displayName: web
@@ -248,7 +248,7 @@ Le schéma YAML complet du travail de déploiement se trouve [ici](/azure/devop
 
 4. Voici un exemple d’extrait de code YAML que vous pouvez utiliser afin de définir une stratégie de déploiement pour les mises à jour de machines virtuelles, avec un maximum de 5 cibles par itération. `maxParallel` détermine le nombre de cibles qui peuvent simultanément faire l’objet d’un déploiement. La sélection prend en compte le nombre absolu ou le pourcentage de cibles qui doivent rester disponibles à tout moment, à l’exclusion des cibles sur lesquelles un déploiement est en cours. Il est également utilisé pour déterminer les conditions de réussite et d’échec lors d’un déploiement.
 
-   ```YAML
+   ```yaml
    jobs: 
    - deployment: VMDeploy
      displayName: web

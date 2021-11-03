@@ -1,17 +1,17 @@
 ---
 title: Résolution des problèmes des cibles de stockage NFS Azure HPC Cache
 description: Conseils pour éviter et résoudre les erreurs de configuration et d’autres problèmes susceptibles de provoquer un échec lors de la création d’une cible de stockage NFS.
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2020
-ms.author: v-erkel
-ms.openlocfilehash: a8fb169db79281240e2aab854bc6079a60054625
-ms.sourcegitcommit: 2da83b54b4adce2f9aeeed9f485bb3dbec6b8023
+ms.author: femila
+ms.openlocfilehash: 4c2cf6995395e44819a6a63f26609e72d81456e5
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2021
-ms.locfileid: "122771444"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131077361"
 ---
 # <a name="troubleshoot-nas-configuration-and-nfs-storage-target-issues"></a>Résolution des problèmes de configuration NAS et des cibles de stockage NFS
 

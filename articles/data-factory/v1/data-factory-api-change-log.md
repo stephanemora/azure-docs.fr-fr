@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: conceptual
 robots: noindex
 ms.date: 10/22/2021
-ms.openlocfilehash: 2010081ca22751e5e3e1a7f36084dff53b1c0aef
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 3b28e8d4042377e7834fe619e15feabb916b2591
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130255178"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131059620"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory : Journal des modifications de l’API .NET
 > [!NOTE]
@@ -145,7 +145,9 @@ Les classes suivantes ont été renommées. Les nouveaux noms des classes sont l
 | SqlServerDataset |[SqlServerTableDataset](/dotnet/api/microsoft.azure.management.datafactories.models.sqlservertabledataset) |
 
 ## <a name="version-400"></a>Version 4.0.0
+
 ### <a name="breaking-changes"></a>Changements cassants
+
 * Les classes/interfaces suivantes ont été renommées.
 
 | Ancien nom | Nouveau nom |
@@ -162,7 +164,7 @@ Les classes suivantes ont été renommées. Les nouveaux noms des classes sont l
 
 * Les méthodes **Liste** renvoient désormais des résultats paginés. Si la réponse contient une propriété **NextLink** non vide, l’application cliente doit continuer à récupérer la page suivante jusqu’à ce que toutes les pages soient renvoyées.  Voici un exemple :
 
-    ```csharp
+  ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
     var pipelines = new List<Pipeline>(response.Pipelines);
 
@@ -174,7 +176,8 @@ Les classes suivantes ont été renommées. Les nouveaux noms des classes sont l
 
         nextLink = nextResponse.NextLink;
     }
-    ```
+  ```
+
 * **Listee** renvoie uniquement le résumé d’un pipeline au lieu des détails complets. Par exemple, les activités d’un résumé de pipeline ne contiennent que le nom et le type.
 
 ### <a name="feature-additions"></a>Ajouts de fonctionnalités

@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 10/14/2021
-ms.openlocfilehash: a764b6e0046b399d1984f13404aae6ba1eb4d72f
-ms.sourcegitcommit: 4abfec23f50a164ab4dd9db446eb778b61e22578
+ms.openlocfilehash: 8aafbbd0cc7063fdccf3ae44e9442fa86cfe5f94
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130063884"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131005762"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory-or-synapse-analytics"></a>Copier des données depuis/vers Azure Data Explorer en utilisant Azure Data Factory ou Synapse Analytics
 
@@ -185,7 +185,7 @@ Pour utiliser l’authentification par identité managée affectée par l’util
     - **En tant que source**, accorder au moins le rôle **Observateur de base de données** à votre base de données
     - **En tant que récepteur**, accorder au moins le rôle **Ingéreur de base de données** à votre base de données
      
-2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique  de données ou espace de travail Synapse et [créez des informations d’identification](data-factory-service-identity.md#credentials) pour chaque identité managée affectée par l’utilisateur.
+2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique  de données ou espace de travail Synapse et [créez des informations d’identification](credentials.md) pour chaque identité managée affectée par l’utilisateur.
 
 Les propriétés suivantes sont prises en charge pour le service lié Azure Data Explorer :
 

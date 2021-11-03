@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2021
 ms.author: yelevin
-ms.openlocfilehash: b6e38d6ce5944d09a089404ae1fe2ca81a951c18
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 7d921c1b1d44f8378a51fa6a419378cd199cd57d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124781294"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131037285"
 ---
 # <a name="use-azure-functions-to-connect-azure-sentinel-to-your-data-source"></a>Utiliser Azure Functions pour connecter Azure Sentinel à votre source de données
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Vous pouvez utiliser [Azure Functions](../azure-functions/functions-overview.md), conjointement avec différents langages de codage tels que [PowerShell](../azure-functions/functions-reference-powershell.md) ou Python, pour créer un connecteur serverless pour les points de terminaison de l’API REST de vos sources de données compatibles. Des applications Azure Function vous permettent de connecter Azure Sentinel à l’API REST de votre source de données pour extraire des journaux.
 

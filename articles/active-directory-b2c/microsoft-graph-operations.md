@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/08/2021
-ms.custom: project-no-code
+ms.custom: project-no-code, ignite-fall-2021
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.openlocfilehash: 306aef9867025ef4c40495871ed9bffbd287d3e3
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: 19a13d9c2941d9a98cce4415b9266d67a9bb8e53
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130036376"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131028098"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gérer Azure AD B2C avec Microsoft Graph
 
 Microsoft Graph vous permet de gérer les ressources dans votre répertoire Azure AD B2C. Les opérations suivantes de l’API Microsoft Graph sont prises en charge pour la gestion de ressources Azure AD B2C, dont les utilisateurs, les fournisseurs d’identité, les flux d’utilisateurs, les stratégies personnalisées et les clés de stratégies. Chaque lien dans les sections suivantes cible la page correspondante dans la référence de l’API Microsoft Graph pour cette opération. 
 
 > [!NOTE]
-> Vous pouvez également créer par programmation un répertoire Azure AD B2C, ainsi que la ressource Azure correspondante liée à un abonnement Azure. Cette fonctionnalité n’est pas exposée via l’API Microsoft Graph, mais via l’API REST Azure. Pour plus d’informations, consultez [Locataires B2C – Créer](/rest/api/activedirectory/b2ctenants/create).
+> Vous pouvez également créer par programmation un répertoire Azure AD B2C, ainsi que la ressource Azure correspondante liée à un abonnement Azure. Cette fonctionnalité n’est pas exposée via l’API Microsoft Graph, mais via l’API REST Azure. Pour plus d’informations, consultez [Locataires B2C – Créer](/rest/api/activedirectory/b2c-tenants/create).
 
 Regardez cette vidéo pour en savoir plus sur la migration des utilisateurs Azure AD B2C à l’aide de l’API Microsoft Graph.
 
@@ -253,4 +253,4 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 <!-- LINK -->
 
 [graph-objectIdentity]: /graph/api/resources/objectidentity
-[graph-user]: (https://docs.microsoft.com/graph/api/resources/user)
+[graph-user]: /graph/api/resources/user

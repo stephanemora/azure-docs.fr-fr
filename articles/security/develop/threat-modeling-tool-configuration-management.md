@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f4179a79df5bb952ca4a374602cb4dea8bf4dbbd
-ms.sourcegitcommit: 92889674b93087ab7d573622e9587d0937233aa2
+ms.openlocfilehash: 0f5eb88a3694e492f01dcf8646753a522f7c478c
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130178255"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131064636"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastructure de sécurité : gestion des configurations | Atténuation des risques 
 | Produit/Service | Article |
@@ -150,7 +150,7 @@ Code du fichier web.config pour les sites qui ne doivent être chargés dans un 
 
 ### <a name="example"></a>Exemple
 Si le fichier Web.config est accessible, CORS peut être ajouté par le biais du code suivant : 
-```XML
+```xml
 <system.webServer>
     <httpProtocol>
       <customHeaders>
@@ -181,11 +181,11 @@ Notez qu’il est indispensable de s’assurer que la liste d’origines dans l�
 
 ### <a name="example"></a>Exemple
 Toutefois, cette fonctionnalité peut être désactivée au niveau de la page : 
-```XML
+```xml
 <%@ Page validateRequest="false" %> 
 ```
 ou au niveau de l’application : 
-```XML
+```xml
 <configuration>
    <system.web>
       <pages validateRequest="false" />
@@ -218,7 +218,7 @@ Notez que la fonctionnalité de validation des demandes n’est pas prise en cha
 
 ### <a name="example"></a>Exemple
 Ajoutez l’en-tête dans le fichier web.config si l’application est hébergée par Internet Information Services (IIS) 7 ou ses versions ultérieures. 
-```XML
+```xml
 <system.webServer>
 <httpProtocol>
 <customHeaders>

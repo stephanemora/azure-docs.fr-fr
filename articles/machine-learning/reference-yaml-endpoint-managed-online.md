@@ -10,12 +10,12 @@ author: rsethur
 ms.author: seramasu
 ms.date: 08/03/2021
 ms.reviewer: laobri
-ms.openlocfilehash: ebb4db34c802c1cd82e0065579cc97ffeb3fe642
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: de4a9c78501fd74fa65a453b593701891e04d345
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122531777"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131024255"
 ---
 # <a name="cli-v2-managed-online-endpoint-yaml-schema"></a>Schéma YAML du point de terminaison en ligne managé avec l’interface CLI (v2)
 
@@ -26,7 +26,7 @@ ms.locfileid: "122531777"
 
 ## <a name="schema"></a>schéma
 
-Le schéma JSON source se trouve à l’adresse https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json. Le schéma est fourni ci-dessous aux formats JSON et YAML pour plus de commodité.
+Le schéma JSON source se trouve à l’adresse https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json. Par souci de commodité, le schéma est fourni ci-dessous aux formats JSON et YAML.
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -84,4 +84,4 @@ Le schéma JSON source se trouve à l’adresse https://azuremlschemas.azureedge
 
 - [Installer et utiliser l’interface CLI (v2)](how-to-configure-cli.md)
 - Découvrez comment [déployer un modèle avec un point de terminaison en ligne managé](how-to-deploy-managed-online-endpoints.md).
-- [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Résolution des problèmes de déploiement et de scoring de points de terminaison en ligne managés (préversion)](./how-to-troubleshoot-online-endpoints.md)
