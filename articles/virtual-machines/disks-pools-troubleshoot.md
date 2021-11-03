@@ -4,15 +4,16 @@ description: Résolution des problèmes liés aux pools de disques Azure. Décou
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f14ae211e13c299807c6f1c43e8be11752fce008
-ms.sourcegitcommit: 34aa13ead8299439af8b3fe4d1f0c89bde61a6db
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 5a898f0c34ed92eaa4a19757e3d017a87c84d491
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2021
-ms.locfileid: "122527792"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082699"
 ---
 # <a name="troubleshoot-azure-disk-pools-preview"></a>Résolution des problèmes des pools de disques Azure (préversion)
 

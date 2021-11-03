@@ -3,13 +3,13 @@ title: Configuration d’Azure Functions avec un réseau virtuel
 description: Article qui montre comment effectuer certaines tâches de mise en réseau virtuel pour Azure Functions.
 ms.topic: conceptual
 ms.date: 3/13/2021
-ms.custom: template-how-to
-ms.openlocfilehash: 6465a1c5e9b39bcef29fb28ebf2e19c7203da648
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 91555099c7144d976b5f0b5ef2fe639912857bce
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130257040"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131048814"
 ---
 # <a name="how-to-configure-azure-functions-with-a-virtual-network"></a>Configuration d’Azure Functions avec un réseau virtuel
 
@@ -58,4 +58,3 @@ Après le redémarrage de l’application de fonction, elle sera connectée à u
 
 > [!div class="nextstepaction"]
 > [Options de mise en réseau d’Azure Functions](functions-networking-options.md)
-

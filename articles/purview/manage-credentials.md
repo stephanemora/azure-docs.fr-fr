@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
-ms.openlocfilehash: f3367883b35e35a4dd726b92af48a92f863cfa5d
-ms.sourcegitcommit: e8c34354266d00e85364cf07e1e39600f7eb71cd
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fdce380d09cc2992f4e77f9385b1d176a6ae68eb
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129207846"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131076658"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Informations d'identification pour l'authentification des sources dans Azure Purview
 
@@ -41,12 +42,12 @@ Avant de créer des informations d’identification, prenez en compte vos types 
 
 Si vous utilisez l'identité managée Purview pour configurer des analyses, vous n'aurez pas à créer explicitement d'informations d'identification et à lier votre coffre de clés à Purview pour les stocker. Pour obtenir des instructions détaillées sur l’ajout de l’identité managée Purview en vue d’accéder à l’analyse de vos sources de données, reportez-vous aux sections ci-dessous concernant l’authentification pour chaque source de données :
 
-- [Stockage Blob Azure](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
+- [Stockage Blob Azure](register-scan-azure-blob-storage-source.md#authentication-for-a-scan)
+- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#authentication-for-a-scan)
+- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
-- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
-- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
+- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
+- [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
 ## <a name="create-azure-key-vaults-connections-in-your-azure-purview-account"></a>Créer des connexions Azure Key Vault sur votre compte Azure Purview
 

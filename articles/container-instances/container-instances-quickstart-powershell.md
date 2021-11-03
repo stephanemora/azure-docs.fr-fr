@@ -6,13 +6,13 @@ manager: gwallace
 ms.date: 03/21/2019
 ms.topic: quickstart
 ms.service: container-instances
-ms.custom: devx-track-azurepowershell - mvc - mode-api
-ms.openlocfilehash: 875913550ff41cf5988b7910e165376bfa446bfb
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.custom: devx-track-azurepowershell, mvc, mode-api
+ms.openlocfilehash: c882944691818bf15a5d15b325d39d6f2b4ed5d3
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110689423"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131045308"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Démarrage rapide : déployer une instance de conteneur dans Azure à l’aide d’Azure PowerShell
 
@@ -36,7 +36,7 @@ Les instances de conteneur Azure, comme toutes les ressources Azure, doivent êt
 
 Commencez par créer un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*, à l’aide de la commande [New-AzResourceGroup][New-AzResourceGroup] suivante :
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
@@ -48,13 +48,13 @@ Vous pouvez exposer vos conteneurs sur Internet en spécifiant un ou plusieurs p
 
 Pour démarrer une instance de conteneur, exécutez une commande similaire à la suivante. Définissez une valeur `-DnsNameLabel` être unique au sein de la région Azure dans laquelle vous créez l’instance. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
 Après quelques secondes, vous devez recevoir une réponse d’Azure. L’élément `ProvisioningState` du conteneur est initialement défini sur **Création**, mais doit passer à **Réussite** après une ou deux minutes. Vérifiez l’état du déploiement à l’aide de l’applet de commande [Get-AzContainerGroup][Get-AzContainerGroup] :
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
@@ -92,7 +92,7 @@ Une fois que l’élément `ProvisioningState` du conteneur est défini sur **R�
 
 Quand vous avez fini d’utiliser le conteneur, vous pouvez le supprimer avec l’applet de commande [Remove-AzContainerGroup][Remove-AzContainerGroup] :
 
- ```azurepowershell-interactive
+```azurepowershell-interactive
 Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 

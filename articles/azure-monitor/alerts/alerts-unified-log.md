@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 3eb0ab8ac6ca4c0ceddd9e3ebf84b8c2ddd5a9f4
-ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
+ms.openlocfilehash: 2479e5b269d6cc6a4d0aaadd6b3616da17670c2d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2021
-ms.locfileid: "113301309"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131070030"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 
@@ -20,9 +20,6 @@ Les alertes de journal sont l’un des types d’alerte pris en charge dans [Ale
 
 > [!NOTE]
 > Les données de journal d'un [espace de travail Log Analytics](../logs/log-analytics-tutorial.md) peuvent être envoyées au magasin de métriques Azure Monitor. Les alertes de métriques ont [un comportement différent](alerts-metric-overview.md), qui peut être plus adapté en fonction des données que vous utilisez. Pour savoir ce que sont les journaux et comment les acheminer vers les bases de données de métriques, voir [Créer des alertes de métriques de journaux d’activité dans Azure Monitor](alerts-metric-logs.md).
-
-> [!NOTE]
-> Il n’existe actuellement aucun frais supplémentaire pour la version `2020-05-01-preview` de l’API et les alertes de journal centrées sur les ressources.  La tarification des fonctionnalités en préversion sera annoncée à l’avenir et un avis sera fourni avant le début de la facturation. Si vous choisissez de continuer à utiliser la nouvelle version de l’API et les alertes de journal centrées sur les ressources après la période de notification, vous serez facturé au tarif en vigueur.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -153,7 +150,7 @@ Par exemple, vous souhaitez analyser les erreurs de plusieurs machines virtuelle
 Cette règle détermine si une machine virtuelle a rencontré des erreurs au cours des 15 dernières minutes. Chaque machine virtuelle est analysée séparément et déclenche des actions individuellement.
 
 > [!NOTE]
-> Fractionner par dimensions d'alerte est uniquement disponible pour l'API scheduledQueryRules actuelle. Si vous utilisez l'[API d'alerte Log Analytics](./api-alerts.md) héritée, vous devrez opérer un basculement. [En savoir plus sur le basculement](./alerts-log-api-switch.md). Les alertes centrées sur les ressources à grande échelle ne sont prises en charge que dans les versions `2020-05-01-preview` et ultérieures de l'API.
+> Fractionner par dimensions d'alerte est uniquement disponible pour l'API scheduledQueryRules actuelle. Si vous utilisez l'[API d'alerte Log Analytics](./api-alerts.md) héritée, vous devrez opérer un basculement. [En savoir plus sur le basculement](./alerts-log-api-switch.md). Les alertes centrées sur les ressources à grande échelle ne sont prises en charge que dans les versions `2020-08-01` et ultérieures de l'API.
 
 ## <a name="alert-logic-definition"></a>Définition de la logique d'alerte
 

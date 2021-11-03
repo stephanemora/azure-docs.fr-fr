@@ -3,15 +3,13 @@ title: Démarrage rapide Azure - Exécuter votre premier travail Batch sur le po
 description: Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un compte Batch, un pool de nœuds de calcul et un travail qui exécute des tâches de base sur le pool.
 ms.date: 05/25/2021
 ms.topic: quickstart
-ms.custom:
-- mvc
-- mode-portal
-ms.openlocfilehash: 573ec2ece283e1e9b754ef9fd9b19a7e1b4883a3
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: 1e3efb1b1665bb8e3914203ad9cee8666afd849b
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110476002"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131086846"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Démarrage rapide : exécution de votre premier travail Batch dans le portail Azure
 

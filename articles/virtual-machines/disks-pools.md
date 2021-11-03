@@ -4,16 +4,16 @@ description: En savoir plus sur les pools de disques Azure (préversion).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: ea06b3c4fdf9be626df99f4a06f4190ce86df4b3
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.custom: references_regions, ignite-fall-2021
+ms.openlocfilehash: d6e2eda8fd7bc2ba3b41b911b5964c2a65e33c14
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123433275"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131074539"
 ---
 # <a name="azure-disk-pools-preview"></a>Pools de disques Azure (préversion)
 
@@ -31,7 +31,8 @@ Lorsque vous ajoutez un disque managé au pool de disques, le disque est attach�
 
 Dans la préversion, les pools de disques présentent les restrictions suivantes :
 
-- Seuls les disques SSD Premium ou disques Ultra peuvent être ajoutés à un pool de disques.
+- Seuls des disques SSD Premium et Standard ou des disques Ultra peuvent être ajoutés à un pool de disques.
+    - Vous ne pouvez pas configurer un pool de disques contenant à la fois des disques Ultra et des disques SSD Premium/Standard. Si un pool de disques est configuré pour utiliser des disques Ultra, il ne peut contenir que des disques Ultra. De même, un pool de disques configuré pour utiliser des disques SSD Premium et Standard ne peut contenir que des disques SSD Premium et Standard.
 - Les disques qui utilisent le [stockage redondant interzone (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks) ne sont pas pris en charge pour l’instant. 
 
 ### <a name="regional-availability"></a>Disponibilité régionale

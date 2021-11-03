@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: 60f4d1d8e86eed6a3dab390ebf8e46296f4644d2
-ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
+ms.openlocfilehash: ec57245e1f3c0381bb362183122904b86af70473
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2021
-ms.locfileid: "130040186"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131015216"
 ---
 # <a name="configure-consulting-service-offer-properties"></a>Configurer les propriétés d’une offre de service de conseil
 
@@ -23,7 +23,7 @@ Sous l’onglet **Propriétés** de votre offre dans Espace partenaires, vous d�
 
 ## <a name="select-the-primary-product"></a>Sélectionner le produit principal
 
-Dans la liste déroulante **Produit principal**, sélectionnez le produit Microsoft qui sera au centre de votre offre de service de conseil. Le produit que vous sélectionnez déterminera si votre offre sera publiée sur Microsoft AppSource ou sur Place de marché Azure. Une représentation précise permet aux clients de trouver votre offre plus facilement. Gardez à l’esprit que vous devez respecter les [exigences d’admissibilité](https://aka.ms/AAacrbv) pour les produits que vous sélectionnez. 
+Dans la liste déroulante **Produit principal**, sélectionnez le produit Microsoft qui sera au centre de votre offre de service de conseil. Le produit que vous sélectionnez déterminera si votre offre sera publiée sur Microsoft AppSource ou sur Place de marché Azure. Une représentation précise permet aux clients de trouver votre offre plus facilement. Gardez à l’esprit que vous devez respecter les [exigences d’admissibilité](./plan-consulting-service-offer.md#eligibility-requirements) pour les produits que vous sélectionnez. 
 
 - Si vous sélectionnez Azure, l’offre sera publiée sur Place de marché Azure. Sélectionnez jusqu’à trois **Domaines de solution** qui représentent au mieux votre offre.
 - Si vous sélectionnez Microsoft 365, choisissez également jusqu’à trois **Domaines de solution** qui représentent au mieux votre offre. L’offre figurera dans Microsoft AppSource.

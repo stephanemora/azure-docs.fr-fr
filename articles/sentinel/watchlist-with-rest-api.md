@@ -10,19 +10,21 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2021
 ms.author: yelevin
-ms.openlocfilehash: 254647e6e73683b13bd8c1cbeb7b476066c36a7c
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 4204cf1680c9af70576226ce1da5aed464728318
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467963"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075141"
 ---
 # <a name="manage-watchlists-in-azure-sentinel-using-rest-api"></a>Gérer les listes de surveillance dans Azure Sentinel à l’aide de l’API REST
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel, construit en partie sur Azure Monitor Log Analytics, vous permet d’utiliser l’API REST de Log Analytics pour gérer des listes de surveillance. Ce document vous montre comment créer, modifier et supprimer des listes de surveillance et leurs éléments à l’aide de l’API REST.  Les listes de surveillance créées de cette façon s’affichent dans l’interface utilisateur d’Azure Sentinel.
 

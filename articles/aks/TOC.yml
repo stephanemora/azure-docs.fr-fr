@@ -192,6 +192,8 @@
               href: use-system-pools.md
             - name: Utiliser des pools de nœuds WASI (WebAssembly System Interface)
               href: use-wasi-node-pools.md
+            - name: Démarrer/arrêter des pools de nœuds (préversion)
+              href: start-stop-nodepools.md
         - name: Déployer AKS avec Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
@@ -363,6 +365,8 @@
           href: howto-deploy-java-liberty-app.md
         - name: Utiliser Gestion des API Azure
           href: ../api-management/api-management-kubernetes.md
+        - name: Utiliser Dapr
+          href: dapr.md
           maintainContext: true
     - name: Déployer un maillage de services
       items:
@@ -378,22 +382,20 @@
                   href: open-service-mesh-deploy-addon-az-cli.md
                 - name: Utiliser un modèle Bicep
                   href: open-service-mesh-deploy-addon-bicep.md
-            - name: Télécharger la bibliothèque de client OSM
+            - name: Télécharger et configurer le binaire du client OSM
               href: open-service-mesh-binary.md
             - name: Tutoriels OSM
               items:
                 - name: Gérer un nouveau déploiement d’application
                   href: open-service-mesh-deploy-new-application.md
-                - name: Gérer un déploiement d’application existant
+                - name: Intégrer des applications au maillage
                   href: open-service-mesh-deploy-existing-application.md
                 - name: Utilisation des entrées Azure Application Gateway
                   href: open-service-mesh-azure-application-gateway-ingress.md
-                - name: Utilisation des entrées NGINX
+                - name: Utilisation du contrôleur d’entrée Kubernetes Nginx
                   href: open-service-mesh-nginx-ingress.md
                 - name: 'Configurer l’observabilité avec Prometheus, Grafana et Jaeger'
                   href: open-service-mesh-open-source-observability.md
-                - name: Personnaliser l’expérience de l’interface CLI OSM
-                  href: open-service-mesh-customize-add-on-experience.md
                 - name: Exclusion de plages d’adresses IP et de ports
                   href: open-service-mesh-ip-port-exclusion.md
             - name: Configurer Azure Monitor
@@ -402,6 +404,8 @@
               href: open-service-mesh-troubleshoot.md
             - name: Désactiver OSM
               href: open-service-mesh-disable-add-on.md
+    - name: Utiliser des extensions de cluster (préversion)
+      href: cluster-extensions.md
     - name: DevOps
       items:
         - name: Utiliser Ansible pour créer des clusters AKS

@@ -9,12 +9,12 @@ ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/09/2021
-ms.openlocfilehash: abd839bdc15430b3b4936fe1d2b65826ae792da8
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 6db84461df49a335ce8a3c427fe1408b00034dcd
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128592543"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131058214"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory-or-azure-synapse-analytics"></a>Copier et transformer des données dans Data Lake Storage Gen2 avec Data Factory ou Azure Synapse Analytics
 
@@ -263,7 +263,7 @@ Pour utiliser l’authentification par identité managée affectée par l’util
     - **En tant que source** : Dans l’Explorateur Stockage, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont et au système de fichiers et l’autorisation **Lecture** pour les fichiers à copier. Dans le contrôle d’accès (IAM), vous pouvez également accorder au moins un rôle **Lecteur des données Blob du stockage** .
     - **En tant que récepteur** : Dans l’Explorateur Stockage, accordez au moins l’autorisation **Exécution** à l’ensemble des dossiers en amont et au système de fichiers et l’autorisation **Écriture** pour le dossier récepteur. Dans le contrôle d’accès (IAM), vous pouvez également accorder au moins un rôle **Contributeur aux données Blob du stockage**.
     
-2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique de données et [créez des informations d’identification](data-factory-service-identity.md#credentials) pour chaque identité managée affectée par l’utilisateur. 
+2. Attribuez une ou plusieurs identités managées affectées par l’utilisateur à votre fabrique de données et [créez des informations d’identification](credentials.md) pour chaque identité managée affectée par l’utilisateur. 
 
 Ces propriétés sont prises en charge pour le service lié :
 

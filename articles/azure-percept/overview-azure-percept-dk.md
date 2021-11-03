@@ -6,13 +6,13 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.custom: template-concept
-ms.openlocfilehash: a51f05fe29a4a0d3dda9057ca0eb7c4d3de494fb
-ms.sourcegitcommit: 40866facf800a09574f97cc486b5f64fced67eb2
+ms.custom: 'template-concept #Required, leave this attribute/value as-is., ignite-fall-2021'
+ms.openlocfilehash: 3ce11bcd6b50b4dae9f63c1f9ce4c24cdc49f61d
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2021
-ms.locfileid: "123222005"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131069745"
 ---
 # <a name="azure-percept-dk-and-vision-device-overview"></a>Présentation des appareils Azure Percept DK et Azure Percept Vision
 
@@ -31,7 +31,7 @@ Azure Percept DK est un kit de développement d’intelligence artificielle (IA)
 
 - Sécurité intégrée avec racine matérielle de confiance. Apprenez-en davantage sur la [sécurité d’Azure Percept](./overview-percept-security.md).
 
-- Intégration transparente avec [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) et d’autres services Azure tels qu’Azure IoT Hub, Azure Cognitive Services et [Live Video Analytics](../media-services/live-video-analytics-edge/overview.md).
+- Intégration transparente avec [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) et d’autres services Azure tels qu’Azure IoT Hub, Azure Cognitive Services et [Live Video Analytics](../azure-video-analyzer/video-analyzer-docs/overview.md).
 
 - Compatible avec [Azure Percept Audio](./overview-azure-percept-audio.md), un accessoire facultatif pour la création de solutions d’IA audio.
 

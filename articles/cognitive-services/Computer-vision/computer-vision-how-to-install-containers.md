@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 10/14/2021
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, conteneur
-ms.openlocfilehash: c2a12a675b2a169847cbe11c8cdf3d6aa468fcc8
-ms.sourcegitcommit: add71a1f7dd82303a1eb3b771af53172726f4144
+ms.openlocfilehash: bfe2bbe061f92c4290e63d36e8dcd647b4f7f830
+ms.sourcegitcommit: 91915e57ee9b42a76659f6ab78916ccba517e0a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123438279"
+ms.lasthandoff: 10/15/2021
+ms.locfileid: "131078006"
 ---
 # <a name="install-read-ocr-docker-containers"></a>Installer des conteneurs Docker OCR Read
 
@@ -199,7 +199,7 @@ Pour rechercher votre chaîne de connexion :
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Interroger le point de terminaison de prédiction du conteneur
 
@@ -445,6 +445,8 @@ Pour obtenir un exemple de cas d’utilisation, consultez <a href="https://aka.m
 Si vous exécutez le conteneur avec un [montage](./computer-vision-resource-container-config.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
+
+[!INCLUDE [Diagnostic container](../containers/includes/diagnostics-container.md)]
 
 ## <a name="billing"></a>Facturation
 

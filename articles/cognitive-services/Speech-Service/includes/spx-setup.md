@@ -5,12 +5,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 364ceacaea122e7ffda58ef0c7d4db072c8fee13
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 153276c1f3ccc63bbca0f286d3ae18c9e4de1b18
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122262363"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253644"
 ---
 ## <a name="download-and-install"></a>Télécharger et installer
 
@@ -33,7 +34,7 @@ Tapez `spx` pour afficher l’aide de l’interface CLI Speech.
 ### <a name="font-limitations"></a>Limitations des polices
 
 Sur Windows, l’interface CLI de Speech peut afficher uniquement les polices disponibles à l’invite de commandes sur l’ordinateur local.
-Le [Terminal Windows](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) prend en charge toutes les polices produites de manière interactive par l’interface CLI de Speech.
+Le [Terminal Windows](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701) prend en charge toutes les polices produites de manière interactive par l’interface CLI de Speech.
 
 Si la sortie est effectuée dans un fichier, un éditeur de texte tel que le Bloc-notes ou un navigateur web tel que Microsoft Edge peut également afficher toutes les polices.
 

@@ -9,12 +9,12 @@ ms.subservice: v1
 ms.topic: tutorial
 ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6fc40e48a9deb0c5e2f34e9e8283d867c4c33be7
-ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+ms.openlocfilehash: 16d1356403daf7e148a6259c127b766b52f157ca
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2021
-ms.locfileid: "130260091"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040734"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Didacticiel : Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Le pipeline dans ce didacticiel a une activité : **Activité HDInsight Hive**.
 > Un pipeline peut contenir plusieurs activités. En outre, vous pouvez chaîner deux activités (une après l’autre) en configurant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Pour plus d’informations, consultez [Planification et exécution dans Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -326,10 +326,12 @@ Notez les points suivants :
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
-      Vous pouvez exécuter la commande suivante pour confirmer l’enregistrement du fournisseur Data Factory :
+    Vous pouvez exécuter la commande suivante pour confirmer l’enregistrement du fournisseur Data Factory :
+
     ```powershell
     Get-AzResourceProvider
     ```
+
   * Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide de l’abonnement Azure et accédez à un panneau Data Factory (ou) créez une fabrique de données dans le portail Azure. Cette action enregistre automatiquement le fournisseur.
 
 Avant de créer un pipeline, vous devez d’abord créer quelques entités de la fabrique de données. Créez d’abord des services liés pour lier des magasins de données/calculs à votre magasin de données, puis définissez des jeux de données d’entrée et de sortie pour représenter les données dans les magasins de données liés.
@@ -343,13 +345,15 @@ Dans cette étape, vous liez votre compte Stockage Azure à votre fabrique de do
 1. Attribuez la commande à une variable nommée **cmd**.
 
     ```powershell
-    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    $cmd = { .\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01 };
     ```
+
 2. Exécutez la commande à l’aide de **Invoke-Command**.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
+
 3. Affichez les résultats. Si le service lié a été créé avec succès, le code JSON du service lié apparaît dans les **résultats**. Dans le cas contraire, un message d’erreur apparaît.
 
     ```powershell
@@ -364,11 +368,13 @@ Dans cette étape, vous liez un cluster HDInsight à la demande à votre fabriqu
     ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
     ```
+
 2. Exécutez la commande à l’aide de **Invoke-Command**.
 
     ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
+
 3. Affichez les résultats. Si le service lié a été créé avec succès, le code JSON du service lié apparaît dans les **résultats**. Dans le cas contraire, un message d’erreur apparaît.
 
     ```powershell

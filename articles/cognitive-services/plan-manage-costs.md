@@ -1,18 +1,18 @@
 ---
 title: Planifier la gestion des coûts pour Azure Cognitive Services
 description: Découvrez comment planifier et gérer les coûts pour Azure Cognitive Services avec l’analyse du coût dans le portail Azure.
-author: erhopf
-ms.author: erhopf
+author: PatrickFarley
+ms.author: pafarley
 ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: d686ea40b08139b9d16ade16d6e401db8300db0f
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: df7d5264fd4620f50bb4848a4c52bfdc5f5b9100
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112081116"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131073336"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Planifier et gérer les coûts pour Azure Cognitive Services
 
