@@ -6,24 +6,22 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 08/25/2021
-ms.custom: template-how-to
-ms.openlocfilehash: b3eb368184eceeabc6af46bac8ca08254560e252
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.date: 11/2/2021
+ms.custom: template-how-to, ignite-fall-2021
+ms.openlocfilehash: 027a87a7502f551b7fb97d52a732a90bc0b8aa45
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123097860"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131065681"
 ---
-# <a name="import-a-websocket-api-preview"></a>Importer une API WebSocket (préversion)
+# <a name="import-a-websocket-api"></a>Importer une API WebSocket
 
 Avec la solution API WebSocket d’API Management, vous pouvez désormais gérer, protéger, observer et exposer des API WebSocket et des API REST avec gestion des API et fournir un hub central pour la découverte et l’utilisation de toutes les API. Les éditeurs d’API peuvent rapidement ajouter une API WebSocket dans API Management via :
 * Un mouvement simple dans le Portail Azure, et 
 * API Management et Azure Resource Manager. 
 
 Vous pouvez sécuriser les API WebSocket en appliquant des stratégies de contrôle d’accès existantes, telles que la [validation JWT](./api-management-access-restriction-policies.md#ValidateJWT). Vous pouvez également tester les API WebSocket à l’aide des consoles de test de l’API dans le Portail Azure et le portail des développeurs. En se basant sur les capacités d’observation existantes, API Management fournit des indicateurs de performance et des journaux pour la surveillance et le dépannage des API WebSocket. 
-
-[!INCLUDE [preview](./includes/preview/preview-callout-websocket-api.md)]
 
 En lisant cet article, vous pourrez :
 > [!div class="checklist"]
@@ -94,7 +92,7 @@ Selon le [protocole WebSocket](https://tools.ietf.org/html/rfc6455), lorsqu’un
 
     :::image type="content" source="./media/websocket-api/test-websocket-api.png" alt-text="Exemple d'API de test":::
 
-1. Cliquez sur **Connexion**.
+1. Cliquez sur **Connecter**.
 1. Consultez l'état de la connexion dans **Sortie**.
 1. Entrez la valeur dans **Charge utile**. 
 1. Cliquez sur **Envoyer**.
@@ -115,11 +113,11 @@ Par exemple, la capture d’écran suivante montre les réponses récentes de l�
 
 ## <a name="limitations"></a>Limites
 
-Les API WebSocket sont disponibles et prises en charge dans la préversion publique via Portail Azure, API Manager et Azure Resource Manager. Voici les restrictions actuelles de la prise en charge de WebSocket dans API Management :
+Voici les restrictions actuelles de la prise en charge de WebSocket dans API Management :
 
-* Lest API WebSocket ne sont pas prises en charge dans le niveau Consommation.
-* Les API WebSocket ne sont pas prises en charge dans la [passerelle auto-hébergée](./how-to-deploy-self-hosted-gateway-azure-arc.md).
-* Azure CLI, PowerShell et le kit de développement logiciel (SDK) ne prennent pas en charge les opérations de gestion des API WebSocket.
+* Les API WebSocket ne sont pas encore prises en charge dans le niveau Consommation.
+* Les API WebSocket ne sont pas encore prises en charge dans la [passerelle auto-hébergée](./self-hosted-gateway-overview.md).
+* Azure CLI, PowerShell et le SDK ne prennent pas en charge les opérations de gestion des API WebSocket.
 
 ### <a name="unsupported-policies"></a>Stratégies non prises en charge
 

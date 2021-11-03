@@ -1,26 +1,26 @@
 ---
-title: Déployer un modèle ML en utilisant un point de terminaison géré en ligne (préversion)
+title: Déployer un modèle ML en utilisant un point de terminaison en ligne (préversion)
 titleSuffix: Azure Machine Learning
-description: Découvrez comment déployer votre modèle d’apprentissage automatique en tant que service web automatiquement managé par Azure.
+description: Découvrez comment déployer votre modèle Machine Learning en tant que service web sur Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 08/05/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: how-to, devplatv2
-ms.openlocfilehash: 882f0d8d140d7394e82aa23bf9a5b72b477940e5
-ms.sourcegitcommit: f29615c9b16e46f5c7fdcd498c7f1b22f626c985
+ms.custom: how-to, devplatv2, ignite-fall-2021
+ms.openlocfilehash: c086523feb73ee6571776b825420c4375ae48da9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2021
-ms.locfileid: "129423611"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131088138"
 ---
-# <a name="deploy-and-score-a-machine-learning-model-by-using-a-managed-online-endpoint-preview"></a>Déployer et noter un modèle d’apprentissage automatique en utilisant un point de terminaison en ligne managé (préversion)
+# <a name="deploy-and-score-a-machine-learning-model-by-using-an-online-endpoint-preview"></a>Déployer et noter un modèle Machine Learning en utilisant un point de terminaison en ligne (préversion)
 
-Découvrez comment utiliser un point de terminaison en ligne managé (préversion) pour déployer votre modèle, de sorte à n’avoir ni à créer ni à gérer l’infrastructure sous-jacente. Vous allez commencer par déployer un modèle sur votre ordinateur local pour déboguer les erreurs éventuelles, puis vous allez le déployer et le tester dans Azure. 
+Découvrez comment utiliser un point de terminaison en ligne (préversion) pour déployer votre modèle, de sorte à n’avoir ni à créer ni à gérer l’infrastructure sous-jacente. Vous allez commencer par déployer un modèle sur votre ordinateur local pour déboguer les erreurs éventuelles, puis vous allez le déployer et le tester dans Azure.
 
 Vous allez également apprendre à afficher les journaux et à surveiller le contrat de niveau de service (SLA). Vous commencez avec un modèle et obtenez un point de terminaison HTTPS/REST évolutif qui peut être utilisé pour la notation en ligne et en temps réel. 
 
@@ -116,11 +116,11 @@ Le tableau suivant décrit les attributs de `deployments` :
 Pour plus d’informations sur le schéma YAML, consultez le document [Référence YAML sur les points de terminaison en ligne](reference-yaml-endpoint-managed-online.md).
 
 > [!NOTE]
-> Pour utiliser le Service Azure Kubernetes (AKS) comme cible de calcul à la place des points de terminaison managés :
-> 1. Créez et attachez votre cluster AKS comme cible de calcul à votre espace de travail Azure Machine Learning avec[Azure ML Studio](how-to-create-attach-compute-studio.md#whats-a-compute-target).
-> 1. Utilisez le code [YAML de point de terminaison](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) pour cibler AKS à la place du code YAML de point de terminaison managé. Vous devrez modifier le code YAML pour remplacer la valeur de `target` par le nom de votre cible de calcul inscrite.
+> Pour utiliser Kubernetes comme cible de calcul à la place des points de terminaison gérés :
+> 1. Créez et attachez votre cluster Kubernetes comme cible de calcul à votre espace de travail Azure Machine Learning avec [Azure Machine Learning Studio](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster).
+> 1. Utilisez le [code YAML de point de terminaison](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) pour cibler Kubernetes à la place du code YAML de point de terminaison géré. Vous devrez modifier le code YAML pour remplacer la valeur de `target` par le nom de votre cible de calcul inscrite.
 >
-> Toutes les commandes utilisées dans cet article (à l’exception de la surveillance du SLA facultative et de l’intégration d’Azure Log Analytics) peuvent être utilisées avec des points de terminaison managés ou avec des points de terminaison AKS.
+> Toutes les commandes utilisées dans cet article (à l’exception de la surveillance du contrat SLA facultative et de l’intégration d’Azure Log Analytics) peuvent être utilisées avec des points de terminaison gérés ou avec des points de terminaison Kubernetes.
 
 ### <a name="register-your-model-and-environment-separately"></a>Enregistrement séparé de votre modèle et de votre environnement
 
@@ -141,7 +141,7 @@ Actuellement, vous pouvez spécifier un seul modèle par déploiement dans le co
 ## <a name="understand-the-scoring-script"></a>Comprendre le script de scoring
 
 > [!TIP]
-> Le format du script de notation pour les points de terminaison en ligne managés est le même que celui utilisé dans la version précédente de l’interface CLI et dans le kit SDK Python.
+> Le format du script de scoring pour les points de terminaison en ligne est le même que celui utilisé dans la version précédente de l’interface CLI et dans le SDK Python.
 
 Comme spécifié plus tôt, le `code_configuration.scoring_script` doit avoir une fonction `init()` et une fonction `run()`. Cet exemple utilise le [fichier score.py](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). La fonction `init()` est appelée lorsque le conteneur est initialisé ou démarré. Cette initialisation se produit généralement peu après la création ou la mise à jour du déploiement. Écrivez la logique ici pour effectuer des opérations d’initialisation globales telles que la mise en cache du modèle en mémoire (comme dans cet exemple). La fonction `run()` est appelée à chaque appel du point de terminaison et doit effectuer la notation et la prédiction réelles. Dans l’exemple, nous extrayons les données de l’entrée JSON, appelons la méthode `predict()` du modèle scikit-learn et retournons le résultat.
 
@@ -212,7 +212,7 @@ Ce déploiement peut prendre jusqu’à 15 minutes selon que l’environnement
 > [!TIP]
 > * Si vous préférez ne pas bloquer votre console CLI, vous pouvez ajouter l’indicateur `--no-wait` à la commande. Toutefois, cela arrêtera l’affichage interactif de l’état du déploiement.
 >
-> * Utilisez la [résolution des problèmes de déploiement de points de terminaison en ligne managés (préversion)](how-to-troubleshoot-managed-online-endpoints.md) pour déboguer les erreurs.
+> * Utilisez la [résolution des problèmes de déploiement de points de terminaison en ligne managés (préversion)](./how-to-troubleshoot-online-endpoints.md) pour déboguer les erreurs.
 
 ### <a name="check-the-status-of-the-deployment"></a>Vérifier l’état du déploiement
 
@@ -335,4 +335,4 @@ Pour en savoir plus, consultez les articles suivants :
 - [Utiliser des points de terminaison de traitement de lots (préversion) pour le scoring par lots](how-to-use-batch-endpoint.md)
 - [Afficher les coûts d’un point de terminaison en ligne managé Azure Machine Learning (préversion)](how-to-view-online-endpoints-costs.md)
 - [Tutoriel : Accéder aux ressources Azure avec un point de terminaison en ligne managé et une identité managée par le système (préversion)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
-- [Résolution des problèmes de déploiement de points de terminaison en ligne managés](how-to-troubleshoot-managed-online-endpoints.md)
+- [Résolution des problèmes de déploiement de points de terminaison en ligne managés](./how-to-troubleshoot-online-endpoints.md)
