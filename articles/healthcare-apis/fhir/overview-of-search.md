@@ -5,14 +5,14 @@ author: CaitlinV39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/03/2021
+ms.date: 10/25/2021
 ms.author: cavoeg
-ms.openlocfilehash: 33a83bd007558de8b9b2300ab6eec7e8fa1a4584
-ms.sourcegitcommit: d11ff5114d1ff43cc3e763b8f8e189eb0bb411f1
+ms.openlocfilehash: c95123adc8962df5fdd20b766ffe72f5aec72ca0
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/25/2021
-ms.locfileid: "122821358"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131040450"
 ---
 # <a name="overview-of-fhir-search"></a>Vue d’ensemble de la recherche FHIR
 
@@ -139,10 +139,13 @@ Pour faciliter la gestion des ressources retournées, vous pouvez utiliser des p
 | _revinclude                   | Oui                  | Oui                       |Les éléments inclus sont limités à 100. _revinclude sur PaaS et OSS sur Cosmos DB n’incluez pas : prise en charge des itérations [(#2137)](https://github.com/microsoft/fhir-server/issues/2137). Il y a également un code d’état incorrect pour une demande incorrecte [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Oui             | Oui                   |
 | _total                        | Partiel              | Partiel                   | _total = None et _total = exact                               |
-| _sort                         | Partiel              | Partiel                   | sort = _lastUpdated est pris en charge. Par défaut, trie l’enregistrement dans l’ordre croissant. Vous pouvez utiliser le préfixe « - » pour effectuer un tri dans l’ordre décroissant. pour l’API Azure pour FHIR et OSS Cosmos DB les bases de données créées après le 20 avril, 2021 sort est également pris en charge pour le prénom, le nom et la date clinique.             |
+| _sort                         | Partiel              | Partiel                   | sort = _lastUpdated est pris en charge sur l’API Azure pour FHIR et le service FHIR. pour le service FHIR et les serveurs OSS SQL DB FHIR, le tri par chaînes et les champs dateTime sont pris en charge. pour l’API Azure pour FHIR et OSS Cosmos DB bases de données créées après le 20 avril 2021, le tri est pris en charge sur le prénom, le nom et la date clinique.             |
 | _contained                    | Non                   | Non                        |
 | _containedType                | Non                   | Non                        |
 | _score                        | Non                   | Non                        |
+
+> [!NOTE]
+> Par défaut, `_sort` trie l’enregistrement dans l’ordre croissant. Vous pouvez utiliser le préfixe `'-'` pour trier dans l’ordre décroissant. En outre, le service FHIR et l’API Azure pour FHIR vous permettent uniquement de trier sur un seul champ à la fois.
 
 Par défaut, le service FHIR dans les API de santé Azure est défini sur gestion stricte. Cela signifie que le serveur ignore les paramètres inconnus ou non pris en charge. Si vous souhaitez utiliser une gestion stricte, vous pouvez utiliser l’en-tête et le set **préférés** `handling=strict` .
 

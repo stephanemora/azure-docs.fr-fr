@@ -5,16 +5,16 @@ services: automation
 ms.date: 09/07/2021
 ms.topic: quickstart
 ms.subservice: process-automation
-ms.openlocfilehash: 14fc0af0b75639ae79c417645912a868a0df34f6
-ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+ms.openlocfilehash: 13b314e5f73a0c970e28dfdd87551d713d60175b
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2021
-ms.locfileid: "123544538"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131462118"
 ---
 # <a name="quickstart-enable-managed-identities-for-your-automation-account-using-the-azure-portal"></a>Démarrage rapide : Activer les identités managées pour votre compte Automation avec le portail Azure
 
-Ce guide de démarrage rapide vous montre comment activer les identités managées pour un compte Azure Automation. Pour plus d’informations sur le fonctionnement des identités managées avec Azure Automation, consultez [Identités managées](../automation-security-overview.md#managed-identities-preview).
+Ce guide de démarrage rapide vous montre comment activer les identités managées pour un compte Azure Automation. Pour plus d’informations sur le fonctionnement des identités managées avec Azure Automation, consultez [Identités managées](../automation-security-overview.md#managed-identities).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -53,7 +53,6 @@ Cette section reprend à l’endroit où la dernière section s’est terminée.
 1. Sous **Identités managées affectées par l’utilisateur**, sélectionnez votre identité managée affectée par l’utilisateur existante, puis sélectionnez **Ajouter**. Vous revenez à l’onglet **Affecté(e) par l’utilisateur**.
 
    :::image type="content" source="media/enable-managed-identity/added-user-identity-portal.png" alt-text="Ajout de l’identité managée affectée par l’utilisateur dans le portail.":::
-
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

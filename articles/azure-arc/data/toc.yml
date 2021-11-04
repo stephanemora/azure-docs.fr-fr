@@ -189,6 +189,8 @@ items:
                 href: monitoring-log-analytics-azure-portal-managed-instance.md
               - name: Haute disponibilité
                 href: managed-instance-high-availability.md
+              - name: Capacité réservée
+                href: reserved-capacity-overview.md
               - name: Supprimer
                 href: delete-managed-instance.md
           - name: Migrer

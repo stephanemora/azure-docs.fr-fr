@@ -1,18 +1,19 @@
 ---
 title: Passer en revue les données de facturation d’un Accord de Mise en Œuvre Entreprise avec l’API REST
 description: Découvrez comment utiliser les API REST Azure pour passer en revue les informations de facturation de l’Accord de Mise en Œuvre Entreprise.
-author: lleonard-msft
+author: bandersmsft
+ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: article
 ms.date: 09/15/2021
 ms.author: banders
-ms.openlocfilehash: cbd1ecd4b71ab66b70c4e20cf1ce3cdf02aede5a
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 23c7b078b54d050aa687fe4bdb08fa908c13ed48
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128679822"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131464753"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Passer en revue la facturation de l’Accord de Mise en Œuvre Entreprise avec les API REST
 

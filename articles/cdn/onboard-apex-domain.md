@@ -2,17 +2,17 @@
 title: Intégrer un domaine racine ou apex à un point de terminaison Azure CDN existant – Portail Azure
 description: Découvrez comment intégrer un domaine racine ou apex à un point de terminaison Azure CDN existant à l’aide du portail Azure.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 11/07/2020
-ms.author: allensu
-ms.openlocfilehash: 025950ffcc264a3cfad1185ac1629c6a8fd44814
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.author: duau
+ms.openlocfilehash: 9962ee3d86147520206aee84ec272069577c2eb5
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129992569"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131426314"
 ---
 # <a name="onboard-a-root-or-apex-domain-to-an-existing-azure-cdn-endpoint"></a>Intégrer un domaine racine ou apex à un point de terminaison Azure CDN existant
 

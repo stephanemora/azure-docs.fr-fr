@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure'
 description: Ce démarrage rapide décrit l’activation du réseau de distribution de contenu (Content Delivery Network, CDN) en créant un profil et un point de terminaison CDN.
-author: asudbring
+author: duongau
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 04/30/2020
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: e045a7df3389dc58fe8ac2298f2f51b0337a5f94
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.openlocfilehash: de24b2e9676082da6980c59e696781fc6939f29f
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124775509"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131423505"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Démarrage rapide : Créer un profil et un point de terminaison Azure CDN
 

@@ -7,12 +7,12 @@ ms.author: sumuth
 ms.topic: tutorial
 ms.date: 12/10/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4cea156f52538a58ba5eea86ace6272848a05ae9
-ms.sourcegitcommit: 7d63ce88bfe8188b1ae70c3d006a29068d066287
+ms.openlocfilehash: 9c408a0a8b0f278ea75462a9c006b64b9d5601c8
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114467167"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131425327"
 ---
 # <a name="tutorial-deploy-django-app-on-aks-with-azure-database-for-postgresql---flexible-server"></a>Tutoriel : Déployer l’application Django sur AKS avec Azure Database pour PostgreSQL – Serveur flexible
 
@@ -242,7 +242,7 @@ spec:
         env:
         - name: DATABASE_HOST
           value: "SERVERNAME.postgres.database.azure.com"
-        - name: DATABASE_USERNAME
+        - name: DATABASE_USER
           value: "YOUR-DATABASE-USERNAME"
         - name: DATABASE_PASSWORD
           value: "YOUR-DATABASE-PASSWORD"
@@ -294,7 +294,7 @@ Quand l’application s’exécute, un service Kubernetes expose le front-end de
 Pour surveiller la progression, utilisez la commande [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) avec l’argument `--watch`.
 
 ```azurecli-interactive
-kubectl get service django-app --watch
+kubectl get service python-svc --watch
 ```
 
 Dans un premier temps, la valeur *EXTERNAL-IP* pour le service *django-app* apparaît comme étant *en attente*.
