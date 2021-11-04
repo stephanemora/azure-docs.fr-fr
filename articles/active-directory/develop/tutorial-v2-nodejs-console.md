@@ -3,19 +3,19 @@ title: 'Tutoriel : Appeler Microsoft Graph dans une application console Node.js
 titleSuffix: Microsoft identity platform
 description: Dans ce tutoriel, vous créez une application console permettant d’appeler Microsoft Graph sur une application console Node.js.
 services: active-directory
-author: KarenH444
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/17/2021
-ms.author: karenhoran
-ms.openlocfilehash: 568b4cfa6cd90c9fd35901fde269b1acbaa46ff0
-ms.sourcegitcommit: 01dcf169b71589228d615e3cb49ae284e3e058cc
+ms.author: marsma
+ms.openlocfilehash: c46fbea002314c0b60046d942423815b3d8c1115
+ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2021
-ms.locfileid: "130161813"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131507963"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-in-a-nodejs-console-app"></a>Tutoriel : Appeler l’API Microsoft Graph dans une application console Node.js
 
