@@ -17,12 +17,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9200c43b76e3ee95618fe1667e4fe0b6a62b160
-ms.sourcegitcommit: 1f29603291b885dc2812ef45aed026fbf9dedba0
+ms.openlocfilehash: fb602f5ab56ee173683f8f17b741705b26c48e70
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2021
-ms.locfileid: "129231650"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131046277"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gérer l’approbation AD FS avec Azure AD à l’aide d’Azure AD Connect
 
@@ -30,10 +30,10 @@ ms.locfileid: "129231650"
 
 Lorsque vous fédérez votre environnement local avec Azure AD, vous établissez une relation de confiance entre le fournisseur d’identité local et Azure AD.  Azure AD Connect peut gérer la fédération entre le service de fédération Active Directory (AD FS) local et Azure AD. Cet article fournit une vue d’ensemble des éléments suivants :
 
-* divers paramètres configurés sur l’approbation par Azure AD Connect ;
-* règles de transformation d’émission (règles de revendication) définies par Azure AD Connect ;
-* procédures de sauvegarde et de restauration des règles de revendication entre les mises à niveau et les mises à jour de configuration. 
-* Meilleures pratiques pour la sécurisation et la supervision de l’approbation AD FS avec Azure AD
+* Les divers paramètres configurés sur l’approbation par Azure AD Connect ;
+* Les règles de transformation d’émission (règles de revendication) définies par Azure AD Connect ;
+* Les procédures de sauvegarde et de restauration des règles de revendication entre les mises à niveau et les mises à jour de configuration.
+* Les meilleures pratiques pour la sécurisation et la supervision de l’approbation AD FS avec Azure AD.
 
 ## <a name="settings-controlled-by-azure-ad-connect"></a>Paramètres contrôlés par Azure AD Connect
 
