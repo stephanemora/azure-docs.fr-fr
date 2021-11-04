@@ -3,15 +3,16 @@ title: Créer et déployer des workflows en utilisant Logic Apps avec Azure Arc
 description: Créez et déployez des workflows d’application logique monolocataires qui s’exécutent partout où Kubernetes peut s’exécuter.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, ladolan, reylons, archidda, sopai, azla
+ms.reviewer: estfan, reylons, archidda, sopai, azla
 ms.topic: how-to
-ms.date: 06/03/2021
-ms.openlocfilehash: 17c9eb020d62207910008fb032872bd609df553f
-ms.sourcegitcommit: 860f6821bff59caefc71b50810949ceed1431510
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: ca9458581468ea359ae1ca2f7e034c7459f87fea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2021
-ms.locfileid: "129712298"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131082433"
 ---
 # <a name="create-and-deploy-single-tenant-based-logic-app-workflows-with-azure-arc-enabled-logic-apps-preview"></a>Créer et déployer des workflows d’application logique monolocataire en utilisant Logic Apps avec Azure Arc (préversion)
 
@@ -183,7 +184,7 @@ az logicapp create --name MyLogicAppName
    --storage-account MyStorageAccount --custom-location MyCustomLocation
 ```
 
-Pour créer une application logique avec Azure Arc au moyen d’une image Azure Container Registry privée, exécutez la commande `az logicapp create` avec les paramètres nécessaires suivants :
+Pour créer une application logique avec Azure Arc au moyen d’une image Azure Container Registry (ACR) privée, exécutez la commande `az logicapp create` avec les paramètres nécessaires suivants :
 
 ```azurecli
 az logicapp create --name MyLogicAppName 
@@ -390,7 +391,7 @@ Dans votre modèle Azure Resource Manager (ARM), incluez la définition de resso
 }
 ```
 
-Pour plus d’informations, consultez la documentation [Microsoft.Web/connections/accesspolicies (modèle ARM)](/azure/templates/microsoft.web/connections?tabs=json). 
+Pour plus d’informations, consultez la documentation [Microsoft.Web/connections/accesspolicies (modèle ARM)](/azure/templates/microsoft.web/connections?tabs=json).
 
 #### <a name="azure-portal"></a>Portail Azure
 
@@ -488,8 +489,25 @@ L’exemple suivant décrit un exemple de définition de ressource Logic Apps av
 Si vous préférez utiliser des outils de conteneur et des processus de déploiement, vous pouvez conteneuriser vos applications logiques et les déployer sur Logic Apps avec Azure Arc. Pour ce scénario, effectuez les tâches de haut niveau suivantes lors de la configuration de votre infrastructure :
 
 - Configurez un registre Docker pour héberger vos images de conteneur.
+
+- Pour conteneuriser votre application logique, ajoutez le fichier Dockerfile suivant au dossier racine de votre projet d’application logique, puis suivez les étapes de création et de publication d’une image dans le registre Docker. Par exemple, consultez le [Tutoriel : Créer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks](../container-registry/container-registry-tutorial-quick-task.md).
+
+  > [!NOTE]
+  > Si vous [utilisez SQL en tant que fournisseur de stockage](set-up-sql-db-storage-single-tenant-standard-workflows.md), veillez à utiliser une image Azure Functions version 3.3.1 ou ultérieure.
+
+  ```text
+  FROM mcr.microsoft.com/azure-functions/node:3.3.1
+  ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+  AzureFunctionsJobHost__Logging__Console__IsEnabled=true \
+  FUNCTIONS_V2_COMPATIBILITY_MODE=true
+  COPY . /home/site/wwwroot
+  RUN cd /home/site/wwwroot
+  ```
+
 - Informez le fournisseur de ressources que vous créez une application logique sur Kubernetes.
+
 - Dans votre modèle de déploiement, pointez sur le registre Docker et l’image de conteneur dans laquelle vous envisagez de déployer. Azure Logic Apps monolocataire utilise ces informations pour récupérer l’image de conteneur à partir de votre registre Docker.
+
 - Incluez un plan App Service avec votre déploiement. Pour plus d’informations, consultez [Inclure un plan App Service avec le déploiement](#include-app-service-plan).
 
 Dans votre [modèle Azure Resource Manager (ARM)](../azure-resource-manager/templates/overview.md), incluez les valeurs suivantes :
