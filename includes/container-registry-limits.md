@@ -1,21 +1,21 @@
 ---
-title: fichier descriptif
-description: Fichier include
+title: Fichier include
+description: Fichier Include
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/12/2021
+ms.date: 10/22/2021
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 43baf554bda4c2b3ae9bda9d79b46035e073cead
-ms.sourcegitcommit: f6e2ea5571e35b9ed3a79a22485eba4d20ae36cc
+ms.openlocfilehash: 777af1f15441ab4849292e40b3a27863276f3fce
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2021
-ms.locfileid: "128582329"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131473341"
 ---
-| Ressource | De base | standard | Premium |
+| Ressource | De base | Standard | Premium |
 |---|---|---|---|
 | Stockage inclus<sup>1</sup> (Gio) | 10 | 100 | 500 |
 | Limite de stockage (Tio) | 20| 20 | 20 |
@@ -30,7 +30,7 @@ ms.locfileid: "128582329"
 | Zones de disponibilité | N/A | N/A | [Préversion][zones] |
 | Approbation du contenu | N/A | N/A | [Pris en charge][content-trust] |
 | Liaison privée avec points de terminaison privés | N/A | N/A | [Pris en charge][plink] |
-| &bull; Points de terminaison privés | N/A | N/A | 10 |
+| &bull; Points de terminaison privés | N/A | N/A | 200 |
 | Règles de réseau d’adresses IP publiques | N/A | N/A | 100 |
 | Accès au réseau virtuel du point de terminaison de service | N/A | N/A | [Préversion][vnet] |
 | &bull; Règles de réseau virtuel | N/A | N/A | 100 |

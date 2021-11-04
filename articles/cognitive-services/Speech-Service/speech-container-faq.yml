@@ -4,20 +4,20 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Installez et exécutez des conteneurs Speech. La reconnaissance vocale transcrit en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser ou afficher. La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine.
   services: cognitive-services
-  author: PatrickFarley
+  author: eric-urban
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: speech-service
   ms.topic: conceptual
   ms.date: 03/11/2021
-  ms.author: pafarley
+  ms.author: eur
   ms.custom: devx-track-csharp
-  ms.openlocfilehash: e2dbd29686dad5416a6bd148d2bcccc37fca5107
-  ms.sourcegitcommit: f2d0e1e91a6c345858d3c21b387b15e3b1fa8b4c
+  ms.openlocfilehash: 5b896e3f4bbd6cf00d4ee9b7eb2723cc75d07a5b
+  ms.sourcegitcommit: 2cc9695ae394adae60161bc0e6e0e166440a0730
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/07/2021
-  ms.locfileid: "123537826"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131508160"
 title: Questions fréquentes (FAQ) sur les conteneurs de service Speech
 summary: Lorsque vous utilisez le service Speech avec des conteneurs, consultez cette collection de questions fréquemment posées avant de contacter le support. Cet article regroupe des questions variant du niveau général au niveau technique. Pour développer une réponse, cliquez sur la question.
 sections:
