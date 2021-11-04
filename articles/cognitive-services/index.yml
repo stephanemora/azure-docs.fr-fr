@@ -55,15 +55,15 @@ conceptualContent:
     - title: Langage
       summary: 'Autorisez vos applications à traiter le langage naturel avec des scripts préconstruits, à évaluer les sentiments et à reconnaître les attentes des utilisateurs.'
       links:
+        - url: ./language-service/index.yml
+          itemType: overview
+          text: Azure Cognitive Service for Language
         - url: ./luis/index.yml
           itemType: overview
           text: Language Understanding (LUIS)
         - url: ./qnamaker/index.yml
           itemType: overview
           text: QnA Maker
-        - url: ./text-analytics/index.yml
-          itemType: overview
-          text: Analyse de texte
         - url: ./translator/index.yml
           itemType: overview
           text: Convertisseur

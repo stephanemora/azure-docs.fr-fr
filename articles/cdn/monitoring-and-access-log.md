@@ -2,7 +2,7 @@
 title: Surveillance, métriques et journaux bruts pour Azure CDN
 description: Cet article explique comment configurer et utiliser la surveillance, les métriques et les journaux bruts Azure CDN.
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fd117532267672e152b6fd6f6ce382c4bda39687
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 3c169a63a39f26174cf6c39ef73c95ae5e545b2c
+ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693972"
+ms.lasthandoff: 11/03/2021
+ms.locfileid: "131450473"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Surveillance en temps réel, métriques et journaux d’accès pour Azure CDN
 Grâce à Azure CDN de Microsoft, vous pouvez surveiller les ressources des manières suivantes pour vous aider à résoudre, suivre et déboguer les problèmes : 
