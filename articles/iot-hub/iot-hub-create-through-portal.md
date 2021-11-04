@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 801d073642114addeed87c4ee2073774f7888fa5
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: fac663053b964cad2bbfc069fdf2e21efa761c61
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487616"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131072918"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Création d’un IoT Hub à l’aide du portail Azure
 
@@ -30,11 +30,7 @@ Pour utiliser les étapes de ce tutoriel, vous devez disposer d’un abonnement 
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>Modifier les paramètres du hub IoT
 
-Vous pouvez modifier les paramètres d’un hub IoT existant après sa création, dans le volet IoT Hub.
-
-![Capture d’écran montrant les paramètres pour le hub IoT](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
-
-Voici quelques-unes des propriétés que vous pouvez définir pour un hub IoT :
+Vous pouvez modifier les paramètres d’un hub IoT existant après sa création, dans le volet IoT Hub. Voici quelques-unes des propriétés que vous pouvez définir pour un hub IoT :
 
 **Tarification et mise à l’échelle** : Vous pouvez utiliser cette propriété pour migrer vers un autre niveau ou pour définir le nombre d’unités IoT Hub. 
 

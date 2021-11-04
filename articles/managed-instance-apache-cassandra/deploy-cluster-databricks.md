@@ -5,22 +5,18 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 06/02/2021
-ms.openlocfilehash: 7075b7efd871d3f226faa593e0730d22c8913fd1
-ms.sourcegitcommit: 0770a7d91278043a83ccc597af25934854605e8b
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: fb33196d95f21041cf2657bdd27f203ad3f860ea
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2021
-ms.locfileid: "124797081"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084934"
 ---
-# <a name="quickstart-deploy-a-managed-apache-spark-cluster-preview-with-azure-databricks"></a>Démarrage rapide : Déployer un cluster Apache Spark managé (préversion) avec Azure Databricks
+# <a name="quickstart-deploy-a-managed-apache-spark-cluster-with-azure-databricks"></a>Démarrage rapide : Déployer un cluster Apache Spark managé avec Azure Databricks
 
-Azure Managed Instance pour Apache Cassandra offre des opérations de déploiement et de mise à l’échelle automatisées pour les centres de données Apache Cassandra open source managés, ce qui permet d’accélérer les scénarios hybrides et de réduire la maintenance en cours.
-
-> [!IMPORTANT]
-> Azure Managed Instance pour Apache Cassandra est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure Managed Instance pour Apache Cassandra offre des opérations de déploiement et de mise à l’échelle automatisées pour les centres de données Apache Cassandra open source managés, ce qui permet d’accélérer les scénarios hybrides et de réduire la maintenance continue.
 
 Ce guide de démarrage rapide explique comment utiliser le portail Azure pour créer un cluster Apache Spark complètement managé dans le réseau virtuel Azure de votre cluster Azure Managed Instance pour Apache Cassandra. Vous allez créer le cluster Spark dans Azure Databricks. Plus tard, vous pourrez créer ou attacher des notebooks au cluster, lire les données de différentes sources de données et analyser des insights.
 
@@ -113,4 +109,3 @@ Dans ce guide de démarrage rapide, vous avez vu comment créer un cluster Apach
 
 > [!div class="nextstepaction"]
 > [Gérer les ressources Azure Managed Instance pour Apache Cassandra à l’aide d’Azure CLI](manage-resources-cli.md)
-

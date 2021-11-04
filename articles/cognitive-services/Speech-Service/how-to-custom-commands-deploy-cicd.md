@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 686e342eb68e2e5c97bdbae9cd11bdff5819b5d6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c83c52efb8ff6eb59d49fb930ae4edf0b2f9c335
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98927592"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011842"
 ---
 # <a name="continuous-deployment-with-azure-devops"></a>Déploiement continu avec Azure DevOps
 
@@ -39,7 +39,7 @@ Les scripts sont hébergés dans [Assistant vocal Cognitive Services - Commandes
 1. Dans la section **Configure** (Configuration), sélectionnez « Starter pipeline » (Pipeline de démarrage)
 1. Vous obtenez alors un éditeur avec un fichier YAML, et remplacez la section « steps » (étapes) par ce script.
 
-    ```YAML
+    ```yaml
     steps:
     - task: Bash@3
       displayName: 'Export source app'
@@ -126,7 +126,7 @@ Les scripts sont hébergés dans [Assistant vocal Cognitive Services - Commandes
 1. Dans la section **Configure** (Configuration), sélectionnez « Starter pipeline » (Pipeline de démarrage)
 1. Vous obtenez alors un éditeur avec un fichier YAML, et remplacez la section « steps » (étapes) par ce script.
 
-    ```YAML
+    ```yaml
     steps:
     - task: Bash@3
       displayName: 'Import app'

@@ -2,17 +2,17 @@
 title: Configurer une connexion à une source de données à l’aide d’une identité managée
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée
-author: markheff
-ms.author: maheff
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.openlocfilehash: bd4d10c32f1c850adf6dc886672b16937b553222
-ms.sourcegitcommit: 2d412ea97cad0a2f66c434794429ea80da9d65aa
+ms.openlocfilehash: ff0ea838df98ba175fd0f3eb843bb148d98b70a1
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2021
-ms.locfileid: "122533174"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131010571"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurer une connexion d’indexeur à une source de données à l’aide d’une identité managée
 

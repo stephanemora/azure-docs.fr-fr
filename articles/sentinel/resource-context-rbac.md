@@ -6,7 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-ms.assetid: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -15,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 95ff033ab83fee6e9dacbf15b12db33f8b36c3c0
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: cd0b10f4dccf9d989aaf93e472306f3283afb7a6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122524083"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131055157"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>Gérer l’accès aux données d’Azure Sentinel par ressource
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Généralement, les utilisateurs qui ont accès à un espace de travail Azure Sentinel ont également accès à toutes les données de l’espace de travail, y compris au contenu de sécurité. Les administrateurs peuvent utiliser des [rôles Azure](roles.md) pour configurer l’accès à des fonctionnalités spécifiques dans Azure Sentinel, en fonction des exigences d’accès de leur équipe.
 
@@ -67,7 +69,7 @@ La liste suivante décrit des situations dans lesquelles d’autres solutions d�
 |---------|---------|
 |**Une filiale a une équipe SOC qui requiert une expérience Azure Sentinel complète**.     |  Dans ce cas, utilisez une architecture à plusieurs espaces de travail pour séparer vos autorisations de données. <br><br>Pour plus d'informations, consultez les pages suivantes : <br>- [Étendre Azure Sentinel dans les espaces de travail et les locataires](extend-sentinel-across-workspaces-tenants.md)<br>    - [Utiliser les incidents dans plusieurs espaces de travail simultanément](multiple-workspace-view.md)          |
 |**Vous souhaitez donner accès à un type d’événement spécifique**.     |  Par exemple, accorder à un administrateur Windows l’accès aux événements de sécurité Windows dans tous les systèmes. <br><br>Dans de tels cas, utilisez un [RBAC au niveau des tables](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) afin de définir des autorisations pour chaque table.       |
-| **Limiter l’accès à un niveau plus granulaire, soit non basé sur la ressource, soit uniquement à un sous-ensemble des champs d’un événement**   |   Par exemple, vous pourriez souhaiter limiter l’accès aux journaux Office 365 en fonction de la filiale d’un utilisateur. <br><br>Dans ce cas, vous pouvez donner accès aux données en utilisant l’intégration avec les [tableaux de bord et rapports Power bi](../azure-monitor/visualize/powerbi.md).      |
+| **Limiter l’accès à un niveau plus granulaire, soit non basé sur la ressource, soit uniquement à un sous-ensemble des champs d’un événement**   |   Par exemple, vous pourriez souhaiter limiter l’accès aux journaux Office 365 en fonction de la filiale d’un utilisateur. <br><br>Dans ce cas, vous pouvez donner accès aux données en utilisant l’intégration avec les [tableaux de bord et rapports Power bi](../azure-monitor/logs/log-powerbi.md).      |
 | | |
 
 ## <a name="explicitly-configure-resource-context-rbac"></a>Configurer explicitement un RBAC dans le contexte de la ressource

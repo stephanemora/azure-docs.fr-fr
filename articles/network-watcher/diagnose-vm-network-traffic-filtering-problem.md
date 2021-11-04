@@ -14,17 +14,14 @@ ms.service: network-watcher
 ms.workload: infrastructure
 ms.tgt_pltfrm: network-watcher
 ms.devlang: na
-tags:
-- azure-resource-manager
-ms.custom:
-- mvc
-- mode-portal
-ms.openlocfilehash: e8a9ce38e29f743fd40a6998d8bdc300080b2cee
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+tags: azure-resource-manager
+ms.custom: mvc, mode-portal
+ms.openlocfilehash: c95beb02c88f74546cc549cf1607d9717232bd85
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537757"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084518"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle en utilisant le portail Azure
 
@@ -49,7 +46,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux exigences de complexité définies.|
     |Abonnement| Sélectionnez votre abonnement.|
     |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Emplacement| Sélectionnez **USA Est**.|
+    |Location| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, acceptez toutes les valeurs par défaut, puis cliquez sur **OK**.
@@ -84,7 +81,7 @@ Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic r�
     | Machine virtuelle   | Sélectionner myVm                                                                                       |
     | interface réseau | myvm - le nom de l’interface réseau créée par le portail lorsque vous avez créé la machine virtuelle est différent. |
     | Protocol          | TCP                                                                                               |
-    | Direction         | Règle de trafic sortant                                                                                          |
+    | Sens         | Règle de trafic sortant                                                                                          |
     | Adresse IP locale  | 10.0.0.4                                                                                          |
     | Port local      | 60000                                                                                                |
     | Adresse IP distante | 13.107.21.200 : l’une des adresses de <www.bing.com>.                                             |

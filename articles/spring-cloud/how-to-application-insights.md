@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 328d99d2e690004f87d7224253e81ed6815a2e75
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: 1886632101e7d453c2c7e4d4a5b84dbd57c2305a
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "129984042"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131075008"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud"></a>Agent In-process Java d’Application Insights dans Azure Spring Cloud
 
@@ -294,9 +294,9 @@ Lorsque les données sont stockées dans Application Insights, elles contiennent
 * [Utiliser le suivi distribué avec Azure Spring Cloud](./how-to-distributed-tracing.md)
 * [Analyser les journaux et les métriques](diagnostic-services.md)
 * [Effectuer le streaming des journaux en temps réel](./how-to-log-streaming.md)
-* [Plan de l’application](/azure/azure-monitor/app/app-map)
-* [Métriques temps réel](/azure/azure-monitor/app/live-stream)
-* [Performances](/azure/azure-monitor/app/tutorial-performance)
-* [Échecs](/azure/azure-monitor/app/tutorial-runtime-exceptions)
-* [Métriques](/azure/azure-monitor/essentials/tutorial-metrics-explorer)
-* [Journaux d’activité](/azure/azure-monitor/logs/data-platform-logs)
+* [Plan de l’application](../azure-monitor/app/app-map.md)
+* [Métriques temps réel](../azure-monitor/app/live-stream.md)
+* [Performances](../azure-monitor/app/tutorial-performance.md)
+* [Échecs](../azure-monitor/app/tutorial-runtime-exceptions.md)
+* [Métriques](../azure-monitor/essentials/tutorial-metrics-explorer.md)
+* [Journaux d’activité](../azure-monitor/logs/data-platform-logs.md)

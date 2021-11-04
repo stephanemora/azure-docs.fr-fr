@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 773a22fb1fbd94540f8d56fb417a88bbcfccdd3a
-ms.sourcegitcommit: 611b35ce0f667913105ab82b23aab05a67e89fb7
+ms.openlocfilehash: a7398de8f9c853ca3c17f5052fdc126a33030594
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2021
-ms.locfileid: "130003134"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131084688"
 ---
 # <a name="use-azure-migrate-with-private-endpoints"></a>Utiliser Azure Migrate avec des points de terminaison privés
 
@@ -27,7 +27,7 @@ Passez en revue les autorisations requises suivantes, ainsi que les scénarios e
 
 ### <a name="supported-geographies"></a>Zones géographiques prises en charge
 
-La fonctionnalité est désormais disponible en préversion dans les zones géographiques du [cloud public](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud) et du [cloud du secteur public](/azure/migrate/migrate-support-matrix#supported-geographies-azure-government) prises en charge.
+La fonctionnalité est désormais disponible en préversion dans les zones géographiques du [cloud public](./migrate-support-matrix.md#supported-geographies-public-cloud) et du [cloud du secteur public](./migrate-support-matrix.md#supported-geographies-azure-government) prises en charge.
 
 ### <a name="required-permissions"></a>Autorisations requises
 

@@ -8,12 +8,12 @@ ms.date: 02/16/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 7d35046f2cd78e488079b437fb1b5952f4d2b329
-ms.sourcegitcommit: dcf1defb393104f8afc6b707fc748e0ff4c81830
+ms.openlocfilehash: 52b5e16bbe04ca90668410980fc6fff36d9d6b3f
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2021
-ms.locfileid: "123116231"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131011500"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -101,11 +101,11 @@ Voici un exemple de requête d’analyse qui n’a pas été entièrement servie
 
 Requête :
 
- ```sql
+```sql
 SELECT VALUE c.description
 FROM c
 WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
- ```
+```
 
 Métriques de requête :
 

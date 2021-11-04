@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9fa0e633c92300e0932200725aa1fa82de46f359
-ms.sourcegitcommit: 192444210a0bd040008ef01babd140b23a95541b
+ms.openlocfilehash: e8c89f4542b29a69346f43f95a7d2f5de78148f9
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2021
-ms.locfileid: "114221472"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012489"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor
 
@@ -71,7 +71,7 @@ Pour commencer à écrire des requêtes pour les alertes, procédez comme suit 
     > Comme la fonction [bin()](/azure/kusto/query/binfunction) peut entraîner des intervalles de temps inégaux, le service d’alerte convertit automatiquement la fonction [bin()](/azure/kusto/query/binfunction) en fonction [bin_at()](/azure/kusto/query/binatfunction) avec l’heure appropriée au moment de l’exécution, pour garantir des résultats avec un point fixe.
 
     > [!NOTE]
-    > La commande Fractionner par dimensions d’alerte n’est disponible que pour l’API scheduledQueryRules actuelle. Si vous utilisez l'[API d'alerte Log Analytics](./api-alerts.md) héritée, vous devrez opérer un basculement. [En savoir plus sur le basculement](./alerts-log-api-switch.md). Les alertes centrées sur les ressources à grande échelle ne sont prises en charge que dans les versions `2020-05-01-preview` et ultérieures de l’API.
+    > La commande Fractionner par dimensions d’alerte n’est disponible que pour l’API scheduledQueryRules actuelle. Si vous utilisez l'[API d'alerte Log Analytics](./api-alerts.md) héritée, vous devrez opérer un basculement. [En savoir plus sur le basculement](./alerts-log-api-switch.md). Les alertes centrées sur les ressources à grande échelle ne sont prises en charge que dans les versions `2020-08-01` et ultérieures de l’API.
 
     ![Option Agréger sur](media/alerts-log/aggregate-on.png)
 
@@ -143,9 +143,6 @@ Pour commencer à écrire des requêtes pour les alertes, procédez comme suit 
 
 ### <a name="log-alert-for-all-other-resource-types"></a>Alerte de journal pour tous les autres types de ressources
 
-> [!NOTE]
-> Il n’existe actuellement aucun frais supplémentaire pour la version `2020-05-01-preview` de l’API et les alertes de journal centrées sur les ressources.  La tarification des fonctionnalités en préversion sera annoncée à l’avenir et un avis sera fourni avant le début de la facturation. Si vous choisissez de continuer à utiliser la nouvelle version de l’API et les alertes de journal centrées sur les ressources après la période de notification, vous serez facturé au tarif en vigueur.
-
 1. Démarrez à partir de l’onglet **Condition** :
 
     1. Vérifiez que les valeurs [**Mesure**](./alerts-unified-log.md#measure), [**Type d’agrégation**](./alerts-unified-log.md#aggregation-type) et [**Granularité d’agrégation**](./alerts-unified-log.md#aggregation-granularity) sont correctes. 
@@ -210,7 +207,7 @@ Pour commencer à écrire des requêtes pour les alertes, procédez comme suit 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> PowerShell n’est pas actuellement pris en charge dans la version de l’API `2020-05-01-preview`
+> PowerShell n’est pas actuellement pris en charge dans la version de l’API `2020-08-01`
 
 Les cmdlets PowerShell répertoriées ci-dessous sont disponibles pour gérer les règles avec l’[API de règles de requêtes planifiées](/rest/api/monitor/scheduledqueryrules/).
 
@@ -280,7 +277,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
 ## <a name="managing-log-alerts-using-cli"></a>Gestion des alertes de journal à l’aide de l’interface de ligne de commande
 
 > [!NOTE]
-> La prise en charge d’Azure CLI n’est disponible que pour l’API scheduledQueryRules versions `2020-05-01-preview` et ultérieures. La version précédente de l’API peut utiliser l’interface de ligne de commande Azure Resource Manager avec des modèles, comme décrit ci-dessous. Si vous utilisez l’[API d’alerte Log Analytics](./api-alerts.md) héritée, vous devrez opérer un basculement vers l’utilisation de l’interface de ligne de commande. [En savoir plus sur le basculement](./alerts-log-api-switch.md).
+> La prise en charge d’Azure CLI n’est disponible que pour l’API scheduledQueryRules versions `2020-08-01` et ultérieures. La version précédente de l’API peut utiliser l’interface de ligne de commande Azure Resource Manager avec des modèles, comme décrit ci-dessous. Si vous utilisez l’[API d’alerte Log Analytics](./api-alerts.md) héritée, vous devrez opérer un basculement vers l’utilisation de l’interface de ligne de commande. [En savoir plus sur le basculement](./alerts-log-api-switch.md).
 
 Les sections précédentes décrivaient comment créer, afficher et gérer des règles d’alerte de journal à l’aide du portail Azure. Cette section décrit comment faire de même à l’aide de l’[interface de ligne de commande Azure](/cli/azure/get-started-with-azure-cli) multiplateforme. Le plus rapide pour commencer à utiliser Azure CLI est de s’appuyer sur [Azure Cloud Shell](../../cloud-shell/overview.md). Pour cet article, nous utiliserons le service Cloud Shell.
 

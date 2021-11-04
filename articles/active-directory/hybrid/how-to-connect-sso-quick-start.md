@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a1c9bcec2a9aec2673e29a3f578146cad7de5d6
-ms.sourcegitcommit: 0046757af1da267fc2f0e88617c633524883795f
+ms.openlocfilehash: 4f691f2c6cff0abec7454282a239e8ede47277c6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2021
-ms.locfileid: "122562422"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131068110"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -240,4 +240,4 @@ Pour obtenir des instructions sur la substitution des clés, voir [Authentificat
 - [Présentation technique approfondie](how-to-connect-sso-how-it-works.md) : Découvrez comment fonctionne la fonctionnalité Authentification unique transparente.
 - [Forum Aux Questions](how-to-connect-sso-faq.yml) : Obtenez des réponses aux questions fréquentes sur l’authentification unique transparente.
 - [Résoudre les problèmes](tshoot-connect-sso.md) : Découvrez comment résoudre les problèmes courants liés à la fonctionnalité Authentification unique transparente.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.

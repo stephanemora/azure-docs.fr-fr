@@ -9,13 +9,14 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: e2038ce9d14f4a80cf1a67321f3991c6d6f88bc4
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: cab153403d41a7eca026fb2350d8f94238df6ec2
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111558383"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131054785"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Surveiller votre espace de travail Synapse
 
@@ -33,6 +34,13 @@ Ouvrez Synapse Studio et accédez au hub **Monitor**. À cet emplacement, vous p
 1. Accédez à **Intégration > Exécutions de pipeline**. Dans cette vue, vous pouvez voir chaque exécution d’un pipeline dans votre espace de travail. 
 1. Recherchez le pipeline que vous avez exécuté à l’étape précédente, et cliquez sur son **nom** pour afficher les détails.
 1. Cliquez sur **Barre de navigation** vers le haut de Synapse Studio, cliquez sur **Toutes les exécutions de pipelines** pour revenir à la vue précédente.
+
+## <a name="data-explorer-activities"></a>Activités Data Explorer
+
+1. Accédez à **Activités > Requêtes KQL**.
+1. Dans cette vue, vous pouvez voir les requêtes KQL.
+1. Sélectionnez un **Pool** à superviser dans le filtre **Pool**. Vous pouvez maintenant voir toutes les requêtes KQL en cours d’exécution ou exécutées dans votre espace de travail dans ce pool.
+1. Recherchez une requête KQL spécifique, puis cliquez sur le lien **Plus** pour voir le texte complet de la requête KQL.
 
 ## <a name="apache-spark-activities"></a>Activités Apache Spark
 

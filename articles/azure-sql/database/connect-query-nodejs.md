@@ -12,12 +12,12 @@ ms.author: drskwier
 ms.reviewer: mathoma, v-masebo
 ms.date: 05/19/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
-ms.openlocfilehash: 65b4d70d9b88ec3c4275c5154bf5977bdf5dd59b
-ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+ms.openlocfilehash: d9d6ea8cd3ef13fe38ca67caffb01beb64fbb982
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2021
-ms.locfileid: "112554673"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131012280"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Démarrage rapide : Utiliser Node.js pour interroger une base de données dans Azure SQL Database ou Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -186,7 +186,7 @@ Ouvrez une invite de commandes et créez un dossier nommé *sqltest*. Ouvrez le 
     ```
 
 > [!NOTE]
-> Pour plus d’informations sur l’utilisation d’une identité managée pour l’authentification, suivez le tutoriel sur l’[accès aux données à l’aide d’une identité managée](../../app-service/app-service-web-tutorial-connect-msi.md).
+> Pour plus d’informations sur l’utilisation d’une identité managée pour l’authentification, suivez le tutoriel sur l’[accès aux données à l’aide d’une identité managée](../../app-service/tutorial-connect-msi-sql-database.md).
 
 > [!NOTE]
 > Cet exemple de code utilise l’exemple de base de données **AdventureWorksLT** dans Azure SQL Database.
