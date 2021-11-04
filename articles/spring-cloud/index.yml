@@ -11,12 +11,12 @@ metadata:
   author: karlerickson
   ms.author: karler
   ms.date: 09/26/2019
-  ms.openlocfilehash: 1c5fbd1314d4296efb42afa8fecc94acb87b2a39
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: e184eae50cf7aaecbb5a9713652776319ec0a461
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130245831"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131463275"
 landingContent:
 - title: À propos d’Azure Spring Cloud
   linkLists:
@@ -52,8 +52,8 @@ landingContent:
       url: how-to-cicd.md
     - text: Autoriser le déploiement bleu-vert à l’aide d’Azure Spring Cloud
       url: how-to-staging-environment.md
-    - text: Utiliser le stockage persistant dans Azure Spring Cloud
-      url: how-to-persistent-storage.md
+    - text: Utiliser un stockage persistant intégré
+      url: how-to-built-in-persistent-storage.md
 - title: Superviser votre application
   linkLists:
   - linkListType: tutorial

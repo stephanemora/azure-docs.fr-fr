@@ -58,18 +58,6 @@
       items:
         - name: Arrêter votre serveur d’application normalement
           href: server-graceful-shutdown.md
-    - name: Sécurité
-      items:
-        - name: Autorisation
-          items:
-            - name: Autoriser l’accès avec Azure Active Directory
-              href: authorize-access-azure-active-directory.md
-        - name: Authentification
-          items:
-            - name: Authentifier à partir d’une application
-              href: authenticate-application.md
-            - name: Authentifier avec une identité managée
-              href: authenticate-managed-identity.md
     - name: Haute disponibilité
       items:
         - name: Résilience et reprise d’activité après sinistre
@@ -80,6 +68,10 @@
       href: signalr-concept-performance.md
     - name: Authentification
       href: signalr-concept-authenticate-oauth.md
+    - name: Autorisation avec Azure AD
+      items:
+        - name: Vue d’ensemble d’Azure AD pour Azure SignalR Service
+          href: signalr-concept-authorize-azure-active-directory.md
     - name: Gestion des événements
       href: signalr-concept-event-grid-integration.md
     - name: Sécurité
@@ -110,6 +102,10 @@
           href: howto-shared-private-endpoints.md
         - name: Utiliser l’identité managée
           href: howto-use-managed-identity.md
+        - name: Autoriser à partir d’une application Azure
+          href: signalr-howto-authorize-application.md
+        - name: Autoriser à partir d’une identité managée
+          href: signalr-howto-authorize-managed-identity.md
     - name: Integrate
       items:
         - name: Liaisons Azure Functions

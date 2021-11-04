@@ -26,6 +26,8 @@
       items:
         - name: Développer avec Helm
           href: quickstart-helm.md
+        - name: Développer avec Dapr (préversion)
+          href: quickstart-dapr.md
     - name: S’abonner à des événements AKS avec Event Grid (préversion)
       href: quickstart-event-grid.md
 - name: Tutoriels
@@ -270,6 +272,8 @@
               href: egress-outboundtype.md
             - name: Utiliser une adresse IP statique et un équilibreur de charge de base
               href: egress.md
+            - name: NAT Gateway managé (préversion)
+              href: nat-gateway.md
         - name: Personnaliser CoreDNS
           href: coredns-custom.md
     - name: Sécurité et authentification
@@ -300,6 +304,8 @@
               href: managed-aad.md
             - name: "Intégration Azure\_AD (hérité)"
               href: azure-ad-integration-cli.md
+            - name: Activer l’intégration GMSA (préversion)
+              href: use-group-managed-service-accounts.md
         - name: Utiliser l’autorisation Azure RBAC pour Kubernetes
           href: manage-azure-rbac.md
         - name: Utiliser le contrôle d’accès en fonction du rôle (RBAC) Kubernetes avec l’intégration d’Azure AD
@@ -365,14 +371,14 @@
           href: howto-deploy-java-liberty-app.md
         - name: Utiliser Gestion des API Azure
           href: ../api-management/api-management-kubernetes.md
-        - name: Utiliser Dapr
+        - name: Utiliser Dapr (préversion)
           href: dapr.md
           maintainContext: true
     - name: Déployer un maillage de services
       items:
         - name: À propos des maillages de service
           href: servicemesh-about.md
-        - name: Module complémentaire Open Service Mesh AKS (préversion)
+        - name: Module complémentaire Open Service Mesh AKS
           items:
             - name: Vue d’ensemble d’OSM
               href: open-service-mesh-about.md

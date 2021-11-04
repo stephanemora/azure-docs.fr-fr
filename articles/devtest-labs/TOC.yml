@@ -1,6 +1,6 @@
 - name: Documentation sur Azure DevTest Labs
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que DevTest Labs ?
       href: devtest-lab-overview.md
@@ -9,6 +9,8 @@
     - name: Créer un labo - Modèle Resource Manager
       displayName: Resource Manager
       href: create-lab-windows-vm-template.md
+    - name: Créer un labo - API REST
+      href: quickstarts/create-lab-rest.md
 - name: Tutoriels
   items:
     - name: Configurer un laboratoire

@@ -1,6 +1,6 @@
 - name: Documentation sur le provisionnement d’applications et de RH
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que le provisionnement d’application\_?"
@@ -18,7 +18,7 @@
       href: customize-application-attributes.md
     - name: Tutoriels sur le provisionnement spécifique aux applications
       href: /azure/active-directory/saas-apps
-    - name: "Connecteur SQL générique pour l’Hôte de connecteur Azure\_AD ECMA"
+    - name: Provisionnement sur les applications SQL
       href: tutorial-ecma-sql-connector.md
 - name: Concepts
   expanded: true
@@ -35,6 +35,10 @@
       href: on-premises-application-provisioning-architecture.md
     - name: Comprendre le générateur d’expressions
       href: expression-builder.md
+    - name: Comprendre l’intégration de SuccessFactors
+      href: sap-successfactors-integration-reference.md
+    - name: Comprendre l’intégration de Workday
+      href: workday-integration-reference.md
 - name: Guides pratiques
   expanded: true
   items:
@@ -74,13 +78,13 @@
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: Attribut source manquant
           href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Résolution des problèmes de l’Hôte de connecteur ECMA
+        - name: Résolution des problèmes des provisionnements locaux
           href: on-premises-ecma-troubleshoot.md
         - name: Journaux d’approvisionnement
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Provisionnement d’applications local
       items:
-        - name: "Configuration du connecteur\_SQL générique"
+        - name: Provisionnement sur les applications SQL
           href: on-premises-sql-connector-configure.md
         - name: "Configuration du connecteur\_LDAP générique"
           href: on-premises-ldap-connector-configure.md
@@ -88,6 +92,18 @@
           href: on-premises-scim-provisioning.md
         - name: Migrer le connecteur depuis la synchronisation MIM
           href: on-premises-migrate-microsoft-identity-manager.md
+    - name: Résoudre les problèmes de provisionnement RH
+      items:
+        - name: Problèmes de récupération des attributs
+          href: hr-attribute-retrieval-issues.md
+        - name: Problèmes de création d’utilisateur
+          href: hr-user-creation-issues.md
+        - name: Problèmes de mise à jour d’utilisateur
+          href: hr-user-update-issues.md
+        - name: Problèmes de mise à jour de responsable
+          href: hr-manager-update-issues.md
+        - name: Problèmes d’écriture différée RH
+          href: hr-writeback-issues.md
 - name: Informations de référence
   items:
     - name: "Conformité au protocole SCIM\_2.0"
@@ -98,12 +114,8 @@
       href: functions-for-customizing-application-data.md
     - name: Provisionnement HR cloud
       items:
-        - name: Intégration de SuccessFactors
-          href: sap-successfactors-integration-reference.md
         - name: Informations de référence sur l’attribut SuccessFactors
           href: sap-successfactors-attribute-reference.md
-        - name: Intégration de Workday
-          href: workday-integration-reference.md
         - name: Informations de référence sur l’attribut Workday
           href: workday-attribute-reference.md
         - name: Historique des versions de l’agent de provisionnement

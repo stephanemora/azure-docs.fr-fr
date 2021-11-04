@@ -112,6 +112,8 @@
           href: azure-to-azure-support-matrix.md
         - name: Utilisation de Site Recovery avec Sauvegarde Azure
           href: site-recovery-backup-interoperability.md
+        - name: Configurer le basculement pour plusieurs adresses IP
+          href: concepts-multiple-ip-address-failover.md
         - name: Mise en réseau accélérée pour la reprise d’activité de machines virtuelles Azure
           href: azure-vm-disaster-recovery-with-accelerated-networking.md
         - name: ExpressRoute avec la récupération d’urgence de machines virtuelles Azure

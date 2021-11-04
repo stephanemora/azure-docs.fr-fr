@@ -260,6 +260,8 @@
           href: how-to-connect-health-adfs.md
         - name: "Rapport d’adresse IP à risque pour Azure AD Connect Health avec AD\_FS"
           href: how-to-connect-health-adfs-risky-ip.md
+        - name: Workbook de rapport d’adresse IP à risque pour Azure AD Connect Health
+          href: how-to-connect-health-adfs-risky-ip-workbook.md
         - name: "Connexions AD\_FS dans Azure\_AD avec Connect Health"
           href: how-to-connect-health-ad-fs-sign-in.md
         - name: Utiliser Azure AD Connect Health pour la synchronisation

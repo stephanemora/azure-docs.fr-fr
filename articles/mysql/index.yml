@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 title: Documentation Azure Database pour MySQL
-summary: Azure Database pour MySQL est un service de base de données relationnelle alimenté par MySQL Community Edition. Vous pouvez utiliser Serveur unique ou Serveur flexible (préversion) pour héberger une base de données MySQL dans Azure. C’est un produit de base de données en tant que service complètement managé qui peut gérer des charges de travail critiques avec des performances prévisibles et une scalabilité dynamique.
+summary: Azure Database pour MySQL est un service de base de données relationnelle alimenté par MySQL Community Edition. Vous pouvez utiliser Serveur unique ou Serveur flexible pour héberger une base de données MySQL dans Azure. C’est un produit de base de données en tant que service complètement managé qui peut gérer des charges de travail critiques avec des performances prévisibles et une scalabilité dynamique.
 metadata:
-  description: Azure Database pour MySQL est un service de base de données relationnelle du cloud Microsoft qui est conçu pour les développeurs et alimenté par MySQL Community Edition. Vous pouvez choisir Serveur unique ou Serveur flexible (préversion) pour déployer votre base de données MySQL dans Azure.
+  description: Azure Database pour MySQL est un service de base de données relationnelle du cloud Microsoft qui est conçu pour les développeurs et alimenté par MySQL Community Edition. Vous pouvez choisir Serveur unique ou Serveur flexible pour déployer votre base de données MySQL dans Azure.
   author: savjani
   ms.author: pariks
   ms.date: 09/10/2021
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 08db77b71a6dfe8a3618b1ad875afeeeedb4575a
-  ms.sourcegitcommit: 692382974e1ac868a2672b67af2d33e593c91d60
+  ms.openlocfilehash: 7dc67d91f41915c4f570639bb04fb9fb9cc1c579
+  ms.sourcegitcommit: 702df701fff4ec6cc39134aa607d023c766adec3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/22/2021
-  ms.locfileid: "130241760"
+  ms.lasthandoff: 11/03/2021
+  ms.locfileid: "131442176"
 landingContent:
 - title: À propos d’Azure Database pour MySQL
   linkLists:
@@ -37,6 +37,8 @@ landingContent:
     links:
     - text: Qu’est-ce que Serveur unique ?
       url: single-server-overview.md
+    - text: Nouveautés du déploiement Serveur unique
+      url: single-server-whats-new.md
     - text: Afficher toute la documentation Serveur unique
       url: single-server/index.yml
   - linkListType: whats-new
@@ -57,7 +59,7 @@ landingContent:
       url: quickstart-create-mysql-server-database-using-azure-portal.md
     - text: Créer un serveur avec Azure CLI
       url: quickstart-create-mysql-server-database-using-azure-cli.md
-- title: Serveur flexible (préversion)
+- title: Serveur flexible
   linkLists:
   - linkListType: overview
     links:
@@ -131,7 +133,7 @@ landingContent:
     links:
     - text: Gérer Serveur unique à l’aide du portail Azure
       url: howto-create-manage-server-portal.md
-    - text: Gérer Serveur flexible (préversion) à l’aide du portail Azure
+    - text: Gérer Serveur flexible à l’aide du portail Azure
       url: flexible-server/how-to-manage-server-portal.md
     - text: Migrer en utilisant l’image mémoire et la restauration
       url: concepts-migrate-dump-restore.md

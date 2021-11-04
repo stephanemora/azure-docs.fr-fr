@@ -53,6 +53,9 @@
         - name: Déployer en tant que modèle lié
           displayName: template specs
           href: template-specs-deploy-linked-template.md
+        - name: Créer un formulaire de portail
+          href: template-specs-create-portal-forms.md
+          displayName: 'UI,form,blade'
     - name: Modèles avancés
       items:
         - name: Utiliser des informations de référence sur les modèles

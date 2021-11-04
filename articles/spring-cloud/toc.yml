@@ -1,7 +1,7 @@
 - name: Documentation sur Azure Spring Cloud
   href: index.yml
   displayName: Azure Spring Cloud
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Spring Cloud\_?"
       href: overview.md
@@ -98,8 +98,10 @@
       items:
         - name: 'Démarrer, arrêter et supprimer une application'
           href: how-to-start-stop-delete.md
-        - name: Utiliser le stockage persistant
-          href: how-to-persistent-storage.md
+        - name: Utiliser un stockage persistant intégré
+          href: how-to-built-in-persistent-storage.md
+        - name: Utiliser un stockage persistant personnalisé
+          href: how-to-custom-persistent-storage.md
         - name: Identifier les adresses IP publiques sortantes
           href: how-to-outbound-public-ip.md
     - name: Scale
@@ -176,8 +178,6 @@
           href: how-to-github-actions.md
         - name: Authentification avec Key Vault dans GitHub Actions
           href: github-actions-key-vault.md
-        - name: Provisionner une instance Azure Spring Cloud avec Terraform
-          href: how-to-provision-azure-spring-cloud-instance-terraform.md
     - name: Dépanner
       items:
         - name: Diagnostiquer et résoudre les problèmes par vous-même
