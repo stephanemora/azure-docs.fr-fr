@@ -14,14 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: d99785da00f277480505b417947781821df1caa2
-ms.sourcegitcommit: 2eac9bd319fb8b3a1080518c73ee337123286fa2
+ms.custom: ignite-fall-2021
+ms.openlocfilehash: 94dbcf84f705aef7e8d723c6516c8a2d36e010ee
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2021
-ms.locfileid: "123261140"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131023405"
 ---
 # <a name="collect-data-in-custom-log-formats-to-azure-sentinel-with-the-log-analytics-agent"></a>Collecter des données dans des formats de journaux personnalisés vers Azure Sentinel avec l’agent Log Analytics
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -62,7 +65,6 @@ Sélectionnez l’onglet approprié ci-dessous, selon que votre connecteur a une
     | **Pour toute autre machine Linux** | <ol><li>Sous **Choisissez l’emplacement d’installation de l’agent Linux**, développez **Installer l’agent sur une machine Linux non Azure**.<br><br><li>Sélectionnez le lien **Télécharger et installer l’agent pour les machines Linux non Azure >** .<br><br><li>Dans le panneau **Gestion des agents**, sélectionnez l’onglet **Serveurs Linux**, puis copiez la commande pour **Télécharger et intégrer l’agent pour Linux** et exécutez-la sur votre machine Linux.<br><br> Si vous souhaitez conserver une copie locale du fichier d’installation de l’agent Linux, sélectionnez le lien **Télécharger l’agent Linux** au-dessus de la commande « Télécharger et intégrer l’agent ».|
     | **Pour une machine virtuelle Windows Azure** | <ol><li>Sous **Choisissez l’emplacement d’installation de l’agent Windows**, développez **Installer l’agent sur une machine virtuelle Windows Azure**.<br><br><li>Sélectionnez le lien **Télécharger et installer l’agent pour les machines virtuelles Windows Azure >** .<br><br><li>Dans le panneau **Machines virtuelles**, sélectionnez une machine virtuelle sur laquelle installer l’agent, puis choisissez **Connecter**. Répétez cette étape pour chaque machine virtuelle à laquelle vous souhaitez vous connecter. |
     | **Pour toute autre machine Windows** | <ol><li>Sous **Choisissez l’emplacement d’installation de l’agent Windows**, développez **Installer l’agent sur une machine virtuelle Windows non Azure**.<br><br><li>Sélectionnez le lien **Télécharger et installer l’agent pour les machines Windows non Azure >** .<br><br><li>Dans le panneau **Gestion des agents**, sous l’onglet **Serveurs Windows**, sélectionnez le lien **Télécharger l’agent Windows** pour les systèmes 32 bits ou 64 bits, selon le cas. |
-
 
 # <a name="other-data-sources"></a>[Autres sources de données](#tab/CUS)
 

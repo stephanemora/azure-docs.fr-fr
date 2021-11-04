@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 037137cf5a6e4ddd66fc15e8ad9775ea77177ef6
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: f56346b9282be42d6022fd6f15f4ce206ae8dbd6
+ms.sourcegitcommit: 106f5c9fa5c6d3498dd1cfe63181a7ed4125ae6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94625226"
+ms.lasthandoff: 11/02/2021
+ms.locfileid: "131253767"
 ---
 Utilisez ce guide de démarrage rapide pour effectuer votre première recherche d’images à l’aide de la bibliothèque de client Recherche d’images Bing, qui est un wrapper de l’API et contient les mêmes fonctionnalités. Cette application JavaScript simple envoie une requête de recherche d’image, analyse la réponse JSON et affiche l’URL de la première image retournée.
 
@@ -58,13 +58,15 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
 ## <a name="create-an-asynchronous-helper-function"></a>Créer une fonction d’assistance asynchrone
 
 1. Créez une fonction pour appeler le client de façon asynchrone et retournez la réponse du service Recherche d’images Bing.
+
     ```javascript
-    //a helper function to perform an async call to the Bing Image Search API
+    // a helper function to perform an async call to the Bing Image Search API
     const sendQuery = async () => {
         return await imageSearchApiClient.imagesOperations.search(searchTerm);
     };
     ```
-   ## <a name="send-a-query-and-handle-the-response"></a>Envoyer une requête et gérer la réponse
+
+## <a name="send-a-query-and-handle-the-response"></a>Envoyer une requête et gérer la réponse
 
 1. Appelez la fonction d’assistance et gérez son élément `promise` pour analyser les résultats d’image retournés dans la réponse.
 
